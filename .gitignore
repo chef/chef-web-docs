@@ -1,0 +1,12 @@
+.DS_Store
+
+# ignore doctree files in translation folders
+*.doctree
+*.pickle
+
+build/
+
+**/.sass-cache
+**/.sass-cache/*
+*.css.map
+*.css_t.map
