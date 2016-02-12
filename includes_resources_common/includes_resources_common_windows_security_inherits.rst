@@ -21,7 +21,7 @@ and then the following example specifies how to use inheritance to deny access t
      inherits false # Sauron is the only person who should have any sort of access
    end
 
-If the ``:deny`` permission were to be used instead, something could slip through unless all users and groups were denied.
+If the ``deny_rights`` permission were to be used instead, something could slip through unless all users and groups were denied.
 
 Another example also shows how to specify rights for a directory:
 
