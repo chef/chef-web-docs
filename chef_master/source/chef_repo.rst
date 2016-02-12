@@ -1,0 +1,91 @@
+=====================================================
+About the |chef repo|
+=====================================================
+
+.. include:: ../../includes_chef_repo/includes_chef_repo_11-all.rst
+
+Directory Structure
+=====================================================
+.. include:: ../../includes_chef_repo/includes_chef_repo_11-all_directory.rst
+
+.. include:: ../../includes_chef_repo/includes_chef_repo_11-all_directory_structure.rst
+
+.chef/
+-----------------------------------------------------
+.. include:: ../../includes_chef_repo/includes_chef_repo_11-all_directory_chef.rst
+
+cookbooks/
+-----------------------------------------------------
+.. include:: ../../includes_chef_repo/includes_chef_repo_11-all_directory_cookbooks.rst
+
+data_bags/
+-----------------------------------------------------
+.. include:: ../../includes_chef_repo/includes_chef_repo_11-all_directory_data_bags.rst
+
+environments/
+-----------------------------------------------------
+.. include:: ../../includes_chef_repo/includes_chef_repo_11-all_directory_environments.rst
+
+roles/
+-----------------------------------------------------
+.. include:: ../../includes_chef_repo/includes_chef_repo_11-all_directory_roles.rst 
+
+chefignore Files
+=====================================================
+.. include:: ../../includes_chef_repo/includes_chef_repo_11-all_directory_chefignore.rst 
+
+Examples
+-----------------------------------------------------
+The following examples show how to add entries to the ``chefignore`` file.
+
+**Ignore editor swap files**
+
+.. include:: ../../includes_chef_repo/includes_chef_repo_11-all_directory_chefignore_swap_files.rst 
+
+**Ignore top-level Subversion data**
+
+.. include:: ../../includes_chef_repo/includes_chef_repo_11-all_directory_chefignore_svn.rst 
+
+**Ignore all files in a directory**
+
+.. include:: ../../includes_chef_repo/includes_chef_repo_11-all_directory_chefignore_directories.rst 
+
+Many Users, Same Repo
+=====================================================
+.. include:: ../../includes_chef_repo/includes_chef_repo_many_users_same_repo.rst
+
+Create the |chef repo|
+=====================================================
+.. include:: ../../includes_chef_repo/includes_chef_repo_create.rst
+
+Clone
+-----------------------------------------------------
+.. include:: ../../step_chef_repo/step_chef_repo_create_clone.rst
+
+Download
+-----------------------------------------------------
+.. include:: ../../step_chef_repo/step_chef_repo_create_download.rst
+
+Use |git|
+=====================================================
+.. include:: ../../includes_chef_repo/includes_chef_repo_git.rst
+
+Set Up Repo
+-----------------------------------------------------
+.. include:: ../../includes_chef_repo/includes_chef_repo_git_master_setup.rst
+
+Keep Master Current
+-----------------------------------------------------
+.. include:: ../../includes_chef_repo/includes_chef_repo_git_master_keep_current.rst
+
+Sync Master
+-----------------------------------------------------
+.. include:: ../../includes_chef_repo/includes_chef_repo_git_master_sync.rst
+
+Use Branch
+-----------------------------------------------------
+.. include:: ../../includes_chef_repo/includes_chef_repo_git_branch.rst
+
+Delete Branch
+-----------------------------------------------------
+.. include:: ../../includes_chef_repo/includes_chef_repo_git_branch_delete.rst

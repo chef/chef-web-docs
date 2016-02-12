@@ -1,0 +1,242 @@
+{% extends "!nav-docs.html" %}
+{% set active_product = "Chef Server" %}
+{% set active_version = "12.0" %}
+{% set navItems = [
+  {
+    "title": "Getting Started",
+    "iconClass": "fa-home",
+    "subItems": [
+      {
+        "title": "Start Here",
+        "hasSubItems": false,
+        "url": "/release/server_12-0/index.html"
+      },
+      {
+        "title": "Overview",
+        "hasSubItems": false,
+        "url": "/release/server_12-0/chef_overview.html"
+      },
+      {
+        "title": "Release Notes",
+        "hasSubItems": false,
+        "url": "/release/server_12-0/release_notes.html"
+      }
+    ]
+  },
+  {
+    "title": "Theory &amp; Concepts",
+    "iconClass": "fa-cube",
+    "subItems": [
+      {
+        "title": "Chef Server",
+        "hasSubItems": false,
+        "url": "/release/server_12-0/server_components.html"
+      },
+      {
+        "title": "Authentication",
+        "hasSubItems": false,
+        "url": "/release/server_12-0/auth.html#authentication"
+      },
+      {
+        "title": "Authorization",
+        "hasSubItems": false,
+        "url": "/release/server_12-0/auth.html#authorization"
+      },
+      {
+        "title": "Chef Search",
+        "hasSubItems": false,
+        "url": "/release/server_12-0/chef_search.html"
+      },
+    ]
+  },
+  {
+    "title": "Setup &amp; Config",
+    "iconClass": "fa-gears",
+    "subItems": [
+      {
+        "title": "Chef Server",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "Hosted",
+            "url": "https://manage.chef.io/signup"
+          },
+          {
+            "title": "Standalone",
+            "url": "/release/server_12-0/install_server.html"
+          },
+          {
+            "title": "HA w/AWS",
+            "url": "/release/server_12-0/install_server_ha_aws.html"
+          },
+          {
+            "title": "HA w/DRBD",
+            "url": "/release/server_12-0/install_server_ha_drbd.html"
+          },
+        ]
+      },
+      {
+        "title": "Management Console",
+        "hasSubItems": false,
+        "url": "/release/server_12-0/manage.html"
+      },
+    ]
+  },
+  {
+    "title": "Manage the Server",
+    "iconClass": "fa-hdd-o",
+    "subItems": [
+      {
+        "title": "Backup &amp; Restore",
+        "hasSubItems": false,
+        "url": "/release/server_12-0/server_backup_restore.html"
+      },
+      {
+        "title": "Data Storage",
+        "hasSubItems": false,
+        "url": "/release/server_12-0/server_data.html"
+      },
+      {
+        "title": "Firewalls &amp; Ports",
+        "hasSubItems": false,
+        "url": "/release/server_12-0/server_firewalls_and_ports.html"
+      },
+      {
+        "title": "High Availability",
+        "hasSubItems": false,
+        "url": "/release/server_12-0/server_high_availability.html"
+      },
+      {
+        "title": "Active Directory &amp; LDAP",
+        "hasSubItems": false,
+        "url": "/release/server_12-0/server_ldap.html"
+      },
+      {
+        "title": "Log Files",
+        "hasSubItems": false,
+        "url": "/release/server_12-0/server_logs.html"
+      },
+      {
+        "title": "Monitor",
+        "hasSubItems": false,
+        "url": "/release/server_12-0/server_monitor.html"
+      },
+      {
+        "title": "Organizations &amp; Groups",
+        "hasSubItems": false,
+        "url": "/release/server_12-0/server_orgs.html"
+      },
+      {
+        "title": "Security",
+        "hasSubItems": false,
+        "url": "/release/server_12-0/server_security.html"
+      },
+      {
+        "title": "Services",
+        "hasSubItems": false,
+        "url": "/release/server_12-0/server_services.html"
+      },
+      {
+        "title": "Tuning",
+        "hasSubItems": false,
+        "url": "/release/server_12-0/server_tuning.html"
+      },
+      {
+        "title": "Upgrades",
+        "hasSubItems": false,
+        "url": "/release/server_12-0/upgrade_server.html"
+      },
+      {
+        "title": "Users",
+        "hasSubItems": false,
+        "url": "/release/server_12-0/server_users.html"
+      },
+      {
+        "title": "Management Console",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "Clients",
+            "url": "/release/server_12-0/server_manage_clients.html"
+          },
+          {
+            "title": "Cookbooks",
+            "url": "/release/server_12-0/server_manage_cookbooks.html"
+          },
+          {
+            "title": "Data Bags",
+            "url": "/release/server_12-0/server_manage_data_bags.html"
+          },
+          {
+            "title": "Environments",
+            "url": "/release/server_12-0/server_manage_environments.html"
+          },
+          {
+            "title": "Nodes",
+            "url": "/release/server_12-0/server_manage_nodes.html"
+          },
+          {
+            "title": "Reports",
+            "url": "/release/server_12-0/server_manage_reports.html"
+          },
+          {
+            "title": "Roles",
+            "url": "/release/server_12-0/server_manage_roles.html"
+          },
+          {
+            "title": "Users",
+            "url": "/release/server_12-0/server_users.html#chef-manage-title.html"
+          }
+        ]
+      },
+    ]
+  },
+  {
+    "title": "Reference",
+    "iconClass": "fa-th",
+    "subItems": [
+      {
+        "title": "CLIs",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "chef-server-ctl",
+            "url": "/release/server_12-0/ctl_chef_server.html"
+          },
+          {
+            "title": "opscode-expander-ctl",
+            "url": "/release/server_12-0/ctl_opscode_expander.html"
+          },
+          {
+            "title": "opscode-manage-ctl",
+            "url": "/release/server_12-0/ctl_manage.html"
+          },
+        ]
+      },
+      {
+        "title": "Config Files",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "chef-server.rb",
+            "url": "/release/server_12-0/config_rb_server.html"
+          },
+          {
+            "title": "manage.rb",
+            "url": "/release/server_12-0/config_rb_manage.html"
+          },
+        ]
+      },
+      {
+        "title": "APIs",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "Chef Server API",
+            "url": "/release/server_12-0/api_chef_server.html"
+          },
+        ]
+      },
+    ]
+  }
+] -%}

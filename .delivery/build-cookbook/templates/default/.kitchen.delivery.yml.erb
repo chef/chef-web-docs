@@ -1,0 +1,48 @@
+---
+driver_config:
+  aws_access_key_id: <%= @chef_aws_access_key %>
+  aws_secret_access_key: <%= @chef_aws_secret_key %>
+  aws_ssh_key_id: <%= node['delivery']['change']['project'] %>
+  region: us-west-2
+  subnet_id: subnet-19ac017c
+  availability_zone: us-west-2a
+  security_group_ids: [sg-503e5335]
+  tags:
+    X-Project: chef-web-docs
+    X-Contact: cia
+
+provisioner:
+  name: chef_zero
+  require_chef_omnibus: latest
+
+platforms:
+- name: ubuntu-14.04
+  driver_plugin: ec2
+  driver_config:
+    username: ubuntu
+    flavor_id: c4.8xlarge
+    image_id: ami-5189a661
+    block_device_mappings:
+    - ebs_device_name: '/dev/sdi'
+      ebs_volume_type: gp2
+      ebs_virtual_name: chef-web-docs
+      ebs_volume_size: 40
+      ebs_delete_on_termination: true
+  run_list:
+    - recipe[apt]
+
+suites:
+- name: builder
+  run_list:
+    - recipe[docs-builder]
+  attributes:
+    docs-builder:
+      ssh_key: "<%= @ssh_key.gsub(/\n/, '::::::::') %>"
+      build_name: <%= @build_name %>
+      bucket_name: <%= @bucket_name %>
+      prod_aws_access_key: <%= @cia_access_key  %>
+      prod_aws_secret_access_key: <%= @cia_secret_key %>
+      build_aws_access_key: <%= @chef_aws_access_key  %>
+      build_aws_secret_access_key: <%= @chef_aws_secret_key %>
+      repo_location: <%= @repo_location %>
+      cached: <%= @cached %>
