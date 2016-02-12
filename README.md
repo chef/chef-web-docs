@@ -4,6 +4,8 @@ The source of the Chef documentation, located at https://docs.chef.io/
 
 This README focuses on people who want to contribute to the Chef documentation.
 
+NOTE: A recent change to the chef-docs repo archived the commit history into the chef-web-docs-2016 repo. This is the active repo that is being used to build documentation for Chef. chef-web-docs-2016 contains the history of Chef documentation prior to Feburary 12, 2016.
+
 ## Sending Feedback
 
 There are several ways to get feedback about Chef documentation:
