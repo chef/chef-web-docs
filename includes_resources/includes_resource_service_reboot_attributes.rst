@@ -41,5 +41,3 @@ This resource has the following properties:
    |subscribes|
 
    .. include:: ../../includes_resources/includes_resource_service_reboot_attributes_subscribes_syntax.rst
-
-   |subscribes timers|
