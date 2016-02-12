@@ -1,0 +1,1392 @@
+.\" Man page generated from reStructuredText.
+.
+.TH "CHEF-SERVER-CTL" "8" "chef-server-ctl" "" "knife"
+.SH NAME
+chef-server-ctl \- The man page for the chef-server-ctl command line tool.
+.
+.nr rst2man-indent-level 0
+.
+.de1 rstReportMargin
+\\$1 \\n[an-margin]
+level \\n[rst2man-indent-level]
+level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
+-
+\\n[rst2man-indent0]
+\\n[rst2man-indent1]
+\\n[rst2man-indent2]
+..
+.de1 INDENT
+.\" .rstReportMargin pre:
+. RS \\$1
+. nr rst2man-indent\\n[rst2man-indent-level] \\n[an-margin]
+. nr rst2man-indent-level +1
+.\" .rstReportMargin post:
+..
+.de UNINDENT
+. RE
+.\" indent \\n[an-margin]
+.\" old: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.nr rst2man-indent-level -1
+.\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.in \\n[rst2man-indent\\n[rst2man-indent-level]]u
+..
+.sp
+The Chef server includes a command\-line utility named chef\-server\-ctl\&. This command\-line tool is used to start and stop individual services, reconfigure the Chef server, run chef\-pedant, and then tail Chef server log files.
+.SH BACKUP-RECOVER
+.sp
+The \fBbackup\-recover\fP subcommand is used to force the Chef server to attempt to become the backup server. This is the opposite of the \fBmaster\-recover\fP subcommand.
+.sp
+\fBWARNING:\fP
+.INDENT 0.0
+.INDENT 3.5
+If this command is run on both back\-end servers, it will put the back\-end cluster into a state where no server holds the DRBD resource.
+.UNINDENT
+.UNINDENT
+.sp
+This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl backup\-recover
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH CLEANSE
+.sp
+The \fBcleanse\fP subcommand is used to re\-set the Chef server to the state it was in before the first time the \fBreconfigure\fP subcommand is run to destroy all data, configuration files, and logs.
+.sp
+This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl cleanse
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH GATHER-LOGS
+.sp
+The \fBgather\-logs\fP subcommand is used to gather the Chef server log files into a tarball that contains all of the important log files and system information.
+.sp
+This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl gather\-logs
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH HA-STATUS
+.sp
+The \fBha\-status\fP subcommand is used to check the status for services running in a High Availability topology. This command will verify the following:
+.INDENT 0.0
+.INDENT 3.5
+.INDENT 0.0
+.IP \(bu 2
+The Keepalived daemon is enabled in the config
+.IP \(bu 2
+The DRBD process is enabled in the config
+.IP \(bu 2
+The underlying block device or logical volume for DRBD has been created and configured
+.IP \(bu 2
+The DRBD device exists
+.IP \(bu 2
+The current state of the server is \fBmaster\fP or \fBbackup\fP; any migration processes have completed
+.IP \(bu 2
+The failover virtual IP address is correctly attached to only the \fBmaster\fP node
+.IP \(bu 2
+The DRBD state is correct based on the state of the server being \fBmaster\fP or \fBbackup\fP
+.IP \(bu 2
+The DRBD mount point is correctly mounted to only the \fBmaster\fP node
+.IP \(bu 2
+The DRBD replication IP addresses are pingable
+.IP \(bu 2
+The \fBrunit\fP status of the services are correct (up or down) based on the \fBmaster\fP or \fBbackup\fP state of the server
+.UNINDENT
+.UNINDENT
+.UNINDENT
+.sp
+This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl ha\-status
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+If this command runs successfully, it will return the following:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ [OK] all checks passed.
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+Otherwise it will print out a list of errors, similar to the following:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+\&...
+[OK] nginx is running correctly, and I am master.
+[ERROR] redis_lb is not running.
+[OK] opscode\-erchef is running correctly, and I am master.
+\&...
+[ERROR] ERRORS WERE DETECTED.
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+For example:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+[OK] keepalived HA services enabled
+[OK] DRBD disk replication enabled
+[OK] DRBD partition /dev/opscode/drbd found
+[OK] DRBD device /dev/drbd0 found
+[OK] cluster status = master
+[OK] found VIP IP address and I am master
+[OK] found VRRP communications interface eth1
+[OK] my DRBD status is Connected/Primary/UpToDate and I am master
+[OK] my DRBD partition is mounted and I am master
+[OK] DRBD primary IP address pings
+[OK] DRBD secondary IP address pings
+\&...
+[OK] all checks passed.
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH HELP
+.sp
+The \fBhelp\fP subcommand is used to print a list of all available chef\-server\-ctl commands.
+.sp
+This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl help
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH INSTALL
+.sp
+The \fBinstall\fP subcommand is used to install premium features of the Chef server: Chef management console, Chef analytics, chef\-client run reporting, high availability configurations, Chef push jobs, and Chef server replication.
+.sp
+\fBSyntax\fP
+.sp
+This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl install name_of_premium_feature (options)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+where \fBname_of_premium_feature\fP represents the command line value associated with the premium feature:
+.sp
+\fBOptions\fP
+.sp
+This subcommand has the following options:
+.INDENT 0.0
+.TP
+.B \fB\-\-path PATH\fP
+Use to specify the location of a package. This option is not required when packages are downloaded from \fI\%https://packagecloud.io/\fP\&.
+.UNINDENT
+.SS Use Downloads
+.sp
+The \fBinstall\fP subcommand downloads packages from \fI\%https://packagecloud.io/\fP by default. For systems that are not behind a firewall (and have connectivity to \fI\%https://packagecloud.io/\fP), these packages can be installed as described below.
+.TS
+center;
+|l|l|.
+_
+T{
+Feature
+T}	T{
+Command
+T}
+_
+T{
+Chef Manage
+T}	T{
+Use Chef management console to manage data bags, attributes, run\-lists, roles, environments, and cookbooks from a web user interface.
+.sp
+(Front end machines only.) Run:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl install opscode\-manage
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+then:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ opscode\-manage\-ctl reconfigure
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+and then:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl reconfigure
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+T}
+_
+T{
+Chef Push Jobs
+T}	T{
+Use Chef push jobs to run jobs\-\-\-an action or a command to be executed\-\-\-against nodes independently of a chef\-client run.
+.sp
+Run:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl install opscode\-push\-jobs\-server
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+then:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ opscode\-push\-jobs\-server\-ctl reconfigure
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+and then:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl reconfigure
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+T}
+_
+T{
+Chef Replication
+T}	T{
+Use Chef replication to asynchronously distribute cookbook, environment, role, and data bag data from a single, primary Chef server to one (or more) replicas of that Chef server\&.
+.sp
+Run:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl install chef\-sync
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+and then:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-sync\-ctl reconfigure
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+and then:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl reconfigure
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+T}
+_
+T{
+Reporting
+T}	T{
+Use Chef reporting to keep track of what happens during every chef\-client runs across all of the infrastructure being managed by Chef\&. Run Chef reporting with Chef management console to view reports from a web user interface.
+.sp
+(Front end machines only.) Run:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl install opscode\-reporting
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+then:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ opscode\-reporting\-ctl reconfigure
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+and then:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl reconfigure
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+T}
+_
+.TE
+.SS Use Local Packages
+.sp
+The \fBinstall\fP subcommand downloads packages from \fI\%https://packagecloud.io/\fP by default. For systems that are behind a firewall (and do not have connectivity to \fI\%https://packagecloud.io/\fP), these packages can be installed manually. First download the package that is appropriate for the platform and save it to a local path. Then run the \fBinstall\fP command using the \fB\-\-path\fP option to specify the location for the package:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl install NAME_OF_PACKAGE \-\-path /path/to/package
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+For example:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl install opscode\-manage\-1.6.2\-1.el6.x86_64 \-\-path /home/vagrant
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH MASTER-RECOVER
+.sp
+The \fBmaster\-recover\fP subcommand is used to force the Chef server to attempt to become the master server. This command is typically run in tandem with the \fBbackup\-recover\fP subcommand on the back\-end peer, unless the back\-end peer is no longer available.
+.sp
+This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl master\-recover
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH ORG-CREATE
+.sp
+The \fBorg\-create\fP subcommand is used to create an organization. (The validation key for the organization is returned to \fBSTDOUT\fP when creating an organization using this command.)
+.sp
+\fBSyntax\fP
+.sp
+This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl org\-create ORG_NAME ORG_FULL_NAME (options)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fBOptions\fP
+.sp
+This subcommand has the following options:
+.INDENT 0.0
+.TP
+.B \fB\-a USER_NAME\fP, \fB\-\-association_user USER_NAME\fP
+Use to associate a user with an organization and add them to the \fBadmins\fP and \fBbilling_admins\fP security groups.
+.TP
+.B \fB\-f FILE_NAME\fP, \fB\-\-filename FILE_NAME\fP
+Use to write the private key to a file instead of \fBSTDOUT\fP\&.
+.UNINDENT
+.sp
+\fBExamples\fP
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl org\-create prod Production
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl org\-create staging Staging \-a chef\-admin
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl org\-create dev Development \-f /tmp/id\-dev.key
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH ORG-DELETE
+.sp
+The \fBorg\-delete\fP subcommand is used to delete an organization.
+.sp
+\fBSyntax\fP
+.sp
+This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl org\-delete ORG_NAME
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fBExamples\fP
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl org\-delete infra\-testing\-20140909
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl org\-delete pedant\-testing\-org
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH ORG-LIST
+.sp
+The \fBorg\-list\fP subcommand is used to list all of the organizations currently present on the Chef server\&.
+.sp
+\fBSyntax\fP
+.sp
+This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl org\-list (options)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fBOptions\fP
+.sp
+This subcommand has the following options:
+.INDENT 0.0
+.TP
+.B \fB\-a\fP, \fB\-\-all\-orgs\fP
+Use to show all organizations.
+.TP
+.B \fB\-w\fP, \fB\-\-with\-uri\fP
+Use to show the corresponding URIs.
+.UNINDENT
+.SH ORG-SHOW
+.sp
+The \fBorg\-show\fP subcommand is used to show the details for an organization.
+.sp
+\fBSyntax\fP
+.sp
+This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl org\-show ORG_NAME
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH ORG-USER-ADD
+.sp
+The \fBorg\-user\-add\fP subcommand is used to add a user to an organization.
+.sp
+\fBSyntax\fP
+.sp
+This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl org\-user\-add ORG_NAME USER_NAME (options)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fBOptions\fP
+.sp
+This subcommand has the following options:
+.INDENT 0.0
+.TP
+.B \fB\-\-admin\fP
+Use to add the user to the \fBadmins\fP group.
+.UNINDENT
+.sp
+\fBExamples\fP
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl org\-user\-add prod john_smith
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl org\-user\-add preprod testmaster
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl org\-user\-add dev grantmc \-\-admin
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH ORG-USER-REMOVE
+.sp
+The \fBorg\-user\-remove\fP subcommand is used to remove a user from an organization.
+.sp
+\fBSyntax\fP
+.sp
+This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl org\-user\-remove ORG_NAME USER_NAME
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fBExamples\fP
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl org\-user\-remove prod john_smith
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl org\-user\-remove prod testmaster
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH PASSWORD
+.sp
+\fBWARNING:\fP
+.INDENT 0.0
+.INDENT 3.5
+This subcommand is currently disabled.
+.UNINDENT
+.UNINDENT
+.SH RECONFIGURE
+.sp
+The \fBreconfigure\fP subcommand is used when changes are made to the private\-chef.rb file to reconfigure the server. When changes are made to the private\-chef.rb file, they will not be applied to the Chef server configuration until after this command is run. This subcommand will also restart any services for which the \fBservice_name[\(aqenabled\(aq]\fP setting is set to \fBtrue\fP\&.
+.sp
+This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl reconfigure
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH SHOW-CONFIG
+.sp
+The \fBshow\-config\fP subcommand is used to view the configuration that will be generated by the \fBreconfigure\fP subcommand. This command is most useful in the early stages of a deployment to ensure that everything is built properly prior to installation.
+.sp
+This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl show\-config
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH UNINSTALL
+.sp
+The \fBuninstall\fP subcommand is used to remove the Chef server application, but without removing any of the data. This subcommand will shut down all services (including the \fBrunit\fP process supervisor).
+.sp
+This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl uninstall
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fBNOTE:\fP
+.INDENT 0.0
+.INDENT 3.5
+To revert the \fBuninstall\fP subcommand, run the \fBreconfigure\fP subcommand (because the \fBstart\fP subcommand is disabled by the \fBuninstall\fP command).
+.UNINDENT
+.UNINDENT
+.SH UPGRADE
+.sp
+The \fBupgrade\fP subcommand is used to upgrade the Chef server\&.
+.sp
+\fBSyntax\fP
+.sp
+This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl upgrade (options)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fBOptions\fP
+.sp
+\fBNOTE:\fP
+.INDENT 0.0
+.INDENT 3.5
+Options for the \fBupgrade\fP subcommand may only be used when upgrading from Open Source Chef 11 to Chef server 12.
+.UNINDENT
+.UNINDENT
+.sp
+This subcommand has the following options:
+.INDENT 0.0
+.TP
+.B \fB\-d DIRECTORY\fP, \fB\-\-chef11\-data\-dir DIRECTORY\fP
+The directory in which Open Source Chef 11 data is located. Default value: a temporary directory.
+.TP
+.B \fB\-e DIRECTORY\fP, \fB\-\-chef12\-data\-dir DIRECTORY\fP
+The directory in which Chef server 12 data is located. Default value: a temporary directory.
+.TP
+.B \fB\-f FULL_NAME\fP, \fB\-\-full\-org\-name FULL_NAME\fP
+The full name of the Chef server organization. A full organization name must begin with a non\-white space character and must be between 1 and 1023 characters. For example: \fBChef Software, Inc.\fP\&. If this option is not specified, the \fBupgrade\fP command will prompt for it.
+.TP
+.B \fB\-h\fP, \fB\-\-help\fP
+Use to show help for the \fBchef\-server\-ctl upgrade\fP subcommand.
+.TP
+.B \fB\-k KEY\fP, \fB\-\-key KEY\fP
+All users are assigned a public key. Use to write the public key to a file. Default value: \fB/etc/chef\-server/admin.pem\fP\&.
+.TP
+.B \fB\-o ORG_NAME\fP, \fB\-\-org\-name ORG_NAME\fP
+The name of the Chef server organization. An organization name must begin with a lower\-case letter or digit, may only contain lower\-case letters, digits, hyphens, and underscores, and must be between 1 and 255 characters. For example: \fBchef\fP\&. If this option is not specified, the \fBupgrade\fP command will prompt for it.
+.TP
+.B \fB\-s URL\fP, \fB\-\-chef11\-server\-url URL\fP
+The URL for the Open Source Chef or Enterprise Chef server, version 11. Default value: \fBhttps://localhost\fP\&.
+.TP
+.B \fB\-t NUMBER\fP, \fB\-\-upload\-threads NUMBER\fP
+The number of threads to use when migrating cookbooks. Default value: \fB10\fP\&.
+.TP
+.B \fB\-u USER\fP, \fB\-\-user\fP
+Use to create a client as an admin client. This is required for any user to access Open Source Chef as an administrator.
+.TP
+.B \fB\-x URL\fP, \fB\-\-chef12\-server\-url URL\fP
+The URL for the Chef server, version 12. Default value: \fBhttps://localhost\fP\&.
+.TP
+.B \fB\-y\fP, \fB\-\-yes\fP
+Use to skip confirmation prompts during the upgrade process.
+.UNINDENT
+.SH USER-CREATE
+.sp
+The \fBuser\-create\fP subcommand is used to create a user.
+.sp
+\fBSyntax\fP
+.sp
+This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl user\-create USER_NAME FIRST_NAME [MIDDLE_NAME] LAST_NAME EMAIL PASSWORD (options)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fBOptions\fP
+.sp
+This subcommand has the following options:
+.INDENT 0.0
+.TP
+.B \fB\-f FILE_NAME\fP, \fB\-\-filename FILE_NAME\fP
+Use to write the private key to a file instead of \fBSTDOUT\fP\&.
+.UNINDENT
+.sp
+\fBExamples\fP
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl user\-create john_smith John Smith john_smith@example.com insecure\-passord
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl user\-create jane_doe Jane Doe jane_doe@example.com PaSSword \-f /tmp/jane_doe.key
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl user\-create waldendude Henry David Thoreau waldendude@example.com excursions
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH USER-DELETE
+.sp
+The \fBuser\-delete\fP subcommand is used to delete a user.
+.sp
+\fBSyntax\fP
+.sp
+This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl user\-delete USER_NAME
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fBExamples\fP
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl user\-delete john_smith
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl user\-delete jane_doe
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH USER-EDIT
+.sp
+The \fBuser\-edit\fP subcommand is used to edit the details for a user. The data will be made available in the $EDITOR for editing.
+.sp
+\fBSyntax\fP
+.sp
+This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl user\-edit USER_NAME
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fBExamples\fP
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl user\-edit john_smith
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl user\-edit jane_doe
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SH USER-LIST
+.sp
+The \fBuser\-list\fP subcommand is used to view a list of users.
+.sp
+\fBSyntax\fP
+.sp
+This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl user\-list (options)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fBOptions\fP
+.sp
+This subcommand has the following options:
+.INDENT 0.0
+.TP
+.B \fB\-w\fP, \fB\-\-with\-uri\fP
+Use to show the corresponding URIs.
+.UNINDENT
+.SH USER-SHOW
+.sp
+The \fBuser\-show\fP subcommand is used to show the details for a user.
+.sp
+\fBSyntax\fP
+.sp
+This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl user\-show USER_NAME (options)
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+\fBOptions\fP
+.sp
+This subcommand has the following options:
+.INDENT 0.0
+.TP
+.B \fB\-l\fP, \fB\-\-with\-orgs\fP
+Use to show the corresponding organizations.
+.UNINDENT
+.SH SERVICE SUBCOMMANDS
+.sp
+The Chef server has a built in process supervisor, which ensures that all of the required services are in the appropriate state at any given time. The supervisor starts two processes per service.
+.SS hup
+.sp
+The \fBhup\fP subcommand is used to send a \fBSIGHUP\fP to all services. This command can also be run for an individual service by specifying the name of the service in the command.
+.sp
+This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl hup name_of_service
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+where \fBname_of_service\fP represents the name of any service that is listed after running the \fBservice\-list\fP subcommand.
+.SS int
+.sp
+The \fBint\fP subcommand is used to send a \fBSIGINT\fP to all services. This command can also be run for an individual service by specifying the name of the service in the command.
+.sp
+This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl int name_of_service
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+where \fBname_of_service\fP represents the name of any service that is listed after running the \fBservice\-list\fP subcommand.
+.SS kill
+.sp
+The \fBkill\fP subcommand is used to send a \fBSIGKILL\fP to all services. This command can also be run for an individual service by specifying the name of the service in the command.
+.sp
+This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl kill name_of_service
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+where \fBname_of_service\fP represents the name of any service that is listed after running the \fBservice\-list\fP subcommand.
+.SS once
+.sp
+The supervisor for the Chef server is configured to restart any service that fails, unless that service has been asked to change its state. The \fBonce\fP subcommand is used to tell the supervisor to not attempt to restart any service that fails.
+.sp
+This command is useful when troubleshooting configuration errors that prevent a service from starting. Run the \fBonce\fP subcommand followed by the \fBstatus\fP subcommand to look for services in a down state and/or to identify which services are in trouble. This command can also be run for an individual service by specifying the name of the service in the command.
+.sp
+This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl once name_of_service
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+where \fBname_of_service\fP represents the name of any service that is listed after running the \fBservice\-list\fP subcommand.
+.SS restart
+.sp
+The \fBrestart\fP subcommand is used to restart all services enabled on the Chef server or to restart an individual service by specifying the name of that service in the command.
+.sp
+\fBWARNING:\fP
+.INDENT 0.0
+.INDENT 3.5
+When running the Chef server in a high availability configuration, restarting all services may trigger failover.
+.UNINDENT
+.UNINDENT
+.sp
+This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl restart name_of_service
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+where \fBname_of_service\fP represents the name of any service that is listed after running the \fBservice\-list\fP subcommand. When a service is successfully restarted the output should be similar to:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ ok: run: service_name: (pid 12345) 1s
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS service\-list
+.sp
+The \fBservice\-list\fP subcommand is used to display a list of all available services. A service that is enabled is labeled with an asterisk (*).
+.sp
+This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl service\-list
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS start
+.sp
+The \fBstart\fP subcommand is used to start all services that are enabled in the Chef server\&. This command can also be run for an individual service by specifying the name of the service in the command.
+.sp
+This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl start name_of_service
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+where \fBname_of_service\fP represents the name of any service that is listed after running the \fBservice\-list\fP subcommand. When a service is successfully started the output should be similar to:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ ok: run: service_name: (pid 12345) 1s
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+The supervisor for the Chef server is configured to wait seven seconds for a service to respond to a command from the supervisor. If you see output that references a timeout, it means that a signal has been sent to the process, but that the process has yet to actually comply. In general, processes that have timed out are not a big concern, unless they are failing to respond to the signals at all. If a process is not responding, use a command like the \fBkill\fP subcommand to stop the process, investigate the cause (if required), and then use the \fBstart\fP subcommand to re\-enable it.
+.SS status
+.sp
+The \fBstatus\fP subcommand is used to show the status of all services available to the Chef server\&. The results will vary based on the configuration of a given server. This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl status
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+and will return the status for all services. Status can be returned for individual services by specifying the name of the service as part of the command:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl status name_of_service
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+where \fBname_of_service\fP represents the name of any service that is listed after running the \fBservice\-list\fP subcommand.
+.sp
+When service status is requested, the output should be similar to:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ run: service_name: (pid 12345) 12345s; run: log: (pid 1234) 67890s
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+where
+.INDENT 0.0
+.IP \(bu 2
+\fBrun:\fP is the state of the service (\fBrun:\fP or \fBdown:\fP)
+.IP \(bu 2
+\fBservice_name:\fP is the name of the service for which status is returned
+.IP \(bu 2
+\fB(pid 12345)\fP is the process identifier
+.IP \(bu 2
+\fB12345s\fP is the uptime of the service, in seconds
+.UNINDENT
+.sp
+For example:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ down: opscode\-erchef: (pid 35546) 10s
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+By default, runit will restart services automatically when the services fail. Therefore, runit may report the status of a service as \fBrun:\fP even when there is an issue with that service. When investigating why a particular service is not running as it should be, look for the services with the shortest uptimes. For example, the list below indicates that the \fBopscode\-erchef\fP should be investigated further:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+run: oc\-id
+run: opscode\-chef: (pid 4327) 13671s; run: log: (pid 4326) 13671s
+run: opscode\-erchef: (pid 5383) 5s; run: log: (pid 4382) 13669s
+run: opscode\-expander: (pid 4078) 13694s; run: log: (pid 4077) 13694s
+run: opscode\-expander\-reindexer: (pid 4130) 13692s; run: log: (pid 4114) 13692s
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS High Availability
+.sp
+On back\-end servers in a High Availability topology, Keepalived is used by the clustering service to determine whether a service should be running. If the \fBstatus\fP subcommand is run against any of these nodes, a few things change:
+.INDENT 0.0
+.IP \(bu 2
+On the back\-end node that is currently the backup server, it is normal to see only one running process: Keepalived
+.IP \(bu 2
+On the back\-end node that is currently the master server, it is normal to see all services running. It is also normal to see some services in a down state if the server, on reboot, did not attempt to start the services because Keepalived determines which services are restarted based on the state of the cluster
+.UNINDENT
+.sp
+A sample status line for a service that is running on the master server in a High Availability topology:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+run: opscode\-solr: (pid 25341) 239s, normally down; run: log: (pid 5700) 145308s
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS Log Files
+.sp
+A typical status line for a service that is running any of the Chef server front\-end services is similar to the following:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+run: name_of_service: (pid 1486) 7819s; run: log: (pid 1485) 7819s
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+where:
+.INDENT 0.0
+.IP \(bu 2
+\fBrun\fP describes the state in which the supervisor attempts to keep processes. This state is either \fBrun\fP or \fBdown\fP\&. If a service is in a \fBdown\fP state, it should be stopped
+.IP \(bu 2
+\fBname_of_service\fP is the service name, for example: \fBopscode\-solr4\fP
+.IP \(bu 2
+\fB(pid 1486) 7819s;\fP is the process identifier followed by the amount of time (in seconds) the service has been running
+.IP \(bu 2
+\fBrun: log: (pid 1485) 7819s\fP is the log process. It is typical for a log process to have a longer run time than a service; this is because the supervisor does not need to restart the log process in order to connect the supervised process
+.UNINDENT
+.sp
+If the service is down, the status line will appear similar to the following:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+down: opscode\-solr4: 3s, normally up; run: log: (pid 1485) 8526s
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+where
+.INDENT 0.0
+.IP \(bu 2
+\fBdown\fP indicates that the service is in a down state
+.IP \(bu 2
+\fB3s, normally up;\fP indicates that the service is normally in a run state and that the supervisor would attempt to restart this service after a reboot
+.UNINDENT
+.SS stop
+.sp
+The \fBstop\fP subcommand is used to stop all services enabled on the Chef server\&. This command can also be run for an individual service by specifying the name of the service in the command.
+.sp
+This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl stop name_of_service
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+where \fBname_of_service\fP represents the name of any service that is listed after running the \fBservice\-list\fP subcommand. When a service is successfully stopped the output should be similar to:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ ok: diwb: service_name: 0s, normally up
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+For example:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl stop
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+will return something similar to:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+ok: down: nginx: 393s, normally up
+ok: down: opscode\-chef: 391s, normally up
+ok: down: opscode\-erchef: 391s, normally up
+ok: down: opscode\-expander: 390s, normally up
+ok: down: opscode\-expander\-reindexer: 389s, normally up
+ok: down: opscode\-solr4: 389s, normally up
+ok: down: postgresql: 388s, normally up
+ok: down: rabbitmq: 388s, normally up
+ok: down: redis_lb: 387s, normally up
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.SS tail
+.sp
+The \fBtail\fP subcommand is used to follow all of the Chef server logs for all services. This command can also be run for an individual service by specifying the name of the service in the command.
+.sp
+This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl tail name_of_service
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+where \fBname_of_service\fP represents the name of any service that is listed after running the \fBservice\-list\fP subcommand.
+.SS term
+.sp
+The \fBterm\fP subcommand is used to send a \fBSIGTERM\fP to all services. This command can also be run for an individual service by specifying the name of the service in the command.
+.sp
+This subcommand has the following syntax:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+$ chef\-server\-ctl term name_of_service
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+where \fBname_of_service\fP represents the name of any service that is listed after running the \fBservice\-list\fP subcommand.
+.SH AUTHOR
+chef-server-ctl
+.\" Generated by docutils manpage writer.
+.
