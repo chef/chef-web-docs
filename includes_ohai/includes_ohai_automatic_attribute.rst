@@ -29,4 +29,4 @@ An automatic attribute is a specific detail about a node, such as an IP address,
    * - ``node['roles']``
      - A list of roles associated with a node (and part of that node's run-list).
    * - ``node['ohai_time']``
-     - The time at which |ohai| was last run. This attribute is not commonly used in recipes, but it is saved to the |chef server| and can be accessed using the ``knife status`` sub-command.
+     - The time at which |ohai| was last run. This attribute is not commonly used in recipes, but it is saved to the |chef server| and can be accessed using the ``knife status`` subcommand.

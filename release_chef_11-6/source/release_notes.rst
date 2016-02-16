@@ -29,8 +29,8 @@ The following items are new for |chef client| 11.6 and/or are changes from previ
 * **New batch resource** Execute a batch script using the |windows cmd exe| interpreter. A temporary file is created and then executed like other script resources.
 * **New powershell_script resource** Execute a script using the |windows powershell| interpreter just like the |resource script| resource, but designed for the |windows| platform and the |windows powershell| interpreter.
 * **New settings for the client.rb file** The ``data_bag_decrypt_minimum_version``, ``enable_selinux_file_permission_fixup``, and ``file_atomic_update`` settings have been added.
-* **New subcommands for Knife** |subcommand knife deps|, |subcommand knife edit|, and |subcommand knife xargs| have been added.
-* **New options for Knife subcommands** The |subcommand knife delete|, |subcommand knife diff|, |subcommand knife download|, |subcommand knife list|, and |subcommand knife upload| subcommands have new options.
+* **New subcommands for Knife** ``knife deps``, ``knife edit``, and ``knife xargs`` have been added.
+* **New options for Knife subcommands** The ``knife delete``, ``knife diff``, ``knife download``, ``knife list``, and ``knife upload`` subcommands have new options.
 * **Support for environments in chef-solo** |chef solo| now supports environments.
 * **New way to force a redeploy when using the deploy resource** To force a redeploy, delete either the deployment directory or the cache file.
 * **Changed behavior for chef-shell** |chef shell| behavior is changed to load recipes while in |chef client| mode. This is by design and represents the behavior as originally intended.
@@ -284,13 +284,13 @@ The following updates have been made to |knife| subcommands:
 
 * The |knife| essentials group of subcommands can be used with all objects in the |chef repo| and/or on the |chef server|: ``clients/``, ``cookbooks/``, ``data_bags/``, ``environments/``, ``nodes``, ``roles/``, and ``users``
 * The |knife| essentials group of subcommands can be used with the following objects located in |chef hosted|: ``acls``, ``groups``, and ``containers``
-* The |subcommand knife download| subcommand can access all objects on the |chef server| and can now be used to pull a full-fidelity backup of the entire organization
+* The ``knife download`` subcommand can access all objects on the |chef server| and can now be used to pull a full-fidelity backup of the entire organization
 
 New subcommands have been added to |knife|:
 
-* |subcommand knife deps|
-* |subcommand knife edit|
-* |subcommand knife xargs|
+* ``knife deps``
+* ``knife edit``
+* ``knife xargs``
 
 knife deps
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -386,7 +386,7 @@ knife upload
 
 New common options for certain Knife subcommands
 -----------------------------------------------------
-The following options are new for the |subcommand knife delete|, |subcommand knife deps|, |subcommand knife diff|, |subcommand knife download|, |subcommand knife edit|, |subcommand knife list|, |subcommand knife raw|, |subcommand knife show|, |subcommand knife upload|, and |subcommand knife xargs| subcommands:
+The following options are new for the ``knife delete``, ``knife deps``, ``knife diff``, ``knife download``, ``knife edit``, ``knife list``, ``knife raw``, ``knife show``, ``knife upload``, and ``knife xargs`` subcommands:
 
 ``--chef-repo-path PATH``
    The path to the |chef repo|. This setting will override the default path to the |chef repo|. Default: same as specified by ``chef_repo_path`` in config.rb.

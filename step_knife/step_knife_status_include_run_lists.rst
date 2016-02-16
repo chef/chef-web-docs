@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-To include run lists in the status, enter:
+To include run-lists in the status, enter:
 
 .. code-block:: bash
 

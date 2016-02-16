@@ -12,7 +12,7 @@ Matchers
 -----------------------------------------------------
 |inspec resource matcher| There are two groupings, depending on if filtering is associated with a user identifier.
 
-``passwd``
+passwd
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The following matchers may be used when filtering is not associated with a user identifier:
 
@@ -32,7 +32,7 @@ usernames
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_usernames.rst
 
-``passwd.uid(filter)``
+passwd.uid(filter)
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The following matchers may be used when filtering is associated with a user identifier:
 

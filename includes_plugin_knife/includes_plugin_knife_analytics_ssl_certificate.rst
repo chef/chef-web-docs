@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The |subcommand knife analytics| subcommand requires the |ssl| certificate for |chef analytics| to be present on the workstation from which commands will be run. Fetch the |ssl| certificate from |chef analytics| by using the |subcommand knife ssl_fetch| command:
+The ``knife analytics`` subcommand requires the |ssl| certificate for |chef analytics| to be present on the workstation from which commands will be run. Fetch the |ssl| certificate from |chef analytics| by using the ``knife ssl fetch`` subcommand:
 
 .. code-block:: bash
 

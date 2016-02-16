@@ -2,4 +2,4 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The |subcommand knife data bag| subcommand is used to manage arbitrary stores of globally available |json| data.
+The ``knife data bag`` subcommand is used to manage arbitrary stores of globally available |json| data.

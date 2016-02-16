@@ -136,7 +136,7 @@ or from anywhere in the |chef repo|, enter:
 
    $ knife upload .
 
-A cookbook can be uploaded individually using the ``upload`` argument for the ``knife cookbook`` sub-command.
+A cookbook can be uploaded individually using the ``upload`` argument for the ``knife cookbook`` subcommand.
 
 
 Configure Permissions

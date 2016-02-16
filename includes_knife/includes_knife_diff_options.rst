@@ -1,5 +1,5 @@
 .. The contents of this file are included in multiple topics.
-.. This file describes a command or a sub-command for Knife.
+.. This file describes a command or a subcommand for Knife.
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics. 
 

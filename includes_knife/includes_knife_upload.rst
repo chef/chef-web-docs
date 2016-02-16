@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-Use the |subcommand knife upload| subcommand to upload data to the  |chef server| from the current working directory in the |chef repo|. The following types of data may be uploaded with this subcommand:
+Use the ``knife upload`` subcommand to upload data to the  |chef server| from the current working directory in the |chef repo|. The following types of data may be uploaded with this subcommand:
 
 * Cookbooks
 * Data bags

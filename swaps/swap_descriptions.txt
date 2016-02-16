@@ -12,7 +12,7 @@
 .. |add_to_admins| replace:: Add the user to the |webui group admins| group.
 .. |additional_remotes| replace:: An array of additional remotes that are added to the |git| repository configuration.
 .. |admin client| replace:: Create a client as an admin client. This is required for any user to access |chef server osc| as an administrator.
-.. |after| replace:: Add a run list item after the specified run list item.
+.. |after| replace:: Add a run-list item after the specified run-list item.
 .. |after_restart| replace:: A block of code, or a path to a file that contains code, that is run after restarting.
 .. |ibm_aix_src not_supported| replace:: This action is not supported when using |ibm aix_src| on the |ibm aix| platform because |ibm aix_src| does not have a standard mechanism for enabling and disabling services on system boot.
 .. |all| replace:: Display a node in the |chef editor|. By default, attributes that are default, override, or automatic, are not shown.
@@ -103,7 +103,7 @@
 .. |backups_kept| replace:: The number of backups to be kept in ``/var/chef/backup`` (for |unix|- and |linux|-based platforms) or ``C:/chef/backup`` (for the |windows| platform). Set to ``false`` to prevent backups from being kept.
 .. |bandwidth_yum| replace:: The maximum amount of network bandwidth (in bytes).
 .. |batch_size bulk_fetch| replace:: The number of nodes that may be deserialized. Currently only applies to the ``/search`` endpoint in the |api chef server|.
-.. |before| replace:: Add a run list item before the specified run list item.
+.. |before| replace:: Add a run-list item before the specified run-list item.
 .. |before_fork| replace:: The object that is called by the master process before executing the |unicorn| binary.
 .. |before_migrate| replace:: A block of code, or a path to a file that contains code, that is run before a migration.
 .. |before_restart| replace:: A block of code, or a path to a file that contains code, that is run before restarting.
@@ -246,7 +246,7 @@
 .. |create_dirs_before_symlink| replace:: Create directories in the release directory before symbolic links are created. This property runs after ``purge_before_symlink`` and before ``symlink``.
 .. |creates file_exists| replace:: Prevent a command from creating a file when that file already exists.
 .. |credential_file amazon| replace:: The credential file used by |amazon aws| command-line tools.
-.. |credential_file google| replace:: The credential file used by |google compute engine|. This file is created when running the ``knife google setup`` command.
+.. |credential_file google| replace:: The credential file used by |google compute engine|. This file is created when running the ``knife google setup`` subcommand.
 .. |cwd| replace:: The current working directory.
 .. |cwd run_command| replace:: The current working directory from which a command is run.
 
@@ -1009,7 +1009,7 @@
 .. |orgmapper desc| replace:: |orgmapper| is a tool that can be used with a non-hosted |chef server| to provide administrative access to back-end objects. |orgmapper| can be a dangerous tool and should be used carefully. In general, anything that needs to be done around automating user creation, making permissions changes, and so on, can be done more easily using the ``knife-acl`` plugin and by using the |chef server| web interface.
 .. |orgmapper desc_private_chef| replace:: |orgmapper| is a tool that can be used with |chef private| to provide administrative access to back-end objects. |orgmapper| can be a dangerous tool and should be used carefully. In general, anything that needs to be done around automating user creation, making permissions changes, and so on, can be done more easily using the ``knife-acl`` plugin and by using the |chef private| web interface.
 .. |os-disk-name| replace:: The operating system type of the |azure| OS image: ``Linux`` or ``Windows``.
-.. |override_runlist| replace:: Replace the current run list with the specified items.
+.. |override_runlist| replace:: Replace the current run-list with the specified items.
 .. |overwrite_groups| replace:: Cause |yum| to use all matching repositories or only use the last matching repository.
 .. |owner directory_service| replace:: The owner of a service directory and scripts.
 .. |owner file| replace:: The owner of a file.
@@ -1360,7 +1360,7 @@
 .. |ruby dsl cookbook version| replace:: A version constraint for a group of cookbooks.
 .. |ruby dsl default attribute| replace:: Optional. A set of attributes to be applied to all nodes, assuming the node does not already have a value for the attribute. This is useful for setting global defaults that can then be overridden for specific nodes. If more than one role attempts to set a default value for the same attribute, the last role applied is the role to set the attribute value. When nested attributes are present, they are preserved.
 .. |ruby dsl description| replace:: A description of the functionality that is covered.
-.. |ruby dsl environment run list| replace:: Optional. A list of environments, each specifying a recipe or a role to be applied to that environment. This setting must specify the ``_default`` environment. If the ``_default`` environment is set to ``[]`` or ``nil``, then the run list is empty.
+.. |ruby dsl environment run list| replace:: Optional. A list of environments, each specifying a recipe or a role to be applied to that environment. This setting must specify the ``_default`` environment. If the ``_default`` environment is set to ``[]`` or ``nil``, then the run-list is empty.
 .. |ruby dsl name| replace:: A unique name within the organization. Each name must be made up of letters (upper- and lower-case), numbers, underscores, and hyphens: [A-Z][a-z][0-9] and [_-]. Spaces are not allowed.
 .. |ruby dsl override attribute| replace:: Optional. A set of attributes to be applied to all nodes, even if the node already has a value for an attribute. This is useful for ensuring that certain attributes always have specific values. If more than one role attempts to set an override value for the same attribute, the last role applied wins. When nested attributes are present, they are preserved.
 .. |ruby dsl run list| replace:: A list of recipes and/or roles to be applied and the order in which they are to be applied.
@@ -1402,8 +1402,8 @@
 .. |search query syntax| replace:: A search query is comprised of two parts: the key and the search pattern.
 .. |search special character| replace:: A special character can be used to fine-tune a search query and to increase the accuracy of the search results.
 .. |search_index| replace:: The name of the index to be queried: ``client``, ``environment``, ``node``, ``role``, or ``DATA_BAG_NAME``.
-.. |search_query| replace:: The search query used to identify a list of items on a |chef server|. This option uses the same syntax as the ``search`` sub-command.
-.. |search_query ssh| replace:: The search query used to return a list of servers to be accessed using |ssh| and the specified ``SSH_COMMAND``. This option uses the same syntax as the search sub-command.
+.. |search_query| replace:: The search query used to identify a list of items on a |chef server|. This option uses the same syntax as the ``search`` subcommand.
+.. |search_query ssh| replace:: The search query used to return a list of servers to be accessed using |ssh| and the specified ``SSH_COMMAND``. This option uses the same syntax as the search subcommand.
 .. |secret| replace:: The encryption key that is used for values contained within a data bag item.
 .. |secret_file| replace:: The path to the file that contains the encryption key.
 .. |secret_config| replace:: If ``secret`` is not specified, the |chef client| looks for a secret at the path specified by the ``encrypted_data_bag_secret`` setting in the |client rb| file.
@@ -1697,7 +1697,7 @@
 .. |version postgresql| replace:: The (currently) hardcoded version of |postgresql|.
 .. |version push jobs| replace:: The version of |push jobs|.
 .. |version protocols_ssl| replace:: The |ssl| protocol versions that are enabled.
-.. |versioned_cookbooks| replace:: Append cookbook versions to cookbooks. Set to ``false`` to hide cookbook versions: ``cookbooks/apache``. Set to ``true`` to show cookbook versions: ``cookbooks/apache-1.0.0`` and/or ``cookbooks/apache-1.0.1``. When this setting is ``true``, |subcommand knife download| downloads ALL cookbook versions, which can be useful if a full-fidelity backup of data on the |chef server| is required.
+.. |versioned_cookbooks| replace:: Append cookbook versions to cookbooks. Set to ``false`` to hide cookbook versions: ``cookbooks/apache``. Set to ``true`` to show cookbook versions: ``cookbooks/apache-1.0.0`` and/or ``cookbooks/apache-1.0.1``. When this setting is ``true``, ``knife download`` downloads ALL cookbook versions, which can be useful if a full-fidelity backup of data on the |chef server| is required.
 .. |vlan tag_array| replace:: An array of VLANs that carry traffic on a trunk interface.
 .. |vlan tagged| replace:: Specify that a port is in access or trunk mode.
 .. |vlan untagged| replace:: The native VLAN on an interface.
@@ -1751,7 +1751,7 @@
 .. |winrm_max_timeouts| replace:: A bootstrap command can take longer than allowed by the default setting. Increase this value to ``1800000`` (30 minutes).
 .. |winrm_password| replace:: The |windows remote management| password.
 .. |winrm_port| replace:: The |windows remote management| port.
-.. |winrm_port_knife| replace:: The TCP port on the remote system to which |subcommand knife windows| commands using |windows remote management| are to be made.
+.. |winrm_port_knife| replace:: The TCP port on the remote system to which ``knife windows`` commands that are made using |windows remote management| are sent.
 .. |winrm_session_timeout| replace:: The amount of time (in minutes) for the maximum length of a |windows remote management| session.
 .. |winrm_ssl_verify_mode| replace:: The peer verification mode that is used during |windows remote management| communication.
 .. |winrm_transport| replace:: The |windows remote management| transport type.

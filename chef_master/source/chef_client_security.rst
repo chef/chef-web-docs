@@ -49,7 +49,7 @@ After the workstation has the correct |ssl| certificate, bootstrap operations fr
 
 knife ssl check
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-Run the |subcommand knife ssl_check| command to verify the state of the |ssl| certificate, and then use the reponse to help troubleshoot issues that may be present.
+Run the ``knife ssl check`` subcommand to verify the state of the |ssl| certificate, and then use the reponse to help troubleshoot issues that may be present.
 
 **Verified**
 
@@ -61,7 +61,7 @@ Run the |subcommand knife ssl_check| command to verify the state of the |ssl| ce
 
 knife ssl fetch
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-Run the |subcommand knife ssl_fetch| to download the self-signed certificate from the |chef server| to the |path trusted_certs| directory on a workstation.
+Run the ``knife ssl fetch`` to download the self-signed certificate from the |chef server| to the |path trusted_certs| directory on a workstation.
 
 **Verify Checksums**
 

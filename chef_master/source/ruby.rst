@@ -77,11 +77,11 @@ Statements
 -----------------------------------------------------
 .. include:: ../../includes_ruby/includes_ruby_style_basics_statement.rst
 
-``if``
+if
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_ruby/includes_ruby_style_basics_statement_if.rst
 
-``case``
+case
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_ruby/includes_ruby_style_basics_statement_case.rst
 
@@ -179,7 +179,7 @@ Patterns to Avoid
 =====================================================
 This section covers things that should be avoided when authoring cookbooks and recipes.
 
-``node.set``
+node.set
 -----------------------------------------------------
 Use ``node.default`` (or maybe ``node.override``) instead of ``node.set`` because ``node.set`` is an alias for ``node.normal``. Normal data is persisted on the node object. Therefore, using ``node.set`` will persist data in the node object. If the code that uses ``node.set`` is later removed, if that data has already been set on the node, it will remain.
 

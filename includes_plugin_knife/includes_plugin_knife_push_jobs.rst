@@ -2,4 +2,4 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The |subcommand knife push jobs| subcommand is used by |push jobs| to start jobs, view job status, view job lists, and view node status.
+The ``knife push jobs`` subcommand is used by |push jobs| to start jobs, view job status, view job lists, and view node status.

@@ -20,7 +20,7 @@ The following items are new for |chef client| 12.0 and/or are changes from previ
 * **New reboot resource** Use the |resource reboot| resource to reboot a node during or at the end of a |chef client| run.
 * **New windows_service resource** Use the |resource service_windows| resource to manage services on the |windows| platform.
 * **New --bootstrap-template option** Use the ``--bootstrap-template`` option to install the |chef client| with a bootstrap template. Specify the name of a template, such as ``chef-full``, or specify the path to a custom bootstrap template. This option deprecates the ``--distro`` and ``--template-file`` options.
-* **New SSL options for bootstrap operations** The |subcommand knife bootstrap| subcommand has new options that support |ssl| with bootstrap operations. Use the ``--[no-]node-verify-api-cert`` option to to perform |ssl| validation of the connection to the |chef server|. Use the ``--node-ssl-verify-mode`` option to validate |ssl| certificates.
+* **New SSL options for bootstrap operations** The ``knife bootstrap`` subcommand has new options that support |ssl| with bootstrap operations. Use the ``--[no-]node-verify-api-cert`` option to to perform |ssl| validation of the connection to the |chef server|. Use the ``--node-ssl-verify-mode`` option to validate |ssl| certificates.
 * **New format options for knife status** Use the ``--medium`` and ``--long`` options to include attributes in the output and to format that output as |json|.
 * **New fsck_device property for mount resource** The |resource mount| resource supports |fsck| devices for the |solaris| platform with the ``fsck_device`` property.
 * **New settings for metadata.rb** The |metadata rb| file has two new settings: ``issues_url`` and ``source_url``. These settings are used to capture the source location and issues tracking location for a cookbook. These settings are also used with |supermarket|. In addition, the ``name`` setting is now **required**.
@@ -30,7 +30,7 @@ The following items are new for |chef client| 12.0 and/or are changes from previ
 * **Improved user password security for the user resource, Mac OS X platform** The |resource user| resource now supports salted password hashes for |mac os x| 10.7 (and higher). Use the ``iterations`` and ``salt`` attributes to calculate SALTED-SHA512 password shadow hashes for |mac os x| version 10.7 and SALTED-SHA512-PBKDF2 password shadow hashes for version 10.8 (and higher).
 * **data_bag_item method in the Recipe DSL supports encrypted data bag items** Use ``data_bag_item(bag_name, item, secret)`` to specify the secret to use for an encrypted data bag item. |secret_config|
 * **value_for_platform method in the Recipe DSL supports version constraints** Version constraints---``>``, ``<``, ``>=``, ``<=``, ``~>``---may be used when specifying a version. An exception is raised if two version constraints match. An exact match will always take precedence over a match made from a version constraint.
-* **knife cookbook site share supports --dry-run** Use the ``--dry-run`` option with the |subcommand knife site cookbook| to take no action and only print out results.
+* **knife cookbook site share supports --dry-run** Use the ``--dry-run`` option with the ``knife cookbook site`` to take no action and only print out results.
 * **chef-client configuration setting updates** The |chef client| now supports running an override run-list (via the ``--override-runlist`` option) without clearing the cookbook cache on the node. In addition, the ``--chef-zero-port`` option allows specifying a range of ports.
 * **Unforked interval runs are no longer allowed** The ``--[no-]fork`` option may no longer be used in the same command with the ``--daemonize`` and ``--interval`` options.
 * **Splay and interval values are applied before the chef-client run** The ``--interval`` and ``--splay`` values are applied before the |chef client| run when using the |chef client| and |chef solo| executables.
@@ -42,7 +42,7 @@ The following items are new for |chef client| 12.0 and/or are changes from previ
 * **Events are sent to the Application event log on the Windows platform by default** Events are sent to the |windows| "Application" event log at the start and end of a |chef client| run, and also if a |chef client| run fails. Set the ``disable_event_logger`` configuration setting in the |client rb| file to ``true`` to disable event logging.
 * **The installer_type property for the windows_package resource uses a symbol instead of a string** Previous versions of the |chef client| (starting with version 11.8) used a string.
 * **The path property is deprecated for the execute resource** Use the ``environment`` property instead.
-* **SSL certificate validation improvements** The default settings for |ssl| certificate validation now default in favor of validation. In addition, using the |subcommand knife ssl_fetch| command is now an important part of setting up your workstation.
+* **SSL certificate validation improvements** The default settings for |ssl| certificate validation now default in favor of validation. In addition, using the ``knife ssl fetch`` subcommand is now an important part of setting up your workstation.
 * **New property for git resource** The |resource scm_git| resource has a new property: ``environment``, which takes a |ruby hash| of environment variables in the form of ``{"ENV_VARIABLE" => "VALUE"}``.
 
 
@@ -476,7 +476,7 @@ Filter Search Results
 
 knife search
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The |subcommand knife search| subcommand allows filtering search results with a new option:
+The ``knife search`` subcommand allows filtering search results with a new option:
 
 ``-f FILTER``, ``--filter-result FILTER``
    Use to return only attributes that match the specified ``FILTER``. For example: ``\"ServerName=name, Kernel=kernel.version\"``.

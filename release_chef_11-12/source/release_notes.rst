@@ -13,14 +13,14 @@ The following items are new for |chef client| 11.12 and/or are changes from prev
 * **New guard_interpreter attribute** Use the ``guard_interpreter`` attribute to specify a |resource script|-based resource---|resource script_bash|, |resource script_csh|, |resource script_perl|, |resource powershell_script|, |resource script_python|, and |resource script_ruby|---that will be used to evaluate a string command.
 * **New reboot_pending? Recipe DSL method** Use the ``reboot_pending?`` method to test if a |windows| node requires a reboot.
 * **New convert_boolean_true attribute** Use the ``convert_boolean_true`` attribute to return ``0`` (true) or ``1`` (false) based on certain conditions in a |resource powershell_script| resource block.
-* **knife ssl check** Use the |subcommand knife ssl_check| subcommand to verify SSL configuration for the |chef server|.
-* **knife ssl fetch** Use the |subcommand knife ssl_fetch| subcommand to copy SSL certificates from an HTTPS server to the ``trusted_certs_dir`` directory.
+* **knife ssl check** Use the ``knife ssl check`` subcommand to verify SSL configuration for the |chef server|.
+* **knife ssl fetch** Use the ``knife ssl fetch`` subcommand to copy SSL certificates from an HTTPS server to the ``trusted_certs_dir`` directory.
 * **New options for knife client subcommands** New options allow the creation and deletion of the |chef validator|.
 * **New options for chef-client** A new option allows a run-list to be specified, and then set permanently.
 * **Weekdays as symbols** The |resource cron| resource allows weekdays to be entered as a symbol, e.g. ``:monday`` or ``:friday``.
 * **Generate the public/private key pair on a node** The ``local_key_generation`` setting has been added to the |client rb| file. When ``true``, key pairs will be generated on the node and the public key will be sent to the |chef server|.
-* **knife cookbook test and .chefignore files** The ``knife cookbook test`` command will respect the settings in a |chefignore| file.
-* **knife bootstrap -V -V** The |subcommand knife bootstrap| command can set the initial |chef client| run to be logged at the debug level.
+* **knife cookbook test and .chefignore files** The ``knife cookbook test`` subcommand will respect the settings in a |chefignore| file.
+* **knife bootstrap -V -V** The ``knife bootstrap`` command can set the initial |chef client| run to be logged at the debug level.
 * **Sensitive property added to common resource properties** Use the ``sensitive`` property with the |resource template| and |resource file| resources to ensure that sensitive data is not logged by the |chef client|.
 * **cron resource accepts symbols for weekday property** Symbols---``:sunday``, ``:monday``, ``:tuesday``, ``:wednesday``, ``:thursday``, ``:friday``, ``:saturday``---may be used with the ``weekday`` property and the |resource cron| resource.
 

@@ -112,7 +112,7 @@ The following example shows how to create a new cookbook, but then do all of the
         }     
       }
 
-   This configures the cookbook to be built with ``delivery-truck``, which is the open source build cookbook for |chef delivery|. It also causes Delivery to skip the phases that are irrelevant to cookbook changes. And, it pushes your change (the new cookbook) to your delivery cluster Chef server. If your nodes have that cookbook in their run list, they will pick up the change when they next sync.
+   This configures the cookbook to be built with ``delivery-truck``, which is the open source build cookbook for |chef delivery|. It also causes Delivery to skip the phases that are irrelevant to cookbook changes. And, it pushes your change (the new cookbook) to your delivery cluster Chef server. If your nodes have that cookbook in their run-list, they will pick up the change when they next sync.
 
 #. Add the config.json changes to the feature branch:
 

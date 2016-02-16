@@ -40,7 +40,7 @@ The following items are prerequisites for installing the |chef client| on a work
 * |apple xcode| is installed on machines running |mac os x|; this application can be downloaded from |apple| for free
 * A |github| account; the |chef repo| must be downloaded and/or cloned from |github|
 * Access to a |chef server|: a hosted |chef server oec| account, a local install of |chef server oec|, or the open source |chef server|
-* Access to a machine (physical or virtual) that can be used as the first node; the |fqdn| or IP address for a machine is required by the |subcommand knife bootstrap| command during a bootstrap operation
+* Access to a machine (physical or virtual) that can be used as the first node; the |fqdn| or IP address for a machine is required by the ``knife bootstrap`` command during a bootstrap operation
 
 Select the |omnibus installer|
 =====================================================
@@ -219,8 +219,8 @@ For a workstation that will interact with |chef server oec| (including hosted |c
 
 For a workstation that will interact with the open source |chef server|, do the following:
 
-* Create a |knife rb| file. This `configuration file <https://docs.chef.io/config_rb_knife.html>`_ must be created by running the ``knife configure --initial`` command on the machine that will be run as a workstation. The ``validation_key`` attribute in the |knife rb| file must specify the path to the validation key. The ``validation_client_name`` attribute defaults to ``chef-validator`` (which is the |chef validator pem| private key created by the open source |chef server| on startup). When prompted for the URL for the |chef server|, use the |fqdn| for the |chef server|.
-* Create a |user pem| file. (This private key is created at the same time as the |knife rb| file from the ``knife configure --initial`` command.)
+* Create a |knife rb| file. This `configuration file <https://docs.chef.io/config_rb_knife.html>`_ must be created by running ``knife configure --initial`` on the machine that will be run as a workstation. The ``validation_key`` attribute in the |knife rb| file must specify the path to the validation key. The ``validation_client_name`` attribute defaults to ``chef-validator`` (which is the |chef validator pem| private key created by the open source |chef server| on startup). When prompted for the URL for the |chef server|, use the |fqdn| for the |chef server|.
+* Create a |user pem| file. (This private key is created at the same time as the |knife rb| file when running ``knife configure --initial``.)
 * Find the |chef validator pem| file on the open source |chef server|. This private key is created by the open source |chef server| on startup and is located in the ``/etc/chef-server`` folder on the server after it is created.
 
 These files will be moved into the |chef repo hidden| directory, which is a hidden directory that must be created in the |chef repo|.

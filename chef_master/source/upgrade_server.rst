@@ -101,7 +101,7 @@ To upgrade to |chef server| 12 from the |chef server osc| server, do the followi
 
    .. note:: The upgrade process will automatically assign the organization name to the ``default_orgname`` setting in the |chef server rb| file. This setting ensures the new organization name is available for |api chef server| requests, such as those made by the |chef client| and by |knife|.
 
-   .. warning:: If you receive a ``missing read permission`` error when running the ``knife user list`` command after the upgrade process is finished, you will need to update the value for the ``chef_server_url`` setting in the |knife rb| file. The default value for that setting is:
+   .. warning:: If you receive a ``missing read permission`` error when running the ``knife user list`` subcommand after the upgrade process is finished, you will need to update the value for the ``chef_server_url`` setting in the |knife rb| file. The default value for that setting is:
 
       .. code-block:: ruby
 

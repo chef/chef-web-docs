@@ -36,4 +36,4 @@ Also:
 * When fixing unit or integration tests, please provide a general summary
 * When bumping |rubygems| or cookbook versions, please explain why it needed
 
-Issues with the |subcommand knife openstack| plugin are tracked using the |company_name| github issue tracking system: https://github.com/chef/knife-openstack/issues.
+Issues with the ``knife openstack`` plugin are tracked using the |company_name| github issue tracking system: https://github.com/chef/knife-openstack/issues.

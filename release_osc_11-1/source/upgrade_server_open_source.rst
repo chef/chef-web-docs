@@ -131,7 +131,7 @@ Requirements
 * A live |chef server| 10 server
 * A live |chef server| 11 server
 * A workstation (running |knife|) that can access both the |chef server| 10 and |chef server| 11 servers
-* The ability to run the |subcommand knife download| and |subcommand knife upload| subcommands
+* The ability to run the ``knife download`` and ``knife upload`` subcommands
 
 Set up |chef server_title| 10 Access 
 -----------------------------------------------------
@@ -254,7 +254,7 @@ The ``admin.pem`` private key must be correct for each workstation that will hav
       $ knife download /users/admin.json
       $ grep public_key clients/admin.json
 
-#. User-hashed passwords are not transferred to or from the |chef server| when using the |subcommand knife download| or |subcommand knife upload| subcommands. When using these commands to upgrade to a newer version of the |chef server osc| server, each user should run the following command:
+#. User-hashed passwords are not transferred to or from the |chef server| when using the ``knife download`` or ``knife upload`` subcommands. When using these commands to upgrade to a newer version of the |chef server osc| server, each user should run the following command:
 
    .. code-block:: bash
    

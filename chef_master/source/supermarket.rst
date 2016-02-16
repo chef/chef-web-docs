@@ -110,7 +110,7 @@ Upload a Cookbook
 -----------------------------------------------------
 To upload a cookbook to |supermarket|, do the following:
 
-#. Install the |subcommand knife supermarket| plugin:
+#. Install the ``knife supermarket`` plugin:
 
    .. code-block:: bash
 
@@ -279,11 +279,11 @@ supermarket-ctl (executable)
 
 For more information about the |supermarket ctl| command line tool, see :doc:`supermarket-ctl </ctl_supermarket>`. 
 
-|subcommand knife supermarket|
+knife supermarket
 =====================================================
 .. include:: ../../includes_plugin_knife/includes_plugin_knife_supermarket.rst
 
-For more information about the |subcommand knife supermarket| subcommand, see :doc:`knife supermarket </plugin_knife_supermarket>`. 
+For more information about the ``knife supermarket`` subcommand, see :doc:`knife supermarket </plugin_knife_supermarket>`. 
 
 |supermarket rb|
 =====================================================

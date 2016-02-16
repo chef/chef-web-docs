@@ -429,6 +429,27 @@ For example:
 
 .. The example above seems to be a mix of API request + command line stuff. What does the actual request look like?
 
+DELETE
+-----------------------------------------------------
+Use to delete a profile.
+
+**Request**
+
+.. code-block:: xml
+
+   DELETE /api/owners/OWNER/compliance/PROFILE
+
+For example:
+
+.. code-block:: bash
+
+   curl -X DELETE "https://$API_HOST/api/owners/john/compliance/ssh/tar" -u "$API_KEY:"
+
+
+*** Response ***
+
+No Content
+
 /envs
 =====================================================
 The ``/envs`` endpoint has the following methods: ``DELETE``, ``GET``(for both all environments or for a single, named environment), and ``POST``.

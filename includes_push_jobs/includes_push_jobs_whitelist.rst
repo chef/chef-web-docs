@@ -20,7 +20,7 @@ The whitelist is accessed from a recipe using the ``node['push_jobs']['whitelist
      variables(:whitelist => node['push_jobs']['whitelist'])
    end
 
-Use the |subcommand knife exec| subcommand to add a job to the whitelist. For example:
+Use the ``knife exec`` subcommand to add a job to the whitelist. For example:
 
 .. code-block:: bash
 

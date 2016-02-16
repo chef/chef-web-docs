@@ -13,7 +13,7 @@ Other useful tools include:
      - An encryption manager for usernames, passwords, and files.
    * - |kitchen_vagrant|
      - A |vagrant| driver for |kitchen|.
-   * - |subcommand knife spork|
+   * - ``knife spork``
      - A |knife| plugin that aids collaborative cookbook management.
    * - rubocop
      - A static code analyzer for |ruby|.

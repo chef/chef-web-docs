@@ -9,7 +9,7 @@ The |chef client| has specific components that are designed to support unique as
 * The |chef client| is `installed on a machine <https://downloads.chef.io/chef-client/windows/#/>`_ running |windows| by using a |microsoft installer package|
 * Six resources dedicated to the |windows| platform are built into the |chef client|: |resource batch|, |resource dsc_script|, |resource env|, |resource powershell_script|, |resource registry_key|, and |resource package_windows|
 * Use the |resource dsc_resource| to use Powershell DSC resources in |chef|!
-* Two |knife| plugins dedicated to the |windows| platform are available: |subcommand knife azure| is used to manage virtual instances in |azure|; |subcommand knife windows| is used to interact with and manage physical nodes that are running |windows|, such as desktops and servers
+* Two |knife| plugins dedicated to the |windows| platform are available: ``knife azure`` is used to manage virtual instances in |azure|; ``knife windows`` is used to interact with and manage physical nodes that are running |windows|, such as desktops and servers
 * Four cookbooks provide application-specific support. For `PowerShell 4.0 <https://github.com/chef-cookbooks/powershell>`_. For `IIS 7.0/7.5/8.0 <https://github.com/chef-cookbooks/iis>`_. For `SQL Server <https://github.com/chef-cookbooks/database>`_. And for configuring various settings and behaviors on a machine that is running `Windows <https://github.com/chef-cookbooks/windows>`_ 
 * Support for both :i386 and :x86_64 architectures
 * .. include:: ../../includes_dsl_recipe/includes_dsl_recipe_method_windows_helpers.rst
@@ -65,7 +65,7 @@ Use knife-windows
 -----------------------------------------------------
 .. include:: ../../includes_plugin_knife/includes_plugin_knife_windows.rst
 
-For more information about the |subcommand knife windows| plugin, see :doc:`windows </plugin_knife_windows>`.
+For more information about the ``knife windows`` plugin, see :doc:`windows </plugin_knife_windows>`.
 
 Ports
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -156,7 +156,7 @@ Quotes, Windows
 -----------------------------------------------------
 .. include:: ../../includes_knife/includes_knife_common_windows_quotes.rst
 
-``Import-Module chef``
+Import-Module chef
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_knife/includes_knife_common_windows_quotes_module.rst
 

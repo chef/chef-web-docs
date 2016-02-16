@@ -1,5 +1,5 @@
 .. The contents of this file are included in multiple topics.
-.. This file describes a command or a sub-command for Knife.
+.. This file describes a command or a subcommand for Knife.
 .. This file should not be changed in a way that hinders its ability to appear in multiple documentation sets.
 
 The |chef_shell rb| file can be used to configure |chef shell| in the same way as the |client rb| file is used to configure the |chef client|. For example, to configure |chef shell| to authenticate to the |chef server|, copy the ``node_name``, ``client_key``, and ``chef_server_url`` settings from the |knife rb| file:

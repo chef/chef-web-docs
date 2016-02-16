@@ -37,7 +37,7 @@ The following items are prerequisites for installing the |chef client| on a work
 * |apple xcode| is installed on machines running |mac os x|; this application can be downloaded from |apple| for free
 * A |github| account; the |chef repo| must be downloaded and/or cloned from |github|
 * Access to a |chef server|: a hosted |chef server| account or an on-premises |chef server|. If you have a proxy, information on configuring |chef client| to work with it is :doc:`here </proxies>`
-* Access to a machine (physical or virtual) that can be used as the first node; the |fqdn| or IP address for a machine is required by the |subcommand knife bootstrap| command during a bootstrap operation
+* Access to a machine (physical or virtual) that can be used as the first node; the |fqdn| or IP address for a machine is required by the ``knife bootstrap`` subcommand during a bootstrap operation
 
 Get Package, Run Installer
 -----------------------------------------------------
@@ -151,7 +151,7 @@ Get |ssl| Certificates
 -----------------------------------------------------
 |chef server| 12 enables |ssl| verification by default for all requests made to the server, such as those made by |knife| and the |chef client|. The certificate that is generated during the installation of the |chef server| is self-signed, which means there isn't a signing |ca| to verify. In addition, this certificate must be downloaded to any machine from which |knife| and/or the |chef client| will make requests to the |chef server|.
 
-Use the |subcommand knife ssl_fetch| command to pull the |ssl| certificate down from the |chef server|:
+Use the ``knife ssl fetch`` subcommand to pull the |ssl| certificate down from the |chef server|:
 
 .. code-block:: bash
 

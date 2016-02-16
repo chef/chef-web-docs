@@ -14,7 +14,7 @@ The following items are new for |chef analytics| 1.1.5 and/or are changes from p
 * **Actions** Use |chef actions| to view changes made to each node object, the run history for all nodes, the history of every cookbook (and cookbook version), how and where policy settings---roles, environments, and data bags---are applied, and which users made which changes.
 * **Reporting 1.2.2** |reporting| should be upgraded to version 1.2.2 for full funcationality with the |chef analytics| 1.1 release.
 * **oc-id service** The |service ocid| service enables |oauth| 2.0 authentication to the |chef server| by |chef analytics|.
-* **knife-analytics plugin** Use the |subcommand knife analytics| subcommand to view information about actions, alerts, notifications, and rules that are managed by |chef analytics|.
+* **knife-analytics plugin** Use the ``knife analytics`` subcommand to view information about actions, alerts, notifications, and rules that are managed by |chef analytics|.
 * **New settings for data retention** The number of months for which activities data is kept is configurable. (New in |chef analytics| 1.1.5.)
 
 In addition, the following functionality is available in |chef client| 12.4.1 to support building audit controls and running the |chef client| in |chef client_audit|:
@@ -194,7 +194,7 @@ These settings are configured in the
 `chef-server.rb <https://docs.chef.io/config_rb_server_optional_settings.html#oc-id>`_ file.
 
 
-|subcommand knife analytics|
+knife analytics
 -----------------------------------------------------
 .. include:: ../../includes_plugin_knife/includes_plugin_knife_analytics.rst
 
