@@ -32,7 +32,7 @@ Edit Role Run-list
 
 Default Attributes
 =====================================================
-|attribute_type default|
+.. include:: ../../includes_node/includes_node_attribute_type_default.rst
 
 Edit Default Attributes
 -----------------------------------------------------
@@ -44,7 +44,7 @@ View Default Attributes
 
 Override Attributes
 =====================================================
-|attribute_type override|
+.. include:: ../../includes_node/includes_node_attribute_type_override.rst
 
 Edit Override Attributes
 -----------------------------------------------------

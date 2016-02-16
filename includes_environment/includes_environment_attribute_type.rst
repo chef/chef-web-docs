@@ -10,6 +10,6 @@ There are two types of attributes that can be used with environments:
    * - Attribute Type
      - Description
    * - ``default``
-     - |attribute_type default|
+     - .. include:: ../../includes_node/includes_node_attribute_type_default.rst
    * - ``override``
-     - |attribute_type override|
+     - .. include:: ../../includes_node/includes_node_attribute_type_override.rst

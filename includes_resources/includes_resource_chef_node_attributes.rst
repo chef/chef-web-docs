@@ -4,7 +4,9 @@
 This resource has the following properties:
 
 ``automatic_attributes``
-   |attribute_type automatic| Default value: ``{}``.
+   .. include:: ../../includes_node/includes_node_attribute_type_automatic.rst
+
+   Default value: ``{}``.
 
 ``chef_environment``
    The |chef server| environment in which this node should exist (or does exist).
@@ -16,7 +18,9 @@ This resource has the following properties:
    Use to specify if this resource defines a node completely. When ``true``, any property not specified by this resource will be reset to default property values.
 
 ``default_attributes``
-   |attribute_type default| Default value: ``{}``.
+   .. include:: ../../includes_node/includes_node_attribute_type_default.rst
+
+   Default value: ``{}``.
 
 ``ignore_failure``
    **Ruby Types:** TrueClass, FalseClass
@@ -27,7 +31,9 @@ This resource has the following properties:
    The name of the node.
 
 ``normal_attributes``
-   |attribute_type normal| Default value: ``{}``.
+   .. include:: ../../includes_node/includes_node_attribute_type_normal.rst
+
+   Default value: ``{}``.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -39,7 +45,9 @@ This resource has the following properties:
    .. include:: ../../includes_resources_common/includes_resources_common_notifications_timers.rst
 
 ``override_attributes``
-   |attribute_type override| Default value: ``{}``.
+   .. include:: ../../includes_node/includes_node_attribute_type_override.rst
+
+   Default value: ``{}``.
 
 ``raw_json``
    The node as |json| data. For example:

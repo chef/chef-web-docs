@@ -10,14 +10,14 @@ The |chef client| uses six types of attributes to determine the value that is ap
    * - Attribute Type
      - Description
    * - ``default``
-     - |attribute_type default|
+     - .. include:: ../../includes_node/includes_node_attribute_type_default.rst
    * - ``force_default``
-     - |attribute_type force_default|
+     - .. include:: ../../includes_node/includes_node_attribute_type_force_default.rst
    * - ``normal``
-     - |attribute_type normal|
+     - .. include:: ../../includes_node/includes_node_attribute_type_normal.rst
    * - ``override``
-     - |attribute_type override|
+     - .. include:: ../../includes_node/includes_node_attribute_type_override.rst
    * - ``force_override``
-     - |attribute_type force_override|
+     - .. include:: ../../includes_node/includes_node_attribute_type_force_override.rst
    * - ``automatic``
-     - |attribute_type automatic|
+     - .. include:: ../../includes_node/includes_node_attribute_type_automatic.rst
