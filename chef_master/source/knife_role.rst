@@ -6,7 +6,7 @@ knife role
 
 .. include:: ../../includes_knife/includes_knife_role.rst
 
-.. note:: To add a role to a node and then build out the run-list for that node, use the :doc:`knife node </knife_node>` sub-command and its ``run_list add`` argument.
+.. note:: To add a role to a node and then build out the run-list for that node, use the :doc:`knife node </knife_node>` subcommand and its ``run_list add`` argument.
 
 .. note:: .. include:: ../../includes_knife/includes_knife_common_see_common_options_link.rst
 

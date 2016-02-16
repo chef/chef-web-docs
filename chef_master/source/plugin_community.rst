@@ -20,7 +20,7 @@ The following table lists |knife| plugins built by the |chef| community.
    * - Plugin
      - Description
    * - `knife-audit <https://github.com/jbz/knife-audit>`_
-     - Adds the ability to see how many (and which) nodes have a cookbook in its run list.
+     - Adds the ability to see how many (and which) nodes have a cookbook in its run-list.
    * - `knife-baremetalcloud <https://github.com/baremetalcloud/knife-baremetalcloud>`_
      - Adds the ability to manage compute nodes in |baremetalcloud|.
    * - `knife-batch <https://github.com/imeyer/knife-batch>`_

@@ -9,7 +9,7 @@ What's New
 The following items are new for |chef client| 12.2 and/or are changes from previous versions. The short version:
 
 * **New dsc_resource** Use the |resource dsc_resource| resource to use any |windows powershell_dsc_short| resource in a |chef| recipe.
-* **New --exit-on-error option for knife-ssh** Use the ``--exit-on-error`` option to have the |subcommand knife ssh| subcommand exit on any error.
+* **New --exit-on-error option for knife-ssh** Use the ``--exit-on-error`` option to have the ``knife ssh`` subcommand exit on any error.
 
 dsc_resource
 -----------------------------------------------------

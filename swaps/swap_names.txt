@@ -255,55 +255,55 @@
 .. Subcommands for Knife and Knife plugins (that are maintained by Chef)
 ..
 
-.. |subcommand knife analytics| replace:: **knife analytics**
-.. |subcommand knife azure| replace:: **knife azure**
-.. |subcommand knife bluebox| replace:: **knife bluebox**
-.. |subcommand knife bluelock| replace:: **knife bluelock**
-.. |subcommand knife bootstrap| replace:: **knife bootstrap**
-.. |subcommand knife client| replace:: **knife client**
-.. |subcommand knife configure| replace:: **knife configure**
-.. |subcommand knife container| replace:: **knife container**
-.. |subcommand knife cookbook| replace:: **knife cookbook**
-.. |subcommand knife data bag| replace:: **knife data bag**
-.. |subcommand knife delete| replace:: **knife delete**
-.. |subcommand knife deps| replace:: **knife deps**
-.. |subcommand knife diff| replace:: **knife diff**
-.. |subcommand knife download| replace:: **knife download**
-.. |subcommand knife ec2| replace:: **knife ec2**
-.. |subcommand knife edit| replace:: **knife edit**
-.. |subcommand knife environment| replace:: **knife environment**
-.. |subcommand knife eucalyptus| replace:: **knife eucalyptus**
-.. |subcommand knife exec| replace:: **knife exec**
-.. |subcommand knife google| replace:: **knife google**
-.. |subcommand knife hp| replace:: **knife hp**
-.. |subcommand knife index rebuild| replace:: **knife index rebuild**
-.. |subcommand knife linode| replace:: **knife linode**
-.. |subcommand knife list| replace:: **knife list**
-.. |subcommand knife node| replace:: **knife node**
-.. |subcommand knife openstack| replace:: **knife openstack**
-.. |subcommand knife push jobs| replace:: **knife push**
-.. |subcommand knife rackspace| replace:: **knife rackspace**
-.. |subcommand knife raw| replace:: **knife raw**
-.. |subcommand knife recipe list| replace:: **knife recipe list**
-.. |subcommand knife reporting| replace:: **knife reporting**
-.. |subcommand knife role| replace:: **knife role**
-.. |subcommand knife search| replace:: **knife search**
-.. |subcommand knife serve| replace:: **knife serve**
-.. |subcommand knife show| replace:: **knife show**
-.. |subcommand knife site cookbook| replace:: **knife cookbook site**
-.. |subcommand knife spork| replace:: **knife spork**
-.. |subcommand knife ssh| replace:: **knife ssh**
-.. |subcommand knife ssl_check| replace:: **knife ssl check**
-.. |subcommand knife ssl_fetch| replace:: **knife ssl fetch**
-.. |subcommand knife status| replace:: **knife status**
-.. |subcommand knife supermarket| replace:: **knife supermarket**
-.. |subcommand knife tag| replace:: **knife tag**
-.. |subcommand knife terremark| replace:: **knife terremark**
-.. |subcommand knife upload| replace:: **knife upload**
-.. |subcommand knife user| replace:: **knife user**
-.. |subcommand knife vcloud| replace:: **knife vcloud**
-.. |subcommand knife windows| replace:: **knife windows**
-.. |subcommand knife xargs| replace:: **knife xargs**
+.. |xsubcommand knife analytics| replace:: **knife analytics**
+.. |xsubcommand knife azure| replace:: **knife azure**
+.. |xsubcommand knife bluebox| replace:: **knife bluebox**
+.. |xsubcommand knife bluelock| replace:: **knife bluelock**
+.. |xsubcommand knife bootstrap| replace:: **knife bootstrap**
+.. |xsubcommand knife client| replace:: **knife client**
+.. |xsubcommand knife configure| replace:: **knife configure**
+.. |xsubcommand knife container| replace:: **knife container**
+.. |xsubcommand knife cookbook| replace:: **knife cookbook**
+.. |xsubcommand knife data bag| replace:: **knife data bag**
+.. |xsubcommand knife delete| replace:: **knife delete**
+.. |xsubcommand knife deps| replace:: **knife deps**
+.. |xsubcommand knife diff| replace:: **knife diff**
+.. |xsubcommand knife download| replace:: **knife download**
+.. |xsubcommand knife ec2| replace:: **knife ec2**
+.. |xsubcommand knife edit| replace:: **knife edit**
+.. |xsubcommand knife environment| replace:: **knife environment**
+.. |xsubcommand knife eucalyptus| replace:: **knife eucalyptus**
+.. |xsubcommand knife exec| replace:: **knife exec**
+.. |xsubcommand knife google| replace:: **knife google**
+.. |xsubcommand knife hp| replace:: **knife hp**
+.. |xsubcommand knife index rebuild| replace:: **knife index rebuild**
+.. |xsubcommand knife linode| replace:: **knife linode**
+.. |xsubcommand knife list| replace:: **knife list**
+.. |xsubcommand knife node| replace:: **knife node**
+.. |xsubcommand knife openstack| replace:: **knife openstack**
+.. |xsubcommand knife push jobs| replace:: **knife push**
+.. |xsubcommand knife rackspace| replace:: **knife rackspace**
+.. |xsubcommand knife raw| replace:: **knife raw**
+.. |xsubcommand knife recipe list| replace:: **knife recipe list**
+.. |xsubcommand knife reporting| replace:: **knife reporting**
+.. |xsubcommand knife role| replace:: **knife role**
+.. |xsubcommand knife search| replace:: **knife search**
+.. |xsubcommand knife serve| replace:: **knife serve**
+.. |xsubcommand knife show| replace:: **knife show**
+.. |xsubcommand knife site cookbook| replace:: **knife cookbook site**
+.. |xsubcommand knife spork| replace:: **knife spork**
+.. |xsubcommand knife ssh| replace:: **knife ssh**
+.. |xsubcommand knife ssl_check| replace:: **knife ssl check**
+.. |xsubcommand knife ssl_fetch| replace:: **knife ssl fetch**
+.. |xsubcommand knife status| replace:: **knife status**
+.. |xsubcommand knife supermarket| replace:: **knife supermarket**
+.. |xsubcommand knife tag| replace:: **knife tag**
+.. |xsubcommand knife terremark| replace:: **knife terremark**
+.. |xsubcommand knife upload| replace:: **knife upload**
+.. |xsubcommand knife user| replace:: **knife user**
+.. |xsubcommand knife vcloud| replace:: **knife vcloud**
+.. |xsubcommand knife windows| replace:: **knife windows**
+.. |xsubcommand knife xargs| replace:: **knife xargs**
 
 .. Enterprise Chef services
 

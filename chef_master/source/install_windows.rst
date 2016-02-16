@@ -4,7 +4,7 @@ Install the |chef client_title| on |windows|
 
 .. include:: ../../includes_windows/includes_windows_install_overview.rst
 
-Use |subcommand knife windows|
+Use knife windows
 =====================================================
 .. include:: ../../includes_plugin_knife/includes_plugin_knife_windows.rst
 

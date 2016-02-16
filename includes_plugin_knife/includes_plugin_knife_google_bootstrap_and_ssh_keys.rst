@@ -6,7 +6,7 @@ Before a bootstrap operation can be run on a node, |ssh| keys must be set up cor
 
 .. note:: If the |ssh| keys are not already set up, they can be created using the ``ssh-keygen`` program. 
 
-Add the |ssh| key using the **Metadata** page in the |google compute engine| console. Paste the |ssh| key in the user's ``~/.ssh/id_rsa.pub`` file, ensuring to prefix the |ssh| key with the same user name that would be specified when using the ``--ssh-user`` option used by the ``knife server create`` command. 
+Add the |ssh| key using the **Metadata** page in the |google compute engine| console. Paste the |ssh| key in the user's ``~/.ssh/id_rsa.pub`` file, ensuring to prefix the |ssh| key with the same user name that would be specified when using the ``--ssh-user`` option used by the ``knife server create`` subcommand. 
 
 For example:
 

@@ -108,8 +108,8 @@ Glossary
 **role**
    A role is a way to define certain patterns and processes that exist across nodes in an organization as belonging to a single job function.
 
-**run_list**
-   A run_list defines all of the configuration settings that are necessary for a node that is under management by |chef| to be put into the desired state and the order in which these configuration settings are applied.
+**run-list**
+   A run-list defines all of the configuration settings that are necessary for a node that is under management by |chef| to be put into the desired state and the order in which these configuration settings are applied.
 
 **test-kitchen**
    See kitchen.

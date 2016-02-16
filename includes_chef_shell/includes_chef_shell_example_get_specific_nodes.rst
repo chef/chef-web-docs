@@ -1,5 +1,5 @@
 .. The contents of this file are included in multiple topics.
-.. This file describes a command or a sub-command for Knife.
+.. This file describes a command or a subcommand for Knife.
 .. This file should not be changed in a way that hinders its ability to appear in multiple documentation sets.
 
 To get a list of nodes using a recipe named ``postfix`` use ``search(:node,"recipe:postfix")``. To get a list of nodes using a sub-recipe named ``delivery``, use |chef shell|. For example:

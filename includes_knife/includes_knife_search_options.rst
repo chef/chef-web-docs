@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-This sub-command has the following options:
+This subcommand has the following options:
 
 ``-a ATTR``, ``--attribute ATTR``
    |attribute_show|

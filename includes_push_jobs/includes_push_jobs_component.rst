@@ -7,6 +7,6 @@
 All communication between these components is done with the following:
 
 * A heartbeat message between the |push jobs| server and each managed node
-* A |knife| plugin named |subcommand knife push jobs| with four subcommands: ``job list``, ``job start``, ``job status``, and ``node status``
+* A |knife| plugin named ``knife push jobs`` with four subcommands: ``job list``, ``job start``, ``job status``, and ``node status``
 * Various job messages sent from a workstation to the |push jobs| server
 * A single job message that is sent (per job) from the |push jobs| server to one (or more) nodes that are being managed by the |chef server|

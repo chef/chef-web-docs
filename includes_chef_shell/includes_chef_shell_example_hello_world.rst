@@ -1,5 +1,5 @@
 .. The contents of this file are included in multiple topics.
-.. This file describes a command or a sub-command for Knife.
+.. This file describes a command or a subcommand for Knife.
 .. This file should not be changed in a way that hinders its ability to appear in multiple documentation sets.
 
 This example shows how to run |chef shell| in standalone mode. (For |chef solo| or |chef client| modes, you would need to run |chef shell| using the ``-s`` or ``-z`` command line options, and then take into consideration the necessary configuration settings.)
@@ -63,7 +63,7 @@ Typing is evaluated in the same context as recipes. Create a file resource:
           @cookbook_name=nil, 
           @ignore_failure=false> 
 
-(The previous example was formatted for presentation.) At this point, |chef shell| has created the resource and put it in the run list, but not yet created the file. To initiate the |chef client| run, use the ``run_chef`` command:
+(The previous example was formatted for presentation.) At this point, |chef shell| has created the resource and put it in the run-list, but not yet created the file. To initiate the |chef client| run, use the ``run_chef`` command:
 
 .. code-block:: bash
 

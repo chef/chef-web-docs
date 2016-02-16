@@ -15,7 +15,7 @@ The following items are new for |chef client| 12.4 and/or are changes from previ
 * **Logging may be configured to use daemon facility available to the chef-client** Log files may be sent to the syslog available to the |chef client|. Set the ``log_location`` setting in the |client rb| file to ``Chef::Log::Syslog.new("chef-client", ::Syslog::LOG_DAEMON)``.
 * **Package locations on the Windows platform may be specified using a URL** The location of a package may be at URL when using the |resource package_windows| resource.
 * **Package locations on the Windows platform may be specified by passing attributes to the remote_file resource** Use the ``remote_file_attributes`` attribute to pass a |ruby hash| of attributes that modifies the |resource remote_file| resource.
-* **Public key management for users and clients** The |subcommand knife client| and |subcommand knife user| subcommands may now create, delete, edit, list, and show public keys.
+* **Public key management for users and clients** The ``knife client`` and ``knife user`` subcommands may now create, delete, edit, list, and show public keys.
 * **knife client create and knife user create options have changed** With the new key management subcommands, the options for ``knife client create`` and ``knife user create`` have changed.
 * **chef-client audit-mode is no longer marked as "experimental"** The recommended version of |chef client_audit| is |chef client| 12.4, where it is no longer marked as experimental. The |chef client| will report audit failures independently of converge failures.
 

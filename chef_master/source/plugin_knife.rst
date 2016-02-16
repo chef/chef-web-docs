@@ -15,7 +15,7 @@ The following |knife| plug-ins are maintained by |company_name|:
    :widths: 150 450
    :header-rows: 1
 
-   * - Sub-command
+   * - Subcommand
      - Description
    * - :doc:`plugin_knife_azure`
      - .. include:: ../../includes_plugin_knife/includes_plugin_knife_azure.rst

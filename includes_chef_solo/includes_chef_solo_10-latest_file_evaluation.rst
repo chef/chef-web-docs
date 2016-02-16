@@ -6,7 +6,7 @@ In |chef client| 10 and lower, library, attribute, lightweight resource, and res
 
 This behavior is changed, starting with |chef client| 11. Files are loaded according to the following logic:
 
-* The expanded run_list is converted into a list of cookbooks in the same order
+* The expanded run-list is converted into a list of cookbooks in the same order
 * Each cookbook's dependencies are inserted into the cookbook list before the cookbook that depends on them.
 * Duplicates are removed
 

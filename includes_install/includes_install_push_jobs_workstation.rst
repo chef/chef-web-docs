@@ -1,7 +1,7 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics. 
 
-To set up the |push jobs| workstation, install the |subcommand knife push jobs| plugin by running the following command on a workstation:
+To set up the |push jobs| workstation, install the ``knife push jobs`` plugin by running the following command on a workstation:
 
 .. code-block:: bash
 

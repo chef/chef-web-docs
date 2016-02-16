@@ -1271,7 +1271,7 @@ Syntax
 -----------------------------------------------------
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_syntax.rst
 
-Matchers for ``passwd``
+Matchers for passwd
 -----------------------------------------------------
 |inspec resource matcher|
 
@@ -1291,7 +1291,7 @@ usernames
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_usernames.rst
 
-Matchers for ``passwd.uid(userid)``
+Matchers for passwd.uid(userid)
 -----------------------------------------------------
 |inspec resource matcher|
 

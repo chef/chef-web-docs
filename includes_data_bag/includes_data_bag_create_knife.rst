@@ -1,7 +1,7 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
-|knife| can be used to create data bags and data bag items when the ``knife data bag`` sub-command is run with the ``create`` argument. For example:
+|knife| can be used to create data bags and data bag items when the ``knife data bag`` subcommand is run with the ``create`` argument. For example:
 
 .. code-block:: bash
 

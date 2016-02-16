@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-To view the run list for a node named ``dev``, enter:
+To view the run-list for a node named ``dev``, enter:
 
 .. code-block:: bash
 
