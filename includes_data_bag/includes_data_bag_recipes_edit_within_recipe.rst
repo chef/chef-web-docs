@@ -1,7 +1,7 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
-Creating and editing the contents of a data bag or a data bag item from a recipe is not recommended. The recommended method of updating a data bag or a data bag item is to use |knife| and the |subcommand knife data bag| sub-command. If this action must be done from a recipe, please note the following:
+Creating and editing the contents of a data bag or a data bag item from a recipe is not recommended. The recommended method of updating a data bag or a data bag item is to use |knife| and the ``knife data bag`` subcommand. If this action must be done from a recipe, please note the following:
 
 * If two operations concurrently attempt to update the contents of a data bag, the last-written attempt will be the operation to update the contents of the data bag. This situation can lead to data loss, so organizations should take steps to ensure that only one |chef client| is making updates to a data bag at a time.
 * Altering data bags from the node when using the open source |chef server| requires the node's API client to be granted admin privileges. In most cases, this is not advisable.

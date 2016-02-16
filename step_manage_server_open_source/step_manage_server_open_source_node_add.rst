@@ -1,7 +1,7 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
-The node creation page lists all available recipes and roles, and allows you to include these in the run list of the node you are creating. There is also a JSON editor for editing, adding and removing the node's attributes.
+The node creation page lists all available recipes and roles, and allows you to include these in the run-list of the node you are creating. There is also a JSON editor for editing, adding and removing the node's attributes.
 
 In order to create a node:
 

@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The |subcommand knife bootstrap| subcommand is used to run a bootstrap operation that installs the |chef client| on the target node. The following steps describe how to bootstrap a node using |knife|.
+The ``knife bootstrap`` subcommand is used to run a bootstrap operation that installs the |chef client| on the target node. The following steps describe how to bootstrap a node using |knife|.
 
 #. Identify the |fqdn| or IP address of the target node. The ``knife bootstrap`` command requires the |fqdn| or the IP address for the node in order to complete the bootstrap operation.
 
@@ -14,7 +14,7 @@ The |subcommand knife bootstrap| subcommand is used to run a bootstrap operation
 
       $ knife bootstrap 123.45.6.789 -x username -P password --sudo
 
-   where ``123.45.6.789`` is the IP address or the |fqdn| for the node. Use the ``--distro`` option to specify a non-default distribution. For more information about the options available to the |subcommand knife bootstrap| command for |ubuntu|- and |linux|-based platforms, see `knife bootstrap <https://docs.chef.io/knife_bootstrap.html>`_. For |windows|, the |subcommand knife windows| plugin is required, see `knife windows <https://docs.chef.io/plugin_knife_windows.html>`_.
+   where ``123.45.6.789`` is the IP address or the |fqdn| for the node. Use the ``--distro`` option to specify a non-default distribution. For more information about the options available to the ``knife bootstrap`` command for |ubuntu|- and |linux|-based platforms, see `knife bootstrap <https://docs.chef.io/knife_bootstrap.html>`_. For |windows|, the ``knife windows`` plugin is required, see `knife windows <https://docs.chef.io/plugin_knife_windows.html>`_.
 
    And then while the bootstrap operation is running, the command window will show something like the following:
 

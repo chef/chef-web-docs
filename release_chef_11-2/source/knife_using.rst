@@ -14,11 +14,11 @@ Using Quotes
 =====================================================
 .. include:: ../../includes_knife/includes_knife_using_quotes.rst
 
-Sub-commands
+Subcommands
 =====================================================
 .. include:: ../../includes_knife/includes_knife_using_subcommands.rst
 
-Verb Sub-commands
+Verb Subcommands
 =====================================================
 .. include:: ../../includes_knife/includes_knife_11-4_verbs.rst
 

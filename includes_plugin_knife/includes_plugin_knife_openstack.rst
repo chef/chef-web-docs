@@ -2,4 +2,4 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The |subcommand knife openstack| subcommand is used to manage API-driven cloud servers that are hosted by |openstack|.
+The ``knife openstack`` subcommand is used to manage API-driven cloud servers that are hosted by |openstack|.

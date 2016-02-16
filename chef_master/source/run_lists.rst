@@ -111,7 +111,7 @@ None.
 
 status
 -----------------------------------------------------
-The following examples show how to use the |subcommand knife status| subcommand to verify the status of run-lists.
+The following examples show how to use the ``knife status`` subcommand to verify the status of run-lists.
 
 **View status, include run-lists**
 

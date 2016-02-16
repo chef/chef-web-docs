@@ -13,7 +13,7 @@ More than one recipe can be added:
 
    % knife node run list add NODENAME "recipe[apache2],recipe[mysql],role[ssh]"
 
-which creates a runlist similar to:
+which creates a run-list similar to:
 
 .. code-block:: ruby
 

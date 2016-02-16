@@ -58,7 +58,7 @@ Run-specific Details
 -----------------------------------------------------
 .. include:: ../../step_manage_webui/step_manage_webui_reports_history_view_details_run_details.rst
 
-Run List
+Run-list
 -----------------------------------------------------
 .. include:: ../../step_manage_webui/step_manage_webui_reports_history_view_run_list.rst
 

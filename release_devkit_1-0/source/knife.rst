@@ -15,17 +15,17 @@ About |knife_title|
    * - :doc:`knife_using`
      - |knife| runs from a management workstation and sits in-between a |chef server| and an organization's infrastructure.
    * - :doc:`knife_common_options`
-     - There are many options that are available for all |knife| sub-commands.
+     - There are many options that are available for all |knife| subcommands.
 
 .. note:: The |knife| executable cannot be run as a daemon. 
 
-|knife| includes the following sub-commands: 
+|knife| includes the following subcommands: 
 
 .. list-table::
    :widths: 150 450
    :header-rows: 1
 
-   * - Sub-command
+   * - Subcommand
      - Description
    * - :doc:`knife_bootstrap`
      - .. include:: ../../includes_knife/includes_knife_bootstrap.rst

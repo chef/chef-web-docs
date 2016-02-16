@@ -20,7 +20,7 @@ During a |chef client_title| Run
 -----------------------------------------------------
 .. include:: ../../includes_security/includes_security_key_pairs_knife.rst
 
-|knife| can also use the |subcommand knife exec| subcommand to make specific, authenticated requests to the |chef server|. |knife| plugins can also make authenticated requests to the |chef server| by leveraging the |subcommand knife exec| subcommand.
+|knife| can also use the ``knife exec`` subcommand to make specific, authenticated requests to the |chef server|. |knife| plugins can also make authenticated requests to the |chef server| by leveraging the ``knife exec`` subcommand.
 
 API Requests
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

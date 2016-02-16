@@ -181,7 +181,7 @@ In |chef client| 10 (and earlier), code like the following will not work if you 
    # In Chef 11, it works correctly with role attributes.
    node.default[:app][:database] ="#{node.app.name}_#{node.app.env}"
 
-In |chef client| 10 (and earlier), default and override attributes are stored as a single nested hash, and role and environment attributes are applied to the node after attribute files are evaluated so that role and environment attributes can overwrite attributes from attributes files. In |chef client| 11, the above code will work as you expect, because role and environment attributes are stored separately from attributes from cookbooks, and are applied when the run_list is expanded (before any cookbook code is run).
+In |chef client| 10 (and earlier), default and override attributes are stored as a single nested hash, and role and environment attributes are applied to the node after attribute files are evaluated so that role and environment attributes can overwrite attributes from attributes files. In |chef client| 11, the above code will work as you expect, because role and environment attributes are stored separately from attributes from cookbooks, and are applied when the run-list is expanded (before any cookbook code is run).
 
 Setting attributes by platform
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -312,7 +312,7 @@ The /clients endpoint returns |json| with a |json| class for edit (PUT) operatio
 ----------------------------------------------------------------------------------
 In |chef client| 10 (and earlier), the server's response to a ``PUT`` to ``/clients/:client_name`` does not include the ``json_class`` key, though other calls, such as ``GET``, do include this key. The client-side |json| implementation uses the presence of the ``json_class`` key as an indication that it should "inflate" the response into an instance of that class (otherwise, a plain hash object is returned). As a result, code that modifies a client (such as requesting a new key from the server) and parses the response with the |ruby| 'json' library must be modified to accept a ``Chef::ApiClient`` or a hash.
 
-This change breaks the ``knife client reregister`` command in |chef client| 10-16 (and earlier). Forward compatibility is introduced in |chef client| 10-18.
+This change breaks the ``knife client reregister`` subcommand in |chef client| 10-16 (and earlier). Forward compatibility is introduced in |chef client| 10-18.
 
 The admin and validator flags are exclusive
 -----------------------------------------------------
@@ -431,9 +431,9 @@ Miscellaneous
 -----------------------------------------------------
 
 * Locking is used to prevent simultaneous runs on |unix|-like systems
-* |subcommand knife search| assumes node search when the object type is omitted
-* |subcommand knife search| will search over roles, tags, |fqdn|, and IP addresses when the given query is not in |apache solr| format (does not contain a colon ``:`` character)
-* |knife| essentials (|subcommand knife upload|, |subcommand knife download|, |subcommand knife diff|, and so on) have been merged into |chef client| 11.
+* ``knife search`` assumes node search when the object type is omitted
+* ``knife search`` will search over roles, tags, |fqdn|, and IP addresses when the given query is not in |apache solr| format (does not contain a colon ``:`` character)
+* |knife| essentials (``knife upload``, ``knife download``, ``knife diff``, and so on) have been merged into |chef client| 11.
 
 
 

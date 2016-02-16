@@ -8,9 +8,9 @@ What's New
 =====================================================
 The following items are new for |chef client| 11.14 and/or are changes from previous versions. The short version:
 
-* **New knife serve subcommand** Use |subcommand knife serve| to run |chef zero| on the local machine.
-* **New argument for knife node** The |subcommand knife node| subcommand has a new argument: ``environment set``. Use it to set the environment for a node, but without the need to edit the node object.
-* **New options for knife bootstrap** The |subcommand knife bootstrap| command has four new options: ``--bootstrap-curl-options``, ``--bootstrap-install-command``, ``--bootstrap-install-sh``, and ``--bootstrap-wget-options``.
+* **New knife serve subcommand** Use ``knife serve`` to run |chef zero| on the local machine.
+* **New argument for knife node** The ``knife node`` subcommand has a new argument: ``environment set``. Use it to set the environment for a node, but without the need to edit the node object.
+* **New options for knife bootstrap** The ``knife bootstrap`` command has four new options: ``--bootstrap-curl-options``, ``--bootstrap-install-command``, ``--bootstrap-install-sh``, and ``--bootstrap-wget-options``.
 * **New attributes for whitelisting node attributes** Use ``automatic_attribute_whitelist``, ``default_attribute_whitelist``, ``normal_attribute_whitelist``, and ``override_attribute_whitelist`` to prevent attributes from being saved by a node.
 * **New client.rb settings** The following settings have been added to the |client rb| file: ``automatic_attribute_whitelist``, ``cookbook_sync_threads``, ``default_attribute_whitelist``, ``ftp_proxy``, ``ftp_proxy_pass``, ``ftp_proxy_user``, ``normal_attribute_whitelist``, ``override_attribute_whitelist``, and ``yum_lock_timeout``.
 * **New --run-lock-timeout Setting** New command line setting for |chef client| and |chef solo|.
@@ -18,7 +18,7 @@ The following items are new for |chef client| 11.14 and/or are changes from prev
 * **Sensitive property added to common resource properties** Use the ``sensitive`` property with **any** resource to ensure that sensitive data is not logged by the |chef client|.
 * **chef-zero port ranges** The ``chef_zero.port`` setting (in the |client rb| file) and the ``--chef-zero-port`` option from the command line for the |chef client| now supports using a range of ports. For example ``chef_zero.port ="10,20,30"`` or ``--chef-zero-port 10000-20000``.
 
-|subcommand knife serve|
+knife serve
 -----------------------------------------------------
 .. include:: ../../includes_knife/includes_knife_serve.rst
 
@@ -32,7 +32,7 @@ The following items are new for |chef client| 11.14 and/or are changes from prev
 
 knife node environment set
 -----------------------------------------------------
-The |subcommand knife node| subcommand has a new argument: ``environment_set``.
+The ``knife node`` subcommand has a new argument: ``environment_set``.
 
 .. include:: ../../includes_knife/includes_knife_node_environment_set.rst
 
@@ -40,9 +40,9 @@ The |subcommand knife node| subcommand has a new argument: ``environment_set``.
 
 .. include:: ../../includes_knife/includes_knife_node_environment_set_syntax.rst
 
-New |subcommand knife bootstrap| Options
+New knife bootstrap Options
 -----------------------------------------------------
-The following options have been added to |subcommand knife bootstrap|:
+The following options have been added to ``knife bootstrap``:
 
 ``--bootstrap-curl-options OPTIONS``
    |bootstrap curl_options| |bootstrap no_install_command|
