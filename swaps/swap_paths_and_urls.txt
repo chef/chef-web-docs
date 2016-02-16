@@ -1,12 +1,6 @@
 .. Templates for use elsewhere (if helpful)
 ..
 
-.. |path template| replace:: path/to/file/filename.extension
-.. |url template| replace:: template.for.URLs
-
-
-
-
 .. Paths that exist in the Chef environment(s)
 ..
 
