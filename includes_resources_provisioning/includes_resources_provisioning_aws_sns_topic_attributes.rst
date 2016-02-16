@@ -12,7 +12,7 @@ This |chef provisioning| driver-specific resource has the following properties:
    * - ``arn``
      - **Ruby Type:** String
 
-       Use to specify the |amazon arn|. When a topic is created, |amazon sns| will assign a unique |amazon arn| to the topic, which will include the service name, region, and |amazon aws| identifier of the user and topic name. For example, a topic named ``seapower`` with a user account ID of ``5060091557628`` that is hosted in the ``US West`` region would be similar to: ``arn:aws:sns:us-west-1:5060091557628:seapower``.
+       |aws_arn| For example, a topic named ``seapower`` with a user account ID of ``5060091557628`` that is hosted in the ``US West`` region would be similar to: ``arn:aws:sns:us-west-1:5060091557628:seapower``.
    * - ``aws_tags``
      - **Ruby Type:** Hash
 

@@ -10,10 +10,10 @@ Attribute types can be any of the following:
    * - Attribute Type
      - Description
    * - ``default``
-     - |attribute_type default|
+     - .. include:: ../../includes_node/includes_node_attribute_type_default.rst
    * - ``normal``
-     - |attribute_type normal|
+     - .. include:: ../../includes_node/includes_node_attribute_type_normal.rst
    * - ``override``
-     - |attribute_type override|
+     - .. include:: ../../includes_node/includes_node_attribute_type_override.rst
    * - ``automatic``
-     - |attribute_type automatic|
+     - .. include:: ../../includes_node/includes_node_attribute_type_automatic.rst

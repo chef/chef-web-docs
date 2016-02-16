@@ -10,7 +10,9 @@ This resource has the following properties:
    Use to specify if this resource defines a role completely. When ``true``, any property not specified by this resource will be reset to default property values.
 
 ``default_attributes``
-   |attribute_type default| Default value: ``{}``.
+   .. include:: ../../includes_node/includes_node_attribute_type_default.rst
+
+   Default value: ``{}``.
 
 ``description``
    |description role|
@@ -36,7 +38,9 @@ This resource has the following properties:
    .. include:: ../../includes_resources_common/includes_resources_common_notifications_timers.rst
 
 ``override_attributes``
-   |attribute_type override| Default value: ``{}``.
+   |attribute_type override|
+
+   Default value: ``{}``.
 
 ``raw_json``
    The role as |json| data. For example:
