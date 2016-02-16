@@ -8,7 +8,7 @@ This argument has the following options:
    |all cookbooks delete|
 
 ``COOKBOOK_VERSION``
-   |COOKBOOK_VERSION delete|
+   |cookbook_version delete|
 
 ``-p``, ``--purge``
    |purge cookbook|

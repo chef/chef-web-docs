@@ -92,12 +92,10 @@
 .. |bandwidth_yum| replace:: The maximum amount of network bandwidth (in bytes).
 .. |batch_size bulk_fetch| replace:: The number of nodes that may be deserialized. Currently only applies to the ``/search`` endpoint in the |api chef server|.
 .. |before| replace:: Add a run-list item before the specified run-list item.
-.. |before_fork| replace:: The object that is called by the master process before executing the |unicorn| binary.
 .. |before_migrate| replace:: A block of code, or a path to a file that contains code, that is run before a migration.
 .. |before_restart| replace:: A block of code, or a path to a file that contains code, that is run before restarting.
 .. |before_symlink| replace:: A block of code, or a path to a file that contains code, that is run before symbolic linking.
 .. |bind redis| replace:: Bind |redis| to the specified IP address.
-.. |bindings| replace:: A string that identifies the information needed to communicate with a site. This information may be an IP address, unspecified IP addresses, a port number, or an (optional) host header. For example: ``111.111.1.1:443:www.chef.io`` or ``*:443:``.
 .. |block_ruby| replace:: A block of |ruby| code.
 .. |bookshelf url| replace:: The URL at which cookbooks are stored.
 .. |bookshelf url_external| replace:: The URL from which the |chef client| is to download cookbooks. By default, this is the ``Host:`` header provided by the |chef client| when it contacts the |chef server|. When cookbook storage is located behind a firewall and/or when the ``Host:`` header is not used, this value must be a URL that is accessible to the |chef client|.
@@ -122,8 +120,6 @@
 .. |branch| replace:: The name of the default branch. This defaults to the master branch.
 .. |broadcast_address| replace:: The broadcast address for a network interface. On some platforms this property is not set using |ifconfig|, but instead is added to the startup configuration file for the network interface.
 .. |build_local_file| replace:: Build or execute a command line against a local file.
-.. |bundler_unicorn| replace:: Bundle the application with |unicorn|.
-.. |bundler_skip_groups| replace:: An array of |bundler| groups to skip.
 
 
 
@@ -139,7 +135,6 @@
 .. |ca_trust_file| replace:: The |ca| trust file used for |ssl| transport.
 .. |cache_path| replace:: The home directory for the user that is running the |chef client| as a non-root user.
 .. |cachedir| replace:: The directory in which |yum| stores cache and db files.
-.. |CATEGORY| replace:: The cookbook category: ``"Databases"``, ``"Web Servers"``, ``"Process Management"``, ``"Monitoring & Trending"``, ``"Programming Languages"``, ``"Package Management"``, ``"Applications"``, ``"Networking"``, ``"Operating Systems & Virtualization"``, ``"Utilities"``, or ``"Other"``.
 .. |checkout_branch git| replace:: Do a one-time checkout from |git| **or** use when a branch in the upstream repository is named ``deploy``. To prevent the |resource scm_git| resource from attempting to check out master from master, set ``enable_checkout`` to ``false`` when using the ``checkout_branch`` property.
 .. |checkpoint_completion_target| replace:: A completion percentage that is used to determine how quickly a checkpoint should finish in relation to the completion status of the next checkpoint. For example, if the value is ``0.5``, then a checkpoint attempts to finish before 50% of the next checkpoint is done.
 .. |checkpoint_segments| replace:: The maximum amount (in megabytes) between checkpoints in log file segments.
@@ -162,14 +157,11 @@
 .. |chunk_size| replace:: The chunk size.
 .. |clean_requirements_on_remove| replace:: Also remove package dependencies, when a package is removed.
 .. |clear_sources| replace:: Set to ``true`` to download a |gem| from the path specified by the ``source`` property (and not from |rubygems|).
-.. |client| replace:: Create a client configuration. This reads from the |knife rb| config file to generate a config file suitable for use in |path chef client rb|, and then copies the validation certificate into the specified directory.
 .. |client_key| replace:: The location of the file that contains the client key.
 .. |client_registration_retries| replace:: The number of times a |chef client| is to attempt to register with a |chef server|.
-.. |cluster member_nodes| replace:: A list of nodes to be part of a cluster.
 .. |code quoted_string| replace:: A quoted (" ") string of code to be executed.
 .. |code erlang_call| replace:: The code to be executed on a node located within a distributed |erlang| system.
 .. |code powershell| replace:: The code for the |windows powershell_dsc_short| configuration script.
-.. |collectstatic| replace:: The behavior of the ``staticfiles`` application. If ``true``, it invokes ``manage.py`` with ``collectstatic -- noinput``.
 .. |color| replace:: View colored output.
 .. |color_list_available_downgrade| replace:: The color used for a package downgrade.
 .. |color_list_available_install| replace:: The color used for a package install.
@@ -198,32 +190,20 @@
 .. |config| replace:: The configuration file to use.
 .. |config chef-client| replace:: The configuration file to use.
 .. |config powershell| replace:: The configuration data for the |windows powershell_dsc_short| script.
-.. |config rb chef server| replace:: A |chef server rb| file is used to specify the configuration settings for the |chef server|.
-.. |config rb client| replace:: A |client rb| file is used to specify the configuration details for the |chef client|.
-.. |config rb knife| replace:: A |knife rb| file is used to specify the |chef repo|-specific configuration details for |knife|.
-.. |config rb server| replace:: A |server rb| file is used to specify the configuration details for the |chef server|.
-.. |config rb solo| replace:: A |solo rb| file is used to specify the configuration details for |chef solo|.
-.. |config rb solr| replace:: A |solr rb| file is used to specify the configuration details for |chef solr|, |chef solr indexer|, and |chef solr rebuild|.
 .. |content file| replace:: A string that is written to the file. The contents of this property replace any previous content when this property has something other than the default value.
 .. |convert_boolean_return| replace:: Return ``0`` if the last line of a command is evaluated to be true or to return ``1`` if the last line is evaluated to be false.
-.. |cookbook directory attributes| replace:: The sub-directory in which attributes are located.
-.. |cookbook directory libraries| replace:: The sub-directory in which libraries are located.
-.. |cookbook directory providers| replace:: The sub-directory in which lightweight providers are located.
-.. |cookbook directory recipes| replace:: The sub-directory in which recipes are located.
-.. |cookbook directory resources| replace:: The sub-directory in which lightweight resources are located.
-.. |cookbook directory templates| replace:: The sub-directory in which templates are located.
+.. |cookbook_category| replace:: The cookbook category: ``"Databases"``, ``"Web Servers"``, ``"Process Management"``, ``"Monitoring & Trending"``, ``"Programming Languages"``, ``"Package Management"``, ``"Applications"``, ``"Networking"``, ``"Operating Systems & Virtualization"``, ``"Utilities"``, or ``"Other"``.
 .. |cookbook file_location| replace:: The cookbook in which a file is located (if it is not located in the current cookbook).
 .. |cookbook external_storage_settings| replace:: Four settings require configuration when pointing at an external cookbook storage location: ``bookshelf['vip']``, for the endpoint used by the |chef client|; ``bookshelf['external_url']``, for the endpoint used by the |chef server|; ``bookshelf['access_key_id']``, for user access key; ``bookshelf['secret_access_key']``, for secret key; and ``opscode_erchef['s3_bucket']``, for the bucket name. Reconfigure the |chef server| after changing these settings.
-.. |cookbook name chef_handler| replace:: The |cookbook chef_handler| cookbook is used to distribute and enable exception and report handlers.
 .. |cookbook path| replace:: The directory in which cookbooks are created. This can be a colon-separated path.
 .. |cookbook_path subdirectory| replace:: The sub-directory for cookbooks on the |chef client|. This value can be a string or an array of file system locations, processed in the specified order. The last cookbook is considered to override local modifications.
 .. |cookbook stream_download| replace:: Enable stream downloading of cookbooks. This setting (when ``true``) typically results in improved cookbook download performance, especially with the memory usage of the |service bookshelf| service and the behavior of load balancers and proxies in-between the |chef client| and the |chef server|.
 .. |cookbook_sync_threads| replace:: The number of helper threads available for parallel cookbook synchronization. Increasing this value **may** increase the frequency of gateway errors from the |chef server| (503 and 504 errors). Decreasing this number reduces the frequency of gateway errors, if present.
 .. |cookbook_tarball_path| replace:: The location in which a |chef server| stores cookbooks that have been saved in the .tar file format, and from which cookbooks are distributed to a |chef client|.
-.. |COOKBOOK_VERSION delete| replace:: The version of a cookbook to be deleted. If a cookbook has only one version, this option does not need to be specified. If a cookbook has more than one version and this option is not specified, |knife|  prompts for a version.
-.. |COOKBOOK_VERSION download| replace:: The version of a cookbook to be downloaded. If a cookbook has only one version, this option does not need to be specified. If a cookbook has more than one version and this option is not specified, the most recent version of the cookbook is downloaded.
-.. |COOKBOOK_VERSION install| replace:: The version of the cookbook to be installed. If a version is not specified, the most recent version of the cookbook is installed.
-.. |COOKBOOK_VERSION show| replace:: The version of a cookbook to be shown. If a cookbook has only one version, this option does not need to be specified. If a cookbook has more than one version and this option is not specified, a list of cookbook versions is returned.
+.. |cookbook_version delete| replace:: The version of a cookbook to be deleted. If a cookbook has only one version, this option does not need to be specified. If a cookbook has more than one version and this option is not specified, |knife|  prompts for a version.
+.. |cookbook_version download| replace:: The version of a cookbook to be downloaded. If a cookbook has only one version, this option does not need to be specified. If a cookbook has more than one version and this option is not specified, the most recent version of the cookbook is downloaded.
+.. |cookbook_version install| replace:: The version of the cookbook to be installed. If a version is not specified, the most recent version of the cookbook is installed.
+.. |cookbook_version show| replace:: The version of a cookbook to be shown. If a cookbook has only one version, this option does not need to be specified. If a cookbook has more than one version and this option is not specified, a list of cookbook versions is returned.
 .. |cookie resource erlang_call| replace:: The magic cookie for the node to which a connection is made.
 .. |copyright| replace:: The name of the copyright holder. This option places a copyright notice that contains the name of the copyright holder in each of the pre-created files. If this option is not specified, a copyright name of "COMPANY_NAME" is used instead; it can easily be modified later.
 .. |cost_repo| replace:: The relative cost of accessing this repository.

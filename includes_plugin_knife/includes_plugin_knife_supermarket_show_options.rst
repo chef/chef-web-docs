@@ -5,7 +5,7 @@
 This argument has the following options:
 
 ``COOKBOOK_VERSION``
-   |COOKBOOK_VERSION show|
+   |cookbook_version show|
 
 ``-m``, ``--supermarket-site``
    |url supermarket| Default value: ``https://supermarket.chef.io``.
