@@ -13,7 +13,9 @@ This resource has the following properties:
    The cookbook versions used with the environment. Default value: ``{}``.
 
 ``default_attributes``
-   |attribute_type default| Default value: ``{}``.
+   .. include:: ../../includes_node/includes_node_attribute_type_default.rst
+
+   Default value: ``{}``.
 
 ``description``
    |description environment|
@@ -36,7 +38,9 @@ This resource has the following properties:
    .. include:: ../../includes_resources_common/includes_resources_common_notifications_timers.rst
 
 ``override_attributes``
-   |attribute_type override| Default value: ``{}``.
+   .. include:: ../../includes_node/includes_node_attribute_type_override.rst
+
+   Default value: ``{}``.
 
 ``raw_json``
    The environment as |json| data. For example:

@@ -14,7 +14,6 @@
 .. |admin client| replace:: Create a client as an admin client. This is required for any user to access |chef server osc| as an administrator.
 .. |after| replace:: Add a run-list item after the specified run-list item.
 .. |after_restart| replace:: A block of code, or a path to a file that contains code, that is run after restarting.
-.. |ibm_aix_src not_supported| replace:: This action is not supported when using |ibm aix_src| on the |ibm aix| platform because |ibm aix_src| does not have a standard mechanism for enabling and disabling services on system boot.
 .. |all| replace:: Display a node in the |chef editor|. By default, attributes that are default, override, or automatic, are not shown.
 .. |all cookbooks| replace:: Upload all cookbooks.
 .. |all cookbooks delete| replace:: Delete all cookbooks (and cookbook versions).
@@ -39,10 +38,6 @@
 .. |appendonly_min_size| replace:: The minimum size of the append-only file. Only files larger than this value are rewritten.
 .. |appendonly_percent| replace:: The size of the current append-only file, as compared to the base size. The append-only file is rewritten when the current file exceeds the base size by this value.
 .. |application ocid| replace:: A |ruby hash| that contains |oauth| 2 application information.
-.. |xapplication_pool app| replace:: The application pool to which an application belongs.
-.. |xapplication_pool site| replace:: The application pool to which a site belongs.
-.. |xapplication_port| replace:: The port on which the application server is to run.
-.. |xapplication_server_role| replace:: The name of a role for an application server. During a |chef client| run, a search is performed to find application servers.
 .. |architecture package| replace:: The architecture of the package to be installed or upgraded. This value can also be passed as part of the package name.
 .. |architecture registry_key| replace:: The architecture of the node for which keys are to be created or deleted. Possible values: ``:i386`` (for nodes with a 32-bit registry), ``:x86_64`` (for nodes with a 64-bit registry), and ``:machine`` (to have the |chef client| determine the architecture during the |chef client| run).
 .. |architecture windows_process| replace:: The architecture of the process under which a script is executed. If a value is not provided, the |chef client| defaults to the correct value for the architecture, as determined by |ohai|.
@@ -53,14 +48,7 @@
 .. |assume_yes| replace:: Prompt for confirmation of critical actions.
 .. |atomic_update| replace:: Perform atomic file updates on a per-resource basis. Set to ``true`` for atomic file updates. Set to ``false`` for non-atomic file updates. This setting overrides ``file_atomic_update``, which is a global setting found in the |client rb| file.
 .. |attribute_show| replace:: The attribute (or attributes) to show.
-.. |attribute python_install_methodx| replace:: The method to use to install |python|.
 .. |attribute ssh| replace:: The attribute used when opening an |ssh| connection.
-.. |attribute_type automatic| replace:: An ``automatic`` attribute contains data that is identified by |ohai| at the beginning of every |chef client| run. An ``automatic`` attribute cannot be modified and always has the highest attribute precedence.
-.. |attribute_type default| replace:: A ``default`` attribute is automatically reset at the start of every |chef client| run and has the lowest attribute precedence. Use ``default`` attributes as often as possible in cookbooks.
-.. |attribute_type force_default| replace:: Use the ``force_default`` attribute to ensure that an attribute defined in a cookbook (by an attribute file or by a recipe) takes precedence over a ``default`` attribute set by a role or an environment.
-.. |attribute_type force_override| replace:: Use the ``force_override`` attribute to ensure that an attribute defined in a cookbook (by an attribute file or by a recipe) takes precedence over an ``override`` attribute set by a role or an environment.
-.. |attribute_type normal| replace:: A ``normal`` attribute is a setting that persists in the node object. A ``normal`` attribute has a higher attribute precedence than a ``default`` attribute.
-.. |attribute_type override| replace:: An ``override`` attribute is automatically reset at the start of every |chef client| run and has a higher attribute precedence than ``default``, ``force_default``, and ``normal`` attributes. An ``override`` attribute is most often specified in a recipe, but can be specified in an attribute file, for a role, and/or for an environment. A cookbook should be authored so that it uses ``override`` attributes only when required.
 .. |audit_mode| replace:: Enable |chef client_audit|. Set to ``audit-only`` to skip the converge phase of the |chef client| run and only perform audits. Possible values: ``audit-only``, ``disabled``, and ``enabled``.
 .. |authorized_openid_identifiers| replace:: The identifier for the |open id| associated with the |chef server| web UI.
 .. |authorized_openid_providers| replace:: The provider for the |open id| associated with the |chef server| web UI.
@@ -68,10 +56,10 @@
 .. |availability_zone| replace:: The name of the availability zone. Each availability zone is unique within a region.
 .. |aws_access_key_id| replace:: The access key identifier used with |amazon ec2|.
 .. |aws_access_key_secret| replace:: The secret access key for the API endpoint used with |amazon ec2|.
+.. |aws_arn| replace:: Use to specify the |amazon arn|. When a topic is created, |amazon sns| will assign a unique |amazon arn| to the topic, which will include the service name, region, and |amazon aws| identifier of the user and topic name.
 .. |aws_dedicated_instance| replace:: Launch this instance as an |amazon ec2_dedicated|.
 .. |aws_tag| replace:: Specify a |ruby hash| of |amazon aws| tags.
 .. |azure connect_to_existing_dns| replace:: Add a new virtual machine to the existing deployment and/or service. Use with ``--azure-dns-name`` to ensure the correct DNS is used.
-.. |azure host description| replace:: The description for the host.
 .. |azure_host_name| replace:: The host name for the |azure| environment.
 .. |azure_pem_filename| replace:: The name of the file that contains the |ssh| public key that is used when authenticating to |azure|.
 .. |azure_subscription_id| replace:: The subscription identifier for the |azure| portal.
@@ -596,6 +584,7 @@
 .. I
 ..
 
+.. |ibm_aix_src not_supported| replace:: This action is not supported when using |ibm aix_src| on the |ibm aix| platform because |ibm aix_src| does not have a standard mechanism for enabling and disabling services on system boot.
 .. |id delivery_change| replace:: The unique identifier for the specified |chef delivery| change.
 .. |id group| replace:: The identifier for the group.
 .. |id chef_client_run| replace:: The identifier for a |chef client| run.
