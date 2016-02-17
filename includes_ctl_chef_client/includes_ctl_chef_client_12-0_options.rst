@@ -17,7 +17,7 @@ This command has the following options:
    |port chef_zero| If a port is not specified---individually, as range of ports, or from the ``chef_zero.port`` setting in the |client rb| file---the |chef client| will scan for ports between 8889-9999 and will pick the first port that is available.
 
 ``-F FORMAT``, ``--format FORMAT``
-   .. include:: ../../includes_ctl_chef_client/includes_ctl_chef_client_options_format
+   .. include:: ../../includes_ctl_chef_client/includes_ctl_chef_client_options_format.rst
 
 ``--force-formatter``
    |force_formatter|

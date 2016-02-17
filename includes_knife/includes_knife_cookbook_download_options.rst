@@ -11,5 +11,5 @@ This argument has the following options:
    |force directory|
 
 ``-N``, ``--latest``
-   |latest|
+   |latest_cookbook|
 

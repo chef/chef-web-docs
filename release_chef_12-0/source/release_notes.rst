@@ -311,7 +311,7 @@ knife status Settings
 The following options are new:
 
 ``-l``, ``--long``
-   |long|
+   |show_all_attributes|
 
 ``-m``, ``--medium``
    |medium|

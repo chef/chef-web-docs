@@ -207,7 +207,7 @@ The following list describes all of the optional settings that can be added to t
    |input file|
 
 ``knife[:latest]``
-   |latest|
+   |latest_cookbook|
 
 ``knife[:local]``
    |local_directory|
