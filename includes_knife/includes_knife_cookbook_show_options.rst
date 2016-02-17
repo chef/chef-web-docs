@@ -11,7 +11,7 @@ This argument has the following options:
    |name fqdn|
 
 ``FILE_NAME``
-   |FILE_NAME|
+   |file_name|
 
 ``-p PLATFORM``, ``--platform PLATFORM``
    |platform|

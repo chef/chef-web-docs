@@ -23,13 +23,7 @@ This command has the following options:
    |fork_chef| This option may not be used in the same command with the ``--daemonize`` and ``--interval`` options.
 
 ``-F FORMAT``, ``--format FORMAT``
-   |format chef_ctls| 
-   
-   |format chef_ctls_doc|
-   
-   |format chef_ctls_min|
-   
-   |format chef_ctls_other|
+   .. include:: ../../includes_ctl_chef_client/includes_ctl_chef_client_options_format
 
 ``--force-formatter``
    |force_formatter|

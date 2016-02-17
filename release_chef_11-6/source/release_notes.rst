@@ -363,7 +363,7 @@ knife list
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ``-f``, ``--flat``
-   |flat| Default: ``false``.
+   |show_files_as_list| Default: ``false``.
 
 ``--local``
    |local_directory| Default: ``false``.

@@ -165,7 +165,7 @@ The following list describes all of the optional settings that can be added to t
    
 
 ``knife[:flat]``
-   |flat|
+   |show_files_as_list|
 
 ``knife[:force]``
    |force directory|
