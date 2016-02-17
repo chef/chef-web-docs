@@ -11,10 +11,10 @@ This argument has the following options:
    Optional. |ca_trust_file|
 
 ``-i IDENTITY_FILE``, ``--identity-file IDENTITY_FILE``
-   |keytab-file|
+   |keytab_file|
 
 ``--keytab-file KEYTAB_FILE``
-   |keytab-file|
+   |keytab_file|
 
 ``-m``, ``--manual-list``
    |manual_list|
@@ -26,13 +26,13 @@ This argument has the following options:
    |winrm_password|
 
 ``-R KERBEROS_REALM``, ``--kerberos-realm KERBEROS_REALM``
-   Optional. |kerberos-realm|
+   Optional. |kerberos_realm|
 
 ``--returns CODES``
    |returns|
 
 ``-S KERBEROS_SERVICE``, ``--kerberos-service KERBEROS_SERVICE``
-   Optional. |kerberos-service|
+   Optional. |kerberos_service|
 
 ``SEARCH_QUERY``
    |search_query ssh|

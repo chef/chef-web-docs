@@ -17,7 +17,7 @@ This subcommand has the following options:
    |search_index| Default index: ``node``.
 
 ``-l``, ``--long``
-   |long|
+   |show_all_attributes|
 
 ``-m``, ``--medium``
    |medium|

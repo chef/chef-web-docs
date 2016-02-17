@@ -8,7 +8,7 @@ This argument has the following options:
    |attribute_show|
 
 ``-l``, ``--long``
-   |long|
+   |show_all_attributes|
 
 ``-m``, ``--medium``
    |medium|

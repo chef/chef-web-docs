@@ -163,7 +163,7 @@ The following settings may be used when ``--bootstrap-protocol`` is set to ``ssh
 The following settings may be used when ``--bootstrap-protocol`` is set to ``winrm``:
 
 ``-i KEYTAB_FILE``, ``--keytab-file KEYTAB_FILE``
-   |keytab-file|
+   |keytab_file|
 
 ``-p PORT``, ``--winrm-port PORT``
    |winrm_port| Default: ``5985``.
@@ -172,10 +172,10 @@ The following settings may be used when ``--bootstrap-protocol`` is set to ``win
    |winrm_password|
 
 ``-R KERBEROS_REALM``, ``--kerberos-realm KERBEROS_REALM``
-   |kerberos-realm|
+   |kerberos_realm|
 
 ``-S KERBEROS_SERVICE``, ``--kerberos-service KERBEROS_SERVICE``
-   |kerberos-service| 
+   |kerberos_service| 
 
 ``-t TRANSPORT``, ``--winrm-transport TRANSPORT``
    |winrm_transport|

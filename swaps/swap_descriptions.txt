@@ -591,11 +591,10 @@
 .. |keepalive postgresql_interval| replace:: The amount of time (in seconds) between probes.
 .. |keepcache| replace:: Keep the cache of headers and packages after a successful installation.
 .. |keep_releases| replace:: The number of releases for which a backup is kept.
-.. |kerberos-realm| replace:: The administrative domain to which a user belongs.
-.. |kerberos-service| replace:: The service principal used during |kerberos|-based authentication.
+.. |kerberos_realm| replace:: The administrative domain to which a user belongs.
+.. |kerberos_service| replace:: The service principal used during |kerberos|-based authentication.
 .. |kernelpkgnames| replace:: A list of package names that are kernels.
 .. |key| replace:: The |user pem| file that |knife| uses to sign requests made by the |chef api client| to the |chef server|.
-.. |key application_deploy| replace:: The RSA private key needed to deploy an application.
 .. |key create_public| replace:: Generate a new public/private key pair and replace an existing public key with the newly-generated public key.
 .. |key expiration_date| replace:: The expiration date for the public key, specified as an ISO 8601 formatted string: ``YYYY-MM-DDTHH:MM:SSZ``.
 .. |key generated_if_not_passed| replace:: When using |chef server osc| a default key is generated if this option is not passed in the command. For |chef server| version 12.x, see the ``--prevent-keygen`` option.
@@ -608,7 +607,7 @@
 .. |key show_expired| replace:: Show a list of public keys that have expired.
 .. |key show_non_expired| replace:: Show a list of public keys that have not expired.
 .. |key user_create| replace:: Write the |user pem| to a file instead of ``STDOUT``.
-.. |keytab-file| replace:: The keytab file that contains the encryption key required by |kerberos|-based authentication.
+.. |keytab_file| replace:: The keytab file that contains the encryption key required by |kerberos|-based authentication.
 .. |kitchen_auto_init| replace:: Invoke the ``init`` command if |kitchen yml| is missing.
 .. |kitchen_bare| replace:: Print the name of each instance, one instance per line.
 .. |kitchen_create_gemfile| replace:: Create a |rubygems| file, if one does not already exist.
@@ -619,10 +618,8 @@
 .. |kitchen_diagnose_loader| replace:: Include data loader diagnostics.
 .. |kitchen_driver| replace:: Add one (or more) |kitchen| drivers to a |rubygems| file.
 .. |kitchen_license| replace:: The license for the |rubygems| file.
-.. |kitchen_platform| replace:: Run |kitchen| against a single platform listed in the |kitchen yml| file. Use a |ruby| regular expression to specify the platform against which |kitchen| is to run.
 .. |kitchen_platforms| replace:: Run |kitchen| against one or more platforms listed in the |kitchen yml| file. Use ``all`` to run |kitchen| against all platforms. Use a |ruby| regular expression to glob two or more platforms into a single run.
 .. |kitchen_provisioner| replace:: The default provisioner that is used by |kitchen|.
-.. |knife azure certificate| replace:: The ``azure`` subcommand must use a management certificate for secure communication with |azure|.
 .. |knife open_source_only| replace:: This option only works when used with the open source |chef server| and will have no effect when used with |chef server oec| or |chef server| 12.x.
 .. |knife option_run_list| replace:: The run-list that is passed as part of the command itself.
 
@@ -636,7 +633,7 @@
 .. L
 ..
 
-.. |latest| replace:: Download the most recent version of a cookbook.
+.. |latest_cookbook| replace:: Download the most recent version of a cookbook.
 .. |ldap base_dn| replace:: The root |ldap| node under which all other nodes exist in the directory structure.
 .. |ldap bind_dn| replace:: The distinguished name used to bind to the |ldap| server.
 .. |ldap bind_password| replace:: The password for the binding user.
@@ -647,8 +644,6 @@
 .. |ldap port| replace:: An integer that specifies the port on which the |ldap| server listens.
 .. |ldap ssl_enabled| replace:: Cause the |chef server| to connect to the |ldap| server using |ssl|.
 .. |ldap system_adjective| replace:: A descriptive name for the login system that is displayed to users in the |chef server| management console.
-.. |legacy_database_setting| replace:: Generate a default settings template with legacy database configuration variables.
-.. |level log| replace:: The level of logging that is to be displayed by the |chef client|. The |chef client| uses the ``mixlib-log`` (https://github.com/chef/mixlib-log) to handle logging behavior. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``.
 .. |level mdadm| replace:: The |raid| level.
 .. |license| replace:: The type of license under which a cookbook is distributed: ``apachev2``, ``gplv2``, ``gplv3``, ``mit``, or ``none`` (default). This option places the appropriate license notice in the pre-created files: ``Apache v2.0`` (for ``apachev2``), ``GPL v2`` (for ``gplv2``), ``GPL v3`` (for ``gplv3``), ``MIT`` (for ``mit``), or ``license 'Proprietary - All Rights Reserved`` (for ``none``). Be aware of the licenses for files inside of a cookbook and be sure to follow any restrictions they describe.
 .. |license chef_server| replace:: The number of |chef server| licenses.
@@ -658,7 +653,6 @@
 .. |links interface_lag| replace:: An array of interfaces to be configured as members of a link aggregation group (LAG).
 .. |links minimum_physical_lag| replace:: The minimum number of physical links that are required to ensure the availability of the link aggregation group (LAG).
 .. |listener_hostname| replace:: The hostname for the listener.
-.. |load-balancer| replace:: The load balancing application to which a server is to be added.
 .. |local chef_repo| replace:: Show files in the local |chef repo| instead of a remote location.
 .. |local_directory| replace:: Return only the contents of the local directory.
 .. |local_mode| replace:: Run the |chef client| in local mode. This allows all commands that work against the |chef server| to also work against the local |chef repo|.
@@ -668,10 +662,10 @@
 .. |lockfile| replace:: The location of the |chef client| lock file.
 .. |logfile_yum| replace:: The full directory and file name for the location in which |yum| is to write a log file.
 .. |log_level| replace:: The level of logging to be stored in a log file.
+.. |log_level chef_client| replace:: The level of logging that is to be displayed by the |chef client|. The |chef client| uses the ``mixlib-log`` (https://github.com/chef/mixlib-log) to handle logging behavior. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``.
 .. |log_location| replace:: The location of the log file.
 .. |log_rotation| replace:: The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``.
 .. |log_rotation min_duration| replace:: When to log a slow |postgresql| query statement.
-.. |long| replace:: Display all attributes in the output and show the output as |json|.
 .. |long description| replace:: A longer description that ideally contains full instructions on the proper use of a cookbook, including definitions, libraries, dependencies, and so on. There are two ways to use this field: with the contents embedded in the field itself or with the contents pulled from a file at a specified path, such as a README.rdoc located at the top of a cookbook directory.
 
 
@@ -700,7 +694,6 @@
 .. |media location| replace:: The geographic location for a virtual machine and its services.
 .. |medium| replace:: Display normal attributes in the output and to show the output as |json|.
 .. |members_group| replace:: Which users should be set or appended to a group.
-.. |memory mb| replace:: The amount of memory, in megabytes. Possible values: ``512``, ``1024``, ``1536``, ``2048``, ``4096``, ``8192``, ``12288``, or ``16384``.
 .. |memory maximum_redis| replace:: The maximum amount of memory (in bytes).
 .. |memory maximum_policy_redis| replace:: The policy applied when the maximum amount of memory is reached. Possible values: ``allkeys-lru`` (remove keys, starting with those used least frequently), ``allkeys-random`` (remove keys randomly), ``noeviction`` (don't expire, return an error on write operation), ``volatile-lru`` (remove expired keys, starting with those used least frequently), ``volatile-random`` (remove expired keys randomly), and ``volatile-ttl`` (remove keys, starting with nearest expired time).
 .. |message http_request| replace:: The message that is sent by the HTTP request.
@@ -710,7 +703,6 @@
 .. |metadata rb chef_version| replace:: A range of |chef client| versions that are supported by this cookbook.
 .. |metadata rb conflicts| replace:: A cookbook conflicts with another cookbook or cookbook version. Use a version constraint to define constraints for cookbook versions: ``<`` (less than), ``<=`` (less than or equal to), ``=`` (equal to), ``>=`` (greater than or equal to), ``~>`` (approximately greater than), or ``>`` (greater than). This field requires that a cookbook with a matching name and version does not exist on the |chef server|. When the match exists, the |chef server| ensures that any conflicted cookbooks are not included with the set of cookbooks that are sent to the node when the |chef client| runs.
 .. |metadata rb depends| replace:: Show that a cookbook has a dependency on another cookbook. Use a version constraint to define dependencies for cookbook versions: ``<`` (|ruby less|), ``<=`` (|ruby less_or_equal|), ``=`` (|ruby equal|), ``>=`` (|ruby greater_optimistic|), ``~>`` (|ruby greater_pessimistic|), or ``>`` (|ruby greater|). This field requires that a cookbook with a matching name and version exists on the |chef server|. When the match exists, the |chef server| includes the dependency as part of the set of cookbooks that are sent to the node when the |chef client| runs. It is very important that the ``depends`` field contain accurate data. If a dependency statement is inaccurate, the |chef client| may not be able to complete the configuration of the system.
-.. |metadata rb ohai_version| replace:: A range of |ohai| versions that are supported by this cookbook.
 .. |metadata rb provides| replace:: Add a recipe, definition, or resource that is provided by this cookbook, should the auto-populated list be insufficient.
 .. |metadata rb recommends| replace:: Add a dependency on another cookbook that is recommended, but not required. A cookbook will still work even if recommended dependencies are not available.
 .. |metadata rb replaces| replace:: Whether this cookbook should replace another (and can be used in-place of that cookbook).
@@ -722,26 +714,10 @@
 .. |minimal_ohai| replace:: Run the |ohai| plugins for name detection and resource/provider selection and no other |ohai| plugins. Set to ``true`` during integration testing to speed up test cycles.
 .. |minute cron| replace:: The minute at which the |cron| entry should run (0 - 59).
 .. |mirror_expire yum| replace:: The amount of time (in seconds) after which a locally-cached mirror list is to expire. When the current ``mirrorlist`` is less than this amount of time, |yum| does not download another copy of the mirror list.
-.. |mirrorlist| replace:: A string that contains the URI to the mirror list, starting with ``http://``, ``ftp://``, or ``file://``. Use ``file://`` if the mirror list is a text file or resides on the local system.
 .. |mirrorlist yum| replace:: A URL that points to a file that contains a list of base URLs. This attribute can be used with, or instead of, ``baseurl``.
 .. |mirrorlist_expire yum| replace:: The amount of time (in seconds) after which a locally-cached mirror list is to expire. An alias for ``mirror_expire``.
 .. |mismatch| replace:: Show only matching versions.
-.. |mod_aspnet| replace:: Install |microsoft aspdotnet| runtime components.
-.. |mod_auth_basic| replace:: Install support for basic authentication.
-.. |mod_auth_windows| replace:: Install |windows| authentication, which allows clients to authenticate using |kerberos| or |ntlm|.
-.. |mod_compress_dynamic| replace:: Install dynamic content compression support. Enabling dynamic compression allows a more efficient use of bandwidth; however, if the server's processor utilization is already high, the CPU load imposed by dynamic compression may affect site performance.
-.. |mod_compress_static| replace:: Install support for static content compression.
-.. |mod_deploy| replace:: Install the |microsoft web deployment tool|, which simplifies the migration, management, and deployment of |microsoft iis| web servers, applications, and websites.
-.. |mod_iis6_metabase_compat| replace:: Install |microsoft iis| the metabase compatibility component.
-.. |mod_isapi| replace:: Install extension and filter support for |microsoft isapi|.
-.. |mod_logging| replace:: Install and enable HTTP logging for website activity, logging tools, and custom logging (for HTTP request/response headers, |microsoft iis| server variables, and client-side fields with simple configuration).
-.. |mod_management| replace:: Install the management console, which can be used to support the management of local and remote web servers.
-.. |mod_mvc3| replace:: Install |microsoft dotnet| MVC3 runtime components.
-.. |mod_security| replace:: Install URL authorization (which authorizes client access to the URLs that comprise a web application), request filtering (which configures rules to block selected client requests), and IP security (which allows or denies access to content based on an IP address or a domain name).
-.. |mod_tracing| replace:: Install support for tracing |microsoft aspdotnet| applications and failed requests.
-.. |mod_urlrewrite| replace:: Install support for URL rewrite rules using rule templates, rewrite maps, and |microsoft dotnet| providers.
 .. |mode lacp| replace:: The Link Aggregation Control Protocol (LACP) mode. Possible values: ``active`` (active mode), ``disable`` (not used), or ``passive`` (passive mode).
-
 .. |mode resource| replace:: A quoted 3-5 character string that defines the octal mode. For example: ``'755'``, ``'0755'``, or ``'00755'``.
 .. |mode resource_directory| replace::  If ``mode`` is not specified and if the directory already exists, the existing mode on the directory is used. If ``mode`` is not specified, the directory does not exist, and the ``:create`` action is specified, the |chef client| assumes a mask value of ``'0777'``, and then applies the umask for the system on which the directory is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, the |chef client| uses the default value of ``'0755'``.
 .. |mode resource_directory_11-4| replace::  If ``mode`` is not specified and if the directory already exists, the existing mode on the directory is used. If ``mode`` is not specified, the directory does not exist, and the ``:create`` action is specified, the |chef client| assumes a mask value of ``'0777'`` and then applies the umask for the system on which the directory is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, the |chef client| uses the default value of ``'0755'``.
@@ -1343,6 +1319,7 @@
 .. |shallow_clone| replace:: Set the clone depth to ``5``.
 .. |shared_buffers postgresql| replace:: The amount of memory that is dedicated to |postgresql| for data caching.
 .. |shell| replace:: The login shell.
+.. |show_all_attributes| replace:: Display all attributes in the output and show the output as |json|.
 .. |show_all_images| replace:: Show all fields for all images.
 .. |show_availability_zone| replace:: Show a list of availability zones.
 .. |show_files_as_list| replace:: Show a list of file names. Set to ``false`` to view ``ls``-like output.
