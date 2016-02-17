@@ -79,7 +79,7 @@ The following list describes all of the optional settings that can be added to t
    * - ``knife[:input]``
      - |input file|
    * - ``knife[:latest]``
-     - |latest|
+     - |latest_cookbook|
    * - ``knife[:manual]``
      - |manual_list|
    * - ``knife[:method]``

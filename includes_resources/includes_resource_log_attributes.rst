@@ -11,7 +11,7 @@ This resource has the following properties:
 ``level``
    **Ruby Type:** Symbol
 
-   |level log| Default value: ``:info``.
+   |log_level chef_client| Default value: ``:info``.
    
 ``message``
    **Ruby Type:** String

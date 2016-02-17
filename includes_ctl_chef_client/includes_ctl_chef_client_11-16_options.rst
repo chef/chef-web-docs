@@ -17,7 +17,7 @@ This command has the following options:
    |port chef_zero|
 
 ``-F FORMAT``, ``--format FORMAT``
-   .. include:: ../../includes_ctl_chef_client/includes_ctl_chef_client_options_format
+   .. include:: ../../includes_ctl_chef_client/includes_ctl_chef_client_options_format.rst
 
 ``--force-formatter``
    |force_formatter|

@@ -4,7 +4,7 @@
 orgmapper
 =====================================================
 
-|orgmapper desc|
+|orgmapper| is a tool that can be used with a non-hosted |chef server| to provide administrative access to back-end objects. |orgmapper| can be a dangerous tool and should be used carefully. In general, anything that needs to be done around automating user creation, making permissions changes, and so on, can be done more easily using the ``knife-acl`` plugin and by using the |chef server| web interface.
 
 .. warning:: This tool is deprecated.
 

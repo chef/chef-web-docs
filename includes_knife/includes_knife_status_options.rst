@@ -11,7 +11,7 @@ This subcommand has the following options:
    |hide_healthy|
 
 ``-l``, ``--long``
-   |long|
+   |show_all_attributes|
 
 ``-m``, ``--medium``
    |medium|
