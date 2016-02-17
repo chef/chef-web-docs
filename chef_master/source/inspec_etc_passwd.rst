@@ -10,7 +10,9 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst There are two groupings, depending on if filtering is associated with a user identifier.
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+
+There are two groupings, depending on if filtering is associated with a user identifier.
 
 passwd
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
