@@ -12,7 +12,8 @@ and the following error is returned:
 
 .. code-block:: bash
 
-   ERROR: You authenticated successfully to <chef_server_url> as user1 but you are not authorized for this action
+   ERROR: You authenticated successfully to <chef_server_url> as user1
+          but you are not authorized for this action
    Response: Missing read permission
 
 Alice's action is unauthorized even with membership in the |webui group server_admins| group.
