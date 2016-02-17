@@ -38,7 +38,7 @@ This resource has the following properties:
    .. include:: ../../includes_resources_common/includes_resources_common_notifications_timers.rst
 
 ``override_attributes``
-   |attribute_type override|
+   .. include:: ../../includes_node/includes_node_attribute_type_override.rst
 
    Default value: ``{}``.
 
