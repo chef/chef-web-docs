@@ -153,7 +153,7 @@ The following list describes all of the optional settings that can be added to t
    |name environment|
 
 ``knife[:exec]``
-   |exec|
+   |execute_with_knife_command|
 
 ``knife[:file]``
    |file private_key|

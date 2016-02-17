@@ -49,7 +49,7 @@ The following list describes all of the optional settings that can be added to t
    * - ``knife[:disable_editing]``
      - |no_editor|
    * - ``knife[:distro]``
-     - |distro|
+     - .. include:: ../../includes_knife/includes_knife_bootstrap_distro.rst
    * - ``knife[:download_directory]``
      - |directory cookbooks|
    * - ``knife[:editor]``
@@ -57,7 +57,7 @@ The following list describes all of the optional settings that can be added to t
    * - ``knife[:environment]``
      - |name environment|
    * - ``knife[:exec]``
-     - |exec|
+     - |execute_with_knife_command|
    * - ``knife[:file]``
      - |file private_key|
    * - ``knife[:force]``

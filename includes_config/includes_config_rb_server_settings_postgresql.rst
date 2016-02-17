@@ -30,7 +30,7 @@ This configuration file has the following settings for ``postgresql``:
    Required when ``postgresql['external']`` is set to ``true``. |postgresql external_db_password| Default value: ``'the password'``.
 
 ``postgresql['dir']``
-   |directory generic| |default_value_recommended| Default value:
+   |directory generic_working| |default_value_recommended| Default value:
 
    .. code-block:: ruby
 

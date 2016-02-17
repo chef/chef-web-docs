@@ -19,7 +19,7 @@ This subcommand has the following options:
    |bootstrap version|
 
 ``-d DISTRO``, ``--distro DISTRO``
-   |distro|
+   .. include:: ../../includes_knife/includes_knife_bootstrap_distro.rst
 
    .. warning:: The default bootstrap operation uses the |omnibus installer|, which means the default template file (``chef-full``) should work on all supported platforms. It is recommended to use custom bootstrap templates only when the |omnibus installer| cannot be used. The ``.erb`` file extension is added automatically and should not be passed as part of the bootstrap command.
 

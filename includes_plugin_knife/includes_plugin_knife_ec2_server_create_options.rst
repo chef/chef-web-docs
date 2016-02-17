@@ -32,7 +32,7 @@ This argument has the following options:
    |aws_dedicated_instance|
 
 ``-d DISTRO``, ``--distro DISTRO``
-   |distro|
+   .. include:: ../../includes_knife/includes_knife_bootstrap_distro.rst
 
 ``--ebs-no-delete-on-term``
    |ebs_no_delete_on_term|

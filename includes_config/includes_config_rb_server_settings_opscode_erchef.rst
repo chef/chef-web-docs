@@ -38,7 +38,7 @@ This configuration file has the following settings for ``opscode-erchef``:
    |worker_processes depsolver| Use the ``pgrep -fl depselector`` command to verify the number of depsolver workers that are running. If you are seeing 503 service unavailable errors, increase this value. Default value: ``'5'``.
 
 ``opscode_erchef['dir']``
-   |directory generic| |default_value_recommended| Default value: ``/var/opt/opscode/opscode-erchef``.
+   |directory generic_working| |default_value_recommended| Default value: ``/var/opt/opscode/opscode-erchef``.
 
 ``opscode_erchef['enable']``
    |enable service| Default value: ``true``.

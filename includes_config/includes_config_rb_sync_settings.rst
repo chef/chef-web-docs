@@ -11,7 +11,7 @@ This configuration file has the following settings:
    Default value: ``'/opt/opscode'``.
 
 ``ec_sync_client['dir']``
-   |directory generic| |default_value_recommended| Default value: ``'/var/opt/chef-sync/ec_sync_client'``.
+   |directory generic_working| |default_value_recommended| Default value: ``'/var/opt/chef-sync/ec_sync_client'``.
 
 ``ec_sync_client['enable']``
    |enable service| Default value: ``true``.
@@ -50,7 +50,7 @@ This configuration file has the following settings:
    |db_pool_size| Default value: ``10``.
 
 ``ec_sync_server['dir']``
-   |directory generic| |default_value_recommended| Default value: ``'/var/opt/chef-sync/ec_sync_server'``.
+   |directory generic_working| |default_value_recommended| Default value: ``'/var/opt/chef-sync/ec_sync_server'``.
 
 ``ec_sync_server['enable']``
    |enable service| Default value: ``true``.

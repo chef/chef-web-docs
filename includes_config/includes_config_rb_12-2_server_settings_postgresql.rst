@@ -20,7 +20,7 @@ This configuration file has the following settings for ``postgresql``:
    |directory generic_data| |default_value_recommended| Default value: ``/var/opt/opscode/postgresql/#{node['private_chef']['postgresql']['version']}/data``.
 
 ``postgresql['dir']``
-   |directory generic| |default_value_recommended| Default value: ``/var/opt/opscode/postgresql/#{node['private_chef']['postgresql']['version']}``.
+   |directory generic_working| |default_value_recommended| Default value: ``/var/opt/opscode/postgresql/#{node['private_chef']['postgresql']['version']}``.
 
 ``postgresql['effective_cache_size']``
    |effective_cache_size postgresql| Default value: 50% of available RAM.

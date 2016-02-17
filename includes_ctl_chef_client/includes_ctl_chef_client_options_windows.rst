@@ -14,4 +14,6 @@ This command has the following options specific to |windows|:
    |fatal_windows_admin_check|
 
 ``-d``, ``--daemonize``
-   |daemonize| This option is only available on machines that run in |unix| or |linux| environments. For machines that are running |windows| that require similar functionality, use the ``chef-client::service`` recipe in the |cookbook chef_client| cookbook: http://community.opscode.com/cookbooks/chef-client. This will install a |chef client| service under |windows| using the |windows service wrapper|.
+   |daemonize|
+
+   |daemonize windows|

@@ -8,7 +8,7 @@ This configuration file has the following settings for ``opscode-expander``:
    |id consumer| Default value: ``default``.
 
 ``opscode_expander['dir']``
-   |directory generic| |default_value_recommended| Default value:
+   |directory generic_working| |default_value_recommended| Default value:
 
    .. code-block:: ruby
 

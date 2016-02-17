@@ -5,7 +5,7 @@
 This subcommand has the following options:
 
 ``-E CODE``, ``--exec CODE``
-   |exec|
+   |execute_with_knife_command|
 
 ``-p PATH:PATH``, ``--script-path PATH:PATH``
    |script-path| Use to override the default location for scripts. When this option is not specified, |knife| will look for scripts located in ``chef-repo/.chef/scripts`` directory.

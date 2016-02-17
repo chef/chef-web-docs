@@ -29,7 +29,7 @@ This configuration file has the following settings for |nginx|:
    Default value: ``false``.
 
 ``supermarket['nginx']['dir']``
-   |directory generic| |default_value_recommended| Default value: ``node['supermarket']['nginx']['directory']``.
+   |directory generic_working| |default_value_recommended| Default value: ``node['supermarket']['nginx']['directory']``.
 
 ``supermarket['nginx']['disable_access_log']``
    Default value: ``false``.

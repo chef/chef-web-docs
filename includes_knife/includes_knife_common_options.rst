@@ -13,7 +13,7 @@ The following options can be run with all |knife| subcommands and plug-ins:
    |no_editor|
 
 ``--defaults``
-   |defaults|
+   |knife defaults|
 
 ``-e EDITOR``, ``--editor EDITOR``
    |editor|

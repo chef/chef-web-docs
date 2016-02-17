@@ -11,7 +11,7 @@ This configuration file has the following settings:
    |directory generic_data| |default_value_recommended| Default value: ``/var/opt/chef-server/chef-solr/data``.
 
 ``chef_solr['dir']``
-   |directory generic| |default_value_recommended| Default value: ``/var/opt/chef-server/chef-solr``.
+   |directory generic_working| |default_value_recommended| Default value: ``/var/opt/chef-server/chef-solr``.
 
 ``chef_solr['enable']``
    Default value: ``true``.

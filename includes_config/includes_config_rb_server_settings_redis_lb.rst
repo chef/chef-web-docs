@@ -29,7 +29,7 @@ This configuration file has the following settings for ``redis_lb``:
    |database_quantity| Default value: ``'16'``.
 
 ``redis_lb['dir']``
-   |directory generic| |default_value_recommended| Default value: ``'/var/opt/opscode/redis_lb'``.
+   |directory generic_working| |default_value_recommended| Default value: ``'/var/opt/opscode/redis_lb'``.
 
 ``redis_lb['enable']``
    |enable service| Default value: ``true``.

@@ -14,7 +14,9 @@ This command has the following options:
    |config chef-client|
 
 ``-d``, ``--daemonize``
-   |daemonize| This option is only available on machines that run in |unix| or |linux| environments. For machines that are running |windows| that require similar functionality, use the ``chef-client::service`` recipe in the ``chef-client`` cookbook: http://community.opscode.com/cookbooks/chef-client. This will install a |chef client| service under |windows| using the |windows service wrapper|.
+   |daemonize|
+
+   |daemonize windows|
 
 ``-f``, ``--[no-]fork``
    |fork_chef|

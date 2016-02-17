@@ -38,7 +38,7 @@ Some of the optional |knife rb| settings are used often, such as the template fi
    |bootstrap version|
 
 ``knife[:distro]``
-   |distro|
+   .. include:: ../../includes_knife/includes_knife_bootstrap_distro.rst
 
 ``knife[:editor]``
    |editor|
