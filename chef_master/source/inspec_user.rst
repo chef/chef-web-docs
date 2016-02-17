@@ -10,7 +10,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 exist
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -54,7 +54,7 @@ warndays
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Verify available users for the MySQL server**
 

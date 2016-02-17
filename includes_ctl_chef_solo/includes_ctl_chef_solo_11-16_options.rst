@@ -14,7 +14,9 @@ This command has the following options:
    |config chef-client|
 
 ``-d``, ``--daemonize``
-   |daemonize| This option is only available on machines that run in |unix| or |linux| environments. For machines that are running |windows| that require similar functionality, use the ``chef-client::service`` recipe in the ``chef-client`` cookbook: http://community.opscode.com/cookbooks/chef-client. This will install a |chef client| service under |windows| using the |windows service wrapper|.
+   |daemonize|
+
+   |daemonize windows|
 
 ``-E ENVIRONMENT_NAME``, ``--environment ENVIRONMENT_NAME``
    |name environment|
@@ -23,13 +25,7 @@ This command has the following options:
    |fork_chef|
 
 ``-F FORMAT``, ``--format FORMAT``
-   |format chef_ctls| 
-   
-   |format chef_ctls_doc|
-   
-   |format chef_ctls_min|
-   
-   |format chef_ctls_other|
+   .. include:: ../../includes_ctl_chef_client/includes_ctl_chef_client_options_format
 
 ``--force-formatter``
    |force_formatter|

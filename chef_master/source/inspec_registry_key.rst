@@ -14,7 +14,7 @@ Registry Key Path Separators
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 name
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -22,7 +22,7 @@ name
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test the start time for the Schedule service**
 

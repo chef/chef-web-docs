@@ -14,7 +14,7 @@ This configuration file has the following settings:
    Default value: ``47b3b8d95dea455baf32155e95d1e64e``.
 
 ``chef_server_webui['dir']``
-   |directory generic| |default_value_recommended| Default value: ``/var/opt/chef-server/chef-server-webui``.
+   |directory generic_working| |default_value_recommended| Default value: ``/var/opt/chef-server/chef-server-webui``.
 
 ``chef_server_webui['enable']``
    |enable service| Default value: ``true``.

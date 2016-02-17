@@ -5,7 +5,7 @@
 This argument has the following options:
 
 ``CATEGORY``
-   |CATEGORY|
+   |cookbook_category|
 
 ``-o PATH:PATH``, ``--cookbook-path PATH:PATH``
    |cookbook path|

@@ -10,7 +10,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 policy_name
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -18,7 +18,7 @@ policy_name
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Verify that only the Administrators group has remote access**
 

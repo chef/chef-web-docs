@@ -10,11 +10,11 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource no_matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_no_matchers.rst
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test that a parameter is not set to "No Auditing"**
 

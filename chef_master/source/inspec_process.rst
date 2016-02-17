@@ -10,7 +10,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 property_name
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -18,7 +18,7 @@ property_name
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test if the list length for the mysqld process is 1**
 

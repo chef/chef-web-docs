@@ -11,7 +11,7 @@ This configuration file has the following settings:
    Default value: ``250m``.
 
 ``nginx['dir']``
-   |directory generic| |default_value_recommended| Default value: ``/var/opt/chef-server/nginx``.
+   |directory generic_working| |default_value_recommended| Default value: ``/var/opt/chef-server/nginx``.
 
 ``nginx['enable']``
    |enable service| Default value: ``true``.

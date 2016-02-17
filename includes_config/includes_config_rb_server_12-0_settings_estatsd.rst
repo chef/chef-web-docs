@@ -5,7 +5,7 @@
 This configuration file has the following settings for ``estatsd``:
 
 ``estatsd['dir']``
-   |directory generic| |default_value_recommended| Default value: ``'/var/opt/opscode/estatsd'``.
+   |directory generic_working| |default_value_recommended| Default value: ``'/var/opt/opscode/estatsd'``.
 
 ``estatsd['enable']``
    |enable service| Default value: ``true``.

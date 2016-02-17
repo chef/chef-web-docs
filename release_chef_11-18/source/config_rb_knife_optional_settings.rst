@@ -43,13 +43,13 @@ The following list describes all of the optional settings that can be added to t
    * - ``knife[:config_file]``
      - |config|
    * - ``knife[:depends]``
-     - |include-dependencies|
+     - |include_dependencies|
    * - ``knife[:description]``
      - The description for an environment and/or a role.
    * - ``knife[:disable_editing]``
      - |no_editor|
    * - ``knife[:distro]``
-     - |distro|
+     - .. include:: ../../includes_knife/includes_knife_bootstrap_distro.rst
    * - ``knife[:download_directory]``
      - |directory cookbooks|
    * - ``knife[:editor]``
@@ -57,7 +57,7 @@ The following list describes all of the optional settings that can be added to t
    * - ``knife[:environment]``
      - |name environment|
    * - ``knife[:exec]``
-     - |exec|
+     - |execute_with_knife_command|
    * - ``knife[:file]``
      - |file private_key|
    * - ``knife[:force]``
@@ -73,7 +73,7 @@ The following list describes all of the optional settings that can be added to t
    * - ``knife[:host_key_verify]``
      - |no_host_key_verify|
    * - ``knife[:identity_file]``
-     - |identity-file|
+     - |identity_file|
    * - ``knife[:initial]``
      - |initial|
    * - ``knife[:input]``

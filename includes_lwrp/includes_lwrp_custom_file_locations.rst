@@ -10,6 +10,6 @@ Custom resources and providers are loaded from files that are saved in the follo
    * - Directory
      - Description
    * - ``providers/``
-     - |cookbook directory providers|
+     - The sub-directory in which custom providers are located.
    * - ``resources/``
-     - |cookbook directory resources|
+     - The sub-directory in which custom resources are located.

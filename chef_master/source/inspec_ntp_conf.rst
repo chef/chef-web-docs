@@ -14,7 +14,7 @@ Matchers
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test for clock drift against named servers**
 

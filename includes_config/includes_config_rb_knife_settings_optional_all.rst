@@ -117,7 +117,7 @@ The following list describes all of the optional settings that can be added to t
    
 
 ``knife[:depends]``
-   |include-dependencies|
+   |include_dependencies|
 
 ``knife[:description]``
    The description for an environment and/or a role.
@@ -153,7 +153,7 @@ The following list describes all of the optional settings that can be added to t
    |name environment|
 
 ``knife[:exec]``
-   |exec|
+   |execute_with_knife_command|
 
 ``knife[:file]``
    |file private_key|
@@ -165,7 +165,7 @@ The following list describes all of the optional settings that can be added to t
    
 
 ``knife[:flat]``
-   |flat|
+   |show_files_as_list|
 
 ``knife[:force]``
    |force directory|
@@ -198,7 +198,7 @@ The following list describes all of the optional settings that can be added to t
    
 
 ``knife[:identity_file]``
-   |identity-file|
+   |identity_file|
 
 ``knife[:initial]``
    |initial|

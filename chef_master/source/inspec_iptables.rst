@@ -10,7 +10,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 have_rule
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -18,7 +18,7 @@ have_rule
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test if the IP table allows a packet through**
 

@@ -17,7 +17,7 @@ This configuration file has the following settings for |ssl|:
    |nginx ssl_country_name| Default value: ``'US'``.
 
 ``supermarket['ssl']['directory']``
-   |directory generic| Default value: ``'/var/opt/supermarket/ssl'``.
+   |directory generic_working| Default value: ``'/var/opt/supermarket/ssl'``.
 
 ``supermarket['ssl']['email_address']``
    |nginx ssl_email_address| Default value: ``'you@example.com'``.

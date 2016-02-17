@@ -8,7 +8,7 @@ This configuration file has the following settings for |redis|:
    |bind redis| Default value: ``'127.0.0.1'``.
 
 ``supermarket['redis']['directory']``
-   |directory generic| |default_value_recommended| Default value: ``"#{node['supermarket']['var_directory']}/redis"``.
+   |directory generic_working| |default_value_recommended| Default value: ``"#{node['supermarket']['var_directory']}/redis"``.
 
 ``supermarket['redis']['enable']``
    |enable service| Default value: ``true``.

@@ -8,7 +8,7 @@ This argument has the following options:
    |bootstrap version|
 
 ``-d DISTRO``, ``--distro DISTRO``
-   |distro|
+   .. include:: ../../includes_knife/includes_knife_bootstrap_distro.rst
 
 ``-f CREDENTIAL_FILE``, ``--gce-credential-file CREDENTIAL_FILE``
    |credential_file google|
@@ -48,7 +48,7 @@ This argument has the following options:
    |no_host_key_verify| Default setting: ``--host-key-verify``.
 
 ``-i IDENTITY_FILE``, ``--identity-file IDENTITY_FILE``
-   |identity-file|
+   |identity_file|
 
 ``-I IMAGE``, ``--gce-image IMAGE``
    |google_image| Default: ``gcompute8-standard``.

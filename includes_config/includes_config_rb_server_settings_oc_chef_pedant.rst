@@ -8,7 +8,7 @@ This configuration file has the following settings for ``oc-chef-pedant``:
    |pedant debug_org_creation| Default value: ``false``.
 
 ``oc_chef_pedant['dir']``
-   |directory generic| |default_value_recommended| Default value:
+   |directory generic_working| |default_value_recommended| Default value:
 
    .. code-block:: ruby
 

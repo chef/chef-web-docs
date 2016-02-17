@@ -21,7 +21,7 @@ This configuration file has the following settings for ``opscode-chef-mover``:
       '/var/opt/opscode/opscode-chef-mover/data'
 
 ``opscode_chef_mover['dir']``
-   |directory generic| |default_value_recommended| Default value:
+   |directory generic_working| |default_value_recommended| Default value:
 
    .. code-block:: ruby
 

@@ -23,7 +23,7 @@ This configuration file has the following settings for ``rabbitmq``:
    |directory generic_data| |default_value_recommended| Default value: ``'/var/opt/opscode/rabbitmq/db'``.
 
 ``rabbitmq['dir']``
-   |directory generic| |default_value_recommended| Default value: ``'/var/opt/opscode/rabbitmq'``.
+   |directory generic_working| |default_value_recommended| Default value: ``'/var/opt/opscode/rabbitmq'``.
 
 ``rabbitmq['enable']``
    |enable service| Default value: ``true``.

@@ -11,7 +11,7 @@ This subcommand has the following options:
    |start|
 
 ``-i``, ``--id-only``
-   |id-only|
+   |id_only|
 
 ``INDEX``
    |search_index| Default index: ``node``.

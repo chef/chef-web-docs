@@ -10,7 +10,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 value
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -18,7 +18,7 @@ value
    
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test if global forwarding is enabled for an IPv4 address**
 

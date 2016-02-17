@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-|config rb client| 
+A |client rb| file is used to specify the configuration details for the |chef client|. 
 
 * This file is loaded every time this executable is run
 * On |unix|- and |linux|-based machines, the default location for this file is |path chef client rb|; on |windows| machines, the default location for this file is |path chef client rb windows|; use the ``--config`` option from the command line to change this location

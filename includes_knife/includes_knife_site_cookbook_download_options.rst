@@ -5,7 +5,7 @@
 This argument has the following options:
 
 ``COOKBOOK_VERSION``
-   |COOKBOOK_VERSION download|
+   |cookbook_version download|
 
 ``-f FILE``, ``--file FILE``
    |file cookbook_download|

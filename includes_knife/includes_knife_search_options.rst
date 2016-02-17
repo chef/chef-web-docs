@@ -14,7 +14,7 @@ This subcommand has the following options:
    Use to return only attributes that match the specified ``FILTER``. For example: ``\"ServerName=name, Kernel=kernel.version\``.
 
 ``-i``, ``--id-only``
-   |id-only|
+   |id_only|
 
 ``INDEX``
    |search_index| Default index: ``node``.
