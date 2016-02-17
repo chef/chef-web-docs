@@ -43,7 +43,7 @@ The following list describes all of the optional settings that can be added to t
    * - ``knife[:config_file]``
      - |config|
    * - ``knife[:depends]``
-     - |include-dependencies|
+     - |include_dependencies|
    * - ``knife[:description]``
      - The description for an environment and/or a role.
    * - ``knife[:disable_editing]``
@@ -73,7 +73,7 @@ The following list describes all of the optional settings that can be added to t
    * - ``knife[:host_key_verify]``
      - |no_host_key_verify|
    * - ``knife[:identity_file]``
-     - |identity-file|
+     - |identity_file|
    * - ``knife[:initial]``
      - |initial|
    * - ``knife[:input]``

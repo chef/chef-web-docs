@@ -10,7 +10,7 @@ Syntax
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test if a rule contains a matching element that is identified by a regular expression**
 

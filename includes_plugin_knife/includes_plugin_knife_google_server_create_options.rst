@@ -48,7 +48,7 @@ This argument has the following options:
    |no_host_key_verify| Default setting: ``--host-key-verify``.
 
 ``-i IDENTITY_FILE``, ``--identity-file IDENTITY_FILE``
-   |identity-file|
+   |identity_file|
 
 ``-I IMAGE``, ``--gce-image IMAGE``
    |google_image| Default: ``gcompute8-standard``.

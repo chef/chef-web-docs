@@ -149,7 +149,7 @@ The following settings may be used when ``--bootstrap-protocol`` is set to ``ssh
    |no_host_key_verify| Default setting: ``--host-key-verify``.
    
 ``-i IDENTITY_FILE``, ``--identity-file IDENTITY_FILE``
-   |identity-file|
+   |identity_file|
 
 ``-p PORT``, ``--ssh-port PORT``
    |ssh_port|

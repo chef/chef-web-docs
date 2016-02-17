@@ -529,39 +529,25 @@
 .. |id chef_client_run| replace:: The identifier for a |chef client| run.
 .. |id consumer| replace:: The identity of the consumer to which messages are published.
 .. |id report_instance| replace:: Ensure that instances running |amazon linux| can log the instance identifier (e.g. ``i-12345678``) and region (e.g. ``us-west-1``) for an instance that downloads a package.
-.. |id site| replace:: The identifier for the site.
 .. |id vlan| replace:: The identifier for the VLAN.
-.. |id-only| replace:: Show only matching object IDs.
-.. |identity-file| replace:: The SSH identity file used for authentication. Key-based authentication is recommended.
+.. |id_only| replace:: Show only matching object IDs.
+.. |identity_file| replace:: The SSH identity file used for authentication. Key-based authentication is recommended.
 .. |identity_file_passphrase| replace:: The passphrase for the SSH key. Use only with ``--identity-file``.
 .. |ignore_failure| replace:: Continue running a recipe if a resource fails for any reason.
-.. |iis_accept_eula| replace:: Accept the terms of the end user license agreement.
-.. |iis_home| replace:: The home directory for |microsoft iis|.
-.. |iis_conf_dir| replace:: The location for |microsoft iis| configuration settings.
-.. |iis_pubroot| replace:: The public directory.
-.. |iis_docroot| replace:: The home directory.
-.. |iis_log_dir| replace:: The directory in which log files are located.
-.. |iis_cache_dir| replace:: The directory in which cached data is located.
 .. |image| replace:: The name of the image that identifies the operating system and version to be used to create the virtual machine.
-.. |include-dependencies| replace:: Ensure that when a cookbook has a dependency on one (or more) cookbooks, those cookbooks are also uploaded.
+.. |include_dependencies| replace:: Ensure that when a cookbook has a dependency on one (or more) cookbooks, those cookbooks are also uploaded.
 .. |include_config| replace:: The external configuration files to be included.
-.. |include_credentials| replace:: Include secure credentials in a |docker| image.
 .. |include_packages| replace:: A list of packages in a |yum| repository.
 .. |insecure openstack| replace:: Cause the Auth URL to ignore |ssl| certificates.
 .. |internet_host_address| replace:: The Internet host address for the network interface.
 .. |inherits windows security| replace:: Whether a file inherits rights from its parent directory.
 .. |initial| replace:: Create a |chef api client|, typically an administrator client on a freshly-installed |chef server|.
 .. |input file| replace:: The name of a file to be used with the ``PUT`` or a ``POST`` request.
-.. |inspec examples| replace:: The following examples show how to use this |inspec resource|.
-.. |inspec resource matcher| replace:: This |inspec resource| has the following matchers.
-.. |inspec resource no_matcher| replace:: This |inspec resource| does not have any matchers.
 .. |installonly_limit| replace:: The number of packages listed in ``installonlypkgs``.
 .. |installonlypkgs| replace:: A list of package provides that should only be installed (and never updated).
 .. |installroot| replace:: An alternate ``installroot``.
-.. |internal-ip-address| replace:: A static IP address that is provided by |google compute engine|.
 .. |interpreter| replace:: The script interpreter to use during code execution.
 .. |interval| replace:: The frequency (in seconds) at which the |chef client| runs.
-.. |ip_address| replace:: The IP address.
 .. |ip_address amazon_vpc| replace:: The private IP address of the instance |amazon vpc| mode.
 .. |ip_address floating_openstack| replace:: The floating IP address to be associated with a new |openstack| node (assuming that IP addresses have been allocated to the project).
 .. |ip_address elastic| replace:: Associate an elastic IP address with this instance.

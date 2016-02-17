@@ -23,7 +23,7 @@ This argument has the following options:
    |ssh_gateway|
 
 ``-i IDENTITY_FILE``, ``--identity-file IDENTITY_FILE``
-   |identity-file|
+   |identity_file|
 
 ``-j JSON_ATTRIBS``, ``--json-attributes JSON_ATTRIBS``
    |json first_run_string|

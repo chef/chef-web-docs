@@ -29,7 +29,7 @@ This argument has the following options:
    |groups|
 
 ``-i IDENTITY_FILE``, ``--identity-file IDENTITY_FILE``
-   |identity-file|
+   |identity_file|
 
 ``-I IMAGE_ID``, ``--image IMAGE_ID``
    |image|

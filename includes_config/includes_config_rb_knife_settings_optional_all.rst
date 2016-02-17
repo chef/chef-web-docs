@@ -117,7 +117,7 @@ The following list describes all of the optional settings that can be added to t
    
 
 ``knife[:depends]``
-   |include-dependencies|
+   |include_dependencies|
 
 ``knife[:description]``
    The description for an environment and/or a role.
@@ -198,7 +198,7 @@ The following list describes all of the optional settings that can be added to t
    
 
 ``knife[:identity_file]``
-   |identity-file|
+   |identity_file|
 
 ``knife[:initial]``
    |initial|

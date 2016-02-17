@@ -74,7 +74,7 @@ This argument has the following options:
    |source-image|
 
 ``--identity-file IDENTITY_FILE``
-   |identity-file|
+   |identity_file|
 
 ``--identity-file_passphrase PASSWORD``
    |identity_file_passphrase|
