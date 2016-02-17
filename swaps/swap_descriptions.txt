@@ -739,61 +739,40 @@
 
 
 .. |name admin_webui| replace:: The name of the administrator for the web user interface.
-.. |name application| replace:: The name of the application.
-.. |name application_pool| replace:: The name of the application pool.
-.. |name availability_zone| replace:: The name of the availability zone. Each availability zone is unique within a region.
-.. |name chef_server| replace:: The name of the |chef server|.
 .. |name class_chef_handler| replace:: The name of the handler class. This can be module name-spaced.
 .. |name client_webui| replace:: The name of the |chef server| web user interface.
-.. |name cluster| replace:: The name of the cluster.
 .. |name command| replace:: The name of the command to be executed.
 .. |name cookbook| replace:: The name of the cookbook.
 .. |name data_bag| replace:: The name of the data bag.
 .. |name data_bag_item| replace:: The name of a specific item within a data bag.
 .. |name db_ocid| replace:: The name of the database.
 .. |name delivery_project| replace:: A project inside a |chef delivery| Organization.
-.. |name distribution| replace:: The name of the distribution.
 .. |name dns_azure| replace:: The name of the DNS server (also known as the |azure hosted_service|).
 .. |name environment| replace:: The name of the environment.
-.. |name firewall| replace:: The name of the firewall.
 .. |name fqdn| replace:: The |fqdn| of the host.
-.. |name git_repo| replace:: The name of the |git| repository.
 .. |name homebrew_user| replace:: The name of the |homebrew| owner to be used by the |chef client| when executing a command.
-.. |name key_gnupg| replace:: The name of the |gnupg| key.
 .. |name group| replace:: The name of the group.
 .. |name group_process_owner| replace:: The name of the group that owns a process. This is required when starting any executable as a daemon.
-.. |name group_service_directory| replace:: The name of the group for which access to service directory and scripts is granted.
-.. |name gunicorn_processx| replace:: The name of an instance of |gunicorn|. This attribute is only necessary when more than one instance of |gunicorn| is running.
 .. |name iam_profile| replace:: The name of the |amazon iam| to apply to this instance.
 .. |name interface| replace:: The name of the interface.
 .. |name key_directory| replace:: The name of the key that is to be created, deleted, or modified.
 .. |name key_public| replace:: The name of the public key.
 .. |name lag| replace:: The name of the link aggregation group (LAG).
 .. |name_link| replace:: The name of the link.
-.. |name load_balancer| replace:: The name of the load balancer.
-.. |name module| replace:: The name of the module.
-.. |name monitor| replace:: The name of the monitor.
-.. |name nagios_nrpecheck| replace:: The name of the |nagios nrpe| check.
 .. |name node| replace:: The name of the node.
 .. |name node_client_rb| replace:: Determines which configuration should be applied and sets the ``client_name``, which is the name used when authenticating to a |chef server|. The default value is the |fqdn| of the |chef client|, as detected by |ohai|. In general, Chef recommends that you leave this setting blank and let |ohai| assign the |fqdn| of the node as the ``node_name`` during each |chef client| run.
 .. |name node_knife_rb| replace:: The name of the node. This may be a username with permission to authenticate to the |chef server| or it may be the name of the machine from which |knife| is run.
 .. |name ohai_plugin| replace:: The name of an |ohai| plugin to be reloaded.
 .. |name openstack_compute| replace:: The |openstack compute| user name.
 .. |name openstack_tenant| replace:: The |openstack compute| tenant name.
-.. |name owner| replace:: The name of the owner.
 .. |name package| replace:: The name of the package.
-.. |name package_group| replace:: The name of the package group.
 .. |name package_yum| replace:: One of the following: the name of a package, the name of a package and its architecture, the name of a dependency.
-.. |name pid_file| replace:: The file name for the process identifier (PID) file.
 .. |name placement_group| replace:: The name of the placement group.
-.. |name plugin| replace:: The name of the plugin.
 .. |name policy_group| replace:: The name of a policy group that exists on the |chef server|.
 .. |name policy_name| replace:: The name of a policy, as identified by the ``name`` setting in a |policyfile rb| file.
-.. |name port| replace:: The name of the port.
 .. |name powershell_cmdlet| replace:: The name of a valid |windows powershell| cmdlet. The name may only contain letter (a-z, A-Z), number (0-9), and underscore (_) characters and should start with a letter. The name may not be null or empty.
 .. |name powershell_dsc_resource| replace:: The name of the |windows powershell_dsc_short| resource.
 .. |name powershell_module| replace:: The name of the module from which a |windows powershell_dsc_short| resource originates.
-.. |name program| replace:: The name of the program.
 .. |name proxy| replace:: The user name for the proxy.
 .. |name repository_yum| replace:: The name of the |yum| repository.
 .. |name ruby_block| replace:: The name of the |ruby| block.
@@ -801,24 +780,17 @@
 .. |name scm_provider| replace:: The name of the source control management provider.
 .. |name server| replace:: The name of the server.
 .. |name service| replace:: The name of the service.
-.. |name site| replace:: The name of the site.
 .. |name sname_or_name| replace:: The ``node_name`` property as a short node name (``sname``) or a long node name (``name``). A node with a long node name cannot communicate with a node with a short node name.
 .. |name status| replace:: Show only the names of files with a status of ``Added``, ``Deleted``, ``Modified``, or ``Type Changed``.
-.. |name template_settings_file| replace:: The name of a template to be rendered to create the local settings file.
 .. |name user| replace:: The name of the user.
-.. |name user api_dns_update| replace:: The |dns update api| user name.
 .. |name user cron| replace:: The name of the user that runs the command. If the ``user`` property is changed, the original ``user`` for the |crontab| program continues to run until that |crontab| program is deleted.
 .. |name user postgresql| replace:: The |postgresql| account user name.
 .. |name user rackspace| replace:: The |rackspace| account user name.
 .. |name user yum_basic_auth| replace:: The user name for basic authentication to a repository or to a URL.
-.. |name validation_client| replace:: The name of the validation client, typically a client named |chef validator|.
-.. |name virtual_environment| replace:: The name of the virtual environment.
-.. |name virtual_host| replace:: The name of the virtual host.
 .. |name virtual_machine| replace:: The host name for the virtual machine.
 .. |name vlan| replace:: The name of the VLAN.
 .. |name vrrp_sync_group| replace:: The name of the |vrrp| synchronization group.
 .. |name vrrp_sync_instance| replace:: The name of the |vrrp| synchronization instance.
-.. |name windows_registry_value| replace:: The name of the value to be stored in the |windows| registry.
 .. |name only| replace:: Show only the names of modified files.
 .. |name_rules org| replace:: The name must begin with a lower-case letter or digit, may only contain lower-case letters, digits, hyphens, and underscores, and must be between 1 and 255 characters.
 .. |name_rules org_full| replace:: The full name must begin with a non-white space character and must be between 1 and 1023 characters.
@@ -826,7 +798,6 @@
 .. |network_address| replace:: The address for the network interface.
 .. |network_default| replace:: The network as the default.
 .. |network_label| replace:: Add a private network.
-.. |network_name| replace:: The name of the network in which a virtual machine is created.
 .. |network_private| replace:: Specify that a bootstrap network is a private network.
 .. |nginx bookshelf_caching| replace:: Whether |nginx| is used to cache cookbooks. When ``:on``, |nginx| serves up the cached content instead of forwarding the request.
 .. |nginx cache_max_size| replace:: The ``max_size`` parameter used by the |nginx| cache manager, which is part of the ``proxy_cache_path`` directive. When the size of file storage exceeds this value, the |nginx| cache manager removes the least recently used data.
@@ -843,8 +814,6 @@
 .. |nginx stub_status listen_port| replace:: The port on which the |nginx| ``stub_status`` module listens.
 .. |nginx stub_status location| replace:: The name of the |nginx| ``stub_status`` endpoint used to access data generated by the |nginx| ``stub_status`` module.
 .. |no name tags| replace:: Prevent tag names from being displayed in the output.
-.. |no_berkshelf| replace:: Prevent |berkshelf| from running, even when a |berksfile| exists.
-.. |no_bootstrap| replace:: Enable the |chef client| bootstrap.
 .. |no_diff| replace:: Show a diff when a file changes.
 .. |no_editor| replace:: Prevent the |chef editor| from being opened and accept data as-is.
 .. |no_force| replace:: Force the upload of files even if they haven't been changed.
@@ -865,13 +834,10 @@
 .. |node_hostname| replace:: The hostname to which the node is to connect.
 .. |node_purge| replace:: The name of the node to be deleted, if different from the server name.
 .. |node_path| replace:: The location in which nodes are stored when the |chef client| is run in local mode.
-.. |node_path_10| replace:: The location in which to look for node-specific recipes.
-
 .. |node type_cloud| replace:: A cloud-based node is hosted in an external cloud-based service, such as |amazon aws|, |openstack|, |rackspace|, |google compute engine|, or |azure|. Plugins are available for |knife| that provide support for external cloud-based services. |knife| can use these plugins to create instances on cloud-based services. Once created, the |chef client| can be used to deploy, configure, and maintain those instances.
 .. |node type_network| replace:: A network node is any networking device---a switch, a router---that is being managed by a |chef client|, such as networking devices by |juniper|, |arista|, |cisco|, and |f5|. Use |chef| to automate common network configurations, such physical and logical Ethernet link properties and VLANs, on these devices.
 .. |node type_physical| replace:: A physical node is typically a server or a virtual machine, but it can be any active device attached to a network that is capable of sending, receiving, and forwarding information over a communications channel. In other words, a physical node is any active device attached to a network that can run a |chef client| and also allow that |chef client| to communicate with a |chef server|.
 .. |node type_virtual| replace:: A virtual node is a machine that runs only as a software implementation, but otherwise behaves much like a physical machine.
-
 .. |non_unique_members| replace:: Allow ``gid`` duplication. May only be used with the ``Groupadd`` provider.
 .. |non_unique_user| replace:: Create a duplicate (non-unique) user account.
 .. |notifies| replace:: Which resource takes action when this resource's state changes. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
@@ -897,14 +863,9 @@
 .. |openid_cstore_path| replace:: The location in which |open id| data is stored in the file system.
 .. |opscode_support| replace:: This setting should not be changed without first consulting a |company_name| support engineer.
 .. |options mount| replace:: An array or string that contains mount options. If this value is a string, it is converted to an array.
-.. |orgmapper desc| replace:: |orgmapper| is a tool that can be used with a non-hosted |chef server| to provide administrative access to back-end objects. |orgmapper| can be a dangerous tool and should be used carefully. In general, anything that needs to be done around automating user creation, making permissions changes, and so on, can be done more easily using the ``knife-acl`` plugin and by using the |chef server| web interface.
-.. |orgmapper desc_private_chef| replace:: |orgmapper| is a tool that can be used with |chef private| to provide administrative access to back-end objects. |orgmapper| can be a dangerous tool and should be used carefully. In general, anything that needs to be done around automating user creation, making permissions changes, and so on, can be done more easily using the ``knife-acl`` plugin and by using the |chef private| web interface.
 .. |os-disk-name| replace:: The operating system type of the |azure| OS image: ``Linux`` or ``Windows``.
 .. |override_runlist| replace:: Replace the current run-list with the specified items.
 .. |overwrite_groups| replace:: Cause |yum| to use all matching repositories or only use the last matching repository.
-.. |owner directory_service| replace:: The owner of a service directory and scripts.
-.. |owner file| replace:: The owner of a file.
-.. |owner system| replace:: The system owner responsible for the checked-out code.
 .. |owner resource link| replace:: The owner associated with a symbolic link.
 .. |owner windows security| replace:: A string or ID that identifies the group owner by user name, including fully qualified user names such as ``domain\user`` or ``user@domain``. If this value is not specified, existing owners remain unchanged and new owner assignments use the current user (when necessary).
 
