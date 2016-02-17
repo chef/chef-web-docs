@@ -11,7 +11,7 @@ This configuration file has the following settings for ``drbd``:
    |drbd device| Default value: ``'/dev/drbd0'``.
 
 ``drbd['dir']``
-   |directory generic| |default_value_recommended| Default value: ``'/var/opt/opscode/drbd'``.
+   |directory generic_working| |default_value_recommended| Default value: ``'/var/opt/opscode/drbd'``.
 
 ``drbd['disk']``
    |drbd disk| Default value: ``'/dev/opscode/drbd'``.

@@ -36,7 +36,7 @@ This configuration file has the following settings:
    |copyright|
 
 ``cookbook_email``
-   |email|
+   |email cookbook_maintainer|
 
 ``cookbook_license``
    |license|

@@ -55,7 +55,7 @@ This subcommand has the following options:
    |hint_file| |hint_name| |hint_multiple|
 
 ``-i IDENTITY_FILE``, ``--ssh-identity-file IDENTITY_FILE``
-   |identity-file|
+   |identity_file|
 
 ``-j JSON_ATTRIBS``, ``--json-attributes JSON_ATTRIBS``
    |json first_run_string|

@@ -13,7 +13,7 @@ Use the ``--distro`` option with the ``knife bootstrap`` subcommand to specify t
    * - Setting
      - Description
    * - ``knife[:distro]``
-     - |distro|
+     - .. include:: ../../includes_knife/includes_knife_bootstrap_distro.rst
    * - ``knife[:template_file]``
      - |path bootstrap_template| Do not use the ``--distro`` option when ``--template-file`` is specified.
 

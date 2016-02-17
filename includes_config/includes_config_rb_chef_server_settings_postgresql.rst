@@ -20,7 +20,7 @@ This configuration file has the following settings:
    |directory generic_data| |default_value_recommended| Default value: ``/var/opt/chef-server/postgresql/data``.
 
 ``postgresql['dir']``
-   |directory generic| |default_value_recommended| Default value: ``/var/opt/chef-server/postgresql``.
+   |directory generic_working| |default_value_recommended| Default value: ``/var/opt/chef-server/postgresql``.
 
 ``postgresql['effective_cache_size']``
    |effective_cache_size postgresql| Default value: ``#{(node['memory']['total'].to_i / 2) / (1024)}MB``.

@@ -18,7 +18,7 @@ This configuration file has the following settings for ``opscode-solr4``:
       /var/opt/opscode/opscode-solr4/data
 
 ``opscode_solr4['dir']``
-   |directory generic| |default_value_recommended| Default value:
+   |directory generic_working| |default_value_recommended| Default value:
 
    .. code-block:: ruby
 

@@ -19,7 +19,7 @@ Some of the most popular |company_name|-maintained cookbooks are listed below:
    * - `bluepill <https://github.com/chef-cookbooks/bluepill>`_
      - The ``bluepill`` cookbook is used to install |bluepill|, and then use it to manage services.
    * - `chef_handler <https://docs.chef.io/resource_chef_handler.html>`_
-     - |cookbook name chef_handler|
+     - .. include:: ../../includes_cookbooks_opscode/includes_cookbooks_opscode_chef_handler.rst
    * - `cron <https://github.com/chef-cookbooks/cron>`_
      - Use to install cron and start the crond service.
    * - `dmg <https://github.com/chef-cookbooks/dmg>`_

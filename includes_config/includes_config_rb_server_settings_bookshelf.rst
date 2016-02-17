@@ -11,7 +11,7 @@ This configuration file has the following settings for ``bookshelf``:
    |directory generic_data| |default_value_recommended| Default value: ``/var/opt/opscode/bookshelf/data``.
 
 ``bookshelf['dir']``
-   |directory generic| |default_value_recommended| Default value: ``/var/opt/opscode/bookshelf``.
+   |directory generic_working| |default_value_recommended| Default value: ``/var/opt/opscode/bookshelf``.
 
 ``bookshelf['enable']``
    |enable service| Default value: ``true``.

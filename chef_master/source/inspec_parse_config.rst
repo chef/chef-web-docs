@@ -34,7 +34,7 @@ standalone_comments
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test the expiration time for new account passwords**
 

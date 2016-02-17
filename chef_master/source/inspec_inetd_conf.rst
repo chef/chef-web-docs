@@ -14,7 +14,7 @@ Matchers
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Verify that FTP is disabled**
 

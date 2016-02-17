@@ -16,7 +16,7 @@ This configuration file has the following settings for ``oc-id``:
    |db_pool_size| Default value: ``'20'``.
 
 ``oc_id['dir']``
-   |directory generic| |default_value_recommended| Default value: none.
+   |directory generic_working| |default_value_recommended| Default value: none.
 
 ``oc_id['enable']``
    |enable service| Default value: ``true``.

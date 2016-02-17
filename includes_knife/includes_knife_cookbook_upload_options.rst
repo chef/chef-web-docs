@@ -11,7 +11,7 @@ This argument has the following options:
    |concurrency| Default: ``10``.
 
 ``-d``, ``--include-dependencies``
-   |include-dependencies|
+   |include_dependencies|
 
 ``-E ENVIRONMENT``, ``--environment ENVIRONMENT``
    Use to set the environment version dependency to the cookbook version being uploaded.

@@ -5,4 +5,4 @@
 This argument has the following options:
 
 ``COOKBOOK_VERSION``
-   |COOKBOOK_VERSION show|
+   |cookbook_version show|

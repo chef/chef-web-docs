@@ -5,7 +5,7 @@
 This argument has the following options:
 
 ``CATEGORY``
-   |CATEGORY|
+   |cookbook_category|
 
 ``-n``, ``--dry-run``
    |dry_run| Default: ``false``.

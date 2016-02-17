@@ -11,7 +11,7 @@ This argument has the following options:
    |branch|
 
 ``COOKBOOK_VERSION``
-   |COOKBOOK_VERSION install|
+   |cookbook_version install|
 
 ``-D``, ``--skip-dependencies``
    |skip-dependencies|

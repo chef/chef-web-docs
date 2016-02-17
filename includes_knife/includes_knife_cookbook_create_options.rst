@@ -11,7 +11,7 @@ This argument has the following options:
    |license|
 
 ``-m EMAIL``, ``--email EMAIL``
-   |email|
+   |email cookbook_maintainer|
 
 ``-o PATH``, ``--cookbook-path PATH``
    |cookbook path|

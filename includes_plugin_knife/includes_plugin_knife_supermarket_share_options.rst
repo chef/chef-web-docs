@@ -5,7 +5,7 @@
 This argument has the following options:
 
 ``CATEGORY``
-   |CATEGORY|
+   |cookbook_category|
 
 ``-m``, ``--supermarket-site``
    |url supermarket| Default value: ``https://supermarket.chef.io``.

@@ -11,7 +11,7 @@ This configuration file has the following settings:
    |directory generic_data| |default_value_recommended| Default value: ``/var/opt/chef-server/rabbitmq/db``.
 
 ``rabbitmq['dir']``
-   |directory generic| |default_value_recommended| Default value: ``/var/opt/chef-server/rabbitmq``.
+   |directory generic_working| |default_value_recommended| Default value: ``/var/opt/chef-server/rabbitmq``.
 
 ``rabbitmq['enable']``
    |enable service| Default value: ``true``.

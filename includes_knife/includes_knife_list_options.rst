@@ -17,7 +17,7 @@ This subcommand has the following options:
    |d knife list| Default value: ``false``.
 
 ``-f``, ``--flat``
-   |flat| Default: ``false``.
+   |show_files_as_list| Default: ``false``.
 
 ``--local``
    |local_directory| Default: ``false``.

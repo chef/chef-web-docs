@@ -11,7 +11,7 @@ This configuration file has the following settings for ``nginx``:
    |nginx client_max_body_size| Default value: ``250m``.
 
 ``nginx['dir']``
-   |directory generic| |default_value_recommended| Default value: ``/var/opt/opscode/nginx``.
+   |directory generic_working| |default_value_recommended| Default value: ``/var/opt/opscode/nginx``.
 
 ``nginx['enable']``
    |enable service| Default value: ``true``.

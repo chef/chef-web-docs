@@ -26,7 +26,9 @@ This command has the following options:
    |port chef_zero| If a port is not specified---individually, as range of ports, or from the ``chef_zero.port`` setting in the |client rb| file---the |chef client| will scan for ports between 8889-9999 and will pick the first port that is available.
 
 ``-d``, ``--daemonize``
-   |daemonize| This option is only available on machines that run in |unix| or |linux| environments. For machines that are running |windows| that require similar functionality, use the ``chef-client::service`` recipe in the |cookbook chef_client| cookbook: http://community.opscode.com/cookbooks/chef-client. This will install a |chef client| service under |windows| using the |windows service wrapper|.
+   |daemonize|
+
+   |daemonize windows|
 
 ``--disable-config``
    Use to run the |chef client| using default settings. This will prevent the normally-associated configuration file from being used. This setting should only be used for testing purposes and should never be used in a production setting.
@@ -38,13 +40,7 @@ This command has the following options:
    |fork_chef|
 
 ``-F FORMAT``, ``--format FORMAT``
-   |format chef_ctls| 
-   
-   |format chef_ctls_doc|
-   
-   |format chef_ctls_min|
-   
-   |format chef_ctls_other|
+   .. include:: ../../includes_ctl_chef_client/includes_ctl_chef_client_options_format
 
 ``--force-formatter``
    |force_formatter|

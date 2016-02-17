@@ -92,12 +92,10 @@
 .. |bandwidth_yum| replace:: The maximum amount of network bandwidth (in bytes).
 .. |batch_size bulk_fetch| replace:: The number of nodes that may be deserialized. Currently only applies to the ``/search`` endpoint in the |api chef server|.
 .. |before| replace:: Add a run-list item before the specified run-list item.
-.. |before_fork| replace:: The object that is called by the master process before executing the |unicorn| binary.
 .. |before_migrate| replace:: A block of code, or a path to a file that contains code, that is run before a migration.
 .. |before_restart| replace:: A block of code, or a path to a file that contains code, that is run before restarting.
 .. |before_symlink| replace:: A block of code, or a path to a file that contains code, that is run before symbolic linking.
 .. |bind redis| replace:: Bind |redis| to the specified IP address.
-.. |bindings| replace:: A string that identifies the information needed to communicate with a site. This information may be an IP address, unspecified IP addresses, a port number, or an (optional) host header. For example: ``111.111.1.1:443:www.chef.io`` or ``*:443:``.
 .. |block_ruby| replace:: A block of |ruby| code.
 .. |bookshelf url| replace:: The URL at which cookbooks are stored.
 .. |bookshelf url_external| replace:: The URL from which the |chef client| is to download cookbooks. By default, this is the ``Host:`` header provided by the |chef client| when it contacts the |chef server|. When cookbook storage is located behind a firewall and/or when the ``Host:`` header is not used, this value must be a URL that is accessible to the |chef client|.
@@ -122,8 +120,6 @@
 .. |branch| replace:: The name of the default branch. This defaults to the master branch.
 .. |broadcast_address| replace:: The broadcast address for a network interface. On some platforms this property is not set using |ifconfig|, but instead is added to the startup configuration file for the network interface.
 .. |build_local_file| replace:: Build or execute a command line against a local file.
-.. |bundler_unicorn| replace:: Bundle the application with |unicorn|.
-.. |bundler_skip_groups| replace:: An array of |bundler| groups to skip.
 
 
 
@@ -139,7 +135,6 @@
 .. |ca_trust_file| replace:: The |ca| trust file used for |ssl| transport.
 .. |cache_path| replace:: The home directory for the user that is running the |chef client| as a non-root user.
 .. |cachedir| replace:: The directory in which |yum| stores cache and db files.
-.. |CATEGORY| replace:: The cookbook category: ``"Databases"``, ``"Web Servers"``, ``"Process Management"``, ``"Monitoring & Trending"``, ``"Programming Languages"``, ``"Package Management"``, ``"Applications"``, ``"Networking"``, ``"Operating Systems & Virtualization"``, ``"Utilities"``, or ``"Other"``.
 .. |checkout_branch git| replace:: Do a one-time checkout from |git| **or** use when a branch in the upstream repository is named ``deploy``. To prevent the |resource scm_git| resource from attempting to check out master from master, set ``enable_checkout`` to ``false`` when using the ``checkout_branch`` property.
 .. |checkpoint_completion_target| replace:: A completion percentage that is used to determine how quickly a checkpoint should finish in relation to the completion status of the next checkpoint. For example, if the value is ``0.5``, then a checkpoint attempts to finish before 50% of the next checkpoint is done.
 .. |checkpoint_segments| replace:: The maximum amount (in megabytes) between checkpoints in log file segments.
@@ -162,14 +157,11 @@
 .. |chunk_size| replace:: The chunk size.
 .. |clean_requirements_on_remove| replace:: Also remove package dependencies, when a package is removed.
 .. |clear_sources| replace:: Set to ``true`` to download a |gem| from the path specified by the ``source`` property (and not from |rubygems|).
-.. |client| replace:: Create a client configuration. This reads from the |knife rb| config file to generate a config file suitable for use in |path chef client rb|, and then copies the validation certificate into the specified directory.
 .. |client_key| replace:: The location of the file that contains the client key.
 .. |client_registration_retries| replace:: The number of times a |chef client| is to attempt to register with a |chef server|.
-.. |cluster member_nodes| replace:: A list of nodes to be part of a cluster.
 .. |code quoted_string| replace:: A quoted (" ") string of code to be executed.
 .. |code erlang_call| replace:: The code to be executed on a node located within a distributed |erlang| system.
 .. |code powershell| replace:: The code for the |windows powershell_dsc_short| configuration script.
-.. |collectstatic| replace:: The behavior of the ``staticfiles`` application. If ``true``, it invokes ``manage.py`` with ``collectstatic -- noinput``.
 .. |color| replace:: View colored output.
 .. |color_list_available_downgrade| replace:: The color used for a package downgrade.
 .. |color_list_available_install| replace:: The color used for a package install.
@@ -198,32 +190,20 @@
 .. |config| replace:: The configuration file to use.
 .. |config chef-client| replace:: The configuration file to use.
 .. |config powershell| replace:: The configuration data for the |windows powershell_dsc_short| script.
-.. |config rb chef server| replace:: A |chef server rb| file is used to specify the configuration settings for the |chef server|.
-.. |config rb client| replace:: A |client rb| file is used to specify the configuration details for the |chef client|.
-.. |config rb knife| replace:: A |knife rb| file is used to specify the |chef repo|-specific configuration details for |knife|.
-.. |config rb server| replace:: A |server rb| file is used to specify the configuration details for the |chef server|.
-.. |config rb solo| replace:: A |solo rb| file is used to specify the configuration details for |chef solo|.
-.. |config rb solr| replace:: A |solr rb| file is used to specify the configuration details for |chef solr|, |chef solr indexer|, and |chef solr rebuild|.
 .. |content file| replace:: A string that is written to the file. The contents of this property replace any previous content when this property has something other than the default value.
 .. |convert_boolean_return| replace:: Return ``0`` if the last line of a command is evaluated to be true or to return ``1`` if the last line is evaluated to be false.
-.. |cookbook directory attributes| replace:: The sub-directory in which attributes are located.
-.. |cookbook directory libraries| replace:: The sub-directory in which libraries are located.
-.. |cookbook directory providers| replace:: The sub-directory in which lightweight providers are located.
-.. |cookbook directory recipes| replace:: The sub-directory in which recipes are located.
-.. |cookbook directory resources| replace:: The sub-directory in which lightweight resources are located.
-.. |cookbook directory templates| replace:: The sub-directory in which templates are located.
+.. |cookbook_category| replace:: The cookbook category: ``"Databases"``, ``"Web Servers"``, ``"Process Management"``, ``"Monitoring & Trending"``, ``"Programming Languages"``, ``"Package Management"``, ``"Applications"``, ``"Networking"``, ``"Operating Systems & Virtualization"``, ``"Utilities"``, or ``"Other"``.
 .. |cookbook file_location| replace:: The cookbook in which a file is located (if it is not located in the current cookbook).
 .. |cookbook external_storage_settings| replace:: Four settings require configuration when pointing at an external cookbook storage location: ``bookshelf['vip']``, for the endpoint used by the |chef client|; ``bookshelf['external_url']``, for the endpoint used by the |chef server|; ``bookshelf['access_key_id']``, for user access key; ``bookshelf['secret_access_key']``, for secret key; and ``opscode_erchef['s3_bucket']``, for the bucket name. Reconfigure the |chef server| after changing these settings.
-.. |cookbook name chef_handler| replace:: The |cookbook chef_handler| cookbook is used to distribute and enable exception and report handlers.
 .. |cookbook path| replace:: The directory in which cookbooks are created. This can be a colon-separated path.
 .. |cookbook_path subdirectory| replace:: The sub-directory for cookbooks on the |chef client|. This value can be a string or an array of file system locations, processed in the specified order. The last cookbook is considered to override local modifications.
 .. |cookbook stream_download| replace:: Enable stream downloading of cookbooks. This setting (when ``true``) typically results in improved cookbook download performance, especially with the memory usage of the |service bookshelf| service and the behavior of load balancers and proxies in-between the |chef client| and the |chef server|.
 .. |cookbook_sync_threads| replace:: The number of helper threads available for parallel cookbook synchronization. Increasing this value **may** increase the frequency of gateway errors from the |chef server| (503 and 504 errors). Decreasing this number reduces the frequency of gateway errors, if present.
 .. |cookbook_tarball_path| replace:: The location in which a |chef server| stores cookbooks that have been saved in the .tar file format, and from which cookbooks are distributed to a |chef client|.
-.. |COOKBOOK_VERSION delete| replace:: The version of a cookbook to be deleted. If a cookbook has only one version, this option does not need to be specified. If a cookbook has more than one version and this option is not specified, |knife|  prompts for a version.
-.. |COOKBOOK_VERSION download| replace:: The version of a cookbook to be downloaded. If a cookbook has only one version, this option does not need to be specified. If a cookbook has more than one version and this option is not specified, the most recent version of the cookbook is downloaded.
-.. |COOKBOOK_VERSION install| replace:: The version of the cookbook to be installed. If a version is not specified, the most recent version of the cookbook is installed.
-.. |COOKBOOK_VERSION show| replace:: The version of a cookbook to be shown. If a cookbook has only one version, this option does not need to be specified. If a cookbook has more than one version and this option is not specified, a list of cookbook versions is returned.
+.. |cookbook_version delete| replace:: The version of a cookbook to be deleted. If a cookbook has only one version, this option does not need to be specified. If a cookbook has more than one version and this option is not specified, |knife|  prompts for a version.
+.. |cookbook_version download| replace:: The version of a cookbook to be downloaded. If a cookbook has only one version, this option does not need to be specified. If a cookbook has more than one version and this option is not specified, the most recent version of the cookbook is downloaded.
+.. |cookbook_version install| replace:: The version of the cookbook to be installed. If a version is not specified, the most recent version of the cookbook is installed.
+.. |cookbook_version show| replace:: The version of a cookbook to be shown. If a cookbook has only one version, this option does not need to be specified. If a cookbook has more than one version and this option is not specified, a list of cookbook versions is returned.
 .. |cookie resource erlang_call| replace:: The magic cookie for the node to which a connection is made.
 .. |copyright| replace:: The name of the copyright holder. This option places a copyright notice that contains the name of the copyright holder in each of the pre-created files. If this option is not specified, a copyright name of "COMPANY_NAME" is used instead; it can easily be modified later.
 .. |cost_repo| replace:: The relative cost of accessing this repository.
@@ -251,22 +231,16 @@
 .. |d knife list| replace:: Prevent a directory's children from showing when a directory matches a pattern.
 .. |daemonize| replace:: Run the executable as a daemon.
 .. |daemonize chef_client| replace:: The |chef client| executable can be run as a daemon.
-.. |daemonize gunicorn| replace:: Daemonize the |gunicorn| process.
+.. |daemonize windows| replace:: This option is only available on machines that run in |unix| or |linux| environments. For machines that are running |windows| that require similar functionality, use the ``chef-client::service`` recipe in the ``chef-client`` cookbook: https://supermarket.chef.io/cookbooks/chef-client. This will install a |chef client| service under |windows| using the |windows service wrapper|.
 .. |data_bag_decrypt_minimum_version| replace:: The minimum required version of data bag encryption. Possible values: ``0``, ``1``, and ``2``. When all of the machines in an organization are running |chef client| version 11.6 (or higher), it is recommended that this value be set to ``2``.
 .. |data_bag_path| replace:: The location from which a data bag is loaded.
-.. |database_master_role| replace:: The name of a role. During a |chef client| run, a search is performed to find a node with the same name as this value in the same environment as the current role. If a node is found, it's IP address is used when rendering the context file.
-.. |database_master_role database_yml| replace:: The name of a role. During a |chef client| run, a search is performed to find a node with the same name as this value in the same environment as the current role. If a node is found, it's IP address is used when rendering the ``database.yml`` file.
 .. |database_quantity| replace:: The number of databases.
 .. |day cron| replace:: The day of month at which the |cron| entry should run (1 - 31).
 .. |db_pool_size| replace:: The number of open connections to |postgresql| that are maintained by the service.
-.. |debug_enabled| replace:: Enable debugging
 .. |debug_level| replace:: The output level for debug messages.
-.. |debug settings_template| replace:: Control debugging using the default settings template.
 .. |default_orgname| replace:: The |api chef server| used by the |chef server osc| server does not have an ``/organizations/ORG_NAME`` endpoint. Use this setting to ensure that migrated |chef server osc| servers are able to connect to the |api chef server|. This value should be the same as the name of the organization that was created during the upgrade from |chef server osc| version 11 to |chef server| version 12, which means it will be identical to the ``ORG_NAME`` part of the ``/organizations`` endpoint in |chef server| version 12. Default value: the name of the organization specified during the upgrade process from |chef server osc| 11 to |chef server| 12.
 .. |default_release apt| replace:: The default release.
 .. |default_value_recommended| replace:: The default value is the recommended value.
-.. |defaults| replace:: Cause |knife| to use the default value instead of asking a user to provide one.
-.. |delay_mins| replace:: The amount of time (in minutes) to delay a reboot request.
 .. |delete_local_and_remote| replace:: Delete both local and remote copies of an object.
 .. |delete chef_validator| replace:: Force the deletion of the |chef client| when it is also a |chef validator|.
 .. |delim resource directory| replace:: The delimiter that is used to separate multiple values for a single key.
@@ -291,10 +265,10 @@
 .. |description environment| replace:: The description of the environment. This value populates the description field for the environment on the |chef server|.
 .. |description interface| replace:: The description of the interface.
 .. |description recipe| replace:: A description for a recipe, mostly for cosmetic value within the |chef server| user interface.
-.. |destination resource scm| replace:: The location path to which the source is to be cloned, checked out, or exported.
 .. |description role| replace:: The description of the role. This value populates the description field for the role on the |chef server|.
 .. |description vlan| replace:: The description of the VLAN.
 .. |description yum_repository| replace:: A description of the |yum| repository.
+.. |destination resource scm| replace:: The location path to which the source is to be cloned, checked out, or exported.
 .. |device ifconfig| replace:: The network interface to be configured.
 .. |device mount| replace:: The special block device or remote node, a label, or a uuid to be mounted.
 .. |device_type| replace:: The type of device: ``:device``, ``:label``, or ``:uuid``.
@@ -306,29 +280,18 @@
 .. |diff_filter| replace:: Select only files that have been added (``A``), deleted (``D``), modified (``M``), and/or have had their type changed (``T``). Any combination of filter characters may be used, including no filter characters. Use ``*`` to select all paths if a file matches other criteria in the comparison.
 .. |diff_upload| replace:: Upload only new and modified files.
 .. |directory cookbooks| replace:: The directory in which cookbooks are located.
-.. |directory dockerfile_context| replace:: The directory in which |dockerfile| contexts are located.
-.. |directory environments| replace:: The directory in which environments are located.
 .. |directory expander_reindexer| replace:: The directory in which ``opscode-expander-reindexer`` logs files are located.
-.. |directory generic| replace:: The working directory.
+.. |directory generic_working| replace:: The working directory.
 .. |directory generic_data| replace:: The directory in which on-disk data is stored.
 .. |directory chef_server| replace:: The directory in which the |chef server| is installed.
 .. |directory keepalive_post_hooks| replace:: The directory to which |keepalived| is to send ``POST`` hooks.
 .. |directory logs| replace:: The directory in which log data is stored.
-.. |directory nodes| replace:: The directory in which nodes are located.
-.. |directory package_download| replace:: The directory to which a package is downloaded.
 .. |directory postgresql_home| replace:: The home directory for |postgresql|.
-.. |directory redisx| replace:: Also the location in which an append-only log file is created, if used.
-.. |directory roles| replace:: The directory in which roles are located.
-.. |directory trusted_certificates| replace:: The directory in which trusted certificates are located.
 .. |disable plugin_ohai| replace:: An array of |ohai| plugins to be disabled on a node.
-.. |disable-bootstrap| replace:: Disable the bootstrap process.
 .. |disable event_logging_windows| replace:: Enable or disable sending events to the |windows| "Application" event log. When ``false``, events are sent to the |windows| "Application" event log at the start and end of a |chef client| run, and also if a |chef client| run fails. Set to ``true`` to disable event logging.
 .. |diskspacecheck| replace:: Check for sufficient disk space before running a transaction.
 .. |distroverpkg| replace:: The package used by |yum| to determine the version for a distribution.
 .. |distributed_erlang_node| replace:: The node is a distributed |erlang| node.
-.. |distro| replace:: The template file to be used during a bootstrap operation. The following distributions are supported: ``chef-full`` (the default bootstrap), ``centos5-gems``, ``fedora13-gems``, ``ubuntu10.04-gems``, ``ubuntu10.04-apt``, ``ubuntu12.04-gems``, and the name of a custom bootstrap template file. When this option is used, |knife| searches for the template file in the following order: the ``bootstrap/`` folder in the current working directory, the ``bootstrap/`` folder in the |chef repo|, the ``bootstrap/`` folder in the ``~/.chef/`` directory, or a default bootstrap file. Do not use the ``--template-file`` option when ``--distro`` is specified.
-.. |docker base_image| replace:: The image to use as the base image. This image is then tagged and applied as the ``FROM`` value in the |dockerfile|. Currently, this value must be an image made available via the |chef docker_hub_account|: https://registry.hub.docker.com/repos/chef/.
-.. |dns_zone| replace:: The DNS zone.
 .. |drbd device| replace:: The device name to use for |drbd|.
 .. |drbd disk| replace:: The local LVM logical volume to use behind |drbd|.
 .. |drbd flexible_meta_disk| replace:: Where |drbd| meta-data is stored.
@@ -360,10 +323,9 @@
 .. |ebs_size| replace:: The size of the |amazon ebs| volume, in GB. This option is only available for instances that are backed with |amazon ebs|.
 .. |ebs_volume_type| replace:: The type of |amazon ebs| volume.
 .. |ebs_volume_type provisioned_iops| replace:: The IOPS rate used for a |amazon ebs_volume_provisioned| volume.
-.. |edit| replace:: Edit instance data using the default text editor.
 .. |editor| replace:: The |chef editor| that is used for all interactive commands.
 .. |effective_cache_size postgresql| replace:: The size of the disk cache that is used for data files.
-.. |email| replace:: The email address for the individual who maintains the cookbook. This option places an email address in each of the pre-created files. If not specified, an email name of "YOUR_EMAIL" is used instead; this can easily be modified later.
+.. |email cookbook_maintainer| replace:: The email address for the individual who maintains the cookbook. This option places an email address in each of the pre-created files. If not specified, an email name of "YOUR_EMAIL" is used instead; this can easily be modified later.
 .. |email chef_server| replace:: The email addressed to which email notifications are sent.
 .. |enable actions| replace:: Enable |chef actions|.
 .. |enable_git_checkout| replace:: Check out a repo from master.
@@ -379,7 +341,6 @@
 .. |enable reporting_url_fatals| replace:: Cause the |chef client| run to fail when |reporting| data cannot be sent to the |chef server| (for any reason).
 .. |enable service| replace:: Enable a service.
 .. |encrypted_data_bag_secret| replace:: The subdirectory in which encrypted data bag secrets are located.
-.. |environment cookbooks| replace:: The environment that is to be applied to all cookbooks that are uploaded using the same action. This automatically sets the version constraint on the environment to match the version of a cookbook that is being uploaded.
 .. |environment set_home| replace:: Set the ``HOME`` environment variable.
 .. |environment set_mailto| replace:: Set the ``MAILTO`` environment variable.
 .. |environment set_path| replace:: Set the ``PATH`` environment variable.
@@ -387,22 +348,16 @@
 .. |environment variables| replace:: A |ruby hash| of environment variables in the form of ``{"ENV_VARIABLE" => "VALUE"}``. (These variables must exist for a command to be run successfully.)
 .. |ephemeral device| replace:: A comma-separated list of device locations to be mapped to ephemeral devices.
 .. |errorlevel| replace:: The output level for error messages.
-
 .. |event_type audit_phase_failed| replace:: The |chef client| run audit phase has failed.
 .. |event_type converge_failed| replace:: The |chef client| run converge phase has failed.
 .. |event_type recipe_not_found| replace:: The |chef client| was unable to find the named recipe.
 .. |event_type resource_failed| replace:: A resource action has failed and will not be retried.
 .. |event_type run_failed| replace:: The |chef client| run has failed.
-
-
 .. |exactarch| replace:: Update only packages that match the architecture already installed.
-.. |exec| replace:: A string of code that to be executed.
+.. |execute_with_knife_command| replace:: A string of code that to be executed.
 .. |exclude_package_list| replace:: A space-separated list of packages to be excluded from updates and installs.
 .. |excluded_members| replace:: Remove users from a group. May only be used when ``append`` is set to ``true``.
 .. |execute chef_apply| replace:: Execute a resource using a string.
-.. |exists packagex| replace:: Use when a package already exists.
-.. |external-ip-address| replace:: A static IP address that is provided by |google compute engine|.
-
 
 
 .. Description strings that begin with the letter F.
@@ -416,15 +371,13 @@
 .. |fastest_mirror_enabled| replace:: Assign the fastest available mirror.
 .. |fatal_windows_admin_check| replace:: Cause a |chef client| run to fail when the |chef client| does not have administrator privileges in |windows|.
 .. |failover_method| replace:: The fail-over method. ``roundrobin`` randomly selects a URL out of a list of URLs and proceeds through each of them as it encounters a failure when contacting the host; ``priority`` starts from the first base URL listed and proceeds through them sequentially.
-.. |file| replace:: The name of the cookbook file to be downloaded.
 .. |file atomic_update| replace:: Apply atomic file updates to all resources. Set to ``true`` for global atomic file updates. Set to ``false`` for global non-atomic file updates. (Use the ``atomic_update`` setting on a per-resource basis to override this setting.)
 .. |file azure_publish_settings| replace:: The name of the |azure publish_settings| file, including the path. For example: ``"/path/to/your.publishsettings"``.
-.. |file cache_path| replace:: The location in which cookbooks (and other transient data) files are stored when they are synchronized. This value can also be used in recipes to download files with the ``remote_file`` resource.
+.. |file cache_path| replace:: The location in which cookbooks (and other transient data) files are stored when they are synchronized. This value can also be used in recipes to download files with the |resource remote_file| resource.
 .. |file cookbook_download| replace:: The file to which a cookbook download is written.
-.. |file local_settings| replace:: The name of the local settings file to be generated by a template.
 .. |file private_key| replace:: Save a private key to the specified file name.
 .. |file public_key| replace:: Save a public key to the specified file name.
-.. |FILE_NAME| replace:: The name of a file that is associated with a cookbook.
+.. |file_name| replace:: The name of a file that is associated with a cookbook.
 .. |file_staging_uses_destdir| replace:: How file staging (via temporary files) is done. When ``true``, temporary files are created in the directory in which files will reside. When ``false``, temporary files are created under ``ENV['TMP']``.
 .. |files_backup| replace:: The number of backup copies to keep for files in the directory.
 .. |files_group| replace:: Configure group permissions for files.
@@ -432,26 +385,18 @@
 .. |flags| replace:: One or more command line flags that are passed to the interpreter when a command is invoked.
 .. |flags powershell_script| replace:: A string that is passed to the |windows powershell| command.
 .. |flags powershell| replace:: Pass parameters to the |windows powershell_dsc_short| script that is specified by the ``command`` property. Parameters are defined as key-value pairs, where the value of each key is the parameter to pass.
-.. |flat| replace:: Show a list of file names. Set to ``false`` to view ls-like output.
 .. |flavor| replace:: The name of the flavor that identifies the hardware configuration of the server, including disk space, memory capacity, and CPU priority.
 .. |flush_cache| replace:: Flush the in-memory cache before or after a |yum| operation that installs, upgrades, or removes a package.
 .. |flush_cache yum_cache| replace:: The ``flush_cache`` property does not flush the local |yum| cache! Use |yum| tools---``yum clean headers``, ``yum clean packages``, ``yum clean all``---to clean the local |yum| cache.
-.. |force| replace:: Force the download of a deprecated cookbook.
 .. |force directory| replace:: Overwrite an existing directory.
 .. |force knife download| replace:: Use ``--force`` to download files even when the file on the hard drive is identical to the object on the server (role, cookbook, etc.). By default, files are compared to see if they have equivalent content, and local files are only overwritten if they are different.
 .. |force knife upload| replace:: Use ``--force`` to upload roles, cookbooks, etc. even if the file in the directory is identical (by default, no ``POST`` or ``PUT`` is performed unless an actual change would be made).
 .. |force update| replace:: Update a cookbook even if the ``--freeze`` flag has been set.
-.. |force_docker_build| replace:: Force a build.
-.. |force_docker_contexts| replace:: When ``true``, overwrites existing |dockerfile| contexts.
 .. |force_formatter| replace:: Show formatter output instead of logger output.
 .. |force_logger| replace:: Show logger output instead of formatter output.
 .. |force_remove_user| replace:: Force the removal of a user. May be used only with the ``:remove`` action.
 .. |force_unlink| replace:: How the |chef client| handles certain situations when the target file turns out not to be a file. For example, when a target file is actually a symlink. Set to ``true`` for the |chef client| delete the non-file target and replace it with the specified file. Set to ``false`` for the |chef client| to raise an error.
 .. |format| replace:: The output format: ``summary`` (default), ``text``, ``json``, ``yaml``, and ``pp``.
-.. |format chef_ctls| replace:: The output format: ``doc`` (default) or ``min``.
-.. |format chef_ctls_doc| replace:: Use ``doc`` to print the progress of the |chef client| run using full strings that display a summary of updates as they occur.
-.. |format chef_ctls_min| replace:: Use ``min`` to print the progress of the |chef client| run using single characters. A summary of updates is printed at the end of the |chef client| run. A dot (``.``) is printed for events that do not have meaningful status information, such as loading a file or synchronizing a cookbook. For resources, a dot (``.``) is printed when the resource is up to date, an ``S`` is printed when the resource is skipped by ``not_if`` or ``only_if``, and a ``U`` is printed when the resource is updated.
-.. |format chef_ctls_other| replace:: Other formatting options are available when those formatters are configured in the |client rb| file using the ``add_formatter`` option.
 .. |fork_chef| replace:: Contain the |chef client| run in a secondary process with dedicated RAM. When the |chef client| run is complete, the RAM is returned to the master process. This option helps ensure that a |chef client| uses a steady amount of RAM over time because the master process does not run recipes. This option also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Use ``--no-fork`` to disable running the chef-client in fork node. Default value: ``--fork``.
 .. |forward_agent| replace:: Enable |ssh| agent forwarding.
 .. |freeze| replace:: Require changes to a cookbook be included as a new version. Only the ``--force`` option can override this setting.
@@ -472,8 +417,6 @@
 
 
 .. |gem_binary resource package| replace:: A property for the ``gem_package`` provider that is used to specify a |gems| binary.
-.. |gems_array| replace:: An array of |gems| to be installed.
-.. |generate_berksfile| replace:: Generate a |berksfile| based on the run-list specified by the ``--run-list`` option.
 .. |generate local_keys| replace:: Whether the |chef server| or |chef client| generates the private/public key pair. When ``true``, the |chef client| generates the key pair, and then sends the public key to the |chef server|.
 .. |generic resource statement| replace:: The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how |company_name| uses resources in recipes, take a closer look at the cookbooks that |company_name| authors and maintains: https://github.com/chef-cookbooks.
 .. |git sha| replace:: The |git| SHA associated with a patchset.
@@ -487,7 +430,6 @@
 .. |google_auto_server_migrate| replace:: Whether |google compute engine| can migrate the virtual machine instance without downtime, prior to periodic infrastructure maintenance.
 .. |google_auto_server_restart| replace:: Whether |google compute engine| is to automatically restart the virtual machine instance if it is terminated by non-user initiated actions.
 .. |google_image| replace:: The name of the virtual application template or image that is to be used to create the virtual machine.
-.. |google_compute_disks| replace:: A comma-separated list of disks to be attached.
 .. |google_compute_public_ip| replace:: The public IP address for |google compute engine|.
 .. |google_compute_machine_type| replace:: The machine type for the instance running in |google compute engine| server. For example, ``n1-highcpu-2`` or ``n1-highcpu-2-d``. The full list of available machine types: https://developers.google.com/compute/docs/instances.
 .. |google_compute_metadata| replace:: A list of metadata key-value pairs that are associated with an instance.
@@ -539,7 +481,6 @@
 .. |handler method_start_time| replace:: The time at which a |chef client| run started.
 .. |handler method_success| replace:: Show that a |chef client| run succeeded when uncaught exceptions were not raised during a |chef client| run.
 .. |handler method_updated_resources| replace:: A list of resources that were marked as updated as a result of the |chef client| run.
-.. |handler method_formatted_string| replace:: The exception as a formatted string, for example: ``ExceptionClass: message``.
 .. |handler config_exception| replace:: A list of exception handlers that are available to the |chef client| during a |chef client| run.
 .. |handler config_report| replace:: A list of report handlers that are available to the |chef client| during a |chef client| run.
 .. |handler config_start| replace:: A list of start handlers that are available to the |chef client| at the start of a |chef client| run.
@@ -558,9 +499,7 @@
 .. |history_record| replace:: Record history entries for transactions. This typically requires extra disk space and may take longer to process than when not used; however, when this is not enabled, |yum| may not be able to provide warnings for problems that may arise.
 .. |history_record_packages| replace:: A list of package names to be recorded as having helped the transaction.
 .. |home_directory| replace:: The location of the home directory.
-.. |host_header| replace:: The host header, domain, or host name to which a site is mapped.
 .. |host chef_zero| replace:: Override the host on which |chef zero| listens.
-.. |hosted-service-name| replace:: The name of the hosted service.
 .. |hour cron| replace:: The hour at which the |cron| entry is to run (0 - 23).
 .. |http_caching| replace:: Define how upstream HTTP caches handle HTTP downloads.
 .. |http_proxy| replace:: The proxy server for HTTP connections.
@@ -590,39 +529,25 @@
 .. |id chef_client_run| replace:: The identifier for a |chef client| run.
 .. |id consumer| replace:: The identity of the consumer to which messages are published.
 .. |id report_instance| replace:: Ensure that instances running |amazon linux| can log the instance identifier (e.g. ``i-12345678``) and region (e.g. ``us-west-1``) for an instance that downloads a package.
-.. |id site| replace:: The identifier for the site.
 .. |id vlan| replace:: The identifier for the VLAN.
-.. |id-only| replace:: Show only matching object IDs.
-.. |identity-file| replace:: The SSH identity file used for authentication. Key-based authentication is recommended.
+.. |id_only| replace:: Show only matching object IDs.
+.. |identity_file| replace:: The SSH identity file used for authentication. Key-based authentication is recommended.
 .. |identity_file_passphrase| replace:: The passphrase for the SSH key. Use only with ``--identity-file``.
 .. |ignore_failure| replace:: Continue running a recipe if a resource fails for any reason.
-.. |iis_accept_eula| replace:: Accept the terms of the end user license agreement.
-.. |iis_home| replace:: The home directory for |microsoft iis|.
-.. |iis_conf_dir| replace:: The location for |microsoft iis| configuration settings.
-.. |iis_pubroot| replace:: The public directory.
-.. |iis_docroot| replace:: The home directory.
-.. |iis_log_dir| replace:: The directory in which log files are located.
-.. |iis_cache_dir| replace:: The directory in which cached data is located.
 .. |image| replace:: The name of the image that identifies the operating system and version to be used to create the virtual machine.
-.. |include-dependencies| replace:: Ensure that when a cookbook has a dependency on one (or more) cookbooks, those cookbooks are also uploaded.
+.. |include_dependencies| replace:: Ensure that when a cookbook has a dependency on one (or more) cookbooks, those cookbooks are also uploaded.
 .. |include_config| replace:: The external configuration files to be included.
-.. |include_credentials| replace:: Include secure credentials in a |docker| image.
 .. |include_packages| replace:: A list of packages in a |yum| repository.
 .. |insecure openstack| replace:: Cause the Auth URL to ignore |ssl| certificates.
 .. |internet_host_address| replace:: The Internet host address for the network interface.
 .. |inherits windows security| replace:: Whether a file inherits rights from its parent directory.
 .. |initial| replace:: Create a |chef api client|, typically an administrator client on a freshly-installed |chef server|.
 .. |input file| replace:: The name of a file to be used with the ``PUT`` or a ``POST`` request.
-.. |inspec examples| replace:: The following examples show how to use this |inspec resource|.
-.. |inspec resource matcher| replace:: This |inspec resource| has the following matchers.
-.. |inspec resource no_matcher| replace:: This |inspec resource| does not have any matchers.
 .. |installonly_limit| replace:: The number of packages listed in ``installonlypkgs``.
 .. |installonlypkgs| replace:: A list of package provides that should only be installed (and never updated).
 .. |installroot| replace:: An alternate ``installroot``.
-.. |internal-ip-address| replace:: A static IP address that is provided by |google compute engine|.
 .. |interpreter| replace:: The script interpreter to use during code execution.
 .. |interval| replace:: The frequency (in seconds) at which the |chef client| runs.
-.. |ip_address| replace:: The IP address.
 .. |ip_address amazon_vpc| replace:: The private IP address of the instance |amazon vpc| mode.
 .. |ip_address floating_openstack| replace:: The floating IP address to be associated with a new |openstack| node (assuming that IP addresses have been allocated to the project).
 .. |ip_address elastic| replace:: Associate an elastic IP address with this instance.
@@ -687,6 +612,7 @@
 .. |kitchen_auto_init| replace:: Invoke the ``init`` command if |kitchen yml| is missing.
 .. |kitchen_bare| replace:: Print the name of each instance, one instance per line.
 .. |kitchen_create_gemfile| replace:: Create a |rubygems| file, if one does not already exist.
+.. |knife defaults| replace:: Cause |knife| to use the default value instead of asking a user to provide one.
 .. |kitchen_destroy| replace:: The destroy strategy used at the conclusion of a |kitchen| run. Possible values: ``always`` (always destroy instances), ``never`` (never destroy instances), or ``passing`` (only destroy instances that passed).
 .. |kitchen_diagnose_all| replace:: Include all diagnostics.
 .. |kitchen_diagnose_instances| replace:: Include instance diagnostics.
@@ -1419,6 +1345,7 @@
 .. |shell| replace:: The login shell.
 .. |show_all_images| replace:: Show all fields for all images.
 .. |show_availability_zone| replace:: Show a list of availability zones.
+.. |show_files_as_list| replace:: Show a list of file names. Set to ``false`` to view ``ls``-like output.
 .. |show_local_files| replace:: Show local files instead of remote files.
 .. |show_organizations| replace:: Show all organizations.
 .. |showdupesfromrepos| replace:: Show duplicate packages. When false, only the newest packages are shown.

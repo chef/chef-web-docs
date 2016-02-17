@@ -11,7 +11,7 @@ This configuration file has the following settings:
    |directory generic_data| |default_value_recommended| Default value: ``/var/opt/chef-server/bookshelf/data``.
 
 ``bookshelf['dir']``
-   |directory generic| |default_value_recommended| Default value: ``/var/opt/chef-server/bookshelf``.
+   |directory generic_working| |default_value_recommended| Default value: ``/var/opt/chef-server/bookshelf``.
 
 ``bookshelf['enable']``
    Default value: ``true``.

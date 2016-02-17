@@ -11,7 +11,7 @@ The following settings are typically added to the ``opscode-reporting.rb`` file:
    |use ha| |ha true| Default value: ``false``.
 
 ``dir``
-   |directory generic| |default_value_recommended| Default value: ``'/var/opt/opscode-reporting/opscode-reporting'``.
+   |directory generic_working| |default_value_recommended| Default value: ``'/var/opt/opscode-reporting/opscode-reporting'``.
 
 ``log_directory``
    |directory logs| |default_value_recommended| Default value: ``'/var/log/opscode/opscode-reporting'``.

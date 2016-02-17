@@ -21,7 +21,7 @@ Matchers
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test for blocking .htaccess files on CentOS**
 
@@ -42,7 +42,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 be_enabled
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -54,7 +54,7 @@ exist
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test if apt repository exists and is enabled**
 
@@ -79,11 +79,11 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource no_matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_no_matchers.rst
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test that a parameter is not set to "No Auditing"**
 
@@ -108,7 +108,7 @@ Matchers
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test the auditd.conf file**
 
@@ -125,7 +125,7 @@ Syntax
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test if a rule contains a matching element that is identified by a regular expression**
 
@@ -142,7 +142,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 content
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -166,7 +166,7 @@ params
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test if eth0 is a secondary interface for bond0**
 
@@ -187,7 +187,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 exist
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -226,7 +226,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 exist
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -246,7 +246,7 @@ stdout
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test for PostgreSQL database running a RC, development, or beta release**
 
@@ -283,7 +283,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 name
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -291,7 +291,7 @@ name
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test a CSV file**
 
@@ -335,7 +335,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 gids
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -355,7 +355,7 @@ where
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test group identifiers (GIDs) for duplicates**
 
@@ -384,7 +384,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 be_block_device
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -516,7 +516,7 @@ type
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test the contents of a file for MD5 requirements**
 
@@ -597,7 +597,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 be_installed
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -609,7 +609,7 @@ version
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Verify that a gem package is installed, with a specific version**
 
@@ -630,7 +630,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 be_local
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -646,7 +646,7 @@ gid
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test the group identifier for the root group**
 
@@ -663,7 +663,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 be_reachable
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -679,7 +679,7 @@ ipaddress
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Verify host name is reachable over a specific protocol and port number**
 
@@ -704,7 +704,7 @@ Matchers
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Verify that FTP is disabled**
 
@@ -726,7 +726,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 be_up
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -765,7 +765,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 have_rule
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -773,7 +773,7 @@ have_rule
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test if the IP table allows a packet through**
 
@@ -794,7 +794,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 name
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -802,7 +802,7 @@ name
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test a cookbook version in a policyfile.lock.json file**
 
@@ -819,7 +819,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 be_loaded
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -827,7 +827,7 @@ be_loaded
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test if a module is loaded**
 
@@ -844,7 +844,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 value
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -852,7 +852,7 @@ value
    
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test if global forwarding is enabled for an IPv4 address**
 
@@ -877,7 +877,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 domain
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -885,7 +885,7 @@ domain
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test limits**
 
@@ -902,7 +902,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 name
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -910,7 +910,7 @@ name
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test password expiration settings**
 
@@ -935,7 +935,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 setting
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -943,7 +943,7 @@ setting
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test the maximum number of allowed connections**
 
@@ -976,7 +976,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 output
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -984,7 +984,7 @@ output
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test for matching databases**
 
@@ -1001,7 +1001,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 be_installed
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1013,7 +1013,7 @@ version
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Verify that bower is installed, with a specific version**
 
@@ -1038,7 +1038,7 @@ Matchers
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test for clock drift against named servers**
 
@@ -1055,7 +1055,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 be_installed
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1067,7 +1067,7 @@ version
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test if VLC is installed**
 
@@ -1084,11 +1084,11 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource no_matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_no_matchers.rst
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test for RedHat**
 
@@ -1113,7 +1113,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 content
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1125,7 +1125,7 @@ split
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test the PATH environment variable**
 
@@ -1142,7 +1142,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 be_installed
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1154,7 +1154,7 @@ version
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test if nginx version 1.9.5 is installed**
 
@@ -1207,7 +1207,7 @@ standalone_comments
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test the expiration time for new account passwords**
 
@@ -1252,7 +1252,7 @@ standalone_comments
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test a configuration setting**
 
@@ -1273,7 +1273,7 @@ Syntax
 
 Matchers for passwd
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 gids
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1293,7 +1293,7 @@ usernames
 
 Matchers for passwd.uid(userid)
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 count
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1309,7 +1309,7 @@ username
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test usernames and UIDs**
 
@@ -1330,7 +1330,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 be_installed
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1342,7 +1342,7 @@ version
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test if Jinja2 is installed on the system**
 
@@ -1362,7 +1362,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 be_listening
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1382,7 +1382,7 @@ protocol
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test port 80, listening with the TCP protocol**
 
@@ -1407,7 +1407,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 setting
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1415,7 +1415,7 @@ setting
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test the maximum number of allowed client connections**
 
@@ -1444,7 +1444,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 output
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1452,7 +1452,7 @@ output
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test the PostgreSQL shadow password**
 
@@ -1473,7 +1473,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 property_name
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1481,7 +1481,7 @@ property_name
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test if the list length for the mysqld process is 1**
 
@@ -1510,7 +1510,7 @@ Registry Key Path Separators
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 name
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1518,7 +1518,7 @@ name
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test the start time for the Schedule service**
 
@@ -1535,7 +1535,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 exit_status
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1551,7 +1551,7 @@ stdout
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Get all groups of Administrator user**
 
@@ -1568,7 +1568,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 policy_name
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1576,7 +1576,7 @@ policy_name
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Verify that only the Administrators group has remote access**
 
@@ -1593,7 +1593,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 be_enabled
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1609,7 +1609,7 @@ be_running
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test if the postgresql service is both running and enabled**
 
@@ -1634,7 +1634,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 name
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1642,7 +1642,7 @@ name
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test SSH configuration settings**
 
@@ -1671,7 +1671,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 name
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1679,7 +1679,7 @@ name
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test which variables may be sent to the server**
 
@@ -1712,7 +1712,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 exist
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1756,7 +1756,7 @@ warndays
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Verify available users for the MySQL server**
 
@@ -1777,7 +1777,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 be_installed
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1785,7 +1785,7 @@ be_installed
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test the DHCP Server feature**
 
@@ -1802,7 +1802,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 name
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1810,7 +1810,7 @@ name
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test a kitchen.yml file driver**
 
@@ -1827,7 +1827,7 @@ Syntax
 
 Matchers
 -----------------------------------------------------
-|inspec resource matcher|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
 be_enabled
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1847,7 +1847,7 @@ repos
 
 Examples
 -----------------------------------------------------
-|inspec examples|
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
 **Test if the yum repo exists**
 

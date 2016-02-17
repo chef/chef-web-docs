@@ -55,7 +55,7 @@ This argument has the following options:
    |path certificate_ssl|
 
 ``-d DISTRO``, ``--distro DISTRO``
-   |distro|
+   .. include:: ../../includes_knife/includes_knife_bootstrap_distro.rst
 
 ``-H HOST_NAME``, ``--azure_host_name HOST_NAME``
    |name virtual_machine|
@@ -74,7 +74,7 @@ This argument has the following options:
    |source-image|
 
 ``--identity-file IDENTITY_FILE``
-   |identity-file|
+   |identity_file|
 
 ``--identity-file_passphrase PASSWORD``
    |identity_file_passphrase|

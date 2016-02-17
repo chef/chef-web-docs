@@ -50,7 +50,7 @@ The |service bookshelf| service has the following settings:
    * - ``bookshelf['data_dir']``
      - |directory generic_data| |default_value_recommended| Default value: ``/var/opt/chef-server/bookshelf/data``.
    * - ``bookshelf['dir']``
-     - |directory generic| |default_value_recommended| Default value: ``/var/opt/chef-server/bookshelf``.
+     - |directory generic_working| |default_value_recommended| Default value: ``/var/opt/chef-server/bookshelf``.
    * - ``bookshelf['enable']``
      - |enable service| Default value: ``true``.
    * - ``bookshelf['external_url']``
@@ -109,7 +109,7 @@ The |service couchdb| service has the following settings:
    * - ``couchdb['delayed_commits']``
      - Whether commits are delayed. For performance, we tune CouchDB to batch commits according to the ``batch_save_interval`` and ``batch_save_size`` options above. Default value: ``'true'``.
    * - ``couchdb['dir']``
-     - |directory generic| |default_value_recommended| Default value: ``'/var/opt/opscode/couchdb'``.
+     - |directory generic_working| |default_value_recommended| Default value: ``'/var/opt/opscode/couchdb'``.
    * - ``couchdb['enable']``
      - |enable service| Default value: ``true``.
    * - ``couchdb['ha']``
@@ -150,7 +150,7 @@ This configuration file has the following settings for |drbd|:
    * - ``drbd['device']``
      - The device name to use for |drbd|. Default value: ``'/dev/drbd0'``.
    * - ``drbd['dir']``
-     - |directory generic| |default_value_recommended| Default value: ``'/var/opt/opscode/drbd'``.
+     - |directory generic_working| |default_value_recommended| Default value: ``'/var/opt/opscode/drbd'``.
    * - ``drbd['disk']``
      - The local LVM logical volume to use behind |drbd|. Default value: ``'/dev/opscode/drbd'``.
    * - ``drbd['enable']``
@@ -179,7 +179,7 @@ This configuration file has the following settings for |keepalived|:
    * - Setting
      - Description
    * - ``keepalived['dir']``
-     - |directory generic| |default_value_recommended| Default value: ``'/var/opt/opscode/keepalived'``.
+     - |directory generic_working| |default_value_recommended| Default value: ``'/var/opt/opscode/keepalived'``.
    * - ``keepalived['enable']``
      - |enable service| Backend servers in a high availability topologies should have this setting enabled. Default value: ``false``.
    * - ``keepalived['ipv6_on']``
@@ -330,7 +330,7 @@ This configuration file has the following settings for |nginx|:
    * - ``nginx['client_max_body_size']``
      - Default value: ``250m``.
    * - ``nginx['dir']``
-     - |directory generic| |default_value_recommended| Default value: ``/var/opt/chef-server/nginx``.
+     - |directory generic_working| |default_value_recommended| Default value: ``/var/opt/chef-server/nginx``.
    * - ``nginx['enable']``
      - |enable service| Default value: ``true``.
    * - ``nginx['enable_ipv6']``
@@ -435,7 +435,7 @@ The |service bifrost| service has the following settings:
    * - ``oc_bifrost['db_pool_size']``
      - |db_pool_size| This value should be increased if failures indicate that the |service bifrost| service ran out of connections. This value should be tuned in conjunction with the ``postgresql['max_connections']`` setting for |postgresql|. Default value: ``20``.
    * - ``oc_bifrost['dir']``
-     - |directory generic| |default_value_recommended| Default value: ``/var/opt/opscode/oc_bifrost``.
+     - |directory generic_working| |default_value_recommended| Default value: ``/var/opt/opscode/oc_bifrost``.
    * - ``oc_bifrost['enable']``
      - |enable service| Default value: ``true``.
    * - ``oc_bifrost['extended_perf_log']``
@@ -474,7 +474,7 @@ This configuration file has the following settings for |chef pedant|:
    * - Setting
      - Description
    * - ``oc_chef_pedant['dir']``
-     - |directory generic| |default_value_recommended| Default value: ``/var/opt/chef-server/chef-pedant``.
+     - |directory generic_working| |default_value_recommended| Default value: ``/var/opt/chef-server/chef-pedant``.
    * - ``oc_chef_pedant['log_directory']``
      - |directory logs| The default value is the recommended value. Default value: ``/var/log/chef-server/chef-pedant``.
    * - ``oc_chef_pedant['log_rotation']``
@@ -499,7 +499,7 @@ The |service account| service has the following settings:
    * - ``opscode_account['backlog']``
      - Default value: ``1024``.
    * - ``opscode_account['dir']``
-     - |directory generic| |default_value_recommended| Default value: ``'/var/opt/opscode/opscode-account'``.
+     - |directory generic_working| |default_value_recommended| Default value: ``'/var/opt/opscode/opscode-account'``.
    * - ``opscode_account['enable']``
      - |enable service| Default value: ``true``.
    * - ``opscode_account['environment']``
@@ -544,7 +544,7 @@ The |service certificate| service has the following settings:
    * - Setting
      - Description
    * - ``opscode_certificate['dir']``
-     - |directory generic| |default_value_recommended| Default value: ``'/var/opt/opscode/opscode-certificate'``.
+     - |directory generic_working| |default_value_recommended| Default value: ``'/var/opt/opscode/opscode-certificate'``.
    * - ``opscode_certificate['enable']``
      - |enable service| Default value: ``true``.
    * - ``opscode_certificate['ha']``
@@ -593,7 +593,7 @@ The |service erchef| service has the following settings:
    * - ``opscode_erchef['db_pool_size']``
      - |db_pool_size| Default value: ``20``.
    * - ``opscode_erchef['dir']``
-     - |directory generic| |default_value_recommended| Default value: ``/var/opt/chef-server/erchef``.
+     - |directory generic_working| |default_value_recommended| Default value: ``/var/opt/chef-server/erchef``.
    * - ``opscode_erchef['enable']``
      - |enable service| Default value: ``true``.
    * - ``opscode_erchef['enable_actionlog']``
@@ -651,7 +651,7 @@ The |service expander| service has the following settings:
    * - ``opscode_expander['consumer_id']``
      - Default value: ``default``.
    * - ``opscode_expander['dir']``
-     - |directory generic| |default_value_recommended| Default value: ``/var/opt/chef-server/chef-expander``.
+     - |directory generic_working| |default_value_recommended| Default value: ``/var/opt/chef-server/chef-expander``.
    * - ``opscode_expander['enable']``
      - |enable service| Default value: ``true``.
    * - ``opscode_expander['ha']``
@@ -681,7 +681,7 @@ The |service orgcreator| service has the following settings:
    * - ``opscode_org_creator['create_wait_ms']``
      - Default value: ``30000``.
    * - ``opscode_org_creator['dir']``
-     - |directory generic| |default_value_recommended| Default value: ``'/var/opt/opscode/opscode-org-creator'``.
+     - |directory generic_working| |default_value_recommended| Default value: ``'/var/opt/opscode/opscode-org-creator'``.
    * - ``opscode_org_creator['enable']``
      - Default value: ``true``.
    * - ``opscode_org_creator['ha']``
@@ -713,7 +713,7 @@ The |service solr| service has the following settings:
    * - ``opscode_solr['data_dir']``
      - |directory generic_data| |default_value_recommended| Default value: ``/var/opt/chef-server/chef-solr/data``.
    * - ``opscode_solr['dir']``
-     - |directory generic| |default_value_recommended| Default value: ``/var/opt/chef-server/chef-solr``.
+     - |directory generic_working| |default_value_recommended| Default value: ``/var/opt/chef-server/chef-solr``.
    * - ``opscode_solr['enable']``
      - |enable service| Default value: ``true``.
    * - ``opscode_solr['ha']``
@@ -767,7 +767,7 @@ The |service webui| service has the following settings:
    * - ``opscode_webui['cookie_secret']``
      - Default value: ``47b3b8d95dea455baf32155e95d1e64e``.
    * - ``opscode_webui['dir']``
-     - |directory generic| |default_value_recommended| Default value: ``/var/opt/chef-server/chef-server-webui``.
+     - |directory generic_working| |default_value_recommended| Default value: ``/var/opt/chef-server/chef-server-webui``.
    * - ``opscode_webui['enable']``
      - |enable service| Default value: ``true``.
    * - ``opscode_webui['environment']``
@@ -836,7 +836,7 @@ The |service postgresql| service has the following settings:
    * - ``postgresql['data_dir']``
      - |directory generic_data| |default_value_recommended| Default value: ``/var/opt/chef-server/postgresql/data``.
    * - ``postgresql['dir']``
-     - |directory generic| |default_value_recommended| Default value: ``/var/opt/chef-server/postgresql``.
+     - |directory generic_working| |default_value_recommended| Default value: ``/var/opt/chef-server/postgresql``.
    * - ``postgresql['effective_cache_size']``
      - |effective_cache_size postgresql| Default value: ``#{(node['memory']['total'].to_i / 2) / (1024)}MB``.
    * - ``postgresql['enable']``
@@ -921,7 +921,7 @@ The |service rabbitmq| service has the following settings:
    * - ``rabbitmq['data_dir']``
      - |directory generic_data| |default_value_recommended| Default value: ``'/var/opt/opscode/rabbitmq/db'``.
    * - ``rabbitmq['dir']``
-     - |directory generic| |default_value_recommended| Default value: ``'/var/opt/opscode/rabbitmq'``.
+     - |directory generic_working| |default_value_recommended| Default value: ``'/var/opt/opscode/rabbitmq'``.
    * - ``rabbitmq['enable']``
      - |enable service| Default value: ``true``.
    * - ``rabbitmq['ha']``
@@ -977,7 +977,7 @@ The |service redis| service has the following settings:
    * - ``redis['databases']``
      - |database_quantity| Default value: ``'16'``.
    * - ``redis['dir']``
-     - |directory generic| |default_value_recommended| Default value: ``'/var/opt/opscode/redis'``.
+     - |directory generic_working| |default_value_recommended| Default value: ``'/var/opt/opscode/redis'``.
    * - ``redis['enable']``
      - |enable service| Default value: ``true``.
    * - ``redis['ha']``
@@ -1039,7 +1039,7 @@ The |service redis_lb| service has the following settings:
    * - ``redis_lb['databases']``
      - |database_quantity| Default value: ``'16'``.
    * - ``redis_lb['dir']``
-     - |directory generic| |default_value_recommended| Default value: ``'/var/opt/opscode/redis_lb'``.
+     - |directory generic_working| |default_value_recommended| Default value: ``'/var/opt/opscode/redis_lb'``.
    * - ``redis_lb['enable']``
      - |enable service| Default value: ``true``.
    * - ``redis_lb['ha']``
