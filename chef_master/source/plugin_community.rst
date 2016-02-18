@@ -121,7 +121,7 @@ The following table lists |knife| plugins built by the |chef| community.
      - Adds extra features to be used with |ssh|.
    * - `knife-ucs <https://github.com/velankanisys/knife-ucs>`_
      - Adds the ability to provision, list, and manage |cisco ucs| servers.
-   * - `knife-voxel <https://github.com/voxeldotnet/knife-voxel>`_
+   * - `knife-voxel <https://github.com/warwickp/knife-voxel>`_
      - Adds the ability to provision instances in the |voxel| cloud.
    * - `knife-whisk <https://github.com/Banno/knife-whisk>`_
      - Adds the ability to create new servers in a team environment.
@@ -175,7 +175,7 @@ The following plugins are available for the |chef client|:
      - Adds the ability to fill a coordination gap between |amazon aws| and the |chef client|.
    * - `chef-vim <https://github.com/t9md/vim-chef>`_
      - Adds a plugin that makes cookbook navigation quick and easy.
-   * - `chef-vpc-toolkit <https://github.com/rackspace/chef_vpc_toolkit>`_
+   * - `chef-vpc-toolkit <https://github.com/rackerlabs/chef_vpc_toolkit>`_
      - Adds a set of |rake| tasks that provide a framework that helps automate the creation and configuration of identical virtual server groups in the cloud.
    * - `ironfan <https://github.com/infochimps-labs/ironfan>`_
      - Adds the ability to orchestrate complete clusters of machines using an expressive toolset that helps construct scalable and resilient architectures.
