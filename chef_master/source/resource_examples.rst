@@ -141,6 +141,23 @@ apt_package
 
 
 
+apt_update
+=====================================================
+.. include:: ../../includes_resources/includes_resource_apt_update.rst
+
+**Update the Apt repository on Debian platforms** 
+
+.. include:: ../../step_resource/step_resource_apt_update_debian_only.rst
+
+**Update the Apt repository at a specified interval** 
+
+.. include:: ../../step_resource/step_resource_apt_update_periodic.rst
+
+**Update the Apt repository at the start of a chef-client run** 
+
+.. include:: ../../step_resource/step_resource_apt_update_at_start_of_client_run.rst
+
+
 bash
 =====================================================
 .. include:: ../../includes_resources/includes_resource_script_bash.rst
@@ -250,6 +267,18 @@ default.rb:
 **ErrorReport Handler**
 
 .. include:: ../../includes_handler/includes_handler_custom_example_error_report.rst
+
+
+
+
+
+chocolatey_package
+=====================================================
+.. include:: ../../includes_resources/includes_resource_package_chocolatey.rst
+
+**Install a package**
+
+.. include:: ../../step_resource/step_resource_chocolatey_package_install.rst
 
 
 
@@ -869,6 +898,32 @@ openbsd_package
 
 .. include:: ../../step_resource/step_resource_openbsd_package_install.rst
 
+
+
+
+osx_profile
+=====================================================
+.. include:: ../../includes_resources/includes_resource_osx_profile.rst
+
+**One liner to install profile from cookbook file**
+
+.. include:: ../../step_resource/step_resource_osx_profile_install_file_oneline.rst
+
+**Install profile from cookbook file**
+
+.. include:: ../../step_resource/step_resource_osx_profile_install_file.rst
+
+**Install profile from a hash**
+
+.. include:: ../../step_resource/step_resource_osx_profile_install_hash.rst
+
+**Remove profile using identifier in resource name**
+
+.. include:: ../../step_resource/step_resource_osx_profile_remove_by_name.rst
+
+**Remove profile by identifier and user friendly resource name**
+
+.. include:: ../../step_resource/step_resource_osx_profile_remove_by_identifier.rst
 
 
 package

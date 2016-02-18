@@ -128,6 +128,7 @@ Cookbooks
    release_notes
    resource
    resource_apt_package
+   resource_apt_update
    resource_bash
    resource_batch
    resource_bff_package
