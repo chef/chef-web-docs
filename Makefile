@@ -138,6 +138,10 @@ compliance_1-0:
 	mkdir -p $(BUILDDIR)/release/12-7/
 	$(BUILD_COMMAND_AND_ARGS) release_chef_12-7/source $(BUILDDIR)/release/12-7/
 
+12-8:
+	mkdir -p $(BUILDDIR)/release/12-8/
+	$(BUILD_COMMAND_AND_ARGS) release_chef_12-8/source $(BUILDDIR)/release/12-8/
+
 oec_11-0:
 	mkdir -p $(BUILDDIR)/release/oec_11-0/
 	$(BUILD_COMMAND_AND_ARGS) release_oec_11-0/source $(BUILDDIR)/release/oec_11-0/

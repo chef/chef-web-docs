@@ -358,6 +358,7 @@ Cookbooks
    resource_chef_organization
    resource_chef_role
    resource_chef_user
+   resource_chocolatey_package
    resource_common
    resource_cookbook_file
    resource_cron
@@ -395,6 +396,7 @@ Cookbooks
    resource_mount
    resource_ohai
    resource_openbsd_package
+   resource_osx_profile
    resource_package
    resource_pacman_package
    resource_paludis_package

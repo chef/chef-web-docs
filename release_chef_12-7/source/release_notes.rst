@@ -9,9 +9,7 @@ What's New
 The following items are new for |chef client| 12.7 and/or are changes from previous versions. The short version:
 
 * **New chocolatey_package resource** Use the |resource package_chocolatey| resource to manage packages using |chocolatey| for the |windows| platform.
-* **New osx_profile resource** Use the |resource osx_profile| resource to manage configuration profiles (``.mobileconfig`` files) on the |mac os x| platform
-* **xxxxx** xxxxx
-
+* **New osx_profile resource** Use the |resource osx_profile| resource to manage configuration profiles (``.mobileconfig`` files) on the |mac os x| platform.
 
 chocolatey_package
 -----------------------------------------------------
@@ -75,17 +73,6 @@ Examples
 **Remove profile by identifier and user friendly resource name**
 
 .. include:: ../../step_resource/step_resource_osx_profile_remove_by_identifier.rst
-
-
-
-
-xxxxx
------------------------------------------------------
-xxxxx
-
-xxxxxx
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-xxxxx
 
 
 Changelog
