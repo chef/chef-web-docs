@@ -184,6 +184,7 @@
 .. |resource group| replace:: **group**
 .. |resource http_request| replace:: **http_request**
 .. |resource ifconfig| replace:: **ifconfig**
+.. |resource launchd| replace:: **launchd**
 .. |resource link| replace:: **link**
 .. |resource load_balancer| replace:: **load_balancer**
 .. |resource log| replace:: **log**
@@ -570,6 +571,7 @@
 .. |kubernetes| replace:: Kubernetes
 .. |kvm| replace:: KVM
 .. |ladvd| replace:: ladvd
+.. |launchd| replace:: launchd
 .. |launchpad| replace:: Launchpad
 .. |ldap| replace:: LDAP
 .. |ldif| replace:: LDAP Directory Interchange Format (LDIF)
