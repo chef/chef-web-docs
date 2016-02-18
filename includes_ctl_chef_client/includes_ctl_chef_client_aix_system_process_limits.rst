@@ -23,6 +23,12 @@ The out-of-the-box system process limits for maximum process memory size (RSS) a
 
       $ chsec -f /etc/security/limits -s default -a "nofiles=50000"
 
+   .. note:: The previous commands may be run against the root user, instead of default. For example:
+
+      .. code-block:: bash
+
+         $ chsec -f /etc/security/limits -s root_user -a "rss=-1"
+
 #. Reboot the logical partition (LPAR) to apply the updated system process limits.
 
 When the system process limits are too low, an error is returned similar to:
