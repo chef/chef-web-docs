@@ -80,53 +80,19 @@ provides Method
 
 |ibm aix| Platform Support
 -----------------------------------------------------
-The |chef client| may now be used to configure nodes that are running on the |ibm aix| platform, versions 6.1 (TL6 or higher, recommended) and 7.1 (TL0 SP3 or higher, recommended). The |resource service| resource supports starting, stopping, and restarting services that are managed by |ibm aix_src|, as well as managing all service states with |berkeley os|-based init systems.
+.. include:: ../../includes_ctl_chef_client/includes_ctl_chef_client_aix.rst
 
 **System Requirements**
 
-The |chef client| has the `same system requirements <https://docs.chef.io/chef_system_requirements.html#chef-client>`_ on the |ibm aix| platform as any other platform, with the following notes:
-
-* Expand the file system on the |ibm aix| platform using ``chfs`` or by passing the ``-X`` flag to ``installp`` to automatically expand the logical partition (LPAR)
-* The EN_US (UTF-8) character set should be installed on the logical partition prior to installing the |chef client| (see below)
+.. include:: ../../includes_ctl_chef_client/includes_ctl_chef_client_aix_requirements.rst
 
 **Install the chef-client on the AIX platform**
 
-The |chef client| is distributed as a |ibm aix_bff| binary and is installed on the |ibm aix| platform using the following command run as a root user:
-
-.. code-block:: text
-
-   # installp -aYgd chef-12.0.0-1.powerpc.bff all
+.. include:: ../../includes_ctl_chef_client/includes_ctl_chef_client_aix_setup.rst
 
 **Increase system process limits**
 
-The out-of-the-box system process limits for maximum process memory size (RSS) and number of open files are typically too low to run the |chef client| on a logical partition (LPAR). When the system process limits are too low, the |chef client| will not be able to create threads. To increase the system process limits:
-
-#. Validate that the system process limits have not already been increased.
-#. If they have not been increased, run the following commands as a root user:
-
-   .. code-block:: bash
-
-      $ chsec -f /etc/security/limits -s default -a "rss=-1"
-
-   and then:
-
-   .. code-block:: bash
-
-      $ chsec -f /etc/security/limits -s default -a "nofiles=50000"
-
-#. Reboot the logical partition (LPAR) to apply the updated system process limits.
-
-When the system process limits are too low, an error is returned similar to:
-
-.. code-block:: ruby
-
-   Error Syncing Cookbooks:
-   ==================================================================
-   
-   Unexpected Error:
-   -----------------
-   ThreadError: can't create Thread: Resource temporarily unavailable
-
+.. include:: ../../includes_ctl_chef_client/includes_ctl_chef_client_aix_system_process_limits.rst
 
 **Install the UTF-8 character set**
 
@@ -134,21 +100,7 @@ When the system process limits are too low, an error is returned similar to:
 
 **New providers**
 
-The |resource service| resource has two new providers:
-
-.. list-table::
-   :widths: 150 80 320
-   :header-rows: 1
-
-   * - Long name
-     - Short name
-     - Notes
-   * - ``Chef::Provider::Service::Aix``
-     - ``service``
-     - The provider that is used with the |ibm aix| platforms. Use the ``service`` short name to start, stop, and restart services with |ibm aix_src|.
-   * - ``Chef::Provider::Service::AixInit``
-     - ``service``
-     -  The provider that is used to manage |berkeley os|-based init services on |ibm aix|.
+.. include:: ../../includes_ctl_chef_client/includes_ctl_chef_client_aix_providers.rst
 
 **Enable a service on AIX using the mkitab command**
 
