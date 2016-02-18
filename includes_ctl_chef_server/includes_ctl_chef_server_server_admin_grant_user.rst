@@ -22,5 +22,6 @@ returns:
 
 .. code-block:: bash
 
-   User bob was added to server-admins. This user can now list, read, and create users
-   (even for orgs they are not members of) for this Chef Server.
+   User bob was added to server-admins. This user can now list,
+   read, and create users (even for orgs they are not members of)
+   for this Chef Server.

@@ -28,7 +28,8 @@ and it returns the following error:
 
 .. code-block:: bash
 
-   ERROR: You authenticated successfully to <chef_server_url> as alice but you are not authorized for this action
+   ERROR: You authenticated successfully to <chef_server_url> as alice
+          but you are not authorized for this action
    Response: Missing read permission
 
 Alice is not a superuser and does not have permissions on other users because user accounts are global to organizations in the |chef server|. Let's add Alice to the |webui group server_admins| group:
