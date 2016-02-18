@@ -73,6 +73,34 @@ Elevate Commands
 -----------------------------------------------------
 .. include:: ../../includes_ctl_chef_client/includes_ctl_chef_client_non_root_use_attributes.rst
 
+Run on IBM AIX
+=====================================================
+.. include:: ../../includes_ctl_chef_client/includes_ctl_chef_client_aix.rst
+
+**System Requirements**
+
+.. include:: ../../includes_ctl_chef_client/includes_ctl_chef_client_aix_requirements.rst
+
+**Install the chef-client on the AIX platform**
+
+.. include:: ../../includes_ctl_chef_client/includes_ctl_chef_client_aix_setup.rst
+
+**Increase system process limits**
+
+.. include:: ../../includes_ctl_chef_client/includes_ctl_chef_client_aix_system_process_limits.rst
+
+**Install the UTF-8 character set**
+
+.. include:: ../../includes_install/includes_install_chef_client_aix_en_us.rst
+
+**Providers**
+
+.. include:: ../../includes_ctl_chef_client/includes_ctl_chef_client_aix_providers.rst
+
+**Enable a service on AIX using the mkitab command**
+
+.. include:: ../../step_resource/step_resource_service_aix_mkitab.rst
+
 Examples
 =====================================================
 
