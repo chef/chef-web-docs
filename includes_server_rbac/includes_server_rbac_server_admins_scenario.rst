@@ -60,7 +60,7 @@ which now returns:
    carol
    dan
 
-Alice is now a server administrator and use the following |knife| subcommands to manage users on the |chef server|: 
+Alice is now a server administrator and can use the following |knife| subcommands to manage users on the |chef server|: 
 
 * ``knife user-create``
 * ``knife user-delete``
