@@ -501,7 +501,7 @@
 .. |gerrit| replace:: Gerrit
 .. |git| replace:: git
 .. |github| replace:: GitHub
-.. |github com| replace:: https:/github.com
+.. |github com| replace:: https://github.com/
 .. |github enterprise| replace:: GitHub Enterprise
 .. |glesys| replace:: GleSYS
 .. |gnu nano| replace:: GNU nano
