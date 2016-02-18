@@ -11,15 +11,15 @@ The following |ohai| plugins are available from the open source community:
      - Description
    * - `chef-ohai-mdadm <https://github.com/tas50/chef-ohai-mdadm>`_
      - Adds output for |mdadm| software |raid| volumes.
-   * - `dell.rb <https://github.com/demonccc/chef-repo/blob/master/plugins/ohai/dell.rb>`_
+   * - `dell.rb <https://github.com/demonccc/chef-ohai-plugins/blob/master/dell.rb>`_
      - Adds some useful Dell server information to |ohai|. For example: service tag, express service code, storage info, RAC info, and so on. To use this plugin, OMSA and SMBIOS applications need to be installed.
-   * - `dpkg.rb <https://github.com/demonccc/chef-repo/blob/master/plugins/ohai/linux/dpkg.rb>`_
+   * - `dpkg.rb <https://github.com/demonccc/chef-ohai-plugins/blob/master/linux/dpkg.rb>`_
      - Adds |debian dpkg| info to |ohai| so that information about the status of |debian| packages and various installed packages can be collected.
    * - `ipmi.rb <https://bitbucket.org/retr0h/ohai>`_
      - Adds a |mac address| and an IP address to |ohai|, where available.
    * - `kvm_extensions.rb <https://github.com/albertsj1/ohai-plugins/blob/master/kvm_extensions.rb>`_
      - Adds extensions for virtualization attributes to provide additional host and guest information for |kvm|.
-   * - `ladvd.rb <https://github.com/demonccc/chef-repo/blob/master/plugins/ohai/linux/ladvd.rb>`_
+   * - `ladvd.rb <https://github.com/demonccc/chef-ohai-plugins/blob/master/linux/ladvd.rb>`_
      - Adds |ladvd| information to |ohai|, when it exists.
    * - `lxc_virtualization.rb <https://github.com/jespada/ohai-plugins/blob/master/lxc_virtualization.rb>`_
      - Adds extensions for virtualization attributes to provide host and guest information for |linux| containers.
@@ -29,7 +29,7 @@ The following |ohai| plugins are available from the open source community:
      - Adds extensions for network attributes so that |ohai| can detect to which interfaces TCP and UDP ports are bound.
    * - `parse_host_plugin.rb <https://github.com/sbates/Chef-odds-n-ends/blob/master/ohai/parse_host_plugin.rb>`_
      - Adds the ability to parse a host name using three top-level attribute and five nested attributes.
-   * - `r.rb <https://github.com/stevendanna/ohai-plugins/blob/master/r.rb>`_
+   * - `r.rb <https://github.com/stevendanna/ohai-plugins/blob/master/plugins/r.rb>`_
      - Adds the ability to collect basic information about the |r project|.
    * - `sysctl.rb <https://github.com/spheromak/cookbooks/blob/master/ohai/files/default/sysctl.rb>`_
      - Adds |sysctl| information to |ohai|.

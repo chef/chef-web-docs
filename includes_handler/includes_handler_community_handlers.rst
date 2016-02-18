@@ -10,7 +10,7 @@ The following open source handlers are available from the |chef| community:
 
    * - Handler
      - Description
-   * - `Airbrake <https://github.com/morgoth/airbrake_handler>`_
+   * - `Airbrake <https://github.com/timops/ohai-plugins/blob/master/win32_svc.rb>`_
      - A handler that sends exceptions (only) to |airbrake|, an application that collects data and aggregates it for review.
    * - `Asynchronous Resources <https://github.com/rottenbytes/chef/tree/master/async_handler>`_
      - A handler that asynchronously pushes exception and report handler data to a |stomp| queue, from which data can be processed into data storage.
