@@ -74,7 +74,7 @@ Properties
 
 Multiple Packages
 -----------------------------------------------------
-.. include:: ../../includes_resources_common/includes_resources_common_multiple_packages.rst
+.. include:: ../../includes_resources_common/includes_resources_common_12-6_multiple_packages.rst
 
 Providers
 =====================================================

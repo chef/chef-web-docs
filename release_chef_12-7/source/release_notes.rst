@@ -13,7 +13,7 @@ The following items are new for |chef client| 12.7 and/or are changes from previ
 * **New apt_update resource** xxxxx
 * **Improved support for UTF-8** The |chef client| 12.7 release fixes a UTF-8 handling bug present in |chef client| versions 12.4, 12.5, and 12.6.
 * **New options for the chef-client** The |chef client| has two new options: ``--delete-entire-chef-repo`` and ``--fips``.
-
+* **Multi-package support for Chocolatey and Zypper** A resource may specify multiple packages and/or versions for platforms that use |zypper| or |chocolatey| package managers (in addition to the existing support for specifying multiple packages for |yum| and |apt| packages).
 
 
 chocolatey_package

@@ -881,6 +881,7 @@
 .. |zip| replace:: Zip
 .. |zookeeper| replace:: ZooKeeper
 .. |zsh| replace:: zsh
+.. |zypper| replace:: Zypper
 
 .. Unicode characters
 
