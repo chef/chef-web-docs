@@ -650,6 +650,42 @@ default.rb:
 
 
 
+chocolatey_package
+-----------------------------------------------------
+
+.. include:: ../../includes_resources/includes_resource_package_chocolatey.rst
+
+.. note:: .. include:: ../../includes_notes/includes_notes_resource_based_on_package.rst
+
+Syntax
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_resources/includes_resource_package_chocolatey_syntax.rst
+
+Actions
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_resources/includes_resource_package_chocolatey_actions.rst
+
+Properties
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_resources/includes_resource_package_chocolatey_attributes.rst
+
+Providers
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_resources_common/includes_resources_common_provider.rst
+
+.. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
+
+.. include:: ../../includes_resources/includes_resource_package_chocolatey_providers.rst
+
+Examples
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+|generic resource statement|
+
+**Install a package**
+
+.. include:: ../../step_resource/step_resource_chocolatey_package_install.rst
+
+
 
 cookbook_file
 -----------------------------------------------------
@@ -1929,6 +1965,63 @@ Examples
 **Install a package**
 
 .. include:: ../../step_resource/step_resource_openbsd_package_install.rst
+
+
+
+
+osx_profile
+-----------------------------------------------------
+
+.. include:: ../../includes_resources/includes_resource_osx_profile.rst
+
+Syntax
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_resources/includes_resource_osx_profile_syntax.rst
+
+Actions
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_resources/includes_resource_osx_profile_actions.rst
+
+Properties
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_resources/includes_resource_osx_profile_attributes.rst
+
+..
+.. Providers
+.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. .. include:: ../../includes_resources_common/includes_resources_common_provider.rst
+..
+.. .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
+..
+.. .. include:: ../../includes_resources/includes_resource_osx_profile_providers.rst
+..
+
+Examples
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+|generic resource statement|
+
+
+**One liner to install profile from cookbook file**
+
+.. include:: ../../step_resource/step_resource_osx_profile_install_file_oneline.rst
+
+**Install profile from cookbook file**
+
+.. include:: ../../step_resource/step_resource_osx_profile_install_file.rst
+
+**Install profile from a hash**
+
+.. include:: ../../step_resource/step_resource_osx_profile_install_hash.rst
+
+**Remove profile using identifier in resource name**
+
+.. include:: ../../step_resource/step_resource_osx_profile_remove_by_name.rst
+
+**Remove profile by identifier and user friendly resource name**
+
+.. include:: ../../step_resource/step_resource_osx_profile_remove_by_identifier.rst
+
+
 
 
 

@@ -10,6 +10,10 @@ The following items are new for |chef client| 12.7 and/or are changes from previ
 
 * **New chocolatey_package resource** Use the |resource package_chocolatey| resource to manage packages using |chocolatey| for the |windows| platform.
 * **New osx_profile resource** Use the |resource osx_profile| resource to manage configuration profiles (``.mobileconfig`` files) on the |mac os x| platform.
+* **Improved support for UTF-8** The |chef client| 12.7 release fixes a UTF-8 handling bug present in |chef client| versions 12.4, 12.5, and 12.6.
+
+
+
 
 chocolatey_package
 -----------------------------------------------------

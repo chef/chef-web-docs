@@ -253,6 +253,18 @@ default.rb:
 
 
 
+
+
+chocolatey_package
+=====================================================
+.. include:: ../../includes_resources/includes_resource_package_chocolatey.rst
+
+**Install a package**
+
+.. include:: ../../step_resource/step_resource_chocolatey_package_install.rst
+
+
+
 cookbook_file
 =====================================================
 .. include:: ../../includes_resources/includes_resource_cookbook_file.rst
@@ -869,6 +881,32 @@ openbsd_package
 
 .. include:: ../../step_resource/step_resource_openbsd_package_install.rst
 
+
+
+
+osx_profile
+=====================================================
+.. include:: ../../includes_resources/includes_resource_osx_profile.rst
+
+**One liner to install profile from cookbook file**
+
+.. include:: ../../step_resource/step_resource_osx_profile_install_file_oneline.rst
+
+**Install profile from cookbook file**
+
+.. include:: ../../step_resource/step_resource_osx_profile_install_file.rst
+
+**Install profile from a hash**
+
+.. include:: ../../step_resource/step_resource_osx_profile_install_hash.rst
+
+**Remove profile using identifier in resource name**
+
+.. include:: ../../step_resource/step_resource_osx_profile_remove_by_name.rst
+
+**Remove profile by identifier and user friendly resource name**
+
+.. include:: ../../step_resource/step_resource_osx_profile_remove_by_identifier.rst
 
 
 package
