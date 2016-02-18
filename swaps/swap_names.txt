@@ -150,6 +150,7 @@
 .. Resources that are built into the chef-client, plus the chef_handler resource:
 ..
 
+.. |resource apt_update| replace:: **apt_update**
 .. |resource batch| replace:: **batch**
 .. |resource breakpoint| replace:: **breakpoint**
 .. |resource chef_acl| replace:: **chef_acl**

@@ -141,6 +141,23 @@ apt_package
 
 
 
+apt_update
+=====================================================
+.. include:: ../../includes_resources/includes_resource_apt_update.rst
+
+**Update the Apt repository on Debian platforms** 
+
+.. include:: ../../step_resource/step_resource_apt_update_debian_only.rst
+
+**Update the Apt repository at a specified interval** 
+
+.. include:: ../../step_resource/step_resource_apt_update_periodic.rst
+
+**Update the Apt repository at the start of a chef-client run** 
+
+.. include:: ../../step_resource/step_resource_apt_update_at_start_of_client_run.rst
+
+
 bash
 =====================================================
 .. include:: ../../includes_resources/includes_resource_script_bash.rst
