@@ -140,7 +140,7 @@
 .. |checkpoint_segments| replace:: The maximum amount (in megabytes) between checkpoints in log file segments.
 .. |checkpoint_timeout| replace:: The amount of time (in minutes) between checkpoints.
 .. |checkpoint_warning| replace:: The frequency (in seconds) at which messages are sent to the server log files if checkpoint segments are being filled faster than their currently configured values.
-.. |checksum_path| replace:: The location in which checksums for individual cookbook files (such as recipes) are stored. The checksum itself is stored in |couch db| and is compared to a file in this location that has a filename that is identical to the checksum.
+.. |checksum_path| replace:: The location in which checksum files are stored. These are used to validate individual cookbook files, such as recipes. The checksum itself is stored in the |chef server| database and is then compared to a file in the checksum path that has a filename identical to the checksum.
 .. |checksum file| replace:: The |sha256| checksum of the file. Use to ensure that a specific file is used. If the checksum does not match, the file is not used.
 .. |checksum remote_file| replace:: The |sha256| checksum of the file. Use to prevent a file from being re-downloaded. When the local file matches the checksum, the |chef client| does not download it.
 .. |chef generator| replace:: The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on.
