@@ -96,6 +96,7 @@ osc_11-0
 osc_11-1
 analytics_1-1
 analytics_1-2
+analytics_1-3
 devkit_1-0
 compliance_1-0
 ohai-8
