@@ -18,7 +18,7 @@ For many users of |chef|, the |chef dk| version of |ruby| that is included in th
 
    where ``bash`` and ``~/.bash_profile`` represents the name of the shell.
 
-   If zsh is your preferred shell then run the following:
+   If |zsh| is your preferred shell then run the following:
 
    .. code-block:: bash
 
