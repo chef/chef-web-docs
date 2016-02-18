@@ -12,7 +12,7 @@ The following items are new for |chef client| 12.7 and/or are changes from previ
 * **New osx_profile resource** Use the |resource osx_profile| resource to manage configuration profiles (``.mobileconfig`` files) on the |mac os x| platform.
 * **New apt_update resource** xxxxx
 * **Improved support for UTF-8** The |chef client| 12.7 release fixes a UTF-8 handling bug present in |chef client| versions 12.4, 12.5, and 12.6.
-
+* **New options for the chef-client** The |chef client| has two new options: ``--delete-entire-chef-repo`` and ``--fips``.
 
 
 
@@ -115,6 +115,15 @@ Examples
 .. include:: ../../step_resource/step_resource_apt_update_at_start_of_client_run.rst
 
 
+New chef-client options
+-----------------------------------------------------
+The |chef client| has the following new options:
+
+``--delete-entire-chef-repo``
+   |chef_client delete_repo|
+
+``-fips``
+   |chef_client fips|
 
 
 Changelog
