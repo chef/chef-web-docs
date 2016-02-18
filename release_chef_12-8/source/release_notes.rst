@@ -8,7 +8,7 @@ What's New
 =====================================================
 The following items are new for |chef client| 12.8 and/or are changes from previous versions. The short version:
 
-* **New launchd resource** Use the |resource launchd| resource to manage configuration profiles (``.mobileconfig`` files) on the |mac os x| platform.
+* **New launchd resource** Use the |resource launchd| resource to manage system-wide services (daemons) and per-user services (agents) on the |mac os x| platform.
 * **xxxxx** xxxxx.
 
 
