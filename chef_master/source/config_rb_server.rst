@@ -50,6 +50,14 @@ opscode-solr4
 -----------------------------------------------------
 .. include:: ../../includes_server_tuning/includes_server_tuning_solr.rst
 
+Available Memory
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_server_tuning/includes_server_tuning_solr_available_memory.rst
+
+Large Node Sizes
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_server_tuning/includes_server_tuning_solr_large_node_sizes.rst
+
 Update Frequency
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_server_tuning/includes_server_tuning_solr_update_frequency.rst
