@@ -5,8 +5,8 @@
 Use the following steps to set up a development repository for |chef|:
 
 #. Setup a |github| account.
-#. Fork the https://github.com/opscode/chef repository to your |github| account.
-#. Clone the https://github.com/opscode/chef repository:
+#. Fork the https://github.com/chef/chef repository to your |github| account.
+#. Clone the https://github.com/chef/chef repository:
 
    .. code-block:: bash
       
@@ -22,7 +22,7 @@ Use the following steps to set up a development repository for |chef|:
 
    .. code-block:: bash
 
-      $ git remote add opscode git://github.com/chef/chef.git
+      $ git remote add chef git://github.com/chef/chef.git
 
 #. Verify:
 
@@ -37,7 +37,7 @@ Use the following steps to set up a development repository for |chef|:
       remote.chef.url git://github.com/chef/chef.git
       remote.chef.fetch +refs/heads/*:refs/remotes/chef/*
 
-#. Adjust your branch to track the ``opscode master`` remote branch:
+#. Adjust your branch to track the ``chef/master`` remote branch:
 
    .. code-block:: bash
 
