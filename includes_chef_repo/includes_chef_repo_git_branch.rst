@@ -9,15 +9,15 @@ Use the following steps to create a topic branch:
 
    .. code-block:: bash
       
-      $ git fetch opscode
+      $ git fetch chef
 
 #. Create an appropriately named tracking branch:
 
    .. code-block:: bash
       
-      $ git checkout --track -b CHEF-XX opscode/master
+      $ git checkout --track -b CHEF-XX chef/master
 
-   Set up a topic branch to track ``opscode/master``. This allows commits to be easily rebased prior to merging.
+   Set up a topic branch to track ``chef/master``. This allows commits to be easily rebased prior to merging.
 
 #. Make your changes, and then commit them:
 
@@ -31,7 +31,7 @@ Use the following steps to create a topic branch:
 
       $ git commit <filespec>
 
-#. Rebase the commits against ``opscode/master``. After work in the topic branch is finished, rebase these commits against the upstream master. Do this manually with ``git fetch`` followed by a ``git rebase`` or use ``git pull --rebase``.
+#. Rebase the commits against ``chef/master``. After work in the topic branch is finished, rebase these commits against the upstream master. Do this manually with ``git fetch`` followed by a ``git rebase`` or use ``git pull --rebase``.
 
    |git| will let you know if there are any problems. In the event of problems, fix them as directed, and then mark as fixed with a ``git add``, and then continue the rebase process using ``git rebase --continue``.
    
@@ -39,13 +39,13 @@ Use the following steps to create a topic branch:
    
    .. code-block:: bash
       
-      $ git fetch opscode
+      $ git fetch chef
 
    followed by:
    
    .. code-block:: bash
       
-      $ git rebase opscode/master CHEF-XX
+      $ git rebase chef/master CHEF-XX
 
    Or:
 
