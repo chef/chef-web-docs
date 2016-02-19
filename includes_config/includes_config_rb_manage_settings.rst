@@ -55,7 +55,7 @@ This configuration file has the following settings:
    The amount of time (in seconds) to wait before timing out. Default value: ``30``.
 
 ``secret_token``
-   The secret token used by |ruby on rails| to prevent session tampering. See: http://guides.rubyonrails.org/security.html#session-storagel. Default value: (a token).
+   The secret token used by |ruby on rails| to prevent session tampering. See: http://guides.rubyonrails.org/security.html#session-storage. Default value: (a token).
 
 ``services['opscode-manage-events'].enable``
    Use to enable the ``opscode-manage-events`` service. Default value: ``true``.

@@ -6,7 +6,7 @@ We are glad you want to contribute to Chef! Here's how:
 
 #. Review the `Become a contributor <https://supermarket.chef.io/become-a-contributor>`_ page on |supermarket| and follow the steps described there for signing the contributor license agreement; both individuals and companies must sign the contributor licensing agreement unless the fix is an `Obvious Fix <https://docs.chef.io/community_contributions.html#the-obvious-fix-rule>`_
 #. Create a |github| pull request
-#. Do a `code review <https://github.com/chef/chef/blob/master/CONTRIBUTING.md#cr>`_ with the |company_name| team and/or core committers on the pull request
+#. Do a `code review <https://github.com/chef/chef/blob/master/CONTRIBUTING.md>`_ with the |company_name| team and/or core committers on the pull request
 
 |company_name| regularly reviews contributions and will get back to you if we have any suggestions or concerns.
 
@@ -134,8 +134,6 @@ Issues and bug reports may be created for |company_name| products, including the
      - https://github.com/chef/chef-server
    * - |chef manage_title|
      - https://github.com/chef/chef-manage-issues
-   * - |chef analytics_title|
-     - https://github.com/chef/chef-analytics
    * - |push jobs_title|
      - https://github.com/chef/chef-push
    * - |chef delivery|

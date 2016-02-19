@@ -42,8 +42,8 @@ SSL_CERT_FILE
 -----------------------------------------------------
 The |chef client| includes two |knife| commands for managing |ssl| certificates:
 
-* Use `knife ssl check <https://docs.chef.io/knife_ssl_check>`__ to troubleshoot |ssl| certificate issues
-* Use `knife ssl fetch <https://docs.chef.io/knife_ssl_fetch>`__ to pull down a certificate from the |chef server| to the |path trusted_certs| directory on the workstation.
+* Use `knife ssl check <https://docs.chef.io/knife_ssl_check.html>`__ to troubleshoot |ssl| certificate issues
+* Use `knife ssl fetch <https://docs.chef.io/knife_ssl_fetch.html>`__ to pull down a certificate from the |chef server| to the |path trusted_certs| directory on the workstation.
 
 After the workstation has the correct |ssl| certificate, bootstrap operations from that workstation will use the certificate in the |path trusted_certs| directory during the bootstrap operation.
 

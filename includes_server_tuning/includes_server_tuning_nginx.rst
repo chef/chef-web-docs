@@ -27,7 +27,7 @@ The following settings are often modified from the default as part of the tuning
 
       nginx['ssl_protocols'] = "TLSv1 TLSv1.1 TLSv1.2"
 
-.. note:: See https://wiki.mozilla.org/Security/Server_Side_TLS#Recommended_Ciphersuite for more information about the values used with the ``nginx['ssl_ciphers']`` and ``nginx['ssl_protocols']`` settings.
+.. note:: See https://wiki.mozilla.org/Security/Server_Side_TLS for more information about the values used with the ``nginx['ssl_ciphers']`` and ``nginx['ssl_protocols']`` settings.
 
 For example, after copying the |ssl| certificate files to the |chef server|, update the ``nginx['ssl_certificate']`` and ``nginx['ssl_certificate_key']`` settings to specify the paths to those files, and then (optionally) update the ``nginx['ssl_ciphers']`` and ``nginx['ssl_protocols']`` settings to reflect the desired level of hardness for the |chef server|:
 

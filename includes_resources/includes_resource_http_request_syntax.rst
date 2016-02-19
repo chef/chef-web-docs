@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-A |resource http_request| resource block sends HTTP requests with an arbitrary message. For example, send a ``DELETE`` request to "http://www.chef.io/some_page?message=please_delete_me".
+A |resource http_request| resource block sends HTTP requests with an arbitrary message. For example, send a ``DELETE`` request to ``'http://www.chef.io/some_page?message=please_delete_me'``.
 
 .. code-block:: ruby
 

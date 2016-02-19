@@ -3,7 +3,7 @@
 
 
 
-To set the system |ruby| for the |windows| platform `the steps described for all platforms are true <https://docs.chef.io/install_dk.html#set-the-system-ruby>`_, but then require the following manual edits to the ``chef shell-init bash`` output for the |windows| platform:
+To set the system |ruby| for the |windows| platform `the steps described for all platforms are true <https://docs.chef.io/install_dk.html#set-system-ruby>`_, but then require the following manual edits to the ``chef shell-init bash`` output for the |windows| platform:
 
 #. Add quotes around the variable assignment strings.
 #. Convert ``C:/`` to ``/c/``.
