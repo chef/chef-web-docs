@@ -29,4 +29,4 @@ From there, begin using the secrets by calling the ``get_project_secrets`` metho
      end
   end
 
-which is part of the ``publish.rb`` recipe in the ``delivery-truck`` cookbook: https://github.com/chef-cookbooks/delivery-truck/blob/master/recipes/publish.rb#L91-L103.
+which is part of the ``publish.rb`` recipe in the ``delivery-truck`` cookbook: https://github.com/chef-cookbooks/delivery-truck.

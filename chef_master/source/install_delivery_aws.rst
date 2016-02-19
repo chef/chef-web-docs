@@ -173,7 +173,7 @@ The following section details settings for |chef delivery| with |amazon aws| pro
    * - **Environment Name**
      - This name becomes the default name for the |chef delivery| cluster environment, enterprise, and organization. The naming convention prohibits the use of capital letters, but should otherwise be alphanumeric.
    * - **Key Name**
-     - This is the name of your |amazon aws| ``.pem`` credential file. Enter only the name, without the extension. This file is typically located in the ``~.ssh`` directory, and is associated with the **Key name pair** value in |amazon aws| console: https://console.aws.amazon.com/iam/home.
+     - This is the name of your |amazon aws| ``.pem`` credential file. Enter only the name, without the extension. This file is typically located in the ``~.ssh`` directory, and is associated with the **Key name pair** value in |amazon aws| console: https://console.aws.amazon.com/.
    * - **Image ID**, **Subnet ID**, and **Security Group ID**
      - This is the information that |amazon aws| needs to provision the nodes. It is wise to verify that the given defaults are actually the ones that you want by opening your |amazon aws| console and verifying.
    * - **Use existing chef-server**

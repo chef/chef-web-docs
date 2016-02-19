@@ -39,4 +39,4 @@ The following definition uses the |resource template| resource for |debian|-spec
      @lsb_init
    end
 
-Otherwise, a resource defined in the ``/libraries`` directory is done using |ruby|, is added to recipes as if it were any other resource, and is processed by the |chef client| in the same way as any other resource. See the ``/libraries`` directory in the `database <https://github.com/chef-cookbooks/database>`_ and `runit <https://github.com/chef-cookbooks/runit>`_ cookbooks for complete examples of how to use this approach when defining a resource.
+Otherwise, a resource defined in the ``/libraries`` directory is done using |ruby|, is added to recipes as if it were any other resource, and is processed by the |chef client| in the same way as any other resource. See the ``/libraries`` directory in the `database <https://github.com/chef-cookbooks/database>`_ and `runit <https://github.com/hw-cookbooks/runit>`_ cookbooks for complete examples of how to use this approach when defining a resource.

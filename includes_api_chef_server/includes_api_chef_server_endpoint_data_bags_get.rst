@@ -22,7 +22,7 @@ The response is similar to:
      "applications": "https://localhost/data/applications"
    }
 
-shown as a list of key-value pairs, where (in the example above) ``users`` and ``applications`` are the names of data bags and "https://localhost/data/foo" is the path to the data bag.
+shown as a list of key-value pairs, where (in the example above) ``users`` and ``applications`` are the names of data bags and ``https://localhost/data/foo`` is the path to the data bag.
 
 **Response Codes**
 

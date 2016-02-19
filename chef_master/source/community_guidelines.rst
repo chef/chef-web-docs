@@ -115,7 +115,7 @@ People subjected to punitive action may appeal the action by contacting a commun
 
 Influences
 -----------------------------------------------------
-This Code of Conduct was forked from the example policy from the `Geek Feminism wiki, created by the Ada Initiative and other volunteers <http://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy>`__, which is under a Creative Commons Zero (CC0) license. This document has also been inspired by the `Speak Up! <http://speakup.io/coc.html>`__ project, `the Django code of conduct <https://www.djangoproject.com/conduct/>`__, and the `PyCon Code of Conduct <https://github.com/python/pycon-code-of-conduct>`__.
+This Code of Conduct was forked from the example policy from the `Geek Feminism wiki, created by the Ada Initiative and other volunteers <http://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy>`__, which is under a Creative Commons Zero (CC0) license. This document has also been inspired by the Speak Up! project, `the Django code of conduct <https://www.djangoproject.com/conduct/>`__, and the `PyCon Code of Conduct <https://github.com/python/pycon-code-of-conduct>`__.
 
 Copyright
 =====================================================

@@ -9,4 +9,4 @@
      url 'http://example.com/check_in'
    end
 
-The message is sent as "http://example.com/check_in?message=some_message".
+The message is sent as ``http://example.com/check_in?message=some_message``.
