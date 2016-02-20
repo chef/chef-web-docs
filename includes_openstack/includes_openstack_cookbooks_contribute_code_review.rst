@@ -12,7 +12,7 @@ Some guidelines for code reviewers:
 
 Here are some general steps to validate the change:
 
-#. Checkout `single stack <http://https://github.com/openstack/openstack-chef-repo>`_
+#. Checkout `single stack <https://github.com/openstack/openstack-chef-repo>`_
 #. Cherry-pick changes into respective local checkouts as pertains to the repos being changed
 #. Point the |berksfile| at the local changes
 #. ``chef exec rake aio_nova`` (for now just ubuntu)

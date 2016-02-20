@@ -12,7 +12,7 @@ We are a community of developers, deployers and integrators who make working wit
    * - Mailing List
      - We leverage the official `OpenStack Dev Mailing list <http://lists.openstack.org/cgi-bin/mailman/listinfo/openstack-dev/>`_ for our mailing list communications. We use the tag [chef] to help with the filtering.
    * - |openstack chef| Wiki
-     - `wiki.openstack.org/wiki/Chef <https://wiki.openstack.org/wiki/Chef/>`_ most of this community information is migrated here
+     - `wiki.openstack.org/wiki/Chef <https://wiki.openstack.org/wiki/Chef/GettingStarted>`_ most of this community information is migrated here
    * - |twitter|
      - `@chefopenstack <http://twitter.com/chefopenstack>`_
 

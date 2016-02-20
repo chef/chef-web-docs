@@ -52,7 +52,7 @@ Glossary
    A |chef delivery| stage. Delivered is the final stage of the pipeline, what it means for your system is up to you. It could mean deploying the change so that it is live and receiving production traffic, or it might mean publishing a set of artifacts so they are accessible for your customers.
 
 **Delivery**
-   |chef delivery| manages changes to both infrastructure and application code, giving your operations and development teams a common platform for developing, building, testing, and deploying cookbooks, applications, and more. For more information see the `Delivery Overview <https://docs.chef.io/delivery.html/>`__.
+   |chef delivery| manages changes to both infrastructure and application code, giving your operations and development teams a common platform for developing, building, testing, and deploying cookbooks, applications, and more. For more information see the `Delivery Overview <https://docs.chef.io/delivery.html>`__.
 
 **environment**
    An environment is a way to map an organization's real-life workflow to what can be configured and managed when using |chef server|.

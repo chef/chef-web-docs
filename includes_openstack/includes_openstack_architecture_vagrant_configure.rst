@@ -4,7 +4,7 @@
 
 |vagrant| supports a number of virtualization and cloud back-ends. For our purposes |virtualbox| (https://www.virtualbox.org) is used.
 
-Install |vagrant| 1.2.1 or later from packages. You may download it from https://downloads.vagrantup.com.
+Install |vagrant| 1.2.1 or later from packages. You may download it from https://www.vagrantup.com/downloads.html.
 
 Our test configuration requires a number of |vagrant| plugins, install the following plugins in exactly this order:
 

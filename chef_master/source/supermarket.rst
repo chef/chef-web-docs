@@ -53,7 +53,7 @@ To set up |chef identity|, do the following:
 Run in |kitchen|
 -----------------------------------------------------
 
-.. note:: The community |supermarket| cookbook installs |supermarket| from source and is not used for that reason. Instead, use an omnibus package to install |supermarket|. Omnibus packages are located on |packagecloud| at https://packagecloud.io/chef/stable.
+.. note:: The community |supermarket| cookbook installs |supermarket| from source and is not used for that reason. Instead, use an omnibus package to install |supermarket|. Omnibus packages are located on |packagecloud| at https://packagecloud.io/chef/.
 
 To run |supermarket| in |kitchen|, do the following:
 
@@ -186,7 +186,7 @@ Source Code Location
 The code for |supermarket| can be found at the following URLs:
 
 * The application itself: https://github.com/chef/supermarket. Report issues to: https://github.com/chef/supermarket/issues
-* The code that builds |supermarket| as an omnibus package: https://github.com/chef/omnibus-supermarket. Use https://github.com/chef/omnibus-supermarket#kitchen-based-build-environment to build your own omnibus packages
+* The code that builds |supermarket| as an omnibus package: https://github.com/chef/omnibus-supermarket. Use a |kitchen|-based environment to build your own omnibus packages
 * The cookbook that is run when ``supermarket-ctl reconfigure``: https://github.com/chef/omnibus-supermarket/tree/master/cookbooks/omnibus-supermarket
 
 Enable Debug Logging
