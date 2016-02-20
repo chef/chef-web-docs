@@ -3,7 +3,7 @@
 
 
 * `Food Fight Show <http://foodfightshow.org>`_
-* `Arrested DevOps <https://www.arresteddevops.com>`_
+* `Arrested DevOps <https://www.arresteddevops.com/>`_
 * `The Ship Show <http://theshipshow.com/>`_
 * `Ops All The Things <http://opsallthethings.com>`_
 * `DevOps Cafe <http://devopscafe.com>`_

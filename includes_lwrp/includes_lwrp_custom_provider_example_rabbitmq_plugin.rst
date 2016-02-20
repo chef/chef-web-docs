@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The ``rabbitmq_plugin`` custom provider (found in the `rabbitmq <https://github.com/chef-cookbooks/rabbitmq>`_ cookbook) is used to tell the |chef client| how to handle two actions (``:disable`` and ``:enable``) that are used to manage |rabbitmq| plugins. Using this custom resource in a recipe is simple:
+The ``rabbitmq_plugin`` custom provider (found in the `rabbitmq <https://supermarket.chef.io/cookbooks/rabbitmq>`_ cookbook) is used to tell the |chef client| how to handle two actions (``:disable`` and ``:enable``) that are used to manage |rabbitmq| plugins. Using this custom resource in a recipe is simple:
 
 .. code-block:: ruby
 
