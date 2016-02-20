@@ -4,8 +4,6 @@ Release Notes: |chef server oec| 11.1
 
 |chef| is a systems and cloud infrastructure automation framework that makes it easy to deploy servers and applications to any physical, virtual, or cloud location, no matter the size of the infrastructure. Each organization is comprised of one (or more) workstations, a single server, and every node that will be configured and maintained by the |chef client|. Cookbooks (and recipes) are used to tell the |chef client| how each node in your organization should be configured. The |chef client| (which is installed on every node) does the actual configuration.
 
-.. warning:: |chef server oec| 11.1.3 provides updates that address the Heartbleed |open ssl| vulnernability. See http://www.chef.io/blog/2014/04/09/enterprise-chef-11-1-3-release/ and https://docs.chef.io/security_notes.html#openssl-and-heartbleed for more information.
-
 What's New
 =====================================================
 The following items are new for |chef server oec| 11.1 and/or are changes from previous versions:
