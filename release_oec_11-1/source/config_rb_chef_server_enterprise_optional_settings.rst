@@ -366,7 +366,7 @@ This configuration file has the following settings for |nginx|:
    * - ``nginx['ssl_certificate_key']``
      - |ssl_certificate key| Default value: ``nil``.
    * - ``nginx['ssl_ciphers']``
-     - |ssl_ciphers| To favor AES256 with ECDHE forward security, use ``HIGH:MEDIUM:!LOW:!kEDH:!aNULL:!ADH:!eNULL:!EXP:!SSLv2:!SEED:!CAMELLIA:!PSK``. See https://wiki.mozilla.org/Security/Server_Side_TLS#Recommended_Ciphersuite for more information. Default value: varies.
+     - |ssl_ciphers| To favor AES256 with ECDHE forward security, use ``HIGH:MEDIUM:!LOW:!kEDH:!aNULL:!ADH:!eNULL:!EXP:!SSLv2:!SEED:!CAMELLIA:!PSK``. See https://wiki.mozilla.org/Security/Server_Side_TLS for more information. Default value: varies.
    * - ``nginx['ssl_company_name']``
      - Default value: ``YouCorp``.
    * - ``nginx['ssl_country_name']``

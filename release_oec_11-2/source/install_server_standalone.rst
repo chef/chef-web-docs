@@ -87,7 +87,7 @@ A single loopback interface should be configured using the ``127.0.0.1`` address
 
 Hostnames, FQDNs
 -----------------------------------------------------
-The hostname for the |chef server| must be a |fqdn|, including the domain suffix, and must be resolvable. See `Hostnames, FQDNs <https://docs.chef.io/install_server_pre.html#hostnames-fqdns>`__ for more information.
+The hostname for the |chef server| must be a |fqdn|, including the domain suffix, and must be resolvable. See `Hostnames, FQDNs <https://docs.chef.io/install_server_pre.html#hostnames>`__ for more information.
 
 Add Package to Server
 =====================================================

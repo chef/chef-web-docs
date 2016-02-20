@@ -71,7 +71,7 @@ This configuration file has the following settings:
                               !SSLv2:!SEED:!CAMELLIA: \
                               !PSK'
 
-   See https://wiki.mozilla.org/Security/Server_Side_TLS#Recommended_Ciphersuite for more information. Default value: varies.
+   See https://wiki.mozilla.org/Security/Server_Side_TLS for more information. Default value: varies.
 
 ``nginx['ssl_company_name']``
    Default value: ``YouCorp``.
