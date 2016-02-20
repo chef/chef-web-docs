@@ -79,7 +79,7 @@ This configuration file has the following settings for ``nginx``:
    |ssl_certificate key| Default value: ``nil``.
 
 ``nginx['ssl_ciphers']``
-   |ssl_ciphers| To favor AES256 with ECDHE forward security, drop the ``RC4-SHA:RC4-MD5:RC4:RSA`` prefix. See `this link <https://wiki.mozilla.org/Security/Server_Side_TLS#Recommended_Ciphersuite>`__ for more information. For example:
+   |ssl_ciphers| To favor AES256 with ECDHE forward security, drop the ``RC4-SHA:RC4-MD5:RC4:RSA`` prefix. See `this link <https://wiki.mozilla.org/Security/Server_Side_TLS>`__ for more information. For example:
 
    .. code-block:: ruby
 

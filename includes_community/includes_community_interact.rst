@@ -10,5 +10,5 @@
 * `IRC #chef <https://botbot.me/freenode/chef>`_
 * `IRC #chef-hacking <https://botbot.me/freenode/chef-hacking>`_
 * `IRC #openstack-chef <https://botbot.me/freenode/openstack-chef>`_
-* `LinkedIn Group <https://www.linkedin.com/groups/3751378/profile>`_
+* Join the "Chef Users Group" on LinkedIn
 * `https://discourse.chef.io <https://discourse.chef.io>`_ (for discussion among users, developers, and other interested parties)

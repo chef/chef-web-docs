@@ -38,7 +38,7 @@ This configuration file has the following settings for |ssl|:
    Default value: ``'5m'``.
 
 ``supermarket['ssl']['ciphers']``
-   |ssl_ciphers| To favor AES256 with ECDHE forward security, drop the ``RC4-SHA:RC4-MD5:RC4:RSA`` prefix. See https://wiki.mozilla.org/Security/Server_Side_TLS#Recommended_Ciphersuite for more information. For example:
+   |ssl_ciphers| To favor AES256 with ECDHE forward security, drop the ``RC4-SHA:RC4-MD5:RC4:RSA`` prefix. See https://wiki.mozilla.org/Security/Server_Side_TLS for more information. For example:
 
    .. code-block:: ruby
 

@@ -314,7 +314,7 @@ Code Blocks
 =====================================================
 Code blocks are used to show code samples, such as those for Ruby, JSON, and command-line strings. There are many options here, especially if Pygments is part of your |python sphinx| environment. The most common code block styles are shown below, but there are many lexers available.
 
-.. note:: For more information about all of the code styles that Pygments supports, see: http://pygments.org/docs/lexers/#lexers-for-other-languages.
+.. note:: For more information about all of the code styles that Pygments supports, see: http://pygments.org/docs/lexers/.
 
 Ruby
 -----------------------------------------------------

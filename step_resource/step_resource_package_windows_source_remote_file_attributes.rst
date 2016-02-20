@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The |resource package_windows| resource may specify a package at a remote location using the ``remote_file_attributes`` property. This uses the |resource remote_file| resource to download the contents at the specified URL and passes in a |ruby hash| that modifes the properties of the `remote_file resource <https://docs.chef.io/resource_remote_file/>`__.
+The |resource package_windows| resource may specify a package at a remote location using the ``remote_file_attributes`` property. This uses the |resource remote_file| resource to download the contents at the specified URL and passes in a |ruby hash| that modifes the properties of the `remote_file resource <https://docs.chef.io/resource_remote_file.html>`__.
 
 For example:
 

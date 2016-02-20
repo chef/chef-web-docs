@@ -472,7 +472,7 @@ The following bugs were fixed:
 * `CHEF-3648 <http://tickets.opscode.com/browse/CHEF-3648>`_  --- WebUI: creating client fails with 'Could not create client: 500 "Internal Server Error"'
 * `CHEF-3653 <http://tickets.opscode.com/browse/CHEF-3653>`_  --- Unable to show data bag items in webui
 * `CHEF-3654 <http://tickets.opscode.com/browse/CHEF-3654>`_  --- Adding role to node run list in webui gives undefined method 'empty?' for nil:NilClass
-* `CHEF-3655 <http://tickets.opscode.com/browse/CHEF3655>`_  --- Webui node show run\_list: ERROR: Unable to create Chef::RunList::RunListItem from String
+* `CHEF-3655 <http://tickets.opscode.com/browse/CHEF-3655>`_  --- Webui node show run\_list: ERROR: Unable to create Chef::RunList::RunListItem from String
 * `CHEF-3656 <http://tickets.opscode.com/browse/CHEF-3656>`_  --- Last check-in display shows > entity in webui for /status
 * `CHEF-3657 <http://tickets.opscode.com/browse/CHEF-3657>`_  --- Unable to add cookbook version constraints to an environment via webui
 * `CHEF-3658 <http://tickets.opscode.com/browse/CHEF-3658>`_  --- Admin clients should not be able to de-admin the last admin user
@@ -520,7 +520,7 @@ The following improvements were made:
 * `CHEF-3603 <http://tickets.opscode.com/browse/CHEF-3603>`_  --- Chef::Provider::Service::Init should support specification of alternate 'init_command'
 * `CHEF-3616 <http://tickets.opscode.com/browse/CHEF-3616>`_  --- Include cipher in Encrypted Data Bag Item v1 Format
 * `CHEF-3628 <http://tickets.opscode.com/browse/CHEF-3628>`_  --- knife upload with no parameters should prompt before uploading EVERYTHING
-* `CHEF-3663 <http://tickets.opscode.com/browse/CHEF-xxxxx>`_  --- Knife's config file lookup doesn't work when the current directory or parent is a symlink
+* `CHEF-3663 <http://tickets.opscode.com/browse/CHEF-3663>`_  --- Knife's config file lookup doesn't work when the current directory or parent is a symlink
 * `CHEF-3681 <http://tickets.opscode.com/browse/CHEF-3681>`_  --- the LWRP DSL should automatically create and converge a new run_context
 * `CHEF-3715 <http://tickets.opscode.com/browse/CHEF-3715>`_  --- Remove caching of SHA256 sums in Chef::ChecksumCache
 

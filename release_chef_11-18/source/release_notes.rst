@@ -15,24 +15,3 @@ The following items are new for |chef client| 11-18 and/or are changes from prev
 Changelog
 =====================================================
 https://github.com/chef/chef/blob/11-stable/CHANGELOG.md
-
-.. What's Fixed
-.. =====================================================
-.. The following bugs were fixed:
-.. 
-.. * `CHEF-xxxxx <http://tickets.opscode.com/browse/CHEF-xxxxx>`_  --- xxxxx
-.. * `CHEF-xxxxx <http://tickets.opscode.com/browse/CHEF-xxxxx>`_  --- xxxxx
-.. 
-.. What's Improved
-.. =====================================================
-.. The following improvements were made:
-.. 
-.. * `CHEF-xxxxx <http://tickets.opscode.com/browse/CHEF-xxxxx>`_  --- xxxxx
-.. * `CHEF-xxxxx <http://tickets.opscode.com/browse/CHEF-xxxxx>`_  --- xxxxx
-.. 
-.. New Features
-.. =====================================================
-.. The following features were added:
-.. 
-.. * `CHEF-xxxxx <http://tickets.opscode.com/browse/CHEF-xxxxx>`_  --- xxxxx
-.. * `CHEF-xxxxx <http://tickets.opscode.com/browse/CHEF-xxxxx>`_  --- xxxxx
