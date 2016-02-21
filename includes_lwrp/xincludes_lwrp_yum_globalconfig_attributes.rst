@@ -114,7 +114,7 @@ This resource has the following properties:
    * - ``path``
      - |path repository|
    * - ``persistdir``
-     - |persistdir|
+     - The directory in which |yum| stores information that is to persist across multiple |chef client| runs.
    * - ``pluginconfpath``
      - |pluginconfpath|
    * - ``pluginpath``
@@ -132,7 +132,7 @@ This resource has the following properties:
    * - ``proxy_username``
      - |name proxy|
    * - ``recent``
-     - |recent_yum|
+     - The age (in days) of a package, after which a package is no longer considered a "recent" package.
    * - ``repo_gpgcheck``
      - |repo_gpgcheck|
    * - ``reset_nice``
@@ -140,17 +140,17 @@ This resource has the following properties:
    * - ``rpmverbosity``
      - |rpm_verbosity|
    * - ``showdupesfromrepos``
-     - |showdupesfromrepos|
+     - |show_dupes_from_repos|
    * - ``skip_broken``
      - |skip_broken|
    * - ``ssl_check_cert_permissions``
-     - |ssl_check_cert_permissions_yum|
+     - Check permissions on both local and remote paths for certificates.
    * - ``sslcacert``
-     - |ssl_ca_cert_yum|
+     - The path to the directory in which the certificate authorities |yum| is to use to verify |ssl| certificates are located.
    * - ``sslclientcert``
-     - |ssl_client_cert_yum|
+     - The path to the |ssl| client certificate that |yum| is to use to connect to repositories and/or remote sites.
    * - ``sslclientkey``
-     - |ssl_client_key_yum|
+     - The path of the location in which the |ssl| client key used by |yum| is located.
    * - ``sslverify``
      - |ssl_certificate verify|
    * - ``syslog_device``

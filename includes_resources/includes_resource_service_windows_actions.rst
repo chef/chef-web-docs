@@ -4,25 +4,25 @@
 This resource has the following actions:
 
 ``:configure_startup``
-   |resource action configure_startup|
+   Configure a service based on the value of the ``startup_type`` property.
 
 ``:disable``
-   |resource action disable service| |windows service_type_disabled|
+   Disable a service. |windows service_type_disabled|
 
 ``:enable``
-   |resource action export service| |windows service_type_automatic|
+   Enable a service at boot. |windows service_type_automatic|
 
 ``:nothing``
-   Default. |resource action nothing service|
+   Default. Do nothing with a service.
 
 ``:reload``
-   |resource action reload service|
+   Reload the configuration for this service.
 
 ``:restart``
-   |resource action restart service|
+   Restart a service.
 
 ``:start``
-   |resource action start service|
+   Start a service, and keep it running until stopped or disabled.
 
 ``:stop``
-   |resource action stop service|
+   Stop a service.

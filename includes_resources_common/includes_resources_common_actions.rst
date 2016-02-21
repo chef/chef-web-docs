@@ -4,4 +4,4 @@
 The following actions may be used with any resource:
 
 ``:nothing``
-   |resource action nothing|
+   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst

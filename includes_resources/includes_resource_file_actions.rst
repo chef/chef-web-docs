@@ -4,16 +4,16 @@
 This resource has the following actions:
 
 ``:create``
-   Default. |resource action create file|
+   Default. Create a file. If a file already exists (but does not match), update that file to match.
 
 ``:create_if_missing``
-   |resource action create_if_missing file|
+   Create a file only if the file does not exist. When the file exists, nothing happens.
 
 ``:delete``
-   |resource action delete file|
+   Delete a file.
 
 ``:nothing``
-   |resource action nothing|
+   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst
 
 ``:touch``
-   |resource action touch file|
+   Touch a file. This updates the access (atime) and file modification (mtime) times for a file.

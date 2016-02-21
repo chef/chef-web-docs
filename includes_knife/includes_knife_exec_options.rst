@@ -8,4 +8,4 @@ This subcommand has the following options:
    |execute_with_knife_command|
 
 ``-p PATH:PATH``, ``--script-path PATH:PATH``
-   |script-path| Use to override the default location for scripts. When this option is not specified, |knife| will look for scripts located in ``chef-repo/.chef/scripts`` directory.
+   |script_path| Use to override the default location for scripts. When this option is not specified, |knife| will look for scripts located in ``chef-repo/.chef/scripts`` directory.

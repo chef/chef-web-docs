@@ -119,7 +119,7 @@ This command has the following options:
    .. include:: ../../includes_ctl_chef_client/includes_ctl_chef_client_profile_ruby.rst
 
 ``-r RUN_LIST_ITEM``, ``--runlist RUN_LIST_ITEM``
-   |runlist_items|
+   |run_list_items|
 
 ``-R``, ``--enable-reporting``
    |enable_reporting|

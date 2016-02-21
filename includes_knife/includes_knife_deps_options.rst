@@ -20,5 +20,5 @@ This subcommand has the following options:
    |repo_mode| Default: ``everything`` / ``hosted_everything``.
 
 ``--tree``
-   |tree| Default: ``false``.
+   |tree knife| Default: ``false``.
 

@@ -14,7 +14,7 @@ This argument has the following options:
    |cookbook_version install|
 
 ``-D``, ``--skip-dependencies``
-   |skip-dependencies|
+   |skip_dependencies|
 
 ``-m``, ``--supermarket-site``
    |url supermarket| Default value: ``https://supermarket.chef.io``.

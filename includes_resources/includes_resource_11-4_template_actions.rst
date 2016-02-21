@@ -4,10 +4,10 @@
 This resource has the following actions:
 
 ``:create``
-   Default. |resource action create template|
+   Default. Create a file. If a template already exists (but does not match), update that template to match.
 
 ``:create_if_missing``
-   |resource action create_if_missing template|
+   Create a file only if it does not exist.
 
 ``:nothing``
-   |resource action nothing|
+   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst

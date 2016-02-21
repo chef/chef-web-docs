@@ -74,7 +74,7 @@ This argument has the following options:
    |network_private| Default value: ``false``.
 
 ``-r RUN_LIST``, ``--run-list RUN_LIST``
-   |run-list|
+   |run_list|
 
 ``--rackconnect-wait``
    |rackconnect wait| Default value: ``false``.

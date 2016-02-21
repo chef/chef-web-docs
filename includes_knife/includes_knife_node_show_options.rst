@@ -14,5 +14,5 @@ This argument has the following options:
    |medium|
 
 ``-r``, ``--run-list``
-   |run-list indicator|
+   |run_list indicator|
 

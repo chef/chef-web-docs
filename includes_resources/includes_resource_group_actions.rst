@@ -4,16 +4,16 @@
 This resource has the following actions:
 
 ``:create``
-   Default. |resource action create group|
+   Default. Create a group. If a group already exists (but does not match), update that group to match.
 
 ``:manage``
-   |resource action manage group|
+   Manage an existing group. This action does nothing if the group does not exist.
 
 ``:modify``
-   |resource action modify group|
+   Modify an existing group. This action raises an exception if the group does not exist.
 
 ``:nothing``
-   |resource action nothing|
+   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst
 
 ``:remove``
-   |resource action remove group|
+   Remove a group.

@@ -4,13 +4,13 @@
 This resource has the following actions:
 
 ``:install``
-   Default. |resource action install package|
+   Default. Install a package. If a version is specified, install the specified version of the package.
 
 ``:nothing``
-   |resource action nothing|
+   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst
 
 ``:purge``
-   |resource action purge package|
+   Purge a package. This action typically removes the configuration files as well as the package.
 
 ``:remove``
-   |resource action remove package|
+   Remove a package.

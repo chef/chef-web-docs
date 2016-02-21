@@ -4,13 +4,13 @@
 This resource has the following actions:
 
 ``:deploy``
-   Default. |resource action deploy deploy|
+   Default. Deploy an application.
 
 ``:force_deploy``
-   |resource action force_deploy deploy|
+   Remove any existing release of the same code version and re-deploy a new one in its place.
 
 ``:nothing``
-   |resource action nothing|
+   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst
 
 ``:rollback``
-   |resource action rollback deploy|
+   Roll an application back to the previous release.
