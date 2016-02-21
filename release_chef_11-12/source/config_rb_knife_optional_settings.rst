@@ -89,7 +89,7 @@ The following list describes all of the optional settings that can be added to t
    * - ``knife[:name_status]``
      - |name status|
    * - ``knife[:no_deps]``
-     - |skip-dependencies|
+     - |skip_dependencies|
    * - ``knife[:platform]``
      - |platform|
    * - ``knife[:platform_version]``
@@ -107,11 +107,11 @@ The following list describes all of the optional settings that can be added to t
    * - ``knife[:repo_mode]``
      - |repo_mode|
    * - ``knife[:repository]``
-     - |repository|
+     - |path chef_repo|
    * - ``knife[:run_list]``
-     - |run-list|
+     - |run_list|
    * - ``knife[:script_path]``
-     - |script-path|
+     - |script_path|
    * - ``knife[:secret]``
      - |secret|
    * - ``knife[:secret_file]``

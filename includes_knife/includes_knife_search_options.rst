@@ -32,7 +32,7 @@ This subcommand has the following options:
    |query|
 
 ``-r``, ``--run-list``
-   |run-list indicator|
+   |run_list indicator|
 
 ``-R INT``, ``--rows INT``
    |rows|

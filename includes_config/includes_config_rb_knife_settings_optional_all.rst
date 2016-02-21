@@ -243,7 +243,7 @@ The following list describes all of the optional settings that can be added to t
    |name status|
 
 ``knife[:no_deps]``
-   |skip-dependencies|
+   |skip_dependencies|
 
 ``knife[:node_name]``
    |name node_knife_rb| For example:
@@ -313,16 +313,16 @@ The following list describes all of the optional settings that can be added to t
    |repo_mode|
 
 ``knife[:repository]``
-   |repository|
+   |path chef_repo|
 
 ``knife[:rows]``
    
 
 ``knife[:run_list]``
-   |run-list|
+   |run_list|
 
 ``knife[:script_path]``
-   |script-path|
+   |script_path|
 
 ``knife[:secret]``
    |secret|

@@ -4,7 +4,7 @@
 This resource has the following actions:
 
 ``:nothing``
-   Inherited from |resource execute| resource. |resource action nothing execute|
+   Inherited from |resource execute| resource. Prevent a command from running. This action is used to specify that a command is run only when another resource notifies it.
 
 ``:run``
-   Default. |resource action run powershell_script|
+   Default. Run the script.

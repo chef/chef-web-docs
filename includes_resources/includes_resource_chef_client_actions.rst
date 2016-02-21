@@ -10,7 +10,7 @@ This resource has the following actions:
    Use to delete a |chef client|.
 
 ``:nothing``
-   |resource action nothing|
+   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst
 
 ``:regenerate_keys``
    Use to regenerate the RSA public key for a |chef client|.

@@ -4,13 +4,13 @@
 This resource has the following actions:
 
 ``:cancel``
-   |resource action cancel reboot|
+   Cancel a reboot request.
 
 ``:nothing``
-   |resource action nothing|
+   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst
 
 ``:reboot_now``
-   |resource action reboot now|
+   Reboot a node so that the |chef client| may continue the installation process.
 
 ``:request_reboot``
-   |resource action request reboot|
+   Reboot a node at the end of a |chef client| run.

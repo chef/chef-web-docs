@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-|search index| The following search indexes are built:
+A search index is a full-text list of objects that are stored on the |chef server|, against which search queries can be made. The following search indexes are built:
 
 .. list-table::
    :widths: 200 300

@@ -10,7 +10,7 @@ This resource has the following actions:
    Use to delete an RSA private key.
 
 ``:nothing``
-   |resource action nothing|
+   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst
 
 ``:regenerate``
    Use to regenerate an RSA private key.

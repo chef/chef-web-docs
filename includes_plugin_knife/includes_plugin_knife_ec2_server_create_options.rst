@@ -96,7 +96,7 @@ This argument has the following options:
    |ebs_volume_type provisioned_iops|
 
 ``-r RUN_LIST``, ``--run-list RUN_LIST``
-   |run-list|
+   |run_list|
 
 ``--region REGION``
    |region amazon|

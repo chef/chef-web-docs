@@ -4,7 +4,7 @@
 This resource has the following actions:
 
 ``:nothing``
-   |resource action nothing erlang|
+   Prevent the |erlang| call from running.
 
 ``:run``
-   Default. |resource action run erlang|
+   Default. Run the |erlang| call.

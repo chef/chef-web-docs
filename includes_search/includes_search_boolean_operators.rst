@@ -1,7 +1,7 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
-|search operator| Searches can use the following operators:
+An operator can be used to ensure that certain terms are included in the results, are excluded from the results, or are not included even when other aspects of the query match. Searches can use the following operators:
 
 .. list-table::
    :widths: 200 300

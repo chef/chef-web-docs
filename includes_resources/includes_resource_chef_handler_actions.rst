@@ -4,10 +4,10 @@
 This resource has the following actions:
 
 ``:disable``
-   |resource action disable chef_handler|
+   Disable the handler for the current |chef client| run on the current node.
 
 ``:enable``
-   |resource action enable chef_handler|
+   Enable the handler for the current |chef client| run on the current node.
 
 ``:nothing``
-   |resource action nothing|
+   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst

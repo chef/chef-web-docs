@@ -7,7 +7,7 @@ This resource has the following actions:
    The same as ``:run``.
 
 ``:nothing``
-   |resource action nothing|
+   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst
 
 ``:run``
-   Default. |resource action run ruby_block|
+   Default. Run a |ruby| block.

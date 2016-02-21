@@ -14,7 +14,7 @@ This subcommand has the following options for use when configuring a |knife rb| 
    |initial|
 
 ``-r REPO``, ``--repository REPO``
-   |repository|
+   |path chef_repo|
 
 ``--validation-client-name NAME``
    The name of the validation client, typically a client named |chef validator|.

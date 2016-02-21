@@ -10,6 +10,6 @@ This custom resource provider has the following actions:
    * - Action
      - Description
    * - ``:enable``
-     - |resource action enable chef_handler|
+     - Enable the handler for the current |chef client| run on the current node.
    * - ``:disable``
-     - |resource action disable chef_handler|
+     - Disable the handler for the current |chef client| run on the current node.

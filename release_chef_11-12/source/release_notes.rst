@@ -215,7 +215,7 @@ knife node run list add
 New options have been added to the |chef client|:
 
 ``-r RUN_LIST_ITEM``, ``--runlist RUN_LIST_ITEM``
-   |runlist_items|
+   |run_list_items|
 
 
 sensitive Property

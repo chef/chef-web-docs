@@ -4,7 +4,7 @@
 This resource has the following actions:
 
 ``:nothing``
-   Default. |resource action nothing|
+   Default. .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst
 
 ``:reboot_action``
-   |resource action reboot action|
+   Use to request an immediate reboot or to queue a reboot using the ``:reboot_now`` (immediate reboot) or ``:request_reboot`` (queued reboot) actions built into the |resource reboot| resource.

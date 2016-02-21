@@ -4,21 +4,21 @@
 This resource has the following actions:
 
 ``:delete``
-   |resource action delete http_request|
+   Send a ``DELETE`` request.
 
 ``:get``
-   Default. |resource action get http_request|
+   Default. Send a ``GET`` request.
 
 ``:head``
-   |resource action head http_request|
+   Send a ``HEAD`` request.
 
 ``:options``
-   |resource action options http_request|
+   Send an ``OPTIONS`` request.
 
 ``:post``
-   |resource action post http_request|
+   Send a ``POST`` request.
 
 ``:put``
-   |resource action put http_request|
+   Send a ``PUT`` request.
 
 .. warning:: |http_request query_string|

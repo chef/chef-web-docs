@@ -4,10 +4,10 @@
 This resource has the following actions:
 
 ``:create``
-   Default. |resource action create directory|
+   Default. Create a directory. If a directory already exists (but does not match), update that directory to match.
 
 ``:delete``
-   |resource action delete directory|
+   Delete a directory.
 
 ``:nothing``
-   |resource action nothing|
+   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst

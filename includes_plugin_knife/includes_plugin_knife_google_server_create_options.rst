@@ -81,7 +81,7 @@ This argument has the following options:
    |prerelease|
 
 ``-r RUN_LIST``, ``--run-list RUN_LIST``
-   |run-list|
+   |run_list|
 
 ``--secret SECRET``
    |secret|

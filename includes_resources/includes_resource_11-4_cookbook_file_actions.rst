@@ -4,13 +4,13 @@
 This resource has the following actions:
 
 ``:create``
-   Default. |resource action create cookbook_file|
+   Default. Create a file. If a file already exists (but does not match), update that file to match.
 
 ``:create_if_missing``
-   |resource action create_if_missing cookbook_file|
+   Create a file if it does not exist.
 
 ``:delete``
-   |resource action delete cookbook_file|
+   Delete a file.
 
 ``:nothing``
-   |resource action nothing|
+   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst

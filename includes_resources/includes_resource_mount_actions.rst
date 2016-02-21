@@ -4,21 +4,21 @@
 This resource has the following actions:
 
 ``:disable``
-   |resource action disable mount|
+   Remove an entry from the file systems table (``fstab``).
 
 ``:enable``
-   |resource action enable mount|
+   Add an entry to the file systems table (``fstab``).
 
 ``:mount``
-   Default. |resource action mount mount|
+   Default. Mount a device.
 
 ``:nothing``
-   |resource action nothing|
+   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst
 
 ``:remount``
-   |resource action remount mount|
+   Remount a device.
 
 ``:umount``
-   |resource action umount mount|
+   Unmount a device.
 
 .. note:: Order matters when passing multiple actions. For example: ``action [:mount, :enable]`` ensures that the file system is mounted before it is enabled.

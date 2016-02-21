@@ -1010,7 +1010,6 @@
 .. |rabbitmq qmon_timeout_milliseconds| replace:: The timeout (in milliseconds) at which calls to the queue length monitor will stop if the |chef server| is overloaded.
 .. |rabbitmq qmon_vhost| replace:: The virtual host for the |rabbitmq| queue that is observed by queue length monitor.
 .. |rabbitmq ssl_versions| replace:: The |ssl| versions used by the |rabbitmq mgmt|.
-
 .. |rabbit_mgmt_http_cull_interval| replace:: The maximum cull interval (in seconds) for the HTTP connection pool that is used by the |rabbitmq mgmt|.
 .. |rabbit_mgmt_http_init_count| replace:: The initial worker count for the HTTP connection pool that is used by the |rabbitmq mgmt|.
 .. |rabbit_mgmt_http_max_age| replace:: The maximum connection worker age (in seconds) for the HTTP connection pool that is used by the |rabbitmq mgmt|.
@@ -1035,7 +1034,6 @@
 .. |raid_device superblock_type| replace:: The superblock type for RAID metadata.
 .. |readme-format| replace:: The document format of the readme file: ``md`` (markdown) and ``rdoc`` (|ruby| docs).
 .. |reboot reason| replace:: A string that describes the reboot action.
-.. |recent_yum| replace:: The age (in days) of a package, after which a package is no longer considered a "recent" package.
 .. |recipe_url| replace:: The URL location from which a remote cookbook |tar gz| is to be downloaded.
 .. |recursive directory| replace:: Create or delete parent directories recursively. For the ``owner``, ``group``, and ``mode`` properties, the value of this attribute applies only to the leaf directory.
 .. |recursive registry_key| replace:: When creating a key, this value specifies that the required keys for the specified path are to be created. When using the ``:delete_key`` action in a recipe, and if the registry key has subkeys, then set the value for this property to ``true``.
@@ -1044,122 +1042,15 @@
 .. |region amazon| replace:: The name of the region from which instances of hosted applications are launched. Each region has a unique endpoint.
 .. |remote resource| replace:: The remote repository to use when synchronizing an existing clone.
 .. |remote deps_on_server| replace:: Determine dependencies from objects located on the |chef server| instead of in the local |chef repo|.
-.. |remote_file_attributes| replace:: A package at a remote location (using the `remote_file resource <https://docs.chef.io/resource_remote_file.html>`__) as a |ruby hash| of properties that modifes the properties of the |resource remote_file| resource.
+.. |remote_file_attributes| replace:: A package at a remote location (using the :doc:`remote_file resource </resource_remote_file>`) as a |ruby hash| of properties that modifes the properties of the |resource remote_file| resource.
 .. |replace_file| replace:: Define a string that is to be used to replace the first occurrence of a file name.
 .. |replace_string| replace:: Define a string that is to be used to replace all occurrences of a file name.
 .. |repo_gpgcheck| replace:: Perform a |gnu pg| signature check on data in the repository.
 .. |repo_mode| replace:: The layout of the local |chef repo|. Possible values: ``static``, ``everything``, or ``hosted_everything``. Use ``static`` for just roles, environments, cookbooks, and data bags. By default, ``everything`` and ``hosted_everything`` are dynamically selected depending on the server type.
-.. |repository| replace:: The path to the |chef repo|.
 .. |repository git_or_svn| replace:: The alias for the repository.
-.. |repository application| replace:: The name of the sub-directory in which the pristine copy of an application’s source is kept.
 .. |repository_cache| replace:: The name of the sub-directory in which the pristine copy of an application's source is kept.
 .. |reset_nice| replace:: Attempt to reset the nice value to zero before running the transaction.
-.. |resource_block_default| replace:: Default value: the ``name`` of the resource block.
-.. |resource action add ifconfig| replace:: Run |ifconfig| to configure a network interface and (on some platforms) write a configuration file for that network interface.
-.. |resource action add route| replace:: Add a route.
-.. |resource action assemble mdadm| replace:: Assemble a previously created array into an active array.
-.. |resource action cancel reboot| replace:: Cancel a reboot request.
-.. |resource action checkout scm| replace:: Clone or check out the source. When a checkout is available, this provider does nothing.
-.. |resource action configure_startup| replace:: Configure a service based on the value of the ``startup_type`` property.
-.. |resource action create cookbook_file| replace:: Create a file. If a file already exists (but does not match), update that file to match.
-.. |resource action create cron| replace:: Create an entry in a |cron| table file ("crontab"). If an entry already exists (but does not match), update that entry to match.
-.. |resource action create directory| replace:: Create a directory. If a directory already exists (but does not match), update that directory to match.
-.. |resource action create env| replace:: Create an environment variable. If an environment variable already exists (but does not match), update that environment variable to match.
-.. |resource action create file| replace:: Create a file. If a file already exists (but does not match), update that file to match.
-.. |resource action create group| replace:: Create a group. If a group already exists (but does not match), update that group to match.
-.. |resource action create link| replace:: Create a link. If a link already exists (but does not match), update that link to match.
-.. |resource action create mdadm| replace:: Create an array with per-device superblocks. If an array already exists (but does not match), update that array to match.
-.. |resource action create remote_directory| replace:: Create a directory and/or the contents of that directory. If a directory or its contents already exist (but does not match), update that directory or its contents to match.
-.. |resource action create remote_file| replace:: Synchronize a file from a remote source to the file system. If a file already exists (but does not match), update that file to match.
-.. |resource action create template| replace:: Create a file. If a template already exists (but does not match), update that template to match.
-.. |resource action create user| replace:: Create a user with given properties. If a user already exists (but does not match), update that user to match.
-.. |resource action create registry_key| replace:: Create a registry key. If a registry key already exists (but does not match), update that registry key to match.
-.. |resource action create_if_missing cookbook_file| replace:: Create a file if it does not exist.
-.. |resource action create_if_missing directory| replace:: Create a directory if it does not exist.
-.. |resource action create_if_missing file| replace:: Create a file only if the file does not exist. When the file exists, nothing happens.
-.. |resource action create_if_missing remote_directory| replace:: Create a directory and/or the contents of that directory, but only if it does not exist.
-.. |resource action create_if_missing remote_file| replace:: Create a file locally by fetching from the remote source, but only if the file does not exist.
-.. |resource action create_if_missing template| replace:: Create a file only if it does not exist.
-.. |resource action create_if_missing registry_key| replace:: Create a registry key if it does not exist. Also, create a registry key value if it does not exist.
-.. |resource action delete cookbook_file| replace:: Delete a file.
-.. |resource action delete cron| replace:: Delete an entry from a |cron| table file ("crontab").
-.. |resource action delete directory| replace:: Delete a directory.
-.. |resource action delete env| replace:: Delete an environment variable.
-.. |resource action delete file| replace:: Delete a file.
-.. |resource action delete http_request| replace:: Send a ``DELETE`` request.
-.. |resource action delete ifconfig| replace:: Run |ifconfig| to disable a network interface and (on some platforms) delete that network interface's configuration file.
-.. |resource action delete link| replace:: Delete a link.
-.. |resource action delete registry_key| replace:: Delete the specified values for a registry key.
-.. |resource action delete key registry_key| replace:: Delete the specified registry key and all of its subkeys.
-.. |resource action delete remote_directory| replace:: Delete a directory, including the contents of that directory.
-.. |resource action delete route| replace:: Delete a route.
-.. |resource action deploy deploy| replace:: Deploy an application.
-.. |resource action disable chef_handler| replace:: Disable the handler for the current |chef client| run on the current node.
-.. |resource action disable ifconfig| replace:: Run |ifconfig| to disable a network interface.
-.. |resource action disable mount| replace:: Remove an entry from the file systems table (fstab).
-.. |resource action disable service| replace:: Disable a service.
-.. |resource action enable chef_handler| replace:: Enable the handler for the current |chef client| run on the current node.
-.. |resource action enable ifconfig| replace:: Run |ifconfig| to enable a network interface.
-.. |resource action enable mount| replace:: Add an entry to the file systems table (fstab).
-.. |resource action export scm| replace:: Export the source, excluding or removing any version control artifacts.
-.. |resource action export service| replace:: Enable a service at boot.
-.. |resource action force_deploy deploy| replace:: Remove any existing release of the same code version and re-deploy a new one in its place.
-.. |resource action force_export scm| replace:: Export the source, excluding or removing any version control artifacts and force an export of the source that is overwriting the existing copy (if it exists).
-.. |resource action get http_request| replace:: Send a ``GET`` request.
-.. |resource action head http_request| replace:: Send a ``HEAD`` request.
-.. |resource action install osx_profile| replace:: Install the specified configuration profile.
-.. |resource action install package| replace:: Install a package. If a version is specified, install the specified version of the package.
-.. |resource action lock user| replace:: Lock a user's password.
-.. |resource action manage group| replace:: Manage an existing group. This action does nothing if the group does not exist.
-.. |resource action manage user| replace:: Manage an existing user. This action does nothing if the user does not exist.
-.. |resource action modify env| replace:: Modify an existing environment variable. This prepends the new value to the existing value, using the delimiter specified by the ``delim`` property.
-.. |resource action modify group| replace:: Modify an existing group. This action raises an exception if the group does not exist.
-.. |resource action modify user| replace:: Modify an existing user. This action raises an exception if the user does not exist.
-.. |resource action mount mount| replace:: Mount a device.
-.. |resource action nothing| replace:: Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the |chef client| run.
-.. |resource action nothing erlang| replace:: Prevent the |erlang| call from running.
-.. |resource action nothing execute| replace:: Prevent a command from running. This action is used to specify that a command is run only when another resource notifies it.
-.. |resource action nothing service| replace:: Do nothing with a service.
-.. |resource action options http_request| replace:: Send an ``OPTIONS`` request.
-.. |resource action post http_request| replace:: Send a ``POST`` request.
-.. |resource action purge package| replace:: Purge a package. This action typically removes the configuration files as well as the package.
-.. |resource action put http_request| replace:: Send a ``PUT`` request.
-.. |resource action reboot action| replace:: Use to request an immediate reboot or to queue a reboot using the ``:reboot_now`` (immediate reboot) or ``:request_reboot`` (queued reboot) actions built into the |resource reboot| resource.
-.. |resource action reboot now| replace:: Reboot a node so that the |chef client| may continue the installation process.
-.. |resource action reconfigure package| replace:: Reconfigure a package. This action requires a response file.
-.. |resource action reload ohai| replace:: Reload the |ohai| configuration on a node.
-.. |resource action reload service| replace:: Reload the configuration for this service.
-.. |resource action remount mount| replace:: Remount a device.
-.. |resource action remove group| replace:: Remove a group.
-.. |resource action remove osx_profile| replace:: Remove the specified configuration profile.
-.. |resource action remove package| replace:: Remove a package.
-.. |resource action remove user| replace:: Remove a user.
-.. |resource action request reboot| replace:: Reboot a node at the end of a |chef client| run.
-.. |resource action restart service| replace:: Restart a service.
-.. |resource action rollback deploy| replace:: Roll an application back to the previous release.
-.. |resource action run erlang| replace:: Run the |erlang| call.
-.. |resource action run execute| replace:: Run a command.
-.. |resource action run powershell_script| replace:: Run the script.
-.. |resource action run ruby_block| replace:: Run a |ruby| block.
-.. |resource action run script| replace:: Run a script.
-.. |resource action run windows_batch| replace:: Run a batch file.
-.. |resource action start service| replace:: Start a service, and keep it running until stopped or disabled.
-.. |resource action stop mdadm| replace:: Stop an active array.
-.. |resource action stop service| replace:: Stop a service.
-.. |resource action sync scm| replace:: Update the source to the specified version, or get a new clone or checkout. This action causes a hard reset of the index and working tree, discarding any uncommitted changes.
-.. |resource action touch file| replace:: Touch a file. This updates the access (atime) and file modification (mtime) times for a file.
-.. |resource action uninstall package| replace:: Uninstall a package.
-.. |resource action umount mount| replace:: Unmount a device.
-.. |resource action unlock user| replace:: Unlock a user's password.
-.. |resource action upgrade package| replace:: Install a package and/or ensure that a package is the latest version.
-.. |resource action write log| replace:: Write to log.
-.. |resource short_actions| replace:: The ``:nothing`` action can be used with any resource or lightweight resource.
-.. |resource short_attributes| replace:: The ``ignore_failure``, ``provider``, ``retries``, ``retry_delay``, and ``supports`` properties can be used with any resource or lightweight resources.
-.. |resource short_conditions| replace:: The ``not_if`` and ``only_if`` conditional executions can be used to put additional guards around certain resources so that they are only run when the condition is met.
-.. |resource short_notifications| replace:: The ``notifies`` and ``subscribes`` notifications can be used with any resource.
-.. |resource short_relative_paths| replace:: The ``#{ENV['HOME']}`` relative path can be used with any resource.
-.. |resource short_windows_file_security| replace:: The |resource template|, |resource file|, |resource remote_file|, |resource cookbook_file|, |resource directory|, and |resource remote_directory| resources support the use of inheritance and access control lists (ACLs) within recipes.
-.. |resource short_run_during_compile| replace:: Sometimes a resource needs to be run before every other resource or after all resources have been added to the resource collection.
+.. |resource_block_default| replace:: Default value: the ``name`` of the resource block
 .. |response code 200 ok| replace:: OK. The request was successful.
 .. |response code 201 created| replace:: Created. The object was created.
 .. |response code 400 bad request| replace:: Bad request. The contents of the request are not formatted correctly.
@@ -1184,9 +1075,8 @@
 .. |revision| replace:: A branch, tag, or commit to be synchronized with |git|. This can be symbolic, like ``HEAD`` or it can be a source control management-specific revision identifier.
 .. |rights windows security| replace:: The permissions for users and groups in a |windows| environment. For example: ``rights <permissions>, <principal>, <options>`` where ``<permissions>`` specifies the rights granted to the principal, ``<principal>`` is the group or user name, and ``<options>`` is a |ruby hash| with one (or more) advanced rights options.
 .. |role chef_server| replace:: The configuration type of the |chef server|.
-.. |role memcached| replace:: The name of a role. During a |chef client| run, a search is performed to find a node with the same name as this value in the same environment as the current role. If a node is found, it's IP address is used when rendering the ``memcached.yml`` file.
 .. |role-name| replace:: The name of the virtual machine.
-.. |role-size| replace:: The size of the virtual machine: ``ExtraSmall``, ``Small``, ``Medium``, ``Large``, or ``ExtraLarge``.
+.. |role_size| replace:: The size of the virtual machine: ``ExtraSmall``, ``Small``, ``Medium``, ``Large``, or ``ExtraLarge``.
 .. |rollback_on_error| replace:: Roll a resource back to a previously-deployed release if an error occurs when deploying a new release.
 .. |root redis| replace:: The root directory for |redis|.
 .. |route_gateway| replace:: The gateway for the route.
@@ -1208,11 +1098,11 @@
 .. |ruby greater_pessimistic| replace:: approximately greater than; also known as "pessimistically greater than", or "pessimistic"
 .. |ruby less| replace:: less than
 .. |ruby less_or_equal| replace:: less than or equal to
-.. |run-list| replace:: A comma-separated list of roles and/or recipes to be applied.
-.. |run-list indicator| replace:: Show only the run-list.
+.. |run_list| replace:: A comma-separated list of roles and/or recipes to be applied.
+.. |run_list indicator| replace:: Show only the run-list.
+.. |run_list_items| replace:: Permanently replace the current run-list with the specified run-list items.
 .. |run_list policy| replace:: The run-list associated with a policy file.
 .. |run_lock_timeout| replace:: The amount of time (in seconds) to wait for a |chef client| lock file to be deleted.
-.. |runlist_items| replace:: Permanently replace the current run-list with the specified run-list items.
 
 .. Description strings that begin with the letter S.
 .. The pattern is |sxxxx| replace:: string.
@@ -1227,18 +1117,11 @@
 .. |salt| replace:: The salt value for a password shadow hash.
 .. |sandbox_path| replace:: The location in which cookbook files are stored (temporarily) during upload.
 .. |save_frequency_redis| replace:: Set the save frequency. Pattern: ``{ "seconds" => "keys", "seconds" => "keys", "seconds" => "keys" }``.
-.. |script-path| replace:: A colon-separated path at which |ruby| scripts are located.
-.. |search index| replace:: A search index is a full-text list of objects that are stored on the |chef server|, against which search queries can be made.
+.. |script_path| replace:: A colon-separated path at which |ruby| scripts are located.
 .. |search index_data_bag| replace:: A data bag is a global variable that is stored as |json| data and is accessible from a |chef server|.
 .. |search index_environment| replace:: An environment is a way to map an organization's real-life workflow to what can be configured and managed when using |chef server|.
 .. |search index_node| replace:: A node is any server or virtual server that is configured to be maintained by a |chef client|.
 .. |search index_role| replace:: A role is a way to define certain patterns and processes that exist across nodes in an organization as belonging to a single job function.
-.. |search key| replace:: A field name/description pair is available in the |json| object. Use the field name when searching for this information in the |json| object.
-.. |search pattern| replace:: A search pattern is a way to fine-tune search results by returning anything that matches some type of incomplete search query.
-.. |search operator| replace:: An operator can be used to ensure that certain terms are included in the results, are excluded from the results, or are not included even when other aspects of the query match.
-.. |search partial| replace:: A partial search query allows a search query to be made against specific attribute keys that are stored on the |chef server|.
-.. |search query syntax| replace:: A search query is comprised of two parts: the key and the search pattern.
-.. |search special character| replace:: A special character can be used to fine-tune a search query and to increase the accuracy of the search results.
 .. |search_index| replace:: The name of the index to be queried: ``client``, ``environment``, ``node``, ``role``, or ``DATA_BAG_NAME``.
 .. |search_query| replace:: The search query used to identify a list of items on a |chef server|. This option uses the same syntax as the ``search`` subcommand.
 .. |search_query ssh| replace:: The search query used to return a list of servers to be accessed using |ssh| and the specified ``SSH_COMMAND``. This option uses the same syntax as the search subcommand.
@@ -1250,7 +1133,6 @@
 .. |see providers| replace:: See "Providers" section below for more information.
 .. |see syntax| replace:: See "Syntax" section above for more information.
 .. |sensitive| replace:: Ensure that sensitive resource data is not logged by the |chef client|.
-.. |server_aliases| replace:: An array of server aliases.
 .. |server command_reconfigure| replace:: Reconfigure the |chef server|. This option reads from the |path chef server chef server rb| file and applies that configuration to the |chef server|. Any time changes are made to the |chef server rb| file, run the |chef server ctl| command with this option.
 .. |server command_restart| replace:: Restart all enabled services or restart a single service.
 .. |server command_start| replace:: Start all enabled services or start a single service.
@@ -1260,9 +1142,7 @@
 .. |server command_test| replace:: Execute |chef pedant|, an integration test suite for the |chef server| installation. By default, only a subset of the available test are run. Add the ``--all`` flag to run the full test suite.
 .. |server command_upgrade| replace:: Use for in-place upgrades of the |chef server osc| server, version 11.0.4 (or higher). This subcommand applies the necessary SQL changes without having to back up data and installs the server from scratch. Back up your data before performing the upgrade anyway, just to ensure that it is available, should it be needed. This subcommand may only be used when the |chef server osc| server is configured for a standalone topology and it assumes that all services used by |chef server osc| are enabled.
 .. |server_fqdn| replace:: The |fqdn| for the server.
-.. |service_order keepalived| replace:: The order by which |keepalived| starts and stops services when transitioning from a primary server to a backup.
 .. |session_expiry| replace:: Expiration time for web client sessions (in minutes).
-.. |settings django_template| replace:: A |ruby hash| of additional settings that is to be made available to a template.
 .. |shallow_clone| replace:: Set the clone depth to ``5``.
 .. |shared_buffers postgresql| replace:: The amount of memory that is dedicated to |postgresql| for data caching.
 .. |shell| replace:: The login shell.
@@ -1272,7 +1152,7 @@
 .. |show_files_as_list| replace:: Show a list of file names. Set to ``false`` to view ``ls``-like output.
 .. |show_local_files| replace:: Show local files instead of remote files.
 .. |show_organizations| replace:: Show all organizations.
-.. |showdupesfromrepos| replace:: Show duplicate packages. When false, only the newest packages are shown.
+.. |show_dupes_from_repos| replace:: Show duplicate packages. When false, only the newest packages are shown.
 .. |signing_ca_cert| replace:: The path to where the certificate is located. This setting is generated automatically by the |chef client| and is passed to |open ssl|.
 .. |signing_ca_country| replace:: The country code associated with the |ca| policy. This setting is passed by the |chef client| to |open ssl|.
 .. |signing_ca_domain| replace:: The domain associated with the |ca| policy. This setting is passed by the |chef client| to |open ssl|.
@@ -1285,10 +1165,9 @@
 .. |signing_ca_user| replace:: The user associated with the |ca| policy. This setting is passed by the |chef client| to |open ssl|.
 .. |size disk| replace:: The size of a disk, in GB.
 .. |skip_broken| replace:: Remove packages that are causing problems from the transaction.
-.. |skip-dependencies| replace:: Ensure that all cookbooks to which the installed cookbook has a dependency are not installed.
+.. |skip_dependencies| replace:: Ensure that all cookbooks to which the installed cookbook has a dependency are not installed.
 .. |smtp server| replace:: The |smtp| server to which a connection is made.
 .. |solo mode| replace:: Run the |chef client| in |chef solo| mode. This setting determines if the |chef client| is to attempt to communicate with the |chef server|.
-
 .. |solr_auto_soft_commit| replace:: The maximum number of documents before a soft commit is triggered.
 .. |solr_commit_interval| replace:: The frequency (in seconds) at which node objects are added to the |apache solr| search index.
 .. |solr_data_path| replace:: The location in which the |apache solr| indexes are located.
@@ -1319,37 +1198,29 @@
 .. |source template| replace:: The location of a template file.
 .. |source template_cookbook| replace:: By default, the |chef client| looks for a template file in the ``/templates`` directory of a cookbook.
 .. |source template_local| replace:: When the ``local`` property is set to ``true``, use to specify the path to a template on the local node.
-.. |source-image| replace:: The name of the disk image to be used to create the virtual machine.
+.. |source_image| replace:: The name of the disk image to be used to create the virtual machine.
 .. |speed interface| replace:: The speed for the interface. Possible values: ``auto``, ``100m``, ``1g``, ``10g``, ``40g``, ``56g``, or ``100g``.
 .. |splay| replace:: A random number between zero and ``splay`` that is added to ``interval``. Use splay to help balance the load on the |chef server| by ensuring that many |chef client| runs are not occuring at the same interval.
-.. |splay org_create| replace:: A number (in milliseconds) to add to ``create_wait_ms``.
 .. |ssh_command| replace:: The command to be run against the results of a search query.
 .. |ssh_gateway| replace:: The |ssh| tunnel or gateway that is used to run a bootstrap action on a machine that is not accessible from the workstation.
 .. |ssh_gateway_identity| replace:: The private key for the SSH gateway.
 .. |ssh_key amazon_ec2| replace:: The |ssh| key for the |amazon ec2| environment.
-.. |ssh_key eucalyptus| replace:: The |ssh| key for the |eucalyptus| environment.
 .. |ssh_key openstack| replace:: The |ssh| key for the |openstack| environment.
 .. |ssh_key rackspace| replace:: The name of an existing SSH keypair. The public key is injected into the node.
 .. |ssh_password| replace:: The |ssh| password. This can be used to pass the password directly on the command line. If this option is not specified (and a password is required) |knife| prompts for the password.
 .. |ssh_port| replace:: The |ssh| port.
 .. |ssh_user| replace:: The |ssh| user name.
 .. |ssh_wrapper resource| replace:: The path to the wrapper script used when running |ssh| with |git|. The ``GIT_SSH`` environment variable is set to this.
-.. |ssl_ca_cert_yum| replace:: The path to the directory in which the certificate authorities |yum| is to use to verify |ssl| certificates are located.
 .. |ssl_ca_file| replace:: The file in which the |open ssl| key is saved. This setting is generated automatically by the |chef client| and most users do not need to modify it.
 .. |ssl_ca_path| replace:: The path to where the |open ssl| key is located. This setting is generated automatically by the |chef client| and most users do not need to modify it.
 .. |ssl_certificate| replace:: The |ssl| certificate used to verify communication over HTTPS.
 .. |ssl_certificate key| replace:: The certificate key used for |ssl| communication.
 .. |ssl_certificate length_months| replace:: The number of months for which a certificate is valid.
 .. |ssl_certificate verify| replace:: Verify |ssl| certificates.
-.. |ssl_check_cert_permissions_yum| replace:: Check permissions on both local and remote paths for certificates.
 .. |ssl_ciphers| replace:: The list of supported cipher suites that are used to establish a secure connection.
 .. |ssl_client_cert| replace:: The |open ssl| |x509| certificate used for mutual certificate validation. This setting is only necessary when mutual certificate validation is configured on the |chef server|.
-.. |ssl_client_cert_yum| replace:: The path to the |ssl| client certificate that |yum| is to use to connect to repositories and/or remote sites.
 .. |ssl_client_key| replace:: The |open ssl| |x509| key used for mutual certificate validation. This setting is only necessary when mutual certificate validation is configured on the |chef server|.
-.. |ssl_client_key_yum| replace:: The path of the location in which the |ssl| client key used by |yum| is located.
 .. |ssl_url_or_uri| replace:: The URL or URI for the location at which the |ssl| certificate is located.
-
-.. ssl_verify_mode is also in the server_security.html topic.
 .. |ssl_verify_mode| replace:: Set the verify mode for HTTPS requests.
 .. |ssl_verify_mode_verify_api_cert| replace:: Verify the |ssl| certificate on the |chef server|. When ``true``, the |chef client| always verifies the |ssl| certificate. When ``false``, the |chef client| uses the value of ``ssl_verify_mode`` to determine if the |ssl| certificate requires verification.
 .. |ssl_verify_mode_verify_none| replace:: Use ``:verify_none`` to do no validation of |ssl| certificates.
@@ -1357,10 +1228,8 @@
 .. |ssl_verify_bootstrap_none| replace:: Use ``none`` to do no validation of |ssl| certificates.
 .. |ssl_verify_bootstrap_peer| replace:: Use ``peer`` to do validation of all |ssl| certificates, including the |chef server| connections, S3 connections, and any HTTPS |resource remote_file| resource URLs used in the |chef client| run.
 .. |start| replace:: The row at which return results begin.
-.. |static_files| replace:: A |ruby hash| that maps URLs to files.
 .. |stdin chef_apply| replace:: Execute a resource using standard input.
 .. |storage account| replace:: The name of the storage account used with the hosted service.
-.. |strategy| replace:: The deploy strategy: ``timestamped_deploy`` or ``deploy_revision`` (default). Use ``deploy_revision`` to ensure that the name of a release sub-directory is based on a revision identifier and puts deployed components under the destination location that is owned by the user who runs the application. For users of |git|, this is the familiar SHA checksum. For users of |svn|, it is the integer revision number. If a name other than a revision identifier is provided---branch names, tags, and so on---the |chef client| ignores the alternate names and looks up the revision identifier and uses it to name the release sub-directory. Use ``timestamped_deploy`` to name a release sub-directory with a timestamp in the form of YYYYMMDDHHMMSS. For example: /my/deploy/dir/releases/20121120162342.
 .. |subnet| replace:: The |amazon vpc| instance in which a node is to be created.
 .. |subscribes| replace:: Specify that this resource is to listen to another resource, and then take action when that resource's state changes.
 .. |subscribes timers| replace:: The ``subscribes`` property uses the same timers as the ``notifies`` property.

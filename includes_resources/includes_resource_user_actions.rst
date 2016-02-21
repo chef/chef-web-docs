@@ -4,22 +4,22 @@
 This resource has the following actions:
 
 ``:create``
-   Default. |resource action create user|
+   Default. Create a user with given properties. If a user already exists (but does not match), update that user to match.
 
 ``:lock``
-   |resource action lock user|
+   Lock a user's password.
 
 ``:manage``
-   |resource action manage user|
+   Manage an existing user. This action does nothing if the user does not exist.
 
 ``:modify``
-   |resource action modify user|
+   Modify an existing user. This action raises an exception if the user does not exist.
 
 ``:nothing``
-   |resource action nothing|
+   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst
 
 ``:remove``
-   |resource action remove user|
+   Remove a user.
 
 ``:unlock``
-   |resource action unlock user|
+   Unlock a user's password.

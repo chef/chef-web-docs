@@ -14,7 +14,7 @@ This argument has the following options:
    |cookbook_version install|
 
 ``-D``, ``--skip-dependencies``
-   |skip-dependencies|
+   |skip_dependencies|
 
 ``-o PATH:PATH``, ``--cookbook-path PATH:PATH``
    |cookbook path|

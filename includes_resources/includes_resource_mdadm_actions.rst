@@ -4,13 +4,13 @@
 This resource has the following actions:
 
 ``:assemble``
-   |resource action assemble mdadm|
+   Assemble a previously created array into an active array.
 
 ``:create``
-   Default. |resource action create mdadm|
+   Default. Create an array with per-device superblocks. If an array already exists (but does not match), update that array to match.
 
 ``:nothing``
-   |resource action nothing|
+   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst
 
 ``:stop``
-   |resource action stop mdadm|
+   Stop an active array.

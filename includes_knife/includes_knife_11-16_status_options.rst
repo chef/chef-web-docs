@@ -11,7 +11,7 @@ This subcommand has the following options:
    |hide_healthy|
 
 ``-r RUN_LIST``, ``--run-list RUN_LIST``
-   |run-list|
+   |run_list|
 
 ``-s``, ``--sort-reverse``
    |sort_reverse|

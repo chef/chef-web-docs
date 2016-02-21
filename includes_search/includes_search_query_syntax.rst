@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-|search query syntax| A search query has the following syntax:
+A search query is comprised of two parts: the key and the search pattern. A search query has the following syntax:
 
 .. code-block:: ruby
 

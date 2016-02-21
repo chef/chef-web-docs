@@ -4,10 +4,10 @@
 This resource has the following actions:
 
 ``:create``
-   Default. |resource action create link|
+   Default. Create a link. If a link already exists (but does not match), update that link to match.
 
 ``:delete``
-   |resource action delete link|
+   Delete a link.
 
 ``:nothing``
-   |resource action nothing|
+   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst

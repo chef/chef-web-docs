@@ -4,10 +4,10 @@
 This resource has the following actions:
 
 ``:create``
-   Default. |resource action create remote_file|
+   Default. Synchronize a file from a remote source to the file system. If a file already exists (but does not match), update that file to match.
 
 ``:create_if_missing``
-   |resource action create_if_missing remote_file|
+   Create a file locally by fetching from the remote source, but only if the file does not exist.
 
 ``:nothing``
-   |resource action nothing|
+   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst

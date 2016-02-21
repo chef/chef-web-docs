@@ -4,13 +4,13 @@
 This resource has the following actions:
 
 ``:create``
-   Default. |resource action create env|
+   Default. Create an environment variable. If an environment variable already exists (but does not match), update that environment variable to match.
 
 ``:delete``
-   |resource action delete env|
+   Delete an environment variable.
 
 ``:modify``
-   |resource action modify env|
+   Modify an existing environment variable. This prepends the new value to the existing value, using the delimiter specified by the ``delim`` property.
 
 ``:nothing``
-   |resource action nothing|
+   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst

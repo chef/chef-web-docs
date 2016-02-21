@@ -70,7 +70,7 @@ This resource has the following properties:
    |retry_delay| Default value: ``2``.
 
 ``run_list``
-   |run-list| Default value: ``[]``. For example: ``["recipe[default]","recipe[apache2]"]``
+   |run_list| Default value: ``[]``. For example: ``["recipe[default]","recipe[apache2]"]``
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'

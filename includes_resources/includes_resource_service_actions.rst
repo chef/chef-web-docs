@@ -4,25 +4,25 @@
 This resource has the following actions:
 
 ``:disable``
-   |resource action disable service| |windows service_type_disabled| |ibm_aix_src not_supported|
+   Disable a service. |windows service_type_disabled| |ibm_aix_src not_supported|
 
 ``:enable``
-   |resource action export service| |windows service_type_automatic| |ibm_aix_src not_supported|
+   Enable a service at boot. |windows service_type_automatic| |ibm_aix_src not_supported|
 
 ``:nothing``
-   Default. |resource action nothing service|
+   Default. Do nothing with a service.
 
 ``:reload``
-   |resource action reload service|
+   Reload the configuration for this service.
 
 ``:restart``
-   |resource action restart service|
+   Restart a service.
 
 ``:start``
-   |resource action start service|
+   Start a service, and keep it running until stopped or disabled.
 
 ``:stop``
-   |resource action stop service|
+   Stop a service.
 
 .. note:: To mange a |windows| service with a ``Manual`` startup type, the |resource service_windows| resource must be used.
 

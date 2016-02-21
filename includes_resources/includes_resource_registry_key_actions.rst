@@ -4,18 +4,18 @@
 This resource has the following actions:
 
 ``:create``
-   Default. |resource action create registry_key|
+   Default. Create a registry key. If a registry key already exists (but does not match), update that registry key to match.
 
 ``:create_if_missing``
-   |resource action create_if_missing registry_key|
+   Create a registry key if it does not exist. Also, create a registry key value if it does not exist.
 
 ``:delete``
-   |resource action delete registry_key|
+   Delete the specified values for a registry key.
 
 ``:delete_key``
-   |resource action delete key registry_key|
+   Delete the specified registry key and all of its subkeys.
 
 ``:nothing``
-   |resource action nothing|
+   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst
 
 .. note:: .. include:: ../../includes_notes/includes_notes_registry_key_resource_recursive.rst
