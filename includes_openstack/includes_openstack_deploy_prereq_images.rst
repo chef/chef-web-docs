@@ -6,4 +6,4 @@ Detailed recommendations for using the |openstack glance| imaging service can be
 
 * For |ubuntu|: https://cloud-images.ubuntu.com
 * For |fedora|: https://getfedora.org/en/cloud/
-* For |centos|: http://www.centos.org/download/mirrors/
+* For |centos|: http://www.centos.org/download/

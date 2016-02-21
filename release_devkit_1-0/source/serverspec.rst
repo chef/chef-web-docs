@@ -120,4 +120,5 @@ For more information ...
 For more information about |serverspec|:
 
 * `Serverspec <http://serverspec.org>`_
-* `RSpec Documentation <https://relishapp.com/rspec/rspec-core/docs/command-line>`_
+
+.. * `RSpec Documentation <https://relishapp.com/rspec/rspec-core/docs/command-line>`_

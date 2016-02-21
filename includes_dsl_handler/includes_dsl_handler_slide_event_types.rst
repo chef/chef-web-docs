@@ -21,4 +21,4 @@ The following table shows some of the events that may occur during a |chef clien
    * - ``:run_failed``
      - |event_type run_failed|
 
-The full list of events is available at https://docs.chef.io/dsl_handlers.html#event-types.
+The full list of events is available at https://docs.chef.io/dsl_handler.html#event-types.
