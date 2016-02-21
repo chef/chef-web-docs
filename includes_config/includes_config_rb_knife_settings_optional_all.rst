@@ -367,7 +367,7 @@ The following list describes all of the optional settings that can be added to t
    
 
 ``knife[:tree]``
-   |tree|
+   |tree knife|
 
 ``knife[:use current_branch]``
    |use current_branch|

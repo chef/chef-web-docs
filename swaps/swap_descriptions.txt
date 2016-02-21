@@ -1271,8 +1271,6 @@
 .. |tcp_ports| replace:: A comma-separated list of local and public |tcp| ports that are to be opened. For example: ``80:80,433:5000``.
 .. |tcp_tests| replace:: Specify that |ssh| be available using a |tcp| check directory in port 22.
 .. |template bootstrap| replace:: The bootstrap template to use. This may be the name of a bootstrap template---``chef-full``, for example---or it may be the full path to an |erb| template that defines a custom bootstrap.
-.. |template context_file| replace:: The name of a template to use to create the context file.
-.. |template database_yml| replace:: The name of a template to use to create the ``database.yml`` file.
 .. |throttle| replace:: Enable bandwidth throttling for downloads. When set to ``0``, bandwidth throttling is disabled. When set to an integer, along with ``k``, ``M``, or ``G``, represents the bandwidth value. For example: ``6.5k`` represents 6.5 kilobytes per second and ``4M`` represents 4 megabytes per second. Use a ``%`` to assign an integer as a percentage of total bandwidth. For example: ``80%`` uses 80% of the total available bandwidth.
 .. |thumbprint| replace:: The thumbprint of the |ssl| certificate.
 .. |time cron| replace:: A time interval. Possible values: ``:annually``, ``:daily``, ``:hourly``, ``:midnight``, ``:monthly``, ``:reboot``, ``:weekly``, or ``:yearly``.
@@ -1286,10 +1284,7 @@
 .. |timeout command| replace:: The amount of time (in seconds) a command is to wait before timing out.
 .. |timeout connection| replace:: The amount of time (in seconds) to wait before a connection times out.
 .. |timeout depsolver| replace:: The amount of time (in milliseconds) to wait for cookbook dependency problems to be solved.
-.. |timeout org_create| replace:: The amount of time (in milliseconds) to wait before creating an organization.
-.. |timeout os_process| replace:: The amount of time (in milliseconds) before an external process times out.
 .. |timeout push jobs| replace:: The maximum amount of time (in seconds) by which a job must complete, before it is stopped.
-.. |timeout reboot| replace:: The amount of time (in seconds) a command is to wait before proceeding with a reboot.
 .. |timeout redis| replace:: The amount of time (in seconds) a client may be idle before timeout.
 .. |timeout rest| replace:: The time (in seconds) after which an HTTP REST request is to time out.
 .. |timeout scm| replace:: The amount of time (in seconds) to wait for a command to execute before timing out.
@@ -1302,11 +1297,9 @@
 .. |timeout worker_process| replace:: The amount of time (in seconds) before a worker process times out.
 .. |to resource link| replace:: The actual file to which the link is to be created.
 .. |tolerant| replace:: Be tolerant of errors that may occur on the command line.
-.. |trace functions_on_server| replace:: Execute trace functions by the server.
-.. |tree| replace:: Show dependencies in a visual tree structure (including duplicates, if they exist).
+.. |tree knife| replace:: Show dependencies in a visual tree structure (including duplicates, if they exist).
 .. |trust_auth_cidr_addresses| replace:: Use for clear-text passwords.
 .. |tsflags| replace:: A comma- or space-separated list of transaction flags to be passed to the transaction set.
-.. |type module| replace:: The module type.
 .. |type package_11-16_string| replace:: A string that specifies the type of package.
 .. |type package| replace:: A symbol that specifies the type of package.
 
