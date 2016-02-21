@@ -4,7 +4,7 @@
 This resource has the following actions:
 
 ``:nothing``
-   Prevent a command from running. This action is used to specify that a command is run only when another resource notifies it.
+   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst
 
 ``:run``
    Run a batch file.

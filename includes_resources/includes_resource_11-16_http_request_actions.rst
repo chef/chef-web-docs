@@ -12,6 +12,9 @@ This resource has the following actions:
 ``:head``
    Send a ``HEAD`` request.
 
+``:nothing``
+   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst
+
 ``:options``
    Send an ``OPTIONS`` request.
 
