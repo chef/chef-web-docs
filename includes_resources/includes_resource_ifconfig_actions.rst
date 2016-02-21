@@ -16,4 +16,4 @@ This resource has the following actions:
    Run |ifconfig| to enable a network interface.
 
 ``:nothing``
-   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst
+   .. include:: ../../includes_resources_common/includes_resources_common_actions_nothing.rst

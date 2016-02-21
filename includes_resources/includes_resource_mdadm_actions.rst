@@ -10,7 +10,7 @@ This resource has the following actions:
    Default. Create an array with per-device superblocks. If an array already exists (but does not match), update that array to match.
 
 ``:nothing``
-   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst
+   .. include:: ../../includes_resources_common/includes_resources_common_actions_nothing.rst
 
 ``:stop``
    Stop an active array.

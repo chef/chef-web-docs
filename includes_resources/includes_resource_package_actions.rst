@@ -7,7 +7,7 @@ This resource has the following actions:
    Default. Install a package. If a version is specified, install the specified version of the package.
 
 ``:nothing``
-   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst
+   .. include:: ../../includes_resources_common/includes_resources_common_actions_nothing.rst
 
 ``:purge``
    Purge a package. This action typically removes the configuration files as well as the package. (|debian| platform only; for other platforms, use the ``:remove`` action.)

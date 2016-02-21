@@ -10,4 +10,4 @@ This resource has the following actions:
    Create a file locally by fetching from the remote source, but only if the file does not exist.
 
 ``:nothing``
-   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst
+   .. include:: ../../includes_resources_common/includes_resources_common_actions_nothing.rst

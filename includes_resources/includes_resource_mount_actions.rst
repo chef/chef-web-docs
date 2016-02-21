@@ -13,7 +13,7 @@ This resource has the following actions:
    Default. Mount a device.
 
 ``:nothing``
-   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst
+   .. include:: ../../includes_resources_common/includes_resources_common_actions_nothing.rst
 
 ``:remount``
    Remount a device.

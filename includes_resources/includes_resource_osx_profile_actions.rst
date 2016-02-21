@@ -7,7 +7,7 @@ This resource has the following actions:
    Default. Install the specified configuration profile.
 
 ``:nothing``
-   Default. .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst
+   Default. .. include:: ../../includes_resources_common/includes_resources_common_actions_nothing.rst
 
 ``:remove``
    Remove the specified configuration profile.
