@@ -114,7 +114,7 @@ This resource has the following properties:
    * - ``path``
      - |path repository|
    * - ``persistdir``
-     - |persistdir|
+     - The directory in which |yum| stores information that is to persist across multiple |chef client| runs.
    * - ``pluginconfpath``
      - |pluginconfpath|
    * - ``pluginpath``

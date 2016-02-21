@@ -17,7 +17,7 @@ This argument has the following options:
    |platform|
 
 ``PART``
-   |PART|
+   |cookbook_part_to_show|
 
 ``-V PLATFORM_VERSION``, ``--platform-version PLATFORM_VERSION``
    |platform_version|

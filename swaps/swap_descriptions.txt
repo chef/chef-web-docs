@@ -197,6 +197,7 @@
 .. |cookbook_category| replace:: The cookbook category: ``"Databases"``, ``"Web Servers"``, ``"Process Management"``, ``"Monitoring & Trending"``, ``"Programming Languages"``, ``"Package Management"``, ``"Applications"``, ``"Networking"``, ``"Operating Systems & Virtualization"``, ``"Utilities"``, or ``"Other"``.
 .. |cookbook file_location| replace:: The cookbook in which a file is located (if it is not located in the current cookbook).
 .. |cookbook external_storage_settings| replace:: Four settings require configuration when pointing at an external cookbook storage location: ``bookshelf['vip']``, for the endpoint used by the |chef client|; ``bookshelf['external_url']``, for the endpoint used by the |chef server|; ``bookshelf['access_key_id']``, for user access key; ``bookshelf['secret_access_key']``, for secret key; and ``opscode_erchef['s3_bucket']``, for the bucket name. Reconfigure the |chef server| after changing these settings.
+.. |cookbook_part_to_show| replace:: The part of the cookbook to show: ``attributes``, ``definitions``, ``files``, ``libraries``, ``providers``, ``recipes``, ``resources``, or ``templates``. More than one part can be specified.
 .. |cookbook path| replace:: The directory in which cookbooks are created. This can be a colon-separated path.
 .. |cookbook_path subdirectory| replace:: The sub-directory for cookbooks on the |chef client|. This value can be a string or an array of file system locations, processed in the specified order. The last cookbook is considered to override local modifications.
 .. |cookbook stream_download| replace:: Enable stream downloading of cookbooks. This setting (when ``true``) typically results in improved cookbook download performance, especially with the memory usage of the |service bookshelf| service and the behavior of load balancers and proxies in-between the |chef client| and the |chef server|.
@@ -880,11 +881,7 @@
 .. P
 ..
 
-.. |packages array| replace:: An array of packages to install.
-.. |params| replace:: A |ruby hash| of extra parameters that are to be passed to a template file.
-.. |PART| replace:: The part of the cookbook to show: ``attributes``, ``definitions``, ``files``, ``libraries``, ``providers``, ``recipes``, ``resources``, or ``templates``. More than one part can be specified.
 .. |pass_number| replace:: The pass number used by the file system check (``fsck``) command while creating a file systems table (``fstab``) entry.
-.. |password application| replace:: The application password.
 .. |password certificate_ssl| replace:: The password for the |ssl| certificate.
 .. |password openstack_compute| replace:: The |openstack compute| password.
 .. |password proxy_server| replace:: The password for the proxy server.
@@ -903,7 +900,6 @@
 .. |path chef_handler| replace:: The full path to the handler file or the path to a |gem| (if the handler ships as part of a |ruby| |gem|).
 .. |path chef_handler_directory| replace:: The directory in which handlers are dropped.
 .. |path chef_repo| replace:: The path to the |chef repo|.
-.. |path cookbook_checksum| replace:: The path at which cookbook checksums are located.
 .. |path cookbook_file| replace:: The path to the destination at which a file is to be created.
 .. |path delivery_job_root| replace:: The path to the job root.
 .. |path directory| replace:: The path to the directory.
@@ -921,13 +917,11 @@
 .. |path powershell_data_file| replace:: The path to a valid |windows powershell| data file that also contains a node called ``localhost``.
 .. |path recipe_file| replace:: The path to a recipe. For example, if a recipe file is in the current directory, use ``recipe_file.rb``. This is typically used with the ``--local-mode`` option.
 .. |path repository| replace:: The path to the repository.
-.. |path requirements_filex| replace:: The relative path to a requirements file. If this attribute is unspecified, the provider looks for one in the project root named ``requirements/#{chef_environment}.txt`` or ``requirements.txt``.
 .. |path resource execute| replace:: An array of paths to use when searching for a command. These paths are not added to the command's environment $PATH.
 .. |path roles_chef| replace:: The location in which role files are located.
 .. |path ssl_certificate yum_client| replace:: The path to the |ssl| client certificate that |yum| should use to connect to repositories and/or remote sites.
 .. |path ssl_certificate yum_client_key| replace:: The path of the location in which the |ssl| client key used by |yum| is located.
 .. |path ssl_certificate yum_directory| replace:: The path to the directory in which the certificate authorities |yum| should use to verify |ssl| certificates are located.
-.. |path validation_client| replace:: The path to the validation key used by the client, typically a file named |chef validator pem|.
 .. |pattern command_line| replace:: One (or more) patterns for a command line. If this option is not specified, a list of patterns may be expected on standard input.
 .. |pattern process_table| replace:: The pattern to look for in the process table.
 .. |pedant debug_org_creation| replace:: Run tests with full output.
@@ -938,8 +932,6 @@
 .. |permission list| replace:: Use the **List** global permission to define which users and groups may view the following server object types: cookbooks, data bags, environments, nodes, roles, and tags.
 .. |permission read| replace:: Use the **Read** permission to define which users and groups may view the details of an object.
 .. |permission update| replace:: Use the **Update** permission to define which users and groups may edit the details of an object.
-.. |permissions| replace:: One (or more) permissions that are to be set.
-.. |persistdir| replace:: The directory in which |yum| stores information that is to persist across multiple |chef client| runs.
 .. |platform| replace:: The platform for which a cookbook is designed.
 .. |platform_node| replace:: The platform on which a node is running.
 .. |platform_version| replace:: The version of the platform.
@@ -947,7 +939,7 @@
 .. |pluginconfpath| replace:: The list of directories in which |yum| is to look for plugin configuration files.
 .. |pluginpath| replace:: The list of directories in which |yum| is to look for plugin modules.
 .. |plugins_yum| replace:: Enable plugins.
-.. |port chef_zero| replace:: The port on which |chef zero| is to listen.
+.. |port chef_zero| replace:: The port on which |chef zero| listens.
 .. |port listen_postgresql| replace:: The connection source to which |postgresql| is to respond.
 .. |port enable_non_ssl_nginx| replace:: Allow port 80 redirects to port 443. When this value is set to ``false``, load balancers on the front-end hardware are allowed to do |ssl| termination of the WebUI and API.
 .. |port non_ssl_nginx| replace:: The port on which the WebUI and API are bound for non-|ssl| connections.
@@ -959,31 +951,23 @@
 .. |postgresql external_vip| replace:: The host for this IP address must be online and reachable from the |chef server| via the port specified by ``postgresql['port']``.
 .. |postgresql shmax| replace:: The maximum amount of shared memory.
 .. |postgresql shmall| replace:: The total amount of available shared memory.
-.. |precompile_assetsx| replace:: Pre-compile assets. Unless this attribute is specified, the |chef client| attempts to auto-detect whether the pipeline is in use by looking in ``config/assets.yml``.
 .. |prerelease| replace:: Install pre-release gems.
 .. |print_after| replace:: Show data after a destructive operation.
 .. |print_on_command_line| replace:: Run the print command on the command line.
-.. |priority process| replace:: A priority value assigned to the process.
 .. |priority service| replace:: The relative priority of the program for start and shutdown ordering.
-.. |priority yum| replace:: The priority for repository entries; a repository has priority when its priority value is higher than another repository's priority value.
-.. |private-key-file| replace:: The file in which the |ssh| private key used for authentication is located.
 .. |private_network| replace:: A private IP address for use with a bootstrap operation.
 .. |property dsc_resource| replace:: A property from a |windows powershell_dsc| resource. Use this property multiple times, one for each property in the |windows powershell_dsc| resource.
-.. |programs supervisor_group| replace:: An array of program names. Programs that are listed become members of the group.
 .. |protected_multilib| replace:: Perform a check to ensure that multilib packages are of the same version.
 .. |protected_packages| replace:: The list of packages that should never be completely removed by |yum|.
-.. |protocol http| replace:: The HTTP protocol type to which a site responds: ``:http`` or ``:https``.
-.. |provider resource_parameter| replace:: Explicitly specify a provider.
+.. |provider resource_parameter| replace:: Explicitly specifies a provider.
 .. |provisioning_server| replace:: The |chef server| on which IDs are located.
 .. |proxy_auth| replace:: Enable proxy authentication to the |chef server| web user interface.
-.. |public-key-file| replace:: The file in which the |ssh| public key used for authentication is located.
 .. |purge amazon ec2| replace:: Destroy all corresponding nodes and clients on the |chef server|, in addition to the |amazon ec2| node itself. This action (by itself) assumes that the node and client have the same name as the server; if they do not have the same names, then the ``--node-name`` option must be used to specify the name of the node.
 .. |purge cookbook| replace:: Entirely remove a cookbook (or cookbook version) from the |chef server|. Use this action carefully because only one copy of any single file is stored on the |chef server|. Consequently, purging a cookbook disables any other cookbook that references one or more files from the cookbook that has been purged.
 .. |purge google| replace:: Destroy all corresponding nodes and clients on the |chef server|, in addition to the |google compute engine| node itself. This action (by itself) assumes that the node and client have the same name as the server; if they do not have the same names, then the ``--node-name`` option must be used to specify the name of the node.
 .. |purge knife download| replace:: Use ``--purge`` to delete local files and directories that do not exist on the |chef server|. By default, if a role, cookbook, etc. does not exist on the |chef server|, the local file for said role is left alone and NOT deleted.
 .. |purge knife upload| replace:: Use ``--purge`` to delete roles, cookbooks, etc. from the |chef server| if their corresponding files do not exist in the |chef repo|. By default, such objects are left alone and NOT purged.
 .. |purge node rackspace| replace:: Destroy all corresponding nodes on the |chef server|, in addition to the |rackspace| node itself. This option (by itself) assumes that the node and client have the same name as the server. If they do not, use the ``--node-name`` option to specify the correct name for the node.
-.. |purge os disk windows azure| replace:: Destroy all corresponding operating system disks, in addition to the |azure| node itself.
 .. |purge target_directory| replace:: Purge extra files found in the target directory.
 .. |purge windows azure| replace:: Destroy all corresponding nodes and clients on the |chef server|, in addition to the |azure| node itself. This action (by itself) assumes that the node and client have the same name as the server; if they do not have the same names, then the ``--node-name`` option must be used to specify the name of the node.
 .. |purge_before_symlink| replace:: An array of directories (relative to the application root) to be removed from a checkout before symbolic links are created. This attribute runs before ``create_dirs_before_symlink`` and before ``symlink``.
