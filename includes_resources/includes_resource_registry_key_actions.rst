@@ -16,6 +16,6 @@ This resource has the following actions:
    Delete the specified registry key and all of its subkeys.
 
 ``:nothing``
-   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst
+   .. include:: ../../includes_resources_common/includes_resources_common_actions_nothing.rst
 
 .. note:: .. include:: ../../includes_notes/includes_notes_registry_key_resource_recursive.rst

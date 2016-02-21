@@ -13,4 +13,4 @@ This resource has the following actions:
    Modify an existing environment variable. This prepends the new value to the existing value, using the delimiter specified by the ``delim`` property.
 
 ``:nothing``
-   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst
+   .. include:: ../../includes_resources_common/includes_resources_common_actions_nothing.rst

@@ -10,4 +10,4 @@ This resource has the following actions:
    Delete an entry from a |cron| table file (|crontab|).
 
 ``:nothing``
-   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst
+   .. include:: ../../includes_resources_common/includes_resources_common_actions_nothing.rst

@@ -10,4 +10,4 @@ This resource has the following actions:
    Enable the handler for the current |chef client| run on the current node.
 
 ``:nothing``
-   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst
+   .. include:: ../../includes_resources_common/includes_resources_common_actions_nothing.rst

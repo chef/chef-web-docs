@@ -7,7 +7,7 @@ This resource has the following actions:
    Cancel a reboot request.
 
 ``:nothing``
-   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst
+   .. include:: ../../includes_resources_common/includes_resources_common_actions_nothing.rst
 
 ``:reboot_now``
    Reboot a node so that the |chef client| may continue the installation process.
