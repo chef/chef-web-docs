@@ -143,5 +143,5 @@ The following list describes all of the optional settings that can be added to t
    * - ``knife[:user_password]``
      - |password user|
    * - ``knife[:yes]``
-     - |yes|
+     - |yes knife|
 

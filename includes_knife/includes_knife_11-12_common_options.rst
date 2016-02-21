@@ -49,7 +49,7 @@ The following options can be run with all |knife| subcommands and plug-ins:
    |verbose|
 
 ``-y``, ``--yes``
-   |yes|
+   |yes knife|
 
 ``-z``, ``--local-mode``
    |local_mode|

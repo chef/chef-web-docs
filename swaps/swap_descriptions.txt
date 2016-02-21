@@ -1331,18 +1331,13 @@
 .. |url http_request| replace:: The URL to which an HTTP request is sent.
 .. |url cookbook_issues| replace:: The URL for the location in which a cookbook's issue tracking is maintained. This setting is also used by |supermarket|.
 .. |url cookbook_source| replace:: The URL for the location in which a cookbook's source code is maintained. This setting is also used by |supermarket|.
-.. |url key_download| replace:: The URL from which a key is downloaded.
 .. |url key_validation| replace:: The URL for the validation key.
-.. |url package_download| replace:: The URL from which a package is downloaded.
 .. |url proxy_server| replace:: The URL for the proxy server.
 .. |url secret_amazon_s3| replace:: The |amazon s3| URL at which an encrypted data bag secret is located.
 .. |url supermarket| replace:: The URL at which the |supermarket| is located.
-.. |use bundler| replace:: Run ``bundler``. If ``false``, |bundler| is never used. This attribute defaults to ``true`` when a |gem| includes |bundler|.
-.. |use bundler_option_deployment| replace:: Run |bundler| with the ``--deployment`` option. This attribute defaults to ``true`` when a |gemfilelock| is present.
 .. |use cidr| replace:: Use with |cidr| notation.
 .. |use conditional_get| replace:: Enable conditional HTTP requests by using a conditional ``GET`` (with the |if_modified_since| header) or an opaque identifier (|etag|). To use |if_modified_since| headers, ``use_last_modified`` must also be set to ``true``. To use |etag| headers, ``use_etag`` must also be set to ``true``.
 .. |use current_branch| replace:: Ensure that the current branch is used.
-.. |use custom_log_script| replace:: Specify that a service has a custom logging script.
 .. |use etag| replace:: Enable |etag| headers. Set to ``false`` to disable |etag| headers. To use this setting, ``use_conditional_get`` must also be set to ``true``.
 .. |use file_overwrite| replace:: Overwrite a file when it is different.
 .. |use ha| replace:: Run the |chef server| in a high availability topology.
@@ -1355,7 +1350,6 @@
 .. |use public_ip_address| replace:: Associate a public IP address to an |amazon vpc| instance.
 .. |use repo| replace:: Enable a repository.
 .. |use sendfile| replace:: Copy data between file descriptors when ``sendfile()`` is used.
-.. |use ssl| replace:: Enable |ssl|.
 .. |use sudo_password| replace:: Perform a bootstrap operation with |sudo cmd|; specify the password with the ``-P`` (or ``--ssh-password``) option.
 .. |use tcpip| replace:: Enable |tcpip| transactions.
 .. |use trailing_slash| replace:: Show directories with trailing slashes (/).
@@ -1389,7 +1383,6 @@
 .. |values resource registry_key types| replace:: ``:type`` represents the values available for registry keys in |windows|. Use ``:binary`` for REG_BINARY, ``:string`` for REG_SZ, ``:multi_string`` for REG_MULTI_SZ, ``:expand_string`` for REG_EXPAND_SZ, ``:dword`` for REG_DWORD, ``:dword_big_endian`` for REG_DWORD_BIG_ENDIAN, or ``:qword`` for REG_QWORD.
 .. |values resource registry_key multi_string| replace:: ``:multi_string`` must be an array, even if there is only a single string.
 .. |variables passed_to_template| replace:: A |ruby hash| of variables that are passed into a |ruby| template file.
-.. |vcpus| replace:: The number of virtual CPUs that are available per virtual machine.
 .. |verbose| replace:: Set for more verbose outputs. Use ``-VV`` for maximum verbosity.
 .. |verbose knife_bootstrap| replace:: Run the initial |chef client| run at the ``debug`` log-level (e.g. ``chef-client -l debug``).
 .. |verbose_logging| replace:: Set the log level. Options: ``true``, ``nil``, and ``false``. When this is set to ``false``, notifications about individual resources being processed are suppressed (and are output at the ``:info`` logging level). Setting this to ``false`` can be useful when a |chef client| is run as a daemon.
@@ -1402,7 +1395,6 @@
 .. |version cookbook| replace:: The current version of a cookbook. Version numbers always follow a simple three-number version sequence.
 .. |version cookbook_download| replace:: The version of a cookbook to download.
 .. |version package| replace:: The version of a package to be installed or upgraded.
-.. |version package_version_assumed| replace:: The version of a package to be installed or upgraded. If a version is not specified, the latest version is assumed.
 .. |version postgresql| replace:: The (currently) hardcoded version of |postgresql|.
 .. |version push jobs| replace:: The version of |push jobs|.
 .. |version protocols_ssl| replace:: The |ssl| protocol versions that are enabled.
@@ -1435,13 +1427,11 @@
 .. W
 ..
 
-.. |warning_condition| replace:: A string that is passed to the command using the ``-w`` flag.
 .. |watchdog_timeout| replace:: The maximum amount of time (in seconds) available to the |chef client| run when the |chef client| is run as a service on the |windows| platform. If the |chef client| run does not complete within the specified timeframe, the |chef client| run is terminated.
 .. |web_ui_admin_default_password| replace:: The default password for the |chef server| web user interface. This password should be changed immediately after logging in for the first time.
 .. |web_ui_admin_user_name| replace:: The default user name for the |chef server| web user interface.
 .. |web_ui_key| replace:: The path to where the key used by the |chef server| web user interface is located.
 .. |webui validation_client_name| replace:: The name of the |chef validator|.
-.. |webapp_template| replace:: The template used to render the virtual host configuration file.
 .. |weekday cron| replace:: The day of the week on which this entry is to run (0 - 6), where Sunday = 0.
 .. |whyrun_mode| replace:: Run the executable in |whyrun| mode, which is a type of |chef client| run that does everything except modify the system. Use |whyrun| mode to understand why the |chef client| makes the decisions that it makes and to learn more about the current and proposed state of the system.
 .. |whitelist attribute_automatic| replace:: A |ruby hash| that whitelists ``automatic`` attributes, preventing non-whitelisted attributes from being saved.
@@ -1450,7 +1440,6 @@
 .. |whitelist attribute_normal| replace:: A |ruby hash| that whitelists ``normal`` attributes, preventing non-whitelisted attributes from being saved.
 .. |whitelist attribute_override| replace:: A |ruby hash| that whitelists ``override`` attributes, preventing non-whitelisted attributes from being saved.
 .. |windows group_identifier| replace:: A string or ID that identifies the group owner by group name, including fully qualified group names such as ``domain\group`` or ``group@domain``. If this value is not specified, existing groups remain unchanged and new group assignments use the default ``POSIX`` group (if available).
-.. |windows registry| replace:: The |windows| registry is a database that stores configuration information for machines that run |windows|. The registry stores information about the system hardware, installed programs, and other settings, including for each user of the computer.
 .. |windows service_type_automatic| replace:: This action is equivalent to an ``Automatic`` startup type on the |windows| platform.
 .. |windows service_type_disabled| replace:: This action is equivalent to a ``Disabled`` startup type on the |windows| platform.
 .. |winrm_basic| replace:: Set this value to ``true`` for development and testing purposes. The ``knife windows`` subcommand supports |kerberos| and |windows basic| authentication schemes.
@@ -1470,7 +1459,6 @@
 .. |worker_connections| replace:: The maximum number of simultaneous clients.
 .. |worker_max_keepalive| replace:: The amount of time (in seconds) to wait for requests on a |keepalived| connection.
 .. |worker_processes| replace:: The number of allowed worker processes.
-.. |worker_processes certificates| replace:: The number of certificates for each allowed worker process.
 .. |worker_processes depsolver| replace:: The number of |ruby| processes for which cookbook dependency problems are unsolved.
 
 
@@ -1496,7 +1484,7 @@
 .. Y
 ..
 
-.. |yes| replace:: Respond to all confirmation prompts with "Yes". |knife| is not to ask for confirmation.
+.. |yes knife| replace:: Respond to all confirmation prompts with "Yes". |knife| is not to ask for confirmation.
 .. |yum_lock_timeout| replace:: The amount of time (in seconds) after which a |yum| lock request is to time out.
 
 
@@ -1509,6 +1497,5 @@
 .. Z
 ..
 
-.. |zenoss zenpack desc| replace:: A |zenoss zenpack| is used to add or override functionality within the |zenoss| platform.
 .. |zone google| replace:: The |google compute engine| zone in which a disk is located.
 
