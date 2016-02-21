@@ -41,6 +41,7 @@ Common Functionality
    * - :ref:`resource_common_run_in_compile_phase`
      - .. include:: ../../include_resources_common/includes_resources_common_intro_run_during_compile.rst
 
+
 Resources
 -----------------------------------------------------
 .. include:: ../../includes_resources_common/includes_resources_common_platform_resources.rst
