@@ -29,7 +29,7 @@ Common Functionality
    * - :ref:`resource_common_actions`
      - .. include:: ../../includes_resources_common/includes_resources_common_intro_actions.rst
    * - :ref:`resource_common_properties`
-     - .. include:: ../../v/includes_resources_common_intro_attributes.rst
+     - .. include:: ../../includes_resources_common/includes_resources_common_intro_attributes.rst
    * - :ref:`resource_common_guards`
      - .. include:: ../../includes_resources_common/includes_resources_common_intro_conditions.rst
    * - :ref:`resource_common_notifications`
