@@ -103,7 +103,7 @@ Resources
      - .. include:: ../../includes_resources/includes_resource_ifconfig.rst
    * - :doc:`ips_package </resource_ips_package>`
      - .. include:: ../../includes_resources/includes_resource_package_ips.rst
-   * - `ksh <https://docs.chef.io/release/12-6/includes_resource_ksh.html>`_
+   * - :doc:`ksh </resource_ksh>`
      - .. include:: ../../includes_resources/includes_resource_script_ksh.rst
    * - :doc:`link </resource_link>`
      - .. include:: ../../includes_resources/includes_resource_link.rst

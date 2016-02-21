@@ -587,7 +587,7 @@ The following features were added:
 
 * `CHEF-1031 <http://tickets.opscode.com/browse/CHEF-1031>`_  --- remote file resource should handle ftp urls
 * `CHEF-1761 <http://tickets.opscode.com/browse/CHEF-1761>`_  --- Change signal TERM to quit after the running jobs are finished
-* `CHEF-2750 <http://tickets.opscode.com/browse/CHEF->`_  --- git SCM/Deploy Resource should have an option to require a "git submodule sync"
+* `CHEF-2750 <http://tickets.opscode.com/browse/CHEF-2750>`_  --- git SCM/Deploy Resource should have an option to require a "git submodule sync"
 * `CHEF-2821 <http://tickets.opscode.com/browse/CHEF-2821>`_  --- add "--sudo-use-password" option to knife bootstrap to tell sudo to read --ssh-password from stdin
 * `CHEF-3029 <http://tickets.opscode.com/browse/CHEF-3029>`_  --- ifconfig provider for debian/ubuntu platforms
 * `CHEF-3356 <http://tickets.opscode.com/browse/CHEF-3356>`_  --- Support for environments from json and ruby dsl files on chef-solo

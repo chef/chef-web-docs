@@ -108,7 +108,7 @@ This resource has the following properties:
    xxxxx. Possible values: ``daemon`` (default), ``agent``.
 
 
-The following resource properties may be used to `define keys in the XML property list for a daemon or agent <https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man5/launchd.plist.5.html>`__:
+The following resource properties may be used to define keys in the XML property list for a daemon or agent. Please refer to the |apple| man page documentation for |launchd| for more information about these keys:
 
 ``abandon_process_group``
    **Ruby Types:** TrueClass, FalseClass
@@ -148,7 +148,7 @@ The following resource properties may be used to `define keys in the XML propert
 ``hard_resource_limits``
    **Ruby Type:** Hash
 
-   A |ruby hash| of resource limits to be imposed on a job. See `HardResourceLimits <https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man5/launchd.plist.5.html>`__.
+   A |ruby hash| of resource limits to be imposed on a job.
 
 ``inetd_compatibility``
    **Ruby Type:** Hash
@@ -193,7 +193,7 @@ The following resource properties may be used to `define keys in the XML propert
 ``mach_services``
    **Ruby Type:** Hash
 
-   Specify services to be registered with the bootstrap subsystem. See `MachServices <https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man5/launchd.plist.5.html>`__.
+   Specify services to be registered with the bootstrap subsystem.
 
 ``nice``
    **Ruby Type:** Integer
@@ -213,12 +213,12 @@ The following resource properties may be used to `define keys in the XML propert
 ``program``
    **Ruby Type:** String
 
-   The `first argument of execvp <https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man3/execvp.3.html>`__, typically the file name associated with the file to be executed. This value must be specified if ``program_arguments`` is not specified, and vice-versa.
+   The first argument of ``execvp``, typically the file name associated with the file to be executed. This value must be specified if ``program_arguments`` is not specified, and vice-versa.
 
 ``program_arguments``
    **Ruby Type:** Array
 
-   The `second argument of execvp <https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man3/execvp.3.html>`__. If ``program`` is not specified, this property must be specified and will be handled as if it were the first argument.
+   The second argument of ``execvp``. If ``program`` is not specified, this property must be specified and will be handled as if it were the first argument.
 
 ``queue_directories``
    **Ruby Type:** Array
@@ -238,13 +238,12 @@ The following resource properties may be used to `define keys in the XML propert
 ``sockets``
    **Ruby Type:** Hash
 
-   A |ruby hash| of on-demand sockets that notify |launchd| when a job should be run. See `Sockets <https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man5/launchd.plist.5.html>`__.
+   A |ruby hash| of on-demand sockets that notify |launchd| when a job should be run.
 
 ``soft_resource_limits``
    **Ruby Type:** Array
 
-   A |ruby hash| of resource limits to be imposed on a job. See `SoftResourceLimits <https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man5/launchd.plist.5.html>`__.
-
+   A |ruby hash| of resource limits to be imposed on a job.
 ``standard_error_path``
    **Ruby Type:** String
 

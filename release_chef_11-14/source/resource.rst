@@ -51,7 +51,7 @@ Resources
 
    * - Resource
      - Description
-   * - `apt_package <https://docs.chef.io/release/11-14/ressource_apt_package.html>`_
+   * - :doc:`apt_package </resource_apt_package>`
      - .. include:: ../../includes_resources/includes_resource_package_apt.rst
    * - :doc:`bash </resource_bash>`
      - .. include:: ../../includes_resources/includes_resource_script_bash.rst

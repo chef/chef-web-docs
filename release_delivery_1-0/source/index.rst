@@ -8,14 +8,13 @@ Getting Started
 =====================================================
 If you are new to |chef delivery|, get oriented :doc:`with the Chef Delivery overview </delivery_overview>`.
 
-Then, see |chef delivery| in action in a self-paced tutorial `Automating your Workflow with Chef Delivery <https://learn.chef.io/tutorials/#build-a-delivery-pipeline>`__. You'll set up your own |chef delivery| cluster and a sample application to experiment with.
+.. Then, see |chef delivery| in action in a self-paced tutorial `Automating your Workflow with Chef Delivery <https://learn.chef.io/tutorials/#build-a-delivery-pipeline>`__. You'll set up your own |chef delivery| cluster and a sample application to experiment with.
 
 In the Documentation
 =====================================================
 Read more about |chef delivery|:
 
 * :doc:`About Chef Delivery </delivery_overview>`
-* `Tutorial: Automating your Workflow with Chef Delivery <https://learn.chef.io/tutorials/#build-a-delivery-pipeline>`__
 * :doc:`Install Chef Delivery using AWS </install_delivery_aws>`
 * :doc:`Install Chef Delivery using SSH </install_delivery_ssh>`
 * Integrate |chef delivery| with :doc:`Github </integrate_delivery_github>` and :doc:`LDAP </integrate_delivery_ldap>`
