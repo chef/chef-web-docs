@@ -4,10 +4,10 @@
 This resource has the following actions:
 
 ``:add``
-   Default. |resource action add route|
+   Default. Add a route.
 
 ``:delete``
-   |resource action delete route|
+   Delete a route.
 
 ``:nothing``
-   |resource action nothing|
+   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst

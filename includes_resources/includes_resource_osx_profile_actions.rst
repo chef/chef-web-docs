@@ -4,10 +4,10 @@
 This resource has the following actions:
 
 ``:install``
-   Default. |resource action install osx_profile|
+   Default. Install the specified configuration profile.
 
 ``:nothing``
-   Default. |resource action nothing|
+   Default. .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst
 
 ``:remove``
-   |resource action remove osx_profile|
+   Remove the specified configuration profile.

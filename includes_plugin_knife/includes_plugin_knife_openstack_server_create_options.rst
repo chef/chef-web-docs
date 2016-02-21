@@ -65,7 +65,7 @@ This argument has the following options:
    |private_network| Default value: ``false`` (a public IP address).
 
 ``-r RUN_LIST``, ``--run-list RUN_LIST``
-   |run-list|
+   |run_list|
 
 ``-S KEY``, ``--ssh-key KEY``
    |ssh_key openstack|

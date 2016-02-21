@@ -4,7 +4,7 @@
 This resource has the following actions:
 
 ``:nothing``
-   |resource action nothing execute|
+   Prevent a command from running. This action is used to specify that a command is run only when another resource notifies it.
 
 ``:run``
-   Default. |resource action run execute|
+   Default. Run a command.

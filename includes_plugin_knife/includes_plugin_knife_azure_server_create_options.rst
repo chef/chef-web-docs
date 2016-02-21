@@ -71,7 +71,7 @@ This argument has the following options:
    |azure_host_name|
 
 ``-I IMAGE``, ``--azure-source-image IMAGE``
-   |source-image|
+   |source_image|
 
 ``--identity-file IDENTITY_FILE``
    |identity_file|
@@ -104,7 +104,7 @@ This argument has the following options:
    |prerelease|
 
 ``-r RUN_LIST``, ``--run-list RUN_LIST``
-   |run-list|
+   |run_list|
 
 ``-R ROLE_NAME``, ``--role-name ROLE_NAME``
    |role-name|
@@ -134,4 +134,4 @@ This argument has the following options:
    |ssh_user|
 
 ``-z SIZE``, ``--azure-vm-size SIZE``
-   |role-size| Default value: ``Small``.
+   |role_size| Default value: ``Small``.

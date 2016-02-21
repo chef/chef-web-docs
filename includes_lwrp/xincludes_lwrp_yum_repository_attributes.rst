@@ -50,7 +50,7 @@ This resource has the following properties:
    * - ``mirrorlist_expire``
      - |mirrorlist_expire yum|
    * - ``priority``
-     - |priority yum| Possible values: ``1`` - ``99``.
+     - The priority for repository entries; a repository has priority when its priority value is higher than another repository's priority value. Possible values: ``1`` - ``99``.
    * - ``proxy``
      - |url proxy_server|
    * - ``proxy_password``

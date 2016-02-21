@@ -16,7 +16,7 @@ This resource has the following actions:
    
 
 ``:nothing``
-   |resource action nothing|
+   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst
 
 ``:ready``
    

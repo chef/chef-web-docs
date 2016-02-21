@@ -17,7 +17,7 @@ This subcommand has the following options:
    |medium|
 
 ``-r RUN_LIST``, ``--run-list RUN_LIST``
-   |run-list|
+   |run_list|
 
 ``-s``, ``--sort-reverse``
    |sort_reverse|

@@ -69,7 +69,7 @@ This command has the following options:
    |path pid_file| Default value: ``/tmp/name-of-executable.pid``.
 
 ``-r RUN_LIST_ITEM``, ``--runlist RUN_LIST_ITEM``
-   |runlist_items|
+   |run_list_items|
 
 ``-R``, ``--enable-reporting``
    |enable_reporting|

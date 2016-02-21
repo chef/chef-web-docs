@@ -4,22 +4,22 @@
 This resource has the following actions:
 
 ``:disable``
-   |resource action disable service|
+   Disable a service.
 
 ``:enable``
-   |resource action export service|
+   Enable a service at boot.
 
 ``:nothing``
-   Default. |resource action nothing service|
+   Default. Do nothing with a service.
 
 ``:reload``
-   |resource action reload service|
+   Reload the configuration for this service.
 
 ``:restart``
-   |resource action restart service|
+   Restart a service.
 
 ``:start``
-   |resource action start service|
+   Start a service, and keep it running until stopped or disabled.
 
 ``:stop``
-   |resource action stop service|
+   Stop a service.

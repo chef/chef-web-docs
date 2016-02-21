@@ -4,10 +4,10 @@
 This resource has the following actions:
 
 ``:create``
-   Default. |resource action create cron|
+   Default. Create an entry in a |cron| table file (|crontab|). If an entry already exists (but does not match), update that entry to match.
 
 ``:delete``
-   |resource action delete cron|
+   Delete an entry from a |cron| table file (|crontab|).
 
 ``:nothing``
-   |resource action nothing|
+   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst

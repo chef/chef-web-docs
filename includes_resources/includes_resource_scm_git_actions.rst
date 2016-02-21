@@ -4,13 +4,13 @@
 This resource has the following actions:
 
 ``:checkout``
-   |resource action checkout scm|
+   Clone or check out the source. When a checkout is available, this provider does nothing.
 
 ``:export``
-   |resource action export scm|
+   Export the source, excluding or removing any version control artifacts.
 
 ``:nothing``
-   |resource action nothing|
+   .. include:: ../../include_resources_common/includes_resources_common_actions_nothing.rst
 
 ``:sync``
-   Default. |resource action sync scm|
+   Default. Update the source to the specified version, or get a new clone or checkout. This action causes a hard reset of the index and working tree, discarding any uncommitted changes.
