@@ -1042,7 +1042,7 @@
 .. |region amazon| replace:: The name of the region from which instances of hosted applications are launched. Each region has a unique endpoint.
 .. |remote resource| replace:: The remote repository to use when synchronizing an existing clone.
 .. |remote deps_on_server| replace:: Determine dependencies from objects located on the |chef server| instead of in the local |chef repo|.
-.. |remote_file_attributes| replace:: A package at a remote location (using the :doc:`remote_file resource </resource_remote_file>`) as a |ruby hash| of properties that modifes the properties of the |resource remote_file| resource.
+.. |remote_file_attributes| replace:: A package at a remote location (using the `remote_file resource <https://docs.chef.io/resource_remote_file.html>`_) as a |ruby hash| of properties that modifes the properties of the |resource remote_file| resource.
 .. |replace_file| replace:: Define a string that is to be used to replace the first occurrence of a file name.
 .. |replace_string| replace:: Define a string that is to be used to replace all occurrences of a file name.
 .. |repo_gpgcheck| replace:: Perform a |gnu pg| signature check on data in the repository.
