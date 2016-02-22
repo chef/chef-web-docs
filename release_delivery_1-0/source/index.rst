@@ -2,7 +2,7 @@
 About |chef delivery|
 =====================================================
 
-|chef delivery| provides code deployment workflow automation that reinforces DevOps best practices. |chef delivery| can manage changes to both infrastructure and application code, giving your operations and development teams a common platform for developing, testing and deploying cookbooks, applications and more. 
+|chef delivery| provides code deployment workflow automation that reinforces DevOps best practices. |chef delivery| can manage changes to both infrastructure and application code, giving your operations and development teams a common platform for developing, testing and deploying cookbooks, applications and more.
 
 Getting Started
 =====================================================
@@ -32,6 +32,10 @@ Read more about |chef delivery|:
    build_cookbooks
    ctl_delivery
    ctl_delivery_server
+   delivery_configure_pipeline
+   delivery_manage_dependencies
+   delivery_manage_secrets
+   delivery_truck
    delivery_overview
    delivery_users_and_roles
    dsl_delivery
