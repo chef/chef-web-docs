@@ -10,7 +10,7 @@
      environment ({'foo' => 'BAZ'})
      code <<-EOH
      $stream = [System.IO.StreamWriter] "./test-read-env-var.txt"
-     $stream.WriteLine("FOO is $foo")
+     $stream.WriteLine("FOO is $env:foo")
      $stream.close()
      EOH
    end
