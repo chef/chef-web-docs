@@ -35,7 +35,7 @@ and is the same search as:
 
 .. code-block:: bash
 
-   $ knife search node '*:*" -i
+   $ knife search node '*:*' -i
 
 If the ``SEARCH_QUERY`` does not contain a colon character (``:``), then the default query pattern is ``tags:*#{@query}* OR roles:*#{@query}* OR fqdn:*#{@query}* OR addresses:*#{@query}*``, which means the following two search queries are effectively the same:
 
