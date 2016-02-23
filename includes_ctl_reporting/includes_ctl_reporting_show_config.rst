@@ -9,6 +9,3 @@ This subcommand has the following syntax:
 .. code-block:: bash
 
    $ opscode-reporting-ctl show-config
-
-
-
