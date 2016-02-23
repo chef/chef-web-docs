@@ -50,11 +50,11 @@ This resource has the following properties:
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
-   |notifies|
+   .. include:: ../../includes_resources_common/includes_resources_common_notification_notifies.rst
 
-   .. include:: ../../includes_resources_common/includes_resources_common_notifications_syntax_notifies.rst
+   .. include:: ../../includes_resources_common/includes_resources_common_notification_timers_12-5.rst
 
-   .. include:: ../../includes_resources_common/includes_resources_common_notifications_timers.rst
+   .. include:: ../../includes_resources_common/includes_resources_common_notification_notifies_syntax.rst
    
 ``options``
    **Ruby Type:** String
@@ -89,11 +89,11 @@ This resource has the following properties:
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
-   |subscribes|
+   .. include:: ../../includes_resources_common/includes_resources_common_notification_subscribes.rst
 
-   .. include:: ../../includes_resources_common/includes_resources_common_notifications_syntax_subscribes.rst
+   .. include:: ../../includes_resources_common/includes_resources_common_notification_timers_12-5.rst
 
-   |subscribes timers|
+   .. include:: ../../includes_resources_common/includes_resources_common_notification_subscribes_syntax.rst
    
 ``timeout``
    **Ruby Types:** String, Integer
