@@ -18,6 +18,10 @@ reconfigure
 =====================================================
 .. include:: ../../includes_ctl_reporting/includes_ctl_reporting_reconfigure.rst
 
+remove-partition
+=====================================================
+.. include:: ../../includes_ctl_reporting/includes_ctl_reporting_remove_partition.rst
+
 show-config
 =====================================================
 .. include:: ../../includes_ctl_reporting/includes_ctl_reporting_show_config.rst
@@ -25,4 +29,3 @@ show-config
 uninstall
 =====================================================
 .. include:: ../../includes_ctl_reporting/includes_ctl_reporting_uninstall.rst
-
