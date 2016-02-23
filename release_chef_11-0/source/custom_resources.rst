@@ -82,17 +82,21 @@ Guard Arguments
 
 Notifications
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources_common/includes_resources_common_notifications.rst
+.. include:: ../../includes_resources_common/includes_resources_common_notification.rst
 
-Syntax
+.. include:: ../../includes_resources_common/includes_resources_common_notification_timers_12-5.rst
+
+notifies
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_resources_common/includes_resources_common_notifications_syntax_notifies.rst
+.. include:: ../../includes_resources_common/includes_resources_common_notification_notifies.rst
 
-.. include:: ../../includes_resources_common/includes_resources_common_notifications_syntax_subscribes.rst
+.. include:: ../../includes_resources_common/includes_resources_common_notification_notifies_syntax.rst
 
-Timers
+subscribes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_resources_common/includes_resources_common_notifications_timers.rst
+.. include:: ../../includes_resources_common/includes_resources_common_notification_subscribes.rst
+
+.. include:: ../../includes_resources_common/includes_resources_common_notification_subscribes_syntax.rst
 
 Examples
 -----------------------------------------------------
