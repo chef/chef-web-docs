@@ -249,12 +249,14 @@ Resources
 The following resources are built-in to the |chef client|:
 
 * apt_package (based on the package resource)
+* apt_update
 * bash
 * batch
 * bff_package (based on the package resource)
 * breakpoint
 * chef_gem (based on the package resource)
 * chef_handler (available from the chef_handler cookbook)
+* chocolatey_package (based on the package resource)
 * cookbook_file
 * cron
 * csh
@@ -276,6 +278,7 @@ The following resources are built-in to the |chef client|:
 * http_request
 * ifconfig
 * ips_package (based on the package resource)
+* ksh
 * link
 * log
 * macports_package (based on the package resource)
@@ -283,6 +286,7 @@ The following resources are built-in to the |chef client|:
 * mount
 * ohai
 * openbsd_package (based on the package resource)
+* osx_profile
 * package
 * pacman_package (based on the package resource)
 * paludis_package (based on the package resource)
@@ -382,10 +386,6 @@ Properties
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_resources_common/includes_resources_common_examples_intro.rst
-
-**Update the Apt repository on Debian platforms** 
-
-.. include:: ../../step_resource/step_resource_apt_update_debian_only.rst
 
 **Update the Apt repository at a specified interval** 
 

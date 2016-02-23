@@ -30,10 +30,6 @@ Examples
 =====================================================
 .. include:: ../../includes_resources_common/includes_resources_common_examples_intro.rst
 
-**Update the Apt repository on Debian platforms** 
-
-.. include:: ../../step_resource/step_resource_apt_update_debian_only.rst
-
 **Update the Apt repository at a specified interval** 
 
 .. include:: ../../step_resource/step_resource_apt_update_periodic.rst
