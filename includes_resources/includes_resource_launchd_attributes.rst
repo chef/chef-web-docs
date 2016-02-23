@@ -97,8 +97,6 @@ This resource has the following properties:
 
    .. include:: ../../includes_resources_common/includes_resources_common_notification_subscribes_syntax.rst
 
-   |subscribes timers|
-
 ``supports``
    **Ruby Type:** Array
 
