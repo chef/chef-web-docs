@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The following |kitchen yml| file sets up a simple |ha| configuration of |chef server oec|, including two front-end servers, a single back-end server, and all three add-ons (|push jobs|, |reporting|, and |chef manage|). The ``platforms`` block uses an ``attributes`` section to define |chef server|-specific attributes that are used by all three test suites:
+The following |kitchen yml| file sets up a simple tiered configuration of the |chef server|, including two front-end servers, a single back-end server, and all three add-ons (|push jobs|, |reporting|, and |chef manage|). The ``platforms`` block uses an ``attributes`` section to define |chef server|-specific attributes that are used by all three test suites:
 
 .. code-block:: yaml
 
