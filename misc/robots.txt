@@ -4,6 +4,7 @@ Disallow: /release/analytics_1-2/
 Disallow: /chef/
 Disallow: /chef/migrate_to_hosted.html
 Disallow: /client/
+Disallow: /release/delivery/
 Disallow: /release/delivery_1-0/
 Disallow: /release/10/
 Disallow: /release/11-0/
@@ -21,6 +22,8 @@ Disallow: /release/12-3/
 Disallow: /release/12-4/
 Disallow: /release/12-5/
 Disallow: /release/12-6/
+Disallow: /release/12-7/
+Disallow: /release/12-8/
 Disallow: /enterprise/
 Disallow: /release/oec_11-0/
 Disallow: /release/oec_11-1/
