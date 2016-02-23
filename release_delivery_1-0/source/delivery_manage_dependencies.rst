@@ -180,9 +180,7 @@ For example, that breaking change to project A got merged and broke project B ag
 
 **Example 5: Overlapping dependencies**
 
-This final example describes how disjointed and broken project sets may merge when a new test set introduces overlap.
-
-The following example is similar to the previous one, but instead of projects X and Y, which only have an isolated dependency between X and Y, projects F and E have some overlap with the project set (A, B, C) because project E is dependent on project C. Making a change to project F which breaks project E does not lump F and E with the existing blocked project set (A, B, C) since F is not a dependency of A, B or C.
+This final example describes how disjointed and broken project sets may merge when a new test set introduces overlap. It is similar to the previous one, but instead of projects X and Y, which only have an isolated dependency between X and Y, projects F and E have some overlap with the project set (A, B, C) because project E is dependent on project C. Making a change to project F which breaks project E does not lump F and E with the existing blocked project set (A, B, C) since F is not a dependency of A, B or C.
 
 Suppose a change is made to project C in an attempt to make it compatible with the change to project A. Recall that project E was dependent on project C, and is broken by the latest change to project F. The dependent project set C and E is considered not safe to promote. The blocked project set (A, B, C), and the set (C, E), have project C in common and are merged to form the superset (A, B, C, E).
 
