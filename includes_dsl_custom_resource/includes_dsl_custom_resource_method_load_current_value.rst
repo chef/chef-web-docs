@@ -2,13 +2,9 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-Use the ``load_current_value`` method inside an ``action`` block in a custom resource to load the specified property value from the node, and then use that value when the resource is converged. For example, the value of a property like:
+Use the ``load_current_value`` method to load the specified property values from the node, and then use those values when the resource is converged. This method may take a block argument.
 
-.. code-block:: ruby
-
-   page_not_found '<h1>This page is not found!</h1>'
-
-may replace the value of the ``page_not_found`` property with the default value. Use the ``load_current_value`` method to guard against this behavior. For example:
+Use the ``load_current_value`` method to guard against property values being replaced. For example:
 
 .. code-block:: ruby
 
@@ -25,6 +21,4 @@ may replace the value of the ``page_not_found`` property with the default value.
    
    end
 
-This tells the recipe what the current values for ``homepage`` and ``page_not_found`` and ensures those values are are not changed when the |chef client| configures the node.
-
-The ``load_current_value`` method may also be used to compare a property value to the desired property, and then apply the desired value as specified by the ``converge_if_changed`` method.
+This ensures the values for ``homepage`` and ``page_not_found`` are not changed to the default values when the |chef client| configures the node.
