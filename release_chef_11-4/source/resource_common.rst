@@ -100,15 +100,17 @@ only_if Examples
 
 Notifications
 =====================================================
-.. include:: ../../includes_resources_common/includes_resources_common_notifications.rst
+.. include:: ../../includes_resources_common/includes_resources_common_notification.rst
 
-Notifications Timers
+Timers
 -----------------------------------------------------
-.. include:: ../../includes_resources_common/includes_resources_common_notifications_timers.rst
+.. include:: ../../includes_resources_common/includes_resources_common_notification_timers_12-5.rst
 
-Notifies Syntax
+Notifies
 -----------------------------------------------------
-.. include:: ../../includes_resources_common/includes_resources_common_notifications_syntax_notifies.rst
+.. include:: ../../includes_resources_common/includes_resources_common_notification_notifies.rst
+
+.. include:: ../../includes_resources_common/includes_resources_common_notification_notifies_syntax.rst
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -121,10 +123,6 @@ The following examples show how to use the ``notifies`` notification in a recipe
 **Notify immediately**
 
 .. include:: ../../step_resource/step_resource_template_notifies_run_immediately.rst
-
-**Enable a service after a restart or reload**
-
-.. include:: ../../step_resource/step_resource_service_notifies_enable_after_restart_or_reload.rst
 
 **Notify multiple resources**
 
@@ -158,9 +156,11 @@ The following examples show how to use the ``notifies`` notification in a recipe
 
 .. include:: ../../step_resource/step_resource_remote_file_transfer_remote_source_changes.rst
 
-Subscribes Syntax
+Subscribes
 -----------------------------------------------------
-.. include:: ../../includes_resources_common/includes_resources_common_notifications_syntax_subscribes.rst
+.. include:: ../../includes_resources_common/includes_resources_common_notification_subscribes.rst
+
+.. include:: ../../includes_resources_common/includes_resources_common_notification_subscribes_syntax.rst
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

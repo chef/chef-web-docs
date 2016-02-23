@@ -16,9 +16,9 @@ This resource has the following properties:
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
-   |notifies|
+   .. include:: ../../includes_resources_common/includes_resources_common_notification_notifies.rst
 
-   .. include:: ../../includes_resources/includes_resource_service_reboot_attributes_notifies_syntax.rst
+   .. include:: ../../includes_resources_common/includes_resources_common_notification_timers_reboot.rst
    
 ``reason``
    **Ruby Type:** String
@@ -38,6 +38,6 @@ This resource has the following properties:
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
-   |subscribes|
+   .. include:: ../../includes_resources_common/includes_resources_common_notification_subscribes.rst
 
-   .. include:: ../../includes_resources/includes_resource_service_reboot_attributes_subscribes_syntax.rst
+   .. include:: ../../includes_resources_common/includes_resources_common_notification_timers_reboot.rst

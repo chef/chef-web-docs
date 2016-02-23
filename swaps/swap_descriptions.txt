@@ -843,7 +843,6 @@
 .. |node type_virtual| replace:: A virtual node is a machine that runs only as a software implementation, but otherwise behaves much like a physical machine.
 .. |non_unique_members| replace:: Allow ``gid`` duplication. May only be used with the ``Groupadd`` provider.
 .. |non_unique_user| replace:: Create a duplicate (non-unique) user account.
-.. |notifies| replace:: Which resource takes action when this resource's state changes. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
 .. |num_to_keep| replace:: The number of log files to keep.
 .. |num_versions| replace:: The number of cookbook versions to include in the response, where ``n`` is the number of cookbook versions. For example: ``num_versions=3`` returns the three latest versions, in descending order (newest to oldest). Use ``num_versions=all`` to return all cookbook versions. If ``num_versions`` is not specified, a single cookbook version is returned. ``0`` is an invalid input (an empty array for the versions of each cookbook is returned).
 
@@ -1231,8 +1230,6 @@
 .. |stdin chef_apply| replace:: Execute a resource using standard input.
 .. |storage account| replace:: The name of the storage account used with the hosted service.
 .. |subnet| replace:: The |amazon vpc| instance in which a node is to be created.
-.. |subscribes| replace:: Specify that this resource is to listen to another resource, and then take action when that resource's state changes.
-.. |subscribes timers| replace:: The ``subscribes`` property uses the same timers as the ``notifies`` property.
 .. |sudo bootstrap| replace:: Execute a bootstrap operation with |sudo cmd|.
 .. |supports chef_handler| replace:: The type of handler.
 .. |supports mount| replace:: A |ruby hash| of options for supported mount features.
