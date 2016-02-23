@@ -304,5 +304,20 @@
   "chef/knife.html": "/knife.html",
   "chef/knife_plugins.html": "/plugin_knife.html",
   "chef/ohai.html": "/ohai.html",
-  "chef/resources.html": "/resources.html"
+  "chef/resources.html": "/resources.html",
+  "delivery_1-0/build_cookbooks.html": "/delivery/build_cookbooks.html",
+  "delivery_1-0/ctl_delivery_server.html": "/delivery/ctl_delivery_server.html",
+  "delivery_1-0/delivery_configure_pipeline.html": "/delivery/delivery_configure_pipeline.html",
+  "delivery_1-0/delivery_manage_dependencies.html": "/delivery/delivery_manage_dependencies.html",
+  "delivery_1-0/delivery_manage_secrets.html": "/delivery/delivery_manage_secrets.html",
+  "delivery_1-0/delivery_overview.html": "/delivery/delivery_overview.html",
+  "delivery_1-0/delivery_truck.html": "/delivery/delivery_truck.html",
+  "delivery_1-0/delivery_users_and_roles.html": "/delivery/delivery_users_and_roles.html",
+  "delivery_1-0/dsl_delivery.html": "/delivery/dsl_delivery.html",
+  "delivery_1-0/index.html": "/delivery/index.html",
+  "delivery_1-0/install_delivery_aws.html": "/delivery/install_delivery_aws.html",
+  "delivery_1-0/install_delivery_ssh.html": "/delivery/install_delivery_ssh.html",
+  "delivery_1-0/integrate_delivery_bitbucket.html": "/delivery/integrate_delivery_bitbucket.html",
+  "delivery_1-0/integrate_delivery_github.html": "/delivery/integrate_delivery_github.html",
+  "delivery_1-0/integrate_delivery_ldap.html": "/delivery/integrate_delivery_ldap.html"
 }

@@ -1,8 +1,8 @@
 {
   "client": "/release/12-7",
   "server": "/release/server_12-4",
-  "analytics": "/release/analytics_1-2",
-  "delivery": "/release/delivery_1-0",
+  "analytics": "/release/analytics_1-3",
+  "delivery": "/release/delivery",
   "enterprise": "/release/oec_11-2",
   "open_source": "/release/osc_11-1",
   "devkit": "/release/devkit_1-0",
