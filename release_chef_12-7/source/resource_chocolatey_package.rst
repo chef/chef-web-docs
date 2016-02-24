@@ -1,4 +1,37 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/resource_chocolatey_package.html BY DESIGN
 .. THIS PAGE DOCUMENTS chef-client version 12.7
 
-.. include:: ../../chef_master/source/resource_chocolatey_package.rst
+=====================================================
+chocolatey_package
+=====================================================
+
+.. include:: ../../includes_resources/includes_resource_package_chocolatey.rst
+
+.. note:: .. include:: ../../includes_notes/includes_notes_resource_based_on_package.rst
+
+Syntax
+=====================================================
+.. include:: ../../includes_resources/includes_resource_package_chocolatey_syntax.rst
+
+Actions
+=====================================================
+.. include:: ../../includes_resources/includes_resource_package_chocolatey_actions.rst
+
+Properties
+=====================================================
+.. include:: ../../includes_resources/includes_resource_package_chocolatey_attributes.rst
+
+Providers
+=====================================================
+.. include:: ../../includes_resources_common/includes_resources_common_provider.rst
+
+.. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
+
+.. include:: ../../includes_resources/includes_resource_package_chocolatey_providers.rst
+
+Examples
+=====================================================
+|generic resource statement|
+
+**Install a package**
+
+.. include:: ../../step_resource/step_resource_chocolatey_package_install.rst

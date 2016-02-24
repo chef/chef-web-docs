@@ -1,4 +1,3 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/resource_script.html BY DESIGN
 .. THIS PAGE DOCUMENTS chef-client version 11.10
 
 =====================================================
