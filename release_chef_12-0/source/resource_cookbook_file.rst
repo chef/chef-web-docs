@@ -10,7 +10,7 @@ cookbook_file
 
 Syntax
 =====================================================
-.. include:: ../../includes_resources/includes_resource_12-0_cookbook_file_syntax.rst
+.. include:: ../../includes_resources/includes_resource_cookbook_file_syntax_12-0.rst
 
 Actions
 =====================================================
@@ -18,7 +18,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_12-0_cookbook_file_attributes.rst
+.. include:: ../../includes_resources/includes_resource_cookbook_file_attributes_12-0.rst
 
 .. warning:: .. include:: ../../includes_notes/includes_notes_selinux_file_based_resources.rst
 

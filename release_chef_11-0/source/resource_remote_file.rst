@@ -4,21 +4,21 @@
 remote_file
 =====================================================
 
-.. include:: ../../includes_resources/includes_resource_11-4_remote_file.rst
+.. include:: ../../includes_resources/includes_resource_remote_file_11-4.rst
 
 .. note:: .. include:: ../../includes_notes/includes_notes_remote_file_resource_fetch_from_files_directory.rst
 
 Syntax
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-4_remote_file_syntax.rst
+.. include:: ../../includes_resources/includes_resource_remote_file_syntax_11-4.rst
 
 Actions
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-4_remote_file_actions.rst
+.. include:: ../../includes_resources/includes_resource_remote_file_actions_11-4.rst
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-4_remote_file_attributes.rst
+.. include:: ../../includes_resources/includes_resource_remote_file_attributes_11-4.rst
 
 Windows File Security
 -----------------------------------------------------

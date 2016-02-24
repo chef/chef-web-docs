@@ -10,7 +10,7 @@ file
 
 Syntax
 =====================================================
-.. include:: ../../includes_resources/includes_resource_12-0_file_syntax.rst
+.. include:: ../../includes_resources/includes_resource_file_syntax_12-0.rst
 
 Actions
 =====================================================
@@ -20,7 +20,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_12-0_file_attributes.rst
+.. include:: ../../includes_resources/includes_resource_file_attributes_12-0.rst
 
 Atomic File Updates
 -----------------------------------------------------

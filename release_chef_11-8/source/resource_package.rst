@@ -26,7 +26,7 @@ This resource is the base resource for several other resources used for package 
 
 Syntax
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-16_package_syntax.rst
+.. include:: ../../includes_resources/includes_resource_package_syntax_11-16.rst
 
 Gem Package Options
 =====================================================
@@ -64,7 +64,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-16_package_attributes.rst
+.. include:: ../../includes_resources/includes_resource_package_attributes_11-16.rst
 
 Providers
 =====================================================
@@ -72,7 +72,7 @@ Providers
 
 .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
 
-.. include:: ../../includes_resources/includes_resource_11-16_package_providers.rst
+.. include:: ../../includes_resources/includes_resource_package_providers_11-10.rst
 
 Examples
 =====================================================

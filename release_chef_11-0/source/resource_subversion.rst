@@ -10,7 +10,7 @@ subversion
 
 Syntax
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-6_scm_subversion_syntax.rst
+.. include:: ../../includes_resources/includes_resource_scm_subversion_syntax_11-6.rst
 
 Actions
 =====================================================
@@ -18,7 +18,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-6_scm_subversion_attributes.rst
+.. include:: ../../includes_resources/includes_resource_scm_subversion_attributes_11-6.rst
 
 Providers
 =====================================================

@@ -28,7 +28,7 @@ For more information about specific resources for specific platforms, see the fo
 
 Syntax
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-16_package_syntax.rst
+.. include:: ../../includes_resources/includes_resource_package_syntax_11-16.rst
 
 Gem Package Options
 =====================================================
@@ -66,7 +66,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-16_package_attributes.rst
+.. include:: ../../includes_resources/includes_resource_package_attributes_11-16.rst
 
 Providers
 =====================================================
@@ -74,7 +74,7 @@ Providers
 
 .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
 
-.. include:: ../../includes_resources/includes_resource_11-16_package_providers.rst
+.. include:: ../../includes_resources/includes_resource_package_providers_11-16.rst
 
 Examples
 =====================================================

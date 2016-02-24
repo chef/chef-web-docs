@@ -11,7 +11,7 @@ execute
 
 Syntax
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-12_execute_syntax.rst
+.. include:: ../../includes_resources/includes_resource_execute_syntax_11-12.rst
 
 .. note:: .. include:: ../../includes_resources_common/includes_resources_common_guards_execute_resource.rst
 
@@ -21,7 +21,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-12_execute_attributes.rst
+.. include:: ../../includes_resources/includes_resource_execute_attributes_11-12.rst
 
 Guards
 -----------------------------------------------------

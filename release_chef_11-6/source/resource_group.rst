@@ -8,7 +8,7 @@ group
 
 Syntax
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-8_group_syntax.rst
+.. include:: ../../includes_resources/includes_resource_group_syntax_11-8.rst
 
 Actions
 =====================================================
@@ -16,7 +16,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-8_group_attributes.rst
+.. include:: ../../includes_resources/includes_resource_group_attributes_11-8.rst
 
 Providers
 =====================================================

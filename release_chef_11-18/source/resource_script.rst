@@ -26,7 +26,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_script_attributes.rst
+.. include:: ../../includes_resources/includes_resource_script_attributes_12-5.rst
 
 Guards
 -----------------------------------------------------

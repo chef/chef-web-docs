@@ -30,15 +30,15 @@ Guards
 
 .. include:: ../../includes_resources_common/includes_resources_common_guards_arguments.rst
 
-.. 
+..
 .. Providers
 .. =====================================================
 .. .. include:: ../../includes_resources_common/includes_resources_common_provider.rst
-.. 
+..
 .. .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
-.. 
+..
 .. .. include:: ../../includes_resources/includes_resource_erlang_call_providers.rst
-.. 
+..
 
 Examples
 =====================================================
