@@ -66,7 +66,7 @@ Actions
 
 Attributes
 -----------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_11-10_ohai_attributes.rst
+.. include:: ../../includes_resources/includes_resource_ohai_attributes_11-10.rst
 
 Providers
 -----------------------------------------------------
