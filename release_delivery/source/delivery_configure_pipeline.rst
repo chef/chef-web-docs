@@ -29,10 +29,11 @@ The behavior of pipeline phases can be customized using the project's ``config.j
 
 ``dependencies``
    **Optional**. Object specifying which project(s) the current project depends on. Dependencies can be defined in the following ways:
-     * "project_name"
-     * "project_name:pipeline_name"
-     * "org_name/project_name"
-     * "org_name/project_name:pipeline_name"
+
+   * "project_name"
+   * "project_name:pipeline_name"
+   * "org_name/project_name"
+   * "org_name/project_name:pipeline_name"
 
    If only the project name is provided, the master pipeline is used by default.
 
