@@ -8,7 +8,7 @@ batch
 
 Syntax
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-16_batch_syntax.rst
+.. include:: ../../includes_resources/includes_resource_batch_syntax_11-16.rst
 
 Actions
 =====================================================
@@ -16,7 +16,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-16_batch_attributes.rst
+.. include:: ../../includes_resources/includes_resource_batch_attributes_11-16.rst
 
 Guards
 -----------------------------------------------------

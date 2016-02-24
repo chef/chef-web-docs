@@ -1,4 +1,41 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/resource_route.html BY DESIGN
 .. THIS PAGE DOCUMENTS chef-client version 12.8
 
-.. include:: ../../chef_master/source/resource_route.rst
+=====================================================
+route
+=====================================================
+
+.. include:: ../../includes_resources/includes_resource_route.rst
+
+Syntax
+=====================================================
+.. include:: ../../includes_resources/includes_resource_route_syntax.rst
+
+Actions
+=====================================================
+.. include:: ../../includes_resources/includes_resource_route_actions.rst
+
+Properties
+=====================================================
+.. include:: ../../includes_resources/includes_resource_route_attributes.rst
+
+.. 
+.. Providers
+.. =====================================================
+.. .. include:: ../../includes_resources_common/includes_resources_common_provider.rst
+.. 
+.. .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
+.. 
+.. .. include:: ../../includes_resources/includes_resource_route_providers.rst
+.. 
+
+Examples
+=====================================================
+|generic resource statement|
+
+**Add a host route**
+
+.. include:: ../../step_resource/step_resource_route_add_host.rst
+
+**Delete a network route**
+
+.. include:: ../../step_resource/step_resource_route_delete_network.rst

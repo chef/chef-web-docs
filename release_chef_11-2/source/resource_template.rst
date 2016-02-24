@@ -8,19 +8,19 @@ template
 
 .. note:: .. include:: ../../includes_notes/includes_notes_cookbook_template_erubis.rst
 
-.. include:: ../../includes_resources/includes_resource_11-4_template.rst
+.. include:: ../../includes_resources/includes_resource_template_11-4.rst
 
 Syntax
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-4_template_syntax.rst
+.. include:: ../../includes_resources/includes_resource_template_syntax_11-4.rst
 
 Actions
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-4_template_actions.rst
+.. include:: ../../includes_resources/includes_resource_template_actions_11-4.rst
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-4_template_attributes.rst
+.. include:: ../../includes_resources/includes_resource_template_attributes_11-4.rst
 
 Windows File Security
 -----------------------------------------------------

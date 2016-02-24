@@ -223,7 +223,7 @@ Actions
 
 Attributes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_11-16_batch_attributes.rst
+.. include:: ../../includes_resources/includes_resource_batch_attributes_11-16.rst
 
 
 |resource powershell_script| Resource 
@@ -240,7 +240,7 @@ Actions
 
 Attributes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_11-10_powershell_script_attributes.rst
+.. include:: ../../includes_resources/includes_resource_powershell_script_attributes_11-10.rst
 
 
 |client rb| Settings

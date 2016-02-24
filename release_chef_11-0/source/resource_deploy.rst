@@ -10,7 +10,7 @@ deploy
 
 Syntax
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-6_deploy_syntax.rst
+.. include:: ../../includes_resources/includes_resource_deploy_syntax_11-6.rst
 
 Deploy Strategies
 =====================================================
@@ -22,7 +22,7 @@ Deploy Phases
 
 Deploy Cache File
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_resources/includes_resource_11-4_deploy_strategy_start_over.rst
+.. include:: ../../includes_resources/includes_resource_deploy_strategy_start_over_11-4.rst
 
 Callbacks
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -42,7 +42,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-6_deploy_attributes.rst
+.. include:: ../../includes_resources/includes_resource_deploy_attributes_11-6.rst
 
 Providers
 =====================================================

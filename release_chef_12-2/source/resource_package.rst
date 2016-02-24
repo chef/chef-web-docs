@@ -70,7 +70,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_package_attributes.rst
+.. include:: ../../includes_resources/includes_resource_package_attributes_12-5.rst
 
 Multiple Packages
 -----------------------------------------------------

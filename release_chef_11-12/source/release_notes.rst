@@ -57,7 +57,7 @@ Actions
 
 Attributes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_windows_attributes.rst
+.. include:: ../../includes_resources/includes_resource_package_windows_attributes_12-5.rst
 
 guard_interpreter
 -----------------------------------------------------

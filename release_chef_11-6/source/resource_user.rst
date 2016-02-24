@@ -8,7 +8,7 @@ user
 
 Syntax
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-16_user_syntax.rst
+.. include:: ../../includes_resources/includes_resource_user_syntax_11-16.rst
 
 Actions
 =====================================================
@@ -16,7 +16,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-16_user_attributes.rst
+.. include:: ../../includes_resources/includes_resource_user_attributes_11-16.rst
 
 Supported Features
 =====================================================
