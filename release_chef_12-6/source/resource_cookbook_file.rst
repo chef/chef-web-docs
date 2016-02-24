@@ -18,7 +18,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_cookbook_file_attributes_12-5.rst
+.. include:: ../../includes_resources/includes_resource_cookbook_file_attributes.rst
 
 .. warning:: .. include:: ../../includes_notes/includes_notes_selinux_file_based_resources.rst
 

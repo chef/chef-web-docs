@@ -18,7 +18,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_scm_subversion_attributes_12-5.rst
+.. include:: ../../includes_resources/includes_resource_scm_subversion_attributes.rst
 
 .. 
 .. Providers

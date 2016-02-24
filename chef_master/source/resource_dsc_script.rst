@@ -24,7 +24,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_dsc_script_attributes_12-5.rst
+.. include:: ../../includes_resources/includes_resource_dsc_script_attributes.rst
 
 ps_credential Helper
 -----------------------------------------------------

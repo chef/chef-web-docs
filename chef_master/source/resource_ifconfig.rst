@@ -14,7 +14,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_ifconfig_attributes_12-5.rst
+.. include:: ../../includes_resources/includes_resource_ifconfig_attributes.rst
 
 .. 
 .. Providers

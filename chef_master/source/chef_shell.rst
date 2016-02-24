@@ -42,7 +42,7 @@ Actions
 
 Attributes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_breakpoint_attributes_12-5.rst
+.. include:: ../../includes_resources/includes_resource_breakpoint_attributes.rst
 
 Providers
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -14,7 +14,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_route_attributes_12-5.rst
+.. include:: ../../includes_resources/includes_resource_route_attributes.rst
 
 .. 
 .. Providers

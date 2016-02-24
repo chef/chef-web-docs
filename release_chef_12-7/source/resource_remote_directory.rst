@@ -16,7 +16,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_remote_directory_attributes_12-5.rst
+.. include:: ../../includes_resources/includes_resource_remote_directory_attributes.rst
 
 Recursive Directories
 -----------------------------------------------------

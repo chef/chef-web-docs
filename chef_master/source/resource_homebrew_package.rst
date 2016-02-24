@@ -16,7 +16,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_package_homebrew_attributes_12-5.rst
+.. include:: ../../includes_resources/includes_resource_package_homebrew_attributes.rst
 
 Providers
 =====================================================

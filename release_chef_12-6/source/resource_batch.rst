@@ -16,7 +16,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_batch_attributes_12-5.rst
+.. include:: ../../includes_resources/includes_resource_batch_attributes.rst
 
 Guards
 -----------------------------------------------------

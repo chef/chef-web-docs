@@ -20,7 +20,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_template_attributes_12-5.rst
+.. include:: ../../includes_resources/includes_resource_template_attributes.rst
 
 Atomic File Updates
 -----------------------------------------------------

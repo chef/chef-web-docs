@@ -16,7 +16,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_package_bff_attributes_12-5.rst
+.. include:: ../../includes_resources/includes_resource_package_bff_attributes.rst
 
 Providers
 =====================================================

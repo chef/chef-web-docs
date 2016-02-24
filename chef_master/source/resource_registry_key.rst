@@ -48,7 +48,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_registry_key_attributes_12-5.rst
+.. include:: ../../includes_resources/includes_resource_registry_key_attributes.rst
 
 .. 
 .. Providers

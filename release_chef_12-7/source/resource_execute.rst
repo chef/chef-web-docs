@@ -18,7 +18,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_execute_attributes_12-5.rst
+.. include:: ../../includes_resources/includes_resource_execute_attributes.rst
 
 Guards
 -----------------------------------------------------
