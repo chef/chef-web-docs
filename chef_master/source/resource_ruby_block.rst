@@ -14,8 +14,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_ruby_block_attributes.rst
-
+.. include:: ../../includes_resources/includes_resource_ruby_block_attributes_12-5.rst
 .. 
 .. Providers
 .. =====================================================

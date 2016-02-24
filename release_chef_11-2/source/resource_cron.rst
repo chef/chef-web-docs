@@ -8,7 +8,7 @@ cron
 
 Syntax
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-10_cron_syntax.rst
+.. include:: ../../includes_resources/includes_resource_cron_syntax_11-10.rst
 
 Actions
 =====================================================
@@ -16,7 +16,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-10_cron_attributes.rst
+.. include:: ../../includes_resources/includes_resource_cron_attributes_11-10.rst
 
 Providers
 =====================================================

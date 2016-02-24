@@ -44,7 +44,7 @@ Naming Resources
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_deploy_attributes.rst
+.. include:: ../../includes_resources/includes_resource_deploy_attributes_12-5.rst
 
 Providers
 =====================================================

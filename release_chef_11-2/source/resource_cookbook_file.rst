@@ -4,19 +4,19 @@
 cookbook_file 
 =====================================================
 
-.. include:: ../../includes_resources/includes_resource_11-4_cookbook_file.rst
+.. include:: ../../includes_resources/includes_resource_cookbook_file_11-4.rst
 
 Syntax
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-4_cookbook_file_syntax.rst
+.. include:: ../../includes_resources/includes_resource_cookbook_file_syntax_11-4.rst
 
 Actions
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-4_cookbook_file_actions.rst
+.. include:: ../../includes_resources/includes_resource_cookbook_file_actions_11-4.rst
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-4_cookbook_file_attributes.rst
+.. include:: ../../includes_resources/includes_resource_cookbook_file_attributes_11-4.rst
 
 Windows File Security
 -----------------------------------------------------
@@ -42,7 +42,7 @@ File Specificity
 =====================================================
 .. include:: ../../includes_file/includes_file_cookbook_specificity.rst
 
-.. include:: ../../includes_file/includes_file_11-16_cookbook_specificity_pattern.rst
+.. include:: ../../includes_file/includes_file_cookbook_specificity_pattern_11-16.rst
 
 .. include:: ../../includes_file/includes_file_cookbook_specificity_example.rst
 

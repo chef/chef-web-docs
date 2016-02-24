@@ -14,7 +14,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_service_windows_attributes.rst
+.. include:: ../../includes_resources/includes_resource_service_windows_attributes_12-5.rst
 
 .. 
 .. Providers

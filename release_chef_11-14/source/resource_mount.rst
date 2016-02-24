@@ -8,7 +8,7 @@ mount
 
 Syntax
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-16_mount_syntax.rst
+.. include:: ../../includes_resources/includes_resource_mount_syntax_11-16.rst
 
 Actions
 =====================================================
@@ -16,7 +16,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-16_mount_attributes.rst
+.. include:: ../../includes_resources/includes_resource_mount_attributes_11-16.rst
 
 Providers
 =====================================================

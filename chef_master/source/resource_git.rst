@@ -16,7 +16,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_scm_git_attributes.rst
+.. include:: ../../includes_resources/includes_resource_scm_git_attributes_12-5.rst
 
 .. 
 .. Providers

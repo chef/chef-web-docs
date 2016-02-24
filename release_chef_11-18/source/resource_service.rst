@@ -13,11 +13,11 @@ Syntax
 
 Actions
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-16_service_actions.rst
+.. include:: ../../includes_resources/includes_resource_service_actions_11-16.rst
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_service_attributes.rst
+.. include:: ../../includes_resources/includes_resource_service_attributes_12-5.rst
 
 Providers
 =====================================================
@@ -25,7 +25,7 @@ Providers
 
 .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
 
-.. include:: ../../includes_resources/includes_resource_11-16_service_providers.rst
+.. include:: ../../includes_resources/includes_resource_service_providers_11-16.rst
 
 Examples
 =====================================================

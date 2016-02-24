@@ -18,7 +18,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_file_attributes.rst
+.. include:: ../../includes_resources/includes_resource_file_attributes_12-5.rst
 
 Atomic File Updates
 -----------------------------------------------------

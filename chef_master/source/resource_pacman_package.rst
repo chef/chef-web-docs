@@ -16,7 +16,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_package_pacman_attributes.rst
+.. include:: ../../includes_resources/includes_resource_package_pacman_attributes_12-5.rst
 
 Providers
 =====================================================

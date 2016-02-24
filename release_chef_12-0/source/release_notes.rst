@@ -124,7 +124,7 @@ Actions
 
 Properties
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_bff_attributes.rst
+.. include:: ../../includes_resources/includes_resource_package_bff_attributes_12-5.rst
 
 Providers
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -152,7 +152,7 @@ Actions
 
 Properties
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_homebrew_attributes.rst
+.. include:: ../../includes_resources/includes_resource_package_homebrew_attributes_12-5.rst
 
 Providers
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -188,7 +188,7 @@ Actions
 
 Properties
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_service_reboot_attributes.rst
+.. include:: ../../includes_resources/includes_resource_service_reboot_attributes_12-5.rst
 
 Providers
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -224,7 +224,7 @@ Actions
 
 Properties
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_service_windows_attributes.rst
+.. include:: ../../includes_resources/includes_resource_service_windows_attributes_12-5.rst
 
 Providers
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

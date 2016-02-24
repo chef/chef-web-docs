@@ -18,7 +18,7 @@ dsc_script
 
 Syntax
 =====================================================
-.. include:: ../../includes_resources/includes_resource_12-0_dsc_script_syntax.rst
+.. include:: ../../includes_resources/includes_resource_dsc_script_syntax_12-0.rst
 
 Actions
 =====================================================
@@ -26,7 +26,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_12-0_dsc_script_attributes.rst
+.. include:: ../../includes_resources/includes_resource_dsc_script_attributes_12-0.rst
 
 Examples
 =====================================================

@@ -8,7 +8,7 @@ windows_service
 
 Syntax
 =====================================================
-.. include:: ../../includes_resources/includes_resource_12-0_service_windows_syntax.rst
+.. include:: ../../includes_resources/includes_resource_service_windows_syntax_12-0.rst
 
 Actions
 =====================================================
@@ -16,7 +16,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_12-0_service_windows_attributes.rst
+.. include:: ../../includes_resources/includes_resource_service_windows_attributes_12-0.rst
 
 Providers
 =====================================================

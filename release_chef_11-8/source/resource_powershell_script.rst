@@ -8,7 +8,7 @@ powershell_script
 
 Syntax
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-12_powershell_script_syntax.rst
+.. include:: ../../includes_resources/includes_resource_powershell_script_syntax_11-12.rst
 
 Actions
 =====================================================
@@ -16,7 +16,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-10_powershell_script_attributes.rst
+.. include:: ../../includes_resources/includes_resource_powershell_script_attributes_11-10.rst
 
 Providers
 =====================================================

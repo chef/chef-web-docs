@@ -4,7 +4,7 @@
 file
 =====================================================
 
-.. include:: ../../includes_resources/includes_resource_11-4_file.rst
+.. include:: ../../includes_resources/includes_resource_file_11-4.rst
 
 .. include:: ../../includes_resources/includes_resource_cookbook_file_transfers.rst
 
@@ -12,15 +12,15 @@ file
 
 Syntax
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-4_file_syntax.rst
+.. include:: ../../includes_resources/includes_resource_file_syntax_11-4.rst
 
 Actions
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-4_file_actions.rst
+.. include:: ../../includes_resources/includes_resource_file_actions_11-4.rst
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-4_file_attributes.rst
+.. include:: ../../includes_resources/includes_resource_file_attributes_11-4.rst
 
 Windows File Security
 -----------------------------------------------------

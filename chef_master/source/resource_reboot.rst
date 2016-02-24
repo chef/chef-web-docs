@@ -14,7 +14,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_service_reboot_attributes.rst
+.. include:: ../../includes_resources/includes_resource_service_reboot_attributes_12-5.rst
 
 .. 
 .. Providers

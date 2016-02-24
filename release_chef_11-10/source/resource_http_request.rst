@@ -12,11 +12,11 @@ Syntax
 
 Actions
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-16_http_request_actions.rst
+.. include:: ../../includes_resources/includes_resource_http_request_actions_11-16.rst
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_http_request_attributes.rst
+.. include:: ../../includes_resources/includes_resource_http_request_attributes_12-5.rst
 
 Providers
 =====================================================

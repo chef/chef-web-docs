@@ -14,7 +14,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_script_bash_attributes.rst
+.. include:: ../../includes_resources/includes_resource_script_bash_attributes_12-5.rst
 
 Guards
 -----------------------------------------------------

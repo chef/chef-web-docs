@@ -20,7 +20,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_package_chef_gem_attributes.rst
+.. include:: ../../includes_resources/includes_resource_package_chef_gem_attributes_12-5.rst
 
 Providers
 =====================================================

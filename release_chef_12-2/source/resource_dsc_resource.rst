@@ -18,7 +18,7 @@ Syntax
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_dsc_resource_attributes.rst
+.. include:: ../../includes_resources/includes_resource_dsc_resource_attributes_12-5.rst
 
 Examples
 =====================================================

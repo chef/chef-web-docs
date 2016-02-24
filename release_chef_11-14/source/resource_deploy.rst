@@ -10,7 +10,7 @@ deploy
 
 Syntax
 =====================================================
-.. include:: ../../includes_resources/includes_resource_12-4_deploy_syntax.rst
+.. include:: ../../includes_resources/includes_resource_deploy_syntax_12-4.rst
 
 Deploy Strategies
 =====================================================
@@ -46,7 +46,7 @@ Naming Resources
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_12-4_deploy_attributes.rst
+.. include:: ../../includes_resources/includes_resource_deploy_attributes_12-4.rst
 
 Providers
 =====================================================

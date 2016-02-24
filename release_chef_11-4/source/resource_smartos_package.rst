@@ -4,13 +4,13 @@
 smart_o_s_package
 =====================================================
 
-.. include:: ../../includes_resources/includes_resource_11-6_package_smartos.rst
+.. include:: ../../includes_resources/includes_resource_package_smartos_11-6.rst
 
 .. note:: .. include:: ../../includes_notes/includes_notes_resource_based_on_package.rst
 
 Syntax
 =====================================================
-.. include:: ../../includes_resources/includes_resource_11-6_package_smartos_syntax.rst
+.. include:: ../../includes_resources/includes_resource_package_smartos_syntax_11-6.rst
 
 Actions
 =====================================================
@@ -18,7 +18,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_package_smartos_attributes.rst
+.. include:: ../../includes_resources/includes_resource_package_smartos_attributes_12-5.rst
 
 Providers
 =====================================================
@@ -26,7 +26,7 @@ Providers
 
 .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
 
-.. include:: ../../includes_resources/includes_resource_11-6_package_smartos_providers.rst
+.. include:: ../../includes_resources/includes_resource_package_smartos_providers_11-6.rst
 
 Examples
 =====================================================
