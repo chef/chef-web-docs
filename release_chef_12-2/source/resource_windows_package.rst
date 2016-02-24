@@ -10,7 +10,7 @@ windows_package
 
 Syntax
 =====================================================
-.. include:: ../../includes_resources/includes_resource_12-3_package_windows_syntax.rst
+.. include:: ../../includes_resources/includes_resource_package_windows_syntax_12-3.rst
 
 Actions
 =====================================================
