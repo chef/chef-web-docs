@@ -24,7 +24,7 @@ The following examples show how to use common actions in a recipe.
 
 Properties
 =====================================================
-.. include:: ../../includes_resources_common/includes_resources_common_attributes.rst
+.. include:: ../../includes_resources_common/includes_resources_common_attributes_12-5.rst
 
 Examples
 -----------------------------------------------------

@@ -126,7 +126,7 @@ Notifications
 
 Timers
 -----------------------------------------------------
-.. include:: ../../includes_resources_common/includes_resources_common_notification_timers_12-5.rst
+.. include:: ../../includes_resources_common/includes_resources_common_notification_timers.rst
 
 Notifies
 -----------------------------------------------------
