@@ -108,6 +108,26 @@ default_action
 -----------------------------------------------------
 .. include:: ../../includes_custom_resources/includes_custom_resources_syntax_default_action.rst
 
+load_current_value
+-----------------------------------------------------
+.. include:: ../../includes_custom_resources/includes_dsl_custom_resource_method_load_current_value.rst
+
+property_is_set?
+-----------------------------------------------------
+.. include:: ../../includes_custom_resources/includes_dsl_custom_resource_method_property_is_set.rst
+
+provides
+-----------------------------------------------------
+.. include:: ../../includes_custom_resources/includes_dsl_custom_resource_method_provides.rst
+
+override
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_custom_resources/includes_dsl_custom_resource_method_provides_override.rst
+
+reset_property
+-----------------------------------------------------
+.. include:: ../../includes_custom_resources/includes_dsl_custom_resource_method_reset_property.rst
+
 Override Properties
 -----------------------------------------------------
 .. include:: ../../includes_custom_resources/includes_custom_resources_syntax_override_properties.rst
