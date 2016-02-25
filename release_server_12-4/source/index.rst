@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS Chef server version 12.2
+.. THIS PAGE DOCUMENTS Chef server version 12.4
 
 =====================================================
 About |chef server_title| 12.4 
@@ -115,6 +115,7 @@ This section contains links to topics about configuration files, command-line to
    install_server_ha_drbd
    install_server_post
    install_server_pre
+   install_tiered
    manage
    release_notes
    server_backup_restore
