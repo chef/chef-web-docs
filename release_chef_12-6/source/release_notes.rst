@@ -8,6 +8,7 @@ What's New
 =====================================================
 The following items are new for |chef client| 12.6 and/or are changes from previous versions. The short version:
 
+* **New timer for resource notifications** Use the ``:before`` timer with the ``notifies`` and ``subscribes`` properties to specify that the action on a notified resource should be run before processing the resource block in which the notification is located. 
 * **New ksh resource** The |resource script_ksh| resource is added and is based on the |resource script| resource.
 * **New metadata.rb settings** The |metadata rb| file has settings for ``chef_version`` and ``ohai_version`` that allow ranges to be specified that declare the supported versions of the |chef client| and |ohai|.
 * **dsc_resource supports reboots** The |resource dsc_resource| resource supports immediate and queued reboots. This uses the |resource reboot| resource and its ``:reboot_now`` or ``:request_reboot`` actions.
@@ -17,6 +18,9 @@ The following items are new for |chef client| 12.6 and/or are changes from previ
 * **dsc_script and dsc_resource resources may be in the same run-list** The latest version of |windows management_framework| 5 has relaxed the limitation that prevented the |chef client| from running in non-disabled refresh mode, which allows the Local Configuration Manager to be set to ``Push``. Requires |windows powershell| 5.0.10586.0 or higher.
 * **New --profile-ruby option** Use the ``--profile-ruby`` option to dump a (large) profiling graph into ``/var/chef/cache/graph_profile.out``.
 
+Notification Timers
+-----------------------------------------------------
+.. include:: ../../includes_resources_common/includes_resources_common_notification_timers.rst
 
 ksh
 -----------------------------------------------------
