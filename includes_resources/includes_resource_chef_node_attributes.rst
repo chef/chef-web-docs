@@ -40,7 +40,7 @@ This resource has the following properties:
 
    .. include:: ../../includes_resources_common/includes_resources_common_notification_notifies.rst
 
-   .. include:: ../../includes_resources_common/includes_resources_common_notification_timers_12-5.rst
+   .. include:: ../../includes_resources_common/includes_resources_common_notification_timers.rst
 
    .. include:: ../../includes_resources_common/includes_resources_common_notification_notifies_syntax.rst
 
@@ -86,6 +86,6 @@ This resource has the following properties:
 
    .. include:: ../../includes_resources_common/includes_resources_common_notification_subscribes.rst
 
-   .. include:: ../../includes_resources_common/includes_resources_common_notification_timers_12-5.rst
+   .. include:: ../../includes_resources_common/includes_resources_common_notification_timers.rst
 
    .. include:: ../../includes_resources_common/includes_resources_common_notification_subscribes_syntax.rst
