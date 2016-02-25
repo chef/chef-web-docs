@@ -15,7 +15,7 @@ This configuration file has the following general settings:
 
    .. code-block:: ruby
 
-      %w{opscode-reporting opscode-manage opscode-analytics opscode-push-jobs-server}
+      %w{opscode-reporting chef-manage opscode-analytics opscode-push-jobs-server}
 
 ``api_version``
    |version chef_server| Default value: ``'12.0.0'``.
