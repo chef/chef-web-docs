@@ -70,7 +70,6 @@ build_targets = <<END
 master
 decks
 delivery
-delivery_1-0
 11-0
 11-2
 11-4
