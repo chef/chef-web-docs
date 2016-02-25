@@ -1,5 +1,5 @@
 =====================================================
-opscode-manage-ctl (executable)
+chef-manage-ctl (executable)
 =====================================================
 
 .. include:: ../../includes_ctl_manage/includes_ctl_manage.rst

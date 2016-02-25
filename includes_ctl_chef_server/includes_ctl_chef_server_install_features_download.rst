@@ -17,7 +17,7 @@ The ``install`` subcommand downloads packages from https://packagecloud.io/ by d
 
        .. code-block:: ruby
 
-          $ chef-server-ctl install opscode-manage
+          $ chef-server-ctl install chef-manage
 
        then:
 
@@ -29,7 +29,7 @@ The ``install`` subcommand downloads packages from https://packagecloud.io/ by d
 
        .. code-block:: ruby
 
-          $ opscode-manage-ctl reconfigure
+          $ chef-manage-ctl reconfigure
 
 
    * - |push jobs_title|

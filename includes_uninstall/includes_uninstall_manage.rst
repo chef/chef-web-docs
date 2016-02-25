@@ -8,6 +8,8 @@ To uninstall the |chef manage|, do the following:
 
    .. code-block:: bash
       
-      $ opscode-manage-ctl cleanse
+      $ chef-manage-ctl cleanse
 
-#. Use the package manager for the platform on which the |chef manage| is installed, and then uninstall the package named ``opscode-manage``.
+#. Use the package manager for the platform on which the |chef manage| is installed, and then uninstall the package named ``chef-manage``.
+
+.. note:: This package used to be named ``opscode-manage`` and the command line tool used to be named ``opscode-manage-ctl``.

@@ -12,6 +12,6 @@ For example:
 
 .. code-block:: bash
 
-   $ chef-server-ctl install opscode-manage --path /root/packages
+   $ chef-server-ctl install chef-manage --path /root/packages
 
-The ``chef-server-ctl`` command will install the first ``opscode-manage`` package found in the ``/root/packages`` directory.
+The ``chef-server-ctl`` command will install the first ``chef-manage`` package found in the ``/root/packages`` directory.
