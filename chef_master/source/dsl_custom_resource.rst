@@ -26,6 +26,22 @@ new_resource.property
 =====================================================
 .. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_new_resource.rst
 
+property
+=====================================================
+.. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_property.rst
+
+desired_state
+-----------------------------------------------------
+.. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_property_desired_state.rst
+
+identity
+-----------------------------------------------------
+.. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_property_identity.rst
+
+Block Arguments
+-----------------------------------------------------
+.. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_property_block_argument.rst
+
 property_is_set?
 =====================================================
 .. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_property_is_set.rst
