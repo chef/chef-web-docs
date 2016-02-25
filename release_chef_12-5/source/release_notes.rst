@@ -40,8 +40,8 @@ converge_if_changed
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_converge_if_changed.rst
 
-**Multiple Properties**
-
+Multiple Properties
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_converge_if_changed_multiple.rst
 
 default_action
@@ -56,6 +56,22 @@ new_resource.property
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_new_resource.rst
 
+property
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_property.rst
+
+desired_state
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_property_desired_state.rst
+
+identity
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_property_identity.rst
+
+Block Arguments
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_property_block_argument.rst
+
 property_is_set?
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_property_is_set.rst
@@ -64,8 +80,8 @@ provides
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_provides.rst
 
-**override**
-
+override
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_provides_override.rst
 
 reset_property
