@@ -115,7 +115,7 @@ This section contains links to topics about configuration files, command-line to
    install_server_ha_drbd
    install_server_post
    install_server_pre
-   install_tiered
+   install_server_tiered
    manage
    release_notes
    server_backup_restore
