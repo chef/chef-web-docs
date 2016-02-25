@@ -16,9 +16,9 @@ Example
 
 resource_name
 -----------------------------------------------------
-.. include:: ../../includes_custom_resources/includes_custom_resources_syntax_resource_name.rst
+.. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_resource_name.rst
 
-.. include:: ../../includes_custom_resources/includes_custom_resources_syntax_resource_name_example.rst
+.. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_resource_name_example.rst
 
 Scenario: website Resource
 =====================================================
@@ -100,17 +100,29 @@ Recipe
 -----------------------------------------------------
 .. include:: ../../includes_custom_resources/includes_custom_resources_slide_website_recipe.rst
 
-Advanced Options
+Custom Resource DSL
 =====================================================
-The following sections describe advanced options that may be used (or may be required) when building custom resources.
+The following sections describe additional |dsl custom_resource| methods that were not used in the preceding scenario:
+
+converge_if_changed
+-----------------------------------------------------
+.. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_converge_if_changed.rst
+
+Multiple Properties
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_converge_if_changed_multiple.rst
 
 default_action
 -----------------------------------------------------
-.. include:: ../../includes_custom_resources/includes_custom_resources_syntax_default_action.rst
+.. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_default_action.rst
 
 load_current_value
 -----------------------------------------------------
 .. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_load_current_value.rst
+
+new_resource.property
+-----------------------------------------------------
+.. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_new_resource.rst
 
 property_is_set?
 -----------------------------------------------------
@@ -127,7 +139,3 @@ override
 reset_property
 -----------------------------------------------------
 .. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_reset_property.rst
-
-Override Properties
------------------------------------------------------
-.. include:: ../../includes_custom_resources/includes_custom_resources_syntax_override_properties.rst
