@@ -105,7 +105,7 @@ X and Y (which depends on X) pass their tests cleanly. Project X promotes withou
      - (A, Bx, C)
      - X
 
-In a very similar example, a change can still ship if it is related to a breakage as long as that breakage does not occur in an immediate upstream dependency. In keeping with our example, assume the same change is made to project A. Then, a change is made to project E that passes its project tests. A project with changes can only impact projects that consume it, so project E is safe to promote although its dependency project C is blocked due to project C's dependency on project A. This promotion of project E's change can happen because the version of project C in Union and Rehearsal as well as project A in Rehearsal are still what they were before the change to project A was pushed through the pipeline and broke project B's run-time tests in Union.
+In a very similar example, a change can still ship if it is related to a breakage as long as that breakage does not occur in an immediate upstream dependency. Again, assume the same change is made to project A. Then, a change is made to project E that passes its project tests. A project with changes can only impact projects that consume it, so project E is safe to promote although its dependency project C is blocked due to project C's dependency on project A. This promotion of project E's change can happen because the version of project C in Union and Rehearsal as well as project A in Rehearsal are still what they were before the change to project A was pushed through the pipeline and broke project B's run-time tests in Union.
 
 .. list-table::
    :widths: 250 250 250 250
