@@ -105,7 +105,7 @@ X and Y (which depends on X) pass their tests cleanly. Project X promotes withou
      - (A, Bx, C)
      - X
 
-In a very similar example, a change can still ship if it is related to a breakage as long as it is not an upstream dependency. In keeping with our example, assume the same change is made to project A. Then, a change is made to project E that passes its project tests. A project with changes can only impact projects which consume it, making downstream dependencies of blocked projects safe to promote. Project E is safe to promote although its dependency project C is blocked.
+In a very similar example, a change can still ship if it is related to a breakage as long as that breakage does not occur in an immediate upstream dependency. Again, assume the same change is made to project A. Then, a change is made to project E that passes its project tests. A project with changes can only impact projects that consume it, so project E is safe to promote although its dependency project C is blocked due to project C's dependency on project A. This promotion of project E's change can happen because the version of project C in Union and Rehearsal as well as project A in Rehearsal are still what they were before the change to project A was pushed through the pipeline and broke project B's run-time tests in Union.
 
 .. list-table::
    :widths: 250 250 250 250
@@ -126,9 +126,7 @@ In a very similar example, a change can still ship if it is related to a breakag
 
 **Example 3: Expanding the blocked set**
 
-The same broken change is made to project A, which causes project B's tests to fail. This time, instead of changing project A, project B is updated instead to use the new API.
-That worked, but inadvertently broke project D in the process. Now, none of projects A through D can ship.
-It might look like project A should be able to ship as it isn't broken, and neither are the projects which depend on it; however, to ship this version of project A, a new version of project B would have to ship, which would cause project D to break in production.
+The same broken change is made to project A, which causes project B's tests to fail. This time, instead of changing project A, project B is updated instead to use the new API. That worked, but the change in project B inadvertently broke project D during testing. Now, none of projects A through D can ship. It might look like project A should be able to ship as it isn't broken, and neither are the projects which depend on it; however, to ship this version of project A, a new version of project B would have to ship, which would cause project D to break in production.
 
 The end result is all projects are kept from promotion until project D is fixed, at which point everything can ship.
 
@@ -182,9 +180,9 @@ For example, that breaking change to project A got merged and broke project B ag
 
 **Example 5: Overlapping dependencies**
 
-This final example describes how disjointed and broken project sets may merge when a new test set introduces overlap. It is similar to the previous one, but instead of projects X and Y, which only have an isolated dependency between X and Y, projects F and E have some overlap with the project set (A, B, C) because project E is dependent on project C. Making a change to project F which breaks project E does not lump F and E with the existing blocked project set (A, B, C) since F is not a dependency of A, B or C. 
+This final example describes how disjointed and broken project sets may merge when a new test set introduces overlap. It is similar to the previous one, but instead of projects X and Y, which only have an isolated dependency between X and Y, projects F and E have some overlap with the project set (A, B, C) because project E is dependent on project C. Making a change to project E which breaks project F does not lump F and E with the existing blocked project set (A, B, C) since F is not a dependency of A, B or C.
 
-Suppose a change is made to project C in an attempt to make it compatible with the change to project A. Recall that project E was dependent on project C, and is broken by the latest change to project F. The dependent project set C and E is considered not safe to promote. The blocked project set (A, B, C), and the set (C, E), have project C in common and are merged to form the superset (A, B, C, E).
+Suppose a change is made to project C in an attempt to make it compatible with the change to project A. Recall that project E was dependent on project C, and is broken by the latest change to project F. The dependent project set (C, E) is considered not safe to promote. The blocked project set (A, B, C), and the set (C, E), have project C in common and are merged to form the superset (A, B, C, E).
 
 Similarly, the blocked project sets (C, E) and (E, F) merge to form (C, E, F). The blocked project supersets join together to form the final blocked set (A, B, C, E, F).
 
