@@ -452,10 +452,6 @@ Chef Compliance
    server_backup_restore
    server_components
    server_data
-   server_deploy_be
-   server_deploy_fe
-   server_deploy_febe
-   server_deploy_standalone
    server_firewalls_and_ports
    server_high_availability
    server_ldap

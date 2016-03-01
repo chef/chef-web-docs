@@ -1693,26 +1693,6 @@
 
 
 <url>
-<loc>https://docs.chef.io/server_deploy_be.html</loc>
-</url>
-
-
-<url>
-<loc>https://docs.chef.io/server_deploy_fe.html</loc>
-</url>
-
-
-<url>
-<loc>https://docs.chef.io/server_deploy_febe.html</loc>
-</url>
-
-
-<url>
-<loc>https://docs.chef.io/server_deploy_standalone.html</loc>
-</url>
-
-
-<url>
 <loc>https://docs.chef.io/server_firewalls_and_ports.html</loc>
 </url>
 
