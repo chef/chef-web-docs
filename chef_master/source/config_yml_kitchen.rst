@@ -54,6 +54,10 @@ The following examples show actual |kitchen yml| files used in |company_name|-ma
 --------------------------------------------------------------------------
 .. include:: ../../includes_test_kitchen/includes_test_kitchen_yml_example_chef_dk.rst
 
+|windows| Platform
+--------------------------------------------------------------------------
+.. include:: ../../includes_test_kitchen/includes_test_kitchen_yml_example_windows_platform.rst
+
 |chef client|, |chef client_audit|
 --------------------------------------------------------------------------
 .. include:: ../../includes_test_kitchen/includes_test_kitchen_yml_example_audit_mode.rst
