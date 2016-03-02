@@ -3,7 +3,7 @@
 
 .. To test if a file is owned by the root user:
 
-.. code-block:: bash
+.. code-block:: ruby
 
    describe file('/dev') do
      it { should be_owned_by 'root' }

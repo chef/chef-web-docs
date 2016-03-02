@@ -6,10 +6,10 @@ A ``processes`` |inspec resource| block declares the name of the process to be t
 .. code-block:: ruby
 
    describe processes('process_name') do
-     its('property_name') { should eq 'property_value' }
+     its('property_name') { should eq ['property_value'] }
    end
 
 where
 
 * ``processes('process_name')`` must specify the name of a process that is running on the system
-* Multiple properties may be tested; for each property to be tested, use an ``its('property_name')`` statement
+* ``property_name`` may be used to test user (``its('users')``) and state properties (``its('states')``) 

@@ -11,5 +11,5 @@
 
    describe port(443) do
      it { should be_listening }
-     its('protocol') {should eq 'tcp'}
+     its('protocols') {should eq ['tcp']}
    end

@@ -5,4 +5,4 @@ The ``property_name`` matcher tests the named property for the specified value:
 
 .. code-block:: ruby
 
-   its('property_name') { should eq 'property_value' }
+   its('property_name') { should eq ['property_value'] }

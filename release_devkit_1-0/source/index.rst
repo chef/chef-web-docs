@@ -183,6 +183,7 @@ The following tools have been developed by members of the |chef| community. Thes
    inspec_kernel_parameter
    inspec_limits_conf
    inspec_login_def
+   inspec_mount
    inspec_mysql_conf
    inspec_mysql_session
    inspec_npm

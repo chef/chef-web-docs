@@ -1,10 +1,8 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
-.. To test that a file does not exist:
+The ``be_mounted`` matcher tests if the file is accessible from the file system:
 
 .. code-block:: ruby
 
-   describe file('/tmpest') do
-    it { should_not exist }
-   end
+   it { should be_mounted }

@@ -3,7 +3,7 @@
 
 .. To test if a path is a file and not a directory:
 
-.. code-block:: bash
+.. code-block:: ruby
 
    describe file('/proc/version') do
      its('type') { should eq 'file' }

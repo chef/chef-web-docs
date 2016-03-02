@@ -3,7 +3,7 @@
 
 .. To test the contents of a file for MD5 requirements:
 
-.. code-block:: bash
+.. code-block:: ruby
 
    describe file(hba_config_file) do
      its('content') { should match '/local\s.*?all\s.*?all\s.*?md5/' }

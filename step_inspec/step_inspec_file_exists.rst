@@ -3,7 +3,7 @@
 
 .. To test if a file exists:
 
-.. code-block:: bash
+.. code-block:: ruby
 
    describe file('/tmp') do
     it { should exist }

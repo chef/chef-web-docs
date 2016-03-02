@@ -5,12 +5,12 @@
 
 .. code-block:: ruby
 
-   describe passwd.uid(0) do
-     its('username') { should eq 'root' }
+   describe passwd.uids(0) do
+     its('users') { should cmp 'root' }
      its('count') { should eq 1 }
    end
 
-   describe passwd.uid(33) do
-     its('username') { should eq 'www-data' }
+   describe passwd.filter(user: 'www-data') do
+     its('uids') { should cmp 33 }
      its('count') { should eq 1 }
    end

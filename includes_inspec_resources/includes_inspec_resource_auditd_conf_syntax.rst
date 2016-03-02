@@ -6,11 +6,11 @@ A ``auditd_conf`` |inspec resource| block declares configuration settings that s
 .. code-block:: ruby
 
    describe auditd_conf('path') do
-     its('keyword') { should eq 'value' }
+     its('keyword') { should cmp 'value' }
    end
 
 where
 
 * ``'keyword'`` is a configuration setting defined in the ``auditd.conf`` configuration file
 * ``('path')`` is the non-default path to the ``auditd.conf`` configuration file
-* ``{ should eq 'value' }`` is the value that is expected
+* ``{ should cmp 'value' }`` is the value that is expected

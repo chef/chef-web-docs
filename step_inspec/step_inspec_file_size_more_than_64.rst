@@ -3,7 +3,7 @@
 
 .. To test that a file's size is between 64 and 10240:
 
-.. code-block:: bash
+.. code-block:: ruby
 
    describe file('/') do
      its('size') { should be > 64 }

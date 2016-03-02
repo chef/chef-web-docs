@@ -6,5 +6,5 @@
 .. code-block:: ruby
 
    describe processes('init') do
-     its('user') { should eq 'root' }
+     its('users') { should eq ['root'] }
    end

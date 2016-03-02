@@ -3,7 +3,7 @@
 
 .. To test that a file is not mounted:
 
-.. code-block:: bash
+.. code-block:: ruby
 
    describe file('/proc/cpuinfo') do
      it { should_not be_mounted }
