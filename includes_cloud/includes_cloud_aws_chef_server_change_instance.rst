@@ -54,11 +54,11 @@ To edit the |amazon ami| instance size, do the following:
       log_level                :info
       log_location             STDOUT
       node_name                'your_username'
-      client_key               '#{current_dir}/your_username.pem'
+      client_key               "#{current_dir}/your_username.pem"
       validation_client_name   'your_username-validator'
-      validation_key           '#{current_dir}/your_username-validator.pem'
+      validation_key           "#{current_dir}/your_username-validator.pem"
       chef_server_url          'https://<YOUR NEW PUBLIC DNS>/organizations/your_org'
-      cookbook_path            ['#{current_dir}/../cookbooks']
+      cookbook_path            ["#{current_dir}/../cookbooks"]
 
 #. .. include:: ../../step_install/step_install_aws_chef_server_knife_ssl_fetch.rst
 #. .. include:: ../../step_install/step_install_aws_chef_server_knife_client_list.rst
