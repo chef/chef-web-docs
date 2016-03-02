@@ -9,12 +9,10 @@ What's New
 The following items are new for |chef client| 12.8 and/or are changes from previous versions. The short version:
 
 * **New launchd resource** Use the |resource launchd| resource to manage system-wide services (daemons) and per-user services (agents) on the |mac os x| platform.
-* **xxxxx** xxxxx.
-
+* **New property for the mdadm resource** Use the ``mdadm_defaults`` property to set the default values for ``chunk`` and ``metadata`` to ``nil``, which allows |mdadm| to apply its own default values.
 
 launchd
 -----------------------------------------------------
-
 .. include:: ../../includes_resources/includes_resource_launchd.rst
 
 Syntax

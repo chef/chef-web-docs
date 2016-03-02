@@ -693,6 +693,7 @@
 .. |max_retry| replace:: The maximum number of attempts made to retrieve a file before returning an error.
 .. |maximum_transmission_unit| replace:: The maximum transmission unit (MTU) for the network interface.
 .. |md5_auth_cidr_addresses| replace:: Use instead of ``trust_auth_cidr_addresses`` to encrypt passwords using MD5 hashes.
+.. |mdadm_defaults| replace:: When ``true`` this property sets the default values for ``chunk`` and ``metadata`` to ``nil`` allowing |mdadm| to use its own default values.
 .. |mdpolicy| replace:: The metadata download policy for the repository metadata index.
 .. |media location| replace:: The geographic location for a virtual machine and its services.
 .. |medium| replace:: Display normal attributes in the output and to show the output as |json|.
