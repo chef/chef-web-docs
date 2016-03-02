@@ -448,6 +448,7 @@ Chef Compliance
    ruby
    run_lists
    runbook
+   secrets
    security_notes
    server_backup_restore
    server_components
