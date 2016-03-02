@@ -4,7 +4,7 @@
 
 For |windows|:
 
-#. Download the binary from https://s3.amazonaws.com/delivery-packages/cli/deliverycli-latest.exe.
+#. Download the binary from https://s3.amazonaws.com/delivery-packages/cli/delivery-cli-latest.msi.
 #. Install |git| (2.5) on |windows|: https://github.com/git-for-windows/git/releases/download/v2.5.3.windows.1/Git-2.5.3-64-bit.exe.
 
    .. warning:: |git| 2.6 won't work.
