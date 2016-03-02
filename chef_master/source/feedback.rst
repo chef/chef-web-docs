@@ -6,7 +6,7 @@ Send Feedback
 
 * Email --- Send an email to docs@chef.io for documentation bugs, ideas, thoughts, and suggestions. Typos and little errors and quick fixes will be fixed quickly and without fuss. This email address is not a support email address, however. If you need support for |chef|, contact |company_name| support.
 * |github| issues --- Use the https://github.com/chef/chef-web-docs/issues in the |chef docs| repo on |github|. If you believe the issue may be a product bug within |chef| itself, consider using https://github.com/chef/chef/issues to raise the issue. 
-* |github| pull request -- The documentation repository is on |github|: https://github.com/chef/chef-docs. A CLA is not required to submit pull requests to this repo. If you have questions about the |chef docs| repo, send an email to docs@chef.io and we're happy to assist.
+* |github| pull request -- The documentation repository is on |github|: https://github.com/chef/chef-web-docs. A CLA is not required to submit pull requests to this repo. If you have questions about the |chef docs| repo, send an email to docs@chef.io and we're happy to assist.
 * https://discourse.chef.io --- |chef docs| follows the discussions at https://discourse.chef.io. Improvements to the documentation are made because of conversations that happen on this mailing list. That said, relying solely on the mailing list is the least effective way to get feedback to |chef docs| (because there is no guarantee that |chef docs| will see any particular message).
 
 For internal members of |company_name|, to provide feedback about already-published content, a pull request or issue in |github| is recommended unless the change is minor (sentence structure, typo, quick suggestion).
