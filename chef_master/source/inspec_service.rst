@@ -39,3 +39,11 @@ Examples
 **Test if ClamAV (an antivirus engine) is installed and running**
 
 .. include:: ../../step_inspec/step_inspec_service_clamav.rst
+
+**Test Unix System V run levels**
+
+.. include:: ../../step_inspec/step_inspec_service_sysv.rst
+
+**Override the service manager**
+
+.. include:: ../../step_inspec/step_inspec_service_override_service_manager.rst

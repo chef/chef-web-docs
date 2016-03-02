@@ -3,7 +3,7 @@
 
 .. To test if a file is a symbolic link:
 
-.. code-block:: bash
+.. code-block:: ruby
 
    describe file('/dev/stdout') do
      its('type') { should eq 'symlink' }

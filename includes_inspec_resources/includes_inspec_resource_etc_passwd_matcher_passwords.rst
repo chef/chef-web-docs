@@ -11,4 +11,5 @@ For example:
 
 .. code-block:: ruby
 
-   its('passwords') { should eq 'x' }
+   its('passwords') { should eq ['x'] }
+   its('passwords') { should cmp '*' }

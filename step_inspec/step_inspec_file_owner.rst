@@ -3,7 +3,7 @@
 
 .. To test the owner of a file:
 
-.. code-block:: bash
+.. code-block:: ruby
 
    describe file('/root') do
      its('owner') { should eq 'root' }

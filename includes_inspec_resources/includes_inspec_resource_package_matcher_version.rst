@@ -5,4 +5,4 @@ The ``version`` matcher tests if the named package version is on the system:
 
 .. code-block:: ruby
 
-   its('version) { should eq '1.2.3' }
+   its('version') { should eq '1.2.3' }

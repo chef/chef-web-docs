@@ -1,10 +1,8 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
-.. To test that a file does not exist:
+The ``type`` matcher tests the file system type:
 
 .. code-block:: ruby
 
-   describe file('/tmpest') do
-    it { should_not exist }
-   end
+   its('type') { should eq  'ext4' }

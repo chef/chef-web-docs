@@ -3,7 +3,7 @@
 
 .. To test if a path is a directory:
 
-.. code-block:: bash
+.. code-block:: ruby
 
    describe file('/tmp') do
     its('type') { should eq :directory }

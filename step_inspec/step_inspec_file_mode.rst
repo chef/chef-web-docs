@@ -3,7 +3,7 @@
 
 .. To test the mode for a file:
 
-.. code-block:: bash
+.. code-block:: ruby
 
    describe file('/dev') do
     its('mode') { should eq 00755 }

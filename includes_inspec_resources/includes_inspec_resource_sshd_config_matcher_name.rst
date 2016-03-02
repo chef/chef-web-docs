@@ -5,7 +5,7 @@ The ``name`` matcher tests the value of ``name`` as read from ``sshd_config`` ve
 
 .. code-block:: ruby
 
-   its('name') { should eq 'foo' }
+   its('name') { should cmp 'foo' }
 
 or:
 

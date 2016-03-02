@@ -7,7 +7,7 @@ A ``port`` |inspec resource| block declares a port, and then depending on what n
 
    describe port(514) do
      it { should be_listening }
-     its('process') {should eq 'syslog'}
+     its('processes') {should include 'syslog'}
    end
 
-where the ``process`` returns the process listening on port 514.
+where the ``processes`` returns the processes listening on port 514.

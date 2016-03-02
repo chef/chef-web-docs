@@ -2,7 +2,28 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-An ``auditd_rules`` |inspec resource| block declares one (or more) rules to be tested, and then what that rule should do:
+An ``auditd_rules`` |inspec resource| block declares one (or more) rules to be tested, and then what that rule should do. The syntax depends on the version of ``audit``:
+
+
+For ``audit`` >= 2.3:
+
+.. code-block:: ruby
+
+   describe auditd_rules do
+     its(:lines) { should contain_match(rule) }
+   end
+
+For ``audit`` < 2.3:
+
+.. code-block:: ruby
+
+   describe audit_daemon_rules do
+     its("LIST_RULES") {
+       rule
+     }
+   end
+
+For example:
 
 .. code-block:: ruby
 

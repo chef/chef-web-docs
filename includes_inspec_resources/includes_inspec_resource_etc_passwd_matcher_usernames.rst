@@ -5,4 +5,4 @@ The ``usernames`` matcher tests if the usernames in the test match usernames in 
 
 .. code-block:: ruby
 
-   its('usernames') { should eq ['root', 'www-data'] }
+   its('users') { should eq ['root', 'www-data'] }

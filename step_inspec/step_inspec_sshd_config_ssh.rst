@@ -6,7 +6,7 @@
 .. code-block:: ruby
 
   describe sshd_config do
-    its('Port') { should eq '22' }
+    its('Port') { should cmp  22 }
     its('UsePAM') { should eq 'yes' }
     its('ListenAddress') { should eq nil }
     its('HostKey') { should eq [

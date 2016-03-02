@@ -6,5 +6,5 @@
 .. code-block:: ruby
 
    describe processes('some_process') do
-     its('state') { should eq 'R<' }
+     its('states') { should eq ['R<'] }
    end

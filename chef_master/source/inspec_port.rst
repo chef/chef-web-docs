@@ -36,6 +36,10 @@ Examples
 
 .. include:: ../../step_inspec/step_inspec_port_listen_with_tcp.rst
 
+**Test port 80, on a specific address**
+
+.. include:: ../../step_inspec/step_inspec_port_listen_test_port_80.rst
+
 **Test port 80, listening with TCP version IPv6 protocol**
 
 .. include:: ../../step_inspec/step_inspec_port_listen_with_tcp_and_ipv6.rst

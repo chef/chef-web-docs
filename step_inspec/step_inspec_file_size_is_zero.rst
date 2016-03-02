@@ -3,7 +3,7 @@
 
 .. To test that a file's size is zero:
 
-.. code-block:: bash
+.. code-block:: ruby
 
    describe file('/proc/cpuinfo') do
      its('size') { should be 0 }

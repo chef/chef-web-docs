@@ -1,8 +1,8 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
-The ``process`` matcher tests if the named process is running on the system:
+The ``processes`` matcher tests if the named process is running on the system:
 
 .. code-block:: ruby
 
-   its('process') { should eq 'syslog' }
+   its('processes') { should eq ['syslog'] }

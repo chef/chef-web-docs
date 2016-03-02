@@ -6,5 +6,5 @@
 .. code-block:: ruby
 
    describe sshd_config do
-     its('AddressFamily') { should eq 'inet6' }
+     its('AddressFamily') { should cmp 'inet6' }
    end

@@ -3,7 +3,7 @@
 
 .. To test the mtime for a file:
 
-.. code-block:: bash
+.. code-block:: ruby
 
    describe file('/').mtime.to_i do
      it { should <= Time.now.to_i }

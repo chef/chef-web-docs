@@ -6,5 +6,5 @@
 .. code-block:: ruby
 
    describe sshd_config do
-     its('Protocol') { should eq '2' }
+     its('Protocol') { should cmp 2 }
    end

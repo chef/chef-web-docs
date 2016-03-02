@@ -131,6 +131,14 @@ Examples
 
 .. include:: ../../step_inspec/step_inspec_auditd_rules_match_element.rst
 
+**Query the audit daemon status**
+
+.. include:: ../../step_inspec/step_inspec_auditd_rules_query_daemon_status.rst
+
+**Query properties of rules targeting specific syscalls or files**
+
+.. include:: ../../step_inspec/step_inspec_auditd_rules_query_rules_properties.rst
+
 
 bond
 =====================================================
@@ -925,6 +933,45 @@ Examples
 .. include:: ../../step_inspec/step_inspec_login_defs_umask.rst
 
 
+
+mount
+=====================================================
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_mount.rst
+
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_mount_syntax.rst
+
+Matchers
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+
+be_mounted
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_mount_matcher_be_mounted.rst
+
+device
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_mount_matcher_device.rst
+
+options
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_mount_matcher_options.rst
+
+type
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_mount_matcher_type.rst
+
+Examples
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+
+**Test a the mount point on '/'**
+
+.. include:: ../../step_inspec/step_inspec_npm_statsd_not_installed.rst
+
+
+
 mysql_conf
 =====================================================
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_mysql_conf.rst
@@ -1287,7 +1334,7 @@ uids
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_uids.rst
 
-usernames
+users
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_usernames.rst
 
@@ -1387,6 +1434,10 @@ Examples
 **Test port 80, listening with the TCP protocol**
 
 .. include:: ../../step_inspec/step_inspec_port_listen_with_tcp.rst
+
+**Test port 80, on a specific address**
+
+.. include:: ../../step_inspec/step_inspec_port_listen_test_port_80.rst
 
 **Test port 80, listening with TCP version IPv6 protocol**
 
@@ -1622,6 +1673,14 @@ Examples
 **Test if ClamAV (an antivirus engine) is installed and running**
 
 .. include:: ../../step_inspec/step_inspec_service_clamav.rst
+
+**Test Unix System V run levels**
+
+.. include:: ../../step_inspec/step_inspec_service_sysv.rst
+
+**Override the service manager**
+
+.. include:: ../../step_inspec/step_inspec_service_override_service_manager.rst
 
 
 ssh_config

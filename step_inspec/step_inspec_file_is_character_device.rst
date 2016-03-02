@@ -3,7 +3,7 @@
 
 .. To test if a file is a character device:
 
-.. code-block:: bash
+.. code-block:: ruby
 
    describe file('/dev/zero') do
      its('type') { should eq 'character' }

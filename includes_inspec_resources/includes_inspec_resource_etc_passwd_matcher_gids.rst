@@ -5,4 +5,5 @@ The ``gids`` matcher tests if the group indentifiers in the test match group ide
 
 .. code-block:: ruby
 
-   its('gids') { should eq 1234 }
+   its('gids') { should include 1234 }
+   its('gids') { should cmp 0 }

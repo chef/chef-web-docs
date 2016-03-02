@@ -3,7 +3,7 @@
 
 .. To test an SHA-256 checksum:
 
-.. code-block:: bash
+.. code-block:: ruby
 
    require 'digest'
    cpuinfo = file('/proc/cpuinfo').content

@@ -6,16 +6,16 @@ A ``passwd`` |inspec resource| block declares one (or more) users and associated
 .. code-block:: ruby
 
    describe passwd do
-     its('matcher') { should eq 0 }
+     its(:users) { should_not include 'forbidden_user' }
    end
 
    describe passwd.uid(filter) do
-     its(:username) { should eq 'root' }
+     its(:users) { should cmp 'root' }
      its(:count) { should eq 1 }
    end
 
 where
 
-* ``gids``, ``passwords``, ``uids``, and ``usernames`` are valid matchers for ``passwd``
-* ``filter`` is a filter for a specific uid
-* ``count``, ``uid``, ``username`` are valid matchers for ``passwd.uid(userid)``
+* ``homes``, ``gids``, ``passwords``, ``shells``, ``uids``, and ``users`` are valid accessors for ``passwd``
+* ``filter`` one (or more) arguments, for example: ``passwd.users(/name/)`` used to define filtering
+* ``filter`` may take any of the following arguments: ``count`` (retrieves the number of entries), ``lines`` (provides raw ``passwd`` lines), and ``params`` (returns an array of maps for all entries)

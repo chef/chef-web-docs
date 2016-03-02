@@ -6,3 +6,11 @@ The ``count`` matcher tests the number of times the named user appears in ``/etc
 .. code-block:: ruby
 
    its('count') { should eq 1 }
+
+.. note:: This matcher is best used in conjunction with filters. For example:
+
+   .. code-block:: ruby
+
+      describe passwd.users('highlander') do
+         its('count') { should eq 1 }
+      end
