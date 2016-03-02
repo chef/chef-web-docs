@@ -4,6 +4,6 @@
 
 For |mac os x|:
 
-#. Download the package https://s3.amazonaws.com/delivery-packages/cli/deliverycli-latest.dmg.
+#. Download the package https://s3.amazonaws.com/delivery-packages/cli/delivery-cli-latest.dmg.
 #. Click the package and install.
 #. You may need to allow the package on the machine. To do this, open **System Preferences** -> **Security & Privacy**, and click the "Allow" button. You may also go to your "Downloads" folder and right-click the package to open the installer; simply accept the agreement and the command line interface is installed.
