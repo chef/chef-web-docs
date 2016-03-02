@@ -3,5 +3,3 @@
 
 
 You can configure |chef delivery| to access your own LDAP database.
-
-

@@ -1,9 +1,9 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
-You must authenticate access to the |chef delivery| Git server, which by default runs on port 8989. 
+You must authenticate access to the |chef delivery| |git| server, which by default runs on port 8989. 
 
-.. note:: This authentication step is for the Git server that comes with |chef delivery|. If you actually integrate with GitHub, as described below, you will not need to do this.
+.. note:: This authentication step is for the |git| server that comes with |chef delivery|. If you actually integrate with |github|, as described below, you will not need to do this.
 
 Run this SSH command; enter Yes when prompted.
 

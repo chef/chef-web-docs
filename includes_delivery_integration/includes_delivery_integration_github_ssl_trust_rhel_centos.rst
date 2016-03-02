@@ -31,7 +31,7 @@ For |redhat enterprise linux| (6.x and higher) and |centos| (6.x and higher), do
 
    .. code-block:: bash
 
-      ``openssl s_client -showcerts -connect {your-ghe-server}:443 </dev/null 2>/dev/null|openssl x509 -outform PEM >{your-ghe-server}.crt``
+      openssl s_client -showcerts -connect {your-ghe-server}:443 </dev/null 2>/dev/null|openssl x509 -outform PEM >{your-ghe-server}.crt
 
 #. Run the following command:
 
