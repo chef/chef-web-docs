@@ -44,16 +44,6 @@
 .. |url azure_production| replace:: https://manage.windowsazure.com/
 .. |url bootstrap_s3| replace:: s3.amazonaws.com
 .. |url codeacademy| replace:: http://www.codecademy.com/tracks/ruby
-.. |url msdn_registry_key| replace:: http://msdn.microsoft.com/en-us/library/windows/desktop/aa384235(v=vs.85).aspx
-
-.. |url docs| replace:: https://docs.chef.io/
-.. |url docs_attributes| replace:: https://docs.chef.io/attributes.html
-.. |url docs_resources_all| replace:: https://docs.chef.io/resources.html
-.. |url docs_knife_png| replace:: https://github.com/chef/quick-reference/blob/master/qr_knife_web.png
-
-.. |url docs_repo| replace:: https://github.com/chef/quick-reference
-.. |url docs_repo_qr| replace:: https://github.com/chef/quick-reference
-
 .. |url chef| replace:: https://www.chef.io
 .. |url chef_install| replace:: https://downloads.chef.io/
 .. |url chef_install_oec| replace:: https://www.chef.io/chef/
@@ -61,7 +51,17 @@
 .. |url community| replace:: https://supermarket.chef.io
 .. |url community_cookbooks| replace:: https://supermarket.chef.io/cookbooks
 .. |url community_lists| replace:: https://discourse.chef.io/
+.. |url download_delivery| replace:: https://s3.amazonaws.com/delivery-packages/cli/delivery-cli-latest.dmg
+.. |url download_delivery_windows| replace:: https://s3.amazonaws.com/delivery-packages/cli/delivery-cli-latest.msi
+.. |url download_git_windows| replace:: https://github.com/git-for-windows/git/releases/download/v2.5.3.windows.1/Git-2.5.3-64-bit.exe
+.. |url docs| replace:: https://docs.chef.io/
+.. |url docs_attributes| replace:: https://docs.chef.io/attributes.html
+.. |url docs_resources_all| replace:: https://docs.chef.io/resources.html
+.. |url docs_knife_png| replace:: https://github.com/chef/quick-reference/blob/master/qr_knife_web.png
+.. |url docs_repo| replace:: https://github.com/chef/quick-reference
+.. |url docs_repo_qr| replace:: https://github.com/chef/quick-reference
 .. |url get_chef| replace:: https://www.chef.io/chef/choose-your-version/
+.. |url msdn_registry_key| replace:: http://msdn.microsoft.com/en-us/library/windows/desktop/aa384235(v=vs.85).aspx
 .. |url opscode_youtube_short_part_one| replace:: http://www.youtube.com/watch?v=Ia2ItmjRsw8
 .. |url opscode_youtube_short_part_two| replace:: http://www.youtube.com/watch?v=Ss6P92L_sCA
 .. |url pricing| replace:: https://www.chef.io/pricing/
