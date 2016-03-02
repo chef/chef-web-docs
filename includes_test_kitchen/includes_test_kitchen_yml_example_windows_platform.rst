@@ -14,7 +14,5 @@ The following example shows platform settings for the |windows| platform:
        shell_type: powershell
        transport:
          name: winrm
-   suites:
-     - name: default
 
 where ``os_type``, ``shell_type``, and the transport ``name`` are all required.
