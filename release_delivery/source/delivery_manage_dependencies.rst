@@ -4,7 +4,7 @@
 Managing Run-time Dependencies
 ==================================================
 
-A run-time dependency in |chef delivery| is defined as an API-level dependency between two distinct pieces of software that occurs after both pieces have already compiled and started running.  This type of dependency is distinct from compile-time dependencies, which should be handled through other means, such as local build verification tests and through the publish phase. Dependencies are tracked in |chef delivery_short| because it is not safe to deploy a project in an inter-dependent test environment if other related projects are be failing.
+A run-time dependency in |chef delivery| is defined as an API-level dependency between two distinct pieces of software that occurs after both pieces have already compiled and started running.  This type of dependency is distinct from compile-time dependencies, which should be handled through other means, such as local build verification tests and through the publish phase. Dependencies are tracked in |chef delivery_short| because it is not safe to deploy a project in an inter-dependent test environment if other related projects are failing.
 
 Declaring Dependencies
 =======================================================
@@ -27,7 +27,7 @@ If neither the **Dependencies** or **Required By** tabs are visible, then that p
 Dependencies and Promotion
 ==========================================================
 
-When a project's tests are run in Union, tests for all projects which depend on the currently-tested project will also run as part of that Union stage.  This is to ensure that no cross-project bugs were introduced, such as a breaking API change.
+A key thing to remember is that dependencies impact two or more projects. Those projects have their own pipelines up through Acceptance, but when a project's tests are run in the shared Union, Rehearsal, and Delivered pipeline for the organization, tests for all projects which depend on the currently-tested project will also run as part of the Union stage.  This is to ensure that no cross-project bugs were introduced, such as a breaking API change.
 
 .. image::  ../../images/consumer_tests.png
    :width: 700px
