@@ -4,7 +4,7 @@
 Managing Run-time Dependencies
 ==================================================
 
-A run-time dependency in |chef delivery| is defined as an API-level dependency between two distinct pieces of software that occurs after both pieces have already compiled and started running.  This type of dependency is distinct from compile-time dependencies, which should be handled through other means, such as local build verification tests and through the publish phase. Dependencies are tracked in |chef delivery_short| because it is not safe to deploy a project in an inter-dependent test environment if other related projects are be failing.
+A run-time dependency in |chef delivery| is defined as an API-level dependency between two distinct pieces of software that occurs after both pieces have already compiled and started running.  This type of dependency is distinct from compile-time dependencies, which should be handled through other means, such as local build verification tests and through the publish phase. Dependencies are tracked in |chef delivery_short| because it is not safe to deploy a project in an inter-dependent test environment if other related projects are failing.
 
 Declaring Dependencies
 =======================================================
@@ -27,7 +27,7 @@ If neither the **Dependencies** or **Required By** tabs are visible, then that p
 Dependencies and Promotion
 ==========================================================
 
-When a project's tests are run in Union, tests for all projects which depend on the currently-tested project will also run as part of that Union stage.  This is to ensure that no cross-project bugs were introduced, such as a breaking API change.
+A key thing to remember is that dependencies impact two or more projects. Those projects have their own pipelines up through Acceptance, but when a project's tests are run in the shared Union, Rehearsal, and Delivered pipeline for the organization, tests for all projects which depend on the currently-tested project will also run as part of the Union stage.  This is to ensure that no cross-project bugs were introduced, such as a breaking API change. Also, you should still run smoke and functional tests on a project that depends on other project(s) during the Acceptance stage (because you know what those dependencies are); however, you may not know which projects depend on *your* project. Delivery uses the Union stage to runs tests for those consuming projects for you.
 
 .. image::  ../../images/consumer_tests.png
    :width: 700px
@@ -105,7 +105,7 @@ X and Y (which depends on X) pass their tests cleanly. Project X promotes withou
      - (A, Bx, C)
      - X
 
-In a very similar example, a change can still ship if it is related to a breakage as long as that breakage does not occur in an immediate upstream dependency. Again, assume the same change is made to project A. Then, a change is made to project E that passes its project tests. A project with changes can only impact projects that consume it, so project E is safe to promote although its dependency project C is blocked due to project C's dependency on project A. This promotion of project E's change can happen because the version of project C in Union and Rehearsal as well as project A in Rehearsal are still what they were before the change to project A was pushed through the pipeline and broke project B's run-time tests in Union.
+In a very similar example, a change can still ship if it is related to a breakage as long as that breakage does not occur in an immediate upstream dependency. Again, assume the same change is made to project A that broke project B. Then, a change is made to project E that passes its project tests. A project with changes can only impact projects that consume it, so project E is safe to promote although its dependency project C is blocked due to project C's dependency on project A. This promotion of project E's change can happen because the version of project C in Union and Rehearsal is still what it was before the change to project A was pushed through the pipeline and broke project B's run-time tests in Union.
 
 .. list-table::
    :widths: 250 250 250 250
