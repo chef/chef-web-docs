@@ -4,6 +4,11 @@ Dependency Management Scenarios
 
 .. revealjs::
 
+ .. revealjs:: The Legend of Dependency Management
+    :data-transition: none
+
+    .. image:: ../../images/dpm_legend.svg
+
  .. revealjs:: Scenario #1: Projects A, B, and C
     :data-transition: none
 
