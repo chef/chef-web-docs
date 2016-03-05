@@ -26,6 +26,7 @@ Chef Open Source Slide Decks
    kitchen
    lab_install_text_editor
    list_resources
+   manage_dependencies
    recipe_order_matters
    recipes
    resources
