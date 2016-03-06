@@ -59,7 +59,7 @@ Dependency Management Scenarios
 
     .. image:: ../../images/dpm_scenario-3_02.svg
 
- .. revealjs:: Scenario #3: Change to E, E fails
+ .. revealjs:: Scenario #3: Change to E, E passes
     :data-transition: none
 
     .. image:: ../../images/dpm_scenario-3_03.svg
