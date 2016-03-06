@@ -16,6 +16,6 @@ Log in to the |chef delivery| server and run the following command.
 
    delivery-ctl setup-github-token $DELIVERY_ENTERPRISE
 
-Follow the URL given to finish authorizing |chef delivery| to |github|.
+Follow the URL given to finish authorizing |chef delivery| with |github|.
 
 .. note:: If you are using a service account with GitHub Enterprise, you need to complete the OAuth process as the service account user.
