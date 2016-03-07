@@ -7,7 +7,7 @@ Dependency Management Scenarios
  .. revealjs:: Scenario #1
     :data-transition: none
 
-    Project A depends on B and C. B and C depend on A.
+    Project A requires B and C. B and C depend on A.
 
     .. image:: ../../images/dpm_scenario-1_01.svg
        :align: left
@@ -43,7 +43,7 @@ Dependency Management Scenarios
  .. revealjs:: Scenario #2
     :data-transition: none
 
-    Project A depends on B and C. B and C depend on A. X and Y depend on each other.
+    Project A requires B and C. B and C depend on A. X requires Y. Y depends on X.
 
     .. image:: ../../images/dpm_scenario-2_01.svg
        :align: left
@@ -79,7 +79,7 @@ Dependency Management Scenarios
  .. revealjs:: Scenario #3
     :data-transition: none
 
-    Project A depends on B and C. B depends on A and D. C depends on A and E. E depends on C.
+    Project A requires B and C. B depends on A and D. C depends on A and E. E depends on C.
 
     .. image:: ../../images/dpm_scenario-3_01.svg
        :align: left
@@ -169,7 +169,7 @@ Dependency Management Scenarios
  .. revealjs:: Scenario #5
     :data-transition: none
 
-    Project A depends on B and C. B and C depend on A. X and Y depend on each other.
+    Project A requires B and C. B and C depend on A. X and Y depend on each other.
 
     .. image:: ../../images/dpm_scenario-5_01.svg
        :align: left
@@ -214,7 +214,7 @@ Dependency Management Scenarios
  .. revealjs:: Scenario #6
     :data-transition: none
 
-    Project A depends on B and C. B and C depend on A. F depends on E, which depends on C.
+    Project A requires B and C. B and C depend on A. F depends on E, which depends on C.
 
     .. image:: ../../images/dpm_scenario-6_01.svg
        :align: left
