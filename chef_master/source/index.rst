@@ -402,6 +402,7 @@ Chef Compliance
    resource_ifconfig
    resource_ips_package
    resource_ksh
+   resource_launchd
    resource_link
    resource_load_balancer
    resource_log
