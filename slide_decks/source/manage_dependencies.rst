@@ -151,7 +151,7 @@ Dependency Management Scenarios
  .. revealjs:: Scenario #5
     :data-transition: none
 
-    Project A requires B and C. B and C depend on A. X and Y depend on each other.
+    Project A requires B and C. B and C depend on A. X requires Y. Y depends on X.
 
     .. image:: ../../images/dpm_scenario-5_01.svg
        :height: 500px
