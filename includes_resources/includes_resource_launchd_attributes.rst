@@ -6,7 +6,7 @@ This resource has the following properties:
 ``backup``
    **Ruby Types:** Integer, FalseClass
 
-   xxxxx
+   |backups_kept_launchd|
 
 ``cookbook``
    **Ruby Type:** String
@@ -21,7 +21,7 @@ This resource has the following properties:
 ``hash``
    **Ruby Type:** Hash
 
-   xxxxx
+   A |ruby hash| of key value pairs used to create the |launchd| property list.
 
 ``ignore_failure``
    **Ruby Types:** TrueClass, FalseClass
@@ -86,7 +86,7 @@ This resource has the following properties:
 ``source``
    **Ruby Type:** String
 
-   xxxxx
+   The path to the |launchd| property list.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -105,7 +105,7 @@ This resource has the following properties:
 ``type``
    **Ruby Type:** String
 
-   xxxxx. Possible values: ``daemon`` (default), ``agent``.
+   The type of resource. Possible values: ``daemon`` (default), ``agent``.
 
 
 The following resource properties may be used to define keys in the XML property list for a daemon or agent. Please refer to the |apple| man page documentation for |launchd| for more information about these keys:
