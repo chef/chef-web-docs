@@ -31,35 +31,20 @@ Properties
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_resources/includes_resource_launchd_attributes.rst
 
-
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-**Create a LaunchDaemon from cookbook file**
+**Create a Launch Daemon from a cookbook file**
 
-.. code-block:: ruby
+.. include:: ../../step_resource/step_resource_launchd_create_from_cookbook.rst
 
-   launchd 'com.chef.every15' do
-     source 'com.chef.every15.plist'
-   end
+**Create a Launch Daemon using keys**
 
-**Create a LaunchDaemon using keys**
+.. include:: ../../step_resource/step_resource_launchd_create_using_keys.rst
 
-.. code-block:: ruby
+**Remove a Launch Daemon**
 
-   launchd 'call.mom.weekly' do
-     program '/Library/scripts/call_mom.sh'
-     start_calendar_interval 'Weekday' => 7, 'Hourly' => 10
-     time_out 300
-   end
-
-**Remove LaunchDaemon**
-
-.. code-block:: ruby
-
-   launchd 'com.chef.every15' do
-     action :delete
-   end
+.. include:: ../../step_resource/step_resource_launchd_remove.rst
 
 
 
