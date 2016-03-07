@@ -12,7 +12,7 @@ The following items are new for |chef client| 12.7 and/or are changes from previ
 * **New osx_profile resource** Use the |resource osx_profile| resource to manage configuration profiles (``.mobileconfig`` files) on the |mac os x| platform.
 * **New apt_update resource** Use the |resource apt_update| resource to manage |apt| repository updates on |debian| and |ubuntu| platforms.
 * **Improved support for UTF-8** The |chef client| 12.7 release fixes a UTF-8 handling bug present in |chef client| versions 12.4, 12.5, and 12.6.
-* **New options for the chef-client** The |chef client| has two new options: ``--delete-entire-chef-repo`` and ``--fips``.
+* **New options for the chef-client** The |chef client| has a new option: ``--delete-entire-chef-repo``.
 * **Multi-package support for Chocolatey and Zypper** A resource may specify multiple packages and/or versions for platforms that use |zypper| or |chocolatey| package managers (in addition to the existing support for specifying multiple packages for |yum| and |apt| packages).
 
 
@@ -117,9 +117,6 @@ The |chef client| has the following new options:
 
 ``--delete-entire-chef-repo``
    |chef_client delete_repo|
-
-``-fips``
-   |chef_client fips|
 
 
 Changelog
