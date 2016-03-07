@@ -89,6 +89,7 @@
 ..
 
 .. |backups_kept| replace:: The number of backups to be kept in ``/var/chef/backup`` (for |unix|- and |linux|-based platforms) or ``C:/chef/backup`` (for the |windows| platform). Set to ``false`` to prevent backups from being kept.
+.. |backups_kept_launchd| replace:: The number of backups to be kept in ``/var/chef/backup``. Set to ``false`` to prevent backups from being kept.
 .. |bandwidth_yum| replace:: The maximum amount of network bandwidth (in bytes).
 .. |batch_size bulk_fetch| replace:: The number of nodes that may be deserialized. Currently only applies to the ``/search`` endpoint in the |api chef server|.
 .. |before| replace:: Add a run-list item before the specified run-list item.

@@ -4,160 +4,275 @@ Dependency Management Scenarios
 
 .. revealjs::
 
- .. revealjs:: The Legend of Dependency Management
+ .. revealjs:: Scenario #1
     :data-transition: none
 
-    .. image:: ../../images/dpm_legend.svg
-
- .. revealjs:: Scenario #1: Projects A, B, and C
-    :data-transition: none
+    Project A depends on B and C. B and C depend on A.
 
     .. image:: ../../images/dpm_scenario-1_01.svg
+       :align: left
+       :scale: 80%
 
- .. revealjs:: Scenario #1: Change to A, B fails
+ .. revealjs:: Scenario #1
     :data-transition: none
+
+    A change to project A breaks tests in project B.
 
     .. image:: ../../images/dpm_scenario-1_02.svg
+       :align: left
+       :scale: 80%
 
- .. revealjs:: Scenario #1: A is updated, B passes
+ .. revealjs:: Scenario #1
     :data-transition: none
+
+    Project A is updated. Tests in project B pass.
 
     .. image:: ../../images/dpm_scenario-1_03.svg
+       :align: left
+       :scale: 80%
 
- .. revealjs:: Scenario #1: A is promoted
+ .. revealjs:: Scenario #1
     :data-transition: none
+
+    Project A is promoted.
 
     .. image:: ../../images/dpm_scenario-1_04.svg
+       :align: left
+       :scale: 80%
 
- .. revealjs:: Scenario #2: Projects A, B, C, X, and Y
+ .. revealjs:: Scenario #2
     :data-transition: none
+
+    Project A depends on B and C. B and C depend on A. X and Y depend on each other.
 
     .. image:: ../../images/dpm_scenario-2_01.svg
+       :align: left
+       :scale: 80%
 
- .. revealjs:: Scenario #2: Change to A, B fails
+ .. revealjs:: Scenario #2
     :data-transition: none
+
+    A change to project A breaks tests in project B.
 
     .. image:: ../../images/dpm_scenario-2_02.svg
+       :align: left
+       :scale: 80%
 
- .. revealjs:: Scenario #2: Change to X, Y passes
+ .. revealjs:: Scenario #2
     :data-transition: none
+
+    Project X is changed. Tests in project Y pass.
 
     .. image:: ../../images/dpm_scenario-2_03.svg
+       :align: left
+       :scale: 80%
 
- .. revealjs:: Scenario #2: A is updated, X is promoted
+ .. revealjs:: Scenario #2
     :data-transition: none
+
+    Project A is updated. Tests in project B pass. Project X is promoted.
 
     .. image:: ../../images/dpm_scenario-2_04.svg
+       :align: left
+       :scale: 80%
 
- .. revealjs:: Scenario #3: Projects A, B, C, D, and E
+ .. revealjs:: Scenario #3
     :data-transition: none
+
+    Project A depends on B and C. B depends on A and D. C depends on A and E. E depends on C.
 
     .. image:: ../../images/dpm_scenario-3_01.svg
+       :align: left
+       :scale: 80%
 
- .. revealjs:: Scenario #3: Change to A, B fails
+ .. revealjs:: Scenario #3
     :data-transition: none
+
+    A change to project A breaks tests in project B.
 
     .. image:: ../../images/dpm_scenario-3_02.svg
+       :align: left
+       :scale: 80%
 
- .. revealjs:: Scenario #3: Change to E, E passes
+ .. revealjs:: Scenario #3
     :data-transition: none
+
+    Project E is changed and all tests pass.
 
     .. image:: ../../images/dpm_scenario-3_03.svg
+       :align: left
+       :scale: 80%
 
- .. revealjs:: Scenario #3: A is updated, B fails, E is promoted
+ .. revealjs:: Scenario #3
     :data-transition: none
+
+    Project A is updated. Project E is promoted even though tests in project B still fail.
 
     .. image:: ../../images/dpm_scenario-3_04.svg
+       :align: left
+       :scale: 80%
 
- .. revealjs:: Scenario #4: Projects A, B, C, and D
+ .. revealjs:: Scenario #4
     :data-transition: none
+
+    Project A depends on B and C. B and C depend on A. B depends on D.
 
     .. image:: ../../images/dpm_scenario-4_01.svg
+       :align: left
+       :scale: 80%
 
- .. revealjs:: Scenario #4: Change to A, B fails
+ .. revealjs:: Scenario #4
     :data-transition: none
+
+    A change to project A breaks tests in project B.
 
     .. image:: ../../images/dpm_scenario-4_02.svg
+       :align: left
+       :scale: 80%
 
- .. revealjs:: Scenario #4: B is updated and passes, D fails
+ .. revealjs:: Scenario #4
     :data-transition: none
+
+    A change to project B breaks tests in project D.
 
     .. image:: ../../images/dpm_scenario-4_03.svg
+       :align: left
+       :scale: 80%
 
- .. revealjs:: Scenario #4: A, B, C, and D are blocked
+ .. revealjs:: Scenario #4
     :data-transition: none
+
+    Projects A, B, C, and D are blocked.
 
     .. image:: ../../images/dpm_scenario-4_04.svg
+       :align: left
+       :scale: 80%
 
- .. revealjs:: Scenario #4: D is updated and passes
+ .. revealjs:: Scenario #4
     :data-transition: none
+
+    Project D is updated and all tests pass.
 
     .. image:: ../../images/dpm_scenario-4_05.svg
+       :align: left
+       :scale: 80%
 
- .. revealjs:: Scenario #4: A, B, C, and D promote
+ .. revealjs:: Scenario #4
     :data-transition: none
+
+    Projects A, B, C, and D are promoted.
 
     .. image:: ../../images/dpm_scenario-4_06.svg
+       :align: left
+       :scale: 80%
 
- .. revealjs:: Scenario #5: Projects A, B, C, X, and Y
+ .. revealjs:: Scenario #5
     :data-transition: none
+
+    Project A depends on B and C. B and C depend on A. X and Y depend on each other.
 
     .. image:: ../../images/dpm_scenario-5_01.svg
+       :align: left
+       :scale: 80%
 
- .. revealjs:: Scenario #5: Change to A, B fails
+ .. revealjs:: Scenario #5
     :data-transition: none
+
+    A change to project A breaks tests in project B.
 
     .. image:: ../../images/dpm_scenario-5_02.svg
+       :align: left
+       :scale: 80%
 
- .. revealjs:: Scenario #5: Change to X, Y fails
+ .. revealjs:: Scenario #5
     :data-transition: none
+
+    Project X is changed, tests for project Y fail.
 
     .. image:: ../../images/dpm_scenario-5_03.svg
+       :align: left
+       :scale: 80%
 
- .. revealjs:: Scenario #5: B is updated and passes
+ .. revealjs:: Scenario #5
     :data-transition: none
+
+    Project B is updated and all tests pass.
 
     .. image:: ../../images/dpm_scenario-5_04.svg
+       :align: left
+       :scale: 80%
 
- .. revealjs:: Scenario #5: A and B promote, X and Y remain blocked
+ .. revealjs:: Scenario #5
     :data-transition: none
+
+    Projects A and B promote. Projects X and Y remain blocked.
 
     .. image:: ../../images/dpm_scenario-5_05.svg
+       :align: left
+       :scale: 80%
 
- .. revealjs:: Scenario #6: Projects A, B, C, D, E, and F
+ .. revealjs:: Scenario #6
     :data-transition: none
+
+    Project A depends on B and C. B and C depend on A. F depends on E, which depends on C.
 
     .. image:: ../../images/dpm_scenario-6_01.svg
+       :align: left
+       :scale: 80%
 
- .. revealjs:: Scenario #6: Change to A, B and C both fail
+ .. revealjs:: Scenario #6
     :data-transition: none
+
+    A change to project A breaks tests in projects B and C.
 
     .. image:: ../../images/dpm_scenario-6_02.svg
+       :align: left
+       :scale: 80%
 
- .. revealjs:: Scenario #6: B is updated and passes, C fails
+ .. revealjs:: Scenario #6
     :data-transition: none
+
+    Project B is updated and all tests pass, but tests for project C fail.
 
     .. image:: ../../images/dpm_scenario-6_03.svg
+       :align: left
+       :scale: 80%
 
- .. revealjs:: Scenario #6: F is updated, E fails
+ .. revealjs:: Scenario #6
     :data-transition: none
+
+    Project F is updated, tests for project E fail.
 
     .. image:: ../../images/dpm_scenario-6_04.svg
+       :align: left
+       :scale: 80%
 
- .. revealjs:: Scenario #6: C is updated and passes, E fails
+ .. revealjs:: Scenario #6
     :data-transition: none
+
+    Project C is updated and all tests for project C pass. Tests for project E still fail.
 
     .. image:: ../../images/dpm_scenario-6_05.svg
+       :align: left
+       :scale: 80%
 
- .. revealjs:: Scenario #6: E is updated and passes
+ .. revealjs:: Scenario #6
     :data-transition: none
+
+    Project E is updated and all tests pass.
 
     .. image:: ../../images/dpm_scenario-6_06.svg
+       :align: left
+       :scale: 80%
 
- .. revealjs:: Scenario #6: A, B, C, E, and F promote
+ .. revealjs:: Scenario #6
     :data-transition: none
 
+    Projects A, B, C, E, and F promote. Project D never changed and does not promote.
+
     .. image:: ../../images/dpm_scenario-6_07.svg
+       :align: left
+       :scale: 80%
 
  .. revealjs:: More Info About Dependency Management
     :data-transition: none
