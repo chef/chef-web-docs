@@ -486,7 +486,7 @@
 .. |fedora| replace:: Fedora
 .. |fedora enterprise| replace:: Enterprise Fedora
 .. |fedora epel| replace:: Extra Packages for Enterprise Linux
-.. |fips| replace:: Federal Information Processing Standards (FIPS).
+.. |fips| replace:: Federal Information Processing Standards (FIPS)
 .. |firefox| replace:: Firefox
 .. |fish| replace:: fish
 .. |flowdock| replace:: Flowdock
