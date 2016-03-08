@@ -256,6 +256,7 @@ The following tools have been developed by members of the |chef| community. Thes
    recipes
    release_notes
    resource_apt_package
+   resource_apt_update
    resource_bash
    resource_batch
    resource_bff_package
@@ -296,6 +297,8 @@ The following tools have been developed by members of the |chef| community. Thes
    resource_http_request
    resource_ifconfig
    resource_ips_package
+   resource_ksh
+   resource_launchd
    resource_link
    resource_load_balancer
    resource_log
@@ -309,6 +312,7 @@ The following tools have been developed by members of the |chef| community. Thes
    resource_mount
    resource_ohai
    resource_openbsd_package
+   resource_osx_profile
    resource_package
    resource_pacman_package
    resource_paludis_package
