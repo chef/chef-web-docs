@@ -7,7 +7,7 @@ Dependency Management Scenarios
  .. revealjs:: Scenario #1
     :data-transition: none
 
-    A requires B and C. B and C depend on A.
+    A is required by B and C. B and C depend on A.
 
     .. image:: ../../images/dpm_scenario-1_01.svg
        :height: 700px
@@ -39,7 +39,7 @@ Dependency Management Scenarios
  .. revealjs:: Scenario #2
     :data-transition: none
 
-    A requires B and C. B and C depend on A. X requires Y. Y depends on X.
+    A is required by B and C. B and C depend on A. X is required by Y. Y depends on X.
 
     .. image:: ../../images/dpm_scenario-2_01.svg
        :height: 700px
@@ -71,7 +71,7 @@ Dependency Management Scenarios
  .. revealjs:: Scenario #3
     :data-transition: none
 
-    A requires B and C. B depends on A, requires D. C depends on A, requires E.
+    A is required by B and C. B depends on A, is required by D. C depends on A, is required by E.
 
     .. image:: ../../images/dpm_scenario-3_01.svg
        :height: 700px
@@ -103,7 +103,7 @@ Dependency Management Scenarios
  .. revealjs:: Scenario #4
     :data-transition: none
 
-    A requires B and C. B and C depend on A. B requires D.
+    A is required by B and C. B and C depend on A. B is required by D.
 
     .. image:: ../../images/dpm_scenario-4_01.svg
        :height: 700px
@@ -151,7 +151,7 @@ Dependency Management Scenarios
  .. revealjs:: Scenario #5
     :data-transition: none
 
-    A requires B and C. B and C depend on A. X requires Y. Y depends on X.
+    A is required by B and C. B and C depend on A. X is required by Y. Y depends on X.
 
     .. image:: ../../images/dpm_scenario-5_01.svg
        :height: 700px
@@ -191,7 +191,7 @@ Dependency Management Scenarios
  .. revealjs:: Scenario #6
     :data-transition: none
 
-    A requires B and C. B and C depend on A. E depends on C, requires F. F depends on E.
+    A is required by B and C. B and C depend on A. E depends on C, is required by F. F depends on E.
 
     .. image:: ../../images/dpm_scenario-6_01.svg
        :height: 700px
