@@ -1,31 +1,22 @@
-.. THIS PAGE DOCUMENTS chef-client version 12.7
+.. THIS PAGE DOCUMENTS chef-client version 12.9
 
 =====================================================
-script
+bash
 =====================================================
 
-.. include:: ../../includes_resources/includes_resource_script.rst
-
-This resource is the base resource for several other resources used for scripting on specific platforms. For more information about specific resources for specific platforms, see the following topics:
-
-* :doc:`bash </resource_bash>`
-* :doc:`csh </resource_csh>`
-* :doc:`ksh </resource_ksh>`
-* :doc:`perl </resource_perl>`
-* :doc:`python </resource_python>`
-* :doc:`ruby </resource_ruby>`
+.. include:: ../../includes_resources/includes_resource_script_bash.rst
 
 Syntax
 =====================================================
-.. include:: ../../includes_resources/includes_resource_script_syntax.rst
+.. include:: ../../includes_resources/includes_resource_script_bash_syntax.rst
 
 Actions
 =====================================================
-.. include:: ../../includes_resources/includes_resource_script_actions.rst
+.. include:: ../../includes_resources/includes_resource_script_bash_actions.rst
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_script_attributes.rst
+.. include:: ../../includes_resources/includes_resource_script_bash_attributes.rst
 
 Guards
 -----------------------------------------------------
@@ -39,29 +30,13 @@ Guards
 
 .. include:: ../../includes_resources_common/includes_resources_common_guards_arguments.rst
 
-Guard Interpreter
------------------------------------------------------
-.. include:: ../../includes_resources_common/includes_resources_common_guard_interpreter.rst
-
-**Attributes**
-
-.. include:: ../../includes_resources_common/includes_resources_common_guard_interpreter_attributes.rst
-
-**Inheritance**
-
-.. include:: ../../includes_resources_common/includes_resources_common_guard_interpreter_attributes_inherit.rst
-
-**Example**
-
-.. include:: ../../includes_resources_common/includes_resources_common_guard_interpreter_example_default.rst
-
 Providers
 =====================================================
 .. include:: ../../includes_resources_common/includes_resources_common_provider.rst
 
 .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
 
-.. include:: ../../includes_resources/includes_resource_script_providers.rst
+.. include:: ../../includes_resources/includes_resource_script_bash_providers.rst
 
 Examples
 =====================================================
@@ -70,10 +45,6 @@ Examples
 **Use a named provider to run a script**
 
 .. include:: ../../step_resource/step_resource_script_bash_provider_and_interpreter.rst
-
-**Run a script**
-
-.. include:: ../../step_resource/step_resource_script_bash_script.rst
 
 **Install a file from a remote location using bash**
 
