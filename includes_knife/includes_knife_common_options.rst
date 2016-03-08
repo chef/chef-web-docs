@@ -33,6 +33,9 @@ The following options can be run with all |knife| subcommands and plug-ins:
 ``--[no-]color``
    |color|
 
+``--[no-]fips``
+  |chef_client fips|
+
 ``--print-after``
    |print_after|
 

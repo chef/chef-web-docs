@@ -61,6 +61,9 @@ This configuration file has the following settings:
 
       data_bag_encrypt_version 2
 
+``fips``
+  |chef_client fips| Default value: ``true``.
+
 ``local_mode``
    |local_mode| For example:
 

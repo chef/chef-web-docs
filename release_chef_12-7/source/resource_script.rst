@@ -10,6 +10,7 @@ This resource is the base resource for several other resources used for scriptin
 
 * :doc:`bash </resource_bash>`
 * :doc:`csh </resource_csh>`
+* :doc:`ksh </resource_ksh>`
 * :doc:`perl </resource_perl>`
 * :doc:`python </resource_python>`
 * :doc:`ruby </resource_ruby>`

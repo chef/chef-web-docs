@@ -98,6 +98,9 @@ This configuration file has the following settings:
 ``file_staging_uses_destdir``
    |file_staging_uses_destdir| Default value: ``true``.
 
+``fips``
+  |chef_client fips| Default value: ``true``.
+
 ``ftp_proxy``
    |ftp_proxy|
 

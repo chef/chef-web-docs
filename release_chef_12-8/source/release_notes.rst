@@ -16,6 +16,39 @@ The following items are new for |chef client| 12.8 and/or are changes from previ
 * **Ohai auto-detects hosts for Azure instances** |ohai| will auto-detect hosts for instances that are hosted by |azure|.
 
 
+
+
+|fips| Mode
+-----------------------------------------------------
+.. include:: ../../includes_chef_client/includes_chef_client_fips_mode.rst
+
+.. update knife_common_options, chef-client options, chef-client configuration settings, knife bootstrap options (enables FIPS as default at `/etc/chef/client.rb` on nodes)
+.. for command option and config settings, add this note: 'This option requires |chef client| 12.8 (or higher). Using this option with older versions of the |chef client| will raise an error: "FIPS mode requested, but not supported by this client."'
+
+Enable FIPS Mode
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_chef_client/includes_chef_client_fips_mode_enable.rst
+
+Command Option
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+The following command-line option may be used to with a |knife| or |chef client| executable command:
+
+``--[no-]fips``
+  |chef_client fips|
+
+**Bootstrap a node using FIPS**
+
+.. include:: ../../step_knife/step_knife_bootstrap_node_fips.rst
+
+Configuration Setting
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+The following configuration setting may be set in the |knife rb|, |client rb|, or |config rb| files:
+
+``fips``
+  |chef_client fips| Default value: ``true``.
+
+
+
 launchd
 -----------------------------------------------------
 .. include:: ../../includes_resources/includes_resource_launchd.rst
@@ -48,46 +81,6 @@ Examples
 .. include:: ../../step_resource/step_resource_launchd_remove.rst
 
 
-
-
-
-|fips| Mode
------------------------------------------------------
-|fips_long| is a United States government computer security standard that specifies security requirements for cryptography. The current version of the standard is |fips_current|. The |chef client| can be configured to allow |open ssl| to enforce |fips|-validated security during a |chef client| run. This will disable cryptography that is explicitly disallowed in |fips|-validated software, including certain ciphers and hashing algorithms. Any attempt to use any disallowed cryptography will cause the |chef client| to throw an exception during a |chef client| run.
-
-.. note:: |chef| uses |md5| hashes to uniquely identify files that are stored on the |chef server|. |md5| is used only to generate a unique hash identifier and is not used for any cryptographic purpose.
-
-Notes about |fips|:
-
-* May be enabled for nodes running on |windows| and |enterprise_linux| platforms
-* Should should only be enabled for environments that require |fips_current| compliance
-* May not be enabled for any version of the |chef client| earlier than 12.8
-
-.. update knife_common_options, chef-client options, chef-client configuration settings, knife bootstrap options (enables FIPS as default at `/etc/chef/client.rb` on nodes)
-.. for command option and config settings, add this note: 'This option requires |chef client| 12.8 (or higher). Using this option with older versions of the |chef client| will raise an error: "FIPS mode requested, but not supported by this client."'
-
-Enable FIPS Mode
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-Allowing |open ssl| to enforce |fips|-validated security may be enabled by using any of the following ways:
-
-* Set the ``fips`` configuration setting to ``true`` in the |client rb| or |knife rb| files
-* Set the ``--fips`` command-line option when running any |knife| command or the |chef client| executable
-* Set the ``--fips`` command-line option when bootstrapping a node using the ``knife bootstrap`` command
-
-Command Option
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-The following command-line option may be used to with a |knife| or |chef client| executable command:
-
-``--[no-]fips``
-  |chef_client fips|
-
-
-Configuration Setting
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-The following configuration setting may be set in the |knife rb|, |client rb|, or |config rb| files:
-
-``fips``
-  |chef_client fips| Default value: ``true``.
 
 
 Changelog
