@@ -65,9 +65,6 @@ This subcommand has the following options:
 
    .. note:: This option is required for a validatorless bootstrap (as of |chef client| version 12.4).
 
-``--[no-]fips``
-  |chef_client fips|
-
 ``--[no-]host-key-verify``
    |no_host_key_verify| Default setting: ``--host-key-verify``.
 
