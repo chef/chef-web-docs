@@ -33,7 +33,7 @@ var addOutboundLinkTracking = function() {
   });
 };
 
-$(document).ready(function() {
+var pageSetup = function() {
   addOutboundLinkTracking();
 
   // Nav Interactions
@@ -147,4 +147,6 @@ $(document).ready(function() {
   if (largeScreen) {
     $("#docs-search").focus();
   }
-});
+};
+
+$(document).ready(pageSetup);
