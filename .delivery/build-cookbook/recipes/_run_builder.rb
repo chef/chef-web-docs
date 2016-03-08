@@ -7,6 +7,7 @@ ssh = encrypted_data_bag_item_for_environment('cia-creds', 'aws-ssh')
 ssh_key_path =  File.join(node['delivery']['workspace']['cache'], '.ssh')
 ssh_private_key_path =  File.join(node['delivery']['workspace']['cache'], '.ssh', 'id_rsa')
 ssh_public_key_path =  File.join(node['delivery']['workspace']['cache'], '.ssh', 'id_rsa.pub')
+chef_aws_creds = encrypted_data_bag_item_for_environment('cia-creds', 'chef-aws')
 
 with_driver 'aws::us-west-2'
 
@@ -45,7 +46,9 @@ execute 'build the site' do
   environment(
     'PATH' => '/opt/chefdk/embedded/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games',
     'HOME' => node['delivery']['workspace']['cache'],
-    'KITCHEN_YAML' => '.kitchen.delivery.yml'
+    'KITCHEN_YAML' => '.kitchen.delivery.yml',
+    'AWS_ACCESS_KEY_ID' => chef_aws_creds['access_key_id'],
+    'AWS_SECRET_ACCESS_KEY' => chef_aws_creds['secret_access_key']
   )
   cwd File.join(node['delivery']['workspace']['repo'], 'cookbooks', 'docs-builder')
 end
