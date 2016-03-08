@@ -473,6 +473,7 @@
 .. |elrepo| replace:: ELRepo
 .. |emacs| replace:: Emacs
 .. |encrypt_then_mac| replace:: Encrypt-then-MAC(EtM)
+.. |enterprise_linux| replace:: Enterprise Linix
 .. |erb| replace:: Embedded Ruby (ERB)
 .. |erlang| replace:: Erlang
 .. |erlang solutions| replace:: Erlang Solutions
