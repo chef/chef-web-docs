@@ -53,7 +53,7 @@ Examples
 
 |fips| Mode
 -----------------------------------------------------
-|fips_long| is a United States government computer security standard that specifies four levels of security requirements for cryptography. The current version of the standard is |fips_current|. The |chef client| can be configured to allow |open ssl| to enforce |fips|-validated security during a |chef client| run. This will disable cryptography that is explicitly disallowed in |fips|-validated software, including certain ciphers and hashing algorithms. Any attempt to use any disallowed cryptography will cause the |chef client| to throw an exception during a |chef client| run.
+|fips_long| is a United States government computer security standard that specifies security requirements for cryptography. The current version of the standard is |fips_current|. The |chef client| can be configured to allow |open ssl| to enforce |fips|-validated security during a |chef client| run. This will disable cryptography that is explicitly disallowed in |fips|-validated software, including certain ciphers and hashing algorithms. Any attempt to use any disallowed cryptography will cause the |chef client| to throw an exception during a |chef client| run.
 
 .. note:: |chef| uses |md5| hashes to uniquely identify files that are stored on the |chef server|. |md5| is used only to generate a unique hash identifier and is not used for any cryptographic purpose.
 
@@ -71,8 +71,8 @@ Enable FIPS Mode
 Allowing |open ssl| to enforce |fips|-validated security may be enabled by using any of the following ways:
 
 * Set the ``fips`` configuration setting to ``true`` in the |client rb| or |knife rb| files
-* Set the ``--fips`` command-line option to ``true`` when running any |knife| command or the |chef client| executable
-* Set the ``--fips`` command-line option to ``true`` when bootstrapping a node using the ``knife bootstrap`` command
+* Set the ``--fips`` command-line option when running any |knife| command or the |chef client| executable
+* Set the ``--fips`` command-line option when bootstrapping a node using the ``knife bootstrap`` command
 
 Command Option
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
