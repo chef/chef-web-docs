@@ -59,12 +59,12 @@ Examples
 
 Notes about |fips|:
 
-* May be enabled for nodes running on |windows| and enterprise |linux| platforms
+* May be enabled for nodes running on |windows| and |enterprise_linux| platforms
 * Should should only be enabled for environments that require |fips_current| compliance
 * May not be enabled for any version of the |chef client| earlier than 12.8
 
-.. update knife_common_options, chef-client options, chef-client configuration settings, environment variables, knife bootstrap options (enables FIPS as default at `/etc/chef/client.rb` on nodes)
-.. for command option and config settings, add this note: 'This option requires |chef client| 12.8 (or higher). Using this option with older versions of the |chef client| will raise an error: "FIPS mode requested, but not supporte by this client."'
+.. update knife_common_options, chef-client options, chef-client configuration settings, knife bootstrap options (enables FIPS as default at `/etc/chef/client.rb` on nodes)
+.. for command option and config settings, add this note: 'This option requires |chef client| 12.8 (or higher). Using this option with older versions of the |chef client| will raise an error: "FIPS mode requested, but not supported by this client."'
 
 Enable FIPS Mode
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -73,7 +73,6 @@ Allowing |open ssl| to enforce |fips|-validated security may be enabled by using
 * Set the ``fips`` configuration setting to ``true`` in the |client rb| or |knife rb| files
 * Set the ``--fips`` command-line option to ``true`` when running any |knife| command or the |chef client| executable
 * Set the ``--fips`` command-line option to ``true`` when bootstrapping a node using the ``knife bootstrap`` command
-* Set the ``CHEF_FIPS`` environment varaible to ``1``
 
 Command Option
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
