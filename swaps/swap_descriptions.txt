@@ -146,7 +146,7 @@
 .. |checksum remote_file| replace:: The |sha256| checksum of the file. Use to prevent a file from being re-downloaded. When the local file matches the checksum, the |chef client| does not download it.
 .. |chef generator| replace:: The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on.
 .. |chef_client delete_repo| replace:: Delete the entire |chef repo|. This option may only be used when running the |chef client| in local mode (``--local-mode``) mode. This options requires ``--recipe-url`` to be specified.
-.. |chef_client fips| replace:: Run the |chef client| with support for |fips|.
+.. |chef_client fips| replace:: Allows |open ssl| to enforce |fips|-validated security during the |chef client| run.
 .. |chef_client intervals| replace:: When the |chef client| is run at intervals, ``--splay`` and ``--interval`` values are applied before the |chef client| run.
 .. |chef_client intervals_11-16| replace:: When the |chef client| is run at intervals, ``--splay`` values are applied first, then the |chef client| run occurs, and then ``--interval`` values are applied.
 .. |chef_gem compile_time| replace:: Controls the phase during which a |gem| is installed on a node. Set to ``true`` to install a |gem| while the resource collection is being built (the "compile phase"). Set to ``false`` to install a |gem| while the |chef client| is configuring the node (the "converge phase").

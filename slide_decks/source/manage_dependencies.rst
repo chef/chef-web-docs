@@ -10,7 +10,7 @@ Dependency Management Scenarios
     A requires B and C. B and C depend on A.
 
     .. image:: ../../images/dpm_scenario-1_01.svg
-       :height: 500px
+       :height: 700px
 
  .. revealjs:: Scenario #1
     :data-transition: none
@@ -18,7 +18,7 @@ Dependency Management Scenarios
     A change to A breaks tests in B.
 
     .. image:: ../../images/dpm_scenario-1_02.svg
-       :height: 500px
+       :height: 700px
 
  .. revealjs:: Scenario #1
     :data-transition: none
@@ -26,7 +26,7 @@ Dependency Management Scenarios
     A is updated. Tests in B pass.
 
     .. image:: ../../images/dpm_scenario-1_03.svg
-       :height: 500px
+       :height: 700px
 
  .. revealjs:: Scenario #1
     :data-transition: none
@@ -34,7 +34,7 @@ Dependency Management Scenarios
     A is promoted.
 
     .. image:: ../../images/dpm_scenario-1_04.svg
-       :height: 500px
+       :height: 700px
 
  .. revealjs:: Scenario #2
     :data-transition: none
@@ -42,7 +42,7 @@ Dependency Management Scenarios
     A requires B and C. B and C depend on A. X requires Y. Y depends on X.
 
     .. image:: ../../images/dpm_scenario-2_01.svg
-       :height: 500px
+       :height: 700px
 
  .. revealjs:: Scenario #2
     :data-transition: none
@@ -50,7 +50,7 @@ Dependency Management Scenarios
     A change to A breaks tests in B.
 
     .. image:: ../../images/dpm_scenario-2_02.svg
-       :height: 500px
+       :height: 700px
 
  .. revealjs:: Scenario #2
     :data-transition: none
@@ -58,7 +58,7 @@ Dependency Management Scenarios
     X is changed. Tests in Y pass.
 
     .. image:: ../../images/dpm_scenario-2_03.svg
-       :height: 500px
+       :height: 700px
 
  .. revealjs:: Scenario #2
     :data-transition: none
@@ -66,7 +66,7 @@ Dependency Management Scenarios
     A is updated. Tests in B pass. X is promoted.
 
     .. image:: ../../images/dpm_scenario-2_04.svg
-       :height: 500px
+       :height: 700px
 
  .. revealjs:: Scenario #3
     :data-transition: none
@@ -74,7 +74,7 @@ Dependency Management Scenarios
     A requires B and C. B depends on A, requires D. C depends on A, requires E.
 
     .. image:: ../../images/dpm_scenario-3_01.svg
-       :height: 500px
+       :height: 700px
 
  .. revealjs:: Scenario #3
     :data-transition: none
@@ -82,7 +82,7 @@ Dependency Management Scenarios
     A change to A breaks tests in B.
 
     .. image:: ../../images/dpm_scenario-3_02.svg
-       :height: 500px
+       :height: 700px
 
  .. revealjs:: Scenario #3
     :data-transition: none
@@ -90,7 +90,7 @@ Dependency Management Scenarios
     E is changed and all tests pass.
 
     .. image:: ../../images/dpm_scenario-3_03.svg
-       :height: 500px
+       :height: 700px
 
  .. revealjs:: Scenario #3
     :data-transition: none
@@ -98,7 +98,7 @@ Dependency Management Scenarios
     A is updated. E is promoted even though tests in B still fail.
 
     .. image:: ../../images/dpm_scenario-3_04.svg
-       :height: 500px
+       :height: 700px
 
  .. revealjs:: Scenario #4
     :data-transition: none
@@ -106,7 +106,7 @@ Dependency Management Scenarios
     A requires B and C. B and C depend on A. B requires D.
 
     .. image:: ../../images/dpm_scenario-4_01.svg
-       :height: 500px
+       :height: 700px
 
  .. revealjs:: Scenario #4
     :data-transition: none
@@ -114,7 +114,7 @@ Dependency Management Scenarios
     A change to A breaks tests in B.
 
     .. image:: ../../images/dpm_scenario-4_02.svg
-       :height: 500px
+       :height: 700px
 
  .. revealjs:: Scenario #4
     :data-transition: none
@@ -122,7 +122,7 @@ Dependency Management Scenarios
     A change to B breaks tests in D.
 
     .. image:: ../../images/dpm_scenario-4_03.svg
-       :height: 500px
+       :height: 700px
 
  .. revealjs:: Scenario #4
     :data-transition: none
@@ -130,7 +130,7 @@ Dependency Management Scenarios
     A, B, C, and D are blocked.
 
     .. image:: ../../images/dpm_scenario-4_04.svg
-       :height: 500px
+       :height: 700px
 
  .. revealjs:: Scenario #4
     :data-transition: none
@@ -138,7 +138,7 @@ Dependency Management Scenarios
     D is updated and all tests pass.
 
     .. image:: ../../images/dpm_scenario-4_05.svg
-       :height: 500px
+       :height: 700px
 
  .. revealjs:: Scenario #4
     :data-transition: none
@@ -146,7 +146,7 @@ Dependency Management Scenarios
     A, B, C, and D are promoted.
 
     .. image:: ../../images/dpm_scenario-4_06.svg
-       :height: 500px
+       :height: 700px
 
  .. revealjs:: Scenario #5
     :data-transition: none
@@ -154,7 +154,7 @@ Dependency Management Scenarios
     A requires B and C. B and C depend on A. X requires Y. Y depends on X.
 
     .. image:: ../../images/dpm_scenario-5_01.svg
-       :height: 500px
+       :height: 700px
 
  .. revealjs:: Scenario #5
     :data-transition: none
@@ -162,7 +162,7 @@ Dependency Management Scenarios
     A change to A breaks tests in B.
 
     .. image:: ../../images/dpm_scenario-5_02.svg
-       :height: 500px
+       :height: 700px
 
  .. revealjs:: Scenario #5
     :data-transition: none
@@ -170,7 +170,7 @@ Dependency Management Scenarios
     X is changed, tests for Y fail.
 
     .. image:: ../../images/dpm_scenario-5_03.svg
-       :height: 500px
+       :height: 700px
 
  .. revealjs:: Scenario #5
     :data-transition: none
@@ -178,7 +178,7 @@ Dependency Management Scenarios
     B is updated and all tests pass.
 
     .. image:: ../../images/dpm_scenario-5_04.svg
-       :height: 500px
+       :height: 700px
 
  .. revealjs:: Scenario #5
     :data-transition: none
@@ -186,7 +186,7 @@ Dependency Management Scenarios
     A and B promote. X and Y remain blocked.
 
     .. image:: ../../images/dpm_scenario-5_05.svg
-       :height: 500px
+       :height: 700px
 
  .. revealjs:: Scenario #6
     :data-transition: none
@@ -194,7 +194,7 @@ Dependency Management Scenarios
     A requires B and C. B and C depend on A. E depends on C, requires F. F depends on E.
 
     .. image:: ../../images/dpm_scenario-6_01.svg
-       :height: 500px
+       :height: 700px
 
  .. revealjs:: Scenario #6
     :data-transition: none
@@ -202,7 +202,7 @@ Dependency Management Scenarios
     Changes to A break tests in B and C.
 
     .. image:: ../../images/dpm_scenario-6_02.svg
-       :height: 500px
+       :height: 700px
 
  .. revealjs:: Scenario #6
     :data-transition: none
@@ -210,7 +210,7 @@ Dependency Management Scenarios
     B is updated and all tests pass. Tests for C still fail.
 
     .. image:: ../../images/dpm_scenario-6_03.svg
-       :height: 500px
+       :height: 700px
 
  .. revealjs:: Scenario #6
     :data-transition: none
@@ -218,7 +218,7 @@ Dependency Management Scenarios
     F is updated, tests for E fail.
 
     .. image:: ../../images/dpm_scenario-6_04.svg
-       :height: 500px
+       :height: 700px
 
  .. revealjs:: Scenario #6
     :data-transition: none
@@ -226,7 +226,7 @@ Dependency Management Scenarios
     C is updated and all tests pass. Tests for E still fail.
 
     .. image:: ../../images/dpm_scenario-6_05.svg
-       :height: 500px
+       :height: 700px
 
  .. revealjs:: Scenario #6
     :data-transition: none
@@ -234,7 +234,7 @@ Dependency Management Scenarios
     E is updated and all tests pass.
 
     .. image:: ../../images/dpm_scenario-6_06.svg
-       :height: 500px
+       :height: 700px
 
  .. revealjs:: Scenario #6
     :data-transition: none
@@ -242,7 +242,7 @@ Dependency Management Scenarios
     A, B, C, E, and F promote. D never changed and does not promote.
 
     .. image:: ../../images/dpm_scenario-6_07.svg
-       :height: 500px
+       :height: 700px
 
  .. revealjs:: More Info About Dependency Management
     :data-transition: none
