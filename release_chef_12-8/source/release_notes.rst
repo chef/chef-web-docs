@@ -45,7 +45,7 @@ Configuration Setting
 The following configuration setting may be set in the |knife rb|, |client rb|, or |config rb| files:
 
 ``fips``
-  |chef_client fips| Default value: ``true``.
+  |chef_client fips| Set to ``true`` to enable |fips|-validated security.
 
 
 

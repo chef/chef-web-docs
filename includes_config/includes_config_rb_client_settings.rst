@@ -99,7 +99,7 @@ This configuration file has the following settings:
    |file_staging_uses_destdir| Default value: ``true``.
 
 ``fips``
-  |chef_client fips| Default value: ``true``.
+  |chef_client fips| Set to ``true`` to enable |fips|-validated security.
 
 ``ftp_proxy``
    |ftp_proxy|
