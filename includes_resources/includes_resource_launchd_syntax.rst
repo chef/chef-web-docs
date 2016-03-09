@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-A |resource launchd| resource to manage configuration profiles (``.mobileconfig`` files) on the |mac os x| platform:
+A |resource launchd| resource manages system-wide services (daemons) and per-user services (agents) on the |mac os x| platform:
 
 .. code-block:: ruby
 
