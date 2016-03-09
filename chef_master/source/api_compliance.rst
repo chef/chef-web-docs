@@ -10,7 +10,7 @@ About API Requests
 =====================================================
 Some notes about API requests:
 
-* Examples in this document use ``-u "$API_KEY:"`` to represent the retrieved API key. A retrieved API key is similar to: ``VS3x1XSg4Hk/wxw8IP+2XpmoKynR7urxglaGfLfFRXbxYljxNW5mksOSNj+BkO2DVoQehGosBnqCJA8WAz3Jyg==``. Set the ``API_KEY`` variable based on the API key that is assigned to your organization. Find a complete bash example under `/oauth/token <#oauth-token>`_.
+* Examples in this document use ``-u "$API_KEY:"`` to represent the retrieved API key. A retrieved API key is similar to: ``VS3x1XSg4Hk/wxw8IP+2XpmoKynR7urxglaGfLfFRXbxYljxNW5mksOSNj+BkO2DVoQehGosBnqCJA8WAz3Jyg==``. Set the ``API_KEY`` variable based on the API key that is assigned to your organization. Find a complete bash example under ``/oauth/token``.
 * When running commands as an administrator and if the ``API_KEY`` is not used, some requests to the |api compliance| will return ``403`` (forbidden) if the user making the requests does not have appropriate permissions.
 * Any time a |json| block is part of a request to the |api compliance|, the content type ``application/json`` must also be specified. Use the ``-H`` option: ``-H "Content-Type: application/json"``.
 * The ``Authorization: Basic base64encodedpassword`` header must contain a username and password with permission to authenticate to the |chef compliance| server. Successful authentication will return a valid |api compliance| token.
@@ -33,7 +33,7 @@ Some notes about API requests:
 
   **The colon (:) at the end of the key is easy to miss, but you must specify it when using curl.**
 
-  For readability, most API examples on this page reference |chef compliance| object names (or `login` in the case of users and organizations). You can also use object **UUIDs** instead. For example, both these calls retrieve the ``Dev Ops`` environment:
+  For readability, most API examples on this page reference |chef compliance| object names (or ``login`` in the case of users and organizations). You can also use object **UUIDs** instead. For example, both these calls retrieve the ``Dev Ops`` environment:
 
   .. code-block:: bash
 
