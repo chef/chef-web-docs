@@ -10,7 +10,7 @@ About API Requests
 =====================================================
 Some notes about API requests:
 
-* Examples in this document use ``-u "$API_KEY:"`` to represent the retrieved API key. A retrieved API key is similar to: ``VS3x1XSg4Hk/wxw8IP+2XpmoKynR7urxglaGfLfFRXbxYljxNW5mksOSNj+BkO2DVoQehGosBnqCJA8WAz3Jyg==``. Set the ``API_KEY`` variable based on the API key that is assigned to your organization. Find a complete bash example under ``/oauth/token <#oauth-token>``.
+* Examples in this document use ``-u "$API_KEY:"`` to represent the retrieved API key. A retrieved API key is similar to: ``VS3x1XSg4Hk/wxw8IP+2XpmoKynR7urxglaGfLfFRXbxYljxNW5mksOSNj+BkO2DVoQehGosBnqCJA8WAz3Jyg==``. Set the ``API_KEY`` variable based on the API key that is assigned to your organization. Find a complete bash example under ``/oauth/token``.
 * When running commands as an administrator and if the ``API_KEY`` is not used, some requests to the |api compliance| will return ``403`` (forbidden) if the user making the requests does not have appropriate permissions.
 * Any time a |json| block is part of a request to the |api compliance|, the content type ``application/json`` must also be specified. Use the ``-H`` option: ``-H "Content-Type: application/json"``.
 * The ``Authorization: Basic base64encodedpassword`` header must contain a username and password with permission to authenticate to the |chef compliance| server. Successful authentication will return a valid |api compliance| token.
@@ -33,15 +33,16 @@ Some notes about API requests:
 
   **The colon (:) at the end of the key is easy to miss, but you must specify it when using curl.**
 
-  For readability, most API examples on this page reference |chef compliance| object names. You can also use object **UUIDs** instead. For example, both these calls retrieve the ``Dev Ops`` organization details:
+  For readability, most API examples on this page reference |chef compliance| object names (or ``login`` in the case of users and organizations). You can also use object **UUIDs** instead. For example, both these calls retrieve the ``Dev Ops`` environment:
 
   .. code-block:: bash
 
-     $ curl -X GET "$API_URL/orgs/Dev%20Ops" -u "$API_KEY:"
-     {"name":"Dev Ops","id":"9334cfe3-efb1-4fef-611c-14a8d239b399"}
+     $ curl -X GET "$API_URL/owners/john/envs/Dev%20Ops" -u "$API_KEY:"
+     {"id":"53a7f189-4417-44ba-57f4-f3d397589973","owner":"1654fe61-d15b-4fbe-5fa9-67859135fc7e","name":"Dev Ops","lastScan":"0001-01-01T00:00:00Z","complianceStatus":-1,"patchlevelStatus":-1,"unknownStatus":0}
 
-     $ curl -X GET "$API_URL/orgs/9334cfe3-efb1-4fef-611c-14a8d239b399" -u "$API_KEY:"
-     {"name":"Dev Ops","id":"9334cfe3-efb1-4fef-611c-14a8d239b399"}
+     $ curl -X GET "$API_URL/owners/1654fe61-d15b-4fbe-5fa9-67859135fc7e/envs/53a7f189-4417-44ba-57f4-f3d397589973" -u "$API_KEY:"
+     {"id":"53a7f189-4417-44ba-57f4-f3d397589973","owner":"1654fe61-d15b-4fbe-5fa9-67859135fc7e","name":"Dev Ops","lastScan":"0001-01-01T00:00:00Z","complianceStatus":-1,"patchlevelStatus":-1,"unknownStatus":0}
+
 
 Response Codes
 =====================================================
@@ -489,11 +490,13 @@ Use to return details about the named environment.
 
    GET /api/owners/USER/envs/ENV
 
+where ``/USER`` is the identifier for a user or an organization.
+
 For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/owners/john/envs/production" -u "$API_KEY:"
+   curl -X GET "$API_URL/owners/john/envs/Production" -u "$API_KEY:"
 
 **Response**
 
@@ -504,7 +507,7 @@ The response will return a |json| object similar to:
   {
     "id": "b771e025-6445-4ead-5cac-b466ea725177",
     "owner": "7ae9dd7d-5201-4ae3-4949-60eb4b902e77",
-    "name": "production",
+    "name": "Production",
     "lastScan": "0001-01-01T00:00:00Z",
     "complianceStatus": 0,
     "patchlevelStatus": 0,
@@ -537,7 +540,7 @@ The response will return a |json| object similar to:
      {
        "id": "b771e025-6445-4ead-5cac-b466ea725177",
        "owner": "7ae9dd7d-5201-4ae3-4949-60eb4b902e77",
-       "name": "production",
+       "name": "Production",
        "lastScan": "0001-01-01T00:00:00Z",
        "complianceStatus": 0,
        "patchlevelStatus": 0,
@@ -574,8 +577,6 @@ This method has the following parameters:
 .. code-block:: xml
 
    POST /api/owners/USER/envs
-
-where ``/USER`` is the identifier for a user or an organization.
 
 For example:
 
@@ -614,7 +615,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -w "%{http_code}" -X DELETE "$API_URL/owners/john/envs/production" -u "$API_KEY:"
+   curl -w "%{http_code}" -X DELETE "$API_URL/owners/john/envs/Production" -u "$API_KEY:"
 
 **Response**
 
@@ -693,7 +694,7 @@ It contains the following attributes:
 
 GET (named job)
 -----------------------------------------------------
-Use to return details about the named job.
+Use to return details about a specific job.
 
 **Request**
 
@@ -717,7 +718,7 @@ The response will return a |json| object similar to:
      "id": "c8ba8e88-7e45-4253-9081-cbb17a5f0c76",
      "status": "scheduled",
      "name": "Rec",
-     "nextRun": "2015-07-21T23:11:00Z",
+     "nextRun": "2018-07-21T23:11:00Z",
      "schedule": {
        "month": "*",
        "day": "21",
@@ -728,14 +729,14 @@ The response will return a |json| object similar to:
      "tasks": [{
        "type": "scan",
        "environments": [{
-         "nodes": ["d850ba44-7a82-4177-50db-79be1143d632", "33ecfce5-f781-4eb7-6828-beb090ffe9b5"],
-         "id": "b771e025-6445-4ead-5cac-b466ea725177"
+         "id": "b771e025-6445-4ead-5cac-b466ea725177",
+         "nodes": ["d850ba44-7a82-4177-50db-79be1143d632", "33ecfce5-f781-4eb7-6828-beb090ffe9b5"]
        }],
        "compliance": [{
-         "owner": "chef",
+         "owner": "base",
          "profile": "linux"
        }, {
-         "owner": "chef",
+         "owner": "base",
          "profile": "ssh"
        }],
        "patchlevel": [{
@@ -770,14 +771,14 @@ It contains the following attributes:
 
           "tasks": [{
             "compliance": [{
-             "owner": "chef",
+             "owner": "base",
               "profile": "linux"
             }, {
-              "owner": "chef",
+              "owner": "base",
               "profile": "ssh"
             }],
             "environments": [{
-              "id": "d850ba44-7a82-4177-50db-79be1143d632",
+              "id": "b771e025-6445-4ead-5cac-b466ea725177",
               "nodes": ["b771e025-6445-4ead-5cac-b466ea725177", "33ecfce5-f781-4eb7-6828-beb090ffe9b5"]
             }],
             "patchlevel": [{
@@ -785,7 +786,6 @@ It contains the following attributes:
             }],
             "type": "scan"
           }]
-
 
 POST
 -----------------------------------------------------
@@ -803,7 +803,7 @@ The request uses a |json| object similar to:
 
    {
      "id": "c8ba8e88-7e45-4253-9081-cbb17a5f0c76",
-     "name": "Rec",
+     "name": "Rec1",
      "schedule": {
        "hour": "23",
        "minute": "11",
@@ -813,10 +813,10 @@ The request uses a |json| object similar to:
      },
      "tasks": [{
        "compliance": [{
-        "owner": "chef",
+        "owner": "base",
          "profile": "linux"
        }, {
-         "owner": "chef",
+         "owner": "base",
          "profile": "ssh"
        }],
        "environments": [{
@@ -845,10 +845,11 @@ The response will return a |json| object similar to:
 
   {
     "status":"scheduled",
-    "name":"rec-test",
+    "name":"Rec1",
     "nextRun":"2016-03-21T23:11:00Z",
     "id":"351f8933-6fd4-47be-7d47-7dbdb0abd306",
-    "month":"*","day":"21","weekday":"*","hour":"23","minute":"11","date":"0001-01-01T00:00:00Z","runs":null}
+    "month":"*","day":"21","weekday":"*","hour":"23","minute":"11","date":"0001-01-01T00:00:00Z","runs":null
+  }
 
 DELETE
 -----------------------------------------------------
@@ -897,7 +898,7 @@ The response will return a |json| object similar to:
 .. code-block:: javascript
 
    [{
-     "owner": "john",
+     "owner": "7ae9dd7d-5201-4ae3-4949-60eb4b902e77",
      "name": "vagrant",
      "id": "2bfe1865-d602-4912-5dcb-b037447fae91",
      "public": ""
@@ -1124,7 +1125,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -w "%{http_code}" -X DELETE "$API_URL/owners/john/envs/production/nodes" \
+   curl -w "%{http_code}" -X DELETE "$API_URL/owners/john/envs/Production/nodes" \
    -u "$API_KEY:" -d '["d850ba44-7a82-4177-50db-79be1143d632","33ecfce5-f781-4eb7-6828-beb090ffe9b5"]'
 
 **Response**
@@ -1134,7 +1135,6 @@ No Content
 /envs/ENV/nodes
 =====================================================
 The ``/envs/ENV/nodes`` endpoint has the following methods: ``GET``, ``POST`` and ``DELETE``. The ``GET`` method may be used to return information about nodes, including by environment, by named node, node status, connectivity status, lists of installed packages, compliance state, and patch state.
-
 
 GET (nodes by environment)
 -----------------------------------------------------
@@ -1150,7 +1150,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/owners/john/envs/production/nodes" -u "$API_KEY:"
+   curl -X GET "$API_URL/owners/john/envs/Production/nodes" -u "$API_KEY:"
 
 **Response**
 
@@ -1192,13 +1192,13 @@ Use to return details about the named node.
 
 .. code-block:: xml
 
-   GET /api/owners/USER/envs/ENV/nodes/NODE
+   GET /api/owners/USER/envs/ENV/nodes/NODE_ID
 
 For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/owners/john/envs/production/nodes/192.168.100.200" -u "$API_KEY:"
+   curl -X GET "$API_URL/owners/john/envs/Production/nodes/6f7336b5-380e-4e75-4b06-781950c9a1a5" -u "$API_KEY:"
 
 **Response**
 
@@ -1257,7 +1257,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X POST "$API_URL/owners/john/envs/production/nodes" \
+   curl -X POST "$API_URL/owners/john/envs/Production/nodes" \
    -H "Content-Type: application/json" -u "$API_KEY:" -d '{ JSON_BLOCK }'
 
 **Response**
@@ -1267,7 +1267,7 @@ The response will return a |json| object similar to:
 .. code-block:: javascript
 
    {
-     id":"67243304-0909-4bc3-5ed0-3637a5d0fe93",
+     "id":"67243304-0909-4bc3-5ed0-3637a5d0fe93",
      "hostname": "192.168.100.200",
      "name": "192.168.100.200",
      "loginUser": "root",
@@ -1283,13 +1283,13 @@ Delete a node from an environment.
 
 .. code-block:: xml
 
-   DELETE /api/owners/USER/envs/ENV/nodes/NODE
+   DELETE /api/owners/USER/envs/ENV/nodes/NODE_ID
 
 For example:
 
 .. code-block:: bash
 
-   curl -w "%{http_code}" -X DELETE "$API_URL/owners/john/envs/production/nodes/192.168.100.200" -u "$API_KEY:"
+   curl -w "%{http_code}" -X DELETE "$API_URL/owners/john/envs/Production/nodes/6f7336b5-380e-4e75-4b06-781950c9a1a5" -u "$API_KEY:"
 
 **Response**
 
@@ -1303,7 +1303,7 @@ Use to update a node.
 
 .. code-block:: xml
 
-   PATCH /api/owners/USER/envs/ENV/nodes/NODE
+   PATCH /api/owners/USER/envs/ENV/nodes/NODE_ID
 
 with a |json| object similar to:
 
@@ -1321,7 +1321,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -w "%{http_code}" -X PATCH "$API_URL/owners/john/envs/ENV/nodes/lb1.example.com" -H "Content-Type: application/json" -u "$API_KEY:" \
+   curl -w "%{http_code}" -X PATCH "$API_URL/owners/john/envs/ENV/nodes/6f7336b5-380e-4e75-4b06-781950c9a1a5" -H "Content-Type: application/json" -u "$API_KEY:" \
    -d '{"hostname":"lb1.example.com","name":"Load Balancer 1 - new","environment":"b771e025-6445-4ead-5cac-b466ea725177","loginUser":"root","loginMethod":"ssh","loginKey":"john/vagrant"}'
 
 **Response**
@@ -1336,13 +1336,13 @@ Use to show the connectivity state for the named node.
 
 .. code-block:: xml
 
-   GET /api/owners/USER/envs/ENV/nodes/NODE/connectivity
+   GET /api/owners/USER/envs/ENV/nodes/NODE_ID/connectivity
 
 For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/owners/john/envs/production/nodes/192.168.100.200/connectivity" -u "$API_KEY:"
+   curl -X GET "$API_URL/owners/john/envs/Production/nodes/6f7336b5-380e-4e75-4b06-781950c9a1a5/connectivity" -u "$API_KEY:"
 
 **Response**
 
@@ -1423,13 +1423,13 @@ Use to show the compliance state for the named node.
 
 .. code-block:: xml
 
-   GET /api/owners/USER/envs/ENV/nodes/NODE/compliance
+   GET /api/owners/USER/envs/ENV/nodes/NODE_ID/compliance
 
 For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/owners/john/envs/production/nodes/192.168.100.200/compliance" -u "$API_KEY:"
+   curl -X GET "$API_URL/owners/john/envs/Production/nodes/9b764f79-b96c-4dfa-5a02-9fa3b1abf35b/compliance" -u "$API_KEY:"
 
 **Response**
 
@@ -1469,13 +1469,13 @@ Use to show the patch state for the named node.
 
 .. code-block:: xml
 
-   GET /api/owners/USER/envs/ENV/nodes/NODE/patches
+   GET /api/owners/USER/envs/ENV/nodes/NODE_ID/patches
 
 For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/owners/john/envs/production/nodes/192.168.100.200/patches" -u "$API_KEY:"
+   curl -X GET "$API_URL/owners/john/envs/Production/nodes/9b764f79-b96c-4dfa-5a02-9fa3b1abf35b/patches" -u "$API_KEY:"
 
 **Response**
 
@@ -1504,13 +1504,13 @@ Use to show the list of installed packages for the named node.
 
 .. code-block:: xml
 
-   GET /api/owners/USER/envs/ENV/nodes/NODE/packages
+   GET /api/owners/USER/envs/ENV/nodes/NODE_ID/packages
 
 For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/owners/john/envs/production/nodes/192.168.100.200/packages" -u "$API_KEY:"
+   curl -X GET "$API_URL/owners/john/envs/Production/nodes/9b764f79-b96c-4dfa-5a02-9fa3b1abf35b/packages" -u "$API_KEY:"
 
 **Response**
 
@@ -1565,13 +1565,14 @@ The response will return a |json| object similar to:
    [
      {
        "id": "c89d0a0f-11d6-4b04-7b4d-7e835b4c9551",
-       "name": "ACME"
+       "name": "ACME Corporation",
+       "login": "acme"
      }
    ]
 
 GET (named organization)
 -----------------------------------------------------
-Use to return details about the named organization.
+Use to return details about a specific organization.
 
 **Request**
 
@@ -1579,11 +1580,13 @@ Use to return details about the named organization.
 
    GET /api/orgs/ORG
 
+where ``ORG`` is the ``login`` field of the organization.
+
 For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/orgs/ACME" -u "$API_KEY:"
+   curl -X GET "$API_URL/orgs/acme" -u "$API_KEY:"
 
 **Response**
 
@@ -1593,7 +1596,8 @@ The response will return a |json| object similar to:
 
    {
      "id": "c89d0a0f-11d6-4b04-7b4d-7e835b4c9551",
-     "name": "ACME"
+     "name": "ACME Corporation",
+     "login": "acme"
    }
 
 PATCH
@@ -1621,8 +1625,8 @@ For example:
 
 .. code-block:: bash
 
-   curl -w "%{http_code}" -X PATCH "$API_URL/orgs/ACME" -H "Content-Type: application/json" \
-   -u "$API_KEY:" -d '{"name":"ACME2"}'
+   curl -w "%{http_code}" -X PATCH "$API_URL/orgs/acme" -H "Content-Type: application/json" \
+   -u "$API_KEY:" -d '{"name":"ACME2 Corporation"}'
 
 **Response**
 
@@ -1654,7 +1658,7 @@ For example:
 .. code-block:: bash
 
    curl -X POST "$API_URL/orgs" -H "Content-Type: application/json" \
-   -u "$API_KEY:" -d '{"name":"ACME"}'
+   -u "$API_KEY:" -d '{"name":"ACME Corporation","login":"acme"}'
 
 **Response**
 
@@ -1664,7 +1668,8 @@ The response will return a |json| object similar to:
 
    {
      "id": "c89d0a0f-11d6-4b04-7b4d-7e835b4c9551",
-     "name": "ACME"
+     "name": "ACME Corporation",
+     "login": "acme"
    }
 
 DELETE
@@ -1679,11 +1684,13 @@ Use to delete the named organization. The user of this endpoint must have admini
 
    DELETE /api/orgs/ORG
 
+where ``ORG`` is the ``login`` field of the organization.
+
 For example:
 
 .. code-block:: bash
 
-   curl -w "%{http_code}" -X DELETE "$API_URL/orgs/ACME" -u "$API_KEY:"
+   curl -w "%{http_code}" -X DELETE "$API_URL/orgs/acme" -u "$API_KEY:"
 
 **Response**
 
@@ -2008,8 +2015,6 @@ The response will return a |json| object similar to:
 =====================================================
 The ``/scans/SCAN_ID/envs/ENV`` endpoint has a single method: ``GET`` that may be used to get compliance, patch, or package details by node.
 
-
-
 GET (compliance by node)
 -----------------------------------------------------
 Use to get the compliance results for the named node and the named environment.
@@ -2018,15 +2023,16 @@ Use to get the compliance results for the named node and the named environment.
 
 .. code-block:: xml
 
-   GET /api/owners/USER/scans/SCAN_ID/envs/ENV/nodes/NODE/compliance
+   GET /api/owners/USER/scans/SCAN_ID/envs/ENV/nodes/NODE_ID/compliance
 
 For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/owners/john/scans/SCAN_ID/envs/production/nodes/192.168.100.200/compliance" -u "$API_KEY:"
+   curl -X GET "$API_URL/owners/john/scans/SCAN_ID/envs/Production/nodes/NODE_ID/compliance" -u "$API_KEY:"
 
-where ``SCAN_ID`` is similar to ``90def607-1688-40f5-5a4c-161c51fd8aac``.
+where ``SCAN_ID`` is similar to ``90def607-1688-40f5-5a4c-161c51fd8aac``
+and ``NODE_ID`` is similar to ``9b764f79-b96c-4dfa-5a02-9fa3b1abf35b``
 
 **Response**
 
@@ -2081,15 +2087,16 @@ Use to get the available patches for the named node and the named environment.
 
 .. code-block:: xml
 
-   GET /api/owners/USER/scans/SCAN_ID/envs/ENV/nodes/NODE/patches
+   GET /api/owners/USER/scans/SCAN_ID/envs/ENV/nodes/NODE_ID/patches
 
 For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/owners/john/scans/SCAN_ID/envs/production/nodes/192.168.100.200/patches" -u "$API_KEY:"
+   curl -X GET "$API_URL/owners/john/scans/SCAN_ID/envs/Production/nodes/NODE_ID/patches" -u "$API_KEY:"
 
-where ``SCAN_ID`` is similar to ``90def607-1688-40f5-5a4c-161c51fd8aac``.
+where ``SCAN_ID`` is similar to ``90def607-1688-40f5-5a4c-161c51fd8aac``
+and ``NODE_ID`` is similar to ``9b764f79-b96c-4dfa-5a02-9fa3b1abf35b``
 
 **Response**
 
@@ -2137,15 +2144,16 @@ Use to get the installed packages for the named node and the named environment.
 
 .. code-block:: xml
 
-   GET /api/owners/USER/scans/SCAN_ID/envs/ENV/nodes/NODE/packages
+   GET /api/owners/USER/scans/SCAN_ID/envs/ENV/nodes/NODE_ID/packages
 
 For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/owners/john/scans/SCAN_ID/envs/production/nodes/192.168.100.200/packages" -u "$API_KEY:"
+   curl -X GET "$API_URL/owners/john/scans/SCAN_ID/envs/Production/nodes/NODE_ID/packages" -u "$API_KEY:"
 
-where ``SCAN_ID`` is similar to ``90def607-1688-40f5-5a4c-161c51fd8aac``.
+where ``SCAN_ID`` is similar to ``90def607-1688-40f5-5a4c-161c51fd8aac``
+and ``NODE_ID`` is similar to ``9b764f79-b96c-4dfa-5a02-9fa3b1abf35b``
 
 **Response**
 
@@ -2281,7 +2289,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/orgs/ACME/teams" -u "$API_KEY:"
+   curl -X GET "$API_URL/orgs/acme/teams" -u "$API_KEY:"
 
 **Response**
 
@@ -2292,26 +2300,31 @@ The response will return a |json| object similar to:
    [
      {
        "id": "owners",
-       "org": "ACME",
+       "org": "843cd9cd-86d8-40d2-5d8a-a48dc7690a69",
        "name": "Owners"
-     }
+     },
+     {
+       "id": "20aff993-3288-426d-6851-d1d47bb40d80",
+       "org": "843cd9cd-86d8-40d2-5d8a-a48dc7690a69",
+       "name": "audit"
+     },
    ]
 
 GET (named team)
 -----------------------------------------------------
-Use to return details about the named team.
+Use to return details about a specific team.
 
 **Request**
 
 .. code-block:: xml
 
-   GET /api/orgs/ORG/teams/TEAM
+   GET /api/orgs/ORG/teams/TEAM_ID
 
 For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/orgs/ACME/teams/owners" -u "$API_KEY:"
+   curl -X GET "$API_URL/orgs/acme/teams/owners" -u "$API_KEY:"
 
 **Response**
 
@@ -2321,10 +2334,10 @@ The response will return a |json| object similar to:
 
    {
      "id": "owners",
-     "org": "ACME",
+     "org": "843cd9cd-86d8-40d2-5d8a-a48dc7690a69",
      "name": "Owners",
      "members": [
-       "john"
+       "fd500af8-4e30-4e67-7bbd-1287f23af209"
      ],
      "permissions": {
        "harden": "true",
@@ -2355,14 +2368,16 @@ This method has the following parameters:
 
 .. code-block:: xml
 
-   PATCH /api/orgs/ORG/teams/TEAM
+   PATCH /api/orgs/ORG/teams/TEAM_ID
 
 For example:
 
 .. code-block:: bash
 
-   curl -w "%{http_code}" -X PATCH "$API_URL/orgs/ACME/teams/audit" \
+   curl -w "%{http_code}" -X PATCH "$API_URL/orgs/acme/teams/TEAM_ID" \
    -H "Content-Type: application/json" -u "$API_KEY:" -d '{ JSON_BLOCK }'
+
+where ``TEAM_ID`` is similar to ``20aff993-3288-426d-6851-d1d47bb40d80``
 
 **Response**
 
@@ -2395,7 +2410,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X POST "$API_URL/orgs/ACME/teams" \
+   curl -X POST "$API_URL/orgs/acme/teams" \
    -H "Content-Type: application/json" -u "$API_KEY:" \
    -d '{"name":"manageteam","permissions":{"manage":"true"}}'
 
@@ -2406,7 +2421,7 @@ The response will return a |json| object similar to:
 .. code-block:: javascript
 
    {
-     "org":"ACME",
+     "org":"843cd9cd-86d8-40d2-5d8a-a48dc7690a69",
      "name":"manageteam",
      "permissions":{"manage":"true"},
      "id":"55ace94c-f873-45d1-48da-e278bbe595b0"
@@ -2422,21 +2437,23 @@ Use to delete a team from the named organization.
 
 .. code-block:: xml
 
-   DELETE /api/orgs/ORG/teams/TEAM
+   DELETE /api/orgs/ORG/teams/TEAM_ID
 
 For example:
 
 .. code-block:: bash
 
-   curl -w "%{http_code}" -X DELETE "$API_URL/orgs/ACME/teams/audit" -u "$API_KEY:"
+   curl -w "%{http_code}" -X DELETE "$API_URL/orgs/acme/teams/TEAM_ID" -u "$API_KEY:"
+
+where ``TEAM_ID`` is similar to ``20aff993-3288-426d-6851-d1d47bb40d80``
 
 **Response**
 
 No Content
 
-/teams/TEAM/members
+/teams/TEAM_ID/members
 =====================================================
-The ``/teams/TEAM/members`` endpoint has the following methods: ``DELETE``, ``GET``, ``PATCH``, and ``POST``.
+The ``/teams/TEAM_ID/members`` endpoint has the following methods: ``DELETE``, ``GET``, ``PATCH``, and ``POST``.
 
 DELETE
 -----------------------------------------------------
@@ -2446,13 +2463,16 @@ Use to delete a team member.
 
 .. code-block:: xml
 
-   DELETE /api/orgs/ORG/teams/TEAM/members/MEMBER
+   DELETE /api/orgs/ORG/teams/TEAM_ID/members/MEMBER_ID
 
 For example:
 
 .. code-block:: bash
 
-   curl -w "%{http_code}" -X DELETE "$API_URL/orgs/ACME/teams/audit/members/bob" -u "$API_KEY:"
+   curl -w "%{http_code}" -X DELETE "$API_URL/orgs/acme/teams/TEAM_ID/members/MEMBER_ID" -u "$API_KEY:"
+
+where ``TEAM_ID`` is similar to ``20aff993-3288-426d-6851-d1d47bb40d80``
+and ``MEMBER_ID`` is similar to ``7ae9dd7d-5201-4ae3-4949-60eb4b902e77``
 
 **Response**
 
@@ -2466,13 +2486,15 @@ Use to get a list of team memberships.
 
 .. code-block:: xml
 
-   GET /api/orgs/ORG/teams/TEAM/members
+   GET /api/orgs/ORG/teams/TEAM_ID/members
 
 For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/orgs/ACME/teams/owners/members" -u "$API_KEY:"
+   curl -X GET "$API_URL/orgs/acme/teams/TEAM_ID/members" -u "$API_KEY:"
+
+where ``TEAM_ID`` is similar to ``20aff993-3288-426d-6851-d1d47bb40d80``
 
 **Response**
 
@@ -2481,11 +2503,11 @@ The response will return a |json| object similar to:
 .. code-block:: javascript
 
    {
-     "id": "owners",
-     "org": "ACME",
-     "name": "Owners",
+     "id": "20aff993-3288-426d-6851-d1d47bb40d80",
+     "org": "843cd9cd-86d8-40d2-5d8a-a48dc7690a69",
+     "name": "audit",
      "members": [
-       "john"
+       "fd500af8-4e30-4e67-7bbd-1287f23af209"
      ],
      "permissions": {
        "harden": "true",
@@ -2503,14 +2525,16 @@ Use to edit team membership details for the named team member.
 
 .. code-block:: xml
 
-   PATCH /api/orgs/ORG/teams/TEAM/members/MEMBER
+   PATCH /api/orgs/ORG/teams/TEAM_ID/members/MEMBER_ID
 
 For example:
 
 .. code-block:: bash
 
-   curl -w "%{http_code}" -X PATCH "$API_URL/orgs/ACME/teams/audit" \
+   curl -w "%{http_code}" -X PATCH "$API_URL/orgs/acme/teams/TEAM_ID" \
    -H "Content-Type: application/json" -u "$API_KEY:" -d '{ JSON_BLOCK }'
+
+where ``TEAM_ID`` is similar to ``20aff993-3288-426d-6851-d1d47bb40d80``
 
 **Response**
 
@@ -2535,14 +2559,16 @@ This method has the following parameters:
 
 .. code-block:: xml
 
-   POST /api/orgs/ORG/teams/TEAM/members
+   POST /api/orgs/ORG/teams/TEAM_ID/members
 
 For example:
 
 .. code-block:: bash
 
-   curl -X POST "$API_URL/orgs/ACME/teams/owners/members" \
+   curl -X POST "$API_URL/orgs/acme/teams/TEAM_ID/members" \
    -H "Content-Type: application/json" -u "$API_KEY:" -d '{["bob"]}'
+
+where ``TEAM_ID`` is similar to ``20aff993-3288-426d-6851-d1d47bb40d80``
 
 **Response**
 
@@ -2576,11 +2602,13 @@ The response will return a |json| object similar to:
 
    [
      {
-       "name":"john",
+       "name":"John Doe",
+       "login":"john",
        "id":"2538ac60-4238-4622-69cf-64cc0eea2ae5"
      },
      {
-       "name":"jane",
+       "name":"Jane Doe",
+       "login":"jane-doe",
        "id":"f3a5c286-d4d4-4860-63b0-5dbfb58e5e69"
      }
    ]
@@ -2609,7 +2637,8 @@ The response will return a |json| object similar to:
 .. code-block:: javascript
 
    {
-     "name": "john",
+     "name":"John Doe",
+     "login":"john",
      "id": "2538ac60-4238-4622-69cf-64cc0eea2ae5",
      "preferences": null,
      "permissions": {
@@ -2651,7 +2680,7 @@ For example:
 .. code-block:: bash
 
    curl -X POST "$API_URL/users" \
-   -H "Content-Type: application/json" -u "$API_KEY:" -d '{ "name":"lee","password":"l8dDnwr-0fgh" }'
+   -H "Content-Type: application/json" -u "$API_KEY:" -d '{ "name":"Lee Doe", "login":"lee","password":"l8dDnwr-0fgh" }'
 
 **Response**
 
