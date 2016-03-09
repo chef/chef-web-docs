@@ -10,7 +10,7 @@
 
 Settings
 =====================================================
-.. include:: ../../includes_config/includes_config_rb_12-7_knife_settings.rst
+.. include:: ../../includes_config/includes_config_rb_knife_settings.rst
 
 Proxy Settings
 -----------------------------------------------------
