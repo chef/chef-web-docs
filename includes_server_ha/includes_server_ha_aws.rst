@@ -7,6 +7,6 @@
    :width: 600px
    :align: center
 
-Machines are stored as |amazon ebs| volumes. A passive node monitors the availabilty of the active node, and will take over if required.
+Backend servers make use of a single |amazon ebs| volume.
 
 For more information about |amazon ebs|, see http://aws.amazon.com/ebs/.
