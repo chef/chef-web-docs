@@ -62,7 +62,7 @@ This configuration file has the following settings:
       data_bag_encrypt_version 2
 
 ``fips``
-  |chef_client fips| Default value: ``true``.
+  |chef_client fips| Set to ``true`` to enable |fips|-validated security.
 
 ``local_mode``
    |local_mode| For example:
