@@ -3,7 +3,7 @@
 
 .. note:: The combined configuration places |chef server oec| and |chef analytics| on a single machine for testing purposes. This configuration should not be used in production scenarios.
 
-To set up the |chef analytics| server for a |combined| deployment:
+To set up the |chef analytics| server for a combined deployment:
 
 #. Contact |company_name| and get the package that is appropriate for the |chef server| platform and operating system.
 #. Enable the |chef server| deployment to publish to |chef actions| by adding the following line to ``/etc/opscode/private-chef.rb``:

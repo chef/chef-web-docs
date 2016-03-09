@@ -19,10 +19,10 @@ If the |chef server| is configured to use HTTP, add the following settings:
 ``http_proxy_pass``
    |http_proxy_pass| Default value: ``nil``.
 
-If the |chef server| is configured to use HTTPS (such as the hosted |chef server oec| server), add the following settings:
+If the |chef server| is configured to use HTTPS (such as the hosted |chef server|), add the following settings:
 
 ``https_proxy``
-   |https_proxy| (The hosted |chef server oec| uses an HTTPS connection.) Default value: ``nil``.
+   |https_proxy| (The hosted |chef server| uses an HTTPS connection.) Default value: ``nil``.
 
 ``https_proxy_user``
    |https_proxy_user| Default value: ``nil``.

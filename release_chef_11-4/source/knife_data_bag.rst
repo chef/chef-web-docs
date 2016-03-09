@@ -22,7 +22,7 @@ Syntax
 
 Options
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_11-16_data_bag_create_options.rst
+.. include:: ../../includes_knife/includes_knife_data_bag_create_options_11-16.rst
 
 .. note:: .. include:: ../../includes_knife/includes_knife_common_see_all_config_options.rst
 
@@ -68,7 +68,7 @@ Syntax
 
 Options
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_11-16_data_bag_edit_options.rst
+.. include:: ../../includes_knife/includes_knife_data_bag_edit_options_11-16.rst
 
 .. note:: .. include:: ../../includes_knife/includes_knife_common_see_all_config_options.rst
 
@@ -94,7 +94,7 @@ Syntax
 
 Options
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_11-16_data_bag_from_file_options.rst
+.. include:: ../../includes_knife/includes_knife_data_bag_from_file_options_11-16.rst
 
 .. note:: .. include:: ../../includes_knife/includes_knife_common_see_all_config_options.rst
 
@@ -144,7 +144,7 @@ Syntax
 
 Options
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_11-16_data_bag_show_options.rst
+.. include:: ../../includes_knife/includes_knife_data_bag_show_options_11-16.rst
 
 .. note:: .. include:: ../../includes_knife/includes_knife_common_see_all_config_options.rst
 

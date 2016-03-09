@@ -8,7 +8,7 @@ Periodic backups of |chef server oec| data are an essential part of managing and
 
 High Availability
 =====================================================
-To configure backups on the backend servers in a |ha| configuration, set a |cron| job in ``/etc/cron.d/opc_snapshot`` similar to the following:
+To configure backups on the backend servers in a high availability configuration, set a |cron| job in ``/etc/cron.d/opc_snapshot`` similar to the following:
 
 .. code-block:: bash
 

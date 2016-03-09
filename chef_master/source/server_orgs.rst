@@ -74,7 +74,7 @@ users
 
 .. include:: ../../includes_server_rbac/includes_server_rbac_groups_push_jobs.rst
 
-|reporting_title| Groups
+Reporting Groups
 -----------------------------------------------------
 .. include:: ../../includes_reporting/includes_reporting.rst
 

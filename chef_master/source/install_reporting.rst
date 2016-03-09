@@ -1,5 +1,5 @@
 =====================================================
-Install |reporting_title|
+Install Reporting
 =====================================================
 
 .. include:: ../../includes_reporting/includes_reporting.rst

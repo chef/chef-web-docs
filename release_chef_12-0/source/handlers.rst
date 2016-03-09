@@ -94,11 +94,11 @@ default.rb
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_handler/includes_handler_custom_example_cookbook_versions_recipe.rst
 
-Chef Reporting
+Reporting
 -----------------------------------------------------
 .. include:: ../../includes_handler/includes_handler_custom_example_reporting.rst
 
-.. note:: The start handler used by the |reporting| add-on for |chef server oec| is always installed using the |cookbook chef_client| cookbook.
+.. note:: .. include:: ../../includes_notes/includes_notes_start_handler_for_reporting.rst
 
 start_handler.rb
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

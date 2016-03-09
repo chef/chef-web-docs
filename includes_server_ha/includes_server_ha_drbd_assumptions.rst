@@ -1,7 +1,7 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
-The following assumptions exist when the |chef server| is deployed in a |ha| topology:
+The following assumptions exist when the |chef server| is deployed in a high availability topology:
 
 * The back-end processes run on two hosts: ``BE1`` and ``BE2``. ``BE1`` is the |drbd| primary and the master |chef server|; ``BE2`` is the |drbd| secondary and the |chef server| backup
 * The back-end uses |keepalived| and a dedicated network interface for heartbeat

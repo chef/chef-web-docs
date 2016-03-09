@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-A typical status line for a service that is running in |chef analytics| in a |combined| or |standalone| topology is similar to the following:
+A typical status line for a service that is running in |chef analytics| in a combined or standalone topology is similar to the following:
 
 .. code-block:: bash
 
