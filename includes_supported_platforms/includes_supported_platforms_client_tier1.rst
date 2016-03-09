@@ -1,12 +1,12 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
-.. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics. 
+.. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 The following table lists the Tier 1 supported platforms for the |chef client|:
 
 .. list-table::
    :widths: 280 100 120
    :header-rows: 1
- 
+
    * - Platform
      - Architecture
      - Version
@@ -37,3 +37,9 @@ The following table lists the Tier 1 supported platforms for the |chef client|:
    * - |windows|
      - ``x86``, ``x86_64``
      - ``2008``, ``2008r2``, ``2012``, ``2012r2``, ``7``, ``8``, ``8.1``
+   * - |cisco-nxos|
+     - ``x86_64``
+     - ``7``
+   * - |cisco-iosxr|
+     - ``x86_64``
+     - ``6``
