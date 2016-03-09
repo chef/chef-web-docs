@@ -96,7 +96,7 @@ Options
 =====================================================
 .. note:: .. include:: ../../includes_knife/includes_knife_common_see_common_options_link.rst
 
-.. include:: ../../includes_knife/includes_knife_11-16_search_options.rst
+.. include:: ../../includes_knife/includes_knife_search_options_11-16.rst
 
 Examples
 =====================================================

@@ -21,7 +21,7 @@ Options
 =====================================================
 .. note:: .. include:: ../../includes_knife/includes_knife_common_see_common_options_link.rst
 
-.. include:: ../../includes_knife/includes_knife_12-7_bootstrap_options.rst
+.. include:: ../../includes_knife/includes_knife_bootstrap_options_12-7.rst
 
 .. note:: .. include:: ../../includes_knife/includes_knife_common_see_all_config_options.rst
 

@@ -20,7 +20,7 @@ Subcommands
 
 Verb Subcommands
 =====================================================
-.. include:: ../../includes_knife/includes_knife_11-4_verbs.rst
+.. include:: ../../includes_knife/includes_knife_verbs_11-4.rst
 
 Wildcard Search
 -----------------------------------------------------

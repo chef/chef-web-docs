@@ -20,7 +20,7 @@ Syntax
 
 Options
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_12-3_user_create_options.rst
+.. include:: ../../includes_knife/includes_knife_user_create_options_12-3.rst
 
 .. note:: .. include:: ../../includes_knife/includes_knife_common_see_all_config_options.rst
 

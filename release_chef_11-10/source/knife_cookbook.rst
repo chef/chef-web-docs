@@ -206,7 +206,7 @@ The following examples show how to use this |knife| subcommand:
 
 test
 =====================================================
-.. include:: ../../includes_knife/includes_knife_11-10_cookbook_test.rst
+.. include:: ../../includes_knife/includes_knife_cookbook_test_11-10.rst
 
 Syntax
 -----------------------------------------------------
