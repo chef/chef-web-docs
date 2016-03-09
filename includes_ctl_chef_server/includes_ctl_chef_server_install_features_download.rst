@@ -77,7 +77,7 @@ The ``install`` subcommand downloads packages from https://packagecloud.io/ by d
           $ chef-sync-ctl reconfigure
 
 
-   * - |reporting_title|
+   * - Reporting
      - Use |reporting| to keep track of what happens during every |chef client| runs across all of the infrastructure being managed by |chef|. Run |reporting| with |chef manage| to view reports from a web user interface.
 
        On the |chef server|, run:

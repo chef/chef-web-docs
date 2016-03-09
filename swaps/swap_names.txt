@@ -15,7 +15,6 @@
 .. |api delivery| replace:: Delivery API
 .. |api omnitruck| replace:: Omnitruck API
 .. |api push jobs| replace:: Push Jobs API
-.. |apparmor| replace:: AppArmor
 .. |bento| replace:: Bento
 .. |busser| replace:: Busser
 .. |chef| replace:: Chef
@@ -115,12 +114,10 @@
 .. |push jobs client| replace:: push-jobs-client
 .. |push jobs| replace:: Chef push jobs
 .. |push jobs_title| replace:: Chef Push Jobs
-.. |reporting| replace:: Chef reporting
-.. |reporting_title| replace:: Reporting
+.. |reporting| replace:: Reporting
 .. |reporting ctl| replace:: opscode-reporting-ctl
 .. |rules_analytics| replace:: Rules
 .. |rules_analytics_title| replace:: Rules
-.. |sales_email| replace:: sales@chef.io
 .. |supermarket| replace:: Chef Supermarket
 .. |supermarket ctl| replace:: supermarket-ctl
 .. |support_phone| replace:: 206-508-4799
@@ -136,15 +133,8 @@
 
 .. |shef| replace:: Shef
 
-.. Terms used in Install docs for Private Chef
 
-.. |ha| replace:: High Availability
-.. |standalone| replace:: Standalone
-.. |tiered| replace:: Standalone
 
-.. Terms used in Install docs for Chef Analytics
-
-.. |combined| replace:: Combined
 
 
 .. Resources that are built into the chef-client, plus the chef_handler resource:
@@ -386,6 +376,7 @@
 .. |apache mesos_marathon| replace:: Mesosphere Marathon
 .. |apache tomcat| replace:: Apache Tomcat
 .. |apc| replace:: Alternative PHP Cache
+.. |apparmor| replace:: AppArmor
 .. |apple| replace:: Apple
 .. |apple keynote| replace:: Keynote
 .. |apple safari| replace:: Safari

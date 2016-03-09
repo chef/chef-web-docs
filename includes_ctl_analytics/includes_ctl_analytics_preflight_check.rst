@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The ``preflight-check`` subcommand is check that all configuration files have been copied over from the |chef server| when configured for a |standalone| deployment. This subcommand has the following syntax:
+The ``preflight-check`` subcommand is check that all configuration files have been copied over from the |chef server| when configured for a standalone deployment. This subcommand has the following syntax:
 
 .. code-block:: bash
 

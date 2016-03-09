@@ -2,8 +2,4 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-When running the ``create`` argument, be sure to omit the ``-a`` option:
-
-.. code-block:: bash
-
-   $ knife client create exampleorg -f "/etc/chef/client.pem"
+The start handler used by the |reporting| add-on for the |chef server| is always installed using the |cookbook chef_client| cookbook.
