@@ -359,7 +359,7 @@
 .. |amazon elb| replace:: Amazon Elastic Load Balancing (ELB)
 .. |amazon iam| replace:: Identity and Access Management (IAM)
 .. |amazon linux| replace:: Amazon Linux
-.. |amazon rds| replace:: Amazon Relational Database Service (RDS) 
+.. |amazon rds| replace:: Amazon Relational Database Service (RDS)
 .. |amazon s3| replace:: Amazon Simple Storage Service (S3)
 .. |amazon sns| replace:: Amazon Simple Notification Service (SNS)
 .. |amazon sqs| replace:: Amazon Simple Queue Service (SQS)
@@ -429,6 +429,8 @@
 .. |cisco| replace:: Cisco
 .. |cisco asa| replace:: Cisco ASA
 .. |cisco ucs| replace:: Cisco UCS
+.. |cisco-iosxr| replace:: Cisco IOS XR
+.. |cisco-nxos| replace:: Cisco NX-OS
 .. |clojure| replace:: Clojure
 .. |cloudkick| replace:: Cloudkick
 .. |cloudstack| replace:: CloudStack
@@ -893,4 +895,3 @@
 ..
 
 .. |default bootstrap| replace:: Ubuntu 10.04 with RubyGems
-
