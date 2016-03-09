@@ -85,7 +85,7 @@ The Audit Run
 -----------------------------------------------------
 .. include:: ../../includes_chef_client/includes_chef_client_audit_mode_run.rst
 
-|reporting_title|
+Reporting
 =====================================================
 .. include:: ../../includes_reporting/includes_reporting.rst
 

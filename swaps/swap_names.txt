@@ -15,7 +15,6 @@
 .. |api delivery| replace:: Delivery API
 .. |api omnitruck| replace:: Omnitruck API
 .. |api push jobs| replace:: Push Jobs API
-.. |apparmor| replace:: AppArmor
 .. |bento| replace:: Bento
 .. |busser| replace:: Busser
 .. |chef| replace:: Chef
@@ -115,12 +114,10 @@
 .. |push jobs client| replace:: push-jobs-client
 .. |push jobs| replace:: Chef push jobs
 .. |push jobs_title| replace:: Chef Push Jobs
-.. |reporting| replace:: Chef reporting
-.. |reporting_title| replace:: Reporting
+.. |reporting| replace:: Reporting
 .. |reporting ctl| replace:: opscode-reporting-ctl
 .. |rules_analytics| replace:: Rules
 .. |rules_analytics_title| replace:: Rules
-.. |sales_email| replace:: sales@chef.io
 .. |supermarket| replace:: Chef Supermarket
 .. |supermarket ctl| replace:: supermarket-ctl
 .. |support_phone| replace:: 206-508-4799
@@ -136,15 +133,8 @@
 
 .. |shef| replace:: Shef
 
-.. Terms used in Install docs for Private Chef
 
-.. |ha| replace:: High Availability
-.. |standalone| replace:: Standalone
-.. |tiered| replace:: Standalone
 
-.. Terms used in Install docs for Chef Analytics
-
-.. |combined| replace:: Combined
 
 
 .. Resources that are built into the chef-client, plus the chef_handler resource:
@@ -369,7 +359,7 @@
 .. |amazon elb| replace:: Amazon Elastic Load Balancing (ELB)
 .. |amazon iam| replace:: Identity and Access Management (IAM)
 .. |amazon linux| replace:: Amazon Linux
-.. |amazon rds| replace:: Amazon Relational Database Service (RDS) 
+.. |amazon rds| replace:: Amazon Relational Database Service (RDS)
 .. |amazon s3| replace:: Amazon Simple Storage Service (S3)
 .. |amazon sns| replace:: Amazon Simple Notification Service (SNS)
 .. |amazon sqs| replace:: Amazon Simple Queue Service (SQS)
@@ -386,6 +376,7 @@
 .. |apache mesos_marathon| replace:: Mesosphere Marathon
 .. |apache tomcat| replace:: Apache Tomcat
 .. |apc| replace:: Alternative PHP Cache
+.. |apparmor| replace:: AppArmor
 .. |apple| replace:: Apple
 .. |apple keynote| replace:: Keynote
 .. |apple safari| replace:: Safari
@@ -438,6 +429,8 @@
 .. |cisco| replace:: Cisco
 .. |cisco asa| replace:: Cisco ASA
 .. |cisco ucs| replace:: Cisco UCS
+.. |cisco-iosxr| replace:: Cisco IOS XR
+.. |cisco-nxos| replace:: Cisco NX-OS
 .. |clojure| replace:: Clojure
 .. |cloudkick| replace:: Cloudkick
 .. |cloudstack| replace:: CloudStack
@@ -902,4 +895,3 @@
 ..
 
 .. |default bootstrap| replace:: Ubuntu 10.04 with RubyGems
-

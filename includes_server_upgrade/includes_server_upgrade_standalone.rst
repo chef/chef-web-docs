@@ -1,7 +1,7 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
-The installation process for a |standalone| upgrade of |chef server oec| does not reconfigure |chef server oec| or restart any of the services. This prevents inadvertent fail overs from occurring on |ha| installations.
+The installation process for a standalone upgrade of |chef server oec| does not reconfigure |chef server oec| or restart any of the services. This prevents inadvertent fail overs from occurring on high availability installations.
 
 On |redhat| |rpm| based systems run |rpm| with the appropriate upgrade flags and with the new |rpm| to be installed:
 

@@ -1,5 +1,5 @@
 =====================================================
-|reporting_title|
+Reporting
 =====================================================
 
 .. include:: ../../includes_reporting/includes_reporting.rst

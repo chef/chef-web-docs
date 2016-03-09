@@ -3,7 +3,7 @@
 
 .. note:: This section only applies to the |chef server oec| server, version 11.x.
 
-To configure backups on the backend servers in a |ha| configuration, set a |cron| job in ``/etc/cron.d/opc_snapshot`` similar to the following:
+To configure backups on the backend servers in a high availability configuration, set a |cron| job in ``/etc/cron.d/opc_snapshot`` similar to the following:
 
 .. code-block:: bash
 

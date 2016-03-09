@@ -10,4 +10,4 @@ The hostname for the |chef server| may be specified using a |fqdn| or an IP addr
    
       bookshelf['url'] "https://[2001:db8:85a3:8d3:1319:8a2e:370:7348]"
 
-The ``api_fqdn`` setting can be added to the |enterprise rb| file (it is not there by default). When added, its value should be equal to the |fqdn| or IP address for the service URI used by the |chef server|. Then configure the same value for the ``bookshelf['vip']`` setting prior to installing |chef server oec|. For example: ``api_fqdn "chef.example.com"`` or ``api_fqdn 123.45.67.890``.
+The ``api_fqdn`` setting can be added to the |enterprise rb| file (it is not there by default). When added, its value should be equal to the |fqdn| or IP address for the service URI used by the |chef server|. Then configure the same value for the ``bookshelf['vip']`` setting prior to installing the |chef server|. For example: ``api_fqdn "chef.example.com"`` or ``api_fqdn 123.45.67.890``.

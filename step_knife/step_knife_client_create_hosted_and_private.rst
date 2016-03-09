@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-When running the ``create`` argument on |chef server oec|, be sure to omit the ``-a`` option:
+When running the ``create`` argument, be sure to omit the ``-a`` option:
 
 .. code-block:: bash
 

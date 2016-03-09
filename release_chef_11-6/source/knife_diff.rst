@@ -14,7 +14,7 @@ Options
 =====================================================
 .. note:: .. include:: ../../includes_knife/includes_knife_common_see_common_options_link.rst
 
-.. include:: ../../includes_knife/includes_knife_11-6_diff_options.rst
+.. include:: ../../includes_knife/includes_knife_diff_options_11-6.rst
 
 .. note:: .. include:: ../../includes_knife/includes_knife_common_see_all_config_options.rst
 

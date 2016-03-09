@@ -16,7 +16,7 @@ Uninstall
 =====================================================
 .. include:: ../../includes_ctl_analytics/includes_ctl_analytics_uninstall.rst
 
-|reporting_title|
+Reporting
 =====================================================
 .. include:: ../../includes_ctl_reporting/includes_ctl_reporting_uninstall.rst
 

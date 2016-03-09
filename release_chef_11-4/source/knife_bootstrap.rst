@@ -18,29 +18,29 @@ Options
 =====================================================
 .. note:: .. include:: ../../includes_knife/includes_knife_common_see_common_options_link.rst
 
-.. include:: ../../includes_knife/includes_knife_11-10_bootstrap_options.rst
+.. include:: ../../includes_knife/includes_knife_bootstrap_options_11-10.rst
 
 .. note:: .. include:: ../../includes_knife/includes_knife_common_see_all_config_options.rst
 
 Custom Templates
 =====================================================
-.. include:: ../../includes_knife/includes_knife_11-16_bootstrap_template.rst
+.. include:: ../../includes_knife/includes_knife_bootstrap_template_11-16.rst
 
 Template Locations
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_11-16_bootstrap_template_location.rst
+.. include:: ../../includes_knife/includes_knife_bootstrap_template_location_11-16.rst
 
 Ubuntu 12.04
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_11-16_bootstrap_example_ubuntu.rst
+.. include:: ../../includes_knife/includes_knife_bootstrap_example_ubuntu_11-16.rst
 
 Debian and Apt
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_11-16_bootstrap_example_debian.rst
+.. include:: ../../includes_knife/includes_knife_bootstrap_example_debian_11-16.rst
 
 Microsoft Windows
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_11-16_bootstrap_example_windows.rst
+.. include:: ../../includes_knife/includes_knife_bootstrap_example_windows_11-16.rst
 
 Examples
 =====================================================

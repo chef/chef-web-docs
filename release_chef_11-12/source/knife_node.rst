@@ -153,7 +153,7 @@ Syntax
 
 Options
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_11-10_node_run_list_add_options.rst
+.. include:: ../../includes_knife/includes_knife_node_run_list_add_options_11-10.rst
 
 .. note:: .. include:: ../../includes_knife/includes_knife_common_see_all_config_options.rst
 

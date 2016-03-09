@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The ``ha-status`` subcommand is used to check the status for services running in a |ha| topology. This command will verify the following:
+The ``ha-status`` subcommand is used to check the status for services running in a high availability topology. This command will verify the following:
 
 * The |keepalived| daemon is enabled in the config
 * The |drbd| process is enabled in the config

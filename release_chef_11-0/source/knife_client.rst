@@ -34,7 +34,7 @@ Syntax
 
 Options
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_11-10_client_create_options.rst
+.. include:: ../../includes_knife/includes_knife_client_create_options_11-10.rst
 
 .. note:: .. include:: ../../includes_knife/includes_knife_common_see_all_config_options.rst
 
