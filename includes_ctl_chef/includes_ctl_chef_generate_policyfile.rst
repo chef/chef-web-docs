@@ -2,4 +2,4 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-Use the ``chef generate recipe`` subcommand to generate a recipe in the ``/recipes`` directory.
+Use the ``chef generate policyfile`` subcommand to generate a file to be used with |policyfile|.

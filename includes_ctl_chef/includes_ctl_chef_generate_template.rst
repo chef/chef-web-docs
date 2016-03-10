@@ -2,4 +2,4 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The ``chef generate template`` subcommand is used to generate a template in the ``/templates`` directory.
+Use the ``chef generate template`` subcommand to generate a template in the ``/templates`` directory.
