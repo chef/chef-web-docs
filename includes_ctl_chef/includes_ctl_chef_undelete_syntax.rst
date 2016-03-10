@@ -2,4 +2,10 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-Use the ``chef generate recipe`` subcommand to generate a recipe in the ``/recipes`` directory.
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ chef undelete (options)
+
+When run with no arguments, returns a list of available operations.

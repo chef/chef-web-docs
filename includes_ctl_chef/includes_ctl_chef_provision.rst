@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The ``chef provision`` subcommand is used to invoke an embedded |chef client| run to provision machines using |chef provisioning|. By default, this subcommand expects to find a cookbook named ``provision`` in the current working directory. The |chef client| run will run a recipe in this cookbook that uses |chef provisioning| to create one (or more) machines.
+Use the ``chef provision`` subcommand to invoke an embedded |chef client| run to provision machines using |chef provisioning|. By default, this subcommand expects to find a cookbook named ``provision`` in the current working directory. The |chef client| run will run a recipe in this cookbook that uses |chef provisioning| to create one (or more) machines.
 
 The ``chef provision`` subcommand is intended to:
 
