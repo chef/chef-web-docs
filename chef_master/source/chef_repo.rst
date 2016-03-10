@@ -58,13 +58,9 @@ Create the |chef repo|
 =====================================================
 .. include:: ../../includes_chef_repo/includes_chef_repo_create.rst
 
-Clone
+Generate
 -----------------------------------------------------
-.. include:: ../../step_chef_repo/step_chef_repo_create_clone.rst
-
-Download
------------------------------------------------------
-.. include:: ../../step_chef_repo/step_chef_repo_create_download.rst
+.. include:: ../../step_chef_repo/step_chef_repo_generate_repo.rst
 
 Use |git|
 =====================================================
