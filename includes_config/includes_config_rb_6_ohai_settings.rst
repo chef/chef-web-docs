@@ -1,5 +1,5 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
-.. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
+.. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics. 
 
 
 ``Ohai::Config[:directory]``
@@ -28,7 +28,7 @@
 
    .. code-block:: ruby
 
-      [2014-06-13T23:49:12+00:00] DEBUG: Skipping disabled plugin my_plugin 
+      [2014-06-13T23:49:12+00:00] DEBUG: Skipping disabled plugin my_plugin
 
 ``Ohai::Config[:hints_path]``
    |path hint_ohai|
