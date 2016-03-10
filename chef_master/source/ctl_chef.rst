@@ -260,6 +260,39 @@ Examples
 -----------------------------------------------------
 None.
 
+chef generate policyfile
+=====================================================
+.. include:: ../../includes_ctl_chef/includes_ctl_chef_generate_policyfile.rst
+
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef/includes_ctl_chef_generate_policyfile_syntax.rst
+
+Options
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef/includes_ctl_chef_generate_policyfile_options.rst
+
+Examples
+-----------------------------------------------------
+None.
+
+
+chef generate repo
+=====================================================
+.. include:: ../../includes_ctl_chef/includes_ctl_chef_generate_repo.rst
+
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef/includes_ctl_chef_generate_repo_syntax.rst
+
+Options
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef/includes_ctl_chef_generate_repo_options.rst
+
+Examples
+-----------------------------------------------------
+None.
+
 
 chef generate template
 =====================================================
@@ -429,6 +462,23 @@ Syntax
 Options
 -----------------------------------------------------
 .. include:: ../../includes_ctl_chef/includes_ctl_chef_show_policy_options.rst
+
+Examples
+-----------------------------------------------------
+None.
+
+
+chef undelete
+=====================================================
+.. include:: ../../includes_ctl_chef/includes_ctl_chef_undelete.rst
+
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef/includes_ctl_chef_undelete_syntax.rst
+
+Options
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef/includes_ctl_chef_undelete_options.rst
 
 Examples
 -----------------------------------------------------

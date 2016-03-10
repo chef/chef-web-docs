@@ -2,4 +2,4 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The ``chef env`` subcommand is used to configure the environment for the |chef dk|.
+Use the ``chef env`` subcommand to configure the environment for the |chef dk|.
