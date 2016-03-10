@@ -21,6 +21,9 @@ Read more about |chef delivery|:
 * :doc:`Install Chef Delivery using SSH </install_delivery_ssh>`
 * Integrate |chef delivery| with :doc:`Github </integrate_delivery_github>` and :doc:`LDAP </integrate_delivery_ldap>`
 * :doc:`Manage Users and Roles </delivery_users_and_roles>`
+* :doc:`Manage Dependencies </delivery_manage_dependencies>`
+* :doc:`Manage Secrets </delivery_manage_secrets>`
+* :doc:`Configure a Delivery Pipeline </delivery_configure_pipeline>`
 * :doc:`About Build Cookbooks </build_cookbooks>`
 * :doc:`About the Delivery CLI </ctl_delivery>`
 * :doc:`About delivery-ctl </ctl_delivery_server>`
