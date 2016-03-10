@@ -5,7 +5,7 @@
 This configuration file has the following settings:
 
 ``command_port``
-   The port on which a |push jobs| server listens for requests that are to be executed on managed nodes. Default value: ``10003``.
+   The port on which a |push jobs| server listens for requests that are to be executed on managed nodes. Default value: ``10002``.
 
 ``heartbeat_interval``
    The frequency of the |push jobs| server heartbeat message. Default value: ``1000`` (milliseconds).
