@@ -17,14 +17,18 @@
         "url": "/release/delivery/delivery_overview.html"
       },
       {
-        "title": "Install Delivery w/AWS",
-        "hasSubItems": false,
-        "url": "/release/delivery/install_delivery_aws.html"
-      },
-      {
-        "title": "Install Delivery w/SSH",
-        "hasSubItems": false,
-        "url": "/release/delivery/install_delivery_ssh.html"
+        "title": "Install Delivery",
+        "hasSubItems": true,
+        "subItems": [
+        {
+          "title": "Install Delivery w/AWS",
+          "url": "/release/delivery/install_delivery_aws.html"
+        },
+        {
+          "title": "Install Delivery w/SSH",
+          "url": "/release/delivery/install_delivery_ssh.html"
+        }
+        ]
       },
       {
         "title": "Integrations",
@@ -41,13 +45,30 @@
           {
             "title": "LDAP",
             "url": "/release/delivery/integrate_delivery_ldap.html"
-          },
+          }
         ]
       },
       {
-        "title": "Build Cookbooks",
-        "hasSubItems": false,
-        "url": "/release/delivery/build_cookbooks.html"
+        "title": "Use Delivery",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "Build Cookbooks",
+            "url": "/release/delivery/build_cookbooks.html"
+          },
+          {
+            "title": "Configure a Pipeline",
+            "url": "/release/delivery/delivery_configure_pipeline.html"
+          },
+          {
+            "title": "Manage Dependencies",
+            "url": "/release/delivery/delivery_manage_dependencies.html"
+          },
+          {
+            "title": "Manage Secrets",
+            "url": "/release/delivery/delivery_manage_secrets.html"
+          }
+        ]
       },
       {
         "title": "Manage Users &amp; Roles",
@@ -55,20 +76,24 @@
         "url": "/release/delivery/delivery_users_and_roles.html"
       },
       {
-        "title": "Delivery DSL",
-        "hasSubItems": false,
-        "url": "/release/delivery/dsl_delivery.html"
-      },
-      {
-        "title": "Delivery CLI",
-        "hasSubItems": false,
-        "url": "/release/delivery/ctl_delivery.html"
-      },
-      {
-        "title": "delivery-ctl",
-        "hasSubItems": false,
-        "url": "/release/delivery/ctl_delivery_server.html"
-      },
+        "title": "Reference",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "Delivery DSL",
+            "url": "/release/delivery/dsl_delivery.html"
+          },
+          {
+            "title": "Delivery CLI",
+            "url": "/release/delivery/ctl_delivery.html"
+          },
+          {
+            "title": "delivery-ctl",
+            "url": "/release/delivery/ctl_delivery_server.html"
+          }
+        ]
+      }
+
     ]
   },
 ] -%}

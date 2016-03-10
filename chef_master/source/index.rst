@@ -81,7 +81,7 @@ The |chef server_title|
 
 **Settings and Tools:** :doc:`chef-server.rb </config_rb_server>` | :doc:`chef-server-ctl </ctl_chef_server>` | :doc:`manage.rb </config_rb_manage>` | :doc:`chef-sync.rb </config_rb_chef_sync>` | :doc:`chef-sync-ctl </ctl_chef_sync>` | :doc:`opscode-expander-ctl </ctl_opscode_expander>` | :doc:`opscode-reporting-ctl </ctl_reporting>`
 
-**APIs:** :doc:`Chef Server API </api_chef_server>` | :doc:`Cookbooks Site API </api_cookbooks_site>` 
+**APIs:** :doc:`Chef Server API </api_chef_server>` | :doc:`Cookbooks Site API </api_cookbooks_site>`
 
 Server Essentials
 -----------------------------------------------------
@@ -198,6 +198,10 @@ Chef Compliance
    delivery
    delivery_cookbooks
    delivery_users_and_roles
+   delivery_configure_pipeline
+   delivery_manage_dependencies
+   delivery_manage_secrets
+   delivery_truck
    dsl_compliance
    dsl_custom_resource
    dsl_delivery

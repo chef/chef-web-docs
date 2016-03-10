@@ -6,7 +6,7 @@
 
 This topic describes the recommended setup for a |chef| cookbook project using |chef delivery|.
 
-The following example shows how to create a cookbook, with project and pipeline, configure it to be built with ``delivery-truck`` (the open source build cookbook for |chef delivery|), and then import it into |chef delivery|. From your workstation, do the following:
+The following example shows how to create a cookbook, with project and pipeline, configure it to be built with |chef delivery_short|, and then imported it into |chef delivery| itself. From your workstation, do the following:
 
 #. Make a working directory (``workspace`` in the example):
 
@@ -53,3 +53,5 @@ The following example shows how to create a cookbook, with project and pipeline,
       $ delivery init
 
    This creates a new project in |chef delivery|, pushes the master branch, creates a feature branch, generates a default |chef delivery| project configuration file, pushes the first change for review, and then opens a browser window that shows the change.
+
+#. Now that you have initialized your project, it is recommended that you integrate the delivery-truck cookbook with your project. Delivery Truck can ensure good build cookbook behavior as well as provide you with recipes already set up to test your project cookbooks and applications. See :doc:`/delivery_truck` for more information.
