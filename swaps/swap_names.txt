@@ -297,10 +297,6 @@
 .. |chef validator pem| replace:: chef-validator.pem
 .. |client rb| replace:: client.rb
 .. |config rb| replace:: config.rb
-.. |cookbook type_app| replace:: application
-.. |cookbook type_base| replace:: base
-.. |cookbook type_policy| replace:: policy
-.. |cookbook type_wrapper| replace:: wrapper
 .. |dockerfile| replace:: Dockerfile
 .. |enterprise rb| replace:: private-chef.rb
 .. |erb chef_full| replace:: chef-full.erb
@@ -313,6 +309,7 @@
 .. |metadata rb| replace:: metadata.rb
 .. |metadata json| replace:: metadata.json
 .. |organization pem| replace:: ORGANIZATION-validator.pem
+.. |policyfile| replace:: Policyfile
 .. |policyfile rb| replace:: Policyfile.rb
 .. |policylock| replace:: Policyfile.lock.json
 .. |private chef rb| replace:: private-chef.rb

@@ -2,4 +2,4 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The ``chef generate cookbook`` subcommand is used to generate a cookbook.
+Use the ``chef generate cookbook`` subcommand to generate a cookbook.
