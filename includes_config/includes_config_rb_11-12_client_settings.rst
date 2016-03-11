@@ -71,6 +71,8 @@ This configuration file has the following settings:
 ``file_atomic_update``
    |file atomic_update| Default value: ``true``.
 
+   .. warning:: .. include:: ../../includes_notes/includes_notes_config_rb_no_file_atomic_update.rst
+
 ``file_backup_path``
    |path file_backup| Default value: ``/var/chef/backup``.
 
