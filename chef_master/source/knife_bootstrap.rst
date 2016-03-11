@@ -30,6 +30,14 @@ Validatorless Bootstrap
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_chef_vault/includes_chef_vault_knife_bootstrap_options.rst
 
+FIPS Mode
+-----------------------------------------------------
+.. include:: ../../includes_chef_client/includes_chef_client_fips_mode.rst
+
+**Bootstrap a node using FIPS**
+
+.. include:: ../../step_knife/step_knife_bootstrap_node_fips.rst
+
 Custom Templates
 =====================================================
 .. include:: ../../includes_knife/includes_knife_bootstrap_template.rst
