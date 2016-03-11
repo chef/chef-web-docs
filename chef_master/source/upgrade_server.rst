@@ -137,17 +137,23 @@ To upgrade to |chef server| 12 from the |chef server osc| server, do the followi
 =====================================================
 |chef manage| can be upgraded as part of a standalone or high availability configuration:
 
-#. After upgrading the |chef server|, run the following command on each of the front end servers:
+#. After upgrading the |chef server|, upgrade each of the front end servers. For |redhat| and |centos| 6:
 
    .. code-block:: bash
 
       $ chef-server-ctl install opscode-manage
 
+   For |ubuntu|, for the |chef manage| 1.x to 2.x:
+
+   .. code-block:: bash
+      
+      $ apt-get install chef-manage
+
 #. Reconfigure each of the front end servers:
 
    .. code-block:: bash
 
-      $ opscode-manage-ctl reconfigure
+      $ chef-manage-ctl reconfigure
 
 
 
