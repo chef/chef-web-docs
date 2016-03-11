@@ -131,24 +131,24 @@ And add this content, which will execute the ``default`` recipe of the ``superma
 
         include_recipe 'supermarket-omnibus-cookbook'
 
-Next we need to define the attributes for the Supermarket installation and how it connects to the Chef Server. One solution is to hard code attributes in the wrapper cookbook’s default recipe, but a better practice is to place the attributes in a data bag (or encrypted data bag or vault), then reference them in them recipe.
+Next define the attributes for the Supermarket installation and how it connects to the Chef Server. One solution is to hard code attributes in the wrapper cookbook’s default recipe, but a better practice is to place the attributes in a data bag (or encrypted data bag or vault), then reference them in them recipe.
 
-At a minimum, we must define the chef_server_url, chef_oauth2_app, chef_oauth2_secret attributes.
+At a minimum, ``chef_server_url``, ``chef_oauth2_app``, ``chef_oauth2_secret`` attributes must be defined.
 
-So let’s open up the default recipe again:
+Edit the default recipe again:
 
    .. code-block:: bash
 
       $ (your workstation) vim recipes/default.rb
 
-And let’s pretend we have a data bag called ``apps``, with an item in it called ``supermarket``:
+And assume for the moment that there is a data bag called ``apps``, with an item in it called ``supermarket``:
 
    .. code-block:: ruby
 
         # calling the data bag
         app = data_bag_item('apps', 'supermarket')
 
-Then let’s add in attributes we want to use from the databag:
+Then set attributes from the databag:
 
    .. code-block:: ruby
 
@@ -158,14 +158,15 @@ Then let’s add in attributes we want to use from the databag:
         node.set['supermarket_omnibus']['chef_oauth2_app_id'] = app['app_id']
         node.set['supermarket_omnibus']['chef_oauth2_secret'] = app['secret']
 
-Go ahead and save and close the file.
-Now, let’s install the dependent cookbooks in supermarket-omnibus-cookbook.
+Save and close the file.
+
+Now, retrieve the cookbooks on which ``supermarket-omnibus-cookbook`` depends.
 
    .. code-block:: bash
 
       $ (your workstation) berks install
 
-Now we need to upload all dependent cookbooks to the Chef Server (NOTE: There is more than one way to do this, use whatever works best for you and your team’s workflow).
+Upload all dependent cookbooks to the Chef Server (There is more than one way to do this, use whatever works best for you and your team’s workflow).
 
    .. code-block:: bash
 
@@ -179,7 +180,7 @@ Then upload the wrapper cookbook (again, there is more than one way of doing thi
       $ (your workstation) cd path/to/wrapper/cookbook/
       $ (your workstation) knife cookbook upload -a
 
-Now let’s bootstrap our Supermarket node with the Chef Server. If we had an ubuntu node in AWS, we would bootstrap it like this:
+Now bootstrap the Supermarket node with the Chef Server. For example, an ubuntu node in AWS would bootstrap like this:
 
    .. code-block:: bash
 
@@ -191,7 +192,7 @@ Now let’s bootstrap our Supermarket node with the Chef Server. If we had an ub
 
       # --sudo runs the bootstrap command as sudo on the node
 
-Once bootstrapping is complete, we edit the new supermarket node
+Once bootstrapping is complete, edit the new supermarket node
 
    .. code-block:: bash
 
@@ -205,13 +206,13 @@ And add the wrapper’s default recipe to the supermarket-node’s run list then
           "recipe[my_supermarket_wrapper::default]"
         ]
 
-Now we ssh into the Supermarket node
+Now start a chef-client run on the Supermarket node. One way is to ssh to the Supermarket host.
 
    .. code-block:: bash
 
       $ (your workstation) ssh ubuntu@your-supermarket-node-public-dns
 
-And once we’re in the node, we run chef-client. This will install and configure Supermarket.
+And once on the host, run chef-client. This will install and configure Supermarket.
 
    .. code-block:: bash
 
@@ -223,12 +224,11 @@ Using Private Supermarket
 Connecting to Supermarket
 -----------------------------------------------------
 
-When we’re ready to use our newly spun up Private Supermarket, we need to open up ``/etc/hosts`` on our local workstation (the workstation we’ll be uploading cookbooks from to Supermarket) and add an entry for our Supermarket instance:::
+To reach the newly spun up Private Supermarket, the Supermarket host's hostname must be resolvable from the workstation. The Private Supermarket hostname could be added to the workstation's ``/etc/hosts`` for testing purposes, but for production use, the hostname should have a DNS entry in an appropriate domain that users' workstations trust.
 
-      # Supermarket ip address Supermarket hostname
-      00.00.000.000 supermarket-hostname
+Visit the Supermarket hostname in the browser. A Private Supermarket will generate and use a self-signed certificate, if not supplied a certificate via the wrapper cookbook. If you receive an SSL warning while testing, accept the SSL certificate in your browser. A trusted SSL certificate should be used for production Private Supermarkets.
 
-After saving and closing the file, we visit the Supermarket hostname in the browser (Supermarket by default uses a self-signed certificate, if we receive a warning we need to accept the SSL certificate) then click the “Create Account” link. If not already logged into the Chef Server, we will be prompted to do so. Then we need to authorize the supermarket app to use our Chef Server account and we’re in!
+Click the “Create Account” link. If not already logged into the Chef Server, you will be prompted to do so. Then authorize the Supermarket application to use your Chef Server account for authentication.
 
 Interacting with Cookbooks on Supermarket
 -----------------------------------------------------
