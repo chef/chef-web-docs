@@ -16,14 +16,9 @@ The following items are new for |chef client| 12.8 and/or are changes from previ
 * **Ohai auto-detects hosts for Azure instances** |ohai| will auto-detect hosts for instances that are hosted by |azure|.
 
 
-
-
 |fips| Mode
 -----------------------------------------------------
 .. include:: ../../includes_chef_client/includes_chef_client_fips_mode.rst
-
-.. update knife_common_options, chef-client options, chef-client configuration settings, knife bootstrap options (enables FIPS as default at `/etc/chef/client.rb` on nodes)
-.. for command option and config settings, add this note: 'This option requires |chef client| 12.8 (or higher). Using this option with older versions of the |chef client| will raise an error: "FIPS mode requested, but not supported by this client."'
 
 Enable FIPS Mode
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -46,7 +41,6 @@ The following configuration setting may be set in the |knife rb|, |client rb|, o
 
 ``fips``
   |chef_client fips| Set to ``true`` to enable |fips|-validated security.
-
 
 
 launchd
@@ -79,8 +73,6 @@ Examples
 **Remove a Launch Daemon**
 
 .. include:: ../../step_resource/step_resource_launchd_remove.rst
-
-
 
 
 Changelog

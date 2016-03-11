@@ -11,6 +11,7 @@ For more information about specific resources for specific platforms, see the fo
 * :doc:`apt_package </resource_apt_package>`
 * :doc:`bff_package </resource_bff_package>`
 * :doc:`chef_gem </resource_chef_gem>`
+* :doc:`chocolatey_package </resource_chocolatey_package>`
 * :doc:`dpkg_package </resource_dpkg_package>`
 * :doc:`easy_install_package </resource_easy_install_package>`
 * :doc:`freebsd_package </resource_freebsd_package>`
