@@ -62,6 +62,15 @@ This configuration file has the following settings:
 
       description 'A fancy cookbook that manages a herd of cats!'
 
+``gem``
+   Specifies a gem dependency to be installed via the |resource chef_gem| resource after all cookbooks are synchronized, but before any other cookbook loading is done. Use this attribute once per gem dependency. For example:
+
+   .. code-block:: ruby
+
+      gem "poise"
+      gem "chef-sugar"
+      gem "chef-provisioning"
+
 ``grouping``
    |grouping| For example:
 
