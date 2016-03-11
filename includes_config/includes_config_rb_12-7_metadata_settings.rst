@@ -62,9 +62,6 @@ This configuration file has the following settings:
 
       description 'A fancy cookbook that manages a herd of cats!'
 
-``gem``
-   .. include:: ../../includes_config/includes_config_rb_metadata_settings_gem.rst
-
 ``grouping``
    |grouping| For example:
 

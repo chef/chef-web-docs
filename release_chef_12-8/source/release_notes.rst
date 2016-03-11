@@ -15,6 +15,7 @@ The following items are new for |chef client| 12.8 and/or are changes from previ
 * **chef-zero support for Chef Server API endpoints** |chef zero| now supports using all |api chef server| version 12 endpoints, with the exception of ``/universe``.
 * **Updated support for OpenSSL** |open ssl| is updated to version 1.0.1.
 * **Ohai auto-detects hosts for Azure instances** |ohai| will auto-detect hosts for instances that are hosted by |azure|.
+* **gem attribute added to metadata.rb** Specify a gem dependency to be installed via the |resource chef_gem| resource after all cookbooks are synchronized, but before any other cookbook loading is done.
 
 
 |fips| Mode
@@ -99,6 +100,10 @@ Examples
 **Remove a Launch Daemon**
 
 .. include:: ../../step_resource/step_resource_launchd_remove.rst
+
+gem, metadata.rb
+-----------------------------------------------------
+.. include:: ../../includes_config/includes_config_rb_metadata_settings_gem.rst
 
 
 Changelog
