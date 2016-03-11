@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The ``updated_by_last_action`` method is used to notify a custom resource that a node was updated successfully. For example, the ``cron_d`` lightweight resource in the ``cron`` cookbook: 
+The ``updated_by_last_action`` method is used to notify a custom resource that a node was updated successfully. For example, the ``cron_d`` custom resource in the ``cron`` cookbook: 
 
 .. code-block:: ruby
 
