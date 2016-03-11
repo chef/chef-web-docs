@@ -57,6 +57,9 @@ where:
         - platform-version
         - platform-version       # for additional platforms
 
+Examples
+---------
+
 For example, a very simple |kitchen yml| file:
 
 .. code-block:: yaml
@@ -81,3 +84,15 @@ For example, a very simple |kitchen yml| file:
 
 This file uses |vagrant| as the driver, which requires no additional configuration because it's the default driver used by |kitchen|, |chef zero| as the provisioner, and a single (default) test suite that runs on |ubuntu| 12.04, and |centos| 6.4.
 
+As another example, let's specify a provisioner block in a |kitchen yml| file with no Berkshelf, and allow multiple cookbooks and cookbook paths (Not intended Test-Kitchen behavior)
+
+.. code-block:: yaml
+
+   provisioner:
+     name: chef_solo
+     roles_path: '../../roles'
+     data_bags_path: '../../data_bags'
+     environments_path: '../../environments'
+     cookbooks_path:
+       - ../cookbooks
+       - ../../site-cookbooks
