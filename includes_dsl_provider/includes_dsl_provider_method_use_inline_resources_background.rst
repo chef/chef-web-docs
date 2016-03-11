@@ -4,7 +4,7 @@
 
 The reason why the ``use_inline_resources`` method exists at all is due to how the |chef client| processes resources. Currently, the default behavior of the |chef client| processes a single collection of resources, converged on the node in order.
 
-A lightweight resource is often implemented using the core |chef client| resources---|resource file|, |resource template|, |resource package|, and so on---as building blocks. A lightweight resource is then added to a recipe using the short name of the lightweight resource in the recipe (and not by using any of the building block resource components). 
+A custom resource is often implemented using the core |chef client| resources---|resource file|, |resource template|, |resource package|, and so on---as building blocks. A custom resource is then added to a recipe using the short name of the custom resource in the recipe (and not by using any of the building block resource components). 
 
 This situation can create problems with notifications because the |chef client| includes embedded resources in the "single collection of resources" *after* the parent resource has been fully evaluated.
 
@@ -50,9 +50,9 @@ And then in the recipe:
      action :nothing
    end
 
-This approach works, but only when the author of the lightweight resource knows what should be notified in advance of the |chef client| run. Consequently, this is less-than-ideal for most situations.
+This approach works, but only when the author of the custom resource knows what should be notified in advance of the |chef client| run. Consequently, this is less-than-ideal for most situations.
 
-Using the ``use_inline_resources`` method will ensure that the |chef client| processes a lightweight resource as if it were its own resource collection---a "mini |chef client| run", effectively---that is converged *before* the |chef client| finishes evaluating the parent lightweight resource. This ensures that any notifications that may exist in the embedded resources are processed as if they were notifications on the parent lightweight resource. For example:
+Using the ``use_inline_resources`` method will ensure that the |chef client| processes a custom resource as if it were its own resource collection---a "mini |chef client| run", effectively---that is converged *before* the |chef client| finishes evaluating the parent custom resource. This ensures that any notifications that may exist in the embedded resources are processed as if they were notifications on the parent custom resource. For example:
 
 .. code-block:: ruby
 
