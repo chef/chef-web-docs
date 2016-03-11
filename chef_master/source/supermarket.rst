@@ -70,14 +70,14 @@ To set up |chef identity|, do the following:
   nodes.
 
 Preparing Your Supermarket
-=====================================================
+-----------------------------------------------------
 
 The best cookbook to use to set up a Supermarket is ``supermarket-omnibus-cookbook`` `found in the public Supermarket <https://supermarket.chef.io/cookbooks/supermarket-omnibus-cookbook>`_. This cookbook is attribute driven, so it's recommended that you use a wrapper cookbook to supply your customized attributes.
 
 .. note:: The ``supermarket`` cookbook available on the public Supermarket installs |supermarket| from source and is no longer recommended. Instead, use an omnibus package to install |supermarket| with the ``supermarket-omnibus-cookbook``. Omnibus packages are located on |packagecloud| at https://packagecloud.io/chef/.
 
 Overview of a Wrapper Cookbook
------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Let’s go through the layers of the wrapper cookbook, cookbook, and internal cookbook within the Omnibus package.
 
@@ -93,7 +93,7 @@ Let’s go through the layers of the wrapper cookbook, cookbook, and internal co
 #. Finally, we have the Supermarket omnibus rpm or deb package. This package has an internal chef cookbook which configures the already-installed package using the attributes defined in ``/etc/supermarket/supermarket.json``. When this internal cookbook is run, it is very similar to running chef solo on a server.
 
 Creating the wrapper cookbook
------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 On your workstation, generate a new cookbook.
 
@@ -219,10 +219,10 @@ And once on the host, run chef-client. This will install and configure Supermark
       $ (your supermarket node) sudo chef-client
 
 Using Private Supermarket
-=====================================================
+-----------------------------------------------------
 
 Connecting to Supermarket
------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 To reach the newly spun up Private Supermarket, the Supermarket host's hostname must be resolvable from the workstation. The Private Supermarket hostname could be added to the workstation's ``/etc/hosts`` for testing purposes, but for production use, the hostname should have a DNS entry in an appropriate domain that users' workstations trust.
 
@@ -231,7 +231,7 @@ Visit the Supermarket hostname in the browser. A Private Supermarket will genera
 Click the “Create Account” link. If not already logged into the Chef Server, you will be prompted to do so. Then authorize the Supermarket application to use your Chef Server account for authentication.
 
 Interacting with Cookbooks on Supermarket
------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 The best current and Chef supported way to interact with a private Supermarket is with the knife-supermarket plugin. (NOTE: Other tools can be used and we will go over those a little later).
 
@@ -299,10 +299,10 @@ Now let’s try sharing the cookbook again and we should see a success message:
       Upload complete!
 
 Managing Private Supermarket
-=====================================================
+-----------------------------------------------------
 
 supermarket-ctl
------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 We can manage services and other settings of our instance with supermarket-ctl commands.
 
@@ -324,20 +324,20 @@ Here’s what we would see when using supermarket-ctl restart on a supermarket s
       ok: run: sidekiq: (pid 1238) 0s
 
 Monitoring
------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 By default every installation of Supermarket includes a Monitoring URL at https://your_private_supermarket/status.
 
 Other Tools With Private Supermarket
-=====================================================
+-----------------------------------------------------
 
 Stove
------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Stove is an alternate utility for releasing and managing Chef Cookbooks.
 
 Berkshelf
------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Berkshelf can include multiple Supermarkets for dependency resolution. Cookbook dependency resolution is performed from the top down – the first source defined in the Berksfile will be searched for the cookbook before the second source.
 
@@ -350,10 +350,10 @@ This Berksfile would first look for the cookbook on the private Supermarket and,
 
 
 Further Customizing a Private Supermarket
-=====================================================
+-----------------------------------------------------
 
 Configure an external database
------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Supermarket installations can use an external database (we use Amazon RDS for the Public Supermarket). To configure this, we would need to configure the following attributes in the default recipe of the wrapper cookbook.
 
@@ -368,7 +368,7 @@ Supermarket installations can use an external database (we use Amazon RDS for th
         node.set['supermarket_omnibus']['database']['password'] = 'topsecretneverguessit'
 
 Configure an external cache
------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Supermarket installations can also use an external cache store. Public Supermarket uses redis on Amazon Elasticache. To configure this, we would need to configure the following attributes in the default recipe of the wrapper cookbook.
 
@@ -378,7 +378,7 @@ Supermarket installations can also use an external cache store. Public Supermark
         node.set['supermarket_omnibus']['redis_url'] = 'redis://your-redis-instance:6379'
 
 Configure cookbook storage
------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Cookbook artifacts (the tar.gz artifacts which are uploaded to Supermarket when sharing a cookbook) can be stored either on the local filesystem of the Supermarket node (this is the default) or in an Amazon S3 bucket.
 
@@ -391,7 +391,7 @@ If we were using an Amazon S3 bucket, we would configure the following attribute
         node.set['supermarket_omnibus']['s3_access_key_id'] = 'yoursecretaccesskey'
 
 Additional Configuration Options
------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 For additional configuration options for a private Supermarket, please consult `the list of default attributes <https://github.com/chef/omnibus-supermarket/blob/master/cookbooks/omnibus-supermarket/attributes/default.rb>`_ included with Omnibus Supermarket. And of these attributes can be configured.
 
