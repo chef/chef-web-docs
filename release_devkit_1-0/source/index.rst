@@ -275,6 +275,7 @@ The following tools have been developed by members of the |chef| community. Thes
    resource_chef_organization
    resource_chef_role
    resource_chef_user
+   resource_chocolatey_package
    resource_common
    resource_cookbook_file
    resource_cron
