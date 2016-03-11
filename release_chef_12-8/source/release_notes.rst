@@ -57,16 +57,16 @@ The |chef client| supports reading multiple configuration files by putting them 
 
 (There is no support for a ``knife.d`` directory; use ``config.d`` instead.)
 
-For example, when using |knife|, all of the following configuration files are located in the ``/etc/chef/client.d`` directory:
+For example, when using |knife|, the following configuration files would be loaded:
 
 * ``~/.chef/config.rb``
 * ``~/.chef/config.d/company_settings.rb``
 * ``~/.chef/config.d/ec2_configuration.rb``
 * ``~/.chef/config.d/old_settings.rb.bak``
 
-The ``config.rb``, ``company_settings.rb``, and ``ec2_configuration`` files are merged together as if they were a single configuration file. The ``old_settings.rb.bak`` file is ignored.
+The ``old_settings.rb.bak`` file is ignored because it's not a configuration file. The ``config.rb``, ``company_settings.rb``, and ``ec2_configuration`` files are merged together as if they are a single configuration file.
 
-.. note:: If ``knife.rb``, ``client.rb``, and/or ``config.rb`` files are all present in the same ``.d`` directory, ensure that if the a setting has the same value specified in all configuration files in which it's specified. Or (preferably) use only the ``config.rb`` file to specify |chef|-specific settings, and then deprecate the use of the ``client.rb`` and ``knife.rb`` files.
+.. note:: If multiple configuration files exists in a ``.d`` directory, ensure that the same setting has the same value in all files.
 
 
 launchd
