@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The ``admins`` group is assigned permissions to the following groups by default:
+The ``admins`` group is assigned the following:
 
 .. list-table::
    :widths: 160 100 100 100 100 100

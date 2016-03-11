@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The ``users`` group is assigned the following permissions by default to objects on the |chef server|:
+The ``users`` group is assigned the following:
 
 .. list-table::
    :widths: 160 100 100 100 100
