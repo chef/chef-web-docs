@@ -345,47 +345,11 @@ Examples
 
 **Create a machine with lock file, synchronized to the Chef server**
 
-.. code-block:: ruby
-
-   with_driver 'vagrant:~/.vagrant.d/boxes' do
-   
-     # Set machine options
-     options = {
-       vagrant_options: { 'vm.box' => 'opscode-ubuntu-14.04' },
-       # Set all machine options to default values
-       convergence_options: ChefDK::ProvisioningData.context.convergence_options
-     }
-   
-     # Set node name to --node-name
-     machine context.node_name do
-       machine_options(options)
-   
-       # Force a Chef run every time and set action to --destroy option
-       action(ChefDK::ProvisioningData.context.action)
-     end
-   end
-
-and then to provision the machine, run the following:
-
-.. code-block:: bash
-
-   $ chef provision test123 --sync -n aar-dev
-
-This will synchronize the |policylock| file to the |chef server|, and then run the |chef client| on the node.
+.. include:: ../../step_ctl_chef/step_ctl_chef_provision_machine_with_lockfile.rst
 
 **Pass arbitrary options**
 
-Use the ``--opt`` option to pass arbitrary command-line options. For example:
-
-.. code-block:: bash
-
-   $ chef provision (other options) --opt foo=bar
-
-Use the ``--opt`` option more than once to pass more than one option. For example:
-
-.. code-block:: bash
-
-   $ chef provision (other options) --opt foo=bar --opt baz=qux
+.. include:: ../../step_ctl_chef/step_ctl_chef_provision_arbitrary_options.rst
 
 chef push
 =====================================================
