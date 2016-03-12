@@ -11,7 +11,7 @@ This subcommand has the following options:
    |help subcommand|
 
 ``-s SOURCE_FILE``, ``--source SOURCE_FILE``
-   Use to copy the contents from a source file.
+   |chef_exe source|
 
 ``-v``, ``--version``
    |version chef|

@@ -5,13 +5,13 @@
 This subcommand has the following options:
 
 ``-a``, ``--archive``
-   Use to export an archive as a tarball, instead as a directory. Default value: ``false``.
+   |chef_exe archive| Default value: ``false``.
 
 ``-D``, ``--debug``
-   Use to enable stack traces and other debug output. Default value: ``false``.
+   |chef_exe debug| Default value: ``false``.
 
 ``-f``, ``--force``
-   Use to remove the contents of the destination directory if that directory is not empty. Default value: ``false``.
+   |chef_exe force| Default value: ``false``.
 
 ``-h``, ``--help``
    |help subcommand|

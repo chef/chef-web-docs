@@ -5,10 +5,10 @@
 This subcommand has the following options:
 
 ``-a``, ``--attributes``
-   Use to update attributes. Default value: ``false``.
+   |chef_exe attributes| Default value: ``false``.
 
 ``-D``, ``--debug``
-   Use to enable stack traces and other debug output. Default value: ``false``.
+   |chef_exe debug| Default value: ``false``.
 
 ``-h``, ``--help``
    |help subcommand|

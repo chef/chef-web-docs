@@ -5,7 +5,7 @@
 This subcommand has the following options:
 
 ``-D``, ``--debug``
-   Use to enable stack traces and other debug output.
+   |chef_exe debug|
 
 ``-h``, ``--help``
    |help subcommand|

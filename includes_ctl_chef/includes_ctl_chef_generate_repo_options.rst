@@ -8,13 +8,13 @@ This subcommand has the following options:
    |help subcommand|
 
 ``-p``, ``--policy-only``
-   Create a repository that does not store cookbook files, only |policyfile| files.
+   |chef_exe policy_only|
 
 ``-P``, ``--policy``
-   Use |policyfile| instead of |berkshelf|.
+   |chef_exe no_berkshelf|
 
 ``-r``, ``--roles``
-   Create directories for ``/roles`` and ``/environments`` instead of creating directories for |policyfile|.
+   |chef_exe roles|
 
 ``-v``, ``--version``
    |version chef|

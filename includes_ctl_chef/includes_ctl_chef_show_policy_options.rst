@@ -5,19 +5,19 @@
 This subcommand has the following options:
 
 ``-c CONFIG_FILE``, ``--config CONFIG_FILE``
-   The path to the |knife| configuration file.
+   |chef_exe config|
 
 ``-D``, ``--debug``
-   Use to enable stack traces and other debug output. Default value: ``false``.
+   |chef_exe debug| Default value: ``false``.
 
 ``-h``, ``--help``
    |help subcommand|
 
 ``-o``, ``--orphans``
-   Use to show policy revisions that are not currently assigned to any policy group.
+   |chef_exe orphans|
 
 ``--[no-]pager``
-   Use ``--pager`` to enable paged output for a |policylock| file. Default value: ``--pager``.
+   |no_pager| Default value: ``--pager``.
 
 ``-v``, ``--version``
    |version chef|
