@@ -5,22 +5,22 @@
 This subcommand has the following options:
 
 ``-c CONFIG_FILE``, ``--config CONFIG_FILE``
-   The path to the configuration file.
+   |chef_exe config|
 
 ``-D``, ``--debug``
-   Enable stacktrackes and other debug output.
+   |chef_exe debug|
 
 ``-h``, ``--help``
    |help subcommand|
 
 ``-i ID``, ``--id ID``
-   Undo the delete operation specified by ``ID``.
+   |chef_exe id|
 
 ``-l``, ``--last``
-   Undo the most recent delete operation.
+   |chef_exe last|
 
 ``--list``
-   Default. Returns a list of available operations.
+   Default. |chef_exe list|
 
 ``-v``, ``--version``
    |version chef|

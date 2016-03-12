@@ -5,22 +5,22 @@
 This subcommand has the following options:
 
 ``-c CONFIG_FILE``, ``--config CONFIG_FILE``
-   The path to the |knife| configuration file.
+   |chef_exe config|
 
 ``-D``, ``--debug``
-   Use to enable stack traces and other debug output. Default value: ``false``.
+   |chef_exe debug| Default value: ``false``.
 
 ``-g GIT_REF``, ``--git GIT_REF``
-   Use to compare the specified |git| reference against the current revision of a |policylock| file or against another |git| reference. 
+   |chef_exe git_ref| 
 
 ``-h``, ``--help``
    |help subcommand|
 
 ``--head``
-   Use as a shortcut for ``chef diff --git HEAD``. When a |git|-specific flag is not provided, the on-disk |policylock| file is compared to one on the |chef server| or (if a |policylock| file is not present on-disk) two |policylock| files in the specified policy group on the |chef server| are compared.
+   |chef_exe git_head|
 
 ``--[no-]pager``
-   Use ``--pager`` to enable paged output for a |policylock| file. Default value: ``--pager``.
+   |no_pager| Default value: ``--pager``.
 
 ``-v``, ``--version``
    |version chef|
