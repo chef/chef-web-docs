@@ -33,7 +33,7 @@ Use the following options with a validatorless bootstrap to specify items that a
 
 Examples
 =====================================================
-The ``--bootstrap-vault-*`` options add the client identify of the bootstrapping node to the permissions list o the specified vault item. This enables the newly-bootstrapped |chef client| to be able to read items from the vault. Only a single client is authorized at a time for acces to the vault. (The ``-S`` search query option with the ``knife vault create`` subcommand does the same.)
+The ``--bootstrap-vault-*`` options add the client identify of the bootstrapping node to the permissions list of the specified vault item. This enables the newly-bootstrapped |chef client| to be able to read items from the vault. Only a single client is authorized at a time for acces to the vault. (The ``-S`` search query option with the ``knife vault create`` subcommand does the same.)
 
 Recreate a data bag item
 -----------------------------------------------------
