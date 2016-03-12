@@ -37,6 +37,7 @@ The ``--bootstrap-vault-*`` options add the client identify of the bootstrapping
 
 Recreate a data bag item
 -----------------------------------------------------
+The following example shows how to recreate a data bag item:
 
 .. code-block:: bash
 
