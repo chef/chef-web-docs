@@ -30,6 +30,76 @@ chef Commands
 =====================================================
 The following commands are built into the ``chef`` executable and support the use of |policyfile| files.
 
+
+
+chef clean-policy-cookbooks
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef/includes_ctl_chef_clean_policy_cookbooks.rst
+
+Syntax
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef/includes_ctl_chef_clean_policy_cookbooks_syntax.rst
+
+Options
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef/includes_ctl_chef_clean_policy_cookbooks_options.rst
+
+Examples
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+None.
+
+chef clean-policy-revisions
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef/includes_ctl_chef_clean_policy_revisions.rst
+
+Syntax
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef/includes_ctl_chef_clean_policy_revisions_syntax.rst
+
+Options
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef/includes_ctl_chef_clean_policy_revisions_options.rst
+
+Examples
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+None.
+
+chef delete-policy
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef/includes_ctl_chef_delete_policy.rst
+
+Syntax
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef/includes_ctl_chef_delete_policy_syntax.rst
+
+Options
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef/includes_ctl_chef_delete_policy_options.rst
+
+Examples
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+None.
+
+chef delete-policy-group
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef/includes_ctl_chef_delete_policy_group.rst
+
+Syntax
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef/includes_ctl_chef_delete_policy_group_syntax.rst
+
+Options
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef/includes_ctl_chef_delete_policy_group_options.rst
+
+Examples
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+None.
+
+
+
+
+
 chef diff
 -----------------------------------------------------
 .. include:: ../../includes_ctl_chef/includes_ctl_chef_diff.rst
