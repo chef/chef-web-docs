@@ -290,7 +290,7 @@ None.
 
 |policyfile| Commands
 =====================================================
-.. include:: ../../includes_policyfile/includes_policyfile_chef_commands.rst
+.. include:: ../../includes_policy/includes_policyfile_chef_commands.rst
 
 
 chef clean-policy-cookbooks
@@ -457,9 +457,9 @@ Options
 
 Policyfile.lock.json
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_policyfile/includes_policyfile_lock_json.rst
+.. include:: ../../includes_policy/includes_policyfile_lock_json.rst
 
-.. include:: ../../includes_policyfile/includes_policyfile_lock_json_example.rst
+.. include:: ../../includes_policy/includes_policyfile_lock_json_example.rst
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

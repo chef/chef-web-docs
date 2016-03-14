@@ -91,7 +91,7 @@ The |chef server_title|
 
 Policy
 -----------------------------------------------------
-.. include:: ../../includes_chef/includes_chef_policy.rst
+.. include:: ../../includes_policy/includes_policy.rst
 
 Some important aspects of policy include:
 
