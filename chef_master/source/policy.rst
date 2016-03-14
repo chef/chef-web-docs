@@ -1,35 +1,21 @@
 =====================================================
-About Policy
+About |policyfile|
 =====================================================
 
-.. include:: ../../includes_chef/includes_chef_policy.rst
+.. include:: ../../includes_policyfile/includes_policyfile.rst
 
-.. list-table::
-   :widths: 150 450
-   :header-rows: 1
-
-   * - Policy Type
-     - Description
-   * - :doc:`Data Bags </data_bags>`
-     - .. include:: ../../includes_data_bag/includes_data_bag.rst
-   * - :doc:`Environments </environments>`
-     - .. include:: ../../includes_environment/includes_environment.rst
-   * - :doc:`Roles </roles>`
-     - .. include:: ../../includes_role/includes_role.rst
-
-Policyfile
+|policyfile rb|
 =====================================================
-.. warning:: Policy is a new (and experimental) feature released in the the |chef dk|. Policy will make improvements to how the code that is used to manage your infrastructure is authored, tested, and distributed. Policy is configured using a policy file. Some aspects of the design have not yet been finalized. If you are new to |chef|, please don't use it. If you are an experienced user, please try it out and provide feedback. If you do use it, please do so in a location that is isolated from production code.
+.. include:: ../../includes_policyfile/includes_policyfile_rb.rst
 
-Policy defines the cookbook revisions, environments, and roles that should be applied by the |chef client|.
-
-For more information about policy and the configuration file used to manage and maintain policy---policyfile.rb---please see this topic on Github: https://github.com/chef/chef-dk/blob/master/POLICYFILE_README.md.
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_policyfile/includes_policyfile_rb_syntax.rst
 
 
 chef Commands
 =====================================================
-The following commands are built into the ``chef`` executable and support the use of |policyfile| files.
-
+.. include:: ../../includes_policyfile/includes_policyfile_chef_commands.rst
 
 
 chef clean-policy-cookbooks
@@ -48,6 +34,7 @@ Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 None.
 
+
 chef clean-policy-revisions
 -----------------------------------------------------
 .. include:: ../../includes_ctl_chef/includes_ctl_chef_clean_policy_revisions.rst
@@ -63,6 +50,7 @@ Options
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 None.
+
 
 chef delete-policy
 -----------------------------------------------------
@@ -80,6 +68,7 @@ Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 None.
 
+
 chef delete-policy-group
 -----------------------------------------------------
 .. include:: ../../includes_ctl_chef/includes_ctl_chef_delete_policy_group.rst
@@ -95,9 +84,6 @@ Options
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 None.
-
-
-
 
 
 chef diff
@@ -117,46 +103,31 @@ Examples
 
 **Compare current lock to latest commit on latest branch**
 
-.. code-block:: bash
-
-   $ chef diff --git HEAD
+.. include:: ../../step_ctl_chef/step_ctl_chef_diff_current_lock_latest_branch.rst
 
 **Compare current lock with latest commit on master branch**
 
-.. code-block:: bash
-
-   $ chef diff --git master
+.. include:: ../../step_ctl_chef/step_ctl_chef_diff_current_lock_master_branch.rst
 
 **Compare current lock to specified revision**
 
-.. code-block:: bash
-
-   $ chef diff --git v1.0.0
+.. include:: ../../step_ctl_chef/step_ctl_chef_diff_current_lock_specified_revision.rst
 
 **Compare lock on master branch to lock on revision**
 
-.. code-block:: bash
-
-   $ chef diff --git master...dev
+.. include:: ../../step_ctl_chef/step_ctl_chef_diff_master_lock_revision_lock.rst
 
 **Compare lock for version with latest commit on master branch**
 
-.. code-block:: bash
-
-   $ chef diff --git v1.0.0...master
+.. include:: ../../step_ctl_chef/step_ctl_chef_diff_version_lock_master_branch.rst
 
 **Compare current lock with latest lock for policy group**
 
-.. code-block:: bash
-
-   $ chef diff staging
+.. include:: ../../step_ctl_chef/step_ctl_chef_diff_current_lock_policy_group.rst
 
 **Compare locks for two policy groups**
 
-.. code-block:: bash
-
-   $ chef diff production...staging
-
+.. include:: ../../step_ctl_chef/step_ctl_chef_diff_two_policy_groups.rst
 
 
 chef export
@@ -228,6 +199,12 @@ Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_ctl_chef/includes_ctl_chef_install_options.rst
 
+Policyfile.lock.json
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_policyfile/includes_policyfile_lock_json.rst
+
+.. include:: ../../includes_policyfile/includes_policyfile_lock_json_example.rst
+
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 None.
@@ -273,6 +250,7 @@ Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 None.
 
+
 chef push-archive
 -----------------------------------------------------
 .. include:: ../../includes_ctl_chef/includes_ctl_chef_push_archive.rst
@@ -289,6 +267,7 @@ Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 None.
 
+
 chef show-policy
 -----------------------------------------------------
 .. include:: ../../includes_ctl_chef/includes_ctl_chef_show_policy.rst
@@ -304,6 +283,7 @@ Options
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 None.
+
 
 chef undelete
 -----------------------------------------------------
@@ -337,9 +317,5 @@ Options
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 None.
-
-
-
-
 
 

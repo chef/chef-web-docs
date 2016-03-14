@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-.. note:: This command is experimental and is built around the idea that there should be a middle ground between the "one cookbook per repo" and the "all cookbooks in one repo" approaches.
+.. note:: This command is built around the idea that there should be a middle ground between the "one cookbook per repo" and the "all cookbooks in one repo" approaches.
 
 Use the ``chef generate app`` subcommand to generate a cookbook structure that:
 
