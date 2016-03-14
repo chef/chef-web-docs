@@ -8,7 +8,7 @@ mdadm
 
 Syntax
 =====================================================
-.. include:: ../../includes_resources/includes_resource_mdadm_syntax_12-7.rst
+.. include:: ../../includes_resources/includes_resource_mdadm_syntax_12-8.rst
 
 Actions
 =====================================================
@@ -16,7 +16,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_mdadm_attributes_12-7.rst
+.. include:: ../../includes_resources/includes_resource_mdadm_attributes_12-8.rst
 
 .. 
 .. Providers
