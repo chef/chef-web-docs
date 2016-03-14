@@ -4,6 +4,6 @@
 The following setting is often modified from the default as part of the tuning effort for the |service postgresql| service:
 
 ``postgresql['max_connections']``
-   |max_connections| This value should only be tuned when the ``erchef['db_pool_size']`` value used by the |service erchef| service is modified. Default value: ``350``.
+   |max_connections| This value should only be tuned when the ``opscode_erchef['db_pool_size']`` value used by the |service erchef| service is modified. Default value: ``350``.
        
    .. include:: ../../includes_server_tuning/includes_server_tuning_postgresql_connection_pool.rst
