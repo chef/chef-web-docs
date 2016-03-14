@@ -11,7 +11,6 @@ The following items are new for |chef client| 12.8 and/or are changes from previ
 * **Support for OpenSSL validation of FIPS** The |chef client| can be configured to allow |open ssl| to enforce |fips|-validated security during a |chef client| run.
 * **Support for multiple configuration files** The |chef client| supports reading multiple configuration files by putting them inside a ``.d`` configuration directory.
 * **New launchd resource** Use the |resource launchd| resource to manage system-wide services (daemons) and per-user services (agents) on the |mac os x| platform.
-* **New property for the mdadm resource** Use the ``mdadm_defaults`` property to set the default values for ``chunk`` and ``metadata`` to ``nil``, which allows |mdadm| to apply its own default values.
 * **chef-zero support for Chef Server API endpoints** |chef zero| now supports using all |api chef server| version 12 endpoints, with the exception of ``/universe``.
 * **Updated support for OpenSSL** |open ssl| is updated to version 1.0.1.
 * **Ohai auto-detects hosts for Azure instances** |ohai| will auto-detect hosts for instances that are hosted by |azure|.
