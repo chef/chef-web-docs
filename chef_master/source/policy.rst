@@ -1,21 +1,42 @@
 =====================================================
+
+.. include:: ../../includes_policy/includes_policy.rst
+
+Some important aspects of policy include:
+
+.. list-table::
+   :widths: 100 420
+   :header-rows: 1
+
+   * - Feature
+     - Description
+   * - .. image:: ../../images/icon_policy_file.svg
+          :width: 100px
+          :align: center
+
+     - .. include:: ../../includes_policy/includes_policy_file.rst
+   * - .. image:: ../../images/icon_policy_group.svg
+          :width: 100px
+          :align: center
+
+     - .. include:: ../../includes_policy/includes_policy_group.rst
+
 About |policyfile|
 =====================================================
-
-.. include:: ../../includes_policyfile/includes_policyfile.rst
+.. include:: ../../includes_policy/includes_policyfile.rst
 
 |policyfile rb|
 =====================================================
-.. include:: ../../includes_policyfile/includes_policyfile_rb.rst
+.. include:: ../../includes_policy/includes_policyfile_rb.rst
 
 Syntax
 -----------------------------------------------------
-.. include:: ../../includes_policyfile/includes_policyfile_rb_syntax.rst
+.. include:: ../../includes_policy/includes_policyfile_rb_syntax.rst
 
 
 chef Commands
 =====================================================
-.. include:: ../../includes_policyfile/includes_policyfile_chef_commands.rst
+.. include:: ../../includes_policy/includes_policyfile_chef_commands.rst
 
 
 chef clean-policy-cookbooks
@@ -201,9 +222,9 @@ Options
 
 Policyfile.lock.json
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_policyfile/includes_policyfile_lock_json.rst
+.. include:: ../../includes_policy/includes_policyfile_lock_json.rst
 
-.. include:: ../../includes_policyfile/includes_policyfile_lock_json_example.rst
+.. include:: ../../includes_policy/includes_policyfile_lock_json_example.rst
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
