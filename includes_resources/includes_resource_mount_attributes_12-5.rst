@@ -104,7 +104,7 @@ This resource has the following properties:
 ``supports``
    **Ruby Type:** Array
 
-   |supports mount| Default value: ``{ :remount => false }``.
+   |supports mount| Default value: ``:remount``.
    
 ``username``
    **Ruby Type:** String

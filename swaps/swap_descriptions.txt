@@ -1265,7 +1265,7 @@
 .. |subnet| replace:: The |amazon vpc| instance in which a node is to be created.
 .. |sudo bootstrap| replace:: Execute a bootstrap operation with |sudo cmd|.
 .. |supports chef_handler| replace:: The type of handler.
-.. |supports mount| replace:: A |ruby hash| of options for supported mount features.
+.. |supports mount| replace:: An array of options for supported mount features.
 .. |supports resources| replace:: A hash of options that contains hints about the capabilities of a resource. The |chef client| may use these hints to help identify the correct provider.
 .. |supports service| replace:: A list of properties that controls how the |chef client| is to attempt to manage a service: ``:restart``, ``:reload``, ``:status``. For ``:restart``, the init script or other service provider can use a restart command; if ``:restart`` is not specified, the |chef client| attempts to stop and then start a service. For ``:reload``, the init script or other service provider can use a reload command. For ``:status``, the init script or other service provider can use a status command to determine if the service is running; if ``:status`` is not specified, the |chef client| attempts to match the ``service_name`` against the process table as a regular expression, unless a pattern is specified as a parameter property.
 .. |supports user| replace:: A Mash where keys represent features and values are booleans that indicate if that feature is supported.
