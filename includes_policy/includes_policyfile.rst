@@ -2,9 +2,9 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics. 
 
 
-.. note:: |policyfile| is an optional way to manage role, environment, and community cookbook data.
+.. note:: |policyfile| file is an optional way to manage role, environment, and community cookbook data.
 
-Policy settings can be used to map business and operational requirements, such as process and workflow, to settings and objects stored on the |chef server|:
+|policyfile| settings can be used to map business and operational requirements, such as process and workflow, to settings and objects stored on the |chef server|:
 
 * Roles define server types, such as "web server" or "database server"
 * Environments define process, such as "dev", "staging", or "production"
