@@ -74,7 +74,7 @@ The |chef manage| provides ways for users to `configure the timeframe <https://d
 
 Policy
 =====================================================
-.. include:: ../../includes_chef/includes_chef_policy.rst
+.. include:: ../../includes_policy/includes_policy.rst
 
 The |chef manage| provides ways for users to manage `data bags <https://docs.chef.io/server_manage_data_bags.html>`_, `environments <https://docs.chef.io/server_manage_environments.html>`_, `roles <https://docs.chef.io/server_manage_roles.html>`_, `cookbooks <https://docs.chef.io/server_manage_cookbooks.html>`_, `clients <https://docs.chef.io/server_manage_clients.html>`_, and `managing tags <https://docs.chef.io/server_manage_nodes.html#manage-tags>`_.
 
