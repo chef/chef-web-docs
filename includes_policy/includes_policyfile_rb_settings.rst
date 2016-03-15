@@ -56,4 +56,35 @@ A |policyfile rb| file may contain the following settings:
          end
 
 ``cookbook "NAME" [, "VERSION_CONSTRAINT"] [, SOURCE_OPTIONS]``
-   Add cookbooks to the policy, specify a version constraint, or specify an alternate source location, such as |supermarket|.
+   Add cookbooks to the policy, specify a version constraint, or specify an alternate source location, such as |supermarket|. For example, add a cookbook:
+
+   .. code-block:: ruby
+
+      cookbook "apache2"
+
+   Specify a version constraint:
+
+   .. code-block:: ruby
+
+      run_list "jenkins::master"
+      
+      # Restrict the jenkins cookbook to version 2.x, greater than 2.1
+      cookbook "jenkins", "~> 2.1"
+
+   Specify an alternate source:
+
+   .. code-block:: ruby
+
+      cookbook 'my_app', path: 'cookbooks/my_app'
+
+   or:
+
+   .. code-block:: ruby
+
+      cookbook 'mysql', github: 'opscode-cookbooks/mysql', branch: 'master'
+
+   or:
+
+   .. code-block:: ruby
+
+      cookbook 'chef-ingredient', git: 'https://github.com/chef-cookbooks/chef-ingredient.git', tag: 'v0.12.0'
