@@ -15,7 +15,7 @@ A |policyfile rb| file may contain the following settings:
 
    ``default_source :supermarket`` pulls cookbooks from the public |supermarket|.
 
-   ``default_source :supermarket, "https://mysupermarket.example"`` pulls cookbooks from a named private |supermarekt|.
+   ``default_source :supermarket, "https://mysupermarket.example"`` pulls cookbooks from a named private |supermarket|.
 
    ``default_source :community`` is an alias for ``:supermarket``.
 
