@@ -328,6 +328,7 @@ Chef Compliance
    ohai
    ohai_custom
    openstack
+   packages
    page_not_found
    plugin_community
    plugin_kitchen_vagrant
