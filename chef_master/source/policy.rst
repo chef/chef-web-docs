@@ -33,6 +33,14 @@ Syntax
 -----------------------------------------------------
 .. include:: ../../includes_policy/includes_policyfile_rb_syntax.rst
 
+Settings
+-----------------------------------------------------
+.. include:: ../../includes_policy/includes_policyfile_rb_settings.rst
+
+Example
+-----------------------------------------------------
+.. include:: ../../includes_policy/includes_policyfile_rb_example.rst
+
 
 chef Commands
 =====================================================

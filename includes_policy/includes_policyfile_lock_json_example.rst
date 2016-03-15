@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics. 
 
 
-A ``Policyfile.lock.json`` file is similar to:
+A |policylock| file is similar to:
 
 .. code-block:: javascript
 
