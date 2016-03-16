@@ -21,7 +21,7 @@ To set up a |yum| package repository for |enterprise_linux| platforms:
           enabled=1
         EOL
 
-   Replace ``<CHANNEL>`` with the release channel: ``source`` or ``current``.
+   Replace ``<CHANNEL>`` with the release channel: ``stable`` or ``current``.
 
 #. Update the package repository list:
 
