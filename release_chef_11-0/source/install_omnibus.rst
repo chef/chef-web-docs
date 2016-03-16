@@ -4,4 +4,24 @@
 About the Omnibus Installer
 =====================================================
 
-.. include:: ../../includes_install/includes_install_chef_client_omnibus_installer.rst
+.. include:: ../../includes_packages/includes_packages_install_script.rst
+
+Run the Install Script
+=====================================================
+.. include:: ../../includes_packages/includes_packages_install_script_run.rst
+
+|unix| and |linux|
+-----------------------------------------------------
+.. include:: ../../includes_packages/includes_packages_install_script_run_unix_linux.rst
+
+|windows|
+-----------------------------------------------------
+.. include:: ../../includes_packages/includes_packages_install_script_run_windows.rst
+
+Install Script Options
+=====================================================
+.. include:: ../../includes_packages/includes_packages_install_script_options.rst
+
+Examples
+=====================================================
+.. include:: ../../includes_packages/includes_packages_install_script_examples.rst
