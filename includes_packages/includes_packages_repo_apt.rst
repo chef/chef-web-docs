@@ -21,7 +21,9 @@ To set up an |apt| package repository for |debian| and |ubuntu| platforms:
 
       $ echo "deb https://packages.chef.io/<CHANNEL>-apt <DISTRIBUTION> main" > chef-<CHANNEL>.list
 
-   Replace ``<CHANNEL>`` with the release channel: ``stable`` or ``current``. Replace ``<DISTRIBUTION>`` with the appropriate distribution name:
+   Replace ``<CHANNEL>`` with the release channel: ``stable`` or ``current``.
+
+   Replace ``<DISTRIBUTION>`` with the appropriate distribution name:
 
    * For |debian| 6: ``squeeze``
    * For |debian| 7: ``wheezy``
