@@ -51,7 +51,7 @@
 .. |chef hosted| replace:: Hosted Chef
 .. |chef identity| replace:: Chef identify
 .. |chef identity_title| replace:: Chef Identify
-.. |chef inc| replace:: Chef Software, Inc.
+.. |chef inc| replace:: Chef Software Inc
 .. |chef init| replace:: chef-init
 .. |chef manage| replace:: Chef management console
 .. |chef manage_title| replace:: Chef Manage
@@ -106,6 +106,7 @@
 .. |ohai| replace:: Ohai
 .. |ohai ctl| replace:: ohai
 .. |omnibus installer| replace:: omnibus installer
+.. |omnitruck| replace:: Omnitruck
 .. |opscode solr| replace:: opscode-solr
 .. |opscode solr4| replace:: opscode-solr4
 .. |opscode expander ctl| replace:: opscode-expander-ctl
