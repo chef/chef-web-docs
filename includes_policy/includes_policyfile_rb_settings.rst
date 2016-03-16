@@ -88,3 +88,10 @@ A |policyfile rb| file may contain the following settings:
    .. code-block:: ruby
 
       cookbook 'chef-ingredient', git: 'https://github.com/chef-cookbooks/chef-ingredient.git', tag: 'v0.12.0'
+
+``named_run_list "NAME", "ITEM1", "ITEM2", ...``
+   Specify a named run-list to be used as an alternative to the override run-list. This setting should be used carefully and for specific use cases, like running a small set of recipes to quickly converge configuration for a single application on a host or for one-time setup tasks. For example:
+
+   .. code-block:: ruby
+
+      named_run_list :update_app, "my_app_cookbook::default"
