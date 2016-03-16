@@ -56,9 +56,6 @@ This configuration file has the following settings:
 ``default_attribute_whitelist``
    |whitelist attribute_default|
 
-``deployment_group``
-   |policy deployment_group|
-
 ``diff_disabled``
    |diff_disabled| Default value: ``false``.
 
@@ -189,9 +186,6 @@ This configuration file has the following settings:
 
 ``pid_file``
    |path pid_file| Default value: ``/tmp/name-of-executable.pid``.
-
-``policy_document_native_api``
-   |policy native_api|
 
 ``policy_group``
    |name policy_name| ``policy_name`` must also be specified.

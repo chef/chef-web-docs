@@ -28,14 +28,8 @@ Configuration Settings
 =====================================================
 The following settings may be configured in the |client rb| file for use with |policyfile|:
 
-``deployment_group``
-   |policy deployment_group|
-
 ``named_run_list``
    |run_list policy|
-
-``policy_document_native_api``
-   |policy native_api|
 
 ``policy_group``
    |name policy_name| ``policy_name`` must also be specified.
