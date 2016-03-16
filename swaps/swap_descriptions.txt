@@ -971,6 +971,8 @@
 .. |pluginconfpath| replace:: The list of directories in which |yum| is to look for plugin configuration files.
 .. |pluginpath| replace:: The list of directories in which |yum| is to look for plugin modules.
 .. |plugins_yum| replace:: Enable plugins.
+.. |policy deployment_group| replace:: If |policyfile| files are used in compatability mode (see the ``policy_document_native_api`` setting), combines ``policy_name`` and ``policy_group`` into a single configuration setting (``deployment_group``). For example, if the policy name is ``webserver`` and the policy group is ``staging``, when this setting is ``true``, then its value would be ``webserver-staging``. The data bag into which this policy is stored will be given the same name. This setting is only available when ``policy_document_native_api`` is set to ``false``.
+.. |policy native_api| replace:: A |policyfile| file can be run in native mode (default) or compatibility mode. Native mode requires |chef server| version 12.1 (or higher) and ensures policies and cookbooks are accessed via feature-specific APIs. Compaibility mode stores policies as data bags and cookbooks at the ``/cookbooks`` endpoint. Default value: ``false``. Compatability mode exists so that users with a |chef server| earlier than 12.1 may try using |policyfile| files, but it's recommended to upgrade the |chef server| before using |policyfile| files in production.
 .. |port chef_zero| replace:: The port on which |chef zero| listens.
 .. |port listen_postgresql| replace:: The connection source to which |postgresql| is to respond.
 .. |port enable_non_ssl_nginx| replace:: Allow port 80 redirects to port 443. When this value is set to ``false``, load balancers on the front-end hardware are allowed to do |ssl| termination of the WebUI and API.
@@ -1370,6 +1372,7 @@
 .. |use last_modified| replace:: Enable |if_modified_since| headers. Set to ``false`` to disable |if_modified_since| headers. To use this setting, ``use_conditional_get`` must also be set to ``true``.
 .. |use nagle| replace:: Enable the |nagle| buffering algorithm.
 .. |use null_character| replace:: Show a ``NULL`` character (``\0``) instead of white space as the separator.
+.. |use policyfile| replace:: The |chef client| automatically checks the configuration, node |json|, and the stored node on the |chef server| to determine if |policyfile| files are being used, and then automatically updates this flag.
 .. |use public_ip_address| replace:: Associate a public IP address to an |amazon vpc| instance.
 .. |use repo| replace:: Enable a repository.
 .. |use sendfile| replace:: Copy data between file descriptors when ``sendfile()`` is used.

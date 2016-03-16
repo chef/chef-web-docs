@@ -104,16 +104,6 @@ Some important aspects of policy include:
 
    * - Feature
      - Description
-   * - .. image:: ../../images/icon_policy_file.svg
-          :width: 100px
-          :align: center
-
-     - .. include:: ../../includes_policy/includes_policy_file.rst
-   * - .. image:: ../../images/icon_policy_group.svg
-          :width: 100px
-          :align: center
-
-     - .. include:: ../../includes_policy/includes_policy_group.rst
    * - .. image:: ../../images/icon_roles.svg
           :width: 100px
           :align: center

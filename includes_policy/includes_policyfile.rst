@@ -4,9 +4,6 @@
 
 .. note:: |policyfile| file is an optional way to manage role, environment, and community cookbook data.
 
-|policyfile| settings can be used to map business and operational requirements, such as process and workflow, to settings and objects stored on the |chef server|:
+|policyfile| is a single document that is uploaded to the |chef server|. It is associated with a group of nodes, cookbooks, and settings. When these nodes run, they run the recipes specified in the |policyfile| run-list.
 
-* Roles define server types, such as "web server" or "database server"
-* Environments define process, such as "dev", "staging", or "production"
-* Certain types of data---passwords, user account data, and other sensitive items---can be placed in data bags, which are located in a secure sub-area on the |chef server| that can only be accessed by nodes that authenticate to the |chef server| with the correct |ssl| certificates
-* The cookbooks (and cookbook versions) in which organization-specific configuration policies are maintained
+.. warning:: |policyfile| is not integrated with |chef delivery| and is not supported as part of a |chef delivery| workflow.
