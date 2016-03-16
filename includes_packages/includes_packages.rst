@@ -1,7 +1,7 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics. 
 
-Public distribution of |company_name| software packages are available from https://packages.chef.io which leverages |bintray|, a software distribution platform by |jfrog|. Packages for |chef inc| products may be installed using platform-native package repositories. The |chef client| and the |chef dk| may also be installed using an install script. Both installation methods support the following release channels:
+Packages for |chef inc| products may be installed using platform-native package repositories. The |chef client| and the |chef dk| may also be installed using an install script. Both installation methods support the following release channels:
 
 .. list-table::
    :widths: 150 450
