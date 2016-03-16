@@ -1,5 +1,5 @@
 =====================================================
-Installing Chef via Packages
+|chef inc| Packages
 =====================================================
 
 .. include:: ../../includes_packages/includes_packages.rst
