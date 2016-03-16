@@ -1,29 +1,12 @@
 =====================================================
+About |policyfile|
+=====================================================
 
 .. include:: ../../includes_policy/includes_policy.rst
 
-Some important aspects of policy include:
-
-.. list-table::
-   :widths: 100 420
-   :header-rows: 1
-
-   * - Feature
-     - Description
-   * - .. image:: ../../images/icon_policy_file.svg
-          :width: 100px
-          :align: center
-
-     - .. include:: ../../includes_policy/includes_policy_file.rst
-   * - .. image:: ../../images/icon_policy_group.svg
-          :width: 100px
-          :align: center
-
-     - .. include:: ../../includes_policy/includes_policy_group.rst
-
-About |policyfile|
-=====================================================
 .. include:: ../../includes_policy/includes_policyfile.rst
+
+.. note:: For developer notes about |policyfile|, see https://github.com/chef/chef-dk/blob/master/POLICYFILE_README.md.
 
 |policyfile rb|
 =====================================================
@@ -40,6 +23,46 @@ Settings
 Example
 -----------------------------------------------------
 .. include:: ../../includes_policy/includes_policyfile_rb_example.rst
+
+Configuration Settings
+=====================================================
+The following settings may be configured in the |client rb| file for use with |policyfile|:
+
+``deployment_group``
+   |policy deployment_group|
+
+``named_run_list``
+   |run_list policy|
+
+``policy_document_native_api``
+   |policy native_api|
+
+``policy_group``
+   |name policy_name| ``policy_name`` must also be specified.
+
+``policy_name``
+   |name policy_group| ``policy_group`` must also be specified.
+
+``use_policyfile``
+  |use policyfile| Default value: ``false``.
+
+
+knife bootstrap
+=====================================================
+A node may be bootstrapped to use |policyfile| files. Use the following options as part of the bootstrap command:
+
+``--policy-group POLICY_GROUP``
+   |name policy_name|
+
+``--policy-name POLICY_NAME``
+   |name policy_group|
+
+For a customized bootstrap process, add ``policy_name`` and ``policy_group`` to the first-boot |json| file that is passed to the |chef client|.
+
+
+Test w/|kitchen|
+=====================================================
+.. include:: ../../includes_test_kitchen/includes_test_kitchen_yml_example_policyfile.rst
 
 
 chef Commands
