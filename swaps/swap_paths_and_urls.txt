@@ -41,7 +41,8 @@
 .. |url api_chef_server| replace:: https://api.opscode.com
 .. |url api_cookbooks| replace:: https://supermarket.chef.io/api/v1/cookbooks
 .. |url azure_preview| replace:: https://portal.azure.com
-.. |url azure_production| replace:: https://manage.windowsazure.com/
+.. |url azure_production| replace:: https://portal.azure.com/
+.. |url azure_marketplace| replace:: https://azure.microsoft.com/en-us/marketplace/partners/chef-software/chef-server/
 .. |url bootstrap_s3| replace:: s3.amazonaws.com
 .. |url codeacademy| replace:: http://www.codecademy.com/tracks/ruby
 .. |url chef| replace:: https://www.chef.io

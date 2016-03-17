@@ -390,7 +390,7 @@
 .. |azure| replace:: Microsoft Azure
 .. |azure marketplace| replace:: Azure Marketplace
 .. |azure portal| replace:: Azure portal
-.. |azure portal_preview| replace:: Azure preview portal
+.. |azure portal_preview| replace:: Azure portal
 .. |azure portal_production| replace:: Azure production portal
 .. |azure publish_settings| replace:: Azure Publish Settings
 .. |azure hosted_service| replace:: Hosted Service Name
