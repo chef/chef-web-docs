@@ -8,94 +8,46 @@ About |policyfile|
 
 .. warning:: |policyfile| is intended to be used with |chef server| 12.3 (and higher) and |chef client| 12.8 (and higher).
 
-.. note:: For developer notes about |policyfile|, see https://github.com/chef/chef-dk/blob/master/POLICYFILE_README.md.
-
 
 |policyfile| is Optional
 =====================================================
-|policyfile| is an optional and may be used alongside all existing functionality in the |chef client|, the |chef dk|, and the |chef server|. |policyfile| supports:
-
-* Single and monolithic cookbook repo patterns
-* Versioning via the |policylock| file, against which an opaque identifier is associated
-* Naming policy groups after workflow deployment phases, such as ``dev``, ``stage``, ``prod``, and ``canary`` 
-* Associating each policy group with an active version, such as revision ``123abc`` of the ``webapp`` policy, which is applied to the ``dev`` policy group; once validated and tested, the active version may then be applied to ``stage``, and then ``prod``, after which development might continue on the ``456def`` revision
-* Environments via nested attributes. For example: ``default["production"]["app_setting"] = "prod value"`` and ``default["dev"]["app_setting"] = "dev value"``, where ``["app_setting"]`` is effectively the environment value
-* Using data bag items to pull certain attribute values, when necessary
-
+.. include:: ../../includes_policy/includes_policyfile_is_optional.rst
 
 Why |policyfile|?
 =====================================================
-For some users of |chef|, |policyfile| will make it easier to test and promote code safely with a simpler interface. |policyfile| improves the user experience and resolves real-world problems that some workflows built around |chef| must deal with. The following sections discuss in more detail some of the good reasons to use |policyfile|, including:
-
-* Focus the workflow on the entire system
-* Safer development workflows
-* Less expensive computation
-* Code visibility
-* Role mutability
-* Cookbook mutability
-* Replaces |berkshelf| and the environment cookbook pattern
-
+.. include:: ../../includes_policy/includes_policyfile_about.rst
 
 Focused System Workflows
 -----------------------------------------------------
-The |knife| command line tool maps very closely to the |api chef server| and the objects defined by it: roles, environments, run-lists, cookbooks, data bags, nodes, and so on. The |chef client| assembles these pieces at run-time and configures a host to do useful work.
-
-|policyfile| focuses that workflow onto the entire system, rather than the individual components. For example, |policyfile| describes whole systems, whereas each individual revision of the |policylock| file uploaded to the |chef server| describes a part of that system, inclusive of roles, environments, cookbooks, and the other |chef server| objects necessary to configure that part of the system.
+.. include:: ../../includes_policy/includes_policyfile_about_focused_workflows.rst
 
 Safer Workflows
 -----------------------------------------------------
-|policyfile| encourages safer workflows by making it easier to publish development versions of cookbooks to the |chef server| without the risk of mutating the production versions and without requiring a complicated versioning scheme to work around cookbook mutability issues. Roles are mutable and those changes are applied only to the nodes specified by the policy. |policyfile| does not require any changes to your normal workflows. Use the same repositories you are already using, the same cookbooks, and workflows. |policyfile| will prevent an updated cookbook or role from being applied immediately to all machines.
+.. include:: ../../includes_policy/includes_policyfile_about_safer_workflows.rst
 
 Code Visibility
 -----------------------------------------------------
-When running |chef| without |policyfile|, the exact set of cookbooks that are applied to a node is defined by:
-
-* The node's ``run_list`` property
-* Any roles that are present in the node's run-list or recursively included by those roles
-* The environment, which restricts the set of valid cookbook versions for a node based on a variety of constraint operators
-* Dependencies, as defined by each cookbook's metadata
-* Dependency resolution picks the "best" set of cookbooks that meet dependency and environment criteria
-
-These conditions are re-evaluated every time the |chef client| runs, which can make it harder to know which cookbooks will be run by the |chef client| or what the effects of updating a role or uploading a new cookbook will be.
-
-|policyfile| simplifies this behavior by computing the cookbook set on the workstation, and then producing a readable document of that solution: a |policylock| file. This pre-computed file is uploaded to the |chef server|, and is then used by all of the |chef client| runs that are managed by that particular policy group.
+.. include:: ../../includes_policy/includes_policyfile_about_code_visibility.rst
 
 Less Expensive Computation
 -----------------------------------------------------
-When running |chef| without |policyfile|, the |chef server| loads dependency data for all known versions of all known cookbooks, and then runs an expensive computation to determine the correct set.
-
-|policyfile| moves this computation to the workstation, where it is done less frequently.
+.. include:: ../../includes_policy/includes_policyfile_about_less_expensive_computation.rst
 
 Role Mutability
 -----------------------------------------------------
-When running |chef| without |policyfile| roles are global objects. Changes to roles are applied immediately to any node that contains that role in its run-list. This can make it hard to update roles and in some use cases discourages using roles at all.
-
-|policyfile| effectively replaces roles. |policyfile| files are versioned automatically and new versions are applied to systems only when promoted.
+.. include:: ../../includes_policy/includes_policyfile_about_role_mutability.rst
 
 Cookbook Mutability
 -----------------------------------------------------
-When running |chef| without |policyfile|, existing versions of cookbooks are mutable. This is convenient for many use cases, especially if users upload in-development cookbook revisions to the |chef server|. But this sometimes creates issues that are similar to role mutability by allowing those cookbook changes to be applied immediately to nodes that use that cookbook. Users account for this by rigorous testing processes to ensure that only fully integrated cookbooks are ever published. This process does enforce good development habits, but at the same time it shoudn't be a required part of a workflow that ends with publishing an in-development cookbook to the |chef server| for testing against real nodes.
-
-|policyfile| solves this issue by using a cookbook publishing API for the |chef server| that does not provide cookbook mutability. Name collisions are prevented by storing cookbooks by name and an opaque identifier that is computed from the content of the cookbook itself.
-
-For example, name/version collisions can occur when users temporarily fork an upstream cookbook. Even if the user contributes their change and the maintainer is responsive, there may be a period of time where the user needs their fork in order to make progress. This situation presents a versioning dilemma: if the user doesn't update their own version, they must overwrite the existing copy of that cookbook on the |chef server|, wheres if they do update the version number it might conflict with the version number of the future release of that upstream cookbook.
+.. include:: ../../includes_policy/includes_policyfile_about_cookbook_mutability.rst
 
 Opaque IDs
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The opaque identifier that is computed from the content of a cookbook is the only place where an opaque identifier is necessary. When working with |policyfile|, be sure to:
-
-* Use the same names and version contraints as normal in the |policyfile rb| file
-* Use the same references to cookbooks pulled from |supermarket|
-* Use the same branch, tag, and revision patterns for cookbooks pulled from |git|
-* Use the same paths for cookbooks pulled from disk
-
-Extra metadata about the cookbook is stored and included in |api chef server| responses and in the |policylock| file, including the source of a cookbook (|supermarket|, |git|, local disk, etc.), as well as any upstream idenfiers, such as |git| revisions. For cookbooks that are loaded from the local disk that are in a |git| repo, the upstream URL, current revision ID, and the state of the repo are stored also. 
-
-The opaque identifier is mostly behind the scenes and is only visible once published to the |chef server|. Cookbooks that are uploaded to the |chef server| may have extended version numbers such as ``1.0.0-dev``.
+.. include:: ../../includes_policy/includes_policyfile_about_opaque_ids.rst
 
 Environment Cookbooks
 -----------------------------------------------------
-|policyfile| replaces the environment cookbook pattern that is often required by |berkshelf|, along with a dependency solver and fetcher. That said, |policyfile| does not replace all |berkshelf| scenarios.
+.. include:: ../../includes_policy/includes_policyfile_about_environment_cookbooks.rst
 
 
 |policyfile rb|
