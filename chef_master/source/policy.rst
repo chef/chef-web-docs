@@ -26,7 +26,7 @@ Example
 -----------------------------------------------------
 .. include:: ../../includes_policy/includes_policyfile_rb_example.rst
 
-Configuration Settings
+client.rb Settings
 =====================================================
 The following settings may be configured in the |client rb| file for use with |policyfile|:
 
