@@ -19,6 +19,9 @@ This subcommand has the following options:
 ``-s``, ``--server=SERVER``
    |delivery server|
 
+``--skip-build-cookbook``
+   Skip creating a build cookbook when initializing a project.
+
 ``<type>``
    |delivery project_type| Default value: ``cookbook``.
 
