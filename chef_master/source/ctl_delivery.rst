@@ -124,7 +124,7 @@ Options
 Examples
 -----------------------------------------------------
 
-**Adding a build cookbook from Supermarket**
+**Adding a build cookbook from a private Supermarket**
 
 The following example shows how to add a build cookbook after the initialization process
 
@@ -132,7 +132,7 @@ The following example shows how to add a build cookbook after the initialization
 
    $ delivery init —skip-build-cookbook
 
-and then update the ``config.json`` file for the ``delivery-truck`` cookbook and the path to the cookbook in |supermarket|:
+and then update the ``config.json`` file for the ``delivery-truck`` cookbook and the path to the cookbook in a private |supermarket|:
 
 .. code-block:: json
 
