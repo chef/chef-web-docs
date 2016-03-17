@@ -21,11 +21,17 @@ Before getting started, you will need a functioning workstation. Install the `Ch
 
 #. Click **Create** and follow the steps to launch the |chef server|, providing a host name, user name, password or |ssh| key, and any additional information required. You will also select your deployment model here.
 
-   .. note:: If you are using the "Resource Manager" deployment model, you will need to create a **DNS Name** label for the instance. Create a **DNS Name** label by selecting the **Public IP Address** setting of the virtual machine, and then add it under **Settings**, then  **Configuration**, and then **DNS Name**. Click **Save** in the top pane to apply the changes. Use the full |fqdn| when running the ``chef-marketplace-ctl hostname`` command.
+   .. note:: If you are using the "Resource Manager" deployment model, you will need to create a **DNS Name** label for the instance. <https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-create-fqdn-on-portal/>
 
 #. Once the virtual machine is launched, you will need to create an account to use with the |chef manage|. To do this, open an |ssh| connection to the host using the user name and password (or |ssh| key) provided when you launch the virtual machine.
 
-#. Once logged in, run the following commands:
+#. Open logged in, update the `/etc/chef-marketplace/marketplace.rb` file to include the `api_fqdn` of the machine.
+
+  .. code-block:: bash
+  
+     $ echo 'api_fqdn "<fqdn>"' | sudo tee -a /etc/chef-marketplace/marketplace.rb
+
+#. Once you've updated the marketplace.rb run the following commands:
 
    .. code-block:: bash
    
@@ -35,7 +41,7 @@ Before getting started, you will need a functioning workstation. Install the `Ch
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl marketplace-setup
+      $ sudo chef-marketplace-ctl setup
 
    the setup command will prompt you for the appropriate information needed to set up your chef server (e.g. username, password, organzation, etc.). You will also be prompted to accept the license agreement.
 
