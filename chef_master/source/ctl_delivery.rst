@@ -132,7 +132,7 @@ The following example shows how to add a build cookbook after the initialization
 
    $ delivery init —skip-build-cookbook
 
-and then update the ``config.json`` file for the path to the cookbook in |supermarket|:
+and then update the ``config.json`` file for the ``delivery-truck`` cookbook and the path to the cookbook in |supermarket|:
 
 .. code-block:: json
 
