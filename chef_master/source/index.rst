@@ -354,6 +354,7 @@ Chef Compliance
    plugin_knife_vcloud
    plugin_knife_windows
    policy
+   policyfile
    proxies
    provisioning
    push_jobs
