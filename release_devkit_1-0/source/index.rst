@@ -34,7 +34,7 @@ The following tools are available only in the |chef dk|:
 .. raw:: html
 
    &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/ctl_chef.html">chef (executable)</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/policy.html">Policy</a> </br>
+   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/policyfile.html">Policyfile</a> </br>
    &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/config_rb_policyfile.html">Policyfile.rb</a> </br>
 
 |chef provisioning_title|
@@ -249,7 +249,7 @@ The following tools have been developed by members of the |chef| community. Thes
    nodes
    plugin_community
    plugin_kitchen_vagrant
-   policy
+   policyfile
    provisioning
    provisioning_aws
    proxies
