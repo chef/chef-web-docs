@@ -139,11 +139,13 @@ and then update the ``config.json`` file for the path to the cookbook in |superm
    {
      "version": "2",
      "build_cookbook": {
-       "name": "build-cookbook",
-       "path": "/path/to/build/cookbook/in/supermarket"
+       "name": "delivery-truck",
+       "supermarket": "true",
+       "site": "https://private-supermarket.example.com"
      },
      ...
    }
+
 
 delivery job
 =====================================================
