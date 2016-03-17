@@ -6,6 +6,8 @@ About |policyfile|
 
 .. include:: ../../includes_policy/includes_policyfile.rst
 
+.. warning:: |policyfile| is intended to be used with |chef server| 12.3 (and higher) and |chef client| 12.8 (and higher).
+
 .. note:: For developer notes about |policyfile|, see https://github.com/chef/chef-dk/blob/master/POLICYFILE_README.md.
 
 |policyfile rb|
@@ -52,6 +54,11 @@ A node may be bootstrapped to use |policyfile| files. Use the following options 
    |name policy_group|
 
 For a customized bootstrap process, add ``policy_name`` and ``policy_group`` to the first-boot |json| file that is passed to the |chef client|.
+
+
+knife search
+=====================================================
+The ``policy_name`` and ``policy_group`` settings for a node are stored as searchable attributes and as such are available when using a fuzzy matching search pattern. For example: ``knife search dev`` will return nodes that are part of the ``dev`` policy group.
 
 
 Test w/|kitchen|
