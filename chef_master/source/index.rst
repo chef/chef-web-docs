@@ -196,12 +196,13 @@ Chef Compliance
    debug
    definitions
    delivery
-   delivery_cookbooks
-   delivery_users_and_roles
    delivery_configure_pipeline
+   delivery_cookbooks
    delivery_manage_dependencies
    delivery_manage_secrets
+   delivery_server_tuning
    delivery_truck
+   delivery_users_and_roles
    dsl_compliance
    dsl_custom_resource
    dsl_delivery
