@@ -123,8 +123,27 @@ Options
 
 Examples
 -----------------------------------------------------
-None.
 
+**Adding a build cookbook from Supermarket**
+
+The following example shows how to add a build cookbook after the initialization process
+
+.. code-block:: bash
+
+   $ delivery init —skip-build-cookbook
+
+and then update the ``config.json`` file for the path to the cookbook in |supermarket|:
+
+.. code-block:: json
+
+   {
+     "version": "2",
+     "build_cookbook": {
+       "name": "build-cookbook",
+       "path": "/path/to/build/cookbook/in/supermarket"
+     },
+     ...
+   }
 
 delivery job
 =====================================================
