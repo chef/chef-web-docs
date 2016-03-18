@@ -155,6 +155,7 @@ Chef Compliance
    config_rb_analytics
    config_rb_chef_sync
    config_rb_client
+   config_rb_delivery_optional_settings
    config_rb_knife
    config_rb_knife_optional_settings
    config_rb_manage
