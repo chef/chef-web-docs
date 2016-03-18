@@ -6,6 +6,8 @@
 
 .. include:: ../../includes_policy/includes_policyfile_rb.rst
 
+.. note:: For more information about |policyfile|, see :doc:`About Policyfile </policyfile>`
+
 Syntax
 =====================================================
 .. include:: ../../includes_policy/includes_policyfile_rb_syntax.rst
