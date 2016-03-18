@@ -2,7 +2,7 @@
 delivery.rb Optional Settings
 =====================================================
 
-.. warning:: The configuration settings in the ``delivery.rb`` file should not be modified before discussing those changes with |company_name|. Some of these settings should be considered for tuning (see :doc:`Delivery Server Tuning </delivery_server_tuning>`, but many of them should not left as default values.)
+.. warning:: The configuration settings in the ``delivery.rb`` file should not be modified before discussing those changes with |company_name|. Some of these settings should be considered for tuning (see :doc:`Delivery Server Tuning </delivery_server_tuning>`, but many of them should be left as default values.)
 
 Settings
 =====================================================
