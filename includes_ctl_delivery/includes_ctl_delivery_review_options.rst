@@ -4,6 +4,9 @@
 
 This subcommand has the following options:
 
+``-a``, ``--auto-bump``
+   |auto_bump|
+
 ``--edit``
    Use to edit the title and description for the change.
 

@@ -52,6 +52,7 @@
 .. |audit_mode| replace:: Enable |chef client_audit|. Set to ``audit-only`` to skip the converge phase of the |chef client| run and only perform audits. Possible values: ``audit-only``, ``disabled``, and ``enabled``.
 .. |authorized_openid_identifiers| replace:: The identifier for the |open id| associated with the |chef server| web UI.
 .. |authorized_openid_providers| replace:: The provider for the |open id| associated with the |chef server| web UI.
+.. |auto_bump| replace:: Bumps the cookbook metadata version number automatically when ``delivery review`` is run.
 .. |auto_update_client| replace:: Enable automatic updates for the |chef client| in |azure|.
 .. |availability_zone| replace:: The name of the availability zone. Each availability zone is unique within a region.
 .. |aws_access_key_id| replace:: The access key identifier used with |amazon ec2|.
