@@ -2,8 +2,6 @@
 About |policyfile|
 =====================================================
 
-.. include:: ../../includes_policy/includes_policy.rst
-
 .. include:: ../../includes_policy/includes_policyfile.rst
 
 .. warning:: |policyfile| is intended to be used with |chef server| 12.3 (and higher) and |chef client| 12.8 (and higher).
