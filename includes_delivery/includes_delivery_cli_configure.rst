@@ -9,3 +9,8 @@ The placement of the ``.delivery`` directory in your file hierarchy is significa
 .. code-block:: bash
 
    $ delivery setup --server=DELIVERY_SERVER_IP_ADDR --ent=ENTERPRISE --org=ORGANIZATION --user=USERNAME
+
+The following settings may be added to the ``.delivery/cli.toml`` file:
+
+``auto_bump``
+   |auto_bump| Default value: ``false``.
