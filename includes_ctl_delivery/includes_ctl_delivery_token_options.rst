@@ -4,6 +4,9 @@
 
 This subcommand has the following options:
 
+``--api-port PORT``
+   The HTTP port on which the |api delivery| is listening.
+
 ``-e``, ``--ent=ENTERPRISE``
    |delivery enterprise|
 

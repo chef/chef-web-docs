@@ -10,6 +10,9 @@ This subcommand has the following options:
 ``-C``, ``--change=CHANGE``
    |delivery branch|
 
+``--docker IMAGE``
+   The |docker| image in which the job is run.
+
 ``-e``, ``--ent=ENTERPRISE``
    |delivery enterprise|
 
@@ -17,7 +20,7 @@ This subcommand has the following options:
    |delivery pipeline|
 
 ``-g``, ``--git-url=URL``
-   |git url| This URL is used as the remote target for the local |git| checkout when the job is run.
+   |git url| This URL is used as the remote target for the local |git| checkout when the job is run. If this option is used, ``--ent``, ``--org``, ``--server``, and ``--user`` options are ignored.
 
 ``-i``, ``--change-id=ID``
    |id delivery_change|

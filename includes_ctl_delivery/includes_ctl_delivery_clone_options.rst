@@ -8,7 +8,7 @@ This subcommand has the following options:
    |delivery enterprise|
 
 ``-g``, ``--git-url=URL``
-   |git url| This URL is used as the remote target for the local |git| checkout.
+   |git url| This URL is used as the remote target for the local |git| checkout. If this option is used, ``--ent``, ``--org``, ``--server``, and ``--user`` options are ignored.
 
 ``-o``, ``--org=ORGANIZATION``
    |delivery organization|
