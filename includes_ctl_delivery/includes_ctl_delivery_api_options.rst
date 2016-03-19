@@ -10,7 +10,7 @@ This subcommand has the following options:
 ``-c``, ``--config-path=PATH``
    |path directory_delivery|
 
-``--data``
+``--data DATA``
    |delivery data_api|
 
 ``-e``, ``--ent=ENTERPRISE``
