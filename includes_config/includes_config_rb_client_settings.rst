@@ -41,6 +41,11 @@ This configuration file has the following settings:
 ``client_registration_retries``
    |client_registration_retries| Default value: ``5``.
 
+``chef_gem_compile_time``
+   |chef_gem compile_time| Recommended value: ``false``.
+
+   .. note:: .. include:: ../../includes_resources/includes_resource_package_chef_gem_attribute_compile_time.rst
+
 ``cookbook_path``
    |cookbook_path subdirectory|
 

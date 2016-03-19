@@ -13,14 +13,10 @@ This resource has the following properties:
 ``compile_time``
    **Ruby Types:** TrueClass, FalseClass
 
-   |chef_gem compile_time| Recommended value: ``false``. The |chef client| will emit a warning when this setting is ``true``. Use a ``respond_to?`` check to ensure backward compatibility. For example:
-
-   .. code-block:: ruby
-
-      chef_gem 'aws-sdk' do
-        compile_time false if respond_to?(:compile_time)
-      end
-
+   |chef_gem compile_time| Possible values: ``nil`` (for verbose warnings), ``true`` (to warn once per |chef client| run), or ``false`` (to remove all warnings). Recommended value: ``false``.
+   
+   .. include:: ../../includes_resources/includes_resource_package_chef_gem_attribute_compile_time.rst 
+     
    .. warning:: .. include:: ../../includes_notes/includes_notes_chef_gem_chef_sugar.rst
    
 ``ignore_failure``

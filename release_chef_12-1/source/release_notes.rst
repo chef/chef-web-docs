@@ -138,89 +138,63 @@ verify
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The ``verify`` attribute may be used with the |resource cookbook_file|, |resource file|, |resource remote_file|, and |resource template| resources.
 
-.. list-table::
-   :widths: 150 450
-   :header-rows: 1
+``verify``
+   |verify_file|
 
-   * - Attribute
-     - Description
-   * - ``verify``
-     - |verify_file|
+   The following examples show how the ``verify`` attribute is used with the |resource template| resource. The same approach (but with different resource names) is true for the |resource cookbook_file|, |resource file|, and |resource remote_file| resources:
 
-       The following examples show how the ``verify`` attribute is used with the |resource template| resource. The same approach (but with different resource names) is true for the |resource cookbook_file|, |resource file|, and |resource remote_file| resources:
-
-       .. include:: ../../includes_resources/includes_resource_template_attributes_verify.rst
+   .. include:: ../../includes_resources/includes_resource_template_attributes_verify.rst
 
 
 imports
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The following attribute is new for the |resource dsc_script| resource:
 
-.. list-table::
-   :widths: 150 450
-   :header-rows: 1
+``imports``
+   Use to import |windows powershell_dsc_short| resources from a module. To import all resources from a module, specify only the module name:
 
-   * - Attribute
-     - Description
-   * - ``imports``
-     - Use to import |windows powershell_dsc_short| resources from a module. To import all resources from a module, specify only the module name:
+   .. code-block:: ruby
 
-       .. code-block:: ruby
+      imports "module_name"
 
-          imports "module_name"
+   To import specific resources, specify the module name and then the name for each resource in that module to import:
 
-       To import specific resources, specify the module name and then the name for each resource in that module to import:
+   .. code-block:: ruby
 
-       .. code-block:: ruby
+      imports "module_name", "resource_name_a", "resource_name_b", ...
 
-          imports "module_name", "resource_name_a", "resource_name_b", ...
+   For example, to import all resources from a module named ``cRDPEnabled``:
 
-       For example, to import all resources from a module named ``cRDPEnabled``:
+   .. code-block:: ruby
 
-       .. code-block:: ruby
+      imports "cRDPEnabled"
 
-          imports "cRDPEnabled"
+   And to import only the ``PSHOrg_cRDPEnabled`` resource:
 
-       And to import only the ``PSHOrg_cRDPEnabled`` resource:
+   .. code-block:: ruby
 
-       .. code-block:: ruby
-
-          imports "cRDPEnabled", "PSHOrg_cRDPEnabled"
+      imports "cRDPEnabled", "PSHOrg_cRDPEnabled"
 
 
 compile_time
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The following attribute is new for the |resource chef_gem| resource:
 
-.. list-table::
-   :widths: 150 450
-   :header-rows: 1
+``compile_time``
+   |chef_gem compile_time| Possible values: ``nil`` (for verbose warnings), ``true`` (to warn once per |chef client| run), or ``false`` (to remove all warnings). Recommended value: ``false``.
+   
+   .. include:: ../../includes_resources/includes_resource_package_chef_gem_attribute_compile_time.rst 
 
-   * - Attribute
-     - Description
-   * - ``compile_time``
-     - |chef_gem compile_time| Recommended value: ``false``. The |chef client| will emit a warning when this setting is ``true``. Use a ``respond_to?`` check to ensure backward compatibility. For example:
-
-       .. code-block:: ruby
-
-          chef_gem 'aws-sdk' do
-            compile_time false if respond_to?(:compile_time)
-          end
 
 run_as_
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The following attributes are new for the |resource service_windows| resource:
 
-.. list-table::
-   :widths: 150 450
-   :header-rows: 1
+``run_as_password``
+   |password windows_service_run_as|
 
-   * - Attribute
-     - Description
-   * - ``run_as_password``
-     - |password windows_service_run_as|
-   * - ``run_as_user``
-     - |user windows_service_run_as|
+``run_as_user``
+   |user windows_service_run_as|
 
 
 
@@ -254,14 +228,13 @@ New |client rb| Settings
 -----------------------------------------------------
 The following |client rb| settings are new:
 
-.. list-table::
-   :widths: 150 450
-   :header-rows: 1
+``chef_gem_compile_time``
+   |chef_gem compile_time| Recommended value: ``false``.
 
-   * - Attribute
-     - Description
-   * - ``windows_service.watchdog_timeout``
-     - |watchdog_timeout| Default value: ``2 * (60 * 60)``.
+   .. note:: .. include:: ../../includes_resources/includes_resource_package_chef_gem_attribute_compile_time.rst
+
+``windows_service.watchdog_timeout``
+   |watchdog_timeout| Default value: ``2 * (60 * 60)``.
 
 Multiple Packages and Versions
 -----------------------------------------------------
