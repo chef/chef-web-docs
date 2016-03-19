@@ -36,7 +36,7 @@ Examples
 
 **Install a gems file for use in recipes**
 
-.. include:: ../../step_resource/step_resource_chef_gem_install_for_use_in_recipes.rst
+.. include:: ../../step_resource/step_resource_chef_gem_install_for_use_in_recipes_12-0.rst
 
 **Install MySQL for Chef**
 

@@ -34,7 +34,7 @@ Examples
 =====================================================
 |generic resource statement|
 
-**Install a gems file for use in recipes**
+**Compile time vs. converge time installation of gems**
 
 .. include:: ../../step_resource/step_resource_chef_gem_install_for_use_in_recipes.rst
 
