@@ -3,7 +3,7 @@
 
 .. This topic is hooked into client.rb topics, starting with 12.1, in addition to the resource reference pages.
 
-For recipe-specific use of gems, use a ``respond_to?`` check to ensure backward compatibility. For example:
+To suppress warnings for cookbooks authored prior to |chef client| 12.1, use a ``respond_to?`` check to ensure backward compatibility. For example:
 
 .. code-block:: ruby
 
