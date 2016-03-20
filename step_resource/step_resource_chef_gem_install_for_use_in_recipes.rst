@@ -8,7 +8,7 @@ To install a |gem| while the |chef client| is configuring the node (the “conve
 .. code-block:: ruby
 
    chef_gem 'right_aws' do
-     compile_time true
+     compile_time false
      action :install
    end
 
