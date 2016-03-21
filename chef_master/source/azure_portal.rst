@@ -42,8 +42,3 @@ For more information about |azure| and how to use it with |chef|:
 * `Chef Documentation <https://docs.chef.io>`_
 * `knife azure Plugin <https://docs.chef.io/plugin_knife_azure.html>`_
 * `azure-cookbook <https://github.com/chef-partners/azure-cookbook>`_
-
-
-
-
-
