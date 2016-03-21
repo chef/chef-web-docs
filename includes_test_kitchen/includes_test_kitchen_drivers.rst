@@ -32,7 +32,7 @@ Some popular drivers:
      - A driver for |amazon ec2|.
    * - `kitchen-fog <https://github.com/TerryHowe/kitchen-fog>`__
      - A driver for |fog|, a |ruby| |gem| for interacting with various cloud providers.
-   * - `kitchen-gce <https://github.com/anl/kitchen-gce>`__
+   * - `kitchen-google <https://github.com/anl/kitchen-google>`__
      - A driver for |google compute engine|.
    * - `kitchen-hyperv <https://github.com/test-kitchen/kitchen-hyperv>`__
      - A driver for |microsoft hyperv|.
