@@ -7,4 +7,4 @@ To set up the |push jobs| workstation, install the ``knife push jobs`` plugin by
 
    chef gem install knife-push
 
-Once installed, the following subcommands will be available: ``knife node status``, ``knife job list``, ``knife job start``, and ``knife job status``. 
+Once installed, the following subcommands will be available: ``knife job status``, ``knife job list``, ``knife job start``, and ``knife job status``. 
