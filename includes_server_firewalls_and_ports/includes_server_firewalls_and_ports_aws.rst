@@ -1,7 +1,7 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
-For a |chef server| configuration that is launched from the |amazon aws marketplace|, the following ports are configured automatically using the one-click installation:
+For a |chef server| configuration that is launched from the |amazon aws marketplace|, access to the instance on the following ports is required:
 
 .. list-table::
    :widths: 60 420
@@ -10,10 +10,9 @@ For a |chef server| configuration that is launched from the |amazon aws marketpl
    * - Port
      - Description
    * - 443
-     - HTTPS
+     - HTTPS for |chef manage|
+   * - 8443
+     - HTTPS for |chef analytics|
    * - 22
      - SSH
-   * - 5672
-     - RabbitMQ. Must be open and available to use |chef analytics|.
 
-If the |chef server| is launched in a way that does not use the one-click installation, these ports may need to be configured manually.

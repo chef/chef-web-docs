@@ -55,6 +55,7 @@
 .. |chef init| replace:: chef-init
 .. |chef manage| replace:: Chef management console
 .. |chef manage_title| replace:: Chef Manage
+.. |chef marketplace| replace:: Chef Marketplace
 .. |chef metal| replace:: chef-metal
 .. |chef pedant| replace:: chef-pedant
 .. |chef private| replace:: Private Chef

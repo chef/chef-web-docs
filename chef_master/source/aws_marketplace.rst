@@ -2,7 +2,11 @@
 |amazon aws marketplace|
 =====================================================
 
-.. include:: ../../includes_cloud/includes_cloud_aws_chef_server.rst
+|company_name| provides a fully licensed |amazon ami| for the |chef server| and |chef compliance| that can be launched from the `AWS Marketplace <https://aws.amazon.com/marketplace/seller-profile/ref=srh_res_product_vendor?ie=UTF8&id=e7b7691e-634a-4d35-b729-a8b576175e8c>`__. Billing is done through your |amazon aws| account on an hourly basis and is dynamically updated to reflect current node usage.
+
+=====================================================
+|chef server_title| AMI
+=====================================================
 
 Launch the AMI
 =====================================================
@@ -16,26 +20,69 @@ Configure the |chef server_title|
 =====================================================
 .. include:: ../../includes_cloud/includes_cloud_aws_chef_server_configure.rst
 
-Ports
+Configure the workstation
+=====================================================
+.. include:: ../../includes_cloud/includes_cloud_aws_chef_workstation_configure.rst
+
+Troubleshooting |chef server_title|
+=====================================================
+
+Required ports
 -----------------------------------------------------
 .. include:: ../../includes_server_firewalls_and_ports/includes_server_firewalls_and_ports_aws.rst
 
-Hostname
+Change the hostname
 -----------------------------------------------------
 .. include:: ../../includes_cloud/includes_cloud_aws_chef_server_update_hostname.rst
 
-Edit AMI Instance Size
-=====================================================
+Change instance size
+-----------------------------------------------------
 .. include:: ../../includes_cloud/includes_cloud_aws_chef_server_change_instance.rst
 
 Upgrade the |chef server_title|
-=====================================================
+-----------------------------------------------------
 .. include:: ../../includes_cloud/includes_cloud_aws_chef_server_upgrade_software.rst
 
-Migrate an Existing Server
-=====================================================
+Migrate an existing |chef server_title|
+-----------------------------------------------------
 .. include:: ../../includes_cloud/includes_cloud_aws_chef_server_migration.rst
 
-Move to Amazon AMI
+Move to |amazon aws marketplace| AMI
 -----------------------------------------------------
 .. include:: ../../includes_cloud/includes_cloud_aws_chef_server_migration_to_aws.rst
+
+=====================================================
+|chef compliance| AMI
+=====================================================
+
+Launch the AMI
+=====================================================
+.. include:: ../../includes_cloud/includes_cloud_aws_compliance_launch_ami.rst
+
+Configure |chef compliance|
+=====================================================
+.. include:: ../../includes_cloud/includes_cloud_aws_compliance_configure.rst
+
+Troubleshooting |chef compliance|
+=====================================================
+
+Required ports
+-----------------------------------------------------
+.. include:: ../../includes_cloud/includes_cloud_aws_compliance_ports.rst
+
+Change the hostname
+-----------------------------------------------------
+.. include:: ../../includes_cloud/includes_cloud_aws_compliance_update_hostname.rst
+
+Change instance size
+-----------------------------------------------------
+.. include:: ../../includes_cloud/includes_cloud_aws_compliance_change_instance.rst
+
+Upgrade |chef compliance|
+-----------------------------------------------------
+.. include:: ../../includes_cloud/includes_cloud_aws_compliance_upgrade_software.rst
+
+
+Migrate to a new AMI version
+-----------------------------------------------------
+.. include:: ../../includes_cloud/includes_cloud_aws_compliance_migrate_ami.rst

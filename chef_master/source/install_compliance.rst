@@ -29,31 +29,7 @@ Standalone
 
 |amazon aws marketplace|
 =====================================================
-You can install the |chef compliance| server as an |amazon ami| instance.
-
-Launch the AMI
------------------------------------------------------
-.. include:: ../../includes_cloud/includes_cloud_aws_compliance_launch_ami.rst
-
-Configure the Server
------------------------------------------------------
-.. include:: ../../includes_cloud/includes_cloud_aws_compliance_configure.rst
-
-Ports
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_cloud/includes_cloud_aws_compliance_ports.rst
-
-Hostname
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_cloud/includes_cloud_aws_compliance_update_hostname.rst
-
-Edit AMI Instance Size
------------------------------------------------------
-.. include:: ../../includes_cloud/includes_cloud_aws_compliance_change_instance.rst
-
-Migrate to a new AMI version
------------------------------------------------------
-.. include:: ../../includes_cloud/includes_cloud_aws_compliance_migrate_ami.rst
+See https://docs.chef.io/aws_marketplace.html for more information.
 
 Configure SSL
 =====================================================

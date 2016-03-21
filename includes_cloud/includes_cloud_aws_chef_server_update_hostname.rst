@@ -4,10 +4,20 @@
 
 To update the hostname, do the following:
 
+#. Run ``sudo -i`` to gain administrator privileges.
+
 #. Run ``chef-marketplace-ctl hostname`` to view the current hostname.
+
+#. Configure the ``api_fqdn`` in ``/etc/chef-marketplace/marketplace.rb``
+
+   .. code-block:: bash
+
+      $ echo 'api_fqdn "<new.hostname.com>"' | sudo tee -a /etc/chef-marketplace/marketplace.rb
+
+#. Run ``chef-server-ctl stop`` to stop |chef server|.
 
 #. Run ``chef-marketplace-ctl hostname <new.hostname.com>`` to update the hostname.
 
-   .. note:: If the hostname is updated after the |chef server| has been set up, verify that the ``api_fqdn`` setting is correct in ``/etc/opscode/chef-server.rb``.
+#. Run ``chef-server-ctl reconfigure`` to ensure |chef server| has beeen correctly configured with the new hostname.
 
-#. Run ``chef-server-ctl reconfigure && opscode-manage-ctl reconfigure`` to reconfigure the |chef server| with the new hostname.
+#. Run ``chef-server-ctl restart`` to restart |chef server|
