@@ -12,7 +12,7 @@ To migrate an existing |chef compliance| |amazon ami| to the latest version, do 
       $ chef-marketplace-clt upgrade -y
 
 #. Repeat the previous step on the your old |chef compliance| instance.
-#. Copy the contents of the old instance to your new instance and restart the service.  For example:
+#. Copy the contents of the old instance to your new instance and restart the service. For example:
 
    .. code-block:: bash
 

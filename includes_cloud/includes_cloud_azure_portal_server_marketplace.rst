@@ -25,16 +25,16 @@ Before getting started, you will need a functioning workstation. Install the `Ch
 
 #. Once the virtual machine is launched, you will need to create an account to use with the |chef manage|. To do this, open an |ssh| connection to the host using the user name and password (or |ssh| key) provided when you launch the virtual machine.
 
-#. Open logged in, update the `/etc/chef-marketplace/marketplace.rb` file to include the `api_fqdn` of the machine.
+#. Open logged in, update the ``/etc/chef-marketplace/marketplace.rb`` file to include the ``api_fqdn`` of the machine.
 
   .. code-block:: bash
-  
+
      $ echo 'api_fqdn "<fqdn>"' | sudo tee -a /etc/chef-marketplace/marketplace.rb
 
-#. Once you've updated the marketplace.rb run the following commands:
+#. Once you've updated the ``marketplace.rb`` file run the following commands:
 
    .. code-block:: bash
-   
+
       $ sudo chef-marketplace-ctl hostname <fqdn>
 
    where ``fqdn`` is the fully qualified domain name of the machine.
@@ -43,7 +43,7 @@ Before getting started, you will need a functioning workstation. Install the `Ch
 
       $ sudo chef-marketplace-ctl setup
 
-   the setup command will prompt you for the appropriate information needed to set up your chef server (e.g. username, password, organzation, etc.). You will also be prompted to accept the license agreement.
+   the setup command will prompt you for the appropriate information needed to set up your |chef server| (e.g. username, password, organzation, etc.). You will also be prompted to accept the license agreement.
 
 #. Accept the **License Agreement**.
 
