@@ -198,6 +198,10 @@ push_1-0:
 	mkdir -p $(BUILDDIR)/release/push_jobs_1-0/
 	$(BUILD_COMMAND_AND_ARGS) release_push_jobs_1-0/source $(BUILDDIR)/release/push_jobs_1-0/
 
+server_12-5:
+	mkdir -p $(BUILDDIR)/release/server_12-5/
+	$(BUILD_COMMAND_AND_ARGS) release_server_12-5/source $(BUILDDIR)/release/server_12-5/
+
 server_12-4:
 	mkdir -p $(BUILDDIR)/release/server_12-4/
 	$(BUILD_COMMAND_AND_ARGS) release_server_12-4/source $(BUILDDIR)/release/server_12-4/
