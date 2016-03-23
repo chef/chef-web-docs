@@ -25,7 +25,7 @@ Configure the workstation
 -----------------------------------------------------
 .. include:: ../../includes_cloud/includes_cloud_aws_chef_workstation_configure.rst
 
-Troubleshooting |chef server_title|
+Troubleshooting
 -----------------------------------------------------
 
 Required ports
@@ -44,7 +44,7 @@ Upgrade the |chef server_title|
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_cloud/includes_cloud_aws_chef_server_upgrade_software.rst
 
-Migrate to |chef server_title| AMI
+Migrate to AWS
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_cloud/includes_cloud_aws_chef_server_migration_to_aws.rst
 
@@ -65,7 +65,7 @@ Configure |chef compliance|
 -----------------------------------------------------
 .. include:: ../../includes_cloud/includes_cloud_aws_compliance_configure.rst
 
-Troubleshooting |chef compliance|
+Troubleshooting
 -----------------------------------------------------
 
 Required ports
@@ -84,7 +84,7 @@ Upgrade |chef compliance|
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_cloud/includes_cloud_aws_compliance_upgrade_software.rst
 
-Migrate to |chef compliance| AMI
+Migrate to AWS
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_cloud/includes_cloud_aws_compliance_migration_to_aws.rst
 
