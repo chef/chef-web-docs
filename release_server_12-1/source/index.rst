@@ -19,7 +19,7 @@ The `Chef supermarket <https://supermarket.chef.io>`_ is the location in which c
 
 Install, Upgrade
 =====================================================
-The |chef server| can be installed on new hardware. Existing server configurations may be upgraded to |chef server| 12.1.
+The |chef server| can be installed on new hardware. Existing server configurations may be upgraded.
 
 .. raw:: html
 

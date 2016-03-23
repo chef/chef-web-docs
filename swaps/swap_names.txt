@@ -25,6 +25,7 @@
 .. |chef analytics_title| replace:: Chef Analytics
 .. |chef analytics ctl| replace:: opscode-analytics-ctl
 .. |chef apply| replace:: chef-apply
+.. |chef backend ctl| replace:: chef-backend-ctl
 .. |chef bookshelf| replace:: Bookshelf
 .. |chef client| replace:: chef-client
 .. |chef client_audit| replace:: audit-mode

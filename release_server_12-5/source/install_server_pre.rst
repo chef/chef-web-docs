@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS Chef server version 12.4
+.. THIS PAGE DOCUMENTS Chef server version 12.5
 
 =====================================================
 Prerequisites
@@ -16,7 +16,7 @@ Unsupported
 
 Capacity Planning
 =====================================================
-Read the `guidance around capacity planning <https://docs.chef.io/release/server_12-4/server_components.html#capacity-planning>`__ for information about how to choose the right toplogy for the |chef server|.
+Read the `guidance around capacity planning <https://docs.chef.io/release/server_12-5/server_components.html#capacity-planning>`__ for information about how to choose the right toplogy for the |chef server|.
 
 Software Requirements
 =====================================================
