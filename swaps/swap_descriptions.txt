@@ -1509,7 +1509,7 @@
 .. Y
 ..
 
-.. |yes knife| replace:: Respond to all confirmation prompts with "Yes". |knife| is not to ask for confirmation.
+.. |yes knife| replace:: Respond to all confirmation prompts with "Yes".
 .. |yum_lock_timeout| replace:: The amount of time (in seconds) after which a |yum| lock request is to time out.
 
 
