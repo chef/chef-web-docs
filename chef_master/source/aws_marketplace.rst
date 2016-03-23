@@ -44,19 +44,18 @@ Upgrade the |chef server_title|
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_cloud/includes_cloud_aws_chef_server_upgrade_software.rst
 
-Migrate a |chef server_title|
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_cloud/includes_cloud_aws_chef_server_migration.rst
-
-Move to AMI
+Migrate to |chef server_title| AMI
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_cloud/includes_cloud_aws_chef_server_migration_to_aws.rst
+
+Migrate to the latest AMI
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_cloud/includes_cloud_aws_chef_server_ami_migration.rst
 
 
 |chef compliance| AMI
 =====================================================
 Follow the steps in the sections below to install |chef compliance| in |amazon aws marketplace|.
-
 
 Launch the AMI
 -----------------------------------------------------
@@ -85,6 +84,10 @@ Upgrade |chef compliance|
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_cloud/includes_cloud_aws_compliance_upgrade_software.rst
 
-Migrate to AMI version
+Migrate to |chef compliance| AMI
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_cloud/includes_cloud_aws_compliance_migrate_ami.rst
+.. include:: ../../includes_cloud/includes_cloud_aws_compliance_migration_to_aws.rst
+
+Migrate to the latest AMI
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_cloud/includes_cloud_aws_compliance_ami_migration.rst
