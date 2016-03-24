@@ -373,6 +373,15 @@ build cookbook's deploy recipe in `.delivery/build-cookbook/deploy.rb`:
      action :install
    end
 
+Validate the Installation
+=====================================================
+The surest way to validate your |chef delivery| installation is by creating a cookbook and submitting it to |github|, which will kick off a pipeline and you can see how the process works.
+
+.. include:: ../../includes_delivery/includes_delivery_build_cookbook_create.rst
+
+.. include:: ../../includes_delivery/includes_delivery_projects_add_with_delivery_truck.rst
+
+
 That's it. You now have an application that builds in the publish phase (which is every
 time you accept a change) and gets promoted with version pinning throughout
 your infrastructure nodes per stage. This, coupled with the concept of :doc:`/delivery_manage_dependencies`, allows for safe promotion of an artifact.
