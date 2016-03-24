@@ -18,7 +18,7 @@ BUILD_COMMAND_AND_ARGS = $(BUILD_COMMAND) $(PARALLEL_BUILD)
 #
 #
 # OTHER BUILDS -- REMOVED FOR THE MOMENT AND ONLY REBUILD AD HOC
-# devkit_1-0 analytics_1-1 delivery_1-0
+# devkit analytics_1-1 delivery
 #
 # 11-0 11-2 11-4 11-6 11-8 11-10 11-12 11-14 11-16 11-18
 # 12-0 12-1 12-2 12-3 12-4
@@ -181,10 +181,6 @@ analytics_1-3:
 devkit:
 	mkdir -p $(BUILDDIR)/release/devkit/
 	$(BUILD_COMMAND_AND_ARGS) release_devkit/source $(BUILDDIR)/release/devkit/
-
-devkit_1-0:
-	mkdir -p $(BUILDDIR)/release/devkit_1-0/
-	$(BUILD_COMMAND_AND_ARGS) release_devkit_1-0/source $(BUILDDIR)/release/devkit_1-0/
 
 ohai-8:
 	mkdir -p $(BUILDDIR)/release/ohai-8/
