@@ -90,26 +90,26 @@ delivery
 12-7
 12-8
 12-9
-oec_11-0
-oec_11-1
-oec_11-2
-osc_11-0
-osc_11-1
 analytics_1-1
 analytics_1-2
 analytics_1-3
-devkit_1-0
 compliance_1-0
+devkit
+oec_11-0
+oec_11-1
+oec_11-2
 ohai-8
 ohai-7
 ohai-6
+osc_11-0
+osc_11-1
 push_1-0
-server_12-5
-server_12-4
-server_12-3
-server_12-2
-server_12-1
 server_12-0
+server_12-2
+server_12-3
+server_12-4
+server_12-5
+server_12-1
 END
 
 file '/srv/chef-web-docs/targets.txt' do

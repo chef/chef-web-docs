@@ -1,7 +1,7 @@
 .. THIS PAGE DOCUMENTS Chef server version 12.5
 
 =====================================================
-About |chef server_title| 12.4 
+About |chef server_title| 12.5
 =====================================================
 
 .. include:: ../../includes_chef/includes_chef_index.rst

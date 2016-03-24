@@ -178,6 +178,10 @@ analytics_1-3:
 	mkdir -p $(BUILDDIR)/release/analytics_1-3/
 	$(BUILD_COMMAND_AND_ARGS) release_analytics_1-3/source $(BUILDDIR)/release/analytics_1-3/
 
+devkit:
+	mkdir -p $(BUILDDIR)/release/devkit/
+	$(BUILD_COMMAND_AND_ARGS) release_devkit/source $(BUILDDIR)/release/devkit/
+
 devkit_1-0:
 	mkdir -p $(BUILDDIR)/release/devkit_1-0/
 	$(BUILD_COMMAND_AND_ARGS) release_devkit_1-0/source $(BUILDDIR)/release/devkit_1-0/
