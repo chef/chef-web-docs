@@ -4,6 +4,8 @@ About Proxies
 
 .. include:: ../../includes_proxy/includes_proxy.rst
 
+.. include:: ../../includes_proxy/includes_proxy.rst
+
 |windows|
 =====================================================
 .. include:: ../../includes_proxy/includes_proxy_windows.rst
@@ -32,6 +34,10 @@ No Proxy
 -----------------------------------------------------
 .. include:: ../../includes_proxy/includes_proxy_settings_no_proxy.rst
 
-ENV Environment Variable
+Environment Variables
 =====================================================
+.. include:: ../../includes_proxy/includes_proxy_notes.rst
+
+ENV
+-----------------------------------------------------
 .. include:: ../../includes_proxy/includes_proxy_env.rst

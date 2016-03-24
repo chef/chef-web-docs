@@ -3,7 +3,7 @@
 
 The ``no_proxy`` setting is used to specify addresses for which the proxy should
 not be used. This can be a single address or a comma-separated list of
-addresses. Wildcard matching will work in this list.
+addresses. Wildcard matching may be used in this list; however, some situations require hostnames to be specified without wildcards.
 
 Example:
 
