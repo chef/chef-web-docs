@@ -10,3 +10,5 @@ build/
 **/.sass-cache/*
 *.css.map
 *.css_t.map
+
+/.delivery/cli.toml

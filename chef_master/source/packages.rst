@@ -16,11 +16,11 @@ Package Repositories
 -----------------------------------------------------
 .. include:: ../../includes_packages/includes_packages_repo_yum.rst
 
-Install Scripts
+Omnitruck Install Scripts
 =====================================================
 .. include:: ../../includes_packages/includes_packages_install_script.rst
 
-Run the Install Script
+Run the Omnitruck Install Script
 -----------------------------------------------------
 .. include:: ../../includes_packages/includes_packages_install_script_run.rst
 
@@ -32,7 +32,7 @@ Run the Install Script
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_packages/includes_packages_install_script_run_windows.rst
 
-Install Script Options
+Omnitruck Install Script Options
 -----------------------------------------------------
 .. include:: ../../includes_packages/includes_packages_install_script_options.rst
 
