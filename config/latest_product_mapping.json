@@ -5,6 +5,6 @@
   "delivery": "/release/delivery",
   "enterprise": "/release/oec_11-2",
   "open_source": "/release/osc_11-1",
-  "devkit": "/release/devkit_1-0",
-  "chefdk": "/release/devkit_1-0"
+  "devkit": "/release/devkit",
+  "chefdk": "/release/devkit"
 }

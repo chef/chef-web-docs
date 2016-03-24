@@ -1,0 +1,1113 @@
+{% extends "!nav-docs.html" %}
+{% set active_product = "Chef DK" %}
+{% set active_version = "current" %}
+{% set navItems = [
+  {
+    "title": "Getting Started",
+    "iconClass": "fa-home",
+    "subItems": [
+      {
+        "title": "Start Here",
+        "hasSubItems": false,
+        "url": "/release/devkit/index.html"
+      },
+      {
+        "title": "Overview",
+        "hasSubItems": false,
+        "url": "/release/devkit/chef_overview.html"
+      },
+      {
+        "title": "Release Notes",
+        "hasSubItems": false,
+        "url": "/release/devkit/release_notes.html"
+      }
+    ]
+  },
+  {
+    "title": "Theory &amp; Concepts",
+    "iconClass": "fa-cube",
+    "subItems": [
+      {
+        "title": "Workstations",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "About Workstations",
+            "url": "/release/devkit/workstation.html"
+          },
+          {
+            "title": "chef-repo",
+            "url": "/release/devkit/chef_repo.html"
+          }
+        ]
+      },
+      {
+        "title": "Nodes",
+        "hasSubItems": false,
+        "url": "/release/devkit/nodes.html"
+      },
+      {
+        "title": "Chef Server",
+        "hasSubItems": false,
+        "url": "/release/devkit/server_components.html"
+      },
+      {
+        "title": "Chef Client",
+        "hasSubItems": false,
+        "url": "/release/devkit/chef_client.html"
+      },
+      {
+        "title": "Concepts",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "Chef Search",
+            "url": "/release/devkit/chef_search.html"
+          },
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Setup &amp; Config",
+    "iconClass": "fa-gears",
+    "subItems": [
+      {
+        "title": "System Requirements",
+        "hasSubItems": false,
+        "url": "/release/devkit/chef_system_requirements.html"
+      },
+      {
+        "title": "Workstation",
+        "hasSubItems": false,
+        "url": "/release/devkit/install_dk.html"
+      },
+    ]
+  },
+  {
+    "title": "Cookbooks",
+    "iconClass": "fa-book",
+    "subItems": [
+      {
+        "title": "About Cookbooks",
+        "hasSubItems": false,
+        "url": "/release/devkit/cookbooks.html"
+      },
+      {
+        "title": "Cookbook Components",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "Attributes",
+            "url": "/release/devkit/attributes.html"
+          },
+          {
+            "title": "Definitions",
+            "url": "/release/devkit/definitions.html"
+          },
+          {
+            "title": "Files",
+            "url": "/release/devkit/files.html"
+          },
+          {
+            "title": "Libraries",
+            "url": "/release/devkit/libraries.html"
+          },
+          {
+            "title": "Recipes",
+            "url": "/release/devkit/recipes.html"
+          },
+          {
+            "title": "Resources",
+            "url": "/release/devkit/resource.html"
+          },
+          {
+            "title": "Templates",
+            "url": "/release/devkit/templates.html"
+          }
+        ]
+      },
+      {
+        "title": "Cookbook Repo",
+        "hasSubItems": false,
+        "url": "/release/devkit/cookbook_repo.html"
+      },
+      {
+        "title": "Ruby",
+        "hasSubItems": false,
+        "url": "/release/devkit/ruby.html"
+      }
+    ]
+  },
+  {
+    "title": "Workflow",
+    "iconClass": "fa-wrench",
+    "subItems": [
+      {
+        "title": "Kitchen",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "About Kitchen",
+            "url": "/release/devkit/kitchen.html"
+          },
+          {
+            "title": ".kitchen.yml",
+            "url": "/release/devkit/config_yml_kitchen.html"
+          },
+          {
+            "title": "kitchen-vagrant",
+            "url": "/release/devkit/plugin_kitchen_vagrant.html"
+          }
+        ]
+      },
+      {
+        "title": "ChefSpec",
+        "hasSubItems": false,
+        "url": "/release/devkit/chefspec.html"
+      },
+      {
+        "title": "Foodcritic",
+        "hasSubItems": false,
+        "url": "/release/devkit/foodcritic.html"
+      },
+      {
+        "title": "chef-vault",
+        "hasSubItems": false,
+        "url": "/release/devkit/chef_vault.html"
+      },
+      {
+        "title": "Rubocop",
+        "hasSubItems": false,
+        "url": "/release/devkit/rubocop.html"
+      },
+      {
+        "title": "Berkshelf",
+        "hasSubItems": false,
+        "url": "/release/devkit/berkshelf.html"
+      },
+      {
+        "title": "Knife",
+        "hasSubItems": false,
+        "url": "/release/devkit/knife.html"
+      },
+      {
+        "title": "Provisioning",
+        "hasSubItems": false,
+        "url": "/release/devkit/provisioning.html"
+      },
+      {
+        "title": "Policy",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "Cookbook Versions",
+            "url": "/release/devkit/cookbook_versions.html"
+          },
+          {
+            "title": "Policyfile",
+            "url": "/release/devkit/policyfile.html"
+          },
+        ]
+      },
+    ]
+  },
+  {
+    "title": "Extend Chef",
+    "iconClass": "fa-clone",
+    "subItems": [
+      {
+        "title": "Custom Resources",
+        "hasSubItems": false,
+        "url": "/release/devkit/custom_resources.html"
+      },
+      {
+        "title": "Recipe DSL",
+        "hasSubItems": false,
+        "url": "/release/devkit/dsl_recipe.html"
+      },
+      {
+        "title": "Compliance DSL",
+        "hasSubItems": false,
+        "url": "/release/devkit/dsl_compliance.html"
+      },
+      {
+        "title": "Handlers",
+        "hasSubItems": false,
+        "url": "/release/devkit/handlers.html"
+      },
+      {
+        "title": "Plugins",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "Knife",
+            "url": "/release/devkit/plugin_community.html"
+          },
+          {
+            "title": "Ohai",
+            "url": "/release/devkit/plugin_community.html"
+          },
+          {
+            "title": "Chef",
+            "url": "/release/devkit/plugin_community.html"
+          }
+        ]
+      },
+    ]
+  },
+  {
+    "title": "Reference",
+    "iconClass": "fa-th",
+    "subItems": [
+      {
+        "title": "Chef Resources",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "apt_package",
+            "url": "/release/devkit/resource_apt_package.html"
+          },
+          {
+            "title": "apt_update",
+            "url": "/release/devkit/resource_apt_update.html"
+          },
+          {
+            "title": "bash",
+            "url": "/release/devkit/resource_bash.html"
+          },
+          {
+            "title": "batch",
+            "url": "/release/devkit/resource_batch.html"
+          },
+          {
+            "title": "bff_package",
+            "url": "/release/devkit/resource_bff_package.html"
+          },
+          {
+            "title": "breakpoint",
+            "url": "/release/devkit/resource_breakpoint.html"
+          },
+          {
+            "title": "chef_gem",
+            "url": "/release/devkit/resource_chef_gem.html"
+          },
+          {
+            "title": "chef_handler",
+            "url": "/release/devkit/resource_chef_handler.html"
+          },
+          {
+            "title": "cookbook_file",
+            "url": "/release/devkit/resource_cookbook_file.html"
+          },
+          {
+            "title": "cron",
+            "url": "/release/devkit/resource_cron.html"
+          },
+          {
+            "title": "csh",
+            "url": "/release/devkit/resource_csh.html"
+          },
+          {
+            "title": "deploy",
+            "url": "/release/devkit/resource_deploy.html"
+          },
+          {
+            "title": "directory",
+            "url": "/release/devkit/resource_directory.html"
+          },
+          {
+            "title": "dpkg_package",
+            "url": "/release/devkit/resource_dpkg_package.html"
+          },
+          {
+            "title": "dsc_resource",
+            "url": "/release/devkit/resource_dsc_resource.html"
+          },
+          {
+            "title": "dsc_script",
+            "url": "/release/devkit/resource_dsc_script.html"
+          },
+          {
+            "title": "easy_install_package",
+            "url": "/release/devkit/resource_easy_install_package.html"
+          },
+          {
+            "title": "env",
+            "url": "/release/devkit/resource_env.html"
+          },
+          {
+            "title": "erl_call",
+            "url": "/release/devkit/resource_erlang_call.html"
+          },
+          {
+            "title": "execute",
+            "url": "/release/devkit/resource_execute.html"
+          },
+          {
+            "title": "file",
+            "url": "/release/devkit/resource_file.html"
+          },
+          {
+            "title": "freebsd_package",
+            "url": "/release/devkit/resource_freebsd_package.html"
+          },
+          {
+            "title": "gem_package",
+            "url": "/release/devkit/resource_gem_package.html"
+          },
+          {
+            "title": "git",
+            "url": "/release/devkit/resource_git.html"
+          },
+          {
+            "title": "group",
+            "url": "/release/devkit/resource_group.html"
+          },
+          {
+            "title": "homebrew_package",
+            "url": "/release/devkit/resource_homebrew_package.html"
+          },
+          {
+            "title": "http_request",
+            "url": "/release/devkit/resource_http_request.html"
+          },
+          {
+            "title": "ifconfig",
+            "url": "/release/devkit/resource_ifconfig.html"
+          },
+          {
+            "title": "ips_package",
+            "url": "/release/devkit/resource_ips_package.html"
+          },
+          {
+            "title": "ksh",
+            "url": "/release/devkit/resource_ksh.html"
+          },
+          {
+            "title": "launchd",
+            "url": "/release/devkit/resource_launchd.html"
+          },
+          {
+            "title": "link",
+            "url": "/release/devkit/resource_link.html"
+          },
+          {
+            "title": "log",
+            "url": "/release/devkit/resource_log.html"
+          },
+          {
+            "title": "macports_package",
+            "url": "/release/devkit/resource_macports_package.html"
+          },
+          {
+            "title": "mdadm",
+            "url": "/release/devkit/resource_mdadm.html"
+          },
+          {
+            "title": "mount",
+            "url": "/release/devkit/resource_mount.html"
+          },
+          {
+            "title": "ohai",
+            "url": "/release/devkit/resource_ohai.html"
+          },
+          {
+            "title": "openbsd_package",
+            "url": "/release/devkit/resource_openbsd_package.html"
+          },
+          {
+            "title": "osx_profile",
+            "url": "/release/devkit/resource_osx_profile.html"
+          },
+          {
+            "title": "package",
+            "url": "/release/devkit/resource_package.html"
+          },
+          {
+            "title": "pacman_package",
+            "url": "/release/devkit/resource_pacman_package.html"
+          },
+          {
+            "title": "paludis_package",
+            "url": "/release/devkit/resource_paludis_package.html"
+          },
+          {
+            "title": "perl",
+            "url": "/release/devkit/resource_perl.html"
+          },
+          {
+            "title": "portage_package",
+            "url": "/release/devkit/resource_portage_package.html"
+          },
+          {
+            "title": "powershell_script",
+            "url": "/release/devkit/resource_powershell_script.html"
+          },
+          {
+            "title": "python",
+            "url": "/release/devkit/resource_python.html"
+          },
+          {
+            "title": "reboot",
+            "url": "/release/devkit/resource_reboot.html"
+          },
+          {
+            "title": "registry_key",
+            "url": "/release/devkit/resource_registry_key.html"
+          },
+          {
+            "title": "remote_directory",
+            "url": "/release/devkit/resource_remote_directory.html"
+          },
+          {
+            "title": "remote_file",
+            "url": "/release/devkit/resource_remote_file.html"
+          },
+          {
+            "title": "route",
+            "url": "/release/devkit/resource_route.html"
+          },
+          {
+            "title": "rpm_package",
+            "url": "/release/devkit/resource_rpm_package.html"
+          },
+          {
+            "title": "ruby",
+            "url": "/release/devkit/resource_ruby.html"
+          },
+          {
+            "title": "ruby_block",
+            "url": "/release/devkit/resource_ruby_block.html"
+          },
+          {
+            "title": "script",
+            "url": "/release/devkit/resource_script.html"
+          },
+          {
+            "title": "service",
+            "url": "/release/devkit/resource_service.html"
+          },
+          {
+            "title": "smartos_package",
+            "url": "/release/devkit/resource_smartos_package.html"
+          },
+          {
+            "title": "solaris_package",
+            "url": "/release/devkit/resource_solaris_package.html"
+          },
+          {
+            "title": "subversion",
+            "url": "/release/devkit/resource_subversion.html"
+          },
+          {
+            "title": "template",
+            "url": "/release/devkit/resource_template.html"
+          },
+          {
+            "title": "user",
+            "url": "/release/devkit/resource_user.html"
+          },
+          {
+            "title": "windows_package",
+            "url": "/release/devkit/resource_windows_package.html"
+          },
+          {
+            "title": "windows_service",
+            "url": "/release/devkit/resource_windows_service.html"
+          },
+          {
+            "title": "yum_package",
+            "url": "/release/devkit/resource_yum.html"
+          },
+        ]
+      },
+      {
+        "title": "Provisioning Resources",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "load_balancer",
+            "url": "/release/devkit/resource_load_balancer.html"
+          },
+          {
+            "title": "machine_batch",
+            "url": "/release/devkit/resource_machine_batch.html"
+          },
+          {
+            "title": "machine_execute",
+            "url": "/release/devkit/resource_machine_execute.html"
+          },
+          {
+            "title": "machine_file",
+            "url": "/release/devkit/resource_machine_file.html"
+          },
+          {
+            "title": "machine_image",
+            "url": "/release/devkit/resource_machine_image.html"
+          },
+          {
+            "title": "machine",
+            "url": "/release/devkit/resource_machine.html"
+          },
+          {
+            "title": "Provision AWS",
+            "url": "/release/devkit/provisioning_aws.html"
+          },
+        ]
+      },
+      {
+        "title": "Chef Object Resources",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "chef_acl",
+            "url": "/release/devkit/resource_chef_acl.html"
+          },
+          {
+            "title": "chef_client",
+            "url": "/release/devkit/resource_chef_client.html"
+          },
+          {
+            "title": "chef_container",
+            "url": "/release/devkit/resource_chef_container.html"
+          },
+          {
+            "title": "chef_data_bag_item",
+            "url": "/release/devkit/resource_chef_data_bag_item.html"
+          },
+          {
+            "title": "chef_data_bag",
+            "url": "/release/devkit/resource_chef_data_bag.html"
+          },
+          {
+            "title": "chef_environment",
+            "url": "/release/devkit/resource_chef_environment.html"
+          },
+          {
+            "title": "chef_group",
+            "url": "/release/devkit/resource_chef_group.html"
+          },
+          {
+            "title": "chef_mirror",
+            "url": "/release/devkit/resource_chef_mirror.html"
+          },
+          {
+            "title": "chef_node",
+            "url": "/release/devkit/resource_chef_node.html"
+          },
+          {
+            "title": "chef_organization",
+            "url": "/release/devkit/resource_chef_organization.html"
+          },
+          {
+            "title": "chef_role",
+            "url": "/release/devkit/resource_chef_role.html"
+          },
+          {
+            "title": "chef_user",
+            "url": "/release/devkit/resource_chef_user.html"
+          },
+          {
+            "title": "private_key",
+            "url": "/release/devkit/resource_private_key.html"
+          },
+          {
+            "title": "public_key",
+            "url": "/release/devkit/resource_public_key.html"
+          },
+        ]
+      },
+      {
+        "title": "InSpec Resources",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "apache_conf",
+            "url": "/release/devkit/inspec_apache_conf.html"
+          },
+          {
+            "title": "apt",
+            "url": "/release/devkit/inspec_apt.html"
+          },
+          {
+            "title": "audit_policy",
+            "url": "/release/devkit/inspec_audit_policy.html"
+          },
+          {
+            "title": "auditd_conf",
+            "url": "/release/devkit/inspec_auditd_conf.html"
+          },
+          {
+            "title": "auditd_rules",
+            "url": "/release/devkit/inspec_auditd_rules.html"
+          },
+          {
+            "title": "bond",
+            "url": "/release/devkit/inspec_bond.html"
+          },
+          {
+            "title": "bridge",
+            "url": "/release/devkit/inspec_bridge.html"
+          },
+          {
+            "title": "command",
+            "url": "/release/devkit/inspec_command.html"
+          },
+          {
+            "title": "csv",
+            "url": "/release/devkit/inspec_csv.html"
+          },
+          {
+            "title": "directory",
+            "url": "/release/devkit/inspec_directory.html"
+          },
+          {
+            "title": "etc_group",
+            "url": "/release/devkit/inspec_etc_group.html"
+          },
+          {
+            "title": "file",
+            "url": "/release/devkit/inspec_file.html"
+          },
+          {
+            "title": "gem",
+            "url": "/release/devkit/inspec_gem.html"
+          },
+          {
+            "title": "group",
+            "url": "/release/devkit/inspec_group.html"
+          },
+          {
+            "title": "host",
+            "url": "/release/devkit/inspec_host.html"
+          },
+          {
+            "title": "inetd_conf",
+            "url": "/release/devkit/inspec_inetd_conf.html"
+          },
+          {
+            "title": "interface",
+            "url": "/release/devkit/inspec_interface.html"
+          },
+          {
+            "title": "iptables",
+            "url": "/release/devkit/inspec_iptables.html"
+          },
+          {
+            "title": "json",
+            "url": "/release/devkit/inspec_json.html"
+          },
+          {
+            "title": "kernel_module",
+            "url": "/release/devkit/inspec_kernel_module.html"
+          },
+          {
+            "title": "kernel_parameter",
+            "url": "/release/devkit/inspec_kernel_parameter.html"
+          },
+          {
+            "title": "limits_conf",
+            "url": "/release/devkit/inspec_limits_conf.html"
+          },
+          {
+            "title": "login_defs",
+            "url": "/release/devkit/inspec_login_def.html"
+          },
+          {
+            "title": "mount",
+            "url": "/release/devkit/inspec_mount.html"
+          },
+          {
+            "title": "mysql_conf",
+            "url": "/release/devkit/inspec_mysql_conf.html"
+          },
+          {
+            "title": "mysql_session",
+            "url": "/release/devkit/inspec_mysql_session.html"
+          },
+          {
+            "title": "npm",
+            "url": "/release/devkit/inspec_npm.html"
+          },
+          {
+            "title": "ntp_conf",
+            "url": "/release/devkit/inspec_ntp_conf.html"
+          },
+          {
+            "title": "oneget",
+            "url": "/release/devkit/inspec_oneget.html"
+          },
+          {
+            "title": "os",
+            "url": "/release/devkit/inspec_os.html"
+          },
+          {
+            "title": "os_env",
+            "url": "/release/devkit/inspec_os_env.html"
+          },
+          {
+            "title": "package",
+            "url": "/release/devkit/inspec_package.html"
+          },
+          {
+            "title": "parse_config",
+            "url": "/release/devkit/inspec_parse_config.html"
+          },
+          {
+            "title": "parse_config_file",
+            "url": "/release/devkit/inspec_parse_config_file.html"
+          },
+          {
+            "title": "passwd",
+            "url": "/release/devkit/inspec_etc_passwd.html"
+          },
+          {
+            "title": "pip",
+            "url": "/release/devkit/inspec_pip.html"
+          },
+          {
+            "title": "port",
+            "url": "/release/devkit/inspec_port.html"
+          },
+          {
+            "title": "postgres_conf",
+            "url": "/release/devkit/inspec_postgres_conf.html"
+          },
+          {
+            "title": "postgres_session",
+            "url": "/release/devkit/inspec_postgres_session.html"
+          },
+          {
+            "title": "processes",
+            "url": "/release/devkit/inspec_process.html"
+          },
+          {
+            "title": "registry_key",
+            "url": "/release/devkit/inspec_registry_key.html"
+          },
+          {
+            "title": "script",
+            "url": "/release/devkit/inspec_script.html"
+          },
+          {
+            "title": "security_policy",
+            "url": "/release/devkit/inspec_security_policy.html"
+          },
+          {
+            "title": "service",
+            "url": "/release/devkit/inspec_service.html"
+          },
+          {
+            "title": "ssh_config",
+            "url": "/release/devkit/inspec_ssh_config.html"
+          },
+          {
+            "title": "sshd_config",
+            "url": "/release/devkit/inspec_sshd_config.html"
+          },
+          {
+            "title": "user",
+            "url": "/release/devkit/inspec_user.html"
+          },
+          {
+            "title": "windows_feature",
+            "url": "/release/devkit/inspec_windows_feature.html"
+          },
+          {
+            "title": "yaml",
+            "url": "/release/devkit/inspec_yaml.html"
+          },
+          {
+            "title": "yum",
+            "url": "/release/devkit/inspec_yum.html"
+          },
+        ]
+      },
+      {
+        "title": "Knife Commands",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "bootstrap",
+            "url": "/release/devkit/knife_bootstrap.html"
+          },
+          {
+            "title": "client",
+            "url": "/release/devkit/knife_client.html"
+          },
+          {
+            "title": "configure",
+            "url": "/release/devkit/knife_configure.html"
+          },
+          {
+            "title": "cookbook",
+            "url": "/release/devkit/knife_cookbook.html"
+          },
+          {
+            "title": "cookbook site",
+            "url": "/release/devkit/knife_cookbook_site.html"
+          },
+          {
+            "title": "data bag",
+            "url": "/release/devkit/knife_data_bag.html"
+          },
+          {
+            "title": "delete",
+            "url": "/release/devkit/knife_delete.html"
+          },
+          {
+            "title": "deps",
+            "url": "/release/devkit/knife_deps.html"
+          },
+          {
+            "title": "diff",
+            "url": "/release/devkit/knife_diff.html"
+          },
+          {
+            "title": "download",
+            "url": "/release/devkit/knife_download.html"
+          },
+          {
+            "title": "edit",
+            "url": "/release/devkit/knife_edit.html"
+          },
+          {
+            "title": "environment",
+            "url": "/release/devkit/knife_environment.html"
+          },
+          {
+            "title": "exec",
+            "url": "/release/devkit/knife_exec.html"
+          },
+          {
+            "title": "list",
+            "url": "/release/devkit/knife_list.html"
+          },
+          {
+            "title": "node",
+            "url": "/release/devkit/knife_node.html"
+          },
+          {
+            "title": "raw",
+            "url": "/release/devkit/knife_raw.html"
+          },
+          {
+            "title": "recipe list",
+            "url": "/release/devkit/knife_recipe_list.html"
+          },
+          {
+            "title": "role",
+            "url": "/release/devkit/knife_role.html"
+          },
+          {
+            "title": "search",
+            "url": "/release/devkit/knife_search.html"
+          },
+          {
+            "title": "serve",
+            "url": "/release/devkit/knife_serve.html"
+          },
+          {
+            "title": "show",
+            "url": "/release/devkit/knife_show.html"
+          },
+          {
+            "title": "ssh",
+            "url": "/release/devkit/knife_ssh.html"
+          },
+          {
+            "title": "ssl check",
+            "url": "/release/devkit/knife_ssl_check.html"
+          },
+          {
+            "title": "ssl fetch",
+            "url": "/release/devkit/knife_ssl_fetch.html"
+          },
+          {
+            "title": "status",
+            "url": "/release/devkit/knife_status.html"
+          },
+          {
+            "title": "tag",
+            "url": "/release/devkit/knife_tag.html"
+          },
+          {
+            "title": "upload",
+            "url": "/release/devkit/knife_upload.html"
+          },
+          {
+            "title": "user",
+            "url": "/release/devkit/knife_user.html"
+          },
+          {
+            "title": "xargs",
+            "url": "/release/devkit/knife_xargs.html"
+          },
+        ]
+      },
+      {
+        "title": "CLIs",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "chef",
+            "url": "/release/devkit/ctl_chef.html"
+          },
+          {
+            "title": "chef-client",
+            "url": "/release/devkit/ctl_chef_client.html"
+          },
+          {
+            "title": "inspec",
+            "url": "/release/devkit/ctl_inspec.html"
+          },
+          {
+            "title": "kitchen",
+            "url": "/release/devkit/ctl_kitchen.html"
+          },
+        ]
+      },
+      {
+        "title": "Config Files",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "client.rb",
+            "url": "/release/devkit/config_rb_client.html"
+          },
+          {
+            "title": "config.rb",
+            "url": "/release/devkit/config_rb.html"
+          },
+          {
+            "title": "knife.rb",
+            "url": "/release/devkit/config_rb_knife.html"
+          },
+          {
+            "title": "metadata.rb",
+            "url": "/release/devkit/config_rb_metadata.html"
+          },
+          {
+            "title": "Policyfile.rb",
+            "url": "/release/devkit/config_rb_policyfile.html"
+          },
+        ]
+      },
+      {
+        "title": "Recipe DSL Methods",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "attribute?",
+            "url": "/release/devkit/dsl_recipe.html#attribute"
+          },
+          {
+            "title": "control",
+            "url": "/release/devkit/dsl_recipe.html#control"
+          },
+          {
+            "title": "control_group",
+            "url": "/release/devkit/dsl_recipe.html#control-group"
+          },
+          {
+            "title": "cookbook_name",
+            "url": "/release/devkit/dsl_recipe.html#cookbook-name"
+          },
+          {
+            "title": "data_bag",
+            "url": "/release/devkit/dsl_recipe.html#data-bag"
+          },
+          {
+            "title": "data_bag_item",
+            "url": "/release/devkit/dsl_recipe.html#data-bag-item"
+          },
+          {
+            "title": "platform?",
+            "url": "/release/devkit/dsl_recipe.html#platform"
+          },
+          {
+            "title": "platform_family?",
+            "url": "/release/devkit/dsl_recipe.html#platform-family"
+          },
+          {
+            "title": "reboot_pending?",
+            "url": "/release/devkit/dsl_recipe.html#reboot-pending"
+          },
+          {
+            "title": "recipe_name",
+            "url": "/release/devkit/dsl_recipe.html#recipe-name"
+          },
+          {
+            "title": "registry_data_exists?",
+            "url": "/release/devkit/dsl_recipe.html#registry-data-exists"
+          },
+          {
+            "title": "registry_get_subkeys",
+            "url": "/release/devkit/dsl_recipe.html#registry-get-subkeys"
+          },
+          {
+            "title": "registry_get_values",
+            "url": "/release/devkit/dsl_recipe.html#registry-get-values"
+          },
+          {
+            "title": "registry_has_subkeys?",
+            "url": "/release/devkit/dsl_recipe.html#registry-has-subkeys"
+          },
+          {
+            "title": "registry_key_exists?",
+            "url": "/release/devkit/dsl_recipe.html#registry-key-exists"
+          },
+          {
+            "title": "registry_value_exists?",
+            "url": "/release/devkit/dsl_recipe.html#registry-value-exists"
+          },
+          {
+            "title": "resources",
+            "url": "/release/devkit/dsl_recipe.html#resources"
+          },
+          {
+            "title": "search",
+            "url": "/release/devkit/dsl_recipe.html#search"
+          },
+          {
+            "title": "shell_out",
+            "url": "/release/devkit/dsl_recipe.html#shell-out"
+          },
+          {
+            "title": "shell_out!",
+            "url": "/release/devkit/dsl_recipe.html#id6"
+          },
+          {
+            "title": "shell_out_with_systems_locale",
+            "url": "/release/devkit/dsl_recipe.html#shell-out-with-systems-locale"
+          },
+          {
+            "title": "tag",
+            "url": "/release/devkit/dsl_recipe.html#tag-tagged-untag"
+          },
+          {
+            "title": "tagged?",
+            "url": "/release/devkit/dsl_recipe.html#tag-tagged-untag"
+          },
+          {
+            "title": "untag",
+            "url": "/release/devkit/dsl_recipe.html#tag-tagged-untag"
+          },
+          {
+            "title": "value_for_platform",
+            "url": "/release/devkit/dsl_recipe.html#value-for-platform"
+          },
+          {
+            "title": "value_for_platform_family",
+            "url": "/release/devkit/dsl_recipe.html#value-for-platform-family"
+          },
+          {
+            "title": "Windows Platform Helpers",
+            "url": "/release/devkit/dsl_recipe.html#helpers"
+          },
+        ]
+      },
+    ]
+  }
+] -%}
