@@ -19,6 +19,7 @@ chef-backend-ctl
 =====================================================
 .. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend.rst
 
+
 bootstrap
 -----------------------------------------------------
 .. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_bootstrap.rst
@@ -58,7 +59,6 @@ Examples
    $ chef-backend-ctl cluster-status --json
 
 
-
 demote
 -----------------------------------------------------
 .. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_demote.rst
@@ -83,7 +83,6 @@ Syntax
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 None.
-
 
 
 gen-sample-backend-config
@@ -145,6 +144,7 @@ Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 None.
 
+
 remove-node
 -----------------------------------------------------
 .. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_remove_node.rst
@@ -161,4 +161,27 @@ Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 None.
 
+
+set-cluster-failover
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_set_cluster_failover.rst
+
+Syntax
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_set_cluster_failover_syntax.rst
+
+
+set-node-failover
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_set_node_failover.rst
+
+Syntax
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_set_node_failover_syntax.rst
+
+
+status
+
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_status.rst
 
