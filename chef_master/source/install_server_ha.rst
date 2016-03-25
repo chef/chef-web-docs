@@ -145,6 +145,20 @@ Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 None.
 
+remove-node
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_remove_node.rst
 
+Syntax
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_remove_node_syntax.rst
+
+Options
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_remove_node_options.rst
+
+Examples
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+None.
 
 
