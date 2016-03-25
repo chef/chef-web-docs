@@ -4,8 +4,6 @@ About Proxies
 
 .. include:: ../../includes_proxy/includes_proxy.rst
 
-.. include:: ../../includes_proxy/includes_proxy.rst
-
 |windows|
 =====================================================
 .. include:: ../../includes_proxy/includes_proxy_windows.rst
