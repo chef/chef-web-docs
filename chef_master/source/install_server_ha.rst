@@ -14,3 +14,23 @@ High Availability: Cluster
 
 .. note:: .. include:: ../../includes_chef/includes_chef_subscriptions.rst
 
+
+chef-backend-ctl
+=====================================================
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend.rst
+
+bootstrap
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_bootstrap.rst
+
+Syntax
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_bootstrap_syntax.rst
+
+Options
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_bootstrap_options.rst
+
+Examples
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+None.
