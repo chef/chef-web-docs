@@ -281,6 +281,7 @@ Chef Compliance
    install_push_jobs
    install_reporting
    install_server
+   install_server_ha
    install_server_ha_aws
    install_server_ha_drbd
    install_server_post
