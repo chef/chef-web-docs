@@ -464,6 +464,7 @@
 .. |drbd| replace:: DRBD
 .. |drbdadm| replace:: Drbdadm
 .. |dynect| replace:: DynECT
+.. |elasticsearch| replace:: Elasticsearch
 .. |elrepo| replace:: ELRepo
 .. |emacs| replace:: Emacs
 .. |encrypt_then_mac| replace:: Encrypt-then-MAC(EtM)
