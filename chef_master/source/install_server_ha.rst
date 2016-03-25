@@ -20,6 +20,23 @@ chef-backend-ctl
 .. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend.rst
 
 
+backup
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_backup.rst
+
+Syntax
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_backup_syntax.rst
+
+Options
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_backup_options.rst
+
+Examples
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+None.
+
+
 bootstrap
 -----------------------------------------------------
 .. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_bootstrap.rst
@@ -156,6 +173,23 @@ Syntax
 Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_remove_node_options.rst
+
+Examples
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+None.
+
+
+restore
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_restore.rst
+
+Syntax
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_restore_syntax.rst
+
+Options
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_restore_options.rst
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
