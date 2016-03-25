@@ -116,5 +116,35 @@ Example Output
 .. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_gen_server_config_example.rst
 
 
+join-cluster
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_join_cluster.rst
+
+Syntax
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_join_cluster_syntax.rst
+
+Options
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_join_cluster_options.rst
+
+Examples
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+None.
+
+
+promote
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_promote.rst
+
+Syntax
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_promote_syntax.rst
+
+Examples
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+None.
+
+
 
 
