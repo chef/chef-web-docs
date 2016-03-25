@@ -76,5 +76,19 @@ Examples
 None.
 
 
+force-leader
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_force_leader.rst
 
+Syntax
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_force_leader_syntax.rst
+
+Options
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+|no_options|
+
+Examples
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+None.
 
