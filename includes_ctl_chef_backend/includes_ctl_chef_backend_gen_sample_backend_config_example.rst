@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The following example shows the results of running the ``chef-backend-ctl gen-sample-backend-config`` subcommand. The ``elasticsearch``, ``etcd``, ``leaderl``, and ``postgresql`` settings are generated automatically and should not be modified:
+The following example shows the results of running the ``chef-backend-ctl gen-sample-backend-config`` subcommand. The settings and output will vary, depending on the configuration. The ``elasticsearch``, ``etcd``, ``leaderl``, and ``postgresql`` settings are generated automatically and should not be modified:
 
 .. code-block:: ruby
 

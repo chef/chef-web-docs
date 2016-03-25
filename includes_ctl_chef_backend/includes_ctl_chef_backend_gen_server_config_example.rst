@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The following example shows the results of running the ``chef-backend-ctl gen-server-config`` subcommand. These settings should be modified carefully:
+The following example shows the results of running the ``chef-backend-ctl gen-server-config`` subcommand. The settings and output will vary, depending on the configuration. These settings should be modified carefully:
 
 .. code-block:: ruby
 
