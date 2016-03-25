@@ -15,7 +15,7 @@ For back-end servers, ensure that ports marked as external (marked as ``yes`` in
 
        .. include:: ../../includes_server_services/includes_server_services_bookshelf.rst
      - yes
-   * - 
+   * - 112
      - |service keepalived|
 
        .. include:: ../../includes_server_services/includes_server_services_keepalived.rst
