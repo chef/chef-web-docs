@@ -6,7 +6,7 @@
 .. code-block:: ruby
 
    dsc_resource 'example' do
-      resource_name :archive
+      resource :archive
       property :ensure, 'Present'
       property :path, 'C:\Users\Public\Documents\example.zip'
       property :destination, 'C:\Users\Public\Documents\ExtractionPath'

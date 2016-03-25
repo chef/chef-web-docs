@@ -18,20 +18,20 @@ The following example creates a file on a node (based on one that is located in 
    end
    
    dsc_resource 'install-sub-features' do
-     resource_name :windowsfeature
+     resource :windowsfeature
      property :ensure, 'Present'
      property :name, 'msmq'
      property :IncludeAllSubFeature, true
    end
    
    dsc_resource 'create-test-queue' do
-     resource_name :cPrivateMsmqQueue
+     resource :cPrivateMsmqQueue
      property :ensure, 'Present'
      property :name, 'Test_Queue'
    end
    
    dsc_resource 'set-permissions' do
-     resource_name :cPrivateMsmqQueuePermissions
+     resource :cPrivateMsmqQueuePermissions
      property :ensure, 'Present'
      property :name, 'Test_Queue_Permissions'
      property :QueueNames, 'Test_Queue'
