@@ -56,3 +56,25 @@ Examples
 .. code-block:: bash
 
    $ chef-backend-ctl cluster-status --json
+
+
+
+demote
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_demote.rst
+
+Syntax
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_demote_syntax.rst
+
+Options
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+|no_options|
+
+Examples
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+None.
+
+
+
+
