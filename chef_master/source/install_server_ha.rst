@@ -67,10 +67,6 @@ Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_demote_syntax.rst
 
-Options
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|no_options|
-
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 None.
@@ -83,10 +79,6 @@ force-leader
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_force_leader_syntax.rst
-
-Options
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|no_options|
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -102,19 +94,27 @@ Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_gen_sample_backend_config_syntax.rst
 
-Options
+Example Output
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-|no_options|
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-**Generate backend configuration**
-
 .. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_gen_sample_backend_config_example.rst
 
 
+gen-server-config
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_gen_server_config.rst
+
+Syntax
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_gen_server_config_syntax.rst
+
+Configure the Front End
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_gen_server_config_steps.rst
+
+Example Output
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_gen_server_config_example.rst
 
 
 
-includes_ctl_chef_backend_gen_sample_backend_config
+
