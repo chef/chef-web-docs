@@ -52,7 +52,7 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-      headers( "Authorization"=>"Basic #{ Base64.encode64("#{username}:#{password}").strip }" )
+      headers( "Authorization"=>"Basic #{ Base64.encode64("#{username}:#{password}").gsub("\n", "") }" )
 
 ``ignore_failure``
    **Ruby Types:** TrueClass, FalseClass
