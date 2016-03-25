@@ -34,3 +34,25 @@ Options
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 None.
+
+
+cluster-status
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_cluster_status.rst
+
+Syntax
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_cluster_status_syntax.rst
+
+Options
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_cluster_status_options.rst
+
+Examples
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+**Return cluster health data as JSON**
+
+.. code-block:: bash
+
+   $ chef-backend-ctl cluster-status --json
