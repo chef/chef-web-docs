@@ -215,7 +215,6 @@ Syntax
 
 
 status
-
 -----------------------------------------------------
 .. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_status.rst
 
