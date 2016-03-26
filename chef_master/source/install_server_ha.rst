@@ -1,7 +1,5 @@
-.. This page is the Chef 12 server install page, for high availabilty in AWS.
-
 =====================================================
-High Availability: Cluster
+High Availability: Backend Cluster
 =====================================================
 
 .. warning:: This topic is about a beta feature of Chef.
@@ -20,8 +18,6 @@ A backend HA cluster provides a highly available persistence system for the |che
 * |etcd| provides consensus and ties the backend HA cluster together
 
 The only ports open between the frontend group and the backend HA cluster are ``9200`` and ``5432``, which allow the |chef server| nodes in the frontend group to access |elasticsearch| and |postgresql| respectively.
-
-.. note:: Using a backend HA cluster requires all machines in both the frontend group and backend cluster to be running |chef server| 12.4.0 (or higher).
 
 
 Components
@@ -73,15 +69,237 @@ The frontend group is one (or more) nodes running the |chef server| configured t
 
 What's Changed?
 -----------------------------------------------------
-Starting with |chef server| version 12.4, the need for file system-based storage for |apache solr| and Bookshelf on the backend is no longer required and |postgresql| replication capabilities provide redundancy:
+Starting with |chef server| version 12.4, the need for file system-based storage for |apache solr| and Bookshelf on the backend is no longer required:
 
 * |apache solr| is replaced by |elasticsearch|, which allows moving cookbook storage (Bookshelf) to nodes in the frontend group
 * Bookshelf is moved to nodes in the frontend group
+* |postgresql| replication capabilities provide redundancy for the backend HA cluster and cookbook storage on the frontend
 * |rabbitmq|, along with some other services built to support queuing, are no longer needed
 * |keepalived| is effectively replaced by |leaderl| and |etcd|; the previous implementation used |keepalived| to manage a VIP
 * |drbd| is not longer required to replicate partitions between two backend nodes
 * ``chef-server-ctl`` commands should only be run on nodes in the frontend group
 * ``chef-backend-ctl`` commands should only be run on nodes in the backend HA cluster
+
+
+
+Setup &amp; Config
+=====================================================
+A backend HA cluster requires all machines in both the frontend group and backend HA cluster to be running |chef server| 12.4.0 (or higher) and requires the backend HA cluster package to be 0.3.0 (or higher).
+
+Before creating the backend HA cluster and building at least one |chef server| to be part of the frontend group, verify:
+
+* The user who will install and build the backend HA cluster and frontend group has root access too all nodes.
+* The number of backend and frontend nodes that are desired. It is required to have 3 backend nodes, but the number of frontend nodes may vary from a single node to a load-balanced tiered configuration.
+* A virtual IP address is available and that it can be bound to any of the backend nodes.
+* SSH access to all boxes that will belong to the backend HA cluster from the node that will be the initial bootstrap.
+* A time synchronization policy is in place, such as |ntp|. Drift of less than 1.5 seconds must exist across all nodes in the backend HA cluster.
+
+
+Bootstrap a Cluster
+-----------------------------------------------------
+The first node in the backend HA cluster must be bootstrapped to initialize the cluster.After the bootstrap process is finshed, this node's configuration will be used to create both follower nodes; all three nodes wil be identical, except for their status as leader and follower. The bootstrapped node will be cluster leader. 
+
+Use the following steps to bootstrap the first node in the backend HA cluster:
+
+#. As a root user, install the backend package on the server, using the name of the package provided by |company_name|. For |redhat| and |centos| 6:
+
+   .. code-block:: bash
+      
+      $ rpm -Uvh /tmp/chef-server-core-<version>.rpm
+
+   For |ubuntu|:
+
+   .. code-block:: bash
+      
+      $ dpkg -i /tmp/chef-server-core-<version>.deb
+
+   After a few minutes, the backend package will be installed.
+
+#. Update the ``chef-backend.rb`` file (located at ``/etc/chef-backend/``) with the following settings and values:
+
+   .. code-block:: ruby
+
+      publish_address 'EXTERNAL_IP_ADDRESS'
+      vip 'VIP'
+      vip_interface 'INTERFACE'
+
+   where
+
+   ``publish_address``
+      The IP address that is published within the backend HA cluster. This IP address must be accessible to all nodes in the backend HA cluster.
+
+   ``vip``
+      An IP address that represents the backend HA cluster and is always assigned to the node that is the current leader.
+
+   ``vip_interface``
+      The network interface to which the backend VIP will bind in the event that this node becomes leader.
+
+   For example:
+
+   .. code-block:: ruby
+
+      publish_address = '10.0.2.15'
+      vip = '10.0.2.15'
+      vip_interface = 'eth0'
+
+#. Run the following to bootstrap the node:
+
+   .. code-block:: bash
+      
+      $ chef-backend-ctl bootstrap
+
+
+Shared Credentials
+-----------------------------------------------------
+The credentials file located at ``/etc/chef-backend/secrets.json`` is generated during the bootstrap process. This file must be shared with all nodes in the backend HA cluster. This file may be copied directly or they may be shared from a common mount point. This file will be removed from the node after the follower node is joined to the backend HA cluster.
+
+.. note:: The credentials file is only required by the nodes in the backend HA cluster and should never be copied to any node in the frontend group.
+
+For example:
+
+.. code-block:: bash
+
+   scp /etc/chef-backend/secrets.json <USER>@<IP_ADDRESS>:/home/<USER>
+
+where
+
+* ``USER`` is a user with root access to the follower node and also the directory to which the file will be copied
+* ``IP_ADDRESS`` is the IP address for the follower node
+
+This must be done for each of the follower nodes in the backend HA cluster.
+
+
+Generate Config
+-----------------------------------------------------
+From the bootstrapped node, generate the ``chef-server.rb`` configuration file that will be used by all nodes that will belong to the frontend group. A ``chef-server.rb`` configuration file must be generated for each node that will belong to the frontend group.
+
+#. Run the following command:
+
+   .. code-block:: bash
+
+      $ chef-backend-ctl gen-server-config <FE-FQDN> > chef-server.rb.<FE>
+
+   where
+
+   * ``FE`` is the name of the frontend node that will be used to create the initial frontend group
+   * ``FQDN`` is the |fqdn| for the frontend node
+
+#. Copy the configuration file to the frontend node:
+
+   .. code-block:: bash
+
+      $ scp chef-server.rb.FE1 USER@<IP_ADDRESS>:/home/<USER>
+
+   .. note:: Do not copy the credentials file (located at ``/etc/chef-backend/secrets.json``) to any of the frontend nodes. It is only used in the backend HA cluster.
+
+
+Build the Cluster
+-----------------------------------------------------
+The follower nodes in a backend cluster are installed like the bootstrap node, but then joined to the cluster (instead of bootstrapped).
+
+Use the following steps to install, and then join nodes to the backend HA cluster:
+
+#. As a root user, install the backend package on the server, using the name of the package provided by |company_name|. For |redhat| and |centos| 6:
+
+   .. code-block:: bash
+      
+      $ rpm -Uvh /tmp/chef-server-core-<version>.rpm
+
+   For |ubuntu|:
+
+   .. code-block:: bash
+      
+      $ dpkg -i /tmp/chef-server-core-<version>.deb
+
+   After a few minutes, the backend package will be installed.
+
+#. Run the following command to join the node to the backend HA cluster:
+
+   .. code-block:: bash
+
+      $ chef-backend-ctl join-cluster <IP_ADDRESS> -s ~/home/<USER>/secrets.json
+
+   where
+
+   * ``IP_ADDRESS`` is the IP address for the bootstrapped node
+   * ``USER`` is the name of the directory in which the credentials file is located
+
+#. Answer the prompts by providing the public IP address and network interface values. These are the same values used in the ``chef-backend.rb`` file for the bootstrapped node. For example:
+
+   .. code-block:: ruby
+
+      publish_address = '10.0.2.15'
+      vip_interface = 'eth0'
+
+#. Remove the credentials file that was previously copied to the user's ``/home`` directory.
+
+#. Repeat these steps for each follower node, after which the cluster is online and available. From any node in the backend HA cluster, run the following command:
+
+   .. code-block:: bash
+
+      $ chef-backend-ctl status
+
+   should return something like:
+
+   .. code-block:: bash
+
+      Service        Local Status        Time in State  Distributed Node Status 
+      elasticsearch  running (pid 6661)  1d 5h 59m 41s  state: green; nodes online: 3/3
+      etcd           running (pid 6742)  1d 5h 59m 39s  health: green; healthy nodes: 3/3 
+      leaderl        running (pid 6788)  1d 5h 59m 35s  leader: 1; waiting: 0; follower: 2; total: 3
+      postgresql     running (pid 6640)  1d 5h 59m 43s  leader: 1; offline: 0; syncing: 0; synced: 2
+
+
+Build the Frontend
+-----------------------------------------------------
+Install a frontend |chef server| and configure it to communicate with the backend HA cluster. The frontend group may comprise a single |chef server| or it may be a load-balanced group similar to the tiered configuration.
+
+#. Verify the generated configuration file was copied to the frontend node.
+
+#. .. include:: ../../step_install/step_install_chef_server_install_package.rst
+
+#. Move the configuration file previously copied to the user's ``/home`` directory into the ``/etc/chef-server/`` directory:
+
+   .. code-block:: bash
+
+      $ cp /home/<USER>/chef-server.rb.<FE1> /etc/chef-server/chef-server.rb
+
+#. Run the following to start all of the services:
+
+   .. code-block:: bash
+      
+      $ chef-server-ctl reconfigure
+
+#. Load balance the frontend group, if desired. Repeat these steps for each node in the frontend group.
+
+
+Add Nodes
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+For each node that will be added to the frontend group, do the following:
+
+#. Generate a ``chef-server.rb`` file:
+
+   .. code-block:: bash
+
+      $ chef-backend-ctl gen-server-config <FE-FQDN> > chef-server.rb.<FE>
+
+   where
+
+   * ``FE`` is the name of the frontend node that will be used to create the initial frontend group
+   * ``FQDN`` is the |fqdn| for the frontend node
+
+#. Copy the generated ``chef-server.rb`` file to the ``/etc/chef-server`` directory on the frontend node.
+#. From the initial node in the frontend group, copy the ``/etc/chef-server/private-chef-secrets.json`` file to the ``/etc/chef-server`` directory on the node being added to the frontend group.
+#. Run the following on the node being added to the frontend group:
+
+   .. code-block:: bash
+      
+      $ chef-server-ctl reconfigure
+
+Upgrade the Frontend
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+If a frontend node requires an upgrade for the |chef server|, follow the steps outlined at https://docs.chef.io/upgrade_server.html#standalone for all nodes in the frontend group, and then copy ``/var/opt/opscode/upgrades/migration-level`` from the first-upgraded node in the frontend group to the same directory on all other nodes in the frontend group.
+
 
 
 chef-backend-ctl
@@ -103,7 +321,14 @@ Options
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-None.
+
+**Backup a node in the backend HA cluster**
+
+From a follower node, run the following command:
+
+.. code-block:: bash
+
+   $ chef-backend-ctl backup
 
 
 bootstrap
@@ -262,7 +487,14 @@ Options
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-None.
+
+**Restore data to the backend leader**
+
+From the leader node, run the following command:
+
+.. code-block:: bash
+
+   $ chef-backend-ctl restore /var/opt/chef-backup/backup_file.tgz
 
 
 set-cluster-failover
