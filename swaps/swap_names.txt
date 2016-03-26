@@ -104,6 +104,7 @@
 .. |knife_title| replace:: Knife
 .. |knife qr| replace:: Knife Quick Reference
 .. |knife spork| replace:: knife-spork
+.. |leaderl| replace:: leaderl
 .. |learnchef| replace:: Learn Chef
 .. |ohai| replace:: Ohai
 .. |ohai ctl| replace:: ohai
