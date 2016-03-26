@@ -2,7 +2,7 @@
 High Availability: Backend Cluster
 =====================================================
 
-.. warning:: This topic is about a beta feature of Chef.
+.. warning:: This topic is about an upcoming feature of the Chef server.
 
 This topic introduces, and then describes describes how to set up the |chef server| for high availability using a backend HA cluster comprised of three machines: one leader and two followers.
 
@@ -82,7 +82,7 @@ Starting with |chef server| version 12.4, the need for file system-based storage
 
 
 
-Setup &amp; Config
+Setup and Config
 =====================================================
 A backend HA cluster requires all machines in both the frontend group and backend HA cluster to be running |chef server| 12.4.0 (or higher) and requires the backend HA cluster package to be 0.3.0 (or higher).
 
