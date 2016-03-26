@@ -9,19 +9,7 @@ To install |chef server| 12:
 #. Download the package from http://downloads.chef.io/chef-server/.
 #. Upload the package to the machine that will run the |chef server|, and then record its location on the file system. The rest of these steps assume this location is in the ``/tmp`` directory.
 
-#. Install the |chef server| package on the server, using the name of the package provided by |company_name|. For |redhat| and |centos| 6:
-
-   .. code-block:: bash
-      
-      $ rpm -Uvh /tmp/chef-server-core-<version>.rpm
-
-   For |ubuntu|:
-
-   .. code-block:: bash
-      
-      $ dpkg -i /tmp/chef-server-core-<version>.deb
-
-   After a few minutes, the |chef server| will be installed.
+#. .. include:: ../../step_install/step_install_chef_server_install_package.rst
 
 #. Run the following to start all of the services:
 
