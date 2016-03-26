@@ -1,7 +1,5 @@
-.. This page is the Chef 12 server install page, for high availabilty in AWS.
-
 =====================================================
-High Availability: Cluster
+High Availability: Backend Cluster
 =====================================================
 
 .. warning:: This topic is about a beta feature of Chef.
