@@ -19,8 +19,6 @@ A backend HA cluster provides a highly available persistence system for the |che
 
 The only ports open between the frontend group and the backend HA cluster are ``9200`` and ``5432``, which allow the |chef server| nodes in the frontend group to access |elasticsearch| and |postgresql| respectively.
 
-.. note:: Using a backend HA cluster requires all machines in both the frontend group and backend cluster to be running |chef server| 12.4.0 (or higher).
-
 
 Components
 =====================================================
@@ -102,7 +100,14 @@ Options
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-None.
+
+**Backup a node in the backend HA cluster**
+
+From a follower node, run the following command:
+
+.. code-block:: bash
+
+   $ chef-backend-ctl backup
 
 
 bootstrap
@@ -261,7 +266,14 @@ Options
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-None.
+
+**Restore data to the backend leader**
+
+From the leader node, run the following command:
+
+.. code-block:: bash
+
+   $ chef-backend-ctl restore /var/opt/chef-backup/backup_file.tgz
 
 
 set-cluster-failover
