@@ -71,10 +71,11 @@ The frontend group is one (or more) nodes running the |chef server| configured t
 
 What's Changed?
 -----------------------------------------------------
-Starting with |chef server| version 12.4, the need for file system-based storage for |apache solr| and Bookshelf on the backend is no longer required and |postgresql| replication capabilities provide redundancy:
+Starting with |chef server| version 12.4, the need for file system-based storage for |apache solr| and Bookshelf on the backend is no longer required:
 
 * |apache solr| is replaced by |elasticsearch|, which allows moving cookbook storage (Bookshelf) to nodes in the frontend group
 * Bookshelf is moved to nodes in the frontend group
+* |postgresql| replication capabilities provide redundancy for the backend HA cluster and cookbook storage on the frontend
 * |rabbitmq|, along with some other services built to support queuing, are no longer needed
 * |keepalived| is effectively replaced by |leaderl| and |etcd|; the previous implementation used |keepalived| to manage a VIP
 * |drbd| is not longer required to replicate partitions between two backend nodes
