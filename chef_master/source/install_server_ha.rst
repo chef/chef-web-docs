@@ -109,7 +109,7 @@ Before creating the backend HA cluster and building at least one |chef server| t
 
 Bootstrap a Cluster
 -----------------------------------------------------
-The first node in the backend HA cluster must be bootstrapped to initialize the cluster.After the bootstrap process is finshed, this node's configuration will be used to create both follower nodes; all three nodes wil be identical, except for their status as leader and follower. The bootstrapped node will be cluster leader. 
+The first node in the backend HA cluster must be bootstrapped to initialize the cluster. After the bootstrap process is finshed, this node's configuration will be used to create both follower nodes; all three nodes wil be identical, except for their status as leader and follower. The first node in the backend HA cluster is the initial cluster leader. 
 
 Use the following steps to bootstrap the first node in the backend HA cluster:
 
