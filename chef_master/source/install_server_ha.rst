@@ -28,6 +28,16 @@ The following sections describe the components of the backend HA cluster configu
    :width: 600px
    :align: center
 
+The key elements are:
+
+* Backend VIP
+* The backend HA cluster
+* The frontend group
+* The ports open between the frontend group and the backend HA cluster
+* The services that run on the nodes in the frontend group and on the nodes in the backend cluster
+
+Each of these are discussed in more detail in the following sections.
+
 Backend VIP
 -----------------------------------------------------
 All communication between nodes in the frontend group and nodes in the backend HA cluster must use the backend VIP. The backend VIP is an IP address that represents the backend HA cluster and is always assigned to the node that is the current leader.
@@ -35,6 +45,8 @@ All communication between nodes in the frontend group and nodes in the backend H
 Backend Cluster
 -----------------------------------------------------
 The backend cluster is three identical nodes running replicated |postgresql|, |elasticsearch|, |etcd|, and |leaderl|. This ensures that the backend HA cluster can lose one of the three backend nodes and remain online. Once the first node is lost, failover may no longer occur because at least two backend nodes must participate in the leader election process. However, all three nodes must be lost for data loss to occur.
+
+The backend HA cluster relies on four services to maintain the state of the cluster, provide storage, and search capabilities.
 
 |elasticsearch|
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -65,7 +77,7 @@ Frontend Group
 -----------------------------------------------------
 The frontend group is one (or more) nodes running the |chef server| configured to support the backend HA cluster. Each node in the frontend group is effectively a standalone |chef server|, though the topology behaves much like a tiered configuration with each frontend node relying on an external data store and external search components.  The nodes in the frontend group handle requests to the |api chef server| from workstations and nodes. Cookbooks are stored on the frontend nodes.
 
-
+The frontend group uses many familiar |chef server| services, but with one important difference: the bookshelf service runs on the frontend nodes because the cookbook file store is no longer part of the backend.
 
 What's Changed?
 -----------------------------------------------------
