@@ -100,7 +100,7 @@ A backend HA cluster requires all machines in both the frontend group and backen
 
 Before creating the backend HA cluster and building at least one |chef server| to be part of the frontend group, verify:
 
-* The user who `'will install'` and build the backend HA cluster and frontend group has root access too all nodes.
+* The user who will install and build the backend HA cluster and frontend group has root access too all nodes.
 * The number of backend and frontend nodes that are desired. It is required to have 3 backend nodes, but the number of frontend nodes may vary from a single node to a load-balanced tiered configuration.
 * A virtual IP address is available and that it can be bound to any of the backend nodes.
 * SSH access to all boxes that will belong to the backend HA cluster from the node that will be the initial bootstrap.
