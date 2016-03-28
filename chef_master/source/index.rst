@@ -176,6 +176,7 @@ Chef Compliance
    ctl_analytics
    ctl_chef
    ctl_chef_apply
+   ctl_chef_backend
    ctl_chef_client
    ctl_chef_init
    ctl_chef_server

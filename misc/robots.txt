@@ -59,6 +59,7 @@ Disallow: /config_rb_chef_server_enterprise.html
 Disallow: /config_rb_chef_server_optional_settings.html
 Disallow: /config_rb_chef_server.html
 Disallow: /config_rb_delivery_optional_settings.html
+Disallow: /ctl_chef_backend.html
 Disallow: /dsc_mof.html
 Disallow: /dsl_recipe_method_search.html
 Disallow: /error_messages.html
