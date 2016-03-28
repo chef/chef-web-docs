@@ -738,10 +738,18 @@
 .. |metadata rb chef_version| replace:: A range of |chef client| versions that are supported by this cookbook.
 .. |metadata rb conflicts| replace:: A cookbook conflicts with another cookbook or cookbook version. Use a version constraint to define constraints for cookbook versions: ``<`` (less than), ``<=`` (less than or equal to), ``=`` (equal to), ``>=`` (greater than or equal to), ``~>`` (approximately greater than), or ``>`` (greater than). This field requires that a cookbook with a matching name and version does not exist on the |chef server|. When the match exists, the |chef server| ensures that any conflicted cookbooks are not included with the set of cookbooks that are sent to the node when the |chef client| runs.
 .. |metadata rb depends| replace:: Show that a cookbook has a dependency on another cookbook. Use a version constraint to define dependencies for cookbook versions: ``<`` (|ruby less|), ``<=`` (|ruby less_or_equal|), ``=`` (|ruby equal|), ``>=`` (|ruby greater_optimistic|), ``~>`` (|ruby greater_pessimistic|), or ``>`` (|ruby greater|). This field requires that a cookbook with a matching name and version exists on the |chef server|. When the match exists, the |chef server| includes the dependency as part of the set of cookbooks that are sent to the node when the |chef client| runs. It is very important that the ``depends`` field contain accurate data. If a dependency statement is inaccurate, the |chef client| may not be able to complete the configuration of the system.
+.. |metadata rb foodcritic_052| replace:: When running automated tests using |foodcritic|, this setting will trigger FC052.
+.. |metadata rb foodcritic_053| replace:: When running automated tests using |foodcritic|, this setting will trigger FC053.
+.. |metadata rb only| replace:: For information only; not used outside this file.
+.. |metadata rb private| replace:: Specify that a cookbook is private.
 .. |metadata rb provides| replace:: Add a recipe, definition, or resource that is provided by this cookbook, should the auto-populated list be insufficient.
 .. |metadata rb recommends| replace:: Add a dependency on another cookbook that is recommended, but not required. A cookbook will still work even if recommended dependencies are not available.
 .. |metadata rb replaces| replace:: Whether this cookbook should replace another (and can be used in-place of that cookbook).
 .. |metadata rb suggests| replace:: Add a dependency on another cookbook that is suggested, but not required. This field is weaker than ``recommends``; a cookbook will still work even when suggested dependencies are not available.
+.. |metadata rb supermarket_not_visible| replace:: This setting is not visible in |supermarket|.
+.. |metadata rb supermarket_view_issues| replace:: In |supermarket|, this value is used to define the destination for the "View Issues" link.
+.. |metadata rb supermarket_view_source| replace:: In |supermarket|, this value is used to define the destination for the "View Source" link.
+
 .. |metadata rb supports| replace:: Show that a cookbook has a supported platform. Use a version constraint to define dependencies for platform versions: ``<`` (less than), ``<=`` (less than or equal to), ``=`` (equal to), ``>=`` (greater than or equal to), ``~>`` (approximately greater than), or ``>`` (greater than). To specify more than one platform, use more than one ``supports`` field, once for each platform.
 .. |method request type| replace:: The request method: ``DELETE``, ``GET``, ``POST``, or ``PUT``.
 .. |migrate command_run| replace:: Run a migration command.
