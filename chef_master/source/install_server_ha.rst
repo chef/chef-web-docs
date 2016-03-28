@@ -357,6 +357,23 @@ Examples
 None.
 
 
+cleanse
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_cleanse.rst
+
+Syntax
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_cleanse_syntax.rst
+
+Options
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_cleanse_options
+
+Examples
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+None.
+
+
 cluster-status
 -----------------------------------------------------
 .. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_cluster_status.rst
@@ -405,6 +422,11 @@ Examples
 None.
 
 
+gather-logs
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_gather_logs.rst
+
+
 gen-sample-backend-config
 -----------------------------------------------------
 .. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_gen_sample_backend_config.rst
@@ -435,6 +457,11 @@ Example Output
 .. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_gen_server_config_example.rst
 
 
+help
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_help.rst
+
+
 join-cluster
 -----------------------------------------------------
 .. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_join_cluster.rst
@@ -463,6 +490,11 @@ Syntax
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 None.
+
+
+reconfigure
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_reconfigure.rst
 
 
 remove-node
@@ -524,7 +556,67 @@ Syntax
 .. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_set_node_failover_syntax.rst
 
 
+show-config
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_show_config.rst
+
+
 status
 -----------------------------------------------------
 .. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_status.rst
+
+
+uninstall
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_uninstall.rst
+
+
+
+Service Subcommands
+-----------------------------------------------------
+.. include:: ../../includes_ctl_common/includes_ctl_common_service_subcommands.rst
+
+.. warning:: The following commands are disabled when an external |postgresql| database is configured for the |chef server|: ``hup``, ``int``, ``kill``, ``once``, ``restart``, ``service-list``, ``start``, ``stop``, ``tail``, and ``term``.
+
+hup
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_server/includes_ctl_chef_backend_hup.rst
+
+int
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_server/includes_ctl_chef_backend_int.rst
+
+kill
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_server/includes_ctl_chef_backend_kill.rst
+
+once
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_server/includes_ctl_chef_backend_once.rst
+
+restart
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_server/includes_ctl_chef_backend_restart.rst
+
+service-list
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_server/includes_ctl_chef_backend_service_list.rst
+
+start
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_server/includes_ctl_chef_backend_start.rst
+
+stop
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_server/includes_ctl_chef_backend_stop.rst
+
+tail
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_server/includes_ctl_chef_backend_tail.rst
+
+term
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_server/includes_ctl_chef_backend_term.rst
+
+
 
