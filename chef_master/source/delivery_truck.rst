@@ -78,20 +78,15 @@ Terminology
 The following terms are used in this topic:
 
 **Infrastructure Node**
-   An infrastructure node is a node on which your project's software is deployed. You can have infrastructure nodes for each stage (Acceptance, Union, Rehearsal, and Delivered). Each stage will have its own version of your project's software as it gets promoted through to Delivered.
-
-   An infrastructure node's run list `contains the delivery-base recipe <https://github.com/chef-cookbooks/delivery-base>`__ and a project cookbook (defined below). At the end of the deploy phase for a given project, any node with a project cookbook related to that project and the delivery-base recipe in its run list will run the |chef client| if the node is in the environment corresponding to the current stage (Acceptance, Union, Rehearsal, and Delivered with each having their own corresponding Chef environment).
+   An infrastructure node is a node on which your project's software is deployed. You can have infrastructure nodes for each stage (Acceptance, Union, Rehearsal, and Delivered). Each stage will have its own version of your project's software as it gets promoted through to Delivered. An infrastructure node's run list `contains the delivery-base recipe <https://github.com/chef-cookbooks/delivery-base>`__ and a project cookbook (defined below). At the end of the deploy phase for a given project, any node with a project cookbook related to that project and the delivery-base recipe in its run list will run the |chef client| if the node is in the environment corresponding to the current stage (Acceptance, Union, Rehearsal, and Delivered with each having their own corresponding Chef environment).
 
 **Project Cookbook**
-   A project cookbook is a cookbook that is used to deploy your project's software onto an infrastructure node. You can have one or many project cookbooks to control deploying your project's software. Every project cookbook's default recipe will be executed by Chef Client on your infrastructure nodes to deploy your software.
-
-  Delivery Truck's provision recipe will parse your project's root for a ``metadata.rb`` and ``metadata.json`` file as well as directories
+   A project cookbook is a cookbook that is used to deploy your project's software onto an infrastructure node. You can have one or many project cookbooks to control deploying your project's software. Every project cookbook's default recipe will be executed by Chef Client on your infrastructure nodes to deploy your software. Delivery Truck's provision recipe will parse your project's root for a ``metadata.rb`` and ``metadata.json`` file as well as directories
 of the structure ``cookbooks/<project_cookbooks>`` that also contain a ``metadata.rb`` and ``metadata.json`` file to detect your project cookbooks.
 
 **Project Application**
-   If you have a binary, package, or other arbitrary information you wish to use to promote your project's software, a project application is what you want in |chef delivery_short|. This lets you store versioned attributes that can be promoted through your infrastructure nodes for each stage and can then be used to deploy your application at that version.
+   If you have a binary, package, or other arbitrary information you wish to use to promote your project's software, a project application is what you want in |chef delivery_short|. This lets you store versioned attributes that can be promoted through your infrastructure nodes for each stage and can then be used to deploy your application at that version. You can use these versioned attributes in a project cookbook that will be executed on a build node, or in whatever way you want in the deploy recipe.
 
-   You can use these versioned attributes in a project cookbook that will be executed on a build node, or in whatever way you want in the deploy recipe.
 
 Example: A Single Project Cookbook
 --------------------------------------------
