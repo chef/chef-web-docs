@@ -78,6 +78,10 @@ yum Cookbook
 --------------------------------------------------------------------------
 .. include:: ../../includes_test_kitchen/includes_test_kitchen_yml_example_yum.rst
 
+Multiple Cookbooks
+--------------------------------------------------------------------------
+.. include:: ../../includes_test_kitchen/includes_test_kitchen_yml_example_multiple_cookbooks.rst
+
 Platform Attributes
 --------------------------------------------------------------------------
 .. include:: ../../includes_test_kitchen/includes_test_kitchen_yml_example_frontend_backend.rst
