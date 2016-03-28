@@ -191,10 +191,7 @@ From the bootstrapped node, generate the ``chef-server.rb`` configuration file t
 
       $ chef-backend-ctl gen-server-config <FE-FQDN> > chef-server.rb.<FE>
 
-   where
-
-   * ``FE`` is the name of the frontend node that will be used to create the initial frontend group
-   * ``FQDN`` is the |fqdn| for the frontend node
+   where ``FE`` is the name of the frontend node that will be used to create the initial frontend group and ``FQDN`` is the |fqdn| for the frontend node.
 
 #. Copy the configuration file to the frontend node:
 
