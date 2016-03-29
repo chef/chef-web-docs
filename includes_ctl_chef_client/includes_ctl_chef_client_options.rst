@@ -98,7 +98,7 @@ This command has the following options:
    |color| Default setting: ``--color``.
 
 ``--[no-]fips``
-  |chef_client fips|
+   |chef_client fips|
 
 ``--[no-]listen``
    |chef_zero_no_listen|

@@ -45,9 +45,6 @@ This command has the following options:
 ``-F FORMAT``, ``--format FORMAT``
    .. include:: ../../includes_ctl_chef_client/includes_ctl_chef_client_options_format.rst
 
-``-fips``
-   |chef_client fips|
-
 ``--force-formatter``
    |force_formatter|
 
@@ -102,6 +99,9 @@ This command has the following options:
 
 ``--[no-]color``
    |color| Default setting: ``--color``.
+
+``--[no-]fips``
+   |chef_client fips|
 
 ``--[no-]listen``
    |chef_zero_no_listen|

@@ -97,6 +97,9 @@ This command has the following options:
 ``--[no-]color``
    |color| Default setting: ``--color``.
 
+``--[no-]fips``
+   |chef_client fips|
+
 ``--[no-]listen``
    |chef_zero_no_listen|
 

@@ -6,6 +6,8 @@ registry_key
 
 .. include:: ../../includes_resources/includes_resource_registry_key.rst
 
+.. note:: include:: ../../includes_resources/includes_notes_registry_key_redirection.rst
+
 Syntax
 =====================================================
 .. include:: ../../includes_resources/includes_resource_registry_key_syntax.rst

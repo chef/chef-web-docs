@@ -74,7 +74,7 @@ This configuration file has the following settings:
    |name environment|
 
 ``environment_path``
-   |path environment|  Default value: ``/var/chef/environments``.
+   |path environment| Default value: ``/var/chef/environments``.
 
 ``file_atomic_update``
    |file atomic_update| Default value: ``true``.
@@ -210,7 +210,7 @@ This configuration file has the following settings:
    |user chef_client| Default value: ``nil``.
 
 ``validation_client_name``
-   |validation_client_name| 
+   |validation_client_name|
 
 ``validation_key``
    |validation_key| Default value: ``/etc/chef/validation.pem``.

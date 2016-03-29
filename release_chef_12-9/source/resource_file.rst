@@ -38,6 +38,10 @@ Windows File Security
 
 .. include:: ../../includes_resources_common/includes_resources_common_windows_security_inherits.rst
 
+File Redirection
+-----------------------------------------------------
+.. include:: ../../includes_resources_common/includes_resources_common_windows_file_redirection.rst
+
 .. 
 .. Providers
 .. =====================================================

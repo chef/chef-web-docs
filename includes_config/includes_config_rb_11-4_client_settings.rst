@@ -114,7 +114,7 @@ This configuration file has the following settings:
       environment 'production'
 
 ``environment_path``
-   |path environment|  Default value: ``/var/chef/environments``. For example:
+   |path environment| Default value: ``/var/chef/environments``. For example:
 
    .. code-block:: ruby
 

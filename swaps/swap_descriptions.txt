@@ -76,6 +76,8 @@
 .. |azure disable_extension| replace:: Disable the |azure extension chef| extension.
 .. |azure dns_name| replace:: Required. The name of the DNS prefix that is used to access the cloud service. This name must be unique within |azure|. Use with ``--azure-connect-to-existing-dns`` to use an existing DNS prefix.
 .. |azure network_name| replace:: The network for the virtual machine.
+.. |azure set_linux| replace:: Sets the |azure extension chef| to run |linux|.
+.. |azure set_windows| replace:: Sets the |azure extension chef| to run |windows|.
 .. |azure subnet_name| replace:: The subnet for the virtual machine.
 .. |azure uninstall| replace:: Uninstall the |azure extension chef|.
 .. |azure version number| replace:: Specify the version number for the |azure extension chef| extension. Default is to use the latest extension's version number.
@@ -788,6 +790,7 @@
 
 
 .. |name admin_webui| replace:: The name of the administrator for the web user interface.
+.. |name chef_organization| replace:: The name of the organization on the |chef server|.
 .. |name class_chef_handler| replace:: The name of the handler class. This can be module name-spaced.
 .. |name client_webui| replace:: The name of the |chef server| web user interface.
 .. |name command| replace:: The name of the command to be executed.
