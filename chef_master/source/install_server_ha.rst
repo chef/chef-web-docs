@@ -367,7 +367,7 @@ Syntax
 
 Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_cleanse_options
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_cleanse_options.rst
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -580,43 +580,43 @@ Service Subcommands
 
 hup
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_ctl_chef_server/includes_ctl_chef_backend_hup.rst
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_hup.rst
 
 int
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_ctl_chef_server/includes_ctl_chef_backend_int.rst
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_int.rst
 
 kill
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_ctl_chef_server/includes_ctl_chef_backend_kill.rst
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_kill.rst
 
 once
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_ctl_chef_server/includes_ctl_chef_backend_once.rst
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_once.rst
 
 restart
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_ctl_chef_server/includes_ctl_chef_backend_restart.rst
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_restart.rst
 
 service-list
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_ctl_chef_server/includes_ctl_chef_backend_service_list.rst
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_service_list.rst
 
 start
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_ctl_chef_server/includes_ctl_chef_backend_start.rst
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_start.rst
 
 stop
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_ctl_chef_server/includes_ctl_chef_backend_stop.rst
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_stop.rst
 
 tail
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_ctl_chef_server/includes_ctl_chef_backend_tail.rst
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_tail.rst
 
 term
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_ctl_chef_server/includes_ctl_chef_backend_term.rst
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_term.rst
 
 
 
