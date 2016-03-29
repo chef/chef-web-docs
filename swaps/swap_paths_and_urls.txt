@@ -63,6 +63,7 @@
 .. |url docs_repo_qr| replace:: https://github.com/chef/quick-reference
 .. |url get_chef| replace:: https://www.chef.io/chef/choose-your-version/
 .. |url msdn_registry_key| replace:: http://msdn.microsoft.com/en-us/library/windows/desktop/aa384235(v=vs.85).aspx
+.. |url msdn_file_redirection| replace:: https://msdn.microsoft.com/en-us/library/windows/desktop/aa384187(v=vs.85).aspx
 .. |url opscode_youtube_short_part_one| replace:: http://www.youtube.com/watch?v=Ia2ItmjRsw8
 .. |url opscode_youtube_short_part_two| replace:: http://www.youtube.com/watch?v=Ss6P92L_sCA
 .. |url pricing| replace:: https://www.chef.io/pricing/
