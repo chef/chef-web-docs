@@ -24,6 +24,10 @@ Atomic File Updates
 -----------------------------------------------------
 .. include:: ../../includes_resources_common/includes_resources_common_atomic_update.rst
 
+Windows File Redirection
+-----------------------------------------------------
+.. include:: ../../includes_resources_common/includes_resources_common_windows_file_redirection.rst
+
 Windows File Security
 -----------------------------------------------------
 .. include:: ../../includes_resources_common/includes_resources_common_windows_security.rst
@@ -36,15 +40,15 @@ Windows File Security
 
 .. include:: ../../includes_resources_common/includes_resources_common_windows_security_inherits.rst
 
-.. 
+..
 .. Providers
 .. =====================================================
 .. .. include:: ../../includes_resources_common/includes_resources_common_provider.rst
-.. 
+..
 .. .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
-.. 
+..
 .. .. include:: ../../includes_resources/includes_resource_file_providers.rst
-.. 
+..
 
 Examples
 =====================================================
