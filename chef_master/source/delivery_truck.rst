@@ -88,9 +88,9 @@ of the structure ``cookbooks/<project_cookbooks>`` that also contain a ``metadat
    If you have a binary, package, or other arbitrary information you wish to use to promote your project's software, a project application is what you want in |chef delivery_short|. This lets you store versioned attributes that can be promoted through your infrastructure nodes for each stage and can then be used to deploy your application at that version. You can use these versioned attributes in a project cookbook that will be executed on a build node, or in whatever way you want in the deploy recipe.
 
 
+
 Example: A Single Project Cookbook
 --------------------------------------------
-
 Assume you have set up your build cookbook with Delivery Truck in the way described above for a project named ``my_project``. Also assume ``my_project`` is a simple software application you know how to deploy.
 
 From your project's root directory, generate a simple project cookbook to deploy your application on a new git branch:
@@ -117,8 +117,7 @@ This will generate a cookbook in the root of your project. It should have a ``me
 
 That version is what you will be changing as you make changes to your software. It will get promoted through your infrastructure nodes per the Acceptance, Union, Rehearsal, and Delivered stages.
 
-Next, using Chef, add how your project is deployed to ``my_project/recipes/default.rb``. This is a normal Chef recipe so do whatever
-you would normally do to deploy your software through Chef.
+Next, using Chef, add how your project is deployed to ``my_project/recipes/default.rb``. This is a normal Chef recipe so do whatever you would normally do to deploy your software through Chef.
 
 Delivery Truck's promotion recipe you included in your build cookbook will handle the rest of the promotion work. Use the following commands to push your change:
 
@@ -152,14 +151,12 @@ This simple example can be used if all you need is a single cookbook to deploy y
 
 Multiple Project Cookbooks
 ---------------------------------
-
 You may want more than just a single cookbook to deploy your project's software. Fortunately, using multiple project cookbooks works much in the same way as a single one. Simply put as many cookbooks as you like -- that follow a valid cookbook directory and file structure -- under a ``/cookbooks`` directory in the root of your project and commit them into your project. Each project cookbook must have a ``metadata.rb`` or ``metadata.json`` file in the cookbook's root directory or Delivery Truck will not find it. Each valid project cookbook's default recipe (``<your_cookbook_root_dir>/recipes/default.rb``) will be run on your infrastructure nodes for each stage.
 
 It is recommended that you bump the metadata's version of each cookbook as you make changes, as this is what is actually used to pin your cookbook at each stage as it progresses through the pipeline, but all project cookbooks will be deployed through your stage's infrastructure regardless of whether you bump the metadata version, make changes, or do nothing to it.
 
 Using Project Applications
 ---------------------------------
-
 As described above, project applications are a useful way of promoting a set of attributes that can be pinned to a version and used to deploy your project's software at the correct version in a stage.
 
 A common use case of project applications is promoting a binary, but it can be any arbitrary attributes that you wish to have pinned per version that you can in turn use to promote your software.
@@ -195,16 +192,16 @@ You can then use your project application's attribute to deploy your application
 Do not pass ``'id'``, ``'version'``, or ``'name'`` as attribute keys you pass into ``define_project_application``, or they will be overwritten by the first two arguments you pass in. They will be available in the result of ``get_project_application`` by default.
 
 
-.. warning:: If the ``get_project_application`` method is called from the ``provision.rb`` recipe, be sure that ``delivery-truck::provision`` is executed before ``get_project_application`` by putting it in a ``ruby_block`` or in a separate recipe that is called provision via ``include_recipe``. If the ``get_project_application`` method is called directly in ``provision.rb``:
+**Warning: If the ``get_project_application`` method is called from the ``provision.rb`` recipe, be sure that ``delivery-truck::provision`` is executed before ``get_project_application`` by putting it in a ``ruby_block`` or in a separate recipe that is called provision via ``include_recipe``. If the ``get_project_application`` method is called directly in ``provision.rb``:
 
-   .. code-block:: ruby
+.. code-block:: ruby
 
-      include_recipe 'delivery-truck::provision'
-      get_project_application(<project_app_name_string>)
+   include_recipe 'delivery-truck::provision'
+   get_project_application(<project_app_name_string>)
 
-   you will get an error because the |chef client| will execute ``get_project_application`` at compile time before it has run ``include_recipe 'delivery-truck::provision'``.
+you will get an error because the |chef client| will execute ``get_project_application`` at compile time before it has run ``include_recipe 'delivery-truck::provision'``.
 
-   It is recommended to either use ``get_project_application`` in ``deploy.rb``, a project cookbook, in a ``ruby_block`` or in a separate ``include_recipe`` that is executed after ``include_recipe 'delivery-truck::provision'``.
+It is recommended to either use ``get_project_application`` in ``deploy.rb``, a project cookbook, in a ``ruby_block`` or in a separate ``include_recipe`` that is executed after ``include_recipe 'delivery-truck::provision'``.
 
 Example: Usage Of Project Applications
 ++++++++++++++++++++++++++++++++++++++++++++++++++
