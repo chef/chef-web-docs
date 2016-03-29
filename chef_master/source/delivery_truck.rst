@@ -191,7 +191,7 @@ You can then use your project application's attribute to deploy your application
 Do not pass ``'id'``, ``'version'``, or ``'name'`` as attribute keys you pass into ``define_project_application``, or they will be overwritten by the first two arguments you pass in. They will be available in the result of ``get_project_application`` by default.
 
 
-**Warning: If the ``get_project_application`` method is called from the ``provision.rb`` recipe, be sure that ``delivery-truck::provision`` is executed before ``get_project_application`` by putting it in a ``ruby_block`` or in a separate recipe that is called provision via ``include_recipe``. If the ``get_project_application`` method is called directly in ``provision.rb``:
+**Warning**: If the ``get_project_application`` method is called from the ``provision.rb`` recipe, be sure that ``delivery-truck::provision`` is executed before ``get_project_application`` by putting it in a ``ruby_block`` or in a separate recipe that is called provision via ``include_recipe``. If the ``get_project_application`` method is called directly in ``provision.rb``:
 
 .. code-block:: ruby
 
