@@ -65,7 +65,7 @@ This configuration file has the following settings:
    |name environment|
 
 ``environment_path``
-   |path environment|  Default value: ``/var/chef/environments``.
+   |path environment| Default value: ``/var/chef/environments``.
 
 ``file_atomic_update``
    |file atomic_update| Default value: ``true``.
