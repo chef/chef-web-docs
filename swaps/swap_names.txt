@@ -391,6 +391,7 @@
 .. |arista| replace:: Arista
 .. |atlassian| replace:: Atlassian
 .. |azure| replace:: Microsoft Azure
+.. |azure extension chef| replace:: Azure Chef Extension
 .. |azure marketplace| replace:: Azure Marketplace
 .. |azure portal| replace:: Azure portal
 .. |azure portal_preview| replace:: Azure portal
