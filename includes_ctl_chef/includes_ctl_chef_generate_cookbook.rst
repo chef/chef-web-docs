@@ -3,3 +3,5 @@
 
 
 Use the ``chef generate cookbook`` subcommand to generate a cookbook.
+
+.. note:: Avoid using hyphens or other non-alphanumeric characters in cookbook names. Doing so can cause unexpected errors when trying to use those names in recipes. See :ref:`ruby_style_patterns_cookbook_naming` for more information.

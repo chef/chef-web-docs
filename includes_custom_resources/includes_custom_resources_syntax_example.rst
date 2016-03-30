@@ -56,3 +56,5 @@ and to delete the exampleco website, do the following:
    exampleco_site 'httpd' do
      action :delete
    end
+
+.. note:: Non-alphanumeric characters in cookbook names and resource file names are replaced by underscores (``_``) in recipes. For example, if the ``exampleco`` cookbook was instead named ``exampleco-beta``, the resource name ``exampleco_beta_site`` would be used in the recipe.

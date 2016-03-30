@@ -3,3 +3,5 @@
 
 
 Use the ``chef generate lwrp`` subcommand to generate a lightweight resource and provider in the ``/resources`` and ``/providers`` directory.
+
+.. note:: Avoid using hyphens or other non-alphanumeric characters in resource and provider names. Doing so can cause unexpected errors when trying to use those names in recipes.
