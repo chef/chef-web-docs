@@ -119,7 +119,7 @@ The following examples show how to use this |knife| subcommand:
 
 PowerShell Cmdlets
 -----------------------------------------------------
-If the |windows powershell| is installed on the workstation, along with the |azure extension chef|, the ``Get-AzureVMChefExtension`` and ``Set-AzureVMChefExtension`` extensions may be used to manage |chef| running on virtual machines in |azure|.
+If |windows powershell| is installed on the workstation, along with the |azure extension chef|, the ``Get-AzureVMChefExtension`` and ``Set-AzureVMChefExtension`` extensions may be used to manage |chef| running on virtual machines in |azure|.
 
 Get-AzureVMChefExtension
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -131,7 +131,7 @@ This cmdlet has the following syntax:
 
 .. code-block:: bash
 
-   Get-AzureVMChefExtension -VM <IPersistentVM>
+   Get-AzureVMChefExtension -VM <string>
 
 Example
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -276,6 +276,70 @@ The following examples show how to use the ``Set-AzureVMChefExtension`` cmdlet:
    "C:\\users\\azure\\client.rb" -RunList "getting-started" -Linux
 
    New-AzureVM -Location 'West US' -ServiceName $svc -VM $vmObj1
+
+
+knife azure server create
+-----------------------------------------------------
+If ``knife azure`` plugin is installed on the workstation, along with the |azure extension chef|, the ``server create`` |knife| plugin may be used to manage |chef| running on virtual machines in |azure|.
+
+Syntax
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+This command has the following syntax:
+
+.. code-block:: bash
+
+   $ knife azure server create (options)
+
+Options
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+This command has the following options:
+
+``--auto-update-client``
+   |azure autoupdate_client|
+
+``--azure-extension-client-config``
+   |azure client_rb_path|
+
+``--bootstrap-version``
+   |ubuntu| and |centos| only.    |bootstrap version|
+
+``--delete-chef-extension-config``
+   |azure disable_extension|
+
+``-j``,  ``--json-attributes``
+   |json first_run_string| For example:
+
+   .. code-block:: bash
+
+      -j '{"chef_node_name":"test_node"}'
+
+   Supported options: ``--bootstrap-version``, ``--environment``, ``--[no-]node-verify-api-cert``, ``--node-name``, ``--node-ssl-verify-mode``, ``--secret-file``, and ``--server-url`` (required).
+
+``-r``, ``--run-list``
+   |run_list|
+
+Examples
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+The following examples show how to use the ``knife azure server create`` command:
+
+**Create Windows virtual machine**
+
+.. code-block:: bash
+
+   $ knife azure server create -I "123abc__Windows-Server-2012-Datacenter-201411.01-en.us-127GB.vhd"\n
+                             --azure-vm-size Medium -x 'azureuser' -P 'azure@123' --bootstrap-protocol\n
+                             'cloud-api' -c '~/chef-repo/.chef/knife.rb' -r 'recipe[getting-started]'\n
+                             --azure-service-location "West US" -VV
+
+
+**Create Linux virtual machine**
+
+.. code-block:: bash
+
+   $ knife azure server create -I "123abc__Ubuntu_DAILY_BUILD-trusty-14_04_1-LTS-amd64-server-etc"\n
+                               --azure-vm-size Medium -x 'azureuser' -P 'azure@123' --bootstrap-protocol 'cloud-api'\n
+                               -c '~/chef-repo/.chef/knife.rb' -r 'recipe[getting-started]'\n
+                               --azure-service-location "West US" -VV
 
 
 Log Files
