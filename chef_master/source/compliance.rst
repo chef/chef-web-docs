@@ -18,6 +18,10 @@ Compliance Profiles
 -----------------------------------------------------
 .. include:: ../../includes_compliance/includes_compliance_profiles.rst
 
+Integrations
+-----------------------------------------------------
+.. include:: ../../includes_compliance/includes_compliance_integrations.rst
+
 Audit Resources
 =====================================================
 .. include:: ../../includes_inspec/includes_inspec.rst
