@@ -8,6 +8,7 @@ Run the following from a ``.chef`` directory that contains a ``pivotal.rb`` file
 .. code-block:: ruby
 
    require 'chef'
+   require 'chef/rest'
    
    Chef::Config.from_file(".chef/pivotal.rb")
    rest = Chef::REST.new(Chef::Config[:chef_server_url])
