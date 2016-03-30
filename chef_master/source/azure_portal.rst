@@ -150,15 +150,20 @@ Use the ``Set-AzureVMChefExtension`` cmdlet to enable |chef| on any virtual mach
 
 Syntax
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This cmdlet has the following syntax:
+This cmdlet has the following syntax.
+
+For |windows|:
 
 .. code-block:: bash
 
-   Set-AzureVMChefExtension -ValidationPem <string> -Windows\n
-   -VM <IPersistentVM> [-Version <string>] [-ClientRb <string>]\n
-   [-BootstrapOptions <string>] [-RunList <string>] [-ChefServerUrl <string>]\n
-   [-ValidationClientName <string>] [-OrganizationName <string>]\n
-   [-AutoUpdateChefClient] [-DeleteChefConfig]
+   Set-AzureVMChefExtension -ValidationPem <String> -VM <IPersistentVM> -Windows [-ChefServerUrl <String> ] [-ClientRb <String> ] [-OrganizationName <String> ] [-RunList <String> ] [-ValidationClientName <String> ] [-Version <String> ] [ <CommonParameters>]
+
+For |linux|:
+
+.. code-block:: bash
+
+   Set-AzureVMChefExtension -Linux -ValidationPem <String> -VM <IPersistentVM> [-ChefServerUrl <String> ] [-ClientRb <String> ] [-OrganizationName <String> ] [-RunList <String> ] [-ValidationClientName <String> ] [-Version <String> ] [ <CommonParameters>]
+
 
 Options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
