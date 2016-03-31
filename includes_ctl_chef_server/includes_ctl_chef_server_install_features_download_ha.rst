@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The ``install`` subcommand downloads packages from https://packagecloud.io/ by default. For systems that are not behind a firewall (and have connectivity to https://packagecloud.io/), these packages can be installed as described below.
+The ``install`` subcommand downloads packages from https://packages.chef.io/ by default. For systems that are not behind a firewall (and have connectivity to https://packages.chef.io/), these packages can be installed as described below.
 
 .. list-table::
    :widths: 100 400
@@ -23,7 +23,7 @@ The ``install`` subcommand downloads packages from https://packagecloud.io/ by d
 
        .. code-block:: ruby
 
-          $ chef-server-ctl reconfigure 
+          $ chef-server-ctl reconfigure
 
        and then:
 
@@ -48,7 +48,7 @@ The ``install`` subcommand downloads packages from https://packagecloud.io/ by d
 
        .. code-block:: ruby
 
-          $ chef-server-ctl reconfigure 
+          $ chef-server-ctl reconfigure
 
        and then:
 

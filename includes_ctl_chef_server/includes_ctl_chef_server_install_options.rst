@@ -5,4 +5,4 @@
 This subcommand has the following options:
 
 ``--path PATH``
-   Use to specify the location of a package. This option is not required when packages are downloaded from https://packagecloud.io/.
+   Use to specify the location of a package. This option is not required when packages are downloaded from https://packages.chef.io/.
