@@ -16,6 +16,10 @@ Compliance Profiles
 -----------------------------------------------------
 .. include:: ../../includes_compliance/includes_compliance_profiles.rst
 
+Integrations
+-----------------------------------------------------
+.. include:: ../../includes_compliance/includes_compliance_integrations.rst
+
 Audit Resources
 =====================================================
 .. include:: ../../includes_inspec/includes_inspec.rst
@@ -105,4 +109,5 @@ This code uses the ``yaml`` resource to ensure that the |kitchen| driver is |vag
    inspec_yum
    install_compliance
    release_notes
+   integrate_compliance_chef_server
    upgrade_compliance

@@ -298,6 +298,7 @@
 .. |chef server rb| replace:: chef-server.rb
 .. |chef_shell rb| replace:: chef-shell.rb
 .. |chef_sync rb| replace:: chef-sync.rb
+.. |chef_compliance rb| replace:: chef-compliance.rb
 .. |chef validator pem| replace:: chef-validator.pem
 .. |client rb| replace:: client.rb
 .. |config rb| replace:: config.rb

@@ -4,6 +4,8 @@ Install |chef compliance| Server
 
 To install the |chef compliance| server in a standalone on-premises configuration, first review the prerequisites and then follow the steps below. |chef compliance| may also be installed as an |amazon ami| from the |amazon aws marketplace|.
 
+.. note:: .. include:: ../../includes_chef/includes_chef_compliance_subscription.rst
+
 Prerequisites
 =====================================================
 The |chef compliance| server has the following prerequisites:
