@@ -69,12 +69,12 @@ About |knife_title|
      - .. include:: ../../includes_knife/includes_knife_serve.rst
    * - :doc:`knife_show`
      - .. include:: ../../includes_knife/includes_knife_show.rst
+   * - :doc:`knife_ssh`
+     - .. include:: ../../includes_knife/includes_knife_ssh.rst
    * - :doc:`knife_ssl_check`
      - .. include:: ../../includes_knife/includes_knife_ssl_check.rst
    * - :doc:`knife_ssl_fetch`
      - .. include:: ../../includes_knife/includes_knife_ssl_fetch.rst
-   * - :doc:`knife_ssh`
-     - .. include:: ../../includes_knife/includes_knife_ssh.rst
    * - :doc:`knife_status`
      - .. include:: ../../includes_knife/includes_knife_status.rst
    * - :doc:`knife_tag`
