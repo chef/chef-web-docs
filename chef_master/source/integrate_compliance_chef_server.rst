@@ -1,16 +1,16 @@
 =====================================================
-Integrate |chef compliance| with |chef server|
+Integrate |chef compliance| with |chef server_title|
 =====================================================
 
-Integrating |chef compliance| with |chef server| will provide these benefits:
+Integrating |chef compliance| with |chef server_title| will provide these benefits:
 
-* Login to |chef compliance| based on the |chef server| users via OCID.
-* Nodes connected to the |chef server| will be able to download |chef compliance| profiles, run them and report back the results.
+* Login to |chef compliance| based on the |chef server_title| users via OCID.
+* Nodes connected to the |chef server_title| will be able to download |chef compliance| profiles, run them and report back the results.
 
 Prerequisites
 =====================================================
 
-* A |chef server| version 12.4.1 or newer.
+* A |chef server_title| version 12.4.1 or newer.
 * |chef compliance| server version 1.0 or newer.
 
 You can either install these version or upgrade your existing installations to meet these requirements.
@@ -18,7 +18,7 @@ You can either install these version or upgrade your existing installations to m
 Integration steps
 =====================================================
 
-To complete the integration you need shell access to |chef server| and |chef compliance| servers and go through these steps:
+To complete the integration you need shell access to |chef server_title| and |chef compliance| servers and go through these steps:
 
 Prepare |chef compliance|
 -----------------------------------------------------
@@ -60,7 +60,7 @@ Copy run the command delimited by --- and run:
    sudo -i
    chef-compliance-ctl reconfigure
 
-This will create an ``env`` file under ``/opt/chef-compliance/sv/core/env/CHEF_GATE_COMPLIANCE_SECRET``
+This will create a file under ``/opt/chef-compliance/sv/core/env/CHEF_GATE_COMPLIANCE_SECRET``
 
 Restart the |chef compliance| core service now:
 
@@ -70,20 +70,20 @@ Restart the |chef compliance| core service now:
    chef-compliance-ctl restart core
 
 
-Configure |chef server|
+Configure |chef server_title|
 -----------------------------------------------------
 
-From the |chef server| shell, run the ``---`` delimited command from the previous step:
+From the |chef server_title| shell, run the ``---`` delimited command from the previous step:
 
 .. code-block:: bash
 
    sudo -i
    CHEF_APP_ID="compliance_server" AUTH_ID="Chef Server" COMPLIANCE_URL="https://compliance.test" INSECURE_SSL="true" CHEF_GATE_COMPLIANCE_SECRET="7fef11649f95d4de9e9334b103144f58e3e1fde12f49e5a70579143a7b48f7ebf25a0dab9c58b86460e392cb942a95b345bb" OIDC_CLIENT_ID="l0IL_ak15qZzkQtP_Orc5E0Gdka_3CYFVWHIjLKoh5o=@compliance.test" bash <( curl -k https://compliance.test/static/chef-gate.sh )
 
-This will install a ``chef-gate`` service on the |chef server| to enable two main use-cases:
+This will install a ``chef-gate`` service on the |chef server_title| to enable two main use-cases:
 
-1. `chef-server` acting as an OpenID Connect (OIDC) resource server
-2. `chef-client` is able to request |chef compliance| profiles and report back
+1. ``chef-server`` acting as an OpenID Connect (OIDC) resource server
+2. ``chef-client`` is able to request |chef compliance| profiles and report back
 
 When successful, you will see an installation line at the very end like:
 
@@ -96,13 +96,43 @@ Copy this line and use it for the next step.
 Configure |chef compliance|
 -----------------------------------------------------
 
-Paste the ``chef-compliance-ctl auth add ...`` command provided during the previous step in the |chef compliance| shell. For example:
+Paste the ``chef-compliance-ctl auth add ...`` command provided during the previous step in the |chef compliance| shell.
 
 When done, it will ask you to ``chef-compliance-ctl reconfigure``.
 
 You can now go to https://compliance.test , select a different login provider, and click on Chef Server..................
 
-Run audit cookbook on node
+Compliance scan on |chef server_title| managed nodes
 =====================================================
 
-..............
+Once the integration is complete, the ``audit`` cookbook allows you to run |chef compliance| profiles as part of a |chef client| run. It downloads configured profiles from |chef compliance| and reports audit results to |chef compliance|, using |chef server_title| as a proxy.
+The ``audit`` cookbook has been created with custom resources to allow for |chef compliance| profiles execution and reporting.
+
+Here's how this is done:
+
+Upload cookbook to Chef Server
+-----------------------------------------------------
+The ``audit`` cookbook is available at [Chef Supermarket](https://supermarket.chef.io/cookbooks/audit) or in [GitHub](https://github.com/chef/audit-cookbook)
+
+Use your existing workflow to upload it to your |chef server_title|.
+
+Using the cookbook on the |chef server_title| managed nodes
+-----------------------------------------------------
+You can either use the custom resources provided by the cookbook or add the ``audit::default`` recipe to the run-list of the nodes. The ``default`` recipe requires a ``node['audit']['profiles']`` attribute to be set. Here's an example of how do define it as part of a Chef json based role or environment file:
+
+.. code-block:: bash
+
+   "audit": {
+     "profiles": {
+       "base/ssh": true,
+       "base/linux": true
+     }
+   }
+
+|chef client| run
+-----------------------------------------------------
+
+With the above steps completed, a |chef client| run will:
+ * Download the targeted profiles from |chef compliance| and run the locally via |inspec|.
+ * Log a summary of the audit execution.
+ * Submit the full report back to the |chef compliance| server.
