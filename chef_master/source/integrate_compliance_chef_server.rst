@@ -7,13 +7,18 @@ Integrating |chef compliance| with |chef server_title| will provide these benefi
 * Login to |chef compliance| using |chef server_title| users via OCID.
 * Nodes managed by |chef server_title| will be able to download |chef compliance| profiles, run them and report back the results.
 
-Prerequisites
+Software prerequisites
 =====================================================
 
 * |chef server_title| version 12.4.1 or newer.
 * |chef compliance| server version 1.0 or newer.
 
 You can either install these versions or upgrade your existing installations to meet these requirements.
+
+Network prerequisites
+=====================================================
+
+* |chef compliance| and |chef server_title| communicate between each other over port TCP/443. This needs to be open bidirectionally in order to support both OCID and |chef client| audit user-case.
 
 Integration steps
 =====================================================
@@ -103,11 +108,17 @@ Configure |chef compliance|
 
 Paste the ``chef-compliance-ctl auth add ...`` command provided during the previous step in the |chef compliance| shell.
 
-When done, it will ask you to ``chef-compliance-ctl reconfigure``.
+When done, it will ask you to run ``chef-compliance-ctl reconfigure``.
 
-You can now go to https://compliance.test , select a different login provider, and click on Chef Server..................
+Test the OCID auth integration
+-----------------------------------------------------
 
-Compliance scan on |chef server_title| managed nodes
+Go to the |chef compliance| web interface and click the ``Use a different provider`` link. You'll be presented with these options:
+
+ * ``Chef Server``, the OCID authentication using the configured |chef server|. Accept the authorization request when prompted.
+ * ``Compliance Server``, the native |chef compliance| authentication option
+
+Compliance scan of |chef server_title| managed nodes
 =====================================================
 
 Once the integration is complete, the ``audit`` cookbook allows you to run |chef compliance| profiles as part of a |chef client| run. It downloads configured profiles from |chef compliance| and reports audit results to |chef compliance|, using |chef server_title| as a proxy.
@@ -138,6 +149,6 @@ You can either use the custom resources provided by the cookbook or add the ``au
 -----------------------------------------------------
 
 With the above steps completed, a |chef client| run will:
- * Download the targeted profiles from |chef compliance| and run the locally via |inspec|.
+ * Download the targeted profiles from |chef compliance| and run them locally via |inspec|.
  * Log a summary of the audit execution.
  * Submit the full report back to the |chef compliance| server.
