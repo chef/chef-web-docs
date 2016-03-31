@@ -32,6 +32,7 @@
 .. |chef client_exe| replace:: chef-client
 .. |chef client_title| replace:: chef-client
 .. |chef compliance| replace:: Chef Compliance
+.. |chef compliance rb| replace:: chef-compliance.rb
 .. |chef container| replace:: chef-container
 .. |chef ctl| replace:: chef
 .. |chef delivery| replace:: Chef Delivery
@@ -40,7 +41,6 @@
 .. |chef delivery_title| replace:: Chef Delivery
 .. |chef dk| replace:: Chef development kit
 .. |chef dk_title| replace:: Chef DK
-.. |chef docker_hub_account| replace:: Chef Docker Hub Account
 .. |chef docs| replace:: chef-docs
 .. |chef docs_email| replace:: docs@chef.io
 .. |chef docs_repo| replace:: chef-docs

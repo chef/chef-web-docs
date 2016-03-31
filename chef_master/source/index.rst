@@ -155,6 +155,7 @@ Chef Compliance
    config_rb_analytics
    config_rb_chef_sync
    config_rb_client
+   config_rb_compliance
    config_rb_delivery_optional_settings
    config_rb_knife
    config_rb_knife_optional_settings
@@ -289,6 +290,7 @@ Chef Compliance
    install_server_pre
    install_server_tiered
    install_windows
+   integrate_compliance_chef_server
    integrate_delivery_bitbucket
    integrate_delivery_github
    integrate_delivery_ldap
