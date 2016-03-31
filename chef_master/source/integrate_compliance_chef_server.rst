@@ -10,9 +10,9 @@ Integrating |chef compliance| with |chef server_title| will provide these benefi
 Software prerequisites
 =====================================================
 
-* Standalone |chef server_title| version 12.4.1 or newer. HA support in the near future.
 * |chef compliance| server version 1.0 or newer.
-* A service like ``ntp`` to ensure the servers have a correct time. Authentication algorithms are sensitive to time drift.
+* Standalone |chef server_title| version 12.4.1 or newer. HA support will be provided in the near future.
+* A service like ``ntp`` to ensure time is up-to-date on the servers. Authentication algorithms are sensitive to time drift.
 
 You can either install these versions or upgrade your existing installations to meet these requirements.
 
