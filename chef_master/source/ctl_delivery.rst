@@ -57,6 +57,9 @@ Examples
 
 .. include:: ../../step_ctl_delivery/step_ctl_delivery_api_github_username_dotcom.rst
 
+**Get list of blocked projects**
+
+.. include:: ../../step_ctl_delivery/step_ctl_delivery_api_get_list_of_blocked_projects.rst
 
 delivery checkout
 =====================================================

@@ -16,11 +16,11 @@ The Chef Compliance Server
 
 Compliance Profiles
 -----------------------------------------------------
-.. include:: ../../includes_compliance/includes_compliance_integrate_chef_server.rst
+.. include:: ../../includes_compliance/includes_compliance_profiles.rst
 
 Integrate w/Chef Server
 -----------------------------------------------------
-.. include:: ../../includes_compliance/includes_compliance_profiles.rst
+.. include:: ../../includes_compliance/includes_compliance_integrate_chef_server.rst
 
 Audit Resources
 =====================================================
