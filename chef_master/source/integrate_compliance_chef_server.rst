@@ -37,7 +37,7 @@ Run this command from the shell, confirm or provide values when prompted:
    chef-compliance-ctl connect chef-server
 
 
-Here's a sample output received for a |chef compliance| server with a ``compliance.test`` hostname. I'm skipping SSL validation here due to the self-signed certificate used by the |chef compliance| server:
+The [default] values should work for most users. Here's a sample output received for a |chef compliance| server with a ``compliance.test`` hostname. I'm skipping SSL validation here due to the self-signed certificate used by the |chef compliance| server:
 
 .. code-block:: bash
 
@@ -130,7 +130,7 @@ Here's how this is done:
 Upload cookbook to Chef Server
 -----------------------------------------------------
 
-The ``audit`` cookbook is available at [Chef Supermarket](https://supermarket.chef.io/cookbooks/audit) or in [GitHub](https://github.com/chef/audit-cookbook)
+The ``audit`` cookbook is available at [Chef Supermarket](https://supermarket.chef.io/cookbooks/audit) or in [GitHub](https://github.com/chef-cookbooks/audit)
 
 Use your existing workflow to upload it to your |chef server_title|.
 
@@ -147,6 +147,8 @@ You can either use the custom resources provided by the cookbook or add the ``au
        "base/linux": true
      }
    }
+
+.. note:: This cookbook requires up-to-date time on the nodes. Use ``ntp`` or similar software to prevent time drift.
 
 |chef client| run
 -----------------------------------------------------
