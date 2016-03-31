@@ -4,21 +4,22 @@ Integrate |chef compliance| with |chef server_title|
 
 Integrating |chef compliance| with |chef server_title| will provide these benefits:
 
-* Login to |chef compliance| using |chef server_title| users via OCID.
+* Login to |chef compliance| with existing |chef server_title| users.
 * Nodes managed by |chef server_title| will be able to download |chef compliance| profiles, run them and report back the results.
 
 Software prerequisites
 =====================================================
 
-* |chef server_title| version 12.4.1 or newer.
+* Standalone |chef server_title| version 12.4.1 or newer. HA support in the near future.
 * |chef compliance| server version 1.0 or newer.
+* A service like ``ntp`` to ensure the servers have a correct time. Authentication algorithms are sensitive to time drift.
 
 You can either install these versions or upgrade your existing installations to meet these requirements.
 
 Network prerequisites
 =====================================================
 
-* |chef compliance| and |chef server_title| communicate between each other over port TCP/443. This needs to be open bidirectionally in order to support both OCID and |chef client| audit user-case.
+* |chef compliance| and |chef server_title| communicate between each other over port TCP/443. This needs to be allowed bidirectionally in order to support both |chef server| Single Sign-on and |chef client| audit user-cases.
 
 Integration steps
 =====================================================
@@ -106,7 +107,7 @@ Copy this line and use it for the next step.
 Configure |chef compliance|
 -----------------------------------------------------
 
-Paste the ``chef-compliance-ctl auth add ...`` command provided during the previous step in the |chef compliance| shell.
+Execute the ``chef-compliance-ctl auth add ...`` command provided during the previous step in the |chef compliance| shell.
 
 When done, it will ask you to run ``chef-compliance-ctl reconfigure``.
 
@@ -128,12 +129,14 @@ Here's how this is done:
 
 Upload cookbook to Chef Server
 -----------------------------------------------------
+
 The ``audit`` cookbook is available at [Chef Supermarket](https://supermarket.chef.io/cookbooks/audit) or in [GitHub](https://github.com/chef/audit-cookbook)
 
 Use your existing workflow to upload it to your |chef server_title|.
 
 Using the cookbook on the |chef server_title| managed nodes
 -----------------------------------------------------
+
 You can either use the custom resources provided by the cookbook or add the ``audit::default`` recipe to the run-list of the nodes. The ``default`` recipe requires a ``node['audit']['profiles']`` attribute to be set. Here's an example of how do define it as part of a Chef json based role or environment file:
 
 .. code-block:: bash
@@ -151,4 +154,4 @@ You can either use the custom resources provided by the cookbook or add the ``au
 With the above steps completed, a |chef client| run will:
  * Download the targeted profiles from |chef compliance| and run them locally via |inspec|.
  * Log a summary of the audit execution.
- * Submit the full report back to the |chef compliance| server.
+ * Submit the full report back to the |chef compliance| server. The reports will be saved in a |chef compliance| Organization with the same name as the Organization the server belongs to in |chef server|.
