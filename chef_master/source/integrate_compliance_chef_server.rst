@@ -6,25 +6,21 @@ Integrate Compliance w/Chef Server
 
 Prerequisites
 =====================================================
+The integration of |chef compliance| with the |chef server| requires the following:
 
-* |chef compliance| server version 1.0 or newer.
-* Standalone |chef server_title| version 12.4.1 or newer. HA support will be provided in the near future.
-* A service like ``ntp`` to ensure time is up-to-date on the servers. Authentication algorithms are sensitive to time drift.
-* |chef compliance| and |chef server_title| communicate between each other over port TCP/443. This needs to be allowed bidirectionally in order to support both |chef server| Single Sign-on and |chef client| audit user-cases.
-
-You can either install these versions or upgrade your existing installations to meet these requirements.
-
+* |chef compliance| server, version 1.0 (or later)
+* The |chef server|, version 12.4.1 (or later), configured as a standalone server
+* A time synchronization policy is in place, such as |ntp|; authentication algorithms are sensitive to time drift
+* |chef compliance| and |chef server| communicate between each other over port TCP/443, which must allow bidirectional communication to support both single sign-on and auditing use cases
 
 
 Integration steps
 =====================================================
-
 To complete the integration you need shell access to |chef server_title| and |chef compliance| servers and go through these steps:
 
 Prepare |chef compliance|
 -----------------------------------------------------
-
-Run this command from the shell, confirm or provide values when prompted:
+Run the following command from the shell, confirm or provide values when prompted:
 
 .. code-block:: bash
 
@@ -88,8 +84,8 @@ From the |chef server_title| shell, run the ``---`` delimited command from the p
 
 This will install a ``chef-gate`` service on the |chef server_title| to enable two main use-cases:
 
-1. |chef server_title| to act as an OpenID Connect (OIDC) resource server.
-2. |chef client| to request |chef compliance| profiles and report back.
+#. |chef server_title| to act as an OpenID Connect (OIDC) resource server.
+#. |chef client| to request |chef compliance| profiles and report back.
 
 When successful, you will see an installation line at the very end like:
 
@@ -101,38 +97,29 @@ Copy this line and use it for the next step.
 
 Configure |chef compliance|
 -----------------------------------------------------
-
-Execute the ``chef-compliance-ctl auth add ...`` command provided during the previous step in the |chef compliance| shell.
-
-When done, it will ask you to run ``chef-compliance-ctl reconfigure``.
+Execute the ``chef-compliance-ctl auth add ...`` command provided during the previous step in the |chef compliance| shell. When done, it will ask you to run ``chef-compliance-ctl reconfigure``.
 
 Test OAuth 2 Integration
 -----------------------------------------------------
-
 Go to the |chef compliance| web interface and click the ``Use a different provider`` link. You'll be presented with these options:
 
- * ``Chef Server``, the OCID authentication using the configured |chef server|. Accept the authorization request when prompted.
+ * ``Chef Server``, the |oauth| 2 authentication using the configured |chef server|. Accept the authorization request when prompted
  * ``Compliance Server``, the native |chef compliance| authentication option
 
 Scan Managed Nodes
 =====================================================
-
 Once the integration is complete, the ``audit`` cookbook allows you to run |chef compliance| profiles as part of a |chef client| run. It downloads configured profiles from |chef compliance| and reports audit results to |chef compliance|, using |chef server_title| as a proxy.
 The ``audit`` cookbook has been created with custom resources to allow for |chef compliance| profiles execution and reporting.
 
-Here's how this is done:
+First upload the cookbook to the |chef server|, then use the cookbook in a recipe, and then run the |chef client|.
 
 Upload Cookbook
 -----------------------------------------------------
-
-The ``audit`` cookbook is available at [Chef Supermarket](https://supermarket.chef.io/cookbooks/audit) or in [GitHub](https://github.com/chef-cookbooks/audit)
-
-Use your existing workflow to upload it to your |chef server_title|.
+The ``audit`` cookbook is available at the following locations: https://supermarket.chef.io/cookbooks/audit and https://github.com/chef-cookbooks/audit. Upload it to the |chef server| using a normal workflow.
 
 Use Cookbook
 -----------------------------------------------------
-
-You can either use the custom resources provided by the cookbook or add the ``audit::default`` recipe to the run-list of the nodes. The ``default`` recipe requires a ``node['audit']['profiles']`` attribute to be set. Here's an example of how do define it as part of a Chef json based role or environment file:
+You can either use the custom resources provided by the cookbook or add the ``audit::default`` recipe to the run-list of the nodes. The ``default`` recipe requires a ``node['audit']['profiles']`` attribute to be set. Here's an example of how do define it as part of a |json|-based role or environment file:
 
 .. code-block:: bash
 
@@ -147,8 +134,8 @@ You can either use the custom resources provided by the cookbook or add the ``au
 
 Run the chef-client
 -----------------------------------------------------
-
 With the above steps completed, a |chef client| run will:
- * Download the targeted profiles from |chef compliance| and run them locally via |inspec|.
- * Log a summary of the audit execution.
- * Submit the full report back to the |chef compliance| server. The reports will be saved in a |chef compliance| Organization with the same name as the Organization the server belongs to in |chef server|.
+
+* Download the targeted profiles from |chef compliance|, and then run them locally via |inspec|.
+* Log a summary of the audit execution.
+* Submit the full report back to the |chef compliance| server. The reports will be saved in a |chef compliance| Organization with the same name as the Organization the server belongs to in |chef server|.
