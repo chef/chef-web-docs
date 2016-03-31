@@ -4,16 +4,16 @@ Integrate |chef compliance| with |chef server_title|
 
 Integrating |chef compliance| with |chef server_title| will provide these benefits:
 
-* Login to |chef compliance| based on the |chef server_title| users via OCID.
-* Nodes connected to the |chef server_title| will be able to download |chef compliance| profiles, run them and report back the results.
+* Login to |chef compliance| using |chef server_title| users via OCID.
+* Nodes managed by |chef server_title| will be able to download |chef compliance| profiles, run them and report back the results.
 
 Prerequisites
 =====================================================
 
-* A |chef server_title| version 12.4.1 or newer.
+* |chef server_title| version 12.4.1 or newer.
 * |chef compliance| server version 1.0 or newer.
 
-You can either install these version or upgrade your existing installations to meet these requirements.
+You can either install these versions or upgrade your existing installations to meet these requirements.
 
 Integration steps
 =====================================================
@@ -31,12 +31,10 @@ Run this command from the shell, confirm or provide values when prompted:
    chef-compliance-ctl connect chef-server
 
 
-Here's a sample output received for a |chef compliance| server with a |compliance.test| hostname. I'm skipping SSL validation here due to the self-signed certificate used by the Compliance server:
+Here's a sample output received for a |chef compliance| server with a ``compliance.test`` hostname. I'm skipping SSL validation here due to the self-signed certificate used by the |chef compliance| server:
 
 .. code-block:: bash
 
-   sudo -i
-   chef-compliance-ctl connect chef-server
    Please confirm or provide values for:
     * Chef Server (OCID) APP-ID for Compliance [compliance_server]:
     * Name for Chef Server Authentication in Chef Compliance [Chef Server]:
@@ -53,7 +51,14 @@ Here's a sample output received for a |chef compliance| server with a |complianc
    CHEF_APP_ID="compliance_server" AUTH_ID="Chef Server" COMPLIANCE_URL="https://compliance.test" INSECURE_SSL="true" CHEF_GATE_COMPLIANCE_SECRET="7fef11649f95d4de9e9334b103144f58e3e1fde12f49e5a70579143a7b48f7ebf25a0dab9c58b86460e392cb942a95b345bb" OIDC_CLIENT_ID="l0IL_ak15qZzkQtP_Orc5E0Gdka_3CYFVWHIjLKoh5o=@compliance.test" bash <( curl -k https://compliance.test/static/chef-gate.sh )
    ---
 
-Copy run the command delimited by --- and run:
+You can also run the command in a non-interactive mode, here's an example:
+
+.. code-block:: bash
+
+   sudo -i
+   chef-compliance-ctl connect chef-server --non-interactive true --chef-app-id 'compliance_server' --auth-id 'Chef Server' --insecure true --compliance-url 'https://compliance.test'
+
+Copy the command delimited by --- and run:
 
 .. code-block:: bash
 
@@ -73,7 +78,7 @@ Restart the |chef compliance| core service now:
 Configure |chef server_title|
 -----------------------------------------------------
 
-From the |chef server_title| shell, run the ``---`` delimited command from the previous step:
+From the |chef server_title| shell, run the ``---`` delimited command from the previous step, in my case:
 
 .. code-block:: bash
 
@@ -82,8 +87,8 @@ From the |chef server_title| shell, run the ``---`` delimited command from the p
 
 This will install a ``chef-gate`` service on the |chef server_title| to enable two main use-cases:
 
-1. ``chef-server`` acting as an OpenID Connect (OIDC) resource server
-2. ``chef-client`` is able to request |chef compliance| profiles and report back
+1. |chef server_title| to act as an OpenID Connect (OIDC) resource server.
+2. |chef client| to request |chef compliance| profiles and report back.
 
 When successful, you will see an installation line at the very end like:
 
