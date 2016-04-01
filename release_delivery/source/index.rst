@@ -34,6 +34,7 @@ Read more about |chef delivery|:
 .. toctree::
    :hidden:
 
+   api_delivery
    build_cookbooks
    ctl_delivery
    ctl_delivery_server
