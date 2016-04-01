@@ -37,6 +37,8 @@ create
 =====================================================
 .. include:: ../../includes_knife/includes_knife_cookbook_create.rst
 
+.. note:: .. include:: ../../includes_ruby/includes_ruby_style_patterns_hyphens.rst
+
 Syntax
 -----------------------------------------------------
 .. include:: ../../includes_knife/includes_knife_cookbook_create_syntax.rst

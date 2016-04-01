@@ -123,6 +123,10 @@ This section covers best practices for cookbook and recipe authoring.
 -----------------------------------------------------
 .. include:: ../../includes_ruby/includes_ruby_style_patterns_git_etiquette.rst
 
+Use of Hyphens
+-----------------------------------------------------
+.. include:: ../../includes_ruby/includes_ruby_style_patterns_hyphens.rst
+
 Cookbook Naming
 -----------------------------------------------------
 .. include:: ../../includes_ruby/includes_ruby_style_patterns_cookbook_naming.rst

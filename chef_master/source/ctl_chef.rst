@@ -71,6 +71,8 @@ chef generate app
 =====================================================
 .. include:: ../../includes_ctl_chef/includes_ctl_chef_generate_app.rst
 
+.. note:: .. include:: ../../includes_ruby/includes_ruby_style_patterns_hyphens.rst
+
 Syntax
 -----------------------------------------------------
 .. include:: ../../includes_ctl_chef/includes_ctl_chef_generate_app_syntax.rst
@@ -110,6 +112,8 @@ Examples
 chef generate cookbook
 =====================================================
 .. include:: ../../includes_ctl_chef/includes_ctl_chef_generate_cookbook.rst
+
+.. note:: .. include:: ../../includes_ruby/includes_ruby_style_patterns_hyphens.rst
 
 Syntax
 -----------------------------------------------------
@@ -151,6 +155,8 @@ None.
 chef generate lwrp
 =====================================================
 .. include:: ../../includes_ctl_chef/includes_ctl_chef_generate_lwrp.rst
+
+.. note:: .. include:: ../../includes_ruby/includes_ruby_style_patterns_hyphens.rst
 
 Syntax
 -----------------------------------------------------
