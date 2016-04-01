@@ -647,6 +647,7 @@
 .. |oneget| replace:: OneGet
 .. |open bsd| replace:: OpenBSD
 .. |open id| replace:: OpenID
+.. |open id connect| replace:: OpenID Connect (OIDC)
 .. |open indiana| replace:: Open Indiana
 .. |open ldap| replace:: OpenLDAP
 .. |open ssh| replace:: OpenSSH
