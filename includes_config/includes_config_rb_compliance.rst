@@ -3,3 +3,9 @@
 
 
 The |chef compliance rb| file is the default configuration file used by |chef compliance|.
+
+If changes are made to this file, reconfigure the |chef compliance| server by running the following command:
+
+.. code-block:: bash
+
+   $ chef-compliance-ctl reconfigure
