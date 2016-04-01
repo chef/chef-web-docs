@@ -2,11 +2,11 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-Use the ``Chef::Log`` class in an |ohai| plugin to define log entries that are created during a |chef client| run. The syntax for a log message is as follows:
+Use the ``Ohai::Log`` class in an |ohai| plugin to define log entries that are created during a |ohai| run. The syntax for a log message is as follows:
 
 .. code-block:: ruby
 
-   Chef::Log.log_type('message')
+   Ohai::Log.log_type('message')
 
 where
 
