@@ -166,6 +166,10 @@ osc_11-1:
 	mkdir -p $(BUILDDIR)/release/osc_11-1/
 	$(BUILD_COMMAND_AND_ARGS) release_osc_11-1/source $(BUILDDIR)/release/osc_11-1/
 
+analytics:
+	mkdir -p $(BUILDDIR)/release/analytics/
+	$(BUILD_COMMAND_AND_ARGS) release_analytics/source $(BUILDDIR)/release/analytics/
+
 analytics_1-1:
 	mkdir -p $(BUILDDIR)/release/analytics_1-1/
 	$(BUILD_COMMAND_AND_ARGS) release_analytics_1-1/source $(BUILDDIR)/release/analytics_1-1/

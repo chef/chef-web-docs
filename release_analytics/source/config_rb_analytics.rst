@@ -1,3 +1,5 @@
+.. THIS PAGE IS LOCATED AT THE /release/analytics/ PATH.
+
 =====================================================
 |analytics rb|
 =====================================================
@@ -26,3 +28,10 @@ The following settings are often used for performance tuning of |chef analytics|
 actions
 -----------------------------------------------------
 .. include:: ../../includes_analytics_tuning/includes_analytics_tuning_actions.rst
+
+paritioning
+----------------------------------------------------
+The following setting is used to enable and disable partitioning on the |chef analytics| server:
+
+``features['partitioning']``
+   Set this to ``false`` before running an upgrade to 1.3.0 to disable database paritioning; however, we recommend that you leave paritioning on. This setting must be set at the time of the 1.3.0 migration to take effect. See the "Upgrade With Paritions Disabled (Not Recommended)" section of the :doc:`upgrade documentation </upgrade_analytics>` for details on how to upgrade without paritioning enabled.
