@@ -52,6 +52,7 @@ This code uses the ``yaml`` resource to ensure that the |kitchen| driver is |vag
    :hidden:
 
    api_compliance
+   config_rb_compliance
    ctl_inspec
    dsl_compliance
    inspec_apache_conf
@@ -104,5 +105,6 @@ This code uses the ``yaml`` resource to ensure that the |kitchen| driver is |vag
    inspec_yaml
    inspec_yum
    install_compliance
+   integrate_compliance_chef_server
    release_notes
    upgrade_compliance
