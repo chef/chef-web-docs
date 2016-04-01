@@ -10,7 +10,7 @@ Prerequisites
 =====================================================
 An integration between |chef compliance| and the |chef server| requires:
 
-* |chef compliance| server, version 1.0 (or later)
+* |chef compliance| server, version 1.0 (or later) with DNS resolvable hostname
 * |chef server|, version 12.4.1 (or later), configured as a standalone server
 * A time synchronization policy is in place, such as |ntp|; authentication algorithms are sensitive to time drift
 * |chef compliance| and |chef server| to allow bidirectional communication via port TCP/443; this enables single sign-on (SSO) and auditing use cases
@@ -43,12 +43,12 @@ To prepare |chef compliance| for integration with the |chef server|, do the foll
        * Name for Chef Server Authentication in Chef Compliance [Chef Server]:
        * Allow Self-signed SSL certificates [false]: true
        * Compliance Server URL [https://compliance.test]:
-   
+
       Generating new shared secret for chef-gate...
         Successfully generated secret for chef-gate
       Please reconfigure Chef Compliance by running this command:
       chef-compliance-ctl reconfigure
-   
+
       Please run the command delimited by --- on the Chef Server node as administrator:
       ---
       CHEF_APP_ID="compliance_server" AUTH_ID="Chef Server" COMPLIANCE_URL="https://compliance.test"\n
@@ -130,7 +130,7 @@ To configure |chef compliance| for integration with the |chef server|, do the fo
 
 Test Integration
 -----------------------------------------------------
-Go to the |chef compliance| web interface and click the **Use a different provider** link. The default provider is ``Compliance Server``. Switch it to ``Chef Server``, and then accept the authorization request.
+Go to the |chef compliance| web interface and click the **Use a different provider** link. The default provider is ``Compliance Server``. Switch it to ``Chef Server``, and then accept the authorization request. At the moment only |chef server| managed nodes that successfully run ``audit::default`` will show up in |chef compliance|.
 
 Scan Managed Nodes
 =====================================================
