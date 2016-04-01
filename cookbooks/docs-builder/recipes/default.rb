@@ -90,6 +90,7 @@ delivery
 12-7
 12-8
 12-9
+analytics
 analytics_1-1
 analytics_1-2
 analytics_1-3
