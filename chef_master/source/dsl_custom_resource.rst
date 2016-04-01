@@ -60,8 +60,8 @@ reset_property
 
 resource_name
 =====================================================
-.. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_resource_name.rst
-
 .. note:: .. include:: ../../includes_ruby/includes_ruby_style_patterns_hyphens.rst
+
+.. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_resource_name.rst
 
 .. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_resource_name_example.rst
