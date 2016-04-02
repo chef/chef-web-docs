@@ -37,6 +37,9 @@ This configuration file has the following settings for ``rabbitmq``:
 ``name``
    Default value: ``'delivery'``.
 
+``default['delivery']['user']['comment']``
+   This is the "GECOS" field for a Unix user (e.g., a human-readable name). Default value: ``"CHEF Delivery"``.
+
 
 admin
 -----------------------------------------------------
@@ -53,23 +56,6 @@ This configuration file has the following settings for ``admin``:
 
 ``admin['password']``
    Default value: ``'snakes'``.
-
-
-default
------------------------------------------------------
-This configuration file has the following settings for ``default``:
-
-``default['delivery']['user']['comment']``
-   This is the "GECOS" field for a Unix user (e.g., a human-readable name). Default value: ``"CHEF Delivery"``.
-
-``default_log_directory``
-   |directory generic_working| |default_value_recommended| Default value: ``"/var/log/delivery"``.
-
-``default_log_size_in_bytes``
-   |log_rotation| Default value: ``100 * 1024 * 1024``.
-
-``default_num_logs_to_keep``
-   |log_rotation| Default value: ``10``.
 
 
 deliv_notify
@@ -211,17 +197,13 @@ This configuration file has the following settings for ``delivery``:
    |ip_address virtual| Default value: ``'127.0.0.1'``.
 
 ``delivery['log_directory']``
-   |directory logs| |default_value_recommended| Default value:
-
-   .. code-block:: ruby
-
-      File.join(default_log_directory, "delivery")
+   |directory logs| |default_value_recommended| Default value: ``"/var/log/delivery/delivery"``.
 
 ``delivery['log_rotation']['file_maxbytes']``
    |log_rotation| Default value: ``1024 * 1000 * 10``.
 
 ``delivery['log_rotation']['num_to_keep']``
-   |log_rotation| Default value: ``default_num_logs_to_keep``.
+   |log_rotation| Default value: ``10``.
 
 ``delivery['max_backups']``
    Default value: ``7``.
@@ -337,17 +319,13 @@ This configuration file has the following settings for ``elasticsearch``:
    Default value: ``"#{node['delivery']['user']['home']}/elasticsearch"``.
 
 ``elasticsearch['log_directory']``
-   |directory logs| |default_value_recommended| Default value:
-
-   .. code-block:: ruby
-
-      File.join(default_log_directory, "elasticsearch")
+   |directory logs| |default_value_recommended| Default value: ``"/var/log/delivery/elasticsearch"``.
 
 ``elasticsearch['log_rotation']['file_maxbytes']``
-   |log_rotation| Default value: ``default_log_size_in_bytes``.
+   |log_rotation| Default value: ``100 * 1024 * 1024`` (100MB).
 
 ``elasticsearch['log_rotation']['num_to_keep']``
-   |log_rotation| Default value: ``default_num_logs_to_keep``.
+   |log_rotation| Default value: ``10``.
 
 ``elasticsearch['memory']``
    Default value:
@@ -397,17 +375,13 @@ This configuration file has the following settings for ``kibana``:
    |directory generic_working| |default_value_recommended| Default value: ``'/var/opt/delivery/kibana/'``.
 
 ``kibana['log_directory']``
-   |directory logs| |default_value_recommended| Default value:
-
-   .. code-block:: ruby
-
-      File.join(default_log_directory, "kibana")
+   |directory logs| |default_value_recommended| Default value: ``"/var/log/delivery/kibana"``.
 
 ``kibana['log_rotation']['file_maxbytes']``
-   |log_rotation| Default value: ``default_log_size_in_bytes``.
+   |log_rotation| Default value: ``100 * 1024 * 1024`` (100MB).
 
 ``kibana['log_rotation']['num_to_keep']``
-   |log_rotation| Default value: ``default_num_logs_to_keep``.
+   |log_rotation| Default value: ``10``.
 
 ``kibana['port']``
    |port service| Default value: ``5601``.
@@ -432,17 +406,13 @@ This configuration file has the following settings for ``logstash``:
    Default value: 5044.
 
 ``logstash['log_directory']``
-   |directory logs| |default_value_recommended| Default value:
-
-   .. code-block:: ruby
-
-      File.join(default_log_directory, "logstash")
+   |directory logs| |default_value_recommended| Default value: ``"/var/log/delivery/logstash"``.
 
 ``logstash['log_rotation']['file_maxbytes']``
-   |log_rotation| Default value: ``default_log_size_in_bytes``.
+   |log_rotation| Default value: ``100 * 1024 * 1024`` (100MB).
 
 ``logstash['log_rotation']['num_to_keep']``
-   |log_rotation| Default value: ``default_num_logs_to_keep``.
+   |log_rotation| Default value: ``10``.
 
 ``logstash['port']``
    |port service| Default value: ``8080``.
@@ -459,17 +429,13 @@ This configuration file has the following settings for ``lsyncd``:
    |enable service| Default value: ``true``.
 
 ``lsyncd['log_directory']``
-   |directory logs| |default_value_recommended| Default value:
-
-   .. code-block:: ruby
-
-      File.join(default_log_directory, "lsyncd")
+   |directory logs| |default_value_recommended| Default value: ``"/var/log/delivery/lsyncd"``.
 
 ``lsyncd['log_rotation']['file_maxbytes']``
-   |log_rotation| Default value: ``default_log_size_in_bytes``.
+   |log_rotation| Default value: ``100 * 1024 * 1024`` (100MB).
 
 ``lsyncd['log_rotation']['num_to_keep']``
-   |log_rotation| Default value: ``default_num_logs_to_keep``.
+   |log_rotation| Default value: ``10``.
 
 ``lsyncd['ssh_key']``
    Default value:
@@ -535,17 +501,13 @@ This configuration file has the following settings for ``nginx``:
    |worker_max_keepalive| Default value: ``65``.
 
 ``nginx['log_directory']``
-   |directory logs| |default_value_recommended| Default value:
-
-   .. code-block:: ruby
-
-      File.join(default_log_directory, "nginx")
+   |directory logs| |default_value_recommended| Default value: ``"/var/log/delivery/nginx"``.
 
 ``nginx['log_rotation']['file_maxbytes']``
-   |log_rotation| Default value: ``default_log_size_in_bytes``.
+   |log_rotation| Default value: ``100 * 1024 * 1024`` (100MB).
 
 ``nginx['log_rotation']['num_to_keep']``
-   |log_rotation| Default value: ``default_num_logs_to_keep``.
+   |log_rotation| Default value: ``10``.
 
 ``nginx['non_ssl_port']``
    |port non_ssl_nginx| Default value: ``80``. Use ``nginx['enable_non_ssl']`` to enable or disable |ssl| redirects on this port number. Set to ``false`` to disable non-SSL connections.
@@ -665,13 +627,13 @@ This configuration file has the following settings for ``postgresql``:
 
    .. code-block:: ruby
 
-      File.join(default_log_directory, "postgresql/#{node['delivery']['postgresql']['version']}")
+      "/var/log/delivery/postgresql/#{node['delivery']['postgresql']['version']}"
 
 ``postgresql['log_rotation']['file_maxbytes']``
-   |log_rotation| Default value: ``default_log_size_in_bytes``.
+   |log_rotation| Default value: ``100 * 1024 * 1024`` (100MB).
 
 ``postgresql['log_rotation']['num_to_keep']``
-   |log_rotation| Default value: ``default_num_logs_to_keep``.
+   |log_rotation| Default value: ``10``.
 
 ``postgresql['max_connections']``
    |max_connections| Default value: ``350``.
@@ -758,10 +720,10 @@ This configuration file has the following settings for ``rabbitmq``:
       File.join(default_log_directory, "rabbitmq")
 
 ``rabbitmq['log_rotation']['file_maxbytes']``
-   |log_rotation| Default value: ``default_log_size_in_bytes``.
+   |log_rotation| Default value: ``100 * 1024 * 1024`` (100MB).
 
 ``rabbitmq['log_rotation']['num_to_keep']``
-   |log_rotation| Default value: ``default_num_logs_to_keep``.
+   |log_rotation| Default value: ``10``.
 
 ``rabbitmq['management_enabled']``
    |rabbitmq management_enabled| Default value: ``true``.
