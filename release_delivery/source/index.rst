@@ -36,6 +36,7 @@ Read more about |chef delivery|:
 
    api_delivery
    build_cookbooks
+   config_rb_delivery_optional_settings
    ctl_delivery
    ctl_delivery_server
    delivery_configure_pipeline
