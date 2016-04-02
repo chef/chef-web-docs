@@ -42,6 +42,7 @@ Read more about |chef delivery|:
    delivery_configure_pipeline
    delivery_manage_dependencies
    delivery_manage_secrets
+   delivery_server_disaster_recovery
    delivery_server_tuning
    delivery_overview
    delivery_truck
