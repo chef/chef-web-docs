@@ -14,7 +14,7 @@ This method has no request body.
 
 **Response**
 
-For a standalone server, the response will return something like:
+For a standalone server, the response will be similar to:
 
 .. code-block:: javascript
 
@@ -34,7 +34,7 @@ For a standalone server, the response will return something like:
    }
 
 
-For the primary server in a disaster recovery pair, the response will return something like:
+For the primary server in a disaster recovery pair, the response will be similar to:
 
 .. code-block:: javascript
 
@@ -57,7 +57,7 @@ For the primary server in a disaster recovery pair, the response will return som
    }
 
 
-For the standby server in a disaster recovery pair, the response will return something like:
+For the standby server in a disaster recovery pair, the response will be similar to:
 
 .. code-block:: javascript
 
