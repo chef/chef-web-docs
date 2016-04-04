@@ -55,7 +55,13 @@ The ``delivery-truck`` cookbook includes the following recipes:
 * ``syntax.rb``
 * ``unit.rb``
 
-which correspond to phases that exist in the |chef delivery| pipeline. A build cookbook defines the same phases. For example, a build cookbook's recipe directory should contain an identical list of recipes. For example, run:
+where:
+
+* The ``default.rb`` file is executed by the |chef client|
+* The ``provision.rb`` file discovers all ``metadata.rb`` and/or ``metadata.json`` files that are located in the project's root directory, plus any cookbook directory located under ``cookbooks/<project_cookbooks>``
+* The remaining recipes correspond to specific phases that exist in the |chef delivery| pipeline
+
+A build cookbook defines the same phases. For example, a build cookbook's recipe directory should contain an identical list of recipes. For example, run:
 
 .. code-block:: bash
 
@@ -77,7 +83,7 @@ the list of recipes should be:
    syntax.rb
    unit.rb
 
-These recipes correspond to a specific phase in the |chef delivery| pipeline. The recipes in the build cookbook should include the same-named recipe in the ``delivery-truck`` cookbook. For example, to include the ``lint.rb`` recipe from the ``delivery-truck`` cookbook, update the ``lint.rb`` recipe in the build cookbook to add the following:
+Each recipe corresponds to a specific phase in the |chef delivery| pipeline. The recipes in the build cookbook should include the same-named recipe in the ``delivery-truck`` cookbook. For example, to include the ``lint.rb`` recipe from the ``delivery-truck`` cookbook, update the ``lint.rb`` recipe in the build cookbook to add the following:
 
 .. code-block:: ruby
 
@@ -91,6 +97,7 @@ and then add to the ``unit.rb`` recipe:
 
 and so on for all of the recipes. This ensures that all of the default behavior for all of the phases for the entire pipeline is available to this build cookbook.
 
-A Single Project
+
+Read the Tutorial
 =====================================================
 To learn more about how to set up a project pipeline for a single cookbook and simple application, follow the steps outlined in the `Build a continuous deployment pipeline with Chef Delivery <https://learn.chef.io/delivery/get-started/>`__ tutorial on https://learn.chef.io/tutorials/.
