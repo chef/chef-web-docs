@@ -9,6 +9,7 @@ About the delivery-truck Cookbook
 This topic assumes that |chef delivery| is already configured, a project exists, and that all work is being done from that project's root directory.
 
 
+
 Set up a Build Cookbook
 =====================================================
 Pull the ``delivery-truck`` and ``delivery-sugar`` cookbooks into a build cookbook. This requires editing the build cookbook's |berksfile|, and then updating the |metadata rb| file.
