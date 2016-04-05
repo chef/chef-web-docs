@@ -72,141 +72,24 @@ To learn more about how to set up a project pipeline for a single cookbook and s
 
 
 
-
 Project Applications
 =====================================================
+.. include:: ../../includes_delivery/includes_delivery_project_application.rst
 
-.. done
-
-Project applications are a useful way to promote projects by using a set of attributes that are pinned to versions, and then using those attributes when deploying software to a stage in the |delivery| pipeline.
-
-Project applications are defined in the ``pubish.rb`` recipe in a ``build-cookbook`` using the ``define_project_application`` helper method, and then in the ``deploy.rb`` recipe using the ``get_projet_application`` method. The publish phase happens at the end of the build stage. It is at this point where the project application version is pinned, uploaded to the |chef server| as a data bag item, and then used through the remaining stages.
-
-.. note:: The ``define_project_application`` helper method is available from the ``delivery-sugar`` cookbook, which is a dependency of the ``delivery-truck`` cookbook. This helper is available when the ``publish.rb`` recipe has ``include_recipe 'delivery-truck::publish'`` defined.
-
-To define a project application, do the following:
-
-#. Open the ``publish.rb`` recipe in the ``build-cookbook`` and edit it to contain:
-
-   .. code-block:: ruby
-
-      define_project_application(
-        <app_name>,
-        <app_version>,
-        [ 'attribute',
-          'attribute',
-          ... ]
-      )
-
-   where
-
-   * ``<app_name>`` is the name of the project application
-   * ``<app_version>`` is version number to which the project application is pinned
-   * ``'attribute'`` is |ruby hash| of attributes associated with this version; each attribute is defined as a key-value pair: ``'key = value'``
-
-
-#. Set up the ``build-cookbook`` to know about this application. Add the following to ``.delivery/build-cookbook/attributes/default.rb``:
-
-   .. code-block:: ruby
-
-      default['delivery']['project_apps'] = ['<app_name>', '<app_name>', ...]
-
-   where ``<app_name>`` is a list of one (or more) applications this ``build-cookbook`` should be aware of.
-
-   .. note:: If the ``/attributes/default.rb`` directory and/or file does not exist, create it.
-
-
-#. Open the ``default.rb`` recipe in the ``build-cookbook`` and edit it to contain:
-
-   .. code-block:: ruby
-
-      { 'hash_of_attributes' } = get_project_application(<app_name>)
-
-   where ``'hash_of_attributes'`` is a list of one (or more) attributes defined in the ``define_project_application`` block.
-
-   .. note:: Do not pass ``'id'``, ``'version'``, or ``'name'`` as part of the ``'hash_of_attributes'`` as these are already defined in the ``define_project_application`` block, are pulled in automatically by the ``get_project_application`` helper method, and will overwrite any value specified in the |ruby hash|.
-
-
-
-
-Example: Project Applications
+Configure a Project Application
 -----------------------------------------------------
+.. include:: ../../includes_delivery/includes_delivery_project_application_configure.rst
+
+Example Project Application
+-----------------------------------------------------
+.. include:: ../../includes_delivery/includes_delivery_project_application_example.rst
 
 
-.. done
-
-This example shows how to use project applications to deploy a package into a ``.deb`` file during the deploy phase. (This example assumes a |delivery| project exists with a properly configured ``build-cookbook``.)
-
-#. Open the ``publish.rb`` recipe in the ``build-cookbook`` and edit to look like the following:
-
-   .. code-block:: ruby
-
-      include_recipe 'delivery-truck::publish'
-
-      # Generate your artifact and document it's location on a download server.
-      artifact_location = <generated_artifact_location>
-
-      # It's recommended to generate a checksum from your package too.
-      artifact_checksum = <package_checksum>
-
-      # Version the artifact based on the current date.
-      artifact_version = Time.now.strftime('%F_%H%M')
-
-      # Name your application.
-      name = "<app_name>"
-
-      project_app_attributes = {
-        'artifact_location' => artifact_location,
-        'artifact_checksum' => artifact_checksum
-      }
-
-      define_project_application(
-        name,
-        artifact_version,
-        project_app_attributes
-      )
-
-#. In the ``publish.rb`` recipe, update ``<generated_artifact_location>`` and ``<package_checksum>`` to be correct for this project.
-
-#. Set up the ``build-cookbook`` to know about this application. Add the following to ``.delivery/build-cookbook/attributes/default.rb``:
-
-   .. code-block:: ruby
-
-      default['delivery']['project_apps'] = ["<app_name>"]
-
-   where ``<app_name>`` is the same value as the name of the application in the ``publish.rb`` file.
-
-   When the publish phase is run, an application is created, versioned by timestamp, and including all of the information needed to install that version of the application. The provisioning code in ``delivery-truck`` will automatically pin based on this version.
-
-#. Configure the ``build-cookbook`` to know about the application. Add the following to ``.delivery/build-cookbook/attributes/default.rb``:
-
-   .. code-block:: ruby
-
-      default['delivery']['project_apps'] = ["<APPLICATION_NAME>"]
-
-#. Configure the ``build-cookbook`` to know how to install the application. Add the following to ``.delivery/build-cookbook/deploy.rb``:
-
-   .. code-block:: ruby
-
-      app_attributes = get_project_application("<APPLICATION_NAME>")
-
-      # Download your package.
-      remote_file "/tmp/latest_package.deb" do
-        source   app_attributes['artifact_location']
-        checksum app_attributes['artifact_checksum']
-        action :create
-      end
-
-      # Install it onto your build infrastructure.
-      package app_attributes['name'] do
-        source "/tmp/latest_package.deb"
-        action :install
-      end
 
 
 Validate the Installation
 =====================================================
-The surest way to validate your |delivery| installation is by creating a cookbook and submitting it to |github|, which will kick off a pipeline and you can see how the process works.
+The surest way to validate a |delivery| installation is to create a cookbook, and then submit it to |delivery| to kick off a new build in the pipeline.
 
 .. include:: ../../includes_delivery/includes_delivery_build_cookbook_create.rst
 
