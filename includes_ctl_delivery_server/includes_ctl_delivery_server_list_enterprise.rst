@@ -2,5 +2,5 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The ``list-enterprises`` subcommand is used to list all of the enterprises currently present on the |chef delivery| server. 
+The ``list-enterprises`` subcommand is used to list all of the enterprises currently present on the |delivery| server. 
 

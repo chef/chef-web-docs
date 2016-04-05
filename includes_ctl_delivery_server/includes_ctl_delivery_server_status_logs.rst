@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-A typical status line for a service that is running any of the |chef delivery| server front-end services is similar to the following:
+A typical status line for a service that is running any of the |delivery| server front-end services is similar to the following:
 
 .. code-block:: bash
 

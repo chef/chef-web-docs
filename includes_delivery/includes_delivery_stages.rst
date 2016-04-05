@@ -1,7 +1,7 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
-All |chef delivery| pipelines include these stages:
+All |delivery| pipelines include these stages:
 
 .. list-table::
    :widths: 100 100 400
@@ -12,9 +12,9 @@ All |chef delivery| pipelines include these stages:
      - Description
    * - **Verify**
      - Unit, Lint, Syntax
-     - When a new change is submitted, the **Verify** stage kicks off a number of recipes for basic change testing on the |chef delivery| build nodes.
+     - When a new change is submitted, the **Verify** stage kicks off a number of recipes for basic change testing on the |delivery| build nodes.
 
-       A change exits the **Verify** stage and advances to the next stage of the pipeline when a user with **Reviewer** or **Admin** permissions approves it. The approval can be done by using the **Approve** button in the web UI, the |chef delivery_cli| CLI ``delivery job`` command, or by entering ``@delivery approve`` in the comment section within |github|, if integrated with |chef delivery|. When approved, the change is merged to the base pipeline, usually "master".
+       A change exits the **Verify** stage and advances to the next stage of the pipeline when a user with **Reviewer** or **Admin** permissions approves it. The approval can be done by using the **Approve** button in the web UI, the |delivery_cli| ``delivery job`` command, or by entering ``@delivery approve`` in the comment section within |github|, if integrated with |delivery|. When approved, the change is merged to the base pipeline, usually "master".
 
    * - **Build**
      - Unit, Lint, Syntax, Quality, Security, Publish
@@ -23,7 +23,7 @@ All |chef delivery| pipelines include these stages:
      - Provision, Deploy, Smoke, Functional
      - In the **Acceptance** stage, the result of your build stage (artifact, cookbook, etc.) is deployed and tested in an isolated environment.
 
-       A change exits the **Acceptance** stage and advances to the next stage of the pipeline when a user with **Shipper** or **Admin** permissions approves it. The approval can be done by using the **Deliver** button in the web UI, the |chef delivery_cli| CLI ``delivery job`` command, or by entering ``@delivery deliver`` in the comment section within |github|, if integrated with |chef delivery|.
+       A change exits the **Acceptance** stage and advances to the next stage of the pipeline when a user with **Shipper** or **Admin** permissions approves it. The approval can be done by using the **Deliver** button in the web UI, the |delivery_cli| ``delivery job`` command, or by entering ``@delivery deliver`` in the comment section within |github|, if integrated with |delivery|.
 
    * - **Union**
      - Provision, Deploy, Smoke, Functional     

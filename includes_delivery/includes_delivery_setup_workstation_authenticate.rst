@@ -1,9 +1,9 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
-You must authenticate access to the |chef delivery| |git| server, which by default runs on port 8989. 
+You must authenticate access to the |git| server that comes with |delivery|. The |git| server runs on port 8989 by default. 
 
-.. note:: This authentication step is for the |git| server that comes with |chef delivery|. If you actually integrate with |github|, as described below, you will not need to do this.
+.. note:: This authentication step is for the |git| server that comes with |delivery|. If you actually integrate with |github|, as described below, you will not need to do this.
 
 Run this SSH command; enter Yes when prompted.
 
@@ -25,4 +25,4 @@ You should get output similar to this:
                             Connection to 10.194.11.99 closed.
 
 
-Your workstation is now set up for use with |chef delivery|.
+Your workstation is now set up for use with |delivery|.

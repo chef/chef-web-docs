@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-|chef delivery| uses |chef provisioning| to create, upgrade, and manage the cluster. A dedicated provisioning node ensures a central place from which the |chef delivery| cluster is managed, including managing those allowed to control it. Use your existing means to provision a dedicated provisioning node with a supported platform. This machine does not need to be powerful because it runs only provisioning code. Within |amazon aws|, |company_name| generally uses a t2.micro instance, which is a single CPU 2.5GHz, 1 GB of memory, and 8 GB of disk space.
+|delivery| uses |chef provisioning| to create, upgrade, and manage the cluster. A dedicated provisioning node ensures a central place from which the |delivery| cluster is managed, including managing those allowed to control it. Use your existing means to provision a dedicated provisioning node with a supported platform. This machine does not need to be powerful because it runs only provisioning code. Within |amazon aws|, |company_name| generally uses a t2.micro instance, which is a single CPU 2.5GHz, 1 GB of memory, and 8 GB of disk space.
 
 On the provisioning node:
 
@@ -34,8 +34,8 @@ On the provisioning node:
       
       $ chef gem install knife-push
 
-#. Transfer your |chef delivery| license key to ``~/delivery.license``.
-#. Clone the |git| repo for the |chef delivery| cluster:
+#. Transfer your |delivery| license key to ``~/delivery.license``.
+#. Clone the |git| repo for the |delivery| cluster:
 
    .. code-block:: bash
       

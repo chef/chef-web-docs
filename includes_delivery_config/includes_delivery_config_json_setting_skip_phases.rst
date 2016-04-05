@@ -2,4 +2,4 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-Use the unit recipe to run unit tests for the project.
+The ``skip_phases`` setting specifies which phases are skipped by |delivery| during the execution of a change through the pipeline. If a phase is defined as skipped, this applies to all stages in the pipeline.

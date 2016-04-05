@@ -2,11 +2,11 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-.. note:: These instructions assume that you will use |chef delivery| as your source code source of truth and that |chef delivery| is not integrated with |github enterprise| or GitHub.com.
+.. note:: These instructions assume that you will use |delivery| as your source code source of truth and that |delivery| is not integrated with |github enterprise| or GitHub.com.
 
-This topic describes the recommended setup for a |chef| cookbook project using |chef delivery|.
+This topic describes the recommended setup for a |chef| cookbook project using |delivery|.
 
-The following example shows how to create a cookbook, with project and pipeline, configure it to be built with |chef delivery_short|, and then imported it into |chef delivery| itself. From your workstation, do the following:
+The following example shows how to create a cookbook, with project and pipeline, configure it to be built with |delivery|, and then imported it into |delivery| itself. From your workstation, do the following:
 
 #. Make a working directory (``workspace`` in the example):
 
@@ -14,7 +14,7 @@ The following example shows how to create a cookbook, with project and pipeline,
 
       $ mkdir ~/workspace && cd ~/workspace
 
-#. Setup the ``delivery-cli`` to, by default, contact the delivery server at SERVER, with a default ENTERPRISE and ORGANIZATION:
+#. Setup the |delivery_cli| to, by default, contact the |delivery| server at SERVER, with a default ENTERPRISE and ORGANIZATION:
 
    .. code-block:: bash
 
@@ -46,12 +46,12 @@ The following example shows how to create a cookbook, with project and pipeline,
 
    Running ``chef generate`` initialized a |git| repository automatically for this cookbook. If you created the build cookbook manually, initialize the |git| repository with the ``git init`` command.
 
-#. Initialize the cookbook for |chef delivery|:
+#. Initialize the cookbook for |delivery|:
 
    .. code-block:: bash
 
       $ delivery init
 
-   This creates a new project in |chef delivery|, pushes the master branch, creates a feature branch, generates a default |chef delivery| project configuration file, pushes the first change for review, and then opens a browser window that shows the change.
+   This creates a new project in |delivery|, pushes the master branch, creates a feature branch, generates a default |delivery| project configuration file, pushes the first change for review, and then opens a browser window that shows the change.
 
-#. Now that you have initialized your project, it is recommended that you integrate the delivery-truck cookbook with your project. Delivery Truck can ensure good build cookbook behavior as well as provide you with recipes already set up to test your project cookbooks and applications. See :doc:`/delivery_truck` for more information.
+#. Now that you have initialized your project, it is recommended that you integrate the delivery-truck cookbook with your project. Delivery Truck can ensure good build cookbook behavior as well as provide you with recipes already set up to test your project cookbooks and applications.

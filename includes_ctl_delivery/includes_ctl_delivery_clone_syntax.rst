@@ -10,4 +10,4 @@ This subcommand has the following syntax:
 
 where:
 
-* ``PROJECT`` is the |chef delivery| project to be cloned
+* ``PROJECT`` is the |delivery| project to be cloned

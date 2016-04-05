@@ -6,7 +6,7 @@
 
 To create an organization, do the following:
 
-#. Log into the |chef delivery| web UI as an **Admin**; use this command (run in your ``delivery-cluster`` directory) to find the credentials:
+#. Log into the |delivery| web UI as an **Admin**; use this command (run in your ``delivery-cluster`` directory) to find the credentials:
 
    .. code-block:: bash
 

@@ -4,5 +4,5 @@
 
 To update integration with |bitbucket|:
 
-#. In the |chef delivery| web user interface, open the **SCM Setup** page, and update |bitbucket| credentials and make changes to the appropriate information.
+#. In the |delivery| web UI, open the **SCM Setup** page, and update |bitbucket| credentials and make changes to the appropriate information.
 #. Click the **Update** button.

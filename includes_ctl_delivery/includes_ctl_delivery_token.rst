@@ -2,4 +2,4 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-Use the ``token`` subcommand to manage a |chef delivery| API token.
+Use the ``token`` subcommand to manage a |delivery| API token.

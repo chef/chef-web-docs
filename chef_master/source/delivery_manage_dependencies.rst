@@ -2,7 +2,7 @@
 Managing Run-time Dependencies
 ==================================================
 
-A run-time dependency in |chef delivery| is defined as an API-level dependency between two distinct pieces of software that occurs after both pieces have already compiled and started running.  This type of dependency is distinct from compile-time dependencies, which should be handled through other means, such as local build verification tests and through the publish phase. Dependencies are tracked in |chef delivery_short| because it is not safe to deploy a project in an inter-dependent test environment if other related projects are failing.
+A run-time dependency in |chef delivery| is defined as an API-level dependency between two distinct pieces of software that occurs after both pieces have already compiled and started running.  This type of dependency is distinct from compile-time dependencies, which should be handled through other means, such as local build verification tests and through the publish phase. Dependencies are tracked in |delivery| because it is not safe to deploy a project in an inter-dependent test environment if other related projects are failing.
 
 Declaring Dependencies
 =======================================================
@@ -25,7 +25,7 @@ If neither the **Dependencies** or **Required By** tabs are visible, then that p
 Dependencies and Promotion
 ==========================================================
 
-A key thing to remember is that dependencies impact two or more projects. Those projects have their own pipelines up through Acceptance, but when a project's tests are run in the shared Union, Rehearsal, and Delivered pipeline for the organization, tests for all projects which depend on the currently-tested project will also run as part of the Union stage.  This is to ensure that no cross-project bugs were introduced, such as a breaking API change. Also, you should still run smoke and functional tests on a project that depends on other project(s) during the Acceptance stage (because you know what those dependencies are); however, you may not know which projects depend on *your* project. Delivery uses the Union stage to runs tests for those consuming projects for you.
+A key thing to remember is that dependencies impact two or more projects. Those projects have their own pipelines up through Acceptance, but when a project's tests are run in the shared Union, Rehearsal, and Delivered pipeline for the organization, tests for all projects which depend on the currently-tested project will also run as part of the Union stage.  This is to ensure that no cross-project bugs were introduced, such as a breaking API change. Also, you should still run smoke and functional tests on a project that depends on other project(s) during the Acceptance stage (because you know what those dependencies are); however, you may not know which projects depend on *your* project. |delivery| uses the Union stage to runs tests for those consuming projects for you.
 
 .. image::  ../../images/consumer_tests.png
    :width: 700px
@@ -34,14 +34,14 @@ In this example, you can see that a change on the project Eegah is in Union, and
 
 If any tests fail for either project, the entire Union run will fail and neither project will be automatically promoted. Additionally, if there's another failed Union run before the first one fails which includes some of the same projects, then all the projects from both Union runs must pass their tests before anything can be promoted.
 
-It's important to note that you may have a situation where some projects are entirely independent and have no dependencies on other projects.  In this case, it does not matter what state those other projects are in. If their tests pass, |chef delivery_short| will allow their changes to promote through.
+It's important to note that you may have a situation where some projects are entirely independent and have no dependencies on other projects.  In this case, it does not matter what state those other projects are in. If their tests pass, |delivery| will allow their changes to promote through.
 
 Handling Failures
 -----------------------------------------------------------
 
-As described above, dependency failures are breakages in your dependency graph, which keep the current project's pipeline from being able to ship safely. You can see such failures as warnings on the change view in the Delivery Server web UI. These failures are tracked because they allow |chef delivery_short| to know which changes are safe to promote.
+As described above, dependency failures are breakages in your dependency graph, which keep the current project's pipeline from being able to ship safely. You can see such failures as warnings on the change view in the |delivery| server web UI. These failures are tracked because they allow |delivery| to know which changes are safe to promote.
 
-To understand how dependency failures can affect a given project (or set of projects), here are some examples of different dependency failures. They progress from basic to complex and should give you an idea of how dependency graphs are constructed in |chef delivery_short|.
+To understand how dependency failures can affect a given project (or set of projects), here are some examples of different dependency failures. They progress from basic to complex and should give you an idea of how dependency graphs are constructed in |delivery|.
 
 Assume we have some projects with the following dependencies:
 

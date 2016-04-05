@@ -2,4 +2,4 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-First install the ``delivery`` command line interface (CLI), and then generate the user's SSH keys.
+First install the |delivery_cli|, and then generate the user's SSH keys.

@@ -2,7 +2,7 @@
 Manage Users and Roles
 =====================================================
 
-This topic describes the roles and permissions that may be assigned to users of |chef delivery|, how to integrate an LDAP system with |chef delivery|, how to add and edit users, and how to add user SSH keys.
+This topic describes the roles and permissions that may be assigned to users of |delivery|, how to integrate an LDAP system with |delivery|, how to add and edit users, and how to add user SSH keys.
 
 Roles and Permissions
 =====================================================

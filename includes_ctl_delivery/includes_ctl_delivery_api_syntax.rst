@@ -11,4 +11,4 @@ This subcommand has the following syntax:
 where:
 
 * ``METHOD`` is an HTTP method (``GET``, ``POST``, ``PUT``, ``DELETE``) supported by the |api delivery|
-* ``PATH`` is an endpoint in the |api delivery| scoped to the specified |chef delivery| enterprise
+* ``PATH`` is an endpoint in the |api delivery| scoped to the specified |delivery| enterprise

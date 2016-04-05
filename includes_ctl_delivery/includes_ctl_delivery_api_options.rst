@@ -17,7 +17,7 @@ This subcommand has the following options:
    |delivery enterprise|
 
 ``-s``, ``--server=SERVER``
-   |delivery server| This must be the |fqdn| for the |chef delivery| server. For example: ``delivery.example.com``.
+   |delivery server| This must be the |fqdn| for the |delivery| server. For example: ``delivery.example.com``.
 
 ``-u``, ``--user=USER``
    |delivery user| This user must exist in the specified enterprise (``--ent``).

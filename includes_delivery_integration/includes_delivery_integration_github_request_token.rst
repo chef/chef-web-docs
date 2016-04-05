@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-Log in to the |chef delivery| server and run the following command.
+Log in to the |delivery| server and run the following command.
 
 **For GitHub Enterprise**
 
@@ -16,6 +16,6 @@ Log in to the |chef delivery| server and run the following command.
 
    delivery-ctl setup-github-token $DELIVERY_ENTERPRISE
 
-Follow the URL given to finish authorizing |chef delivery| with |github|.
+Follow the URL given to finish authorizing |delivery| with |github|.
 
 .. note:: If you are using a service account with GitHub Enterprise, you need to complete the OAuth process as the service account user.

@@ -2,5 +2,4 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-Use the quality recipe to run additional code quality and reporting tools like `ChefSpec coverage <https://github.com/sethvargo/chefspec>`_ or `SimpleCov <https://github.com/colszowka/simplecov>`_. 
-
+Use the ``quality.rb`` recipe to run additional code quality and reporting tools. 

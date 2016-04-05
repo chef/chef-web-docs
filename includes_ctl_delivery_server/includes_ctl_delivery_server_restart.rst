@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The ``restart`` subcommand is used to restart all services enabled on the |chef delivery| server or to restart an individual service by specifying the name of that service in the command.
+The ``restart`` subcommand is used to restart all services enabled on the |delivery| server or to restart an individual service by specifying the name of that service in the command.
 
 This subcommand has the following syntax:
 

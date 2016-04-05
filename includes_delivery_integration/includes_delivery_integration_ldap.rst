@@ -2,4 +2,4 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-You can configure |chef delivery| to access your own LDAP database.
+You can configure |delivery| to access your own LDAP database.

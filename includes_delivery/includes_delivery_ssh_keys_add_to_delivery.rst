@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-To add SSH keys to |chef delivery|, do the following:
+To add SSH keys to |delivery|, do the following:
 
 #. Check for an SSH key:
 
@@ -71,9 +71,9 @@ To add SSH keys to |chef delivery|, do the following:
       OcF6EvTYYO4RmISD8G+6dm1m4MlxLS53aZQWgYWvRdfNB1DA
       Zo3h9Q== your_email@chef.io
 
-#. Copy the SSH key and add it to |chef delivery|.
+#. Copy the SSH key and add it to |delivery|.
 
-   Log into the |chef delivery| web UI as an administrator.
+   Log into the |delivery| web UI as an administrator.
 
    Select **Users** from the drop-down menu on the upper right.
 
@@ -83,7 +83,7 @@ To add SSH keys to |chef delivery|, do the following:
 
    Click **Save & Close**.
 
-#. Setup |chef delivery| for that user. Run the following:
+#. Setup |delivery| for that user. Run the following:
 
    .. code-block:: bash
 
@@ -106,7 +106,7 @@ To add SSH keys to |chef delivery|, do the following:
       server = "SERVER_DNS"
       user = "USERNAME"
 
-#. Clone a repo from |chef delivery|:
+#. Clone a repo from |delivery|:
 
    .. code-block:: bash
 
@@ -124,5 +124,5 @@ To add SSH keys to |chef delivery|, do the following:
       Are you sure you want to continue connecting (yes/no)? yes
       adding remote delivery: ssh://USERNAME@ENTERPRISE@SERVER_DNS:8989/ENTERPRISE/ORGANIZATION/PROJECT
 
-The user can now create a local branch, make and submit changes to |chef delivery|.
+The user can now create a local branch, make and submit changes to |delivery|.
   

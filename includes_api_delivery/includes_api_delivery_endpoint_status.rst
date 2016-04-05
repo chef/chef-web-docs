@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The ``/_status`` endpoint can be used to check the health of the |chef delivery| server. A |chef delivery| instance may be configured as a standalone server or as a disaster recovery pair with primary and standby servers. The response from this endpoint depends on the type of configuration. This endpoint is located at ``/_status``.
+The ``/_status`` endpoint can be used to check the health of the |delivery| server. A |delivery| instance may be configured as a standalone server or as a disaster recovery pair with primary and standby servers. The response from this endpoint depends on the type of configuration. This endpoint is located at ``/_status``.
 
 **Request**
 

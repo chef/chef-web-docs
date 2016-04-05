@@ -10,5 +10,5 @@ This subcommand has the following syntax:
 
 where:
 
-* ``STAGE`` is a stage in the |chef delivery| pipeline: Verify, Build, Acceptance, Union, Rehearsal, Delivered
-* ``PHASE`` is a phase, which runs recipes, in a |chef delivery| stage
+* ``STAGE`` is a stage in the |delivery| pipeline: Verify, Build, Acceptance, Union, Rehearsal, Delivered
+* ``PHASE`` is a phase, which runs recipes, in a |delivery| stage

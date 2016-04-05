@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-Install the |chef delivery_cli| CLI:
+Install the |delivery_cli|:
 
 #. `Install the Delivery CLI <https://docs.chef.io/ctl_delivery.html#install-delivery-cli>`__.
 #. In the command shell, create or navigate to the directory in which project repositories are located.
@@ -18,7 +18,7 @@ Install the |chef delivery_cli| CLI:
 
       $ delivery clone $PROJECT
 
-   If the project is cloned from |bitbucket| (or if a pre-existing clone is used), add it using ``delivery remote``. The URL for ``delivery clone`` can be found on the project's page in the |chef delivery| webui.
+   If the project is cloned from |bitbucket| (or if a pre-existing clone is used), add it using ``delivery remote``. The URL for ``delivery clone`` can be found on the project's page in the |delivery| web UI.
 
 #. Create a remote with the following:
 
