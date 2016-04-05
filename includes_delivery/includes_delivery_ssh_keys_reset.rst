@@ -19,7 +19,7 @@ Follow these steps to resolve the issue:
 
    If you cannot do that, then your SSH keys need to be re-synced.
 
-   If you can, then your SSH configuration may be wrong. In some environments the problem may be that the |chef delivery| server's SSH key has changed for the hostname or IP address your chef server uses. Local |vagrant| clusters see this when the |chef server| ``box`` file changes (or when switching between |vmware| and |virtualbox|) because the SSH key is generated during the OS install.
+   If you can, then your SSH configuration may be wrong. In some environments the problem may be that the |delivery| server's SSH key has changed for the hostname or IP address your chef server uses. Local |vagrant| clusters see this when the |chef server| ``box`` file changes (or when switching between |vmware| and |virtualbox|) because the SSH key is generated during the OS install.
 
 #. When the server SSH key ​is the problem, the fix is to delete the entry for that machine from ``$HOME/.ssh/known_hosts``.
 
@@ -53,4 +53,5 @@ Follow these steps to resolve the issue:
       |   .*o*.         |
       |  ...            |
       +-----------------+
-#. Now that you have a new public-private key pair, re-propagate the public key out to your Delivery cluster nodes using a method such as the one described at the beginning of the **SSH Provisioning** section.
+
+#. Now that you have a new public-private key pair, re-propagate the public key out to your |delivery| cluster nodes using a method such as the one described at the beginning of the **SSH Provisioning** section.

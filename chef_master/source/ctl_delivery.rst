@@ -10,7 +10,7 @@ Install Delivery CLI
 
 By platform
 -----------------------------------------------------
-Use one of the sections below to install the |chef delivery_cli| CLI on |mac os x|, |ubuntu|, |redhat enterprise linux|/|suse els|, or |windows|:
+Use one of the sections below to install the |delivery_cli| CLI on |mac os x|, |ubuntu|, |redhat enterprise linux|/|suse els|, or |windows|:
 
 |mac os x|
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++

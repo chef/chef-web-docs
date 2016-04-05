@@ -2,7 +2,7 @@
 Delivery Server Tuning
 =====================================================
 
-|chef delivery| has several different levers you can pull to adjust logging settings, including:
+|delivery| has several different levers you can pull to adjust logging settings, including:
 
 * Logging directory
 * Maximum file sizes at which to rotate

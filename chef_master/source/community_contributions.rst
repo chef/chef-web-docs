@@ -136,7 +136,7 @@ Issues and bug reports may be created for |company_name| products, including the
      - https://github.com/chef/chef-manage-issues
    * - |push jobs_title|
      - https://github.com/chef/chef-push
-   * - |chef delivery|
+   * - |delivery|
      - please contact `Chef Support <https://www.chef.io/support/>`_ 
 
 For additional support about |company_name| products, including documentation, learning, and opening tickets with the support team, see `Chef Support <https://www.chef.io/support/>`_ .

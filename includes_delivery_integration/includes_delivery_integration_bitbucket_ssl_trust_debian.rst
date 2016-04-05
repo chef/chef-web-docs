@@ -4,7 +4,7 @@
 
 For the |debian| platform, do the following:
 
-#. Log into the |chef delivery_short| server as root.
+#. Log into the |delivery| server as root.
 #. Run the following command:
 
    .. code-block:: bash

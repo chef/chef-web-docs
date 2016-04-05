@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-Next, you must create some commits in the repository. This is not a change submission, this is just a base of code from which to build. |chef delivery| cannot currently operate on a completely empty repository. (Below are steps for a cookbook):
+Next, you must create some commits in the repository. This is not a change submission, this is just a base of code from which to build. |delivery| cannot currently operate on a completely empty repository. (Below are steps for a cookbook):
 
 .. code-block:: bash
 
@@ -44,6 +44,6 @@ Next, push the code to |github|.
    $ git add . && git commit -m 'add delivery config'
    $ git push origin add_delivery_config
 
-(The |chef delivery_cli| CLI can perform all of this for projects that use local repositories; one day, it'll do it for remote repositories as well.)
+(The |delivery_cli| can perform all of this for projects that use local repositories; one day, it'll do it for remote repositories as well.)
 
 Finally, create a pull request from this change in the |github| webui.

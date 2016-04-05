@@ -2,27 +2,27 @@
 Installing |chef delivery|, AWS
 =====================================================
 
-This topic guides you through setting up |chef delivery| for AWS provisioning with the ``delivery-cluster`` cookbook and Chef Provisioning, and validating the installation, once |chef delivery| is set up. With the ``delivery-cluster`` cookbook, you install the |chef delivery| cluster on your own infrastructure using |chef provisioning| and your license key.
+This topic guides you through setting up |chef delivery| for AWS provisioning with the ``delivery-cluster`` cookbook and Chef Provisioning, and validating the installation, once |delivery| is set up. With the ``delivery-cluster`` cookbook, you install the |delivery| cluster on your own infrastructure using |chef provisioning| and your license key.
 
 Process Overview
 =====================================================
-The process for installing |chef delivery| using the ``delivery-cluster`` cookbook involves the following tasks:
+The process for installing |delivery| using the ``delivery-cluster`` cookbook involves the following tasks:
 
 * Create and configure a dedicated provisioning node
 * Configure the ``delivery-cluster`` cookbook to use |amazon aws| provisioning
-* Run automation for ``delivery-cluster``, which sets up a full |chef delivery| cluster and gives you login credentials
-* Verify the |chef delivery| provisioning
-* Set up your workstation to develop projects in |chef delivery|
-* Configure |chef delivery|
+* Run automation for ``delivery-cluster``, which sets up a full |delivery| cluster and gives you login credentials
+* Verify the |delivery| provisioning
+* Set up your workstation to develop projects in |delivery|
+* Configure |delivery|
 * Validate the installation by creating a cookbook and kicking off a pipeline
 
 Prerequisites
 =====================================================
-|chef delivery| requires a license from |company_name| to install.
+|delivery| requires a license from |company_name| to install.
 
 Supported Platforms
 -----------------------------------------------------
-|chef delivery| may be run on the following platforms. Do not mix platform versions within the |chef delivery| cluster.
+|delivery| may be run on the following platforms. Do not mix platform versions within the |delivery| cluster.
 
   .. list-table::
      :widths: 250 250
@@ -39,7 +39,7 @@ Supported Platforms
 
 Infrastructure
 -----------------------------------------------------
-|chef delivery| has the following infrastructure requirements:
+|delivery| has the following infrastructure requirements:
 
   .. list-table::
      :widths: 150 100 100 100
@@ -79,7 +79,7 @@ Infrastructure
 
 Network and Ports
 -----------------------------------------------------
-|chef delivery| has the following network and port requirements:
+|delivery| has the following network and port requirements:
 
   .. list-table::
      :widths: 100 250 100 100
@@ -119,13 +119,13 @@ Network and Ports
        - n/a
 
 
-Install |chef delivery|
+Install |delivery|
 =====================================================
-Begin installing |chef delivery| by creating a provisioning node to provision and maintain the cluster.
+Begin installing |delivery| by creating a provisioning node to provision and maintain the cluster.
 
 Provisioning Node
 -----------------------------------------------------
-|chef delivery| uses |chef provisioning| to create, upgrade, and manage the cluster. A dedicated provisioning node ensures a central place from which the |chef delivery| cluster is managed, including managing those allowed to control it. Use your existing means to provision a dedicated provisioning node with a supported platform. This machine does not need to be powerful because it runs only provisioning code. Within |amazon aws|, |company_name| generally uses a t2.micro instance, which is a single CPU 2.5GHz, 1 GB of memory, and 8 GB of disk space.
+|delivery| uses |chef provisioning| to create, upgrade, and manage the cluster. A dedicated provisioning node ensures a central place from which the |delivery| cluster is managed, including managing those allowed to control it. Use your existing means to provision a dedicated provisioning node with a supported platform. This machine does not need to be powerful because it runs only provisioning code. Within |amazon aws|, |company_name| generally uses a t2.micro instance, which is a single CPU 2.5GHz, 1 GB of memory, and 8 GB of disk space.
 
 On the provisioning node:
 
@@ -152,8 +152,8 @@ On the provisioning node:
 #. Install |git| and configure your |github| username and email, for help see: `Installing Git <http://git-scm.com/book/en/v2/Getting-Started-Installing-Git>`_ and `First-Time Git Setup <https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup>`_.
 #. Install the `Chef Development Kit <https://downloads.chef.io/chef-dk/>`_. Be sure to set the system |ruby|; for details, see `Add Ruby to $PATH <https://docs.chef.io/install_dk.html#add-ruby-to-path>`_.
 
-#. Transfer your |chef delivery| license key to ``~/delivery.license``.
-#. Clone the |git| repo for the |chef delivery| cluster:
+#. Transfer your |delivery| license key to ``~/delivery.license``.
+#. Clone the |git| repo for the |delivery| cluster:
 
    .. code-block:: bash
 
@@ -162,7 +162,7 @@ On the provisioning node:
 
 AWS Settings
 -----------------------------------------------------
-The following section details settings for |chef delivery| with |amazon aws| provisioning.
+The following section details settings for |delivery| with |amazon aws| provisioning.
 
 .. list-table::
    :widths: 200 400
@@ -171,7 +171,7 @@ The following section details settings for |chef delivery| with |amazon aws| pro
    * - Option
      - Description
    * - **Environment Name**
-     - This name becomes the default name for the |chef delivery| cluster environment, enterprise, and organization. The naming convention prohibits the use of capital letters, but should otherwise be alphanumeric.
+     - This name becomes the default name for the |delivery| cluster environment, enterprise, and organization. The naming convention prohibits the use of capital letters, but should otherwise be alphanumeric.
    * - **Key Name**
      - This is the name of your |amazon aws| ``.pem`` credential file. Enter only the name, without the extension. This file is typically located in the ``~.ssh`` directory, and is associated with the **Key name pair** value in |amazon aws| console: https://console.aws.amazon.com/.
    * - **Image ID**, **Subnet ID**, and **Security Group ID**
@@ -188,16 +188,16 @@ The following section details settings for |chef delivery| with |amazon aws| pro
           },
 
    * - **License File**
-     - The path to your |chef delivery| license file; the default path is your home directory.
+     - The path to your |delivery| license file; the default path is your home directory.
    * - **Enable Supermarket**
-     - Enter "yes" if you intend to run cookbooks through your |chef delivery| pipeline.
+     - Enter "yes" if you intend to run cookbooks through your |delivery| pipeline.
 
 AWS Provisioning
 --------------------------------------------------------
-This section describes setting up a |chef delivery| cluster to use |amazon aws| for provisioning. This process creates at least five machines, depending on the selected configuration options. The typical (and recommended) starting setup is at least five nodes in addition to the provisioning node:
+This section describes setting up a |delivery| cluster to use |amazon aws| for provisioning. This process creates at least five machines, depending on the selected configuration options. The typical (and recommended) starting setup is at least five nodes in addition to the provisioning node:
 
 * One to run the |chef server|
-* One to run |chef delivery|
+* One to run |delivery|
 * Three to act as build nodes
 * One to run the |supermarket| server; for cookbook dependency resolution, using |supermarket| server is required
 * For a test environment, use stand-in infrastructure nodes; we recommend four, one for each environment stage: Acceptance, Union, Rehearsal, and Delivered
@@ -307,7 +307,7 @@ To run provisioning (from inside the ``delivery-cluster`` directory), run the fo
 
 .. note::
 
-   * If the first converge fails on the build nodes, try running the above step again. The |chef delivery| cluster is complicated and sometimes there are timeouts.
+   * If the first converge fails on the build nodes, try running the above step again. The |delivery| cluster is complicated and sometimes there are timeouts.
    * Running provisioning creates the instances requrested on |amazon aws|. If there are any failures, check the |amazon aws| console for nodes without names. Nodes without names can be removed.
 
 Verify Provisioning
@@ -321,7 +321,7 @@ To verify provisioning (from inside the ``delivery-cluster`` directory), do the 
       $ rake info:list_core_services
 
 #. Navigate to your CHEF_SERVER_URL, and then login with ``delivery:delivery``. Use ``rake info:delivery_creds`` to get the password.
-#. Click on **Nodes**. You'll see your |chef delivery| server, your build nodes, and nodes for any other optional features that you installed.
+#. Click on **Nodes**. You'll see your |delivery| server, your build nodes, and nodes for any other optional features that you installed.
 #. Get the credentials and URL with the following command:
 
    .. code-block:: bash
@@ -339,13 +339,13 @@ To verify provisioning (from inside the ``delivery-cluster`` directory), do the 
 
 Configure Delivery
 =====================================================
-In |chef delivery| there are multiple levels of organization: enterprises, organizations, and projects, where enterprise contain one (or more) organizations and organizations contain one (or more) projects. The provisioning step created the initial enterprise you specified in your environment file as the first ``name`` option. Enterprises are designed to provide units of multi-tenancy with separate sets of organizations and users. Next, set up |chef delivery| by adding users and organizations.
+In |delivery| there are multiple levels of organization: enterprises, organizations, and projects, where enterprise contain one (or more) organizations and organizations contain one (or more) projects. The provisioning step created the initial enterprise you specified in your environment file as the first ``name`` option. Enterprises are designed to provide units of multi-tenancy with separate sets of organizations and users. Next, set up |delivery| by adding users and organizations.
 
-.. note:: |chef delivery| by default hosts a git server that you interact with through the delivery CLI commands. Additionally, you can integrate GitHub Enterprise or GitHub.com.
+.. note:: |delivery| by default hosts a git server that you interact with through the delivery CLI commands. Additionally, you can integrate GitHub Enterprise or GitHub.com.
 
 Add Users
 ------------------------------------------------------
-The default ``admin`` account should not be used after |chef delivery| is installed. Instead, use the following procedure to create a new user for yourself, then log out as ``admin`` and log back in as the user you created.
+The default ``admin`` account should not be used after |delivery| is installed. Instead, use the following procedure to create a new user for yourself, then log out as ``admin`` and log back in as the user you created.
 
 Create Organizations
 -----------------------------------------------------
@@ -353,9 +353,9 @@ Create Organizations
 
 Setup a Workstation
 -----------------------------------------------------
-After the |chef delivery| cluster has been created, team members need to install the |chef delivery| CLI on their workstations.
+After the |delivery| cluster has been created, team members need to install the |delivery| CLI on their workstations.
 
-.. note:: If you reuse the provisioning node in the previous section of this installation guide as a workstation for using |chef delivery|, you can skip steps 1 through 4 below.
+.. note:: If you reuse the provisioning node in the previous section of this installation guide as a workstation for using |delivery|, you can skip steps 1 through 4 below.
 
 .. include:: ../../includes_delivery/includes_delivery_setup_workstation.rst
 
@@ -389,7 +389,7 @@ Authenticate
 
 Validate the Installation
 =====================================================
-The surest way to validate your |chef delivery| installation is by creating a cookbook and submitting it to |github|, which will kick off a pipeline and you can see how the process works.
+The surest way to validate your |delivery| installation is by creating a cookbook and submitting it to |github|, which will kick off a pipeline and you can see how the process works.
 
 .. include:: ../../includes_delivery/includes_delivery_build_cookbook_create.rst
 

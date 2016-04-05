@@ -199,8 +199,8 @@ Chef Compliance
    debug
    definitions
    delivery
-   delivery_configure_pipeline
-   delivery_cookbooks
+   delivery_pipeline
+   delivery_build_cookbook
    delivery_manage_dependencies
    delivery_manage_secrets
    delivery_server_tuning

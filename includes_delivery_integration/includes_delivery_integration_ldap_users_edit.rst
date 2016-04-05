@@ -1,11 +1,11 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
-.. note:: In order to add or edit users, you must have root shell access and the **Admin** role assigned in |chef delivery|.
+.. note:: In order to add or edit users, you must have root shell access and the **Admin** role assigned in |delivery|.
 
 To edit LDAP details for a user:
 
-#. Log into the |chef delivery| web UI as an administrator.
+#. Log into the |delivery| web UI as an administrator.
 #. Select **Users** from the drop-down menu on the upper right.
 
    The **Users** list page opens. You can use the search filter in the upper right corner to make sure that the user is not already added.
@@ -14,7 +14,7 @@ To edit LDAP details for a user:
 
    **Internal** means you are manually adding the user to the Delivery database. 
 
-   **LDAP** means the user is in an LDAP system that has been integrated to this |chef delivery|. 
+   **LDAP** means the user is in an LDAP system that has been integrated to this |delivery|. 
 
    If you select **Internal**, options for **Name and Email**, first name, last name, email address, and **Security Information**, a login name and password, appear.
 

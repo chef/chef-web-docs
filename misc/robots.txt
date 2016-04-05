@@ -1,4 +1,5 @@
 User-agent: *
+Disallow: /release/analytics/
 Disallow: /release/analytics_1-1/
 Disallow: /release/analytics_1-2/
 Disallow: /release/analytics_1-3/

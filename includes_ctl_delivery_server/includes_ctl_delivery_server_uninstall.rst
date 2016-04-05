@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The ``uninstall`` subcommand is used to remove the |chef delivery| application, but without removing any of the data. This subcommand will shut down all services (including the ``runit`` process supervisor).
+The ``uninstall`` subcommand is used to remove the |delivery| application, but without removing any of the data. This subcommand will shut down all services (including the ``runit`` process supervisor).
 
 This subcommand has the following syntax:
 

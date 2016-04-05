@@ -2,4 +2,4 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-Use the smoke recipe to run smoke tests against your deployed build artifacts to ensure that they were deployed correctly and are minimally functional.
+Use the ``lint.rb`` recipe to run linting and other static analysis tools against a project's source code.

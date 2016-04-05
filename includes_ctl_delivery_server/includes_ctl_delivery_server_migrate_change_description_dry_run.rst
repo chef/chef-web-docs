@@ -2,4 +2,4 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The ``migrate-change-description-dry-run`` subcommand is used to execute a DRY RUN migration of the change description.
+The ``migrate-change-description-dry-run`` subcommand is used to execute a dry run migration of the change description.

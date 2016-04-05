@@ -2,4 +2,4 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The ``migrate-change-description`` subcommand is used to migrate the change description LIVE RUN.
+The ``migrate-change-description`` subcommand is used to migrate the change description live run.

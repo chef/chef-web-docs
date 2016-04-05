@@ -1,19 +1,19 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
-.. note:: These instructions assume that you will use |chef delivery| as your source code source of truth and your |chef delivery| is not integrated with GitHub.
+.. note:: These instructions assume that you will use |delivery| as your source code source of truth and your |delivery| is not integrated with |github|.
 
-This topic describes a manual setup for a Chef cookbook project with delivery-truck as your build cookbook.
+This topic describes a manual setup for a Chef cookbook project with ``delivery-truck`` as your build cookbook.
 
-The following example shows how to create a new cookbook, but then do all of the steps required by |chef delivery| manually. These commands should be run, mostly, from a |chef delivery| workstation.
+The following example shows how to create a new cookbook, but then do all of the steps required by |delivery| manually. These commands should be run, mostly, from a |delivery| workstation.
 
-#. Create a project in |chef delivery|: log into the |chef delivery| web user interface with administrator (**Admin**) credentials. If you need to find your credentials, go back to your provisioning node and use this command:
+#. Create a project in |delivery|: log into the |delivery| web UI with administrator (**Admin**) credentials. If you need to find your credentials, go back to your provisioning node and use this command:
 
    .. code-block:: bash
 
       $ rake info:delivery_creds
 
-#. Once logged into |chef delivery| from your workstation, select **Organizations** in drop-down menu at the upper right.
+#. Once logged into |delivery| from your workstation, select **Organizations** in drop-down menu at the upper right.
 #. Click your organization, or create it if necessary.
 
    .. include:: ../../steps_provisioning/steps_add_new_project_default_only.rst
@@ -25,7 +25,7 @@ The following example shows how to create a new cookbook, but then do all of the
       $ mkdir ~/workspace
       $ cd ~/workspace
 
-#. Clone a project with the ``delivery`` CLI:
+#. Clone a project with the |delivery_cli|:
 
    .. code-block:: bash
 
@@ -64,7 +64,7 @@ The following example shows how to create a new cookbook, but then do all of the
 
       $ git push delivery master
 
-#. Create a pipeline in |chef delivery|. First, log into the |chef delivery| web user interface with administrator credentials, use this command to find your credentials:
+#. Create a pipeline in |delivery|. First, log into the |delivery| web user interface with administrator credentials, use this command to find your credentials:
 
    .. code-block:: bash
 
@@ -76,7 +76,7 @@ The following example shows how to create a new cookbook, but then do all of the
 
    Save the pipeline.
 
-#. Initialize the cookbook for |chef delivery|. First, create a feature branch (``add-delivery-config`` in the example):
+#. Initialize the cookbook for |delivery|. First, create a feature branch (``add-delivery-config`` in the example):
 
    .. code-block:: bash
 
@@ -88,7 +88,7 @@ The following example shows how to create a new cookbook, but then do all of the
 
       $ mkdir .delivery
 
-#. Create config.json in the .delivery directory as follows: 
+#. Create ``config.json`` in the ``.delivery`` directory as follows: 
 
    .. code-block:: javascript
 
@@ -112,9 +112,9 @@ The following example shows how to create a new cookbook, but then do all of the
         }     
       }
 
-   This configures the cookbook to be built with ``delivery-truck``, which is the open source build cookbook for |chef delivery|. It also causes Delivery to skip the phases that are irrelevant to cookbook changes. And, it pushes your change (the new cookbook) to your delivery cluster Chef server. If your nodes have that cookbook in their run-list, they will pick up the change when they next sync.
+   This configures the cookbook to be built with ``delivery-truck``, which is the open source build cookbook for |delivery|. It also causes |delivery| to skip the phases that are irrelevant to cookbook changes. And, it pushes your change (the new cookbook) to your |delivery| cluster |chef server|. If your nodes have that cookbook in their run-list, they will pick up the change when they next sync.
 
-#. Add the config.json changes to the feature branch:
+#. Add the ``config.json`` changes to the feature branch:
 
    .. code-block:: bash
 
@@ -127,4 +127,4 @@ The following example shows how to create a new cookbook, but then do all of the
 
       $ delivery review
 
-   This immediately kicks off the configured Delivery pipeline. You must manually **Approve** the change (use the button) after the **Verify** phase, and manually **Deliver** the change (use the button) after the **Build** phase. The final four phases, **Acceptance**, **Union**, **Rehearsal**, and **Delivered** happen automatically.
+   This immediately kicks off the configured |delivery| pipeline. You must manually **Approve** the change (use the button) after the **Verify** phase, and manually **Deliver** the change (use the button) after the **Build** phase. The final four phases, **Acceptance**, **Union**, **Rehearsal**, and **Delivered** happen automatically.

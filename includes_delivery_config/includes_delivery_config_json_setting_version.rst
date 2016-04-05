@@ -2,5 +2,4 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-Use the lint recipe to run linting and other static analysis tools against a project's source code.
-
+The ``version`` setting specifies the version of the configuration that the |delivery| server must user. The current default value is ``2``,

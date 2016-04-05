@@ -6,6 +6,8 @@
   "community_plugin_knife.html": "/plugin_community.html#knife-title",
   "community_plugin_ohai.html": "/plugin_community.html#ohai",
   "community_plugin_report_handler.html": "/plugin_community.html#handlers",
+  "delivery_configure_pipeline.html": "/delivery_pipeline.html",
+  "delivery_cookbooks.html": "/delivery_build_cookbook.html",
   "dsl_recipe_include_recipes.html": "/dsl_recipe.html",
   "dsl_recipe_use_ruby.html": "/dsl_recipe.html",
   "essentials_chef_client_ssl.html": "/chef_client.html",
