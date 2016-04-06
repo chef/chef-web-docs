@@ -1,8 +1,8 @@
 =====================================================
-Upgrade to |chef analytics_title| 1.3.0
+Upgrading |chef analytics_title|
 =====================================================
 
-Note that the upgrade process has changed for 1.3.0. Please carefully read the following before upgrading analytics.
+Note that the upgrade process has changed for 1.3.x. Please carefully read the following before upgrading analytics. Some steps are marked as 1.2.x -> 1.3.x. Only run those steps in that case (say 1.2.1 -> 1.3.0, but not 1.3.0 to 1.3.1).
 
 Prerequisites
 =====================================================
@@ -14,13 +14,13 @@ This section describes the prereqs for the upgrade
 
 Standalone
 =====================================================
-There are two upgrade paths for 1.3.0. ``pg_partman`` supported partitioning in the database was added in 1.3.0 and is enabled by default. **Using partitions is strongly recommended.**
+There are two upgrade paths for 1.3.x. ``pg_partman`` supported partitioning in the database was added in 1.3.0 and is enabled by default. **Using partitions is strongly recommended.**
 
 Upgrade with Paritions
 -----------------------------------------------------
 Recommended. The following steps describe upgrading |chef analytics| with partitions enabled.
 
-#. (Optional) Purge nodes. You will lose the ability to purge node data post upgrade. Node data is no longer being saved as of 1.2.0, but there might be older data in need of downsizing. If you have disc space concerns, please run this command 1.3.0:
+#. (Optional, 1.2.x -> 1.3.x upgrade only) Purge nodes. You will lose the ability to purge node data post upgrade to a 1.3.x build. Node data is no longer being saved as of 1.2.0, but there might be older data in need of downsizing. If you have disc space concerns, please run this command:
 
    .. code-block:: bash
 
@@ -52,19 +52,13 @@ Recommended. The following steps describe upgrading |chef analytics| with partit
 
 #. Copy in the ``/etc/opscode-analytics`` directory from the |chef server|.
 
-#. Stop the server:
-
-   .. code-block:: bash
-
-      $ opscode-analytics-ctl stop
-
 #. Reconfigure the services:
 
    .. code-block:: bash
 
       $ opscode-analytics-ctl reconfigure
 
-#. Migrate to paritions:
+#. (1.2.x -> 1.3.x upgrade only) Migrate to paritions:
 
    .. code-block:: bash
 
@@ -83,7 +77,7 @@ Upgrade without Paritions
 -----------------------------------------------------
 The following steps describe upgrading |chef analytics| with partitions disabled.
 
-#. (Optional) Purge Nodes. You will lose the ability to purge node data post upgrade. Node data is no longer being saved as of 1.2.0, but there might be older data in need of downsizing. If you have disk space concerns, please run this command 1.3.0:
+#. (Optional, 1.2.x -> 1.3.x upgrade only) Purge nodes. You will lose the ability to purge node data post upgrade to a 1.3.x build. Node data is no longer being saved as of 1.2.0, but there might be older data in need of downsizing. If you have disc space concerns, please run this command:
 
    .. code-block:: bash
 
@@ -118,12 +112,6 @@ The following steps describe upgrading |chef analytics| with partitions disabled
 #. Disable paritions. Add the following to your |analytics rb| file:
 
    ``features['partitioning'] = false``
-
-#. Stop the server:
-
-   .. code-block:: bash
-
-      $ opscode-analytics-ctl stop
 
 #. Reconfigure the services:
 
