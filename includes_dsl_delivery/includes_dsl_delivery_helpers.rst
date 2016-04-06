@@ -4,49 +4,56 @@
 
 The following |delivery|-specific helpers can be used in recipes:
 
-.. list-table::
-   :widths: 200 300
-   :header-rows: 1
+``bumped_version?``
+   Determine if files in a cookbook have been modified, and then to ensure that a cookbook's version is updated in its |metadata rb| file.
 
-   * - Helper
-     - Description
-   * - ``bumped_version?``
-     - Use to determine if files in a cookbook have been modified, and then to ensure that a cookbook's version is updated in its |metadata rb| file.
-   * - ``changed_cookbooks``
-     - Use to get a list of cookbooks that have been modified.
-   * - ``changed_files``
-     - Use to get a list of files that have been modified.
-   * - ``define_project_application``
-     - Use to define a set of attributes that are used to pin versions as the project moves through stages in the |delivery| pipeline.
-   * - ``delivery_chef_server``
-     - Use to return a |ruby hash| that contains details about how to talk to the |chef server|.
-   * - ``delivery_environment``
-     - Use to get the name of the standard environment.
-   * - ``foodcritic_tags``
-     - Use to get the list of |foodcritic| tags that are applied to a node.
-   * - ``get_acceptance_environment``
-     - Use to get the name of the acceptance environment.
-   * - ``get_project_application``
-     - Use to get the attributes for a defined project application.
+``changed_cookbooks``
+   Get a list of cookbooks that have been modified.
 
-       .. warning:: If the ``get_project_application`` method is called from the ``provision.rb`` recipe, be sure that ``delivery-truck::provision`` is executed before ``get_project_application`` by putting it in a ``ruby_block`` or into a separate recipe that is called from ``provision.rb`` via ``include_recipe``. If the ``get_project_application`` method is called directly in ``provision.rb``:
+``changed_files``
+   Get a list of files that have been modified.
 
-          .. code-block:: ruby
+``define_project_application``
+   Define a set of attributes that are used to pin versions as the project moves through stages in the |delivery| pipeline.
 
-             include_recipe 'delivery-truck::provision'
-             get_project_application(<project_app_name_string>)
+``delivery_chef_server``
+   Return a |ruby hash| that contains details about how to talk to the |chef server|.
 
-       you will get an error because the |chef client| will execute ``get_project_application`` at compile time before it has run ``include_recipe 'delivery-truck::provision'``. It is recommended to either use ``get_project_application`` in ``deploy.rb``, a project cookbook, in a ``ruby_block`` or in a separate ``include_recipe`` that is executed after ``include_recipe 'delivery-truck::provision'``.
+``delivery_environment``
+   Get the name of the standard environment.
 
-   * - ``get_project_secrets``
-     - Use to get the data bag from the |chef server| in which secrets used by this project are stored.
-   * - ``has_kitchen_tests?``
-     - Use to determine if a |kitchen yml| file exists in a cookbook.
-   * - ``has_spec_tests?``
-     - Use to determine if tests exist in the ``/spec`` directory in a cookbook.
-   * - ``project_slug``
-     - Use to return a project slug.
-   * - ``push_repo_to_github?``
-     - Use to determine if a repo should be pushed to |github|.
-   * - ``upload_cookbook_to_chef_server?``
-     - Use to determine if a ookbook should be pushed to the |chef server|.
+``foodcritic_tags``
+   Get a list of |foodcritic| tags that are applied to a node.
+
+``get_acceptance_environment``
+   Get the name of the acceptance environment.
+
+``get_project_application``
+   Get attributes for a defined project application.
+
+   .. warning:: If the ``get_project_application`` method is called from the ``provision.rb`` recipe, be sure that ``delivery-truck::provision`` is executed before ``get_project_application`` by putting it in a ``ruby_block`` or into a separate recipe that is called from ``provision.rb`` via ``include_recipe``. If the ``get_project_application`` method is called directly in ``provision.rb``:
+
+      .. code-block:: ruby
+
+         include_recipe 'delivery-truck::provision'
+         get_project_application(<project_app_name_string>)
+
+      you will get an error because the |chef client| will execute ``get_project_application`` at compile time before it has run ``include_recipe 'delivery-truck::provision'``. It is recommended to either use ``get_project_application`` in ``deploy.rb``, a project cookbook, in a ``ruby_block`` or in a separate ``include_recipe`` that is executed after ``include_recipe 'delivery-truck::provision'``.
+
+``get_project_secrets``
+   Get the data bag from the |chef server| in which secrets used by this project are stored.
+
+``has_kitchen_tests?``
+   Determine if a |kitchen yml| file exists in a cookbook.
+
+``has_spec_tests?``
+   Determine if tests exist in the ``/spec`` directory in a cookbook.
+
+``project_slug``
+   Return a project slug.
+
+``push_repo_to_github?``
+   Determine if a repo should be pushed to |github|.
+
+``upload_cookbook_to_chef_server?``
+   Determine if a cookbook should be pushed to the |chef server|.
