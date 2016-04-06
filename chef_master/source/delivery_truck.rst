@@ -76,7 +76,7 @@ Project Applications
 =====================================================
 .. include:: ../../includes_delivery/includes_delivery_project_application.rst
 
-Configure a Project Application
+Configure Project Application
 -----------------------------------------------------
 .. include:: ../../includes_delivery/includes_delivery_project_application_configure.rst
 
