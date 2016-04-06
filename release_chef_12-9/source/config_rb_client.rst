@@ -1,4 +1,27 @@
 .. THIS PAGE IS IDENTICAL TO docs.chef.io/config_rb_client.html BY DESIGN
 .. THIS PAGE DOCUMENTS chef-client version 12.9
 
-.. include:: ../../chef_master/source/config_rb_client.rst
+=====================================================
+|client rb|
+=====================================================
+
+.. include:: ../../includes_config/includes_config_rb_client.rst
+
+Settings
+==========================================================================
+.. include:: ../../includes_config/includes_config_rb_client_settings.rst
+
+Automatic Proxy Config
+-----------------------------------------------------
+.. include:: ../../includes_proxy/includes_proxy_env.rst
+
+|ohai| Settings
+=====================================================
+
+.. include:: ../../includes_config/includes_config_rb_ohai.rst
+
+.. include:: ../../includes_config/includes_config_rb_ohai_settings.rst
+
+Example
+=====================================================
+.. include:: ../../includes_config/includes_config_rb_client_example.rst
