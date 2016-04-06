@@ -11,7 +11,7 @@ This subcommand has the following options:
    |start|
 
 ``-f FILTER``, ``--filter-result FILTER``
-   Use to filter the search output based on the pattern that match the specified ``FILTER``. Only attributes in the |``FILTER`` will be returned. For example: ``\"ServerName=name, Kernel=kernel.version\``.
+   Use to filter the search output based on the pattern that match the specified ``FILTER``. Only attributes in the ``FILTER`` will be returned. For example: ``\"ServerName=name, Kernel=kernel.version\``.
 
    .. note:: .. include:: ../../includes_notes/includes_notes_filter_search_vs_partial_search.rst
 
