@@ -43,12 +43,6 @@ This subcommand has the following options:
 ``SSH_COMMAND``
    |ssh_command|
 
-``-t SECONDS``, ``--ssh-timeout SECONDS``
-   |timeout ssh|
-
-``--tmux-split``
-   |tmux_split| Default value: ``false``.
-
 ``-x USER_NAME``, ``--ssh-user USER_NAME``
    |ssh_user|
 

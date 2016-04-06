@@ -12,23 +12,16 @@ The following items are new for |chef client| 12.9 and/or are changes from previ
 * **New property for the mdadm resource** Use the ``mdadm_defaults`` property to set the default values for ``chunk`` and ``metadata`` to ``nil``, which allows |mdadm| to apply its own default values.
 * **File redirection in Windows for 32-bit applications** Files on |windows| that are managed by the |resource file| and |resource directory| resources are subject to file redirection, depending if the |chef client| is 64-bit or 32-bit.
 * **Registry key redirection in Windows for 32-bit applications** Registry keys on |windows| that are managed by the |resource registry_key| resource are subject to key redirection, depending if the |chef client| is 64-bit or 32-bit.
+* **New values for log_location** Use ``:win_evt`` to write log output to the (|windows event logger| and ``:syslog`` to write log output to the |syslog| daemon facility with the originator set as ``chef-client``.
+* **New timeout setting for knife ssh** Set the ``--ssh-timeout`` setting to an integer (in seconds) as part of a ``knife ssh`` command. The ``ssh_timeout`` setting may also be configured (as seconds) in the |knife rb| file.
 
-xxxxx
------------------------------------------------------
-xxxxx
-
-xxxxx
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-xxxxx
 
 64-bit chef-client
 -----------------------------------------------------
 The |chef client| now runs on 64-bit |windows| operating systems. 
 
-* xxxxx
-* xxxxx
-* xxxxx
-* xxxxx
+* Support for file redirection
+* Support for key redirection
 
 File Redirection
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

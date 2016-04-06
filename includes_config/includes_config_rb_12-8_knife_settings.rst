@@ -91,9 +91,6 @@ This configuration file has the following settings:
 
       no_proxy 'localhost, 10.*, *.example.com, *.dev.example.com'
 
-``ssh_timeout``
-   |timeout ssh|
-
 ``ssl_verify_mode``
    |ssl_verify_mode|
        

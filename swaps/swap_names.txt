@@ -36,8 +36,6 @@
 .. |chef container| replace:: chef-container
 .. |chef ctl| replace:: chef
 .. |chef delivery| replace:: Chef Delivery
-.. |xchef delivery_cli| replace:: delivery
-.. |xchef delivery_title| replace:: Chef Delivery
 .. |chef dk| replace:: Chef development kit
 .. |chef dk_title| replace:: Chef DK
 .. |chef docs| replace:: chef-docs
@@ -795,6 +793,7 @@
 .. |svn| replace:: Subversion
 .. |symfony| replace:: symfony
 .. |sysctl| replace:: sysctl
+.. |syslog| replace:: syslog
 .. |systemd| replace:: systemd
 .. |tar gz| replace:: tar.gz
 .. |tcp| replace:: TCP
@@ -805,6 +804,7 @@
 .. |thor| replace:: Thor
 .. |tinydns| replace:: Tinydns
 .. |tinydns edit| replace:: tinydns-edit
+.. |tmux| replace:: Tmux
 .. |tokyo cabinet| replace:: Tokyo Cabinet
 .. |transmission| replace:: Transmission
 .. |twitter| replace:: Twitter

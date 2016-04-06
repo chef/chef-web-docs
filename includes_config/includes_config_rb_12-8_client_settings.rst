@@ -105,6 +105,9 @@ This configuration file has the following settings:
 ``file_staging_uses_destdir``
    |file_staging_uses_destdir| Default value: ``true``.
 
+``fips``
+  |chef_client fips| Set to ``true`` to enable |fips|-validated security.
+
 ``ftp_proxy``
    |ftp_proxy|
 
@@ -168,6 +171,9 @@ This configuration file has the following settings:
 ``minimal_ohai``
    |minimal_ohai|
 
+``named_run_list``
+   |run_list policy|
+
 ``no_lazy_load``
    |no_lazy_load| Default value: ``true``.
 
@@ -188,6 +194,12 @@ This configuration file has the following settings:
 
 ``pid_file``
    |path pid_file| Default value: ``/tmp/name-of-executable.pid``.
+
+``policy_group``
+   |name policy_name| ``policy_name`` must also be specified.
+
+``policy_name``
+   |name policy_group| ``policy_group`` must also be specified.
 
 ``rest_timeout``
    |timeout rest| Default value: ``300``.
@@ -226,6 +238,9 @@ This configuration file has the following settings:
 
 ``umask``
    |umask| Default value: ``0022``. 
+
+``use_policyfile``
+  |use policyfile| Default value: ``false``.
 
 ``user``
    |user chef_client| Default value: ``nil``.
