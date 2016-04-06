@@ -1,7 +1,9 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
-Use ``:filter_result`` as part of a search query against the |chef server| to return data in the form of the specified |ruby hash|.
+Use ``:filter_result`` as part of a search query to filter the search output based on the pattern specified by a |ruby hash|. Only attributes in the |ruby hash| will be returned.
+
+.. note:: .. include:: ../../includes_notes/includes_notes_filter_search_vs_partial_search.rst
 
 The syntax for the ``search`` method that uses ``:filter_result`` is as follows:
 
