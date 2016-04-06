@@ -77,7 +77,7 @@ Single Cookbook
 -----------------------------------------------------
 .. include:: ../../includes_delivery_cookbook/includes_delivery_cookbook_project_single.rst
 
-Create a Project Cookbook
+Add Project Cookbook
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_delivery_cookbook/includes_delivery_cookbook_project_single_create.rst
 
