@@ -12,7 +12,7 @@ The Chef Compliance Server
    :width: 600px
    :align: center
 
-.. note:: To install the |chef compliance| server in a standalone configuration, `read this topic <https://docs.chef.io/install_compliance.html>`_.
+.. note:: To install the |chef compliance| server in a standalone configuration, `read this topic <https://docs.chef.io/install_compliance.html>`__.
 
 Compliance Profiles
 -----------------------------------------------------
@@ -22,7 +22,7 @@ Integrate w/Chef Server
 -----------------------------------------------------
 .. include:: ../../includes_compliance/includes_compliance_integrate_chef_server.rst
 
-.. note:: To learn more about how to integrate |chef compliance| with the |chef server|, `read this topic <https://docs.chef.io/integrate_compliance_chef_server.html>`_.
+.. note:: To learn more about how to integrate |chef compliance| with the |chef server|, `read this topic <https://docs.chef.io/integrate_compliance_chef_server.html>`__.
 
 Audit Resources
 =====================================================
