@@ -13,7 +13,7 @@ The following items are new for |chef client| 12.9 and/or are changes from previ
 * **File redirection in Windows for 32-bit applications** Files on |windows| that are managed by the |resource file| and |resource directory| resources are subject to file redirection, depending if the |chef client| is 64-bit or 32-bit.
 * **Registry key redirection in Windows for 32-bit applications** Registry keys on |windows| that are managed by the |resource registry_key| resource are subject to key redirection, depending if the |chef client| is 64-bit or 32-bit.
 * **New values for log_location** Use ``:win_evt`` to write log output to the (|windows event logger| and ``:syslog`` to write log output to the |syslog| daemon facility with the originator set as ``chef-client``.
-* **New timeout setting for knife ssh** Set the ``xxxxx`` setting to xxxxx in the |knife rb| file to xxxxx.
+* **New timeout setting for knife ssh** Set the ``--ssh-timeout`` setting to an integer (in seconds) as part of a ``knife ssh`` command. The ``ssh_timeout`` setting may also be configured (as seconds) in the |knife rb| file.
 
 
 64-bit chef-client
