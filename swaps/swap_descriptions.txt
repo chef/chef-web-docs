@@ -1344,6 +1344,7 @@
 .. |timeout worker| replace:: The amount of time (in seconds) that a worker can be silent before it is killed and restarted.
 .. |timeout auth_windows| replace:: The amount of time (in minutes) to wait for authentication to succeed.
 .. |timeout worker_process| replace:: The amount of time (in seconds) before a worker process times out.
+.. |tmux_split| replace:: Split the |tmux| window.
 .. |to resource link| replace:: The actual file to which the link is to be created.
 .. |tolerant| replace:: Be tolerant of errors that may occur on the command line.
 .. |tree knife| replace:: Show dependencies in a visual tree structure (including duplicates, if they exist).
