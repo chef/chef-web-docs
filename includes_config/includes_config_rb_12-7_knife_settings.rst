@@ -99,6 +99,9 @@ This configuration file has the following settings:
 ``syntax_check_cache_path``
    |syntax_check_cache_path|
 
+``tmux_split``
+   |tmux_split| Default value: ``false``.
+
 ``validation_client_name``
    |validation_client_name| For example:
 
