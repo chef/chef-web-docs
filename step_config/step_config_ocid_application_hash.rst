@@ -6,7 +6,7 @@ To define |oauth| 2 information for both |chef analytics| and |supermarket|, cre
 
    .. code-block:: ruby
 
-      oc_id['applications'] = {} unless oc_id['applications']
+      oc_id['applications'] ||= {}
       oc_id['applications']['analytics'] = {
         'redirect_uri' => 'https://analytics.rhel.aws'
       }

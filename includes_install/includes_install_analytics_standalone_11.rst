@@ -27,7 +27,7 @@ Configure the |chef server|. On each server in the |chef server| configuration, 
 
    .. code-block:: bash
 
-      oc_id['applications'] = {} unless oc_id['applications']
+      oc_id['applications'] ||= {}
       oc_id['applications']['analytics'] = {
         'redirect_uri' => 'https://<analytics_fqdn>/'
       }

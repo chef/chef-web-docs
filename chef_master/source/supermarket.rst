@@ -38,7 +38,7 @@ To set up |chef identity|, do the following:
 
    .. code-block:: ruby
 
-      oc_id['applications'] = {} unless oc_id['applications']
+      oc_id['applications'] ||= {}
       oc_id['applications']['supermarket'] = {
         'redirect_uri' => 'https://supermarket.mycompany.com/auth/chef_oauth2/callback'
       }
