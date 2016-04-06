@@ -22,6 +22,8 @@ Integrate w/Chef Server
 -----------------------------------------------------
 .. include:: ../../includes_compliance/includes_compliance_integrate_chef_server.rst
 
+.. note:: To learn more about how to integrate |chef compliance| with the |chef server|, `read this topic <https://docs.chef.io/integrate_compliance_chef_server.html>`_.
+
 Audit Resources
 =====================================================
 .. include:: ../../includes_inspec/includes_inspec.rst
