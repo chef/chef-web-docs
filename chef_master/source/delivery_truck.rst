@@ -45,7 +45,7 @@ The following recipes are available by default in the ``delivery-truck`` cookboo
    .. include:: ../../includes_delivery_cookbook/includes_delivery_cookbook_common_recipe_unit.rst
 
 
-Create Build Cookbook
+Create a build-cookbook
 =====================================================
 .. include:: ../../includes_delivery_cookbook/includes_delivery_cookbook_setup.rst
 
@@ -69,22 +69,46 @@ Read the Tutorial
 To learn more about how to set up a project pipeline for a single cookbook and simple application, follow the steps outlined in the `Build a continuous deployment pipeline with Chef Delivery <https://learn.chef.io/delivery/get-started/>`__ tutorial on https://learn.chef.io/tutorials/.
 
 
+Project Cookbooks
+=====================================================
+.. include:: ../../includes_delivery_cookbook/includes_delivery_cookbook_project.rst
 
+Single Cookbook
+-----------------------------------------------------
+.. include:: ../../includes_delivery_cookbook/includes_delivery_cookbook_project_single.rst
+
+Create a Project Cookbook
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_delivery_cookbook/includes_delivery_cookbook_project_single_create.rst
+
+Configure default.rb
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_delivery_cookbook/includes_delivery_cookbook_project_single_configure.rst
+
+Promote the Project
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_delivery_cookbook/includes_delivery_cookbook_project_single_promote.rst
+
+Update the Project
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_delivery_cookbook/includes_delivery_cookbook_project_single_update.rst
+
+Multiple Cookbooks
+-----------------------------------------------------
+.. include:: ../../includes_delivery_cookbook/includes_delivery_cookbook_project_multiple.rst
 
 
 Project Applications
 =====================================================
-.. include:: ../../includes_delivery/includes_delivery_project_application.rst
+.. include:: ../../includes_delivery_cookbook/includes_delivery_cookbook_project_application.rst
 
 Configure Project Application
 -----------------------------------------------------
-.. include:: ../../includes_delivery/includes_delivery_project_application_configure.rst
+.. include:: ../../includes_delivery_cookbook/includes_delivery_cookbook_project_application_configure.rst
 
 Example Project Application
 -----------------------------------------------------
-.. include:: ../../includes_delivery/includes_delivery_project_application_example.rst
-
-
+.. include:: ../../includes_delivery_cookbook/includes_delivery_cookbook_project_application_example.rst
 
 
 Validate the Installation
