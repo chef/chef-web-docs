@@ -33,6 +33,9 @@ For a standalone server, the response will be similar to:
      ]
    }
 
+The top-level ``status`` value refers to the state of the core |delivery| server only. It will return ``pong`` as long as the |delivery| server is healthy even if there's a problem with one of the upstream systems; however, a response code of 500 will be returned in that case (as described in the response code section below). 
+
+.. note:: ``lsyncd`` should always report a status of ``not_running`` in a standalone configuration: any other value would indicate that it's configured when it shouldn't be (``lsync`` should only run on a disaster recovery primary).
 
 For the primary server in a disaster recovery pair, the response will be similar to:
 
@@ -49,13 +52,17 @@ For the primary server in a disaster recovery pair, the response will be similar
            "pg_current_xlog_location": "0/3000D48"
          },
          "lsyncd": {
-           "status": "not_running",
+           "status": "pong",
            "latency": "0"
          }
        }
      ]
    }
 
+
+In this configuration, the ``postgres`` and ``lsyncd`` upstreams will indicate the current state of disaster recovery replication.  For |postgresql|, it will both indicate that it knows what the standby IP is supposed to be and the current ``location``. If the |postgresql| replication is working correctly, it should match the value of the |postgresql| ``xlog`` location reported by the standby (see below).
+
+For ``lsyncd``, if the replication is up-to-date, ``latency`` should return 0; it may be above zero if changes have been queued up for replication, but it should quickly drop back down once the ``lsyncd`` server syncs changes (which should happen either after a fixed delay or when a certain number of changes have queued up). If it instead maintains a number above zero (or even continues to grow), that would indicate that there's an issue replicating |git| data in |delivery|.
 
 For the standby server in a disaster recovery pair, the response will be similar to:
 
@@ -71,12 +78,13 @@ For the standby server in a disaster recovery pair, the response will be similar
            "pg_last_xlog_receive_location": "0/3000D48"
          },
          "lsyncd": {
-            "status": "pong",
+            "status": "not_running",
          }
        }
      ]
    }
 
+In this configuration, ``lsyncd`` should not be running; any other value would indicate a problem. For ``postgres``, if the replication is up-to-date, the ``location`` should match the value of the location on the primary it's replicating. If it's lagging (or behind and doesn't change), that would indicate an issue with |postgresql| replication.
 
 **Response Codes**
 
@@ -87,7 +95,7 @@ For the standby server in a disaster recovery pair, the response will be similar
    * - Response Code
      - Description
    * - ``200``
-     - All communications are OK. 
+     - All services are OK.
    * - ``500``
      - One (or more) services are down. For example:
        
