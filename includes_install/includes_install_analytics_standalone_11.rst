@@ -10,13 +10,13 @@ Install |chef analytics|:
 #. Download the package from http://downloads.chef.io/analytics/ to the dedicated standalone server that will be used for |chef analytics|. For |redhat| and |centos| 6:
 
    .. code-block:: bash
-      
+
       $ rpm -Uvh /tmp/opscode-analytics-<version>.rpm
 
    For |ubuntu|:
 
    .. code-block:: bash
-      
+
       $ dpkg -i /tmp/opscode-analytics-<version>.deb
 
    After a few minutes, |chef analytics| will be installed.
@@ -27,18 +27,17 @@ Configure the |chef server|. On each server in the |chef server| configuration, 
 
    .. code-block:: bash
 
-	  oc_id['applications'] = { 
-	    'analytics' => { 
-	      'redirect_uri' => 'https://<analytics_fqdn>/' 
-	    } 
-	  }
+      oc_id['applications'] = {} unless oc_id['applications']
+      oc_id['applications']['analytics'] = {
+        'redirect_uri' => 'https://<analytics_fqdn>/'
+      }
 
 #. Stop the |chef server|:
 
    .. code-block:: bash
 
       $ chef-server-ctl stop
-	  
+
 #. Enable remote access to |rabbitmq| on the |chef server| backend by adding the following settings to ``/etc/opscode/chef-server.rb``:
 
    .. code-block:: ruby
@@ -48,7 +47,7 @@ Configure the |chef server|. On each server in the |chef server| configuration, 
 
    where ``BACKEND_VIP`` is the external IP address for the backend |chef server|. ``node_ip_address`` MUST be set to ``0.0.0.0``.
 
-   .. note:: |analytics rabbitmq_settings| 
+   .. note:: |analytics rabbitmq_settings|
 
 #. Reconfigure the |chef server|:
 
@@ -59,7 +58,7 @@ Configure the |chef server|. On each server in the |chef server| configuration, 
    This updates the |chef server| and creates the ``actions-source.json`` file, which is required by |chef analytics|, and adds it to the ``/etc/opscode-analytics`` directory on the |chef server|.
 
 #. Restart the |chef server|:
-   
+
    .. code-block:: bash
 
       $ chef-server-ctl restart

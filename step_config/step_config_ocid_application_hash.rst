@@ -6,11 +6,10 @@ To define |oauth| 2 information for both |chef analytics| and |supermarket|, cre
 
    .. code-block:: ruby
 
-      oc_id['applications'] = {
-        'analytics' => {
-          'redirect_uri' => 'https://analytics.rhel.aws'
-        },
-        'supermarket' => {
-          'redirect_uri' => 'https://vagrantup.com/auth'
-        }
+      oc_id['applications'] = {} unless oc_id['applications']
+      oc_id['applications']['analytics'] = {
+        'redirect_uri' => 'https://analytics.rhel.aws'
+      }
+      oc_id['applications']['supermarket'] = {
+        'redirect_uri' => 'https://vagrantup.com/auth'
       }
