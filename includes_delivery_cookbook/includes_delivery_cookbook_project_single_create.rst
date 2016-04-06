@@ -10,7 +10,7 @@ Create a project cookbook. From the project's root directory, do the following:
 
       $ delivery checkout BRANCH_NAME
 
-#. Generate a cookbook:
+#. Generate a cookbook under ``/cookbooks`` in the project directory:
 
    .. code-block:: bash
 
