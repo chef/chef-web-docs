@@ -2,25 +2,25 @@
 Upgrading |chef analytics_title|
 =====================================================
 
-Note that the upgrade process has changed for 1.3.x. Please carefully read the following before upgrading analytics. Some steps are marked as 1.2.x -> 1.3.x. Only run those steps in that case (say 1.2.1 -> 1.3.0, but not 1.3.0 to 1.3.1).
+.. note:: The upgrade process has changed for |chef analytics| 1.3.x. Please carefully read the following before upgrading. Some steps are marked as "(1.2.x -> 1.3.x upgrade only.)". Only run those steps for upgrades of |chef analytics| 1.2.x to 1.3.x.
 
 Prerequisites
 =====================================================
-This section describes the prereqs for the upgrade
+This section describes the prerequisites for the upgrade process:
 
-#. The |chef server| referenced by this Analytics system should already have been upgraded to at least 12.0.3 **or** Enterprise Chef 11.3.
-#. The |chef server| must have had ``chef-server-ctl reconfigure`` run.
-#. The newly generated ``/etc/opscode-analytics`` directory on the |chef server| must have replaced the existing ``/etc/opscode-analytics`` directory and it's contents on the |chef analytics| server. Specifically, the ``analytics-source.json`` will have changed after being reconfigured by the later release of |chef server|.
+#. The |chef server| referenced by this |chef analytics| configuration should already have been upgraded to at least 12.0.3 **or** Enterprise Chef 11.3.
+#. The |chef server| must have been reconfigured via the ``chef-server-ctl reconfigure`` command.
+#. The newly-generated ``/etc/opscode-analytics`` directory on the |chef server| must have replaced the existing ``/etc/opscode-analytics`` directory and it's contents on the |chef analytics| server. Specifically, the ``analytics-source.json`` file will have changed after being reconfigured by the later release of |chef server|.
 
 Standalone
 =====================================================
-There are two upgrade paths for 1.3.x. ``pg_partman`` supported partitioning in the database was added in 1.3.0 and is enabled by default. **Using partitions is strongly recommended.**
+There are two upgrade paths to |chef analytics| for 1.3.x: with or without partitions. ``pg_partman`` supported partitioning in the database was added in |chef analytics| 1.3.0 and is enabled by default. **Using partitions is strongly recommended.**
 
 Upgrade with Paritions
 -----------------------------------------------------
 Recommended. The following steps describe upgrading |chef analytics| with partitions enabled.
 
-#. (Optional, 1.2.x -> 1.3.x upgrade only) Purge nodes. You will lose the ability to purge node data post upgrade to a 1.3.x build. Node data is no longer being saved as of 1.2.0, but there might be older data in need of downsizing. If you have disc space concerns, please run this command:
+#. (1.2.x -> 1.3.x upgrade only.) Purge nodes. The ability to purge node data is lost after the upgrade because node data is no longer being saved as of |chef analytics| 1.2.0. Purge data before upgrading with the following command:
 
    .. code-block:: bash
 
@@ -58,7 +58,7 @@ Recommended. The following steps describe upgrading |chef analytics| with partit
 
       $ opscode-analytics-ctl reconfigure
 
-#. (1.2.x -> 1.3.x upgrade only) Migrate to paritions:
+#. (1.2.x -> 1.3.x upgrade only.) Migrate to paritions:
 
    .. code-block:: bash
 
@@ -77,7 +77,7 @@ Upgrade without Paritions
 -----------------------------------------------------
 The following steps describe upgrading |chef analytics| with partitions disabled.
 
-#. (Optional, 1.2.x -> 1.3.x upgrade only) Purge nodes. You will lose the ability to purge node data post upgrade to a 1.3.x build. Node data is no longer being saved as of 1.2.0, but there might be older data in need of downsizing. If you have disc space concerns, please run this command:
+#. (1.2.x -> 1.3.x upgrade only.) Purge nodes. The ability to purge node data is lost after the upgrade because node data is no longer being saved as of |chef analytics| 1.2.0. Purge data before upgrading with the following command:
 
    .. code-block:: bash
 
