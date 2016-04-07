@@ -20,12 +20,6 @@ Upgrade with Paritions
 -----------------------------------------------------
 Recommended. The following steps describe upgrading |chef analytics| with partitions enabled.
 
-#. (1.2.x -> 1.3.x upgrade only.) Purge nodes. The ability to purge node data is lost after the upgrade because node data is no longer being saved as of |chef analytics| 1.2.0. Purge data before upgrading with the following command:
-
-   .. code-block:: bash
-
-      $ opscode-analytics-ctl purge-nodes
-
 #. Stop the services:
 
    .. code-block:: bash
@@ -76,12 +70,6 @@ Recommended. The following steps describe upgrading |chef analytics| with partit
 Upgrade without Paritions
 -----------------------------------------------------
 The following steps describe upgrading |chef analytics| with partitions disabled.
-
-#. (1.2.x -> 1.3.x upgrade only.) Purge nodes. The ability to purge node data is lost after the upgrade because node data is no longer being saved as of |chef analytics| 1.2.0. Purge data before upgrading with the following command:
-
-   .. code-block:: bash
-
-      $ opscode-analytics-ctl purge-nodes
 
 #. Stop the services:
 
