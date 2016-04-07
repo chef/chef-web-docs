@@ -58,7 +58,7 @@ Recommended. The following steps describe upgrading |chef analytics| with partit
 
       $ opscode-analytics-ctl reconfigure
 
-#. (1.2.x -> 1.3.x upgrade only.) Migrate to paritions:
+#. (1.2.x -> 1.3.x upgrade only.) Migrate to partitions:
 
    .. code-block:: bash
 
@@ -109,7 +109,7 @@ The following steps describe upgrading |chef analytics| with partitions disabled
 
 #. Copy in the ``/etc/opscode-analytics`` directory from the |chef server|.
 
-#. Disable paritions. Add the following to your |analytics rb| file:
+#. Disable partitions. Add the following to your |analytics rb| file:
 
    ``features['partitioning'] = false``
 
