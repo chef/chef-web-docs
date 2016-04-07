@@ -74,7 +74,7 @@ Steps
 
 
 
-Manual Install
+Install Manually
 =====================================================
 The following steps describe how to manually install a |delivery| server for use as a standby.
 
