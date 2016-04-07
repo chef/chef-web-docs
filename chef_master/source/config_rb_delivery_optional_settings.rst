@@ -215,10 +215,10 @@ This configuration file has the following settings for ``delivery``:
    |port service| Default value: ``9611``.
 
 ``delivery['primary']``
-   Default value: ``true``.
+   Specifies if the |delivery| server is the primary server. Default value: ``true``.
 
 ``delivery['primary_ip']``
-   Default value: ``nil``.
+   The IP address for the primary |delivery| server. Default value: ``nil``.
 
 ``delivery['push_jobs_max_retries']``
    Maximum number of retries a push job can incur without an intervening nack. Default value: ``3``.
@@ -266,7 +266,7 @@ This configuration file has the following settings for ``delivery``:
       }
 
 ``delivery['standby_ip']``
-   Default value: ``nil``.
+   The IP address for the cold standby |delivery| server. Default value: ``nil``.
 
 ``delivery['use_ssl_termination']``
    Default value: ``false``.
@@ -620,7 +620,7 @@ This configuration file has the following settings for ``postgresql``:
    |directory postgresql_home| Default value: ``"/var/opt/delivery/postgresql"``.
 
 ``postgresql['listen_address']``
-   |port listen_postgresql| Default value: ``'localhost'``.
+   |port listen_postgresql| Default value: ``'localhost'``. In a disaster recovery configuration, this value is similar to: ``'localhost,192.168.10.11'``.
 
 ``postgresql['log_directory']``
    |directory logs| |default_value_recommended| Default value:
