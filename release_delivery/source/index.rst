@@ -35,6 +35,8 @@ Read more about |delivery|:
    :hidden:
 
    api_delivery
+   config_json_delivery
+   config_rb_delivery
    config_rb_delivery_optional_settings
    ctl_delivery
    ctl_delivery_server

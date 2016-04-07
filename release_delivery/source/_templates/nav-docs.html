@@ -1,99 +1,148 @@
 {% extends "!nav-docs.html" %}
-{% set active_product = "Delivery" %}
+{% set active_product = "Chef" %}
 {% set active_version = "current" %}
 {% set navItems = [
   {
-    "title": "Chef Delivery",
+    "title": "Getting Started",
     "iconClass": "fa-home",
     "subItems": [
       {
         "title": "Start Here",
         "hasSubItems": false,
-        "url": "/release/delivery/index.html"
+        "url": "/index.html"
       },
       {
         "title": "Overview",
         "hasSubItems": false,
-        "url": "/release/delivery/delivery_overview.html"
+        "url": "/delivery_overview.html"
       },
       {
-        "title": "Install Delivery",
-        "hasSubItems": true,
-        "subItems": [
-        {
-          "title": "Install Delivery w/AWS",
-          "url": "/release/delivery/install_delivery_aws.html"
-        },
-        {
-          "title": "Install Delivery w/SSH",
-          "url": "/release/delivery/install_delivery_ssh.html"
-        }
-        ]
+        "title": "Tutorials",
+        "hasSubItems": false,
+        "url": "https://learn.chef.io/delivery/get-started/"
+      }
+    ]
+  },
+  {
+    "title": "Setup &amp; Config",
+    "iconClass": "fa-gears",
+    "subItems": [
+      {
+        "title": "Install w/AWS",
+        "hasSubItems": false,
+        "url": "/install_delivery_aws.html"
+      },
+      {
+        "title": "Install w/SSH",
+        "hasSubItems": false,
+        "url": "/install_delivery_ssh.html"
       },
       {
         "title": "Integrations",
         "hasSubItems": true,
         "subItems": [
           {
-            "title": "Bitbucket",
-            "url": "/release/delivery/integrate_delivery_bitbucket.html"
+            "title": "Integrate w/Bitbucket",
+            "url": "/integrate_delivery_bitbucket.html"
           },
           {
-            "title": "GitHub",
-            "url": "/release/delivery/integrate_delivery_github.html"
+            "title": "Integrate w/GitHub",
+            "url": "/integrate_delivery_github.html"
           },
           {
-            "title": "LDAP",
-            "url": "/release/delivery/integrate_delivery_ldap.html"
+            "title": "Integrate w/LDAP",
+            "url": "/integrate_delivery_ldap.html"
           }
         ]
       },
       {
-        "title": "Use Delivery",
-        "hasSubItems": true,
-        "subItems": [
-          {
-            "title": "Build Cookbooks",
-            "url": "/release/delivery/build_cookbooks.html"
-          },
-          {
-            "title": "Configure a Pipeline",
-            "url": "/release/delivery/delivery_configure_pipeline.html"
-          },
-          {
-            "title": "Manage Dependencies",
-            "url": "/release/delivery/delivery_manage_dependencies.html"
-          },
-          {
-            "title": "Manage Secrets",
-            "url": "/release/delivery/delivery_manage_secrets.html"
-          }
-        ]
-      },
-      {
-        "title": "Manage Users &amp; Roles",
+        "title": "Configure a Pipeline",
         "hasSubItems": false,
-        "url": "/release/delivery/delivery_users_and_roles.html"
+        "url": "/delivery_pipeline.html"
       },
       {
-        "title": "Reference",
-        "hasSubItems": true,
-        "subItems": [
-          {
-            "title": "Delivery DSL",
-            "url": "/release/delivery/dsl_delivery.html"
-          },
-          {
-            "title": "Delivery CLI",
-            "url": "/release/delivery/ctl_delivery.html"
-          },
-          {
-            "title": "delivery-ctl",
-            "url": "/release/delivery/ctl_delivery_server.html"
-          }
-        ]
+        "title": "Configure Dependencies",
+        "hasSubItems": false,
+        "url": "/delivery_manage_dependencies.html"
       }
-
+    ]
+  },
+  {
+    "title": "Cookbooks",
+    "iconClass": "fa-book",
+    "subItems": [
+      {
+        "title": "build-cookbook",
+        "hasSubItems": false,
+        "url": "/delivery_build_cookbook.html"
+      },
+      {
+        "title": "delivery-truck",
+        "hasSubItems": false,
+        "url": "/delivery_truck.html"
+      }
+    ]
+  },
+  {
+    "title": "Manage the Server",
+    "iconClass": "fa-hdd-o",
+    "subItems": [
+      {
+        "title": "Disaster Recovery",
+        "hasSubItems": false,
+        "url": "/delivery_server_disaster_recovery.html"
+      },
+      {
+        "title": "Secrets",
+        "hasSubItems": false,
+        "url": "/delivery_manage_secrets.html"
+      },
+      {
+        "title": "Tuning",
+        "hasSubItems": false,
+        "url": "/delivery_server_tuning.html"
+      },
+      {
+        "title": "Users &amp; Roles",
+        "hasSubItems": false,
+        "url": "/delivery_users_and_roles.html"
+      }
+    ]
+  },
+  {
+    "title": "Reference",
+    "iconClass": "fa-th",
+    "subItems": [
+      {
+        "title": "Delivery CLI",
+        "hasSubItems": false,
+        "url": "/ctl_delivery.html"
+      },
+      {
+        "title": "delivery-server-ctl",
+        "hasSubItems": false,
+        "url": "/ctl_delivery_server.html"
+      },
+      {
+        "title": "config.json",
+        "hasSubItems": false,
+        "url": "/config_json_delivery.html"
+      },
+      {
+        "title": "delivery.rb",
+        "hasSubItems": false,
+        "url": "/config_rb_delivery.html"
+      },
+      {
+        "title": "Delivery API",
+        "hasSubItems": false,
+        "url": "/api_delivery.html"
+      },
+      {
+        "title": "Delivery DSL",
+        "hasSubItems": false,
+        "url": "dsl_delivery.html"
+      }
     ]
   },
 ] -%}
