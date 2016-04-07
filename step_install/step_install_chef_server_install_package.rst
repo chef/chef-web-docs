@@ -6,13 +6,13 @@
 As a root user, install the |chef server| package on the server, using the name of the package provided by |company_name|. For |redhat| and |centos| 6:
 
 .. code-block:: bash
-      
+
    $ rpm -Uvh /tmp/chef-server-core-<version>.rpm
 
 For |ubuntu|:
 
 .. code-block:: bash
-      
+
    $ dpkg -i /tmp/chef-server-core-<version>.deb
 
 After a few minutes, the |chef server| will be installed.

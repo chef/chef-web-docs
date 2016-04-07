@@ -1,6 +1,7 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
+
 The following settings are often modified from the default as part of the tuning effort for the |service nginx| service and to configure the |chef server| to use |ssl| certificates:
 
 ``nginx['ssl_certificate']``

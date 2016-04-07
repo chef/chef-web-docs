@@ -2,8 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-Use a ``case`` statement to apply different values based on whether the setting 
-exists on the front-end or back-end servers. Add code to the server configuration file similar to the following:
+Use a ``case`` statement to apply different values based on whether the setting exists on the front-end or back-end servers. Add code to the server configuration file similar to the following:
 
 .. code-block:: ruby
 
