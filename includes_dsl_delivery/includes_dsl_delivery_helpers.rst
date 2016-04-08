@@ -25,8 +25,6 @@ The following |delivery|-specific helpers can be used in recipes:
 ``foodcritic_tags``
    Get a list of |foodcritic| tags that are applied to a node. This looks in the ``config.json`` file for the ``foodcritic`` block to see which rules should be included or excluded, and then returns the applicable tags.
 
-   .. include:: ../../includes_delivery_config/includes_delivery_config_example_test_patterns.rst
-
 ``get_acceptance_environment``
    Get the name of the acceptance environment.
 
