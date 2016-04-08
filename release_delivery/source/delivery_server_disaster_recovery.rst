@@ -70,7 +70,9 @@ To install a standby |delivery| server using the ``delivery-cluster`` cookbook:
 
 #. Provision the |delivery| cluster:
 
-        $ rake setup:cluster
+   .. code-block:: bash
+
+      $ rake setup:cluster
 
 5. For more information about the ``delivery-cluster`` cookbook, see https://github.com/chef-cookbooks/delivery-cluster.
 
