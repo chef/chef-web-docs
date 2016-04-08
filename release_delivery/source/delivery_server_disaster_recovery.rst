@@ -23,6 +23,8 @@ A disaster recovery configuration for |delivery| has the following requirements:
 
 Steps
 -----------------------------------------------------
+To install a standby |delivery| server using the ``delivery-cluster`` cookbook:
+
 #. Download the ``delivery-cluster`` cookbook:
 
    .. code-block:: bash
@@ -285,4 +287,4 @@ If provisioning uses the |ssh| driver, do the following:
 
 Reinstall Standby
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-To set up a new standby |delivery| server, follow the same steps to install the |delivery| server (either manually or by using the ``delivery-cluster`` cookbook).
+To set up a new standby |delivery| server, follow the same steps for installing the |delivery| server (either manually or using the ``delivery-cluster`` cookbook), as described earlier in this topic.
