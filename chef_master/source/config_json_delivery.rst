@@ -37,6 +37,11 @@ Configuration Settings
 
    .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_dependencies.rst
 
+``delivery-truck``
+   **Optional**
+
+   .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_delivery_truck.rst
+
 
 .. note:: .. include:: ../../includes_delivery_cookbook/includes_delivery_cookbook_delivery_truck.rst
 
