@@ -58,9 +58,6 @@ The following |delivery|-specific helpers can be used in recipes:
 ``has_spec_tests?``
    Determine if tests exist in the ``/spec`` directory in a cookbook.
 
-``project_slug``
-   Return a project slug.
-
 ``push_repo_to_github?``
    Determine if a repo should be pushed to |github|.
 
