@@ -9,9 +9,10 @@ The following example shows a run-time dependency against the master branch of a
    {
      "version": "2",
      "build_cookbook": {
-       "name": "<your build cookbook name>",
-       "path": "<relative path from project root>"
+       "name": "build-cookbook",
+       "path": ".delivery/build-cookbook"
      },
      "skip_phases": [],
      "dependencies": ["BackendAPI"]
    }
+
