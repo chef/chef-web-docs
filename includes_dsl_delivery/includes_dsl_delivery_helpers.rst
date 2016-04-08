@@ -19,8 +19,50 @@ The following |delivery|-specific helpers can be used in recipes:
 ``delivery_chef_server``
    Return a |ruby hash| that contains details about how to talk to the |chef server|.
 
+
+``delivery_chef_server_search``
+   Run a search query against the node objects on the |chef server|, using standard |chef server| search query syntax with the index type set to ``:node``, similar to:
+
+   .. code-block:: ruby
+
+      delivery_chef_server_search(:node, "key:attribute")
+
+   or:
+
+   .. code-block:: ruby
+
+      delivery_chef_server_search(:node, 'query',
+        :filter_result => { 'foo' => [ 'abc' ],
+                            'bar' => [ '123' ],
+                            'baz' => [ 'sea', 'power' ]
+                          }
+            ).each do |result|
+        puts result['foo']
+        puts result['bar']
+        puts result['baz']
+      end
+
+   For example:
+
+   .. code-block:: ruby
+
+      delivery_chef_server_search(:node, 'role:load_balancer')
+
+   or:
+
+   .. code-block:: ruby
+
+      delivery_chef_server_search(:node, 'platform:windows AND roles:postgresql')
+
+
 ``delivery_environment``
    Get the name of the standard environment.
+
+
+``deployment_search_query``
+   Get the search query from the ``config.json`` file.
+
+   .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_delivery_truck_deploy_search_query.rst
 
 ``foodcritic_excludes``
    Get a list of directories against which |foodcritic| rules should not be run. This looks in the ``config.json`` file for the ``foodcritic`` block to see if the ``excludes`` setting has been specified.
