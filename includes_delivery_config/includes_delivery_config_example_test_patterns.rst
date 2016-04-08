@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The following example shows how to configure |foodcritic| to ignore certain rules, run certain rules, and exclude running |foodcritic| tests in the specified cookbook directories:
+The following example shows how to configure |delivery| to ignore and/or run certain |foodcritic| rules, and to exclude running tests that are located in the specified cookbook directories:
 
 .. code-block:: javascript
 
