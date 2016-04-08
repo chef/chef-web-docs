@@ -84,7 +84,7 @@ The following steps describe how to manually install a |delivery| server for use
 
 #. Download the |delivery| package to the standby server: https://bintray.com/chef/stable/delivery.
 
-# As a root user, install the |delivery| package on the server, using the name of the package provided by |company_name|. For |centos|:
+#. As a root user, install the |delivery| package on the server, using the name of the package provided by |company_name|. For |centos|:
 
    .. code-block:: bash
 
