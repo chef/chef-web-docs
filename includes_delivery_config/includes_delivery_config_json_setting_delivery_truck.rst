@@ -18,6 +18,8 @@ For example, configure the ``lint.rb`` recipe to run only |foodcritic| rule ``FC
 
 
 .. 
+.. These should be broken out like the _lint_foodcritic_foo topics and hooked in the same way prior to publishing them.
+.. 
 .. To publish to the |chef server| that is part of this |delivery| configuration:
 .. 
 .. .. code-block:: javascript
