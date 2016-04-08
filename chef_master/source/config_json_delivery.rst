@@ -94,3 +94,18 @@ Stages and Platforms
 Test Patterns
 -----------------------------------------------------
 .. include:: ../../includes_delivery_config/includes_delivery_config_example_test_patterns.rst
+
+|foodcritic|, excludes
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_delivery_truck_lint_foodcritic_excludes.rst
+
+|foodcritic|, ignore_rules
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_delivery_truck_lint_foodcritic_ignore_rules.rst
+
+|foodcritic|, only_rules
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_delivery_truck_lint_foodcritic_only_rules.rst
+
+
+

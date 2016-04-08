@@ -22,8 +22,17 @@ The following |delivery|-specific helpers can be used in recipes:
 ``delivery_environment``
    Get the name of the standard environment.
 
+``foodcritic_excludes``
+   Get a list of directories against which |foodcritic| rules should not be run. This looks in the ``config.json`` file for the ``foodcritic`` block to see if the ``excludes`` setting has been specified.
+
+   .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_delivery_truck_lint_foodcritic_excludes.rst
+
 ``foodcritic_tags``
-   Get a list of |foodcritic| tags that are applied to a node. This looks in the ``config.json`` file for the ``foodcritic`` block to see which rules should be included or excluded, and then returns the applicable tags.
+   Get a list of |foodcritic| tags (rule identifiers) to be run. This looks in the ``config.json`` file for the ``foodcritic`` block to see if the ``only_rules`` and/or ``ignore_rules`` settings have been specified.
+
+   .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_delivery_truck_lint_foodcritic_ignore_rules.rst
+
+   .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_delivery_truck_lint_foodcritic_only_rules.rst
 
 ``get_acceptance_environment``
    Get the name of the acceptance environment.
