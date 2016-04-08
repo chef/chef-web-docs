@@ -283,11 +283,6 @@ If provisioning uses the |ssh| driver, do the following:
 
       $ rm .chef/provisioning/ssh/delivery-server-test.json
 
-
 Reinstall Standby
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-To set up a new standby |delivery| server, follow the same steps LOCATION_OF_THOSE_STEPS.
-
-
-.. see the [upgrade documentation](install-disaster-recovery.md).
-
+To set up a new standby |delivery| server, follow the same steps to install the |delivery| server (either manually or by using the ``delivery-cluster`` cookbook).
