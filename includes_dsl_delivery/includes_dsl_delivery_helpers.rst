@@ -60,7 +60,7 @@ The following |delivery|-specific helpers can be used in recipes:
 
 
 ``deployment_search_query``
-   Get the search query from the ``config.json`` file.
+   Get a custom search query from the ``config.json`` file. By default, the ``deploy.rb`` recipe triggers a |chef client| run via |push jobs| against all nodes that belong to the current environment in |delivery| and have modified cookbooks in the run-list.
 
    .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_delivery_truck_deploy_search_query.rst
 
@@ -92,7 +92,7 @@ The following |delivery|-specific helpers can be used in recipes:
       you will get an error because the |chef client| will execute ``get_project_application`` at compile time before it has run ``include_recipe 'delivery-truck::provision'``. It is recommended to either use ``get_project_application`` in ``deploy.rb``, a project cookbook, in a ``ruby_block`` or in a separate ``include_recipe`` that is executed after ``include_recipe 'delivery-truck::provision'``.
 
 ``get_project_secrets``
-   Get the data bag from the |chef server| in which secrets used by this project are stored.
+   Get the contents of data bag from the |chef server|, in which secrets for project are stored.
 
 ``has_kitchen_tests?``
    Determine if a |kitchen yml| file exists in a cookbook.
