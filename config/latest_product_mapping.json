@@ -2,6 +2,7 @@
   "client": "/release/12-8",
   "server": "/release/server_12-4",
   "analytics": "/release/analytics",
+  "compliance": "/release/compliance",
   "delivery": "/release/delivery",
   "enterprise": "/release/oec_11-2",
   "open_source": "/release/osc_11-1",

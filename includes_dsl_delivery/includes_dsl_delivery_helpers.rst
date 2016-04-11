@@ -25,34 +25,19 @@ The following |delivery|-specific helpers can be used in recipes:
 
    .. code-block:: ruby
 
-      delivery_chef_server_search(:node, "key:attribute")
-
-   or:
-
-   .. code-block:: ruby
-
-      delivery_chef_server_search(:node, 'query',
-        :filter_result => { 'foo' => [ 'abc' ],
-                            'bar' => [ '123' ],
-                            'baz' => [ 'sea', 'power' ]
-                          }
-            ).each do |result|
-        puts result['foo']
-        puts result['bar']
-        puts result['baz']
-      end
+      delivery_chef_server_search('key:attribute')
 
    For example:
 
    .. code-block:: ruby
 
-      delivery_chef_server_search(:node, 'role:load_balancer')
+      delivery_chef_server_search('role:load_balancer')
 
    or:
 
    .. code-block:: ruby
 
-      delivery_chef_server_search(:node, 'platform:windows AND roles:postgresql')
+      delivery_chef_server_search('platform:windows AND roles:postgresql')
 
 
 ``delivery_environment``
@@ -82,17 +67,10 @@ The following |delivery|-specific helpers can be used in recipes:
 ``get_project_application``
    Get attributes for a defined project application.
 
-   .. warning:: If the ``get_project_application`` method is called from the ``provision.rb`` recipe, be sure that ``delivery-truck::provision`` is executed before ``get_project_application`` by putting it in a ``ruby_block`` or into a separate recipe that is called from ``provision.rb`` via ``include_recipe``. If the ``get_project_application`` method is called directly in ``provision.rb``:
-
-      .. code-block:: ruby
-
-         include_recipe 'delivery-truck::provision'
-         get_project_application(<project_app_name_string>)
-
-      you will get an error because the |chef client| will execute ``get_project_application`` at compile time before it has run ``include_recipe 'delivery-truck::provision'``. It is recommended to either use ``get_project_application`` in ``deploy.rb``, a project cookbook, in a ``ruby_block`` or in a separate ``include_recipe`` that is executed after ``include_recipe 'delivery-truck::provision'``.
+   .. warning:: .. include:: ../../includes_dsl_delivery/includes_dsl_delivery_helpers_get_project_application_warning.rst
 
 ``get_project_secrets``
-   Get the contents of data bag from the |chef server|, in which secrets for project are stored.
+   Get the contents of data bag from the |chef server|. This data bag contains secrets that enable cookbooks to be published to a |supermarket|, an open source |git| repository, a repository on |github|.
 
 ``has_kitchen_tests?``
    Determine if a |kitchen yml| file exists in a cookbook.
@@ -100,8 +78,28 @@ The following |delivery|-specific helpers can be used in recipes:
 ``has_spec_tests?``
    Determine if tests exist in the ``/spec`` directory in a cookbook.
 
+``push_repo_to_git?``
+   Determine if a repo should be pushed to an open source |git| repository.
+
+   .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_delivery_truck_publish_git.rst
+
 ``push_repo_to_github?``
    Determine if a repo should be pushed to |github|.
 
+   .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_delivery_truck_publish_github.rst
+
+``share_cookbook_to_supermarket?``
+   Determine if a repo should be pushed to an open source |git| repository.
+
+   .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_delivery_truck_publish_supermarket.rst
+
+   .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_delivery_truck_publish_supermarket_private.rst
+
 ``upload_cookbook_to_chef_server?``
    Determine if a cookbook should be pushed to the |chef server|.
+
+   .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_delivery_truck_publish_chef_server.rst
+
+``use_custom_supermarket_credentials``
+
+   .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_delivery_truck_publish_supermarket_credentials.rst

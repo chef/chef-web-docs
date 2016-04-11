@@ -1,0 +1,259 @@
+{% extends "!nav-docs.html" %}
+{% set active_product = "Chef Compliance" %}
+{% set active_version = "1.0" %}
+{% set navItems = [
+  {
+    "title": "Getting Started",
+    "iconClass": "fa-home",
+    "subItems": [
+      {
+        "title": "Start Here",
+        "hasSubItems": false,
+        "url": "/release/compliance/index.html"
+      },
+      {
+        "title": "Install Compliance",
+        "hasSubItems": false,
+        "url": "/release/compliance/install_compliance.html"
+      },
+      {
+        "title": "Integrate w/Chef Server",
+        "hasSubItems": false,
+        "url": "/release/compliance/integrate_compliance_chef_server.html"
+      },
+      {
+        "title": "Upgrade Compliance",
+        "hasSubItems": false,
+        "url": "/release/compliance/upgrade_compliance.html"
+      },
+      {
+        "title": "Compliance DSL",
+        "hasSubItems": false,
+        "url": "/release/compliance/dsl_compliance.html"
+      },
+    ]
+  },
+  {
+    "title": "Reference",
+    "iconClass": "fa-th",
+    "subItems": [
+      {
+        "title": "InSpec Resources",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "apache_conf",
+            "url": "/release/compliance/inspec_apache_conf.html"
+          },
+          {
+            "title": "apt",
+            "url": "/release/compliance/inspec_apt.html"
+          },
+          {
+            "title": "audit_policy",
+            "url": "/release/compliance/inspec_audit_policy.html"
+          },
+          {
+            "title": "auditd_conf",
+            "url": "/release/compliance/inspec_auditd_conf.html"
+          },
+          {
+            "title": "auditd_rules",
+            "url": "/release/compliance/inspec_auditd_rules.html"
+          },
+          {
+            "title": "bond",
+            "url": "/release/compliance/inspec_bond.html"
+          },
+          {
+            "title": "bridge",
+            "url": "/release/compliance/inspec_bridge.html"
+          },
+          {
+            "title": "command",
+            "url": "/release/compliance/inspec_command.html"
+          },
+          {
+            "title": "csv",
+            "url": "/release/compliance/inspec_csv.html"
+          },
+          {
+            "title": "directory",
+            "url": "/release/compliance/inspec_directory.html"
+          },
+          {
+            "title": "etc_group",
+            "url": "/release/compliance/inspec_etc_group.html"
+          },
+          {
+            "title": "file",
+            "url": "/release/compliance/inspec_file.html"
+          },
+          {
+            "title": "gem",
+            "url": "/release/compliance/inspec_gem.html"
+          },
+          {
+            "title": "group",
+            "url": "/release/compliance/inspec_group.html"
+          },
+          {
+            "title": "host",
+            "url": "/release/compliance/inspec_host.html"
+          },
+          {
+            "title": "inetd_conf",
+            "url": "/release/compliance/inspec_inetd_conf.html"
+          },
+          {
+            "title": "interface",
+            "url": "/release/compliance/inspec_interface.html"
+          },
+          {
+            "title": "iptables",
+            "url": "/release/compliance/inspec_iptables.html"
+          },
+          {
+            "title": "json",
+            "url": "/release/compliance/inspec_json.html"
+          },
+          {
+            "title": "kernel_module",
+            "url": "/release/compliance/inspec_kernel_module.html"
+          },
+          {
+            "title": "kernel_parameter",
+            "url": "/release/compliance/inspec_kernel_parameter.html"
+          },
+          {
+            "title": "limits_conf",
+            "url": "/release/compliance/inspec_limits_conf.html"
+          },
+          {
+            "title": "login_defs",
+            "url": "/release/compliance/inspec_login_def.html"
+          },
+          {
+            "title": "mysql_conf",
+            "url": "/release/compliance/inspec_mysql_conf.html"
+          },
+          {
+            "title": "mysql_session",
+            "url": "/release/compliance/inspec_mysql_session.html"
+          },
+          {
+            "title": "npm",
+            "url": "/release/compliance/inspec_npm.html"
+          },
+          {
+            "title": "ntp_conf",
+            "url": "/release/compliance/inspec_ntp_conf.html"
+          },
+          {
+            "title": "oneget",
+            "url": "/release/compliance/inspec_oneget.html"
+          },
+          {
+            "title": "os",
+            "url": "/release/compliance/inspec_os.html"
+          },
+          {
+            "title": "os_env",
+            "url": "/release/compliance/inspec_os_env.html"
+          },
+          {
+            "title": "package",
+            "url": "/release/compliance/inspec_package.html"
+          },
+          {
+            "title": "parse_config",
+            "url": "/release/compliance/inspec_parse_config.html"
+          },
+          {
+            "title": "parse_config_file",
+            "url": "/release/compliance/inspec_parse_config_file.html"
+          },
+          {
+            "title": "passwd",
+            "url": "/release/compliance/inspec_etc_passwd.html"
+          },
+          {
+            "title": "pip",
+            "url": "/release/compliance/inspec_pip.html"
+          },
+          {
+            "title": "port",
+            "url": "/release/compliance/inspec_port.html"
+          },
+          {
+            "title": "postgres_conf",
+            "url": "/release/compliance/inspec_postgres_conf.html"
+          },
+          {
+            "title": "postgres_session",
+            "url": "/release/compliance/inspec_postgres_session.html"
+          },
+          {
+            "title": "processes",
+            "url": "/release/compliance/inspec_process.html"
+          },
+          {
+            "title": "registry_key",
+            "url": "/release/compliance/inspec_registry_key.html"
+          },
+          {
+            "title": "script",
+            "url": "/release/compliance/inspec_script.html"
+          },
+          {
+            "title": "security_policy",
+            "url": "/release/compliance/inspec_security_policy.html"
+          },
+          {
+            "title": "service",
+            "url": "/release/compliance/inspec_service.html"
+          },
+          {
+            "title": "ssh_conf",
+            "url": "/release/compliance/inspec_ssh_config.html"
+          },
+          {
+            "title": "sshd_conf",
+            "url": "/release/compliance/inspec_sshd_config.html"
+          },
+          {
+            "title": "user",
+            "url": "/release/compliance/inspec_user.html"
+          },
+          {
+            "title": "windows_feature",
+            "url": "/release/compliance/inspec_windows_feature.html"
+          },
+          {
+            "title": "yaml",
+            "url": "/release/compliance/inspec_yaml.html"
+          },
+          {
+            "title": "yum",
+            "url": "/release/compliance/inspec_yum.html"
+          },
+        ]
+      },
+      {
+        "title": "InSpec CLI",
+        "hasSubItems": false,
+        "url": "/release/compliance/ctl_inspec.html"
+      },
+      {
+        "title": "chef-compliance.rb",
+        "hasSubItems": false,
+        "url": "/release/compliance/config_rb_compliance.html"
+      },
+      {
+        "title": "Compliance API",
+        "hasSubItems": false,
+        "url": "/release/compliance/api_compliance.html"
+      },
+    ]
+  }
+] -%}

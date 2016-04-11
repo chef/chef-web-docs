@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-To publish cookbooks to a |git| repository located on an open source |git| server:
+If the ``config.json`` file specifies the following cookbooks are published to a |git| repository located on an open source |git| server:
 
 .. code-block:: javascript
 
