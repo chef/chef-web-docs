@@ -92,7 +92,7 @@ The following |delivery|-specific helpers can be used in recipes:
       you will get an error because the |chef client| will execute ``get_project_application`` at compile time before it has run ``include_recipe 'delivery-truck::provision'``. It is recommended to either use ``get_project_application`` in ``deploy.rb``, a project cookbook, in a ``ruby_block`` or in a separate ``include_recipe`` that is executed after ``include_recipe 'delivery-truck::provision'``.
 
 ``get_project_secrets``
-   Get the data bag from the |chef server| in which secrets used by this project are stored.
+   Get the contents of data bag from the |chef server|, in which secrets for project are stored.
 
 ``has_kitchen_tests?``
    Determine if a |kitchen yml| file exists in a cookbook.
