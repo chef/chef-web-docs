@@ -15,4 +15,15 @@ If the ``config.json`` file specifies:
      }
    }
 
-then the search against all node objects on the |chef server| for that query.
+then the search is run against all node objects on the |chef server|. For example:
+
+.. code-block:: javascript
+
+   "delivery-truck": {
+     "deploy": {
+       "search": {
+         "index": :node,
+         "query": 'role:load_balancer'
+       }
+     }
+   }
