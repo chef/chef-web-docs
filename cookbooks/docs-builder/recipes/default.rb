@@ -92,7 +92,7 @@ delivery
 12-9
 12-10
 analytics
-compliance_1-0
+compliance
 devkit
 oec_11-0
 oec_11-1

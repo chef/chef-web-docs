@@ -62,9 +62,9 @@ delivery:
 	mkdir -p $(BUILDDIR)/release/delivery/
 	$(BUILD_COMMAND_AND_ARGS) release_delivery/source $(BUILDDIR)/release/delivery/
 
-compliance_1-0:
-	mkdir -p $(BUILDDIR)/release/compliance_1-0/
-	$(BUILD_COMMAND_AND_ARGS) release_compliance_1-0/source $(BUILDDIR)/release/compliance_1-0/
+compliance:
+	mkdir -p $(BUILDDIR)/release/compliance/
+	$(BUILD_COMMAND_AND_ARGS) release_compliance/source $(BUILDDIR)/release/compliance/
 
 11-0:
 	mkdir -p $(BUILDDIR)/release/11-0/

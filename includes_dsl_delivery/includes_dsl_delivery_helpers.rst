@@ -70,7 +70,7 @@ The following |delivery|-specific helpers can be used in recipes:
    .. warning:: .. include:: ../../includes_dsl_delivery/includes_dsl_delivery_helpers_get_project_application_warning.rst
 
 ``get_project_secrets``
-   Get the contents of data bag from the |chef server|, in which secrets for project are stored.
+   Get the contents of data bag from the |chef server|. This data bag contains secrets that enable cookbooks to be published to a |supermarket|, an open source |git| repository, a repository on |github|.
 
 ``has_kitchen_tests?``
    Determine if a |kitchen yml| file exists in a cookbook.
