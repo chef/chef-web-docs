@@ -25,34 +25,19 @@ The following |delivery|-specific helpers can be used in recipes:
 
    .. code-block:: ruby
 
-      delivery_chef_server_search(:node, "key:attribute")
-
-   or:
-
-   .. code-block:: ruby
-
-      delivery_chef_server_search(:node, 'query',
-        :filter_result => { 'foo' => [ 'abc' ],
-                            'bar' => [ '123' ],
-                            'baz' => [ 'sea', 'power' ]
-                          }
-            ).each do |result|
-        puts result['foo']
-        puts result['bar']
-        puts result['baz']
-      end
+      delivery_chef_server_search('key:attribute')
 
    For example:
 
    .. code-block:: ruby
 
-      delivery_chef_server_search(:node, 'role:load_balancer')
+      delivery_chef_server_search('role:load_balancer')
 
    or:
 
    .. code-block:: ruby
 
-      delivery_chef_server_search(:node, 'platform:windows AND roles:postgresql')
+      delivery_chef_server_search('platform:windows AND roles:postgresql')
 
 
 ``delivery_environment``
