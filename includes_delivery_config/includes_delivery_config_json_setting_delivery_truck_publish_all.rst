@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The publish options may be specified together, in a single block:
+If the ``config.json`` file may specify all publish options together as a single block:
 
 .. code-block:: javascript
 
