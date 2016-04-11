@@ -8,10 +8,7 @@ If the ``config.json`` file specifies:
 
    "delivery-truck": {
      "deploy": {
-       "search": {
-         "index": :node,
-         "query": 'SEARCH_QUERY'
-       }
+       "search": { :node, 'SEARCH_QUERY' }
      }
    }
 
@@ -21,9 +18,6 @@ then the search is run against all node objects on the |chef server|. For exampl
 
    "delivery-truck": {
      "deploy": {
-       "search": {
-         "index": :node,
-         "query": 'role:load_balancer'
-       }
+       "search": { :node, 'role:load_balancer' }
      }
    }
