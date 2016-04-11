@@ -60,7 +60,7 @@ The following |delivery|-specific helpers can be used in recipes:
 
 
 ``deployment_search_query``
-   Get the search query from the ``config.json`` file.
+   Get a custom search query from the ``config.json`` file. By default, the ``deploy.rb`` recipe triggers a |chef client| run via |push jobs| against all nodes that belong to the current environment in |delivery| and have modified cookbooks in the run-list.
 
    .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_delivery_truck_deploy_search_query.rst
 
