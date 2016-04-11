@@ -2,16 +2,11 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The ``delivery-truck`` setting specifies configurations for specific phases of the |delivery| pipeline:
+The publish options may be specified together, in a single block:
 
 .. code-block:: javascript
 
-   "delivery-truck": {
-     "lint": {
-       "foodcritic": {
-         "only_rules": ["FC002"]
-       }
-     }
+   "delivery-truck":{
      "publish": {
        "chef_server": "true"
        "github": "chef/chef-web-docs"
@@ -19,7 +14,4 @@ The ``delivery-truck`` setting specifies configurations for specific phases of t
        "supermarket": "https://supermarket.chef.io",
        "supermarket-custom-credentials": "true"
      }
-     ...
-     <more_phases>
-     ...
    }
