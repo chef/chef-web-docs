@@ -10,39 +10,72 @@ About API Requests
 =====================================================
 Some notes about API requests:
 
-* Examples in this document use ``-u "$API_KEY:"`` to represent the retrieved API key. A retrieved API key is similar to: ``VS3x1XSg4Hk/wxw8IP+2XpmoKynR7urxglaGfLfFRXbxYljxNW5mksOSNj+BkO2DVoQehGosBnqCJA8WAz3Jyg==``. Set the ``API_KEY`` variable based on the API key that is assigned to your organization. Find a complete bash example under ``/oauth/token``.
-* When running commands as an administrator and if the ``API_KEY`` is not used, some requests to the |api compliance| will return ``403`` (forbidden) if the user making the requests does not have appropriate permissions.
+* There are two kinds of tokens involved: ``refresh tokens`` and ``access tokens``. A ``refresh token`` is a long-lived token that can be used to initially identify with the service, in exchange for an ``access token``. The ``access token`` is short-lived (12 hours) and used for every request against the API. It is mostly referred to as _API token_ below.
+* Examples in this document use ``-H "Authorization: Bearer $API_TOKEN"`` to represent the retrieved API (access) token. A retrieved API token is a JWT and quite large. See the examples below for how to get an access token in Bash.
+* When running commands as an administrator and if the ``API_TOKEN`` is not used, some requests to the |api compliance| will return ``403`` (forbidden) if the user making the requests does not have appropriate permissions.
 * Any time a |json| block is part of a request to the |api compliance|, the content type ``application/json`` must also be specified. Use the ``-H`` option: ``-H "Content-Type: application/json"``.
-* The ``Authorization: Basic base64encodedpassword`` header must contain a username and password with permission to authenticate to the |chef compliance| server. Successful authentication will return a valid |api compliance| token.
 
-  |chef compliance| uses the API token to allow access to the |api compliance|. The API key must be included as part of `every HTTP Basic Authentication request <http://en.wikipedia.org/wiki/Basic_access_authentication>`__ to the |api compliance| with the API key included as part of the header:
+  |chef compliance| uses the API token to allow access to the |api compliance|. The API token must be included as part of ``every HTTP request``__ to the |api compliance| with the API token included as part of the header:
 
   .. code-block:: javascript
 
-     Authorization: Basic API_KEY
+     Authorization: Bearer API_TOKEN
 
-  where the ``API_KEY`` is a valid |company_name| |api compliance| token similar to ``VS3x1XSg4Hk/wxw8IP+2XpmoKynR7urxglaGfLfFRXbxYljxNW5mksOSNj+BkO2DVoQehGosBnqCJA8WAz3Jyg==``.
-
-  A password is not required. HTTP Basic Authentication uses a colon (``:``) to separate the username and password. For example, a ``curl`` API call with the above token can be used in ``bash`` like this:
+  where the ``API_TOKEN`` is a valid |company_name| |api compliance| token similar to ``eyJhbGciOiJSUzI1NiIsImtpZCI6InJFZi1DUVZQYi1xTXY3WF9CdXZNZ3B5bnc2R3J0OW1adlN3NVhOY2VISjBBZzBaVVFUZTZCYVNROW91UWRob0JsemRvLV93V0VXd3ZJVEU4SS1KMk81enljRVhoZlFvU2JaeThfMVZTekt6SVN6LXFiYVZtUElqZHZiU1hneTNvY3Rla3RKRkYtWWNUa3lXbVhSaTd4OEVNSU9EVFFnVEplMV8zODhTZGt0MEdub0xJUEVnWXpWLTRGR1htOTctTnBfY3EwN0FaMk1rbnFZSmoxMktFcW95YThuUndFZF91QUlLb1JwdHF1Sk5yYXF4d3d5aUVnTTc5c0cxS0JQRUFweGJTUWxELTJTZV9vRFJFRjR1RGJvZlRvbmZ3aXVXVVQtcldyc1owVnllWk...``.
 
   .. code-block:: bash
 
      API_URL="https://example.com/api"
-     curl -X GET "$API_URL/users" \
-     -u "VS3x1XSg4Hk/wxw8IP+2XpmoKynR7urxglaGfLfFRXbxYljxNW5mksOSNj+BkO2DVoQehGosBnqCJA8WAz3Jyg==:"
-
-  **The colon (:) at the end of the key is easy to miss, but you must specify it when using curl.**
+     API_TOKEN="eyJhbGciOiJSUzI1NiIsImtpZCI6InJFZi1DUVZQYi1xTXY3WF9CdXZNZ3B5bnc2R3J0OW1adlN3NVhOY2VISjBBZzBaVVFUZTZCYVNROW91UWRob0JsemRvLV93V0VXd3ZJVEU4SS1KMk81enljRVhoZlFvU2JaeThfMVZTekt6SVN6LXFiYVZtUElqZHZiU1hneTNvY3Rla3RKRkYtWWNUa3lXbVhSaTd4OEVNSU9EVFFnVEplMV8zODhTZGt0MEdub0xJUEVnWXp..."
+     curl -X GET "$API_URL/users" -H "Authorization: Bearer $API_TOKEN"
 
   For readability, most API examples on this page reference |chef compliance| object names (or ``login`` in the case of users and organizations). You can also use object **UUIDs** instead. For example, both these calls retrieve the ``Dev Ops`` environment:
 
   .. code-block:: bash
 
-     $ curl -X GET "$API_URL/owners/john/envs/Dev%20Ops" -u "$API_KEY:"
-     {"id":"53a7f189-4417-44ba-57f4-f3d397589973","owner":"1654fe61-d15b-4fbe-5fa9-67859135fc7e","name":"Dev Ops","lastScan":"0001-01-01T00:00:00Z","complianceStatus":-1,"patchlevelStatus":-1,"unknownStatus":0}
+     $ export AUTH="Authorization: Bearer $API_TOKEN"   # used in examples below
+     $ curl -X GET "$API_URL/owners/john/envs/Dev%20Ops" -H "$AUTH"
+     {"owner":"1654fe61-d15b-4fbe-5fa9-67859135fc7e","name":"Dev Ops","lastScan":"0001-01-01T00:00:00Z","complianceStatus":-1,"patchlevelStatus":-1,"unknownStatus":0,"id":"53a7f189-4417-44ba-57f4-f3d397589973"}
 
-     $ curl -X GET "$API_URL/owners/1654fe61-d15b-4fbe-5fa9-67859135fc7e/envs/53a7f189-4417-44ba-57f4-f3d397589973" -u "$API_KEY:"
-     {"id":"53a7f189-4417-44ba-57f4-f3d397589973","owner":"1654fe61-d15b-4fbe-5fa9-67859135fc7e","name":"Dev Ops","lastScan":"0001-01-01T00:00:00Z","complianceStatus":-1,"patchlevelStatus":-1,"unknownStatus":0}
+     $ curl -X GET "$API_URL/owners/1654fe61-d15b-4fbe-5fa9-67859135fc7e/envs/53a7f189-4417-44ba-57f4-f3d397589973" -H "$AUTH"
+     {"owner":"1654fe61-d15b-4fbe-5fa9-67859135fc7e","name":"Dev Ops","lastScan":"0001-01-01T00:00:00Z","complianceStatus":-1,"patchlevelStatus":-1,"unknownStatus":0,"id":"53a7f189-4417-44ba-57f4-f3d397589973"}
 
+
+Obtaining an API token
+=====================================================
+
+There are two ways of obtaining an API token:
+
+1. Using the "About" dialogue of |chef compliance|
+2. Using a ``refresh token`` (which can also be obtained from the "About" dialogue, but can be reused).
+
+The API can be used to obtain an ``access token`` from a ``refresh token`` as follows:
+
+  .. code-block:: bash
+
+     $ export REFRESH_TOKEN="1/eT0ic04N4M10Z8kBB6XkJVPwDBFxDs9Z9bMkgzE5tLgpWZqYEnulXjNTeZx23v8pIrethF--egktQSKJTM_T7w=="   # an example
+     $ curl -X POST "$API_URL/login" -d "{\"token\": \"$REFRESH_TOKEN\"}"
+     {"access_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6InRySE ...abbreviated..."}
+
+It is convenient to save the API token for further use:
+
+  .. code-block:: bash
+
+     $ export API_TOKEN=$(curl -X POST $API_URL/login -d "{\"token\": \"$REFRESH_TOKEN\"}" | sed -e "s/.*access_token\":\"\([^\"]*\)\".*/\1/")
+
+Since refresh tokens do not expire, it is possible to revoke them:
+
+  .. code-block:: bash
+
+     $ curl -X DELETE $API_URL/login -d "{\"token\": \"$REFRESH_TOKEN\"}"
+     {"status":"success"}
+
+Revoked refresh tokens can no longer be used to obtain access tokens:
+
+  .. code-block:: bash
+
+     $ curl -X POST $API_URL/login -d "{\"token\": \"$REFRESH_TOKEN\"}"
+     unable to trade refresh token for access token with issuer: invalid_request
 
 Response Codes
 =====================================================
@@ -108,70 +141,6 @@ The response will return a |json| object similar to:
      "version": "0.14.3"
    }
 
-/oauth/token
-=====================================================
-The ``/oauth/token`` endpoint has the following methods: ``POST``.
-
-POST
------------------------------------------------------
-Use this method to request an API token valid for 24 hours:
-
-**Request**
-
-.. code-block:: xml
-
-   POST /api/oauth/token
-
-Here's an example on how to get the API token into a variable that will be used later:
-
-.. code-block:: bash
-
-    API_URL="https://example.com/api"
-    USERNAME="john"
-    # Get the json output in a variable
-    JSON=$(curl -s -S -X POST "$API_URL/oauth/token" -u "$USERNAME" -d "grant_type=client_credentials")
-    # Extract the access token and store it in the API_KEY variable
-    API_KEY=$(echo $JSON | sed -e "s/.*access_token\":\"\([^\"]*\)\".*/\1/")
-    # List users by adding a colon (:) after the API token
-    curl -X GET "$API_URL/users" -u "$API_KEY:"
-
-You can use ``-u "$USERNAME:$PASSWORD"`` if you don't want to be prompted for the password.
-
-**Response**
-
-The response for the ``/api/oauth/token`` call will return a |json| object similar to:
-
-.. code-block:: javascript
-
-   {
-     "access_token": "VS3x1XSg4Hk/wxw8IP+2XpmoKynR7urxglaGfLfFRXbxYljxNW5mksOSNj+BkO2DVoQehGosBnqCJA8WAz3Jyg==",
-     "expires_in": 86399,
-     "token_type": "chef token"
-   }
-
-/logout
-=====================================================
-
-POST
------------------------------------------------------
-Delete the API token for the current user.
-
-**Request**
-
-.. code-block:: xml
-
-  POST /api/logout
-
-For example:
-
-.. code-block:: bash
-
-  curl -X POST "$API_URL/logout" -u "$API_KEY:"
-
-**Response**
-
-No Content
-
 /compliance
 =====================================================
 The ``/compliance`` endpoint has the following methods: ``GET`` and ``POST``. The ``GET`` method may be used to return information about owners, all users, a named user, to download a profile as a |tar gz| file, and to upload profiles (including as |tar gz| or |zip| files).
@@ -190,7 +159,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/user/compliance" -u "$API_KEY:"
+   curl -X GET "$API_URL/user/compliance" -H "$AUTH"
 
 **Response**
 
@@ -244,7 +213,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/owners/john/compliance/ssh" -u "$API_KEY:"
+   curl -X GET "$API_URL/owners/john/compliance/ssh" -H "$AUTH"
 
 **Response**
 
@@ -292,7 +261,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/owners/john/compliance" -u "$API_KEY:"
+   curl -X GET "$API_URL/owners/john/compliance" -H "$AUTH"
 
 **Response**
 
@@ -370,7 +339,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/owners/john/compliance/ssh/tar" -u "$API_KEY:" > /tmp/profile.tar.gz
+   curl -X GET "$API_URL/owners/john/compliance/ssh/tar" -H "$AUTH" > /tmp/profile.tar.gz
    tar -zxvf /tmp/profile.tar.gz
 
 **Response**
@@ -393,11 +362,11 @@ For example:
 
    tar -cvzf /tmp/newprofile.tar.gz newprofile
    curl -X POST "$API_URL/owners/john/compliance?contentType=application/x-gtar" \
-   -u "$API_KEY:" --form "file=@/tmp/newprofile.tar.gz"
+   -H "$AUTH" --form "file=@/tmp/newprofile.tar.gz"
 
    zip -r /tmp/newprofile.zip newprofile
    curl -X POST "$API_URL/owners/john/compliance?contentType=application/zip" \
-   -u "$API_KEY:" --form "file=@/tmp/newprofile.zip"
+   -H "$AUTH" --form "file=@/tmp/newprofile.zip"
 
 **Response**
 
@@ -419,7 +388,7 @@ For example:
 
    tar -cvzf /tmp/newprofile.tar.gz newprofile
    curl -X POST "$API_URL/owners/john/compliance/newprofile/tar" \
-   -u "$API_KEY:" --data-binary "@/tmp/newprofile.tar.gz"
+   -H "$AUTH" --data-binary "@/tmp/newprofile.tar.gz"
 
 **Response**
 
@@ -447,7 +416,7 @@ For example:
 
    zip -r /tmp/newprofile.zip newprofile
    curl -X POST "$API_URL/owners/john/compliance/newprofile/zip" \
-   -u "$API_KEY:" --data-binary "@/tmp/newprofile.zip"
+   -H "$AUTH" --data-binary "@/tmp/newprofile.zip"
 
 .. The example above seems to be a mix of API request + command line stuff. What does the actual request look like?
 
@@ -469,7 +438,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -w "%{http_code}" -X DELETE "$API_URL/owners/john/compliance/ssh" -u "$API_KEY:"
+   curl -w "%{http_code}" -X DELETE "$API_URL/owners/john/compliance/ssh"
 
 
 *** Response ***
@@ -496,7 +465,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/owners/john/envs/Production" -u "$API_KEY:"
+   curl -X GET "$API_URL/owners/john/envs/Production" -H "$AUTH"
 
 **Response**
 
@@ -528,7 +497,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/owners/john/envs" -u "$API_KEY:"
+   curl -X GET "$API_URL/owners/john/envs" -H "$AUTH"
 
 **Response**
 
@@ -583,7 +552,7 @@ For example:
 .. code-block:: bash
 
    curl -X POST "$API_URL/owners/john/envs" \
-   -H "Content-Type: application/json" -u "$API_KEY:" -d '{"name":"Development"}'
+   -H "Content-Type: application/json" -H "$AUTH" -d '{"name":"Development"}'
 
 **Response**
 
@@ -615,7 +584,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -w "%{http_code}" -X DELETE "$API_URL/owners/john/envs/Production" -u "$API_KEY:"
+   curl -w "%{http_code}" -X DELETE "$API_URL/owners/john/envs/Production" -H "$AUTH"
 
 **Response**
 
@@ -639,7 +608,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/owners/john/jobs" -u "$API_KEY:"
+   curl -X GET "$API_URL/owners/john/jobs" -H "$AUTH"
 
 **Response**
 
@@ -706,7 +675,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/owners/john/jobs/c8ba8e88-7e45-4253-9081-cbb17a5f0c76" -u "$API_KEY:"
+   curl -X GET "$API_URL/owners/john/jobs/c8ba8e88-7e45-4253-9081-cbb17a5f0c76" -H "$AUTH"
 
 **Response**
 
@@ -835,7 +804,7 @@ For example:
 .. code-block:: bash
 
    curl -X POST "$API_URL/owners/john/jobs" \
-   -H "Content-Type: application/json" -u "$API_KEY:" -d '{ JSON_BLOCK }'
+   -H "Content-Type: application/json" -H "$AUTH" -d '{ JSON_BLOCK }'
 
 **Response**
 
@@ -865,7 +834,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -w "%{http_code}" -X DELETE "$API_URL/owners/john/jobs/c8ba8e88-7e45-4253-9081-cbb17a5f0c76" -u "$API_KEY:"
+   curl -w "%{http_code}" -X DELETE "$API_URL/owners/john/jobs/c8ba8e88-7e45-4253-9081-cbb17a5f0c76" -H "$AUTH"
 
 **Response**
 
@@ -889,7 +858,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/owners/john/keys" -u "$API_KEY:"
+   curl -X GET "$API_URL/owners/john/keys" -H "$AUTH"
 
 **Response**
 
@@ -918,7 +887,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -w "%{http_code}" -X PATCH "$API_URL/owners/john/keys/vagrant" -u "$API_KEY:" -d '{ JSON_BLOCK }'
+   curl -w "%{http_code}" -X PATCH "$API_URL/owners/john/keys/vagrant" -H "$AUTH" -d '{ JSON_BLOCK }'
 
 **Response**
 
@@ -971,7 +940,7 @@ For example:
 .. code-block:: bash
 
    curl -X POST "$API_URL/owners/john/keys" \
-   -H "Content-Type: application/json" -u "$API_KEY:" -d '{ JSON_BLOCK }'
+   -H "Content-Type: application/json" -H "$AUTH" -d '{ JSON_BLOCK }'
 
 **Response**
 
@@ -997,7 +966,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -w "%{http_code}" -X DELETE "$API_URL/owners/john/keys/vagrant" -u "$API_KEY:"
+   curl -w "%{http_code}" -X DELETE "$API_URL/owners/john/keys/vagrant" -H "$AUTH"
 
 **Response**
 
@@ -1044,7 +1013,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X POST "$API_URL/owners/john/nodes" -H "Content-Type: application/json" -u "$API_KEY:" \
+   curl -X POST "$API_URL/owners/john/nodes" -H "Content-Type: application/json" -H "$AUTH" \
    -d '[{"hostname":"lb1.example.com","name":"Load Balancer 1","environment":"b771e025-6445-4ead-5cac-b466ea725177","loginUser":"root","loginMethod":"ssh","loginKey":"john/vagrant"},{"hostname":"lb2.example.com","name":"Load Balancer 2","environment":"b771e025-6445-4ead-5cac-b466ea725177","loginUser":"root","loginMethod":"ssh","loginKey":"john/vagrant"}]'
 
 **Response**
@@ -1095,7 +1064,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X POST "$API_URL/owners/john/nodes" -H "Content-Type: application/json" -u "$API_KEY:" \
+   curl -X POST "$API_URL/owners/john/nodes" -H "Content-Type: application/json" -H "$AUTH" \
    -d '[{"hostname":"lb1.example.com","name":"Load Balancer 1 - updated","environment":"b771e025-6445-4ead-5cac-b466ea725177","loginUser":"root","loginMethod":"ssh","loginKey":"john/vagrant"},{"hostname":"lb2.example.com","name":"Load Balancer 2 - updated","environment":"b771e025-6445-4ead-5cac-b466ea725177","loginUser":"root","loginMethod":"ssh","loginKey":"john/vagrant"}]'
 
 **Response**
@@ -1126,7 +1095,7 @@ For example:
 .. code-block:: bash
 
    curl -w "%{http_code}" -X DELETE "$API_URL/owners/john/envs/Production/nodes" \
-   -u "$API_KEY:" -d '["d850ba44-7a82-4177-50db-79be1143d632","33ecfce5-f781-4eb7-6828-beb090ffe9b5"]'
+   -H "$AUTH" -d '["d850ba44-7a82-4177-50db-79be1143d632","33ecfce5-f781-4eb7-6828-beb090ffe9b5"]'
 
 **Response**
 
@@ -1150,7 +1119,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/owners/john/envs/Production/nodes" -u "$API_KEY:"
+   curl -X GET "$API_URL/owners/john/envs/Production/nodes" -H "$AUTH"
 
 **Response**
 
@@ -1198,7 +1167,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/owners/john/envs/Production/nodes/6f7336b5-380e-4e75-4b06-781950c9a1a5" -u "$API_KEY:"
+   curl -X GET "$API_URL/owners/john/envs/Production/nodes/6f7336b5-380e-4e75-4b06-781950c9a1a5" -H "$AUTH"
 
 **Response**
 
@@ -1258,7 +1227,7 @@ For example:
 .. code-block:: bash
 
    curl -X POST "$API_URL/owners/john/envs/Production/nodes" \
-   -H "Content-Type: application/json" -u "$API_KEY:" -d '{ JSON_BLOCK }'
+   -H "Content-Type: application/json" -H "$AUTH" -d '{ JSON_BLOCK }'
 
 **Response**
 
@@ -1289,7 +1258,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -w "%{http_code}" -X DELETE "$API_URL/owners/john/envs/Production/nodes/6f7336b5-380e-4e75-4b06-781950c9a1a5" -u "$API_KEY:"
+   curl -w "%{http_code}" -X DELETE "$API_URL/owners/john/envs/Production/nodes/6f7336b5-380e-4e75-4b06-781950c9a1a5" -H "$AUTH"
 
 **Response**
 
@@ -1321,7 +1290,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -w "%{http_code}" -X PATCH "$API_URL/owners/john/envs/ENV/nodes/6f7336b5-380e-4e75-4b06-781950c9a1a5" -H "Content-Type: application/json" -u "$API_KEY:" \
+   curl -w "%{http_code}" -X PATCH "$API_URL/owners/john/envs/ENV/nodes/6f7336b5-380e-4e75-4b06-781950c9a1a5" -H "Content-Type: application/json" -H "$AUTH" \
    -d '{"hostname":"lb1.example.com","name":"Load Balancer 1 - new","environment":"b771e025-6445-4ead-5cac-b466ea725177","loginUser":"root","loginMethod":"ssh","loginKey":"john/vagrant"}'
 
 **Response**
@@ -1342,7 +1311,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/owners/john/envs/Production/nodes/6f7336b5-380e-4e75-4b06-781950c9a1a5/connectivity" -u "$API_KEY:"
+   curl -X GET "$API_URL/owners/john/envs/Production/nodes/6f7336b5-380e-4e75-4b06-781950c9a1a5/connectivity" -H "$AUTH"
 
 **Response**
 
@@ -1429,7 +1398,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/owners/john/envs/Production/nodes/9b764f79-b96c-4dfa-5a02-9fa3b1abf35b/compliance" -u "$API_KEY:"
+   curl -X GET "$API_URL/owners/john/envs/Production/nodes/9b764f79-b96c-4dfa-5a02-9fa3b1abf35b/compliance" -H "$AUTH"
 
 **Response**
 
@@ -1475,7 +1444,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/owners/john/envs/Production/nodes/9b764f79-b96c-4dfa-5a02-9fa3b1abf35b/patches" -u "$API_KEY:"
+   curl -X GET "$API_URL/owners/john/envs/Production/nodes/9b764f79-b96c-4dfa-5a02-9fa3b1abf35b/patches" -H "$AUTH"
 
 **Response**
 
@@ -1510,7 +1479,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/owners/john/envs/Production/nodes/9b764f79-b96c-4dfa-5a02-9fa3b1abf35b/packages" -u "$API_KEY:"
+   curl -X GET "$API_URL/owners/john/envs/Production/nodes/9b764f79-b96c-4dfa-5a02-9fa3b1abf35b/packages" -H "$AUTH"
 
 **Response**
 
@@ -1554,7 +1523,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/orgs" -u "$API_KEY:"
+   curl -X GET "$API_URL/orgs" -H "$AUTH"
 
 **Response**
 
@@ -1586,7 +1555,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/orgs/acme" -u "$API_KEY:"
+   curl -X GET "$API_URL/orgs/acme" -H "$AUTH"
 
 **Response**
 
@@ -1626,7 +1595,7 @@ For example:
 .. code-block:: bash
 
    curl -w "%{http_code}" -X PATCH "$API_URL/orgs/acme" -H "Content-Type: application/json" \
-   -u "$API_KEY:" -d '{"name":"ACME2 Corporation"}'
+   -H "$AUTH" -d '{"name":"ACME2 Corporation"}'
 
 **Response**
 
@@ -1658,7 +1627,7 @@ For example:
 .. code-block:: bash
 
    curl -X POST "$API_URL/orgs" -H "Content-Type: application/json" \
-   -u "$API_KEY:" -d '{"name":"ACME Corporation","login":"acme"}'
+   -H "$AUTH" -d '{"name":"ACME Corporation","login":"acme"}'
 
 **Response**
 
@@ -1690,7 +1659,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -w "%{http_code}" -X DELETE "$API_URL/orgs/acme" -u "$API_KEY:"
+   curl -w "%{http_code}" -X DELETE "$API_URL/orgs/acme" -H "$AUTH"
 
 **Response**
 
@@ -1716,7 +1685,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/owners/john/scans" -u "$API_KEY:"
+   curl -X GET "$API_URL/owners/john/scans" -H "$AUTH"
 
 **Response**
 
@@ -1754,7 +1723,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/owners/john/scans/SCAN_ID" -u "$API_KEY:"
+   curl -X GET "$API_URL/owners/john/scans/SCAN_ID" -H "$AUTH"
 
 where ``SCAN_ID`` is similar to ``90def607-1688-40f5-5a4c-161c51fd8aac``.
 
@@ -1881,7 +1850,7 @@ For example:
 .. code-block:: bash
 
    curl -X POST "$API_URL/owners/john/scans" \
-   -H "Content-Type: application/json" -u "$API_KEY:" -d '{ JSON_BLOCK }'
+   -H "Content-Type: application/json" -H "$AUTH" -d '{ JSON_BLOCK }'
 
 **Response**
 
@@ -1911,7 +1880,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/owners/john/scans/SCAN_ID/rules" -u "$API_KEY:"
+   curl -X GET "$API_URL/owners/john/scans/SCAN_ID/rules" -H "$AUTH"
 
 where ``SCAN_ID`` is similar to ``90def607-1688-40f5-5a4c-161c51fd8aac``.
 
@@ -1969,7 +1938,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/owners/john/scans/SCAN_ID/nodes" -u "$API_KEY:"
+   curl -X GET "$API_URL/owners/john/scans/SCAN_ID/nodes" -H "$AUTH"
 
 where ``SCAN_ID`` is similar to ``90def607-1688-40f5-5a4c-161c51fd8aac``.
 
@@ -2029,7 +1998,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/owners/john/scans/SCAN_ID/envs/Production/nodes/NODE_ID/compliance" -u "$API_KEY:"
+   curl -X GET "$API_URL/owners/john/scans/SCAN_ID/envs/Production/nodes/NODE_ID/compliance" -H "$AUTH"
 
 where ``SCAN_ID`` is similar to ``90def607-1688-40f5-5a4c-161c51fd8aac``
 and ``NODE_ID`` is similar to ``9b764f79-b96c-4dfa-5a02-9fa3b1abf35b``
@@ -2093,7 +2062,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/owners/john/scans/SCAN_ID/envs/Production/nodes/NODE_ID/patches" -u "$API_KEY:"
+   curl -X GET "$API_URL/owners/john/scans/SCAN_ID/envs/Production/nodes/NODE_ID/patches" -H "$AUTH"
 
 where ``SCAN_ID`` is similar to ``90def607-1688-40f5-5a4c-161c51fd8aac``
 and ``NODE_ID`` is similar to ``9b764f79-b96c-4dfa-5a02-9fa3b1abf35b``
@@ -2150,7 +2119,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/owners/john/scans/SCAN_ID/envs/Production/nodes/NODE_ID/packages" -u "$API_KEY:"
+   curl -X GET "$API_URL/owners/john/scans/SCAN_ID/envs/Production/nodes/NODE_ID/packages" -H "$AUTH"
 
 where ``SCAN_ID`` is similar to ``90def607-1688-40f5-5a4c-161c51fd8aac``
 and ``NODE_ID`` is similar to ``9b764f79-b96c-4dfa-5a02-9fa3b1abf35b``
@@ -2189,7 +2158,7 @@ The ``/server/config`` endpoint has the following methods: ``GET`` and ``PATCH``
 
 GET
 -----------------------------------------------------
-Use to return the global configuration for the |chef compliance| server. The configuration may be edited via the |api compliance| or by using the COMPLIANCE_CONFIG_FILE. Only parameters that may be safely tuned are exposed. All timeout configuration settings are defined in seconds, i.e. ``1800`` is ``30 minutes``. << CHRISTOPH: can you point me to the list of tunable settings for the Compliance Server?
+Use to return the global configuration for the |chef compliance| server. The configuration may be edited via the |api compliance| or by using the COMPLIANCE_CONFIG_FILE. Only parameters that may be safely tuned are exposed. All timeout configuration settings are defined in seconds, i.e. ``1800`` is ``30 minutes``.
 
 **Request**
 
@@ -2202,7 +2171,7 @@ For example:
 .. code-block:: bash
 
    curl -X GET "$API_URL/server/config" \
-   -H "Content-Type: application/json" -u "$API_KEY:"
+   -H "Content-Type: application/json" -H "$AUTH"
 
 **Response**
 
@@ -2217,8 +2186,9 @@ The response will return a |json| object similar to:
     "detectTimeout": 30,
     "scanTimeout": 1800,
     "updateTimeout": 1800,
-    "home": null
-    }
+    "home": null,
+    "licensedNodeCount": 25
+   }
 
 PATCH
 -----------------------------------------------------
@@ -2235,7 +2205,7 @@ For example:
 .. code-block:: bash
 
    curl -w "%{http_code}" -X PATCH "$API_URL/server/config" \
-   -H "Content-Type: application/json" -u "$API_KEY:" -d '{ JSON_BLOCK }'
+   -H "Content-Type: application/json" -H "$AUTH" -d '{ JSON_BLOCK }'
 
 **Response**
 
@@ -2258,7 +2228,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/owners/john/summary" -u "$API_KEY:"
+   curl -X GET "$API_URL/owners/john/summary" -H "$AUTH"
 
 **Response**
 
@@ -2289,7 +2259,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/orgs/acme/teams" -u "$API_KEY:"
+   curl -X GET "$API_URL/orgs/acme/teams" -H "$AUTH"
 
 **Response**
 
@@ -2324,7 +2294,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/orgs/acme/teams/owners" -u "$API_KEY:"
+   curl -X GET "$API_URL/orgs/acme/teams/owners" -H "$AUTH"
 
 **Response**
 
@@ -2375,7 +2345,7 @@ For example:
 .. code-block:: bash
 
    curl -w "%{http_code}" -X PATCH "$API_URL/orgs/acme/teams/TEAM_ID" \
-   -H "Content-Type: application/json" -u "$API_KEY:" -d '{ JSON_BLOCK }'
+   -H "Content-Type: application/json" -H "$AUTH" -d '{ JSON_BLOCK }'
 
 where ``TEAM_ID`` is similar to ``20aff993-3288-426d-6851-d1d47bb40d80``
 
@@ -2411,7 +2381,7 @@ For example:
 .. code-block:: bash
 
    curl -X POST "$API_URL/orgs/acme/teams" \
-   -H "Content-Type: application/json" -u "$API_KEY:" \
+   -H "Content-Type: application/json" -H "$AUTH" \
    -d '{"name":"manageteam","permissions":{"manage":"true"}}'
 
 **Response**
@@ -2443,7 +2413,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -w "%{http_code}" -X DELETE "$API_URL/orgs/acme/teams/TEAM_ID" -u "$API_KEY:"
+   curl -w "%{http_code}" -X DELETE "$API_URL/orgs/acme/teams/TEAM_ID" -H "$AUTH"
 
 where ``TEAM_ID`` is similar to ``20aff993-3288-426d-6851-d1d47bb40d80``
 
@@ -2469,7 +2439,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -w "%{http_code}" -X DELETE "$API_URL/orgs/acme/teams/TEAM_ID/members/MEMBER_ID" -u "$API_KEY:"
+   curl -w "%{http_code}" -X DELETE "$API_URL/orgs/acme/teams/TEAM_ID/members/MEMBER_ID" -H "$AUTH"
 
 where ``TEAM_ID`` is similar to ``20aff993-3288-426d-6851-d1d47bb40d80``
 and ``MEMBER_ID`` is similar to ``7ae9dd7d-5201-4ae3-4949-60eb4b902e77``
@@ -2492,7 +2462,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/orgs/acme/teams/TEAM_ID/members" -u "$API_KEY:"
+   curl -X GET "$API_URL/orgs/acme/teams/TEAM_ID/members" -H "$AUTH"
 
 where ``TEAM_ID`` is similar to ``20aff993-3288-426d-6851-d1d47bb40d80``
 
@@ -2532,7 +2502,7 @@ For example:
 .. code-block:: bash
 
    curl -w "%{http_code}" -X PATCH "$API_URL/orgs/acme/teams/TEAM_ID" \
-   -H "Content-Type: application/json" -u "$API_KEY:" -d '{ JSON_BLOCK }'
+   -H "Content-Type: application/json" -H "$AUTH" -d '{ JSON_BLOCK }'
 
 where ``TEAM_ID`` is similar to ``20aff993-3288-426d-6851-d1d47bb40d80``
 
@@ -2566,7 +2536,7 @@ For example:
 .. code-block:: bash
 
    curl -X POST "$API_URL/orgs/acme/teams/TEAM_ID/members" \
-   -H "Content-Type: application/json" -u "$API_KEY:" -d '{["bob"]}'
+   -H "Content-Type: application/json" -H "$AUTH" -d '{["bob"]}'
 
 where ``TEAM_ID`` is similar to ``20aff993-3288-426d-6851-d1d47bb40d80``
 
@@ -2592,7 +2562,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/users" -u "$API_KEY:"
+   curl -X GET "$API_URL/users" -H "$AUTH"
 
 **Response**
 
@@ -2628,7 +2598,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -X GET "$API_URL/users/john" -u "$API_KEY:"
+   curl -X GET "$API_URL/users/john" -H "$AUTH"
 
 **Response**
 
@@ -2680,7 +2650,7 @@ For example:
 .. code-block:: bash
 
    curl -X POST "$API_URL/users" \
-   -H "Content-Type: application/json" -u "$API_KEY:" -d '{ "name":"Lee Doe", "login":"lee","password":"l8dDnwr-0fgh" }'
+   -H "Content-Type: application/json" -H "$AUTH" -d '{ "name":"Lee Doe", "login":"lee","password":"l8dDnwr-0fgh" }'
 
 **Response**
 
@@ -2720,7 +2690,7 @@ For example:
 .. code-block:: bash
 
    curl -w "%{http_code}" -X PATCH "$API_URL/users/john" \
-   -H "Content-Type: application/json" -u "$API_KEY:" -d '{ "name":"Sir. Lee Smith" }'
+   -H "Content-Type: application/json" -H "$AUTH" -d '{ "name":"Sir. Lee Smith" }'
 
 
 **Response**
@@ -2741,7 +2711,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -w "%{http_code}" -X DELETE "$API_URL/users/john" -u "$API_KEY:"
+   curl -w "%{http_code}" -X DELETE "$API_URL/users/john" -H "$AUTH"
 
 **Response**
 
