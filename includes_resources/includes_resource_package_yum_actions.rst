@@ -16,4 +16,4 @@ This resource has the following actions:
    Remove a package.
 
 ``:upgrade``
-   Install a package and/or ensure that a package is the latest version.
+   Install a package and/or ensure that a package is the latest version. Ignores any ``version`` attribute for the resource.
