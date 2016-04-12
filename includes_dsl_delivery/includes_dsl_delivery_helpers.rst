@@ -5,7 +5,7 @@
 The following |delivery|-specific helpers can be used in recipes:
 
 ``bumped_version?``
-   Determine if files in a cookbook have been modified, and then to ensure that a cookbook's version is updated in its |metadata rb| file.
+   Determine if files in a cookbook have been modified, and then to ensure that a cookbook's version is updated in its |metadata rb| file. The Verify phase will fail if files in a cookbook are modified without a corresponding vesrion bump to the |metadata rb| file.
 
 ``changed_cookbooks``
    Get a list of cookbooks that have been modified.
@@ -70,7 +70,7 @@ The following |delivery|-specific helpers can be used in recipes:
    .. warning:: .. include:: ../../includes_dsl_delivery/includes_dsl_delivery_helpers_get_project_application_warning.rst
 
 ``get_project_secrets``
-   Get the contents of data bag from the |chef server|. This data bag contains secrets that enable cookbooks to be published to a |supermarket|, an open source |git| repository, a repository on |github|.
+   Get the contents of the ``delivery-secrets`` data bag from the |chef server|. This data bag contains secrets that enable cookbooks to be published to a |supermarket|, an open source |git| repository, a repository on |github|.
 
 ``has_kitchen_tests?``
    Determine if a |kitchen yml| file exists in a cookbook.

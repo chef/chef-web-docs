@@ -103,4 +103,4 @@ This resource has the following properties:
 ``version``
    **Ruby Types:** String, Array
 
-   |version package|
+   |version package| This attribute is ignored when using the ``:upgrade`` action.
