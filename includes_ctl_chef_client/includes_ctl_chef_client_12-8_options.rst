@@ -25,8 +25,8 @@ This command has the following options:
 ``--chef-zero-port PORT``
    |port chef_zero| If a port is not specified---individually, as range of ports, or from the ``chef_zero.port`` setting in the |client rb| file---the |chef client| will scan for ports between 8889-9999 and will pick the first port that is available.
 
-``-d SECONDS``, ``--daemonize SECONDS``
-   |daemonize| Use ``SECONDS`` to specify the number of seconds to wait before the first daemonized |chef client| run. ``SECONDS`` is set to ``0`` by default.
+``-d``, ``--daemonize``
+   |daemonize|
 
    |daemonize windows|
 

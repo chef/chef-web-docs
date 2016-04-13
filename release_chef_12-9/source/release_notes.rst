@@ -14,6 +14,7 @@ The following items are new for |chef client| 12.9 and/or are changes from previ
 * **Registry key redirection in Windows for 32-bit applications** Registry keys on |windows| that are managed by the |resource registry_key| resource are subject to key redirection, depending if the |chef client| is 64-bit or 32-bit.
 * **New values for log_location** Use ``:win_evt`` to write log output to the (|windows event logger| and ``:syslog`` to write log output to the |syslog| daemon facility with the originator set as ``chef-client``.
 * **New timeout setting for knife ssh** Set the ``--ssh-timeout`` setting to an integer (in seconds) as part of a ``knife ssh`` command. The ``ssh_timeout`` setting may also be configured (as seconds) in the |knife rb| file.
+* **New "seconds to wait before first chef-client run" setting** The ``-daemonized`` option for the |chef client| now allows the seconds to wait before starting the |chef client| run to be specified. For example, if ``--daemonize 10`` is specified, the |chef client| will wait ten seconds.
 
 
 64-bit chef-client
