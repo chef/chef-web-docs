@@ -2,10 +2,10 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The ``help`` subcommand is used to print a list of all available ``opscode-manage-ctl`` commands. 
+The ``help`` subcommand is used to print a list of all available ``chef-manage-ctl`` commands. 
 
 This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ opscode-manage-ctl help
+   $ chef-manage-ctl help

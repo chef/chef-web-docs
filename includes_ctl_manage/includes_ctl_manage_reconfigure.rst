@@ -8,4 +8,4 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ opscode-manage-ctl reconfigure
+   $ chef-manage-ctl reconfigure
