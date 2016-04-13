@@ -65,6 +65,8 @@ Whitespace Arrays
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_ruby/includes_ruby_style_basics_array_shortcut.rst
 
+.. include:: ../../includes_ruby/includes_ruby_style_patterns_string_quoting_vs_whitespace_array.rst
+
 |ruby hash|
 -----------------------------------------------------
 .. include:: ../../includes_ruby/includes_ruby_style_basics_hash.rst
@@ -166,6 +168,10 @@ Symbols or Strings?
 String Quoting
 -----------------------------------------------------
 .. include:: ../../includes_ruby/includes_ruby_style_patterns_string_quoting.rst
+
+Whitespace Arrays
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ruby/includes_ruby_style_patterns_string_quoting_vs_whitespace_array.rst
 
 Shelling Out
 -----------------------------------------------------
