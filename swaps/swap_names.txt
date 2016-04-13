@@ -561,6 +561,7 @@
 .. |joyent| replace:: Joyent
 .. |js| replace:: JavaScript
 .. |json| replace:: JSON
+.. |json jwt| replace:: JSON Web Token (JWT)
 .. |juniper| replace:: Juniper Networks
 .. |juniper chef| replace:: Chef for Junos OS
 .. |junit| replace:: JUnit
