@@ -15,7 +15,7 @@ Some notes about API requests:
 * When running commands as an administrator and if the ``API_TOKEN`` is not used, some requests to the |api compliance| will return ``403`` (forbidden) if the user making the requests does not have appropriate permissions.
 * Any time a |json| block is part of a request to the |api compliance|, the content type ``application/json`` must also be specified. Use the ``-H`` option: ``-H "Content-Type: application/json"``.
 
-  |chef compliance| uses the API token to allow access to the |api compliance|. The API token must be included as part of ``every HTTP request``__ to the |api compliance| with the API token included as part of the header:
+  |chef compliance| uses the API token to allow access to the |api compliance|. The API token must be included as part of ``every HTTP request`` to the |api compliance| with the API token included as part of the header:
 
   .. code-block:: javascript
 
