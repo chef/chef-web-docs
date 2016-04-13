@@ -8,4 +8,4 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ opscode-manage-ctl show-config
+   $ chef-manage-ctl show-config
