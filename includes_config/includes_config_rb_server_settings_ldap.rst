@@ -52,7 +52,7 @@ This configuration file has the following settings for ``ldap``:
    .. warning:: This setting is **not** used by the |chef server|. It is used only by the |chef manage|.
 
 ``ldap['timeout']``
-   Default value: ``60000``.
+   |timeout| Default value: ``60000``.
 
 ``ldap['tls_enabled']``
    |ldap enable_tls| When ``true``, ``ldap['port']`` is also set to ``636``. Default value: ``false``. Must be ``false`` when ``ldap['ssl_enabled']`` is ``true``.

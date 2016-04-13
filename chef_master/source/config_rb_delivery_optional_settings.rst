@@ -191,7 +191,7 @@ This configuration file has the following settings for ``delivery``:
    |ldap port| Default value: ``3269``.
 
 ``delivery['ldap_timeout']``
-   Default value: ``5000``.
+   |timeout| Default value: ``5000``.
 
 ``delivery['listen']``
    |ip_address virtual| Default value: ``'127.0.0.1'``.
@@ -206,7 +206,7 @@ This configuration file has the following settings for ``delivery``:
    |log_rotation| Default value: ``10``.
 
 ``delivery['max_backups']``
-   Default value: ``7``.
+   The maximum number of backups to be kept. Default value: ``7``.
 
 ``delivery['phase_job_confirmation_timeout']``
    Timeout for waiting for phase job to confirm completion. Default value: ``'5m'``.
