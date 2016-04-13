@@ -21,24 +21,7 @@ The following |delivery|-specific helpers can be used in recipes:
 
 
 ``delivery_chef_server_search``
-   Run a search query against the node objects on the |chef server|, using standard |chef server| search query syntax with the index type set to ``:node``, similar to:
-
-   .. code-block:: ruby
-
-      delivery_chef_server_search('key:attribute')
-
-   For example:
-
-   .. code-block:: ruby
-
-      delivery_chef_server_search('role:load_balancer')
-
-   or:
-
-   .. code-block:: ruby
-
-      delivery_chef_server_search('platform:windows AND roles:postgresql')
-
+   Run a search query against the node objects on the |chef server|, using the default search query. The default search query is defined in the |delivery| web UI on the "Default Search" tab. 
 
 ``delivery_environment``
    Get the name of the standard environment.
