@@ -50,7 +50,7 @@ To install a standby |delivery| server using the ``delivery-cluster`` cookbook:
    .. code-block:: javascript
 
       "delivery": {
-        "dr": {
+        "disaster_recovery": {
           "enable": true
         },
         ...
@@ -61,7 +61,7 @@ To install a standby |delivery| server using the ``delivery-cluster`` cookbook:
    .. code-block:: javascript
 
       "delivery": {
-        "dr": {
+        "disaster_recovery": {
           "enable": true,
           "ip": "10.194.8.8"
         },
@@ -185,7 +185,7 @@ The following steps describe how to manually install a |delivery| server for use
                                                 ]
       postgresql['listen_address'] = 'localhost,<PRIMARY_IP_ADDRESS>'
       delivery['standby_ip'] = '<STANDBY_IP_ADDRESS>'
-      lsyncd['ssh_key'] = '/opt/delivery/embedded/.ssh/<PRIVATE_KEY>' 
+      lsyncd['ssh_key'] = '/opt/delivery/embedded/.ssh/<PRIVATE_KEY>'
 
    where ``PRIMARY_IP_ADDRESS``, ``STANDBY_IP_ADDRESS``, and ``PRIVATE_KEY`` should be replaced with the actual values for the |delivery| configuration. The ``PRIMARY_IP_ADDRESS`` and ``STANDBY_IP_ADDRESS`` values should be from a private network between the two machines.
 
