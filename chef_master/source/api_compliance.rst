@@ -10,12 +10,12 @@ About API Requests
 =====================================================
 Some notes about API requests:
 
-* There are two kinds of tokens involved: ``refresh tokens`` and ``access tokens``. A ``refresh token`` is a long-lived token that can be used to initially identify with the service, in exchange for an ``access token``. The ``access token`` is short-lived (12 hours) and used for every request against the API. It is mostly referred to as _API token_ below.
-* Examples in this document use ``-H "Authorization: Bearer $API_TOKEN"`` to represent the retrieved API (access) token. A retrieved API token is a JWT and quite large. See the examples below for how to get an access token in Bash.
+* There are two kinds of tokens involved: ``refresh tokens`` and ``access tokens``. A ``refresh token`` is a long-lived token that can be used to initially identify with the service, in exchange for an ``access token``. The ``access token`` is short-lived (12 hours) and used for every request against the API. It is mostly referred to as "API token" below.
+* Examples in this document use ``-H "Authorization: Bearer $API_TOKEN"`` to represent the retrieved API (access) token. A retrieved API token is a |json jwt| and quite large. See the examples below for how to get an access token in |bash|.
 * When running commands as an administrator and if the ``API_TOKEN`` is not used, some requests to the |api compliance| will return ``403`` (forbidden) if the user making the requests does not have appropriate permissions.
 * Any time a |json| block is part of a request to the |api compliance|, the content type ``application/json`` must also be specified. Use the ``-H`` option: ``-H "Content-Type: application/json"``.
 
-  |chef compliance| uses the API token to allow access to the |api compliance|. The API token must be included as part of ``every HTTP request``__ to the |api compliance| with the API token included as part of the header:
+  |chef compliance| uses the API token to allow access to the |api compliance|. The API token must be included as part of ``every HTTP request`` to the |api compliance| with the API token included as part of the header:
 
   .. code-block:: javascript
 
@@ -43,7 +43,6 @@ Some notes about API requests:
 
 Obtaining an API token
 =====================================================
-
 There are two ways of obtaining an API token:
 
 1. Using the "About" dialogue of |chef compliance|
