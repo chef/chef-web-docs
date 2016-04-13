@@ -1,5 +1,5 @@
 {
-  "client": "/release/12-8",
+  "client": "/release/12-9",
   "server": "/release/server_12-4",
   "analytics": "/release/analytics",
   "compliance": "/release/compliance",
