@@ -87,21 +87,21 @@ The |api compliance| uses conventional HTTP response codes to highlight a reques
    * - Response Code
      - Description
    * - ``200``
-     - OK -- Everything worked as expected.
+     - OK. Everything worked as expected.
    * - ``400``
-     - Bad Request -- In most cases a required parameter is missing.
+     - Bad Request. In most cases a required parameter is missing.
    * - ``401``
-     - Unauthorized -- No valid API key provided.
+     - Unauthorized. No valid API key provided.
    * - ``402``
-     - Request Failed -- Parameters were valid but request failed.
+     - Request Failed. Parameters were valid but request failed.
    * - ``403``
-     - Forbidden -- You do not have the permission to execute the request.
+     - Forbidden. You do not have the permission to execute the request.
    * - ``404``
-     - Not Found -- The specified resource could not be found.
+     - Not Found. The specified resource could not be found.
    * - ``429``
-     - Too Many Requests -- You reached the rate limit.
+     - Too Many Requests. You reached the rate limit.
    * - ``500``, ``501``, ``502``, ``503``
-     - Server Error -- Something went wrong.
+     - Server Error. Something went wrong.
 
 In general, ``2xx`` codes indicate success, ``4xx`` indicate a request error (e.g. data is missing) and ``5xx`` indicate an error with the |api compliance|.
 
@@ -1325,7 +1325,7 @@ The request will return one of the following response code:
    * - ``200``
      - Success.
    * - ``402``
-     - Request Failed -- Node is not reachable. A failed response returns one of the following messages:
+     - Request Failed. Node is not reachable. A failed response returns one of the following messages:
 
        Connection timeout:
 
@@ -1430,8 +1430,6 @@ The response will return a |json| object similar to:
 GET (patch)
 -----------------------------------------------------
 Use to show the patch state for the named node.
-
-.. ATTN: remove this, right?
 
 **Request**
 
@@ -1809,13 +1807,6 @@ This method has the following parameters:
      - An array of selected profiles.
    * - ``environments``
      - An array of environments and selected nodes.
-..
-.. ATTN: Christoph or Dominick
-.. remove this parameter or keep it in the parameter table?
-..
-..    * - ``patchlevel``
-..      - An array of items in the patch level scan profile.
-..
 
 **Request**
 
@@ -2042,11 +2033,6 @@ It contains the following attributes:
    * - ``rule``
      - String. The rule identifier.
 
-..
-.. ATTN: Christoph or Dominick
-.. remove the GET (patches by node) section below?
-..
-
 GET (patches by node)
 -----------------------------------------------------
 Use to get the available patches for the named node and the named environment.
@@ -2153,8 +2139,6 @@ The ``/server/config`` endpoint has the following methods: ``GET`` and ``PATCH``
 
 .. note:: Some parameters of the |chef compliance| server are exposed and are configurable from the |api compliance|.
 
-.. CHRISTOPH: do we know which paramaters? Many or a small set of specific parameters?
-
 GET
 -----------------------------------------------------
 Use to return the global configuration for the |chef compliance| server. The configuration may be edited via the |api compliance| or by using the COMPLIANCE_CONFIG_FILE. Only parameters that may be safely tuned are exposed. All timeout configuration settings are defined in seconds, i.e. ``1800`` is ``30 minutes``.
@@ -2212,6 +2196,7 @@ No Content
 
 /summary
 =====================================================
+The ``/summary`` endpoint has the following method: ``GET``.
 
 GET
 -----------------------------------------------------
@@ -2242,7 +2227,7 @@ The response will return a |json| object similar to:
 
 /teams
 =====================================================
-The ``/teams`` endpoint has the following methods: ``DELETE``, ``GET`` (for both all teams or for a single, named team). ``PATCH``, and ``POST`` .
+The ``/teams`` endpoint has the following methods: ``DELETE``, ``GET`` (for both all teams or for a single, named team). ``PATCH``, and ``POST``.
 
 GET (all teams)
 -----------------------------------------------------
