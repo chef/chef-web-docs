@@ -16,6 +16,6 @@ where:
 * ``KEY_PATH`` is the path to the registry key. |key_name resource registry_key hives|
 * ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. |architecture registry_key machine|
 
-This method will return ``true`` or ``false``. (Any values that are associated with the registry key are ignored.)
+This method will return ``true`` or ``false``. (Any registry key values that are associated with this registry key are ignored.)
 
 .. note:: .. include:: ../../includes_notes/includes_notes_registry_key_architecture.rst

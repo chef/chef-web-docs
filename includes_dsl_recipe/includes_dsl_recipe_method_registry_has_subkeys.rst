@@ -1,7 +1,7 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
-Use the ``registry_has_subkeys?`` method to find out if a |windows| registry setting has sub-keys. 
+Use the ``registry_has_subkeys?`` method to find out if a |windows| registry key has one (or more) values. 
 
 .. note:: .. include:: ../../includes_notes/includes_notes_registry_key_not_if_only_if.rst
 
