@@ -28,7 +28,3 @@ In addition to the default settings in a |config rb| file, there are other subco
 #. The default value
 
 A value passed via the command line will override a value in the |config rb| file; a value in a |config rb| file will override a default value.
-
-.. include:: ../../includes_config/includes_config_rb_knife_settings_optional.rst
-
-
