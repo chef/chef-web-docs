@@ -59,7 +59,6 @@ For the primary server in a disaster recovery pair, the response will be similar
      ]
    }
 
-
 In this configuration, the ``postgres`` and ``lsyncd`` upstreams will indicate the current state of disaster recovery replication.  For |postgresql|, it will both indicate that it knows what the standby IP is supposed to be and the current ``location``. If the |postgresql| replication is working correctly, it should match the value of the |postgresql| ``xlog`` location reported by the standby (see below).
 
 For ``lsyncd``, if the replication is up-to-date, ``latency`` should return 0; it may be above zero if changes have been queued up for replication, but it should quickly drop back down once the ``lsyncd`` server syncs changes (which should happen either after a fixed delay or when a certain number of changes have queued up). If it instead maintains a number above zero (or even continues to grow), that would indicate that there's an issue replicating |git| data in |delivery|.
@@ -95,14 +94,32 @@ In this configuration, ``lsyncd`` should not be running; any other value would i
    * - Response Code
      - Description
    * - ``200``
-     - All services are OK.
-   * - ``500``
-     - One (or more) services are down. For example:
+     - All services are OK. The response will show the service status as ``pong`` or ``not_running``. For example:
        
        .. code-block:: javascript
        
           {
-            "status": "fail",
+            "status": "pong",
+            "configuration mode": "standalone",
+            "upstreams": [
+              {
+                "postgres": {
+                  "status": "pong"
+                },
+                "lsyncd": {
+                  "status": "not_running"
+                }
+              }
+            ]
+          }
+
+   * - ``500``
+     - One (or more) services are down. The response will show the service status as ``fail`` or ``degraded``. For example:
+       
+       .. code-block:: javascript
+       
+          {
+            "status": "pong",
             "configuration mode": "cold_standby",
             "upstreams": [
               {
@@ -113,6 +130,27 @@ In this configuration, ``lsyncd`` should not be running; any other value would i
               "lsyncd": {
                 "status": "not_running",
               }
-            }
-          ]
-        }
+            ]
+          }
+
+       For example, if replication is not running:
+
+       .. code-block:: javascript
+       
+          {
+            "status": "pong",
+            "configuration mode": "primary",
+            "upstreams": [
+              {
+                "postgres": {
+                  "status": "degraded",
+                  "replication": "fail",
+                  "description": "Replication is not running. Check your configuration."
+                },
+                "lsyncd": {
+                  "status": "pong",
+                  "latency": "0"
+                }
+              }
+            ]
+          }
