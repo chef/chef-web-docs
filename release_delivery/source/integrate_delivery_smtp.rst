@@ -5,11 +5,14 @@
 Integrate Delivery with SMTP
 =====================================================
 
-|delivery| may be configured to allow projects to send email notifications to users about changes submitted to that project's pipeline, such as
+|delivery| may be configured to allow projects to send email notifications to users about changes submitted to that project's pipeline, such as:
 
-* If a change passes verification, is approved by a teammate, or if comments are added to the change request
-* Whether a change is accepted or delivered
-* The status---success or failure---of a change as it moves through the pipeline
+* A change passed verification
+* A change was approved by a teammate
+* A comment was added to the change request
+* A change was accepted
+* A change was delivered
+* A change failed at a specific phase in the pipeline
 
 Users may subscribe to notifications per project by using the **Watch Project** button located on each project's home page in the |delivery| web UI.
 
