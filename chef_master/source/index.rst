@@ -297,6 +297,8 @@ Chef Compliance
    integrate_delivery_bitbucket
    integrate_delivery_github
    integrate_delivery_ldap
+   integrate_delivery_slack
+   integrate_delivery_smtp
    junos
    kitchen
    knife
