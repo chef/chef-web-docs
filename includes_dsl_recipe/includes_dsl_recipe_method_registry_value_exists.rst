@@ -1,7 +1,7 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
-Use the ``registry_value_exists?`` method to find out if a value exists for the specified subkey.  
+Use the ``registry_value_exists?`` method to find out if a value exists for the specified subkey. Use ``registry_data_exists?`` to test for the type and value of a subkey.
 
 .. note:: .. include:: ../../includes_notes/includes_notes_registry_key_not_if_only_if.rst
 
