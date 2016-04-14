@@ -13,9 +13,8 @@ An Overview of |chef delivery|
 * Release source code or build artifacts to a repository such as |github|
 * Push build artifacts to production servers in real time
 
-.. 
-.. .. note:: If you are new to |delivery|, you can see it in action in the self-paced tutorial `Build a Continuous Delivery Pipeline with Chef Delivery <https://learn.chef.io/tutorials/#build-a-delivery-pipeline>`__. In the tutorial, you'll set up your own |delivery| cluster and a sample application to experiment with.
-.. 
+.. note:: If you are new to |delivery|, you can see it in action in the self-paced tutorial `Build a Continuous Delivery Pipeline with Chef Delivery <https://learn.chef.io/delivery/get-started/>`__. In the tutorial, you'll set up your own |delivery| cluster and a sample application to experiment with.
+
 
 Pipelines
 =====================================================
