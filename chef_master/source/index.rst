@@ -121,6 +121,7 @@ Chef Compliance
    api_chef_server
    api_compliance
    api_cookbooks_site
+   api_delivery
    api_omnitruck
    api_push_jobs
    api_reporting
@@ -156,6 +157,7 @@ Chef Compliance
    config_rb_chef_sync
    config_rb_client
    config_rb_compliance
+   config_rb_delivery
    config_rb_delivery_optional_settings
    config_rb_knife
    config_rb_knife_optional_settings
@@ -203,6 +205,7 @@ Chef Compliance
    delivery_build_cookbook
    delivery_manage_dependencies
    delivery_manage_secrets
+   delivery_server_disaster_recovery
    delivery_server_tuning
    delivery_truck
    delivery_users_and_roles

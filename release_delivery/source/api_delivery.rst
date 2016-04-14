@@ -1,9 +1,4 @@
-=====================================================
-|api delivery|
-=====================================================
+.. THIS PAGE IS IDENTICAL TO docs.chef.io/api_delivery.html BY DESIGN
+.. THIS PAGE IS LOCATED AT THE /delivery/ PATH.
 
-.. include:: ../../includes_api_delivery/includes_api_delivery.rst
-
-_status
------------------------------------------------------
-.. include:: ../../includes_api_delivery/includes_api_delivery_endpoint_status.rst
+.. include:: ../../chef_master/source/api_delivery.rst

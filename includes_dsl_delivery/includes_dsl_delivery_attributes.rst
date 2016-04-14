@@ -5,7 +5,7 @@
 Some useful information is stored in attributes. Use ``node.get`` and ``node.set`` to interact with these values in a recipe.
 
 ``change_id``
-  Use ``node['delivery']['change']['change_id']`` for change identifier. For example:
+  Use ``node['delivery']['change']['change_id']`` for the change identifier. For example:
 
   .. code-block:: ruby
 
