@@ -2,10 +2,9 @@
 Delivery Server Disaster Recovery
 =====================================================
 
-Use a standby |delivery| server to protect against the loss of the primary |delivery| server. A standby |delivery| server is configured in an identical manner as the primary |delivery| server, but is powered down. In the event of loss of the primary |delivery| server, the standby is powered up, activated with a recent copy of data, and then reconfigured to become the primary.
+Use a standby |delivery| server to protect against the loss of the primary |delivery| server. A standby |delivery| server is configured to replicate data from the primary |delivery| server. In the event of loss of the primary |delivery| server, the standby is then reconfigured to become the primary.
 
 .. note:: These instructions assume that the primary and standby servers are in the same data center. If they are in different geographical locations additional considerations are necessary, as well as tuning the configuration to account for latency between data centers.
-
 
 Install w/delivery-cluster
 =====================================================
@@ -50,8 +49,11 @@ To install a standby |delivery| server using the ``delivery-cluster`` cookbook:
    .. code-block:: javascript
 
       "delivery": {
+        "fqdn": "<your-fqdn>",
+        "hostname": "delivery-server-<clust-name>-1",
         "disaster_recovery": {
-          "enable": true
+          "enable": true,
+          "hostname": "delivery-server-<clust-name>-2"
         },
         ...
       }
@@ -61,9 +63,13 @@ To install a standby |delivery| server using the ``delivery-cluster`` cookbook:
    .. code-block:: javascript
 
       "delivery": {
+        "fqdn": "<your-fqdn>",
+        "ip": "10.194.8.7",
+        "hostname": "delivery-server-<clust-name>-1",
         "disaster_recovery": {
           "enable": true,
-          "ip": "10.194.8.8"
+          "ip": "10.194.8.8",
+          "hostname": "delivery-server-<clust-name>-2"
         },
         ...
       }
