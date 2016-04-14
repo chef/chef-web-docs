@@ -35,13 +35,13 @@ To create a webhook in |slack|:
 
 Add a Webhook to |delivery|
 =====================================================
-To create a |slack| webhook to |delivery|:
+To add a |slack| webhook for |delivery|:
 
 #. On the |delivery| server, select **Organizations**.
-#. Select an organization.
+#. Select an organization or a project.
 #. Click **Edit** to open the details for that organization.
 #. Pick a meaningful name for the webhook, and then paste the webhook URL.
-#. Click **Send a Test**. If a test notification is successful, click **Save**
+#. Click **Send a Test**. If a test notification is successful, click **Save**.
 
 
 Disable |slack| Notifications
@@ -49,7 +49,7 @@ Disable |slack| Notifications
 |slack| notifications are enabled by default, but they may be disabled.
 
 #. On the |delivery| server, select **Organizations**.
-#. Select an organization.
+#. Select an organization or a project.
 #. Click **Edit** to open the details for that organization.
 #. De-select the **Enabled** checkbox, and then click **Save**.
 
@@ -58,6 +58,6 @@ Delete |slack| Notifications
 |slack| notifications are enabled by default, but they may be disabled.
 
 #. On the |delivery| server, select **Organizations**.
-#. Select an organization.
+#. Select an organization or a project.
 #. Click **Edit** to open the details for that organization.
 #. Delete the URL for the |slack| webhook and click **Save** or click the trash can button.

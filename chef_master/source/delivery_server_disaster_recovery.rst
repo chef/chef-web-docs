@@ -224,7 +224,7 @@ Disaster Recovery
 =====================================================
 In most scenarios, converting the standby |delivery| server to a standalone configuration is the simplest way to get |delivery| itself back up and running, after which you can rebuild a standby server, update the IP address for the standby server, and then reconfigure the |delivery| configuration to have a primary and standby server.
 
-Promote Standby to Primary
+Failover the |delivery| Server
 -----------------------------------------------------
 To promote a standby |delivery| server to primary, do the following:
 

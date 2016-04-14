@@ -12,11 +12,11 @@ Integrate Delivery with SMTP
 * A comment was added to the change request
 * A change was accepted
 * A change was delivered
-* A change failed at a specific phase in the pipeline
+* A change failed at a specific stage in the pipeline
 
 Users may subscribe to notifications per project by using the **Watch Project** button located on each project's home page in the |delivery| web UI.
 
-Configure Notificatins
+Configure Notifications
 =====================================================
 To configure |delivery| for |smtp| notifications:
 
@@ -26,7 +26,7 @@ To configure |delivery| for |smtp| notifications:
 #. Enter the port number for the |smtp| server. Most connections use port ``25`` by default. This setting will default to ``25`` if not specified.
 #. Enter the |smtp| server credentials---login and password---for the account from which mail is sent. For example: ``steved``, ``p@ssw0rd!``.
 #. Optional. Enter the name for the sender from which mail is sent. For example: ``Steve Danno``.
-#. Click the **Test Credentials** button. This will send an email to your email address, as specified in |delivery|. The |delivery| web UI will update the page if the email was sent successfully.
+#. Click the **Send Test** button. This will send an email to your email address, as specified in |delivery|. The |delivery| web UI will update the page if the email was sent successfully.
 
 Subscribe to Notifications
 =====================================================
