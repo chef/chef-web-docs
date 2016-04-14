@@ -10,7 +10,7 @@ The following items are new for |chef server| 12.4:
 
 * **/universe endpoint** Use the ``/universe`` endpoint to retrieve the known collection of cookbooks, and then use it with |berkshelf| and |supermarket|.
 * **opscode-expander-reindexer service** The ``opscode-expander-reindexer`` service is deprecated.
-* **Global server administrator list** Use the ``grant-server-admin-permissions``, ``remove-server-admin-permissions``, and ``list-server-admins`` to manage the list of users who belong to the Server Admins group.
+* **Global server administrator list** Use the ``grant-server-admin-permissions``, ``remove-server-admin-permissions``, and ``list-server-admins`` to manage the list of users who belong to the ``server-admins`` group.
 
 /universe
 =====================================================

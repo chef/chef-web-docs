@@ -12,5 +12,4 @@ To delete a group:
 
    .. image:: ../../images/step_manage_webui_admin_groups_delete.png
 
-.. note:: The |webui group admins|, |webui group billing| (hosted |chef server| only), |webui group clients|, and |webui group users| are required groups for the |chef server| and cannot be deleted.
-
+.. note:: The ``admins``, ``billing_admins`` (hosted |chef server| only), ``clients``, and ``users`` are required groups for the |chef server| and cannot be deleted.

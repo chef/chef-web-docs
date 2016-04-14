@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The ``remove-server-admin-permissions`` subcommand is used to remove a user from the |webui group server_admins| group. Run the command once per user removed.
+The ``remove-server-admin-permissions`` subcommand is used to remove a user from the ``server-admins`` group. Run the command once per user removed.
 
 This subcommand has the following syntax:
 

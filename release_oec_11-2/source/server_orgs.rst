@@ -31,7 +31,23 @@ Global Permissions
 
 Default Groups
 =====================================================
-.. include:: ../../includes_server_rbac/includes_server_rbac_groups_default.rst
+The |chef server| includes the following default groups:
+
+.. list-table::
+   :widths: 60 420
+   :header-rows: 1
+
+   * - Group
+     - Description
+   * - ``admins``
+     - |group default_admins| 
+   * - ``billing_admins``
+     - |group default_billing_admins| 
+   * - ``clients``
+     - |group default_clients| 
+   * - ``users``
+     - |group default_users| 
+
 
 |push jobs| Groups
 =====================================================

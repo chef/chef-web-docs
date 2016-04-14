@@ -12,7 +12,7 @@ Run the following command to create an organization:
 
 |name_rules org_full| For example: ``'Fourth Coffee, Inc.'``.
 
-The ``--association_user`` option will associate the ``user_name`` with the |webui group admins| security group on the |chef server|.
+The ``--association_user`` option will associate the ``user_name`` with the ``admins`` security group on the |chef server|.
 
 An RSA private key is generated automatically. This is the |chef validator| key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to a specified path.
 

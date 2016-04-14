@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The ``grant-server-admin-permissions`` subcommand is used to add a user to the |webui group server_admins| group. Run the command once per user added.
+The ``grant-server-admin-permissions`` subcommand is used to add a user to the ``server-admins`` group. Run the command once per user added.
 
 This subcommand has the following syntax:
 

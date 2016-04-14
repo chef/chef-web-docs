@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The ``list-server-admins`` subcommand is used to return a list of users who are members of the |webui group server_admins| group.
+The ``list-server-admins`` subcommand is used to return a list of users who are members of the ``server-admins`` group.
 
 This subcommand has the following syntax:
 
