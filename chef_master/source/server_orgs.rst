@@ -58,6 +58,10 @@ clients
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_server_rbac/includes_server_rbac_permissions_default_clients.rst
 
+public_key_read_access
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_server_rbac/includes_server_rbac_permissions_default_public_key_read_access.rst
+
 users
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_server_rbac/includes_server_rbac_permissions_default_users.rst

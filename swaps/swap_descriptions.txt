@@ -9,7 +9,7 @@
 .. |accept_license| replace:: Accept an end-user license agreement, automatically.
 .. |active_rehashing| replace:: Enable active rehashing.
 .. |add_formatter| replace:: A 3rd-party formatter.
-.. |add_to_admins| replace:: Add the user to the |webui group admins| group.
+.. |add_to_admins| replace:: Add the user to the ``admins`` group.
 .. |additional_remotes| replace:: An array of additional remotes that are added to the |git| repository configuration.
 .. |admin client| replace:: Create a client as an admin client. This is required for any user to access |chef server osc| as an administrator.
 .. |after| replace:: Add a run-list item after the specified run-list item.
@@ -44,7 +44,7 @@
 .. |architecture windows_process_i386| replace:: An exception is raised when anything other than ``:i386`` is specified for a 32-bit process.
 .. |architecture registry_key machine| replace:: In order to read or write 32-bit registry keys on 64-bit machines running |windows|, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the |chef client| returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the |chef client| is able to access the registry key on the 32-bit machine).
 .. |arguments chef_handler| replace:: An array of arguments that are passed to the initializer for the handler class.
-.. |associate_user| replace:: Associate a user with an organization and add them to the |webui group admins| and |webui group billing| security groups.
+.. |associate_user| replace:: Associate a user with an organization and add them to the ``admins`` and ``billing_admins`` security groups.
 .. |assume_yes| replace:: Prompt for confirmation of critical actions.
 .. |atomic_update| replace:: Perform atomic file updates on a per-resource basis. Set to ``true`` for atomic file updates. Set to ``false`` for non-atomic file updates. This setting overrides ``file_atomic_update``, which is a global setting found in the |client rb| file.
 .. |attribute_show| replace:: The attribute (or attributes) to show.
@@ -483,10 +483,11 @@
 .. |gpg_key| replace:: A URL that points to the ASCII-armored |gnupg| key file for this repository. Use when |yum| needs a public key to verify a package and when that key has not been imported into the |rpm| database.
 .. |group command| replace:: The group name or group ID that must be changed before running a command.
 .. |group config| replace:: The group that owns a process. This is required when starting any executable as a daemon. Default value: ``nil``.
-.. |group default_admins| replace:: Use the |webui group admins| group to define the list of users who have administrative rights to all objects and object types for a single organization.
-.. |group default_billing_admins| replace:: Use the |webui group billing| group to define the list of users who have permission to manage billing information. This permission exists only for the hosted |chef server|.
-.. |group default_clients| replace:: Use the |webui group clients| group to define the list of nodes on which a |chef client| is installed and under management by |chef|. In general, think of this permission as "all of the non-human actors---the |chef client|, in nearly every case---that get data from, and/or upload data to, the |chef server|". Newly-created |chef client| instances are added to this group automatically.
-.. |group default_users| replace:: Use the |webui group users| group to define the list of users who use |knife| and the **Chef Manage** user interface to interact with objects and object types. In general, think of this permission as "all of the non-admin human actors who work with data that is uploaded to and/or downloaded from the |chef server|".
+.. |group default_admins| replace:: The ``admins`` group defines the list of users who have administrative rights to all objects and object types for a single organization.
+.. |group default_billing_admins| replace:: The ``billing_admins`` group defines the list of users who have permission to manage billing information. This permission exists only for the hosted |chef server|.
+.. |group default_clients| replace:: The ``clients`` group defines the list of nodes on which a |chef client| is installed and under management by |chef|. In general, think of this permission as "all of the non-human actors---the |chef client|, in nearly every case---that get data from, and/or upload data to, the |chef server|". Newly-created |chef client| instances are added to this group automatically.
+.. |group default_read_key| replace:: The ``public_key_read_access`` group defines which users and clients have read permissions to key-related endpoints in the |api chef server|.
+.. |group default_users| replace:: The ``users`` group defines the list of users who use |knife| and the |chef manage| to interact with objects and object types. In general, think of this permission as "all of the non-admin human actors who work with data that is uploaded to and/or downloaded from the |chef server|".
 .. |group deploy| replace:: The system group that is responsible for the checked-out code.
 .. |group ids| replace:: A comma-separated list of security group identifiers.
 .. |group_package_types| replace:: The types of packages installed when ``groupinstall`` is called. Possible values: ``default``, ``mandatory``, and ``optional``.

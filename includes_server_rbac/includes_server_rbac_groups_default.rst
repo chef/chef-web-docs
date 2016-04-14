@@ -9,12 +9,13 @@ The |chef server| includes the following default groups:
 
    * - Group
      - Description
-   * - |webui group admins|
-     - |group default_admins| 
-   * - |webui group billing|
-     - |group default_billing_admins| 
-   * - |webui group clients|
-     - |group default_clients| 
-   * - |webui group users|
-     - |group default_users| 
-
+   * - ``admins``
+     - |group default_admins|
+   * - ``billing_admins``
+     - |group default_billing_admins|
+   * - ``clients``
+     - |group default_clients|
+   * - ``public_key_read_access``
+     - |group default_read_key|
+   * - ``users``
+     - |group default_users|

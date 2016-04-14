@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-Removing a member of the |webui group admins| group from an organization requires the user to be removed from the |webui group admins| group before they can be removed from the organization:
+Removing a member of the ``admins`` group from an organization requires the user to be removed from the ``admins`` group before they can be removed from the organization:
 
 #. Open the |chef manage|.
 #. Click **Administration**.

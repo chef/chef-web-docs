@@ -23,7 +23,7 @@ To add a role:
    .. image:: ../../images/step_manage_webui_policy_role_add_default_attribute.png
 
    Click **Next**.
-#. Optional.  Add override attributes as |json| data:
+#. Optional. Add override attributes as |json| data:
 
    .. image:: ../../images/step_manage_webui_policy_role_add_override_attribute.png
 

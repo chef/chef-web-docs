@@ -124,11 +124,6 @@
 .. |supermarket| replace:: Chef Supermarket
 .. |supermarket ctl| replace:: supermarket-ctl
 .. |support_phone| replace:: 206-508-4799
-.. |webui group admins| replace:: ``admins``
-.. |webui group billing| replace:: ``billing_admins``
-.. |webui group clients| replace:: ``clients``
-.. |webui group server_admins| replace:: ``server-admins``
-.. |webui group users| replace:: ``users``
 .. |whyrun| replace:: why-run
 
 

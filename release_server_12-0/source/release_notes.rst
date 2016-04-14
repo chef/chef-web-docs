@@ -24,8 +24,8 @@ The following items are new for |chef server| 12:
 * **private-chef.rb is now called chef-server.rb** The name of the configuration file used by the |chef server| has been changed. A symlink from |private chef rb| to |chef server rb| is created during upgrades from older versions of the |chef server|.
 * **New setting for the default organization name** Use the ``default_orgname`` setting to ensure compatibility with |chef server osc| version 11.
 * **New settings for oc_chef_authz** The |service authz| service handles authorization requests to the |chef server|.
-* **Organization policy changes** Users must be removed from the |webui group admins| security group before they can be removed from an organization. The |chef client| is not granted **Create**, **Delete**, or **Update** permissions to data bags when organizations are created.
-* **Administrators cannot be removed from organizations** The |chef server| requires that a member of an organization's |webui group admins| group cannot be removed from the organization without first being removed from the |webui group admins| group.
+* **Organization policy changes** Users must be removed from the ``admins`` security group before they can be removed from an organization. The |chef client| is not granted **Create**, **Delete**, or **Update** permissions to data bags when organizations are created.
+* **Administrators cannot be removed from organizations** The |chef server| requires that a member of an organization's ``admins`` group cannot be removed from the organization without first being removed from the ``admins`` group.
 * **New settings for managing LDAP encryption** New settings that manage LDAP encryption have been added, existing settings have been deprecated.
 * **New commands for managing keys** The following commands are new: ``add-client-key``, ``add-user-key``, ``delete-client-key``, ``delete-user-key``, ``list-client-keys``, and ``list-user-keys``. (These are preview commands, new as-of the |chef server| 12.0.3 release.)
 
@@ -397,8 +397,6 @@ add-client-key
 -----------------------------------------------------
 .. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_add_client_key.rst
 
-.. warning:: This subcommand is a preview command available in the |chef server| 12.0.3 release.
-
 **Syntax**
 
 .. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_add_client_key_syntax.rst
@@ -410,8 +408,6 @@ add-client-key
 add-user-key
 -----------------------------------------------------
 .. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_add_user_key.rst
-
-.. warning:: This subcommand is a preview command available in the |chef server| 12.0.3 release.
 
 **Syntax**
 
@@ -425,8 +421,6 @@ delete-client-key
 -----------------------------------------------------
 .. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_delete_client_key.rst
 
-.. warning:: This subcommand is a preview command available in the |chef server| 12.0.3 release.
-
 **Syntax**
 
 .. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_delete_client_key_syntax.rst
@@ -438,8 +432,6 @@ delete-client-key
 delete-user-key
 -----------------------------------------------------
 .. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_delete_user_key.rst
-
-.. warning:: This subcommand is a preview command available in the |chef server| 12.0.3 release.
 
 **Syntax**
 
@@ -453,8 +445,6 @@ list-client-key
 -----------------------------------------------------
 .. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_list_client_keys.rst
 
-.. warning:: This subcommand is a preview command available in the |chef server| 12.0.3 release.
-
 **Syntax**
 
 .. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_list_client_keys_syntax.rst
@@ -466,8 +456,6 @@ list-client-key
 list-user-key
 -----------------------------------------------------
 .. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_list_user_keys.rst
-
-.. warning:: This subcommand is a preview command available in the |chef server| 12.0.3 release.
 
 **Syntax**
 

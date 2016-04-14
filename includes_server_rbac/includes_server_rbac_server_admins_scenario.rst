@@ -32,7 +32,7 @@ and it returns the following error:
           but you are not authorized for this action
    Response: Missing read permission
 
-Alice is not a superuser and does not have permissions on other users because user accounts are global to organizations in the |chef server|. Let's add Alice to the |webui group server_admins| group:
+Alice is not a superuser and does not have permissions on other users because user accounts are global to organizations in the |chef server|. Let's add Alice to the ``server-admins`` group:
 
 .. code-block:: bash
 

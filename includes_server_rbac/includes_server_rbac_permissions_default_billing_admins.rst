@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The ``billing admins`` group is assigned the following:
+The ``billing_admins`` group is assigned the following:
 
 .. list-table::
    :widths: 160 100 100 100 100
@@ -13,7 +13,7 @@ The ``billing admins`` group is assigned the following:
      - Delete
      - Read
      - Update
-   * - billing-admins
+   * - billing_admins
      - no
      - no
      - yes
