@@ -10,7 +10,7 @@ Getting Started
 =====================================================
 If you are new to |delivery|, get oriented :doc:`with the Chef Delivery overview </delivery_overview>`.
 
-Then, see |delivery| in action in a self-paced tutorial `Automating your Workflow with Chef Delivery <https://learn.chef.io/delivery/get-started/>`__. You'll set up your own |delivery| cluster and a sample application to experiment with.
+Then, see |delivery| in action in a self-paced tutorial `Get started with Chef Delivery on AWS <https://learn.chef.io/delivery/get-started/>`__. You'll set up your own |delivery| cluster and a sample application to experiment with.
 
 In the Documentation
 =====================================================
