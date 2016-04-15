@@ -45,9 +45,10 @@ To subscribe to |smtp| notifications:
 
    The **Review** category enables notifications related to submitting, reviewing, and receiving feedback on a change.
 
-   The **Deliver** category enables notifications related to approving a change.
+   The **Deliver** category enables notifications related to changes that have passed acceptance (and may be delivered) or to changes that have been delivered.
 
    The **Observe** category enables notifications related to the status of the pipeline as changes move through it.
+
 
 Unsubscribe from Notifications
 =====================================================
