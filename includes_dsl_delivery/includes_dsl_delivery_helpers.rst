@@ -19,13 +19,11 @@ The following |delivery|-specific helpers can be used in recipes:
 ``delivery_chef_server``
    Return a |ruby hash| that contains details about how to talk to the |chef server|.
 
-
 ``delivery_chef_server_search``
    Run a search query against the node objects on the |chef server|, using the default search query. The default search query is defined in the |delivery| web UI on the "Default Search" tab. 
 
 ``delivery_environment``
    Get the name of the standard environment.
-
 
 ``deployment_search_query``
    Get a custom search query from the ``config.json`` file. By default, the ``deploy.rb`` recipe triggers a |chef client| run via |push jobs| against all nodes that belong to the current environment in |delivery| and have modified cookbooks in the run-list.
