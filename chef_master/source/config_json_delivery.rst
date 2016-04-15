@@ -12,11 +12,6 @@ Configuration Settings
 -----------------------------------------------------
 .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting.rst
 
-``version``
-   **Required**
-
-   .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_version.rst
-
 ``build-cookbook``
    **Required**
 
@@ -27,21 +22,25 @@ Configuration Settings
 
    .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_build_nodes.rst
 
-``skip_phases``
+``delivery-truck``
    **Optional**
 
-   .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_skip_phases.rst
+   .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_delivery_truck.rst
 
 ``dependencies``
    **Optional**
 
    .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_dependencies.rst
 
-``delivery-truck``
+``skip_phases``
    **Optional**
 
-   .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_delivery_truck.rst
+   .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_skip_phases.rst
 
+``version``
+   **Required**
+
+   .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_version.rst
 
 .. note:: .. include:: ../../includes_delivery_cookbook/includes_delivery_cookbook_delivery_truck.rst
 
