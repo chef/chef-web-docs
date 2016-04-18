@@ -43,10 +43,14 @@ Some notes about API requests:
 
 Obtaining an API token
 =====================================================
-There are two ways of obtaining an API token:
+
+There are three ways of obtaining an API token:
 
 1. Using the "About" dialogue of |chef compliance|
 2. Using a ``refresh token`` (which can also be obtained from the "About" dialogue, but can be reused).
+3. By sending username and password to the login endpoint.
+
+Note that the direct exchange of username and password for an access token is not possible for users logging in using Chef Server credentials. Options 1) and 2) are available to every user.
 
 The API can be used to obtain an ``access token`` from a ``refresh token`` as follows:
 
@@ -60,7 +64,7 @@ It is convenient to save the API token for further use:
 
   .. code-block:: bash
 
-     $ export API_TOKEN=$(curl -X POST $API_URL/login -d "{\"token\": \"$REFRESH_TOKEN\"}" | sed -e "s/.*access_token\":\"\([^\"]*\)\".*/\1/")
+     $ export API_TOKEN=$(curl -X POST $API_URL/access_token -d "{\"token\": \"$REFRESH_TOKEN\"}" | sed -e "s/.*access_token\":\"\([^\"]*\)\".*/\1/")
 
 Since refresh tokens do not expire, it is possible to revoke them:
 
@@ -75,6 +79,13 @@ Revoked refresh tokens can no longer be used to obtain access tokens:
 
      $ curl -X POST $API_URL/login -d "{\"token\": \"$REFRESH_TOKEN\"}"
      unable to trade refresh token for access token with issuer: invalid_request
+
+To get an access token given |chef compliance| user credentials, use the ``/login`` endpoint:
+
+  .. code-block:: bash
+
+     $ curl -X POST $API_URL/login -d "{\"userid\": \"admin\", \"password\": \"nimda\"}"
+     eyJhbGciOiJSUzI1NiIsImtpZCI6InRySE ...abbreviated...
 
 Response Codes
 =====================================================
