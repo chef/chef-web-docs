@@ -57,3 +57,4 @@ Read more about |delivery|:
    integrate_delivery_ldap
    integrate_delivery_slack
    integrate_delivery_smtp
+   start_delivery
