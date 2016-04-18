@@ -4,6 +4,6 @@
 
 |push jobs| has the following requirements:
 
-* An on-premises |chef server| version 11.0.1 (or later)
+* An on-premises |chef server| version 11.0.1 (or later); |push jobs| is not supported when running |chef| with the hosted |chef server|
 * To use the |cookbook push jobs| cookbook to configure the |push jobs| client, the |chef client| must also be present on the node (because only the |chef client| can use a cookbook to configure a node)
 * .. include:: ../../includes_server_firewalls_and_ports/includes_server_firewalls_and_ports_push_jobs.rst
