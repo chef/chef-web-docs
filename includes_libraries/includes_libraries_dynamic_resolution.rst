@@ -15,7 +15,7 @@ Use the following helpers in a library file to get and/or set resource and/or pr
 ``Chef.set_provider_priority_array(resource_name, Array<Class>, *filter)``
    Set the priority mapping for a provider.
 
-``Chef.set_resoruce_priority_array(resource_name, Array<Class>, *filter)``
+``Chef.set_resource_priority_array(resource_name, Array<Class>, *filter)``
    Set the priority mapping for a resource.
 
 For example:
