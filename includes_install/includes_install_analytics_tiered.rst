@@ -1,9 +1,9 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
-In a tiered configuration, the |chef analytics| deployment is on different servers from the |chef server|, with a single backend and multiple load-balanced frontends. In a tiered configuration, an existing |chef server| deployment should already running. 
+In a tiered configuration, the |chef analytics| deployment is on different servers from the |chef server|, with a single backend and multiple load-balanced frontends. In a tiered configuration, an existing |chef server| deployment should already running.
 
-|chef analytics| is installed in the following steps: 
+|chef analytics| is installed in the following steps:
 
 * Configuring the |chef server| for |chef analytics|
 * Installing |chef analytics| on the backend
@@ -16,13 +16,13 @@ Install |chef analytics| on the backend machine:
 #. Download the package from http://downloads.chef.io/analytics/ to the machines that will be used for the |chef analytics| deployment. For |redhat| and |centos| 6:
 
    .. code-block:: bash
-      
+
       $ rpm -Uvh /tmp/opscode-analytics-<version>.rpm
 
    For |ubuntu|:
 
    .. code-block:: bash
-      
+
       $ dpkg -i /tmp/opscode-analytics-<version>.deb
 
    After a few minutes, |chef analytics| will be installed.
@@ -33,18 +33,17 @@ Configure the |chef server|. On each machine in the |chef server| configuration,
 
    .. code-block:: bash
 
-	  oc_id['applications'] = { 
-	    'analytics' => { 
-	      'redirect_uri' => 'https://<analytics_fe_fqdn>/' 
-	    } 
-	  }
+      oc_id['applications'] ||= {}
+      oc_id['applications']['analytics'] = {
+        'redirect_uri' => 'https://<analytics_fe_fqdn>/'
+      }
 
 #. On the |chef server| backend, stop the |chef server|:
 
    .. code-block:: bash
 
       $ chef-server-ctl stop
-	  
+
 #. On the |chef server| backend, enable remote access to |rabbitmq| on the |chef server| backend machine by adding the following settings to ``/etc/opscode/chef-server.rb``:
 
    .. code-block:: ruby
@@ -54,7 +53,7 @@ Configure the |chef server|. On each machine in the |chef server| configuration,
 
    where ``BACKEND_VIP`` is the external IP address for the backend |chef server|. ``node_ip_address`` MUST be set to ``0.0.0.0``.
 
-   .. note:: |analytics rabbitmq_settings| 
+   .. note:: |analytics rabbitmq_settings|
 
 #. Reconfigure the |chef server|:
 
@@ -65,7 +64,7 @@ Configure the |chef server|. On each machine in the |chef server| configuration,
    This updates the |chef server| and creates the ``actions-source.json`` file, which is required by |chef analytics|, and adds it to the ``/etc/opscode-analytics`` directory on the |chef server|.
 
 #. Restart the |chef server| backend:
-   
+
    .. code-block:: bash
 
       $ chef-server-ctl restart
@@ -153,6 +152,5 @@ Install |chef analytics| on frontend servers:
 #. Reconfigure the |chef server|:
 
    .. code-block:: bash
-      
-      $ sudo chef-server-ctl reconfigure
 
+      $ sudo chef-server-ctl reconfigure
