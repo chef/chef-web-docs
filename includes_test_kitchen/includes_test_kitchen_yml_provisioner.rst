@@ -56,8 +56,6 @@
      - |https_proxy|
    * - ``json_attributes``
      - |chef client| provisioner only. 
-   * - ``kitchen_root``
-     - The directory in which |kitchen| will stage all content on the target node. This directory should be large enough to store all the content and must be writable. (Typically, this value does not need to be modified from the default value.) Default value: ``/tmp/kitchen``.
    * - ``log_file``
      - 
    * - ``nodes_path``
@@ -66,6 +64,8 @@
      - Use to install the latest version of the |chef client| in a node. Set to ``true`` to install the latest version, ``false`` to not install |chef client| (assumes the box already has it installed), or a version specifier like ``11.8.0`` to install a particular version. When set to ``true`` or a version number, the ``chef_omnibus_url`` may be used to specify the URL of the ``install.sh`` that installs the specified version of |chef client|. Default value: ``true``.
    * - ``roles_path``
      - The relative path to the directory in which role data is located. This data must be defined as |json|.
+   * - ``root_path``
+     - The directory in which |kitchen| will stage all content on the target node. This directory should be large enough to store all the content and must be writable. (Typically, this value does not need to be modified from the default value.) Default value: ``/tmp/kitchen``.
    * - ``ruby_bindir``
      - |chef client| provisioner only. 
    * - ``run_list``
