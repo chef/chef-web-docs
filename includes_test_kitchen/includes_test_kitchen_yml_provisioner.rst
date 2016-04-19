@@ -56,7 +56,7 @@
      - |https_proxy|
    * - ``json_attributes``
      - |chef client| provisioner only. 
-   * - ``kitchen_root``
+   * - ``root_path``
      - The directory in which |kitchen| will stage all content on the target node. This directory should be large enough to store all the content and must be writable. (Typically, this value does not need to be modified from the default value.) Default value: ``/tmp/kitchen``.
    * - ``log_file``
      - 
