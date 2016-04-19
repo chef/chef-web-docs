@@ -6,14 +6,13 @@ Welcome to Chef Delivery
 
 |delivery| accelerates the adoption of continuous delivery and encourages collaboration. It provides a proven, reproducible workflow for managing changes as they flow through the pipeline from a local workstation, through automated tests, and out into production servers in real time.
 
+.. image:: ../../images/start_delivery.svg
+   :width: 700px
+   :align: center
 
-#. Start with the tutorial. |delivery| itself may be installed via SSH or to Amazon AWS, and then configured for disaster recovery (cold standby)
-#. Install the Delivery CLI
-#. Integrate |delivery| with a GitHub or Bitbucket source control repository
-#. Create a project, set up the build-cookbook, and configure the pipeline
-#. Learn more about the Delivery DSL and how to use Chef recipes to define how projects run through the phases and stages in the pipeline
-#. Configure notifications about the state of the Delivery pipeline for Email and Slack
-
-
-
-
+* `Start with the tutorial <https://learn.chef.io/delivery/get-started/>`__. |delivery| itself may be :doc:`installed via SSH </install_delivery_ssh>` or :doc:`to Amazon AWS </install_delivery_aws>`, and then :doc:`configured for disaster recovery </delivery_server_disaster_recovery>` (cold standby)
+* Install the :doc:`Delivery CLI </ctl_delivery>`
+* Integrate |delivery| with a :doc:`GitHub </integrate_delivery_github>` or :doc:`Bitbucket </integrate_delivery_bitbucket>` source control repository
+* Create a project, :doc:`set up the build-cookbook </delivery_build_cookbook>`, and :doc:`configure the pipeline </delivery_pipeline>`
+* Learn more about :doc:`the Delivery DSL </dsl_delivery>` and how to use Chef recipes to define how projects run through the :doc:`phases and stages in the pipeline </delivery_overview>`
+* Configure the Delivery pipeline to send notifications :doc:`via email </integrate_delivery_smtp>` and/or to :doc:`Slack channels </integrate_delivery_slack>`
