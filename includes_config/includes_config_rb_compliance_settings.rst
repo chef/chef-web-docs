@@ -6,8 +6,13 @@ This configuration file has the following settings:
 ``core.licensed_node_count``
    The number of node licenses. Default value: ``25``.
 
-If changes are made to this file, reconfigure the |chef compliance| server by running the following command:
+``ssl.certificate``
+   Full path to the |ssl| certificate file that is used by the |chef compliance| web UI. Default value: ``/var/opt/chef-compliance/ssl/ca/HOSTNAME.crt``.
 
-.. code-block:: bash
+``ssl.certificate_key``
+   Full path to the ssl certificate key file to use by the |chef compliance| web UI. Default value: ``/var/opt/chef-compliance/ssl/ca/HOSTNAME.key``.
 
-   $ chef-compliance-ctl reconfigure
+``verify_tls``
+   Verify the TLS certificate when |chef compliance| connects locally to get the refresh token. Default value: ``false``.
+
+.. note:: You can see all available settings along with their default value in ``/etc/chef-compliance/chef-compliance-running.json``.
