@@ -200,7 +200,7 @@ Chef Compliance
    data_bags
    debug
    definitions
-   delivery
+   delivery_overview
    delivery_pipeline
    delivery_build_cookbook
    delivery_manage_dependencies
@@ -493,6 +493,7 @@ Chef Compliance
    server_webui_tasks
    simple_walkthrough
    slides
+   start_delivery
    style_guide
    supermarket
    supported_platforms
