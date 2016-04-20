@@ -1,3 +1,5 @@
+.. The contents of this file is sync'd with /release_delivery/index.rst
+
 =====================================================
 Welcome to Chef Delivery
 =====================================================
