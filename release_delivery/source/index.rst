@@ -1,33 +1,7 @@
-.. THIS PAGE IS LOCATED AT THE /delivery/ PATH.
+.. THIS PAGE IS IDENTICAL TO docs.chef.io/start_delivery.html BY DESIGN
+.. THIS PAGE IS LOCATED AT THE /release/delivery/ PATH.
 
-=====================================================
-About |chef delivery|
-=====================================================
-
-|chef delivery| provides code deployment workflow automation that reinforces DevOps best practices. |delivery| can manage changes to both infrastructure and application code, giving your operations and development teams a common platform for developing, testing and deploying cookbooks, applications and more.
-
-Getting Started
-=====================================================
-If you are new to |delivery|, get oriented :doc:`with the Chef Delivery overview </delivery_overview>`.
-
-Then, see |delivery| in action in a self-paced tutorial `Get started with Chef Delivery on AWS <https://learn.chef.io/delivery/get-started/>`__. You'll set up your own |delivery| cluster and a sample application to experiment with.
-
-In the Documentation
-=====================================================
-Read more about |delivery|:
-
-* :doc:`About Chef Delivery </delivery_overview>`
-* :doc:`Install Chef Delivery using AWS </install_delivery_aws>`
-* :doc:`Install Chef Delivery using SSH </install_delivery_ssh>`
-* Integrate |delivery| with :doc:`Github </integrate_delivery_github>` and :doc:`LDAP </integrate_delivery_ldap>`
-* :doc:`Manage Users and Roles </delivery_users_and_roles>`
-* :doc:`Manage Dependencies </delivery_manage_dependencies>`
-* :doc:`Manage Secrets </delivery_manage_secrets>`
-* :doc:`Configure a Delivery Pipeline </delivery_pipeline>`
-* :doc:`About Build Cookbooks </delivery_build_cookbook>`
-* :doc:`About the Delivery CLI </ctl_delivery>`
-* :doc:`About delivery-ctl </ctl_delivery_server>`
-* :doc:`About the Chef Delivery DSL </dsl_delivery>`
+.. include:: ../../chef_master/source/start_delivery.rst
 
 .. Hide the TOC from this file.
 
@@ -57,4 +31,3 @@ Read more about |delivery|:
    integrate_delivery_ldap
    integrate_delivery_slack
    integrate_delivery_smtp
-   start_delivery

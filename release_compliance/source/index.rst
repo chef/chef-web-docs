@@ -1,48 +1,7 @@
-=====================================================
-About Chef Compliance
-=====================================================
+.. THIS PAGE IS IDENTICAL TO docs.chef.io/start_compliance.html BY DESIGN
+.. THIS PAGE IS LOCATED AT THE /release/compliance/ PATH.
 
-.. include:: ../../includes_compliance/includes_compliance.rst
-
-The Chef Compliance Server
-=====================================================
-.. include:: ../../includes_compliance/includes_compliance_server.rst
-
-.. image:: ../../images/compliance_components.svg
-   :width: 600px
-   :align: center
-
-Compliance Profiles
------------------------------------------------------
-.. include:: ../../includes_compliance/includes_compliance_profiles.rst
-
-Audit Resources
-=====================================================
-.. include:: ../../includes_inspec/includes_inspec.rst
-
-.. include:: ../../includes_inspec/includes_inspec_resources_list.rst
-
-Examples
------------------------------------------------------
-The following examples show how to use the |inspec resource| collection to build tests.
-
-**Only accept requests on secure ports**
-
-This code uses the ``port`` resource to ensure that the web server is only listening on well-secured ports.
-
-.. include:: ../../step_inspec/step_inspec_port_listen_on_secure_ports.rst
-
-**Use approved strong ciphers**
-
-This code uses the ``sshd_config`` resource to ensure that only enterprise-compliant ciphers are used for |ssh| servers.
-
-.. include:: ../../step_inspec/step_inspec_sshd_conf_use_strong_ciphers.rst
-
-**Test a kitchen.yml file driver**
-
-This code uses the ``yaml`` resource to ensure that the |kitchen| driver is |vagrant|.
-
-.. include:: ../../step_inspec/step_inspec_yaml_kitchen_driver.rst
+.. include:: ../../chef_master/source/start_compliance.rst
 
 
 
@@ -52,6 +11,7 @@ This code uses the ``yaml`` resource to ensure that the |kitchen| driver is |vag
    :hidden:
 
    api_compliance
+   compliance
    config_rb_compliance
    ctl_inspec
    dsl_compliance
@@ -94,6 +54,7 @@ This code uses the ``yaml`` resource to ensure that the |kitchen| driver is |vag
    inspec_postgres_conf
    inspec_postgres_session
    inspec_process
+   inspec_reference
    inspec_registry_key
    inspec_script
    inspec_security_policy
