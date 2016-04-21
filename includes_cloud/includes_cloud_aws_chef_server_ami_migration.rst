@@ -25,13 +25,26 @@ To migrate from an older |amazon ami| to the latest |amazon ami|, do the followi
 
       $ chef-marketplace-ctl upgrade -y
 
-#. .. include:: ../../step_install/step_install_chef_server_reconfigure.rst
+#. Backup the marketplace configuration file on the new |amazon ami|:
+
+   .. code-block:: bash
+
+      $ cp /etc/chef-marketplace/marketplace.rb /tmp/marketplace.rb
 
 #. Restore the backup:
 
    .. code-block:: bash
 
       $ chef-server-ctl restore /tmp/chef-backup-2014-12-10-20-31-40.tgz
+
+#. Restore the marketplace configuration file on the new |amazon ami| and configure the |chef server|:
+
+   .. code-block:: bash
+
+      $ cp /tmp/marketplace.rb /etc/chef-marketplace/marketplace.rb
+      $ chef-marketplace-ctl reconfigure
+      $ chef-server-ctl reconfigure
+      $ chef-manage-ctl reconfigure
 
 #. Download your new starter kit:
 
