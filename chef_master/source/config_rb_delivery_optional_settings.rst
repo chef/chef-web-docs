@@ -260,8 +260,8 @@ This configuration file has the following settings for ``delivery``:
 
       delivery['ssl_certificates'] = {
         'delivery.example.com' => {
-          'key' => 's3://my_bucket/ssl_certificates/delivery.example.com.key',
-          'crt' => 's3://my_bucket/ssl_certificates/delivery.example.com.crt'
+          'key' => 'https://my_bucket/ssl_certificates/delivery.example.com.key',
+          'crt' => 'https://my_bucket/ssl_certificates/delivery.example.com.crt'
         }
       }
 
