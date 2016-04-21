@@ -6,7 +6,9 @@ Welcome to Chef Delivery
 
 |delivery| manages changes to both infrastructure and application code, giving your development and operations teams a common platform for developing, testing, and deploying cookbooks, updating files in source control, building applications, releasing artifacts, and more.
 
-|delivery| accelerates the adoption of continuous delivery and encourages collaboration. It provides a proven, reproducible workflow for managing changes as they flow through the pipeline from a local workstation, through automated tests, and out into production servers in real time.
+|delivery| accelerates the adoption of continuous delivery and encourages collaboration. It provides a :doc:`proven, reproducible workflow for managing changes as they flow through the pipeline </delivery_overview>` from a local workstation, through automated tests, and out into production servers in real time.
+
+
 
 .. image:: ../../images/start_delivery.svg
    :width: 700px
