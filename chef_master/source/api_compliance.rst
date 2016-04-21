@@ -988,7 +988,7 @@ The ``/nodes`` endpoint has the following methods: ``POST``, ``PATCH`` and ``DEL
 
 POST (bulk)
 -----------------------------------------------------
-Use to create one or multipe nodes.
+Use to create one or multiple nodes.
 
 **Request**
 
