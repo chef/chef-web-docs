@@ -289,15 +289,20 @@
 .. |delivery branch| replace:: A branch name for a |delivery| change.
 .. |delivery data_api| replace:: The |json| data to submit to the |api delivery|.
 .. |delivery diff| replace:: Run a diff against the local branch ``HEAD``.
+.. |delivery docker_image| replace:: The |docker| image in which the job is run.
 .. |delivery enterprise| replace:: A configured |delivery| enterprise.
 .. |delivery no_spinner| replace:: Disable the spinner.
 .. |delivery organization| replace:: An organization inside a |delivery| enterprise.
 .. |delivery patchset| replace:: The patchset number.
-.. |delivery phase| replace:: A |delivery| phase.
-.. |delivery pipeline| replace:: A pipeline.
+.. |delivery phase| replace:: The name of a |delivery| phase.
+.. |delivery pipeline| replace:: The name of a |delivery| pipeline.
 .. |delivery pipeline no_open| replace:: Prevent opening a browser that shows the pipeline in |delivery| web UI.
 .. |delivery project_type| replace:: The type of project.
-.. |delivery server| replace:: A server on which |delivery| is running.
+.. |delivery review_edit| replace:: Edit the title and description for the change.
+.. |delivery run_local| replace:: Run locally without the |delivery| server.
+.. |delivery server| replace:: The server on which |delivery| is running.
+.. |delivery skip_build_cookbook| replace:: Skip the creation of a ``build-cookbook`` when initializing a project.
+.. |delivery skip_default_recipe| replace:: Skip the ``default.rb`` recipe in the ``build-cookbook``.
 .. |delivery user| replace:: A |delivery| user name.
 .. |deploy_to| replace:: The "meta root" for the application, if different from the path that is used to specify the name of a resource.
 .. |depth git_shallow_clone| replace:: The number of past revisions to be included in the |git| shallow clone.
@@ -991,6 +996,7 @@
 .. |pluginconfpath| replace:: The list of directories in which |yum| is to look for plugin configuration files.
 .. |pluginpath| replace:: The list of directories in which |yum| is to look for plugin modules.
 .. |plugins_yum| replace:: Enable plugins.
+.. |port delivery_api| replace:: The HTTP port on which the |api delivery| is listening.
 .. |port chef_zero| replace:: The port on which |chef zero| listens.
 .. |port listen_postgresql| replace:: The connection source to which |postgresql| is to respond.
 .. |port enable_non_ssl_nginx| replace:: Allow port 80 redirects to port 443. When this value is set to ``false``, load balancers on the front-end hardware are allowed to do |ssl| termination of the WebUI and API.

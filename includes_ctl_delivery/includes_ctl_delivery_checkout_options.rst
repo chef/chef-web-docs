@@ -4,8 +4,8 @@
 
 This subcommand has the following options:
 
-``-f``, ``--for=PIPELINE``
+``-f=PIPELINE``, ``--for=PIPELINE``
    |delivery pipeline|
 
-``-P``, ``--patchset=NUMBER``
+``-P=NUMBER``, ``--patchset=NUMBER``
    |delivery patchset| Default value: ``latest``.

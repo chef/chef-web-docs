@@ -8,9 +8,9 @@ This subcommand has the following options:
    |auto_bump|
 
 ``--edit``
-   Use to edit the title and description for the change.
+   |delivery review_edit|
 
-``-f``, ``--for=PIPELINE``
+``-f=PIPELINE``, ``--for=PIPELINE``
    |delivery pipeline|
 
 ``--no-open``

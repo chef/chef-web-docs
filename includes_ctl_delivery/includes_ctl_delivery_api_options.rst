@@ -4,20 +4,23 @@
 
 This subcommand has the following options:
 
-``--api-port PORT``
-   The HTTP port on which the |api delivery| is listening.
+``--api-port=PORT``
+   |port delivery_api|
 
-``-c``, ``--config-path=PATH``
+``-c=PATH``, ``--config-path=PATH``
    |path directory_delivery|
 
-``--data DATA``
+``-d=DATA``, ``--data=DATA``
    |delivery data_api|
 
-``-e``, ``--ent=ENTERPRISE``
+``-e=ENTERPRISE``, ``--ent=ENTERPRISE``
    |delivery enterprise|
 
-``-s``, ``--server=SERVER``
+``-o=ORGANIZATION``, ``--org=ORGANIZATION``
+   |delivery organization|
+
+``-s=SERVER``, ``--server=SERVER``
    |delivery server| This must be the |fqdn| for the |delivery| server. For example: ``delivery.example.com``.
 
-``-u``, ``--user=USER``
+``-u=USER``, ``--user=USER``
    |delivery user| This user must exist in the specified enterprise (``--ent``).
