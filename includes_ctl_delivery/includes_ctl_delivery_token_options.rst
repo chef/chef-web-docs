@@ -4,14 +4,14 @@
 
 This subcommand has the following options:
 
-``--api-port PORT``
-   The HTTP port on which the |api delivery| is listening.
+``--api-port=PORT``
+   |port delivery_api|
 
-``-e``, ``--ent=ENTERPRISE``
+``-e=ENTERPRISE``, ``--ent=ENTERPRISE``
    |delivery enterprise|
 
-``-s``, ``--server=SERVER``
+``-s=SERVER``, ``--server=SERVER``
    |delivery server|
 
-``-u``, ``--user=USER``
+``-u=USER``, ``--user=USER``
    |delivery user|

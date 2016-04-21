@@ -4,50 +4,56 @@
 
 This subcommand has the following options:
 
-``-b``, ``--branch``
-   The name of a branch to be merged.
-
-``-C``, ``--change=CHANGE``
+``-b=BRANCH``, ``--branch=BRANCH``
    |delivery branch|
 
-``--docker IMAGE``
-   The |docker| image in which the job is run.
+``-C=CHANGE``, ``--change=CHANGE``
+   |delivery branch|
 
-``-e``, ``--ent=ENTERPRISE``
-   |delivery enterprise|
-
-``-f``, ``--for=PIPELINE``
-   |delivery pipeline|
-
-``-g``, ``--git-url=URL``
-   |git url| This URL is used as the remote target for the local |git| checkout when the job is run. If this option is used, ``--ent``, ``--org``, ``--server``, and ``--user`` options are ignored.
-
-``-i``, ``--change-id=ID``
+``--change-id=ID``
    |id delivery_change|
 
-``-j``, ``--job-root=PATH``
+``--docker=IMAGE``
+   |delivery docker_image|
+
+``-e=ENTERPRISE``, ``--ent=ENTERPRISE``
+   |delivery enterprise|
+
+``-f=PIPELINE``, ``--for=PIPELINE``
+   |delivery pipeline|
+
+``-g=URL``, ``--git-url=URL``
+   |git url| This URL is used as the remote target for the local |git| checkout when the job is run. If this option is used, the ``--ent``, ``--org``, ``--server``, and ``--user`` options are ignored.
+
+``-j=PATH``, ``--job-root=PATH``
    |path delivery_job_root|
+
+``-l``, ``--local``
+   |delivery run_local|
 
 ``-n``, ``--no-spinner``
    |delivery no_spinner|
 
-``-o``, ``--org=ORGANIZATION``
+``-o=ORGANIZATION``, ``--org=ORGANIZATION``
    |delivery organization|
 
-``-p``, ``--project=PROJECT``
+``-p=PROJECT``, ``--project=PROJECT``
    |name delivery_project|
 
-``-P``, ``--patchset=NUMBER``
+``-P=NUMBER``, ``--patchset=NUMBER``
    |delivery patchset| Default value: ``latest``.
 
 ``<phase>``
    |delivery phase|
 
-``-s``, ``--server=SERVER``
+``-s=SERVER``, ``--server=SERVER``
    |delivery server|
 
-``-S``, ``--shasum=GIT_SHA``
+``-S=GIT_SHA``, ``--shasum=GIT_SHA``
    |git sha|
 
-``-u``, ``--user=USER``
+``--skip-default``
+   |delivery skip_default_recipe|
+
+``-u=USER``, ``--user=USER``
    |delivery user|

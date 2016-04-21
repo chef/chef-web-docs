@@ -4,26 +4,35 @@
 
 This subcommand has the following options:
 
-``-e``, ``--ent=ENTERPRISE``
+``-c=PATH``, ``--config-path=PATH``
+   |path directory_delivery|
+
+``-e=ENTERPRISE``, ``--ent=ENTERPRISE``
    |delivery enterprise|
 
-``--no-open``
+``-f=PIPELINE``, ``--for=PIPELINE``
+   |delivery pipeline|
+
+``-l``, ``--local``
+   |delivery run_local|
+
+``-n``, ``--no-open``
    |delivery pipeline no_open|
 
-``-o``, ``--org=ORGANIZATION``
+``-o=ORGANIZATION``, ``--org=ORGANIZATION``
    |delivery organization|
 
-``-p``, ``--project=PROJECT``
+``-p=PROJECT``, ``--project=PROJECT``
    |name delivery_project|
 
-``-s``, ``--server=SERVER``
+``-s=SERVER``, ``--server=SERVER``
    |delivery server|
 
 ``--skip-build-cookbook``
-   Skip creating a build cookbook when initializing a project.
+   |delivery skip_build_cookbook|
 
 ``<type>``
    |delivery project_type| Default value: ``cookbook``.
 
-``-u``, ``--user=USER``
+``-u=USER``, ``--user=USER``
    |delivery user|
