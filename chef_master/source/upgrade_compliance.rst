@@ -39,7 +39,7 @@ This section describes the upgrade process:
 
       chef-compliance-ctl reconfigure
 
-or accept the license unattended:
+   or accept the license unattended:
 
    .. code-block:: bash
 

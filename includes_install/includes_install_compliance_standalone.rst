@@ -14,13 +14,13 @@ To install the |chef compliance| server:
 
    .. code-block:: bash
 
-      $ rpm -Uvh /tmp/chef-compliance-<version>.rpm
+      rpm -Uvh /tmp/chef-compliance-<version>.rpm
 
    For |ubuntu|:
 
    .. code-block:: bash
 
-      $ dpkg -i /tmp/chef-compliance-<version>.deb
+      dpkg -i /tmp/chef-compliance-<version>.deb
 
    After a few minutes, the |chef compliance| will be installed.
 
@@ -28,9 +28,9 @@ To install the |chef compliance| server:
 
    .. code-block:: bash
 
-      $ chef-compliance-ctl reconfigure
+      chef-compliance-ctl reconfigure
 
-or accept the license unattended:
+  or accept the license unattended:
 
    .. code-block:: bash
 
