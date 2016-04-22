@@ -31,6 +31,37 @@ create-user
    $ delivery-ctl create-user ENT_NAME john_smith
 
 
+delete-application
+=====================================================
+.. include:: ../../includes_ctl_delivery_server/includes_ctl_delivery_server_delete_application.rst
+
+**Syntax**
+
+.. include:: ../../includes_ctl_delivery_server/includes_ctl_delivery_server_delete_application_syntax.rst
+
+**Example**
+
+.. code-block:: bash
+
+   $ delivery-ctl delete-application github
+
+returns something similar to:
+
+.. code-block:: bash
+
+   You have successfully deleted the OAuth Application: github
+
+.. code-block:: bash
+
+   $ delivery-ctl delete-application bamboo
+
+returns something similar to:
+
+.. code-block:: bash
+
+   Error: OAuth Application bamboo not found.
+
+
 delete-enterprise
 =====================================================
 .. include:: ../../includes_ctl_delivery_server/includes_ctl_delivery_server_delete_enterprise.rst
@@ -70,6 +101,29 @@ delete-user
 help
 =====================================================
 .. include:: ../../includes_ctl_delivery_server/includes_ctl_delivery_server_help.rst
+
+list-applications
+=====================================================
+.. include:: ../../includes_ctl_delivery_server/includes_ctl_delivery_server_list_applications.rst
+
+**Syntax**
+
+.. include:: ../../includes_ctl_delivery_server/includes_ctl_delivery_server_list_applications_syntax.rst
+
+**Example**
+
+.. code-block:: bash
+
+   $ delivery-ctl list-applications
+
+returns something similar to:
+
+.. code-block:: bash
+
+   OAuth Applications:
+    github
+    github-enterprise
+
 
 list-enterprises
 =====================================================
