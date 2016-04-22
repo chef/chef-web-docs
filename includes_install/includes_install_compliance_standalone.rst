@@ -24,11 +24,17 @@ To install the |chef compliance| server:
 
    After a few minutes, the |chef compliance| will be installed.
 
-#. Run the following to start all of the services:
+#. Reconfigure the services and manually accept the license:
 
    .. code-block:: bash
 
       $ chef-compliance-ctl reconfigure
+
+or accept the license unattended:
+
+   .. code-block:: bash
+
+      chef-compliance-ctl reconfigure --accept-license
 
 #. Access the |chef compliance| setup wizard.  Build the URL by prepending ``https://`` and appending ``/#/setup`` to the IP address or public hostname that was automatically assigned when the |amazon ami| was launched.  For example, ``https://<fqdn>/#/setup``.
 
