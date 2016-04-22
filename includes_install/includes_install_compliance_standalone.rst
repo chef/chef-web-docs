@@ -30,7 +30,7 @@ To install the |chef compliance| server:
 
       chef-compliance-ctl reconfigure
 
-  or accept the license unattended:
+   or accept the license unattended:
 
    .. code-block:: bash
 
