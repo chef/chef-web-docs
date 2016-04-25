@@ -4,7 +4,7 @@ About Chef Licenses
 
 .. include:: ../../includes_chef_license/includes_chef_license.rst
 
-Open Source Projects
+Apache 2
 =====================================================
 .. include:: ../../includes_chef_license/includes_chef_license_apache.rst
 
