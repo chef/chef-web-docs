@@ -335,7 +335,7 @@ In |delivery| there are multiple levels of organization: enterprises, organizati
 .. note:: |delivery| by default hosts a git server that you interact with through the delivery CLI commands. Additionally, you can integrate GitHub Enterprise or GitHub.com.
 
 Add Users
-------------------------------------------------------
+-----------------------------------------------------
 The default ``admin`` account should not be used after |delivery| is installed. Instead, use the following procedure to create a new user for yourself, then log out as ``admin`` and log back in as the user you created.
 
 Create Organizations
@@ -355,19 +355,19 @@ Install Delivery CLI
 .. include:: ../../includes_delivery/includes_delivery_cli_install.rst
 
 |mac os x|
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_delivery/includes_delivery_cli_install_mac.rst
 
 |ubuntu|
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_delivery/includes_delivery_cli_install_ubuntu.rst
 
 RHEL, SUSE
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_delivery/includes_delivery_cli_install_rhel.rst
 
 |windows|
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_delivery/includes_delivery_cli_install_windows.rst
 
 Configure Delivery CLI

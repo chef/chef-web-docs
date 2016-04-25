@@ -44,11 +44,9 @@ Configuration Settings
 
 .. note:: .. include:: ../../includes_delivery_cookbook/includes_delivery_cookbook_delivery_truck.rst
 
-
 Phase Settings
 -----------------------------------------------------
 The individual phases of |delivery| may be configured, grouped under the ``delivery-truck`` configuration setting by phase.
-
 
 publish
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -80,13 +78,9 @@ Multiple Locations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_delivery_truck_publish_all.rst
 
-
-
-
 Examples
 =====================================================
 The following examples show different ways to specify settings and pipeline behaviors in the ``config.json`` file.
-
 
 build-cookbook Locations
 -----------------------------------------------------
@@ -120,16 +114,13 @@ Build Nodes and Phases
 -----------------------------------------------------
 .. include:: ../../includes_delivery_config/includes_delivery_config_example_build_nodes_by_phase.rst
 
-
 Run-time Dependencies
 -----------------------------------------------------
 .. include:: ../../includes_delivery_config/includes_delivery_config_example_dependencies_on_master.rst
 
-
 Stages and Platforms
 -----------------------------------------------------
 .. include:: ../../includes_delivery_config/includes_delivery_config_example_stages_platforms.rst
-
 
 Test Patterns
 -----------------------------------------------------
@@ -146,6 +137,3 @@ Test Patterns
 |foodcritic|, only_rules
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_delivery_truck_lint_foodcritic_only_rules.rst
-
-
-

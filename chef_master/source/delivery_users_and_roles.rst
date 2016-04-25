@@ -66,26 +66,26 @@ Add User SSH Keys
 .. include:: ../../includes_delivery/includes_delivery_ssh_keys.rst
 
 Install the CLI
-------------------------------------------------------
+-----------------------------------------------------
 .. include:: ../../includes_delivery/includes_delivery_cli_install.rst
 
 |mac os x|
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_delivery/includes_delivery_cli_install_mac.rst
 
 RHEL, SUSE
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_delivery/includes_delivery_cli_install_rhel.rst
 
 |windows|
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_delivery/includes_delivery_cli_install_windows.rst
 
 Configure the CLI
-------------------------------------------------------
+-----------------------------------------------------
 .. include:: ../../includes_delivery/includes_delivery_cli_configure.rst
 
 Add SSH Keys
--------------------------------------------------------
+-----------------------------------------------------
 .. include:: ../../includes_delivery/includes_delivery_ssh_keys_add_to_delivery.rst
 
