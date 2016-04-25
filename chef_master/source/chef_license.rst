@@ -1,9 +1,17 @@
 =====================================================
-About the Chef Master License
+About Chef Licenses
 =====================================================
 
 .. include:: ../../includes_chef_license/includes_chef_license.rst
 
-Accept the License
+Open Source Projects
 =====================================================
-.. include:: ../../includes_chef_license/includes_chef_license_accept.rst
+.. include:: ../../includes_chef_license/includes_chef_license_apache.rst
+
+Chef Master License
+=====================================================
+.. include:: ../../includes_chef_license/includes_chef_license_master.rst
+
+Accept the License
+-----------------------------------------------------
+.. include:: ../../includes_chef_license/includes_chef_license_master_accept.rst
