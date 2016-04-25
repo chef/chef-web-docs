@@ -1,11 +1,11 @@
-===================================
-Manage Secrets in Build Cookbooks
-===================================
+=====================================================
+Manage Secrets in a build-cookbook
+=====================================================
 
 
-This topic describes how and why to use secrets in build cookbooks:
+This topic describes how and why to use secrets in a ``build-cookbook``:
 
-* This code is used in the build cookbook
+* This code is used in the ``build-cookbook``
 * Secrets are managed at a project level
 * All of the secrets for a given project will live in the same encrypted data bag item
 
@@ -28,10 +28,10 @@ If the project is in the ``chef`` enterprise and is in the ``CIA`` organization 
 This should use the same encrypted data bag item that is distributed with the build nodes.
 
 Use a Data Bag
-=======================================================
+=====================================================
 To use the encrypted data bag item, do the following:
 
-#. Ensure that ``metadata.rb`` for the build cookbook shows that it depends on the ``delivery-sugar`` cookbook (https://github.com/chef-cookbooks/delivery-sugar)
+#. Ensure that ``metadata.rb`` for the ``build-cookbook`` shows that it depends on the ``delivery-sugar`` cookbook (https://github.com/chef-cookbooks/delivery-sugar)
 #. Update the |berksfile| to point to |github| for the cookbook. The line in your |berksfile| should be similar to:
 
    .. code-block:: javascript

@@ -10,7 +10,6 @@ Helpers
 =====================================================
 .. include:: ../../includes_dsl_delivery/includes_dsl_delivery_helpers.rst
 
-
 Node Attributes
 =====================================================
 .. include:: ../../includes_dsl_delivery/includes_dsl_delivery_attributes.rst

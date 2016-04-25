@@ -1,11 +1,11 @@
-=====================================================
+=======================================================
 About the build-cookbook
-=====================================================
+=======================================================
 
 .. include:: ../../includes_delivery_cookbook/includes_delivery_cookbook_build.rst
 
 Build Cookbook Structure
-=====================================================
+=======================================================
 .. include:: ../../includes_delivery_cookbook/includes_delivery_cookbook_build_structure.rst
 
 The following recipes should be configured to include the corresponding ``delivery-truck`` recipe as a dependency:
@@ -45,32 +45,32 @@ The following recipes should be configured to include the corresponding ``delive
 
 
 Create Build Cookbook
-=====================================================
+=======================================================
 .. include:: ../../includes_delivery_cookbook/includes_delivery_cookbook_setup.rst
 
 .. note:: This section assumes that |delivery| is already configured, a project exists, a user may access that project and submit changes, and that all work is being done from that project's root directory.
 
 Edit the |berksfile|
------------------------------------------------------
+-------------------------------------------------------
 .. include:: ../../includes_delivery_cookbook/includes_delivery_cookbook_setup_berksfile.rst
 
 Edit |metadata rb|
------------------------------------------------------
+-------------------------------------------------------
 .. include:: ../../includes_delivery_cookbook/includes_delivery_cookbook_setup_metadata.rst
 
 Add delivery-truck to Recipes
------------------------------------------------------
+-------------------------------------------------------
 .. include:: ../../includes_delivery_cookbook/includes_delivery_cookbook_setup_recipes.rst
 
 
 Set Up Projects
-==================================================================
+=======================================================
 .. include:: ../../includes_delivery/includes_delivery_projects.rst
 
 Use the Delivery CLI
--------------------------------------------------------------------
+-------------------------------------------------------
 .. include:: ../../includes_delivery/includes_delivery_projects_add_with_delivery_truck.rst
 
 Use the Web UI
------------------------------------------------------
+-------------------------------------------------------
 .. include:: ../../includes_delivery/includes_delivery_projects_add_with_webui.rst

@@ -193,7 +193,7 @@ The following section details settings for |delivery| with |amazon aws| provisio
      - Enter "yes" if you intend to run cookbooks through your |delivery| pipeline.
 
 AWS Provisioning
---------------------------------------------------------
+-----------------------------------------------------
 This section describes setting up a |delivery| cluster to use |amazon aws| for provisioning. This process creates at least five machines, depending on the selected configuration options. The typical (and recommended) starting setup is at least five nodes in addition to the provisioning node:
 
 * One to run the |chef server|
@@ -344,7 +344,7 @@ In |delivery| there are multiple levels of organization: enterprises, organizati
 .. note:: |delivery| by default hosts a git server that you interact with through the delivery CLI commands. Additionally, you can integrate GitHub Enterprise or GitHub.com.
 
 Add Users
-------------------------------------------------------
+-----------------------------------------------------
 The default ``admin`` account should not be used after |delivery| is installed. Instead, use the following procedure to create a new user for yourself, then log out as ``admin`` and log back in as the user you created.
 
 Create Organizations
@@ -364,19 +364,19 @@ Install Delivery CLI
 .. include:: ../../includes_delivery/includes_delivery_cli_install.rst
 
 |mac os x|
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_delivery/includes_delivery_cli_install_mac.rst
 
 |ubuntu|
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_delivery/includes_delivery_cli_install_ubuntu.rst
 
 RHEL, SUSE
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_delivery/includes_delivery_cli_install_rhel.rst
 
 |windows|
-++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_delivery/includes_delivery_cli_install_windows.rst
 
 Configure Delivery CLI
