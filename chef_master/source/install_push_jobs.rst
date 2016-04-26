@@ -10,6 +10,10 @@ The |push jobs| server can be installed as part of a standalone or high availabi
 
 Install the Client
 =====================================================
+There are two ways to install the |push jobs| client: via the ``push-jobs`` cookbook (recommended) or manually.
+
+w/push-jobs Cookbook
+-----------------------------------------------------
 .. include:: ../../includes_install/includes_install_push_jobs_client.rst
 
 Manual Install
