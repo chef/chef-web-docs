@@ -232,6 +232,10 @@ If this error occurs, re-run the upgrade process, adding the ``--upload-threads`
 
 This option will ensure that only one cookbook is uploaded at a time. This approach will be slower, but will prevent a race condition (and this error) from occuring. It may also be helpful to run each stage of the upgrade process separately. See the section "Subcommands Reference" below for more information about the individual commands.
 
+Verify Nodes and Cookbooks 
+=====================================================
+.. include:: ../../includes_upgrade/includes_upgrade_verify_nodes_and_cookbooks.rst
+
 Manual Upgrades
 =====================================================
 The migration process occurs in three steps: download the existing data from the |chef server osc| server, transform that data into the format required for |chef server| version 12, and then upload that data to the server.
