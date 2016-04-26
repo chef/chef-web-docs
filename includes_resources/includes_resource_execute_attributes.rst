@@ -9,32 +9,37 @@ This resource has the following properties:
    |name command| |resource_block_default| |see syntax|
 
    .. note:: .. include:: ../../includes_notes/includes_notes_execute_resource_multiple_commands.rst
-   
+
 ``creates``
    **Ruby Type:** String
 
    |creates file_exists|
-   
+
 ``cwd``
    **Ruby Type:** String
 
    |cwd run_command|
-   
+
 ``environment``
    **Ruby Type:** Hash
 
    |environment variables|
-   
+
 ``group``
    **Ruby Types:** String, Integer
 
    |group command|
-   
+
 ``ignore_failure``
    **Ruby Types:** TrueClass, FalseClass
 
    |ignore_failure| Default value: ``false``.
-   
+
+``live_stream``
+   **Ruby Types:** TrueClass, FalseClass
+
+   |live_stream| Default value: ``false``.
+
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -43,7 +48,7 @@ This resource has the following properties:
    .. include:: ../../includes_resources_common/includes_resources_common_notification_timers.rst
 
    .. include:: ../../includes_resources_common/includes_resources_common_notification_notifies_syntax.rst
-   
+
 ``path``
    **Ruby Type:** Array
 
@@ -63,27 +68,27 @@ This resource has the following properties:
    **Ruby Type:** Chef Class
 
    Optional. |provider resource_parameter|
-   
+
 ``retries``
    **Ruby Type:** Integer
 
    |retries| Default value: ``0``.
-   
+
 ``retry_delay``
    **Ruby Type:** Integer
 
    |retry_delay| Default value: ``2``.
-   
+
 ``returns``
    **Ruby Types:** Integer, Array
 
    |return_value cmd| Default value: ``0``.
-   
+
 ``sensitive``
    **Ruby Types:** TrueClass, FalseClass
 
    |sensitive| Default value: ``false``.
-   
+
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -92,17 +97,17 @@ This resource has the following properties:
    .. include:: ../../includes_resources_common/includes_resources_common_notification_timers.rst
 
    .. include:: ../../includes_resources_common/includes_resources_common_notification_subscribes_syntax.rst
-   
+
 ``timeout``
    **Ruby Types:** Integer, Float
 
    |timeout command| Default value: ``3600``.
-   
+
 ``user``
    **Ruby Types:** String, Integer
 
    |user command|
-   
+
 ``umask``
    **Ruby Types:** String, Integer
 

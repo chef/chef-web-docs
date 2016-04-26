@@ -44,7 +44,6 @@ The full syntax for all of the properties that are available to the |resource ex
      cwd                        String
      environment                Hash
      group                      String, Integer
-     live_stream                TrueClass, FalseClass
      notifies                   # see description
      path                       Array
      provider                   Chef::Provider::Execute
@@ -63,4 +62,4 @@ where
 * ``name`` is the name of the resource block
 * ``command`` is the command to be run
 * ``:action`` identifies the steps the |chef client| will take to bring the node into the desired state
-* ``command``, ``creates``, ``cwd``, ``environment``, ``group``, ``live_stream``, ``path``, ``provider``, ``returns``, ``sensitive``, ``timeout``, ``user``, and ``umask`` are properties of this resource, with the |ruby| type shown. |see attributes|
+* ``command``, ``creates``, ``cwd``, ``environment``, ``group``, ``path``, ``provider``, ``returns``, ``sensitive``, ``timeout``, ``user``, and ``umask`` are properties of this resource, with the |ruby| type shown. |see attributes|

@@ -10,7 +10,7 @@ execute
 
 Syntax
 =====================================================
-.. include:: ../../includes_resources/includes_resource_execute_syntax_11-14.rst
+.. include:: ../../includes_resources/includes_resource_execute_syntax_12-5.rst
 
 .. note:: .. include:: ../../includes_resources_common/includes_resources_common_guards_execute_resource.rst
 
@@ -20,7 +20,7 @@ Actions
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_execute_attributes_11-14.rst
+.. include:: ../../includes_resources/includes_resource_execute_attributes_12-5.rst
 
 Guards
 -----------------------------------------------------
