@@ -33,17 +33,17 @@ This section describes the upgrade process:
 
       rpm -Uvh /path/to/chef-compliance-<version>.rpm
 
-#. Start the database to allow connections during the  ``reconfigure`` step:
-
-   .. code-block:: bash
-
-      chef-compliance-ctl start postgresql
-
-#. Reconfigure the services:
+#. Reconfigure the services and manually accept the license:
 
    .. code-block:: bash
 
       chef-compliance-ctl reconfigure
+
+   or accept the license unattended:
+
+   .. code-block:: bash
+
+      chef-compliance-ctl reconfigure --accept-license
 
 #. Start the services:
 
