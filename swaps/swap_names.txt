@@ -51,6 +51,8 @@
 .. |chef identity_title| replace:: Chef Identify
 .. |chef inc| replace:: Chef Software Inc
 .. |chef init| replace:: chef-init
+.. |chef license| replace:: Chef MLSA
+.. |chef license_full| replace:: Chef Master License and Services Agreement (Chef MLSA)
 .. |chef manage| replace:: Chef management console
 .. |chef manage_title| replace:: Chef Manage
 .. |chef marketplace| replace:: Chef Marketplace
