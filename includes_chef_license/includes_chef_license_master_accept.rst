@@ -4,8 +4,8 @@
 
 There are three ways to accept the master license:
 
-#. When running ``chef-<PRODUCT-NAME>-ctl reconfigure`` the master license is printed. Type ``yes`` to accept it. Anything other than typing ``yes`` rejects the license and the upgrade process will exit.
+#. When running ``chef-<PRODUCT-NAME>-ctl reconfigure`` the master license is printed. Type ``yes`` to accept it. Anything other than typing ``yes`` rejects the license and the upgrade process will exit. Typing ``yes`` adds a ``.license.accepted`` file to the ``/var/opt/<PRODUCT-NAME>/`` directory. As long as this file exists in this directory, the master license is accepted and the reconfigure process will not prompt for ``yes``.
 
 #. Run the ``chef-<PRODUCT-NAME>-ctl reconfigure`` command using the ``--accept-license`` option. This automatically types ``yes`` and skips printing the master license.
 
-#. Add a ``.license.accepted`` file to the ``/var/opt/<PRODUCT-NAME>/`` directory. The contents of this file do not matter. The presense of this file in the correct directory means the master license is accepted.
+#. Add a ``.license.accepted`` file to the ``/var/opt/<PRODUCT-NAME>/`` directory. The contents of this file do not matter. As long as this file exists in this directory, the master license is accepted and the reconfigure process will not prompt for ``yes``.
