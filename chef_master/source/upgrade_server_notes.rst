@@ -15,6 +15,9 @@ If the |resource template| resource is managing the |private chef rb| file in |c
 #. Re-create the management process that was used prior to the upgrade, but make the necessary changes so that |chef| is managing the |chef server rb| file.
 #. Verify that the |chef server rb| file is being managed and that the symlink from |private chef rb| to |chef server rb| is not broken.
 
+Verify Nodes and Cookbooks 
+=====================================================
+.. include:: ../../includes_upgrade/includes_upgrade_verify_nodes_and_cookbooks.rst
 
 Solr => Solr 4 Changes
 =====================================================

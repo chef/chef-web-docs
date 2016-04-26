@@ -6,7 +6,7 @@
 To set up the |push jobs| client manually:
 
 #. Download the package from https://downloads.chef.io/push-jobs-client/.
-#. Create a ``push-jobs-cient.rb`` file in the ``/etc/chef/`` directory with contents similar to:
+#. Create a ``push-jobs-client.rb`` file in the ``/etc/chef/`` directory with contents similar to:
 
    .. code-block:: ruby
 

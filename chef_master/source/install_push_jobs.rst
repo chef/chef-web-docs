@@ -12,6 +12,10 @@ Install the Client
 =====================================================
 .. include:: ../../includes_install/includes_install_push_jobs_client.rst
 
+Manual Install
+-----------------------------------------------------
+.. include:: ../../includes_install/includes_install_push_jobs_client_manual.rst
+
 Install the Workstation
 =====================================================
 .. include:: ../../includes_install/includes_install_push_jobs_workstation.rst

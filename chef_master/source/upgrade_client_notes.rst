@@ -12,6 +12,10 @@ The following cookbooks are being updated by |company_name| to ensure compatibil
 * ``windows``
 * ``knife-windows``
 
+Verify Nodes and Cookbooks 
+=====================================================
+.. include:: ../../includes_upgrade/includes_upgrade_verify_nodes_and_cookbooks.rst
+
 SSL Certificates
 =====================================================
 .. include:: ../../includes_server_security/includes_server_security_ssl_cert_client.rst
