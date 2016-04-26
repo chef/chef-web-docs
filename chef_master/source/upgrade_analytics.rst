@@ -52,6 +52,8 @@ Recommended. The following steps describe upgrading |chef analytics| with partit
 
       $ opscode-analytics-ctl reconfigure
 
+   .. note:: .. include:: ../../includes_chef_license/includes_chef_license_reconfigure_analytics.rst
+
 #. (1.2.x -> 1.3.x upgrade only.) Migrate to partitions:
 
    .. code-block:: bash

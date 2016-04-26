@@ -31,6 +31,7 @@ The ``install`` subcommand downloads packages from https://packages.chef.io/ by 
 
           $ chef-manage-ctl reconfigure
 
+       .. note:: .. include:: ../../includes_chef_license/includes_chef_license_reconfigure_manage.rst
 
    * - |push jobs_title|
      - Use |push jobs| to run jobs---an action or a command to be executed---against nodes independently of a |chef client| run.
@@ -98,18 +99,3 @@ The ``install`` subcommand downloads packages from https://packages.chef.io/ by 
 
           $ opscode-reporting-ctl reconfigure
 
-
-..
-..   * - |chef ha_title|
-..     - Run:
-..
-..       .. code-block:: ruby
-..
-..          $ chef-server-ctl install chef-ha
-..
-..       and then:
-..
-..       .. code-block:: ruby
-..
-..          $ chef-server-ctl reconfigure
-..

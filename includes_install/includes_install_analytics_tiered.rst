@@ -73,9 +73,9 @@ Configure the |chef server|. On each machine in the |chef server| configuration,
 
    .. code-block:: ruby
 
-      $ opscode-manage-ctl reconfigure
+      $ chef-manage-ctl reconfigure
 
-
+   .. note:: .. include:: ../../includes_chef_license/includes_chef_license_reconfigure_manage.rst
 
 
 
@@ -154,3 +154,5 @@ Install |chef analytics| on frontend servers:
    .. code-block:: bash
 
       $ sudo chef-server-ctl reconfigure
+
+   .. note:: .. include:: ../../includes_chef_license/includes_chef_license_reconfigure_analytics.rst

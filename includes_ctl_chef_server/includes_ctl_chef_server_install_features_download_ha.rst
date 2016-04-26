@@ -33,6 +33,8 @@ The ``install`` subcommand downloads packages from https://packages.chef.io/ by 
 
        .. include:: ../../includes_install/includes_install_manage_copy_secrets.rst
 
+       .. note:: .. include:: ../../includes_chef_license/includes_chef_license_reconfigure_manage.rst
+
    * - |chef replication_title|
      - Use |chef replication| to asynchronously distribute cookbook, environment, role, and data bag data from a single, primary |chef server| to one (or more) replicas of that |chef server|.
 
@@ -56,18 +58,3 @@ The ``install`` subcommand downloads packages from https://packages.chef.io/ by 
 
           $ chef-sync-ctl reconfigure
 
-
-..
-..   * - |chef ha_title|
-..     - Run:
-..
-..       .. code-block:: ruby
-..
-..          $ chef-server-ctl install chef-ha
-..
-..       and then:
-..
-..       .. code-block:: ruby
-..
-..          $ chef-server-ctl reconfigure
-..

@@ -67,8 +67,9 @@ Configure the |chef server|. On each server in the |chef server| configuration, 
 
    .. code-block:: ruby
 
-      $ opscode-manage-ctl reconfigure
+      $ chef-manage-ctl reconfigure
 
+   .. note:: .. include:: ../../includes_chef_license/includes_chef_license_reconfigure_manage.rst
 
 Configure the |chef analytics| standalone server:
 
@@ -94,6 +95,8 @@ Configure the |chef analytics| standalone server:
    .. code-block:: bash
 
       $ opscode-analytics-ctl reconfigure
+
+   .. note:: .. include:: ../../includes_chef_license/includes_chef_license_reconfigure_analytics.rst
 
 #. Verify the installation on the |chef analytics| server:
 
