@@ -13,7 +13,7 @@ This section describes the prereqs for the upgrade
 
 Upgrade
 =====================================================
-.. include:: ../../includes_upgrade_compliance/includes_upgrade.rst
+.. include:: ../../includes_upgrade/includes_upgrade_compliance.rst
 
 Logging
 =====================================================
