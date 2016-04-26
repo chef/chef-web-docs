@@ -701,6 +701,7 @@
 .. |links interface_lag| replace:: An array of interfaces to be configured as members of a link aggregation group (LAG).
 .. |links minimum_physical_lag| replace:: The minimum number of physical links that are required to ensure the availability of the link aggregation group (LAG).
 .. |listener_hostname| replace:: The hostname for the listener.
+.. |live_stream| replace:: Send the output of the command run by this |resource execute| resource block to the |chef client| event stream.
 .. |local chef_repo| replace:: Show files in the local |chef repo| instead of a remote location.
 .. |local_directory| replace:: Return only the contents of the local directory.
 .. |local_mode| replace:: Run the |chef client| in local mode. This allows all commands that work against the |chef server| to also work against the local |chef repo|.

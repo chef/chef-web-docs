@@ -17,6 +17,8 @@ The following items are new for |chef client| 12.6 and/or are changes from previ
 * **dsc_resource resource may be run in non-disabled refresh mode** The latest version of |windows management_framework| 5 has relaxed the limitation that prevented the |chef client| from running in non-disabled refresh mode. Requires |windows powershell| 5.0.10586.0 or higher.
 * **dsc_script and dsc_resource resources may be in the same run-list** The latest version of |windows management_framework| 5 has relaxed the limitation that prevented the |chef client| from running in non-disabled refresh mode, which allows the Local Configuration Manager to be set to ``Push``. Requires |windows powershell| 5.0.10586.0 or higher.
 * **New --profile-ruby option** Use the ``--profile-ruby`` option to dump a (large) profiling graph into ``/var/chef/cache/graph_profile.out``.
+* **New live_stream property for the execute resource** Set the ``live_stream`` property to ``true`` to send the output of a command run by the |resource execute| resource to the |chef client| event stream.
+
 
 Notification Timers
 -----------------------------------------------------
@@ -77,6 +79,8 @@ The ``--identify-file`` option is now ``--ssh-identify-file``.
 --profile-ruby Option
 -----------------------------------------------------
 .. include:: ../../includes_ctl_chef_client/includes_ctl_chef_client_profile_ruby.rst
+
+
 
 
 Changelog
