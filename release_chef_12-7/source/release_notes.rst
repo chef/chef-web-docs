@@ -8,6 +8,7 @@ What's New
 =====================================================
 The following items are new for |chef client| 12.7 and/or are changes from previous versions. The short version:
 
+* **Chef::REST => require 'chef/rest'** Internal API calls are moved from ``Chef::REST`` to ``Chef::ServerAPI``. Any code that uses ``Chef::REST`` must use ``require 'chef/rest'``.
 * **New chocolatey_package resource** Use the |resource package_chocolatey| resource to manage packages using |chocolatey| for the |windows| platform.
 * **New osx_profile resource** Use the |resource osx_profile| resource to manage configuration profiles (``.mobileconfig`` files) on the |mac os x| platform.
 * **New apt_update resource** Use the |resource apt_update| resource to manage |apt| repository updates on |debian| and |ubuntu| platforms.
@@ -15,6 +16,16 @@ The following items are new for |chef client| 12.7 and/or are changes from previ
 * **New options for the chef-client** The |chef client| has a new option: ``--delete-entire-chef-repo``.
 * **Multi-package support for Chocolatey and Zypper** A resource may specify multiple packages and/or versions for platforms that use |zypper| or |chocolatey| package managers (in addition to the existing support for specifying multiple packages for |yum| and |apt| packages).
 
+
+Chef::REST => require 'chef/rest'
+-----------------------------------------------------
+Internal API calls are moved from ``Chef::REST`` to ``Chef::ServerAPI``. As a result of this move, ``Chef::REST`` is no longer globally required. Any code that uses ``Chef::REST`` must be required as follows:
+
+.. code-block:: ruby
+
+   require 'chef/rest'
+
+For code that is run using |knife| or |chef ctl| command line interfaces, consider using ``Chef::ServerAPI`` instead.
 
 chocolatey_package
 -----------------------------------------------------
