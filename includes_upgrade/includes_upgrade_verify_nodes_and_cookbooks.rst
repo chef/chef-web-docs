@@ -14,7 +14,7 @@ Install the latest version of the |chef client| on a small number of test nodes.
 
 Verify the nodes and clients that are in use:
 
-* Are all nodes and/or clients in use? Clean up any extra nodes and clients. Use the ``knife node list``, ``knife client list``, and :doc:`knife status </knife_status>` commands to verify nodes and clients.
-* Use the :doc:`knife client </knife_client>` command to remove unused clients. Use the :doc:`knife node </knife_node>` command to remove unused nodes.
+* Are all nodes and/or clients in use? Clean up any extra nodes and clients. Use the ``knife node list``, ``knife client list``, and ``knife_status``` commands to verify nodes and clients.
+* Use the ``knife_client`` command to remove unused clients. Use the ``knife_node`` command to remove unused nodes.
 
 Run the test nodes against the |chef server|. If the server is also being upgraded, first complete that upgrade process (ideally on a fresh operating system), including processes for any highly available, load balanced, or offloaded services, and then verify the test nodes against the upgraded |chef server|.
