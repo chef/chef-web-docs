@@ -4,6 +4,13 @@ Release Notes: |chef analytics_title|
 
 .. include:: ../../includes_analytics/includes_analytics.rst
 
+What's New (1.4)
+=====================================================
+The following items are new for |chef analytics| 1.4 and/or are changes from previous versions. The short version:
+
+* **Chef MLSA** .. include:: ../../includes_chef_license/includes_chef_license_reconfigure_analytics.rst 
+
+
 What's New (1.3)
 =====================================================
 The following items are new for |chef analytics| 1.3 and/or are changes from previous versions. The short version:

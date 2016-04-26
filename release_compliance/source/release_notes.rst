@@ -1,23 +1,12 @@
 =====================================================
-Release Notes: Chef Compliance 1.0
+Release Notes: Chef Compliance
 =====================================================
 
-xxxxx
+.. include:: ../../includes_compliance/includes_compliance.rst
 
-What's New
+What's New (1.1)
 =====================================================
-The following items are new for |chef compliance| 1.0:
+The following items are new for |chef compliance| 1.1:
 
-* **xxxxx** xxxxx.
+* **Chef MLSA** .. include:: ../../includes_chef_license/includes_chef_license_reconfigure_compliance.rst
 
-xxxxx
-=====================================================
-xxxxx
-
-xxxxx
------------------------------------------------------
-xxxxx
-
-What's Fixed
-=====================================================
-For the list of issues that were addressed for this release, please see the changelog on |github|: https://github.com/chef/opscode-omnibus/blob/master/CHANGELOG.md
