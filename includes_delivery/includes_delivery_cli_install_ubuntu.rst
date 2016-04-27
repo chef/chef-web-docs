@@ -6,10 +6,4 @@ For |ubuntu| 14.04, run the following commands:
 
 .. code-block:: bash
 
-   $ curl https://packagecloud.io/install/repositories/chef/stable/script.deb.sh | sudo bash
-
-and then:
-
-.. code-block:: bash
-
-   $ sudo apt-get install delivery-cli
+   $ curl -L https://omnitruck.chef.io/install.sh | sudo bash -s -- -P delivery-cli
