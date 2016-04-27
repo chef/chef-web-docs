@@ -212,7 +212,11 @@ This section describes setting up a |delivery| cluster to use |ssh| for provisio
 * One to run the |supermarket| server; for cookbook dependency resolution, using |supermarket| server is required
 * For a test environment, use stand-in infrastructure nodes; we recommend four, one for each environment stage: Acceptance, Union, Rehearsal, and Delivered
 
-These machines must be accessible via |ssh| and commands should be run using ``sudo`` without passwords.
+.. note:: These machines must be accessible via |ssh| and the user account for the |ssh| logins must be capable of running any command via passwordless |sudo|. Or a password may be specified using the ``prefix`` attribute in the ``delivery-cluster`` cookbook, with a value similar to:
+
+   .. code-block:: ruby
+
+      "echo myPassword | sudo -S "
 
 On the provisioning node:
 
