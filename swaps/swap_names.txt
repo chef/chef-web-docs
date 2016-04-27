@@ -521,6 +521,7 @@
 .. |growl| replace:: Growl
 .. |gunicorn| replace:: Gunicorn
 .. |gzip| replace:: gzip
+.. |haproxy| replace:: HAProxy
 .. |hipchat| replace:: HipChat
 .. |hipchat notification| replace:: HipChat Notification
 .. |hipaa| replace:: HIPAA
