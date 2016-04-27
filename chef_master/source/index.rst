@@ -494,6 +494,7 @@ Chef Compliance
    server_webui_tasks
    simple_walkthrough
    slides
+   start_chef
    start_compliance
    start_delivery
    style_guide
