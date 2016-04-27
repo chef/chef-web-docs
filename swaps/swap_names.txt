@@ -673,7 +673,6 @@
 .. |openvpn| replace:: OpenVPN
 .. |oracle linux| replace:: Oracle Linux
 .. |oracle solaris| replace:: Oracle Solaris
-.. |packagecloud| replace:: packagecloud.io
 .. |packer| replace:: Packer
 .. |paludis| replace:: Paludis
 .. |passenger| replace:: Passenger
