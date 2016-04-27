@@ -8,21 +8,21 @@ Syntax
 =====================================================
 .. include:: ../../includes_api_omnitruck/includes_api_omnitruck_syntax.rst
 
-|chef client_title| Downloads
+Downloads
 =====================================================
-.. include:: ../../includes_api_omnitruck/includes_api_omnitruck_client.rst
+.. include:: ../../includes_api_omnitruck/includes_api_omnitruck_downloads.rst
 
 Supported Platforms
 -----------------------------------------------------
-.. include:: ../../includes_supported_platforms/includes_supported_platforms_omnitruck_client.rst
+.. include:: ../../includes_supported_platforms/includes_supported_platforms_omnitruck.rst
 
 Examples
 -----------------------------------------------------
 
 **Get the Latest Build**
 
-.. include:: ../../step_api_omnitruck/step_api_omnitruck_client_get_latest_build.rst
+.. include:: ../../step_api_omnitruck/step_api_omnitruck_get_latest_build.rst
 
 **Download Directly**
 
-.. include:: ../../step_api_omnitruck/step_api_omnitruck_client_download_directly.rst
+.. include:: ../../step_api_omnitruck/step_api_omnitruck_download_directly.rst
