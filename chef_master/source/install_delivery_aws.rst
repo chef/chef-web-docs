@@ -312,30 +312,7 @@ To run provisioning (from inside the ``delivery-cluster`` directory), run the fo
 
 Verify Provisioning
 -----------------------------------------------------
-To verify provisioning (from inside the ``delivery-cluster`` directory), do the following:
-
-#. Run the following command:
-
-   .. code-block:: bash
-
-      $ rake info:list_core_services
-
-#. Navigate to your CHEF_SERVER_URL, and then login with ``delivery:delivery``. Use ``rake info:delivery_creds`` to get the password.
-#. Click on **Nodes**. You'll see your |delivery| server, your build nodes, and nodes for any other optional features that you installed.
-#. Get the credentials and URL with the following command:
-
-   .. code-block:: bash
-
-      $ rake info:delivery_creds
-
-#. Navigate to the **Web Login** and use the ``admin`` credentials to log in.
-#. Run the following command:
-
-   .. code-block:: bash
-
-      $ knife node status
-
-   All build nodes should report available.
+.. include:: ../../includes_delivery/includes_delivery_verify_provisioning.rst
 
 Configure Delivery
 =====================================================

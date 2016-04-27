@@ -212,11 +212,15 @@ This section describes setting up a |delivery| cluster to use |ssh| for provisio
 * One to run the |supermarket| server; for cookbook dependency resolution, using |supermarket| server is required
 * For a test environment, use stand-in infrastructure nodes; we recommend four, one for each environment stage: Acceptance, Union, Rehearsal, and Delivered
 
-.. note:: These machines must be accessible via |ssh| and the user account for the |ssh| logins must be capable of running any command via passwordless |sudo|. Or a password may be specified using the ``prefix`` attribute in the ``delivery-cluster`` cookbook, with a value similar to:
+.. note:: These machines must be accessible via |ssh| and the user account for the |ssh| logins must be capable of running any command via passwordless |sudo|. Or a password may be specified using the ``prefix`` attribute in the ``environment.json`` file, with a value similar to:
 
-   .. code-block:: ruby
+   .. code-block:: javascript
 
-      "echo myPassword | sudo -S "
+      "ssh": {
+        "ssh_username": "ubuntu",
+        "prefix": "echo myPassword | sudo -S ",
+        "key_file": "~/.ssh/id_rsa.pem",
+        ...
 
 On the provisioning node:
 
@@ -307,30 +311,7 @@ To run provisioning (from inside the ``delivery-cluster`` directory), run the fo
 
 Verify Provisioning
 -----------------------------------------------------
-To verify provisioning (from inside the ``delivery-cluster`` directory), do the following:
-
-#. Run the following command:
-
-   .. code-block:: bash
-
-      $ rake info:list_core_services
-
-#. Navigate to your CHEF_SERVER_URL, and then login with ``delivery:delivery``.
-#. Click on **Nodes**. You'll see your |delivery| server, your build nodes, and nodes for any other optional features that you installed.
-#. Get the credentials and URL with the following command:
-
-   .. code-block:: bash
-
-      $ rake info:delivery_creds
-
-#. Navigate to the **Web Login** and use the ``admin`` credentials to log in.
-#. Run the following command:
-
-   .. code-block:: bash
-
-      $ knife node status
-
-   All build nodes should report available.
+.. include:: ../../includes_delivery/includes_delivery_verify_provisioning.rst
 
 Configure Delivery
 =====================================================
