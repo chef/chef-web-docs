@@ -12,11 +12,6 @@ This resource has the following providers:
 ``Chef::Provider::Package::Apt``, ``apt_package``
    The provider for the |debian| and |ubuntu| platforms.
 
-``Chef::Provider::Package::Chocolatey``, ``chocolatey_package``
-   The provider for |chocolatey| on the |windows| platform.
-
-   .. warning:: .. include:: ../../includes_notes/includes_notes_resource_chocolatey_package.rst
-
 ``Chef::Provider::Package::Dpkg``, ``dpkg_package``
    The provider for the |debian dpkg| platform. Can be used with the ``options`` attribute.
 
