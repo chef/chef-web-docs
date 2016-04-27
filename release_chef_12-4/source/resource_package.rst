@@ -82,7 +82,7 @@ Providers
 
 .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
 
-.. include:: ../../includes_resources/includes_resource_package_providers.rst
+.. include:: ../../includes_resources/includes_resource_package_providers_12-6.rst
 
 Examples
 =====================================================

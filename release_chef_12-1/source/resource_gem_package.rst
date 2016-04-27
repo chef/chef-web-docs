@@ -8,9 +8,9 @@ gem_package
 
 .. include:: ../../includes_resources/includes_resource_package_gem.rst
 
-.. note:: ../../includes_notes/includes_notes_resource_based_on_package.rst
+.. note:: .. include:: ../../includes_notes/includes_notes_resource_gem_package.rst
 
-Syntax
+Syntaxs
 =====================================================
 .. include:: ../../includes_resources/includes_resource_package_gem_syntax_12-1.rst
 

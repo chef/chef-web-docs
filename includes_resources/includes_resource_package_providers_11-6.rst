@@ -36,6 +36,8 @@ This resource has the following providers:
 ``Chef::Provider::Package::Rubygems``, ``gem_package``
    Can be used with the ``options`` attribute.
 
+   .. warning:: .. include:: ../../includes_notes/includes_notes_resource_gem_package.rst
+
 ``Chef::Provider::Package::Rubygems``, ``chef_gem``
    Can be used with the ``options`` attribute.
 
