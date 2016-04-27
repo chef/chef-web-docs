@@ -14,7 +14,8 @@ A backend HA cluster provides a highly available persistence system for the |che
 
 * |postgresql| is the data store for |chef server| data
 * |elasticsearch| creates the search indexes
-* |leaderl| manages failover and the backend VIP
+* |haproxy| automatically routes traffic to the backend leader
+* |leaderl| manages failover
 * |etcd| provides consensus and ties the backend HA cluster together
 
 The only ports open between the frontend group and the backend HA cluster are ``9200`` and ``5432``, which allow the |chef server| nodes in the frontend group to access |elasticsearch| and |postgresql| respectively.
@@ -30,7 +31,7 @@ The following sections describe the components of the backend HA cluster configu
 
 The key elements are:
 
-* Backend VIP
+* The proxy on each machine in the frontend group that automatically routes traffic to the backend leader
 * The backend HA cluster
 * The frontend group
 * The ports open between the frontend group and the backend HA cluster
@@ -38,9 +39,9 @@ The key elements are:
 
 Each of these are discussed in more detail in the following sections.
 
-Backend VIP
+Proxy
 -----------------------------------------------------
-All communication between nodes in the frontend group and nodes in the backend HA cluster must use the backend VIP. The backend VIP is an IP address that represents the backend HA cluster and is always assigned to the node that is the current leader.
+All communication between nodes in the frontend group and the leader node in the backend HA cluster is done via proxy. An instance of |haproxy| is bundled with each machine in the frontend group and automatically routes traffic to the leader node in the backend HA cluster.
 
 Backend Cluster
 -----------------------------------------------------
