@@ -23,9 +23,9 @@ Before getting started, you will need a functioning workstation. Install the `Ch
 
    .. note:: If you are using the "Resource Manager" deployment model, you will need to create a **DNS Name** label for the instance. <https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-create-fqdn-on-portal/>
 
-#. Once the virtual machine is launched you will need to create an account to use with the |chef manage|. To do this, open an |ssh| connection to the host using the user name and password (or |ssh| key) provided when you launch the virtual machine.
+#. Once the instance is launched you will need to create an account to use with the |chef manage|. To do this, open an |ssh| connection to the host using the user name and password (or |ssh| key) provided when you launched the instance.
 
-   .. note:: In the following steps substitute ``<fqdn>`` for the fully qualified domanin **DNS NAME** that you created.
+   .. note:: In the following steps substitute ``<fqdn>`` for the fully qualified domain **DNS NAME** that you created.
 
 #. Update the ``/etc/chef-marketplace/marketplace.rb`` file to include the ``api_fqdn`` of the machine.
 
