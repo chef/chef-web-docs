@@ -21,7 +21,7 @@
 
 #. Once the virtual machine is launched you will need to create an account. To do this, open an |ssh| connection to the host using the user name and password (or |ssh| key) provided when you launch the virtual machine.
 
-   .. note:: In the following steps substitute ``<fqdn>`` for the fully qualified domanin **DNS NAME** that you created.
+   .. note:: In the following steps substitute ``<fqdn>`` for the fully qualified domain **DNS NAME** that you created.
 
 #. Update the ``/etc/chef-marketplace/marketplace.rb`` file to include the ``api_fqdn`` of the machine.
 
@@ -44,6 +44,6 @@
 
 #. Now proceed to the web based setup wizard ``https://<fqdn>/#/setup``
 
-#. Before you can run through the wizard you must provide the VM Name of the instance in order to ensure that only you are configuring the |chef compliace| instance.
+#. Before you can run through the wizard you must provide the VM Name of the instance in order to ensure that only you are configuring the |chef compliance| instance.
 
 #. Follow the prompts to sign up for a new account.
