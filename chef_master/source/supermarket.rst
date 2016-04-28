@@ -18,7 +18,7 @@ Install |supermarket|
 Requirements
 -----------------------------------------------------
 
-To install a private Supermarket, you will need:
+To install a private |supermarket|, you will need:
 
 * an operational |chef server| version 12 to act as Oauth Provider
 * an admin user account on the |chef server|
@@ -62,18 +62,14 @@ To set up |chef identity|, do the following:
 
    The ``uid`` and ``secret`` values will be needed later on during the setup process for |supermarket|.
 
-.. note:: You may add as many |chef identity| applications as you wish to the |chef server rb|
-  configuration file. One file per application will be created so that you can see the authentication
-  tokens generated for each application. The secrets are also added to the |chef identity| database for
-  use by any front-end |chef server| node. It is not necessary to copy the generated JSON files to other
-  nodes.
+.. note:: You may add as many |chef identity| applications as you wish to the |chef server rb| configuration file. One file per application will be created so that you can see the authentication tokens generated for each application. The secrets are also added to the |chef identity| database for use by any front-end |chef server| node. It is not necessary to copy the generated JSON files to other nodes.
 
 Preparing Your Supermarket
 -----------------------------------------------------
 
-The best cookbook to use to set up a Supermarket is ``supermarket-omnibus-cookbook`` `found in the public Supermarket <https://supermarket.chef.io/cookbooks/supermarket-omnibus-cookbook>`_. This cookbook is attribute driven, so it's recommended that you use a wrapper cookbook to supply your customized attributes.
+The best cookbook for configuring |supermarket| is ``supermarket-omnibus-cookbook`` `found in the public Supermarket <https://supermarket.chef.io/cookbooks/supermarket-omnibus-cookbook>`_. This cookbook is attribute driven, so it's recommended that you use a wrapper cookbook to supply your customized attributes.
 
-.. note:: The ``supermarket`` cookbook available on the public Supermarket installs |supermarket| from source and is no longer recommended. Instead, use an omnibus package to install |supermarket| with the ``supermarket-omnibus-cookbook``. Omnibus packages are also downloadable directly from :doc:`Omnitruck </api_omnitruck>.
+.. note:: The ``supermarket`` cookbook available https://supermarket.chef.io installs |supermarket| from source and is no longer recommended. Instead, use an omnibus package to install |supermarket| with the ``supermarket-omnibus-cookbook``. Omnibus packages are also downloadable directly from :doc:`Omnitruck </api_omnitruck>.
 
 Overview of a Wrapper Cookbook
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -83,9 +79,9 @@ Let’s go through the layers of the wrapper cookbook, cookbook, and internal co
 
 #. First there is the wrapper cookbook where we define ``node[supermarket_omnibus]`` attributes.
 
-#. Then there is the ``supermarket-omnibus-cookbook``, which is what our wrapper cookbook wraps around. This cookbook will install the Supermarket omnibus rpm or deb packages and then write the ``node[supermarket_omnibus]`` attributes to ``/etc/supermarket/supermarket.json``
+#. Then there is the ``supermarket-omnibus-cookbook``, which is what our wrapper cookbook wraps around. This cookbook will install the |supermarket| omnibus .rpm or .deb packages and then write the ``node[supermarket_omnibus]`` attributes to ``/etc/supermarket/supermarket.json``
 
-#. Finally, we have the Supermarket omnibus rpm or deb package. This package has an internal chef cookbook which configures the already-installed package using the attributes defined in ``/etc/supermarket/supermarket.json``. When this internal cookbook is run, it is very similar to running chef solo on a server.
+#. Finally, we have the |supermarket| omnibus .rpm or .deb package. This package has an internal chef cookbook which configures the already-installed package using the attributes defined in ``/etc/supermarket/supermarket.json``. When this internal cookbook is run, it is very similar to running chef solo on a server.
 
 Creating the wrapper cookbook
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -126,7 +122,7 @@ And add this content, which will execute the ``default`` recipe of the ``superma
 
    include_recipe 'supermarket-omnibus-cookbook'
 
-Next define the attributes for the Supermarket installation and how it connects to the Chef Server. One solution is to hard code attributes in the wrapper cookbook’s default recipe, but a better practice is to place the attributes in a data bag (or encrypted data bag or vault), then reference them in them recipe.
+Next define the attributes for the |supermarket| installation and how it connects to the Chef Server. One solution is to hard code attributes in the wrapper cookbook’s default recipe, but a better practice is to place the attributes in a data bag (or encrypted data bag or vault), then reference them in them recipe.
 
 At a minimum, ``chef_server_url``, ``chef_oauth2_app``, ``chef_oauth2_secret`` attributes must be defined.
 
@@ -175,7 +171,7 @@ Then upload the wrapper cookbook (again, there is more than one way of doing thi
    $ (your workstation) cd path/to/wrapper/cookbook/
    $ (your workstation) knife cookbook upload -a
 
-Now bootstrap the Supermarket node with the Chef Server. For example, an ubuntu node in AWS would bootstrap like this:
+Now bootstrap the |supermarket| node with the Chef Server. For example, an ubuntu node in AWS would bootstrap like this:
 
 .. code-block:: bash
 
@@ -201,13 +197,13 @@ And add the wrapper’s default recipe to the supermarket-node’s run list then
      "recipe[my_supermarket_wrapper::default]"
    ]
 
-Now start a chef-client run on the Supermarket node. One way is to ssh to the Supermarket host.
+Now start a chef-client run on the |supermarket| node. One way is to |ssh| to the |supermarket| host.
 
 .. code-block:: bash
 
    $ (your workstation) ssh ubuntu@your-supermarket-node-public-dns
 
-And once on the host, run chef-client. This will install and configure Supermarket.
+And once on the host, run chef-client. This will install and configure |supermarket|.
 
 .. code-block:: bash
 
@@ -219,9 +215,9 @@ Using Private Supermarket
 Connecting to Supermarket
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-To reach the newly spun up Private Supermarket, the Supermarket host's hostname must be resolvable from the workstation. The Private Supermarket hostname could be added to the workstation's ``/etc/hosts`` for testing purposes, but for production use, the hostname should have a DNS entry in an appropriate domain that users' workstations trust.
+To reach the newly spun up private Supermarket, the Supermarket host's hostname must be resolvable from the workstation. The private |supermarket| hostname could be added to the workstation's ``/etc/hosts`` for testing purposes, but for production use, the hostname should have a DNS entry in an appropriate domain that users' workstations trust.
 
-Visit the Supermarket hostname in the browser. A Private Supermarket will generate and use a self-signed certificate, if not supplied a certificate via the wrapper cookbook. If you receive an SSL warning while testing, accept the SSL certificate in your browser. A trusted SSL certificate should be used for production Private Supermarkets.
+Visit the Supermarket hostname in the browser. A private |supermarket| will generate and use a self-signed certificate, if not supplied a certificate via the wrapper cookbook. If you receive an SSL warning while testing, accept the SSL certificate in your browser. A trusted SSL certificate should be used for production private |supermarket|s.
 
 Click the “Create Account” link. If not already logged into the Chef Server, you will be prompted to do so. Then authorize the Supermarket application to use your Chef Server account for authentication.
 
@@ -250,13 +246,13 @@ Now we open up our knife.rb file
 
    $ (your workstation) vim .chef/knife.rb
 
-And define the supermarket site for our Private Supermarket, then save and close the file.
+And define the supermarket site for our private |supermarket|, then save and close the file.
 
 .. code-block:: ruby
 
    knife[:supermarket_site] = 'https://your-private-supermarket'
 
-Knife Supermarket commands are the same as knife cookbook site commands, only with the ability to connect with an Private Supermarket rather than just the Public Supermarket. Please consult the docs for information on all commands that can be used with Knife Supermarket.
+Knife Supermarket commands are the same as knife cookbook site commands, only with the ability to connect with an private |supermarket| rather than just the Public Supermarket. Please consult the docs for information on all commands that can be used with Knife Supermarket.
 
 Let’s take the time to go over how to share a cookbook to a private Supermarket. Using knife supermarket, we would run this command:
 
@@ -272,7 +268,7 @@ When we first run this command, we might see an SSL error:
    Making tarball my_cookbook.tgz
    ERROR: Error uploading cookbook my_cookbook to the Opscode Cookbook Site: SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed. Increase log verbosity (-VV) for more information.
 
-This is because Chef 12 enforces SSL by default when sharing cookbooks (Chef 11 did NOT do this). Private Supermarkets, by default, use self-signed certificates. Fortunately we can fix this error through fetching and checking the private Supermarket’s ssl certificate.
+This is because Chef 12 enforces SSL by default when sharing cookbooks (Chef 11 did NOT do this). A private |supermarket|, by default, use self-signed certificates. Fortunately we can fix this error through fetching and checking the private Supermarket’s ssl certificate.
 
 .. code-block:: bash
 
