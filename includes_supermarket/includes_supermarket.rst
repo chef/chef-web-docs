@@ -7,4 +7,4 @@
 There are two ways to use |supermarket|:
 
 * The public |supermarket| is hosted by |company_name| and is located at |url supermarket|. Contributing to cookbooks on |supermarket| :doc:`requires a CLA or CCLA </community_contributions>`.
-* A private |supermarket| may be installed on-premises behind the firewall on the internal network. Cookbook retrieval from a private |supermarket| is often faster than from the public |supermarket| because of closer proximity and fewer cookbooks to resolve. A private cookbook can also help formalize internal cookbook release management processes (e.g. "a cookbook is not released until it's published on |supermarket|").
+* A private |supermarket| may be installed on-premise behind the firewall on the internal network. Cookbook retrieval from a private |supermarket| is often faster than from the public |supermarket| because of closer proximity and fewer cookbooks to resolve. A private cookbook can also help formalize internal cookbook release management processes (e.g. "a cookbook is not released until it's published on |supermarket|").
