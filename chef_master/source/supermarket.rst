@@ -6,68 +6,23 @@
 
 Public |supermarket|
 =====================================================
-The public |supermarket| hosted by |company_name| is located at |url supermarket|.
-
-.. image:: ../../images/public_supermarket.svg
-   :width: 700px
-   :align: center
+.. include:: ../../includes_supermarket/includes_supermarket_public.rst
 
 Private |supermarket|
 =====================================================
-The private |supermarket| is installed behind the firewall on the internal network.
-
-
-.. note:: These instructions supersede and incorporate earlier blog posts:
-  `Getting Started with oc-id and Supermarket <https://www.chef.io/blog/2014/08/29/getting-started-with-oc-id-and-supermarket/>`_ and `A Supermarket of Your Own: Running a Private Supermarket <https://www.chef.io/blog/2015/12/31/a-supermarket-of-your-own-running-a-private-supermarket/>`_.
+.. include:: ../../includes_supermarket/includes_supermarket_private.rst
 
 Requirements
 -----------------------------------------------------
+.. include:: ../../includes_supermarket/includes_supermarket_private_requirements.rst
 
-To install a private |supermarket|, you will need:
-
-* an operational |chef server| version 12 to act as Oauth Provider
-* an admin user account on the |chef server|
-* a key for the admin user account on |chef server|
-* an x86_64 compatible Linux host with at least 1 GB memory
-* AWS S3 credentials if intending to store cookbooks in an S3 bucket **or** sufficient disk space on the |supermarket| host to meet your projected cookbook storage capacity needs
-
-|chef server| version 12 includes |chef identity|, which enables |oauth| 2.0 authentication used by |chef| web applications, including |supermarket|. To run |supermarket| behind a firewall on-premises, first upgrade to |chef server| version 12 (or higher) so that |oauth| 2.0 authentication is available.
-
-
-Set Up |chef identity_title|
+|chef identity_title|
 -----------------------------------------------------
-To set up |chef identity|, do the following:
+.. include:: ../../includes_supermarket/includes_supermarket_private_ocid.rst
 
-#. Log on to the |chef server|—if running a multi-node |chef server| cluster, connect to the node acting as data-master—via |ssh| and elevate to an admin-level user.
-#. Add the following setting to the ``/etc/opscode/chef-server.rb`` configuration file:
-
-   .. code-block:: ruby
-
-      oc_id['applications'] ||= {}
-      oc_id['applications']['supermarket'] = {
-        'redirect_uri' => 'https://supermarket.mycompany.com/auth/chef_oauth2/callback'
-      }
-
-#. Run the following command:
-
-   .. code-block:: bash
-
-      $ chef-server-ctl reconfigure
-
-#. |oauth| 2.0 data is located in ``/etc/opscode/oc-id-applications/supermarket.json``:
-
-   .. code-block:: javascript
-
-      {
-        "name": "supermarket",
-        "uid": "0bad0f2eb04e935718e081fb71e3b7bb47dc3681c81acb9968a8e1e32451d08b",
-        "secret": "17cf1141cc971a10ce307611beda7f4dc6633bb54f1bc98d9f9ca76b9b127879",
-        "redirect_uri": "https://supermarket.mycompany.com/auth/chef_oauth2/callback"
-      }
-
-   The ``uid`` and ``secret`` values will be needed later on during the setup process for |supermarket|.
-
-.. note:: You may add as many |chef identity| applications as you wish to the |chef server rb| configuration file. One file per application will be created so that you can see the authentication tokens generated for each application. The secrets are also added to the |chef identity| database for use by any front-end |chef server| node. It is not necessary to copy the generated JSON files to other nodes.
+Configure
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_supermarket/includes_supermarket_private_ocid_configure.rst
 
 Preparing Your Supermarket
 -----------------------------------------------------

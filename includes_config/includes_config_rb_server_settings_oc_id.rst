@@ -10,7 +10,9 @@ This configuration file has the following settings for ``oc-id``:
 ``oc_id['applications']``
    |application ocid| Default value: ``{ }``. 
 
-   .. include:: ../../step_config/step_config_ocid_application_hash.rst
+   .. include:: ../../step_config/step_config_ocid_application_hash_supermarket.rst
+
+   .. include:: ../../step_config/step_config_ocid_application_hash_analytics.rst
 
 ``oc_id['db_pool_size']``
    |db_pool_size| Default value: ``'20'``.
