@@ -24,150 +24,26 @@ Configure
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_supermarket/includes_supermarket_private_ocid_configure.rst
 
-Preparing Your Supermarket
+Install |supermarket|
 -----------------------------------------------------
+.. include:: ../../includes_supermarket/includes_supermarket_private_install.rst
 
-The best cookbook for configuring |supermarket| is ``supermarket-omnibus-cookbook`` `found in the public Supermarket <https://supermarket.chef.io/cookbooks/supermarket-omnibus-cookbook>`_. This cookbook is attribute driven, so it's recommended that you use a wrapper cookbook to supply your customized attributes.
-
-.. note:: The ``supermarket`` cookbook available https://supermarket.chef.io installs |supermarket| from source and is no longer recommended. Instead, use an omnibus package to install |supermarket| with the ``supermarket-omnibus-cookbook``. Omnibus packages are also downloadable directly from :doc:`Omnitruck </api_omnitruck>.
-
-Overview of a Wrapper Cookbook
+Create a Wrapper Cookbook
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-Let’s go through the layers of the wrapper cookbook, cookbook, and internal cookbook within the Omnibus package.
+.. include:: ../../includes_supermarket/includes_supermarket_private_install_wrapper_cookbook.rst
 
-.. image:: ../../images/supermarket_wrapper_cookbook_diagram.png
-
-#. First there is the wrapper cookbook where we define ``node[supermarket_omnibus]`` attributes.
-
-#. Then there is the ``supermarket-omnibus-cookbook``, which is what our wrapper cookbook wraps around. This cookbook will install the |supermarket| omnibus .rpm or .deb packages and then write the ``node[supermarket_omnibus]`` attributes to ``/etc/supermarket/supermarket.json``
-
-#. Finally, we have the |supermarket| omnibus .rpm or .deb package. This package has an internal chef cookbook which configures the already-installed package using the attributes defined in ``/etc/supermarket/supermarket.json``. When this internal cookbook is run, it is very similar to running chef solo on a server.
-
-Creating the wrapper cookbook
+Define Attributes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_supermarket/includes_supermarket_private_install_attributes.rst
 
-On your workstation, generate a new cookbook.
+Upload the Wrapper Cookbook
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_supermarket/includes_supermarket_private_install_upload.rst
 
-.. code-block:: bash
+Bootstrap |supermarket|
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_supermarket/includes_supermarket_private_install_bootstrap.rst
 
-   $ (your workstation) chef generate cookbook my-supermarket-wrapper
-
-Then change directories into that cookbook:
-
-.. code-block:: bash
-
-   $ (your workstation) cd my-supermarket-wrapper
-
-Open the ``metadata`` file of the cookbook:
-
-.. code-block:: bash
-
-   $ (your workstation) vim metadata.rb
-
-And add this line, then save and close the file. This defines our wrapper cookbook’s dependency on the ``supermarket-omnibus-cookbook``:
-
-.. code-block:: ruby
-
-   depends 'supermarket-omnibus-cookbook'
-
-Open the default recipe within the cookbook:
-
-.. code-block:: bash
-
-   $ (your workstation) vim recipes/default.rb
-
-And add this content, which will execute the ``default`` recipe of the ``supermarket-omnibus-cookbook``.
-
-.. code-block:: ruby
-
-   include_recipe 'supermarket-omnibus-cookbook'
-
-Next define the attributes for the |supermarket| installation and how it connects to the Chef Server. One solution is to hard code attributes in the wrapper cookbook’s default recipe, but a better practice is to place the attributes in a data bag (or encrypted data bag or vault), then reference them in them recipe.
-
-At a minimum, ``chef_server_url``, ``chef_oauth2_app``, ``chef_oauth2_secret`` attributes must be defined.
-
-Edit the default recipe again:
-
-.. code-block:: bash
-
-   $ (your workstation) vim recipes/default.rb
-
-And assume for the moment that there is a data bag called ``apps``, with an item in it called ``supermarket``:
-
-.. code-block:: ruby
-
-   # calling the data bag
-   app = data_bag_item('apps', 'supermarket')
-
-Then set attributes from the databag:
-
-.. code-block:: ruby
-
-   # calling the data bag
-   app = data_bag_item('apps', 'supermarket')
-   node.set['supermarket_omnibus']['chef_server_url'] = app['chefserverurl']
-   node.set['supermarket_omnibus']['chef_oauth2_app_id'] = app['app_id']
-   node.set['supermarket_omnibus']['chef_oauth2_secret'] = app['secret']
-
-Save and close the file.
-
-Now, retrieve the cookbooks on which ``supermarket-omnibus-cookbook`` depends.
-
-.. code-block:: bash
-
-   $ (your workstation) berks install
-
-Upload all dependent cookbooks to the Chef Server (There is more than one way to do this, use whatever works best for you and your team’s workflow).
-
-.. code-block:: bash
-
-   $ (your workstation) cd ~/.berkshelf/cookbooks
-   $ (your workstation) knife cookbook upload -a
-
-Then upload the wrapper cookbook (again, there is more than one way of doing this, this is one way that works):
-
-.. code-block:: bash
-
-   $ (your workstation) cd path/to/wrapper/cookbook/
-   $ (your workstation) knife cookbook upload -a
-
-Now bootstrap the |supermarket| node with the Chef Server. For example, an ubuntu node in AWS would bootstrap like this:
-
-.. code-block:: bash
-
-   $ (your workstation) knife bootstrap ip_address -N supermarket-node -x ubuntu --sudo
-
-   # -N flag defines the name of the node (in this case supermarket-node)
-
-   # -x flag defines the username to use (the default username for ubuntu instances on AWS is ubuntu)
-
-   # --sudo runs the bootstrap command as sudo on the node
-
-Once bootstrapping is complete, edit the new supermarket node
-
-.. code-block:: bash
-
-   $ (your workstation) knife node edit supermarket-node
-
-And add the wrapper’s default recipe to the supermarket-node’s run list then save and quit the file.
-
-.. code-block:: ruby
-
-   "run_list": [
-     "recipe[my_supermarket_wrapper::default]"
-   ]
-
-Now start a chef-client run on the |supermarket| node. One way is to |ssh| to the |supermarket| host.
-
-.. code-block:: bash
-
-   $ (your workstation) ssh ubuntu@your-supermarket-node-public-dns
-
-And once on the host, run chef-client. This will install and configure |supermarket|.
-
-.. code-block:: bash
-
-   $ (your supermarket node) sudo chef-client
 
 Using Private Supermarket
 -----------------------------------------------------
