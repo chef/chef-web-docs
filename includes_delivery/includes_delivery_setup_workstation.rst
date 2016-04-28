@@ -1,6 +1,8 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
+.. note:: If you reuse the provisioning node in the previous section of this installation guide as a workstation for using |delivery|, you can skip steps 1 through 4 below.
+
 Setting up a workstation requires the following:
 
 #. Install a development environment:

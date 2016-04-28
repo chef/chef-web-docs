@@ -2,122 +2,29 @@
 Installing |chef delivery|, AWS
 =====================================================
 
-This topic guides you through setting up |chef delivery| for AWS provisioning with the ``delivery-cluster`` cookbook and Chef Provisioning, and validating the installation, once |delivery| is set up. With the ``delivery-cluster`` cookbook, you install the |delivery| cluster on your own infrastructure using |chef provisioning| and your license key.
+.. include:: ../../includes_install/includes_install_delivery.rst
 
 Process Overview
 =====================================================
-The process for installing |delivery| using the ``delivery-cluster`` cookbook involves the following tasks:
-
-* Create and configure a dedicated provisioning node
-* Configure the ``delivery-cluster`` cookbook to use |amazon aws| provisioning
-* Run automation for ``delivery-cluster``, which sets up a full |delivery| cluster and gives you login credentials
-* Verify the |delivery| provisioning
-* Set up your workstation to develop projects in |delivery|
-* Configure |delivery|
-* Validate the installation by creating a cookbook and kicking off a pipeline
+.. include:: ../../includes_install/includes_install_delivery_overview.rst
 
 Prerequisites
 =====================================================
-|delivery| requires a license from |company_name| to install.
+.. include:: ../../includes_install/includes_install_delivery_prerequisites.rst
 
 Supported Platforms
 -----------------------------------------------------
-|delivery| may be run on the following platforms. Do not mix platform versions within the |delivery| cluster.
-
-  .. list-table::
-     :widths: 250 250
-     :header-rows: 1
-
-     * - OS
-       - Versions
-     * - Ubuntu
-       - 12.04, 14.04
-     * - Centos
-       - 6.5, 6.6, 7
-     * - Redhat
-       - 6.5, 6.6, 7
+.. include:: ../../includes_install/includes_install_delivery_supported_platforms.rst
 
 Infrastructure
 -----------------------------------------------------
-|delivery| has the following infrastructure requirements:
-
-  .. list-table::
-     :widths: 150 100 100 100
-     :header-rows: 1
-
-     * - Function
-       - vCPU
-       - RAM
-       - Free disk space (in /var)
-     * - Provisioning Node
-       - 1 (2.5GHz)
-       - 1GB
-       - 8GB
-     * - Delivery Server
-       - 4
-       - 8GB
-       - 80GB
-     * - Chef Server (must be v12). See additional information in note, below.
-       - 4
-       - 8GB
-       - 80GB
-     * - Supermarket Server
-       - 4
-       - 8GB
-       - 80GB
-     * - Build Nodes (at least 3, one for each Verify phase: Lint, Syntax, and Functional)
-       - 2
-       - 4GB
-       - 60GB
-     * - Infrastructure Nodes (at least 4, one for each environment stage: Acceptance, Union, Rehearsal, and Delivered)
-       - 2 (for test purposes)
-       - 4GB (for test purposes)
-       - 60GB (for test purposes)
+.. include:: ../../includes_install/includes_install_delivery_infrastructure.rst
 
 .. note:: You cannot use your own |chef server| with this AWS provisioning process. You must use the new one that is created for you.
 
-
 Network and Ports
 -----------------------------------------------------
-|delivery| has the following network and port requirements:
-
-  .. list-table::
-     :widths: 100 250 100 100
-     :header-rows: 1
-
-     * - Ports
-       - Description
-       - Server
-       - State
-     * - 10000-10003
-       - TCP Push Jobs
-       - Chef server
-       - LISTEN
-     * - 8989
-       - TCP Delivery Git (SCM)
-       - Delivery server
-       - LISTEN
-     * - 443
-       - TCP HTTP Secure
-       - Chef server, Delivery server
-       - LISTEN
-     * - 22
-       - TCP SSH
-       - All
-       - LISTEN
-     * - 80
-       - TCP HTTP
-       - Chef server, Delivery server
-       - LISTEN
-     * - 5672
-       - TCP Analytics MQ
-       - n/a
-       - n/a
-     * - 10012-10013
-       - TCP Analytics Messages/Notifier
-       - n/a
-       - n/a
-
+.. include:: ../../includes_install/includes_install_delivery_network_and_ports.rst
 
 Install |delivery|
 =====================================================
@@ -125,40 +32,11 @@ Begin installing |delivery| by creating a provisioning node to provision and mai
 
 Provisioning Node
 -----------------------------------------------------
-|delivery| uses |chef provisioning| to create, upgrade, and manage the cluster. A dedicated provisioning node ensures a central place from which the |delivery| cluster is managed, including managing those allowed to control it. Use your existing means to provision a dedicated provisioning node with a supported platform. This machine does not need to be powerful because it runs only provisioning code. Within |amazon aws|, |company_name| generally uses a t2.micro instance, which is a single CPU 2.5GHz, 1 GB of memory, and 8 GB of disk space.
+.. include:: ../../includes_install/includes_install_delivery_provisioning_node.rst
 
-On the provisioning node:
+Within |amazon aws|, |company_name| generally uses a t2.micro instance, which is a single CPU 2.5GHz, 1 GB of memory, and 8 GB of disk space.
 
-#. Install a development environment:
-
-   For |debian|-based (apt):
-
-   .. code-block:: bash
-
-      $ sudo apt-get install build-essential
-
-   For |redhat enterprise linux|-based (yum):
-
-   .. code-block:: bash
-
-      $ sudo yum groupinstall "Development Tools"
-
-   For |mac os x|:
-
-   .. code-block:: bash
-
-      $ sudo xcode-select --install
-
-#. Install |git| and configure your |github| username and email, for help see: `Installing Git <http://git-scm.com/book/en/v2/Getting-Started-Installing-Git>`_ and `First-Time Git Setup <https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup>`_.
-#. Install the `Chef Development Kit <https://downloads.chef.io/chef-dk/>`_. Be sure to set the system |ruby|; for details, see `Add Ruby to $PATH <https://docs.chef.io/install_dk.html#add-ruby-to-path>`_.
-
-#. Transfer your |delivery| license key to ``~/delivery.license``.
-#. Clone the |git| repo for the |delivery| cluster:
-
-   .. code-block:: bash
-
-      $ git clone https://github.com/opscode-cookbooks/delivery-cluster.git ~/delivery-cluster
-
+.. include:: ../../includes_install/includes_install_delivery_provisioning_node_steps.rst
 
 AWS Settings
 -----------------------------------------------------
@@ -299,30 +177,21 @@ On the provisioning node:
 
 Run Provisioning
 -----------------------------------------------------
-To run provisioning (from inside the ``delivery-cluster`` directory), run the following command:
+.. include:: ../../includes_install/includes_install_delivery_provisioning_run.rst
 
-.. code-block:: bash
-
-   $ rake setup:cluster
-
-.. note::
-
-   * If the first converge fails on the build nodes, try running the above step again. The |delivery| cluster is complicated and sometimes there are timeouts.
-   * Running provisioning creates the instances requrested on |amazon aws|. If there are any failures, check the |amazon aws| console for nodes without names. Nodes without names can be removed.
+Running provisioning creates the instances requrested on |amazon aws|. If there are any failures, check the |amazon aws| console for nodes without names. Nodes without names can be removed.
 
 Verify Provisioning
 -----------------------------------------------------
-.. include:: ../../includes_delivery/includes_delivery_verify_provisioning.rst
+.. include:: ../../includes_install/includes_install_delivery_verify_provisioning.rst
 
 Configure Delivery
 =====================================================
-In |delivery| there are multiple levels of organization: enterprises, organizations, and projects, where enterprise contain one (or more) organizations and organizations contain one (or more) projects. The provisioning step created the initial enterprise you specified in your environment file as the first ``name`` option. Enterprises are designed to provide units of multi-tenancy with separate sets of organizations and users. Next, set up |delivery| by adding users and organizations.
-
-.. note:: |delivery| by default hosts a git server that you interact with through the delivery CLI commands. Additionally, you can integrate GitHub Enterprise or GitHub.com.
+.. include:: ../../includes_install/includes_install_delivery_configure.rst
 
 Add Users
 -----------------------------------------------------
-The default ``admin`` account should not be used after |delivery| is installed. Instead, use the following procedure to create a new user for yourself, then log out as ``admin`` and log back in as the user you created.
+.. include:: ../../includes_install/includes_install_delivery_configure_users.rst
 
 Create Organizations
 -----------------------------------------------------
@@ -330,9 +199,7 @@ Create Organizations
 
 Setup a Workstation
 -----------------------------------------------------
-After the |delivery| cluster has been created, team members need to install the |delivery| CLI on their workstations.
-
-.. note:: If you reuse the provisioning node in the previous section of this installation guide as a workstation for using |delivery|, you can skip steps 1 through 4 below.
+.. include:: ../../includes_install/includes_install_delivery_configure_workstation.rst
 
 .. include:: ../../includes_delivery/includes_delivery_setup_workstation.rst
 
