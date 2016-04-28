@@ -6,213 +6,44 @@
 
 Public |supermarket|
 =====================================================
-The public |supermarket| hosted by |company_name| is located at |url supermarket|.
-
-.. image:: ../../images/public_supermarket.svg
-   :width: 700px
-   :align: center
+.. include:: ../../includes_supermarket/includes_supermarket_public.rst
 
 Private |supermarket|
 =====================================================
-The private |supermarket| is installed behind the firewall on the internal network.
-
-
-.. note:: These instructions supersede and incorporate earlier blog posts:
-  `Getting Started with oc-id and Supermarket <https://www.chef.io/blog/2014/08/29/getting-started-with-oc-id-and-supermarket/>`_ and `A Supermarket of Your Own: Running a Private Supermarket <https://www.chef.io/blog/2015/12/31/a-supermarket-of-your-own-running-a-private-supermarket/>`_.
+.. include:: ../../includes_supermarket/includes_supermarket_private.rst
 
 Requirements
 -----------------------------------------------------
+.. include:: ../../includes_supermarket/includes_supermarket_private_requirements.rst
 
-To install a private |supermarket|, you will need:
-
-* an operational |chef server| version 12 to act as Oauth Provider
-* an admin user account on the |chef server|
-* a key for the admin user account on |chef server|
-* an x86_64 compatible Linux host with at least 1 GB memory
-* AWS S3 credentials if intending to store cookbooks in an S3 bucket **or** sufficient disk space on the |supermarket| host to meet your projected cookbook storage capacity needs
-
-|chef server| version 12 includes |chef identity|, which enables |oauth| 2.0 authentication used by |chef| web applications, including |supermarket|. To run |supermarket| behind a firewall on-premises, first upgrade to |chef server| version 12 (or higher) so that |oauth| 2.0 authentication is available.
-
-
-Set Up |chef identity_title|
+|chef identity_title|
 -----------------------------------------------------
-To set up |chef identity|, do the following:
+.. include:: ../../includes_supermarket/includes_supermarket_private_ocid.rst
 
-#. Log on to the |chef server|—if running a multi-node |chef server| cluster, connect to the node acting as data-master—via |ssh| and elevate to an admin-level user.
-#. Add the following setting to the ``/etc/opscode/chef-server.rb`` configuration file:
+Configure
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_supermarket/includes_supermarket_private_ocid_configure.rst
 
-   .. code-block:: ruby
-
-      oc_id['applications'] ||= {}
-      oc_id['applications']['supermarket'] = {
-        'redirect_uri' => 'https://supermarket.mycompany.com/auth/chef_oauth2/callback'
-      }
-
-#. Run the following command:
-
-   .. code-block:: bash
-
-      $ chef-server-ctl reconfigure
-
-#. |oauth| 2.0 data is located in ``/etc/opscode/oc-id-applications/supermarket.json``:
-
-   .. code-block:: javascript
-
-      {
-        "name": "supermarket",
-        "uid": "0bad0f2eb04e935718e081fb71e3b7bb47dc3681c81acb9968a8e1e32451d08b",
-        "secret": "17cf1141cc971a10ce307611beda7f4dc6633bb54f1bc98d9f9ca76b9b127879",
-        "redirect_uri": "https://supermarket.mycompany.com/auth/chef_oauth2/callback"
-      }
-
-   The ``uid`` and ``secret`` values will be needed later on during the setup process for |supermarket|.
-
-.. note:: You may add as many |chef identity| applications as you wish to the |chef server rb| configuration file. One file per application will be created so that you can see the authentication tokens generated for each application. The secrets are also added to the |chef identity| database for use by any front-end |chef server| node. It is not necessary to copy the generated JSON files to other nodes.
-
-Preparing Your Supermarket
+Install |supermarket|
 -----------------------------------------------------
+.. include:: ../../includes_supermarket/includes_supermarket_private_install.rst
 
-The best cookbook for configuring |supermarket| is ``supermarket-omnibus-cookbook`` `found in the public Supermarket <https://supermarket.chef.io/cookbooks/supermarket-omnibus-cookbook>`_. This cookbook is attribute driven, so it's recommended that you use a wrapper cookbook to supply your customized attributes.
-
-.. note:: The ``supermarket`` cookbook available https://supermarket.chef.io installs |supermarket| from source and is no longer recommended. Instead, use an omnibus package to install |supermarket| with the ``supermarket-omnibus-cookbook``. Omnibus packages are also downloadable directly from :doc:`Omnitruck </api_omnitruck>.
-
-Overview of a Wrapper Cookbook
+Create a Wrapper Cookbook
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-Let’s go through the layers of the wrapper cookbook, cookbook, and internal cookbook within the Omnibus package.
+.. include:: ../../includes_supermarket/includes_supermarket_private_install_wrapper_cookbook.rst
 
-.. image:: ../../images/supermarket_wrapper_cookbook_diagram.png
-
-#. First there is the wrapper cookbook where we define ``node[supermarket_omnibus]`` attributes.
-
-#. Then there is the ``supermarket-omnibus-cookbook``, which is what our wrapper cookbook wraps around. This cookbook will install the |supermarket| omnibus .rpm or .deb packages and then write the ``node[supermarket_omnibus]`` attributes to ``/etc/supermarket/supermarket.json``
-
-#. Finally, we have the |supermarket| omnibus .rpm or .deb package. This package has an internal chef cookbook which configures the already-installed package using the attributes defined in ``/etc/supermarket/supermarket.json``. When this internal cookbook is run, it is very similar to running chef solo on a server.
-
-Creating the wrapper cookbook
+Define Attributes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_supermarket/includes_supermarket_private_install_attributes.rst
 
-On your workstation, generate a new cookbook.
+Upload the Wrapper Cookbook
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_supermarket/includes_supermarket_private_install_upload.rst
 
-.. code-block:: bash
+Bootstrap |supermarket|
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_supermarket/includes_supermarket_private_install_bootstrap.rst
 
-   $ (your workstation) chef generate cookbook my-supermarket-wrapper
-
-Then change directories into that cookbook:
-
-.. code-block:: bash
-
-   $ (your workstation) cd my-supermarket-wrapper
-
-Open the ``metadata`` file of the cookbook:
-
-.. code-block:: bash
-
-   $ (your workstation) vim metadata.rb
-
-And add this line, then save and close the file. This defines our wrapper cookbook’s dependency on the ``supermarket-omnibus-cookbook``:
-
-.. code-block:: ruby
-
-   depends 'supermarket-omnibus-cookbook'
-
-Open the default recipe within the cookbook:
-
-.. code-block:: bash
-
-   $ (your workstation) vim recipes/default.rb
-
-And add this content, which will execute the ``default`` recipe of the ``supermarket-omnibus-cookbook``.
-
-.. code-block:: ruby
-
-   include_recipe 'supermarket-omnibus-cookbook'
-
-Next define the attributes for the |supermarket| installation and how it connects to the Chef Server. One solution is to hard code attributes in the wrapper cookbook’s default recipe, but a better practice is to place the attributes in a data bag (or encrypted data bag or vault), then reference them in them recipe.
-
-At a minimum, ``chef_server_url``, ``chef_oauth2_app``, ``chef_oauth2_secret`` attributes must be defined.
-
-Edit the default recipe again:
-
-.. code-block:: bash
-
-   $ (your workstation) vim recipes/default.rb
-
-And assume for the moment that there is a data bag called ``apps``, with an item in it called ``supermarket``:
-
-.. code-block:: ruby
-
-   # calling the data bag
-   app = data_bag_item('apps', 'supermarket')
-
-Then set attributes from the databag:
-
-.. code-block:: ruby
-
-   # calling the data bag
-   app = data_bag_item('apps', 'supermarket')
-   node.set['supermarket_omnibus']['chef_server_url'] = app['chefserverurl']
-   node.set['supermarket_omnibus']['chef_oauth2_app_id'] = app['app_id']
-   node.set['supermarket_omnibus']['chef_oauth2_secret'] = app['secret']
-
-Save and close the file.
-
-Now, retrieve the cookbooks on which ``supermarket-omnibus-cookbook`` depends.
-
-.. code-block:: bash
-
-   $ (your workstation) berks install
-
-Upload all dependent cookbooks to the Chef Server (There is more than one way to do this, use whatever works best for you and your team’s workflow).
-
-.. code-block:: bash
-
-   $ (your workstation) cd ~/.berkshelf/cookbooks
-   $ (your workstation) knife cookbook upload -a
-
-Then upload the wrapper cookbook (again, there is more than one way of doing this, this is one way that works):
-
-.. code-block:: bash
-
-   $ (your workstation) cd path/to/wrapper/cookbook/
-   $ (your workstation) knife cookbook upload -a
-
-Now bootstrap the |supermarket| node with the Chef Server. For example, an ubuntu node in AWS would bootstrap like this:
-
-.. code-block:: bash
-
-   $ (your workstation) knife bootstrap ip_address -N supermarket-node -x ubuntu --sudo
-
-   # -N flag defines the name of the node (in this case supermarket-node)
-
-   # -x flag defines the username to use (the default username for ubuntu instances on AWS is ubuntu)
-
-   # --sudo runs the bootstrap command as sudo on the node
-
-Once bootstrapping is complete, edit the new supermarket node
-
-.. code-block:: bash
-
-   $ (your workstation) knife node edit supermarket-node
-
-And add the wrapper’s default recipe to the supermarket-node’s run list then save and quit the file.
-
-.. code-block:: ruby
-
-   "run_list": [
-     "recipe[my_supermarket_wrapper::default]"
-   ]
-
-Now start a chef-client run on the |supermarket| node. One way is to |ssh| to the |supermarket| host.
-
-.. code-block:: bash
-
-   $ (your workstation) ssh ubuntu@your-supermarket-node-public-dns
-
-And once on the host, run chef-client. This will install and configure |supermarket|.
-
-.. code-block:: bash
-
-   $ (your supermarket node) sudo chef-client
 
 Using Private Supermarket
 -----------------------------------------------------

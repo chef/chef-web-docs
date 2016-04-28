@@ -2,10 +2,8 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-This argument has the following options:
+The public |supermarket| hosted by |company_name| is located at |url supermarket|.
 
-``COOKBOOK_VERSION``
-   |cookbook_version show|
-
-``-m``, ``--supermarket-site``
-   |url_supermarket| Default value: ``https://supermarket.chef.io``.
+.. image:: ../../images/public_supermarket.svg
+   :width: 700px
+   :align: center

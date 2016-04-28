@@ -1386,7 +1386,7 @@
 .. |url key_validation| replace:: The URL for the validation key.
 .. |url proxy_server| replace:: The URL for the proxy server.
 .. |url secret_amazon_s3| replace:: The |amazon s3| URL at which an encrypted data bag secret is located.
-.. |url supermarket| replace:: The URL at which the |supermarket| is located.
+.. |url_supermarket| replace:: The URL at which the |supermarket| is located.
 .. |use cidr| replace:: Use with |cidr| notation.
 .. |use conditional_get| replace:: Enable conditional HTTP requests by using a conditional ``GET`` (with the |if_modified_since| header) or an opaque identifier (|etag|). To use |if_modified_since| headers, ``use_last_modified`` must also be set to ``true``. To use |etag| headers, ``use_etag`` must also be set to ``true``.
 .. |use current_branch| replace:: Ensure that the current branch is used.

@@ -8,7 +8,7 @@ This argument has the following options:
    |cookbook_category|
 
 ``-m``, ``--supermarket-site``
-   |url supermarket| Default value: ``https://supermarket.chef.io``.
+   |url_supermarket| Default value: ``https://supermarket.chef.io``.
 
 ``-o PATH:PATH``, ``--cookbook-path PATH:PATH``
    |cookbook path|
