@@ -782,6 +782,7 @@
 .. |stackforge| replace:: StackForge
 .. |statsd| replace:: StatsD
 .. |stomp| replace:: STOMP
+.. |stove| replace:: Stove
 .. |sublime| replace:: Sublime Text
 .. |sudo cmd| replace:: sudo
 .. |supervisor| replace:: supervisor

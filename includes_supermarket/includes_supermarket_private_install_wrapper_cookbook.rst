@@ -24,7 +24,7 @@ On your workstation, generate a new cookbook using the ``chef`` command line int
 
 #. Save and close the |metadata rb| file. 
 
-#. Open the ``/recipes/default.rb`` file located within the newly-generated cookbook and add the following content:
+#. Open the ``/recipes/default.rb`` recipe located within the newly-generated cookbook and add the following content:
 
    .. code-block:: ruby
 
