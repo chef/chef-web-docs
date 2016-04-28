@@ -16,7 +16,7 @@ The following table lists the supported platforms for the |chef client|:
      - ``x86_64``
      - ``6``
    * - |cisco-nxos|
-     - ``ios_xr``
+     - ``nexus``
      - ``x86_64``
      - ``7``
    * - |debian|
