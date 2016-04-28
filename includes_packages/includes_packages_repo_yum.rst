@@ -23,7 +23,7 @@ To set up a |yum| package repository for |enterprise_linux| platforms:
 
    Replace ``<CHANNEL>`` with the release channel: ``stable`` or ``current``.
 
-   Replace ``<VERSION>`` with your |enterprise_linux| version: ``5``, ``6``, or ``7``.
+   Replace ``<VERSION>`` with your |enterprise_linux| version; the allowable versions are ``5``, ``6``, or ``7``.
 
 #. Update the package repository list:
 
