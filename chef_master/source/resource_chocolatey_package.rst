@@ -4,7 +4,7 @@ chocolatey_package
 
 .. include:: ../../includes_resources/includes_resource_package_chocolatey.rst
 
-.. note:: .. include:: ../../includes_notes/includes_notes_resource_based_on_package.rst
+.. warning:: .. include:: ../../includes_notes/includes_notes_resource_chocolatey_package.rst
 
 Syntax
 =====================================================

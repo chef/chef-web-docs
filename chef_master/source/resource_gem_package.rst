@@ -6,7 +6,7 @@ gem_package
 
 .. include:: ../../includes_resources/includes_resource_package_gem.rst
 
-.. note:: .. include:: ../../includes_notes/includes_notes_resource_based_on_package.rst
+.. note:: .. include:: ../../includes_notes/includes_notes_resource_gem_package.rst
 
 Syntax
 =====================================================
