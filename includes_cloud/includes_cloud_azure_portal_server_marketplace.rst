@@ -5,17 +5,17 @@
 
 Before getting started, you will need a functioning workstation. Install the `Chef development kit <https://docs.chef.io/install_dk.html>`_ on that workstation.
 
-.. note:: The following steps assume that |chef| is installed on the workstation and that the ``knife ssl fetch`` subcommand is available. The ``knife ssl fetch`` subcommand was added to |chef| in the 11.16 release of the |chef client|, and then packaged as part of the |chef dk| starting with the 0.3 release.)
+   .. note:: The following steps assume that |chef| is installed on the workstation and that the ``knife ssl fetch`` subcommand is available. The ``knife ssl fetch`` subcommand was added to |chef| in the 11.16 release of the |chef client|, and then packaged as part of the |chef dk| starting with the 0.3 release.)
 
 #. Sign in to the |azure portal_preview| (|url azure_preview|). (The |azure marketplace| offering is only available via the preview portal.) Authenticate using your |azure| account credentials.
 
 #. Click the **New** icon in the lower left corner of the portal.
 
-#. Click **Compute**, then click **Azure Marketplace**. 
+#. Click **Compute**, then click **Azure Marketplace**.
 
 #. In the search box enter **Chef Server**.
 
-#. Select the **Chef Server 12** offering that is appropriate for your size. 
+#. Select the **Chef Server 12** offering that is appropriate for your size.
 
    .. note:: The |chef server| is available on the |azure marketplace| in 25, 50, 100, 150, 200, and 250 licensed images, as well as a "Bring Your Own License" image.
 
@@ -23,33 +23,33 @@ Before getting started, you will need a functioning workstation. Install the `Ch
 
    .. note:: If you are using the "Resource Manager" deployment model, you will need to create a **DNS Name** label for the instance. <https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-create-fqdn-on-portal/>
 
-#. Once the virtual machine is launched, you will need to create an account to use with the |chef manage|. To do this, open an |ssh| connection to the host using the user name and password (or |ssh| key) provided when you launch the virtual machine.
+#. Once the virtual machine is launched you will need to create an account to use with the |chef manage|. To do this, open an |ssh| connection to the host using the user name and password (or |ssh| key) provided when you launch the virtual machine.
 
-#. Open logged in, update the ``/etc/chef-marketplace/marketplace.rb`` file to include the ``api_fqdn`` of the machine.
+   .. note:: In the following steps substitute ``<fqdn>`` for the fully qualified domanin **DNS NAME** that you created.
 
-  .. code-block:: bash
+#. Update the ``/etc/chef-marketplace/marketplace.rb`` file to include the ``api_fqdn`` of the machine.
 
-     $ echo 'api_fqdn "<fqdn>"' | sudo tee -a /etc/chef-marketplace/marketplace.rb
+   .. code-block:: bash
 
-#. Once you've updated the ``marketplace.rb`` file run the following commands:
+      $ echo 'api_fqdn "<fqdn>"' | sudo tee -a /etc/chef-marketplace/marketplace.rb
+
+#. Update the ``/etc/opscode-analytics/opscode-analytics.rb`` file to include the ``analytics_fqdn`` of the machine.
+
+   .. code-block:: bash
+
+      $ echo 'analytics_fqdn "<fqdn>"' | sudo tee -a /etc/opscode-analytics/opscode-analytics.rb
+
+#. Run the following command to update the hostname and reconfigure the software:
 
    .. code-block:: bash
 
       $ sudo chef-marketplace-ctl hostname <fqdn>
 
-   where ``fqdn`` is the fully qualified domain name of the machine.
+#. Now proceed to the web based setup wizard ``https://<fqdn>/signup``
 
-   .. code-block:: bash
+#. Before you can run through the wizard you must provide the VM Name of the instance in order to ensure that only you are configuring the |chef server|.
 
-      $ sudo chef-marketplace-ctl setup
-
-   the setup command will prompt you for the appropriate information needed to set up your |chef server| (e.g. username, password, organzation, etc.). You will also be prompted to accept the license agreement.
-
-#. Accept the **License Agreement**.
-
-#. The ``chef-server-ctl marketplace setup`` command should return success. Navigate in a web browser to the appropriate URL of the |chef server| outputted by the setup command.
-
-#. The marketplace-setup command should supply a link to the starter kit, which is a zip file that contains various configuration files for the workstation, including the user key required for authentication to the |chef server| and the validation key used to bootstrap nodes with the |chef server|. Follow the link that is provided and download the starter kit.
+#. Follow the links to sign up for a new account and download the starter kit.
 
 #. Extract the starter kit zip file downloaded. Open a command prompt and change into the ``chef-repo`` directory extracted from the starter kit.
 

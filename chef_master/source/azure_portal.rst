@@ -8,7 +8,14 @@
 
 |azure marketplace|
 =====================================================
+
+|chef server_title|
+-----------------------------------------------------
 .. include:: ../../includes_cloud/includes_cloud_azure_portal_server_marketplace.rst
+
+|chef compliance|
+-----------------------------------------------------
+.. include:: ../../includes_cloud/includes_cloud_azure_portal_compliance_marketplace.rst
 
 |chef client_title| Settings
 =====================================================
