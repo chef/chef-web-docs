@@ -77,17 +77,13 @@ The best cookbook to use to set up a Supermarket is ``supermarket-omnibus-cookbo
 
 Overview of a Wrapper Cookbook
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-
 Let’s go through the layers of the wrapper cookbook, cookbook, and internal cookbook within the Omnibus package.
 
-  .. image:: ../../images/supermarket_wrapper_cookbook_diagram.png
+.. image:: ../../images/supermarket_wrapper_cookbook_diagram.png
 
 #. First there is the wrapper cookbook where we define ``node[supermarket_omnibus]`` attributes.
 
-#. Then there is the ``supermarket-omnibus-cookbook``, which is what our wrapper cookbook wraps around. This cookbook will:
-
-    * Install the Supermarket omnibus rpm or deb packages
-    * Writes the ``node[supermarket_omnibus]`` attributes to ``/etc/supermarket/supermarket.json``
+#. Then there is the ``supermarket-omnibus-cookbook``, which is what our wrapper cookbook wraps around. This cookbook will install the Supermarket omnibus rpm or deb packages and then write the ``node[supermarket_omnibus]`` attributes to ``/etc/supermarket/supermarket.json``
 
 #. Finally, we have the Supermarket omnibus rpm or deb package. This package has an internal chef cookbook which configures the already-installed package using the attributes defined in ``/etc/supermarket/supermarket.json``. When this internal cookbook is run, it is very similar to running chef solo on a server.
 
@@ -96,39 +92,39 @@ Creating the wrapper cookbook
 
 On your workstation, generate a new cookbook.
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      $ (your workstation) chef generate cookbook my-supermarket-wrapper
+   $ (your workstation) chef generate cookbook my-supermarket-wrapper
 
 Then change directories into that cookbook:
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      $ (your workstation) cd my-supermarket-wrapper
+   $ (your workstation) cd my-supermarket-wrapper
 
 Open the ``metadata`` file of the cookbook:
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      $ (your workstation) vim metadata.rb
+   $ (your workstation) vim metadata.rb
 
 And add this line, then save and close the file. This defines our wrapper cookbook’s dependency on the ``supermarket-omnibus-cookbook``:
 
-   .. code-block:: ruby
+.. code-block:: ruby
 
-      depends 'supermarket-omnibus-cookbook'
+   depends 'supermarket-omnibus-cookbook'
 
 Open the default recipe within the cookbook:
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      $ (your workstation) vim recipes/default.rb
+   $ (your workstation) vim recipes/default.rb
 
 And add this content, which will execute the ``default`` recipe of the ``supermarket-omnibus-cookbook``.
 
-   .. code-block:: ruby
+.. code-block:: ruby
 
-        include_recipe 'supermarket-omnibus-cookbook'
+   include_recipe 'supermarket-omnibus-cookbook'
 
 Next define the attributes for the Supermarket installation and how it connects to the Chef Server. One solution is to hard code attributes in the wrapper cookbook’s default recipe, but a better practice is to place the attributes in a data bag (or encrypted data bag or vault), then reference them in them recipe.
 
@@ -136,86 +132,86 @@ At a minimum, ``chef_server_url``, ``chef_oauth2_app``, ``chef_oauth2_secret`` a
 
 Edit the default recipe again:
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      $ (your workstation) vim recipes/default.rb
+   $ (your workstation) vim recipes/default.rb
 
 And assume for the moment that there is a data bag called ``apps``, with an item in it called ``supermarket``:
 
-   .. code-block:: ruby
+.. code-block:: ruby
 
-        # calling the data bag
-        app = data_bag_item('apps', 'supermarket')
+   # calling the data bag
+   app = data_bag_item('apps', 'supermarket')
 
 Then set attributes from the databag:
 
-   .. code-block:: ruby
+.. code-block:: ruby
 
-        # calling the data bag
-        app = data_bag_item('apps', 'supermarket')
-        node.set['supermarket_omnibus']['chef_server_url'] = app['chefserverurl']
-        node.set['supermarket_omnibus']['chef_oauth2_app_id'] = app['app_id']
-        node.set['supermarket_omnibus']['chef_oauth2_secret'] = app['secret']
+   # calling the data bag
+   app = data_bag_item('apps', 'supermarket')
+   node.set['supermarket_omnibus']['chef_server_url'] = app['chefserverurl']
+   node.set['supermarket_omnibus']['chef_oauth2_app_id'] = app['app_id']
+   node.set['supermarket_omnibus']['chef_oauth2_secret'] = app['secret']
 
 Save and close the file.
 
 Now, retrieve the cookbooks on which ``supermarket-omnibus-cookbook`` depends.
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      $ (your workstation) berks install
+   $ (your workstation) berks install
 
 Upload all dependent cookbooks to the Chef Server (There is more than one way to do this, use whatever works best for you and your team’s workflow).
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      $ (your workstation) cd ~/.berkshelf/cookbooks
-      $ (your workstation) knife cookbook upload -a
+   $ (your workstation) cd ~/.berkshelf/cookbooks
+   $ (your workstation) knife cookbook upload -a
 
 Then upload the wrapper cookbook (again, there is more than one way of doing this, this is one way that works):
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      $ (your workstation) cd path/to/wrapper/cookbook/
-      $ (your workstation) knife cookbook upload -a
+   $ (your workstation) cd path/to/wrapper/cookbook/
+   $ (your workstation) knife cookbook upload -a
 
 Now bootstrap the Supermarket node with the Chef Server. For example, an ubuntu node in AWS would bootstrap like this:
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      $ (your workstation) knife bootstrap ip_address -N supermarket-node -x ubuntu --sudo
+   $ (your workstation) knife bootstrap ip_address -N supermarket-node -x ubuntu --sudo
 
-      # -N flag defines the name of the node (in this case supermarket-node)
+   # -N flag defines the name of the node (in this case supermarket-node)
 
-      # -x flag defines the username to use (the default username for ubuntu instances on AWS is ubuntu)
+   # -x flag defines the username to use (the default username for ubuntu instances on AWS is ubuntu)
 
-      # --sudo runs the bootstrap command as sudo on the node
+   # --sudo runs the bootstrap command as sudo on the node
 
 Once bootstrapping is complete, edit the new supermarket node
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      $ (your workstation) knife node edit supermarket-node
+   $ (your workstation) knife node edit supermarket-node
 
 And add the wrapper’s default recipe to the supermarket-node’s run list then save and quit the file.
 
-   .. code-block:: ruby
+.. code-block:: ruby
 
-        "run_list": [
-          "recipe[my_supermarket_wrapper::default]"
-        ]
+   "run_list": [
+     "recipe[my_supermarket_wrapper::default]"
+   ]
 
 Now start a chef-client run on the Supermarket node. One way is to ssh to the Supermarket host.
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      $ (your workstation) ssh ubuntu@your-supermarket-node-public-dns
+   $ (your workstation) ssh ubuntu@your-supermarket-node-public-dns
 
 And once on the host, run chef-client. This will install and configure Supermarket.
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      $ (your supermarket node) sudo chef-client
+   $ (your supermarket node) sudo chef-client
 
 Using Private Supermarket
 -----------------------------------------------------
@@ -238,64 +234,64 @@ First, we install knife-supermarket
 
 If using the Chef DK
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      $ (your workstation) chef gem install knife-supermarket
+   $ (your workstation) chef gem install knife-supermarket
 
 If not using the Chef DK
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      $ (your workstation) gem install knife-supermarket
+   $ (your workstation) gem install knife-supermarket
 
 Now we open up our knife.rb file
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      $ (your workstation) vim .chef/knife.rb
+   $ (your workstation) vim .chef/knife.rb
 
 And define the supermarket site for our Private Supermarket, then save and close the file.
 
-   .. code-block:: ruby
+.. code-block:: ruby
 
-      knife[:supermarket_site] = 'https://your-private-supermarket'
+   knife[:supermarket_site] = 'https://your-private-supermarket'
 
 Knife Supermarket commands are the same as knife cookbook site commands, only with the ability to connect with an Private Supermarket rather than just the Public Supermarket. Please consult the docs for information on all commands that can be used with Knife Supermarket.
 
 Let’s take the time to go over how to share a cookbook to a private Supermarket. Using knife supermarket, we would run this command:
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      $ (your-workstation) knife supermarket share 'my_cookbook'
+   $ (your-workstation) knife supermarket share 'my_cookbook'
 
 When we first run this command, we might see an SSL error:
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      $ (your-workstation) knife supermarket share 'my_cookbook'
-      Making tarball my_cookbook.tgz
-      ERROR: Error uploading cookbook my_cookbook to the Opscode Cookbook Site: SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed. Increase log verbosity (-VV) for more information.
+   $ (your-workstation) knife supermarket share 'my_cookbook'
+   Making tarball my_cookbook.tgz
+   ERROR: Error uploading cookbook my_cookbook to the Opscode Cookbook Site: SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed. Increase log verbosity (-VV) for more information.
 
 This is because Chef 12 enforces SSL by default when sharing cookbooks (Chef 11 did NOT do this). Private Supermarkets, by default, use self-signed certificates. Fortunately we can fix this error through fetching and checking the private Supermarket’s ssl certificate.
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      $ (your-workstation) knife ssl fetch https://your-private-supermarket
+   $ (your-workstation) knife ssl fetch https://your-private-supermarket
 
 Followed by:
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      $ (your-workstation) knife ssl check https://your-private-supermarket
+   $ (your-workstation) knife ssl check https://your-private-supermarket
 
 Now let’s try sharing the cookbook again and we should see a success message:
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      $ (your-workstation) knife supermarket share 'my_cookbook'
-      Generating metadata for my_cookbook from (...)
-      Making tarball my_cookbook.tgz
-      Upload complete!
+   $ (your-workstation) knife supermarket share 'my_cookbook'
+   Generating metadata for my_cookbook from (...)
+   Making tarball my_cookbook.tgz
+   Upload complete!
 
 Managing Private Supermarket
 -----------------------------------------------------
@@ -313,14 +309,14 @@ For example, running supermarket-ctl reconfigure will do an internal Chef run ba
 
 Here’s what we would see when using supermarket-ctl restart on a supermarket server.
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      $ (your supermarket node) sudo supermarket-ctl restart
-      ok: run: nginx: (pid 1234) 1s
-      ok: run: postgresql: (pid 1235) 0s
-      ok: run: rails: (pid 1236) 1s
-      ok: run: redis: (pid 1237) 0s
-      ok: run: sidekiq: (pid 1238) 0s
+   $ (your supermarket node) sudo supermarket-ctl restart
+   ok: run: nginx: (pid 1234) 1s
+   ok: run: postgresql: (pid 1235) 0s
+   ok: run: rails: (pid 1236) 1s
+   ok: run: redis: (pid 1237) 0s
+   ok: run: sidekiq: (pid 1238) 0s
 
 Monitoring
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -356,25 +352,25 @@ Configure an external database
 
 Supermarket installations can use an external database (we use Amazon RDS for the Public Supermarket). To configure this, we would need to configure the following attributes in the default recipe of the wrapper cookbook.
 
-   .. code-block:: ruby
+.. code-block:: ruby
 
-        node.set['supermarket_omnibus']['postgresql']['enable'] = false
-        node.set['supermarket_omnibus']['database']['user']     = 'supermarket'
-        node.set['supermarket_omnibus']['database']['name']     = 'supermarket'
-        node.set['supermarket_omnibus']['database']['host']     = 'yourcompany...rds.amazon.com'
-        node.set['supermarket_omnibus']['database']['port']     = '5432'
-        node.set['supermarket_omnibus']['database']['pool']     = '25'
-        node.set['supermarket_omnibus']['database']['password'] = 'topsecretneverguessit'
+   node.set['supermarket_omnibus']['postgresql']['enable'] = false
+   node.set['supermarket_omnibus']['database']['user']     = 'supermarket'
+   node.set['supermarket_omnibus']['database']['name']     = 'supermarket'
+   node.set['supermarket_omnibus']['database']['host']     = 'yourcompany...rds.amazon.com'
+   node.set['supermarket_omnibus']['database']['port']     = '5432'
+   node.set['supermarket_omnibus']['database']['pool']     = '25'
+   node.set['supermarket_omnibus']['database']['password'] = 'topsecretneverguessit'
 
 Configure an external cache
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Supermarket installations can also use an external cache store. Public Supermarket uses redis on Amazon Elasticache. To configure this, we would need to configure the following attributes in the default recipe of the wrapper cookbook.
 
-   .. code-block:: ruby
+.. code-block:: ruby
 
-        node.set['supermarket_omnibus']['redis']['enable'] = false
-        node.set['supermarket_omnibus']['redis_url'] = 'redis://your-redis-instance:6379'
+   node.set['supermarket_omnibus']['redis']['enable'] = false
+   node.set['supermarket_omnibus']['redis_url'] = 'redis://your-redis-instance:6379'
 
 Configure cookbook storage
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -383,11 +379,11 @@ Cookbook artifacts (the tar.gz artifacts which are uploaded to Supermarket when 
 
 If we were using an Amazon S3 bucket, we would configure the following attributes in the default recipe of the wrapper cookbook.
 
-   .. code-block:: ruby
+.. code-block:: ruby
 
-        node.set['supermarket_omnibus']['s3_access_key_id'] = false
-        node.set['supermarket_omnibus']['s3_bucket'] = 'supermarket'
-        node.set['supermarket_omnibus']['s3_access_key_id'] = 'yoursecretaccesskey'
+   node.set['supermarket_omnibus']['s3_access_key_id'] = false
+   node.set['supermarket_omnibus']['s3_bucket'] = 'supermarket'
+   node.set['supermarket_omnibus']['s3_access_key_id'] = 'yoursecretaccesskey'
 
 Additional Configuration Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
