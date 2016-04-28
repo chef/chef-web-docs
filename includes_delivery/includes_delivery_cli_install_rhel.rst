@@ -6,10 +6,4 @@ For |redhat enterprise linux| 6.5 and |suse els| 6.5, run the following commands
 
 .. code-block:: bash
 
-   $ curl https://packagecloud.io/install/repositories/chef/stable/script.rpm.sh | sudo bash
-
-and then:
-
-.. code-block:: bash
-
-   sudo yum install delivery-cli.rpm
+   $ curl -L https://omnitruck.chef.io/install.sh | sudo bash -s -- -P delivery-cli

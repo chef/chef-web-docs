@@ -73,7 +73,7 @@ Preparing Your Supermarket
 
 The best cookbook to use to set up a Supermarket is ``supermarket-omnibus-cookbook`` `found in the public Supermarket <https://supermarket.chef.io/cookbooks/supermarket-omnibus-cookbook>`_. This cookbook is attribute driven, so it's recommended that you use a wrapper cookbook to supply your customized attributes.
 
-.. note:: The ``supermarket`` cookbook available on the public Supermarket installs |supermarket| from source and is no longer recommended. Instead, use an omnibus package to install |supermarket| with the ``supermarket-omnibus-cookbook``. Omnibus packages are located on |packagecloud| at https://packagecloud.io/chef/.
+.. note:: The ``supermarket`` cookbook available on the public Supermarket installs |supermarket| from source and is no longer recommended. Instead, use an omnibus package to install |supermarket| with the ``supermarket-omnibus-cookbook``. Omnibus packages are also downloadable directly from :doc:`Omnitruck </api_omnitruck>.
 
 Overview of a Wrapper Cookbook
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
