@@ -4,13 +4,18 @@
 
 .. include:: ../../includes_supermarket/includes_supermarket.rst
 
-Benefits of a Private |supermarket|
+Public |supermarket|
 =====================================================
+The public |supermarket| hosted by |company_name| is located at |url supermarket|.
 
-A private |supermarket| provides an easily searchable cookbook repository (with friendly GUI and command line interfaces) that can run on a organization's internal network. Cookbook retrieval from a private |supermarket| is often faster than from the public |supermarket| because of closer proximity in a private network and fewer cookbooks to resolve. A private |supermarket| can also help formalize an internal cookbook release process where cookbooks are not considered released until published.
+.. image:: ../../images/public_supermarket.svg
+   :width: 700px
+   :align: center
 
-Install |supermarket|
+Private |supermarket|
 =====================================================
+The private |supermarket| is installed behind the firewall on the internal network.
+
 
 .. note:: These instructions supersede and incorporate earlier blog posts:
   `Getting Started with oc-id and Supermarket <https://www.chef.io/blog/2014/08/29/getting-started-with-oc-id-and-supermarket/>`_ and `A Supermarket of Your Own: Running a Private Supermarket <https://www.chef.io/blog/2015/12/31/a-supermarket-of-your-own-running-a-private-supermarket/>`_.

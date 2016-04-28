@@ -71,7 +71,7 @@
 .. |url ruby_lang_org| replace:: http://www.ruby-lang.org/en/documentation/
 .. |url ruby_power_of_chef| replace:: http://blog.loftninjas.org/2011/02/16/the-power-of-chef-and-ruby/
 .. |url rabbitmqssl| replace:: https://www.rabbitmq.com/ssl.html
-
+.. |url supermarket| replace:: https://supermarket.chef.io
 
 .. URLs that exist in slide decks ONLY.
 ..

@@ -2,6 +2,9 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-|supermarket| is the community site for cookbooks. Cookbooks that are part of the |supermarket| may be used by any |chef| user. How community cookbooks are used varies from organization to organization. The public |supermarket| is hosted by |company_name| and is available at |url community|. A private |supermarket| may be installed on-premises behind the firewall. 
+|supermarket| is the site for community cookbooks. It provides an easily searchable cookbook repository, a friendly web UI, and the ``knife supermerket`` command-line interface. Cookbooks that are part of the |supermarket| are accessible by any |chef| user.
 
-.. note:: Contributing to cookbooks on |supermarket| :doc:`requires a CLA or CCLA </community_contributions>`.
+There are two ways to use |supermarket|:
+
+* The public |supermarket| is hosted by |company_name| and is located at |url supermarket|. Contributing to cookbooks on |supermarket| :doc:`requires a CLA or CCLA </community_contributions>`.
+* A private |supermarket| may be installed on-premises behind the firewall on the internal network. Cookbook retrieval from a private |supermarket| is often faster than from the public |supermarket| because of closer proximity and fewer cookbooks to resolve. A private cookbook can also help formalize internal cookbook release management processes (e.g. "a cookbook is not released until it's published on |supermarket|").
