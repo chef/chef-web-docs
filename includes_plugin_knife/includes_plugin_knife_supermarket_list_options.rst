@@ -5,7 +5,7 @@
 This argument has the following options:
 
 ``-m``, ``--supermarket-site``
-   |url supermarket| Default value: ``https://supermarket.chef.io``.
+   |url_supermarket| Default value: ``https://supermarket.chef.io``.
 
 ``-w``, ``--with-uri``
    |with_uri|
