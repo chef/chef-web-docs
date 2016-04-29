@@ -2,4 +2,4 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The private |supermarket| configuration may be customized, such as using an external database, using an external cache, and using an external cookbook storage location.
+|supermarket| is a |ruby on rails| application with a |postgresql| backend. The private |supermarket| configuration may be scaled-out, such as using an external database, using an external cache, and using an external cookbook storage location.

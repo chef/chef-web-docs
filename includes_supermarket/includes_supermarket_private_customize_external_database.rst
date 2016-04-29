@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-A |supermarket| installation can use an external database. The public |supermarket| uses |amazon rds|. To use an external database, configure the following attributes in the ``/recipes/default.rb`` recipe of the wrapper cookbook:
+A |supermarket| installation can use an external database running |postgresql| (9.3 or higher) and with the ``pgpsql`` and ``pg_trgm`` installed and loaded. The public |supermarket| uses |amazon rds|. To use an external database, configure the following attributes in the ``/recipes/default.rb`` recipe of the wrapper cookbook:
 
 .. code-block:: ruby
 

@@ -2,32 +2,11 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-On your workstation, generate a new cookbook using the ``chef`` command line interface:
+|chef| recommends the use of a wrapper cookbook with role recipes when deploying a private |supermarket|. All of the keys under ``node['supermarket_omnibus']`` are written out as ``/etc/supermarket/supermarket.json``. Add other keys as needed to override the default attributes specified in the |supermarket| `omnibus package <https://github.com/chef/omnibus-supermarket/blob/master/cookbooks/omnibus-supermarket/attributes/default.rb>`__. For example:
 
-#. Generate the cookbook:
+.. code-block:: ruby
 
-   .. code-block:: bash
-
-      $ chef generate cookbook my-supermarket-wrapper
-
-#. Change directories into that cookbook:
-
-   .. code-block:: bash
-
-      $ cd my-supermarket-wrapper
-
-#. Defines the wrapper cookbook’s dependency on the ``supermarket-omnibus-cookbook`` cookbook. Open the |metadata rb| file of the newly-created cookbook, and then add the following line:
-
-   .. code-block:: ruby
-
-      depends 'supermarket-omnibus-cookbook'
-
-#. Save and close the |metadata rb| file. 
-
-#. Open the ``/recipes/default.rb`` recipe located within the newly-generated cookbook and add the following content:
-
-   .. code-block:: ruby
-
-      include_recipe 'supermarket-omnibus-cookbook'
-
-   This ensures that the ``default.rb`` file in the ``supermarket-omnibus-cookbook`` is run.
+   default['supermarket_omnibus']['chef_server_url'] = 'https://chefserver.mycompany.com'
+   default['supermarket_omnibus']['chef_oauth2_app_id'] = '14dfcf186221781cff51eedd5ac1616'
+   default['supermarket_omnibus']['chef_oauth2_secret'] = 'a49402219627cfa6318d58b13e90aca'
+   default['supermarket_omnibus']['chef_oauth2_verify_ssl'] = false
