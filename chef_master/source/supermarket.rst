@@ -64,7 +64,7 @@ The following sections describe approaches to managing the private |supermarket|
 
 Enable Debug Logging
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_supermarket_private_manage_server_enable_debug_logging.rst
+.. include:: ../../includes_supermarket/includes_supermarket_private_manage_server_enable_debug_logging.rst
 
 Monitoring |supermarket|
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

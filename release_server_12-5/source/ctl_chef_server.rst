@@ -79,7 +79,7 @@ install
 =====================================================
 .. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_install.rst
 
-.. warning:: This command is deprecated. Please install |chef server| version 12.6.
+.. warning:: This command no longer works due to a change in how packages are downloaded from |company_name|. Please install |chef server| version 12.6.
 
 **Syntax**
 
