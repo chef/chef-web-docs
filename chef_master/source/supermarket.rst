@@ -122,6 +122,19 @@ Upload a Cookbook
 =====================================================
 .. include:: ../../includes_supermarket/includes_supermarket_upload_cookbook.rst
 
+Work with Cookbooks
+=====================================================
+.. include:: ../../includes_supermarket/includes_supermarket_manage_cookbooks.rst
+
+Install knife supermarket
+-----------------------------------------------------
+.. include:: ../../includes_supermarket/includes_supermarket_manage_cookbooks_install_plugin.rst
+
+Configure knife.rb
+-----------------------------------------------------
+.. include:: ../../includes_supermarket/includes_supermarket_manage_cookbooks_configure_knife_rb.rst
+
+
 supermarket-ctl (executable)
 =====================================================
 .. include:: ../../includes_ctl_supermarket/includes_ctl_supermarket.rst
