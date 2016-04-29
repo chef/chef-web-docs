@@ -22,17 +22,25 @@ Requirements
 -----------------------------------------------------
 .. include:: ../../includes_supermarket/includes_supermarket_private_ocid.rst
 
+.. note:: The |supermarket| server must be able to reach (via HTTPS) the specified ``chef_server_url`` during |oauth| 2.0 negotiation. This type of issue is typically with name resolution and firewall rules.
+
 Configure
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_supermarket/includes_supermarket_private_ocid_configure.rst
+
+.. note:: The redirect URL specified for |chef identity| **MUST** match the hostname of the |supermarket| server. The URI must also be correct: ``/auth/chef_oauth2/callback``. Otherwise, an error message similar to ``The redict uri included is not valid.`` will be shown.
 
 Install |supermarket|
 -----------------------------------------------------
 .. include:: ../../includes_supermarket/includes_supermarket_private_install.rst
 
+.. note:: In general, for production environments |chef| recommends to start running |supermarket| with small virtual machines, and then increase the size of the virtual machine as necessary. Put the ``/var/opt/supermarket`` directory on a separate disk, and then use LVM so that may be expanded.
+
 Create a Wrapper Cookbook
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_supermarket/includes_supermarket_private_install_wrapper_cookbook.rst
+
+.. include:: ../../includes_supermarket/includes_supermarket_private_install_wrapper_cookbook_steps.rst
 
 Define Attributes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -50,9 +58,17 @@ Connect to |supermarket|
 -----------------------------------------------------
 .. include:: ../../includes_supermarket/includes_supermarket_private_connect.rst
 
-Monitoring |supermarket|
+Manage the Server
 -----------------------------------------------------
-.. include:: ../../includes_supermarket/includes_supermarket_private_monitoring.rst
+The following sections describe approaches to managing the private |supermarket| server.
+
+Enable Debug Logging
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_supermarket_private_manage_server_enable_debug_logging.rst
+
+Monitoring |supermarket|
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_supermarket_private_manage_server__monitoring.rst
 
 Recommended Tools
 -----------------------------------------------------
@@ -97,6 +113,17 @@ Proxies
 -----------------------------------------------------
 .. include:: ../../includes_supermarket/includes_supermarket_run_in_kitchen_slow.rst
 
+Set up Workstation
+=====================================================
+.. include:: ../../includes_supermarket/includes_supermarket_manage_cookbooks.rst
+
+Install knife supermarket
+-----------------------------------------------------
+.. include:: ../../includes_supermarket/includes_supermarket_manage_cookbooks_install_plugin.rst
+
+Configure knife.rb
+-----------------------------------------------------
+.. include:: ../../includes_supermarket/includes_supermarket_manage_cookbooks_configure_knife_rb.rst
 
 Create Cookbook
 =====================================================
@@ -121,6 +148,14 @@ The following examples show how to create a simple cookbook by using the |chef c
 Upload a Cookbook
 =====================================================
 .. include:: ../../includes_supermarket/includes_supermarket_upload_cookbook.rst
+
+Share a Cookbook
+=====================================================
+.. include:: ../../includes_supermarket/includes_supermarket_share_cookbook.rst
+
+Troubleshoot SSL Errors
+-----------------------------------------------------
+.. include:: ../../includes_supermarket/includes_supermarket_troubleshoot_ssl.rst
 
 supermarket-ctl (executable)
 =====================================================

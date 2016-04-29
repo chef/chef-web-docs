@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-|supermarket| installations can also use an external cache store. The public |supermarket| uses |redis| on |amazon elasticache|. To use an external cache, configure the following attributes in the ``/recipes/default.rb`` recipe of the wrapper cookbook:
+|supermarket| installations can also use an external cache store. The public |supermarket| uses |redis| on |amazon elasticache|. One |redis| instance per private |supermarket| application server may be run safely. Use |redis| 2.8 (or higher) for a high availability pair. To use an external cache, configure the following attributes in the ``/recipes/default.rb`` recipe of the wrapper cookbook:
 
 .. code-block:: ruby
 

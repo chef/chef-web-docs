@@ -12,6 +12,10 @@ help
 =====================================================
 .. include:: ../../includes_ctl_supermarket/includes_ctl_supermarket_help.rst
 
+make-admin
+=====================================================
+.. include:: ../../includes_ctl_supermarket/includes_ctl_supermarket_make_admin.rst
+
 reconfigure
 =====================================================
 .. include:: ../../includes_ctl_supermarket/includes_ctl_supermarket_reconfigure.rst
