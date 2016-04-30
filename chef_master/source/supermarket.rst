@@ -68,7 +68,7 @@ Enable Debug Logging
 
 Monitoring |supermarket|
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_supermarket/includes_supermarket_private_manage_server__monitoring.rst
+.. include:: ../../includes_supermarket/includes_supermarket_private_manage_server_monitoring.rst
 
 Recommended Tools
 -----------------------------------------------------
