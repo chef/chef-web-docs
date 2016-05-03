@@ -3,7 +3,7 @@
 
 .. include:: ../../chef_master/source/start_delivery.rst
 
-.. Hide the TOC from this file.
+.. Hide the TOC from this file.   
 
 .. toctree::
    :hidden:
@@ -31,3 +31,4 @@
    integrate_delivery_ldap
    integrate_delivery_slack
    integrate_delivery_smtp
+ 
