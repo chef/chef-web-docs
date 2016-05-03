@@ -174,18 +174,6 @@ analytics:
 	mkdir -p $(BUILDDIR)/release/analytics/
 	$(BUILD_COMMAND_AND_ARGS) release_analytics/source $(BUILDDIR)/release/analytics/
 
-analytics_1-1:
-	mkdir -p $(BUILDDIR)/release/analytics_1-1/
-	$(BUILD_COMMAND_AND_ARGS) release_analytics_1-1/source $(BUILDDIR)/release/analytics_1-1/
-
-analytics_1-2:
-	mkdir -p $(BUILDDIR)/release/analytics_1-2/
-	$(BUILD_COMMAND_AND_ARGS) release_analytics_1-2/source $(BUILDDIR)/release/analytics_1-2/
-
-analytics_1-3:
-	mkdir -p $(BUILDDIR)/release/analytics_1-3/
-	$(BUILD_COMMAND_AND_ARGS) release_analytics_1-3/source $(BUILDDIR)/release/analytics_1-3/
-
 devkit:
 	mkdir -p $(BUILDDIR)/release/devkit/
 	$(BUILD_COMMAND_AND_ARGS) release_devkit/source $(BUILDDIR)/release/devkit/
@@ -205,6 +193,10 @@ ohai-6:
 push_1-0:
 	mkdir -p $(BUILDDIR)/release/push_jobs_1-0/
 	$(BUILD_COMMAND_AND_ARGS) release_push_jobs_1-0/source $(BUILDDIR)/release/push_jobs_1-0/
+
+server_12-7:
+	mkdir -p $(BUILDDIR)/release/server_12-7/
+	$(BUILD_COMMAND_AND_ARGS) release_server_12-7/source $(BUILDDIR)/release/server_12-7/
 
 server_12-6:
 	mkdir -p $(BUILDDIR)/release/server_12-6/
