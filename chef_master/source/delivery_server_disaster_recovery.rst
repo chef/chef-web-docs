@@ -15,6 +15,7 @@ Requirements
 A disaster recovery configuration for |delivery| has the following requirements:
 
 * Two identically-configured |delivery| servers, one to act as the primary server and the other to act as a standby
+  .. note:: You cannot log in to the |delivery| web UI on the standby server.
 * |ssh| access between both |delivery| servers via port 22
 * |postgresql| replication allowed between both |delivery| servers via port 5432
 * The latest version of the |chef dk| is installed on the provisioning node
@@ -234,7 +235,7 @@ Failover the |delivery| Server
 -----------------------------------------------------
 To promote a standby |delivery| server to primary, do the following:
 
-#. Log into the standby |delivery| server and make a backup of the data:
+#. Log into the standby |delivery| server (via |ssh|, and not the |delivery| web UI) and make a backup of the data:
 
    .. code-block:: bash
 
