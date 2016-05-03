@@ -77,6 +77,8 @@ install
 =====================================================
 .. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_install.rst
 
+.. warning:: .. include:: ../../includes_chef_license/includes_chef_license_note_current.rst
+
 **Syntax**
 
 .. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_install_syntax.rst
