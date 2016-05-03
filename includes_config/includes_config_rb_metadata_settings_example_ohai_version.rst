@@ -6,10 +6,10 @@ For example, to match any 8.x version of |ohai|, but not 7.x or 9.x:
 
 .. code-block:: ruby
 
-   chef_version "~> 8"
+   ohai_version "~> 8"
 
 Or matches any 8.x (or higher) version of |ohai|:
 
 .. code-block:: ruby
 
-   chef_version ">= 8"
+   ohai_version ">= 8"

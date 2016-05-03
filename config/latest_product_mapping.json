@@ -1,6 +1,6 @@
 {
   "client": "/release/12-9",
-  "server": "/release/server_12-5",
+  "server": "/release/server_12-6",
   "analytics": "/release/analytics",
   "compliance": "/release/compliance",
   "delivery": "/release/delivery",

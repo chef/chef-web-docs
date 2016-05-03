@@ -4,7 +4,7 @@
 Welcome to Chef Compliance
 =====================================================
 
-|chef compliance| :doc:`scans for risks and compliance issues </compliance>` with easy-to-understand, customizable reports and visualization, automates remediation, and implements continuious auditing for applications and infrastructure. Scan your entire IT infrastructure. Get easy to understand reports. Classify issues by severity.
+|chef compliance| :doc:`scans for risks and compliance issues </compliance>` with easy-to-understand, customizable reports and visualization. Scan your entire IT infrastructure. Get easy to understand reports. Classify issues by severity. Automate remediation and implement continuious auditing.
 
 .. image:: ../../images/start_compliance_audit.svg
    :width: 700px
