@@ -14,7 +14,7 @@ About Chef Licenses
 =====================================================
 .. include:: ../../includes_chef_license/includes_chef_license.rst
 
-.. warning:: The ``chef-server-ctl install`` command no longer works in the 12.5 (and earlier) versions of the |chef server| due to a change in how packages are downloaded from |company_name|.
+.. warning:: .. include:: ../../includes_chef_license/includes_chef_license_note_current.rst
 
 Apache 2.0
 -----------------------------------------------------
