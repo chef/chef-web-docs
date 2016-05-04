@@ -6,6 +6,7 @@ Disallow: /release/analytics_1-3/
 Disallow: /chef/
 Disallow: /chef/migrate_to_hosted.html
 Disallow: /client/
+Disallow: /release/compliance/
 Disallow: /release/compliance_1-0/
 Disallow: /release/delivery/
 Disallow: /release/delivery_1-0/
