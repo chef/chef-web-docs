@@ -4,11 +4,11 @@
 
 .. include:: ../../includes_supermarket/includes_supermarket.rst
 
-Public |supermarket|
+Public Supermarket
 =====================================================
 .. include:: ../../includes_supermarket/includes_supermarket_public.rst
 
-Private |supermarket|
+Private Supermarket
 =====================================================
 .. include:: ../../includes_supermarket/includes_supermarket_private.rst
 
@@ -30,13 +30,13 @@ Configure
 
 .. note:: The redirect URL specified for |chef identity| **MUST** match the hostname of the |supermarket| server. The URI must also be correct: ``/auth/chef_oauth2/callback``. Otherwise, an error message similar to ``The redict uri included is not valid.`` will be shown.
 
-Install |supermarket|
+Install Supermarket
 -----------------------------------------------------
 .. include:: ../../includes_supermarket/includes_supermarket_private_install.rst
 
 .. note:: In general, for production environments |chef| recommends to start running |supermarket| with small virtual machines, and then increase the size of the virtual machine as necessary. Put the ``/var/opt/supermarket`` directory on a separate disk, and then use LVM so that may be expanded.
 
-Create a Wrapper Cookbook
+Create a Wrapper
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_supermarket/includes_supermarket_private_install_wrapper_cookbook.rst
 
@@ -46,15 +46,15 @@ Define Attributes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_supermarket/includes_supermarket_private_install_attributes.rst
 
-Upload the Wrapper Cookbook
+Upload the Wrapper
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_supermarket/includes_supermarket_private_install_upload.rst
 
-Bootstrap |supermarket|
+Bootstrap Supermarket
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_supermarket/includes_supermarket_private_install_bootstrap.rst
 
-Connect to |supermarket|
+Connect to Supermarket
 -----------------------------------------------------
 .. include:: ../../includes_supermarket/includes_supermarket_private_connect.rst
 
@@ -66,7 +66,7 @@ Enable Debug Logging
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_supermarket/includes_supermarket_private_manage_server_enable_debug_logging.rst
 
-Monitoring |supermarket|
+Monitor Supermarket
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_supermarket/includes_supermarket_private_manage_server_monitoring.rst
 
@@ -85,7 +85,7 @@ The following tools are recommended for use with a private |supermarket|:
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_supermarket/includes_supermarket_tools_stove.rst
 
-Customize a Private |supermarket|
+Customize Supermarket
 -----------------------------------------------------
 .. include:: ../../includes_supermarket/includes_supermarket_private_customize.rst
 
@@ -101,7 +101,7 @@ External Cookbook Storage
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_supermarket/includes_supermarket_private_customize_external_cookbook_storage.rst
 
-Run |supermarket| in |kitchen|
+Run Supermarket in |kitchen|
 =====================================================
 .. include:: ../../includes_supermarket/includes_supermarket_run_in_kitchen.rst
 
@@ -125,7 +125,7 @@ Configure knife.rb
 -----------------------------------------------------
 .. include:: ../../includes_supermarket/includes_supermarket_manage_cookbooks_configure_knife_rb.rst
 
-Create Cookbook
+Create a Cookbook
 =====================================================
 The following examples show how to create a simple cookbook by using the |chef ctl| command that is built into the the |chef dk|.
 
