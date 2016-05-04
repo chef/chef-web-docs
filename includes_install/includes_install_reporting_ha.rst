@@ -22,6 +22,8 @@ To set up the |reporting| server:
 
       $ opscode-reporting-ctl reconfigure
 
+   .. note:: .. include:: ../../includes_chef_license/includes_chef_license_reconfigure_reporting.rst
+
 #. Copy the entire ``/etc/opscode-reporting`` directory from the backend primary server to all frontend and backend servers. For example, from each server run:
 
    .. code-block:: bash

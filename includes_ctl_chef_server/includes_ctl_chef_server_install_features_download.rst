@@ -54,30 +54,6 @@ The ``install`` subcommand downloads packages from https://packages.chef.io/ by 
 
           $ opscode-push-jobs-server-ctl reconfigure
 
-
-
-   * - |chef replication_title|
-     - Use |chef replication| to asynchronously distribute cookbook, environment, role, and data bag data from a single, primary |chef server| to one (or more) replicas of that |chef server|.
-
-       On the |chef server|, run:
-
-       .. code-block:: ruby
-
-          $ chef-server-ctl install chef-sync
-
-       then:
-
-       .. code-block:: ruby
-
-          $ chef-server-ctl reconfigure
-
-       and then:
-
-       .. code-block:: ruby
-
-          $ chef-sync-ctl reconfigure
-
-
    * - Reporting
      - Use |reporting| to keep track of what happens during every |chef client| runs across all of the infrastructure being managed by |chef|. Run |reporting| with |chef manage| to view reports from a web user interface.
 

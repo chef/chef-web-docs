@@ -6,6 +6,7 @@ Disallow: /release/analytics_1-3/
 Disallow: /chef/
 Disallow: /chef/migrate_to_hosted.html
 Disallow: /client/
+Disallow: /release/compliance/
 Disallow: /release/compliance_1-0/
 Disallow: /release/delivery/
 Disallow: /release/delivery_1-0/
@@ -50,6 +51,7 @@ Disallow: /release/server_12-2/
 Disallow: /release/server_12-3/
 Disallow: /release/server_12-4/
 Disallow: /release/server_12-5/
+Disallow: /release/server_12-6/
 Disallow: /delivery/
 Disallow: /devkit/
 Disallow: /slides/
@@ -66,9 +68,11 @@ Disallow: /chef_overview_workstation.html
 Disallow: /config_rb_chef_server_enterprise_optional_settings.html
 Disallow: /config_rb_chef_server_enterprise.html
 Disallow: /config_rb_chef_server_optional_settings.html
-Disallow: /config_rb_chef_server.html
+Disallow: /config_rb_chef_sync.html
+Disallow: /ctl_chef_backend.html
 Disallow: /config_rb_delivery_optional_settings.html
 Disallow: /ctl_chef_backend.html
+Disallow: /ctl_chef_sync.html
 Disallow: /dsc_mof.html
 Disallow: /dsl_recipe_method_search.html
 Disallow: /error_messages.html
@@ -166,6 +170,7 @@ Disallow: /server_deploy_be.html
 Disallow: /server_deploy_fe.html
 Disallow: /server_deploy_febe.html
 Disallow: /server_deploy_standalone.html
+Disallow: /server_replication.html
 Disallow: /server_types.html
 Disallow: /supported_platforms.html
 Disallow: /upgrade_server_ha_notes.html
