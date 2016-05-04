@@ -109,6 +109,8 @@ The following steps describe upgrading |chef analytics| with partitions disabled
 
       $ opscode-analytics-ctl reconfigure
 
+   .. note:: .. include:: ../../includes_chef_license/includes_chef_license_reconfigure_analytics.rst
+
 #. Start the services:
 
    .. code-block:: bash
