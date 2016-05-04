@@ -50,6 +50,7 @@ Disallow: /release/server_12-2/
 Disallow: /release/server_12-3/
 Disallow: /release/server_12-4/
 Disallow: /release/server_12-5/
+Disallow: /release/server_12-6/
 Disallow: /delivery/
 Disallow: /devkit/
 Disallow: /slides/
