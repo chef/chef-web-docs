@@ -13,7 +13,7 @@ The following example shows how to verify that a file has the desired permission
          expect(config_file).to be_mode(0400)
        end
        it 'contains required configuration' do
-         expect(its(:contents)).to match(/default-time-zone='UTC'/)
+         expect(its('contents')).to match(/default-time-zone='UTC'/)
        end
      end
    end

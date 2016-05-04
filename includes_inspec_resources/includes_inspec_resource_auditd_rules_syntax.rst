@@ -10,7 +10,7 @@ For ``audit`` >= 2.3:
 .. code-block:: ruby
 
    describe auditd_rules do
-     its(:lines) { should contain_match(rule) }
+     its('lines') { should contain_match(rule) }
    end
 
 For ``audit`` < 2.3:

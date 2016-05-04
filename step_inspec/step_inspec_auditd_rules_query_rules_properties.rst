@@ -10,7 +10,7 @@
    end
 
    describe auditd_rules.key('sshd_config') do
-     its(:permissions) { should contain_match(/x/) }
+     its('permissions') { should contain_match(/x/) }
    end
 
 Filters may be chained. For example:
