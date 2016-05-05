@@ -150,6 +150,14 @@ compliance:
 	mkdir -p $(BUILDDIR)/release/12-10/
 	$(BUILD_COMMAND_AND_ARGS) release_chef_12-10/source $(BUILDDIR)/release/12-10/
 
+12-11:
+	mkdir -p $(BUILDDIR)/release/12-11/
+	$(BUILD_COMMAND_AND_ARGS) release_chef_12-11/source $(BUILDDIR)/release/12-11/
+
+12-12:
+	mkdir -p $(BUILDDIR)/release/12-12/
+	$(BUILD_COMMAND_AND_ARGS) release_chef_12-12/source $(BUILDDIR)/release/12-12/
+
 oec_11-0:
 	mkdir -p $(BUILDDIR)/release/oec_11-0/
 	$(BUILD_COMMAND_AND_ARGS) release_oec_11-0/source $(BUILDDIR)/release/oec_11-0/

@@ -91,6 +91,8 @@ delivery
 12-8
 12-9
 12-10
+12-11
+12-12
 analytics
 compliance
 devkit
