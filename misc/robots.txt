@@ -72,6 +72,7 @@ Disallow: /config_rb_chef_sync.html
 Disallow: /ctl_chef_backend.html
 Disallow: /config_rb_delivery_optional_settings.html
 Disallow: /ctl_chef_backend.html
+Disallow: /ctl_chef_init.html
 Disallow: /ctl_chef_sync.html
 Disallow: /dsc_mof.html
 Disallow: /dsl_recipe_method_search.html
