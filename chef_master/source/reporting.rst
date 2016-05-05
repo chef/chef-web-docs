@@ -10,7 +10,7 @@ Requirements
 =====================================================
 .. include:: ../../includes_system_requirements/includes_system_requirements_reporting.rst
 
-|reporting| is configured as :doc:`a premium feature </install_reporting>` of the |chef server| and requires acceptance of the :doc:`Chef MLSA </chef_license>` as part of the installation process, starting with version 1.6.0.
+|reporting| is configured as :doc:`a premium feature </install_reporting>` of the |chef server| and requires acceptance of the `Chef MLSA <https://docs.chef.io/chef_license.html>`__ as part of the installation process, starting with version 1.6.0.
 
 The Reporting Run
 =====================================================
