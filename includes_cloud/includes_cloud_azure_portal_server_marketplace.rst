@@ -21,11 +21,25 @@ Before getting started, you will need a functioning workstation. Install the `Ch
 
 #. Click **Create** and follow the steps to launch the |chef server|, providing a host name, user name, password or |ssh| key, and any additional information required. You will also select your deployment model here.
 
-   .. note:: If you are using the "Resource Manager" deployment model, you will need to create a **DNS Name** label for the instance. <https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-create-fqdn-on-portal/>
+#. Create a **DNS Name** label for the instance. <https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-create-fqdn-on-portal/>
 
 #. Once the instance is launched you will need to create an account to use with the |chef manage|. To do this, open an |ssh| connection to the host using the user name and password (or |ssh| key) provided when you launched the instance.
 
+#. Wait for the Chef Server to complete initial configuration.  You'll want to tail the cloud-init logfile until you see that it has finished: ``Cloud-init v. 0.7.5 finished at Thu, 05 May 2016 21:41:21 +0000. Datasource DataSourceAzureNet [seed=/dev/sr0].  Up 740.33 seconds``
+
+   .. code-block:: bash
+
+      $ tailf /var/log/cloud-init-output.log
+
+#. After you verify that cloud-init has complete you'll need to configure |chef server| with the DNS Name.
+
    .. note:: In the following steps substitute ``<fqdn>`` for the fully qualified domain **DNS NAME** that you created.
+
+#. Remove the old |chef analytics| nginx configuration.
+
+   .. code-block:: bash
+
+      $ sudo rm /var/opt/opscode/nginx/etc/nginx.d/analytics.conf
 
 #. Update the ``/etc/chef-marketplace/marketplace.rb`` file to include the ``api_fqdn`` of the machine.
 
@@ -45,9 +59,15 @@ Before getting started, you will need a functioning workstation. Install the `Ch
 
       $ sudo chef-marketplace-ctl hostname <fqdn>
 
+#. Run the following command to update reconfigure |chef analytics|
+
+   .. code-block:: bash
+
+      $ sudo opscode-analytics-ctl reconfigure
+
 #. Now proceed to the web based setup wizard ``https://<fqdn>/signup``
 
-#. Before you can run through the wizard you must provide the VM Name of the instance in order to ensure that only you are configuring the |chef server|.
+#. Before you can run through the wizard you must provide the VM Name or DNS Label of the instance in order to ensure that only you are configuring the |chef server|.
 
 #. Follow the links to sign up for a new account and download the starter kit.
 
