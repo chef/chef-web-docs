@@ -14,6 +14,7 @@ The following |knife| plug-ins are maintained by |company_name|:
 .. list-table::
    :widths: 150 450
    :header-rows: 1
+
    * - Subcommand
      - Description
    * - `knife-azure <https://github.com/chef/knife-azure>`__
@@ -38,3 +39,9 @@ The following |knife| plug-ins are maintained by |company_name|:
      - .. include:: ../../includes_plugin_knife/includes_plugin_knife_terremark.rst
    * - `knife-vcloud <https://github.com/chef/knife-vcloud>`__
      - .. include:: ../../includes_plugin_knife/includes_plugin_knife_windows.rst
+
+Authenticated API Requests
+=====================================================
+.. include:: ../../includes_plugin_knife/includes_plugin_knife.rst
+
+.. include:: ../../includes_plugin_knife/includes_plugin_knife_using_authenticated_requests.rst
