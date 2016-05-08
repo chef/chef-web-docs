@@ -14,31 +14,27 @@ The following |knife| plug-ins are maintained by |company_name|:
 .. list-table::
    :widths: 150 450
    :header-rows: 1
-
    * - Subcommand
      - Description
-   * - :doc:`plugin_knife_azure`
+   * - `knife-azure <https://github.com/chef/knife-azure>`__
      - .. include:: ../../includes_plugin_knife/includes_plugin_knife_azure.rst
-   * - :doc:`plugin_knife_bluebox`
+   * - `knife-bluebox <https://github.com/chef/knife-bluebox>`__
      - .. include:: ../../includes_plugin_knife/includes_plugin_knife_bluebox.rst
-   * - :doc:`plugin_knife_ec2`
+   * - `knife-ec2 <https://github.com/chef/knife-ec2>`__
      - .. include:: ../../includes_plugin_knife/includes_plugin_knife_ec2.rst
-   * - :doc:`plugin_knife_eucalyptus`
+   * - `knife-eucalyptus <https://github.com/chef/knife-eucalyptus>`__
      - .. include:: ../../includes_plugin_knife/includes_plugin_knife_eucalyptus.rst
-   * - :doc:`plugin_knife_google`
+   * - `knife-google <https://github.com/chef/knife-google>`__
      - .. include:: ../../includes_plugin_knife/includes_plugin_knife_google.rst
-   * - :doc:`plugin_knife_hp`
+   * - `knife-hp <https://github.com/chef/knife-hp>`__
      - .. include:: ../../includes_plugin_knife/includes_plugin_knife_hp.rst
-   * - :doc:`plugin_knife_linode`
+   * - `knife-linode <https://github.com/chef/knife-linode>`__
      - .. include:: ../../includes_plugin_knife/includes_plugin_knife_linode.rst
-   * - :doc:`plugin_knife_openstack`
+   * - `knife-openstack <https://github.com/chef/knife-openstack>`__
      - .. include:: ../../includes_plugin_knife/includes_plugin_knife_openstack.rst
-   * - :doc:`plugin_knife_rackspace`
+   * - `knife-rackspace <https://github.com/chef/knife-rackspace>`__
      - .. include:: ../../includes_plugin_knife/includes_plugin_knife_rackspace.rst
-   * - :doc:`plugin_knife_terremark`
+   * - `knife-terremark <https://github.com/chef/knife-terremark>`__
      - .. include:: ../../includes_plugin_knife/includes_plugin_knife_terremark.rst
-   * - :doc:`plugin_knife_windows`
+   * - `knife-vcloud <https://github.com/chef/knife-vcloud>`__
      - .. include:: ../../includes_plugin_knife/includes_plugin_knife_windows.rst
-
-
-
