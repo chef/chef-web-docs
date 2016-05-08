@@ -347,22 +347,10 @@ Chef Compliance
    plugin_knife
    plugin_knife_analytics
    plugin_knife_authenticated_requests
-   plugin_knife_azure
-   plugin_knife_bluebox
-   plugin_knife_bluelock
    plugin_knife_custom
-   plugin_knife_ec2
-   plugin_knife_eucalyptus
-   plugin_knife_google
-   plugin_knife_hp
-   plugin_knife_linode
-   plugin_knife_openstack
    plugin_knife_push_jobs
-   plugin_knife_rackspace
    plugin_knife_reporting
    plugin_knife_supermarket
-   plugin_knife_terremark
-   plugin_knife_vcloud
    plugin_knife_windows
    policy
    policyfile

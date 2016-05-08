@@ -6,10 +6,9 @@ Release Notes: |chef analytics_title|
 
 What's New (1.4)
 =====================================================
-The following items are new for |chef analytics| 1.4 and/or are changes from previous versions. The short version:
+The following items are new for |chef analytics| 1.4 and/or are changes from previous versions:
 
-* **Chef MLSA** .. include:: ../../includes_chef_license/includes_chef_license_reconfigure_analytics.rst 
-
+* **Chef MLSA** Starting with |chef analytics| 1.4.0, the `Chef MLSA <https://docs.chef.io/chef_license.html>`__ must be accepted when reconfiguring the product. If the |chef license| has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``opscode-analytics-ctl reconfigure --accept-license`` to automatically accept the license.
 
 What's New (1.3)
 =====================================================
