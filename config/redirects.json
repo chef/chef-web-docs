@@ -242,6 +242,7 @@
   "lwrp_users.html": "https://github.com/opscode-cookbooks/users",
   "lwrp_webpi.html": "https://github.com/opscode-cookbooks/webpi",
   "lwrp_yum.html": "https://github.com/chef-cookbooks/yum",
+  "plugin_knife_authenticated_requests.html": "/plugin_knife.html",
   "plugin_knife_azure.html": "https://github.com/chef/knife-azure",
   "plugin_knife_bluebox.html": "https://github.com/chef/knife-bluebox",
   "plugin_knife_bluelock.html": "https://github.com/chef/knife-bluelock",

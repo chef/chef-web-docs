@@ -346,7 +346,6 @@ Chef Compliance
    plugin_kitchen_vagrant
    plugin_knife
    plugin_knife_analytics
-   plugin_knife_authenticated_requests
    plugin_knife_custom
    plugin_knife_push_jobs
    plugin_knife_reporting
