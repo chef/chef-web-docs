@@ -14,6 +14,7 @@ The following |knife| plug-ins are maintained by |company_name|:
 .. list-table::
    :widths: 150 450
    :header-rows: 1
+
    * - Subcommand
      - Description
    * - `knife-azure <https://github.com/chef/knife-azure>`__
