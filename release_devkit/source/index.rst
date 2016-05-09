@@ -252,6 +252,8 @@ The following tools have been developed by members of the |chef| community. Thes
    policyfile
    provisioning
    provisioning_aws
+   provisioning_fog
+   provisioning_vagrant
    proxies
    recipes
    release_notes
