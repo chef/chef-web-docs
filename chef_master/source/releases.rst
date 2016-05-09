@@ -11,6 +11,12 @@ The following documentation sets are available:
    * - Application
      - Home Page
      - Release Notes
+   * - |chef client_title| 12.9
+     - `https://docs.chef.io/release/12-9/ <https://docs.chef.io/release/12-9/>`__
+     - `Release Notes <https://docs.chef.io/release/12-9/release_notes.html>`__
+   * - |chef client_title| 12.8
+     - `https://docs.chef.io/release/12-8/ <https://docs.chef.io/release/12-8/>`__
+     - `Release Notes <https://docs.chef.io/release/12-8/release_notes.html>`__
    * - |chef client_title| 12.7
      - `https://docs.chef.io/release/12-7/ <https://docs.chef.io/release/12-7/>`__
      - `Release Notes <https://docs.chef.io/release/12-7/release_notes.html>`__
@@ -68,6 +74,12 @@ The following documentation sets are available:
    * - |chef dk_title|
      - `https://docs.chef.io/devkit/ <https://docs.chef.io/devkit/>`__
      - 
+   * - |chef server_title| 12.6
+     - `https://docs.chef.io/release/server_12-6/ <https://docs.chef.io/release/server_12-6/>`__
+     - `Release Notes <https://docs.chef.io/release/server_12-6/release_notes.html>`__
+   * - |chef server_title| 12.5
+     - `https://docs.chef.io/release/server_12-5/ <https://docs.chef.io/release/server_12-5/>`__
+     - `Release Notes <https://docs.chef.io/release/server_12-5/release_notes.html>`__
    * - |chef server_title| 12.4
      - `https://docs.chef.io/release/server_12-4/ <https://docs.chef.io/release/server_12-4/>`__
      - `Release Notes <https://docs.chef.io/release/server_12-4/release_notes.html>`__
@@ -98,12 +110,15 @@ The following documentation sets are available:
    * - |chef server osc| Server 11.0
      - `https://docs.chef.io/release/osc_11-0/ <https://docs.chef.io/release/osc_11-0/>`__
      - 
-   * - |chef analytics_title| 1.2
-     - `https://docs.chef.io/analytics/ <https://docs.chef.io/release/analytics_1-2>`__
-     - `Release Notes <https://docs.chef.io/release/analytics_1-2/release_notes.html>`__
-   * - |chef analytics_title| 1.1
-     - `https://docs.chef.io/analytics/ <https://docs.chef.io/release/analytics_1-1/>`__
-     - `Release Notes <https://docs.chef.io/release/analytics_1-1/release_notes.html>`__
+   * - |chef compliance|
+     - `https://docs.chef.io/release/compliance/ <https://docs.chef.io/release/compliance>`__
+     - 
+   * - |chef delivery|
+     - `https://docs.chef.io/release/delivery/ <https://docs.chef.io/release/delivery>`__
+     - 
+   * - |chef analytics_title|
+     - `https://docs.chef.io/release/analytics/ <https://docs.chef.io/release/analytics>`__
+     - `Release Notes <https://docs.chef.io/release/analytics/release_notes.html>`__
    * - |ohai| 8
      - `https://docs.chef.io/release/ohai-8/ <https://docs.chef.io/release/ohai-8/>`__
      - `Release Notes <https://docs.chef.io/release/ohai-8/release_notes.html>`__
