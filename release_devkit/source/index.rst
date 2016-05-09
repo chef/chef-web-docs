@@ -248,6 +248,7 @@ The following tools have been developed by members of the |chef| community. Thes
    libraries
    nodes
    plugin_community
+   plugin_knife_spork
    plugin_kitchen_vagrant
    policyfile
    provisioning
