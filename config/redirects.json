@@ -157,6 +157,7 @@
   "resource_common_relative_paths.html": "/resource_common.html",
   "resource_common_windows_file_security.html": "/resource_common.html",
   "essentials_cookbook_attribute_files.html": "/attributes.html",
+  "chef_server.html": "/server_components.html",
   "chef_metal.html": "/provisioning.html",
   "chef_overview_attributes.html": "/attributes.html",
   "chef_overview_cookbooks.html": "/cookbooks.html",
