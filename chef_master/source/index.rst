@@ -355,6 +355,9 @@ Chef Compliance
    policyfile
    proxies
    provisioning
+   provisioning_aws
+   provisioning_fog
+   provisioning_vagrant
    push_jobs
    quick_start
    recipes
