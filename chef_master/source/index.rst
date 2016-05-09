@@ -292,6 +292,7 @@ Chef Compliance
    install_server_post
    install_server_pre
    install_server_tiered
+   install_supermarket
    install_windows
    integrate_compliance_chef_server
    integrate_delivery_bitbucket
@@ -489,6 +490,8 @@ Chef Compliance
    start_delivery
    style_guide
    supermarket
+   supermarket_logs
+   supermarket_monitor
    supported_platforms
    templates
    uninstall
