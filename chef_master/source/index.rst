@@ -349,6 +349,7 @@ Chef Compliance
    plugin_knife_custom
    plugin_knife_push_jobs
    plugin_knife_reporting
+   plugin_knife_spork
    plugin_knife_supermarket
    plugin_knife_windows
    policy
