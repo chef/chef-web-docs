@@ -135,7 +135,6 @@ Chef Compliance
    chef_client
    chef_client_security
    chef_cookbooks
-   chef_dk
    chef_license
    chef_overview
    chef_private_keys
