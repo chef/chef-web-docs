@@ -70,8 +70,6 @@ Supermarket
 
 .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_delivery_truck_publish_supermarket_private.rst
 
-Supermarket Credentials
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_delivery_truck_publish_supermarket_credentials.rst
 
 Multiple Locations
