@@ -111,7 +111,7 @@ External Cookbooks
 .. include:: ../../includes_server_ha/includes_server_ha_external_cookbooks_aws.rst
 
 AWS Settings
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 .. include:: ../../includes_server_ha/includes_server_ha_external_cookbooks_aws_settings.rst
 
 
@@ -124,7 +124,7 @@ External |postgresql|
 .. DO NOT CHANGE THE FOLLOWING TITLE BECAUSE IT IS LINKED FROM THE ERROR MESSAGES IN THE CODE FOR THESE SETTINGS.
 
 |postgresql| Settings
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 .. include:: ../../includes_server_ha/includes_server_ha_external_postgresql_settings.rst
 
 .. note:: See the list of `error messages that may be present <https://docs.chef.io/error_messages.html#external-postgresql>`_ when configuring the |chef server| to use a remote |postgresql| server.
