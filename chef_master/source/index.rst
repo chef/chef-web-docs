@@ -363,6 +363,7 @@ Chef Compliance
    recipes
    reporting
    release_notes
+   release_notes_server
    releases
    resource
    resource_apt_package
