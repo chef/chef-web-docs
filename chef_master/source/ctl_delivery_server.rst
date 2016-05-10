@@ -4,6 +4,10 @@ delivery-ctl (executable)
 
 .. include:: ../../includes_ctl_delivery_server/includes_ctl_delivery_server.rst
 
+backup-data
+=====================================================
+.. include:: ../../includes_ctl_delivery_server/includes_ctl_delivery_server_backup_data.rst
+
 cleanse
 =====================================================
 .. include:: ../../includes_ctl_delivery_server/includes_ctl_delivery_server_cleanse.rst
@@ -184,6 +188,10 @@ rename-enterprise
 **Syntax**
 
 .. include:: ../../includes_ctl_delivery_server/includes_ctl_delivery_server_rename_enterprise_syntax.rst
+
+restore-data
+=====================================================
+.. include:: ../../includes_ctl_delivery_server/includes_ctl_delivery_server_restore_data.rst
 
 revoke-token
 =====================================================
