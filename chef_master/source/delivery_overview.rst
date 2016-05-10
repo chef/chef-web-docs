@@ -180,32 +180,3 @@ You can set up the infrastructure environments either manually or by using autom
 .. note:: Currently, |delivery| manages cookbook version and application attribute version pins using environment objects of the |chef server|. The names of the environments in the |chef server| correspond to the stages of a pipeline. (This doesn't mean, however, that the nodes that participate in a given stage need to remain fixed over time.)
 
 It is also possible to share infrastructure among pipeline stages. For example, you can provision infrastructure needed for performing acceptance tests while relying on enterprise services provided by another pipeline stage or even a production environment. Another possibility is to reserve a portion of infrastructure from production to run acceptance testing. 
-
-Configure a Pipeline
-=====================================================
-Each project contains a configuration file in its source repository, located at ``.delivery/config.json``, that specifies the build cookbook to use for the project. The build cookbook contains recipes that control what happens in the pipeline phases.
-
-The ``config.json`` file allows customization of the behavior of |delivery| and the build cookbook.
-
-When |delivery| executes a phase, it selects a build node to run the job. On the build node, the project's source is fetched and synchronized to the revision matching the head of the feature branch for the change. The build node reads the project's ``config.json`` file and uses this information to fetch the appropriate build cookbook. Build cookbooks can be embedded in project source repositories, fetched from a |git| server, |chef server|, or a |supermarket| instance. Finally, the build node runs a local |chef zero| run to execute the appropriate phase.
-
-If you are using |delivery| to manage changes in |chef| cookbooks, you can wrap, or use directly, ``delivery-truck``, a build cookbook for building and testing cookbooks. The ``delivery-truck`` and ``delivery-sugar`` cookbooks contain helpers that can be used for non-cookbook workflows as well.  You can wrap or modify the ``delivery-truck`` cookbook to suit your own needs.
-
-Here is an example of a build cookbook recipe that runs |junit| tests with |maven|. For example:
-
-.. code-block:: ruby
-
-   log "Running unit"
-   
-   repo = node['delivery_builder']['repo']
-   
-   execute "run my JUnit tests" do
-     command "mvn test"
-     cwd repo
-   end
-
-This code logs that the unit tests are running and runs |junit| tests against the current repo. 
-
-.. include:: ../../includes_delivery_config/includes_delivery_config_example_test_patterns.rst
-
-Because build cookbooks read the configuration file, use the configuration file to customize the build cookbook to suit the needs of a particular project. In this way, you can share some "standard" version of a build cookbook with others and then use extra data in the config file to tailor the cookbook as needed. 
