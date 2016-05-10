@@ -6,6 +6,27 @@ Each project contains a configuration file in its source repository, located at 
 
 When |delivery| executes a phase, it selects a build node to run the job. On the build node, the project's source is fetched and synchronized to the revision matching the head of the feature branch for the change. The build node reads the project's ``config.json`` file and uses this information to fetch the appropriate build cookbook. Finally, the build node runs a local |chef zero| run to execute the appropriate phase.
 
+If you are using |delivery| to manage changes in |chef| cookbooks, you can wrap, or use directly, ``delivery-truck``, a build cookbook for building and testing cookbooks. The ``delivery-truck`` and ``delivery-sugar`` cookbooks contain helpers that can be used for non-cookbook workflows as well.  You can wrap or modify the ``delivery-truck`` cookbook to suit your own needs.
+
+Here is an example of a build cookbook recipe that runs |junit| tests with |maven|. For example:
+
+.. code-block:: ruby
+
+   log "Running unit"
+   
+   repo = node['delivery_builder']['repo']
+   
+   execute "run my JUnit tests" do
+     command "mvn test"
+     cwd repo
+   end
+
+This code logs that the unit tests are running and runs |junit| tests against the current repo. 
+
+.. include:: ../../includes_delivery_config/includes_delivery_config_example_test_patterns.rst
+
+Because build cookbooks read the configuration file, use the configuration file to customize the build cookbook to suit the needs of a particular project. In this way, you can share some "standard" version of a build cookbook with others and then use extra data in the config file to tailor the cookbook as needed. 
+
 Configuration Settings
 =======================================================
 .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting.rst

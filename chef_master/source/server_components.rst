@@ -1,5 +1,5 @@
 =====================================================
-About the |chef server_title|
+|chef server_title| Components
 =====================================================
 
 .. include:: ../../includes_chef_server/includes_chef_server.rst
@@ -106,15 +106,12 @@ The following sections describe the host specifications for various sizes of CCR
 * Additional capacity can be gained by placing the front-end node behind an HTTP load balancer, and then scaling front-end nodes horizontally
 * |company_name| recommends that |company_name| professional services be engaged to help with capacity and architectural planning at this size
 
-
-
-
 External Cookbooks
 =====================================================
 .. include:: ../../includes_server_ha/includes_server_ha_external_cookbooks_aws.rst
 
 AWS Settings
------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_server_ha/includes_server_ha_external_cookbooks_aws_settings.rst
 
 
@@ -127,7 +124,7 @@ External |postgresql|
 .. DO NOT CHANGE THE FOLLOWING TITLE BECAUSE IT IS LINKED FROM THE ERROR MESSAGES IN THE CODE FOR THESE SETTINGS.
 
 |postgresql| Settings
------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_server_ha/includes_server_ha_external_postgresql_settings.rst
 
-.. note:: See https://docs.chef.io/error_messages.html#external-postgresql for information about error messages may be present when configuring the |chef server| to use a remote |postgresql| server.
+.. note:: See the list of `error messages that may be present <https://docs.chef.io/error_messages.html#external-postgresql>`_ when configuring the |chef server| to use a remote |postgresql| server.
