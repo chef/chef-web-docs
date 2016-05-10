@@ -6,6 +6,8 @@
 
 .. include:: ../../includes_chef_server/includes_chef_server_component_erchef_background.rst
 
+Server Components
+=====================================================
 The following diagram shows the various components that are part of a |chef server| deployment and how they relate to one another.
 
 .. image:: ../../images/server_components.svg
