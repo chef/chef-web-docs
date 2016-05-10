@@ -181,7 +181,6 @@ Chef Compliance
    ctl_chef_apply
    ctl_chef_backend
    ctl_chef_client
-   ctl_chef_init
    ctl_chef_server
    ctl_chef_shell
    ctl_chef_solo
