@@ -1,4 +1,4 @@
-.. THIS PAGE IS LOCATED AT THE /devkit/ PATH.
+.. THIS PAGE IS LOCATED AT THE /release/devkit/ PATH.
 
 =====================================================
 Install the |chef dk_title|, Windows
