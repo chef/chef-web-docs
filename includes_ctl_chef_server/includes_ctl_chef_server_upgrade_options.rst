@@ -16,8 +16,8 @@ This subcommand has the following options:
 ``-h``, ``--help``
    Use to show help for the ``chef-server-ctl upgrade`` subcommand.
 
-``-k KEY``, ``--key KEY``
-   |file public_key| Default value: ``/etc/chef-server/admin.pem``.
+``-k KEY_PATH``, ``--key KEY_PATH``
+   The |chef server osc| 11 ``admin.pem`` key for the API client. This is the key used to download |chef server osc| 11 data. Default value: ``/etc/chef-server/admin.pem``.
 
 ``-o ORG_NAME``, ``--org-name ORG_NAME``
    The name of the |chef server| organization. |name_rules org| For example: ``chef``. If this option is not specified, the ``upgrade`` command will prompt for it.
