@@ -1,7 +1,7 @@
 .. The contents of this file is sync'd with /release_compliance/index.rst
 
 =====================================================
-Welcome to Chef Compliance
+Welcome to Chef Compliance!
 =====================================================
 
 |chef compliance| :doc:`scans for risks and compliance issues </compliance>` with easy-to-understand, customizable reports and visualization. Scan your entire IT infrastructure. Get easy to understand reports. Classify issues by severity. Automate remediation and implement continuious auditing.

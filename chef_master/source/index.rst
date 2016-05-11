@@ -487,9 +487,11 @@ Chef Compliance
    server_webui_tasks
    simple_walkthrough
    slides
+   start_analytics
    start_chef
    start_compliance
    start_delivery
+   start_master
    style_guide
    supermarket
    supermarket_logs
