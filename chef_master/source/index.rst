@@ -342,6 +342,7 @@ Chef Compliance
    packages
    page_not_found
    plugin_community
+   plugin_kitchen_inspec
    plugin_kitchen_vagrant
    plugin_knife
    plugin_knife_analytics

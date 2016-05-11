@@ -6,7 +6,7 @@
 
 This topic describes the recommended setup for a |chef| cookbook project using |delivery|.
 
-The following example shows how to create a cookbook, with project and pipeline, configure it to be built with |delivery|, and then imported it into |delivery| itself. From your workstation, do the following:
+The following example shows how to create a cookbook, with project and pipeline, configure it to be built with |delivery|, and then imported it into |delivery| itself. From your workstation as user with admin privileges on the |delivery| server, do the following:
 
 #. Make a working directory (``workspace`` in the example):
 
