@@ -164,6 +164,7 @@ The following tools have been developed by members of the |chef| community. Thes
    inspec_audit_policy
    inspec_auditd_conf
    inspec_auditd_rules
+   inspec_bash
    inspec_bond
    inspec_bridge
    inspec_command
