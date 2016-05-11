@@ -1,7 +1,7 @@
 .. The contents of this file is sync'd with /release_delivery/index.rst
 
 =====================================================
-Welcome to Chef Delivery
+Welcome to Chef Delivery!
 =====================================================
 
 |delivery| manages changes to both infrastructure and application code, giving your development and operations teams a common platform for developing, testing, and deploying cookbooks, updating files in source control, building applications, releasing artifacts, and more.

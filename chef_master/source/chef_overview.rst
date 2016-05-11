@@ -2,10 +2,7 @@
 An Overview of |chef|
 =====================================================
 
-Welcome to |chef|!
-
 .. include:: ../../includes_chef/includes_chef.rst
-
 
 |chef| Components
 =====================================================
@@ -21,7 +18,6 @@ The premium features of the |chef server|---|chef manage|, |chef analytics|, |ch
 
 The following sections discuss these elements (and their various components) in more detail.
 
-
 Workstations
 =====================================================
 .. include:: ../../includes_workstation/includes_workstation.rst
@@ -32,7 +28,6 @@ Tools
 -----------------------------------------------------
 .. include:: ../../includes_workstation/includes_workstation_components.rst
 
-
 Cookbooks
 =====================================================
 .. include:: ../../includes_cookbooks/includes_cookbooks.rst
@@ -42,7 +37,6 @@ The |chef client| uses |ruby| as its reference language for creating cookbooks a
 Components
 -----------------------------------------------------
 .. include:: ../../includes_cookbooks/includes_cookbooks_12-4_components.rst
-
 
 Nodes
 =====================================================
@@ -55,7 +49,6 @@ Node Types
 |chef| on Nodes
 -----------------------------------------------------
 .. include:: ../../includes_node/includes_node_components.rst
-
 
 The |chef server_title|
 =====================================================
@@ -87,7 +80,6 @@ The |chef server_title|
           :align: center
 
      - Policy defines how business and operational requirements, processes, and production workflows map to objects that are stored on the |chef server|. Policy objects on the |chef server| include roles, environments, and cookbook versions.
-
 
 Policy
 -----------------------------------------------------
@@ -155,7 +147,6 @@ Analytics
           :align: center
 
      - .. include:: ../../includes_analytics/includes_analytics_controls.rst
-
 
 
 Conclusion
