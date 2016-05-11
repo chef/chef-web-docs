@@ -29,7 +29,7 @@ and then run the following command:
 
    $ inspec compliance login https://compliance.test --user admin --insecure --token ''
 
-where ``xxxxx`` is required when using self-signed certificates.
+where ``--insecure`` is required when using self-signed certificates.
 
 To define a suite that pulls its run-list from the |supermarket|:
 
