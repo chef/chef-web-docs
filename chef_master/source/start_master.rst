@@ -60,4 +60,4 @@ The |chef analytics| platform is a feature of |chef| that provides real-time vis
    :width: 700px
    :align: center
 
-The :doc:`Chef analytics platform </analytics>` provides real-time visibility into what is happening on the |chef server|, including :doc:`what's changing </dsl_recipe>`, :doc:`who made those changes </actions>`, and :doc:`when they occurred </reporting>`. Use the |splunk| application for |chef analytics| to :doc:`gather insights about nodes that are under management </analytics_splunk>` by |chef|. Individuals may be :doc:`notified of these changes in real-time </analytics_rules>`.
+The :doc:`Chef analytics platform </analytics>` provides real-time visibility into what is happening on the |chef server|, including :doc:`what's changing </dsl_recipe>`, :doc:`who made those changes </actions>`, and :doc:`when they occurred </reporting>`. Use the |splunk| application for |chef analytics| to gather insights about nodes that are under management by |chef|. Individuals may be :doc:`notified of these changes in real-time </analytics_rules>`.
