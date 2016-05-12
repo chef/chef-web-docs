@@ -230,7 +230,9 @@ This configuration file has the following settings for ``delivery``:
    Timeout for waiting for push job to complete once worker has been found. Default value: ``'75m'``.
 
 ``delivery['read_ttl']``
-   These may be specified as strings with units (e.g., ``"4d"``, ``"3h"``, ``"2m"``, ``"1s"``), or as bare integers (which will be interpreted as seconds). Valid units are: ``d`` (days), ``h`` (hours), ``m`` (minutes), or ``s`` (seconds). While these values can be different, it's not recommended. Default value: ``'7d'``.
+   The amount of time after which the ``READ`` token expires. This value may be specified a string with units (e.g., ``"4d"``, ``"3h"``, ``"2m"``, ``"1s"``), or as bare integers (interpreted as seconds). Valid units are: ``d`` (days), ``h`` (hours), ``m`` (minutes), or ``s`` (seconds). Default value: ``'7d'``.
+
+   .. note:: While the ``delivery['read_ttl']`` and ``delivery['write_ttl']`` values may be tuned separately, it is recommended that both values be identical.
 
 ``delivery['restore_backup']``
    Set this option to true to restore the backup after it is made Default value: ``false``.
@@ -272,7 +274,9 @@ This configuration file has the following settings for ``delivery``:
    Default value: ``false``.
 
 ``delivery['write_ttl']``
-   These may be specified as strings with units (e.g., ``"4d"``, ``"3h"``, ``"2m"``, ``"1s"``), or as bare integers (which will be interpreted as seconds). Valid units are: ``d`` (days), ``h`` (hours), ``m`` (minutes), or ``s`` (seconds). While these values can be different, it's not recommended. Default value: ``'7d'``.
+   The amount of time after which the ``WRITE`` token expires. This value may be specified a string with units (e.g., ``"4d"``, ``"3h"``, ``"2m"``, ``"1s"``), or as bare integers (interpreted as seconds). Valid units are: ``d`` (days), ``h`` (hours), ``m`` (minutes), or ``s`` (seconds). Default value: ``'7d'``.
+
+   .. note:: While the ``delivery['read_ttl']`` and ``delivery['write_ttl']`` values may be tuned separately, it is recommended that both values be identical.
 
 ``delivery['vip']``
    |ip_address virtual| Default value: ``'127.0.0.1'``.
