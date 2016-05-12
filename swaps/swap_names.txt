@@ -125,6 +125,7 @@
 .. |rules_analytics_title| replace:: Rules
 .. |supermarket| replace:: Chef Supermarket
 .. |supermarket ctl| replace:: supermarket-ctl
+.. |support_email| replace:: support@chef.io
 .. |support_phone| replace:: 206-508-4799
 .. |whyrun| replace:: why-run
 
