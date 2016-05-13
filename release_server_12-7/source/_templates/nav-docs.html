@@ -9,18 +9,18 @@
       {
         "title": "Start Here",
         "hasSubItems": false,
-        "url": "/release/server_12-7/index.html"
+        "url": "index.html"
       },
       {
         "title": "Overview",
         "hasSubItems": false,
-        "url": "/release/server_12-7/chef_overview.html"
+        "url": "chef_overview.html"
       },
       {
         "title": "Release Notes",
         "hasSubItems": false,
-        "url": "/release/server_12-7/release_notes.html"
-      }
+        "url": "release_notes.html"
+      },
     ]
   },
   {
@@ -28,24 +28,29 @@
     "iconClass": "fa-cube",
     "subItems": [
       {
-        "title": "Chef Server",
+        "title": "Server",
         "hasSubItems": false,
-        "url": "/release/server_12-7/server_components.html"
+        "url": "server_components.html"
+      },
+      {
+        "title": "Search",
+        "hasSubItems": false,
+        "url": "chef_search.html"
+      },
+      {
+        "title": "Management Console",
+        "hasSubItems": false,
+        "url": "manage.html"
       },
       {
         "title": "Authentication",
         "hasSubItems": false,
-        "url": "/release/server_12-7/auth.html#authentication"
+        "url": "auth.html#authentication"
       },
       {
         "title": "Authorization",
         "hasSubItems": false,
-        "url": "/release/server_12-7/auth.html#authorization"
-      },
-      {
-        "title": "Chef Search",
-        "hasSubItems": false,
-        "url": "/release/server_12-7/chef_search.html"
+        "url": "auth.html#authorization"
       },
     ]
   },
@@ -54,36 +59,41 @@
     "iconClass": "fa-gears",
     "subItems": [
       {
-        "title": "Chef Server",
+        "title": "Server",
         "hasSubItems": true,
         "subItems": [
           {
-            "title": "Hosted",
+            "title": "Hosted Chef Server",
+            "hasSubItems": false,
             "url": "https://manage.chef.io/signup"
           },
           {
-            "title": "Standalone",
-            "url": "/release/server_12-7/install_server.html"
+            "title": "Install Standalone",
+            "hasSubItems": false,
+            "url": "install_server.html#standalone"
           },
           {
-            "title": "HA w/AWS",
-            "url": "/release/server_12-7/install_server_ha_aws.html"
+            "title": "Install HA w/AWS",
+            "hasSubItems": false,
+            "url": "install_server_ha_aws.html"
           },
           {
-            "title": "HA w/DRBD",
-            "url": "/release/server_12-7/install_server_ha_drbd.html"
+            "title": "Install HA w/DRBD",
+            "hasSubItems": false,
+            "url": "install_server_ha_drbd.html"
           },
           {
-            "title": "Tiered",
-            "url": "/release/server_12-7/install_server_tiered.html"
-          },
+            "title": "Install Tiered",
+            "hasSubItems": false,
+            "url": "install_server_tiered.html"
+          }
         ]
       },
       {
         "title": "Management Console",
         "hasSubItems": false,
-        "url": "/release/server_12-7/manage.html"
-      },
+        "url": "ctl_chef_server.html#install"
+      }
     ]
   },
   {
@@ -93,67 +103,263 @@
       {
         "title": "Backup &amp; Restore",
         "hasSubItems": false,
-        "url": "/release/server_12-7/server_backup_restore.html"
+        "url": "server_backup_restore.html"
       },
       {
         "title": "Data Storage",
         "hasSubItems": false,
-        "url": "/release/server_12-7/server_data.html"
+        "url": "server_data.html"
       },
       {
         "title": "Firewalls &amp; Ports",
         "hasSubItems": false,
-        "url": "/release/server_12-7/server_firewalls_and_ports.html"
+        "url": "server_firewalls_and_ports.html"
       },
       {
         "title": "High Availability",
         "hasSubItems": false,
-        "url": "/release/server_12-7/server_high_availability.html"
+        "url": "server_high_availability.html"
       },
       {
         "title": "Active Directory &amp; LDAP",
         "hasSubItems": false,
-        "url": "/release/server_12-7/server_ldap.html"
+        "url": "server_ldap.html"
       },
       {
         "title": "Log Files",
         "hasSubItems": false,
-        "url": "/release/server_12-7/server_logs.html"
+        "url": "server_logs.html"
       },
       {
         "title": "Monitor",
         "hasSubItems": false,
-        "url": "/release/server_12-7/server_monitor.html"
+        "url": "server_monitor.html"
       },
       {
         "title": "Organizations &amp; Groups",
         "hasSubItems": false,
-        "url": "/release/server_12-7/server_orgs.html"
+        "url": "server_orgs.html"
+      },
+      {
+        "title": "Secrets",
+        "hasSubItems": false,
+        "url": "secrets.html"
       },
       {
         "title": "Security",
         "hasSubItems": false,
-        "url": "/release/server_12-7/server_security.html"
+        "url": "server_security.html"
       },
       {
         "title": "Services",
         "hasSubItems": false,
-        "url": "/release/server_12-7/server_services.html"
+        "url": "server_services.html"
       },
       {
         "title": "Tuning",
         "hasSubItems": false,
-        "url": "/release/server_12-7/server_tuning.html"
+        "url": "server_tuning.html"
       },
       {
         "title": "Upgrades",
         "hasSubItems": false,
-        "url": "/release/server_12-7/upgrade_server.html"
+        "url": "upgrade_server.html"
       },
       {
         "title": "Users",
         "hasSubItems": false,
-        "url": "/release/server_12-7/server_users.html"
+        "url": "server_users.html"
+      },
+      {
+        "title": "chef-server-ctl",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "add-client-key",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#add-client-key"
+          },
+          {
+            "title": "add-user-key",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#add-user-key"
+          },
+          {
+            "title": "backup",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#backup"
+          },
+          {
+            "title": "backup-recover",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#backup-recover"
+          },
+          {
+            "title": "cleanse",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#cleanse"
+          },
+          {
+            "title": "delete-client-key",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#delete-client-key"
+          },
+          {
+            "title": "delete-user-key",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#delete-user-key"
+          },
+          {
+            "title": "gather-logs",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#gather-logs"
+          },
+          {
+            "title": "ha-status",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#ha-status"
+          },
+          {
+            "title": "install",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#install"
+          },
+          {
+            "title": "list-client-keys",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#list-client-keys"
+          },
+          {
+            "title": "list-user-keys",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#list-user-keys"
+          },
+          {
+            "title": "master-recover",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#master-recover"
+          },
+          {
+            "title": "org-create",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#org-create"
+          },
+          {
+            "title": "org-delete",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#org-delete"
+          },
+          {
+            "title": "org-list",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#org-list"
+          },
+          {
+            "title": "org-show",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#org-show"
+          },
+          {
+            "title": "org-user-add",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#org-user-add"
+          },
+          {
+            "title": "org-user-remove",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#org-user-remove"
+          },
+          {
+            "title": "password",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#password"
+          },
+          {
+            "title": "psql",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#psql"
+          },
+          {
+            "title": "reconfigure",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#reconfigure"
+          },
+          {
+            "title": "reindex",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#reindex"
+          },
+          {
+            "title": "restore",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#restore"
+          },
+          {
+            "title": "server-admins (grant)",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#add-members"
+          },
+          {
+            "hasSubItems": false,
+            "title": "server-admins (list)",
+            "url": "ctl_chef_server.html#list-membership"
+          },
+          {
+            "title": "server-admins (remove)",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#remove-members"
+          },
+          {
+            "title": "show-config",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#show-config"
+          },
+          {
+            "title": "uninstall",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#uninstall"
+          },
+          {
+            "title": "upgrade",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#upgrade"
+          },
+          {
+            "title": "user-create",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#user-create"
+          },
+          {
+            "title": "user-delete",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#user-delete"
+          },
+          {
+            "title": "user-edit",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#user-edit"
+          },
+          {
+            "title": "user-list",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#user-list"
+          },
+          {
+            "title": "user-show",
+            "hasSubItems": false,
+            "url": "ctl_chef_server.html#user-show"
+          }
+        ]
+      },
+      {
+        "title": "chef-server.rb",
+        "hasSubItems": false,
+        "url": "config_rb_server.html"
+      },
+      {
+        "title": "Chef Server API",
+        "hasSubItems": false,
+        "url": "api_chef_server.html"
       },
       {
         "title": "Management Console",
@@ -161,86 +367,46 @@
         "subItems": [
           {
             "title": "Clients",
-            "url": "/release/server_12-7/server_manage_clients.html"
+            "hasSubItems": false,
+            "url": "server_manage_clients.html"
           },
           {
             "title": "Cookbooks",
-            "url": "/release/server_12-7/server_manage_cookbooks.html"
+            "hasSubItems": false,
+            "url": "server_manage_cookbooks.html"
           },
           {
             "title": "Data Bags",
-            "url": "/release/server_12-7/server_manage_data_bags.html"
+            "hasSubItems": false,
+            "url": "server_manage_data_bags.html"
           },
           {
             "title": "Environments",
-            "url": "/release/server_12-7/server_manage_environments.html"
+            "hasSubItems": false,
+            "url": "server_manage_environments.html"
           },
           {
             "title": "Nodes",
-            "url": "/release/server_12-7/server_manage_nodes.html"
-          },
-          {
-            "title": "Reports",
-            "url": "/release/server_12-7/server_manage_reports.html"
+            "hasSubItems": false,
+            "url": "server_manage_nodes.html"
           },
           {
             "title": "Roles",
-            "url": "/release/server_12-7/server_manage_roles.html"
+            "hasSubItems": false,
+            "url": "server_manage_roles.html"
           },
           {
             "title": "Users",
-            "url": "/release/server_12-7/server_users.html#chef-manage-title.html"
+            "hasSubItems": false,
+            "url": "server_users.html#chef-manage-title"
+          },
+          {
+            "title": "manage.rb",
+            "hasSubItems": false,
+            "url": "config_rb_manage.html"
           }
         ]
       },
     ]
   },
-  {
-    "title": "Reference",
-    "iconClass": "fa-th",
-    "subItems": [
-      {
-        "title": "CLIs",
-        "hasSubItems": true,
-        "subItems": [
-          {
-            "title": "chef-server-ctl",
-            "url": "/release/server_12-7/ctl_chef_server.html"
-          },
-          {
-            "title": "opscode-expander-ctl",
-            "url": "/release/server_12-7/ctl_opscode_expander.html"
-          },
-          {
-            "title": "opscode-manage-ctl",
-            "url": "/release/server_12-7/ctl_manage.html"
-          },
-        ]
-      },
-      {
-        "title": "Config Files",
-        "hasSubItems": true,
-        "subItems": [
-          {
-            "title": "chef-server.rb",
-            "url": "/release/server_12-7/config_rb_server.html"
-          },
-          {
-            "title": "manage.rb",
-            "url": "/release/server_12-7/config_rb_manage.html"
-          },
-        ]
-      },
-      {
-        "title": "APIs",
-        "hasSubItems": true,
-        "subItems": [
-          {
-            "title": "Chef Server API",
-            "url": "/release/server_12-7/api_chef_server.html"
-          },
-        ]
-      },
-    ]
-  }
 ] -%}
