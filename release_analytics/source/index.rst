@@ -87,4 +87,5 @@ This section contains links to topics about configuration files, command-line to
    plugin_knife_analytics
    release_notes
    reporting
+   start_analytics
    upgrade_analytics
