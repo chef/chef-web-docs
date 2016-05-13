@@ -80,7 +80,7 @@ Custom Build Cookbooks
 =======================================================
 The pipeline cookbook---``pcb``---is available on |github| at https://github.com/chef-cookbooks/pcb. The ``pcb`` cookbook is a code generator cookbook that may be used with the ``chef generate`` commands packaged in the |chef dk| to generate a ``build-cookbook`` for use with a |delivery| pipeline. The ``pcb`` cookbook serves as a complate example of a generated build cookbook, complete with tests, and ready for integration to |delivery|, while at the same time may be cloned and then customized for your own purposes. This cookbook is not in |supermarket| because it is used by the ``delivery init`` command, which clones this cookbook to a cached location.
 
-Generate a build-cookbook
+Generate a build-cookbook 
 -------------------------------------------------------
 The following commands clone the ``pcb`` cookbook from |github|, and then uses the ``chef generate`` command to generate a ``build-cookbook`` using the ``pck`` cookbook as a template:
 
