@@ -4,7 +4,7 @@
 
 This subcommand has the following options:
 
-``-c=DIRECTORY``, ``--config-path=DIRECTORY``
+``--config-path=DIRECTORY``
    |path directory_delivery|
 
 ``-e=ENTERPRISE``, ``--ent=ENTERPRISE``

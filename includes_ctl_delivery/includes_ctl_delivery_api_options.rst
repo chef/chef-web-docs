@@ -7,7 +7,7 @@ This subcommand has the following options:
 ``--api-port=PORT``
    |port delivery_api|
 
-``-c=PATH``, ``--config-path=PATH``
+``--config-path=PATH``
    |path directory_delivery|
 
 ``-d=DATA``, ``--data=DATA``
