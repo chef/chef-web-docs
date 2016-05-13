@@ -31,6 +31,8 @@ Authentication
 -----------------------------------------------------
 .. include:: ../../includes_security/includes_security_chef_validator.rst
 
+.. include:: ../../includes_security/includes_security_chef_validator_context.rst
+
 SSL Certificates
 =====================================================
 .. include:: ../../includes_node/includes_node_certificate.rst

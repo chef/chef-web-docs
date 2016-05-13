@@ -2,7 +2,7 @@
 Public and Private Keys
 =====================================================
 
-.. include:: ../../includes_chef/includes_chef.rst
+.. include:: ../../includes_security/includes_security_chef_validator.rst
 
 How Keys are Used?
 =====================================================
@@ -20,7 +20,7 @@ How Keys are Used?
 
 |chef validator|
 -----------------------------------------------------
-.. include:: ../../includes_security/includes_security_chef_validator.rst
+.. include:: ../../includes_security/includes_security_chef_validator_context.rst
 
 Where are Keys Stored?
 =====================================================

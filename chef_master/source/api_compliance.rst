@@ -1,5 +1,5 @@
 =====================================================
-|api compliance|
+|api compliance| 
 =====================================================
 
 The |api compliance| is a REST-based API that is designed to be easy and predictable and to have resource-oriented URL endpoints. It uses common HTTP verbs and response codes to indicate API errors. Therefore the API can be understood by standard HTTP clients and libraries. In general the API uses |json| as data input and output format.
