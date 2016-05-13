@@ -12,6 +12,8 @@ Authentication
 -----------------------------------------------------
 .. include:: ../../includes_security/includes_security_chef_validator.rst
 
+.. include:: ../../includes_security/includes_security_chef_validator_context.rst
+
 During a |chef client_title| Run
 -----------------------------------------------------
 .. include:: ../../includes_security/includes_security_key_pairs_chef_client.rst

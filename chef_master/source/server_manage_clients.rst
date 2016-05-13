@@ -52,6 +52,8 @@ View
 =====================================================
 .. include:: ../../includes_security/includes_security_chef_validator.rst
 
+.. include:: ../../includes_security/includes_security_chef_validator_context.rst
+
 Add
 -----------------------------------------------------
 .. include:: ../../step_manage_webui/step_manage_webui_policy_validation_add.rst
