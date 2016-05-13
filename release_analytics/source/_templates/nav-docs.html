@@ -1,6 +1,6 @@
 {% extends "!nav-docs.html" %}
-{% set active_product = "Chef Analytics" %}
-{% set active_version = "1.3" %}
+{% set active_product = "Analytics" %}
+{% set active_version = "1.4" %}
 {% set navItems = [
   {
     "title": "Getting Started",
@@ -8,19 +8,16 @@
     "subItems": [
       {
         "title": "Start Here",
-        "hasSubItems": false,
-        "url": "/release/analytics/index.html"
+        "url": "/release/analytics/start_analytics.html"
       },
       {
         "title": "Overview",
-        "hasSubItems": false,
         "url": "/release/analytics/analytics.html"
       },
       {
         "title": "Release Notes",
-        "hasSubItems": false,
         "url": "/release/analytics/release_notes.html"
-      }
+      },
     ]
   },
   {
@@ -59,8 +56,7 @@
     "iconClass": "fa-gears",
     "subItems": [
       {
-        "title": "Install Chef Analytics",
-        "hasSubItems": false,
+        "title": "Install Standalone",
         "url": "/release/analytics/install_analytics.html"
       },
       {
@@ -69,10 +65,31 @@
         "url": "/release/analytics/install_reporting.html"
       },
       {
-        "title": "Upgrade",
-        "hasSubItems": false,
-        "url": "/release/analytics/upgrade_analytics.html"
-      }
+        "title": "Integrations",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "w/Email (SMTP)",
+            "url": "/release/analytics/analytics.html#email"
+          },
+          {
+            "title": "w/HipChat",
+            "url": "/release/analytics/analytics.html#hipchat"
+          },
+          {
+            "title": "w/Slack",
+            "url": "/release/analytics/analytics.html#slack"
+          },
+          {
+            "title": "w/Splunk",
+            "url": "/release/analytics/analytics.html#chef-splunk"
+          },
+          {
+            "title": "w/Webhooks",
+            "url": "/release/analytics/analytics.html#webhooks"
+          }
+        ]
+      },
     ]
   },
   {
@@ -80,57 +97,79 @@
     "iconClass": "fa-hdd-o",
     "subItems": [
       {
-        "title": "Monitor Chef Analytics",
-        "hasSubItems": false,
+        "title": "Monitor",
         "url": "/release/analytics/analytics_monitor.html"
+      },
+      {
+        "title": "Upgrades",
+        "url": "/release/analytics/upgrade_analytics.html"
+      },
+      {
+        "title": "opscode-analytics-ctl",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "cleanse",
+            "url": "/release/analytics/ctl_analytics.html#cleanse"
+          },
+          {
+            "title": "preflight-check",
+            "url": "/release/analytics/ctl_analytics.html#preflight-check"
+          },
+          {
+            "title": "purge-node",
+            "url": "/release/analytics/ctl_analytics.html#purge-node"
+          },
+          {
+            "title": "reconfigure",
+            "url": "/release/analytics/ctl_analytics.html#reconfigure"
+          },
+          {
+            "title": "show-config",
+            "url": "/release/analytics/ctl_analytics.html#show-config"
+          },
+          {
+            "title": "uninstall",
+            "url": "/release/analytics/ctl_analytics.html#uninstall"
+          }
+        ]
+      },
+      {
+        "title": "opscode-analytics.rb",
+        "url": "/release/analytics/config_rb_analytics.html"
+      },
+      {
+        "title": "opscode-reporting-ctl",
+        "url": "/release/analytics/ctl_reporting.html"
+      },
+      {
+        "title": "reporting.rb",
+        "url": "/release/analytics/config_rb_reporting.html"
+      },
+      {
+        "title": "Management Console",
+        "url": "/release/analytics/analytics_webui_tasks.html"
+      },
+      {
+        "title": "knife-analytics",
+        "url": "/release/analytics/plugin_knife_analytics.html"
+      },
+      {
+        "title": "Analytics API",
+        "url": "/release/analytics/api_analytics.html"
+      },
+      {
+        "title": "Web UI",
+        "url": "/release/analytics/actions.html"
       },
     ]
   },
-
   {
-    "title": "Reference",
-    "iconClass": "fa-th",
+    "title": "Extend Chef",
+    "iconClass": "fa-clone",
     "subItems": [
       {
-        "title": "Knife Plugins",
-        "hasSubItems": true,
-        "subItems": [
-          {
-            "title": "knife-analytics",
-            "url": "/release/analytics/plugin_knife_analytics.html"
-          },
-        ]
-      },
-      {
-        "title": "CLIs",
-        "hasSubItems": true,
-        "subItems": [
-          {
-            "title": "opscode-analytics-ctl",
-            "url": "/release/analytics/ctl_analytics.html"
-          },
-          {
-            "title": "opscode-reporting-ctl",
-            "url": "/release/analytics/ctl_reporting.html"
-          },
-        ]
-      },
-      {
-        "title": "Config Files",
-        "hasSubItems": true,
-        "subItems": [
-          {
-            "title": "opscode-analytics.rb",
-            "url": "/release/analytics/config_rb_analytics.html"
-          },
-          {
-            "title": "reporting.rb",
-            "url": "/release/analytics/config_rb_reporting.html"
-          },
-        ]
-      },
-      {
-        "title": "Recipe DSL Methods",
+        "title": "Recipe DSL",
         "hasSubItems": true,
         "subItems": [
           {
@@ -143,26 +182,6 @@
           },
         ]
       },
-      {
-        "title": "APIs",
-        "hasSubItems": true,
-        "subItems": [
-          {
-            "title": "Analytics API",
-            "url": "/release/analytics/api_analytics.html"
-          },
-        ]
-      },
-      {
-        "title": "Webui Tasks",
-        "hasSubItems": true,
-        "subItems": [
-          {
-            "title": "Chef Analytics",
-            "url": "/release/analytics/analytics_webui_tasks.html"
-          },
-        ]
-      },
     ]
-  }
+  },
 ] -%}
