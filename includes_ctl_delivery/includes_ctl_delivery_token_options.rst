@@ -15,3 +15,6 @@ This subcommand has the following options:
 
 ``-u=USER``, ``--user=USER``
    |delivery user|
+
+``--verify``
+   Verify if a token is a valid token.
