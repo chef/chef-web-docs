@@ -4,7 +4,6 @@
 .. include:: ../../chef_master/source/compliance.rst
 
 
-
 .. Hide the TOC from this file.
 
 .. toctree::
