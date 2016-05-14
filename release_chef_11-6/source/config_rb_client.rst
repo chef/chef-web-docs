@@ -7,7 +7,7 @@
 .. include:: ../../includes_config/includes_config_rb_client.rst
 
 Settings
-==========================================================================
+=====================================================
 
 .. include:: ../../includes_config/includes_config_rb_11-6_client_settings.rst
 
