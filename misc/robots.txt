@@ -52,6 +52,7 @@ Disallow: /release/server_12-3/
 Disallow: /release/server_12-4/
 Disallow: /release/server_12-5/
 Disallow: /release/server_12-6/
+Disallow: /release/server_12-7/
 Disallow: /delivery/
 Disallow: /devkit/
 Disallow: /slides/
@@ -74,6 +75,7 @@ Disallow: /config_rb_delivery_optional_settings.html
 Disallow: /ctl_chef_backend.html
 Disallow: /ctl_chef_init.html
 Disallow: /ctl_chef_sync.html
+Disallow: /custom_resources_notes.html
 Disallow: /dsc_mof.html
 Disallow: /dsl_recipe_method_search.html
 Disallow: /error_messages.html

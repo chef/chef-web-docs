@@ -196,6 +196,7 @@ Chef Compliance
    ctl_reporting
    ctl_supermarket
    custom_resources
+   custom_resources_notes
    data_bags
    debug
    definitions
