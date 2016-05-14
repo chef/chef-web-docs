@@ -329,6 +329,10 @@
 .. |user pem| replace:: USER.pem
 .. |vagrantfile| replace:: Vagrantfile
 
+.. for titles, only
+
+.. |shell_out_bang| replace:: shell_out!
+
 .. 3rd-party terms that have trademark or copyright issues that we may need to track.
 ..
 

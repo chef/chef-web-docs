@@ -218,7 +218,7 @@ shell_out
 -----------------------------------------------------
 .. include:: ../../includes_dsl_recipe/includes_dsl_recipe_method_shell_out.rst
 
-shell_out!
+|shell_out_bang|
 -----------------------------------------------------
 .. include:: ../../includes_dsl_recipe/includes_dsl_recipe_method_shell_out_bang.rst
 
