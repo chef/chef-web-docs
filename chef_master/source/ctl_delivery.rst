@@ -237,4 +237,18 @@ Options
 
 Examples
 -----------------------------------------------------
-None.
+
+**Verify a token**
+
+.. code-block:: bash
+
+   $ delivery token --verify
+
+returns something similar to:
+
+.. code-block:: bash
+
+   Chef Delivery
+   Loading configuration from /Users/dennisteck/chef/delivery
+   token: GmTtD0t7asgy5KZyw//r/6etpXYfw8dfgQccjdeU=
+   Verifying Token: valid
