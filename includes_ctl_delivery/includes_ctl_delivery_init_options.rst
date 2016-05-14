@@ -8,7 +8,7 @@ This subcommand has the following options:
    |path directory_delivery|
 
 ``-c=PATH``, ``--config-json=PATH``
-   The path to a custom ``config.json`` file.
+   The path to a custom :doc:`config.json </config_json_delivery>` file.
 
 ``-e=ENTERPRISE``, ``--ent=ENTERPRISE``
    |delivery enterprise|
