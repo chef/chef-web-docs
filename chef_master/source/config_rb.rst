@@ -19,6 +19,10 @@ Proxy Settings
 -----------------------------------------------------
 .. include:: ../../includes_config/includes_config_rb_knife_settings_proxy.rst
 
+.d Directories
+=====================================================
+.. include:: ../../includes_config/includes_config_rb_client_dot_d_directories.rst
+
 Optional Settings
 =====================================================
 In addition to the default settings in a |config rb| file, there are other subcommand-specific settings that can be added:
