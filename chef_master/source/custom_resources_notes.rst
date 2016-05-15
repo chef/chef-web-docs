@@ -229,3 +229,10 @@ is basically the same as this:
    end
 
 You may see a lot of ``converge_by`` and ``updated_by_last_action`` in the core chef resources. Part of that is that we're writing a declarative language with an imperative language, and someone has to take the first step and write the declarative file resources in imperative |ruby|. The other part of that is just that our core resources have been lagging behind. They were written long ago, and if they work, nobody rewrites them. They are often not ideal code examples. Please do not emulate them thinking that is how the "experts" clearly write things.
+
+compat_resources Cookbook
+=====================================================
+Use the ``compat_resources`` cookbook (https://github.com/chef-cookbooks/compat_resource) to assist in converting cookbooks that use the pre-12.5 custom resource model to the new one. Please see the readme in that cookbook for the steps needed.
+
+
+
