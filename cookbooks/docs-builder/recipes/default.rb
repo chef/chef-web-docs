@@ -113,6 +113,7 @@ server_12-4
 server_12-5
 server_12-6
 server_12-7
+supermarket
 END
 
 file '/srv/chef-web-docs/targets.txt' do

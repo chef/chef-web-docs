@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-For |redhat enterprise linux| 6.5 and |suse els| 6.5, run the following commands:
+For |redhat enterprise linux| 6.5, run the following command:
 
 .. code-block:: bash
 

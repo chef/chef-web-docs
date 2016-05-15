@@ -212,7 +212,6 @@ The following tools have been developed by members of the |chef| community. Thes
    inspec_yum
    install_bootstrap
    install_dk
-   install_dk_windows
    kitchen
    knife_bootstrap
    knife_client
@@ -258,7 +257,6 @@ The following tools have been developed by members of the |chef| community. Thes
    provisioning_vagrant
    proxies
    recipes
-   release_notes
    resource_apt_package
    resource_apt_update
    resource_bash

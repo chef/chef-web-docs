@@ -8,7 +8,7 @@ knife supermarket
 
 .. warning:: .. include:: ../../includes_notes/includes_notes_knife_cookbook_site_use_devkit_berkshelf.rst
 
-.. note:: .. include:: ../../includes_knife/includes_knife_common_see_common_options_link.rst
+.. note:: Review the list of `common options <https://docs.chef.io/knife_common_options.html>`_ available to this (and all) |knife| subcommands and plugins.
 
 download
 =====================================================
