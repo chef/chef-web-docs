@@ -234,6 +234,10 @@ server_12-0:
 	mkdir -p $(BUILDDIR)/release/server_12-0/
 	$(BUILD_COMMAND_AND_ARGS) release_server_12-0/source $(BUILDDIR)/release/server_12-0/
 
+supermarket:
+	mkdir -p $(BUILDDIR)/release/supermarket/
+	$(BUILD_COMMAND_AND_ARGS) release_supermarket/source $(BUILDDIR)/release/supermarket/
+
 
 upload:	release
 	s3cmd sync $(S3OPTIONS) $(BUILDDIR)/ s3://$(S3BUCKET)/

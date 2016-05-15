@@ -22,6 +22,7 @@ Disallow: /release/11-14/
 Disallow: /release/11-16/
 Disallow: /release/11-18/
 Disallow: /release/12-0/
+Disallow: /release/12-1/
 Disallow: /release/12-2/
 Disallow: /release/12-3/
 Disallow: /release/12-4/
@@ -53,6 +54,7 @@ Disallow: /release/server_12-4/
 Disallow: /release/server_12-5/
 Disallow: /release/server_12-6/
 Disallow: /release/server_12-7/
+Disallow: /release/supermarket/
 Disallow: /delivery/
 Disallow: /devkit/
 Disallow: /slides/
