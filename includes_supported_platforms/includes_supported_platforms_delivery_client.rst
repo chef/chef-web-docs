@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The |delivery cli| may be run on the following platforms:
+The |delivery_cli| may be run on the following platforms:
 
 * |mac os x|
 * |ubuntu|
