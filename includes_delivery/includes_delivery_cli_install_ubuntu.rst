@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-For |ubuntu| 14.04, run the following commands:
+For |ubuntu| 14.04, run the following command:
 
 .. code-block:: bash
 
