@@ -10,7 +10,7 @@ Install Delivery CLI
 
 By platform
 -----------------------------------------------------
-Use one of the sections below to install the |delivery_cli| CLI on |mac os x|, |ubuntu|, |redhat enterprise linux|/|suse els|, or |windows|:
+.. include:: ../../includes_supported_platforms/includes_supported_platforms_delivery_client.rst
 
 |mac os x|
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -20,7 +20,7 @@ Use one of the sections below to install the |delivery_cli| CLI on |mac os x|, |
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_delivery/includes_delivery_cli_install_ubuntu.rst
 
-RHEL
+|redhat enterprise linux|
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_delivery/includes_delivery_cli_install_rhel.rst
 

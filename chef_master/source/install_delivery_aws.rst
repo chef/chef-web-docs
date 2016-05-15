@@ -14,7 +14,7 @@ Prerequisites
 
 Supported Platforms
 -----------------------------------------------------
-.. include:: ../../includes_install/includes_install_delivery_supported_platforms.rst
+.. include:: ../../includes_supported_platforms/includes_supported_platforms_delivery_server.rst
 
 Infrastructure
 -----------------------------------------------------
@@ -207,6 +207,8 @@ Install Delivery CLI
 -----------------------------------------------------
 .. include:: ../../includes_delivery/includes_delivery_cli_install.rst
 
+.. note:: .. include:: ../../includes_supported_platforms/includes_supported_platforms_delivery_client.rst
+
 |mac os x|
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_delivery/includes_delivery_cli_install_mac.rst
@@ -215,7 +217,7 @@ Install Delivery CLI
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_delivery/includes_delivery_cli_install_ubuntu.rst
 
-RHEL, SUSE
+|redhat enterprise linux| 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_delivery/includes_delivery_cli_install_rhel.rst
 
