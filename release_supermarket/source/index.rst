@@ -17,7 +17,6 @@ All about Supermarket
    config_rb_supermarket
    ctl_supermarket
    install_supermarket
-   install_windows
    plugin_knife_supermarket
    supermarket
    supermarket_logs
