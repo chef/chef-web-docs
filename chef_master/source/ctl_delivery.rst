@@ -20,7 +20,7 @@ Use one of the sections below to install the |delivery_cli| CLI on |mac os x|, |
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_delivery/includes_delivery_cli_install_ubuntu.rst
 
-RHEL, SUSE
+RHEL
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_delivery/includes_delivery_cli_install_rhel.rst
 
