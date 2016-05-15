@@ -38,6 +38,13 @@ Unsupported
 -----------------------------------------------------
 .. include:: ../../includes_supported_platforms/includes_supported_platforms_server_not_supported.rst
 
+
+|delivery|
+=====================================================
+.. include:: ../../includes_supported_platforms/includes_supported_platforms_delivery_server.rst
+
+.. note:: .. include:: ../../includes_supported_platforms/includes_supported_platforms_delivery_client.rst
+
 |push jobs_title|
 =====================================================
 .. include:: ../../includes_supported_platforms/includes_supported_platforms_push_jobs.rst
