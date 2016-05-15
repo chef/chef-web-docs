@@ -1,5 +1,4 @@
-=====================================================
-Monitor Supermarket
-=====================================================
+.. THIS PAGE IS IDENTICAL TO docs.chef.io/supermarket_monitor.html BY DESIGN
+.. THIS PAGE IS LOCATED AT THE /release/supermarket/ PATH.
 
-.. include:: ../../includes_supermarket/includes_supermarket_private_manage_server_monitoring.rst
+.. include:: ../../chef_master/source/supermarket_monitor.rst
