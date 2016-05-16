@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-|delivery| may be run on the following platforms. Do not mix platform versions within the |delivery| cluster.
+The |delivery| server may be run on the following platforms. Do not mix platforms or platform versions within the |delivery| cluster.
 
 .. list-table::
    :widths: 280 100 120
