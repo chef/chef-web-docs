@@ -4,7 +4,7 @@
 
 This command has the following syntax::
 
-   pushy-client OPTION VALUE OPTION VALUE ...
+   push-jobs-client OPTION VALUE OPTION VALUE ...
 
 This command has the following options:
 
