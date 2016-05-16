@@ -2,7 +2,7 @@
 Custom Resources Notes
 =====================================================
 
-.. warning:: This page mentions multiple ways of building custom resources. |company_name| recommends you try the approach outlined at https://docs.chef.io/custom_resources.html first before trying the resource/provider pair (older approach), or library type (pure Ruby) approaches. If you run into issues while designing 12.5-style custom resources, ask for help in https://discourse.chef.io or file a bug with the |chef client| https://github.com/chef/chef.
+.. warning:: This page mentions multiple ways of building custom resources. |company_name| recommends you try the approach outlined at https://docs.chef.io/custom_resources.html first before trying the resource/provider pair (older approach), or library type (pure Ruby) approaches. If you run into issues while designing 12.5-style custom resources, please ask for help in https://discourse.chef.io or file a bug with the |chef client| https://github.com/chef/chef.
 
 .. adapted literally from this gist: https://gist.github.com/lamont-granquist/8cda474d6a31fadd3bb3b47a66b0ae78
 
