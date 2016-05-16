@@ -12,10 +12,16 @@ Work with Cookbooks
 =====================================================
 Use the following |knife| subcommands to create, install, and/or download cookbooks.
 
+Create
+-----------------------------------------------------
 .. include:: ../../step_knife/step_knife_cookbook_create.rst
 
+Install
+-----------------------------------------------------
 .. include:: ../../step_knife/step_knife_cookbook_site_install.rst
 
+Download
+-----------------------------------------------------
 .. include:: ../../step_knife/step_knife_cookbook_site_download.rst
 
 About Cookbook Metadata

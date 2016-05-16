@@ -8,11 +8,21 @@ Cookbook Directories and Metadata
 
 .. include:: ../../step_chef_repo/step_chef_repo_cookbooks_configure_settings.rst
 
+Work with Cookbooks
+=====================================================
+Use the following |knife| subcommands to create, install, and/or download cookbooks.
+
+Create
+-----------------------------------------------------
 .. include:: ../../step_knife/step_knife_cookbook_create.rst
 
+Install
+-----------------------------------------------------
 .. include:: ../../step_knife/step_knife_cookbook_site_install.rst
 
-.. include:: ../../step_knife/step_knife_cookbook_site_download.rst
+Download
+-----------------------------------------------------
+.. include:: ../../step_knife/step_knife_cookbook_site_download.rsts
 
 About Cookbook Metadata
 =====================================================
