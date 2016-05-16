@@ -83,6 +83,7 @@
 .. |chef vault| replace:: chef-vault
 .. |chef zero| replace:: chef-zero
 .. |company_name| replace:: Chef
+.. |cookstyle| replace:: cookstyle
 .. |delivery| replace:: Delivery
 .. |delivery_cli| replace:: Delivery CLI
 .. |dsl custom_resource| replace:: Custom Resource DSL
