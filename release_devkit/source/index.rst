@@ -148,6 +148,7 @@ The following tools have been developed by members of the |chef| community. Thes
    cookbook_repo
    cookbook_versions
    cookbooks
+   cookstyle
    ctl_chef
    ctl_chef_client
    ctl_delivery
@@ -251,6 +252,7 @@ The following tools have been developed by members of the |chef| community. Thes
    nodes
    plugin_community
    plugin_knife_spork
+   plugin_knife_supermarket
    plugin_kitchen_vagrant
    policyfile
    provisioning

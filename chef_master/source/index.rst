@@ -176,6 +176,7 @@ Chef Compliance
    cookbook_repo
    cookbook_versions
    cookbooks
+   cookstyle
    ctl_analytics
    ctl_chef
    ctl_chef_apply
