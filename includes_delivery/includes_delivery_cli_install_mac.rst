@@ -2,8 +2,8 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-For |mac os x|:
+For |mac os x|, run the following command:
 
-#. Download the package |url download_delivery|.
-#. Click the package and install.
-#. You may need to allow the package on the machine. To do this, open **System Preferences** -> **Security & Privacy**, and click the "Allow" button. You may also go to your "Downloads" folder and right-click the package to open the installer; simply accept the agreement and the command line interface is installed.
+.. code-block:: bash
+
+   $ curl -L https://omnitruck.chef.io/install.sh | sudo bash -s -- -P delivery-cli
