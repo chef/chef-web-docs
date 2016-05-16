@@ -127,28 +127,21 @@ Options
 Examples
 -----------------------------------------------------
 
-**Adding a build cookbook from a private Supermarket**
+**Initialize project with Bitbucket repository**
 
-The following example shows how to add a build cookbook after the initialization process
+.. include:: ../../step_ctl_delivery/step_ctl_delivery_init_bitbucket_project.rst
 
-.. code-block:: bash
+**Initialize project with GitHub repository**
 
-   $ delivery init —skip-build-cookbook
+.. include:: ../../step_ctl_delivery/step_ctl_delivery_init_github_project.rst
 
-and then update the ``config.json`` file for the ``delivery-truck`` cookbook and the path to the cookbook in a private |supermarket|:
+**Add build-cookbook from private Supermarket**
 
-.. code-block:: json
+.. include:: ../../step_ctl_delivery/step_ctl_delivery_init_add_build_cookbook_private_supermarket.rst
 
-   {
-     "version": "2",
-     "build_cookbook": {
-       "name": "delivery-truck",
-       "supermarket": "true",
-       "site": "https://private-supermarket.example.com"
-     },
-     ...
-   }
+**Initialize project with custom pipeline**
 
+.. include:: ../../step_ctl_delivery/step_ctl_delivery_init_custom_pipeline.rst
 
 delivery job
 =====================================================
@@ -187,23 +180,7 @@ Examples
 
 **Bump version metadata automatically**
 
-.. code-block:: bash
-
-   $ delivery review --auto-bump
-
-will return something similar to:
-
-.. code-block:: bash
-
-   Chef Delivery
-   Loading configuration from /Users/salimafiune/delivery/organizations/sandbox/coffee
-   Project coffee is a cookbook
-   Validating version in metadata
-   The version hasn't been updated (0.1.0)
-   Bumping version to: 0.1.1
-   Review for change black targeted for pipeline master
-   Created new patchset
-   https://delivery.chef.co/e/URL_FOR_CHANGE
+.. include:: ../../step_ctl_delivery/step_ctl_delivery_review_autobump_metadata.rst
 
 
 delivery setup
@@ -240,15 +217,4 @@ Examples
 
 **Verify a token**
 
-.. code-block:: bash
-
-   $ delivery token --verify
-
-returns something similar to:
-
-.. code-block:: bash
-
-   Chef Delivery
-   Loading configuration from /Users/dennisteck/chef/delivery
-   token: GmTtD0t7asgy5KZyw//r/6etpXYfw8dfgQccjdeU=
-   Verifying Token: valid
+.. include:: ../../step_ctl_delivery/step_ctl_delivery_token_verify.rst
