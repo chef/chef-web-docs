@@ -1,6 +1,7 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics. 
 
+
 The |omnitruck| install script does the following:
 
 * Detects the platform, version, and architecture of the machine on which the installer is to be executed
