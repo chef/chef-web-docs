@@ -2,12 +2,8 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-For |windows|:
+On |windows| systems, run the following |windows powershell| command:
 
-#. Download the binary from |url download_delivery_windows|.
-#. Install the latest version of |git| on |windows|: |url download_git_windows|.
-#. Modify the environment variables. Set the following in the ``PATH``:
+.. code-block:: powershell
 
-   The path to the location of the ``delivery`` command line interface. For example: ``C:\\chef\\delivery-cli\\bin``
-
-   The path of the |putty link| (if used)
+   $ . { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install
