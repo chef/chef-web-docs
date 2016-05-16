@@ -197,6 +197,30 @@ The following attributes are new for the |resource service_windows| resource:
    |user windows_service_run_as|
 
 
+paludis_package
+-----------------------------------------------------
+.. include:: ../../includes_resources/includes_resource_package_paludis.rst
+
+.. note:: ../../includes_notes/includes_notes_resource_based_on_package.rst
+
+Syntax
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_resources/includes_resource_package_paludis_syntax.rst
+
+Actions
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_resources/includes_resource_package_paludis_actions.rst
+
+Attributes
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_resources/includes_resource_package_paludis_attributes_12-5.rst
+
+Examples
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+**Install a package**
+
+.. include:: ../../step_resource/step_resource_paludis_package_install.rst
 
 
 openbsd_package
