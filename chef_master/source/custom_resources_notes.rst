@@ -135,7 +135,7 @@ in ``libraries/resource_my_resource.rb``:
    end
 
 
-Notes about updated_by_last_action
+updated_by_last_action
 =====================================================
 Modern |chef client| code (since version 11.0.0) should never have provider code which directly sets ``updated_by_last_action`` itself.
 
