@@ -150,8 +150,10 @@ The following tools have been developed by members of the |chef| community. Thes
    cookbooks
    ctl_chef
    ctl_chef_client
+   ctl_delivery
    ctl_inspec
    ctl_kitchen
+   ctl_push_jobs_client
    dsl_compliance
    custom_resources
    definitions
