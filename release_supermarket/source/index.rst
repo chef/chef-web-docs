@@ -24,7 +24,6 @@ The following topics are available for |supermarket|:
    :hidden:
 
    api_cookbooks_site
-   berkshelf
    chef_overview
    community_contributions
    config_rb_supermarket
