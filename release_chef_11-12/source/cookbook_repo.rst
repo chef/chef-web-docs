@@ -22,7 +22,7 @@ Install
 
 Download
 -----------------------------------------------------
-.. include:: ../../step_knife/step_knife_cookbook_site_download.rsts
+.. include:: ../../step_knife/step_knife_cookbook_site_download.rst
 
 About Cookbook Metadata
 =====================================================
