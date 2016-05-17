@@ -13,7 +13,7 @@ will return something similar to:
 .. code-block:: bash
 
    Chef Delivery
-   Loading configuration from /Users/salimafiune/delivery/organizations/sandbox/coffee
+   Loading configuration from /Users/albertatom/delivery/organizations/sandbox/coffee
    Project coffee is a cookbook
    Validating version in metadata
    The version hasn't been updated (0.1.0)

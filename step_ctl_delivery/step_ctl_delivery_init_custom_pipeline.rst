@@ -12,7 +12,7 @@ where ``PATH_TO_COOKBOOK`` is path to the cookbook generator, ``PATH_TO_CONFIG``
 
 .. code-block:: bash
 
-   $ delivery init --generator https://github.com/repo/bc-generator.git -c /Users/albertatom/chef/delivery/.delivery/config.json -f trunk
+   $ delivery init --generator https://github.com/albertatom/bc-generator.git -c /Users/albertatom/chef/delivery/.delivery/config.json -f trunk
 
 returns output similar to:
 
