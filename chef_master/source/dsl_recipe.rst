@@ -327,6 +327,10 @@ value_for_platform_family
 -----------------------------------------------------
 .. include:: ../../includes_dsl_recipe/includes_dsl_recipe_method_value_for_platform_family.rst
 
+with_run_context
+-----------------------------------------------------
+.. include:: ../../includes_dsl_recipe/includes_dsl_recipe_method_with_run_context.rst
+
 Event Handlers
 =====================================================
 .. note:: Event handlers are not specifically part of the |dsl recipe|. An event handler is declared using the ``Chef.event_hander`` method, which declares the event handler within recipes in a similar manner to other |dsl recipe| methods.
