@@ -7,27 +7,25 @@ A definition that reopens resources would look something like:
 
 .. code-block:: ruby
 
-   # example provided by community member "Mithrandir". Thank you!
-
    define :email_alias, :recipients => [] do
-     execute 'newaliases' do
+     name       = params[:name]
+     recipients = params[:recipients]
+   
+     find_resource(:execute, 'newaliases') do
        action :nothing
      end
-    
-     t = nil
-     begin
-       t = resources(:template => '/etc/aliases')
-     rescue Chef::Exceptions::ResourceNotFound
-       t = template '/etc/aliases' do
-         source 'aliases.erb'
-         cookbook 'aliases'
-         variables({:aliases => {} })
-         notifies :run, 'execute[newaliases]'
-       end
+   
+     t = edit_resource(template: '/etc/aliases') do
+       source 'aliases.erb'
+       cookbook 'aliases'
+       variables({:aliases => {} })
+       notifies :run, 'execute[newaliases]'
      end
    
-     if not t.variables[:aliases].has_key?(params[:name])
-       t.variables[:aliases][params[:name]] = []
+     aliases = t.variables[:aliases]
+   
+     if !aliases.has_key?(name)
+       aliases[name] = []
      end
-     t.variables[:aliases][params[:name]] << [ params[:recipients] ]
+     aliases[name].concat(recipients)
    end
