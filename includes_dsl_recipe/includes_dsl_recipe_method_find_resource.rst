@@ -22,7 +22,7 @@ For example:
 
 .. code-block:: ruby
 
-   resource = find_resource!(:template, '/x/y.txy')
+   find_resource(:template, '/x/y.txy')
 
 and a resource block:
 

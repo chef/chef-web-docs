@@ -23,7 +23,7 @@ For example:
 
 .. code-block:: ruby
 
-   edit_resource!(:template, '/x/y.txy') do
+   edit_resource(:template, '/x/y.txy') do
      cookbook_name: cookbook_name
    end
 
