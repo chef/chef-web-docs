@@ -20,7 +20,7 @@ Infrastructure
 -----------------------------------------------------
 .. include:: ../../includes_install/includes_install_delivery_infrastructure.rst
 
-.. note:: If you want to use your existing |chef server| in the |delivery| cluster, the version of the |chef server| must be 12.2 and must have a standalone configuration. In addition, a special entry must be made to the environments configuration file (``/delivery-cluster/environments/ENVIRONMENT_NAME.json``) simillar to:
+.. note:: If you want to use your existing |chef server| in the |delivery| cluster, the version of the |chef server| must be 12.2 and must have a standalone configuration. In addition, a special entry must be made to the environments configuration file located on the provisioning workstation (``/delivery-cluster/environments/ENVIRONMENT_NAME.json``) simillar to:
 
    .. code-block:: javascript
 
