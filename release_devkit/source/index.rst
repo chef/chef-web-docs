@@ -158,6 +158,7 @@ The following tools have been developed by members of the |chef| community. Thes
    dsl_compliance
    custom_resources
    definitions
+   dsl_inspec
    dsl_recipe
    files
    foodcritic
