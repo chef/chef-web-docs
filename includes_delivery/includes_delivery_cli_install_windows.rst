@@ -6,4 +6,4 @@ On |windows| systems, run the following |windows powershell| command:
 
 .. code-block:: powershell
 
-   $ . { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install
+   . { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install
