@@ -6,5 +6,5 @@
 .. code-block:: ruby
 
    describe kernel_parameter('net.ipv6.conf.all.forwarding') do
-     its(:value) { should eq 0 }
+     its('value') { should eq 0 }
    end

@@ -6,5 +6,5 @@
 .. code-block:: ruby
 
    describe kernel_parameter('net.ipv6.conf.interface.accept_redirects') do
-     its(:value) { should eq 'true' }
+     its('value') { should eq 'true' }
    end
