@@ -23,13 +23,25 @@ delete_resource
 -----------------------------------------------------
 .. include:: ../../includes_dsl_recipe/includes_dsl_recipe_method_delete_resource.rst
 
+delete_resource!
+-----------------------------------------------------
+.. include:: ../../includes_dsl_recipe/includes_dsl_recipe_method_delete_resource_bang.rst
+
 edit_resource
 -----------------------------------------------------
 .. include:: ../../includes_dsl_recipe/includes_dsl_recipe_method_edit_resource.rst
 
+edit_resource!
+-----------------------------------------------------
+.. include:: ../../includes_dsl_recipe/includes_dsl_recipe_method_edit_resource_bang.rst
+
 find_resource
 -----------------------------------------------------
 .. include:: ../../includes_dsl_recipe/includes_dsl_recipe_method_find_resource.rst
+
+find_resource!
+-----------------------------------------------------
+.. include:: ../../includes_dsl_recipe/includes_dsl_recipe_method_find_resource_bang.rst
 
 
 Changelog
