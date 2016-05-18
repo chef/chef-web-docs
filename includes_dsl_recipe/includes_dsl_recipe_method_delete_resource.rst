@@ -19,4 +19,4 @@ For example:
 
 .. code-block:: ruby
 
-   delete_resource(:template, '/x/y.txy')
+   delete_resource(:template, '/x/y.erb')
