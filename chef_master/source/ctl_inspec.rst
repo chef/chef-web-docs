@@ -8,7 +8,7 @@ Common Options
 =====================================================
 .. include:: ../../includes_ctl_inspec/includes_ctl_inspec_common_options.rst
 
-check
+inspec check
 =====================================================
 .. include:: ../../includes_ctl_inspec/includes_ctl_inspec_check.rst
 
@@ -16,7 +16,7 @@ Syntax
 -----------------------------------------------------
 .. include:: ../../includes_ctl_inspec/includes_ctl_inspec_check_syntax.rst
 
-detect
+inspec detect
 =====================================================
 .. include:: ../../includes_ctl_inspec/includes_ctl_inspec_detect.rst
 
@@ -24,7 +24,7 @@ Syntax
 -----------------------------------------------------
 .. include:: ../../includes_ctl_inspec/includes_ctl_inspec_detect_syntax.rst
 
-exec
+inspec exec
 =====================================================
 .. include:: ../../includes_ctl_inspec/includes_ctl_inspec_exec.rst
 
@@ -64,11 +64,11 @@ The following examples show how to use this subcommand.
 
    $ inspec exec test.rb -t docker://container_id
 
-help
+inspec help
 =====================================================
 .. include:: ../../includes_ctl_inspec/includes_ctl_inspec_help.rst
 
-json
+inspec json
 =====================================================
 .. include:: ../../includes_ctl_inspec/includes_ctl_inspec_json.rst
 
@@ -80,11 +80,24 @@ Options
 -----------------------------------------------------
 .. include:: ../../includes_ctl_inspec/includes_ctl_inspec_json_options.rst
 
-shell
+inspec shell
 =====================================================
 .. include:: ../../includes_ctl_inspec/includes_ctl_inspec_shell.rst
 
-version
+Debug Controls
+-----------------------------------------------------
+.. include:: ../../includes_dsl_inspec/includes_dsl_inspec_debug.rst
+
+Use |pry|
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_dsl_inspec/includes_dsl_inspec_debug_pry.rst
+
+Use inspec shell
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_dsl_inspec/includes_dsl_inspec_debug_inspec_shell.rst
+
+
+inspec version
 =====================================================
 .. include:: ../../includes_ctl_inspec/includes_ctl_inspec_version.rst
 
