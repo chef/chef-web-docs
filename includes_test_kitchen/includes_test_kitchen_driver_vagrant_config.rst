@@ -7,7 +7,6 @@ The ``kitchen-vagrant`` driver can predict the box name for |vagrant| and the do
 .. code-block:: ruby
 
    platforms:
-   - name: ubuntu-10.04
    - name: ubuntu-12.04
    - name: ubuntu-12.10
    - name: ubuntu-13.04
@@ -20,10 +19,6 @@ which will generate a configuration file similar to:
 .. code-block:: ruby
 
    platforms:
-   - name: ubuntu-10.04
-     driver:
-       box: opscode-ubuntu-10.04
-       box_url: https://opscode-vm-bento.s3.amazonaws.com/vagrant/opscode_ubuntu-10.04_provisionerless.box
    - name: ubuntu-12.04
      driver:
        box: opscode-ubuntu-12.04
