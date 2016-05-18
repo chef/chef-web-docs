@@ -89,6 +89,7 @@
 .. |dsl custom_resource| replace:: Custom Resource DSL
 .. |dsl delivery| replace:: Delivery DSL
 .. |dsl handler| replace:: Handler DSL
+.. |dsl inspec| replace:: InSpec DSL
 .. |dsl compliance| replace:: Compliance DSL
 .. |dsl ohai| replace:: Ohai DSL
 .. |dsl recipe| replace:: Recipe DSL
@@ -702,6 +703,7 @@
 .. |ppa_full| replace:: Personal Package Archive (PPA)
 .. |prettyprint| replace:: pretty-print
 .. |profitbricks iaas| replace:: ProfitBricks IaaS
+.. |pry| replace:: Pry
 .. |puppet| replace:: Puppet
 .. |putty| replace:: PuTTY
 .. |putty link| replace:: Plink
