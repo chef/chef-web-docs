@@ -2,7 +2,10 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-Use the ``edit_resource`` method to find a resource in the resource collection, and then edit it.
+Use the ``edit_resource`` method to:
+
+* Find a resource in the resource collection, and then edit it.
+* Define a resource block. If a resource block with the same name exists in the resource collection, it will be updated with the contents of the resource block defined by the ``edit_resource`` method. If a resource block does not exist in the resource collection, it will be created.
 
 The syntax for the ``edit_resource`` method is as follows:
 
@@ -20,6 +23,17 @@ For example:
 
 .. code-block:: ruby
 
-   edit_resource!(:template, '/x/y.txy') do
+   edit_resource(:template, '/x/y.txy') do
      cookbook_name: cookbook_name
+   end
+
+and a resource block:
+
+.. code-block:: ruby
+
+   edit_resource(template: '/etc/aliases') do
+     source 'aliases.erb'
+     cookbook 'aliases'
+     variables({:aliases => {} })
+     notifies :run, 'execute[newaliases]'
    end

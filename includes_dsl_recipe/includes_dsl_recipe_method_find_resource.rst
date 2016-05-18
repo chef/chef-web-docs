@@ -2,7 +2,10 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-Use the ``find_resource`` method to find a resource in the resource collection.
+Use the ``find_resource`` method to:
+
+* Find a resource in the resource collection.
+* Define a resource block. If a resource block with the same name exists in the resource collection, it will be returned. If a resource block does not exist in the resource collection, it will be created.
 
 The syntax for the ``find_resource`` method is as follows:
 
@@ -19,4 +22,15 @@ For example:
 
 .. code-block:: ruby
 
-   resource = find_resource!(:template, '/x/y.txy')
+   find_resource(:template, '/x/y.txy')
+
+and a resource block:
+
+.. code-block:: ruby
+
+   find_resource(template: '/etc/seapower') do
+     source 'seapower.erb'
+     cookbook 'seapower'
+     variables({:seapower => {} })
+     notifies :run, 'execute[newseapower]'
+   end

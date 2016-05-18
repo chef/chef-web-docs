@@ -172,7 +172,7 @@ THIS IS CORRECT:
 
 That is the magic of ``use_inline_resources`` (and why ``use_inline_resources`` is turned on by default in |chef| 12.5 resources)  The sub-resources are defined in a sub-resource collection which is compiled and converged as part of the provider executing. Any resources that update in the sub-resource collection cause the resource itself to be updated automatically. Notifications then fire normally off the resource. It also works to arbitrary levels of nesting of sub-sub-sub-resources being updating causing the wrapping resources to update and fire notifications.
 
-This also gets the why-run case correct. If all the work that you do in your resource is done by calling sub-resources, then why-run should work automatically. All your sub-resources will be NO-OP'd and will report what they would have done instead of doing it.
+This also gets the |whyrun| case correct. If all the work that you do in your resource is done by calling sub-resources, then |whyrun| should work automatically. All your sub-resources will be NO-OP'd and will report what they would have done instead of doing it.
 
 If you do need to write code which mutates the system through pure-|ruby| then you should do so like this:
 
@@ -192,7 +192,7 @@ If you do need to write code which mutates the system through pure-|ruby| then y
      end
    end
 
-The ``converge_by`` block gets why-run correct and will just touch "/tmp/foo" instead of actually doing it. The ``converge_by`` block is also responsible for setting ``update_by_last_action``.
+The ``converge_by`` block gets |whyrun| correct and will just touch "/tmp/foo" instead of actually doing it. The ``converge_by`` block is also responsible for setting ``update_by_last_action``.
 
 In order to use ``converge_by`` correctly you must ensure that you wrap the ``converge_by`` with an idempotency check otherwise your resource will be updated every time it is used and will always fire notifications on every run.
 
@@ -228,7 +228,7 @@ is basically the same as this:
      end
    end
 
-You may see a lot of ``converge_by`` and ``updated_by_last_action`` in the core chef resources. Part of that is that we're writing a declarative language with an imperative language, and someone has to take the first step and write the declarative file resources in imperative |ruby|. The other part of that is just that our core resources have been lagging behind. They were written long ago, and if they work, nobody rewrites them. They are often not ideal code examples. Please do not emulate them thinking that is how the "experts" clearly write things.
+You may see a lot of ``converge_by`` and ``updated_by_last_action`` in the core chef resources. This is sometimes due to the fact that |chef| is written as a declarative language with an imperative language, which means someone has to take the first step and write the declarative file resources in imperative |ruby|. As such, core |chef| resources may not represent ideal code examples with regard to what custom resources should look like.
 
 compat_resources Cookbook
 =====================================================

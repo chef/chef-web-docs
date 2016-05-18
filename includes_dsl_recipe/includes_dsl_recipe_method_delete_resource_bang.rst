@@ -2,13 +2,13 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-Use the ``delete_resource`` method to find a resource in the resource collection, and then delete it.
+Use the ``delete_resource`` method to find a resource in the resource collection, and then delete it. If the resource is not found, an exception is returned.
 
 The syntax for the ``delete_resource`` method is as follows:
 
 .. code-block:: ruby
 
-   delete_resource(:resource_type, 'resource_name')
+   delete_resource!(:resource_type, 'resource_name')
 
 where:
 
@@ -19,4 +19,4 @@ For example:
 
 .. code-block:: ruby
 
-   delete_resource(:template, '/x/y.txy')
+   delete_resource!(:template, '/x/y.txy')
