@@ -2,7 +2,12 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-Use the ``edit_resource!`` method to find a resource in the resource collection. (Use the ``edit_resource`` method to then make changes to the resource.) If the resource is not found, an exception is returned.
+Use the ``edit_resource!`` method to:
+
+* Find a resource in the resource collection, and then edit it.
+* Define a resource block. If a resource with the same name exists in the resource collection, its properties will be updated with the contents of the resource block defined by the ``edit_resource`` method.
+
+In both cases, if the resource is not found, an exception is returned.
 
 The syntax for the ``edit_resource!`` method is as follows:
 

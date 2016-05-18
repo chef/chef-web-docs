@@ -163,6 +163,34 @@ The following examples show how the ``data_bag_item`` method can be used in a re
 
 .. include:: ../../step_dsl_recipe/step_dsl_recipe_data_bag_use_data_bag_methods.rst
 
+declare_resource
+-----------------------------------------------------
+.. include:: ../../includes_dsl_recipe/includes_dsl_recipe_method_declare_resource.rst
+
+delete_resource
+-----------------------------------------------------
+.. include:: ../../includes_dsl_recipe/includes_dsl_recipe_method_delete_resource.rst
+
+|delete_resource_bang|
+-----------------------------------------------------
+.. include:: ../../includes_dsl_recipe/includes_dsl_recipe_method_delete_resource_bang.rst
+
+edit_resource
+-----------------------------------------------------
+.. include:: ../../includes_dsl_recipe/includes_dsl_recipe_method_edit_resource.rst
+
+|edit_resource_bang|
+-----------------------------------------------------
+.. include:: ../../includes_dsl_recipe/includes_dsl_recipe_method_edit_resource_bang.rst
+
+find_resource
+-----------------------------------------------------
+.. include:: ../../includes_dsl_recipe/includes_dsl_recipe_method_find_resource.rst
+
+|find_resource_bang|
+-----------------------------------------------------
+.. include:: ../../includes_dsl_recipe/includes_dsl_recipe_method_find_resource_bang.rst
+
 platform?
 -----------------------------------------------------
 .. include:: ../../includes_dsl_recipe/includes_dsl_recipe_method_platform.rst
