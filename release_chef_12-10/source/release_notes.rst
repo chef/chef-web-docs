@@ -15,6 +15,23 @@ with_run_context
 -----------------------------------------------------
 .. include:: ../../includes_dsl_recipe/includes_dsl_recipe_method_with_run_context.rst
 
+declare_resource
+-----------------------------------------------------
+.. include:: ../../includes_dsl_recipe/includes_dsl_recipe_method_declare_resource.rst
+
+delete_resource
+-----------------------------------------------------
+.. include:: ../../includes_dsl_recipe/includes_dsl_recipe_method_delete_resource.rst
+
+edit_resource
+-----------------------------------------------------
+.. include:: ../../includes_dsl_recipe/includes_dsl_recipe_method_edit_resource.rst
+
+find_resource
+-----------------------------------------------------
+.. include:: ../../includes_dsl_recipe/includes_dsl_recipe_method_find_resource.rst
+
+
 Changelog
 =====================================================
 https://github.com/chef/chef/blob/master/CHANGELOG.md
