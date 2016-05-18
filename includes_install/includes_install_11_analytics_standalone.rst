@@ -76,8 +76,3 @@ Now run the following steps on your |chef analytics| standalone instance:
 
       $ opscode-analytics-ctl reconfigure
 
-#. Verify the installation:
-
-   .. code-block:: bash
-
-      $ opscode-analytics-ctl test

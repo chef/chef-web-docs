@@ -14,6 +14,7 @@
    config_rb_compliance
    ctl_inspec
    dsl_compliance
+   dsl_inspec
    inspec_apache_conf
    inspec_apt
    inspec_audit_policy
