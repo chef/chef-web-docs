@@ -214,6 +214,7 @@ Chef Compliance
    dsl_custom_resource
    dsl_delivery
    dsl_handler
+   dsl_inspec
    dsl_recipe
    environment_variables
    environments

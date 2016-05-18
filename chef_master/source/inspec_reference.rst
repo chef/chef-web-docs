@@ -7,6 +7,27 @@ InSpec Reference
 See below for more information about each |inspec resource|, its related matchers, and examples of how to use it in a recipe.
 
 
+About the |dsl inspec|
+=====================================================
+.. include:: ../../includes_dsl_inspec/includes_dsl_inspec.rst
+
+Execution
+-----------------------------------------------------
+.. include:: ../../includes_dsl_inspec/includes_dsl_inspec_debug_execution.rst
+
+Debug Controls
+-----------------------------------------------------
+.. include:: ../../includes_dsl_inspec/includes_dsl_inspec_debug.rst
+
+Use |pry|
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_dsl_inspec/includes_dsl_inspec_debug_pry.rst
+
+Use inspec shell
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_dsl_inspec/includes_dsl_inspec_debug_inspec_shell.rst
+
+
 apache_conf
 =====================================================
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_apache_conf.rst
