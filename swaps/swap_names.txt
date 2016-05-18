@@ -166,7 +166,6 @@
 .. |resource deploy_branch| replace:: **deploy_branch**
 .. |resource deploy_revision| replace:: **deploy_revision**
 .. |resource directory| replace:: **directory**
-.. |resource dsc_mof| replace:: **dsc_mof**
 .. |resource dsc_resource| replace:: **dsc_resource**
 .. |resource dsc_script| replace:: **dsc_script**
 .. |resource env| replace:: **env**
@@ -863,6 +862,7 @@
 .. |windows powershell_dsc| replace:: Desired State Configuration (DSC)
 .. |windows powershell_dsc_short| replace:: DSC
 .. |windows powershell_dsc_resource_kit| replace:: DSC Resource Kit
+.. |windows powershell_lcm| replace:: Local Configuration Manager (LCM)
 .. |windows powershell_mof| replace:: Managed Object Framework (MOF)
 .. |windows remote desktop| replace:: Windows Remote Desktop
 .. |windows remote management| replace:: WinRM
