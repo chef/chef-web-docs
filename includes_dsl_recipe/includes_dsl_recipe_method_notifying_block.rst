@@ -21,7 +21,8 @@ The syntax for the ``notifying_block`` method is as follows:
 where:
 
 * ``some resource block`` is a standard |chef| resource block, like ``file 'name' do/end``.
-* ``notifies :some_notification, :timer`` is a notification that is processed at the end of the ``notifying_block``.
+* ``notifies :some_notification`` is a notification that is processed at the end of the ``notifying_block``.
+* ``:timer`` should typically be ``:delayed`` so that it's run only at the end of the notifying block
 
 For example:
 
