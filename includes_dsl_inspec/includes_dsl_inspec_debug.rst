@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The following example shows an |inspec| control that user |ruby| variables to instantiate an |inspec| resource once, and then use that content in multipLe tests:
+The following example shows an |inspec| control that uses |ruby| variables to instantiate an |inspec| resource once, and then use that content in multipLe tests:
 
 .. code-block:: ruby
 
