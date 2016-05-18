@@ -2,13 +2,13 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-Use the ``edit_resource`` method to find a resource in the resource collection, and then edit it. If the resource is not found, an exception is returned.
+Use the ``edit_resource!`` method to find a resource in the resource collection. (Use the ``edit_resource`` method to then make changes to the resource.) If the resource is not found, an exception is returned.
 
-The syntax for the ``edit_resource`` method is as follows:
+The syntax for the ``edit_resource!`` method is as follows:
 
 .. code-block:: ruby
 
-   edit_resource!(:resource_type, 'resource_name', resource_attrs_block)
+   edit_resource!(:resource_type, 'resource_name')
 
 where:
 
@@ -20,6 +20,4 @@ For example:
 
 .. code-block:: ruby
 
-   edit_resource!(:template, '/x/y.txy') do
-     cookbook_name: cookbook_name
-   end
+   edit_resource!(:file, '/x/y.rst')
