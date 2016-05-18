@@ -78,8 +78,3 @@ On the dedicated, standalone machine:
 
       $ opscode-analytics-ctl reconfigure
 
-#. Verify the installation on the |chef analytics| machine:
-
-   .. code-block:: bash
-
-      $ opscode-analytics-ctl test

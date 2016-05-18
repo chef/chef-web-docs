@@ -36,12 +36,6 @@ To set up the |chef analytics| server for a combined deployment:
 
       $ opscode-analytics-ctl reconfigure
 
-#. Verify the installation:
-
-   .. code-block:: bash
-
-      $ opscode-analytics-ctl test
-
 #. Use a tool like ``telnet client`` or ``nc`` to verify that TCP/10012 connections can be established from the |chef server| to the |chef analytics| |fqdn|. For example, using ``nc``:
 
    .. code-block:: bash

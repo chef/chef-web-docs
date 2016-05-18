@@ -97,9 +97,3 @@ Configure the |chef analytics| standalone server:
       $ opscode-analytics-ctl reconfigure
 
    .. note:: .. include:: ../../includes_chef_license/includes_chef_license_reconfigure_analytics.rst
-
-#. Verify the installation on the |chef analytics| server:
-
-   .. code-block:: bash
-
-      $ opscode-analytics-ctl test
