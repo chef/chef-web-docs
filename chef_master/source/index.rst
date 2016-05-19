@@ -165,6 +165,7 @@ Chef Compliance
    config_rb_metadata
    config_rb_metadata
    config_rb_policyfile
+   config_rb_push_jobs_client
    config_rb_push_jobs_server
    config_rb_reporting
    config_rb_server

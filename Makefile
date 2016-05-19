@@ -198,9 +198,9 @@ ohai-6:
 	mkdir -p $(BUILDDIR)/release/ohai-6/
 	$(BUILD_COMMAND_AND_ARGS) release_ohai_6/source $(BUILDDIR)/release/ohai-6/
 
-push_1-0:
-	mkdir -p $(BUILDDIR)/release/push_jobs_1-0/
-	$(BUILD_COMMAND_AND_ARGS) release_push_jobs_1-0/source $(BUILDDIR)/release/push_jobs_1-0/
+push:
+	mkdir -p $(BUILDDIR)/release/push_jobs/
+	$(BUILD_COMMAND_AND_ARGS) release_push_jobs/source $(BUILDDIR)/release/push_jobs/
 
 server_12-7:
 	mkdir -p $(BUILDDIR)/release/server_12-7/
