@@ -20,6 +20,10 @@ preflight-check
 =====================================================
 .. include:: ../../includes_ctl_analytics/includes_ctl_analytics_preflight_check.rst
 
+purge-node
+=====================================================
+.. include:: ../../includes_ctl_analytics/includes_ctl_analytics_purge_nodes.rst
+
 reconfigure
 =====================================================
 .. include:: ../../includes_ctl_analytics/includes_ctl_analytics_reconfigure.rst
