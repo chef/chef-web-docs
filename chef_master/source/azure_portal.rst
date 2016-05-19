@@ -404,6 +404,7 @@ The extension has the following options that can be provided in the `settings` h
    |ssl_verify_mode_verify_api_cert|
 
 **Protected Settings**
+[
 The following options can be provided to the extension through the ``protectedSettings`` hash.
 
 ``validation_key``
@@ -417,9 +418,9 @@ The following options can be provided to the extension through the ``protectedSe
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The following examples show how the Chef client can be installed and configured from an ARM template.
+The following examples show how the |chef client| can be installed and configured from an ARM template.
 
-**Installing the Azure Chef extension on a linux system**
+**Installing the Azure Chef extension on a Linux system**
 
 .. code-block:: javascript
 
@@ -447,34 +448,37 @@ The following examples show how the Chef client can be installed and configured 
       }
     }
 
+
 **Installing the Azure Chef extension on a Windows system**
 
 .. code-block:: javascript
-    {
-      "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "myVirtualMachine/ChefClient",
-      "apiVersion": "2015-05-01-preview",
-      "location": "westus",
-      "properties": {
-        "publisher": "Chef.Bootstrap.WindowsAzure",
-        "type": "ChefClient",
-        "typeHandlerVersion": "1210.12",
-        "settings": {
-          "bootstrap_options": {
-            "chef_node_name": "node12",
-            "chef_server_url": "https://api.chef.io/organizations/my-chef-organization",
-            "validation_client_name": "my-chef-organization-validator"
-          },
-          "runlist": "recipe[awesome_customers_windows],recipe[iis],role[windows_base]",
-          "validation_key_format": "plaintext"
-        },
-        "protectedSettings": {
-          "validation_key": "-----BEGIN RSA PRIVATE KEY-----\nMIIEpQIB..\n67VT3Dg=\n-----END RSA PRIVATE KEY-----"
-        }
-      }
-    }
 
-**Installing the Azure Chef extension on a linux system with ssl peer verification turned off and given a databag secret**
+   {
+     "type": "Microsoft.Compute/virtualMachines/extensions",
+     "name": "myVirtualMachine/ChefClient",
+     "apiVersion": "2015-05-01-preview",
+     "location": "westus",
+     "properties": {
+       "publisher": "Chef.Bootstrap.WindowsAzure",
+       "type": "ChefClient",
+       "typeHandlerVersion": "1210.12",
+       "settings": {
+         "bootstrap_options": {
+           "chef_node_name": "node12",
+           "chef_server_url": "https://api.chef.io/organizations/my-chef-organization",
+           "validation_client_name": "my-chef-organization-validator"
+         },
+         "runlist": "recipe[awesome_customers_windows],recipe[iis],role[windows_base]",
+         "validation_key_format": "plaintext"
+       },
+       "protectedSettings": {
+         "validation_key": "-----BEGIN RSA PRIVATE KEY-----\nMIIEpQIB..\n67VT3Dg=\n-----END RSA PRIVATE KEY-----"
+       }
+     }
+   }
+
+
+**Installing the Azure Chef extension on a Linux system with SSL peer verification turned off and given a data bag secret**
 
 .. code-block:: javascript
 
@@ -503,6 +507,7 @@ The following examples show how the Chef client can be installed and configured 
         }
       }
     }
+
 
 .. note:: Here we're also base64 encoding our validator key which is a recommended approach when using the Azure Chef extension in an ARM template
 
