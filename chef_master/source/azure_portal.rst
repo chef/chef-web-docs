@@ -353,6 +353,147 @@ The following examples show how to use the ``knife azure server create`` command
                                -c '~/chef-repo/.chef/knife.rb' -r 'recipe[getting-started]'\n
                                --azure-service-location "West US" -VV
 
+Azure Resource Manager (ARM) Templates
+-----------------------------------------------------
+If you are using Azure Resource Manager templates to create your infrastructure you can use the Chef extension to have Azure handle the bootstraping/configuration of your node to your Chef Server.
+
+Options
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+The extension has the following options that can be provided in the `settings` hash.
+
+``runlist``
+   |run_list|
+
+``client_rb``
+   |azure client_rb_content|
+
+``validation_key_format``
+   |azure validation_key_format|
+
+..note:: If using the Chef extension in an ARM template, it is recommended that you base64 encode your validation key and set this option to ``base64encoded``
+
+``bootstrap_version``
+   |azure bootstrap_version|
+
+..note:: Due to constraints in Azure, the ``bootstrap_version`` option is only available on the ``LinuxChefClient`` extension.
+
+``bootstrap_options``
+   |azure bootstrap_options|
+
+..note:: Options that are supplied in the bootstrap items will take presidence over any conflicts found in the client.rb
+
+``chef_node_name``
+   |name node_client_rb|
+
+``chef_server_url``
+   |chef_server_url|
+
+``environment``
+   |azure chef_environment|
+
+``secret``
+   |secret|
+
+``validation_client_name``
+   |validation_client_name|
+
+``node_ssl_verify_mode``
+   |ssl_verify_mode|
+
+``node_verify_api_cert``
+   |ssl_verify_mode_verify_api_cert|
+
+
+Examples
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+The following examples show how the Chef client can be installed and configured from an ARM template.
+
+**Installing the Azure Chef extension on a linux system**
+
+.. code-block:: javascript
+
+   {
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "name": "myVirtualMachine/LinuxChefClient",
+      "apiVersion": "2015-05-01-preview",
+      "location": "westus",
+      "properties": {
+        "publisher": "Chef.Bootstrap.WindowsAzure",
+        "type": "LinuxChefClient",
+        "typeHandlerVersion": "1210.12",
+        "settings": {
+          "bootstrap_options": {
+            "chef_node_name": "node1",
+            "chef_server_url": "https://api.chef.io/organizations/my-chef-organization",
+            "validation_client_name": "my-chef-organization-validator"
+          },
+          "runlist": "recipe[awesome_customers_rhel],recipe[yum],role[base]",
+          "validation_key_format": "plaintext"
+        },
+        "protectedSettings": {
+          "validation_key": "-----BEGIN RSA PRIVATE KEY-----\nMIIEpQIB..\n67VT3Dg=\n-----END RSA PRIVATE KEY-----"
+        }
+      }
+    }
+
+**Installing the Azure Chef extension on a Windows system**
+
+.. code-block:: javascript
+    {
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "name": "myVirtualMachine/ChefClient",
+      "apiVersion": "2015-05-01-preview",
+      "location": "westus",
+      "properties": {
+        "publisher": "Chef.Bootstrap.WindowsAzure",
+        "type": "ChefClient",
+        "typeHandlerVersion": "1210.12",
+        "settings": {
+          "bootstrap_options": {
+            "chef_node_name": "node12",
+            "chef_server_url": "https://api.chef.io/organizations/my-chef-organization",
+            "validation_client_name": "my-chef-organization-validator"
+          },
+          "runlist": "recipe[awesome_customers_windows],recipe[iis],role[windows_base]",
+          "validation_key_format": "plaintext"
+        },
+        "protectedSettings": {
+          "validation_key": "-----BEGIN RSA PRIVATE KEY-----\nMIIEpQIB..\n67VT3Dg=\n-----END RSA PRIVATE KEY-----"
+        }
+      }
+    }
+
+**Installing the Azure Chef extension on a linux system with ssl peer verification turned off and given a databag secret**
+
+.. code-block:: javascript
+
+   {
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "name": "myVirtualMachine/LinuxChefClient",
+      "apiVersion": "2015-05-01-preview",
+      "location": "westus",
+      "properties": {
+        "publisher": "Chef.Bootstrap.WindowsAzure",
+        "type": "LinuxChefClient",
+        "typeHandlerVersion": "1210.12",
+        "settings": {
+          "bootstrap_options": {
+            "chef_node_name": "node1",
+            "chef_server_url": "https://api.chef.io/organizations/my-chef-organization",
+            "validation_client_name": "my-chef-organization-validator",
+            "node_ssl_verify_mode": "none",
+            "secret": "KCYWGXxSrkgR..."
+          },
+          "runlist": "recipe[awesome_customers_rhel],recipe[yum],role[base]",
+          "validation_key_format": "base64encoded"
+        },
+        "protectedSettings": {
+          "validation_key": "LS0tLS1CRUdJTiBSU0EgUFJ...FIEtFWS0tLS0t"
+        }
+      }
+    }
+
+.. note:: Here we're also base64 encoding our validator key which is a recommended approach when using the Azure Chef extension in an ARM template
 
 Log Files
 =====================================================

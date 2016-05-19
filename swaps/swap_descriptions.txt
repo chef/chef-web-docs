@@ -72,7 +72,11 @@
 .. |azure autoupdate_client| replace:: Auto-update the |chef client|. Set to ``true`` to auto update the version of the |azure extension chef| when the virtual machine is restarted. For example, if this option is enabled, a virtual machine that has version ``1205.12.2.0`` will be updated automatically to ``1205.12.2.1`` when it is published.
 .. |azure availability_set| replace:: The name of the availability set for the virtual machine.
 .. |azure bootstrap_json| replace:: Supported options: ``"chef_node_name"``, ``"chef_server_url"`` (required), ``"environment"``, ``"secret"``, and ``"validation_client_name"`` (required).
+.. |azure bootstrap_options| replace:: A hash of the following options: ``chef_node_name``, ``chef_server_url``, ``environment``, ``secret``, and ``validation_client_name``.
+.. |azure bootstrap_version| replace:: The version of chef-client that will be installed on the system. **linux only**
 .. |azure client_rb_path| replace:: The path to the ``client.rb`` file.
+.. |azure client_rb_content| replace:: A JSON escaped string containing the content of your ``client.rb`` file.
+.. |azure chef_environment| replace:: The environment this machine will be placed in on your Chef server.
 .. |azure disable_extension| replace:: Disable the |azure extension chef| extension.
 .. |azure dns_name| replace:: Required. The name of the DNS prefix that is used to access the cloud service. This name must be unique within |azure|. Use with ``--azure-connect-to-existing-dns`` to use an existing DNS prefix.
 .. |azure network_name| replace:: The network for the virtual machine.
@@ -80,6 +84,7 @@
 .. |azure set_windows| replace:: Sets the |azure extension chef| to run |windows|.
 .. |azure subnet_name| replace:: The subnet for the virtual machine.
 .. |azure uninstall| replace:: Uninstall the |azure extension chef|.
+.. |azure validation_key_format| replace:: Tells the extension whether the supplied validation key is ``plaintext`` or ``base64encoded``.
 .. |azure version number| replace:: Specify the version number for the |azure extension chef| extension. Default is to use the latest extension's version number.
 .. |azure virtual_machine_name| replace:: The name of the virtual machine. Must be unique within |azure|. Required for advanced server creation options.
 .. |azure vm_timeout_ready| replace:: A number (in minutes) to wait for a virtual machine to reach the ``provisioning`` state.
