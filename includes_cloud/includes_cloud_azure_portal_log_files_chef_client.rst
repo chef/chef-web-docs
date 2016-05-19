@@ -14,3 +14,8 @@ The |chef client| can be run interactively by using |windows remote desktop| to 
       $ chef-client -l debug
 
 #. View the logs.
+
+On a linux system, the Chef client logs are saved to `/var/log/azure/Chef.Bootstrap.WindowsAzure.LinuxChefClient/<extension-version-number>/chef-client.log` and can be viewed as such.
+
+   .. code-block:: bash
+      $ tail -f /var/log/azure/Chef.Bootstrap.WindowsAzure.LinuxChefClient/1210.12.102.1000/chef-client.log
