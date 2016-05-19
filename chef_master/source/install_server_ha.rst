@@ -4,26 +4,64 @@ High Availability: Backend Cluster
 
 .. warning:: This topic is about an upcoming feature of the Chef server.
 
-This topic introduces, and then describes describes how to set up the |chef server| for high availability using a backend HA cluster comprised of three machines: one leader and two followers.
+This topic introduces the underlying concepts behind the architecture of the highly available |chef server| cluster. The topic then describes the setup and installation process for a highly available |chef server| cluster comprised of five nodes.
 
 .. note:: .. include:: ../../includes_chef/includes_chef_subscriptions.rst
 
 Overview
 =====================================================
-A backend HA cluster provides a highly available persistence system for the |chef server| that runs replicated |postgresql|, |elasticsearch|, |leaderl| and |etcd|.
+The |chef server| can operate in a high availability configuration that provides automated load balancing and failover for stateful components in the system architecture. This type of configuration typically splits the servers into two segments: The backend cluster, and the frontend group.
 
-* |postgresql| is the data store for |chef server| data
-* |elasticsearch| creates the search indexes
-* |haproxy| automatically routes traffic to the backend leader
-* |leaderl| manages failover
-* |etcd| provides consensus and ties the backend HA cluster together
+* The frontend group, comprised of one (or more) nodes running the |chef server|. Nodes in the frontend group handle requests to the |api chef server| and access to the |chef manage|. Frontend group nodes should be load balanced, and may be scaled horizontally by increasing the number of nodes available to handle requests.
+* The backend cluster, typically comprised of three nodes working together, provides highly available data persistence for the frontend group.
 
-The only ports open between the frontend group and the backend HA cluster are ``9200`` and ``5432``, which allow the |chef server| nodes in the frontend group to access |elasticsearch| and |postgresql| respectively.
+Key Differences From Standalone |chef server|
+-----------------------------------------------------
+There are several key differences between the highly available |chef server| cluster and a standalone |chef server| instance.
 
+* While |apache solr| is used in standalone |chef server| instances, in the highly available |chef server| cluster it is replaced with |elasticsearch|. |elasticsearch| provides more flexible clustering options while maintaining search API compatibility with |apache_solr|.
+* Writes to the search engine and the database are handled asynchronously via |rabbitmq| and |chef expander| in standalone |chef server| instances. However, the highly available |chef server| cluster writes to the search engine and the database simultaneously. As such the |rabbitmq| and |chef expander| services are no longer present in the highly available |chef server| cluster.
+* Standalone |chef server| instances write |chef bookshelf| data to the filesystem. In a highly available |chef server| cluster, |chef bookshelf| data is written to the database.
 
-Components
+Recommended Cluster Topology
 =====================================================
-The following sections describe the components of the backend HA cluster configuration.
+.. image:: ../../images/chef_server_ha_cluster.svg
+
+Nodes
+-----------------------------------------------------
+* Three backend cluster nodes
+* One or more frontend group nodes
+
+Network Services
+-----------------------------------------------------
+* A load balancer between the rest of the network, and the frontend group (Not provided). Because management console session data is stored on each node in the frontend group individually, the load balancer should be configured with sticky sessions.
+
+Network Port Requirements
+-----------------------------------------------------
+
+Inbound from load balancer to frontend group
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+* TCP 80 (HTTP)
+* TCP 443 (HTTPS)
+
+Inbound from frontend group to backend cluster
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+* TCP 2379 (|etcd|)
+* TCP 5432 (|postgresql|)
+* TCP 7331 (|leaderl|)
+* TCP 9200 (|elasticsearch|)
+
+Peer communication, backend cluster
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+* 2379 (|etcd|)
+* 2380 (|etcd|)
+* 5432 (|postgresql|)
+* 9200 (|elasticsearch|)
+* 9300 (|elasticsearch|)
+
+Cluster Components
+=====================================================
+The following sections describe the components of the highly available |chef server| cluster.
 
 .. image:: ../../images/chef_server_ha_cluster.svg
    :width: 600px
@@ -31,100 +69,85 @@ The following sections describe the components of the backend HA cluster configu
 
 The key elements are:
 
-* The proxy on each machine in the frontend group that automatically routes traffic to the backend leader
-* The backend HA cluster
+* The backend cluster
 * The frontend group
-* The ports open between the frontend group and the backend HA cluster
+* The proxy on each node in the frontend group, used to automatically route traffic to the backend leader
+* The network ports open between the frontend group and the backend HA cluster
 * The services that run on the nodes in the frontend group and on the nodes in the backend cluster
 
-Each of these are discussed in more detail in the following sections.
-
-Proxy
------------------------------------------------------
-All communication between nodes in the frontend group and the leader node in the backend HA cluster is done via proxy. An instance of |haproxy| is bundled with each machine in the frontend group and automatically routes traffic to the leader node in the backend HA cluster.
+Each of these elements are discussed in more detail in the following sections.
 
 Backend Cluster
 -----------------------------------------------------
-The backend cluster is three identical nodes running replicated |postgresql|, |elasticsearch|, |etcd|, and |leaderl|. This ensures that the backend HA cluster can lose one of the three backend nodes and remain online. Once the first node is lost, failover may no longer occur because at least two backend nodes must participate in the leader election process. However, all three nodes must be lost for data loss to occur.
+The backend cluster is comprised of three identical nodes, joined into a three-node cluster via the |chef backend| package. This backend cluster provides database and search capabilities for the entire highly available |chef server| cluster.
 
-The backend HA cluster relies on four services to maintain the state of the cluster, provide storage, and search capabilities.
+In the event that one node in the backend cluster is lost, services for the highly available |chef server| cluster will remain online and available. In the event that two nodes in the backend cluster are lost at once, services services for the highly available |chef server| cluster will be interrupted. However, data loss will not occur unless all three nodes in the backend cluster are simultaneously destroyed.
 
-|elasticsearch|
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|elasticsearch| provides highly available search capabilities. |elasticsearch| uses port 9200 for communication between the backend data store and nodes in the frontend group.
-
-|etcd|
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|etcd| provides distributed consensus and communication between nodes in the backend HA cluster. Various status and control commands read and set information about the cluster in |etcd|, which controls the state of the cluster. |etcd| is relied on by |leaderl| as a source of control information, such as failover restrictions or general health and status information about each node.
+The backend cluster relies on four services to maintain the state of the cluster, provide storage, and to provide search capabilities:
 
 |leaderl|
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-|leaderl| is an |erlang|-based service that runs on each node in the backend HA cluster. It coordinates the availability of the system, including:
+|leaderl| is an |erlang|-based service that runs on each node in the backend cluster. It coordinates the availability of the backend cluster, performing the following tasks:
 
-* Leader election and failover, which is managed by a key in |etcd|
-* Health monitoring of the services
-* Determining which host binds to the backend VIP and address resolution
-* Configuration of the |postgresql| leader and followers
+* Leader election and failover for the backend cluster
+* Automatic configuration of |postgresql| replication topology
+* Advertising backend cluster leadership via a REST endpoint
+* Internal monitoring of backend cluster services
 
-Leader election occurs when healthy backend nodes attempt to assert the leader key in |etcd|; the winner is declared the leader. At least two nodes must assert the leader key for an election to occur. The current leader refreshes the key periodically or times out, after which a new leader election takes place.
+leaderl listens on port TCP 7331, providing cluster status via an HTTP endpoint. The cluster leader will return code HTTP 200, while follower nodes will return code HTTP 503.
+
+|elasticsearch|
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+|elasticsearch| provides search capabilities for the highly available |chef server| cluster. |elasticsearch| is configured as a unicast cluster of 3 nodes.
+
+|elasticsearch| listens on port TCP 9200 for communication from nodes in the frontend group. All network traffic from the frontend group to |elasticsearch| is sent only to the backend cluster leader, as advertised by leaderl.
 
 |postgresql|
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-|postgresql| is the backend data store run as a leader with two followers connected by |postgresql| streaming replication. |postgresql| uses port 5432 for communication between the backend data store and nodes in the frontend group.
+|postgresql| is the primary data store for the highly available |chef server| cluster. It is configured to run as a leader with two followers connected via |postgresql| asynchronous streaming replication. Because this replication is asynchronous, any changes written to the leader but not yet written to the followers may be lost during failover.
 
-One limitation of the replication system is that replication is asynchronous. A request may be returned by the leader before related changes are committed to followers. If failover happens in that moment, it's possible for reccently-committed data loss to occur.
+During failover, leaderl will automatically configure the |postgresql| leader & follower state to match the backend cluster topology.
+
+|postgresql| listens on port TCP 5432 for communication from nodes in the frontend group. All network traffic from the frontend group to |postgresql| is sent only to the backend cluster leader, as advertised by leaderl.
+
+|etcd|
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+|etcd| provides distributed consensus and communication between nodes in the backend HA cluster. |leaderl| relies on |etcd| as its primary data store.
+
+|etcd| listens on port TCP 2379 for communication from nodes in the frontend group.
 
 Frontend Group
 -----------------------------------------------------
-The frontend group is one (or more) nodes running the |chef server| configured to support the backend HA cluster. Each node in the frontend group is effectively a standalone |chef server|, though the topology behaves much like a tiered configuration with each frontend node relying on an external data store and external search components.  The nodes in the frontend group handle requests to the |api chef server| from workstations and nodes. Cookbooks are stored on the frontend nodes.
+The frontend group is comprised of one (or more) nodes running the |chef server|. Nodes in the frontend group each act autonomously, relying on the backend cluster as an external data store. The nodes in the frontend group handle requests to the |api chef server| from workstations and nodes, and requests to the |chef manage| from users.
 
-The frontend group uses many familiar |chef server| services, but with one important difference: the bookshelf service runs on the frontend nodes because the cookbook file store is no longer part of the backend.
+Nodes in the frontend group do not share session data for the |chef manage|. Any load balancer that serves the frontend group should be configured with sticky sessions.
 
-What's Changed?
------------------------------------------------------
-Starting with |chef server| version 12.4, the need for file system-based storage for |apache solr| and Bookshelf on the backend is no longer required:
+Each node in the frontend group provides many of the same services as a standalone |chef server|, with one significant addition:
 
-* |apache solr| is replaced by |elasticsearch|, which allows moving cookbook storage (Bookshelf) to nodes in the frontend group
-* Bookshelf is moved to nodes in the frontend group
-* |postgresql| replication capabilities provide redundancy for the backend HA cluster and cookbook storage on the frontend
-* |rabbitmq|, along with some other services built to support queuing, are no longer needed
-* |keepalived| is effectively replaced by |leaderl| and |etcd|; the previous implementation used |keepalived| to manage a VIP
-* |drbd| is not longer required to replicate partitions between two backend nodes
-* ``chef-server-ctl`` commands should only be run on nodes in the frontend group
-* ``chef-backend-ctl`` commands should only be run on nodes in the backend HA cluster
+haproxy
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+An instance of |haproxy| is bundled with each node in the frontend group and automatically routes traffic to the leader node in the backend HA cluster.
 
-
-Security
+Cluster Security Considerations
 =====================================================
 
 .. This will need to be integrated into the server_ topics after all that is updated and finalized.
 
-A backend HA cluster is expected to run in a trusted environment. This means that untrusted users who communicate with and/or eavesdrop on services located in the backend HA cluster can compromise the cluster. This section outlines some security-relevant facts of the backend HA cluster to help your organization decide how best to run and configure the cluster.
+A backend cluster is expected to run in a trusted environment. This means that untrusted users that communicate with and/or eavesdrop on services provided by the backend cluster can potentially view sensitive data.
 
-Communication between Nodes
+Communication Between Nodes
 -----------------------------------------------------
-Nodes in the backend HA cluster communicate with each other using the following TCP ports:
+|postgresql| communication between nodes in the backend cluster is encrypted, and uses password authentication. All other communication in the backend cluster is unauthenticated and happens in the clear (without encryption).
 
-* 5432 (|postgresql|)
-* 9200 (|elasticsearch|)
-* 9300 (|elasticsearch|)
-* 2379 (|etcd|)
-* 2380 (|etcd|)
+Communication Between Frontend Group & Backend Cluster
+--------------------------------------------------------
+|postgresql| communication from nodes in the frontend group to the leader of the backend cluster uses password authentication, but communication happens in the clear (without encryption).
 
-|postgresql| communication between nodes in the backend HA cluster is encrypted and uses password authentication. All other communication in the backend HA cluster is unauthenticated and happens in the clear (without encryption).
-
-Communication between Server and Nodes
------------------------------------------------------
-Chef Server communicates with nodes in the backend HA cluster using the following TCP ports:
-
-* 5432 (|postgresql|)
-* 9200 (|elasticsearch|)
-
-|postgresql| communication uses password authentication, but communication happens in the clear. |elasticsearch| communication is unauthenticated and happens in the clear (without encryption).
+|elasticsearch| communication is unauthenticated and happens in the clear (without encryption).
 
 Securing Communication
 -----------------------------------------------------
-Because most of the communication for the backend HA cluster currently happens in the clear, a backend HA cluster is vulnerable to those who can passively monitor network traffic between the nodes. To help prevent an active attacker from making changes to cluster data, |company_name| recommends using |iptables| or an equivalent network ACL tool to restrict access to |postgresql|, |elasticsearch| and |etcd| to only hosts that need access.
+Because most of the peer communication between nodes in the backend cluster happens in the clear, the backend cluster is vulnerable to passive monitoring of network traffic between nodes. To help prevent an active attacker from intercepting or changing cluster data, |company_name| recommends using |iptables| or an equivalent network ACL tool to restrict access to |postgresql|, |elasticsearch| and |etcd| to only hosts that need access.
 
 By service role, access requirements are as follows:
 
@@ -135,15 +158,15 @@ By service role, access requirements are as follows:
    * - Service
      - Access Requirements
    * - |postgresql|
-     - All backend HA cluster members and all |chef server| frontend nodes.
+     - All backend cluster members and all |chef server| frontend group nodes.
    * - |elasticsearch|
-     - All backend HA cluster members and all |chef server| frontend nodes.
+     - All backend cluster members and all |chef server| frontend group nodes.
    * - |etcd|
-     - All backend HA cluster members.
+     - All backend cluster members and all |chef server| frontend group nodes.
 
 ## Services and Secrets
 -----------------------------------------------------
-The following services run on each node in the backend HA cluster. The user under which the service runs as listed the second column:
+The following services run on each node in the backend cluster. The user account under which the service runs as listed the second column:
 
 
 .. list-table::
@@ -151,11 +174,11 @@ The following services run on each node in the backend HA cluster. The user unde
    :header-rows: 1
 
    * - Service
-     - User Service Runs As
+     - Process Owner
    * - ``postgresql``
-     - ``chef\_pgsql``
+     - ``chef_pgsql``
 
-       Communication with |postgresql| requires password authentication. The backend HA cluster generates |postgresql| users and passwords during the initial bootstrap. These passwords are present in the following files on disk:
+       Communication with |postgresql| requires password authentication. The backend cluster generates |postgresql| users and passwords during the initial cluster-create. These passwords are present in the following files on disk:
 
        * ``/etc/chef-backend/secrets.json`` (owner root, 0600)
        * ``/var/opt/chef-backend/leaderl/data/sys.config`` (owner chef-backend, mode 0600.
@@ -166,27 +189,25 @@ The following services run on each node in the backend HA cluster. The user unde
    * - ``etcd``
      - ``chef-backend``
    * - ``leaderl``
-     - ``root``
-
-       The ``leaderl`` service runs as the root user because it is responsible for sending gratuitous ARP and binding the virtual IP address. Both of these actions require root access in |linux|.
+     - ``chef-backend``
    * - ``epmd``
      - ``root``
 
 
 Chef Server Front End
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``chef-backend-ctl gen-server-config`` command generates configuration suitable for configuring a frontend |chef server| that communicates with nodes in the backend HA cluster. This configuration contains the superuser database access credentials for the |postgresql| instance.
+The ``chef-backend-ctl gen-server-config`` command, which can be run as root from any node in the backend cluster, will automatically generate a configuration file containing the superuser database access credentials for the backend cluster |postgresql| instance.
 
 Software Versions
 -----------------------------------------------------
-The backend HA cluster uses the |omnibus installer| (https://github.com/chef/omnibus) to package all of the software necessary to run the services included in the backend HA cluster. For a full list of the software packages included (and their versions), see the file located at ``/opt/chef-backend/version-manifest.json``.
+The backend HA cluster uses the |omnibus installer| (https://github.com/chef/omnibus) to package all of the software necessary to run the services included in the backend cluster. For a full list of the software packages included (and their versions), see the file located at ``/opt/chef-backend/version-manifest.json``.
 
-Do not attempt to upgrade individual components of the omnibus package. Because of how omnibus packages are built, upgrading a single component can be error prone. If the latest version of the backend HA cluster is providing an out-of-date package, please bring it to the attention of |company_name| by filling out a ticket with |support_email|.
+Do not attempt to upgrade individual components of the omnibus package. Due to the way omnibus packages are built, modifying any of the individual components in the package will lead to cluster instability. If the latest version of the backend cluster is providing an out-of-date package, please bring it to the attention of |company_name| by filling out a ticket with |support_email|.
 
 
 Setup and Config
 =====================================================
-A backend HA cluster requires all machines in both the frontend group and backend HA cluster to be running |chef server| 12.4.0 (or higher) and requires the backend HA cluster package to be 0.3.0 (or higher).
+A backend HA cluster requires all nodes in both the frontend group and backend HA cluster to be running |chef server| 12.6.0 (or higher) and requires the backend HA cluster package to be 0.8.0 (or higher).
 
 Before creating the backend HA cluster and building at least one |chef server| to be part of the frontend group, verify:
 
