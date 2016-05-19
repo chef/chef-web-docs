@@ -403,6 +403,17 @@ The extension has the following options that can be provided in the `settings` h
 ``node_verify_api_cert``
    |ssl_verify_mode_verify_api_cert|
 
+**Protected Settings**
+The following options can be provided to the extension through the ``protectedSettings`` hash.
+
+``validation_key``
+   |azure validation_key_content|
+
+``chef_server_crt``
+   |azure chef_server_crt|
+
+``client_pem``
+   |azure client_pem|
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
