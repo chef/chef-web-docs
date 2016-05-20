@@ -164,7 +164,7 @@ By service role, access requirements are as follows:
    * - |etcd|
      - All backend cluster members and all |chef server| frontend group nodes.
 
-## Services and Secrets
+Services and Secrets
 -----------------------------------------------------
 The following services run on each node in the backend cluster. The user account under which the service runs as listed the second column:
 
