@@ -5,7 +5,7 @@
 
 .. code-block:: ruby
 
-   dsc_resource 'demogroupremove' do
+   dsc_resource 'demogroupadd' do
      resource :group
      property :groupname, 'demo1'
      property :ensure, 'present'
