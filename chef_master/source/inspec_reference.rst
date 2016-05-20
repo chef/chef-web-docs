@@ -7,13 +7,38 @@ InSpec Reference
 See below for more information about each |inspec resource|, its related matchers, and examples of how to use it in a recipe.
 
 
+Custom Audit Resources
+=====================================================
+.. include:: ../../includes_dsl_inspec/includes_dsl_inspec_custom_audit_resource.rst
+
+Cookbook Location
+-----------------------------------------------------
+.. include:: ../../includes_dsl_inspec/includes_dsl_inspec_custom_audit_resource_location.rst
+
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_dsl_inspec/includes_dsl_inspec_custom_audit_resource_syntax.rst
+
+Properties
+-----------------------------------------------------
+.. include:: ../../includes_dsl_inspec/includes_dsl_inspec_custom_audit_resource_properties.rst
+
+Methods
+-----------------------------------------------------
+.. include:: ../../includes_dsl_inspec/includes_dsl_inspec_custom_audit_resource_methods.rst
+
+Example
+-----------------------------------------------------
+.. include:: ../../includes_dsl_inspec/includes_dsl_inspec_custom_audit_resource_example.rst
+
+
 About the |dsl inspec|
 =====================================================
 .. include:: ../../includes_dsl_inspec/includes_dsl_inspec.rst
 
 Execution
 -----------------------------------------------------
-.. include:: ../../includes_dsl_inspec/includes_dsl_inspec_debug_execution.rst
+.. include:: ../../includes_dsl_inspec/includes_dsl_inspec_ruby.rst
 
 Debug Controls
 -----------------------------------------------------
