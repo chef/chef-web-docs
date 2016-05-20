@@ -79,7 +79,7 @@ Each of these elements are discussed in more detail in the following sections.
 
 Backend Cluster
 -----------------------------------------------------
-The backend cluster is comprised of three identical nodes, joined into a three-node cluster via the package for the backend HA cluster. This backend cluster provides database and search capabilities for the entire highly available |chef server| cluster.
+The backend cluster is comprised of three identical nodes, joined into a three-node cluster via the chef backend package. This backend cluster provides database and search capabilities for the entire highly available |chef server| cluster.
 
 In the event that one node in the backend cluster is lost, services for the highly available |chef server| cluster will remain online and available. In the event that two nodes in the backend cluster are lost at once, services services for the highly available |chef server| cluster will be interrupted. However, data loss will not occur unless all three nodes in the backend cluster are simultaneously destroyed.
 
