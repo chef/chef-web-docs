@@ -1,6 +1,4 @@
-.. THIS PAGE IS LOCATED AT THE /release/analytics/ PATH.
-
-.. include:: ../../chef_master/source/actions.rst=====================================================
+=====================================================
 |chef analytics_title| Webui
 =====================================================
 

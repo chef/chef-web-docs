@@ -28,4 +28,5 @@ About |push jobs_title|
    install_push_jobs
    plugin_knife_push_jobs
    push_jobs
+   release_notes
    server_orgs
