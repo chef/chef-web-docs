@@ -36,7 +36,7 @@ About the |dsl inspec|
 =====================================================
 .. include:: ../../includes_dsl_inspec/includes_dsl_inspec.rst
 
-Execution
+|ruby| Execution
 -----------------------------------------------------
 .. include:: ../../includes_dsl_inspec/includes_dsl_inspec_ruby.rst
 
