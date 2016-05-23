@@ -101,10 +101,10 @@ common mounted location.
 
 For example, to copy using ssh:
 
-   .. code-block:: bash
+  .. code-block:: bash
 
-	$ scp /etc/chef-backend/chef-backend-secrets.json <USER>@<IP_BE2>:/home/<USER>
-	 $ scp /etc/chef-backend/chef-backend-secrets.json <USER>@<IP_BE3>:/home/<USER>
+    $ scp /etc/chef-backend/chef-backend-secrets.json <USER>@<IP_BE2>:/home/<USER>
+    $ scp /etc/chef-backend/chef-backend-secrets.json <USER>@<IP_BE3>:/home/<USER>
 
 Delete this file from the destination after Step 4 has been completed
 for each backend being joined to the cluster.
@@ -115,10 +115,10 @@ Step 4: Generate |chef server| Configuration
 While still logged into the node from Step 3, we will also generate our
 chef-server front end node configuration:
 
-   .. code-block:: bash
+  .. code-block:: bash
 
-	$ chef-backend-ctl gen-server-config <FE1-FQDN> > chef-server.rb.<FE1>
-	 $ scp chef-server.rb.FE1 USER@<IP_FE1>:/home/<USER>
+    $ chef-backend-ctl gen-server-config <FE1-FQDN> > chef-server.rb.<FE1>
+    $ scp chef-server.rb.FE1 USER@<IP_FE1>:/home/<USER>
 
 *Note* `/etc/chef-backend/chef-backend-secrets.json` is *not* made available to
 |chef server| front-end nodes.
@@ -131,9 +131,9 @@ For each additional node do the following in sequence (if you attempt to join no
 #. Install backend package on the node.
 #. As root or with sudo:
 
-     .. code-block:: bash
+   .. code-block:: bash
 
-  	$ chef-backend-ctl join-cluster <IP_BE1> -s ~/home/<USER>/chef-backend-secrets.json
+      $ chef-backend-ctl join-cluster <IP_BE1> -s ~/home/<USER>/chef-backend-secrets.json
 
 #. Answer the prompts regarding which public IP to use
     - As an alternative, you may specify them on the `chef-backend join-cluster`
@@ -143,19 +143,19 @@ For each additional node do the following in sequence (if you attempt to join no
 
 #. Repeat these steps for each follower node, after which the cluster is online and available. From any node in the backend HA cluster, run the following command:
 
-     .. code-block:: bash
+   .. code-block:: bash
 
-        $ chef-backend-ctl status
+      $ chef-backend-ctl status
 
-     should return something like:
+   should return something like:
 
-     .. code-block:: bash
+   .. code-block:: bash
 
-        Service        Local Status        Time in State  Distributed Node Status
-        elasticsearch  running (pid 6661)  1d 5h 59m 41s  state: green; nodes online: 3/3
-        etcd           running (pid 6742)  1d 5h 59m 39s  health: green; healthy nodes: 3/3
-        leaderl        running (pid 6788)  1d 5h 59m 35s  leader: 1; waiting: 0; follower: 2; total: 3
-        postgresql     running (pid 6640)  1d 5h 59m 43s  leader: 1; offline: 0; syncing: 0; synced: 2
+      Service        Local Status        Time in State  Distributed Node Status
+      elasticsearch  running (pid 6661)  1d 5h 59m 41s  state: green; nodes online: 3/3
+      etcd           running (pid 6742)  1d 5h 59m 39s  health: green; healthy nodes: 3/3
+      leaderl        running (pid 6788)  1d 5h 59m 35s  leader: 1; waiting: 0; follower: 2; total: 3
+      postgresql     running (pid 6640)  1d 5h 59m 43s  leader: 1; offline: 0; syncing: 0; synced: 2
 
 
 Step 6: Install and Configure Front End
