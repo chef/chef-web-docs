@@ -7,7 +7,15 @@ Shells commonly alter their environment at startup by loading various initializa
 
 **I want to change the environment for every process!**
 
-To change the environment for new processes, alter the initialization scripts for the system shell. These scripts can be managed using the |resource template| resource; however, there are a few caveats:
+This isn't possible on unix-like operating systems. In general, the
+best course of action is to ensure that the startup routine for a
+given process ensures that any necessary environment variables are
+set.
+
+You can alter the system-wide initialization scripts for the common
+shells, which will impact many new processes started on the
+system. These scripts can be managed using the |resource template|
+resource; however, there are a few caveats:
 
 * The environments of existing processes will be unaffected
 * Shells look to different startup files when started with different options. See the shell-specific documentation for the definitive list of files that need to be altered and whether it is possible to alter the environment for every possible invocation of the shell
