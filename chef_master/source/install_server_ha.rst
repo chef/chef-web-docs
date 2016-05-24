@@ -129,6 +129,7 @@ Step 5: Install and Configure remaining backend nodes
 For each additional node do the following in sequence (if you attempt to join nodes in parallel the cluster may fail to become available):
 
 #. Install backend package on the node.
+
 #. As root or with sudo:
 
    .. code-block:: bash
@@ -138,14 +139,14 @@ For each additional node do the following in sequence (if you attempt to join no
 #. Answer the prompts regarding which public IP to use
     - As an alternative, you may specify them on the `chef-backend join-cluster`
       command line.  See `chef-backend-ctl join-cluster --help` for more information.
-#. If you copied the shared chef-backend-secrets.json file to a user HOME directory on
-  this host, remove it now.
+
+#. If you copied the shared chef-backend-secrets.json file to a user
+HOME directory on this host, remove it now.
 
 #. Repeat these steps for each follower node, after which the cluster is online and available. From any node in the backend HA cluster, run the following command:
-
    .. code-block:: bash
 
-      $ chef-backend-ctl status
+      chef-backend-ctl status
 
    should return something like:
 
@@ -157,9 +158,8 @@ For each additional node do the following in sequence (if you attempt to join no
       leaderl        running (pid 6788)  1d 5h 59m 35s  leader: 1; waiting: 0; follower: 2; total: 3
       postgresql     running (pid 6640)  1d 5h 59m 43s  leader: 1; offline: 0; syncing: 0; synced: 2
 
-
 Step 6: Install and Configure Front End
------------------------------------------------------
+---------------------------------------
 
 On the first front-end node, assuming that the generated configuration
 was copied as detailed in Step 4:
