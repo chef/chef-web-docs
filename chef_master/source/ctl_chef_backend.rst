@@ -29,17 +29,17 @@ From a follower node, run the following command:
    $ chef-backend-ctl backup
 
 
-bootstrap
+create-cluster
 =====================================================
-.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_bootstrap.rst
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_create_cluster.rst
 
 Syntax
 -----------------------------------------------------
-.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_bootstrap_syntax.rst
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_create_cluster_syntax.rst
 
 Options
 -----------------------------------------------------
-.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_bootstrap_options.rst
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_create_cluster_options.rst
 
 Examples
 -----------------------------------------------------
