@@ -6,4 +6,4 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl bootstrap (options)
+   $ chef-backend-ctl create-cluster (options)

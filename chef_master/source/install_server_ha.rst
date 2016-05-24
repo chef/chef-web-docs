@@ -386,23 +386,6 @@ From a follower node, run the following command:
    $ chef-backend-ctl backup
 
 
-bootstrap
------------------------------------------------------
-.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_bootstrap.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_bootstrap_syntax.rst
-
-Options
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_bootstrap_options.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-None.
-
-
 cleanse
 -----------------------------------------------------
 .. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_cleanse.rst
@@ -440,6 +423,23 @@ Examples
 .. code-block:: bash
 
    $ chef-backend-ctl cluster-status --json
+
+
+create-cluster
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_create_cluster.rst
+
+Syntax
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_create_cluster_syntax.rst
+
+Options
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_create_cluster_options.rst
+
+Examples
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+None.
 
 
 demote
