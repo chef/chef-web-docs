@@ -7,6 +7,9 @@ This subcommand has the following options:
 ``--elasticsearch-wait-time``
    The maximum amount of time (in seconds) to wait for |elasticsearch| to start. Default value: ``30``.
 
+``--etcd-wait-time``
+   The maximum amount of time (in seconds) to wait for |etcd| to start. Default value: ``30``.
+
 ``--quorum-loss-recovery``
    Resets the cluster identifier in |etcd| to this node.
 
