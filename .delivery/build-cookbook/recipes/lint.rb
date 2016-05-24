@@ -4,9 +4,6 @@
 # This recipe is run as the delivery user
 ################################################################################
 
-# Are you seeing a patern yet?
-include_recipe 'build-cookbook::_handler'
-
 # Run lint against the cookbooks
 include_recipe 'delivery-truck::lint'
 

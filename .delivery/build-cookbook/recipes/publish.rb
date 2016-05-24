@@ -7,11 +7,10 @@
 #
 #
 ################################################################################
-include_recipe 'build-cookbook::_handler'
 include_recipe 'chef-sugar::default'
 include_recipe 'delivery-truck::publish'
 
-Chef_Delivery::ClientHelper.enter_client_mode_as_delivery
+load_delivery_chef_config
 
 ENV['AWS_CONFIG_FILE'] = File.join(node['delivery']['workspace']['root'], 'aws_config')
 
@@ -73,7 +72,7 @@ end
 
 ruby_block 'upload data bag' do
   block do
-    Chef_Delivery::ClientHelper.enter_client_mode_as_delivery
+    load_delivery_chef_config
     dbag = Chef::DataBag.new
     dbag.name(node['delivery']['change']['project'])
     dbag.save
@@ -90,13 +89,12 @@ ruby_block 'upload data bag' do
     dbag_item.data_bag(dbag.name)
     dbag_item.raw_data = dbag_data
     dbag_item.save
-    Chef_Delivery::ClientHelper.leave_client_mode_as_delivery
   end
 end
 
 ruby_block 'set the version in the env' do
   block do
-    Chef_Delivery::ClientHelper.enter_client_mode_as_delivery
+    load_delivery_chef_config
     begin
       to_env = Chef::Environment.load(get_acceptance_environment)
     rescue Net::HTTPServerException => http_e
@@ -111,6 +109,5 @@ ruby_block 'set the version in the env' do
     to_env.override_attributes['applications'][node['delivery']['change']['project']] = software_version
     to_env.save
     ::Chef::Log.info("Set #{node['delivery']['change']['project']}'s version to #{software_version} in #{node['delivery']['change']['project']}.")
-    Chef_Delivery::ClientHelper.leave_client_mode_as_delivery
   end
 end

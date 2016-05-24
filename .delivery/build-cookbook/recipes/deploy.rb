@@ -1,8 +1,7 @@
-include_recipe 'build-cookbook::_handler'
 include_recipe 'chef-sugar::default'
 include_recipe 'delivery-truck::deploy'
 
-Chef_Delivery::ClientHelper.enter_client_mode_as_delivery
+load_delivery_chef_config
 
 site_name = 'docs'
 domain_name = 'chef.io'

@@ -3,7 +3,7 @@
 # Welcome to chef-web-learn
 #
 # This is the default recipe. It is the only recipe that runs as root. Here we
-# install all the components we need to be functional or have to be done as 
+# install all the components we need to be functional or have to be done as
 # root.
 #
 ################################################################################
@@ -17,15 +17,7 @@ include_recipe 'chef-sugar::default'
 # recipe so we are only going to get converge time exceptions.
 include_recipe 'chef_handler::default'
 
-# We include the slack recipe here so the libraries and such can be in place
-# so we are later able to use the slack resource
-include_recipe 'chef_slack::default'
-
-# We setup some github keys so that we can pull down private cookbooks and repos
-# from github as the chef-delivery user.
-include_recipe 'build-cookbook::_github'
-
-# We include the delivery-truck default recipe so any setup that delivery-truck 
+# We include the delivery-truck default recipe so any setup that delivery-truck
 # needs gets done.
 include_recipe 'delivery-truck::default'
 
@@ -49,32 +41,11 @@ execute 'install linkchecker' do
   not_if { File::exists?('/usr/local/bin/linkchecker') }
 end
 
-# We enter client mode, which means we are now talking to the delivery chef server
-# instead of the chef-zero invocation this run was started in context of.
-Chef_Delivery::ClientHelper.enter_client_mode_as_delivery
-
-# We need slack creds later on, so we get them here.
-slack_creds = encrypted_data_bag_item_for_environment('cia-creds','slack')
+load_delivery_chef_config
 
 # We need aws creds so we get them here.
 aws_creds = encrypted_data_bag_item_for_environment('cia-creds', 'chef-cia')
 chef_aws_creds = encrypted_data_bag_item_for_environment('cia-creds', 'chef-aws')
-
-cookbook_file 'slack.rb' do
-  path File.join(node['chef_handler']['handler_path'], 'slack.rb')
-end.run_action(:create)
-
-chef_handler "BuildCookbook::SlackHandler" do
-  source File.join(node["chef_handler"]["handler_path"], 'slack.rb')
-  arguments [
-    :webhook_url => slack_creds['webhook_url'],
-    :channels  => slack_creds['channels'],
-    :username => slack_creds['username']
-  ]
-  supports :exception => true
-  sensitive true
-  action :enable
-end
 
 # Here we are installing the aws cli that is needed durring publish. The python
 # install is actually done during the setup of the build nodes.
@@ -85,7 +56,7 @@ execute 'install awscli' do
   not_if { File::exists?('/usr/local/bin/aws') }
 end
 
-# chef-provisioning requires an aws config file. This generates the content for 
+# chef-provisioning requires an aws config file. This generates the content for
 # that file.
 aws_config_contents = <<EOF
 [default]
@@ -118,6 +89,3 @@ file chef_aws_config_filename do
   sensitive true
   content chef_aws_config_contents
 end
-# Here we leave client mode. I don't actually understand the implications of not leaving,
-# but it seems like a good idea.
-Chef_Delivery::ClientHelper.leave_client_mode_as_delivery

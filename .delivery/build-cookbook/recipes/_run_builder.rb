@@ -1,4 +1,4 @@
-Chef_Delivery::ClientHelper.enter_client_mode_as_delivery
+load_delivery_chef_config
 
 ENV['AWS_CONFIG_FILE'] = File.join(node['delivery']['workspace']['root'], 'chef_aws_config')
 
