@@ -44,7 +44,7 @@ execute 'build the site' do
   retry_delay 5
   command 'kitchen test --destroy always'
   environment(
-    'PATH' => '/opt/chefdk/embedded/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games',
+    'PATH' => '/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games',
     'HOME' => node['delivery']['workspace']['cache'],
     'KITCHEN_YAML' => '.kitchen.delivery.yml',
     'AWS_ACCESS_KEY_ID' => chef_aws_creds['access_key_id'],
