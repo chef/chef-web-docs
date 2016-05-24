@@ -153,21 +153,7 @@ For example, to copy using ssh:
 Delete this file from the destination after Step 4 has been completed
 for each backend being joined to the cluster.
 
-Step 3: Generate |chef server| Configuration
---------------------------------------------
-
-While still logged into the node from Step 3, we will also generate
-our chef-server front end node configuration:
-
-  .. code-block:: bash
-
-    $ chef-backend-ctl gen-server-config <FE1-FQDN> > chef-server.rb.<FE1>
-    $ scp chef-server.rb.FE1 USER@<IP_FE1>:/home/<USER>
-
-*Note* `/etc/chef-backend/chef-backend-secrets.json` is *not* made
-available to |chef server| front-end nodes.
-
-Step 4: Install and Configure remaining backend nodes
+Step 3: Install and Configure remaining backend nodes
 -----------------------------------------------------
 
 For each additional node do the following in sequence (if you attempt
@@ -206,6 +192,19 @@ to join nodes in parallel the cluster may fail to become available):
       leaderl        running (pid 6788)  1d 5h 59m 35s  leader: 1; waiting: 0; follower: 2; total: 3
       postgresql     running (pid 6640)  1d 5h 59m 43s  leader: 1; offline: 0; syncing: 0; synced: 2
 
+Step 4: Generate |chef server| Configuration
+--------------------------------------------
+
+Log into the node from Step 1, and we will generate our chef-server front end node configuration:
+
+  .. code-block:: bash
+
+    $ chef-backend-ctl gen-server-config <FE1-FQDN> -f chef-server.rb.<FE1>
+    $ scp chef-server.rb.FE1 USER@<IP_FE1>:/home/<USER>
+
+*Note* `/etc/chef-backend/chef-backend-secrets.json` is *not* made
+available to |chef server| front-end nodes.
+
 Step 5: Install and Configure Front End
 ---------------------------------------
 
@@ -213,7 +212,7 @@ On the first front-end node, assuming that the generated configuration
 was copied as detailed in Step 4:
 
 #. install the current chef-server-core package
-#. `cp /home/<USER>/chef-server.rb.<FE1> /etc/chef-server/chef-server.rb`
+#. `cp /home/<USER>/chef-server.rb.<FE1> /etc/opscode/chef-server.rb`
 #. as root, run `chef-server-ctl reconfigure`
 
 More Front Ends
@@ -227,10 +226,10 @@ For each additional front-end node you wish to add to your cluster:
 
      		$ chef-backend-ctl gen-server-config <FE_NAME-FQDN> > chef-server.rb.<FE_NAME>
 
-#. Copy it to /etc/chef-server on the new front end node.
+#. Copy it to /etc/opscode on the new front end node.
 
 #. From the first front-end node configured in Step 5, copy
-   `/etc/chef-server/private-chef-secrets.json` to `/etc/chef-server`
+   `/etc/opscode/private-chef-secrets.json` to `/etc/opscode`
    on the new front-end node.
 
 #. After `chef-server.rb` and `private-chef-secrets.json` have been
