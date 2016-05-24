@@ -4,28 +4,58 @@ High Availability: Backend Cluster
 
 .. warning:: This topic is about an upcoming feature of the Chef server.
 
-This topic introduces the underlying concepts behind the architecture of the highly available |chef server| cluster. The topic then describes the setup and installation process for a highly available |chef server| cluster comprised of five nodes.
+This topic introduces the underlying concepts behind the architecture
+of the highly available |chef server| cluster. The topic then
+describes the setup and installation process for a highly available
+|chef server| cluster comprised of five nodes.
 
 .. note:: .. include:: ../../includes_chef/includes_chef_subscriptions.rst
 
 Overview
 =====================================================
-The |chef server| can operate in a high availability configuration that provides automated load balancing and failover for stateful components in the system architecture. This type of configuration typically splits the servers into two segments: The backend cluster, and the frontend group.
 
-* The frontend group, comprised of one (or more) nodes running the |chef server|. Nodes in the frontend group handle requests to the |api chef server| and access to the |chef manage|. Frontend group nodes should be load balanced, and may be scaled horizontally by increasing the number of nodes available to handle requests.
-* The backend cluster, typically comprised of three nodes working together, provides highly available data persistence for the frontend group.
+The |chef server| can operate in a high availability configuration
+that provides automated load balancing and failover for stateful
+components in the system architecture. This type of configuration
+typically splits the servers into two segments: The backend cluster,
+and the frontend group.
+
+* The frontend group, comprised of one (or more) nodes running the
+  |chef server|. Nodes in the frontend group handle requests to the
+  |api chef server| and access to the |chef manage|. Frontend group
+  nodes should be load balanced, and may be scaled horizontally by
+  increasing the number of nodes available to handle requests.
+
+* The backend cluster, typically comprised of three nodes working
+  together, provides highly available data persistence for the
+  frontend group.
+
+.. image:: ../../images/chef_server_ha_cluster.svg
 
 Key Differences From Standalone |chef server|
 -----------------------------------------------------
-There are several key differences between the highly available |chef server| cluster and a standalone |chef server| instance.
+There are several key differences between the highly available |chef
+server| cluster and a standalone |chef server| instance.
 
-* While |apache solr| is used in standalone |chef server| instances, in the highly available |chef server| cluster it is replaced with |elasticsearch|. |elasticsearch| provides more flexible clustering options while maintaining search API compatibility with |apache solr|.
-* Writes to the search engine and the database are handled asynchronously via |rabbitmq| and |chef expander| in standalone |chef server| instances. However, the highly available |chef server| cluster writes to the search engine and the database simultaneously. As such the |rabbitmq| and |chef expander| services are no longer present in the highly available |chef server| cluster.
-* Standalone |chef server| instances write |chef bookshelf| data to the filesystem. In a highly available |chef server| cluster, |chef bookshelf| data is written to the database.
+* While |apache solr| is used in standalone |chef server| instances,
+  in the highly available |chef server| cluster it is replaced with
+  |elasticsearch|. |elasticsearch| provides more flexible clustering
+  options while maintaining search API compatibility with |apache
+  solr|.
+
+* Writes to the search engine and the database are handled
+  asynchronously via |rabbitmq| and |chef expander| in standalone
+  |chef server| instances. However, the highly available |chef server|
+  cluster writes to the search engine and the database
+  simultaneously. As such the |rabbitmq| and |chef expander| services
+  are no longer present in the highly available |chef server| cluster.
+
+* Standalone |chef server| instances write |chef bookshelf| data to
+  the filesystem. In a highly available |chef server| cluster, |chef
+  bookshelf| data is written to the database.
 
 Recommended Cluster Topology
 =====================================================
-.. image:: ../../images/chef_server_ha_cluster.svg
 
 Nodes
 -----------------------------------------------------
@@ -34,7 +64,10 @@ Nodes
 
 Network Services
 -----------------------------------------------------
-* A load balancer between the rest of the network, and the frontend group (Not provided). Because management console session data is stored on each node in the frontend group individually, the load balancer should be configured with sticky sessions.
+* A load balancer between the rest of the network, and the frontend
+  group (Not provided). Because management console session data is
+  stored on each node in the frontend group individually, the load
+  balancer should be configured with sticky sessions.
 
 Network Port Requirements
 -----------------------------------------------------
@@ -59,95 +92,198 @@ Peer communication, backend cluster
 * 9200 (|elasticsearch|)
 * 9300 (|elasticsearch|)
 
-Cluster Components
+Installation
 =====================================================
-The following sections describe the components of the highly available |chef server| cluster.
 
-.. image:: ../../images/chef_server_ha_cluster.svg
-   :width: 600px
-   :align: center
+These instructions assume you are using the following versions or newer:
 
-The key elements are:
+- chef-server  : 12.5.0
+- chef-backend : 0.8.0
 
-* The backend cluster
-* The frontend group
-* The proxy on each node in the frontend group, used to automatically route traffic to the backend leader
-* The network ports open between the frontend group and the backend HA cluster
-* The services that run on the nodes in the frontend group and on the nodes in the backend cluster
+Before creating the backend HA cluster and building at least one |chef
+server| to be part of the frontend group, verify:
 
-Each of these elements are discussed in more detail in the following sections.
+* The user who will install and build the backend HA cluster and
+  frontend group has root access to all nodes.
 
-Backend Cluster
+* The number of backend and frontend nodes that are desired. It is
+  required to have 3 backend nodes, but the number of frontend nodes
+  may vary from a single node to a load-balanced tiered configuration.
+
+* SSH access to all boxes that will belong to the backend HA cluster
+  from the node that will be the initial bootstrap.
+
+* A time synchronization policy is in place, such as |ntp|. Drift of
+  less than 1.5 seconds must exist across all nodes in the backend HA
+  cluster.
+
+Step 1: Create Cluster
 -----------------------------------------------------
-The backend cluster is comprised of three identical nodes, joined into a three-node cluster via the chef backend package. This backend cluster provides database and search capabilities for the entire highly available |chef server| cluster.
 
-In the event that one node in the backend cluster is lost, services for the highly available |chef server| cluster will remain online and available. In the event that two nodes in the backend cluster are lost at once, services services for the highly available |chef server| cluster will be interrupted. However, data loss will not occur unless all three nodes in the backend cluster are simultaneously destroyed.
+The first node must be bootstrapped to initialize the cluster. The
+node used to bootstrap the cluster will be the cluster leader when the
+cluster comes online. After bootstrap completes this node is no
+different from any other back-end node.
 
-The backend cluster relies on four services to maintain the state of the cluster, provide storage, and to provide search capabilities:
+#. Install the chef-backend package on the first backend node as root
 
-|leaderl|
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|leaderl| is an |erlang|-based service that runs on each node in the backend cluster. It coordinates the availability of the backend cluster, performing the following tasks:
+#. Update /etc/chef-backend/chef-backend.rb with the following
+   content:
 
-* Leader election and failover for the backend cluster
-* Automatic configuration of |postgresql| replication topology
-* Advertising backend cluster leadership via a REST endpoint
-* Internal monitoring of backend cluster services
+   .. code-block:: ruby
 
-leaderl listens on port TCP 7331, providing cluster status via an HTTP endpoint. The cluster leader will return code HTTP 200, while follower nodes will return code HTTP 503.
+	publish_address 'external_IP_address_of_this_leader_box' # External ip address of this backend box
 
-|elasticsearch|
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|elasticsearch| provides search capabilities for the highly available |chef server| cluster. |elasticsearch| is configured as a unicast cluster of 3 nodes.
+#. Run `chef-backend-ctl create-cluster`
 
-|elasticsearch| listens on port TCP 9200 for communication from nodes in the frontend group. All network traffic from the frontend group to |elasticsearch| is sent only to the backend cluster leader, as advertised by leaderl.
-
-|postgresql|
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|postgresql| is the primary data store for the highly available |chef server| cluster. It is configured to run as a leader with two followers connected via |postgresql| asynchronous streaming replication. Because this replication is asynchronous, any changes written to the leader but not yet written to the followers may be lost during failover.
-
-During failover, leaderl will automatically configure the |postgresql| leader & follower state to match the backend cluster topology.
-
-|postgresql| listens on port TCP 5432 for communication from nodes in the frontend group. All network traffic from the frontend group to |postgresql| is sent only to the backend cluster leader, as advertised by leaderl.
-
-|etcd|
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|etcd| provides distributed consensus and communication between nodes in the backend HA cluster. |leaderl| relies on |etcd| as its primary data store.
-
-|etcd| listens on port TCP 2379 for communication from nodes in the frontend group.
-
-Frontend Group
+Step 2: Shared Credentials
 -----------------------------------------------------
-The frontend group is comprised of one (or more) nodes running the |chef server|. Nodes in the frontend group each act autonomously, relying on the backend cluster as an external data store. The nodes in the frontend group handle requests to the |api chef server| from workstations and nodes, and requests to the |chef manage| from users.
 
-Nodes in the frontend group do not share session data for the |chef manage|. Any load balancer that serves the frontend group should be configured with sticky sessions.
+The credentials file `/etc/chef-backend/chef-backend-secrets.json`
+generated by bootstrapping must be shared with the other nodes.  You
+may copy them directly, or expose them via a common mounted location.
 
-Each node in the frontend group provides many of the same services as a standalone |chef server|, with one significant addition:
+For example, to copy using ssh:
 
-haproxy
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-An instance of |haproxy| is bundled with each node in the frontend group and automatically routes traffic to the leader node in the backend HA cluster.
+  .. code-block:: bash
+
+    $ scp /etc/chef-backend/chef-backend-secrets.json <USER>@<IP_BE2>:/home/<USER>
+    $ scp /etc/chef-backend/chef-backend-secrets.json <USER>@<IP_BE3>:/home/<USER>
+
+Delete this file from the destination after Step 4 has been completed
+for each backend being joined to the cluster.
+
+Step 3: Generate |chef server| Configuration
+--------------------------------------------
+
+While still logged into the node from Step 3, we will also generate
+our chef-server front end node configuration:
+
+  .. code-block:: bash
+
+    $ chef-backend-ctl gen-server-config <FE1-FQDN> > chef-server.rb.<FE1>
+    $ scp chef-server.rb.FE1 USER@<IP_FE1>:/home/<USER>
+
+*Note* `/etc/chef-backend/chef-backend-secrets.json` is *not* made
+available to |chef server| front-end nodes.
+
+Step 4: Install and Configure remaining backend nodes
+-----------------------------------------------------
+
+For each additional node do the following in sequence (if you attempt
+to join nodes in parallel the cluster may fail to become available):
+
+#. Install backend package on the node.
+
+#. As root or with sudo:
+
+   .. code-block:: bash
+
+      $ chef-backend-ctl join-cluster <IP_BE1> -s ~/home/<USER>/chef-backend-secrets.json
+
+#. Answer the prompts regarding which public IP to use
+
+   - As an alternative, you may specify them on the `chef-backend join-cluster` command line.  See `chef-backend-ctl join-cluster --help` for more information.
+
+#. If you copied the shared chef-backend-secrets.json file to a user
+   HOME directory on this host, remove it now.
+
+#. Repeat these steps for each follower node, after which the cluster
+   is online and available. From any node in the backend HA cluster,
+   run the following command:
+
+   .. code-block:: bash
+
+      $ chef-backend-ctl status
+
+   should return something like:
+
+   .. code-block:: bash
+
+      Service        Local Status        Time in State  Distributed Node Status
+      elasticsearch  running (pid 6661)  1d 5h 59m 41s  state: green; nodes online: 3/3
+      etcd           running (pid 6742)  1d 5h 59m 39s  health: green; healthy nodes: 3/3
+      leaderl        running (pid 6788)  1d 5h 59m 35s  leader: 1; waiting: 0; follower: 2; total: 3
+      postgresql     running (pid 6640)  1d 5h 59m 43s  leader: 1; offline: 0; syncing: 0; synced: 2
+
+Step 5: Install and Configure Front End
+---------------------------------------
+
+On the first front-end node, assuming that the generated configuration
+was copied as detailed in Step 4:
+
+#. install the current chef-server-core package
+#. `cp /home/<USER>/chef-server.rb.<FE1> /etc/chef-server/chef-server.rb`
+#. as root, run `chef-server-ctl reconfigure`
+
+More Front Ends
+-----------------------------------------------------
+
+For each additional front-end node you wish to add to your cluster:
+
+#. Generate a new `chef-server.rb` from any of the backend nodes via
+
+    .. code-block:: bash
+
+     		$ chef-backend-ctl gen-server-config <FE_NAME-FQDN> > chef-server.rb.<FE_NAME>
+
+#. Copy it to /etc/chef-server on the new front end node.
+
+#. From the first front-end node configured in Step 5, copy
+   `/etc/chef-server/private-chef-secrets.json` to `/etc/chef-server`
+   on the new front-end node.
+
+#. After `chef-server.rb` and `private-chef-secrets.json` have been
+   copied into place, run `chef-server-ctl reconfigure` as root
+
+Upgrading chef-server on the frontend machines
+----------------------------------------------
+
+#. On any of the frontends follow documentation from:
+   https://docs.chef.io/upgrade\_server.html#standalone to upgrade
+
+#. On each of the remaining frontends, copy
+   `/var/opt/opscode/upgrades/migration-level` from first upgraded
+   frontend to `/var/opt/opscode/upgrades/migration-level` on current
+   box.
 
 Cluster Security Considerations
-=====================================================
+===============================
 
 .. This will need to be integrated into the server_ topics after all that is updated and finalized.
 
-A backend cluster is expected to run in a trusted environment. This means that untrusted users that communicate with and/or eavesdrop on services provided by the backend cluster can potentially view sensitive data.
+A backend cluster is expected to run in a trusted environment. This
+means that untrusted users that communicate with and/or eavesdrop on
+services provided by the backend cluster can potentially view
+sensitive data.
 
 Communication Between Nodes
------------------------------------------------------
-|postgresql| communication between nodes in the backend cluster is encrypted, and uses password authentication. All other communication in the backend cluster is unauthenticated and happens in the clear (without encryption).
+---------------------------
+
+|postgresql| communication between nodes in the backend cluster is
+encrypted, and uses password authentication. All other communication
+in the backend cluster is unauthenticated and happens in the clear
+(without encryption).
 
 Communication Between Frontend Group & Backend Cluster
 --------------------------------------------------------
-|postgresql| communication from nodes in the frontend group to the leader of the backend cluster uses password authentication, but communication happens in the clear (without encryption).
+
+|postgresql| communication from nodes in the frontend group to the
+leader of the backend cluster uses password authentication, but
+communication happens in the clear (without encryption).
 
 |elasticsearch| communication is unauthenticated and happens in the clear (without encryption).
 
 Securing Communication
 -----------------------------------------------------
-Because most of the peer communication between nodes in the backend cluster happens in the clear, the backend cluster is vulnerable to passive monitoring of network traffic between nodes. To help prevent an active attacker from intercepting or changing cluster data, |company_name| recommends using |iptables| or an equivalent network ACL tool to restrict access to |postgresql|, |elasticsearch| and |etcd| to only hosts that need access.
+
+Because most of the peer communication between nodes in the backend
+cluster happens in the clear, the backend cluster is vulnerable to
+passive monitoring of network traffic between nodes. To help prevent
+an active attacker from intercepting or changing cluster data,
+|company_name| recommends using |iptables| or an equivalent network
+ACL tool to restrict access to |postgresql|, |elasticsearch| and
+|etcd| to only hosts that need access.
 
 By service role, access requirements are as follows:
 
@@ -166,7 +302,9 @@ By service role, access requirements are as follows:
 
 Services and Secrets
 -----------------------------------------------------
-The following services run on each node in the backend cluster. The user account under which the service runs as listed the second column:
+
+The following services run on each node in the backend cluster. The
+user account under which the service runs as listed the second column:
 
 
 .. list-table::
@@ -178,7 +316,10 @@ The following services run on each node in the backend cluster. The user account
    * - ``postgresql``
      - ``chef_pgsql``
 
-       Communication with |postgresql| requires password authentication. The backend cluster generates |postgresql| users and passwords during the initial cluster-create. These passwords are present in the following files on disk:
+       Communication with |postgresql| requires password
+       authentication. The backend cluster generates |postgresql|
+       users and passwords during the initial cluster-create. These
+       passwords are present in the following files on disk:
 
        * ``/etc/chef-backend/secrets.json`` (owner root, 0600)
        * ``/var/opt/chef-backend/leaderl/data/sys.config`` (owner chef-backend, mode 0600.
@@ -196,231 +337,26 @@ The following services run on each node in the backend cluster. The user account
 
 Chef Server Front End
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``chef-backend-ctl gen-server-config`` command, which can be run as root from any node in the backend cluster, will automatically generate a configuration file containing the superuser database access credentials for the backend cluster |postgresql| instance.
+The ``chef-backend-ctl gen-server-config`` command, which can be run
+as root from any node in the backend cluster, will automatically
+generate a configuration file containing the superuser database access
+credentials for the backend cluster |postgresql| instance.
 
 Software Versions
 -----------------------------------------------------
-The backend HA cluster uses the |omnibus installer| (https://github.com/chef/omnibus) to package all of the software necessary to run the services included in the backend cluster. For a full list of the software packages included (and their versions), see the file located at ``/opt/chef-backend/version-manifest.json``.
 
-Do not attempt to upgrade individual components of the omnibus package. Due to the way omnibus packages are built, modifying any of the individual components in the package will lead to cluster instability. If the latest version of the backend cluster is providing an out-of-date package, please bring it to the attention of |company_name| by filling out a ticket with |support_email|.
-
-
-Setup and Config
-=====================================================
-A backend HA cluster requires all nodes in both the frontend group and backend HA cluster to be running |chef server| 12.6.0 (or higher) and requires the backend HA cluster package to be 0.8.0 (or higher).
-
-Before creating the backend HA cluster and building at least one |chef server| to be part of the frontend group, verify:
-
-* The user who will install and build the backend HA cluster and frontend group has root access too all nodes.
-* The number of backend and frontend nodes that are desired. It is required to have 3 backend nodes, but the number of frontend nodes may vary from a single node to a load-balanced tiered configuration.
-* A virtual IP address is available and that it can be bound to any of the backend nodes.
-* SSH access to all boxes that will belong to the backend HA cluster from the node that will be the initial bootstrap.
-* A time synchronization policy is in place, such as |ntp|. Drift of less than 1.5 seconds must exist across all nodes in the backend HA cluster.
-
-
-Bootstrap a Cluster
------------------------------------------------------
-The first node in the backend HA cluster must be bootstrapped to initialize the cluster. After the bootstrap process is finshed, this node's configuration will be used to create both follower nodes; all three nodes wil be identical, except for their status as leader and follower. The first node in the backend HA cluster is the initial cluster leader. 
-
-Use the following steps to bootstrap the first node in the backend HA cluster:
-
-#. As a root user, install the backend package on the server, using the name of the package provided by |company_name|. For |redhat| and |centos| 6:
-
-   .. code-block:: bash
-      
-      $ rpm -Uvh /tmp/chef-server-core-<version>.rpm
-
-   For |ubuntu|:
-
-   .. code-block:: bash
-      
-      $ dpkg -i /tmp/chef-server-core-<version>.deb
-
-   After a few minutes, the backend package will be installed.
-
-#. Update the ``chef-backend.rb`` file (located at ``/etc/chef-backend/``) with the following settings and values:
-
-   .. code-block:: ruby
-
-      publish_address 'EXTERNAL_IP_ADDRESS'
-      vip 'VIP'
-      vip_interface 'INTERFACE'
-
-   where
-
-   ``publish_address``
-      The IP address that is published within the backend HA cluster. This IP address must be accessible to all nodes in the backend HA cluster.
-
-   ``vip``
-      An IP address that represents the backend HA cluster and is always assigned to the node that is the current leader.
-
-   ``vip_interface``
-      The network interface to which the backend VIP will bind in the event that this node becomes leader.
-
-   For example:
-
-   .. code-block:: ruby
-
-      publish_address = '10.0.2.15'
-      vip = '10.0.2.15'
-      vip_interface = 'eth0'
-
-#. Run the following to bootstrap the node:
-
-   .. code-block:: bash
-      
-      $ chef-backend-ctl bootstrap
-
-
-Shared Credentials
------------------------------------------------------
-The credentials file located at ``/etc/chef-backend/secrets.json`` is generated during the bootstrap process. This file must be shared with all nodes in the backend HA cluster. This file may be copied directly or they may be shared from a common mount point. This file will be removed from the node after the follower node is joined to the backend HA cluster.
-
-.. note:: The credentials file is only required by the nodes in the backend HA cluster and should never be copied to any node in the frontend group.
-
-For example:
-
-.. code-block:: bash
-
-   scp /etc/chef-backend/secrets.json <USER>@<IP_ADDRESS>:/home/<USER>
-
-where
-
-* ``USER`` is a user with root access to the follower node and also the directory to which the file will be copied
-* ``IP_ADDRESS`` is the IP address for the follower node
-
-This must be done for each of the follower nodes in the backend HA cluster.
-
-
-Generate Config
------------------------------------------------------
-From the bootstrapped node, generate the ``chef-server.rb`` configuration file that will be used by all nodes that will belong to the frontend group. A ``chef-server.rb`` configuration file must be generated for each node that will belong to the frontend group.
-
-#. Run the following command:
-
-   .. code-block:: bash
-
-      $ chef-backend-ctl gen-server-config <FE-FQDN> > chef-server.rb.<FE>
-
-   where ``FE`` is the name of the frontend node that will be used to create the initial frontend group and ``FQDN`` is the |fqdn| for the frontend node.
-
-#. Copy the configuration file to the frontend node:
-
-   .. code-block:: bash
-
-      $ scp chef-server.rb.FE1 USER@<IP_ADDRESS>:/home/<USER>
-
-   .. note:: Do not copy the credentials file (located at ``/etc/chef-backend/secrets.json``) to any of the frontend nodes. It is only used in the backend HA cluster.
-
-
-Build the Cluster
------------------------------------------------------
-The follower nodes in a backend cluster are installed like the bootstrap node, but then joined to the cluster (instead of bootstrapped).
-
-Use the following steps to install, and then join nodes to the backend HA cluster:
-
-#. As a root user, install the backend package on the server, using the name of the package provided by |company_name|. For |redhat| and |centos| 6:
-
-   .. code-block:: bash
-      
-      $ rpm -Uvh /tmp/chef-server-core-<version>.rpm
-
-   For |ubuntu|:
-
-   .. code-block:: bash
-      
-      $ dpkg -i /tmp/chef-server-core-<version>.deb
-
-   After a few minutes, the backend package will be installed.
-
-#. Run the following command to join the node to the backend HA cluster:
-
-   .. code-block:: bash
-
-      $ chef-backend-ctl join-cluster <IP_ADDRESS> -s ~/home/<USER>/secrets.json
-
-   where
-
-   * ``IP_ADDRESS`` is the IP address for the bootstrapped node
-   * ``USER`` is the name of the directory in which the credentials file is located
-
-#. Answer the prompts by providing the public IP address and network interface values. These are the same values used in the ``chef-backend.rb`` file for the bootstrapped node. For example:
-
-   .. code-block:: ruby
-
-      publish_address = '10.0.2.15'
-      vip_interface = 'eth0'
-
-#. Remove the credentials file that was previously copied to the user's ``/home`` directory.
-
-#. Repeat these steps for each follower node, after which the cluster is online and available. From any node in the backend HA cluster, run the following command:
-
-   .. code-block:: bash
-
-      $ chef-backend-ctl status
-
-   should return something like:
-
-   .. code-block:: bash
-
-      Service        Local Status        Time in State  Distributed Node Status 
-      elasticsearch  running (pid 6661)  1d 5h 59m 41s  state: green; nodes online: 3/3
-      etcd           running (pid 6742)  1d 5h 59m 39s  health: green; healthy nodes: 3/3 
-      leaderl        running (pid 6788)  1d 5h 59m 35s  leader: 1; waiting: 0; follower: 2; total: 3
-      postgresql     running (pid 6640)  1d 5h 59m 43s  leader: 1; offline: 0; syncing: 0; synced: 2
-
-
-Build the Frontend
------------------------------------------------------
-Install a frontend |chef server| and configure it to communicate with the backend HA cluster. The frontend group may comprise a single |chef server| or it may be a load-balanced group similar to the tiered configuration.
-
-#. Verify the generated configuration file was copied to the frontend node.
-
-#. .. include:: ../../step_install/step_install_chef_server_install_package.rst
-
-#. Move the configuration file previously copied to the user's ``/home`` directory into the ``/etc/chef-server/`` directory:
-
-   .. code-block:: bash
-
-      $ cp /home/<USER>/chef-server.rb.<FE1> /etc/chef-server/chef-server.rb
-
-#. Run the following to start all of the services:
-
-   .. code-block:: bash
-      
-      $ chef-server-ctl reconfigure
-
-#. Load balance the frontend group, if desired. Repeat these steps for each node in the frontend group.
-
-
-Add Nodes
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-For each node that will be added to the frontend group, do the following:
-
-#. Generate a ``chef-server.rb`` file:
-
-   .. code-block:: bash
-
-      $ chef-backend-ctl gen-server-config <FE-FQDN> > chef-server.rb.<FE>
-
-   where
-
-   * ``FE`` is the name of the frontend node that will be used to create the initial frontend group
-   * ``FQDN`` is the |fqdn| for the frontend node
-
-#. Copy the generated ``chef-server.rb`` file to the ``/etc/chef-server`` directory on the frontend node.
-#. From the initial node in the frontend group, copy the ``/etc/chef-server/private-chef-secrets.json`` file to the ``/etc/chef-server`` directory on the node being added to the frontend group.
-#. Run the following on the node being added to the frontend group:
-
-   .. code-block:: bash
-      
-      $ chef-server-ctl reconfigure
-
-Upgrade the Frontend
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-If a frontend node requires an upgrade for the |chef server|, follow the steps outlined at https://docs.chef.io/upgrade_server.html#standalone for all nodes in the frontend group, and then copy ``/var/opt/opscode/upgrades/migration-level`` from the first-upgraded node in the frontend group to the same directory on all other nodes in the frontend group.
-
-
+The backend HA cluster uses the |omnibus installer|
+(https://github.com/chef/omnibus) to package all of the software
+necessary to run the services included in the backend cluster. For a
+full list of the software packages included (and their versions), see
+the file located at ``/opt/chef-backend/version-manifest.json``.
+
+Do not attempt to upgrade individual components of the omnibus
+package. Due to the way omnibus packages are built, modifying any of
+the individual components in the package will lead to cluster
+instability. If the latest version of the backend cluster is providing
+an out-of-date package, please bring it to the attention of
+|company_name| by filling out a ticket with |support_email|.
 
 chef-backend-ctl
 =====================================================
@@ -728,6 +664,3 @@ tail
 term
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_term.rst
-
-
-
