@@ -6,7 +6,7 @@
 
    .. code-block:: bash
 
-      $ chef-backend-ctl gen-server-config FQDN > chef-server.rb.fqdn
+      $ chef-backend-ctl gen-server-config FQDN -f chef-server.rb.fqdn
 
    where ``FQDN`` is the |fqdn| for the frontend machine. The generated ``chef-server.rb`` file will contain all of the values necessary for any frontend |chef server| to connect to and bootstrap against the backend HA cluster.
 
