@@ -9,7 +9,7 @@ If processes is started by using the |resource execute| or |resource script| res
      code <<-EOF
      echo $FOO
    EOF
-     environment { 'FOO' => 'bar' }
+     environment ({ 'FOO' => 'bar' })
    end
 
 The only environment being altered is the one being passed to the child process that is started by the |resource script_bash| resource. This will not affect the environment of the |chef client| or any child processes.

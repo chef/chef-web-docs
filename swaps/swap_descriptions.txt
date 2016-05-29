@@ -400,7 +400,7 @@
 .. |environment set_mailto| replace:: Set the ``MAILTO`` environment variable.
 .. |environment set_path| replace:: Set the ``PATH`` environment variable.
 .. |environment set_shell| replace:: Set the ``SHELL`` environment variable.
-.. |environment variables| replace:: A |ruby hash| of environment variables in the form of ``{"ENV_VARIABLE" => "VALUE"}``. (These variables must exist for a command to be run successfully.)
+.. |environment variables| replace:: A |ruby hash| of environment variables in the form of ``({"ENV_VARIABLE" => "VALUE"})``. (These variables must exist for a command to be run successfully.)
 .. |ephemeral device| replace:: A comma-separated list of device locations to be mapped to ephemeral devices.
 .. |errorlevel| replace:: The output level for error messages.
 .. |event_type audit_phase_failed| replace:: The |chef client| run audit phase has failed.
@@ -1560,4 +1560,3 @@
 ..
 
 .. |zone google| replace:: The |google compute engine| zone in which a disk is located.
-
