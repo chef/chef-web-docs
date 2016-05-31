@@ -27,6 +27,4 @@ To configure the |chef server| to use |windows ad| or |ldap| do the following:
 
 #. .. include:: ../../step_install/step_install_chef_server_reconfigure.rst
 
-#. .. include:: ../../step_install/step_install_chef_manage_reconfigure.rst
-
 At this point, all users should be able to use their |windows ad| or |ldap| usernames and passwords to log in to the |chef server|.
