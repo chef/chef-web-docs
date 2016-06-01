@@ -19,6 +19,9 @@ This configuration file has the following settings for ``postgresql``:
 ``postgresql['data_dir']``
    |directory generic_data| |default_value_recommended| Default value: ``/var/opt/opscode/postgresql/#{node['private_chef']['postgresql']['version']}/data``.
 
+``postgresql['db_superuser']``
+   Default value: ``opscode-pgsql``. If ``username`` is set, set ``db_superuser`` to the same value.
+
 ``postgresql['dir']``
    |directory generic_working| |default_value_recommended| Default value: ``/var/opt/opscode/postgresql/#{node['private_chef']['postgresql']['version']}``.
 
@@ -95,7 +98,7 @@ This configuration file has the following settings for ``postgresql``:
    Default value: ``/opt/opscode/embedded/bin:/opt/opscode/bin:$PATH``.
 
 ``postgresql['username']``
-   |name user postgresql| Default value: ``opscode-pgsql``.
+   |name user postgresql| Default value: ``opscode-pgsql``. If setting this value, must set ``db_superuser`` to the same value.
 
 ``postgresql['version']``
    |version postgresql| Default value: ``'9.2'``.
