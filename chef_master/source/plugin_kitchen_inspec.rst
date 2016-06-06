@@ -43,7 +43,7 @@ To define a suite that pulls its run-list from the |supermarket|:
          inspec_tests:
            - supermarket://hardening/ssh-hardening
 
-The ``kitchen-inspec`` driver expects tests to be located in the ``test/integration`` directoryn in a cookbook. For example::
+The ``kitchen-inspec`` driver expects tests to be located in the ``test/integration`` directory in a cookbook. For example::
 
    .
    ├── Berksfile
