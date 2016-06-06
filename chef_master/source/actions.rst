@@ -1,5 +1,5 @@
 =====================================================
-|chef analytics_title| Webui
+|chef analytics_title| Webui 
 =====================================================
 
 .. include:: ../../includes_actions/includes_actions.rst
