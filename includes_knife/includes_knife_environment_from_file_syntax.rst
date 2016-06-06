@@ -6,5 +6,5 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife environment [create | edit] from file FILE (options)
+   $ knife environment from file FILE (options)
 
