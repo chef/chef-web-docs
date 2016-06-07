@@ -18,7 +18,7 @@ upgrade. Major version upgrades may require downtime.
 Procedure
 =====================================================
 
-This assumes that the new chef-backend package has been copied to all of the nodes.
+.. note:: The procedure assumes that the new chef-backend package has been copied to all of the nodes.
 
 Step 1: Block Failover
 -----------------------------------------------------
@@ -63,8 +63,8 @@ For each follower do:
       postgresql     running (pid 6942)  0d 0h 43m 34s  leader: 1; offline: 0; syncing: 0; synced: 2
       elasticsearch  running (pid 6796)  0d 0h 43m 43s  state: green; nodes online: 3/3
 
-Pay special attention to the postgresql 'synced' count; syncing is the
-slowest part of rejoining the cluster.
+.. warning:: Pay special attention to the postgresql 'synced' count;
+	     syncing is the slowest part of rejoining the cluster.
 
 Repeat the process for each follower.
 
@@ -94,7 +94,7 @@ Check that a new leader has been elected. The old leader will initially have the
 Step 4: Upgrade the demoted leader
 -----------------------------------------------------
 
-Upgrade the demoted leader as in Step 2 above
+Upgrade the demoted leader as in Step 2 above.
 
 
 Step 5: Re-enable failover
