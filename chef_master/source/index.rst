@@ -508,7 +508,7 @@ Chef Compliance
    upgrade_client_notes
    upgrade_compliance
    upgrade_server
-   upgrade_server_ha
+   upgrade_server_ha_v2
    upgrade_server_notes
    upgrade_server_open_source_notes
    verify_packages
