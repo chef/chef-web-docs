@@ -54,6 +54,8 @@
      - |http_proxy|
    * - ``https_proxy``
      - |https_proxy|
+   * - ``install_msi_url``
+     - An alternate URL for a Windows MSI package that will install chef-client on the machine under test.
    * - ``json_attributes``
      - |chef client| provisioner only. 
    * - ``log_file``
