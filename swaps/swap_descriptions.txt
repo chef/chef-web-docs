@@ -431,7 +431,7 @@
 .. |file cache_path| replace:: The location in which cookbooks (and other transient data) files are stored when they are synchronized. This value can also be used in recipes to download files with the |resource remote_file| resource.
 .. |file cookbook_download| replace:: The file to which a cookbook download is written.
 .. |file private_key| replace:: Save a private key to the specified file name.
-.. |file public_key| replace:: Read a public key from the specified file name.
+.. |file public_key| replace:: Save a public key to the specified file name.
 .. |file_name| replace:: The name of a file that is associated with a cookbook.
 .. |file_staging_uses_destdir| replace:: How file staging (via temporary files) is done. When ``true``, temporary files are created in the directory in which files will reside. When ``false``, temporary files are created under ``ENV['TMP']``.
 .. |files_backup| replace:: The number of backup copies to keep for files in the directory.
