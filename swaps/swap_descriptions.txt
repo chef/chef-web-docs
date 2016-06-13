@@ -292,7 +292,7 @@
 .. |default_release apt| replace:: The default release.
 .. |default_value_recommended| replace:: The default value is the recommended value.
 .. |delete_local_and_remote| replace:: Delete both local and remote copies of an object.
-.. |delete chef_validator| replace:: Force the deletion of the |chef client| when it is also a |chef validator|.
+.. |delete chef_validator| replace:: Force the deletion of the client when it is also a |chef validator|.
 .. |delim resource directory| replace:: The delimiter that is used to separate multiple values for a single key.
 .. |delivery branch| replace:: A branch name for a |delivery| change.
 .. |delivery data_api| replace:: The |json| data to submit to the |api delivery|.
