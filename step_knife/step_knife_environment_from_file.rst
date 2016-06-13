@@ -8,8 +8,3 @@ To add an environment using data contained in a |json| file:
 
    $ knife environment from file "path to JSON file"
 
-or:
-
-.. code-block:: bash
-
-   $ knife environment from file "path to JSON file"
