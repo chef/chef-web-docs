@@ -14,4 +14,4 @@ This argument has the following options:
    |password user|
 
 ``--user-key FILE_NAME``
-   |file public_key|
+   |path key_public|

@@ -19,4 +19,4 @@ This argument has the following options:
    |password user| |knife open_source_only|
 
 ``--user-key FILE_NAME``
-   |file public_key| |key generated_if_not_passed|
+   |path key_public| |key generated_if_not_passed|
