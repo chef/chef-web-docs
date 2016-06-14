@@ -31,11 +31,11 @@ The |json| format for roles maps directly to the domain-specific |ruby| format: 
          "recipe[apache]",
          "recipe[apache::copy_dev_configs]",
        ],
-        "test": [
+       "test": [
          "role[base]",
          "recipe[apache]"
        ]
-      },
+     },
      "override_attributes": {
        "apache2": {
          "max_children": "50"
