@@ -1,5 +1,5 @@
 =====================================================
-|api compliance| 
+|api compliance|
 =====================================================
 
 The |api compliance| is a REST-based API that is designed to be easy and predictable and to have resource-oriented URL endpoints. It uses common HTTP verbs and response codes to indicate API errors. Therefore the API can be understood by standard HTTP clients and libraries. In general the API uses |json| as data input and output format.
@@ -2531,7 +2531,7 @@ For example:
 .. code-block:: bash
 
    curl -X POST "$API_URL/orgs/acme/teams/TEAM_ID/members" \
-   -H "Content-Type: application/json" -H "$AUTH" -d '{["bob"]}'
+   -H "Content-Type: application/json" -H "$AUTH" -d '["bob"]'
 
 where ``TEAM_ID`` is similar to ``20aff993-3288-426d-6851-d1d47bb40d80``
 
