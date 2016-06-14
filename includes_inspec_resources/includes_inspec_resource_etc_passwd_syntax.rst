@@ -6,7 +6,7 @@ A ``passwd`` |inspec resource| block declares one (or more) users and associated
 .. code-block:: ruby
 
    describe passwd do
-     its(:users) { should_not include 'forbidden_user' }
+     its('users') { should_not include 'forbidden_user' }
    end
 
    describe passwd.uid(filter) do

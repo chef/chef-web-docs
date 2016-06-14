@@ -25,7 +25,7 @@ This is similar in |chef spec|. For example:
 .. code-block:: ruby
 
    describe "command('ls -al /')" do
-     its(:stdout) { should match /bin/ }
+     its('stdout') { should match /bin/ }
    end
 
 versus:
@@ -34,5 +34,5 @@ versus:
 
    describe 'use this test to foo' do
      let(:subject) { command('ls -al /') }
-     its(:stdout) { should match /bin/ }
+     its('stdout') { should match /bin/ }
    end

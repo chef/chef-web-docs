@@ -2340,7 +2340,7 @@ The following examples show how to use this InSpec audit resource.
 ::
 
    describe kernel_parameter('net.ipv4.conf.all.forwarding') do
-     its(:value) { should eq 1 }
+     its('value') { should eq 1 }
    end
 
 **Test if global forwarding is disabled for an IPv6 address**
@@ -2348,7 +2348,7 @@ The following examples show how to use this InSpec audit resource.
 ::
 
    describe kernel_parameter('net.ipv6.conf.all.forwarding') do
-     its(:value) { should eq 0 }
+     its('value') { should eq 0 }
    end
 
 **Test if an IPv6 address accepts redirects**
@@ -2356,7 +2356,7 @@ The following examples show how to use this InSpec audit resource.
 ::
 
    describe kernel_parameter('net.ipv6.conf.interface.accept_redirects') do
-     its(:value) { should eq 'true' }
+     its('value') { should eq 'true' }
    end
 
 
@@ -2704,7 +2704,7 @@ The following examples show how to use this InSpec audit resource.
    sql = mysql_session('my_user','password')
 
    describe sql.query('show databases like \'test\';') do
-     its(:stdout) { should_not match(/test/) }
+     its('stdout') { should_not match(/test/) }
    end
 
 
@@ -3580,8 +3580,8 @@ and associated user information to be tested:
    end
 
    describe passwd.uid(filter) do
-     its(:username) { should eq 'root' }
-     its(:count) { should eq 1 }
+     its('username') { should eq 'root' }
+     its('count') { should eq 1 }
    end
 
 where
