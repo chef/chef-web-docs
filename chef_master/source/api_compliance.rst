@@ -2518,7 +2518,7 @@ This method has the following parameters:
    * - Parameter
      - Description
    * - ``users``
-     - Required. An array of user identifiers. Full |json| example: '{["bob","mary"]}'
+     - Required. An array of user identifiers. Full |json| example: '["bob","mary"]'
 
 **Request**
 
