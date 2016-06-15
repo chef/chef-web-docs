@@ -1,50 +1,50 @@
 =====================================================
-Supported Platforms
+Platforms
 =====================================================
 
-The sections below list the supported platforms for the |chef client|, |ohai|, and the |chef server|.
+The sections below list the platforms that Chef have adopted for the |chef client|, |ohai|, and the |chef server|.
 
 .. note:: This topic is based on RFC-021: https://github.com/chef/chef-rfc/blob/master/rfc021-platform-support-policy.md
 
-|chef client_title|, Tier 1
+|chef client_title|, Foundational Platforms
 =====================================================
-.. include:: ../../includes_supported_platforms/includes_supported_platforms_client_tier1.rst
+.. include:: ../../includes_adopted_platforms/includes_adopted_platforms_client_tier1.rst
 
-Tier 2
+Secondary Platforms
 -----------------------------------------------------
-.. include:: ../../includes_supported_platforms/includes_supported_platforms_client_tier2.rst
+.. include:: ../../includes_adopted_platforms/includes_adopted_platforms_client_tier2.rst
 
-Unsupported
+Other Platforms
 -----------------------------------------------------
-.. include:: ../../includes_supported_platforms/includes_supported_platforms_client_not_supported.rst
+.. include:: ../../includes_adopted_platforms/includes_adopted_platforms_client_other.rst
 
 |ohai|
 =====================================================
-|ohai| is supported on the same platforms as the |chef client|.
+|ohai| is provided on the same platforms as the |chef client|.
 
 |chef dk_title|
 =====================================================
-.. include:: ../../includes_supported_platforms/includes_supported_platforms_chefdk.rst
+.. include:: ../../includes_adopted_platforms/includes_adopted_platforms_chefdk.rst
 
-Unsupported
+Other Platforms
 -----------------------------------------------------
-.. include:: ../../includes_supported_platforms/includes_supported_platforms_chefdk_not_supported.rst
+.. include:: ../../includes_adopted_platforms/includes_adopted_platforms_chefdk_other.rst
 
 |chef server_title|
 =====================================================
-.. include:: ../../includes_supported_platforms/includes_supported_platforms_server.rst
+.. include:: ../../includes_adopted_platforms/includes_adopted_platforms_server.rst
 
-Unsupported
+Other Platforms
 -----------------------------------------------------
-.. include:: ../../includes_supported_platforms/includes_supported_platforms_server_not_supported.rst
+.. include:: ../../includes_adopted_platforms/includes_adopted_platforms_server_other.rst
 
 
 |delivery|
 =====================================================
-.. include:: ../../includes_supported_platforms/includes_supported_platforms_delivery_server.rst
+.. include:: ../../includes_adopted_platforms/includes_adopted_platforms_delivery_server.rst
 
-.. note:: .. include:: ../../includes_supported_platforms/includes_supported_platforms_delivery_client.rst
+.. note:: .. include:: ../../includes_adopted_platforms/includes_adopted_platforms_delivery_client.rst
 
 |push jobs_title|
 =====================================================
-.. include:: ../../includes_supported_platforms/includes_supported_platforms_push_jobs.rst
+.. include:: ../../includes_adopted_platforms/includes_adopted_platforms_push_jobs.rst

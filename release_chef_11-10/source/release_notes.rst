@@ -4,9 +4,9 @@ Release Notes: |chef client| 11.10
 
 .. include:: ../../includes_chef/includes_chef.rst
 
-.. Supported Platforms
+.. Adopted Platforms
 .. =====================================================
-.. .. include:: ../../includes_supported_platforms/includes_supported_platforms_11-10_client.rst
+.. .. include:: ../../includes_adopted_platforms/includes_adopted_platforms_11-10_client.rst
 
 What's New
 =====================================================

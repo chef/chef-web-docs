@@ -1,7 +1,7 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics. 
 
-The following table lists the supported platforms for the |chef server|:
+The following platforms are not tested by Chef Software:
 
 .. list-table::
    :widths: 280 100 120
@@ -10,15 +10,9 @@ The following table lists the supported platforms for the |chef server|:
    * - Platform
      - Architecture
      - Version
-   * - |centos|
+   * - |mac os x|
      - 
-     - ``5.x``, ``6.x``, ``7.x``
-   * - |oracle linux|
+     - ``10.8`` (and earlier), anything PPC-based
+   * - |windows|
      - 
-     - ``5.x``, ``6.x``
-   * - |redhat enterprise linux|
-     - 
-     - ``5.x``, ``6.x``, ``7.x``
-   * - |ubuntu|
-     - 
-     - ``12.04 LTS``, ``14.04 LTS``
+     - ``Vista``, ``XP``, ``2000``, ``2003``, ``2003 R2``

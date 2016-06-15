@@ -12,9 +12,9 @@ Prerequisites
 =====================================================
 .. include:: ../../includes_install/includes_install_delivery_prerequisites.rst
 
-Supported Platforms
+Platforms
 -----------------------------------------------------
-.. include:: ../../includes_supported_platforms/includes_supported_platforms_delivery_server.rst
+.. include:: ../../includes_adopted_platforms/includes_adopted_platforms_delivery_server.rst
 
 Infrastructure
 -----------------------------------------------------
@@ -204,7 +204,7 @@ Install Delivery CLI
 -----------------------------------------------------
 .. include:: ../../includes_delivery/includes_delivery_cli_install.rst
 
-.. note:: .. include:: ../../includes_supported_platforms/includes_supported_platforms_delivery_client.rst
+.. note:: .. include:: ../../includes_adopted_platforms/includes_adopted_platforms_delivery_client.rst
 
 |mac os x|
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
