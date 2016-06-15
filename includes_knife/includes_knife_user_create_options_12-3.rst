@@ -14,4 +14,4 @@ This argument has the following options:
    |password user|
 
 ``--user-key FILE_NAME``
-   |path key_public| |key generated_if_not_passed|
+   |path key_public|  If this option is not specified, the |chef server| will generate a public/private key pair.
