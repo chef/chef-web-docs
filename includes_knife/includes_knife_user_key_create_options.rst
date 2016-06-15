@@ -8,7 +8,7 @@ This argument has the following options:
    |key expiration_date| If this option is not specified, the public key will not have an expiration date. For example: ``2013-12-24T21:00:00Z``.
 
 ``-f FILE``, ``--file FILE``
-   |file public_key| If the ``--key-name`` and ``public-key`` options are not specified the |chef server| will generate a private key.
+   |file private_key|
 
 ``-k NAME``, ``--key-name NAME``
    |name key_public| 

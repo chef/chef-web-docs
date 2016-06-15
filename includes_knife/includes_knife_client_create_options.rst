@@ -16,7 +16,7 @@ This argument has the following options:
    .. note:: .. include:: ../../includes_notes/includes_notes_knife_prevent_keygen.rst
 
 ``-p FILE``, ``--public-key FILE``
-   |file public_key| This option may not be passed in the same command with ``--prevent-keygen``. |key generated_if_not_passed|
+   |path key_public| This option may not be passed in the same command with ``--prevent-keygen``. |key generated_if_not_passed|
 
 ``--validator``
    |create chef_validator| Default value: ``true``.
