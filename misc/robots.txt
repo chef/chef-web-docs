@@ -177,7 +177,7 @@ Disallow: /server_deploy_febe.html
 Disallow: /server_deploy_standalone.html
 Disallow: /server_replication.html
 Disallow: /server_types.html
-Disallow: /supported_platforms.html
+Disallow: /platforms.html
 Disallow: /upgrade_server_ha_notes.html
 Disallow: /upgrade_server_ha.html
 Disallow: /upgrade_server_open_source.html
