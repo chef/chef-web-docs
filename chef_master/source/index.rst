@@ -346,6 +346,7 @@ Chef Compliance
    openstack
    packages
    page_not_found
+   platforms
    plugin_community
    plugin_kitchen_inspec
    plugin_kitchen_vagrant
@@ -500,7 +501,6 @@ Chef Compliance
    supermarket
    supermarket_logs
    supermarket_monitor
-   supported_platforms
    templates
    uninstall
    upgrade_analytics
