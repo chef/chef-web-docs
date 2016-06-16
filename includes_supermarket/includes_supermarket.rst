@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-|supermarket| is the site for community cookbooks. It provides an easily searchable cookbook repository, a friendly web UI, and the ``knife supermerket`` command-line interface. Cookbooks that are part of the |supermarket| are accessible by any |chef| user.
+|supermarket| is the site for community cookbooks. It provides an easily searchable cookbook repository, a friendly web UI, and the ``knife supermarket`` command-line interface. Cookbooks that are part of the |supermarket| are accessible by any |chef| user.
 
 There are two ways to use |supermarket|:
 
