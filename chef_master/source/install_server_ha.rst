@@ -195,7 +195,7 @@ to join nodes in parallel the cluster may fail to become available):
 Step 4: Generate |chef server| Configuration
 --------------------------------------------
 
-Log into the node from Step 1, and we will generate our chef-server front end node configuration:
+Log into the node from Step 1, and we will generate our chef-server frontend node configuration:
 
   .. code-block:: bash
 
@@ -203,22 +203,22 @@ Log into the node from Step 1, and we will generate our chef-server front end no
     $ scp chef-server.rb.FE1 USER@<IP_FE1>:/home/<USER>
 
 *Note* `/etc/chef-backend/chef-backend-secrets.json` is *not* made
-available to |chef server| front-end nodes.
+available to |chef server| frontend nodes.
 
-Step 5: Install and Configure Front End
----------------------------------------
+Step 5: Install and Configure First Frontend
+---------------------------------------------
 
-On the first front-end node, assuming that the generated configuration
+On the first frontend node, assuming that the generated configuration
 was copied as detailed in Step 4:
 
 #. install the current chef-server-core package
 #. `cp /home/<USER>/chef-server.rb.<FE1> /etc/opscode/chef-server.rb`
 #. as root, run `chef-server-ctl reconfigure`
 
-More Front Ends
+Adding More Frontends
 -----------------------------------------------------
 
-For each additional front-end node you wish to add to your cluster:
+For each additional frontend node you wish to add to your cluster:
 
 #. Generate a new `chef-server.rb` from any of the backend nodes via
 
@@ -226,14 +226,26 @@ For each additional front-end node you wish to add to your cluster:
 
      		$ chef-backend-ctl gen-server-config <FE_NAME-FQDN> > chef-server.rb.<FE_NAME>
 
-#. Copy it to /etc/opscode on the new front end node.
+#. Copy it to /etc/opscode on the new frontend node.
 
-#. From the first front-end node configured in Step 5, copy
-   `/etc/opscode/private-chef-secrets.json` to `/etc/opscode`
-   on the new front-end node.
+#. From the first frontend node configured in Step 5, copy the
+   following files from the first frontend to `/etc/opscode` on the
+   new frontend node:
 
-#. After `chef-server.rb` and `private-chef-secrets.json` have been
-   copied into place, run `chef-server-ctl reconfigure` as root
+   - /etc/opscode/private-chef-secrets.json
+   - /etc/opscode/webui_priv.pem
+   - /etc/opscode/webui_pub.pem
+   - /etc/opscode/pivotal.pem
+
+# On the new frontend node: `mkdir -p /var/opt/opscode/upgrades/`
+
+#. From the first frontend node, copy
+   /var/opt/opscode/upgrades/migration-level to the same location on the
+   new node.
+
+#. On the new frontend run: `touch /var/opt/opscode/bootstrapped`
+
+#. On the new frontend run: `chef-server-ctl reconfigure` as root
 
 Upgrading chef-server on the frontend machines
 ----------------------------------------------
@@ -334,7 +346,7 @@ user account under which the service runs as listed the second column:
      - ``root``
 
 
-Chef Server Front End
+Chef Server Frontend
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The ``chef-backend-ctl gen-server-config`` command, which can be run
 as root from any node in the backend cluster, will automatically
@@ -494,7 +506,7 @@ Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_gen_server_config_syntax.rst
 
-Configure the Front End
+Configure the Frontend
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_ctl_chef_backend/includes_ctl_chef_backend_gen_server_config_steps.rst
 
