@@ -4,13 +4,13 @@ Prerequisites
 
 The following prerequisites apply to every installation of the |chef server|.
 
-Supported Platforms
+Platforms
 =====================================================
-.. include:: ../../includes_supported_platforms/includes_supported_platforms_server.rst
+.. include:: ../../includes_adopted_platforms/includes_adopted_platforms_server.rst
 
-Unsupported
+Untested Platforms
 -----------------------------------------------------
-.. include:: ../../includes_supported_platforms/includes_supported_platforms_server_not_supported.rst
+.. include:: ../../includes_adopted_platforms/includes_adopted_platforms_server_other.rst
 
 Capacity Planning
 =====================================================

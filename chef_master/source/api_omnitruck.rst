@@ -12,9 +12,9 @@ Downloads
 =====================================================
 .. include:: ../../includes_api_omnitruck/includes_api_omnitruck_downloads.rst
 
-Supported Platforms
+Platforms
 -----------------------------------------------------
-.. include:: ../../includes_supported_platforms/includes_supported_platforms_omnitruck.rst
+.. include:: ../../includes_adopted_platforms/includes_adopted_platforms_omnitruck.rst
 
 Examples
 -----------------------------------------------------

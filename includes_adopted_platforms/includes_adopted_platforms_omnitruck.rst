@@ -1,7 +1,7 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
-The following table lists the supported platforms for the |chef client|:
+The following table lists the Foundational platforms for the |chef client|:
 
 .. list-table::
    :widths: 280 60 60 100

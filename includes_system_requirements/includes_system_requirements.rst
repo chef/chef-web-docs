@@ -4,7 +4,7 @@
 
 Before installing |chef|:
 
-* Ensure that each machine that will be a node is running a :doc:`supported platform </supported_platforms>`
+* Ensure that each machine that will be a node is running a :doc:`platform </platforms>`
 * Ensure that the machine that will run the |chef server| is sufficiently powerful
 * Ensure that any network and firewall settings are configured correctly
 

@@ -4,9 +4,9 @@ Release Notes: |ohai| 8
 
 .. include:: ../../includes_ohai/includes_ohai.rst
 
-.. Supported Platforms
+.. Adopted Platforms
 .. =====================================================
-.. .. include:: ../../includes_supported_platforms/includes_supported_platforms_ohai.rst
+.. .. include:: ../../includes_adopted_platforms/includes_adopted_platforms_ohai.rst
 
 What's New
 =====================================================

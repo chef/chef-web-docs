@@ -10,7 +10,7 @@ Install Delivery CLI
 
 By platform
 -----------------------------------------------------
-.. include:: ../../includes_supported_platforms/includes_supported_platforms_delivery_client.rst
+.. include:: ../../includes_adopted_platforms/includes_adopted_platforms_delivery_client.rst
 
 |mac os x|
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++

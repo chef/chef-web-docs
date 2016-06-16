@@ -10,9 +10,9 @@ Requirements
 =====================================================
 .. include:: ../../includes_push_jobs/includes_push_jobs_requirements.rst
 
-Supported Platforms
+Platforms
 -----------------------------------------------------
-.. include:: ../../includes_supported_platforms/includes_supported_platforms_push_jobs.rst
+.. include:: ../../includes_adopted_platforms/includes_adopted_platforms_push_jobs.rst
 
 Components
 =====================================================

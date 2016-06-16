@@ -17,13 +17,13 @@ The |chef compliance| server has the following prerequisites:
 
 The following prerequisites apply to every installation of the |chef compliance| server.
 
-Supported Platforms
+Platforms
 -----------------------------------------------------
-.. include:: ../../includes_supported_platforms/includes_supported_platforms_compliance.rst
+.. include:: ../../includes_adopted_platforms/includes_adopted_platforms_compliance.rst
 
-Unsupported
+Untested Platforms
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_supported_platforms/includes_supported_platforms_compliance_not_supported.rst
+.. include:: ../../includes_adopted_platforms/includes_adopted_platforms_compliance_other.rst
 
 Standalone
 =====================================================

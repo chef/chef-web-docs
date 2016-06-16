@@ -1,7 +1,7 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics. 
 
-The following platforms are not supported:
+The following table lists the Foundational platforms for the |chef server|:
 
 .. list-table::
    :widths: 280 100 120
@@ -10,9 +10,15 @@ The following platforms are not supported:
    * - Platform
      - Architecture
      - Version
-   * - |mac os x|
+   * - |centos|
      - 
-     - ``10.8`` (and earlier), anything PPC-based
-   * - |windows|
+     - ``5.x``, ``6.x``, ``7.x``
+   * - |oracle linux|
      - 
-     - ``Vista``, ``XP``, ``2000``, ``2003``, ``2003 R2``
+     - ``5.x``, ``6.x``
+   * - |redhat enterprise linux|
+     - 
+     - ``5.x``, ``6.x``, ``7.x``
+   * - |ubuntu|
+     - 
+     - ``12.04 LTS``, ``14.04 LTS``
