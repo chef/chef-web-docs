@@ -686,6 +686,7 @@
   "release/delivery_1-0/install_delivery_ssh.html": "/release/delivery/install_delivery_ssh.html",
   "release/delivery_1-0/integrate_delivery_bitbucket.html": "/release/delivery/integrate_delivery_bitbucket.html",
   "release/delivery_1-0/integrate_delivery_github.html": "/release/delivery/integrate_delivery_github.html",
-  "release/delivery_1-0/integrate_delivery_ldap.html": "/release/delivery/integrate_delivery_ldap.html"
+  "release/delivery_1-0/integrate_delivery_ldap.html": "/release/delivery/integrate_delivery_ldap.html",
+  "supported_platforms.html": "/platforms.html" 
 }
 
