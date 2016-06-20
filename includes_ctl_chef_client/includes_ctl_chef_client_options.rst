@@ -58,7 +58,7 @@ This command has the following options:
    |interval| |chef_client intervals| Default value: ``1800``.
 
 ``-j PATH``, ``--json-attributes PATH``
-   |json attributes|
+   |json attributes| Used to setup the first client run. For all the future runs with option -i the attributes are expected to be persisted in the chef-server.
 
    **Run-lists**
 
@@ -110,7 +110,7 @@ This command has the following options:
    |name node|
 
 ``-o RUN_LIST_ITEM``, ``--override-runlist RUN_LIST_ITEM``
-   |override_runlist| This option will not clear the list of cookbooks (and related files) that is cached on the node.
+   |override_runlist| This option will not clear the list of cookbooks (and related files) that is cached on the node. This option will not persist node data at the end of the client run.
 
 ``--once``
    |once|
