@@ -204,24 +204,6 @@ Install Delivery CLI
 -----------------------------------------------------
 .. include:: ../../includes_delivery/includes_delivery_cli_install.rst
 
-.. note:: .. include:: ../../includes_adopted_platforms/includes_adopted_platforms_delivery_client.rst
-
-|mac os x|
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_delivery/includes_delivery_cli_install_mac.rst
-
-|ubuntu|
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_delivery/includes_delivery_cli_install_ubuntu.rst
-
-|redhat enterprise linux| 
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_delivery/includes_delivery_cli_install_rhel.rst
-
-|windows|
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_delivery/includes_delivery_cli_install_windows.rst
-
 Configure Delivery CLI
 -----------------------------------------------------
 .. include:: ../../includes_delivery/includes_delivery_cli_configure.rst

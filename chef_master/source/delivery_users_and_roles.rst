@@ -24,11 +24,11 @@ Manage Users
 -----------------------------------------------------
 .. include:: ../../includes_delivery_integration/includes_delivery_integration_ldap_users.rst
 
-Add 
+Add
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_delivery_integration/includes_delivery_integration_ldap_users_add.rst
 
-Edit 
+Edit
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_delivery_integration/includes_delivery_integration_ldap_users_edit.rst
 
@@ -55,7 +55,7 @@ Delivery with Internal |git|
 Add Users
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_delivery/includes_delivery_users_onboard_no_github_default_add.rst
- 
+
 Submit Changes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_delivery/includes_delivery_users_onboard_no_github_submit_change.rst
@@ -69,18 +69,6 @@ Install the CLI
 -----------------------------------------------------
 .. include:: ../../includes_delivery/includes_delivery_cli_install.rst
 
-|mac os x|
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_delivery/includes_delivery_cli_install_mac.rst
-
-RHEL, SUSE
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_delivery/includes_delivery_cli_install_rhel.rst
-
-|windows|
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_delivery/includes_delivery_cli_install_windows.rst
-
 Configure the CLI
 -----------------------------------------------------
 .. include:: ../../includes_delivery/includes_delivery_cli_configure.rst
@@ -88,4 +76,3 @@ Configure the CLI
 Add SSH Keys
 -----------------------------------------------------
 .. include:: ../../includes_delivery/includes_delivery_ssh_keys_add_to_delivery.rst
-
