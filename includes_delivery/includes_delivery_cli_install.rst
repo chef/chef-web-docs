@@ -2,4 +2,4 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The |delivery_cli| is required for the workstation and for many |delivery| functions. It is included in the Chef DK and can be obtained by :doc:`installing the latest version </install_dk>`.
+The |delivery_cli| is required for the workstation and for many |delivery| functions. It is included in the Chef DK and can be obtained by :doc:`installing the latest version <install_dk>`.
