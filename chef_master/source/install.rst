@@ -8,7 +8,7 @@ Install |chef|!
 * Set up your workstation by :doc:`installing the Chef DK </install_dk>`
 * :doc:`Install the chef-client </install_bootstrap>`
 
-|chef| also has additional features that can be enabled as part of the setup and configuration process. 
+|chef| also has additional features that can be enabled as part of the setup and configuration process.
 
 * The :doc:`Chef management console </manage>` provides a web user interface for managing objects on the |chef server|
 * :doc:`Chef reporting </reporting>` enables |chef client| run reporting data from within the |chef manage|
