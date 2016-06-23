@@ -134,6 +134,22 @@ Examples
 
 .. include:: ../../step_ctl_chef/step_ctl_chef_generate_cookbook_skeleton.rst
 
+chef generate build-cookbook
+=====================================================
+.. include:: ../../includes_ctl_chef/includes_ctl_chef_generate_build_cookbook.rst
+
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef/includes_ctl_chef_generate_build_cookbook_syntax.rst
+
+Options
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef/includes_ctl_chef_generate_build_cookbook_options.rst
+
+Examples
+-----------------------------------------------------
+None.
+
 
 chef generate file
 =====================================================
