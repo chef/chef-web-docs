@@ -7,14 +7,8 @@ This subcommand has the following options:
 ``-g GENERATOR_COOKBOOK_PATH``, ``--generator-cookbook GENERATOR_COOKBOOK_PATH``
    |chef generator| Default value: ``lib/chef-dk/skeletons``, under which is the default ``code_generator`` cookbook that is included as part of the |chef dk|.
 
-``-b``, ``--berks``
-   Create a Berksfile in the cookbook. Default value: enabled. This is disabled if the ``--policy`` option is given.
-
 ``-C COPYRIGHT``, ``--copyright COPYRIGHT``
    Specify the copyright holder for copyright notices in generated files. Default value: ``The Authors``
-
-``-d``, ``--delivery``
-   Generate a delivery config file and build cookbook inside the new cookbook. Default value: disabled.
 
 ``-m EMAIL``, ``--email EMAIL``
    Specify the email address of the author. Default value: ``you@example.com``.
@@ -25,11 +19,9 @@ This subcommand has the following options:
 ``-I LICENSE``, ``--license LICENSE``
    Sets the license. Valid values are ``all_rights``, ``apache2``, ``mit``, ``gplv2``, or ``gplv3``. Default value: ``all_rights``.
 
-``-P``, ``--policy``
-   Create a |policyfile| in the cookbook instead of a Berksfile. Default value: disabled.
-
 ``-h``, ``--help``
    |help subcommand|
 
 ``-v``, ``--version``
    |version chef|
+
