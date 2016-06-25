@@ -108,7 +108,6 @@ Examples
 
 .. include:: ../../step_ctl_chef/step_ctl_chef_generate_attribute.rst
 
-
 .. _ctl-chef-generate-cookbook:
 
 chef generate cookbook
