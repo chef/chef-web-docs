@@ -6,4 +6,4 @@ To create an environment named ``dev`` with a description of ``The development e
 
 .. code-block:: bash
 
-   $ knife environment create dev -d "The development environment."
+   $ knife environment create dev --description "The development environment."
