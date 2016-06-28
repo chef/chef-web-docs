@@ -4,6 +4,8 @@
 High Availability: AWS
 =====================================================
 
+.. warning:: This topic is deprecated. See :doc:`install_server_ha` for information on how to set up a highly-available server cluster.
+
 .. include:: ../../includes_install/includes_install_server_ha_aws.rst
 
 .. image:: ../../images/chef_server_ha_aws.svg
