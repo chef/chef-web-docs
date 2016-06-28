@@ -109,8 +109,6 @@ Examples
 .. include:: ../../step_ctl_chef/step_ctl_chef_generate_attribute.rst
 
 
-.. _ctl_chef_generate_cookbook:
-
 chef generate cookbook
 =====================================================
 .. include:: ../../includes_ctl_chef/includes_ctl_chef_generate_cookbook.rst
