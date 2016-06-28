@@ -4,5 +4,5 @@
 
 This argument has the following options:
 
-``-d DESCRIPTION``, ``--description DESCRIPTION``
+``--description DESCRIPTION``
    |description environment|
