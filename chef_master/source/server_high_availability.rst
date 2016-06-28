@@ -2,7 +2,7 @@
 High Availability
 =====================================================
 
-.. warning:: This topic is deprecated. For the latest information on high availability and how to set up a highly-available server cluster, see :doc:`install_server_ha`.
+.. warning:: This topic is deprecated. For the latest information on high availability and how to set up a highly-available server cluster, see `High Availability: Backend Cluster <https://docs.chef.io/install_server_ha.html>`_.
 
 .. include:: ../../includes_server_ha/includes_server_ha.rst
 
