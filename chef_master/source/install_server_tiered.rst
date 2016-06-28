@@ -4,7 +4,7 @@
 Tiered
 =====================================================
 
-.. warning:: This topic is deprecated. See :doc:`install_server_ha` for information on how to set up a highly-available server cluster.
+.. warning:: This topic is deprecated. See `High Availability: Backend Cluster <https://docs.chef.io/install_server_ha.html>`_ for information on how to set up a highly-available server cluster.
 
 .. include:: ../../includes_install/includes_install_server_tiered.rst
 
