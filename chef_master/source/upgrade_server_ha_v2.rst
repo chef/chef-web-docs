@@ -2,8 +2,6 @@
 High Availability: Backend Cluster
 =====================================================
 
-.. warning:: This topic is about an upcoming feature of the Chef server.
-
 This topic describes the process of upgrading a highly available |chef server| cluster.
 
 .. note:: .. include:: ../../includes_chef/includes_chef_subscriptions.rst

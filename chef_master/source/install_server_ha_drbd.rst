@@ -4,6 +4,8 @@
 High Availability: DRBD
 =====================================================
 
+.. warning:: This topic is deprecated. See :doc:`install_server_ha` for information on how to set up a highly-available server cluster.
+
 This topic describes how to set up the |chef server| for high availability using physical machines and |drbd|.
 
 .. image:: ../../images/chef_server_ha_drbd.svg

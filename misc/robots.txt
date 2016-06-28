@@ -120,7 +120,6 @@ Disallow: /install_manager.html
 Disallow: /install_server_be.html
 Disallow: /install_server_fe.html
 Disallow: /install_server_febe.html
-Disallow: /install_server_ha.html
 Disallow: /install_server_hosted.html
 Disallow: /install_server_ldap.html
 Disallow: /install_server_oec.html

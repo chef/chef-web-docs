@@ -2,8 +2,6 @@
 High Availability: Backend Cluster
 =====================================================
 
-.. warning:: This topic is about an upcoming feature of the Chef server.
-
 This topic introduces the underlying concepts behind the architecture
 of the highly available |chef server| cluster. The topic then
 describes the setup and installation process for a highly available

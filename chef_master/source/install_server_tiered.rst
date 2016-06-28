@@ -4,6 +4,8 @@
 Tiered
 =====================================================
 
+.. warning:: This topic is deprecated. See :doc:`install_server_ha` for information on how to set up a highly-available server cluster.
+
 .. include:: ../../includes_install/includes_install_server_tiered.rst
 
 .. image:: ../../images/chef_server_tiered.png
