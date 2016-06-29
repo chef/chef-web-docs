@@ -40,7 +40,7 @@
    .. code-block:: bash
 
       $ sudo chef-marketplace-ctl hostname <fqdn>
-      $ sudo chef-compliance-ctl restart
+      $ sudo chef-compliance-ctl reconfigure
 
 #. Now proceed to the web based setup wizard ``https://<fqdn>/#/setup``
 
