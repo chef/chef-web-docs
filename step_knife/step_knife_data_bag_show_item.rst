@@ -9,7 +9,7 @@ To show the contents of a specific item within data bag, enter:
 
 to return:
 
-.. code-block:: bash
+.. code-block:: none
 
    comment:  Crazy Charlie
    gid:      ops

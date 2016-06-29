@@ -2,8 +2,10 @@
 .. THIS PAGE IS LOCATED AT THE /delivery/ PATH.
 
 =====================================================
-Integrate Delivery with |slack|
+Integrate Chef Automate with |slack|
 =====================================================
+
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
 
 |delivery| may be configured to allow projects to send |slack| notifications to users about changes submitted to that project's pipeline, such as:
 

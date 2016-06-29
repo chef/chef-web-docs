@@ -1,6 +1,7 @@
 {
   "client": "/release/12-9",
   "server": "/release/server_12-6",
+  "automate": "/chef_automate",
   "analytics": "/release/analytics",
   "compliance": "/release/compliance",
   "delivery": "/release/delivery",

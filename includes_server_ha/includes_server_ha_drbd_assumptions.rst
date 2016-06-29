@@ -11,7 +11,7 @@ On each host, its own status is reported first, and then the status of its remot
 
 When both the primary and secondary nodes are running and behaving as expected, the contents of ``/proc/drbd`` on the primary node will look similar to the following:
 
-.. code-block:: bash
+.. code-block:: none
 
    version: 8.4.0 (api:1/proto:86-100)
    GIT-hash: 28753f559ab51b549d16bcf487fe625d5919c49c build by root@localhost.localdomain, 2012-02-06 12:59:36
@@ -20,7 +20,7 @@ When both the primary and secondary nodes are running and behaving as expected, 
 
 On the secondary node, the status will look similar to the following:
 
-.. code-block:: bash
+.. code-block:: none
 
    version: 8.4.1 (api:1/proto:86-100)
    GIT-hash: 91b4c048c1a0e06777b5f65d312b38d47abaea80 build by dag@Build64R6, 2011-12-21 06:08:50

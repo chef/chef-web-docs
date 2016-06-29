@@ -10,7 +10,7 @@
 
 which shows something similar to:
 
-.. code-block:: bash
+.. code-block:: none
 
    ...
    12.34.56.789 Chef Client finished, 12/12 resources updated in 78.942455583 seconds
@@ -23,7 +23,7 @@ Use ``knife node show`` to verify:
 
 which returns something similar to:
 
-.. code-block:: bash
+.. code-block:: none
 
    Node Name:   debian-wheezy.int.domain.org
    Environment: _default

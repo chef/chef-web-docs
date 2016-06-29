@@ -1,17 +1,50 @@
 =====================================================
-All about |chef| 
+Chef docs site map
 =====================================================
+This is the documentation for 
 
-.. include:: ../../includes_chef/includes_chef_index.rst
+- Chef, including the Chef server, the Chef client, the Chef
+  development kit (Chef DK) and related tools
+- Habitat 
+- InSpec
+- Chef Automate 
+
+This page has links to each topic in this doc set. You can also use
+the navigation tool or the search box to find what you're looking for.
+
+If you need documenation for previous versions, you can use the dropdown
+box labeled "Filter by product and version" to select the particular
+component and version you want.
 
 Getting Started
 =====================================================
+If you're visiting for the first time, this section is a good place to start.
+
+**Start Here:** :doc:`Welcome! </start_master>`
+
+**Community:** :doc:`About the community </community>` | :doc:`Contributing </community_contributions>` | :doc:`Guidelines <community_guidelines>`
+
+**Packages:** [TODO: move to Chef section]
+
+**Omnitruck API:** [TODO: move to Chef section]
+
+**Licensing:** 
+
+**Tutorials:** 
+
+
+
+Chef
+=====================================================
+
 **From the beginning:** :doc:`An Overview of Chef </chef_overview>` | :doc:`About Workstations </workstation>` | :doc:`About the Chef Server </chef_server>` | :doc:`About Nodes </nodes>` | :doc:`About Cookbooks </cookbooks>` | :doc:`About Attributes </attributes>` | :doc:`About Resources and Providers </resources>` | :doc:`Custom Resources </custom_resources>` | :doc:`About Knife </knife>` | :doc:`About Chef for Windows </windows>` | :doc:`About Containers </containers>`
 
 **Using Ruby:** :doc:`Chef Style Guide </ruby>`
 
-The Workstation
-=====================================================
+The Chef development kit (Chef DK)
+-----------------------------------------------------
+The |chef dk| provides a common workflow for cookbook development, including unit and integration testing, identifying lint-like behavior, dedicated tooling, and more:
+
 **The Basics:** :doc:`About the Workstation </workstation>` | :doc:`The chef-repo </chef_repo>` | :doc:`Knife </knife>` | :doc:`Debug Recipes </chef_shell>`
 
 **Install:** :doc:`Install the chef-client on a Workstation </install_dk>` | :doc:`Bootstrap a Node </install_bootstrap>` | :doc:`Create and Sync the chef-repo </chef_repo>`
@@ -21,11 +54,6 @@ The Workstation
 **Settings:** :doc:`knife.rb </config_rb_knife>` | :doc:`metadata.rb </config_rb_metadata>`
 
 **Tools:** :doc:`chef-shell (executable) </ctl_chef_shell>` | :doc:`chef-apply (executable) </ctl_chef_apply>`
-
-The Workstation
------------------------------------------------------
-The |chef dk| defines a common workflow for cookbook development, including unit and integration testing, identifying lint-like behavior, dedicated tooling, and more:
-
 **Install:** :doc:`Install the chef-dk </install_dk>`
 
 **Components:** :doc:`Kitchen </kitchen>` | :doc:`ChefSpec </chefspec>` | :doc:`Foodcritic </foodcritic>` | :doc:`Berkshelf </berkshelf>` | :doc:`chef-vault </chef_vault>` | :doc:`RuboCop <rubocop>`
@@ -35,8 +63,8 @@ The |chef dk| defines a common workflow for cookbook development, including unit
 **Settings:** :doc:`kitchen.yml </config_yml_kitchen>`
 
 
-The Nodes
-=====================================================
+The Chef client
+-----------------------------------------------------
 **The Basics:** :doc:`About Nodes </nodes>` | :doc:`chef-client (agent) </chef_client>` | `The chef-client Run <https://docs.chef.io/chef_client.html#the-chef-client-title-run>`_ | :doc:`Chef Solo </chef_solo>` | :doc:`About the Run-list </run_lists>` | :doc:`Debug Recipes </chef_shell>` | :doc:`Chef for Junos OS </junos>`
 
 **Install:** `About Bootstrap <https://docs.chef.io/chef_client.html#bootstrap-operations>`_ | :doc:`Install the chef-client on a Node (Bootstrap) </install_bootstrap>` and :doc:`knife bootstrap </knife_bootstrap>` | :doc:`Install the chef-client on Windows </install_windows>` | :doc:`Download the chef-client with Omnitruck API </api_omnitruck>`
@@ -49,7 +77,7 @@ The Nodes
 
 
 Cookbooks
-=====================================================
+-----------------------------------------------------
 **The basics:** :doc:`About Cookbooks </cookbooks>` | :doc:`About Recipes </recipes>` | :doc:`About Attribute Files </attributes>` |  :doc:`Handlers </handlers>` | `Popular Cookbooks <https://github.com/chef-cookbooks>`_
 
 **Other cokbook components:** :doc:`About Definitions </definitions>` | :doc:`About Files </files>` | :doc:`About Libraries </libraries>` | :doc:`About Cookbook Metadata </cookbook_repo>` | :doc:`About Templates </templates>` | :doc:`About Versions </cookbook_versions>`
@@ -67,13 +95,13 @@ Cookbooks
 **Community-maintained resources:** `Chef-maintained Cookbooks <https://github.com/chef-cookbooks/>`__ | `Supermarket <https://supermarket.chef.io>`__
 
 
-The |chef server_title|
-=====================================================
+The Chef server
+-----------------------------------------------------
 .. include:: ../../includes_chef_server/includes_chef_server.rst
 
 **Install Scenarios:** :doc:`Installs </install_server>` | :doc:`Upgrades </upgrade_server>`
 
-**Features:** :doc:`Chef Manage </manage>` | :doc:`Reporting </reporting>` | :doc:`Push Jobs </push_jobs>` | :doc:`Chef Analytics </analytics>` | :doc:`Replication </server_replication>` | :doc:`High Availability </server_high_availability>`
+**Features:** :doc:`Chef Manage </manage>` | :doc:`Reporting </reporting>` | :doc:`Push Jobs </push_jobs>` :doc:`Replication </server_replication>` | :doc:`High Availability </server_high_availability>`
 
 **Manage Server:** :doc:`Runbook </runbook>` (all manage tasks in a single topic) --- **Shorter topics:** :doc:`Backup and Restore </server_backup_restore>` | :doc:`Server Data </server_data>` | :doc:`Firewalls and Ports </server_firewalls_and_ports>` | :doc:`High Availability </server_high_availability>` | :doc:`Logs </server_logs>` | :doc:`Active Directory and LDAP </server_ldap>` | :doc:`Monitor </server_monitor>` | :doc:`Organizations, Groups, and Users </server_orgs>` | :doc:`Replication </server_replication>` | :doc:`Security </server_security>` | :doc:`Services </server_services>` | :doc:`Server Tuning </server_tuning>`
 
@@ -95,9 +123,19 @@ The server acts as a repository for all of the data that may be needed by the |c
 * Users, once :doc:`authorized </auth_authorization>` can only perform certain actions
 * The |chef server| provides :doc:`powerful search </chef_search>` functionality
 
-
-Chef Compliance
+Habitat
 =====================================================
+
+InSpec
+=====================================================
+
+Chef Automate
+=====================================================
+
+
+
+Chef Compliance scanner
+-----------------------------------------------------
 .. include:: ../../includes_compliance/includes_compliance.rst
 
 **The basics:** :doc:`Overview </compliance>` | :doc:`Install Compliance </install_compliance>` | :doc:`inspec (CLI) </ctl_inspec>`
@@ -107,17 +145,12 @@ Chef Compliance
 
 
 
+
 .. Hide the TOC from this file.
 
 .. toctree::
    :hidden:
 
-   actions
-   analytics
-   analytics_monitor
-   analytics_rules
-   analytics_webui_tasks
-   api_analytics
    api_chef_server
    api_compliance
    api_cookbooks_site
@@ -132,6 +165,7 @@ Chef Compliance
    aws_marketplace
    azure_portal
    berkshelf
+   chef_automate
    chef_client
    chef_client_security
    chef_cookbooks
@@ -153,7 +187,6 @@ Chef Compliance
    compliance
    config_json_delivery
    config_rb
-   config_rb_analytics
    config_rb_chef_sync
    config_rb_client
    config_rb_compliance
@@ -225,7 +258,9 @@ Chef Compliance
    files
    foodcritic
    glossary
+   habitat
    handlers
+   inspec
    inspec_reference
    inspec_apache_conf
    inspec_apt
@@ -279,12 +314,9 @@ Chef Compliance
    inspec_yaml
    inspec_yum
    install
-   install_analytics
+   install_chef_automate
    install_bootstrap
    install_compliance
-   install_delivery
-   install_delivery_aws
-   install_delivery_ssh
    install_dk
    install_omnibus
    install_push_jobs
@@ -298,6 +330,7 @@ Chef Compliance
    install_server_tiered
    install_supermarket
    install_windows
+   integrate_chef_automate_saml
    integrate_compliance_chef_server
    integrate_delivery_bitbucket
    integrate_delivery_github
@@ -351,7 +384,6 @@ Chef Compliance
    plugin_kitchen_inspec
    plugin_kitchen_vagrant
    plugin_knife
-   plugin_knife_analytics
    plugin_knife_custom
    plugin_knife_push_jobs
    plugin_knife_reporting
@@ -490,18 +522,18 @@ Chef Compliance
    server_tuning
    server_users
    server_webui_tasks
+   start_delivery
    simple_walkthrough
    slides
-   start_analytics
    start_chef
    start_compliance
-   start_delivery
    start_master
    style_guide
    supermarket
    supermarket_logs
    supermarket_monitor
    templates
+   troubleshooting_chef_automate
    uninstall
    upgrade_analytics
    upgrade_client
@@ -512,5 +544,7 @@ Chef Compliance
    upgrade_server_notes
    upgrade_server_open_source_notes
    verify_packages
+   visibility
    windows
+   workflow
    workstation

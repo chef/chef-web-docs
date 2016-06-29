@@ -1,6 +1,8 @@
 =====================================================
-Integrate Delivery with |github|
+Integrate Chef Automate with |github|
 =====================================================
+
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
 
 .. include:: ../../includes_delivery_integration/includes_delivery_integration_github.rst
 
@@ -20,7 +22,7 @@ Create |github| OAuth App
 =====================================================
 .. include:: ../../includes_delivery_integration/includes_delivery_integration_github_create_oauth_app.rst
 
-Add App to Delivery
+Add App to Chef Automate
 =====================================================
 .. include:: ../../includes_delivery_integration/includes_delivery_integration_github_add_to_delivery.rst
 
@@ -40,6 +42,6 @@ Handle Untrusted PRs
 =====================================================
 .. include:: ../../includes_delivery_integration/includes_delivery_integration_github_untrusted_prs.rst
 
-Push Changes to Delivery
+Push Changes to Chef Automate
 =====================================================
 .. include:: ../../includes_delivery_integration/includes_delivery_integration_github_push_changes.rst

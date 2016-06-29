@@ -4,12 +4,12 @@
 
 Many text editors leave files behind. To prevent these files from being uploaded to the |chef server|, add an entry to the |chefignore| file. For |emacs|, do something like:
 
-.. code-block:: basemake
+.. code-block:: none
 
    *~
 
 and for |vim|, do something like:
 
-.. code-block:: basemake
+.. code-block:: none
 
    *.sw[a-z]

@@ -304,24 +304,24 @@
 .. |delete_local_and_remote| replace:: Delete both local and remote copies of an object.
 .. |delete chef_validator| replace:: Force the deletion of the client when it is also a |chef validator|.
 .. |delim resource directory| replace:: The delimiter that is used to separate multiple values for a single key.
-.. |delivery branch| replace:: A branch name for a |delivery| change.
+.. |delivery branch| replace:: A branch name for a |automate| change.
 .. |delivery data_api| replace:: The |json| data to submit to the |api delivery|.
 .. |delivery diff| replace:: Run a diff against the local branch ``HEAD``.
 .. |delivery docker_image| replace:: The |docker| image in which the job is run.
-.. |delivery enterprise| replace:: A configured |delivery| enterprise.
+.. |delivery enterprise| replace:: A configured |automate| enterprise.
 .. |delivery no_spinner| replace:: Disable the spinner.
-.. |delivery organization| replace:: An organization inside a |delivery| enterprise.
+.. |delivery organization| replace:: An organization inside a |automate| enterprise.
 .. |delivery patchset| replace:: The patchset number.
-.. |delivery phase| replace:: The name of a |delivery| phase.
-.. |delivery pipeline| replace:: The name of a |delivery| pipeline.
-.. |delivery pipeline no_open| replace:: Prevent opening a browser that shows the pipeline in |delivery| web UI.
+.. |delivery phase| replace:: The name of a |automate| phase.
+.. |delivery pipeline| replace:: The name of a |automate| pipeline.
+.. |delivery pipeline no_open| replace:: Prevent opening a browser that shows the pipeline in |automate| web UI.
 .. |delivery project_type| replace:: The type of project.
 .. |delivery review_edit| replace:: Edit the title and description for the change.
-.. |delivery run_local| replace:: Run locally without the |delivery| server.
-.. |delivery server| replace:: The server on which |delivery| is running.
+.. |delivery run_local| replace:: Run locally without the |automate| server.
+.. |delivery server| replace:: The server on which |automate| is running.
 .. |delivery skip_build_cookbook| replace:: Skip the creation of a ``build-cookbook`` when initializing a project.
 .. |delivery skip_default_recipe| replace:: Skip the ``default.rb`` recipe in the ``build-cookbook``.
-.. |delivery user| replace:: A |delivery| user name.
+.. |delivery user| replace:: A |automate| user name.
 .. |deploy_to| replace:: The "meta root" for the application, if different from the path that is used to specify the name of a resource.
 .. |depth git_shallow_clone| replace:: The number of past revisions to be included in the |git| shallow clone.
 .. |depth git_truncated| replace:: The depth of a |git| repository, truncated to the specified number of revisions.
@@ -590,7 +590,7 @@
 ..
 
 .. |ibm_aix_src not_supported| replace:: This action is not supported when using |ibm aix_src| on the |ibm aix| platform because |ibm aix_src| does not have a standard mechanism for enabling and disabling services on system boot.
-.. |id delivery_change| replace:: The unique identifier for the specified |delivery| change.
+.. |id delivery_change| replace:: The unique identifier for the specified |automate| change.
 .. |id group| replace:: The identifier for the group.
 .. |id chef_client_run| replace:: The identifier for a |chef client| run.
 .. |id consumer| replace:: The identity of the consumer to which messages are published.
@@ -823,7 +823,7 @@
 .. |name data_bag| replace:: The name of the data bag.
 .. |name data_bag_item| replace:: The name of a specific item within a data bag.
 .. |name db_ocid| replace:: The name of the database.
-.. |name delivery_project| replace:: A project inside a |delivery| organization.
+.. |name delivery_project| replace:: A project inside a |automate| organization.
 .. |name dns_azure| replace:: The name of the DNS server (also known as the |azure hosted_service|).
 .. |name environment| replace:: The name of the environment.
 .. |name fqdn| replace:: The |fqdn| of the host.
@@ -915,7 +915,7 @@
 .. |node_purge| replace:: The name of the node to be deleted, if different from the server name.
 .. |node_path| replace:: The location in which nodes are stored when the |chef client| is run in local mode.
 .. |node type_cloud| replace:: A cloud-based node is hosted in an external cloud-based service, such as |amazon aws|, |openstack|, |rackspace|, |google compute engine|, or |azure|. Plugins are available for |knife| that provide support for external cloud-based services. |knife| can use these plugins to create instances on cloud-based services. Once created, the |chef client| can be used to deploy, configure, and maintain those instances.
-.. |node type_network| replace:: A network node is any networking device---a switch, a router---that is being managed by a |chef client|, such as networking devices by |juniper|, |arista|, |cisco|, and |f5|. Use |chef| to automate common network configurations, such physical and logical Ethernet link properties and VLANs, on these devices.
+.. |node type_network| replace:: A network node is any networking device---a switch, a router---that is being managed by a |chef client|, such as networking devices by |juniper|, |arista|, |cisco|, and |f5|. Use |chef| to automate common network configurations, such as physical and logical Ethernet link properties and VLANs, on these devices.
 .. |node type_physical| replace:: A physical node is typically a server or a virtual machine, but it can be any active device attached to a network that is capable of sending, receiving, and forwarding information over a communications channel. In other words, a physical node is any active device attached to a network that can run a |chef client| and also allow that |chef client| to communicate with a |chef server|.
 .. |node type_virtual| replace:: A virtual node is a machine that runs only as a software implementation, but otherwise behaves much like a physical machine.
 .. |non_unique_members| replace:: Allow ``gid`` duplication. May only be used with the ``Groupadd`` provider.

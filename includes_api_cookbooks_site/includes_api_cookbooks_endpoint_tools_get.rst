@@ -18,13 +18,13 @@ The ``GET`` method is used to get a listing of the available tools. Use the ``st
 
 **Request**
 
-.. code-block:: xml
+.. code-block:: none
 
    GET /tools?start=START&items=ITEMS
 
 or:
 
-.. code-block:: xml
+.. code-block:: none
 
    GET /tools?order=recently_added
 

@@ -39,7 +39,7 @@ For example:
 
 Will return something like this:
 
-.. code-block:: bash
+.. code-block:: none
 
    [Thu, 22 Jul 2010 18:01:45 +0000] INFO: Hey I'm machine 
    [Thu, 22 Jul 2010 18:01:45 +0000] INFO: I has no tagz

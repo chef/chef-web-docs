@@ -12,7 +12,6 @@ Update the role data in |json|:
 
 .. code-block:: javascript
 
-   ## sample:
    {
       "normal": {
       },

@@ -10,7 +10,7 @@ To update the hostname, do the following:
 
 #. Configure the ``api_fqdn`` in ``/etc/chef-marketplace/marketplace.rb``
 
-   .. code-block:: bash
+   .. code-block:: none
 
       $ echo 'api_fqdn "<new.hostname.com>"' | sudo tee -a /etc/chef-marketplace/marketplace.rb
 

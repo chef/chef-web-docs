@@ -4,7 +4,7 @@
 
 The ``"build_nodes"`` section may also specify build nodes by stages and/or platform:
 
-.. code-block:: json
+.. code-block:: javascript
 
    {
      ...
@@ -18,7 +18,7 @@ The ``"build_nodes"`` section may also specify build nodes by stages and/or plat
 
 For example:
 
-.. code-block:: json
+.. code-block:: javascript
 
    {
      ...

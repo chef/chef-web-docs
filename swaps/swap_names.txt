@@ -5,14 +5,14 @@
 .. Official terminology, product names, versions, and whatnot
 ..
 
-
+.. |automate| replace:: Chef Automate
 .. |api actions| replace:: Actions API
-.. |api analytics| replace:: Analytics API
+.. |api analytics| replace:: Automate API
 .. |api compliance| replace:: Compliance API
 .. |api cookbooks site| replace:: Cookbooks Site API
 .. |api chef server| replace:: Chef server API
 .. |api chef server_title| replace:: Chef Server API
-.. |api delivery| replace:: Delivery API
+.. |api delivery| replace:: Automate API
 .. |api omnitruck| replace:: Omnitruck API
 .. |api push jobs| replace:: Push Jobs API
 .. |bento| replace:: Bento
@@ -21,8 +21,8 @@
 .. |chef actions| replace:: Chef actions
 .. |chef actions_title| replace:: Chef Actions
 .. |chef api client| replace:: API client
-.. |chef analytics| replace:: Chef Analytics
-.. |chef analytics_title| replace:: Chef Analytics
+.. |chef analytics| replace:: Chef Automate
+.. |chef analytics_title| replace:: Chef Automate
 .. |chef analytics ctl| replace:: opscode-analytics-ctl
 .. |chef apply| replace:: chef-apply
 .. |chef backend ctl| replace:: chef-backend-ctl
@@ -35,7 +35,7 @@
 .. |chef compliance rb| replace:: chef-compliance.rb
 .. |chef container| replace:: chef-container
 .. |chef ctl| replace:: chef
-.. |chef delivery| replace:: Chef Delivery
+.. |chef delivery| replace:: Chef Automate
 .. |chef dk| replace:: Chef development kit
 .. |chef dk_title| replace:: Chef DK
 .. |chef docs| replace:: chef-docs
@@ -85,10 +85,10 @@
 .. |company_name| replace:: Chef
 .. |cookstyle| replace:: cookstyle
 .. |data_collector| replace:: Data Collector
-.. |delivery| replace:: Delivery
+.. |delivery| replace:: Chef Automate
 .. |delivery_cli| replace:: Delivery CLI
 .. |dsl custom_resource| replace:: Custom Resource DSL
-.. |dsl delivery| replace:: Delivery DSL
+.. |dsl delivery| replace:: Automate DSL
 .. |dsl handler| replace:: Handler DSL
 .. |dsl inspec| replace:: InSpec DSL
 .. |dsl compliance| replace:: Compliance DSL
@@ -274,7 +274,7 @@
 .. |service solr4| replace:: **opscode-solr4**
 .. |service webui| replace:: **opscode-webui**
 
-.. Chef Analytics services
+.. Chef Automate services
 
 .. |service actions| replace:: **actions**
 .. |service actions_consumer| replace:: **actions_consumer**

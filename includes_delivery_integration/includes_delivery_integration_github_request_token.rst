@@ -8,13 +8,13 @@ Log in to the |delivery| server and run the following command.
 
 .. code-block:: bash
 
-   delivery-ctl setup-github-enterprise-token $DELIVERY_ENTERPRISE
+   $ delivery-ctl setup-github-enterprise-token $DELIVERY_ENTERPRISE
 
 **For GitHub.com**
 
 .. code-block:: bash
 
-   delivery-ctl setup-github-token $DELIVERY_ENTERPRISE
+   $ delivery-ctl setup-github-token $DELIVERY_ENTERPRISE
 
 Follow the URL given to finish authorizing |delivery| with |github|.
 

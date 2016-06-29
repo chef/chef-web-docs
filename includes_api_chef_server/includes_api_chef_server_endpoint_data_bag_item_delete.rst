@@ -7,7 +7,7 @@ This method has no parameters.
 
 **Request**
 
-.. code-block:: xml
+.. code-block:: none
 
    DELETE /organizations/NAME/data/NAME/ITEM
 
@@ -21,7 +21,7 @@ For example, run the following command:
 
 which returns a list of data bags on the server:
 
-.. code-block:: xml
+.. code-block:: javascript
 
    {
      "pomeranian": "https://api.opscode.com/organizations/ORG_NAME/data/dogs/pomeranian",

@@ -10,7 +10,7 @@ Use the ``--tree`` option to view the results with structure:
 
 to return something like:
 
-.. code-block:: bash
+.. code-block:: none
 
    roles/webserver.json
      roles/base.json

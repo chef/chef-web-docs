@@ -1,6 +1,8 @@
 =====================================================
-Delivery Server Disaster Recovery
+Chef Automate Server Disaster Recovery
 =====================================================
+
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
 
 Use a standby |delivery| server to protect against the loss of the primary |delivery| server. A standby |delivery| server is configured to replicate data from the primary |delivery| server. In the event of loss of the primary |delivery| server, the standby is then reconfigured to become the primary.
 

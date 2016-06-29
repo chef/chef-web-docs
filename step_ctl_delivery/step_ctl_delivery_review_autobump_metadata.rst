@@ -10,7 +10,7 @@
 
 will return something similar to:
 
-.. code-block:: bash
+.. code-block:: none
 
    Chef Delivery
    Loading configuration from /Users/albertatom/delivery/organizations/sandbox/coffee

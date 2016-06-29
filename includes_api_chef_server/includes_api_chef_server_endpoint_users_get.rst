@@ -7,7 +7,7 @@ This method has no parameters.
 
 **Request**
 
-.. code-block:: xml
+.. code-block:: none
 
    GET /users
 
@@ -15,7 +15,7 @@ This method has no parameters.
 
 The response is similar to:
 
-.. code-block:: javascript
+.. code-block:: none
 
    {
      "user1"=>"https://url/for/user1"

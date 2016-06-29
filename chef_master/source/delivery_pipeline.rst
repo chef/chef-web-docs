@@ -1,6 +1,8 @@
 =======================================================
-About Delivery Pipelines
+About Chef Automate Pipelines
 =======================================================
+
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
 
 Each project contains a configuration file in its source repository, located at ``.delivery/config.json``, that specifies the build cookbook to use for the project, and in turn, the build cookbook contains recipes that control what happens in the pipeline phases. The config file also allows customization of the behavior of |delivery| and the build cookbook.  You can create a config file (as well as a build cookbook) using the |delivery| CLI tool and the init subcommand: `delivery init` or `delivery init --local`.
 

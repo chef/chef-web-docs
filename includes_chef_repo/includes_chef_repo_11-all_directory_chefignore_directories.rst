@@ -4,12 +4,12 @@
 
 The |chefignore| file can be used to ignore all of the files in a directory. For example:
 
-.. code-block:: basemake
+.. code-block:: none
 
    files/default/subdirectory/*
 
 or:
 
-.. code-block:: basemake
+.. code-block:: none
 
    files/default/subdirectory/**

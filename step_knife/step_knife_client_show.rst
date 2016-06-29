@@ -10,7 +10,7 @@ To view a client named "testclient", enter:
 
 to return something like:
 
-.. code-block:: bash
+.. code-block:: none
 
    admin:       false
    chef_type:   client

@@ -64,7 +64,7 @@ Consider the following snippet of |json| data:
 
 Before this data is indexed on the |chef server|, the nested fields are extracted into the top level, similar to:
 
-.. code-block:: javascript
+.. code-block:: none
 
    "broadcast" => "192.168.0.255",
    "flags"     => ["UP", "BROADCAST", "SMART", "RUNNING", "SIMPLEX", "MULTICAST"]
@@ -90,7 +90,7 @@ or:
 
 This data is also flattened into various compound fields, which follow the same pattern as the |json| hierarchy and use underscores (``_``) to separate the levels of data, similar to:
 
-.. code-block:: javascript
+.. code-block:: none
 
      # ...snip...
      "network_interfaces_en1_addresses_192.168.0.195_broadcast" => "192.168.0.255",

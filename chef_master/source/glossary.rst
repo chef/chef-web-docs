@@ -7,16 +7,13 @@ Glossary
    A |chef delivery| stage. The Acceptance stage is where your team decides whether the submitted change should ship all the way out to its final destination.
 
 **analytics rules**
-   Event tracking during the |chef client| run that generates data made visible from |chef analytics|.
+   Event tracking during the |chef client| run that generates data made visible to Chef Automate.
 
 **Berkshelf**
    `Manage cookbook dependencies <http://berkshelf.com/>`__.
 
 **Build**
    A |chef delivery| stage. The purpose of the Build stage is to assemble one or more potentially releasable artifacts and make them available to the remaining stages of the pipeline. Using |berkshelf| can help to `manage cookbook dependencies <http://berkshelf.com/>`__.
-
-**Chef analytics**
-   A feature of |chef| that provides real-time visibility into what is happening on the |chef server|, including what's changing, who made those changes, and when they occurred
 
 **chef-apply**
    A command-line tool that allows a single recipe to be run from the command line.
@@ -50,9 +47,6 @@ Glossary
 
 **Delivered**
    A |chef delivery| stage. Delivered is the final stage of the pipeline, what it means for your system is up to you. It could mean deploying the change so that it is live and receiving production traffic, or it might mean publishing a set of artifacts so they are accessible for your customers.
-
-**Delivery**
-   |chef delivery| manages changes to both infrastructure and application code, giving your operations and development teams a common platform for developing, building, testing, and deploying cookbooks, applications, and more. For more information see the `Delivery Overview <https://docs.chef.io/delivery.html>`__.
 
 **environment**
    An environment is a way to map an organization's real-life workflow to what can be configured and managed when using |chef server|.
@@ -119,3 +113,9 @@ Glossary
 
 **Verify**
   A |chef delivery| stage. The purpose of Verify is to run checks so that the system can decide if it's worth the time of a human to review the submitted change.
+
+**visibility**
+   A feature of Chef Automate that provides real-time visibility into what is happening on the |chef server|, including what's changing, who made those changes, and when they occurred.
+
+**workflow**
+   A feature of Chef Automate that manages changes to both infrastructure and application code, giving your operations and development teams a common platform for developing, building, testing, and deploying cookbooks, applications, and more. For more information see the `Chef Automate Overview <https://docs.chef.io/automate.html>`__.

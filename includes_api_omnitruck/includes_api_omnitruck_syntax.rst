@@ -4,13 +4,13 @@
 
 The URL from which these downloads can be obtained has the following syntax:
 
-.. code-block:: xml
+.. code-block:: none
 
    https://omnitruck.chef.io/<CHANNEL>/<PRODUCT>/download?p=$PLATFORM&pv=$PLATFORM_VERSION&m=$MACHINE_ARCH&v=latest&prerelease=false&nightlies=false
 
 or:
 
-.. code-block:: xml
+.. code-block:: none
 
    https://omnitruck.chef.io/<CHANNEL>/<PRODUCT>/metadata?p=$PLATFORM&pv=$PLATFORM_VERSION&m=$MACHINE_ARCH&v=latest&prerelease=false&nightlies=false
 

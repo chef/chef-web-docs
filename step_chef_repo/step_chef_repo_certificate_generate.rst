@@ -19,7 +19,7 @@ To generate a certificate for a monitoring server:
 
 #. And then in the recipe for each cookbook, create a ``cookbook_file`` resource to configure a resource that puts them in place on the destination server:
 
-   .. code-block:: javascript
+   .. code-block:: none
    
       cookbook_file '/etc/apache2/ssl/monitoring.example.com.pem'
         owner 'root'

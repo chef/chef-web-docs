@@ -7,7 +7,7 @@ This method has no parameters.
 
 **Request**
 
-.. code-block:: xml
+.. code-block:: none
 
    GET /organizations/NAME/GROUP/policies/NAME/revisions/ID
 

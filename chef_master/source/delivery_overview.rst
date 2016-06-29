@@ -1,5 +1,5 @@
 =====================================================
-An Overview of |chef delivery|
+An Overview of Workflow in |automate|
 =====================================================
 
 |chef delivery| manages changes to both infrastructure and application code, giving your operations and development teams a common platform for developing, testing, and deploying cookbooks, applications, and more. 
@@ -13,7 +13,7 @@ An Overview of |chef delivery|
 * Release source code or build artifacts to a repository such as |github|
 * Push build artifacts to production servers in real time
 
-.. note:: If you are new to |delivery|, you can see it in action in the self-paced tutorial `Get started with Chef Delivery on AWS <https://learn.chef.io/delivery/get-started/>`__. In the tutorial, you'll set up your own |delivery| cluster and a sample application to experiment with.
+.. note:: If you are new to |delivery|, you can see it in action in the self-paced tutorial `Get started with Chef Automate on AWS <https://learn.chef.io/delivery/get-started/>`__. In the tutorial, you'll set up your own |delivery| cluster and a sample application to experiment with.
 
 
 Pipelines

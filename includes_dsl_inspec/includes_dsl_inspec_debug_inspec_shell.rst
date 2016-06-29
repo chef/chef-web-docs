@@ -4,7 +4,7 @@
 
 Use |pry| inside both the controls and resources. Similarly, for development and testing, use ``inspec shell`` which is based on |pry|, for example:
 
-.. code-block:: ruby
+.. code-block:: none
 
     $ inspec shell
     Welcome to the interactive InSpec Shell

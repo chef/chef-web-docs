@@ -2,8 +2,10 @@
 .. THIS PAGE IS LOCATED AT THE /delivery/ PATH.
 
 =====================================================
-Integrate Delivery with SMTP
+Integrate Chef Automate with SMTP
 =====================================================
+
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
 
 |delivery| may be configured to allow projects to send email notifications to users about changes submitted to that project's pipeline, such as:
 

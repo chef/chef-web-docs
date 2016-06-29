@@ -2,6 +2,7 @@
 Manage Secrets in a build-cookbook
 =====================================================
 
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
 
 This topic describes how and why to use secrets in a ``build-cookbook``:
 

@@ -10,7 +10,7 @@ To verify the |chef api client| list for the |chef server|, enter:
 
 to return something similar to:
 
-.. code-block:: bash
+.. code-block:: none
 
    exampleorg
    i-12345678

@@ -10,7 +10,7 @@
 
 returns something similar to:
 
-.. code-block:: bash
+.. code-block:: none
 
    Chef Delivery
    Loading configuration from /Users/dennisteck/chef/delivery

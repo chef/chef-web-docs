@@ -26,7 +26,7 @@ To edit the |amazon ami| instance size, do the following:
 
 #. Update the API |fqdn| in ``/etc/opscode/chef-server.rb`` using the public DNS name.  For example:
 
-   .. code-block:: bash
+   .. code-block:: none
 
       $ sudo sed -ie "s/api_fqdn.*/api_fqdn 'ec2-52-6-31-230.compute-1.amazonaws.com'/" /etc/opscode/chef-server.rb
 

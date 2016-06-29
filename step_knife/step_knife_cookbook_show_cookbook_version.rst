@@ -10,7 +10,7 @@ To only view data about templates, enter:
 
 to return something like:
 
-.. code-block:: bash
+.. code-block:: none
 
    checksum:     a29d6f254577b830091f140c3a78b1fe
    name:         chef-getting-started.txt.erb

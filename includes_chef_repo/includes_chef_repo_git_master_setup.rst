@@ -4,18 +4,18 @@
 
 Use the following steps to set up a development repository for |chef|:
 
-#. Setup a |github| account.
+#. Set up a |github| account.
 #. Fork the https://github.com/chef/chef repository to your |github| account.
 #. Clone the https://github.com/chef/chef repository:
 
    .. code-block:: bash
-      
+
       $ git clone git@github.com:yourgithubusername/chef.git
 
 #. From the command line, browse to the ``chef/`` directory:
 
    .. code-block:: bash
-      
+
       $ cd chef/
 
 #. From the ``chef/`` directory, add a remote named ``chef``:
@@ -27,7 +27,7 @@ Use the following steps to set up a development repository for |chef|:
 #. Verify:
 
    .. code-block:: bash
-      
+
       $ git config --get-regexp "^remote\.chef"
 
    which should return something like:
@@ -55,4 +55,3 @@ Use the following steps to set up a development repository for |chef|:
    .. code-block:: bash
 
       $ git config branch.master.remote chef
-

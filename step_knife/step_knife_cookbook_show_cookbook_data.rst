@@ -10,7 +10,7 @@ To get the list of available versions of a cookbook named ``getting-started``, e
 
 to return something like:
 
-.. code-block:: bash
+.. code-block:: none
 
    getting-started   0.3.0  0.2.0
    

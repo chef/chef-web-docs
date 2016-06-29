@@ -2,6 +2,8 @@
 |chef manage_title|
 =====================================================
 
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+
 .. include:: ../../includes_manage/includes_manage.rst
 
 .. note:: .. include:: ../../includes_chef/includes_chef_subscriptions.rst

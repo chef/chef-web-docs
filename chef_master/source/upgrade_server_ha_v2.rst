@@ -2,6 +2,8 @@
 High Availability: Backend Cluster
 =====================================================
 
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+
 This topic describes the process of upgrading a highly available |chef server| cluster.
 
 .. note:: .. include:: ../../includes_chef/includes_chef_subscriptions.rst

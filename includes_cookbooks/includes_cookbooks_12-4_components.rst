@@ -62,7 +62,7 @@ Cookbooks are comprised of the following components:
 
        .. include:: ../../includes_resources_common/includes_resources_common_provider.rst
 
-       |chef| has `many built-in resources <https://docs.chef.io/resources.html>`__ that cover all of the most common actions across all of the most common platforms. You can `build your own resources <https://docs.chef.io/lwrp.html>`__ for handle any situation that isn't covered by a built-in resource.
+       |chef| has `many built-in resources <https://docs.chef.io/resources.html>`__ that cover all of the most common actions across all of the most common platforms. You can `build your own resources <https://docs.chef.io/lwrp.html>`__ to handle any situation that isn't covered by a built-in resource.
    * - .. image:: ../../images/icon_cookbook_templates.svg
           :width: 100px
           :align: center

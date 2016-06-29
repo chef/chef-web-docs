@@ -2,16 +2,16 @@
 delivery-ctl (executable)
 *************************
 
-The Chef Delivery server includes a command-line utility named
+The Chef Automate server includes a command-line utility named
 delivery-ctl. Use this command-line tool to:
 
 * Manage enterprises, users, and projects
 
-* Reconfigure the Chef Delivery server
+* Reconfigure the Chef Automate server
 
 * Start and stop individual services
 
-* Tail Chef Delivery server log files
+* Tail Chef Automate server log files
 
 Note: All commands must be run as ``sudo``.
 
@@ -19,7 +19,7 @@ Note: All commands must be run as ``sudo``.
 cleanse
 =======
 
-The ``cleanse`` subcommand is used to re-set the Chef Delivery server
+The ``cleanse`` subcommand is used to re-set the Chef Automate server
 to the state it was in prior to the first time the ``reconfigure``
 subcommand is run. This command will:
 
@@ -43,7 +43,7 @@ This subcommand has the following syntax:
 create-enterprise
 =================
 
-The ``create-enterprise`` subcommand is used to create a Chef Delivery
+The ``create-enterprise`` subcommand is used to create a Chef Automate
 enterprise. A public key is required.
 
 **Syntax**
@@ -104,7 +104,7 @@ This subcommand has the following syntax:
 delete-enterprise
 =================
 
-The ``delete-enterprise`` subcommand is used to delete a Chef Delivery
+The ``delete-enterprise`` subcommand is used to delete a Chef Automate
 enterprise.
 
 **Syntax**
@@ -125,7 +125,7 @@ This subcommand has the following syntax:
 delete-project
 ==============
 
-The ``delete-project`` subcommand is used to delete a Chef Delivery
+The ``delete-project`` subcommand is used to delete a Chef Automate
 project.
 
 **Syntax**
@@ -174,7 +174,7 @@ list-enterprises
 ================
 
 The ``list-enterprises`` subcommand is used to list all of the
-enterprises currently present on the Chef Delivery server.
+enterprises currently present on the Chef Automate server.
 
 **Syntax**
 
@@ -263,10 +263,10 @@ reconfigure
 ===========
 
 The ``reconfigure`` subcommand is used to reconfigure the Chef
-Delivery server after changes are made to the delivery configuration
+Automate server after changes are made to the delivery configuration
 file, located at ``/etc/delivery/delivery.rb``. When changes are made
 to the delivery configuration file, they are not applied to the Chef
-Delivery configuration until after this command is run. This
+Automate configuration until after this command is run. This
 subcommand also restarts any services for which the
 ``service_name['enabled']`` setting is set to ``true``.
 
@@ -281,7 +281,7 @@ rename-enterprise
 =================
 
 The ``rename-enterprise`` subcommand is used to rename an existing
-Chef Delivery enterprise.
+Chef Automate enterprise.
 
 **Syntax**
 
@@ -324,7 +324,7 @@ This subcommand has the following syntax:
 uninstall
 =========
 
-The ``uninstall`` subcommand is used to remove the Chef Delivery
+The ``uninstall`` subcommand is used to remove the Chef Automate
 application, but without removing any of the data. This subcommand
 will shut down all services (including the ``runit`` process
 supervisor).
@@ -358,7 +358,7 @@ This subcommand has the following syntax:
 Service Subcommands
 ===================
 
-The Chef Delivery server has a built in process supervisor, which
+The Chef Automate server has a built in process supervisor, which
 ensures that all of the required services are in the appropriate state
 at any given time. The supervisor starts two processes per service.
 
@@ -434,7 +434,7 @@ listed after running the ``service-list`` subcommand.
 once
 ----
 
-The supervisor for the Chef Delivery server is configured to restart
+The supervisor for the Chef Automate server is configured to restart
 any service that fails, unless that service has been asked to change
 its state. The ``once`` subcommand is used to tell the supervisor to
 not attempt to restart any service that fails.
@@ -460,7 +460,7 @@ restart
 -------
 
 The ``restart`` subcommand is used to restart all services enabled on
-the Chef Delivery server or to restart an individual service by
+the Chef Automate server or to restart an individual service by
 specifying the name of that service in the command.
 
 This subcommand has the following syntax:
@@ -496,7 +496,7 @@ start
 -----
 
 The ``start`` subcommand is used to start all services that are
-enabled in the Chef Delivery server. This command can also be run for
+enabled in the Chef Automate server. This command can also be run for
 an individual service by specifying the name of the service in the
 command.
 
@@ -514,7 +514,7 @@ is successfully started the output should be similar to:
 
    $ ok: run: service_name: (pid 12345) 1s
 
-The supervisor for the Chef Delivery server is configured to wait
+The supervisor for the Chef Automate server is configured to wait
 seven seconds for a service to respond to a command from the
 supervisor. If you see output that references a timeout, it means that
 a signal has been sent to the process, but that the process has yet to
@@ -529,7 +529,7 @@ status
 ------
 
 The ``status`` subcommand is used to show the status of all services
-available to the Chef Delivery server. The results will vary based on
+available to the Chef Automate server. The results will vary based on
 the configuration of a given server. This subcommand has the following
 syntax:
 
@@ -592,7 +592,7 @@ Log Files
 ~~~~~~~~~
 
 A typical status line for a service that is running any of the Chef
-Delivery server front-end services is similar to the following:
+Automate server front-end services is similar to the following:
 
 ::
 
@@ -635,7 +635,7 @@ stop
 ----
 
 The ``stop`` subcommand is used to stop all services enabled on the
-Chef Delivery server. This command can also be run for an individual
+Chef Automate server. This command can also be run for an individual
 service by specifying the name of the service in the command.
 
 This subcommand has the following syntax:
@@ -676,7 +676,7 @@ will return something similar to:
 tail
 ----
 
-The ``tail`` subcommand is used to follow all of the Chef Delivery
+The ``tail`` subcommand is used to follow all of the Chef Automate
 server logs for all services. This command can also be run for an
 individual service by specifying the name of the service in the
 command.

@@ -9,7 +9,7 @@ This method has no parameters.
 
 **Request**
 
-.. code-block:: xml
+.. code-block:: none
 
    PUT /organizations/NAME/clients/NAME
 

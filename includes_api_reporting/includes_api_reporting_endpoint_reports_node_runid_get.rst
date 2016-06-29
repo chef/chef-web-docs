@@ -21,7 +21,7 @@ This method has the following parameters:
 
 **Request**
 
-.. code-block:: xml
+.. code-block:: none
 
    GET /organizations/ORG/reports/nodes/NODE/runs/RUNID
 

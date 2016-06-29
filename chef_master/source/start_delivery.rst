@@ -12,7 +12,7 @@ Welcome to Chef Delivery!
    :width: 700px
    :align: center
 
-* `Start with the tutorial <https://learn.chef.io/delivery/get-started/>`__. |delivery| itself may be :doc:`installed via SSH </install_delivery_ssh>` or :doc:`to Amazon AWS </install_delivery_aws>`, and then :doc:`configured for disaster recovery </delivery_server_disaster_recovery>` (cold standby)
+* `Start with the tutorial <https://learn.chef.io/delivery/get-started/>`__.
 * Install the :doc:`Delivery CLI </ctl_delivery>`
 * Use the internal |git| repo in |delivery| or integrate with a :doc:`GitHub </integrate_delivery_github>` or :doc:`Bitbucket </integrate_delivery_bitbucket>` source control repository
 * Create a project, :doc:`set up the build-cookbook </delivery_build_cookbook>`, and :doc:`configure the pipeline </delivery_pipeline>`

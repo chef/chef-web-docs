@@ -5,7 +5,7 @@
 
 The ``drbd.conf`` file that is used with the |chef server| specifies other built-in actions that may be taken in certain fault scenarios:
 
-.. code-block:: bash
+.. code-block:: none
 
    after-sb-0pri discard-younger-primary;
    after-sb-1pri discard-secondary;

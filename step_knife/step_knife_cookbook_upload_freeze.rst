@@ -10,7 +10,7 @@ To upload a cookbook, and then prevent other users from being able to make chang
 
 to return something like:
 
-.. code-block:: bash
+.. code-block:: none
 
    Uploading redis...
    Upload completed

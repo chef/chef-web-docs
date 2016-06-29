@@ -7,7 +7,7 @@ This method has no parameters.
 
 **Request**
 
-.. code-block:: xml
+.. code-block:: none
 
    GET /organizations/NAME/environments/NAME/recipes
 
@@ -17,7 +17,7 @@ where the first instance of ``NAME`` is the name of the environment, and the sec
 
 The response is similar to:
 
-.. code-block:: javascript
+.. code-block:: none
 
    [
      "ant",

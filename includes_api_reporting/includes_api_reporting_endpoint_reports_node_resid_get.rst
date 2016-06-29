@@ -16,7 +16,7 @@ This method has no parameters.
 
 The response is similar to:
 
-.. code-block:: javascript
+.. code-block:: none
 
    {
      resource_detail :

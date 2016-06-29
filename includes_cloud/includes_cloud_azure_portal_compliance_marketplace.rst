@@ -25,13 +25,13 @@
 
 #. Update the ``/etc/chef-marketplace/marketplace.rb`` file to include the ``api_fqdn`` of the machine.
 
-   .. code-block:: bash
+   .. code-block:: none
 
       $ echo 'api_fqdn "<fqdn>"' | sudo tee -a /etc/chef-marketplace/marketplace.rb
 
 #. Update the ``/etc/chef-compliance/chef-compliance.rb`` file to include the ``fqdn`` of the machine.
 
-   .. code-block:: bash
+   .. code-block:: none
 
       $ echo 'fqdn "<fqdn>"' | sudo tee -a /etc/chef-compliance/chef-compliance.rb
 

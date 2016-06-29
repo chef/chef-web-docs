@@ -4,6 +4,8 @@ Manage Roles
 
 .. note:: This topic is about using the |chef manage| to manage roles.
 
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+
 .. include:: ../../includes_role/includes_role.rst
 
 Manage

@@ -4,7 +4,7 @@
 
 The ``POST`` method is used to return partial search results. For example, if a node has the following:
 
-.. code-block:: javascript
+.. code-block:: none
 
    { 
      'x' => 'foo', 
@@ -13,7 +13,7 @@ The ``POST`` method is used to return partial search results. For example, if a 
 
 a partial search query can be used to return something like:
 
-.. code-block:: javascript
+.. code-block:: none
 
    { 'kernel_version' => [ 1, 2, 3 ] }
 
@@ -36,13 +36,13 @@ This method has the following parameters:
 
 **Request**
 
-.. code-block:: xml
+.. code-block:: none
 
    GET /organizations/NAME/search
 
 with a request body similar to:
 
-.. code-block:: javascript
+.. code-block:: none
 
    {
      'name' => [ 'name' ],
