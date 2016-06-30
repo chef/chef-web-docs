@@ -4,7 +4,11 @@ Platforms
 
 The sections below list the platforms that Chef have adopted for the |chef client|, |ohai|, and the |chef server|.
 
-.. note:: This topic is based on RFC-021: https://github.com/chef/chef-rfc/blob/master/rfc021-platform-support-policy.md
+.. note:: .. include:: ../../includes_adopted_platforms/includes_adopted_platforms_definition_foundational.rst
+
+.. note:: .. include:: ../../includes_adopted_platforms/includes_adopted_platforms_definition_secondary.rst
+
+.. note:: .. include:: ../../includes_adopted_platforms/includes_adopted_platforms_definition_other.rst
 
 |chef client_title|, Foundational Platforms
 =====================================================
