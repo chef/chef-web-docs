@@ -284,6 +284,16 @@
 .. |daemonize windows| replace:: This option is only available on machines that run in |unix| or |linux| environments. For machines that are running |windows| that require similar functionality, use the ``chef-client::service`` recipe in the ``chef-client`` cookbook: https://supermarket.chef.io/cookbooks/chef-client. This will install a |chef client| service under |windows| using the |windows service wrapper|.
 .. |data_bag_decrypt_minimum_version| replace:: The minimum required version of data bag encryption. Possible values: ``0``, ``1``, and ``2``. When all of the machines in an organization are running |chef client| version 11.6 (or higher), it is recommended that this value be set to ``2``.
 .. |data_bag_path| replace:: The location from which a data bag is loaded.
+.. |data_collector_http_cull_interval| replace:: The maximum cull interval (in minutes) for the HTTP connection pool that is used by the |data_collector|.
+.. |data_collector_http_init_count| replace:: The initial worker count for the HTTP connection pool that is used by the |data_collector|.
+.. |data_collector_http_max_age| replace:: The maximum connection worker age (in seconds) for the HTTP connection pool that is used by the |data_collector|.
+.. |data_collector_http_max_connection_duration| replace:: The maximum connection duration (in seconds) for the HTTP connection pool that is used by the |data_collector|.
+.. |data_collector_http_max_count| replace:: The maximum worker count for the HTTP connection pool that is used by the |data_collector|.
+.. |data_collector_ibrowse_options| replace:: An array of comma-separated key-value pairs of ibrowse options for the HTTP connection pool that is used by the |data_collector|.
+.. |data_collector_mode| replace:: The |chef client| mode in which the Data Collector will be enabled. Possible values: ``:solo``, ``:client``, or ``:both``. The ``:solo`` value is used for Chef operating in Chef Solo Mode or Chef Solo Legacy Mode.
+.. |data_collector_raise_on_failure| replace:: When enabled the |chef client| will raise an error if it is unable to successfully POST to the |data_collector| server.
+.. |data_collector_server_url| replace:: The fully qualified URL to the |data_collector| server API.
+.. |data_collector_token| replace:: The shared |data_collector| security token. When configured, the token will be passed as an HTTP header named ``x-data-collector-token`` which the server can choose to accept or reject.
 .. |database_quantity| replace:: The number of databases.
 .. |day cron| replace:: The day of month at which the |cron| entry should run (1 - 31).
 .. |db_pool_size| replace:: The number of open connections to |postgresql| that are maintained by the service.
@@ -1348,6 +1358,7 @@
 .. |timeout bifrost| replace:: The amount of time (in seconds) before a request to the |service bifrost| service times out.
 .. |timeout command| replace:: The amount of time (in seconds) a command is to wait before timing out.
 .. |timeout connection| replace:: The amount of time (in seconds) to wait before a connection times out.
+.. |timeout data_collector| replace:: The amount of time (in milliseconds) before a request to the |data_collector| API times out.
 .. |timeout depsolver| replace:: The amount of time (in milliseconds) to wait for cookbook dependency problems to be solved.
 .. |timeout push jobs| replace:: The maximum amount of time (in seconds) by which a job must complete, before it is stopped.
 .. |timeout redis| replace:: The amount of time (in seconds) a client may be idle before timeout.

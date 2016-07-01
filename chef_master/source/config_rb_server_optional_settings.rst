@@ -34,20 +34,24 @@ dark_launch
 -----------------------------------------------------
 .. include:: ../../includes_config/includes_config_rb_server_settings_dark_launch.rst
 
-.. 
+..
 .. this has been moved to the chef-ha add-on? verify
-.. 
+..
 .. drbd
 .. -----------------------------------------------------
 .. .. include:: ../../includes_config/includes_config_rb_server_settings_drbd.rst
+
+data_collector
+-----------------------------------------------------
+.. include:: ../../includes_config/includes_config_rb_server_settings_data_collector.rst
 
 estatsd
 -----------------------------------------------------
 .. include:: ../../includes_config/includes_config_rb_server_settings_estatsd.rst
 
-.. 
+..
 .. this has been moved to the chef-ha add-on? verify
-.. 
+..
 .. ha
 .. -----------------------------------------------------
 .. .. include:: ../../includes_config/includes_config_rb_server_settings_ha.rst
