@@ -42,6 +42,10 @@ opscode-erchef
 -----------------------------------------------------
 .. include:: ../../includes_server_tuning/includes_server_tuning_erchef.rst
 
+Data Collector
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_server_tuning/includes_server_tuning_data_collector.rst
+
 opscode-expander
 -----------------------------------------------------
 .. include:: ../../includes_server_tuning/includes_server_tuning_expander.rst

@@ -84,6 +84,7 @@
 .. |chef zero| replace:: chef-zero
 .. |company_name| replace:: Chef
 .. |cookstyle| replace:: cookstyle
+.. |data_collector| replace:: Data Collector
 .. |delivery| replace:: Delivery
 .. |delivery_cli| replace:: Delivery CLI
 .. |dsl custom_resource| replace:: Custom Resource DSL
@@ -250,6 +251,7 @@
 .. |service certificate| replace:: **opscode-certificate**
 .. |service chef| replace:: **opscode-chef**
 .. |service couchdb| replace:: **couchdb**
+.. |service data_collector| replace:: **data_collector**
 .. |service ecsyncd| replace:: **ec-syncd**
 .. |service erchef| replace:: **opscode-erchef**
 .. |service expander| replace:: **opscode-expander**

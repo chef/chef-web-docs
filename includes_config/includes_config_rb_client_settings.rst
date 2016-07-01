@@ -58,6 +58,18 @@ This configuration file has the following settings:
 ``data_bag_path``
    |data_bag_path| Default value: ``/var/chef/data_bags``.
 
+``data_collector_server_url``
+   |data_collector_server_url|
+
+``data_collector_token``
+   |data_collector_token|
+
+``data_collector_mode``
+   |data_collector_mode| Default value: ``both``.
+
+``data_collector_raise_on_failure``
+   |data_collector_raise_on_failure| Default value: ``false``.
+
 ``default_attribute_whitelist``
    |whitelist attribute_default|
 
@@ -74,7 +86,7 @@ This configuration file has the following settings:
    |disable event_logging_windows| Default value: ``true``.
 
 ``enable_reporting``
-   |enable reporting| 
+   |enable reporting|
 
 ``enable_reporting_url_fatals``
    |enable reporting_url_fatals|
@@ -227,17 +239,17 @@ This configuration file has the following settings:
 
 ``ssl_verify_mode``
    |ssl_verify_mode|
-       
+
    * |ssl_verify_mode_verify_none|
    * |ssl_verify_mode_verify_peer| This is the recommended setting.
-       
+
    Depending on how |open ssl| is configured, the ``ssl_ca_path`` may need to be specified. Default value: ``:verify_peer``.
 
 ``syntax_check_cache_path``
    |syntax_check_cache_path|
 
 ``umask``
-   |umask| Default value: ``0022``. 
+   |umask| Default value: ``0022``.
 
 ``use_policyfile``
   |use policyfile| Default value: ``false``.
