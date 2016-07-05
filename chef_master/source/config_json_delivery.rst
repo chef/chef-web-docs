@@ -48,7 +48,7 @@ Configuration Settings
 
 Phase Settings
 -----------------------------------------------------
-The individual phases of |delivery| may be configured, grouped under the ``delivery-truck`` configuration setting by phase.
+The individual phases of |automate| may be configured, grouped under the ``delivery-truck`` configuration setting by phase.
 
 publish
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

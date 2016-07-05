@@ -21,7 +21,7 @@ Welcome to Chef Compliance!
 * :doc:`Set up the Chef Compliance server </install_compliance>`
 * :doc:`Allow nodes to download compliance profiles </integrate_compliance_chef_server>` from the |chef server|
 * Send the results of compliance scans to the |chef compliance| server via the |chef server|
-* Use the |delivery| workflow to `build remediation into your software deployment pipeline <https://docs.chef.io/release/delivery/>`__
+* Use the |automate| workflow to `build remediation into your software deployment pipeline <https://docs.chef.io/release/delivery/>`__
 
 .. 
 .. commented out until it's available; when uncommented, verify the link, and then put it first in the bullet list above

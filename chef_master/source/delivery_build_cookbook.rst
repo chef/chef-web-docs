@@ -48,7 +48,7 @@ Create Build Cookbook
 =======================================================
 .. include:: ../../includes_delivery_cookbook/includes_delivery_cookbook_setup.rst
 
-.. note:: This section assumes that |delivery| is already configured, a project exists, a user may access that project and submit changes, and that all work is being done from that project's root directory.
+.. note:: This section assumes that |automate| is already configured, a project exists, a user may access that project and submit changes, and that all work is being done from that project's root directory.
 
 Edit the |berksfile|
 -------------------------------------------------------
@@ -78,7 +78,7 @@ Use the Web UI
 
 Custom build-cookbook
 =======================================================
-The pipeline cookbook---``pcb``---is available on |github| at https://github.com/chef-cookbooks/pcb. The ``pcb`` cookbook is a code generator cookbook that may be used with the ``chef generate`` commands packaged in the |chef dk| to generate a ``build-cookbook`` for use with a |delivery| pipeline. The ``pcb`` cookbook serves as a complate example of a generated build cookbook, complete with tests, and ready for integration to |delivery|, while at the same time may be cloned and then customized for your own purposes. This cookbook is not in |supermarket| because it is used by the ``delivery init`` command, which clones this cookbook to a cached location.
+The pipeline cookbook---``pcb``---is available on |github| at https://github.com/chef-cookbooks/pcb. The ``pcb`` cookbook is a code generator cookbook that may be used with the ``chef generate`` commands packaged in the |chef dk| to generate a ``build-cookbook`` for use with a |automate| pipeline. The ``pcb`` cookbook serves as a complate example of a generated build cookbook, complete with tests, and ready for integration to |automate|, while at the same time may be cloned and then customized for your own purposes. This cookbook is not in |supermarket| because it is used by the ``delivery init`` command, which clones this cookbook to a cached location.
 
 Generate the build-cookbook 
 -------------------------------------------------------

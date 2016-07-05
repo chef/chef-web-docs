@@ -215,10 +215,10 @@ This configuration file has the following settings for ``delivery``:
    |port service| Default value: ``9611``.
 
 ``delivery['primary']``
-   Specifies if the |delivery| server is the primary server. Default value: ``true``.
+   Specifies if the |automate| server is the primary server. Default value: ``true``.
 
 ``delivery['primary_ip']``
-   The IP address for the primary |delivery| server. Default value: ``nil``.
+   The IP address for the primary |automate| server. Default value: ``nil``.
 
 ``delivery['push_jobs_max_retries']``
    Maximum number of retries a push job can incur without an intervening nack. Default value: ``3``.
@@ -268,7 +268,7 @@ This configuration file has the following settings for ``delivery``:
       }
 
 ``delivery['standby_ip']``
-   The IP address for the cold standby |delivery| server. Default value: ``nil``.
+   The IP address for the cold standby |automate| server. Default value: ``nil``.
 
 ``delivery['use_ssl_termination']``
    Default value: ``false``.

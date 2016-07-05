@@ -114,15 +114,14 @@ Clients, so no significant interruption of service is expected.
 Create a User and Organization
 -------------------------------------------------------
 
-As part of the setup process, you must create a user and organization that will be used internally by Chef Automate to manage
-your Chef Automate cluster.
+As part of the setup process, you must create a user and organization that will be used internally by Chef Automate to manage your Chef Automate cluster.
 
-#. From the Chef server, create a ``delivery`` user specifying first name, last name, email address, and password. 
-Also, as done in the step 5 of the `Chef Server Installation <#chef-server-installation>`_, a private key will be generated for you, so specify where to save the user key using the ``--filename`` option. The key will be referenced this later as ``$DELIVERY_CHEF_USER_KEY``:
+#. From the Chef server, create a ``delivery`` user specifying first name, last name, email address, and password. Also, as done in the step 5 of the `Chef Server Installation <#chef-server-installation>`_, a private key will be generated for you, so specify where to save the user key using the ``--filename`` option. The key will be referenced this later as ``$DELIVERY_CHEF_USER_KEY``:
 
     .. code-block:: bash
 
         sudo chef-server-ctl user-create delivery $FIRST_NAME $LAST_NAME $EMAIL_ADDRESS '$PASSWORD' --filename $DELIVERY_CHEF_USER_KEY
+
 
 #. Create the ``$DELIVERY_CHEF_ORG`` organization and associate the Chef Automate user:
 
@@ -132,11 +131,12 @@ Also, as done in the step 5 of the `Chef Server Installation <#chef-server-insta
 
   .. note:: The ``--filename`` option is used so that the validator key for your organization will not be shown on-screen. The key is not required for this process.
 
-Chef Automate Server
+Chef Automate Server Installation and Configuration
 ========================================================
 
-#. Download and install the latest stable Chef Automate package for your operating system from either `<https://downloads.chef.io/delivery/>`_ or `<https://bintray.com/chef/stable/delivery/view>`_ 
-on the Chef Automate server machine.
+To install Chef Automate:
+
+#. Download and install the latest stable Chef Automate package for your operating system from either `<https://downloads.chef.io/delivery/>`_ or `<https://bintray.com/chef/stable/delivery/view>`_ on the Chef Automate server machine.
 
    For Debian:
   
@@ -219,16 +219,14 @@ on the Chef Automate server machine.
       $CHEF_SERVER_IP         $CHEF_SERVER_FQDN
       $DELIVERY_SERVER_IP     $DELIVERY_SERVER_FQDN
 
-#. If you plan on using the workflow capabilities of Automate, proceed to the next section to setup your build nodes. 
-After they are setup, you can attempt to run an initial application or cookbook change through your Chef Automate server. 
+#. If you plan on using the workflow capabilities of Automate, proceed to the next section to setup your build nodes. After they are setup, you can attempt to run an initial application or cookbook change through your Chef Automate server. 
 
 Set up a Build node (Optional)
 ------------------------------------------------------------
 
 The following steps are performed on the Chef Automate server:
 
-#. Download the latest ChefDK from either `<https://downloads.chef.io/chef-dk/>`_ or `<https://bintray.com/chef/current/chefdk/view>`_. 
-Version 0.15.3 or greater is required. The download location is referred to below as ``$CHEF_DK_PACKAGE_PATH``.
+#. Download the latest ChefDK from either `<https://downloads.chef.io/chef-dk/>`_ or `<https://bintray.com/chef/current/chefdk/view>`_. Version 0.15.3 or greater is required. The download location is referred to below as ``$CHEF_DK_PACKAGE_PATH``.
 
 #. If you have an on-premises Supermarket installation, copy the Supermarket certificate file to ``/etc/delivery/supermarket.crt``.
 
@@ -254,9 +252,24 @@ Version 0.15.3 or greater is required. The download location is referred to belo
                                    --ssh-identity-file $SSH_IDENTITY_FILE \
                                    --port $SSH_PORT
 
-   You can view the logs at ``/var/log/delivery/build-node-install/$BUILD_NODE_FDQN.log``.
+   You can view the logs at ``/var/log/delivery-ctl/build-node-install_$BUILD_NODE_FDQN.log``.
+
+   You maybe be asked about overwriting your build node's registration in Chef Server.  This will remove any previous run lists or Chef Server configuration on this node.  This is done in case this hostname was being used for something else entirely in the past.  Setting the ``--[no]-overwrite-registration`` flag will allow you to avoid that prompt.
 
 .. note:: Certain sensitive files are copied over to a temporary directory on the build node. In the event of failure after these files have been copied, the installer will attempt to remove them. If it is unable to do so, it will provide you with instructions for doing so manually.
+
+About Proxies
+--------------------------------------------------
+
+If the Chef Automate setup process is happening in an environment that is configured to only allow http/https traffic to go 
+through a proxy server, then some additional steps need to be taken.
+
+The ``http_proxy``, ``https_proxy`` and ``no_proxy`` environment variables will need to be set appropriately for the setup process 
+to complete successfully. These can be set in the environment directly, or added to a knife.rb file (for example, in ``/root/.chef/knife.rb``). 
+Any host that needs to make outgoing http or https connections will require these settings. For example, the Chef Automate Server 
+(which makes knife calls to Chef Server) and Chef Server (for push jobs) should have these configured.
+
+For more details on the proxy setup, please see `About Proxies </https://docs.chef.io/proxies.html>`_.
 
 Troubleshooting
 ===================================================================
@@ -264,7 +277,7 @@ Troubleshooting
 Once you have setup completed, you should be able to submit a change request for review through the workflow pipeline 
 and Chef Automate will run it through the complete process. If there are problems, see :doc:`Troubleshooting Chef Automate Deployments </troubleshooting_chef_automate>` for debugging tips.
 
-Setup delivery-truck
+Delivery-truck setup
 ====================================================================
 
 Delivery-truck is Chef Automate's recommended way of setting up build cookbooks.  See :doc:`About the delivery-truck Cookbook </delivery_truck>` for directions on how to get started.

@@ -21,7 +21,7 @@ SSL Protocols
 
 Optional Settings
 =====================================================
-Additional settings are available for performance tuning of the |delivery| server.
+Additional settings are available for performance tuning of the |automate| server.
 
 .. note:: .. include:: ../../includes_notes/includes_notes_config_rb_delivery_must_reconfigure.rst
 

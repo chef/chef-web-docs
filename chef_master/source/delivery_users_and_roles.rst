@@ -4,7 +4,7 @@ Manage Users and Roles
 
 .. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
 
-This topic describes the roles and permissions that may be assigned to users of |delivery|, how to integrate an LDAP system with |delivery|, how to add and edit users, and how to add user SSH keys.
+This topic describes the roles and permissions that may be assigned to users of |automate|, how to integrate an LDAP system with |automate|, how to add and edit users, and how to add user SSH keys.
 
 Roles and Permissions
 =====================================================

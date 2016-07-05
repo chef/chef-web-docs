@@ -21,8 +21,8 @@
 .. |chef actions| replace:: Chef actions
 .. |chef actions_title| replace:: Chef Actions
 .. |chef api client| replace:: API client
-.. |chef analytics| replace:: Chef Automate
-.. |chef analytics_title| replace:: Chef Automate
+.. |chef analytics| replace:: Chef Analytics
+.. |chef analytics_title| replace:: Chef Analytics
 .. |chef analytics ctl| replace:: opscode-analytics-ctl
 .. |chef apply| replace:: chef-apply
 .. |chef backend ctl| replace:: chef-backend-ctl

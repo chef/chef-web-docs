@@ -4,7 +4,7 @@ Glossary
 
 
 **Acceptance**
-   A |chef delivery| stage. The Acceptance stage is where your team decides whether the submitted change should ship all the way out to its final destination.
+   A |automate| stage. The Acceptance stage is where your team decides whether the submitted change should ship all the way out to its final destination.
 
 **analytics rules**
    Event tracking during the |chef client| run that generates data made visible to Chef Automate.
@@ -13,7 +13,7 @@ Glossary
    `Manage cookbook dependencies <http://berkshelf.com/>`__.
 
 **Build**
-   A |chef delivery| stage. The purpose of the Build stage is to assemble one or more potentially releasable artifacts and make them available to the remaining stages of the pipeline. Using |berkshelf| can help to `manage cookbook dependencies <http://berkshelf.com/>`__.
+   A |automate| stage. The purpose of the Build stage is to assemble one or more potentially releasable artifacts and make them available to the remaining stages of the pipeline. Using |berkshelf| can help to `manage cookbook dependencies <http://berkshelf.com/>`__.
 
 **chef-apply**
    A command-line tool that allows a single recipe to be run from the command line.
@@ -46,7 +46,7 @@ Glossary
    A definition is code that is reused across recipes, similar to a compile-time macro, and is defined in a cookbook.
 
 **Delivered**
-   A |chef delivery| stage. Delivered is the final stage of the pipeline, what it means for your system is up to you. It could mean deploying the change so that it is live and receiving production traffic, or it might mean publishing a set of artifacts so they are accessible for your customers.
+   A |automate| stage. Delivered is the final stage of the pipeline, what it means for your system is up to you. It could mean deploying the change so that it is live and receiving production traffic, or it might mean publishing a set of artifacts so they are accessible for your customers.
 
 **environment**
    An environment is a way to map an organization's real-life workflow to what can be configured and managed when using |chef server|.
@@ -79,7 +79,7 @@ Glossary
    An organization is a single instance of a |chef server|, including all of the nodes that are managed by that |chef server| and each of the workstations that will run |knife| and access the |chef server| using the |api chef server|.
 
 **pipeline**
-   A pipeline is series of automated and manual quality gates that take software changes from development to delivery. Pipelines in |chef delivery| have six stages: Verify, Build, Acceptance, Union, Rehearsal, and Delivered.
+   A pipeline is series of automated and manual quality gates that take software changes from development to delivery. Pipelines in |automate| have six stages: Verify, Build, Acceptance, Union, Rehearsal, and Delivered.
 
 **policy**
    Policy settings can be used to map business and operational requirements, such as process and workflow, to settings and objects stored on the |chef server|. See roles, environments, and data bags.
@@ -109,10 +109,10 @@ Glossary
    See kitchen.
 
 **Union**
-  A |chef delivery| stage. Union is the first of the three shared pipeline stages. The purpose of the Union stage is to assess the impact of the change in the context of a complete (or as close as possible) installation of the set of projects that comprise the system as a whole.
+  A |automate| stage. Union is the first of the three shared pipeline stages. The purpose of the Union stage is to assess the impact of the change in the context of a complete (or as close as possible) installation of the set of projects that comprise the system as a whole.
 
 **Verify**
-  A |chef delivery| stage. The purpose of Verify is to run checks so that the system can decide if it's worth the time of a human to review the submitted change.
+  A |automate| stage. The purpose of Verify is to run checks so that the system can decide if it's worth the time of a human to review the submitted change.
 
 **visibility**
    A feature of Chef Automate that provides real-time visibility into what is happening on the |chef server|, including what's changing, who made those changes, and when they occurred.

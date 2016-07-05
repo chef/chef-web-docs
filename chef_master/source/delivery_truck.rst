@@ -49,7 +49,7 @@ Create a build-cookbook
 =====================================================
 .. include:: ../../includes_delivery_cookbook/includes_delivery_cookbook_setup.rst
 
-.. note:: This section assumes that |delivery| is already configured, a project exists, a user may access that project and submit changes, and that all work is being done from that project's root directory.
+.. note:: This section assumes that |automate| is already configured, a project exists, a user may access that project and submit changes, and that all work is being done from that project's root directory.
 
 Edit the |berksfile|
 -----------------------------------------------------
@@ -113,7 +113,7 @@ Example Project Application
 
 Validate the Installation
 =====================================================
-The surest way to validate a |delivery| installation is to create a cookbook, and then submit it to |delivery| to kick off a new build in the pipeline.
+The surest way to validate a |automate| installation is to create a cookbook, and then submit it to |automate| to kick off a new build in the pipeline.
 
 .. include:: ../../includes_delivery/includes_delivery_build_cookbook_create.rst
 
