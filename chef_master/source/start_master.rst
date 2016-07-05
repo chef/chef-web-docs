@@ -1,10 +1,10 @@
 .. The contents of this file is sync'd with /release_compliance/index.rst
 
 =====================================================
-Welcome to Chef
+Platform Overview
 =====================================================
 
-Chef is an automation company. Ever since it was founded in 2008, we've been bringing together developers and system administrators with our namesake product, Chef. However, over the years, what we at Chef mean by automation has evolved and its scope has widened. Chef has a complete automation solution for both infrastructure and applications that takes you all the way from development to production. Here is the complete Chef solution.
+Chef is an automation company. Ever since it was founded in 2008, we've been bringing together developers and system administrators with our namesake product, Chef. Over the years, what we mean by automation has expanded. Today, Chef has a complete automation solution for both infrastructure and applications that takes you all the way from development to production. Here's the complete Chef solution.
 
 .. image:: ../../images/automate_architecture.svg
    :width: 500px
