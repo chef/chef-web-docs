@@ -17,7 +17,7 @@ box labeled "Filter by product and version" to select the particular
 component and version you want.
 
 If this is your first visit, we recommend reading the :doc:`platform
-overview </start_master>` and then starting with the `tutorials
+overview </platform_overview>` and then starting with the `tutorials
 <https://learn.chef.io/tutorials/>`_.
 
 Overview
@@ -26,14 +26,15 @@ Overview
 Platform Overview
 -----------------------------------------------------
 
-:doc:`Platform Overview </start_master>` 
+:doc:`Platform Overview </platform_overview>` 
 
 Community
 -----------------------------------------------------
 
 :doc:`About the Community </community>` |
 :doc:`Contributing </community_contributions>` |
-:doc:`Guidelines </community_guidelines>` 
+:doc:`Guidelines </community_guidelines>` |
+:doc:`Docs Style Guide </style_guide>`
  
 Packages and Platforms
 -----------------------------------------------------
@@ -62,7 +63,8 @@ Tutorials
  `Manage a Node <https://learn.chef.io/tutorials/#manage-a-node>`_ |
  `Local Development <https://learn.chef.io/tutorials/#local-development>`_ |
  `Manage a Web App <https://learn.chef.io/tutorials/#manage-a-web-app>`_ |
- `Install a Server <https://learn.chef.io/tutorials/#install-and-manage-your-own-chef-server>`_ 
+ `Test Your Infrastructure <https://learn.chef.io/tutorials/#test-your-infrastructure-code>`_ |
+ `Install Chef Server <https://learn.chef.io/tutorials/#install-and-manage-your-own-chef-server>`_ 
 
 Concepts
 -----------------------------------------------------
@@ -119,7 +121,9 @@ Cookbook Reference
 
 **Recipes**: :doc:`About Recipes </recipes>` | :doc:`Debug Recipes, Client Runs </debug>` 
 
-**Resources**: :doc:`About Resources </resource>` | :doc:`All Resources (Single Page) </resources>` | :doc:`apt_package </resource_apt_package>` | :doc:`apt_update </resource_apt_update>` | :doc:`bash </resource_bash>` | :doc:`batch </resource_batch>` | :doc:`bff_package </resource_bff_package>` | :doc:`breakpoint </resource_breakpoint>` | :doc:`chef_gem </resource_chef_gem>` | :doc:`chef_handler </resource_chef_handler>` | :doc:`chocolatey_package </resource_chocolatey_package>` | :doc:`cookbook_file </resource_cookbook_file>` | :doc:`cron </resource_cron>` | :doc:`csh </resource_csh>` | :doc:`deploy </resource_deploy>` | :doc:`directory </resource_directory>` | :doc:`dpkg_package </resource_dpkg_package>` | :doc:`dsc_resource </resource_dsc_resource>` | :doc:`dsc_script </resource_dsc_script>` | :doc:`easy_install_package </resource_easy_install_package>` | :doc:`env </resource_env>` | :doc:`erl_call </resource_erlang_call>` | :doc:`execute </resource_execute>` | :doc:`file </resource_file>` | :doc:`freebsd_package </resource_freebsd_package>` | :doc:`gem_package </resource_gem_package>` | :doc:`git </resource_git>` | :doc:`group </resource_group>` | :doc:`homebrew_package </resource_homebrew_package>` | :doc:`http_request </resource_http_request>` | :doc:`ifconfig </resource_ifconfig>` | :doc:`ips_package </resource_ips_package>` | :doc:`ksh </resource_ksh>` | :doc:`launchd </resource_launchd>` | :doc:`link </resource_link>` | :doc:`log </resource_log>` | :doc:`macports_package </resource_macports_package>` | :doc:`mdadm </resource_mdadm>` | :doc:`mount </resource_mount>` | :doc:`ohai </resource_ohai>` | :doc:`openbsd_package </resource_openbsd_package>` | :doc:`osx_profile </resource_osx_profile>` | :doc:`package </resource_package>` | :doc:`pacman_package </resource_pacman_package>` | :doc:`paludis_package </resource_paludis_package>` | :doc:`perl </resource_perl>` | :doc:`portage_package </resource_portage_package>` | :doc:`powershell_script </resource_powershell_script>` | :doc:`python </resource_python>` | :doc:`reboot </resource_reboot>` | :doc:`registry_key </resource_registry_key>` | :doc:`remote_directory </resource_remote_directory>` | :doc:`remote_file </resource_remote_file>` | :doc:`route </resource_route>` | :doc:`rpm_package </resource_rpm_package>` | :doc:`ruby </resource_ruby>` | :doc:`ruby_block </resource_ruby_block>` | :doc:`script </resource_script>` | :doc:`service </resource_service>` | :doc:`smartos_package </resource_smartos_package>` | :doc:`solaris_package </resource_solaris_package>` | :doc:`subversion </resource_subversion>` | :doc:`template </resource_template>` | :doc:`user </resource_user>` | :doc:`windows_package </resource_windows_package>` | :doc:`windows_service </resource_windows_service>` | :doc:`yum_package </resource_yum>` | :doc:`Examples (by Resource) </resource_examples>` 
+**Resources**: :doc:`About Resources </resource>` | :doc:`Common Functionality </resource_common>` | :doc:`All Resources (Single Page) </resources>` | :doc:`apt_package </resource_apt_package>` | :doc:`apt_update </resource_apt_update>` | :doc:`bash </resource_bash>` | :doc:`batch </resource_batch>` | :doc:`bff_package </resource_bff_package>` | :doc:`breakpoint </resource_breakpoint>` | :doc:`chef_gem </resource_chef_gem>` | :doc:`chef_handler </resource_chef_handler>` | :doc:`chocolatey_package </resource_chocolatey_package>` | :doc:`cookbook_file </resource_cookbook_file>` | :doc:`cron </resource_cron>` | :doc:`csh </resource_csh>` | :doc:`deploy </resource_deploy>` | :doc:`directory </resource_directory>` | :doc:`dpkg_package </resource_dpkg_package>` | :doc:`dsc_resource </resource_dsc_resource>` | :doc:`dsc_script </resource_dsc_script>` | :doc:`easy_install_package </resource_easy_install_package>` | :doc:`env </resource_env>` | :doc:`erl_call </resource_erlang_call>` | :doc:`execute </resource_execute>` | :doc:`file </resource_file>` | :doc:`freebsd_package </resource_freebsd_package>` | :doc:`gem_package </resource_gem_package>` | :doc:`git </resource_git>` | :doc:`group </resource_group>` | :doc:`homebrew_package </resource_homebrew_package>` | :doc:`http_request </resource_http_request>` | :doc:`ifconfig </resource_ifconfig>` | :doc:`ips_package </resource_ips_package>` | :doc:`ksh </resource_ksh>` | :doc:`launchd </resource_launchd>` | :doc:`link </resource_link>` | :doc:`log </resource_log>` | :doc:`macports_package </resource_macports_package>` | :doc:`mdadm </resource_mdadm>` | :doc:`mount </resource_mount>` | :doc:`ohai </resource_ohai>` | :doc:`openbsd_package </resource_openbsd_package>` | :doc:`osx_profile </resource_osx_profile>` | :doc:`package </resource_package>` | :doc:`pacman_package </resource_pacman_package>` | :doc:`paludis_package </resource_paludis_package>` | :doc:`perl </resource_perl>` | :doc:`portage_package </resource_portage_package>` | :doc:`powershell_script </resource_powershell_script>` | :doc:`python </resource_python>` | :doc:`reboot </resource_reboot>` | :doc:`registry_key </resource_registry_key>` | :doc:`remote_directory </resource_remote_directory>` | :doc:`remote_file </resource_remote_file>` | :doc:`route </resource_route>` | :doc:`rpm_package </resource_rpm_package>` | :doc:`ruby </resource_ruby>` | :doc:`ruby_block </resource_ruby_block>` | :doc:`script </resource_script>` | :doc:`service </resource_service>` | :doc:`smartos_package </resource_smartos_package>` | :doc:`solaris_package </resource_solaris_package>` | :doc:`subversion </resource_subversion>` | :doc:`template </resource_template>` | :doc:`user </resource_user>` | :doc:`windows_package </resource_windows_package>` | :doc:`windows_service </resource_windows_service>` | :doc:`yum_package </resource_yum>` | :doc:`Examples (by Resource) </resource_examples>` 
+
+**Resources for Chef**: :doc:`chef_acl </resource_chef_acl>` | :doc:`chef_client </resource_chef_client>` | :doc:`chef_container </resource_chef_container>` | :doc:`chef_data_bag_item </resource_chef_data_bag_item>` | :doc:`chef_data_bag </resource_chef_data_bag>` | :doc:`chef_environment </resource_chef_environment>` | :doc:`chef_group </resource_chef_group>` | :doc:`chef_mirror </resource_chef_mirror>` | :doc:`chef_node </resource_chef_node>` | :doc:`chef_organization </resource_chef_organization>` | :doc:`chef_role </resource_chef_role>` | :doc:`chef_user </resource_chef_user>` | :doc:`private_key </resource_private_key>` | :doc:`public_key </resource_public_key>` 
 
 :doc:`Templates </templates>` |
 :doc:`Cookbook Repo </cookbook_repo>` |
@@ -136,6 +140,7 @@ Chef DK
 
 :doc:`Berkshelf </berkshelf>` |
 :doc:`chef-apply (executable) </ctl_chef_apply>` 
+:doc:`chef-shell (executable) </chef_shell>` 
 
 **chef (executable)**:`chef env <http://docs.chef.io/ctl_chef.html#chef-env>`_ | `chef exec <http://docs.chef.io/ctl_chef.html#chef-exec>`_ | `chef gem <http://docs.chef.io/ctl_chef.html#chef-gem>`_ | `chef generate app <http://docs.chef.io/ctl_chef.html#chef-generate-app>`_ | `chef generate attribute <http://docs.chef.io/ctl_chef.html#chef-generate-attribute>`_ | `chef generate cookbook <http://docs.chef.io/ctl_chef.html#chef-generate-cookbook>`_ | `chef generate file <http://docs.chef.io/ctl_chef.html#chef-generate-file>`_ | `chef generate lwrp <http://docs.chef.io/ctl_chef.html#chef-generate-lwrp>`_ | `chef generate recipe <http://docs.chef.io/ctl_chef.html#chef-generate-recipe>`_ | `chef generate repo <http://docs.chef.io/ctl_chef.html#chef-generate-repo>`_ | `chef generate template <http://docs.chef.io/ctl_chef.html#chef-generate-template>`_ | `chef provision <http://docs.chef.io/ctl_chef.html#chef-provision>`_ | `chef shell-init <http://docs.chef.io/ctl_chef.html#chef-shell-init>`_ | `chef verify <http://docs.chef.io/ctl_chef.html#chef-verify>`_ 
 
@@ -156,7 +161,7 @@ Chef DK
 **Kitchen**: :doc:`About Kitchen </kitchen>` | :doc:`kitchen (executable) </ctl_kitchen>` | :doc:`.kitchen.yml </config_yml_kitchen>` | :doc:`kitchen-inspec </plugin_kitchen_inspec>` | :doc:`kitchen-vagrant </plugin_kitchen_vagrant>` 
 
 
-**Knife**: :doc:`About Knife </knife>` | :doc:`Using Knife </knife_using>` | :doc:`knife.rb </config_rb_knife>` | :doc:`knife bootstrap </knife_bootstrap>` | :doc:`knife client </knife_client>` | :doc:`knife configure </knife_configure>` | :doc:`knife cookbook </knife_cookbook>` | :doc:`knife cookbook site </knife_cookbook_site>` | :doc:`knife data bag </knife_data_bag>` | :doc:`knife delete </knife_delete>` | :doc:`knife deps </knife_deps>` | :doc:`knife diff </knife_diff>` | :doc:`knife download </knife_download>` | :doc:`knife edit </knife_edit>` | :doc:`knife environment </knife_environment>` | :doc:`knife exec </knife_exec>` | :doc:`knife list </knife_list>` | :doc:`knife node </knife_node>` | :doc:`knife raw </knife_raw>` | :doc:`knife recipe list </knife_recipe_list>` | :doc:`knife role </knife_role>` | :doc:`knife search </knife_search>` | :doc:`knife serve </knife_serve>` | :doc:`knife show </knife_show>` | :doc:`knife ssh </knife_ssh>` | :doc:`knife ssl_check </knife_ssl_check>` | :doc:`knife ssl_fetch </knife_ssl_fetch>` | :doc:`knife status </knife_status>` | :doc:`knife tag </knife_tag>` | :doc:`knife upload </knife_upload>` | :doc:`knife user </knife_user>` | :doc:`knife xargs </knife_xargs>` 
+**Knife**: :doc:`About Knife </knife>` | :doc:`Common Options </knife_common_options>` | :doc:`Using Knife </knife_using>` | :doc:`knife.rb </config_rb_knife>` | :doc:`knife bootstrap </knife_bootstrap>` | :doc:`knife client </knife_client>` | :doc:`knife configure </knife_configure>` | :doc:`knife cookbook </knife_cookbook>` | :doc:`knife cookbook site </knife_cookbook_site>` | :doc:`knife data bag </knife_data_bag>` | :doc:`knife delete </knife_delete>` | :doc:`knife deps </knife_deps>` | :doc:`knife diff </knife_diff>` | :doc:`knife download </knife_download>` | :doc:`knife edit </knife_edit>` | :doc:`knife environment </knife_environment>` | :doc:`knife exec </knife_exec>` | :doc:`knife list </knife_list>` | :doc:`knife node </knife_node>` | :doc:`knife raw </knife_raw>` | :doc:`knife recipe list </knife_recipe_list>` | :doc:`knife role </knife_role>` | :doc:`knife search </knife_search>` | :doc:`knife serve </knife_serve>` | :doc:`knife show </knife_show>` | :doc:`knife ssh </knife_ssh>` | :doc:`knife ssl_check </knife_ssl_check>` | :doc:`knife ssl_fetch </knife_ssl_fetch>` | :doc:`knife status </knife_status>` | :doc:`knife tag </knife_tag>` | :doc:`knife upload </knife_upload>` | :doc:`knife user </knife_user>` | :doc:`knife xargs </knife_xargs>` 
 
 :doc:`knife spork </plugin_knife_spork>` |
 
@@ -175,10 +180,10 @@ Chef DK
 Managing the Server
 -----------------------------------------------------
 
+:doc:`Runbook (Single Page) </runbook>` |
 :doc:`Backup and Restore </server_backup_restore>` |
 :doc:`Data Storage </server_data>` |
 :doc:`Firewalls and Ports </server_firewalls_and_ports>` |
-:doc:`High Availability </server_high_availability>` |
 :doc:`Active Directory and LDAP </server_ldap>` |
 :doc:`Log Files </server_logs>` |
 :doc:`Monitor </server_monitor>` |
@@ -239,7 +244,7 @@ kitchen-inspec
 Audit resources
 -----------------------------------------------------
 
-:doc:`apache_conf </inspec_apache_conf>` | :doc:`apt </inspec_apt>` | :doc:`audit_policy </inspec_audit_policy>` | :doc:`auditd_conf </inspec_auditd_conf>` | :doc:`auditd_rules </inspec_auditd_rules>` | :doc:`bash </inspec_bash>` | :doc:`bond </inspec_bond>` | :doc:`bridge </inspec_bridge>` | :doc:`command </inspec_command>` | :doc:`csv </inspec_csv>` | :doc:`directory </inspec_directory>` | :doc:`etc_group </inspec_etc_group>` | :doc:`file </inspec_file>` | :doc:`gem </inspec_gem>` | :doc:`group </inspec_group>` | :doc:`host </inspec_host>` | :doc:`inetd_conf </inspec_inetd_conf>` | :doc:`interface </inspec_interface>` | :doc:`iptables </inspec_iptables>` | :doc:`json </inspec_json>` | :doc:`kernel_module </inspec_kernel_module>` | :doc:`kernel_parameter </inspec_kernel_parameter>` | :doc:`limits_conf </inspec_limits_conf>` | :doc:`login_defs </inspec_login_def>` | :doc:`mount </inspec_mount>` | :doc:`mysql_conf </inspec_mysql_conf>` | :doc:`mysql_session </inspec_mysql_session>` | :doc:`npm </inspec_npm>` | :doc:`ntp_conf </inspec_ntp_conf>` | :doc:`oneget </inspec_oneget>` | :doc:`os </inspec_os>` | :doc:`os_env </inspec_os_env>` | :doc:`package </inspec_package>` | :doc:`parse_config </inspec_parse_config>` | :doc:`parse_config_file </inspec_parse_config_file>` | :doc:`passwd </inspec_etc_passwd>` | :doc:`pip </inspec_pip>` | :doc:`port </inspec_port>` | :doc:`postgres_conf </inspec_postgres_conf>` | :doc:`postgres_session </inspec_postgres_session>` | :doc:`processes </inspec_process>` | :doc:`registry_key </inspec_registry_key>` | :doc:`script </inspec_script>` | :doc:`security_policy </inspec_security_policy>` | :doc:`service </inspec_service>` | :doc:`ssh_config </inspec_ssh_config>` | :doc:`sshd_config </inspec_sshd_config>` | :doc:`user </inspec_user>` | :doc:`windows_feature </inspec_windows_feature>` | :doc:`yaml </inspec_yaml>` | :doc:`yum </inspec_yum>` 
+:doc:`All Resources (Single Page) </inspec_reference>` | :doc:`apache_conf </inspec_apache_conf>` | :doc:`apt </inspec_apt>` | :doc:`audit_policy </inspec_audit_policy>` | :doc:`auditd_conf </inspec_auditd_conf>` | :doc:`auditd_rules </inspec_auditd_rules>` | :doc:`bash </inspec_bash>` | :doc:`bond </inspec_bond>` | :doc:`bridge </inspec_bridge>` | :doc:`command </inspec_command>` | :doc:`csv </inspec_csv>` | :doc:`directory </inspec_directory>` | :doc:`etc_group </inspec_etc_group>` | :doc:`file </inspec_file>` | :doc:`gem </inspec_gem>` | :doc:`group </inspec_group>` | :doc:`host </inspec_host>` | :doc:`inetd_conf </inspec_inetd_conf>` | :doc:`interface </inspec_interface>` | :doc:`iptables </inspec_iptables>` | :doc:`json </inspec_json>` | :doc:`kernel_module </inspec_kernel_module>` | :doc:`kernel_parameter </inspec_kernel_parameter>` | :doc:`limits_conf </inspec_limits_conf>` | :doc:`login_defs </inspec_login_def>` | :doc:`mount </inspec_mount>` | :doc:`mysql_conf </inspec_mysql_conf>` | :doc:`mysql_session </inspec_mysql_session>` | :doc:`npm </inspec_npm>` | :doc:`ntp_conf </inspec_ntp_conf>` | :doc:`oneget </inspec_oneget>` | :doc:`os </inspec_os>` | :doc:`os_env </inspec_os_env>` | :doc:`package </inspec_package>` | :doc:`parse_config </inspec_parse_config>` | :doc:`parse_config_file </inspec_parse_config_file>` | :doc:`passwd </inspec_etc_passwd>` | :doc:`pip </inspec_pip>` | :doc:`port </inspec_port>` | :doc:`postgres_conf </inspec_postgres_conf>` | :doc:`postgres_session </inspec_postgres_session>` | :doc:`processes </inspec_process>` | :doc:`registry_key </inspec_registry_key>` | :doc:`script </inspec_script>` | :doc:`security_policy </inspec_security_policy>` | :doc:`service </inspec_service>` | :doc:`ssh_config </inspec_ssh_config>` | :doc:`sshd_config </inspec_sshd_config>` | :doc:`user </inspec_user>` | :doc:`windows_feature </inspec_windows_feature>` | :doc:`yaml </inspec_yaml>` | :doc:`yum </inspec_yum>` 
 
 Custom Audit Resources
 -----------------------------------------------------
@@ -257,18 +262,24 @@ Getting Started
 
 Tutorials
 -----------------------------------------------------
- `Assess <https://learn.chef.io/tutorials/#compliance-assess>`_ |
- `Remediate <https://learn.chef.io/tutorials/#compliance-remediate>`_ |
- `Build a Pipeline <https://learn.chef.io/delivery/get-started/>`_ 
+
+`Install Chef Automate <https://learn.chef.io/automate/install>`_ |
+`Visibility into Infrastructure <https://learn.chef.io/automate/visibility>`_ |
+`Deploy with Chef Automate <https://learn.chef.io/automate/deploy-cookbook>`_ |
+`Assess for Compliance <https://learn.chef.io/tutorials/#compliance-assess>`_ |
+`Remediate Compliance Failures <https://learn.chef.io/tutorials/#compliance-remediate>`_ 
 
 Setup
 -----------------------------------------------------
 :doc:`Configure a Pipeline </delivery_pipeline>` |
-:doc:`Configure a Project </config_json_delivery>` 
+:doc:`Configure a Project </config_json_delivery>` |
+:doc:`Enable Visibility </setup_visibility_chef_automate>`
 
 Concepts
 -----------------------------------------------------
-:doc:`Workflow Overview </workflow>` |
+
+**Workflow**: :doc:`Workflow Overview </workflow>` | :doc:`Manage Dependencies </delivery_manage_dependencies>`
+
 :doc:`Visibility Overview </visibility>` |
 :doc:`Compliance Overview </compliance>` 
 
@@ -289,8 +300,8 @@ Managing the Server
 :doc:`Secrets </delivery_manage_secrets>` |
 :doc:`Tuning </delivery_server_tuning>` |
 :doc:`Users and Roles </delivery_users_and_roles>` |
-:doc:`Import Node Data </import_data_chef_automate>` |
-:doc:`Stream Events Through Datatap </datatap_chef_automate>` |
+:doc:`Ingest Data </ingest_data_chef_automate>` |
+:doc:`Stream Data </stream_data_chef_automate>` |
 `backup-data <http://docs.chef.io/ctl_delivery_server.html#backup-data>`_ |
 `cleanse <http://docs.chef.io/ctl_delivery_server.html#cleanse>`_ |
 `create-enterprise <http://docs.chef.io/ctl_delivery_server.html#create-enterprise>`_ |
@@ -313,13 +324,14 @@ Managing the Server
 `update-project-hooks <http://docs.chef.io/ctl_delivery_server.html#update-project-hooks>`_ |
 :doc:`delivery.rb </config_rb_delivery>` |
 :doc:`Delivery API </api_delivery>` |
-:doc:`Visibility Search Query Reference </search_query_chef_automate>`
+:doc:`Node Search Reference </search_query_chef_automate>`
 
 Compliance scanner
 -----------------------------------------------------
 :doc:`Overview </compliance>` |
 :doc:`Installation Guide </install_compliance>` |
 :doc:`Integrate w/Chef Server </integrate_compliance_chef_server>` |
+:doc:`Upgrade Compliance </upgrade_compliance>` |
 :doc:`chef-compliance.rb </config_rb_compliance>` |
 :doc:`Compliance DSL </dsl_compliance>` |
 :doc:`Chef Compliance API </api_compliance>` 
@@ -383,7 +395,7 @@ Addenda
 
 `Available on Github <https://github.com/chef/chef-web-docs>`_ |
 `Get Chef <https://www.chef.io/get-chef>`_ |
-`Send Feedback <https://docs.chef.io/feedback>`_ |
+:doc:`Send Feedback </feedback>` |
 `Support <https://www.chef.io/support>`_ |
 `Site Map <https://docs.chef.io/index.html>`_
 
@@ -402,8 +414,6 @@ Addenda
    api_reporting
    attributes
    auth
-   auth_authentication
-   auth_authorization
    aws_marketplace
    azure_portal
    berkshelf
@@ -474,10 +484,9 @@ Addenda
    custom_resources
    custom_resources_notes
    data_bags
-   datatap_chef_automate
+   stream_data_chef_automate
    debug
    definitions
-   delivery_overview
    delivery_pipeline
    delivery_build_cookbook
    delivery_manage_dependencies
@@ -502,7 +511,7 @@ Addenda
    glossary
    habitat
    handlers
-   import_data_chef_automate
+   ingest_data_chef_automate
    inspec
    inspec_reference
    inspec_apache_conf
@@ -622,6 +631,7 @@ Addenda
    openstack
    packages
    page_not_found
+   platform_overview
    platforms
    plugin_community
    plugin_kitchen_inspec
@@ -767,11 +777,9 @@ Addenda
    server_tuning
    server_users
    server_webui_tasks
-   start_delivery
+   setup_visibility_chef_automate
    simple_walkthrough
    slides
-   start_compliance
-   start_master
    style_guide
    supermarket
    supermarket_logs

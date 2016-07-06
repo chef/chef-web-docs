@@ -9,7 +9,7 @@
       {
         "title": "Platform Overview",
         "hasSubItems": false,
-        "url": "/start_master.html"
+        "url": "/platform_overview.html"
       },
       {
         "title": "Community",
@@ -29,6 +29,11 @@
             "title": "Guidelines",
             "hasSubItems": false,
             "url": "/community_guidelines.html"
+          },
+          {
+            "title": "Docs Style Guide",
+            "hasSubItems": false,
+            "url": "/style_guide.html"
           }
         ]
       },
@@ -126,7 +131,12 @@
             "url": "https://learn.chef.io/tutorials/#manage-a-web-app"
           },
           {
-            "title": "Install a Server",
+            "title": "Test Your Infrastructure",
+            "hasSubItems": false,
+            "url": "https://learn.chef.io/tutorials/#test-your-infrastructure-code"
+          },
+          {
+            "title": "Install Chef Server",
             "hasSubItems": false,
             "url": "https://learn.chef.io/tutorials/#install-and-manage-your-own-chef-server"
           }
@@ -486,6 +496,11 @@
                 "url": "/resources.html"
               },
               {
+                "title": "Common Functionality",
+                "hasSubItems": false,
+                "url": "/resource_common.html"
+              },
+              {
                 "title": "apt_package",
                 "hasSubItems": false,
                 "url": "/resource_apt_package.html"
@@ -818,6 +833,82 @@
             ]
           },
           {
+            "title": "Resources for Chef",
+            "hasSubItems": true,
+            "subItems": [
+              {
+                "title": "chef_acl",
+                "hasSubItems": false,
+                "url": "/resource_chef_acl.html"
+              },
+              {
+                "title": "chef_client",
+                "hasSubItems": false,
+                "url": "/resource_chef_client.html"
+              },
+              {
+                "title": "chef_container",
+                "hasSubItems": false,
+                "url": "/resource_chef_container.html"
+              },
+              {
+                "title": "chef_data_bag_item",
+                "hasSubItems": false,
+                "url": "/resource_chef_data_bag_item.html"
+              },
+              {
+                "title": "chef_data_bag",
+                "hasSubItems": false,
+                "url": "/resource_chef_data_bag.html"
+              },
+              {
+                "title": "chef_environment",
+                "hasSubItems": false,
+                "url": "/resource_chef_environment.html"
+              },
+              {
+                "title": "chef_group",
+                "hasSubItems": false,
+                "url": "/resource_chef_group.html"
+              },
+              {
+                "title": "chef_mirror",
+                "hasSubItems": false,
+                "url": "/resource_chef_mirror.html"
+              },
+              {
+                "title": "chef_node",
+                "hasSubItems": false,
+                "url": "/resource_chef_node.html"
+              },
+              {
+                "title": "chef_organization",
+                "hasSubItems": false,
+                "url": "/resource_chef_organization.html"
+              },
+              {
+                "title": "chef_role",
+                "hasSubItems": false,
+                "url": "/resource_chef_role.html"
+              },
+              {
+                "title": "chef_user",
+                "hasSubItems": false,
+                "url": "/resource_chef_user.html"
+              },
+              {
+                "title": "private_key",
+                "hasSubItems": false,
+                "url": "/resource_private_key.html"
+              },
+              {
+                "title": "public_key",
+                "hasSubItems": false,
+                "url": "/resource_public_key.html"
+              }
+            ]
+          },
+          {
             "title": "Templates",
             "hasSubItems": false,
             "url": "/templates.html"
@@ -889,6 +980,11 @@
             "title": "chef-apply (executable)",
             "hasSubItems": false,
             "url": "/ctl_chef_apply.html"
+          },
+          {
+            "title": "chef-shell (executable)",
+            "hasSubItems": false,
+            "url": "/chef_shell.html"
           },
           {
             "title": "chef (executable)",
@@ -1026,7 +1122,7 @@
           {
             "title": "cookstyle",
             "hasSubItems": false,
-            "url": "/release/devkit/cookstyle.html"
+            "url": "/cookstyle.html"
           },
           {
             "title": "Delivery CLI",
@@ -1077,6 +1173,11 @@
                 "title": "About Knife",
                 "hasSubItems": false,
                 "url": "/knife.html"
+              },
+              {
+                "title": "Common Options",
+                "hasSubItems": false,
+                "url": "/knife_common_options.html"
               },
               {
                 "title": "Using Knife",
@@ -1386,6 +1487,10 @@
         "hasSubItems": true,
         "subItems": [
           {
+            "title": "Runbook (Single Page)",
+            "hasSubItems": false,
+            "url": "/runbook.html"
+          },{
             "title": "Backup &amp; Restore",
             "hasSubItems": false,
             "url": "/server_backup_restore.html"
@@ -1399,11 +1504,6 @@
             "title": "Firewalls &amp; Ports",
             "hasSubItems": false,
             "url": "/server_firewalls_and_ports.html"
-          },
-          {
-            "title": "High Availability",
-            "hasSubItems": false,
-            "url": "/server_high_availability.html"
           },
           {
             "title": "Active Directory &amp; LDAP",
@@ -1640,7 +1740,6 @@
   },
   {
     "title": "Habitat",
-    "hasImage": true,
     "image": "habitat-mark.png",
     "subItems": [
       {
@@ -1714,6 +1813,11 @@
         "title": "Audit Resources",
         "hasSubItems": true,
         "subItems": [
+          {
+            "title": "All Resources (Single Page)",
+            "hasSubItems": false,
+            "url": "/inspec_reference.html"
+          },
           {
             "title": "apache_conf",
             "hasSubItems": false,
@@ -2001,19 +2105,29 @@
         "hasSubItems": true,
         "subItems": [
           {
-            "title": "Assess",
+            "title": "Install Chef Automate",
+            "hasSubItems": false,
+            "url": "https://learn.chef.io/automate/install"
+          },
+          {
+            "title": "Visibility into Infrastructure",
+            "hasSubItems": false,
+            "url": "https://learn.chef.io/automate/visibility"
+          },
+          {
+            "title": "Deploy with Chef Automate",
+            "hasSubItems": false,
+            "url": "https://learn.chef.io/automate/deploy-cookbook/"
+          },
+ {
+            "title": "Assess for Compliance",
             "hasSubItems": false,
             "url": "https://learn.chef.io/tutorials/#compliance-assess"
           },
           {
-            "title": "Remediate",
+            "title": "Remediate Compliance Failures",
             "hasSubItems": false,
             "url": "https://learn.chef.io/tutorials/#compliance-remediate"
-          },
-          {
-            "title": "Build a Pipeline",
-            "hasSubItems": false,
-            "url": "https://learn.chef.io/delivery/get-started/"
           }
         ]
       },
@@ -2030,6 +2144,10 @@
             "title": "Configure a Project",
             "hasSubItems": false,
             "url": "/config_json_delivery.html"
+          },
+          {
+            "title": "Enable Visibility",
+            "url": "/setup_visibility_chef_automate.html"
           }
         ]
       },
@@ -2037,11 +2155,23 @@
         "title": "Concepts",
         "hasSubItems": true,
         "subItems": [
-          {
-            "title": "Workflow Overview",
-            "hasSubItems": false,
-            "url": "/workflow.html"
+           {
+            "title": "Workflow",
+            "hasSubItems": true,
+            "subItems": [
+              {            
+                "title": "Workflow Overview",
+                "hasSubItems": false,
+                "url": "/workflow.html"
+              },
+              {            
+                "title": "Manage Dependencies",
+                "hasSubItems": false,
+                "url": "/delivery_manage_dependencies.html"
+              }
+           ]
           },
+
           {
             "title": "Visibility Overview",
             "hasSubItems": false,
@@ -2097,7 +2227,7 @@
           {
             "title": "Upgrades",
             "hasSubItems": false,
-            "url": "/upgrade_chef_automate"
+            "url": "/upgrade_chef_automate.html"
           },
           {
             "title": "Disaster Recovery",
@@ -2120,14 +2250,14 @@
             "url": "/delivery_users_and_roles.html"
           },
           {
-           "title": "Import Data",
+           "title": "Ingest Data",
            "hasSubItems": false,
-           "url": "/import_data_chef_automate.html"
+           "url": "/ingest_data_chef_automate.html"
           },
           {
-           "title": "Stream Events through Datatap",
+           "title": "Stream Data",
            "hasSubItems": false,
-           "url": "/datatap_chef_automate.html"
+           "url": "/stream_data_chef_automate.html"
           },
           {
             "title": "delivery-ctl",
@@ -2246,7 +2376,7 @@
             "url": "/api_delivery.html"
           },
           {
-           "title": "Visibility Search Query Reference",
+           "title": "Node Search Reference",
            "hasSubItems": false,
            "url": "/search_query_chef_automate.html"
           }
@@ -2271,6 +2401,11 @@
             "hasSubItems": false,
             "url": "/integrate_compliance_chef_server.html"
           },
+          {
+            "title": "Upgrade Compliance",
+            "hasSubItems": false,
+            "url": "/upgrade_compliance.html"
+          },         
           {
             "title": "chef-compliance.rb",
             "hasSubItems": false,

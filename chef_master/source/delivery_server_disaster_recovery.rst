@@ -1,12 +1,12 @@
 =====================================================
-Chef Automate Server Disaster Recovery
+Chef Automate Disaster Recovery
 =====================================================
 
 .. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
 
 Use a standby |automate| server to protect against the loss of the primary |automate| server. A standby |automate| server is configured to replicate data from the primary |automate| server. In the event of loss of the primary |automate| server, the standby is then reconfigured to become the primary.
 
-.. note:: These instructions assume that the primary and standby servers are in the same data center. If they are in different geographical locations additional considerations are necessary, as well as tuning the configuration to account for latency between data centers.
+.. note:: Disaster Recovery for |automate| pertains to the workflow capabilities only. Also, these instructions assume that the primary and standby servers are in the same data center. If they are in different geographical locations additional considerations are necessary, as well as tuning the configuration to account for latency between data centers.
 
 Requirements
 ====================================================

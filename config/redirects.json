@@ -1,6 +1,8 @@
 {
   "_images/chef_run_legacy.png": "/_images/chef_run.png",
   "_images/server_components_all.png": "/_images/server_components.png",
+  "auth_authentication.html": "auth.html",
+  "auth_authorization.html": "auth.html",
   "chef_dk.html": "/workstation.html",
   "chef_init.html": "/containers.html",
   "community_lists.html": "/community.html",
@@ -688,6 +690,8 @@
   "release/delivery_1-0/integrate_delivery_bitbucket.html": "/release/delivery/integrate_delivery_bitbucket.html",
   "release/delivery_1-0/integrate_delivery_github.html": "/release/delivery/integrate_delivery_github.html",
   "release/delivery_1-0/integrate_delivery_ldap.html": "/release/delivery/integrate_delivery_ldap.html",
-  "supported_platforms.html": "/platforms.html" 
+  "supported_platforms.html": "/platforms.html",
+  "start_compliance.html": "/compliance.html"
+  "start_delivery.html": "/delivery.html"
 }
 

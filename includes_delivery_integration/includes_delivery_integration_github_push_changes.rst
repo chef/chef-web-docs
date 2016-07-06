@@ -26,7 +26,7 @@ Edit ``.delivery/config.json`` like so:
    {
      "version": "2",
      "build_cookbook": {
-       "git": "https://github.com/opscode-cookbooks/delivery-truck.git",
+       "git": "https://github.com/chef-cookbooks/delivery-truck.git",
        "name": "delivery-truck",
        "branch": "master"
      },
@@ -44,6 +44,6 @@ Next, push the code to |github|.
    $ git add . && git commit -m 'add delivery config'
    $ git push origin add_delivery_config
 
-(The |delivery_cli| can perform all of this for projects that use local repositories; one day, it'll do it for remote repositories as well.)
+(The ``delivery`` command can perform all of this for projects that use local repositories; one day, it'll do it for remote repositories as well.)
 
 Finally, create a pull request from this change in the |github| webui.

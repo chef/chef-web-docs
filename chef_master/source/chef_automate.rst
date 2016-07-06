@@ -35,4 +35,4 @@ Workflow
 Chef Automate includes a pipeline for continuous delivery of infrastructure and applications. 
 This full-stack approach, where infrastructure changes are delivered in tandem with any application changes, 
 allows for safe deployment at high velocity. For information Chef Automate safely moves changes move through a gated pipeline, 
-see :doc:`Workflow Overview </delivery_overview>`.
+see :doc:`Workflow Overview </workflow>`.
