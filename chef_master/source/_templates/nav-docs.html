@@ -3,7 +3,7 @@
 {% set active_version = "current" %}
 {% set navItems = [
   {
-    "title": "Getting Started",
+    "title": "Overview",
     "iconClass": "fa-home",
     "subItems": [
       {
@@ -33,24 +33,30 @@
         ]
       },
       {
-        "title": "Packages",
-        "hasSubItems": false,
-        "url": "/packages.html"
-      },
-      {
-        "title": "Platforms",
-        "hasSubItems": false,
-        "url": "/platforms.html"
-      },
-      {
-        "title": "Omnitruck API",
-        "hasSubItems": false,
-        "url": "/api_omnitruck.html"
-      },
-      {
-        "title": "Licensing",
-        "hasSubItems": false,
-        "url": "/chef_license.html"
+        "title": "Packages &amp; Platforms",
+        "hasSubItems": true,
+        "subItems": [
+           {
+             "title": "Packages",
+             "hasSubItems": false,
+             "url": "/packages.html"
+           },
+           {
+             "title": "Platforms",
+             "hasSubItems": false,
+             "url": "/platforms.html"
+           },
+           {
+             "title": "Omnitruck API",
+             "hasSubItems": false,
+             "url": "/api_omnitruck.html"
+           },
+           {
+             "title": "Licensing",
+             "hasSubItems": false,
+             "url": "/chef_license.html"
+           }
+        ]
       }
     ]
   },
@@ -159,11 +165,6 @@
             "title": "Search",
             "hasSubItems": false,
             "url": "/chef_search.html"
-          },
-          {
-            "title": "Containers",
-            "hasSubItems": false,
-            "url": "/containers.html"
           },
           {
             "title": "Cookbooks",
@@ -1582,6 +1583,11 @@
             "hasSubItems": true,
             "subItems": [
               {
+               "title": "Configure SAML",
+               "hasSubItems": false,
+               "url": "/server_configure_saml.html"
+              },
+              {
                 "title": "Clients",
                 "hasSubItems": false,
                 "url": "/server_manage_clients.html"
@@ -1634,6 +1640,8 @@
   },
   {
     "title": "Habitat",
+    "hasImage": true,
+    "image": "habitat-mark.png",
     "subItems": [
       {
         "title": "Habitat Overview",
@@ -2089,7 +2097,7 @@
           {
             "title": "Upgrades",
             "hasSubItems": false,
-            "url": "/chef_automate_upgrade"
+            "url": "/upgrade_chef_automate"
           },
           {
             "title": "Disaster Recovery",
@@ -2110,6 +2118,16 @@
             "title": "Users &amp; Roles",
             "hasSubItems": false,
             "url": "/delivery_users_and_roles.html"
+          },
+          {
+           "title": "Import Data",
+           "hasSubItems": false,
+           "url": "/import_data_chef_automate.html"
+          },
+          {
+           "title": "Stream Events through Datatap",
+           "hasSubItems": false,
+           "url": "/datatap_chef_automate.html"
           },
           {
             "title": "delivery-ctl",
@@ -2226,6 +2244,11 @@
             "title": "Delivery API",
             "hasSubItems": false,
             "url": "/api_delivery.html"
+          },
+          {
+           "title": "Visibility Search Query Reference",
+           "hasSubItems": false,
+           "url": "/search_query_chef_automate.html"
           }
         ]
       },

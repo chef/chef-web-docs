@@ -25,28 +25,68 @@ A Chef Automate installation consists of a minimum of two nodes:
 
 Prerequisites
 =====================================================
-You'll need the following:
 
-* A Chef Automate license file. If you don't yet have one, please contact Chef Software at `awesome@chef.io` to request one.
-* At least two available nodes (they can be physical machines or virtual):
+Chef Automate requires a license from Chef to install. If you don't yet have one, please contact Chef Software at `awesome@chef.io` to request one.
 
-  * All must be running RHEL/CentOS 6 or 7, or Ubuntu 12.04-14.04
-  * Chef server should have at least two cores and 2048MB RAM
-  * Chef Automate server should have at least four cores and 16GB RAM
-  * (Optional) If you are using the workflow capabilities of Chef Automate, then you will also need one or more build nodes.  Each should have at least 4GB RAM, but may require more based on the requirements associated with building your applications.
+Platforms
+-----------------------------------------
 
-* If you already have a Chef server installation, you can update it with push jobs as detailed in `Push Jobs Server installation <#push_job_installation>`_. If you have both already configured, skip to `Completing Setup <#completing-setup>`_.
-  
-* Any build nodes must be accessible from the Chef Automate server over SSH, and at this time, they must have a user account configured that has passwordless sudo privileges.
+The |automate| server may be run on the following platforms. Do not mix platforms or platform versions within the |automate| cluster.
+
+.. list-table::
+   :widths: 280 100 120
+   :header-rows: 1
+ 
+   * - Platform
+     - Architecture
+     - Version
+   * - |centos|
+     - ``x86_64``
+     - ``6.5``, ``6.6``, ``7``
+   * - |redhat enterprise linux|
+     - ``x86_64``
+     - ``6.5``, ``6.6``, ``7``
+   * - |ubuntu|
+     - ``x86_64``
+     - ``12.04``, ``14.04``
+
+ 
+Infrastructure
+------------------------------------------
+
+|automate| has the following infrastructure requirements:
+
+  .. list-table::
+     :widths: 150 100 100 100
+     :header-rows: 1
+
+     * - Function
+       - vCPU
+       - RAM
+       - Free disk space (in /var)
+     * - Chef Automate Server
+       - 4
+       - 16GB
+       - 80GB
+     * - Chef Server (must be v12). See additional information in note, below.
+       - 4
+       - 8GB
+       - 80GB
+     * - Build Nodes (Optional, but required if you use workflow)
+       - 2
+       - 4GB
+       - 60GB
+
+.. note:: If you already have a Chef server installation, you can update it with push jobs as detailed in `Push Jobs Server installation <#push_job_installation>`_. If you have both already configured, skip to `Completing Setup <#completing-setup>`_. Also, any build nodes must be accessible from the Chef Automate server over SSH and they must have a user account configured that has sudo privileges.
 
 Node Hostnames and Network Access
 -----------------------------------------------------
 
 The automated configuration of Chef Automate and Chef servers use the
-`hostname` command to determine the visible fully-qualified domain name
-(FQDN) of the node.  Prior to installation, ensure that `hostname` on
+``hostname`` command to determine the visible fully-qualified domain name
+(FQDN) of the node.  Prior to installation, ensure that ``hostname`` on
 each node resolves to a correct FQDN that is visible to the
-other nodes in the cluster.   If necessary, update the `/etc/hosts` on
+other nodes in the cluster.   If necessary, update the ``/etc/hosts`` on
 the nodes to ensure that the names resolve.
 
 The Chef Automate server hostname is also expected to match the hostname
@@ -54,14 +94,40 @@ that you will use to work with Chef Automate via its web interface.  It is
 not currently possible to use the Chef Automate web interface if the host
 name used in the URL does not match the one it is configured with.
 
-At a minimum the following machines must be able to reach each other:
+|automate| has the following network and port requirements. At a minimum the following machines must be able to reach each other:
 
 * Chef Automate server -> Chef server
 * Build node -> Chef Automate server
 * Build node -> Chef server
 
-Both the Chef Automate server and Chef server must have port 443 open to enable
-communication between nodes.
+.. list-table::
+   :widths: 100 250 100 100
+   :header-rows: 1
+
+   * - Ports
+     - Description
+     - Server
+     - State
+   * - 10000-10003
+     - TCP Push Jobs
+     - Chef server
+     - LISTEN
+   * - 8989
+     - TCP Delivery Git (SCM)
+     - Chef Automate server
+     - LISTEN
+   * - 443
+     - TCP HTTP Secure
+     - Chef server, Chef Automate server
+     - LISTEN
+   * - 22
+     - TCP SSH
+     - All
+     - LISTEN
+   * - 80
+     - TCP HTTP
+     - Chef server, Chef Automate server
+     - LISTEN
 
 Chef Server Installation and Configuration
 =====================================================
@@ -111,23 +177,23 @@ Running this reconfigure may trigger a brief restart of Chef
 Server.  This will typically fall in the standard retry window for Chef
 Clients, so no significant interruption of service is expected.
 
-Create a User and Organization
--------------------------------------------------------
+Create a User and Organization to Manage Your Cluster
+========================================================
 
 As part of the setup process, you must create a user and organization that will be used internally by Chef Automate to manage your Chef Automate cluster.
 
-#. From the Chef server, create a ``delivery`` user specifying first name, last name, email address, and password. Also, as done in the step 5 of the `Chef Server Installation <#chef-server-installation>`_, a private key will be generated for you, so specify where to save the user key using the ``--filename`` option. The key will be referenced this later as ``$DELIVERY_CHEF_USER_KEY``:
+#. From the Chef server, create a ``delivery`` user specifying first name, last name, email address, and password. Also, as done in the step 5 of the `Chef Server Installation <#chef-server-installation>`_, a private key will be generated for you, so specify where to save the user key using the ``--filename`` option. The key will be referenced this later as ``$AUTOMATE_CHEF_USER_KEY``:
 
     .. code-block:: bash
 
-        sudo chef-server-ctl user-create delivery $FIRST_NAME $LAST_NAME $EMAIL_ADDRESS '$PASSWORD' --filename $DELIVERY_CHEF_USER_KEY
+        sudo chef-server-ctl user-create delivery $FIRST_NAME $LAST_NAME $EMAIL_ADDRESS '$PASSWORD' --filename $AUTOMATE_CHEF_USER_KEY
 
 
-#. Create the ``$DELIVERY_CHEF_ORG`` organization and associate the Chef Automate user:
+#. Create the ``$AUTOMATE_CHEF_ORG`` organization and associate the Chef Automate user:
 
     .. code-block:: bash
 
-        sudo chef-server-ctl org-create $DELIVERY_CHEF_ORG 'org description'  --filename ~/$DELIVERY_CHEF_ORG-validator.pem -a delivery
+        sudo chef-server-ctl org-create $AUTOMATE_CHEF_ORG 'org description'  --filename ~/$AUTOMATE_CHEF_ORG-validator.pem -a delivery
 
   .. note:: The ``--filename`` option is used so that the validator key for your organization will not be shown on-screen. The key is not required for this process.
 
@@ -136,20 +202,20 @@ Chef Automate Server Installation and Configuration
 
 To install Chef Automate:
 
-#. Download and install the latest stable Chef Automate package for your operating system from either `<https://downloads.chef.io/delivery/>`_ or `<https://bintray.com/chef/stable/delivery/view>`_ on the Chef Automate server machine.
+#. Download and install the latest stable Chef Automate package for your operating system from `<https://downloads.chef.io/automate/>`_ on the Chef Automate server machine.
 
    For Debian:
   
    .. code-block:: bash
 
-      dpkg -i $PATH_TO_DELIVERY_SERVER_PACKAGE
+      dpkg -i $PATH_TO_AUTOMATE_SERVER_PACKAGE
 
 
    For Red Hat or Centos:
   
    .. code-block:: bash
 
-      rpm -Uvh $PATH_TO_DELIVERY_SERVER_PACKAGE
+      rpm -Uvh $PATH_TO_AUTOMATE_SERVER_PACKAGE
 
 #. Ensure that the Chef Automate license file is located on the Chef Automate server.
 
@@ -157,13 +223,13 @@ To install Chef Automate:
    
    .. code-block:: bash
 
-      sudo delivery-ctl setup --license $DELIVERY_LICENSE \
-                             --key $DELIVERY_CHEF_USER_KEY \
-                             --server-url https://$CHEF_SERVER_FQDN/organizations/$DELIVERY_CHEF_ORG \
+      sudo delivery-ctl setup --license $AUTOMATE_LICENSE \
+                             --key $AUTOMATE_CHEF_USER_KEY \
+                             --server-url https://$CHEF_SERVER_FQDN/organizations/$AUTOMATE_CHEF_ORG \
 
-   ``$DELIVERY_LICENSE`` is the path to your Chef Automate license file. 
+   ``$AUTOMATE_LICENSE`` is the path to your Chef Automate license file. 
 
-   ``$DELIVERY_CHEF_USER_KEY`` is the key that was created in the previous section on your Chef server.
+   ``$AUTOMATE_CHEF_USER_KEY`` is the key that was created in the previous section on your Chef server.
    Copy it from the Chef server to the Chef Automate server and then provide the path for the ``--key`` argument.
 
 #. (Optional) If you are using an internal Supermarket, tell the setup command about it by supplying the ``--supermarket-fqdn`` command line argument:
@@ -212,12 +278,12 @@ To install Chef Automate:
 
    Copy the credentials somewhere safe.
 
-#. In the ``$DELIVERY\_SERVER``, if you don't have DNS, define in ``/etc/hosts``:
+#. In the ``$AUTOMATE\_SERVER``, if you don't have DNS, define in ``/etc/hosts``:
   
    .. code-block:: none
 
       $CHEF_SERVER_IP         $CHEF_SERVER_FQDN
-      $DELIVERY_SERVER_IP     $DELIVERY_SERVER_FQDN
+      $AUTOMATE_SERVER_IP     $AUTOMATE_SERVER_FQDN
 
 #. If you plan on using the workflow capabilities of Automate, proceed to the next section to setup your build nodes. After they are setup, you can attempt to run an initial application or cookbook change through your Chef Automate server. 
 
@@ -226,7 +292,7 @@ Set up a Build node (Optional)
 
 The following steps are performed on the Chef Automate server:
 
-#. Download the latest ChefDK from either `<https://downloads.chef.io/chef-dk/>`_ or `<https://bintray.com/chef/current/chefdk/view>`_. Version 0.15.3 or greater is required. The download location is referred to below as ``$CHEF_DK_PACKAGE_PATH``.
+#. Download the latest ChefDK from either `<https://downloads.chef.io/chef-dk/>`_ or `<https://bintray.com/chef/current/chefdk/view>`_. Version 0.15.16 or greater is required. The download location is referred to below as ``$CHEF_DK_PACKAGE_PATH``.
 
 #. If you have an on-premises Supermarket installation, copy the Supermarket certificate file to ``/etc/delivery/supermarket.crt``.
 

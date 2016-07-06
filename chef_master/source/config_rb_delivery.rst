@@ -9,8 +9,6 @@ delivery.rb Settings
 
 .. include:: ../../includes_config/includes_config_rb_delivery.rst
 
-.. note:: .. include:: ../../includes_notes/includes_notes_config_rb_delivery_does_not_exist_by_default.rst
-
 Recommended Settings
 =====================================================
 .. include:: ../../includes_delivery_server/includes_delivery_server_tuning_general.rst

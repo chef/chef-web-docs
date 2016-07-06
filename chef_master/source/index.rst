@@ -85,7 +85,7 @@ Concepts
 
 **Security**:`Authentication <http://docs.chef.io/auth.html#authentication>`_ | `Authorization <http://docs.chef.io/auth.html#authorization>`_ | :doc:`Private Keys </chef_private_keys>` | `FIPS-mode <http://docs.chef.io/ctl_chef_client.html#run-in-fips-mode>`_ 
 
-**Supermarket**: `Public Supermarket <http://docs.chef.io/supermarket.html#public-supermarket>`_ | `Private Supermarket <http://docs.chef.io/supermarket.html#private-supermarket>`_
+**Supermarket**: `Public Supermarket (overview) <http://docs.chef.io/supermarket.html#public-supermarket>`_ | `Private Supermarket (overview) <http://docs.chef.io/supermarket.html#private-supermarket>`_
 
 :doc:`Microsoft Windows </windows>` 
 
@@ -203,7 +203,7 @@ Managing the Server
 
 **Supermarket**::doc:`Log Files </supermarket_logs>` | :doc:`Monitoring </supermarket_monitor>` | :doc:`supermarket.rb </config_rb_supermarket>` | :doc:`knife supermarket </plugin_knife_supermarket>` | :doc:`supermarket-ctl </ctl_supermarket>` | :doc:`Cookbooks Site API </api_cookbooks_site>` 
 
-**Management Console**: :doc:`Clients </server_manage_clients>` | :doc:`Cookbooks </server_manage_cookbooks>` | :doc:`Data Bags </server_manage_data_bags>` | :doc:`Environments </server_manage_environments>` | :doc:`Nodes </server_manage_nodes>` | :doc:`Roles </server_manage_roles>` | `Users <http://docs.chef.io/server_users.html#chef-manage-title>`_ | :doc:`manage.rb </config_rb_manage>` | :doc:`chef-manage-ctl </ctl_manage>` 
+**Management Console**: :doc:`Configure SAML </server_configure_saml>` | :doc:`Clients </server_manage_clients>` | :doc:`Cookbooks </server_manage_cookbooks>` | :doc:`Data Bags </server_manage_data_bags>` | :doc:`Environments </server_manage_environments>` | :doc:`Nodes </server_manage_nodes>` | :doc:`Roles </server_manage_roles>` | `Users <http://docs.chef.io/server_users.html#chef-manage-title>`_ | :doc:`manage.rb </config_rb_manage>` | :doc:`chef-manage-ctl </ctl_manage>` 
 
 Habitat
 =====================================================
@@ -289,6 +289,8 @@ Managing the Server
 :doc:`Secrets </delivery_manage_secrets>` |
 :doc:`Tuning </delivery_server_tuning>` |
 :doc:`Users and Roles </delivery_users_and_roles>` |
+:doc:`Import Node Data </import_data_chef_automate>` |
+:doc:`Stream Events Through Datatap </datatap_chef_automate>` |
 `backup-data <http://docs.chef.io/ctl_delivery_server.html#backup-data>`_ |
 `cleanse <http://docs.chef.io/ctl_delivery_server.html#cleanse>`_ |
 `create-enterprise <http://docs.chef.io/ctl_delivery_server.html#create-enterprise>`_ |
@@ -310,7 +312,8 @@ Managing the Server
 `uninstall <http://docs.chef.io/ctl_delivery_server.html#uninstall>`_ |
 `update-project-hooks <http://docs.chef.io/ctl_delivery_server.html#update-project-hooks>`_ |
 :doc:`delivery.rb </config_rb_delivery>` |
-:doc:`Delivery API </api_delivery>` 
+:doc:`Delivery API </api_delivery>` |
+:doc:`Visibility Search Query Reference </search_query_chef_automate>`
 
 Compliance scanner
 -----------------------------------------------------
@@ -364,7 +367,7 @@ Knife Plugins
 
 :doc:`About Cloud Plugins </plugin_knife>` |
 :doc:`Custom Plugins </plugin_knife_custom>` |
-`Community Plugins <http://docs.chef.io/plugin_community.html#knife-title>`_ 
+`Community Plugins (knife) <http://docs.chef.io/plugin_community.html#knife-title>`_ 
 
 Ohai Plugins
 -----------------------------------------------------
@@ -373,9 +376,16 @@ Ohai Plugins
 Chef Client Plugins
 -----------------------------------------------------
 
-`Chef Client Plugins <http://docs.chef.io/plugin_community.html#chef-client-title>`_ |
+`Chef Client Plugins <http://docs.chef.io/plugin_community.html#chef-client-title>`_ 
 
+Addenda
+=====================================================
 
+`Available on Github <https://github.com/chef/chef-web-docs>`_ |
+`Get Chef <https://www.chef.io/get-chef>`_ |
+`Send Feedback <https://docs.chef.io/feedback>`_ |
+`Support <https://www.chef.io/support>`_ |
+`Site Map <https://docs.chef.io/index.html>`_
 
 
 .. Hide the TOC from this file.
@@ -464,6 +474,7 @@ Chef Client Plugins
    custom_resources
    custom_resources_notes
    data_bags
+   datatap_chef_automate
    debug
    definitions
    delivery_overview
@@ -491,6 +502,7 @@ Chef Client Plugins
    glossary
    habitat
    handlers
+   import_data_chef_automate
    inspec
    inspec_reference
    inspec_apache_conf
@@ -729,10 +741,12 @@ Chef Client Plugins
    ruby
    run_lists
    runbook
+   search_query_chef_automate
    secrets
    security_notes
    server_backup_restore
    server_components
+   server_configure_saml
    server_data
    server_firewalls_and_ports
    server_high_availability

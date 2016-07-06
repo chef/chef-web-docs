@@ -8,86 +8,21 @@ Use a standby |automate| server to protect against the loss of the primary |auto
 
 .. note:: These instructions assume that the primary and standby servers are in the same data center. If they are in different geographical locations additional considerations are necessary, as well as tuning the configuration to account for latency between data centers.
 
-Install w/delivery-cluster
-=====================================================
-The following steps describe how to install a standby |automate| server using the ``delivery-cluster`` cookbook.
-
 Requirements
------------------------------------------------------
+====================================================
 A disaster recovery configuration for |automate| has the following requirements:
 
 * Two identically-configured |automate| servers, one to act as the primary server and the other to act as a standby
+
   .. note:: You cannot log in to the |automate| web UI on the standby server.
+
 * |ssh| access between both |automate| servers via port 22
 * |postgresql| replication allowed between both |automate| servers via port 5432
 * The latest version of the |chef dk| is installed on the provisioning node
 * A |automate| license
 
-Steps
------------------------------------------------------
-To install a standby |automate| server using the ``delivery-cluster`` cookbook:
 
-#. Download the ``delivery-cluster`` cookbook:
-
-   .. code-block:: bash
-
-      $ git clone https://github.com/chef-cookbooks/delivery-cluster
-
-   or:
-
-   .. code-block:: bash
-
-      $ wget https://github.com/chef-cookbooks/delivery-cluster/archive/master.zip
-
-#. Create an environment:
-
-   .. code-block:: bash
-
-      $ rake setup:generate_env
-
-#. After creating the environment file in the easy setup instructions, edit the ``environments/<clust-name>.json`` file to add the following block to the ``"delivery"`` property.
-
-   If using the |amazon aws| provisioner:
-
-   .. code-block:: javascript
-
-      "delivery": {
-        "fqdn": "<your-fqdn>",
-        "hostname": "delivery-server-<clust-name>-1",
-        "disaster_recovery": {
-          "enable": true,
-          "hostname": "delivery-server-<clust-name>-2"
-        },
-        ...
-      }
-
-   If using the |ssh| provisioner:
-
-   .. code-block:: javascript
-
-      "delivery": {
-        "fqdn": "<your-fqdn>",
-        "ip": "10.194.8.7",
-        "hostname": "delivery-server-<clust-name>-1",
-        "disaster_recovery": {
-          "enable": true,
-          "ip": "10.194.8.8",
-          "hostname": "delivery-server-<clust-name>-2"
-        },
-        ...
-      }
-
-#. Provision the |automate| cluster:
-
-   .. code-block:: bash
-
-      $ rake setup:cluster
-
-5. For more information about the ``delivery-cluster`` cookbook, see https://github.com/chef-cookbooks/delivery-cluster.
-
-
-
-Install Manually
+Install a Standby |automate| Server
 =====================================================
 The following steps describe how to manually install a |automate| server for use as a standby.
 
@@ -95,19 +30,22 @@ The following steps describe how to manually install a |automate| server for use
 
 #. Provision a standby server that is exactly the same as the existing |automate| server.
 
-#. Download the |automate| package to the standby server: https://bintray.com/chef/stable/delivery.
+#. Download the |automate| package to the standby server: `<https://downloads.chef.io/automate/>`_.
 
-#. As a root user, install the |automate| package on the server, using the name of the package provided by |company_name|. For |centos|:
+#. As a root user, install the |automate| package on the server, using the name of the package provided by |company_name|. 
 
+   For Debian:
+  
    .. code-block:: bash
 
-      $ sudo rpm -i /path/to/delivery-package.rpm
+      dpkg -i $PATH_TO_AUTOMATE_SERVER_PACKAGE
 
-   For |ubuntu|:
 
+   For Red Hat or Centos:
+  
    .. code-block:: bash
 
-      $ sudo dpkg -i /path/to/delivery-package.deb
+      rpm -Uvh $PATH_TO_AUTOMATE_SERVER_PACKAGE
 
    After a few minutes, |automate| will be installed.
 
@@ -135,7 +73,7 @@ The following steps describe how to manually install a |automate| server for use
 
    .. code-block:: ruby
 
-      delivery_fqdn "<DELIVERY_URL>"
+      delivery_fqdn "<AUTOMATE_URL>"
 
       delivery['chef_username']    = "delivery"
       delivery['chef_private_key'] = "/etc/delivery/delivery.pem"
@@ -148,7 +86,7 @@ The following steps describe how to manually install a |automate| server for use
       postgresql['listen_address'] = 'localhost,<STANDBY_IP_ADDRESS>'
 
 
-   where ``PRIMARY_IP_ADDRESS``, ``STANDBY_IP_ADDRESS``, and ``DELIVERY_URL``, ``CHEF_SERVER_URL`` should be replaced with the actual values for the |automate| configuration. The ``PRIMARY_IP_ADDRESS`` and ``STANDBY_IP_ADDRESS`` values should be from a private network between the two machines.
+   where ``PRIMARY_IP_ADDRESS``, ``STANDBY_IP_ADDRESS``, and ``AUTOMATE_URL``, ``CHEF_SERVER_URL`` should be replaced with the actual values for the |automate| configuration. The ``PRIMARY_IP_ADDRESS`` and ``STANDBY_IP_ADDRESS`` values should be from a private network between the two machines.
 
 #. On the existing (now primary) |automate| server create a directory for the |ssh| key:
 

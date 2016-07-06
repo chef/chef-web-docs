@@ -7,6 +7,8 @@ Troubleshooting Chef Automate
 Build nodes
 =====================================================
 
+The following are possible issues you might run into when using build nodes.
+
 Waiting for builder
 -----------------------------------------------------
 
@@ -31,7 +33,7 @@ then modify the build-nodes default search for your project as described in `Con
 SAML
 =======================================================
 
-I cannot sign in with SAML and...
+When setting up SAML authentication, you might run into issues where you cannot sign in with SAML and...
 
 The browser shows a blank page
 -----------------------------------------------------

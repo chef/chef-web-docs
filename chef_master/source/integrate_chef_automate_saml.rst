@@ -11,8 +11,8 @@ service provider, integrating with your chosen identity provider.
 Configuring SAML for your Chef Automate enterprise
 =====================================================
 
-As an enterprise admin, you can configure a SAML Service to enable single sign on. To do this from the Chef Automate UI, go to the dropdown navigation menu, and 
-click on ``Admin``. From the ``Admin`` screen, navigate to the SAML Setup tab. Once you are on the SAML Setup tab, you can configure the details 
+As an enterprise admin, you can configure a SAML Service to enable single sign on. To do this from the Chef Automate UI, 
+click on the ``Admin`` menu item. From the ``Admin`` screen, navigate to the SAML Setup tab. Once you are on the SAML Setup tab, you can configure the details 
 necessary to integrate Chef Automate and SAML.
 
 This can either be done by supplying Chef Automate with your Identity Provider's metadata endpoint, or by manually entering the required 
@@ -161,10 +161,7 @@ Chef Automate makes a SAML request to the Identity Provider with the NameIdPolic
 
 It is recommended that an administrator account remain a Chef Automate authenticated user. This will allow an administrator to access Chef Automate in the case of a SAML misconfiguration or problem with the SAML Identity Provider.
 
-Configuring Okta to consume user metadata
-=====================================================
-
-In order to get a user's first name, email address and last name, Okta has to be configured. When you are setting up SAML for Chef Automate, log into your in Okta account. From the `Admin` tab, go to Applications -> Your Application -> General -> SAML Settings. Click the edit button and then on step 2 "Configure SAML" in the section "ATTRIBUTE STATEMENTS (OPTIONAL)" set up the attribute mappings with the following values:
+.. note:: For Okta users, Okta has to be configured to get a user's first name, email address, and last name. When you are setting up SAML for Chef Automate, log into your in Okta account. From the `Admin` tab, go to Applications -> Your Application -> General -> SAML Settings. Click the edit button and then on step 2, "Configure SAML" in the section "ATTRIBUTE STATEMENTS (OPTIONAL)" set up the attribute mappings with the following values:
 
 .. image:: ../../images/samlattributes.jpg
 
@@ -199,10 +196,10 @@ By default, Chef Automate's SAML integration will use EntityId ``https://<yourCh
 
    auth['saml_entity_id'] = 'https://delivery.corp.com/saml'
 
-Chef Automate CLI
+Workflow ('delivery') CLI
 =====================================================
 
- The Chef Automate CLI (``delivery-cli``) can be used with SAML-authenticated users:
+The Workflow CLI in Chef Automate (``delivery-cli``) can be used with SAML-authenticated users:
 
 #. When SAML is configured, ``delivery token`` defaults to SAML-authenticating the user, and it will prompt the user to use their browser to login to Chef Automate:
 
@@ -304,7 +301,7 @@ Configuration of Chef Server
 -----------------------------------------------------
 
 Note that all of the client-related values need to match the configuration in the Chef Server management console.
-See :doc:`Chef Manage </manage>` for more details.
+See :doc:`Configuring for SAML Authentication </server_configure_saml>` for more details.
 
 Troubleshooting
 ===================================================================
