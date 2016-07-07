@@ -705,6 +705,8 @@ nav.nav-main {
   .nav-docs .icon-left {
     margin-right: 10px;
     padding-right: 10px;
+    width: 26px;
+    height: inherit;
     border-right: 1px solid #7d868c; }
   .nav-docs .nav-docs-items > li {
     border-bottom: 1px solid #4d5256; }
