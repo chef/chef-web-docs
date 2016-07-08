@@ -12,7 +12,6 @@ Update the role data in |json|:
 
 .. code-block:: javascript
 
-   ## sample:
    {
       "name": "role1",
       "description": "This is the description for the role1 role.",

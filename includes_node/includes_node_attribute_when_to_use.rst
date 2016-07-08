@@ -4,7 +4,7 @@
 
 An attribute is a specific detail about a node, such as an IP address, a host name, a list of loaded kernel modules, the version(s) of available programming languages that are available, and so on. An attribute may be unique to a specific node or it can be identical across every node in the organization. Attributes are most commonly set from a cookbook, by using |knife|, or are retrieved by |ohai| from each node prior to every |chef client| run. All attributes are indexed for search on the |chef server|. Good candidates for attributes include:
 
-* any cross-platform abstraction for an application, such as the path to a configuration files
+* any cross-platform abstraction for an application, such as the path to a configuration file
 * default values for tunable settings, such as the amount of memory assigned to a process or the number of workers to spawn
 * anything that may need to be persisted in node data between |chef client| runs
 

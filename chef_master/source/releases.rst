@@ -113,8 +113,8 @@ The following documentation sets are available:
    * - |chef compliance|
      - `https://docs.chef.io/release/compliance/ <https://docs.chef.io/release/compliance>`__
      - 
-   * - |chef delivery|
-     - `https://docs.chef.io/release/delivery/ <https://docs.chef.io/release/delivery>`__
+   * - |automate|
+     - `https://docs.chef.io/release/automate/ <https://docs.chef.io/release/automate>`__
      - 
    * - |chef analytics_title|
      - `https://docs.chef.io/release/analytics/ <https://docs.chef.io/release/analytics>`__

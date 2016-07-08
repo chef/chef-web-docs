@@ -25,7 +25,7 @@ To verify provisioning (from inside the ``delivery-cluster`` directory), do the 
       Password: m90wul1YG6DafdytgervfuIkrBlz0Eg=
       Chef Server URL: https://URL_FOR_CHEF_SERVER
       
-      Delivery Server
+      Chef Automate Server
       Created enterprise: delivery-enterprise
       Admin username: admin
       Admin password: +Fy1p5zRsIase5yhtrefi+Evmqq2CCD9BAUQ=

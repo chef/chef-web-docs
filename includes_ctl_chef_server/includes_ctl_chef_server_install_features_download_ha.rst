@@ -9,19 +9,19 @@ The ``install`` subcommand downloads packages from https://packages.chef.io/ by 
 
    On each front end server in the |chef server| configuration, run:
 
-   .. code-block:: ruby
+   .. code-block:: bash
 
       $ chef-server-ctl install chef-manage
 
    then:
 
-   .. code-block:: ruby
+   .. code-block:: bash
 
       $ chef-server-ctl reconfigure
 
    and then:
 
-   .. code-block:: ruby
+   .. code-block:: bash
 
       $ chef-manage-ctl reconfigure
 

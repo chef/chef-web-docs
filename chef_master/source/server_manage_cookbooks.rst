@@ -2,6 +2,8 @@
 Manage Cookbooks
 =====================================================
 
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+
 .. note:: This topic is about using the |chef manage| to manage cookbooks.
 
 .. include:: ../../includes_cookbooks/includes_cookbooks.rst

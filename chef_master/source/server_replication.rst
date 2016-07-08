@@ -1,6 +1,9 @@
 =====================================================
 |chef replication_title|
 =====================================================
+
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+
 .. include:: ../../includes_server_replication/includes_server_replication.rst
 
 .. note:: |chef replication| requires |chef server| version 12.

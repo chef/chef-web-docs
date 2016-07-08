@@ -2,6 +2,8 @@
 opscode-reporting.rb
 =====================================================
 
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+
 .. include:: ../../includes_config/includes_config_rb_reporting.rst
 
 .. note:: If the ``opscode-reporting.rb`` file does not exist, create a file called ``opscode-reporting.rb`` and put it in the ``/etc/opscode-reporting/`` directory.

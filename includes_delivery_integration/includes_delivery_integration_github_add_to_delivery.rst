@@ -8,10 +8,10 @@ To add the |github| |oauth| app to |delivery|, log in to the |delivery| server a
 
 .. code-block:: bash
 
-   delivery-ctl setup-github-enterprise $GHE_SERVER_ROOT_URL $CLIENT_ID $CLIENT_SECRET
+   $ delivery-ctl setup-github-enterprise $GHE_SERVER_ROOT_URL $CLIENT_ID $CLIENT_SECRET
 
 **For Github.com**
 
 .. code-block:: bash
 
-   delivery-ctl setup-github $CLIENT_ID $CLIENT_SECRET
+   $ delivery-ctl setup-github $CLIENT_ID $CLIENT_SECRET

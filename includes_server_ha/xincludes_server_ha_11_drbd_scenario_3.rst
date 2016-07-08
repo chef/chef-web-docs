@@ -7,7 +7,7 @@ Basically, what this means is that when the primary becomes unavailable to the s
 
 The status of the secondary will look something like the following:
 
-.. code-block:: bash
+.. code-block:: none
 
    version: 8.4.1 (api:1/proto:86-100)
    GIT-hash: 91b4c048c1a0e06777b5f65d312b38d47abaea80 build by dag@Build64R6, 2011-12-21 06:08:50
@@ -24,7 +24,7 @@ If it is verified that the primary host is going to be down for a while, the sec
 
 at that point the status will change to something like the following:
 
-.. code-block:: bash
+.. code-block:: none
 
    version: 8.4.1 (api:1/proto:86-100)
    GIT-hash: 91b4c048c1a0e06777b5f65d312b38d47abaea80 build by dag@Build64R6, 2011-12-21 06:08:50

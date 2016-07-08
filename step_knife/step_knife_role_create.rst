@@ -12,7 +12,6 @@ In the |chef editor| enter the role data in |json|:
 
 .. code-block:: javascript
 
-   ## sample:
    {
       "name": "role1",
       "default_attributes": {

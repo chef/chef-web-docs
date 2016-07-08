@@ -11,7 +11,6 @@ to return:
 
 .. code-block:: javascript
 
-   ## sample:
    {
      "id": "mysql",
      "pass": "thesecret123",

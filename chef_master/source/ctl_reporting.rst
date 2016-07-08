@@ -2,6 +2,8 @@
 |reporting ctl| (executable)
 =====================================================
 
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+
 .. include:: ../../includes_ctl_reporting/includes_ctl_reporting.rst
 
 .. note:: .. include:: ../../includes_chef/includes_chef_subscriptions.rst

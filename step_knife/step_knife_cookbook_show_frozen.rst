@@ -10,7 +10,7 @@ To see if a cookbook named ``redis`` with a version number of ``0.1.6`` is froze
 
 If the cookbook is frozen, something like the following is returned:
 
-.. code-block:: bash
+.. code-block:: none
 
    frozen?:        true
 

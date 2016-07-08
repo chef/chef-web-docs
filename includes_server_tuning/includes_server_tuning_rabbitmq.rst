@@ -1,6 +1,8 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
+.. note:: Chef Analytics has been replaced by Chef Automate.
+
 The following settings must be modified when the |chef analytics| server is configured as a standalone server:
 
 ``rabbitmq['node_ip_address']``

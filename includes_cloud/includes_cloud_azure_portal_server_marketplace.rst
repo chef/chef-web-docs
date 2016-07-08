@@ -33,10 +33,9 @@ Before getting started, you will need a functioning workstation. Install the `Ch
 
    will return something similar to:
 
-   .. code-block:: bash
+   .. code-block:: none
 
-
-	  cloud-init v. 0.7.5 finished at Thu, 05 May 2016 21:41:21 +0000. Datasource DataSourceAzureNet [seed=/dev/sr0].  Up 740.33 seconds
+	cloud-init v. 0.7.5 finished at Thu, 05 May 2016 21:41:21 +0000. Datasource DataSourceAzureNet [seed=/dev/sr0].  Up 740.33 seconds
       
 #. After ``cloud-init`` has completed, configure the |chef server| with the DNS Name.
 
@@ -50,13 +49,13 @@ Before getting started, you will need a functioning workstation. Install the `Ch
 
 #. Update the ``/etc/chef-marketplace/marketplace.rb`` file to include the ``api_fqdn`` of the machine:
 
-   .. code-block:: bash
+   .. code-block:: none
 
       $ echo 'api_fqdn "<fqdn>"' | sudo tee -a /etc/chef-marketplace/marketplace.rb
 
 #. Update the ``/etc/opscode-analytics/opscode-analytics.rb`` file to include the ``analytics_fqdn`` of the machine:
 
-   .. code-block:: bash
+   .. code-block:: none
 
       $ echo 'analytics_fqdn "<fqdn>"' | sudo tee -a /etc/opscode-analytics/opscode-analytics.rb
 

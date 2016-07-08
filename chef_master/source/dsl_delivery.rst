@@ -4,7 +4,7 @@ About the |dsl delivery|
 
 .. include:: ../../includes_dsl_delivery/includes_dsl_delivery.rst
 
-.. warning:: These recipe helpers are available from the ``delivery-truck`` cookbook: https://github.com/opscode-cookbooks/delivery-truck. This cookbook is a recommended dependency for any ``build-cookbook`` for a project that publishes changes to a |delivery| pipeline.
+.. warning:: These recipe helpers are available from the ``delivery-truck`` cookbook: https://github.com/opscode-cookbooks/delivery-truck. This cookbook is a recommended dependency for any ``build-cookbook`` for a project that publishes changes to a |automate| pipeline.
 
 Helpers
 =====================================================

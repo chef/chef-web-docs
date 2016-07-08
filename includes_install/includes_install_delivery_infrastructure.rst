@@ -16,7 +16,7 @@
        - 1 (2.5GHz)
        - 1GB
        - 8GB
-     * - Delivery Server
+     * - Chef Automate Server
        - 4
        - 8GB
        - 80GB

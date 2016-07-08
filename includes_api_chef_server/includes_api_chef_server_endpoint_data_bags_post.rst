@@ -7,7 +7,7 @@ This method has no parameters.
 
 **Request**
 
-.. code-block:: xml
+.. code-block:: none
 
    POST /organizations/NAME/data
 
@@ -25,7 +25,7 @@ where (in the example above) ``name`` is the key and "users" is the value.
 
 The response is similar to:
 
-.. code-block:: javascript
+.. code-block:: none
 
    {
       "chef_type" => "environment"

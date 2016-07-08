@@ -2,6 +2,8 @@
 Integrate Compliance w/Chef Server
 =====================================================
 
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+
 .. include:: ../../includes_compliance/includes_compliance_integrate_chef_server.rst
 
 .. note:: .. include:: ../../includes_chef/includes_chef_subscriptions.rst

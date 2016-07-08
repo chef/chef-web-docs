@@ -4,9 +4,17 @@ An Overview of |chef|
 
 .. include:: ../../includes_chef/includes_chef.rst
 
+
+* The workstation is the location from which all of |chef| is managed, including :doc:`installing the Chef DK </install_dk>`, :doc:`authoring cookbooks </cookbooks>`, and using tools like :doc:`Kitchen </kitchen>`, `chef-zero (a command-line tool that runs locally as if it were connected to a real Chef server) <https://docs.chef.io/ctl_chef_client.html#run-in-local-mode>`__, command-line tools like :doc:`Knife (for interacting with the Chef server) </knife>` and :doc:`chef (for interacting with your local chef-repo) </ctl_chef>`, and resources like :doc:`core Chef resources (for building recipes) </resources>` and :doc:`InSpec (for building security and compliance checks into your workflow) </inspec_reference>`.
+* Nodes are the machines---physical, virtual, cloud, and so on---that are under management by |chef|. The chef-client is installed on each node and is what `performs the automation on that machine <https://docs.chef.io/chef_client.html#the-chef-client-title-run>`__.
+* Use the |chef server| as your foundation to create and manage flexible, dynamic infrastructure whether you manage 50 or 500,000 nodes, across multiple datacenters, public and private clouds, and in heterogeneous environments.
+
+  The Chef server acts as :doc:`a hub for configuration data </server_components>`. The Chef server stores cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is being managed by the chef-client. Nodes use the chef-client to ask the Chef server for configuration details, such as recipes, templates, and file distributions. The chef-client then does as much of the configuration work as possible on the nodes themselves (and not on the Chef server). This scalable approach distributes the configuration effort throughout the organization.
+
+
 |chef| Components
 =====================================================
-The following diagram shows the relationships between the various elements of |chef|, including the nodes, the server, premium features of the server, and the workstation. These elements work together to provide the |chef client| the information and instruction that it needs so that it can do its job. As you are reviewing the rest of this topic, use the icons in the tables to refer back to this image.
+The following diagram shows the relationships between the various elements of |chef|, including the nodes, the server, and the workstation. These elements work together to provide the |chef client| the information and instruction that it needs so that it can do its job. As you are reviewing the rest of this topic, use the icons in the tables to refer back to this image.
 
 .. image:: ../../images/chef_overview.svg
    :width: 600px
@@ -14,7 +22,7 @@ The following diagram shows the relationships between the various elements of |c
 
 .. include:: ../../includes_chef/includes_chef_key_elements.rst
 
-The premium features of the |chef server|---|chef manage|, |chef analytics|, |chef client| run reporting, high availability configurations, and |chef server| replication---may all be installed and configured for use with the |chef server|. Each of these premium features are easily enabled and can be run as part of any |chef server| deployment!
+|chef manage|, |chef client| run reporting, high availability configurations, and |chef server| replication are available as part of |delivery|.
 
 The following sections discuss these elements (and their various components) in more detail.
 
@@ -113,40 +121,6 @@ Some important aspects of policy include:
           :align: center
 
      - .. include:: ../../includes_node/includes_node_run_list.rst
-
-
-Analytics
-=====================================================
-.. include:: ../../includes_analytics/includes_analytics.rst
-
-|chef analytics| includes:
-
-.. list-table::
-   :widths: 100 420
-   :header-rows: 1
-
-   * - Feature
-     - Description
-   * - .. image:: ../../images/icon_actions.svg
-          :width: 100px
-          :align: center
-
-     - Actions are policy and administrative changes made to the |chef server|. The |chef server| gathers a lot of data—--each node object, the node run history for all nodes, the history of every cookbook and cookbook version, how policy settings, such as roles, environments, and data bags, are applied and to what they are applied, individual user data, and so on.
-   * - .. image:: ../../images/icon_rules.svg
-          :width: 100px
-          :align: center
-
-     - .. include:: ../../includes_analytics_rules/includes_analytics_rules.rst
-   * - .. image:: ../../images/icon_reports.svg
-          :width: 100px
-          :align: center
-
-     - Reporting is used to keep track of what happened during the execution of |chef client| runs across all of the infrastructure that is being managed by |chef|. Reports can be generated for the entire organization and they can be generated for specific nodes.
-   * - .. image:: ../../images/icon_controls.svg
-          :width: 100px
-          :align: center
-
-     - .. include:: ../../includes_analytics/includes_analytics_controls.rst
 
 
 Conclusion

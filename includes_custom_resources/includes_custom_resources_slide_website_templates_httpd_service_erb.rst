@@ -5,7 +5,7 @@
 
 ``httpd.service.erb`` tells |systemd| how to start and stop the website:
 
-.. code-block:: ruby
+.. code-block:: none
 
    [Unit]
    Description=The Apache HTTP Server - instance <%= @instance_name %>

@@ -2,7 +2,7 @@
 delivery.rb Optional Settings 
 =====================================================
 
-.. warning:: The configuration settings in the ``delivery.rb`` file should not be modified before discussing those changes with |company_name|. Some of these settings should be considered for tuning (see :doc:`Delivery Server Tuning </delivery_server_tuning>`), but many of them should be left as default values.
+.. warning:: The configuration settings in the ``delivery.rb`` file should not be modified before discussing those changes with |company_name|. Some of these settings should be considered for tuning (see :doc:`Automate Server Tuning </delivery_server_tuning>`), but many of them should be left as default values.
 
 Settings
 =====================================================
@@ -163,7 +163,7 @@ This configuration file has the following settings for ``delivery``:
    The attribute that contains a full or display name for a user. Default value: ``'fullName'``.
 
 ``delivery['ldap_attr_login']``
-   The attribute that maps to a user's unique logon name. This is the attribute used for searching and will be used to map a user name into Delivery. Default value: ``'sAMAccountName'``.
+   The attribute that maps to a user's unique logon name. This is the attribute used for searching and will be used to map a user name into Chef Automate. Default value: ``'sAMAccountName'``.
 
 ``delivery['ldap_attr_mail']``
    The attribute that maps to user email address. Default value: ``'mail'``.
@@ -215,10 +215,10 @@ This configuration file has the following settings for ``delivery``:
    |port service| Default value: ``9611``.
 
 ``delivery['primary']``
-   Specifies if the |delivery| server is the primary server. Default value: ``true``.
+   Specifies if the |automate| server is the primary server. Default value: ``true``.
 
 ``delivery['primary_ip']``
-   The IP address for the primary |delivery| server. Default value: ``nil``.
+   The IP address for the primary |automate| server. Default value: ``nil``.
 
 ``delivery['push_jobs_max_retries']``
    Maximum number of retries a push job can incur without an intervening nack. Default value: ``3``.
@@ -268,7 +268,7 @@ This configuration file has the following settings for ``delivery``:
       }
 
 ``delivery['standby_ip']``
-   The IP address for the cold standby |delivery| server. Default value: ``nil``.
+   The IP address for the cold standby |automate| server. Default value: ``nil``.
 
 ``delivery['use_ssl_termination']``
    Default value: ``false``.

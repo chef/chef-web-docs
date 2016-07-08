@@ -2,6 +2,8 @@
 |manage rb|
 =====================================================
 
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+
 .. include:: ../../includes_chef/includes_chef_manager.rst
 
 .. include:: ../../includes_config/includes_config_rb_manage.rst

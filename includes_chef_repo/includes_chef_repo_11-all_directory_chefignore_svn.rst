@@ -6,7 +6,7 @@ If |svn| is being used as the version source control application, it is importan
 
 To prevent the upload of top-level |svn| data, add something like the following to the |chefignore| file:
 
-.. code-block:: basemake
+.. code-block:: none
 
    */.svn/*
 

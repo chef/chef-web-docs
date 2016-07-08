@@ -64,6 +64,9 @@ postgresql
 
 rabbitmq
 -----------------------------------------------------
+
+.. note:: Chef Analytics has been replaced by Chef Automate.
+
 .. include:: ../../includes_server_tuning/includes_server_tuning_rabbitmq.rst
 
 Analytics Queues

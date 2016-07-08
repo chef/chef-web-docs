@@ -3,13 +3,13 @@
 
 The ``/metadata`` and/or ``/download`` endpoints can be used to download packages for all products:
 
-.. code-block:: xml
+.. code-block:: none
 
    https://omnitruck.chef.io/<CHANNEL>/<PRODUCT>/download?p=$PLATFORM&pv=$PLATFORM_VERSION&m=$MACHINE_ARCH&v=latest
 
 or:
 
-.. code-block:: xml
+.. code-block:: none
 
    https://omnitruck.chef.io/<CHANNEL>/<PRODUCT>/metadata?p=$PLATFORM&pv=$PLATFORM_VERSION&m=$MACHINE_ARCH&v=latest
 

@@ -16,10 +16,10 @@ Click **Register New Application** and set the following values:
    * - Key
      - Value
    * - **Application Name**
-     - ``Delivery``
+     - ``Automate``
    * - **Homepage URL**
-     - ``https://$DELIVERY_SERVER/e/$DELIVERY_ENTERPRISE``
+     - ``https://$AUTOMATE_SERVER/e/$DELIVERY_ENTERPRISE``
    * - **Authorization Callback URL**
-     - ``https://$DELIVERY_SERVER/api/v0/github_auth_callback``
+     - ``https://$AUTOMATE_SERVER/api/v0/github_auth_callback``
 
 Click **Register Application** and take note of the generated ``Client ID`` and ``Client Secret`` in the upper left corner.

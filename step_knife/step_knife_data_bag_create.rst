@@ -9,7 +9,7 @@ To create a data bag named "admins", enter:
 
 to return:
 
-.. code-block:: bash
+.. code-block:: none
 
    Created data_bag[admins]
 

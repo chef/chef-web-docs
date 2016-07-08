@@ -18,6 +18,6 @@ and/or:
 
 To install the latest version of the |chef dk| on |windows| from the ``current`` channel:
 
-.. code-block:: powershell
+.. code-block:: none
 
    . { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install -channel current -project chefdk

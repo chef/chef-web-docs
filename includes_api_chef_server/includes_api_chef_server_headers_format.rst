@@ -4,7 +4,7 @@
 
 All hashing is done using |sha1| and encoded in |base64|. |base64| encoding should have line breaks every 60 characters. Each canonical header should be encoded in the following format:
 
-.. code-block:: bash
+.. code-block:: none
 
    Method:HTTP_METHOD
    Hashed Path:HASHED_PATH

@@ -12,7 +12,6 @@ In the |chef editor| enter the node data in |json|:
 
 .. code-block:: javascript
 
-   ## sample:
    {
       "normal": {
       },

@@ -2,20 +2,20 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-Log in to the |delivery| server and run the following command.
+Log in to the |automate| server and run the following command.
 
 **For GitHub Enterprise**
 
 .. code-block:: bash
 
-   delivery-ctl setup-github-enterprise-token $DELIVERY_ENTERPRISE
+   $ delivery-ctl setup-github-enterprise-token $AUTOMATE_ENTERPRISE
 
 **For GitHub.com**
 
 .. code-block:: bash
 
-   delivery-ctl setup-github-token $DELIVERY_ENTERPRISE
+   $ delivery-ctl setup-github-token $AUTOMATE_ENTERPRISE
 
-Follow the URL given to finish authorizing |delivery| with |github|.
+Follow the URL given to finish authorizing |automate| with |github|.
 
 .. note:: If you are using a service account with GitHub Enterprise, you need to complete the OAuth process as the service account user.

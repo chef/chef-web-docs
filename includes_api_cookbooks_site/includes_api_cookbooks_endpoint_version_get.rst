@@ -7,13 +7,13 @@ This method has no parameters.
 
 **Request**
 
-.. code-block:: xml
+.. code-block:: none
 
    GET /cookbooks/COOKBOOK_NAME/versions/latest
 
 or:
 
-.. code-block:: xml
+.. code-block:: none
 
    GET /cookbooks/COOKBOOK_NAME/versions/VERSION
 

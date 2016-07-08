@@ -3,7 +3,7 @@
 
 Use a |json| file to pass run-list details to |chef solo| as long as the cookbook in which the recipe is located is available to the system on which |chef solo| is running. For example, a file named ``dna.json`` contains the following details:
 
-.. code-block:: javascript
+.. code-block:: none
 
    {
      "run_list": ["recipe[apache2]"]

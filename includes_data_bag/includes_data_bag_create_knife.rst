@@ -21,7 +21,7 @@ As long as a file is in the correct directory structure, |knife| will be able to
 
 will load the following file:
 
-.. code-block:: javascript
+.. code-block:: none
 
    data_bags/BAG_NAME/ITEM_NAME.json
 

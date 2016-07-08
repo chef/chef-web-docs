@@ -5,7 +5,7 @@ So far, the scenarios have not described any data loss. When the hosts in the hi
 
 If you get to a situation in which the primary host is lost and unrecoverable, but the last status of the |drbd| pair was reporting that the secondary node was in an ``Inconsistent`` state, it is very likely that some data will be lost. The |drbd| status on the remaining host will look something like the following:
 
-.. code-block:: bash
+.. code-block:: none
 
    version: 8.4.0 (api:1/proto:86-100)
    GIT-hash: 28753f559ab51b549d16bcf487fe625d5919c49c build by root@localhost.localdomain, 2012-02-06 12:59:36

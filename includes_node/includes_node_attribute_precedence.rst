@@ -6,7 +6,7 @@ Attributes are always applied by the |chef client| in the following order:
 #. A ``default`` attribute located in a cookbook attribute file
 #. A ``default`` attribute located in a recipe
 #. A ``default`` attribute located in an environment
-#. A ``default`` attribute located in role
+#. A ``default`` attribute located in a role
 #. A ``force_default`` attribute located in a cookbook attribute file
 #. A ``force_default`` attribute located in a recipe
 #. A ``normal`` attribute located in a cookbook attribute file
@@ -16,7 +16,7 @@ Attributes are always applied by the |chef client| in the following order:
 #. An ``override`` attribute located in a role
 #. An ``override`` attribute located in an environment
 #. A ``force_override`` attribute located in a cookbook attribute file
-#. A ``force_override`` attribute located in a recipe 
+#. A ``force_override`` attribute located in a recipe
 #. An ``automatic`` attribute identified by |ohai| at the start of the |chef client| run
 
 where the last attribute in the list is the one that is applied to the node.

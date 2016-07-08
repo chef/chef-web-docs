@@ -5,7 +5,7 @@ The ``GET`` method is used to return the details of an organization as |json|.
 
 **Request**
 
-.. code-block:: xml
+.. code-block:: none
 
    GET /organizations/NAME/objects_since?seq=NUM
 

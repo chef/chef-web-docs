@@ -20,4 +20,4 @@ During every |chef client| run, the |chef client| builds the attribute list usin
 * The node object that was saved to the |chef server| at the end of the previous |chef client| run
 * The rebuilt node object from the current |chef client| run, after it is updated for changes to cookbooks (attribute files and/or recipes), roles, and/or environments, and updated for any changes to the state of the node itself
 
-After the node object is rebuilt, all of attributes are compared, and then the node is updated based on attribute precedence. At the end of every |chef client| run, the node object that defines the current state of the node is uploaded to the |chef server| so that it can be indexed for search.
+After the node object is rebuilt, all of the attributes are compared, and then the node is updated based on attribute precedence. At the end of every |chef client| run, the node object that defines the current state of the node is uploaded to the |chef server| so that it can be indexed for search.

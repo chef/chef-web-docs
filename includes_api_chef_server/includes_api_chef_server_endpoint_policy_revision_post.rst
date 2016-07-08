@@ -7,13 +7,13 @@ This method has no parameters.
 
 **Request**
 
-.. code-block:: xml
+.. code-block:: none
 
    POST /organizations/NAME/policies/NAME/revisions
 
 with a request body similar to:
 
-.. code-block:: javascript
+.. code-block:: none
 
    xxxxx
 
@@ -21,7 +21,7 @@ with a request body similar to:
 
 The response is similar to:
 
-.. code-block:: javascript
+.. code-block:: none
 
    xxxxx
 

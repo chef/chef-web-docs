@@ -2,6 +2,8 @@
 Manage Client Keys
 =====================================================
 
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+
 .. note:: This topic is about using the |chef manage| to manage keys.
 
 .. include:: ../../includes_server_rbac/includes_server_rbac_clients.rst

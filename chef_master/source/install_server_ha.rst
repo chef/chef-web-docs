@@ -2,6 +2,8 @@
 High Availability: Backend Cluster
 =====================================================
 
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+
 This topic introduces the underlying concepts behind the architecture
 of the highly available |chef server| cluster. The topic then
 describes the setup and installation process for a highly available

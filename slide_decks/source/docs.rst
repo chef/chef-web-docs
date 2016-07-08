@@ -60,7 +60,7 @@ About Chef Documentation
 
     Each doc collection is built continuously, and then delivered. Chef documentation uses:
 
-    * Chef Delivery
+    * Chef Automate
     * A public repo on GitHub: https://www.github.com/chef/chef-web-docs
     * HTML and Reveal.js pages are published to https://docs.chef.io several times per day
     * Other formats are published to various repositories, as needed

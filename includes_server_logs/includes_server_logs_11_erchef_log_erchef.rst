@@ -9,7 +9,7 @@ The |service erchef| service's ``erchef.log`` file contains a history of API req
 
 The following is an example log entry:
 
-.. code-block:: ruby
+.. code-block:: none
 
    2013-08-06T08:54:32Z erchef@127.0.0.1 INFO org_name=srwjedoqqoypgmvafmoi; req_id=g3IAA2QAEGVyY2hlZkAx
 
