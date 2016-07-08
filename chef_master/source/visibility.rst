@@ -41,5 +41,7 @@ Further filtering can also be provided by the **Environment** and **Roles** drop
 
 If you wish to share your filtered search with others, you can do so with the share and save icons next to the search bar.
 
+.. note:: If you want to see the raw, real-time events coming into |automate| and perform simple queries and visualizations on them, navigate to ``https://<YourAutomateServer>/kibana``. And for more information on Kibana, see the `Kibana User Guide <https://www.elastic.co/guide/en/kibana/current/index.html>`_.
+
 
 
