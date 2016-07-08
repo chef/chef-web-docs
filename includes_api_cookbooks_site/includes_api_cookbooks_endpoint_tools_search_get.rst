@@ -18,13 +18,13 @@ The ``GET`` method is used to get a list of tools that match a search query. Use
 
 **Request**
 
-.. code-block:: xml
+.. code-block:: none
 
    GET /tools-search?q=SEARCH_QUERY
 
 or:
 
-.. code-block:: xml
+.. code-block:: none
 
    GET /tools-search?q=SEARCH_QUERY&start=START&items=ITEMS
 

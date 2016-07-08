@@ -1,6 +1,8 @@
 =====================================================
-Integrate Delivery with |bitbucket|
+Integrate Chef Automate with |bitbucket|
 =====================================================
+
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
 
 .. include:: ../../includes_delivery_integration/includes_delivery_integration_bitbucket.rst
 
@@ -20,11 +22,11 @@ Set up Integration
 =====================================================
 .. include:: ../../includes_delivery_integration/includes_delivery_integration_bitbucket_setup.rst
 
-Add to Delivery
+Add to Chef Automate
 -----------------------------------------------------
 .. include:: ../../includes_delivery_integration/includes_delivery_integration_bitbucket_add_to_delivery.rst
 
-Remove from Delivery
+Remove from Chef Automate
 -----------------------------------------------------
 .. include:: ../../includes_delivery_integration/includes_delivery_integration_bitbucket_remove_from_delivery.rst
 
@@ -48,7 +50,7 @@ Convert Project to Bitbucket
 -----------------------------------------------------
 .. include:: ../../includes_delivery_integration/includes_delivery_integration_bitbucket_convert_to_bitbucket.rst
 
-Convert Project to Delivery
+Convert Project to Chef Automate
 -----------------------------------------------------
 .. include:: ../../includes_delivery_integration/includes_delivery_integration_bitbucket_convert_to_delivery.rst
 

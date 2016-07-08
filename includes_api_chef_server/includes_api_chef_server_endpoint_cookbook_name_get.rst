@@ -16,7 +16,7 @@ This method has the following parameters:
 
 **Request**
 
-.. code-block:: xml
+.. code-block:: none
 
    GET /organizations/NAME/cookbooks/NAME
 
@@ -24,7 +24,7 @@ This method has the following parameters:
 
 The response is similar to:
 
-.. code-block:: javascript
+.. code-block:: none
 
    {
      "apache2" => {

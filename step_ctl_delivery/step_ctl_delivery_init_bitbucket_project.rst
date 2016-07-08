@@ -16,7 +16,7 @@ where ``PROJECT_NAME`` is the name of the project in |delivery| and ``REPO_NAME`
 
 and returns output similar to:
 
-.. code-block:: bash
+.. code-block:: none
 
    Chef Delivery
    Loading configuration from /Users/justinc/chef/delivery/organizations/sandbox/anagrams

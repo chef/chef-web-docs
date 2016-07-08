@@ -1,12 +1,14 @@
 =======================================================
-About Delivery Pipelines
+About Chef Automate Pipelines
 =======================================================
 
-Each project contains a configuration file in its source repository, located at ``.delivery/config.json``, that specifies the build cookbook to use for the project, and in turn, the build cookbook contains recipes that control what happens in the pipeline phases. The config file also allows customization of the behavior of |delivery| and the build cookbook.  You can create a config file (as well as a build cookbook) using the |delivery| CLI tool and the init subcommand: `delivery init` or `delivery init --local`.
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
 
-When |delivery| executes a phase, it selects a build node to run the job. On the build node, the project's source is fetched and synchronized to the revision matching the head of the feature branch for the change. The build node reads the project's ``config.json`` file and uses this information to fetch the appropriate build cookbook. Finally, the build node runs a local |chef zero| run to execute the appropriate phase.
+Each project contains a configuration file in its source repository, located at ``.delivery/config.json``, that specifies the build cookbook to use for the project, and in turn, the build cookbook contains recipes that control what happens in the pipeline phases. The config file also allows customization of the behavior of |automate| and the build cookbook.  You can create a config file (as well as a build cookbook) using the |automate| CLI tool and the init subcommand: `delivery init` or `delivery init --local`.
 
-If you are using |delivery| to manage changes in |chef| cookbooks, you can wrap, or use directly, ``delivery-truck``, a build cookbook for building and testing cookbooks. The ``delivery-truck`` and ``delivery-sugar`` cookbooks contain helpers that can be used for non-cookbook workflows as well.  You can wrap or modify the ``delivery-truck`` cookbook to suit your own needs.
+When |automate| executes a phase, it selects a build node to run the job. On the build node, the project's source is fetched and synchronized to the revision matching the head of the feature branch for the change. The build node reads the project's ``config.json`` file and uses this information to fetch the appropriate build cookbook. Finally, the build node runs a local |chef zero| run to execute the appropriate phase.
+
+If you are using |automate| to manage changes in |chef| cookbooks, you can wrap, or use directly, ``delivery-truck``, a build cookbook for building and testing cookbooks. The ``delivery-truck`` and ``delivery-sugar`` cookbooks contain helpers that can be used for non-cookbook workflows as well.  You can wrap or modify the ``delivery-truck`` cookbook to suit your own needs.
 
 Here is an example of a build cookbook recipe that runs |junit| tests with |maven|. For example:
 

@@ -1,6 +1,8 @@
-=====================================================
-config.json (Chef Delivery)
-=====================================================
+=========================================================
+Configure a Project through config.json (Chef Automate)
+=========================================================
+
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
 
 .. include:: ../../includes_delivery_config/includes_delivery_config_json.rst
 
@@ -46,7 +48,7 @@ Configuration Settings
 
 Phase Settings
 -----------------------------------------------------
-The individual phases of |delivery| may be configured, grouped under the ``delivery-truck`` configuration setting by phase.
+The individual phases of |automate| may be configured, grouped under the ``delivery-truck`` configuration setting by phase.
 
 publish
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

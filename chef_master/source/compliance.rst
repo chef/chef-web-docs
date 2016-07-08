@@ -1,6 +1,8 @@
 =====================================================
-Chef Compliance 
+An Overview of Compliance
 =====================================================
+
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
 
 .. include:: ../../includes_compliance/includes_compliance.rst
 

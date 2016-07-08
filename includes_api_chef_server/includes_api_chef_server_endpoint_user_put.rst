@@ -13,13 +13,13 @@ This method has no parameters.
 
 **Request**
 
-.. code-block:: xml
+.. code-block:: none
 
    PUT /users/NAME
 
 with a request body similar to:
 
-.. code-block:: javascript
+.. code-block:: none
 
    POST /users { "name": "Grant McLennan" }
 

@@ -4,7 +4,7 @@
 
 When provisioning for SSH delivery, the placement of the keys is crucial. If you should find yourself getting an error like this:
 
-.. code-block:: bash
+.. code-block:: none
 
    Error executing action 'converge' on resource 'machine[chef-server-test3]'
 

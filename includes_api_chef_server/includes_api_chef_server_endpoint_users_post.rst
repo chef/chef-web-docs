@@ -7,7 +7,7 @@ This method has no parameters.
 
 **Request**
 
-.. code-block:: xml
+.. code-block:: none
 
    POST /users
 
@@ -17,7 +17,7 @@ The response is similar to:
 
 .. code-block:: javascript
 
-   { "user_name"=>"https://url/for/user_name" }
+   { "user_name": "https://url/for/user_name" }
 
 **Response Codes**
 

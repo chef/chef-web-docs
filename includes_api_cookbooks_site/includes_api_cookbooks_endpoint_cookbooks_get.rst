@@ -20,13 +20,13 @@ The ``GET`` method is used to get a listing of the available cookbooks. Use the 
 
 **Request**
 
-.. code-block:: xml
+.. code-block:: none
 
    GET /cookbooks?start=START&items=ITEMS
 
 or:
 
-.. code-block:: xml
+.. code-block:: none
 
    GET /cookbooks?user=smith
 

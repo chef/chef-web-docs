@@ -43,7 +43,7 @@ Other Platforms
 .. include:: ../../includes_adopted_platforms/includes_adopted_platforms_server_other.rst
 
 
-|delivery|
+|automate|
 =====================================================
 .. include:: ../../includes_adopted_platforms/includes_adopted_platforms_delivery_server.rst
 

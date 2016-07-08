@@ -15,19 +15,19 @@ The ``install`` subcommand downloads packages from https://packages.chef.io/ by 
 
        On the |chef server|, run:
 
-       .. code-block:: ruby
+       .. code-block:: bash
 
           $ chef-server-ctl install chef-manage
 
        then:
 
-       .. code-block:: ruby
+       .. code-block:: bash
 
           $ chef-server-ctl reconfigure
 
        and then:
 
-       .. code-block:: ruby
+       .. code-block:: bash
 
           $ chef-manage-ctl reconfigure
 
@@ -38,19 +38,19 @@ The ``install`` subcommand downloads packages from https://packages.chef.io/ by 
 
        On the |chef server|, run:
 
-       .. code-block:: ruby
+       .. code-block:: bash
 
           $ chef-server-ctl install opscode-push-jobs-server
 
        then:
 
-       .. code-block:: ruby
+       .. code-block:: bash
 
           $ chef-server-ctl reconfigure
 
        and then:
 
-       .. code-block:: ruby
+       .. code-block:: bash
 
           $ opscode-push-jobs-server-ctl reconfigure
 
@@ -59,19 +59,19 @@ The ``install`` subcommand downloads packages from https://packages.chef.io/ by 
 
        On the |chef server|, run:
 
-       .. code-block:: ruby
+       .. code-block:: bash
 
           $ chef-server-ctl install opscode-reporting
 
        then:
 
-       .. code-block:: ruby
+       .. code-block:: bash
 
           $ chef-server-ctl reconfigure
 
        and then:
 
-       .. code-block:: ruby
+       .. code-block:: bash
 
           $ opscode-reporting-ctl reconfigure
 

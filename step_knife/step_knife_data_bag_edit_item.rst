@@ -9,7 +9,7 @@ To edit an item named "charlie" that is contained in a data bag named "admins", 
 
 to open the |chef editor|. Once opened, you can update the data before saving it to the |chef server|. For example, by changing:
 
-.. code-block:: bash
+.. code-block:: javascript
 
    {
       "id": "charlie"

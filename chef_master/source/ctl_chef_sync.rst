@@ -2,6 +2,8 @@
 |chef sync ctl| (executable)
 =====================================================
 
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+
 .. include:: ../../includes_ctl_chef_sync/includes_ctl_chef_sync.rst
 
 .. note:: .. include:: ../../includes_chef/includes_chef_subscriptions.rst

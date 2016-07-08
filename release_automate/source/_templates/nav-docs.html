@@ -1,0 +1,362 @@
+{% extends "!nav-docs.html" %}
+{% set active_product = "Automate" %}
+{% set active_version = "current" %}
+{% set navItems = [
+  {
+    "title": "Getting Started",
+    "iconClass": "fa-home",
+    "subItems": [
+      {
+        "title": "Start Here",
+        "hasSubItems": false,
+        "url": "/release/delivery/index.html"
+      },
+      {
+        "title": "Overview",
+        "hasSubItems": false,
+        "url": "/release/delivery/delivery_overview.html"
+      },
+      {
+        "title": "Tutorials",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "Build a Pipeline",
+            "hasSubItems": false,
+            "url": "https://learn.chef.io/delivery/get-started/"
+          }
+        ]
+      },
+    ]
+  },
+  {
+    "title": "Theory &amp; Concepts",
+    "iconClass": "fa-cube",
+    "subItems": [
+      {
+        "title": "Dependencies",
+        "hasSubItems": false,
+        "url": "/release/delivery/delivery_manage_dependencies.html"
+      },
+      {
+        "title": "Pipelines",
+        "hasSubItems": false,
+        "url": "/release/delivery/delivery_overview.html#pipelines"
+      },
+      {
+        "title": "Projects",
+        "hasSubItems": false,
+        "url": "/release/delivery/delivery_overview.html#projects"
+      },
+      {
+        "title": "Stages",
+        "hasSubItems": false,
+        "url": "/release/delivery/delivery_overview.html#pipeline-stages"
+      },
+      {
+        "title": "Environments",
+        "hasSubItems": false,
+        "url": "/release/delivery/delivery_overview.html#environments"
+      },
+      {
+        "title": "Users &amp; Roles",
+        "hasSubItems": false,
+        "url": "/release/delivery/delivery_users_and_roles.html"
+      },
+    ]
+  },
+  {
+    "title": "Setup &amp; Config",
+    "iconClass": "fa-gears",
+    "subItems": [
+      {
+        "title": "Install w/AWS",
+        "hasSubItems": false,
+        "url": "/release/delivery/install_delivery_aws.html"
+      },
+      {
+        "title": "Install w/SSH",
+        "hasSubItems": false,
+        "url": "/release/delivery/install_delivery_ssh.html"
+      },
+      {
+        "title": "Configure a Pipeline",
+        "hasSubItems": false,
+        "url": "/release/delivery/delivery_pipeline.html"
+      },
+      {
+        "title": "Configure a Project",
+        "hasSubItems": false,
+        "url": "/release/delivery/config_json_delivery.html"
+      },
+      {
+        "title": "Integrations",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "w/Bitbucket",
+            "hasSubItems": false,
+            "url": "/release/delivery/integrate_delivery_bitbucket.html"
+          },
+          {
+            "title": "w/Email (SMTP)",
+            "hasSubItems": false,
+            "url": "/release/delivery/integrate_delivery_smtp.html"
+          },
+          {
+            "title": "w/GitHub",
+            "hasSubItems": false,
+            "url": "/release/delivery/integrate_delivery_github.html"
+          },
+          {
+            "title": "w/LDAP",
+            "hasSubItems": false,
+            "url": "/release/delivery/integrate_delivery_ldap.html"
+          },
+          {
+            "title": "w/Slack",
+            "hasSubItems": false,
+            "url": "/release/delivery/integrate_delivery_slack.html"
+          }
+        ]
+      },
+    ]
+  },
+  {
+    "title": "Manage the Server",
+    "iconClass": "fa-hdd-o",
+    "subItems": [
+      {
+        "title": "Disaster Recovery",
+        "hasSubItems": false,
+        "url": "/release/delivery/delivery_server_disaster_recovery.html"
+      },
+      {
+        "title": "Secrets",
+        "hasSubItems": false,
+        "url": "/release/delivery/delivery_manage_secrets.html"
+      },
+      {
+        "title": "Tuning",
+        "hasSubItems": false,
+        "url": "/release/delivery/delivery_server_tuning.html"
+      },
+      {
+        "title": "Users &amp; Roles",
+        "hasSubItems": false,
+        "url": "/release/delivery/delivery_users_and_roles.html"
+      },
+      {
+        "title": "delivery-ctl",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "backup-data",
+            "hasSubItems": false,
+            "url": "/release/delivery/ctl_delivery_server.html#backup-data"
+          },
+          {
+            "title": "cleanse",
+            "hasSubItems": false,
+            "url": "/release/delivery/ctl_delivery_server.html#cleanse"
+          },
+          {
+            "title": "create-enterprise",
+            "hasSubItems": false,
+            "url": "/release/delivery/ctl_delivery_server.html#create-enterprise"
+          },
+          {
+            "title": "create-user",
+            "hasSubItems": false,
+            "url": "/release/delivery/ctl_delivery_server.html#create-user"
+          },
+          {
+            "title": "delete-application",
+            "hasSubItems": false,
+            "url": "/release/delivery/ctl_delivery_server.html#delete-application"
+          },
+          {
+            "title": "delete-enterprise",
+            "hasSubItems": false,
+            "url": "/release/delivery/ctl_delivery_server.html#delete-enterprise"
+          },
+          {
+            "title": "delete-project",
+            "hasSubItems": false,
+            "url": "/release/delivery/ctl_delivery_server.html#delete-project"
+          },
+          {
+            "title": "delete-user",
+            "hasSubItems": false,
+            "url": "/release/delivery/ctl_delivery_server.html#delete-user"
+          },
+          {
+            "title": "list-applications",
+            "hasSubItems": false,
+            "url": "/release/delivery/ctl_delivery_server.html#list-applications"
+          },
+          {
+            "title": "list-enterprises",
+            "hasSubItems": false,
+            "url": "/release/delivery/ctl_delivery_server.html#list-enterprises"
+          },
+          {
+            "title": "list-users",
+            "hasSubItems": false,
+            "url": "/release/delivery/ctl_delivery_server.html#list-users"
+          },
+          {
+            "title": "migrate-change-description",
+            "hasSubItems": false,
+            "url": "/release/delivery/ctl_delivery_server.html#migrate-change-description"
+          },
+          {
+            "title": "migrate-patchset-diffs",
+            "hasSubItems": false,
+            "url": "/release/delivery/ctl_delivery_server.html#migrate-patchset-diffs"
+          },
+          {
+            "title": "reconfigure",
+            "hasSubItems": false,
+            "url": "/release/delivery/ctl_delivery_server.html#reconfigure"
+          },
+          {
+            "title": "rename-enterprise",
+            "hasSubItems": false,
+            "url": "/release/delivery/ctl_delivery_server.html#rename-enterprise"
+          },
+          {
+            "title": "restore-data",
+            "hasSubItems": false,
+            "url": "/release/delivery/ctl_delivery_server.html#restore-data"
+          },
+          {
+            "title": "revoke-token",
+            "hasSubItems": false,
+            "url": "/release/delivery/ctl_delivery_server.html#revoke-token"
+          },
+          {
+            "title": "show-config",
+            "hasSubItems": false,
+            "url": "/release/delivery/ctl_delivery_server.html#show-config"
+          },
+          {
+            "title": "uninstall",
+            "hasSubItems": false,
+            "url": "/release/delivery/ctl_delivery_server.html#uninstall"
+          },
+          {
+            "title": "update-project-hooks",
+            "hasSubItems": false,
+            "url": "/release/delivery/ctl_delivery_server.html#update-project-hooks"
+          }
+        ]
+      },
+      {
+        "title": "delivery.rb",
+        "hasSubItems": false,
+        "url": "/release/delivery/config_rb_delivery.html"
+      },
+      {
+        "title": "Delivery API",
+        "hasSubItems": false,
+        "url": "/release/delivery/api_delivery.html"
+      },
+    ]
+  },
+  {
+    "title": "Cookbooks",
+    "iconClass": "fa-book",
+    "subItems": [
+      {
+        "title": "Delivery Cookbooks",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "build-cookbook (cookbook)",
+            "hasSubItems": false,
+            "url": "/release/delivery/delivery_build_cookbook.html"
+          },
+          {
+            "title": "delivery-truck (cookbook)",
+            "hasSubItems": false,
+            "url": "/release/delivery/delivery_truck.html"
+          },
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Workflow Tools",
+    "iconClass": "fa-wrench",
+    "subItems": [
+      {
+        "title": "Delivery CLI",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "About Delivery CLI",
+            "hasSubItems": false,
+            "url": "/release/delivery/ctl_delivery.html"
+          },
+          {
+            "title": "delivery api",
+            "hasSubItems": false,
+            "url": "/release/delivery/ctl_delivery.html#delivery-api"
+          },
+          {
+            "title": "delivery checkout",
+            "hasSubItems": false,
+            "url": "/release/delivery/ctl_delivery.html#delivery-checkout"
+          },
+          {
+            "title": "delivery clone",
+            "hasSubItems": false,
+            "url": "/release/delivery/ctl_delivery.html#delivery-clone"
+          },
+          {
+            "title": "delivery diff",
+            "hasSubItems": false,
+            "url": "/release/delivery/ctl_delivery.html#delivery-diff"
+          },
+          {
+            "title": "delivery init",
+            "hasSubItems": false,
+            "url": "/release/delivery/ctl_delivery.html#delivery-init"
+          },
+          {
+            "title": "delivery job",
+            "hasSubItems": false,
+            "url": "/release/delivery/ctl_delivery.html#delivery-job"
+          },
+          {
+            "title": "delivery review",
+            "hasSubItems": false,
+            "url": "/release/delivery/ctl_delivery.html#delivery-review"
+          },
+          {
+            "title": "delivery setup",
+            "hasSubItems": false,
+            "url": "/release/delivery/ctl_delivery.html#delivery-setup"
+          },
+          {
+            "title": "delivery token",
+            "hasSubItems": false,
+            "url": "/release/delivery/ctl_delivery.html#delivery-token"
+          }
+        ]
+      },
+    ]
+  },
+  {
+    "title": "Extend Delivery",
+    "iconClass": "fa-clone",
+    "subItems": [
+      {
+        "title": "Delivery DSL",
+        "hasSubItems": false,
+        "url": "/release/delivery/dsl_delivery.html"
+      },
+    ]
+  },
+] -%}

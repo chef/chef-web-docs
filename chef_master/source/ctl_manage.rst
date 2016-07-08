@@ -2,6 +2,8 @@
 chef-manage-ctl (executable)
 =====================================================
 
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+
 .. include:: ../../includes_ctl_manage/includes_ctl_manage.rst
 
 cleanse

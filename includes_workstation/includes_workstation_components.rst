@@ -23,7 +23,7 @@ Some important components of workstations include:
           :width: 100px
           :align: center
 
-     - |chef| incudes two important command-line tools:
+     - |chef| includes two important command-line tools:
 
        * Use the |chef ctl| command-line tool to work with items in a |chef repo|, which is the primary location in which cookbooks are authored, tested, and maintained, and from which policy is uploaded to the |chef server|
        * Use the |knife| command-line tool to interact with nodes or work with objects on the |chef server|

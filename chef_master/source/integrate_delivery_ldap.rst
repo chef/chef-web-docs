@@ -1,6 +1,8 @@
 =====================================================
-Integrate Delivery with LDAP
+Integrate Chef Automate with LDAP
 =====================================================
+
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
 
 .. include:: ../../includes_delivery_integration/includes_delivery_integration_ldap.rst
 

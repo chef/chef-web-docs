@@ -9,7 +9,7 @@ When the contents of a data bag item are encrypted, they will not be readable un
 
 where "passwords" is the name of the data bag and "mysql" is the name of the data bag item. This will return something similar to: 
 
-.. code-block:: javascript
+.. code-block:: none
 
    id:   mysql
    pass:

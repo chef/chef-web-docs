@@ -9,7 +9,7 @@
 
 to return something like:
 
-.. code-block:: bash
+.. code-block:: none
 
    charlie 
 

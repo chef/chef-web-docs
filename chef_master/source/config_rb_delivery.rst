@@ -5,9 +5,9 @@
 delivery.rb Settings
 =====================================================
 
-.. include:: ../../includes_config/includes_config_rb_delivery.rst
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
 
-.. note:: .. include:: ../../includes_notes/includes_notes_config_rb_delivery_does_not_exist_by_default.rst
+.. include:: ../../includes_config/includes_config_rb_delivery.rst
 
 Recommended Settings
 =====================================================
@@ -19,7 +19,7 @@ SSL Protocols
 
 Optional Settings
 =====================================================
-Additional settings are available for performance tuning of the |delivery| server.
+Additional settings are available for performance tuning of the |automate| server.
 
 .. note:: .. include:: ../../includes_notes/includes_notes_config_rb_delivery_must_reconfigure.rst
 

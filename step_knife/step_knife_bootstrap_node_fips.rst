@@ -10,7 +10,7 @@
 
 which shows something similar to:
 
-.. code-block:: bash
+.. code-block:: none
 
    OpenSSL FIPS 140 mode enabled
    ...

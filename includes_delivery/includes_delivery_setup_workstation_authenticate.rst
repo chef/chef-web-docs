@@ -21,7 +21,7 @@ You should get output similar to this:
        Are you sure you want to continue connecting (yes/no)? yes
        Warning: Permanently added '[10.194.11.99]:8989' (RSA) to the list of known hosts.
        channel 0: protocol error: close rcvd twice
-       Hi sally@chef! You've successfully authenticated, but Chef Delivery does not provide shell access.
+       Hi sally@chef! You've successfully authenticated, but Chef Automate does not provide shell access.
                             Connection to 10.194.11.99 closed.
 
 

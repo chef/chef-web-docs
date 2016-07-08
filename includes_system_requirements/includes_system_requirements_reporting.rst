@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-|reporting| has the following requirements:
+|reporting| has the following minimum requirements:
 
 * |chef server| 12
 * |chef server oec| version 11.0.1 (or later)

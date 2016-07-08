@@ -2,6 +2,8 @@
 |chef compliance rb|
 =====================================================
 
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+
 .. include:: ../../includes_config/includes_config_rb_compliance.rst
 
 .. note:: .. include:: ../../includes_chef/includes_chef_subscriptions.rst

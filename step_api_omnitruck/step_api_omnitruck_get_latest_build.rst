@@ -3,13 +3,13 @@
 
 To get the latest supported build for |ubuntu| 12.04, enter the following:
 
-.. code-block:: xml
+.. code-block:: none
 
    https://omnitruck.chef.io/stable/chef/metadata?p=ubuntu&pv=12.04&m=x86_64
 
 to return something like:
 
-.. code-block:: xml
+.. code-block:: none
 
    sha1    99f26627718a3ea4464ab48f534fb24e3e3e4719
    sha256  255c065a9d23f3dd0df3090206fe4d48451c7d0af0035c237bd21a7d28133f2f

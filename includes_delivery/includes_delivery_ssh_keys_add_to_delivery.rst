@@ -12,7 +12,7 @@ To add SSH keys to |delivery|, do the following:
 
    if it returns:
 
-   .. code-block:: bash
+   .. code-block:: none
 
       No such file or directory
 
@@ -24,7 +24,7 @@ To add SSH keys to |delivery|, do the following:
 
    The output is similar to:
 
-   .. code-block:: bash
+   .. code-block:: none
 
       Generating public/private rsa key pair.
       Enter file in which to save the key (/Users/username/.ssh/id_rsa): 
@@ -55,7 +55,7 @@ To add SSH keys to |delivery|, do the following:
 
    The output is similar to:
 
-   .. code-block:: bash
+   .. code-block:: none
 
       ssh-rsa
       AAAAB3NzaC1yc2EAAAADAQABAAACAQDa8BR/9bj5lVUfQP9Rsqon5qJMkiVm+JAtGi
@@ -91,7 +91,7 @@ To add SSH keys to |delivery|, do the following:
 
    The output is similar to:
 
-   .. code-block:: bash
+   .. code-block:: none
 
       Chef Delivery
       Loading configuration from /Users/USERNAME
@@ -114,7 +114,7 @@ To add SSH keys to |delivery|, do the following:
 
    The output is similar to:
 
-   .. code-block:: bash
+   .. code-block:: none
 
       Chef Delivery
       Loading configuration from /Users/USERNAME/Desktop

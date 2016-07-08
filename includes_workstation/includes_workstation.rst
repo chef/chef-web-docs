@@ -1,8 +1,8 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
-.. This file is included in Chef Delivery docs
+.. This file is included in Chef Automate docs
 
-A workstation is a computer that is configured to run various |chef| command-line tools that synchronize with a |chef repo|, author cookbooks, interact with the |chef server|, interact with nodes, or applications like |delivery|.
+A workstation is a computer that is configured to run various |chef| command-line tools that synchronize with a |chef repo|, author cookbooks, interact with the |chef server|, and interact with nodes.
 
 The workstation is the location from which most users do most of their work, including:
 

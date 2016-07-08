@@ -33,7 +33,7 @@ The out-of-the-box system process limits for maximum process memory size (RSS) a
 
 When the system process limits are too low, an error is returned similar to:
 
-.. code-block:: ruby
+.. code-block:: none
 
    Error Syncing Cookbooks:
    ==================================================================

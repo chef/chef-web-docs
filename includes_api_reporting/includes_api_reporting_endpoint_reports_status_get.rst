@@ -21,7 +21,7 @@ The response is similar to:
    {
      "rest_api" : "online",
      "sql_db" : "online",
-     "index" : ""online"
+     "index" : "online"
    }
 
 where ``index`` is the |chef server| search index. If the system component is not online, the response will return ``offline``.

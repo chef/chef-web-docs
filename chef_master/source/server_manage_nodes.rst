@@ -2,6 +2,8 @@
 Manage Nodes
 =====================================================
 
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+
 .. note:: This topic is about using the |chef manage| to manage nodes.
 
 .. include:: ../../includes_node/includes_node.rst

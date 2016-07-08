@@ -7,7 +7,7 @@ This method has no parameters.
 
 **Request**
 
-.. code-block:: xml
+.. code-block:: none
 
    POST /organizations
 
@@ -33,7 +33,7 @@ The response is similar to:
 
 .. code-block:: javascript
 
-   { "org_name"=>"https://url/for/org_name" }
+   { "org_name": "https://url/for/org_name" }
 
 **Response Codes**
 

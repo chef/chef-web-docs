@@ -18,13 +18,13 @@ The ``GET`` method is used to get a list of cookbooks that match a search query.
 
 **Request**
 
-.. code-block:: xml
+.. code-block:: none
 
    GET /search?q=SEARCH_QUERY
 
 or:
 
-.. code-block:: xml
+.. code-block:: none
 
    GET /search?q=SEARCH_QUERY&start=START&items=ITEMS
 

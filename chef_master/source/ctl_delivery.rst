@@ -1,14 +1,14 @@
 =====================================================
-Delivery CLI
+Workflow 'delivery' CLI
 =====================================================
 
 .. include:: ../../includes_ctl_delivery/includes_ctl_delivery.rst
 
-Install Delivery CLI
+Install Workflow CLI
 =====================================================
 .. include:: ../../includes_delivery/includes_delivery_cli_install.rst
 
-Configure Delivery CLI
+Configure Workflow CLI
 -----------------------------------------------------
 .. include:: ../../includes_delivery/includes_delivery_cli_configure.rst
 

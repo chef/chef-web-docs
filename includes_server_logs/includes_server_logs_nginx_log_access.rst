@@ -3,7 +3,7 @@
 
 |nginx| is an important entry point for data on the |chef server|, which means that debugging efforts frequently start with analyzing the |service nginx| service's ``access.log`` file. This log contains every HTTP request made to the front-end machine and can be very useful when investigating request rates and usage patterns. The following is an example log entry:
 
-.. code-block:: ruby
+.. code-block:: none
 
    175.185.9.6 - - [12/Jul/2013:15:56:54 +0000] "GET 
    /organizations/exampleorg/data/firewall/nova_api HTTP/1.1" 200 

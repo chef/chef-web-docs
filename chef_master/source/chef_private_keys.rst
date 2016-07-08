@@ -4,7 +4,7 @@ Public and Private Keys
 
 .. include:: ../../includes_security/includes_security_chef_validator.rst
 
-How Keys are Used?
+How are Keys Used?
 =====================================================
 .. include:: ../../includes_chef_auth/includes_chef_auth_authentication.rst
 

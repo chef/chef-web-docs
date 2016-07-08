@@ -4,7 +4,7 @@
 
 The following example shows an authentication request:
 
-.. code-block:: http
+.. code-block:: none
 
    GET /organizations/NAME/nodes HTTP/1.1
      Accept: application/json

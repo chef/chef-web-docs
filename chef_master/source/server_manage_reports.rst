@@ -2,6 +2,8 @@
 Manage Reports
 =====================================================
 
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+
 .. note:: This topic is about using the |chef manage| to manage reports.
 
 .. include:: ../../includes_reporting/includes_reporting.rst

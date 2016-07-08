@@ -5,7 +5,7 @@
 
 Broken Build - Push to GitHub Fails
 =====================================================
-If a pull request is merged on a public repo that is also being hosted by Chef Delivery, the synchronization between the two repos may be broken.
+If a pull request is merged on a public repo that is also being hosted by Chef Automate, the synchronization between the two repos may be broken.
 
 Symptoms
 -----------------------------------------------------
@@ -53,12 +53,12 @@ Ensure you have a remote for GitHub
    * If you do not have a remote that includes ``git@github.com:chef/chef-docs.git`` run ``git remote add github git@github.com:chef/chef-docs.git``
 #. Ensure all remotes are up to date by running ``git fetch --all``
 
-Getting the changes on GitHub into Delivery
+Getting the changes on GitHub into Chef Automate
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 #. Ensure that you are on the master branch by running ``git checkout master``
 #. Make sure that you have the lastest merged changes from delivery by running ``git pull --rebase``
 #. Checkout a new branch for pulling in change by running ``git checkout -b BRANCH_NAME``
 #. Run ``git pull github master``
-#. Run ``delivery review`` to push the change into Delivery.
+#. Run ``delivery review`` to push the change into Chef Automate.
 #. Approve the change as usual.

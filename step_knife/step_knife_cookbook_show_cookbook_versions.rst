@@ -10,7 +10,7 @@ To show a list of data about a cookbook using the name of the cookbook and the v
 
 to return something like:
 
-.. code-block:: bash
+.. code-block:: none
 
    attributes:
      checksum:     fa0fc4abf3f6787aeb5c3c5c35de667c

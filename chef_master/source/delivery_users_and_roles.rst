@@ -2,7 +2,9 @@
 Manage Users and Roles
 =====================================================
 
-This topic describes the roles and permissions that may be assigned to users of |delivery|, how to integrate an LDAP system with |delivery|, how to add and edit users, and how to add user SSH keys.
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+
+This topic describes the roles and permissions that may be assigned to users of |automate|, how to integrate an LDAP system with |automate|, how to add and edit users, and how to add user SSH keys.
 
 Roles and Permissions
 =====================================================
@@ -36,7 +38,7 @@ Onboard Users
 =====================================================
 .. include:: ../../includes_delivery/includes_delivery_users_onboard.rst
 
-Delivery with |github|
+Chef Automate with |github|
 -----------------------------------------------------
 .. include:: ../../includes_delivery_integration/includes_delivery_integration_github_onboard.rst
 
@@ -48,7 +50,7 @@ Submit Changes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_delivery_integration/includes_delivery_integration_github_onboard_submit_change.rst
 
-Delivery with Internal |git|
+Chef Automate with Internal |git|
 -----------------------------------------------------
 .. include:: ../../includes_delivery/includes_delivery_users_onboard_no_github.rst
 

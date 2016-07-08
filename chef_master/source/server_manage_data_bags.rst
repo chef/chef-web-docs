@@ -2,6 +2,8 @@
 Manage Data Bags
 =====================================================
 
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+
 .. note:: This topic is about using the |chef manage| to manage data bags.
 
 .. include:: ../../includes_data_bag/includes_data_bag.rst

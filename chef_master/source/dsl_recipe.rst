@@ -48,8 +48,6 @@ attribute?
 
 control
 -----------------------------------------------------
-.. include:: ../../includes_analytics/includes_analytics_controls.rst
-
 .. include:: ../../includes_dsl_recipe/includes_dsl_recipe_method_control.rst
 
 .. include:: ../../includes_dsl_recipe/includes_dsl_recipe_method_control_syntax.rst

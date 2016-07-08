@@ -6,7 +6,7 @@ Values that are stored in a data bag are global to the organization and are avai
 
 A data bag that is storing a top-level key for an environment might look something like this:
 
-.. code-block:: javascript
+.. code-block:: none
 
    {
      "id": "some_data_bag_item",

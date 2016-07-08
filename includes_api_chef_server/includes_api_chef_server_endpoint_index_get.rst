@@ -22,7 +22,7 @@ This method has the following parameters:
 
 **Request**
 
-.. code-block:: xml
+.. code-block:: none
 
    GET /organizations/NAME/search/INDEX
 

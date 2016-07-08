@@ -2,6 +2,8 @@
 delivery-ctl (executable)
 =====================================================
 
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+
 .. include:: ../../includes_ctl_delivery_server/includes_ctl_delivery_server.rst
 
 backup-data

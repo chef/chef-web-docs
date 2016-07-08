@@ -5,7 +5,7 @@ The ``/_status`` endpoint can be used to check the status of communications betw
 
 **Request**
 
-.. code-block:: xml
+.. code-block:: none
 
    api.get("https://chef_server.front_end.url/_status")
 
@@ -15,7 +15,7 @@ This method has no request body.
 
 The response will return something like the following:
 
-.. code-block:: javascript
+.. code-block:: none
 
    {
      "status" => "pong", 
