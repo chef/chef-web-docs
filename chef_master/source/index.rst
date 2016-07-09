@@ -16,9 +16,7 @@ If you need documenation for previous versions, you can use the dropdown
 box labeled "Filter by product and version" to select the particular
 component and version you want.
 
-If this is your first visit, we recommend reading the :doc:`platform
-overview </platform_overview>` and then starting with the `tutorials
-<https://learn.chef.io/tutorials/>`_.
+If this is your first visit, we recommend reading `how to learn Chef <https://learn.chef.io/skills/how-to-learn-chef>`_.
 
 Overview
 =====================================================
