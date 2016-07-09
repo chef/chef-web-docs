@@ -66,7 +66,8 @@ Add delivery-truck to Recipes
 
 Read the Tutorial
 =====================================================
-To learn more about how to set up a project pipeline for a single cookbook and simple application, follow the steps outlined in the `Build a continuous deployment pipeline with Chef Automate <https://learn.chef.io/delivery/get-started/>`__ tutorial on https://learn.chef.io/tutorials/.
+
+To learn more about how to set up a project pipeline for a single cookbook and simple application, follow the steps outlined in the `Build a continuous deployment pipeline with Chef Automate <https://learn.chef.io/tutorials/#chef-automate>`__ tutorial on https://learn.chef.io/tutorials/.
 
 
 Project Cookbooks

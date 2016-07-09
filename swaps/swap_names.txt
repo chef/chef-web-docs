@@ -84,9 +84,9 @@
 .. |chef zero| replace:: chef-zero
 .. |company_name| replace:: Chef
 .. |cookstyle| replace:: cookstyle
-.. |data_collector| replace:: Data Collector
 .. |delivery| replace:: Chef Automate
-.. |delivery_cli| replace:: Delivery CLI
+.. |data_collector| replace:: Data Collector
+.. |delivery_cli| replace:: Chef Automate CLI
 .. |dsl custom_resource| replace:: Custom Resource DSL
 .. |dsl delivery| replace:: Automate DSL
 .. |dsl handler| replace:: Handler DSL

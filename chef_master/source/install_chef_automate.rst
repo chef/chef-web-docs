@@ -66,7 +66,7 @@ Infrastructure
        - Free disk space (in /var)
      * - Chef Automate Server
        - 4
-       - 16GB
+       - 16GB\*
        - 80GB
      * - Chef Server (must be v12). See additional information in note, below.
        - 4
@@ -76,6 +76,9 @@ Infrastructure
        - 2
        - 4GB
        - 60GB
+
+\*If you use your own Elasticsearch cluster instead of the single Elasticsearch instance provided with |automate|, 
+then the |automate| server only requires 8 GB of RAM.
 
 .. note:: If you already have a Chef server installation, you can update it with push jobs as detailed in `Push Jobs Server installation <#push_job_installation>`_. If you have both already configured, skip to `Completing Setup <#completing-setup>`_. Also, any build nodes must be accessible from the Chef Automate server over SSH and they must have a user account configured that has sudo privileges.
 
