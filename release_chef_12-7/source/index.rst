@@ -89,6 +89,7 @@ Cookbooks
    install_bootstrap
    install_dk
    install_windows
+   inspec_reference
    knife
    knife_common_options
    knife_bootstrap
