@@ -58,9 +58,9 @@ decks:
 	mkdir -p $(BUILDDIR)/decks/
 	$(BUILD_COMMAND_AND_ARGS) slide_decks/source $(BUILDDIR)/decks/
 
-delivery:
-	mkdir -p $(BUILDDIR)/release/delivery/
-	$(BUILD_COMMAND_AND_ARGS) release_delivery/source $(BUILDDIR)/release/delivery/
+automate:
+	mkdir -p $(BUILDDIR)/release/automate/
+	$(BUILD_COMMAND_AND_ARGS) release_automate/source $(BUILDDIR)/release/automate/
 
 compliance:
 	mkdir -p $(BUILDDIR)/release/compliance/

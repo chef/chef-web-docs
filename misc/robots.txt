@@ -1,5 +1,6 @@
 User-agent: *
 Disallow: /release/analytics/
+Disallow: /release/automate/
 Disallow: /release/analytics_1-1/
 Disallow: /release/analytics_1-2/
 Disallow: /release/analytics_1-3/
@@ -183,4 +184,6 @@ Disallow: /upgrade_server_open_source.html
 Disallow: /upgrade_server_standalone_notes.html
 Disallow: /upgrade_server_standalone.html
 Disallow: /verify_packages.html
+Disallow: /ctl_analytics.html
+Disallow: /upgrade_analytics.html
 

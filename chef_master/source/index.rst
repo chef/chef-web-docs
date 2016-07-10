@@ -131,7 +131,7 @@ Cookbook Reference
 
 **Chef Cookbooks**: :doc:`Chef-maintained </chef_cookbooks>` | `chef-handler (cookbook) <http://docs.chef.io/handlers.html#handlers-and-cookbooks>`_ 
 
-**Chef Automate Cookbooks**::doc:`build-cookbook (cookbook) </delivery_build_cookbook>` | :doc:`delivery-truck (cookbook) </delivery_truck>` 
+**Chef Automate Cookbooks**: :doc:`build-cookbook (cookbook) </delivery_build_cookbook>` | :doc:`delivery-truck (cookbook) </delivery_truck>` 
 
 Chef DK
 -----------------------------------------------------
@@ -153,7 +153,7 @@ Chef DK
 
 
 :doc:`cookstyle </cookstyle>` |
-:doc:`Delivery CLI </ctl_delivery>` |
+:doc:`Workflow CLI </ctl_delivery>` |
 :doc:`Foodcritic </foodcritic>` 
 
 **Kitchen**: :doc:`About Kitchen </kitchen>` | :doc:`kitchen (executable) </ctl_kitchen>` | :doc:`.kitchen.yml </config_yml_kitchen>` | :doc:`kitchen-inspec </plugin_kitchen_inspec>` | :doc:`kitchen-vagrant </plugin_kitchen_vagrant>` 
@@ -621,6 +621,8 @@ Addenda
    knife_user
    knife_using
    knife_xargs
+   install_delivery_aws_legacy
+   install_delivery_ssh_legacy
    libraries
    manage
    nodes
