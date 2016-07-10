@@ -88,7 +88,7 @@
 .. |data_collector| replace:: Data Collector
 .. |delivery_cli| replace:: Chef Automate CLI
 .. |dsl custom_resource| replace:: Custom Resource DSL
-.. |dsl delivery| replace:: Automate DSL
+.. |dsl delivery| replace:: Workflow DSL
 .. |dsl handler| replace:: Handler DSL
 .. |dsl inspec| replace:: InSpec DSL
 .. |dsl compliance| replace:: Compliance DSL

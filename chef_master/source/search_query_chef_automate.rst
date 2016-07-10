@@ -20,28 +20,29 @@ for. Nesting should be denoted by dot(.)s.
 Multiple queries can be entered into the search bar to further focus search
 results.
 
-**Examples**
+Examples
+================================
 
-Attribute
+**Attribute**
 
    All aws nodes with a public ip: ``attribute: ec2.public_ipv4``
 
-Cookbook
+**Cookbook**
 
    All nodes running the 'postgres' cookbook: ``cookbook: postgresql``
 
-Recipe
+**Recipe**
 
    All nodes running a 'server' recipe: ``recipe: server``
 
-Resource Name
+**Resource Name**
 
    All nodes that manage a resource named '/tmp': ``resource_name: /tmp``
 
-Tag
+**Tag**
 
    All nodes with the 'web' tag: ``tag: web``
 
-Node Name
+**Node Name**
 
    The node named 'node1.chef.io': ``node_name: node1.chef.io``

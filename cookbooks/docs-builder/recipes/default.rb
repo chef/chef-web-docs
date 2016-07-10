@@ -69,7 +69,7 @@ end
 build_targets = <<END
 master
 decks
-delivery
+automate
 11-0
 11-2
 11-4
@@ -93,7 +93,6 @@ delivery
 12-10
 12-11
 12-12
-analytics
 compliance
 devkit
 oec_11-0

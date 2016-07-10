@@ -39,7 +39,7 @@ To upgrade to the latest version of Chef Automate, do the following:
 
    .. note:: This will restart your Chef Automate services and may result in a brief period of unavailability.
 
-Upgrading from a `delivery-cluster` setup
+Upgrading from a ``delivery-cluster`` setup
 --------------------------------------------------------
 
 Chef Delivery clusters configured using the ``delivery-cluster`` setup process specify a search method to identify build nodes 
