@@ -25,23 +25,23 @@ will return something similar to:
      * directory[/Users/grantmc/chef-repo/cookbooks] action create
        - create new directory /Users/grantmc/chef-repo/cookbooks
    
-     * directory[/Users/grantmc/chef-repo/cookbooks/grantmc] action create
-       - create new directory /Users/grantmc/chef-repo/cookbooks/grantmc
+     * directory[/Users/grantmc/chef-repo/cookbooks/chef-repo] action create
+       - create new directory /Users/grantmc/chef-repo/cookbooks/chef-repo
    
-     * template[/Users/grantmc/chef-repo/cookbooks/grantmc/metadata.rb] action create
-       - create new file /Users/grantmc/chef-repo/cookbooks/grantmc/metadata.rb
+     * template[/Users/grantmc/chef-repo/cookbooks/chef-repo/metadata.rb] action create
+       - create new file /Users/grantmc/chef-repo/cookbooks/chef-repo/metadata.rb
    
-     * cookbook_file[/Users/grantmc/chef-repo/cookbooks/grantmc/chefignore] action create
-       - create new file /Users/grantmc/chef-repo/cookbooks/grantmc/chefignore
+     * cookbook_file[/Users/grantmc/chef-repo/cookbooks/chef-repo/chefignore] action create
+       - create new file /Users/grantmc/chef-repo/cookbooks/chef-repo/chefignore
 
-     * cookbook_file[/Users/grantmc/chef-repo/cookbooks/grantmc/Berksfile] action create
-       - create new file /Users/grantmc/chef-repo/cookbooks/grantmc/Berksfile
+     * cookbook_file[/Users/grantmc/chef-repo/cookbooks/chef-repo/Berksfile] action create
+       - create new file /Users/grantmc/chef-repo/cookbooks/chef-repo/Berksfile
 
-     * directory[/Users/grantmc/chef-repo/cookbooks/grantmc/recipes] action create
-       - create new directory /Users/grantmc/chef-repo/cookbooks/grantmc/recipes
+     * directory[/Users/grantmc/chef-repo/cookbooks/chef-repo/recipes] action create
+       - create new directory /Users/grantmc/chef-repo/cookbooks/chef-repo/recipes
 
-     * template[/Users/grantmc/chef-repo/cookbooks/grantmc/recipes/default.rb] action create
-       - create new file /Users/grantmc/chef-repo/cookbooks/grantmc/recipes/default.rb
+     * template[/Users/grantmc/chef-repo/cookbooks/chef-repo/recipes/default.rb] action create
+       - create new file /Users/grantmc/chef-repo/cookbooks/chef-repo/recipes/default.rb
    
      * execute[initialize-git] action run
        - execute git init .
