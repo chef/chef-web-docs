@@ -349,6 +349,7 @@ The following tools have been developed by members of the |chef| community. Thes
    resource_windows_service
    resource_yum
    resource
+   resources
    rubocop
    ruby
    serverspec
