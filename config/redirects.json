@@ -1,8 +1,8 @@
 {
   "_images/chef_run_legacy.png": "/_images/chef_run.png",
   "_images/server_components_all.png": "/_images/server_components.png",
-  "auth_authentication.html": "auth.html",
-  "auth_authorization.html": "auth.html",
+  "auth_authentication.html": "/auth.html",
+  "auth_authorization.html": "/auth.html",
   "chef_dk.html": "/workstation.html",
   "chef_init.html": "/containers.html",
   "community_lists.html": "/community.html",
@@ -706,4 +706,3 @@
   "api_analytics.html": "/visibility.html",
   "actions.html": "/visibility.html"
 }
-
