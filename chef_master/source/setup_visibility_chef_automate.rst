@@ -10,25 +10,6 @@ Prerequisites
 * Chef Automate Server with workflow and visibility installed
 * Elasticsearch (version 2.3.0 or greater)
 
-Setting up visibility with existing Chef Automate installation
-================================================================
-
-.. note:: Visibility is automatically installed as part of the Chef Automate installation. The following instructions only apply to customers who have previously installed Chef Delivery as a stand alone implementation.
-
-To get started with the visibility capabilities in |automate|, modify ``/etc/delivery/delivery.rb`` 
-on your |automate| server and add the following settings:
-
-.. code-block:: ruby
-
-    insights['enable'] = true
-    data_collector['token'] = 'TOKEN'
-
-The ``TOKEN`` is a shared secret that Chef Automate's data collector will use to authenticate POST
-requests made to the data collector endpoint. If unspecified, the default value for the token is
-``'93a49a4f2482c64126f7b6015e6b0f30284287ee4054ff8807fb63d9cbd1c506'``.
-
-Save your changes and then run ``delivery-ctl reconfigure`` to complete the setup process.
-
 Elasticsearch Configuration
 ================================================================
 
@@ -58,3 +39,21 @@ HTTP ``Host`` header to send with the request. When this attribute is unspecifie
 
 When this attribute *is* specified, the supplied string will be sent as the ``Host`` header on all requests. This may be required for some third-party Elasticsearch offerings.
 
+Setting up visibility with previous Chef Delivery installation
+================================================================
+
+.. note:: Visibility is automatically installed as part of the Chef Automate installation. The following instructions **only** apply to customers who have previously installed Chef Delivery as a stand alone implementation. If you are using visibility in |automate|, you can skip this section.
+
+To get started with the visibility capabilities in |automate|, modify ``/etc/delivery/delivery.rb`` 
+on your Chef Delivery server and add the following settings:
+
+.. code-block:: ruby
+
+    insights['enable'] = true
+    data_collector['token'] = 'TOKEN'
+
+The ``TOKEN`` is a shared secret that Chef Automate's data collector will use to authenticate POST
+requests made to the data collector endpoint. If unspecified, the default value for the token is
+``'93a49a4f2482c64126f7b6015e6b0f30284287ee4054ff8807fb63d9cbd1c506'``.
+
+Save your changes and then run ``delivery-ctl reconfigure`` to complete the setup process.
