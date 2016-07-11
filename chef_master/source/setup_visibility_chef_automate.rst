@@ -13,6 +13,8 @@ Prerequisites
 Setting up visibility with existing Chef Automate installation
 ================================================================
 
+.. note:: Visibility is automatically installed as part of the Chef Automate installation. The following instructions only apply to customers who have previously installed Chef Delivery as a stand alone implementation.
+
 To get started with the visibility capabilities in |automate|, modify ``/etc/delivery/delivery.rb`` 
 on your |automate| server and add the following settings:
 
