@@ -16,7 +16,7 @@ comprehensive 24×7 support services for the entire platform, including open sou
 Compliance
 ====================================================== 
 
-Chef Automate creates customizable eports that identify compliance issues, security risks, 
+Chef Automate creates customizable reports that identify compliance issues, security risks, 
 and outdated software. You can write your own compliance rules in InSpec, or you can get started quickly 
 by using built-in profiles. These are predefined rule sets for a variety of security frameworks, such as 
 Center for Internet Security (CIS) benchmarks, included as part of Chef Automate. For more information, 
