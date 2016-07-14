@@ -70,6 +70,7 @@ build_targets = <<END
 master
 decks
 automate
+analytics
 11-0
 11-2
 11-4

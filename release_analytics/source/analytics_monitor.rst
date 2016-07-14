@@ -1,6 +1,10 @@
+.. THIS PAGE IS LOCATED AT THE /release/analytics/ PATH.
+
 =====================================================
 Monitor |chef analytics_title|
 =====================================================
+
+.. include:: ../../includes_analytics/includes_analytics_legacy.rst 
 
 Application-level checks should be done periodically to ensure that there is enough disk space.
 

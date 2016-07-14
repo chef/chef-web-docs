@@ -1,6 +1,8 @@
 =====================================================
-|chef analytics_title| Webui 
+|chef analytics_title| Webui
 =====================================================
+
+.. include:: ../../includes_analytics/includes_analytics_legacy.rst 
 
 .. include:: ../../includes_actions/includes_actions.rst
 

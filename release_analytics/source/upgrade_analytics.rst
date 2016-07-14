@@ -1,6 +1,10 @@
+.. THIS PAGE IS LOCATED AT THE /release/analytics/ PATH.
+
 =====================================================
 Upgrading |chef analytics_title|
 =====================================================
+
+.. include:: ../../includes_analytics/includes_analytics_legacy.rst 
 
 .. note:: The upgrade process has changed for |chef analytics| 1.3.x. Please carefully read the following before upgrading. Some steps are marked as "(1.2.x -> 1.3.x upgrade only.)". Only run those steps for upgrades of |chef analytics| 1.2.x to 1.3.x.
 
@@ -116,3 +120,46 @@ The following steps describe upgrading |chef analytics| with partitions disabled
    .. code-block:: bash
 
       $ opscode-analytics-ctl start
+
+   .. code-block:: bash
+      
+      $ opscode-analytics-ctl stop
+
+#. Run |debian dpkg| or |rpm|. For |debian dpkg|:
+
+   .. code-block:: bash
+      
+      $ dpkg -i /path/to/opscode-analytics-<version>.deb
+   
+   For |rpm|:
+
+   .. code-block:: bash
+      
+      $ rpm -Uvh /path/to/opscode-analytics-<version>.rpm
+
+#. Run the pre-flight check:
+
+   .. code-block:: bash
+      
+      $ opscode-analytics-ctl preflight-check
+
+#. Copy in the ``/etc/opscode-analytics`` directory from the |chef server|.
+
+#. Stop the server:
+
+   .. code-block:: bash
+
+      $ opscode-analytics-ctl stop
+
+#. Reconfigure the services:
+
+   .. code-block:: bash
+
+      $ opscode-analytics-ctl reconfigure
+
+#. Start the services:
+
+   .. code-block:: bash
+      
+      $ opscode-analytics-ctl start
+

@@ -1,3 +1,5 @@
+.. THIS PAGE IS LOCATED AT THE /release/analytics/ PATH.
+
 =====================================================
 Prerequisites
 =====================================================
