@@ -23,15 +23,15 @@ To utilize an external Elasticsearch installation, set the following configurati
 
 .. code-block:: ruby
 
-   delivery['elasticsearch']['urls'] = ['https://my-elaticsearch-cluster.mycompany.com']
+   elasticsearch['urls'] = ['https://my-elaticsearch-cluster.mycompany.com']
 
-The ``delivery['elasticsearch']['urls']`` attribute should be an array of Elasticsearch nodes over
+The ``elasticsearch['urls']`` attribute should be an array of Elasticsearch nodes over
 which |automate| will round-robin requests. You can also supply a single entry which corresponds to
 a load-balancer or a third-party Elasticsearch-as-a-service offering.
 
 After saving the file, run ``delivery-ctl reconfigure``.
 
-An additional Elasticsearch-related configuration properties is ``delivery['elasticsearch']['host_header']``. This is the 
+An additional Elasticsearch-related configuration properties is ``elasticsearch['host_header']``. This is the 
 HTTP ``Host`` header to send with the request. When this attribute is unspecified, the default behavior is as follows:
 
   * If the ``urls`` parameter contains a single entry, the host of the supplied URI will be sent as the Host header.
@@ -44,7 +44,7 @@ Setting up visibility with previous Chef Delivery installation
 
 .. note:: Visibility is automatically installed as part of the Chef Automate installation. The following instructions **only** apply to customers who have previously installed Chef Delivery as a stand alone implementation. If you are using visibility in |automate|, you can skip this section.
 
-To get started with the visibility capabilities in |automate|, modify ``/etc/delivery/delivery.rb`` 
+To get started with the visibility capabilities in |automate|, modify ``/etc/delivery/delivery.rb``
 on your Chef Delivery server and add the following settings:
 
 .. code-block:: ruby
