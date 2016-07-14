@@ -1,6 +1,10 @@
+.. THIS PAGE IS LOCATED AT THE /release/analytics/ PATH.
+
 =====================================================
 |chef analytics_title| Rules
 =====================================================
+
+.. include:: ../../includes_analytics/includes_analytics_legacy.rst 
 
 .. include:: ../../includes_analytics_rules/includes_analytics_rules.rst
 

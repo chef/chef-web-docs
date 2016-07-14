@@ -1,6 +1,10 @@
+.. THIS PAGE IS LOCATED AT THE /release/analytics/ PATH.
+
 =====================================================
 |chef analytics ctl| (executable)
 =====================================================
+
+.. include:: ../../includes_analytics/includes_analytics_legacy.rst 
 
 .. include:: ../../includes_ctl_analytics/includes_ctl_analytics.rst
 
