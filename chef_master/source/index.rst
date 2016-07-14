@@ -460,7 +460,6 @@ Addenda
    cookbook_versions
    cookbooks
    cookstyle
-   ctl_analytics
    ctl_chef
    ctl_chef_apply
    ctl_chef_backend
@@ -787,7 +786,6 @@ Addenda
    templates
    troubleshooting_chef_automate
    uninstall
-   upgrade_analytics
    upgrade_chef_automate
    upgrade_client
    upgrade_client_notes
