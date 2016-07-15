@@ -34,6 +34,8 @@ The following open source handlers are available from the |chef| community:
      - A handler that notifies administrators (via |irc|) when a |chef client| run fails.
    * - `Journald <https://github.com/marktheunissen/chef-handler-journald>`_
      - A handler that logs an entry to the |systemd| journal with the |chef client| run status, exception details, configurable priority, and custom details.
+   * - `net/http <https://github.com/b1-systems/chef-handler-httpapi/>`_
+     - A handler that reports the status of a Chef run to any API via net/HTTP.
    * - `Simple Email <https://rubygems.org/gems/chef-handler-mail>`_
      - A handler that collects exception and report handler data and then uses |pony| to send email reports that are based on |erubis| templates.
    * - `SNS <http://onddo.github.io/chef-handler-sns/>`_
