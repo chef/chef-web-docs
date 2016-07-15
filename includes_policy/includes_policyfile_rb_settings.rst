@@ -11,7 +11,7 @@ A |policyfile rb| file may contain the following settings:
    Required. The run-list the |chef client| will use to apply the policy to one (or more) nodes.
    
 ``default_source :SOURCE_TYPE, *args``
-   The location in which any cookbooks not specified by ``cookbook`` are located. Possible values: ``chef_repo``, ``chef_server``, ``:community``, and ``:supermarket``. Use more than one ``default_source`` to specify more than one location for cookbooks.
+   The location in which any cookbooks not specified by ``cookbook`` are located. Possible values: ``chef_repo``, ``:community``, and ``:supermarket``. Use more than one ``default_source`` to specify more than one location for cookbooks.
 
    ``default_source :supermarket`` pulls cookbooks from the public |supermarket|.
 
@@ -20,8 +20,6 @@ A |policyfile rb| file may contain the following settings:
    ``default_source :community`` is an alias for ``:supermarket``.
 
    ``default_source :chef_repo, "path/to/repo"`` pulls cookbooks from a monolithic cookbook repository. This may be a path to the top-level of a cookbook repository or to the ``/cookbooks`` directory within that repository.
-
-   ``chef_server https://chef-server.example.org/organizations/org_name/universe`` pulls cookbooks from the |chef server| via the ``/universe`` endpoint for the named organization.
 
    Multiple cookbook sources may be specified. For example from the public |supermarket| and a monolithic repository:
 
