@@ -11,8 +11,8 @@ The following example shows platform settings for the |windows| platform:
    platforms:
      - name: eval-win2012r2-standard
        os_type: windows
-       shell_type: powershell
        transport:
          name: winrm
+         elevated: true
 
-where ``os_type``, ``shell_type``, and the transport ``name`` are all required.
+If ``name`` begins with ``win`` then the ``os_type`` defaults to ``windows``. The ``winrm`` transport is the default on Windows operating systems. Here ``elevated`` is true which runs windows commands via a scheduled task to imitate a local user.
