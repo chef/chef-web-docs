@@ -63,4 +63,4 @@ These settings may be added to the ``transport`` section of the |kitchen yml| fi
    * - ``rdp_port``
      - Port used making ``rdp`` connections for ``kitchen login`` commands. Defaults to 3389.
    * - ``winrm_transport``
-     - The transport type used by winrm as explained `here <https://github.com/WinRb/WinRM`__. The default is ``negotiate``. ``ssl`` and ``plaintext`` are also acceptable values.
+     - The transport type used by winrm as explained `here <https://github.com/WinRb/WinRM>`__. The default is ``negotiate``. ``ssl`` and ``plaintext`` are also acceptable values.

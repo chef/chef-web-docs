@@ -872,6 +872,7 @@
 .. |windows powershell_lcm| replace:: Local Configuration Manager (LCM)
 .. |windows powershell_mof| replace:: Managed Object Framework (MOF)
 .. |windows remote desktop| replace:: Windows Remote Desktop
+.. |winrm| replace:: WinRM
 .. |windows remote management| replace:: WinRM
 .. |windows server| replace:: Windows Server
 .. |windows server system_center| replace:: System Center
