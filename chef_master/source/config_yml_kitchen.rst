@@ -18,6 +18,10 @@ Provisioner Settings
 
 .. note:: There are two community provisioners for |kitchen|: `kitchen-dsc <https://github.com/smurawski/kitchen-dsc>`__ and `kitchen-pester <https://github.com/smurawski/kitchen-pester>`__.
 
+Transport Settings
+==========================================================================
+.. include:: ../../includes_test_kitchen/includes_test_kitchen_yml_transport.rst
+
 Work with Proxies
 --------------------------------------------------------------------------
 .. include:: ../../includes_test_kitchen/includes_test_kitchen_yml_syntax_proxy.rst
