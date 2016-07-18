@@ -9,7 +9,7 @@ This method has no parameters.
 
 .. code-block:: none
 
-   GET /organizations/NAME/client/CLIENT/keys/KEY
+   GET /organizations/NAME/clients/CLIENT/keys/KEY
 
 **Response**
 

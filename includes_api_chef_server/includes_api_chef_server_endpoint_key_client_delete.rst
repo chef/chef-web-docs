@@ -9,7 +9,7 @@ This method has no parameters.
 
 .. code-block:: none
 
-   DELETE /organizations/NAME/client/CLIENT/keys/KEY
+   DELETE /organizations/NAME/clients/CLIENT/keys/KEY
 
 **Response**
 

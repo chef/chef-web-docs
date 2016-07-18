@@ -9,7 +9,7 @@ This method has no parameters.
 
 .. code-block:: none
 
-   GET /organizations/NAME/client/CLIENT/keys
+   GET /organizations/NAME/clients/CLIENT/keys
 
 **Response**
 
@@ -19,10 +19,10 @@ The response is similar to:
 
    [
      { "name" : "default",
-                "uri" : "https://chef.example/organizations/example/client/client1/keys/default",
+                "uri" : "https://chef.example/organizations/example/clients/client1/keys/default",
                 "expired" : false },
      { "name" : "key1",
-                "uri" : "https://chef.example/organizations/example/client/client1/keys/key1",
+                "uri" : "https://chef.example/organizations/example/clients/client1/keys/key1",
                 "expired" : true }
    ]
 

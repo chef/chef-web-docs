@@ -9,7 +9,7 @@ This method has no parameters.
 
 .. code-block:: none
 
-   PUT /organizations/NAME/client/CLIENT/keys/KEY
+   PUT /organizations/NAME/clients/CLIENT/keys/KEY
 
 with a request body similar to:
 

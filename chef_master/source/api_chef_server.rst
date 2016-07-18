@@ -208,7 +208,7 @@ POST
 
 
 
-/client/CLIENT/keys/
+/clients/CLIENT/keys/
 -----------------------------------------------------
 .. include:: ../../includes_api_chef_server/includes_api_chef_server_endpoint_keys_clients.rst
 
@@ -220,7 +220,7 @@ POST
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_api_chef_server/includes_api_chef_server_endpoint_keys_clients_post.rst
 
-/client/CLIENT/keys/KEY
+/clients/CLIENT/keys/KEY
 -----------------------------------------------------
 .. include:: ../../includes_api_chef_server/includes_api_chef_server_endpoint_key_client.rst
 
