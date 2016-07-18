@@ -19,7 +19,7 @@ Upgrade
 
 To upgrade to the latest version of Chef Automate, do the following:
 
-#. Download the latest version of Chef Automate from `<https://downloads.chef.io/delivery/>`_ or `<https://bintray.com/chef/stable/delivery/view>`_ and copy it to your Chef Automate server.
+#. Download the latest version of Chef Automate from `<https://downloads.chef.io/automate/>`_ and copy it to your Chef Automate server.
 #. Update the package as appropriate for the server's OS:
 
    For Debian:
