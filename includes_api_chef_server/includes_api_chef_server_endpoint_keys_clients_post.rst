@@ -9,7 +9,7 @@ This method has no parameters.
 
 .. code-block:: none
 
-   POST /organizations/NAME/client/CLIENT/keys
+   POST /organizations/NAME/clients/CLIENT/keys
 
 with a request body similar to:
 
