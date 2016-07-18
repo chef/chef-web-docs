@@ -12,7 +12,7 @@ used to populate the dashboard.
 Prerequisites
 ================================================================
 
-* Chef Client (version 12.11.18 or greater)
+* Chef Client (version 12.12.15 or greater)
 * Chef Server (version 12.8 or greater)
 
 Configuring Chef Client to send node and converge data
