@@ -18,9 +18,9 @@ Prerequisites
 Configuring Chef Client to send node and converge data
 =======================================================
 
-The data collector functionality introduced in Chef Client 12.11 is used by the Chef Client to send node 
-and converge data to |automate|. This feature works for the following: Chef Client, Chef Solo (formerly "Chef Client Local
-Mode"), and Chef Solo Legacy Mode (formerly "Chef Solo").
+The data collector functionality is used by the Chef Client to send node and converge data to |automate|. This 
+feature works for the following: Chef Client, Chef Solo (formerly "Chef Client LocalMode"), and Chef Solo Legacy Mode 
+(formerly "Chef Solo").
 
 To send node and converge data to |automate|, modify your Chef config (that is
 `client.rb`, `solo.rb`, or add an additional config file in an appropriate directory, such as
@@ -85,3 +85,13 @@ Additional configuration options include:
    min}``.
  * ``data_collector['http_max_connection_duration']``: maximum duration an HTTP connection is allowed
    to exist before it is terminated, specified as an Erlang tuple. Default: ``{70, sec}``.
+
+Adding Chef Automate certificate to `trusted_certs` directory
+================================================================
+
+The visibilty features of |automate| require that the |automate| SSL certificate (``delivery.chordata.biz.crt``) is located in the |path trusted_certs| directory 
+on any node that wants to send data to |automate|. This directory is the location into which |ssl| certificates are 
+placed when a node has been bootstrapped with |chef client|. 
+
+To ensure the |automate| certificate is in the ``trusted_certs`` directory, use utilities such as `scp` or `rsync` to copy ``/var/opt/delivery/nginx/ca/delivery.chordata.biz.crt`` 
+from the |automate| server to the ``/etc/chef/trusted_certs`` directory on the node in your |automate| cluster.

@@ -39,15 +39,6 @@ HTTP ``Host`` header to send with the request. When this attribute is unspecifie
 
 When this attribute *is* specified, the supplied string will be sent as the ``Host`` header on all requests. This may be required for some third-party Elasticsearch offerings.
 
-Adding Chef Automate certificate to `trusted_certs` directory
-================================================================
-
-The visibilty features of |automate| require that the |automate| SSL certificate is located in the |path trusted_certs| directory 
-on any node that wants to send data to |auatomate|. This directory is the location into which |ssl| certificates are 
-placed when a node has been bootstrapped with |chef client|. To place the |automate| certificate on a node in the cluster, use 
-utilities such as `scp` or `rsync` to perform the copy operation.
-
-
 Setting up visibility with previous Chef Delivery installation
 ================================================================
 
