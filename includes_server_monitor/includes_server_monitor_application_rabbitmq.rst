@@ -8,9 +8,8 @@ To obtain status information for message queues, run the following command:
 
 .. code-block:: bash
 
-   $ cd /opt/opscode/embedded/service/rabbitmq/
-     export PATH=$PATH:/opt/opscode/bin:/opt/opscode/embedded/bin
-     bin/rabbitmqctl status
+   $ export PATH=$PATH:/opt/opscode/bin:/opt/opscode/embedded/bin
+     rabbitmqctl status
 
 to return something similar to:
 
