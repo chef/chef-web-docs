@@ -89,7 +89,7 @@ Additional configuration options include:
 Adding Chef Automate certificate to `trusted_certs` directory
 ================================================================
 
-The visibilty features of |automate| require that the |automate| SSL certificate (``delivery.chordata.biz.crt``) is located in the |path trusted_certs| directory 
+The visibilty features of |automate| require that the |automate| SSL certificate (``delivery.chordata.biz.crt``) is located in the ``/etc/chef/trusted_certs`` directory 
 on any node that wants to send data to |automate|. This directory is the location into which |ssl| certificates are 
 placed when a node has been bootstrapped with |chef client|. 
 
