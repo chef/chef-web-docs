@@ -4,6 +4,7 @@
 This resource has the following actions:
 
 ``:nothing``
+
    .. include:: ../../includes_resources_common/includes_resources_common_actions_nothing.rst
 
 ``:run``
