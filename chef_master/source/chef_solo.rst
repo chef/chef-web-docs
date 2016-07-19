@@ -2,8 +2,6 @@
 |chef solo|
 =====================================================
 
-.. warning:: .. include:: ../../includes_notes/includes_notes_chef_solo_use_local_mode.rst
-
 .. include:: ../../includes_chef_solo/includes_chef_solo.rst
 
 Cookbooks

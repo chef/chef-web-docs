@@ -1245,6 +1245,7 @@
 .. |skip_dependencies| replace:: Ensure that all cookbooks to which the installed cookbook has a dependency are not installed.
 .. |smtp server| replace:: The |smtp| server to which a connection is made.
 .. |solo mode| replace:: Run the |chef client| in |chef solo| mode. This setting determines if the |chef client| is to attempt to communicate with the |chef server|.
+.. |solo_legacy_mode| replace:: Cause the |chef client| to not use chef local mode, but rather the original |chef solo| mode. This is not recommended unless really required.
 .. |solr_auto_soft_commit| replace:: The maximum number of documents before a soft commit is triggered.
 .. |solr_commit_interval| replace:: The frequency (in seconds) at which node objects are added to the |apache solr| search index.
 .. |solr_data_path| replace:: The location in which the |apache solr| indexes are located.
