@@ -89,9 +89,12 @@ Additional configuration options include:
 Adding Chef Automate certificate to `trusted_certs` directory
 ================================================================
 
-The visibilty features of |automate| require that the |automate| SSL certificate (``delivery.chordata.biz.crt``) is located in the ``/etc/chef/trusted_certs`` directory 
-on any node that wants to send data to |automate|. This directory is the location into which |ssl| certificates are 
-placed when a node has been bootstrapped with |chef client|. 
+The visibilty features of |automate| require that any self-signed |automate| SSL certificate (``delivery.HOSTNAME.crt``) is located 
+in the ``/etc/chef/trusted_certs`` directory on any node that wants to send data to |automate|. This directory is the location into 
+which |ssl| certificates are placed when a node has been bootstrapped with |chef client|. 
 
-To ensure the |automate| certificate is in the ``trusted_certs`` directory, use utilities such as `scp` or `rsync` to copy ``/var/opt/delivery/nginx/ca/delivery.chordata.biz.crt`` 
-from the |automate| server to the ``/etc/chef/trusted_certs`` directory on the node in your |automate| cluster.
+To ensure the certificate is in the ``trusted_certs`` directory, you can use utilities such as `scp` or `rsync` to copy 
+``/var/opt/delivery/nginx/ca/delivery.HOSTNAME.crt`` from the |automate| server to the ``/etc/chef/trusted_certs`` directory on the 
+node in your |automate| cluster, or use ``knife ssl fetch`` and pass in the URL of the |automate| server when calling the ``fetch`` subcommand.
+
+.. note:: This only applies to self-signed SSL certificates. Any certificate signed by certificate authority should work without any additional configuration required.
