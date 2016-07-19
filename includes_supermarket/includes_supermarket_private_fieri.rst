@@ -19,7 +19,6 @@ Then add the following Fieri attributes
 
   ['supermarket_omnibus']['config']['fieri_key'] = "#{random string you generate}"
   ['supermarket_omnibus']['config']['fieri_supermarket_endpoint'] = "#{your_supermarket_url}"
-  ['supermarket_omnibus']['config']['fieri_results_endpoint'] = "#{your_supermarket_url}/api/v1/cookbook-versions/evaluation
 
 Then reconfigure your Supermarket
 

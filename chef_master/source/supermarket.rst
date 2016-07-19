@@ -100,5 +100,5 @@ For more information about the |api cookbooks site|, see :doc:`Cookbooks Site AP
 
 fieri
 =====================================================
-.. include:: ../../includes_plugin_knife/includes_plugin_knife_supermarket.rst
+.. include:: ../../includes_supermarket/includes_supermarket_private_fieri.rst
 
