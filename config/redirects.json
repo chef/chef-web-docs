@@ -347,7 +347,7 @@
   "install_analytics.html": "/release/analytics/install_analytics.html",
   "plugin_knife_analytics.html": "/release/analytics/plugin_knife_analytics.html",
   "upgrade_analytics.html": "/release/analytics/upgrade_analytics.html",
-  "analytics_nodes_view.html": "release/analytics/anayltics_nodes_view.html",
+  "analytics_nodes_view.html": "/release/analytics/anayltics_nodes_view.html",
   "release/analytics_1-1/actions.html": "/release/analytics/actions.html",
   "release/analytics_1-1/analytics_monitor.html": "/release/analytics/analytics_monitor.html",
   "release/analytics_1-1/analytics_rules.html": "/release/analytics/analytics_rules.html",
