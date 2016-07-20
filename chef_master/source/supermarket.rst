@@ -97,3 +97,8 @@ For more information about the |supermarket rb| file, see :doc:`supermarket.rb <
 .. include:: ../../includes_api_cookbooks_site/includes_api_cookbooks_site.rst
 
 For more information about the |api cookbooks site|, see :doc:`Cookbooks Site API </api_cookbooks_site>`.
+
+fieri
+=====================================================
+.. include:: ../../includes_supermarket/includes_supermarket_private_fieri.rst
+
