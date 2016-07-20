@@ -33,7 +33,10 @@ If |kitchen| has to download and install the |chef client| omnibus package every
           config.cache.enable :gem
         end
       end
-      and then:
+
+   and then:
+
+   .. code-block:: bash
 
       $ cd supermarket-omnibus-cookbook
 

@@ -13,7 +13,7 @@ Run this SSH command; enter Yes when prompted.
 
 You should get output similar to this:
 
-  .. code-block:: bash
+  .. code-block:: none
 
      $ ssh -l sally@chef -p 8989 10.194.11.99
        The authenticity of host '[10.194.11.99]:8989 ([10.194.11.99]:8989)' can't be established.
@@ -22,7 +22,7 @@ You should get output similar to this:
        Warning: Permanently added '[10.194.11.99]:8989' (RSA) to the list of known hosts.
        channel 0: protocol error: close rcvd twice
        Hi sally@chef! You've successfully authenticated, but Chef Automate does not provide shell access.
-                            Connection to 10.194.11.99 closed.
+       Connection to 10.194.11.99 closed.
 
 
 Your workstation is now set up for use with |delivery|.

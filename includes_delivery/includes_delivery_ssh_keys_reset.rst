@@ -31,7 +31,7 @@ Follow these steps to resolve the issue:
 
    The output is similar to:
 
-   .. code-block:: bash
+   .. code-block:: none
 
       Generating public/private rsa key pair.
       Enter file in which to save the key (/Users/username/.ssh/id_rsa):

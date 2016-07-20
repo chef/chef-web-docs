@@ -13,11 +13,11 @@ This method has no parameters.
 
 with a request body similar to:
 
-.. code-block:: none
+.. code-block:: javascript
 
    {
-	 :groupname => "foo",
-	 :users => ["sdanno", "grantmc"]
+	    "groupname": "foo",
+	    "users": ["sdanno", "grantmc"]
    }
 
 **Response**

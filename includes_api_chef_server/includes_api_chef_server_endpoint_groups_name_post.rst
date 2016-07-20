@@ -18,7 +18,7 @@ with a request body similar to:
 .. code-block:: none
 
    {
-     :groupname => "foo"
+     "groupname": "foo"
    }
 
 **Response**

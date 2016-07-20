@@ -13,11 +13,11 @@ This method has no parameters.
 
 with a request body similar to:
 
-.. code-block:: none
+.. code-block:: javascript
 
    {
      "name": "chef",
-     "full_name"=>"Chef Software, Inc",
+     "full_name": "Chef Software, Inc"
    }
 
 **Response**

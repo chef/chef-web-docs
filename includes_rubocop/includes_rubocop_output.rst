@@ -10,7 +10,7 @@
 
 A |rubocop| evaluation has the following syntax:
 
-.. code-block:: bash
+.. code-block:: none
 
    FILENAME:LINE_NUMBER:CHARACTER_NUMBER: TYPE_OF_ERROR: MESSAGE
    SOURCE CODE
@@ -18,7 +18,7 @@ A |rubocop| evaluation has the following syntax:
 
 For example:
 
-.. code-block:: bash
+.. code-block:: none
 
    cookbooks/apache/attributes/default.rb:1:9: C: Prefer single-quoted strings when you don't
    need string interpolation or special symbols.

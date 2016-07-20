@@ -12,7 +12,7 @@
 
 will update the interface from ``static`` to ``dhcp``:
 
-.. code-block:: ruby
+.. code-block:: none
 
    iface eth1 inet dhcp
      address 33.33.33.80

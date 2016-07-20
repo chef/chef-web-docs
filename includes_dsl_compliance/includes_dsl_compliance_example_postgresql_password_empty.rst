@@ -4,7 +4,7 @@
 
 The following test shows how to audit machines running |postgresql| to ensure that passwords are not empty:
 
-.. code-block:: ruby
+.. code-block:: none
 
    control 'postgres-7' do
      impact 1.0

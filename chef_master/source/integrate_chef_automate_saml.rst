@@ -104,19 +104,19 @@ To configure your IdP to accept SAML requests, you need the following:
 
    .. code-block:: none
 
-      https://<yourChef AutomateDomain>/api/v0/e/<yourEnterprise>/saml/metadata
+      https://<yourChefAutomateDomain>/api/v0/e/<yourEnterprise>/saml/metadata
 
 * Assertion Consumer Service / Reply URL. This is where Chef Automate receives SAML assertions from the Identity Provider:
 
    .. code-block:: none
 
-      https://<yourChef AutomateDomain>/api/v0/e/<yourEnterprise>/saml/consume
+      https://<yourChefAutomateDomain>/api/v0/e/<yourEnterprise>/saml/consume
 
 * Audience. This will be the metadata URL for Chef Automate:
 
    .. code-block:: none
 
-      https://<yourChef AutomateDomain>/api/v0/e/<yourEnterprise>/saml/metadata
+      https://<yourChefAutomateDomain>/api/v0/e/<yourEnterprise>/saml/metadata
 
 Chef Automate currently only supports a subset of existing SAML communication schemes. To ensure this works with your IdP, please 
 ensure these configuration options are set up:

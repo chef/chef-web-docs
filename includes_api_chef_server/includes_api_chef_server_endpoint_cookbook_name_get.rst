@@ -24,16 +24,16 @@ This method has the following parameters:
 
 The response is similar to:
 
-.. code-block:: none
+.. code-block:: javascript
 
    {
-     "apache2" => {
-       "url" => "https://localhost/cookbooks/apache2",
-       "versions" => [
-         {"url" => "https://localhost/cookbooks/apache2/5.1.0",
-          "version" => "5.1.0"},
-         {"url" => "https://localhost/cookbooks/apache2/4.2.0",
-          "version" => "4.2.0"}
+     "apache2": {
+       "url": "https://localhost/cookbooks/apache2",
+       "versions": [
+         {"url": "https://localhost/cookbooks/apache2/5.1.0",
+          "version": "5.1.0"},
+         {"url": "https://localhost/cookbooks/apache2/4.2.0",
+          "version": "4.2.0"}
        ]
      }
    }

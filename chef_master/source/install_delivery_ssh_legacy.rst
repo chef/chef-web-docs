@@ -276,16 +276,13 @@ On the provisioning node:
 
       Rendering Environment => environments/test.json
 
-
 #. Export your new environment by executing the following: (example uses ``test`` as the environment name):
 
    .. code-block:: bash
 
       $ export CHEF_ENV=test
 
-.. note::
-
-   You can name your environment file anything, but note the name for future reference.
+.. note:: You can name your environment file anything, but note the name for future reference.
 
 Reset SSH Keys
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -299,9 +296,7 @@ To run provisioning (from inside the ``delivery-cluster`` directory), run the fo
 
    $ rake setup:cluster
 
-.. note::
-
-   * If the first converge fails on the build nodes, try running the above step again. The Chef Delivery cluster is complicated and sometimes there are timeouts.
+.. note:: If the first converge fails on the build nodes, try running the above step again. The Chef Delivery cluster is complicated and sometimes there are timeouts.
 
 Verify Provisioning
 -----------------------------------------------------

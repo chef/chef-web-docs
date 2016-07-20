@@ -25,12 +25,12 @@ where (in the example above) ``name`` is the key and "users" is the value.
 
 The response is similar to:
 
-.. code-block:: none
+.. code-block:: javascript
 
    {
-      "chef_type" => "environment"
-      "data_bag" => "data123"
-      "id" => "12345"
+      "chef_type": "environment",
+      "data_bag": "data123",
+      "id": "12345"
    }
 
 **Response Codes**
