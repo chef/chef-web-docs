@@ -30,11 +30,11 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     "uri"=>"https://chef.example/orgaizations/org1/clients/client1",
-     "chef_key" : {
-       "name" : "default",
-       "public_key" : "-----BEGIN PUBLIC KEY-----",
-       "private_key" : "-----BEGIN RSA PRIVATE KEY-----"
+     "uri": "https://chef.example/orgaizations/org1/clients/client1",
+     "chef_key": {
+       "name": "default",
+       "public_key": "-----BEGIN PUBLIC KEY-----",
+       "private_key": "-----BEGIN RSA PRIVATE KEY-----"
    }
 
 Store the private key in a safe place. It will be required later (along with the client name) to access the |chef server| when using the |api chef server|.

@@ -11,7 +11,7 @@
 
 will create the following interface:
 
-.. code-block:: ruby
+.. code-block:: none
 
    iface eth1 inet static
      address 33.33.33.80

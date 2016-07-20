@@ -59,7 +59,7 @@ The response is similar to:
    {
      "name": "latte",
      "ip": "123.4.5.6789",
-     "kernel_version": {"linux": "1.2.3"},
+     "kernel_version": {"linux": "1.2.3"}
    }
 
 **Response Codes**

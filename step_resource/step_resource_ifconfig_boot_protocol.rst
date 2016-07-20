@@ -12,7 +12,7 @@
 
 will create the following interface:
 
-.. code-block:: ruby
+.. code-block:: none
 
    vagrant@default-ubuntu-1204:~$ cat /etc/network/interfaces.d/ifcfg-eth1 
    iface eth1 inet dhcp

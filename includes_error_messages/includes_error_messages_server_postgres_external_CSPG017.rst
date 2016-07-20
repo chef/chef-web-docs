@@ -22,7 +22,7 @@ One (or more) of the |postgresql| predefined users already exists.
 
   or change the name of the user by updating following settings in the |chef server rb| configuration file:
 
-  .. code-block:: ruby
+  .. code-block:: none
 
      oc_id['sql_user'] = 'alternative_username'
      oc_id['sql_ro_user'] = alternative_username_for_ro_access' 

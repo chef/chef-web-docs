@@ -15,12 +15,12 @@ This method has no parameters.
 
 The response is similar to:
 
-.. code-block:: none
+.. code-block:: javascript
 
    {
-     "name"=>"chef",
-     "full_name"=>"Chef Software, Inc",
-     "guid"=>"f980d1asdfda0331235s00ff36862
+     "name": "chef",
+     "full_name": "Chef Software, Inc",
+     "guid": "f980d1asdfda0331235s00ff36862"
    } 
 
 **Response Codes**

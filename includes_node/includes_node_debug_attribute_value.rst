@@ -25,7 +25,7 @@ And others are defined in an attributes file:
 
 To debug the location in which the value of ``node[:test][:source]`` is set, use |chef shell| and run a command similar to:
 
-.. code-block:: ruby
+.. code-block:: none
 
    $ pp node.debug_value('test', 'source')
 

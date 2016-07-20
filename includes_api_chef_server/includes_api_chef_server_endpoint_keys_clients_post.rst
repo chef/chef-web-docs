@@ -16,9 +16,9 @@ with a request body similar to:
 .. code-block:: javascript
 
    {
-     "name" : "key1",
-     "public_key" : "-------- BEGIN PUBLIC KEY ----and a valid key here",
-     "expiration_date" : "infinity"
+     "name": "key1",
+     "public_key": "-------- BEGIN PUBLIC KEY ----and a valid key here",
+     "expiration_date": "infinity"
    }
    
 **Response**
@@ -28,7 +28,7 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     "uri" : "https://chef.example/organizations/example/clients/client1/keys/key1"
+     "uri": "https://chef.example/organizations/example/clients/client1/keys/key1"
    }
 
 **Response Codes**

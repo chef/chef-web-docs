@@ -57,7 +57,7 @@ To establish failover between the two backend servers, do the following:
 
    Output similar to the following will be shown:
 
-   .. code-block:: bash
+   .. code-block:: none
 
       cat /proc/drbd output
    

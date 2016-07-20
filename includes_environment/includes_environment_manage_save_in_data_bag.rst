@@ -10,10 +10,10 @@ A data bag that is storing a top-level key for an environment might look somethi
    {
      "id": "some_data_bag_item",
      "production" : {
-       # Hash with all your data here
+       // Hash with all your data here
      },
      "testing" : {
-       # Hash with all your data here
+       // Hash with all your data here
      }
    }
 

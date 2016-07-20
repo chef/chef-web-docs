@@ -18,7 +18,7 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     "33a5c28a8efe11e195005fsaes25400298d3f": "https://url/for/group1"
+     "33a5c28a8efe11e195005fsaes25400298d3f": "https://url/for/group1",
      "admins": "https://url/for/groups/admins",
      "billing-admins": "https://url/for/billing-admins",
      "clients": "https://url/for/clients",

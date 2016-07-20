@@ -41,12 +41,12 @@ This resource has the following properties:
 ``raw_json``
    The organization as |json| data. For example:
        
-   .. code-block:: javascript
+   .. code-block:: none
        
       {
-        "name"=>"chef",
-        "full_name"=>"Chef Software, Inc",
-        "guid"=>"f980d1asdfda0331235s00ff36862
+        "name": "chef",
+        "full_name": "Chef Software, Inc",
+        "guid": "f980d1asdfda0331235s00ff36862
         ...
       }
 

@@ -18,9 +18,9 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     "limit_exceeded": "false"
-     "node_license": "25"
-     "node_count": "12"
+     "limit_exceeded": "false",
+     "node_license": "25",
+     "node_count": "12",
      "upgrade_url": "http://www.chef.io/contact/on-premises-simple"
    }
 

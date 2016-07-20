@@ -16,7 +16,7 @@ with a request body similar to:
 .. code-block:: javascript
 
    {
-     "username" : "grantmc"
+     "username" : "grantmc",
      "password" : "p@ssw0rd"
    }
 
