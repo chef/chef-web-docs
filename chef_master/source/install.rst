@@ -15,4 +15,6 @@ Install |chef|!
 * :doc:`Chef replication </server_replication>` enables the synchronization of data from a primary |chef server| to one (or more) secondary servers
 * :doc:`Chef push jobs </push_jobs>` runs a job---an action or a command---against nodes independently of a |chef client| run. |push jobs| has :doc:`some additional configuration steps </install_push_jobs>`
 
+.. include:: ../../includes_server_replication/includes_server_replication_legacy_notice_short.rst
+
 In addition, there are some :doc:`post-configuration options </install_server_post>` for the |chef server|.
