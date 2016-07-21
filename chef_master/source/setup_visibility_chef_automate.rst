@@ -43,7 +43,7 @@ Understanding and (optionally) creating data collector tokens
 ================================================================
 
 When streaming data to |automate|, POST requests are sent to the data collector endpoint on the |automate| server. Those requests must be authenticated, 
-and the token is used in the authentication process. The token is a SHA-256 checksum of a shared secret that Chef Automate's 
+and a token is used in the authentication process. The token is a SHA-256 checksum of a shared secret that Chef Automate's 
 data collector uses to authenticate POST requests made to the data collector endpoint on the |automate| server. You may use any SHA-256 value for the token 
 as long as the same value is used between |automate| and your Chef server and/or Chef clients. If unspecified in the |automate| server's ``delivery.rb`` file, the 
 default value for the token is ``'93a49a4f2482c64126f7b6015e6b0f30284287ee4054ff8807fb63d9cbd1c506'``. You may use this value when configuring your nodes.
