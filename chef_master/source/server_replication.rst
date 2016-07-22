@@ -2,7 +2,7 @@
 |chef replication_title|
 =====================================================
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+.. include:: ../../includes_server_replication/includes_server_replication_legacy_notice_long.rst
 
 .. include:: ../../includes_server_replication/includes_server_replication.rst
 

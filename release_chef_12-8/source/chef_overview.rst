@@ -22,6 +22,8 @@ The following diagram shows the relationships between the various elements of |c
 
 The premium features of the |chef server|---|chef manage|, |chef analytics|, |chef client| run reporting, high availability configurations, and |chef server| replication---may all be installed and configured for use with the |chef server|. Each of these premium features are easily enabled and can be run as part of any |chef server| deployment!
 
+.. include:: ../../includes_server_replication/includes_server_replication_legacy_notice_short.rst
+
 The following sections discuss these elements (and their various components) in more detail.
 
 
