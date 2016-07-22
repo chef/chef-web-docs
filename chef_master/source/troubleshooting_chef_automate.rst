@@ -33,7 +33,7 @@ then modify the build-nodes default search for your project as described in `Con
 SAML
 =======================================================
 
-When setting up SAML authentication, you might run into the following issues where you cannot sign in with SAML:
+When setting up SAML authentication, you might run into the following issues where you cannot sign in with SAML.
 
 Issue: The browser shows a blank page
 -----------------------------------------------------
@@ -93,7 +93,7 @@ Issue: The browser shows the login UI with "SAML login failed!"
 Case #1
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-If you see this error, and the logs show ``Invalid assertion {assertion,{error,cert_not_accepted}}``, then the stored certificate is 
+If you see this error and the logs show ``Invalid assertion {assertion,{error,cert_not_accepted}}``, then the stored certificate is 
 base64-encoded, but is not the certificate used by the IdP for signing the assertion response.
 
 To find the certificate that was used for this, you can examine the assertions given by the IdP on successful login:
@@ -109,7 +109,7 @@ To find the certificate that was used for this, you can examine the assertions g
 Case #2
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-If you see this error, and the logs show ``[error] Invalid assertion bad_recipient``, then the "Assertion Consumption Service" (ACS) 
+If you see this error and the logs show ``[error] Invalid assertion bad_recipient``, then the "Assertion Consumption Service" (ACS) 
 endpoint configured with the IdP is not correct.
 
 A configuration mismatch of this kind most likely breaks the interaction completely. Actually seeing this error hints at a minor 
@@ -132,7 +132,7 @@ Follow the steps above to examine the assertions returned from the IdP and verif
 Case #3
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-If you see this error, and the logs show ``[error] Invalid assertion bad_in_response_to``, then the response doesn't match a request.
+If you see this error and the logs show ``[error] Invalid assertion bad_in_response_to``, then the response doesn't match a request.
 
 .. code-block:: none
 
@@ -165,7 +165,7 @@ Visibility
 
 The following is a possible issue you might run into when using the visibility capabilities in |automate|.
 
-Issue: When adding a new organization to Chef server, it doesn't show up in the UI.
+Issue: New organization in Chef server does not show up in |automate| UI
 ------------------------------------------------------------------------------------
 
 If an organization does not have any nodes associated with it, it does not show up in the **Nodes** section of the |automate| UI. 

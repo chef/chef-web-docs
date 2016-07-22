@@ -86,8 +86,7 @@ Additional configuration options include:
  * ``data_collector['http_max_connection_duration']``: maximum duration an HTTP connection is allowed
    to exist before it is terminated, specified as an Erlang tuple. Default: ``{70, sec}``.
 
-.. note:: If you define a new organization in your Chef server, but it does not have any nodes associated with it, that organization will not show up in the **Nodes** section of the |automate| UI. 
-This is also true for roles, cookbooks, recipes, attributes, resources, node names, and environments that are not associated with a node in the |automate| cluster.
+.. note:: If you define a new organization in your Chef server, but it does not have any nodes associated with it, that organization will not show up in the **Nodes** section of the |automate| UI. This is also true for roles, cookbooks, recipes, attributes, resources, node names, and environments that are not associated with a node in the |automate| cluster.
 
 Adding Chef Automate certificate to `trusted_certs` directory
 ================================================================
