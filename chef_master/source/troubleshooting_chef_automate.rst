@@ -9,13 +9,13 @@ Build nodes
 
 The following are possible issues you might run into when using build nodes.
 
-Waiting for builder
+Issue: Waiting for builder
 -----------------------------------------------------
 
 If this is a new Chef Automate setup and you see "Waiting for builder" in your log output, but no 
 build nodes are set up yet, that means the Chef Automate server and Chef server are having trouble communicating.
 
-No build nodes available
+Issue: No build nodes available
 -----------------------------------------------------
 
 If you see  "No build nodes available" in your log output, then that means you need to set some up. 
@@ -33,9 +33,9 @@ then modify the build-nodes default search for your project as described in `Con
 SAML
 =======================================================
 
-When setting up SAML authentication, you might run into issues where you cannot sign in with SAML and...
+When setting up SAML authentication, you might run into the following issues where you cannot sign in with SAML:
 
-The browser shows a blank page
+Issue: The browser shows a blank page
 -----------------------------------------------------
 
 If both of these conditons are true:
@@ -87,8 +87,8 @@ and if it can't be decoded
    ** exception error: no match of right hand side value false
        in function  base64:decode_binary/2 (base64.erl, line 212)
 
-The browser shows the login UI with "SAML login failed!"
-----------------------------------------------------------
+Issue: The browser shows the login UI with "SAML login failed!"
+-----------------------------------------------------------------
 
 Case #1
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -149,8 +149,8 @@ If you see this error, and the logs show ``[error] Invalid assertion bad_in_resp
 This can happen when either the IdP is not compliant to the SAML specs, or when the assertion is too late, that is, when the initiation of the SAML login process 
 (the redirect to your IdP) has been longer than 15 minutes.
 
-The browser shows the login UI with "Invalid user, login failed!"
---------------------------------------------------------------------
+Issue: The browser shows the login UI with "Invalid user, login failed!"
+-------------------------------------------------------------------------
 
 Chef Automate does not have a user-record for the user information from the SAML asssertion.
 This can be triggered by either:
@@ -159,3 +159,16 @@ This can be triggered by either:
 * When redirected to the SAML IdP, authenticating as a different user (not known to Chef Automate)
 
 This can also indicate a change in NameId settings.
+
+Visibility
+====================================================================
+
+The following is a possible issue you might run into when using the visibility capabilities in |automate|.
+
+Issue: When adding a new organization to Chef server, it doesn't show up in the UI.
+------------------------------------------------------------------------------------
+
+If an organization does not have any nodes associated with it, it does not show up in the **Nodes** section of the |automate| UI. 
+This is also true for roles, cookbooks, recipes, attributes, resources, node names, and environments. Only those items
+that have a node associated with them will appear in the UI. |automate| has all the data for all of these, but does 
+not highlight them in the UI. This is designed to keep the UI focused on the nodes in your cluster.

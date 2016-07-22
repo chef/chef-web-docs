@@ -7,7 +7,7 @@ Ingest Node Data into |automate|
 To view data in the **Node State** dashboard of |automate|, it must be ingested from 
 Chef clients and/or servers through HTTP POST requests to a data collector endpoint on the |automate| server. 
 Node data, resource convergence status, error messages, and other information is collected during chef-client runs and 
-used to populate the dashboard.
+used to populate the dashboard. 
 
 Prerequisites
 ================================================================
@@ -85,6 +85,9 @@ Additional configuration options include:
    min}``.
  * ``data_collector['http_max_connection_duration']``: maximum duration an HTTP connection is allowed
    to exist before it is terminated, specified as an Erlang tuple. Default: ``{70, sec}``.
+
+.. note:: If you define a new organization in your Chef server, but it does not have any nodes associated with it, that organization will not show up in the **Nodes** section of the |automate| UI. 
+This is also true for roles, cookbooks, recipes, attributes, resources, node names, and environments that are not associated with a node in the |automate| cluster.
 
 Adding Chef Automate certificate to `trusted_certs` directory
 ================================================================
