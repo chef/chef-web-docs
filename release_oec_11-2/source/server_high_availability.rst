@@ -102,7 +102,7 @@ When the acting backup server fails, |drbd| on the master will continue to funct
 
 You can see the full status by running cat ``/proc/drbd``:
 
-.. code-block:: bash
+.. code-block:: none
 
    version: 8.4.0 (api:1/proto:86-100)
    GIT-hash: 28753f559ab51b549d16bcf487fe625d5919c49c build by    root@localhost.localdomain, 2012-02-06 12:59:36
@@ -118,7 +118,7 @@ When the secondary becomes available again, two things may happen:
 
 The last field in the ``/prod/drbd`` file (``oos``) reports how far the primary is out of sync with its partner. If the secondary is down and there are a lot of writes on the primary, this number will increase. For example:
 
-.. code-block:: bash
+.. code-block:: none
 
    version: 8.4.0 (api:1/proto:86-100)
    GIT-hash: 28753f559ab51b549d16bcf487fe625d5919c49c build by root@localhost.localdomain, 2012-02-06 12:59:36
@@ -127,7 +127,7 @@ The last field in the ``/prod/drbd`` file (``oos``) reports how far the primary 
 
 When the disks return to a synced state, that field will return to ``0``. While the secondary is syncing, status about the syncing process will be shown for both hosts. For the secondary, something like the following:
 
-.. code-block:: bash
+.. code-block:: none
 
    GIT-hash: 91b4c048c1a0e06777b5f65d312b38d47abaea80 build by dag@Build64R6, 2011-12-21 06:08:50
     0: cs:SyncTarget ro:Secondary/Primary ds:Inconsistent/UpToDate C r-----
@@ -137,7 +137,7 @@ When the disks return to a synced state, that field will return to ``0``. While 
 
 and for the primary, something like the following:
 
-.. code-block:: bash
+.. code-block:: none
 
    version: 8.4.0 (api:1/proto:86-100)
    GIT-hash: 28753f559ab51b549d16bcf487fe625d5919c49c build by root@localhost.localdomain, 2012-02-06 12:59:36
@@ -158,7 +158,7 @@ Basically, what this means is that when the primary becomes unavailable to the s
 
 The status of the secondary will look something like the following:
 
-.. code-block:: bash
+.. code-block:: none
 
    version: 8.4.1 (api:1/proto:86-100)
    GIT-hash: 91b4c048c1a0e06777b5f65d312b38d47abaea80 build by dag@Build64R6, 2011-12-21 06:08:50
@@ -175,7 +175,7 @@ If it is verified that the primary host is going to be down for a while, the sec
 
 at that point the status will change to something like the following:
 
-.. code-block:: bash
+.. code-block:: none
 
    version: 8.4.1 (api:1/proto:86-100)
    GIT-hash: 91b4c048c1a0e06777b5f65d312b38d47abaea80 build by dag@Build64R6, 2011-12-21 06:08:50
@@ -202,7 +202,7 @@ So far, the scenarios have not described any data loss. When the hosts in the hi
 
 If you get to a situation in which the primary host is lost and unrecoverable, but the last status of the |drbd| pair was reporting that the secondary node was in an ``Inconsistent`` state, it is very likely that some data will be lost. The |drbd| status on the remaining host will look something like the following:
 
-.. code-block:: bash
+.. code-block:: none
 
    version: 8.4.0 (api:1/proto:86-100)
    GIT-hash: 28753f559ab51b549d16bcf487fe625d5919c49c build by root@localhost.localdomain, 2012-02-06 12:59:36
