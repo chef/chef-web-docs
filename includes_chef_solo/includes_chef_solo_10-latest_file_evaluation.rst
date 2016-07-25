@@ -12,7 +12,7 @@ This behavior is changed, starting with |chef client| 11. Files are loaded accor
 
 For users of |chef solo| , the new loading logic means that files belonging to cookbooks which exist in the ``cookbook_path`` but are not in the expanded ``run_list`` or dependencies of the cookbooks in the expanded ``run_list`` will no longer be loaded (in |chef client| 10, all non-recipe files from all cookbooks in the cookbook path were loaded). Additionally, |chef solo| users will now see ``CookbookNotFound`` errors when a cookbook is listed as a dependency in the metadata but not present on disk. The error message will look like this:
 
-.. code-block:: bash
+.. code-block:: none
 
    FATAL: Chef::Exceptions::CookbookNotFound: Cookbook runit not found. If you're loading runit from another cookbook, make sure you configure the dependency in your metadata
 

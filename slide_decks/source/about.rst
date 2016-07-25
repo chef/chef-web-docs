@@ -82,7 +82,7 @@ About Slide Decks
 
     Hit "s" on your keyboard to view the notes.
 
-    .. code-block:: ruby
+    .. code-block:: none
 
        .. rv_note:: 
 

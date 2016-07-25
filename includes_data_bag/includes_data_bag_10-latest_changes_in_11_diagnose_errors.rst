@@ -3,9 +3,10 @@
 
 When trying to decrypt a |chef client| 11 format data bag item with |chef client| 10-16 (and earlier), you will see an error like this:
 
-.. code-block:: bash
+.. code-block:: none
 
    shell$ knife data bag show secret-10-stable bar -c ~/opscode-ops/chef-oss-dev/.chef/knife.rb -s password
+   
    ERROR: knife encountered an unexpected error
    This may be a bug in the 'data bag show' knife command or plugin
    Please collect the output of this command with the `-VV` option before filing a bug report.

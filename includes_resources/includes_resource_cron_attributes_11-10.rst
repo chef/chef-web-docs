@@ -10,7 +10,7 @@ This resource has the following properties:
 
    Some examples:
 
-   .. code-block:: ruby
+   .. code-block:: none
 
       command if [ -x /usr/share/mdadm/checkarray ] && [ $(date +\%d) -le 7 ];
       then /usr/share/mdadm/checkarray --cron --all --idle --quiet; fi

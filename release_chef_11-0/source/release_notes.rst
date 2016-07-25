@@ -73,7 +73,7 @@ The following example replaces the previous example:
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 Previously, |knife| was adding the ID field to search results for node attributes. With |chef client| 11, |knife| groups search results by the name of the node. For example, the old output looks something like:
 
-.. code-block:: bash
+.. code-block:: none
 
    $ knife search roles:role_name -a ipaddress -fj
    2 items found
@@ -93,7 +93,7 @@ Previously, |knife| was adding the ID field to search results for node attribute
 
 and the new output looks something like:
 
-.. code-block:: bash
+.. code-block:: none
 
    $ knife search roles:role_name -a ipaddress -fj
    2 items found
@@ -115,9 +115,9 @@ and the new output looks something like:
 
 This may require that search queries be updated for |chef client| 11.
 
-This change also affects |ohai| plugin output.For example, the old output looks something like:
+This change also affects |ohai| plugin output. For example, the old output looks something like:
 
-.. code-block:: ruby
+.. code-block:: javascript
 
    {
      "results": 35,
@@ -140,7 +140,7 @@ This change also affects |ohai| plugin output.For example, the old output looks 
 
 and the new output looks something like:
 
-.. code-block:: ruby
+.. code-block:: javascript
 
    {
      "results": 35,
