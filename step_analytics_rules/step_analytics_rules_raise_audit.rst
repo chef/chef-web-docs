@@ -3,7 +3,7 @@
 
 The following rule raises an alert when a ``run_control_group`` fails, signifying that one or more controls failed:
 
-.. code-block:: ruby
+.. code-block:: javascript
 
     rules "throw errors on control group failure"
      rule on run_converge

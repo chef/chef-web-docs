@@ -3,7 +3,7 @@
 
 Use a comment to document the behavior of the rules. A comment starts with a double forward slash---``//``---and continues to the end of the line on which the comment started. For example:
 
-.. code-block:: ruby
+.. code-block:: javascript
 
    rules 'user-agent matching'
      rule on action
@@ -12,6 +12,6 @@ Use a comment to document the behavior of the rules. A comment starts with a dou
        true
      then
        // raise an audit for every action
-       ':info('This rule matches all actions')
+       alert:info('This rule matches all actions')
      end
    end

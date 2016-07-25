@@ -10,7 +10,7 @@ Run:
 
 Returns:
 
-.. code-block:: bash
+.. code-block:: none
 
    ----> Starting Kitchen (v1.2.1)
    -----> Converging <default-centos-64>...

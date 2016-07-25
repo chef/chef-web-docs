@@ -65,7 +65,7 @@ Configure the |chef server|. On each server in the |chef server| configuration, 
 
 #. Reconfigure the |chef manage|:
 
-   .. code-block:: ruby
+   .. code-block:: bash
 
       $ chef-manage-ctl reconfigure
 

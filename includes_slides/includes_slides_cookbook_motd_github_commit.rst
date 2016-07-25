@@ -10,7 +10,7 @@ Run:
 
 Returns:
 
-.. code-block:: bash
+.. code-block:: none
 
    [master (root-commit) af2b629] initial apache recipe, does nothing
    6 files changed, 144 insertions(+), 0 deletions(-)

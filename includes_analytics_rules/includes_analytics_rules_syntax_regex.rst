@@ -9,14 +9,14 @@ Use a regular expression to define a search pattern to match against a rule. Use
 
 For example:
 
-.. code-block:: ruby
+.. code-block:: javascript
 
    rules 'regex demo'
      rule on action
        when
          // match if the user_agent starts with the string 'Chef Manage'
          user_agent =~ 'Chef Manage.*'
-           or 
+       or 
          // match 1 or more lower case characters followed by a single digit
          entity_name =~ '[a-z]+\d'
        then

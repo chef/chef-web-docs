@@ -4,7 +4,7 @@
 
 A suite defines the target configurations for testing:
 
-.. code-block:: python
+.. code-block:: yaml
 
    ---
    driver:

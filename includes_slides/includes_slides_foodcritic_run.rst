@@ -10,6 +10,6 @@ Run:
 
 Returns:
 
-.. code-block:: bash
+.. code-block:: none
 
    FC002: Avoid string interpolation where not required: ./recipes/default.rb:7

@@ -10,7 +10,7 @@ Run:
 
 Returns:
 
-.. code-block:: bash
+.. code-block:: none
 
    [master (root-commit) 6774a70] Initial chef repo
    11 files changed, 388 insertions(+), 0 deletions(-)

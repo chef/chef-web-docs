@@ -8,7 +8,7 @@
      action :install
    end
 
-.. code-block:: python
+.. code-block:: ruby
 
    template '/etc/haproxy/haproxy.cfg' do
      source 'haproxy.cfg.erb'

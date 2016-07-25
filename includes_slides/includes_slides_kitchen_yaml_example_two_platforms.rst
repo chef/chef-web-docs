@@ -4,7 +4,7 @@
 
 Two platforms, one test suite:
 
-.. code-block:: python
+.. code-block:: yaml
 
    ---
    driver:
@@ -19,7 +19,7 @@ Two platforms, one test suite:
      - name: ubuntu-12.04
      - name: centos-6.4
 
-.. code-block:: python
+.. code-block:: yaml
 
    suites:
      - name: default

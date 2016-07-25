@@ -10,13 +10,13 @@ Some messages that contain nested fields or arrays.
 
 For example, accessing integer values in a nested field:
 
-.. code-block:: ruby
+.. code-block:: javascript
 
    rules 'Control group matches'
      rule on run control group
        when
          run.chef_server_fqdn = 'mysql.production.foo.com'
-           or
+       or
          // any node_name with 'production' in it's name
          run.node_name =~ '.*production.*'
        then
@@ -26,7 +26,7 @@ For example, accessing integer values in a nested field:
 
 And accessing integer values in an array:
 
-.. code-block:: ruby
+.. code-block:: javascript
 
    rules 'Run resource matches'
      rule on run resource

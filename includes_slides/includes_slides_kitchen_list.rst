@@ -10,7 +10,7 @@ Run:
 
 Returns:
 
-.. code-block:: bash
+.. code-block:: none
 
    Instance           Driver  Provisioner  Last Action
    default-centos-65  Docker  ChefZero     <Not Created>

@@ -4,7 +4,7 @@
 
 A platform is a specific version of an operating system:
 
-.. code-block:: python
+.. code-block:: yaml
 
    ---
    driver:
@@ -19,7 +19,7 @@ A platform is a specific version of an operating system:
      - name: ubuntu-12.04
      - name: centos-6.4
 
-.. code-block:: python
+.. code-block:: yaml
 
    suites:
      - name: default

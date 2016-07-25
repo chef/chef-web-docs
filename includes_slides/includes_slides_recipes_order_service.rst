@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-.. code-block:: python
+.. code-block:: ruby
 
    package 'haproxy' do
      action :install

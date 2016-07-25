@@ -10,6 +10,6 @@ Run:
 
 Returns:
 
-.. code-block:: bash
+.. code-block:: none
 
    curl: (7) couldn't connect to host

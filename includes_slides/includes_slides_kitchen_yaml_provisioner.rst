@@ -4,7 +4,7 @@
 
 A provisioner tells |kitchen| how to configure the node:
 
-.. code-block:: python
+.. code-block:: yaml
 
    ---
    driver:
@@ -15,7 +15,7 @@ A provisioner tells |kitchen| how to configure the node:
    provisioner:
      name: chef_zero
 
-.. code-block:: python
+.. code-block:: yaml
 
    platforms:
      - name: ubuntu-12.04
