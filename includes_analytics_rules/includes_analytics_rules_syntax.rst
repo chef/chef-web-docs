@@ -4,7 +4,7 @@
 
 The syntax for a |chef analytics| rule is as follows:
 
-.. code-block:: java
+.. code-block:: none
 
    rules 'name'
      with priority=n

@@ -397,7 +397,7 @@ Before proceeding with the installation, |drbd| MUST be allowed to fully synchro
 
 Output similar to the following will be shown:
 
-.. code-block:: bash
+.. code-block:: none
 
    cat /proc/drbd output
    
