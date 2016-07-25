@@ -59,7 +59,7 @@ nginx, access
 -----------------------------------------------------
 |nginx| is an important entry point for data on the |chef server|, which means that debugging efforts frequently start with analyzing the |service nginx| service's ``access.log`` file. This log contains every HTTP request made to the front-end machine and can be very useful when investigating request rates and usage patterns. The following is an example log entry:
 
-.. code-block:: ruby
+.. code-block:: none
 
    175.185.9.6 - - [12/Jul/2013:15:56:54 +0000] "GET 
    /organizations/exampleorg/data/firewall/nova_api HTTP/1.1" 200 
@@ -95,7 +95,7 @@ The |service erchef| service's ``erchef.log`` file contains a history of API req
 
 The following is an example log entry:
 
-.. code-block:: ruby
+.. code-block:: none
 
    2013-08-06T08:54:32Z erchef@127.0.0.1 INFO org_name=srwjedoqqoypgmvafmoi; req_id=g3IAA2QAEGVyY2hlZkAx
 
@@ -120,7 +120,7 @@ opscode-webui
 -----------------------------------------------------
 The |service webui| service's ``current.log`` file contains a history of all requests that were made to the |chef manage|. Errors that may be found in this log are typically the cause of failed HTTP requests that were made to another service. The following is an example log entry for a successful request:
 
-.. code-block:: ruby
+.. code-block:: none
 
    2013-08-06_16:03:53.50265  Started GET "/nodes" for 172.28.0.148 at 2013-08-06 16:03:53 +0000
    2013-08-06_16:03:53.50462  Processing by NodesController#index as HTML
@@ -131,7 +131,7 @@ The |service webui| service's ``current.log`` file contains a history of all req
 
 A failed request, on the other hand produces a large amount of output. The following is a partial example log entry for a failed request:
 
-.. code-block:: ruby
+.. code-block:: none
 
    2013-08-06_16:05:15.45445  Started GET "/clients" for 172.28.0.148 at 2013-08-06 16:05:15 +0000
    2013-08-06_16:05:15.54797  Processing by ClientsController#index as HTML
@@ -215,7 +215,7 @@ The |service nginx| access log format is as follows:
 
 A sample log line:
 
-.. code-block:: bash
+.. code-block:: none
 
    192.168.4.1 - - [17/Feb/2012:16:02:42 -0800]  
      "GET /organizations/nginx/cookbooks HTTP/1.1" 200 
