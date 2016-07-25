@@ -10,7 +10,7 @@ Run:
 
 Returns:
 
-.. code-block:: bash
+.. code-block:: none
 
    REPOSITORY    TAG           IMAGE ID      CREATED       VIRTUAL SIZE
    centos        centos6       70441cac1ed5  6 days ago    215.8 MB

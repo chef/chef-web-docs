@@ -4,7 +4,7 @@
 
 |kitchen| utilizes bussers to manage test plugins. We'll be using the ``serverspec`` plugin:
 
-.. code-block:: python
+.. code-block:: none
 
    test/
      └── integration

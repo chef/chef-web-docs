@@ -3,7 +3,7 @@
 
 The following rule shows using a regular expression:
 
-.. code-block:: ruby
+.. code-block:: none
 
    rules "user-agent matching"
      rule on action
@@ -15,17 +15,17 @@ The following rule shows using a regular expression:
 
      rule on action
      when
-       # match if the user_agent starts with the string "Chef Manage"
+       // match if the user_agent starts with the string "Chef Manage"
        user_agent =~ "Chef Manage.*"
      then
-       # if #user_agent has been set before
-       # this command will overwrite it's value
+       // if #user_agent has been set before
+       // this command will overwrite it's value
      set(#user_agent, "Chef Manage")
      end
 
      rule on action
      when
-       # match if the user_agent starts with the string "Chef Client"
+       // match if the user_agent starts with the string "Chef Client"
        user_agent =~ "Chef Client.*"
      then
        set(#user_agent, "Chef Client")

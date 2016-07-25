@@ -10,7 +10,7 @@ Run:
 
 Returns:
 
-.. code-block:: bash
+.. code-block:: none
 
    Recipe: (chef-apply cookbook)::(chef-apply recipe)
      * package[git] action install

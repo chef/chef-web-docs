@@ -10,7 +10,7 @@ Run:
 
 Returns:
 
-.. code-block:: bash
+.. code-block:: none
 
    -----> Converging <default-centos-64>...
           Preparing files for transfer

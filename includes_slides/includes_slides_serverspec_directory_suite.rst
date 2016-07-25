@@ -4,7 +4,7 @@
 
 The next level subdirectory will match the suite name:
 
-.. code-block:: python
+.. code-block:: none
 
    test/
      └── integration

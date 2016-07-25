@@ -4,7 +4,7 @@
 
 Use the |resource cookbook_file| resource for a file that is stored a cookbook's ``/files`` directory:
 
-.. code-block:: python
+.. code-block:: none
 
    motd
       ├── Berksfile

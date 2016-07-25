@@ -4,7 +4,7 @@
 
 Use the |resource template| resource when a template is stored a cookbook's ``/templates`` directory:
 
-.. code-block:: python
+.. code-block:: none
        
    motd
       ├── Berksfile

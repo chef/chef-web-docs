@@ -10,7 +10,7 @@ Run:
 
 Returns:
 
-.. code-block:: bash
+.. code-block:: none
 
    Compiling Cookbooks...
    Recipe: code_generator::cookbook

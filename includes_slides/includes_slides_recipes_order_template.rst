@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-.. code-block:: python
+.. code-block:: ruby
 
    package 'haproxy' do
      action :install
@@ -18,7 +18,7 @@
      notifies :restart, 'service[haproxy]'
    end
 
-.. code-block:: python
+.. code-block:: ruby
 
    service 'haproxy' do
      supports :restart => :true

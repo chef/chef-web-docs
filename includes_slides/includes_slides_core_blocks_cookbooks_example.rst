@@ -5,7 +5,7 @@
 * Contain recipes
 * Define steps to address expected outcomes
 
-.. code-block:: python
+.. code-block:: none
        
    haproxy
       ├── CHANGELOG.md

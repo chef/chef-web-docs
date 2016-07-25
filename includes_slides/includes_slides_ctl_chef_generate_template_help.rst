@@ -10,7 +10,7 @@ Run:
 
 Returns:
 
-.. code-block:: bash
+.. code-block:: none
 
    Usage: chef generate template [path/to/cookbook] NAME [options]
      -C, --copyright COPYRIGHT        Name of the copyright holder - defaults to 'The Authors'

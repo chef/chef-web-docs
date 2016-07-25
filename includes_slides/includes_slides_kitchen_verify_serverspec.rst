@@ -10,7 +10,7 @@ Run:
 
 Returns:
 
-.. code-block:: bash
+.. code-block:: none
 
    -----> Running serverspec test suite
           /opt/chef/embedded/bin/ruby -I/tmp/busser/suites/serverspec 

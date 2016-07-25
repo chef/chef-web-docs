@@ -15,14 +15,14 @@ This method has no request body.
 
 The response will return something like the following:
 
-.. code-block:: none
+.. code-block:: javascript
 
    {
-     "status" => "pong", 
-     "upstreams" => 
+     "status": "pong", 
+     "upstreams": 
        {
-         "service_name" => "pong", 
-         "service_name" => "pong", 
+         "service_name": "pong", 
+         "service_name": "pong", 
          ...
        }
     }
@@ -46,8 +46,8 @@ The response will return something like the following:
             "status":"fail",
             "upstreams":
               {
-                "service_name":"fail",
-                "service_name":"pong",
+                "service_name": "fail",
+                "service_name": "pong",
                 ...
               }
           }

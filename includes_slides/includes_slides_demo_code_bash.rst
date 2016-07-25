@@ -16,7 +16,7 @@ For example:
 
 Returns:
 
-.. code-block:: bash
+.. code-block:: none
 
    Recipe: (chef-apply cookbook)::(chef-apply recipe)
      * file[hello.txt] action create (up to date)

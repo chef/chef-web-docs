@@ -10,7 +10,7 @@ A driver specifies a virtualization or cloud provider by name:
    driver:
      name: vagrant
 
-.. code-block:: python
+.. code-block:: yaml
 
    provisioner:
      name: chef_zero

@@ -10,6 +10,6 @@ Run:
 
 Returns:
 
-.. code-block:: bash
+.. code-block:: none
 
    Initialized empty Git repository in /home/chef/chef-repo/.git/

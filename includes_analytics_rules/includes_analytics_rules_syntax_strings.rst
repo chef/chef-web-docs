@@ -35,7 +35,7 @@ Single-quotes that appear within a double-quoted string do not need to be escape
 
 For example:
 
-.. code-block:: ruby
+.. code-block:: javascript
 
    rules 'string example'
      rule on action
@@ -44,6 +44,6 @@ For example:
        true
      then
        // single quoted string, 
-        alert:info('This rule matches all \'action\' messages')
+       alert:info('This rule matches all \'action\' messages')
      end
    end

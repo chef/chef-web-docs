@@ -48,7 +48,7 @@ The following fields are available for the ``run_resource`` message type:
      - string
      - The difference between the intial and final value of resource. For example:
        
-       .. code-block:: javascript
+       .. code-block:: none
        
           --- /etc/motd.tail
           2013-06-30 17:41:31.667050237 -0600\n

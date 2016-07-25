@@ -4,7 +4,7 @@
 
 Three platforms, two test suites:
 
-.. code-block:: python
+.. code-block:: yaml
 
    ---
    driver:
