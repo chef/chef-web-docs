@@ -23,7 +23,7 @@ An inline helper method can also take arguments:
 .. code-block:: ruby
 
    template '/path' do
-     helper(:app_conf) { |setting| node['app']['setting'] }
+     helper(:app_conf) { |setting| node['app'][setting] }
    end
 
 Once declared, a template can then use the helper methods to build a file. For example:
