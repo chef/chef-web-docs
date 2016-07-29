@@ -4,7 +4,7 @@ Upgrade Chef Automate
 
 .. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
 
-The following sections describe the upgrade process for Chef Automate.
+The following sections describe the upgrade process between versions of Chef Automate and when upgrading from a ``delivery-cluster`` setup to Chef Automate.
 
 Prerequisites
 =====================================================
@@ -35,7 +35,7 @@ To upgrade to the latest version of Chef Automate, do the following:
 
       rpm -Uvh $PATH_TO_AUTOMATE_SERVER_PACKAGE
 
-#. Run ``sudo delivery-ctl reconfigure`` to complete the upgrade process.
+#. If you are upgrading from a ``delivery-cluster`` setup, then skip to the section below; otherwise, run ``sudo delivery-ctl reconfigure`` to complete the upgrade process.
 
    .. note:: This will restart your Chef Automate services and may result in a brief period of unavailability.
 
@@ -47,7 +47,7 @@ that is not compatible with the new build node installation mechanism used by |a
 existing build nodes and those added with ``delivery-ctl install-build-node`` can be seen by an |automate| server, you will 
 need to edit ``/etc/delivery/delivery.rb`` and modify the value present for ``delivery['default_search']``.
 
-In the ``delivery.rb`` configured by delivery-cluster, you will find a line that looks like this:
+In the ``delivery.rb`` configured by ``delivery-cluster``, you will find a line that looks like this:
 
 .. code-block:: ruby
 
@@ -60,5 +60,13 @@ from what delivery-cluster set up, you can replace it with the following line:
 
    delivery['default_search']   = "((recipes:delivery_build OR recipes:delivery_build\\\\:\\\\:default OR tags:delivery-build-node) AND chef_environment:_default)"
 
+.. note:: It is preferrable to deploy to new build nodes because the runit version of push jobs running on existing nodes can cause trouble when between those existing nodes and a |automate| server.
+
+
 Save your changes and then run ``sudo delivery-ctl reconfigure`` to complete the upgrade process.
  
+
+Special note about upgrading and the ``delivery-ctl setup`` command
+-------------------------------------------------------------------
+
+The ``delivery-ctl setup`` command used during the |automate| installation process is intended to simplify the initial configuration of your |automate| cluster. If your cluster is up and running, you don't need to run this command; however to set up additional build nodes with the ``delivery-ctl install-build-node`` command, running ``delivery-ctl setup`` is recomended to ensure all required files are in the right place.
