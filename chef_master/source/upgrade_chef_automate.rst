@@ -66,7 +66,7 @@ from what delivery-cluster set up, you can replace it with the following line:
 Save your changes and then run ``sudo delivery-ctl reconfigure`` to complete the upgrade process.
  
 
-Special note about upgrading and the ``delivery-ctl setup`` command
+Upgrading and the ``delivery-ctl setup`` command
 -------------------------------------------------------------------
 
 The ``delivery-ctl setup`` command used during the |automate| installation process is intended to simplify the initial configuration of your |automate| cluster. If your cluster is up and running, you don't need to run this command; however to set up additional build nodes with the ``delivery-ctl install-build-node`` command, running ``delivery-ctl setup`` is recomended to ensure all required files are in the right place.
