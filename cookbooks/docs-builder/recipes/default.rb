@@ -104,7 +104,8 @@ ohai-7
 ohai-6
 osc_11-0
 osc_11-1
-push
+push_1-0
+push_2-0
 server_12-0
 server_12-1
 server_12-2
