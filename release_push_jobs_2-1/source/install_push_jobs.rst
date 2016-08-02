@@ -1,10 +1,10 @@
-.. THIS PAGE DOCUMENTS Push Jobs version 1.0
+.. THIS PAGE DOCUMENTS Push Jobs version 2.1
 
 =====================================================
 Install |push jobs_title|
 =====================================================
 
-.. include:: ../../includes_install/includes_install_push_jobs_overview.rst
+.. include:: ../../includes_install/includes_install_push_jobs_overview_2-1.rst
 
 Install the Server
 =====================================================
@@ -29,8 +29,3 @@ Install the Workstation
 .. note:: The |chef server| uses role-based access control to define the :doc:`organizations, groups, and users </server_orgs>`, including those needed by |push jobs|.
 
 .. include:: ../../includes_server_rbac/includes_server_rbac_groups_push_jobs.rst
-
-
-
-
-

@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS Push Jobs version 1.0
+.. THIS PAGE DOCUMENTS Push Jobs version 2.1
 
 =====================================================
 |push_jobs_server rb|
@@ -9,9 +9,4 @@
 Settings
 ==========================================================================
 
-.. include:: ../../includes_config/includes_config_rb_push_jobs_server_settings.rst
-
-
-
-
-
+.. include:: ../../includes_config/includes_config_rb_push_jobs_server_settings_2-1.rst

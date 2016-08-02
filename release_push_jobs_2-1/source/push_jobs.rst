@@ -1,7 +1,7 @@
-.. THIS PAGE DOCUMENTS Push Jobs version 1.0
+.. THIS PAGE DOCUMENTS Push Jobs version 2.1
 
 =====================================================
-|push jobs_title|
+|push jobs_title| 2.1
 =====================================================
 
 .. include:: ../../includes_push_jobs/includes_push_jobs.rst
@@ -10,11 +10,11 @@ Install `Push Jobs <https://docs.chef.io/install_push_jobs.html>`_ using the |co
 
 Requirements
 =====================================================
-.. include:: ../../includes_push_jobs/includes_push_jobs_requirements.rst
+.. include:: ../../includes_push_jobs/includes_push_jobs_requirements_2-1.rst
 
 Components
 =====================================================
-.. include:: ../../includes_push_jobs/includes_push_jobs_component.rst
+.. include:: ../../includes_push_jobs/includes_push_jobs_component_2-1.rst
 
 The following diagram shows the various components of |push jobs|:
 
@@ -42,24 +42,24 @@ Whitelist
 -----------------------------------------------------
 .. include:: ../../includes_push_jobs/includes_push_jobs_whitelist.rst
 
-.. 
+..
 .. Commented out, probably move to new file(s)
-.. 
+..
 .. Messages
 .. =====================================================
 .. xxxxx sends two types of messages: heartbeat and job.
-.. 
+..
 .. Heartbeat Messages
 .. -----------------------------------------------------
 .. .. include:: ../../includes_push_jobs/includes_push_jobs_messages_heartbeat.rst
-.. 
+..
 .. Job Messages
 .. -----------------------------------------------------
 .. .. include:: ../../includes_push_jobs/includes_push_jobs_messages_jobs.rst
 
 Reference
 =====================================================
-The following sections describe the |knife| subcommands, the |api push jobs|, and configuration settings used by |push jobs|.
+The following sections describe the |knife| subcommands, environment variables available to your commands, the |api push jobs|, and configuration settings used by |push jobs|.
 
 
 knife push jobs
@@ -84,6 +84,26 @@ Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 |no_options|
 
+job output
+-----------------------------------------------------
+.. include:: ../../includes_plugin_knife/includes_plugin_knife_push_jobs_job_output.rst
+
+Syntax
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_plugin_knife/includes_plugin_knife_push_jobs_job_output_syntax.rst
+
+Options
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_plugin_knife/includes_plugin_knife_push_jobs_job_output_options.rst
+
+Examples
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+**View the STDOUT for job with ID 26e98ba162fa7ba6fb2793125553c7ae**
+
+.. code-block:: bash
+  $ knife job output 26e98ba162fa7ba6fb2793125553c7ae --channel stdout
+
 job start
 -----------------------------------------------------
 .. include:: ../../includes_plugin_knife/includes_plugin_knife_push_jobs_job_start.rst
@@ -94,7 +114,7 @@ Syntax
 
 Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_plugin_knife/includes_plugin_knife_push_jobs_job_start_options.rst
+.. include:: ../../includes_plugin_knife/includes_plugin_knife_push_jobs_job_start_options_2-1.rst
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -143,12 +163,31 @@ Options
 |no_options|
 
 
+Environment Variables
+=====================================================
+The following are environment variables that are automatically made available within the context of
+the job you are running. 
+
+.. list-table::
+   :widths: 200 300
+   :header-rows: 1
+
+   * - Environment Variable
+     - Description
+   * - ``CHEF_PUSH_JOB_FILE``
+     - The path to the temporary file containing the string you passed using the ``--file`` parameter.
+   * - ``CHEF_PUSH_NODE_NAME``
+     - The name of the node you are currently running on.
+   * - ``CHEF_PUSH_JOB_ID``
+     - The ID for the job currently running.
+
 
 |api push jobs|
 =====================================================
 .. include:: ../../includes_api_push_jobs/includes_api_push_jobs.rst
 
 .. include:: ../../includes_api_push_jobs/includes_api_push_jobs_endpoint.rst
+
 
 connect/NODE_NAME
 -----------------------------------------------------
@@ -157,6 +196,7 @@ connect/NODE_NAME
 GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_api_push_jobs/includes_api_push_jobs_endpoint_node_name_get.rst
+
 
 jobs
 -----------------------------------------------------
@@ -168,7 +208,8 @@ GET
 
 POST
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_api_push_jobs/includes_api_push_jobs_endpoint_jobs_post.rst
+.. include:: ../../includes_api_push_jobs/includes_api_push_jobs_endpoint_jobs_post_2-1.rst
+
 
 jobs/ID
 -----------------------------------------------------
@@ -176,7 +217,35 @@ jobs/ID
 
 GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_api_push_jobs/includes_api_push_jobs_endpoint_jobs_id_get.rst
+.. include:: ../../includes_api_push_jobs/includes_api_push_jobs_endpoint_jobs_id_get_2-1.rst
+
+
+jobs/ID/output/NODE/<stdout|stderr>
+-----------------------------------------------------
+.. include:: ../../includes_api_push_jobs/includes_api_push_jobs_endpoint_jobs_output.rst
+
+GET
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_api_push_jobs/includes_api_push_jobs_endpoint_jobs_output_get.rst
+
+
+jobs_status_feed
+-----------------------------------------------------
+.. include:: ../../includes_api_push_jobs/includes_api_push_jobs_endpoint_jobs_status_feed.rst
+
+GET
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_api_push_jobs/includes_api_push_jobs_endpoint_jobs_status_feed_get.rst
+
+
+jobs_status_feed/JOBID
+-----------------------------------------------------
+.. include:: ../../includes_api_push_jobs/includes_api_push_jobs_endpoint_jobs_status_feed_id.rst
+
+GET
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_api_push_jobs/includes_api_push_jobs_endpoint_jobs_status_feed_id_get.rst
+
 
 node_states
 -----------------------------------------------------
@@ -186,6 +255,7 @@ GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_api_push_jobs/includes_api_push_jobs_endpoint_node_states_get.rst
 
+
 node_states/NODE_NAME
 -----------------------------------------------------
 .. include:: ../../includes_api_push_jobs/includes_api_push_jobs_endpoint_node_name.rst
@@ -193,7 +263,6 @@ node_states/NODE_NAME
 GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_api_push_jobs/includes_api_push_jobs_endpoint_node_name_get.rst
-
 
 
 |push jobs client|

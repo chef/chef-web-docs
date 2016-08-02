@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS Push Jobs version 1.0
+.. THIS PAGE DOCUMENTS Push Jobs version 2.1
 
 =====================================================
 |push jobs client| (executable)
@@ -10,10 +10,8 @@
 
 Options
 -----------------------------------------------------
-.. include:: ../../includes_ctl_push_jobs_client/includes_ctl_push_jobs_client_options.rst
+.. include:: ../../includes_ctl_push_jobs_client/includes_ctl_push_jobs_client_options_2-1.rst
 
 Examples
 -----------------------------------------------------
 None.
-
-

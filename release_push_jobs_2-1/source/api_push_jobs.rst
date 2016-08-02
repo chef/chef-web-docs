@@ -1,14 +1,14 @@
-.. THIS PAGE DOCUMENTS Push Jobs version 1.0
+.. THIS PAGE DOCUMENTS Push Jobs version 2.1
 
 =====================================================
 |api push jobs|
 =====================================================
 
-.. include:: ../../includes_api_push_jobs/includes_api_push_jobs.rst
+.. include:: ../../includes_api_push_jobs/includes_api_push_jobs_2-1.rst
 
-Endpoints 
+Endpoints
 =====================================================
-.. include:: ../../includes_api_push_jobs/includes_api_push_jobs_endpoint.rst
+.. include:: ../../includes_api_push_jobs/includes_api_push_jobs_endpoint_2-1.rst
 
 
 connect/NODE_NAME
@@ -30,7 +30,7 @@ GET
 
 POST
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_api_push_jobs/includes_api_push_jobs_endpoint_jobs_post.rst
+.. include:: ../../includes_api_push_jobs/includes_api_push_jobs_endpoint_jobs_post_2-1.rst
 
 
 jobs/ID
@@ -39,7 +39,34 @@ jobs/ID
 
 GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_api_push_jobs/includes_api_push_jobs_endpoint_jobs_id_get.rst
+.. include:: ../../includes_api_push_jobs/includes_api_push_jobs_endpoint_jobs_id_get_2-1.rst
+
+
+jobs/ID/output/NODE/<stdout|stderr>
+-----------------------------------------------------
+.. include:: ../../includes_api_push_jobs/includes_api_push_jobs_endpoint_jobs_output.rst
+
+GET
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_api_push_jobs/includes_api_push_jobs_endpoint_jobs_output_get.rst
+
+
+jobs_status_feed
+-----------------------------------------------------
+.. include:: ../../includes_api_push_jobs/includes_api_push_jobs_endpoint_jobs_status_feed.rst
+
+GET
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_api_push_jobs/includes_api_push_jobs_endpoint_jobs_status_feed_get.rst
+
+
+jobs_status_feed/JOBID
+-----------------------------------------------------
+.. include:: ../../includes_api_push_jobs/includes_api_push_jobs_endpoint_jobs_status_feed_id.rst
+
+GET
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_api_push_jobs/includes_api_push_jobs_endpoint_jobs_status_feed_id_get.rst
 
 
 node_states
@@ -58,6 +85,3 @@ node_states/NODE_NAME
 GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_api_push_jobs/includes_api_push_jobs_endpoint_node_name_get.rst
-
-
-
