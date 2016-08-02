@@ -239,7 +239,7 @@ The following examples show how to use this |knife| subcommand:
 
 **Show attributes**
 
-.. include:: ../../step_knife/step_knife_node_show_attribute.rst
+.. include:: ../../step_knife/step_knife_node_show_attribute_11-2.rst
 
 **Show the FQDN**
 
