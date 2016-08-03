@@ -183,7 +183,7 @@ Run the command below on the Chef server:
 
 .. code-block:: bash
 
-   sudo chef-server-ctl install opscode-push-jobs-server --path=$PATH_TO_DOWNLOADED_PACKAGE
+   sudo chef-server-ctl install opscode-push-jobs-server --path $PATH_TO_DOWNLOADED_PACKAGE
 
 Completing Setup
 -----------------------------------------------------
