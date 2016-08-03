@@ -35,10 +35,11 @@ Options
 Examples
 -----------------------------------------------------
 
-**View the STDOUT from ``my-node`` for job with ID 26e98ba162fa7ba6fb2793125553c7ae**
+**View the STDOUT from my-node for job with ID 26e98ba162fa7ba6fb2793125553c7ae**
 
 .. code-block:: bash
-  $ knife job output --channel stdout 26e98ba162fa7ba6fb2793125553c7ae my-node 
+
+  $ knife job output --channel stdout 26e98ba162fa7ba6fb2793125553c7ae my-node
 
 
 job start
@@ -51,7 +52,7 @@ Syntax
 
 Options
 -----------------------------------------------------
-.. include ../../includes_plugin_knife/includes_plugin_knife_push_jobs_job_start_options_2-1.rst
+.. include:: ../../includes_plugin_knife/includes_plugin_knife_push_jobs_job_start_options_2-1.rst
 
 Examples
 -----------------------------------------------------

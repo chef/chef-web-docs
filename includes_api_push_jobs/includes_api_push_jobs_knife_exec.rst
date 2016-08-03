@@ -16,4 +16,4 @@ For some |api push jobs| endpoints, you need to specify certain headers. To do t
 
 where ``RAW`` is a boolean indicating whether you want the raw body returned, or JSON inflated. For |api push jobs| endpoints, we recommend ``false``.
 
-See :doc:```knife exec`` </knife_exec>` for detailed information on usage.
+See `knife exec <https://docs.chef.io/knife_exec.html>`_ for detailed information on usage.

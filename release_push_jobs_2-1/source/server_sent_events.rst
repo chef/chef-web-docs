@@ -3,8 +3,8 @@
 =====================================================
 Push Jobs Server Sent Events Feed
 =====================================================
-The Push Jobs server provides feeds of events associated with actions, via the ["Server-Sent-Events"
-protocol](http://www.w3.org/TR/eventsource/). There are two SSE feeds available:
+The Push Jobs server provides feeds of events associated with actions, via the `Server-Sent-Events
+protocol <http://www.w3.org/TR/eventsource/>`_. There are two SSE feeds available:
 
 1. Job Feed: Stream of events for a particular job
 2. Organization Feed: Stream of events for all jobs across an organization
@@ -12,6 +12,7 @@ protocol](http://www.w3.org/TR/eventsource/). There are two SSE feeds available:
 Event Types
 -----------------------------------------------------
 As mandated by the SSE protocol, each event has:
+
 * a type-specifier (``event``)
 * an ID (``id``)
 * ``data``
@@ -24,13 +25,9 @@ The structure of an individual event appears as follows:
    id: EVENT_ID
    data: {"timestamp": "2014-07-10 05:17:44.995958Z", ...}
 
-The ``EVENT_TYPE``s that are returned vary depending on the Stream you request. In a Job Feed you will receive `
-`start``, ``quorum_vote``, ``quorum_succeeded``, ``run_start``, ``run_complete``, ``job_complete``, ``rehab``, and ``summary``.
-In the Organization Feed you will receive ``start``, ``job_complete``, and ``start_of_history``.
-
-Please note that ``EVENT_ID``s are not globally unique. They are opaque strings that are unique only to the individual stream.
-
-``data`` is a JSON object which content depends on the event. However, the JSON object for each event type includes a server-based timestamp in ISO8601 format.
+* ``EVENT_TYPE`` varies depending on the stream you request. In a Job Feed you could receive ``start``, ``quorum_vote``, ``quorum_succeeded``, ``run_start``, ``run_complete``, ``job_complete``, ``rehab``, and ``summary``. In the Organization Feed you could receive ``start``, ``job_complete``, and ``start_of_history``.
+* ``EVENT_ID`` is not globally unique. It is an opaque string that is unique only to the individual stream.
+* ``data`` is a JSON object which content depends on the event. However, the JSON object for each event type includes a server-based timestamp in ISO8601 format.
 
 In addition, SSE allows comments in the stream, indicated by a starting colon. Push Jobs Server uses comments to send "no-op" events every 15 (configurable) seconds,
 as a form of keepalive for the socket.

@@ -167,7 +167,7 @@ Options
 Environment Variables
 =====================================================
 The following are environment variables that are automatically made available within the context of
-the job you are running. 
+the job you are running.
 
 .. list-table::
    :widths: 200 300
@@ -221,7 +221,7 @@ GET
 .. include:: ../../includes_api_push_jobs/includes_api_push_jobs_endpoint_jobs_id_get_2-1.rst
 
 
-jobs/ID/output/NODE/<stdout|stderr>
+jobs/ID/output/NODE_NAME/CHANNEL
 -----------------------------------------------------
 .. include:: ../../includes_api_push_jobs/includes_api_push_jobs_endpoint_jobs_output.rst
 
@@ -272,7 +272,7 @@ GET
 
 Options
 -----------------------------------------------------
-.. include:: ../../includes_ctl_push_jobs_client/includes_ctl_push_jobs_client_options.rst
+.. include:: ../../includes_ctl_push_jobs_client/includes_ctl_push_jobs_client_options_2-1.rst
 
 
 
@@ -282,4 +282,4 @@ Options
 
 Settings
 -----------------------------------------------------
-.. include:: ../../includes_config/includes_config_rb_push_jobs_server_settings.rst
+.. include:: ../../includes_config/includes_config_rb_push_jobs_server_settings_2-1.rst

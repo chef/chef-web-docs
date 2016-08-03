@@ -11,6 +11,7 @@ As specified in the SSE protocol, you may request all events since a particular 
 If the ID is omitted, or not recognized, the stream will start from the beginning of the job.
 
 **Completed Jobs**
+
 In the job feed, for a brief period after a job completes, the event stream will remain available. The request will behave as normal,
 which means the client will see the stream of events from the beginning of the job (or if specified, the ``Last-Event-ID``), through to
 the job completion, and then the connection will be immediately closed by the server. The amount of time before it completes is configurable,
@@ -64,7 +65,6 @@ The response will return something similar to:
 
    event: run_complete
    id: dcd37f50-2d77-4761-895b-33134dbf87d58
-   timestamp: "
    data: {"timestamp":"2014-07-10 05:17:47.995958Z","node":"NODE2","status":"success"}
 
    event: job_complete

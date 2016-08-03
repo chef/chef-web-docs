@@ -42,7 +42,7 @@ GET
 .. include:: ../../includes_api_push_jobs/includes_api_push_jobs_endpoint_jobs_id_get_2-1.rst
 
 
-jobs/ID/output/NODE/<stdout|stderr>
+jobs/ID/output/NODE_NAME/CHANNEL
 -----------------------------------------------------
 .. include:: ../../includes_api_push_jobs/includes_api_push_jobs_endpoint_jobs_output.rst
 

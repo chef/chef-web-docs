@@ -1,20 +1,20 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
-The ``GET`` method is used to get the STDOUT, or STDERR, of an individual job.
+The ``GET`` method is used to get output from a channel (``STDOUT`` or ``STDERR``) for an individual job.
 
 This method has no parameters.
 
-The Accept header for this request must be ``application/octet-stream``
+The Accept header for this request must be ``application/octet-stream``.
 
 **Request**
 
 .. code-block:: xml
 
    Accept: application/octet-stream
-   GET /organizations/ORG_NAME/pushy/jobs/ID/output/NODE/stdout
+   GET /organizations/ORG_NAME/pushy/jobs/ID/output/NODE_NAME/stdout
 
-**Response***
+**Response**
 
 The response will return something similar to:
 
@@ -35,7 +35,7 @@ The response will return something similar to:
 .. code-block:: xml
 
    Accept: application/octet-stream
-   GET /organizations/ORG_NAME/pushy/jobs/ID/output/NODE/stderr
+   GET /organizations/ORG_NAME/pushy/jobs/ID/output/NODE_NAME/stderr
 
 **Response***
 
