@@ -4,7 +4,7 @@ maintainer_email 'you@example.com'
 license 'all_rights'
 description 'Installs/Configures docs-builder'
 long_description 'Installs/Configures docs-builder'
-version '0.1.23'
+version '0.1.24'
 
 depends 'aws'
 depends 'fancy_execute'
