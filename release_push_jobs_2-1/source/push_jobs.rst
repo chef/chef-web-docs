@@ -102,7 +102,8 @@ Examples
 **View the STDOUT for job with ID 26e98ba162fa7ba6fb2793125553c7ae**
 
 .. code-block:: bash
-  $ knife job output 26e98ba162fa7ba6fb2793125553c7ae --channel stdout
+
+   $ knife job output 26e98ba162fa7ba6fb2793125553c7ae --channel stdout
 
 job start
 -----------------------------------------------------

@@ -4,4 +4,5 @@
 This argument has the following syntax:
 
 .. code-block:: bash
-  $ knife job output (OPTIONS) JOBID [NODE_NAME]
+
+   $ knife job output (OPTIONS) JOBID [NODE_NAME]
