@@ -38,6 +38,8 @@ The following open source handlers are available from the |chef| community:
      - A handler that reports the status of a Chef run to any API via net/HTTP.
    * - `Simple Email <https://rubygems.org/gems/chef-handler-mail>`_
      - A handler that collects exception and report handler data and then uses |pony| to send email reports that are based on |erubis| templates.
+   * - `SendGrid Mail Handler <https://github.com/sendgrid-ops/chef-sendgrid_mail_handler>`_
+     - A chef handler that collects exception and report handler data and then uses |sendgrid-ruby gem| to send email reports that are based on |erubis| templates.
    * - `SNS <http://onddo.github.io/chef-handler-sns/>`_
      - A handler that notifies exception and report handler data and sends it to a |sns| topic.
    * - `Slack <https://github.com/rackspace-cookbooks/chef-slack_handler>`_
