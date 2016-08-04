@@ -8,7 +8,7 @@ What's New
 =====================================================
 The following items are new for |push jobs|:
 
-* **Push Jobs client 2.1** |push jobs| client 2.1 is backwards-compatible with the |push jobs| 1.x server when the ``allow_unencrypted`` option to be set to ``true`` in the ``/etc/chef/opscode-push-jobs-server.rb`.
+* **Push Jobs client 2.1** is backwards-compatible with the |push jobs| 1.x server when the ``allow_unencrypted`` option to be set to ``true`` in ``/etc/chef/opscode-push-jobs-server.rb``.
 * Allow the job execution environment to be set. This includes user, working directory, environment variables and a data file to be set.
 * STDOUT/STDERR can now optionally be captured from job execution and return it to the server. Users can retrieve the output via the ``knife job output`` command.
 * We now provide two SSE feed endpoints; one provides fine grained per-job events, while the other provides a per-org feed of jobs starting and completing.
