@@ -18,6 +18,27 @@ Options
 -----------------------------------------------------
 |no_options|
 
+job output
+=====================================================
+.. include:: ../../includes_plugin_knife/includes_plugin_knife_push_jobs_job_output.rst
+
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_plugin_knife/includes_plugin_knife_push_jobs_job_output_syntax.rst
+
+Options
+-----------------------------------------------------
+.. include:: ../../includes_plugin_knife/includes_plugin_knife_push_jobs_job_output_options.rst
+
+Examples
+-----------------------------------------------------
+
+**View the STDOUT from my-node for job with ID 26e98ba162fa7ba6fb2793125553c7ae**
+
+.. code-block:: bash
+
+  $ knife job output --channel stdout 26e98ba162fa7ba6fb2793125553c7ae my-node
+
 
 job start
 =====================================================
@@ -29,7 +50,7 @@ Syntax
 
 Options
 -----------------------------------------------------
-.. include:: ../../includes_plugin_knife/includes_plugin_knife_push_jobs_job_start_options.rst
+.. include:: ../../includes_plugin_knife/includes_plugin_knife_push_jobs_job_start_options_2-1.rst
 
 Examples
 -----------------------------------------------------
@@ -44,9 +65,9 @@ Examples
 **Run a job using node names**
 
 .. include:: ../../step_plugin_knife/step_plugin_knife_push_jobs_job_start_search_by_nodes.rst
- 
 
-job status 
+
+job status
 =====================================================
 .. include:: ../../includes_plugin_knife/includes_plugin_knife_push_jobs_job_status.rst
 
@@ -64,7 +85,6 @@ Examples
 
 .. include:: ../../step_plugin_knife/step_plugin_knife_push_jobs_job_status_by_id.rst
 
-
 node status
 =====================================================
 .. include:: ../../includes_plugin_knife/includes_plugin_knife_push_jobs_node_status.rst
@@ -76,4 +96,3 @@ Syntax
 Options
 -----------------------------------------------------
 |no_options|
-

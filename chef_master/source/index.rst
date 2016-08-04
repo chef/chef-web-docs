@@ -199,7 +199,7 @@ Managing the Server
 :doc:`opscode-expander-ctl </ctl_opscode_expander>` |
 :doc:`Chef Server API </api_chef_server>` 
 
-**Push Jobs**::doc:`knife push jobs </plugin_knife_push_jobs>` | :doc:`push-jobs-client </ctl_push_jobs_client>` | :doc:`push-jobs-client.rb </config_rb_push_jobs_client>` | :doc:`push-jobs-server.rb </config_rb_push_jobs_server>` | :doc:`Push Jobs API </api_push_jobs>` 
+**Push Jobs**::doc:`knife push jobs </plugin_knife_push_jobs>` | :doc:`push-jobs-client </ctl_push_jobs_client>` | :doc:`push-jobs-client.rb </config_rb_push_jobs_client>` | :doc:`push-jobs-server.rb </config_rb_push_jobs_server>` | :doc:`Push Jobs API </api_push_jobs>` | :doc:`Server Sent Events </server_sent_events>`
 
 
 **Reporting**::doc:`View Reports </server_manage_reports>` | :doc:`knife reporting </plugin_knife_reporting>` | :doc:`opscode-reporting-ctl </ctl_reporting>` | :doc:`Reporting API </api_reporting>` 
@@ -772,6 +772,7 @@ Addenda
    server_orgs
    server_replication
    server_security
+   server_sent_events
    server_services
    server_tuning
    server_users

@@ -1,5 +1,5 @@
 =====================================================
-push-jobs-client (executable)
+|push jobs client| (executable)
 =====================================================
 
 .. include:: ../../includes_push_jobs/includes_push_jobs.rst
@@ -8,7 +8,7 @@ push-jobs-client (executable)
 
 Options
 -----------------------------------------------------
-.. include:: ../../includes_ctl_push_jobs_client/includes_ctl_push_jobs_client_options.rst
+.. include:: ../../includes_ctl_push_jobs_client/includes_ctl_push_jobs_client_options_2-1.rst
 
 Examples
 -----------------------------------------------------

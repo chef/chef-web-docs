@@ -7,7 +7,7 @@
 Settings
 ==========================================================================
 
-.. include:: ../../includes_config/includes_config_rb_push_jobs_server_settings.rst
+.. include:: ../../includes_config/includes_config_rb_push_jobs_server_settings_2-1.rst
 
 
 
