@@ -35,6 +35,7 @@ Disallow: /release/12-10/
 Disallow: /release/12-11/
 Disallow: /release/12-12/
 Disallow: /release/push_jobs_1-0/
+Disallow: /release/push_jobs_2-1/
 Disallow: /enterprise/
 Disallow: /release/oec_11-0/
 Disallow: /release/oec_11-1/

@@ -16,8 +16,8 @@ The following items are new for |push jobs|:
 
 Important Notes
 -----------------------------------------------------
-* It is important that you know **Push Jobs 2.1 is not currently supported for use with Chef Automate.**
-* **Push Jobs Server 2.X is not compatible with Push Jobs Client 1.X.** We recommend that you upgrade all your Push Jobs Clients to 2.X before performing an upgrade of your Push Jobs Server.
+* **Push Jobs 2.1 is not currently supported for use with Chef Automate**.
+* **Push Jobs Server 2.X is not compatible with Push Jobs Client 1.X**. We recommend that you upgrade all your Push Jobs Clients to 2.X before performing an upgrade of your Push Jobs Server.
 
 Encryption
 =====================================================
