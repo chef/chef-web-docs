@@ -232,6 +232,7 @@
 .. |resource script_ruby| replace:: **ruby**
 .. |resource service| replace:: **service**
 .. |resource service_windows| replace:: **windows_service**
+.. |resource systemd_unit| replace:: **systemd_unit**
 .. |resource template| replace:: **template**
 .. |resource user| replace:: **user**
 .. |resource yum_package| replace:: **yum_package**
