@@ -423,6 +423,7 @@
 .. |exclude_package_list| replace:: A space-separated list of packages to be excluded from updates and installs.
 .. |excluded_members| replace:: Remove users from a group. May only be used when ``append`` is set to ``true``.
 .. |execute chef_apply| replace:: Execute a resource using a string.
+.. |exit status| replace:: When set to ``:enabled``, |chef client| will use |url exit codes| for Chef client run status, and any non-standard exit codes will be converted to ``1`` or ``GENERIC_FAILURE``. This setting can also be set to ``:disabled`` which preserves the old behavior of using non-standardized exit codes and skips the deprecation warnings.
 
 
 .. Description strings that begin with the letter F.
