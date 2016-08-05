@@ -61,6 +61,10 @@
 .. |url docs_knife_png| replace:: https://github.com/chef/quick-reference/blob/master/qr_knife_web.png
 .. |url docs_repo| replace:: https://github.com/chef/quick-reference
 .. |url docs_repo_qr| replace:: https://github.com/chef/quick-reference
+.. |url exit codes| raw:: html 
+
+    <a href="https://github.com/chef/chef-rfc/blob/master/rfc062-exit-status.#exit-codes-in-use" target="_blank">stardardized exit codes</a>
+
 .. |url get_chef| replace:: https://www.chef.io/chef/choose-your-version/
 .. |url msdn_registry_key| replace:: http://msdn.microsoft.com/en-us/library/windows/desktop/aa384235(v=vs.85).aspx
 .. |url msdn_file_redirection| replace:: https://msdn.microsoft.com/en-us/library/windows/desktop/aa384187(v=vs.85).aspx

@@ -86,7 +86,7 @@ This configuration file has the following settings:
    |disable event_logging_windows| Default value: ``true``.
 
 ``enable_reporting``
-   |enable reporting|
+   |enable reporting| 
 
 ``enable_reporting_url_fatals``
    |enable reporting_url_fatals|
@@ -104,7 +104,7 @@ This configuration file has the following settings:
    |path environment| Default value: ``/var/chef/environments``.
 
 ``exit_status``
-   |exit status| Default value: ``nil``.
+   |exit status| Default value: ``nil``. 
 
    .. note:: The behavior with the default value consists of a warning on the use of deprecated and non-standard exit codes. In a future release of Chef client, using standardized exit codes will be the default behavior.
 
@@ -185,7 +185,7 @@ This configuration file has the following settings:
    |log_level| Possible levels: ``:auto`` (default), ``:debug``, ``:info``, ``:warn``, ``:error``, or ``:fatal``. Default value: ``:warn`` (when a terminal is available) or ``:info`` (when a terminal is not available).
 
 ``log_location``
-   |log_location| Possible values: ``/path/to/log_location``, ``STDOUT``, ``STDERR``, ``:win_evt`` (|windows event logger|), or ``:syslog`` (writes to the |syslog| daemon facility with the originator set as ``chef-client``). The application log will specify the source as ``Chef``. Default value: ``STDOUT``.
+   |log_location| Possible values: ``/path/to/log_location``, ``STDOUT``, ``STDERR``, ``Chef::Log::WinEvt.new`` (|windows event logger|), or ``Chef::Log::Syslog.new('chef-client', ::Syslog::LOG_DAEMON)`` (writes to the |syslog| daemon facility with the originator set as ``chef-client``). The application log will specify the source as ``Chef``. Default value: ``STDOUT``.
 
 ``minimal_ohai``
    |minimal_ohai|
@@ -246,17 +246,17 @@ This configuration file has the following settings:
 
 ``ssl_verify_mode``
    |ssl_verify_mode|
-
+       
    * |ssl_verify_mode_verify_none|
    * |ssl_verify_mode_verify_peer| This is the recommended setting.
-
+       
    Depending on how |open ssl| is configured, the ``ssl_ca_path`` may need to be specified. Default value: ``:verify_peer``.
 
 ``syntax_check_cache_path``
    |syntax_check_cache_path|
 
 ``umask``
-   |umask| Default value: ``0022``.
+   |umask| Default value: ``0022``. 
 
 ``use_policyfile``
   |use policyfile| Default value: ``false``.
