@@ -43,5 +43,21 @@ If you wish to share your filtered search with others, you can do so with the sh
 
 .. note:: If you want to see the raw, real-time events coming into |automate| and perform simple queries and visualizations on them, navigate to ``https://<YourAutomateServer>/kibana``. And for more information on Kibana, see the `Kibana User Guide <https://www.elastic.co/guide/en/kibana/current/index.html>`_.
 
+Compliance status
+------------------------------------------------------
 
+In addition to converge data, the dashboard also provides information on the compliance state of your environments. Click on the **Compliance Status** field at the top of the page.
 
+.. image:: ../../images/visibility_compliance_overview.png
+   :width: 700px
+   :align: center
+
+This view provides a summary of the compliance status across all nodes of your fleet at the top of the page. It also includes a detailed list of nodes and highlights critical, major, and minor control violations.
+
+More detailed information is available by selecting a node.
+
+.. image:: ../../images/visibility_compliance_node.png
+   :width: 700px
+   :align: center
+
+This node view contains the latest scan results for the selected node. The node and scan identifications are at the top of the page. The first section contains a summary of scan, with an overview of successful and failed controls. A detailed list of all controls is added below. Any of these can be selected to retrieve in-depth information on their purpose and test results.
