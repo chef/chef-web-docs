@@ -50,6 +50,24 @@ Additional configuration options include:
     associate their Solo nodes with faux organizations without the nodes being connected to an
     actual Chef Server.
 
+Configuring Chef Client to send InSpec data
+===========================================
+
+To send InSpec data as part of a Chef client run, you will need to use the `audit cookbook <https://github.com/chef-cookbooks/audit>`_. All profiles, which are configured to run during the audit cookbook execution, will send their results back to the Chef Automate server.
+
+To configure the audit cookbook, you will first need to configure the Chef client to send node converge data, as previously described. The ``data_collector.server_url`` and ``data_collector.token`` values will be used as the reporting targets. Once you have done that, configure the the audit cookbook's collector by setting the ``audit.collector`` attribute to ``chef-visibility``. 
+
+A complete audit cookbook attribute configuration would look something like this:
+
+.. code-block:: javascript
+
+    audit: {
+      collector: 'chef-visibility',
+      profiles: {
+        'cis/cis-centos6-level1' => true
+      }
+    }
+
 Configuring Chef Server to send Chef Client data
 =================================================
 
