@@ -768,6 +768,7 @@
 .. |sbdm| replace:: SBDM
 .. |scientific linux| replace:: Scientific Linux
 .. |selinux| replace:: SELinux
+.. |sendgrid-ruby gem| replace:: SendGrid Ruby gem
 .. |sensu| replace:: Sensu
 .. |serf| replace:: Serf
 .. |serverspec| replace:: Serverspec
