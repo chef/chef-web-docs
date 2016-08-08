@@ -26,7 +26,7 @@ A Chef Automate installation consists of a minimum of two nodes:
 Prerequisites
 =====================================================
 
-Chef Automate requires a license from Chef to install. If you don't yet have one, please contact Chef Software at `awesome@chef.io` to request one.
+Chef Automate requires a license from Chef to install. A license key valid for 30 days is included when you download |automate|. If you would like to continue using |automate| after that period, please contact `awesome@chef.io` for a permanent key.
 
 Platforms
 -----------------------------------------
@@ -320,6 +320,8 @@ The following steps are performed on the Chef Automate server:
    .. code-block:: bash
 
       sudo delivery-ctl install-build-node
+
+   .. include:: ../../includes_chef_automate/includes_chef_automate_build_nodes.rst
 
    You will be prompted for the information required to continue.  Alternatively, you can provide some or all
    of the information as arguments to the command:
