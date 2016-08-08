@@ -106,6 +106,24 @@ Additional configuration options include:
 
 .. note:: If you define a new organization in your Chef server, but it does not have any nodes associated with it, that organization will not show up in the **Nodes** section of the |automate| UI. This is also true for roles, cookbooks, recipes, attributes, resources, node names, and environments that are not associated with a node in the |automate| cluster.
 
+Configuring Chef Client to send InSpec data
+===========================================
+
+To send InSpec data as part of a Chef client run, you will require the `audit cookbook <https://github.com/chef-cookbooks/audit>`_. All profiles, that are configured to run during the audit cookbook execution, will send their results back to the Chef Automate server.
+
+To configure the audit cookbook, you will first need to configure the Chef Client to send node converge data (see above). The ``data_collector.server_url`` and ``data_collector.token`` values will be used as the reporting targets.
+
+Once these prerequisites are met, the audit cookbook's collector is configured to send data to Chef Automate by setting the ``audit.collector`` attribute to ``chef-visibility``. A complete audit cookbook attribute configuration will now look like this:
+
+.. code-block:: javascript
+
+    audit: {
+      collector: 'chef-visibility',
+      profiles: {
+        'cis/cis-centos6-level1' => true
+      }
+    }
+
 Adding Chef Automate certificate to `trusted_certs` directory
 ================================================================
 
