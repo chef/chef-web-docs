@@ -58,7 +58,7 @@ If you have further customized this setting, modify your custom query to include
 
 Save your changes and then run ``sudo delivery-ctl reconfigure`` to complete the upgrade process.
 
-.. note:: When upgrading to |automate|, it is preferrable to `use new build nodes <https://docs.chef.io/install_chef_automate.html#set-up-a-build-node-optional>`_, if possible.
+.. include:: ../../includes_chef_automate/includes_chef_automate_build_nodes.rst
 
 Upgrading and the ``delivery-ctl setup`` command
 -------------------------------------------------------------------
