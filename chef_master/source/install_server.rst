@@ -25,6 +25,10 @@ Standalone
 =====================================================
 .. include:: ../../includes_install/includes_install_server_standalone.rst
 
+Update config for purchased nodes
+=====================================================
+.. include:: ../../includes_install/includes_install_server_licensing.rst
+
 High Availability
 =====================================================
 The following links describe how to configure the |chef server| for high availability:

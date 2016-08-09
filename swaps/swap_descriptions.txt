@@ -713,7 +713,7 @@
 .. |ldap system_adjective| replace:: A descriptive name for the login system that is displayed to users in the |chef server| management console.
 .. |level mdadm| replace:: The |raid| level.
 .. |license| replace:: The type of license under which a cookbook is distributed: ``apachev2``, ``gplv2``, ``gplv3``, ``mit``, or ``none`` (default). This option places the appropriate license notice in the pre-created files: ``Apache v2.0`` (for ``apachev2``), ``GPL v2`` (for ``gplv2``), ``GPL v3`` (for ``gplv3``), ``MIT`` (for ``mit``), or ``license 'Proprietary - All Rights Reserved`` (for ``none``). Be aware of the licenses for files inside of a cookbook and be sure to follow any restrictions they describe.
-.. |license chef_server| replace:: The number of |chef server| licenses.
+.. |license chef_server| replace:: The number of licensed nodes.
 .. |license url| replace:: The URL to visit for more information about how to update the number of nodes licensed for an organization.
 .. |license metadata_rb| replace:: The type of license under which a cookbook is distributed: ``Apache v2.0``, ``GPL v2``, ``GPL v3``, ``MIT``, or ``license 'Proprietary - All Rights Reserved`` (default). Please be aware of the licenses for files inside of a cookbook and be sure to follow any restrictions they describe.
 .. |link_type| replace:: The type of link: ``:symbolic`` or ``:hard``.
