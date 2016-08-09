@@ -28,7 +28,7 @@ as ``delivery-build-node``. If your delivery.rb contains a custom search query
 (``delivery['default_search']`` is set), try appending ``" OR tags:delivery-build-node"`` to your query.
 
 If you are trying to debug a particular build node and want to ensure that one is available for your projects, 
-then modify the build-nodes default search for your project as described in `Configure a Project </config_json_delivery>`_.
+then modify the build-nodes default search for your project as described in :doc:`Configure a Project </config_json_delivery>`.
 
 SAML
 =======================================================
