@@ -11,6 +11,18 @@ The following documentation sets are available:
    * - Application
      - Home Page
      - Release Notes
+   * - |chef client_title| 12.13
+     - `https://docs.chef.io/release/12-13/ <https://docs.chef.io/release/12-13/>`__
+     - `Release Notes <https://docs.chef.io/release/12-13/release_notes.html>`__
+   * - |chef client_title| 12.12
+     - `https://docs.chef.io/release/12-12/ <https://docs.chef.io/release/12-12/>`__
+     - `Release Notes <https://docs.chef.io/release/12-12/release_notes.html>`__
+   * - |chef client_title| 12.11
+     - `https://docs.chef.io/release/12-11/ <https://docs.chef.io/release/12-11/>`__
+     - `Release Notes <https://docs.chef.io/release/12-11/release_notes.html>`__
+   * - |chef client_title| 12.10
+     - `https://docs.chef.io/release/12-10/ <https://docs.chef.io/release/12-10/>`__
+     - `Release Notes <https://docs.chef.io/release/12-10/release_notes.html>`__
    * - |chef client_title| 12.9
      - `https://docs.chef.io/release/12-9/ <https://docs.chef.io/release/12-9/>`__
      - `Release Notes <https://docs.chef.io/release/12-9/release_notes.html>`__
