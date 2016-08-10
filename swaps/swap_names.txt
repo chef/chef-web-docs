@@ -85,7 +85,7 @@
 .. |company_name| replace:: Chef
 .. |cookstyle| replace:: cookstyle
 .. |delivery| replace:: Chef Automate
-.. |data_collector| replace:: Data Collector
+.. |data_collector| replace:: data collector
 .. |delivery_cli| replace:: Chef Automate CLI
 .. |dsl custom_resource| replace:: Custom Resource DSL
 .. |dsl delivery| replace:: Workflow DSL
