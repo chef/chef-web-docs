@@ -14,7 +14,10 @@ Requirements
 
 Install the Server
 =====================================================
-.. include:: ../../includes_install/includes_install_reporting_ha.rst
+
+Standalone
+-----------------------------------------------------
+.. include:: ../../includes_install/includes_install_reporting_standalone.rst
 
 Install the Client
 =====================================================
