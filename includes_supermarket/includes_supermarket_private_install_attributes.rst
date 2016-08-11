@@ -12,7 +12,7 @@ The following attribute values must be defined:
 
 To define these attributes, do the following:
 
-#. Open the ``/recipes/default.rb`` file and add the following (assuming a data bag named ``apps`` and a data bag item named ``supermarket``):
+#. Open the ``/recipes/default.rb`` file and add the following, after the `include_recipe` line that was added in the previous step, (assuming a data bag named ``apps`` and a data bag item named ``supermarket``):
 
    .. code-block:: ruby
 
