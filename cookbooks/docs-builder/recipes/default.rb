@@ -94,6 +94,7 @@ analytics
 12-10
 12-11
 12-12
+12-13
 compliance
 devkit
 oec_11-0
