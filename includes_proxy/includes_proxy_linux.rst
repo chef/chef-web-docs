@@ -26,4 +26,4 @@ For FTP:
 
 .. code-block:: bash
 
-   export ftp_proxy=http://myproxy.com:3168
+   export ftp_proxy=ftp://myproxy.com:3168
