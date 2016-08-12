@@ -18,8 +18,8 @@ The response is similar to:
 .. code-block:: none
 
    {
-     "user1"=>"https://url/for/user1"
-     "user2"=>"https://url/for/user2"
+     "user1"=> "https://url/for/user1"
+     "user2"=> "https://url/for/user2"
 	 ...
    }
 
@@ -39,3 +39,16 @@ The response is similar to:
      - |response code 403 forbidden|
    * - ``404``
      - |response code 404 not found|
+
+**Optional Filtering**
+
+ Filtering on ``/users`` can be done with the ``external_authentication_uid``. This is to support SAML authentication.
+
+ As an example, to retrieve users whos ``external_authentication_uid`` is ``jane@doe.com``, you would do the following:
+
+.. code-block:: none
+
+   GET /users?external_authentication_uid=jane%40doe.com
+
+*New in Chef server 12.7.*
+

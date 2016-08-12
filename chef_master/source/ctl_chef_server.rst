@@ -176,6 +176,54 @@ list-user-keys
 
 .. include:: ../../step_ctl_chef_server/step_ctl_chef_server_list_user_keys.rst
 
+Credential Rotation
+=====================================================
+Use the following commands to manage and rotate shared secrets and service credentials. The secrets file used for credential rotation is located 
+at ``/etc/opscode/private-chef-secrets.json`` on your Chef server.
+
+require-credential-rotation
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_require_credential_rotation.rst
+
+**Syntax**
+
+.. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_require_credential_rotation_syntax.rst
+
+**Options**
+
+.. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_require_credential_rotation_options.rst
+
+rotate-all-credentials
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_rotate_all_credentials.rst
+
+**Syntax**
+
+.. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_rotate_all_credentials_syntax.rst
+
+rotate-credentials
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_rotate_credentials.rst
+
+**Syntax**
+
+.. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_rotate_credentials_syntax.rst
+
+rotate-shared-secrets
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_rotate_shared_secrets.rst
+
+**Syntax**
+
+.. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_rotate_shared_secrets_syntax.rst
+
+show-service-credentials
+-----------------------------------------------------
+.. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_show_service_credentials.rst
+
+**Syntax**
+
+.. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_show_service_credentials_syntax.rst
 
 master-recover
 =====================================================
