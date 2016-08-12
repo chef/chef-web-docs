@@ -2223,7 +2223,7 @@ The following examples show how to use this InSpec audit resource.
 ::
 
    describe json('policyfile.lock.json') do
-     its('cookbook_locks.omnibus.version') { should eq('2.2.0') }
+     its(['cookbook_locks', 'omnibus', 'version']) { should eq('2.2.0') }
    end
 
 
