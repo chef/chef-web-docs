@@ -7,7 +7,7 @@ To notify multiple resources, and then have these resources run in a certain ord
 
    execute 'foo' do
      command '...'
-     notifies :run, 'template[baz]', :immediately
+     notifies :create, 'template[baz]', :immediately
      notifies :install, 'package[bar]', :immediately
      notifies :run, 'execute[final]', :immediately
    end
