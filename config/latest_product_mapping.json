@@ -1,6 +1,6 @@
 {
-  "client": "/release/12-9",
-  "server": "/release/server_12-6",
+  "client": "/release/12-13",
+  "server": "/release/server_12-7",
   "automate": "/release/automate",
   "analytics": "/release/analytics",
   "compliance": "/release/compliance",
@@ -9,5 +9,6 @@
   "open_source": "/release/osc_11-1",
   "devkit": "/release/devkit",
   "chefdk": "/release/devkit",
-  "supermarket": "/release/supermarket"
+  "supermarket": "/release/supermarket",
+  "push_jobs": "/release/push_jobs_2-1"
 }

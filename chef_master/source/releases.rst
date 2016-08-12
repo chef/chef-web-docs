@@ -86,6 +86,9 @@ The following documentation sets are available:
    * - |chef dk_title|
      - `https://docs.chef.io/devkit/ <https://docs.chef.io/devkit/>`__
      - 
+   * - |chef server_title| 12.7
+     - `https://docs.chef.io/release/server_12-7/ <https://docs.chef.io/release/server_12-7/>`__
+     - `Release Notes <https://docs.chef.io/release/server_12-7/release_notes.html>`__
    * - |chef server_title| 12.6
      - `https://docs.chef.io/release/server_12-6/ <https://docs.chef.io/release/server_12-6/>`__
      - `Release Notes <https://docs.chef.io/release/server_12-6/release_notes.html>`__
