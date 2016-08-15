@@ -6,9 +6,9 @@ To initialize a project using a |github| repository, run a command similar to:
 
 .. code-block:: bash
 
-   $ delivery init --github PROJECT_NAME -r REPO_NAME
+   $ delivery init --github ORG_NAME -r REPO_NAME
 
-where ``PROJECT_NAME`` is the name of the project in |delivery| and ``REPO_NAME`` is the name of the repository in |github|. For example to initialize the ``seapower`` repository in |github| with the ``chef-cookbooks`` project in |delivery|:
+where ``ORG_NAME`` is the name of the GitHub organization and ``REPO_NAME`` is the name of the repository in |github|. For example to initialize the ``seapower`` repository in |github| with the ``chef-cookbooks`` organization:
 
 .. code-block:: bash
 
