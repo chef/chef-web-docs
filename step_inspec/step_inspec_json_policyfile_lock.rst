@@ -6,5 +6,5 @@
 .. code-block:: ruby
 
    describe json('policyfile.lock.json') do
-     its('cookbook_locks.omnibus.version') { should eq('2.2.0') }
+     its(['cookbook_locks', 'omnibus', 'version']) { should eq('2.2.0') }
    end
