@@ -6,9 +6,9 @@ To initialize a project using a |bitbucket| repository, run a command similar to
 
 .. code-block:: bash
 
-   $ delivery init --bitbucket PROJECT_NAME -r REPO_NAME
+   $ delivery init --bitbucket PROJECT_KEY -r REPO_NAME
 
-where ``PROJECT_NAME`` is the name of the project in |delivery| and ``REPO_NAME`` is the name of the repository in |bitbucket|. For example to initialize the ``anagrams`` repository in |bitbucket| with the ``chef-cookbooks`` project in |delivery|:
+where ``PROJECT_KEY`` is the name of the project key in |bitbucket| and ``REPO_NAME`` is the name of the repository in |bitbucket|. For example to initialize the ``anagrams`` repository in |bitbucket| with the ``chef-cookbooks`` project key:
 
 .. code-block:: bash
 

@@ -40,16 +40,16 @@ Request |github| Token
 
 Create a Project
 =====================================================
-.. include:: ../../includes_delivery_integration/includes_delivery_integration_github_create_project.rst
+.. include:: ../../includes_delivery_integration/includes_delivery_integration_github_create_project.rst 
 
 Add Linked Users
 =====================================================
 .. include:: ../../includes_delivery_integration/includes_delivery_integration_github_add_linked_users.rst
 
+Initialize a Project
+=====================================================
+.. include:: ../../includes_delivery_integration/includes_delivery_integration_github_initialize_project.rst
+
 Handle Untrusted PRs
 =====================================================
 .. include:: ../../includes_delivery_integration/includes_delivery_integration_github_untrusted_prs.rst
-
-Push Changes to Chef Automate
-=====================================================
-.. include:: ../../includes_delivery_integration/includes_delivery_integration_github_push_changes.rst
