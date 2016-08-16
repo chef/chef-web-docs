@@ -16,7 +16,7 @@ Untested Platforms
 
 Capacity Planning
 =====================================================
-Read the `guidance around capacity planning <https://docs.chef.io/release/server_12-7/server_components.html#capacity-planning>`__ for information about how to choose the right toplogy for the |chef server|.
+Read the `guidance around capacity planning <https://docs.chef.io/release/server_12-8/server_components.html#capacity-planning>`__ for information about how to choose the right toplogy for the |chef server|.
 
 Software Requirements
 =====================================================
