@@ -210,6 +210,10 @@ push_2-1:
 	mkdir -p $(BUILDDIR)/release/push_jobs_2-1/
 	$(BUILD_COMMAND_AND_ARGS) release_push_jobs_2-1/source $(BUILDDIR)/release/push_jobs_2-1/
 
+server_12-8:
+	mkdir -p $(BUILDDIR)/release/server_12-8/
+	$(BUILD_COMMAND_AND_ARGS) release_server_12-8/source $(BUILDDIR)/release/server_12-8/
+
 server_12-7:
 	mkdir -p $(BUILDDIR)/release/server_12-7/
 	$(BUILD_COMMAND_AND_ARGS) release_server_12-7/source $(BUILDDIR)/release/server_12-7/

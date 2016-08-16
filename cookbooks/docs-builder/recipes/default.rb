@@ -115,6 +115,7 @@ server_12-4
 server_12-5
 server_12-6
 server_12-7
+server_12-8
 supermarket
 END
 
