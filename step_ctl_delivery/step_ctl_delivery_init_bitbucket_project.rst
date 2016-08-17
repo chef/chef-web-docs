@@ -8,11 +8,11 @@ To initialize a project using a |bitbucket| repository, run a command similar to
 
    $ delivery init --bitbucket PROJECT_KEY -r REPO_NAME
 
-where ``PROJECT_KEY`` is the name of the project key in |bitbucket| and ``REPO_NAME`` is the name of the repository in |bitbucket|. For example to initialize the ``anagrams`` repository in |bitbucket| with the ``chef-cookbooks`` project key:
+where ``PROJECT_KEY`` is the name of the project key in |bitbucket| and ``REPO_NAME`` is the name of the repository in |bitbucket|. For example to initialize the ``anagrams`` repository in |bitbucket| with the ``TEST`` project key:
 
 .. code-block:: bash
 
-   $ delivery init --bitbucket chef-cookbooks -r anagrams
+   $ delivery init --bitbucket TEST -r anagrams
 
 and returns output similar to:
 
