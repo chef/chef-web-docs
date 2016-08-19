@@ -10,7 +10,7 @@ The following sections describe the various settings that are available in the `
 
 General
 -----------------------------------------------------
-This configuration file has the following settings for ``rabbitmq``:
+This configuration file has the following general settings:
 
 ``bootstrap['enable']``
    Default value: ``true``.
@@ -40,6 +40,8 @@ This configuration file has the following settings for ``rabbitmq``:
 ``default['delivery']['user']['comment']``
    This is the "GECOS" field for a Unix user (e.g., a human-readable name). Default value: ``"CHEF Delivery"``.
 
+``ip_version``
+   This specifies the IP protocol version to be used when configuring the embedded services. Can be either ``"ipv4"`` or ``"ipv6"``. Default value: ``"ipv4"``.
 
 admin
 -----------------------------------------------------
@@ -315,6 +317,9 @@ This configuration file has the following settings for ``delivery_web``:
 elasticsearch
 -----------------------------------------------------
 This configuration file has the following settings for ``elasticsearch``:
+
+``elasticsearch['urls']``
+   The fully qualified domain name(s) of your Elasticsearch cluster. If not specified a local elasticsearch cluster will be utilized. Default value: ``"http://127.0.0.1:9200"``.
 
 ``elasticsearch['config_directory']``
    |directory generic_working| |default_value_recommended| Default value: ``"/var/opt/delivery/elasticsearch/conf"``.
