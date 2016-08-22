@@ -76,6 +76,8 @@ Hints
 -----------------------------------------------------
 .. include:: ../../includes_ohai/includes_ohai_hints.rst
 
+.. include:: ../../includes_ohai/includes_ohai_hints_json.rst
+
 Log Entries
 -----------------------------------------------------
 .. include:: ../../includes_ohai/includes_ohai_custom_plugin_logs.rst
