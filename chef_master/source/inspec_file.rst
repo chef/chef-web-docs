@@ -211,3 +211,11 @@ Examples
 **Test an SHA-256 checksum**
 
 .. include:: ../../step_inspec/step_inspec_file_sha256_checksum.rst
+
+**Verify NTP**
+
+.. include:: ../../step_inspec/step_inspec_command_verify_ntp.rst
+
+**Verify WiX**
+
+.. include:: ../../step_inspec/step_inspec_file_verify_wix.rst

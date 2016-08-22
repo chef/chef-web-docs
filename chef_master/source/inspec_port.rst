@@ -47,3 +47,7 @@ Examples
 **Test that only secure ports accept requests**
 
 .. include:: ../../step_inspec/step_inspec_port_listen_on_secure_ports.rst
+
+**Verify if Memcached is installed, enabled, and running** 
+
+.. include:: ../../step_inspec/step_inspec_service_memcached.rst

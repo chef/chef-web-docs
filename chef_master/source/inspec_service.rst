@@ -47,3 +47,7 @@ Examples
 **Override the service manager**
 
 .. include:: ../../step_inspec/step_inspec_service_override_service_manager.rst
+
+**Verify if Memcached is installed, enabled, and running** 
+
+.. include:: ../../step_inspec/step_inspec_service_memcached.rst

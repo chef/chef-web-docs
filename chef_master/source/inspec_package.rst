@@ -39,3 +39,7 @@ Examples
 **Test if ClamAV (an antivirus engine) is installed and running**
 
 .. include:: ../../step_inspec/step_inspec_package_clamav_installed.rst
+
+**Verify if Memcached is installed, enabled, and running** 
+
+.. include:: ../../step_inspec/step_inspec_service_memcached.rst
