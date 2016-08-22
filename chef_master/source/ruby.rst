@@ -67,6 +67,10 @@ Whitespace Arrays
 
 .. include:: ../../includes_ruby/includes_ruby_style_patterns_string_quoting_vs_whitespace_array.rst
 
+**Example**
+
+.. include:: ../../step_inspec/step_inspec_file_verify_wix.rst
+
 |ruby hash|
 -----------------------------------------------------
 .. include:: ../../includes_ruby/includes_ruby_style_basics_hash.rst

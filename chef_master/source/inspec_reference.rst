@@ -360,6 +360,13 @@ Examples
 
 .. include:: ../../step_inspec/step_inspec_command_should_not_exist.rst
 
+**Verify NTP**
+
+.. include:: ../../step_inspec/step_inspec_command_verify_ntp.rst
+
+**Verify WiX**
+
+.. include:: ../../step_inspec/step_inspec_file_verify_wix.rst
 
 csv
 =====================================================
@@ -674,6 +681,13 @@ Examples
 
 .. include:: ../../step_inspec/step_inspec_file_sha256_checksum.rst
 
+**Verify NTP**
+
+.. include:: ../../step_inspec/step_inspec_command_verify_ntp.rst
+
+**Verify WiX**
+
+.. include:: ../../step_inspec/step_inspec_file_verify_wix.rst
 
 gem
 =====================================================
@@ -1299,6 +1313,9 @@ Examples
 
 .. include:: ../../step_inspec/step_inspec_package_clamav_installed.rst
 
+**Verify if Memcached is installed, enabled, and running** 
+
+.. include:: ../../step_inspec/step_inspec_service_memcached.rst
 
 parse_config
 =====================================================
@@ -1527,6 +1544,9 @@ Examples
 
 .. include:: ../../step_inspec/step_inspec_port_listen_on_secure_ports.rst
 
+**Verify if Memcached is installed, enabled, and running** 
+
+.. include:: ../../step_inspec/step_inspec_service_memcached.rst
 
 postgres_conf
 =====================================================
@@ -1762,6 +1782,9 @@ Examples
 
 .. include:: ../../step_inspec/step_inspec_service_override_service_manager.rst
 
+**Verify if Memcached is installed, enabled, and running** 
+
+.. include:: ../../step_inspec/step_inspec_service_memcached.rst
 
 ssh_config
 =====================================================

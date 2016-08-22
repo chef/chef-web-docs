@@ -55,3 +55,11 @@ Examples
 **Test for a command that should not exist**
 
 .. include:: ../../step_inspec/step_inspec_command_should_not_exist.rst
+
+**Verify NTP**
+
+.. include:: ../../step_inspec/step_inspec_command_verify_ntp.rst
+
+**Verify WiX**
+
+.. include:: ../../step_inspec/step_inspec_file_verify_wix.rst
