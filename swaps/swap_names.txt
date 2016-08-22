@@ -894,6 +894,7 @@
 .. |ws management| replace:: WS-Management
 .. |x509| replace:: X.509
 .. |xenserver| replace:: Citrix XenServer
+.. |xinetd| replace:: xinetd
 .. |yaml| replace:: YAML
 .. |yum| replace:: Yum
 .. |zabbix| replace:: Zabbix
