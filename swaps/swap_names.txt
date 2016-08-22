@@ -886,6 +886,7 @@
 .. |windows xp| replace:: Windows XP
 .. |windows xp pro| replace:: Windows XP Professional
 .. |wise| replace:: Wise
+.. |wix| replace:: WiX
 .. |wordpress| replace:: WordPress
 .. |ws management| replace:: WS-Management
 .. |x509| replace:: X.509
