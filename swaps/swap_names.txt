@@ -346,6 +346,7 @@
 .. |7zip| replace:: 7-Zip
 .. |aes 256 cbc| replace:: AES-256-CBC
 .. |airbrake| replace:: Airbrake
+.. |alpine linux| replace:: Alpine Linux
 .. |amazon auto_scaling| replace:: Auto Scaling
 .. |amazon ami| replace:: Amazon Machine Images (AMI)
 .. |amazon arn| replace:: Amazon Resource Name (ARN)
@@ -446,6 +447,7 @@
 .. |cloudkick| replace:: Cloudkick
 .. |cloudstack| replace:: CloudStack
 .. |consul| replace:: Consul
+.. |coreos| replace:: CoreOS
 .. |couch db| replace:: CouchDB
 .. |cron| replace:: cron
 .. |crond| replace:: cron.d
@@ -486,6 +488,7 @@
 .. |etag| replace:: ETag
 .. |etcd| replace:: etcd
 .. |eucalyptus| replace:: Eucalyptus
+.. |exherbo| replace:: Exherbo
 .. |f5| replace:: F5
 .. |fcgi| replace:: FastCGI
 .. |fauxhai| replace:: Fauxhai
