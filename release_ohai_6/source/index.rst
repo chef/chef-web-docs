@@ -46,6 +46,8 @@ Hints
 -----------------------------------------------------
 .. include:: ../../includes_ohai/includes_ohai_hints.rst
 
+.. include:: ../../includes_ohai/includes_ohai_hints_json.rst
+
 |ohai| 6 vs. |ohai| 7 Plugins
 -----------------------------------------------------
 .. include:: ../../includes_ohai/includes_ohai_migrate_plugins_6_to_7.rst

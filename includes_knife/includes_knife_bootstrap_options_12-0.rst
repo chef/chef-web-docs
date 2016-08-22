@@ -41,6 +41,8 @@ This subcommand has the following options:
 
    .. include:: ../../includes_ohai/includes_ohai_hints.rst
 
+   .. include:: ../../includes_ohai/includes_ohai_hints_json.rst
+
    |hint_file| |hint_name| |hint_multiple|
 
 ``-i IDENTITY_FILE``, ``--identity-file IDENTITY_FILE``
