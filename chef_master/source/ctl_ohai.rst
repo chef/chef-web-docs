@@ -8,7 +8,7 @@
 
 Options
 =====================================================
-.. include:: ../../includes_ctl_ohai/includes_ctl_ohai_6_options.rst
+.. include:: ../../includes_ctl_ohai/includes_ctl_ohai_options.rst
 
 Examples
 =====================================================
