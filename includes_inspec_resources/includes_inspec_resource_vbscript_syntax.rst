@@ -1,7 +1,7 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
-A ``vbscript`` |inspec resource| block tests the output of a VBScript on the |windows| platform:
+A ``vbscript`` |inspec resource| block tests the output of a |vbscript| on the |windows| platform:
 
 .. code-block:: ruby
 
@@ -11,5 +11,5 @@ A ``vbscript`` |inspec resource| block tests the output of a VBScript on the |wi
 
 where
 
-* ``'script_name'`` is the name of the VBScript to test
-* ``('output')`` is the expected output of the VBScript being tested
+* ``'script_name'`` is the name of the |vbscript| to test
+* ``('output')`` is the expected output of the |vbscript|
