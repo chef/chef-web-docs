@@ -835,6 +835,7 @@
 .. |upstart| replace:: Upstart
 .. |utc| replace:: UTC
 .. |vagrant| replace:: Vagrant
+.. |vbscript| replace:: VBScript
 .. |vcloud| replace:: vCloud
 .. |vcloud datacenter| replace:: vCloud Datacenter
 .. |vim| replace:: vim
