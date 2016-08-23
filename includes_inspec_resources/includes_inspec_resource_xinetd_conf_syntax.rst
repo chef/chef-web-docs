@@ -11,6 +11,6 @@ An ``xinetd_conf`` |inspec resource| block declares a service in the ``xinetd.co
 
 where
 
-* ``'service_name'`` is a service listed in the ``xinetd.conf`` file
+* ``'service_name'`` is a service located under ``/etc/xinet.d``
 * ``('matcher')`` is a setting in the ``xinetd.conf`` file
 * ``should eq 'value'`` is the value that is expected
