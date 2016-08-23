@@ -19,7 +19,7 @@ Automatic Proxy Config
 
 .. include:: ../../includes_config/includes_config_rb_ohai.rst
 
-.. include:: ../../includes_config/includes_config_rb_ohai_settings.rst
+.. include:: ../../includes_config/includes_config_rb_12-4_ohai_settings.rst
 
 Example
 =====================================================
