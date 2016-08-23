@@ -41,7 +41,7 @@ and to test for |redhat| use:
       it { should eq true }
    end
 
-Use the following helpers may be used to test for operating system names, release, and architectures:
+Use the following helpers to test for operating system names, releases, and architectures:
 
 .. code-block:: ruby
 
