@@ -1227,6 +1227,10 @@ Matchers
 -----------------------------------------------------
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_no_matchers.rst
 
+Helpers
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_os_helpers.rst
+
 Examples
 -----------------------------------------------------
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
