@@ -181,8 +181,13 @@ None.
 
 .. include:: ../../includes_config/includes_config_rb_ohai.rst
 
+|chef client| 12.5 (and higher)
+-----------------------------------------------------
 .. include:: ../../includes_config/includes_config_rb_ohai_settings.rst
 
+|chef client| 12.4 (and earlier)
+-----------------------------------------------------
+.. include:: ../../includes_config/includes_config_rb_12-4_ohai_settings.rst
 
 
 .. Hide the TOC from this file.  
