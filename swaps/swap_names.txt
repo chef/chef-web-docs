@@ -97,6 +97,7 @@
 .. |dsl resource| replace:: Resource DSL
 .. |dsl provider| replace:: Provider DSL
 .. |erchef| replace:: Erchef
+.. |habitat| replace:: Habitat
 .. |inspec| replace:: InSpec
 .. |inspec cli| replace:: InSpec CLI
 .. |inspec resource| replace:: InSpec audit resource

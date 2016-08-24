@@ -529,6 +529,7 @@ Addenda
    inspec_group
    inspec_host
    inspec_inetd_conf
+   inspec_ini
    inspec_interface
    inspec_iptables
    inspec_json

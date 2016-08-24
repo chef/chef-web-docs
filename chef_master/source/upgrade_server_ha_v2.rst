@@ -41,7 +41,7 @@ downloading and installing the latest package.
 
 #. Run the upgrade command
 
-   .. code-block:: shell
+   .. code-block:: bash
 
       % chef-backend-ctl upgrade
 
@@ -54,7 +54,7 @@ Step 3: Upgrade the leader
 
 #. Unblock failover, trigger failover, block it again.
 
-   .. code-block :: shell
+   .. code-block:: bash
 
       % chef-backend-ctl set-cluster-failover on
       % chef-backend-ctl upgrade --failover
@@ -65,7 +65,7 @@ Step 4: Re-enable failover
 
 Allow failover again:
 
-   .. code-block :: shell
+   .. code-block:: bash
 
       % chef-backend-ctl set-cluster-failover on
 
@@ -75,6 +75,6 @@ Step 5: Verify the cluster is stable
 
 Check the status of the cluster:
 
-  .. code-block :: shell
+  .. code-block:: bash
 
      % chef-backend-ctl status
