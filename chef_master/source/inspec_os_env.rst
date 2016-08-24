@@ -27,3 +27,7 @@ Examples
 **Test the PATH environment variable**
 
 .. include:: ../../step_inspec/step_inspec_os_env_path.rst
+
+**Test Habitat environment variables**
+
+.. include:: ../../step_inspec/step_inspec_os_env_habitat.rst
