@@ -12,4 +12,4 @@ Publish cookbooks to |supermarket|, but with custom credentials:
      }
    }
 
-This publishing option requires the ``supermarket_user`` and ``supermarket_key`` credentials to be available from the ``secrets`` data bag on the |chef server| that is part of this |delivery| configuration.
+This publishing option requires the ``supermarket_user`` and ``supermarket_key`` credentials to be available from the ``delivery-secrets`` data bag on the |chef server| that is part of this |delivery| configuration.
