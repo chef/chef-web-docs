@@ -1,12 +1,12 @@
 =====================================================
-ini
+grub_conf
 =====================================================
 
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_ini.rst
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_grub_conf.rst
 
 Syntax
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_ini_syntax.rst
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_grub_conf_syntax.rst
 
 Matchers
 -----------------------------------------------------
@@ -16,6 +16,8 @@ Examples
 -----------------------------------------------------
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
-**Test SMTP settings in a PHP INI file**
+**Test a grub.conf file**
 
-.. include:: ../../step_inspec/step_inspec_ini_php.rst
+.. include:: ../../step_inspec/step_inspec_grub_redhat.rst
+
+
