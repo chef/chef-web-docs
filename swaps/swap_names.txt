@@ -535,6 +535,7 @@
 .. |groupadd| replace:: groupadd
 .. |groupmod| replace:: groupmod
 .. |growl| replace:: Growl
+.. |grub| replace:: GRUB
 .. |gunicorn| replace:: Gunicorn
 .. |gzip| replace:: gzip
 .. |haproxy| replace:: HAProxy
