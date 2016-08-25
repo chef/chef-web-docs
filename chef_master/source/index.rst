@@ -527,7 +527,7 @@ Addenda
    inspec_file
    inspec_gem
    inspec_group
-   inspec_grub
+   inspec_grub_conf
    inspec_host
    inspec_inetd_conf
    inspec_ini
