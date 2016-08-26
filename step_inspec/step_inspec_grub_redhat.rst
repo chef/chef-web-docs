@@ -43,7 +43,9 @@ The following |inspec| test verifies the kernel, ensures that kernel is the defa
 
 The following |inspec| test verifies the ``ramdisk_size`` for the non-deault kernel:
 
-    describe grub_conf('/etc/grub.conf',  'Red Hat Enterprise Linux ES (2.6.32-358.14.1.el6.x86_64)') do
+.. code-block:: ruby
+
+   describe grub_conf('/etc/grub.conf',  'Red Hat Enterprise Linux ES (2.6.32-358.14.1.el6.x86_64)') do
       its('kernel') { should include 'ramdisk_size=400000' }
     end
 
