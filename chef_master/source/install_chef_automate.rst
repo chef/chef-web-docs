@@ -177,6 +177,8 @@ Push Jobs Server Installation
 Chef Automate uses push jobs to coordinate builds jobs across build nodes.
 This is available as an add-on to Chef server.
 
+.. note:: Chef Automate requires Push Jobs Server 1.x and is not compatible with Push Jobs Server 2.x.  If you are installing Chef Automate on Red Hat Enterprise Linux/CentOS 7, use the Red Hat Enterprise Linux/CentOS 6 package for Push Jobs Server 1.x (available at `<https://downloads.chef.io/push-jobs-server/redhat/>`_) and manually install it.  For other platforms, you can use the automated installation method for Push Jobs Server 1.x as described below.
+
 Download the appropriate package for your platform from `<https://downloads.chef.io/push-jobs-server/>`_  and copy it to the Chef server.  The location that it's been saved to is referred to as `$PATH_TO_DOWNLOADED_PACKAGE`.
 
 Run the command below on the Chef server:
