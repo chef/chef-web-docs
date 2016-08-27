@@ -20,4 +20,10 @@ Examples
 
 .. include:: ../../step_inspec/step_inspec_grub_redhat.rst
 
+**Test a configuration file and boot configuration**
 
+.. include:: ../../step_inspec/step_inspec_grub_test_configuration.rst
+
+**Test a specific kernel**
+
+.. include:: ../../step_inspec/step_inspec_grub_test_specific_kernels.rst
