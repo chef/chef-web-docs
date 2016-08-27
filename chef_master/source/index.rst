@@ -554,6 +554,7 @@ Addenda
    inspec_port
    inspec_postgres_conf
    inspec_postgres_session
+   inspec_powershell
    inspec_process
    inspec_registry_key
    inspec_script
