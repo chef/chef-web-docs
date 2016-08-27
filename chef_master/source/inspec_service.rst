@@ -51,3 +51,7 @@ Examples
 **Verify if Memcached is installed, enabled, and running** 
 
 .. include:: ../../step_inspec/step_inspec_service_memcached.rst
+
+**Verify that IIS is running** 
+
+.. include:: ../../step_inspec/step_inspec_service_iis.rst
