@@ -529,6 +529,7 @@ Addenda
    inspec_group
    inspec_grub_conf
    inspec_host
+   inspec_iis_site
    inspec_inetd_conf
    inspec_ini
    inspec_interface
