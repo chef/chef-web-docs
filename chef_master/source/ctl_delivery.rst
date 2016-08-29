@@ -149,7 +149,7 @@ delivery local
 
 Syntax
 -----------------------------------------------------
-.. include:: ../../includes_ctl_delivery/includes_ctl_delivery_local_syntax.rstlocal
+.. include:: ../../includes_ctl_delivery/includes_ctl_delivery_local_syntax.rst
 
 Examples
 -----------------------------------------------------
