@@ -524,6 +524,7 @@ Addenda
    inspec_directory
    inspec_etc_group
    inspec_etc_passwd
+   inspec_etc_shadow
    inspec_file
    inspec_gem
    inspec_group
