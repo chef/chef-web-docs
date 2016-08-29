@@ -566,6 +566,7 @@ Addenda
    inspec_user
    inspec_windows_feature
    inspec_vbscript
+   inspec_wmi
    inspec_xinetd_conf
    inspec_yaml
    inspec_yum

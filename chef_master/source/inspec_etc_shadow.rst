@@ -56,17 +56,8 @@ Examples
 
 **Test for a forbidden user**
 
-.. code-block:: ruby
-
-   describe shadow do
-     its('users') { should_not include 'forbidden_user' }
-   end
+.. include:: ../../step_inspec/step_inspec_etc_shadow_forbidden_user.rst
 
 **Test that a user appears one time**
 
-.. code-block:: ruby
-
-   describe shadow.users('bin') do
-     its('passwords') { should cmp 'x' }
-     its('count') { should eq 1 }
-   end
+.. include:: ../../step_inspec/step_inspec_etc_shadow_user_appears_once.rst

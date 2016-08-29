@@ -11,7 +11,7 @@ Use the ``passwd`` |inspec resource| to test the contents of ``/etc/passwd``, wh
 * That user's home directory
 * That user's default command shell
 
-defined as a colon-delimited row in the file, one row per user:
+These entries are defined as a colon-delimited row in the file, one row per user:
 
 .. code-block:: bash
 
