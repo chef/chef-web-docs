@@ -12,7 +12,7 @@ Use the ``shadow`` |inspec resource| to test the contents of ``/etc/shadow``, wh
 * The number of days a user must be inactive before the user account is disabled
 * The number of days a user account has been disabled
 
-defined as a colon-delimited row in the file, one row per user:
+These entries are defined as a colon-delimited row in the file, one row per user:
 
 .. code-block:: bash
 
