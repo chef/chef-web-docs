@@ -143,6 +143,19 @@ Examples
 .. include:: ../../step_ctl_delivery/step_ctl_delivery_job_verify_unit.rst
 
 
+delivery local
+=====================================================
+.. include:: ../../includes_ctl_delivery/includes_ctl_delivery_local.rst
+
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_ctl_delivery/includes_ctl_delivery_local_syntax.rstlocal
+
+Examples
+-----------------------------------------------------
+None.
+
+
 delivery review
 =====================================================
 .. include:: ../../includes_ctl_delivery/includes_ctl_delivery_review.rst
