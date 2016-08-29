@@ -18,26 +18,4 @@ Examples
 
 **Test a VBScript**
 
-For example, a |vbscript| file similar to:
-
-.. code-block:: ruby
-
-   vbscript = <<-EOH
-     WScript.Echo "hello"
-   EOH
-
-may be tested for multiple lines:
-
-.. code-block:: ruby
-
-   describe vbscript(vbscript) do
-     its('stdout') { should eq "hello\r\n" }
-   end
-
-and tested for whitespace removal from standard output:
-
-.. code-block:: ruby
-
-   describe vbscript(vbscript) do
-     its('strip') { should eq "hello" }
-   end
+.. include:: ../../step_inspec/step_inspec_vbscript_hello.rst
