@@ -68,10 +68,10 @@ A complete audit cookbook attribute configuration would look something like this
       }
     }
 
-Configuring Chef Server to send Chef Client data
+Configuring Chef Server to send Server Object data
 =======================================================
 
-|chef server| can be configured to send messages to |automate| whenever an action is taken on a |chef server| object, such as when a cookbook is uploaded to the |chef server|. For example, messages can be sent when a role is updated, a node is created, or a cookbook is uploaded.
+|chef server| can be configured to send messages to |automate| whenever an action is taken on a |chef server| object, such as when a cookbook is uploaded to the |chef server| or when a user edits a role.
 
 To enable this feature, add the following settings to ``/etc/opscode/chef-server.rb`` on the |chef server|:
 
