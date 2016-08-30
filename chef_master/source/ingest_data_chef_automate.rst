@@ -68,7 +68,7 @@ A complete audit cookbook attribute configuration would look something like this
       }
     }
 
-Configuring Chef Server to send Chef Client data
+Configuring Chef Server to send Chef Server object data
 =================================================
 
 Chef Server can be configured to send messages to |automate| whenever an action is taken on a Chef
