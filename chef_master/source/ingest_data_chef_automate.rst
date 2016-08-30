@@ -38,7 +38,7 @@ Additional configuration options include:
 
   * ``data_collector.mode``: The mode in which the data collector is allowed to operate. This
     can be used to run data collector only when running as Chef Solo but not when using Chef Client.
-    Options: ``:solo`` (for both Solo Legacy Mode and Solo Mode), ``:client``, or ``:both`.  Default:
+    Options: ``:solo`` (for both Solo Legacy Mode and Solo Mode), ``:client``, or ``:both``.  Default:
     ``:both``.
   * ``data_collector.raise_on_failure``: When the data collector cannot send the "starting a run"
     message to the data collector server, the data collector will be disabled for that run. In some
@@ -68,15 +68,12 @@ A complete audit cookbook attribute configuration would look something like this
       }
     }
 
-Configuring Chef Server to send Chef Server object data
-=================================================
+Configuring Chef Server to send Chef Client data
+=======================================================
 
-Chef Server can be configured to send messages to |automate| whenever an action is taken on a Chef
-Server object. For example, messages can be sent when a role is updated, a node is created, or a
-cookbook is uploaded.
+|chef server| can be configured to send messages to |automate| whenever an action is taken on a |chef server| object, such as when a cookbook is uploaded to the |chef server|. For example, messages can be sent when a role is updated, a node is created, or a cookbook is uploaded.
 
-To enable this feature, add the following settings to ``/etc/opscode/chef-server.rb`` on your Chef
-Server:
+To enable this feature, add the following settings to ``/etc/opscode/chef-server.rb`` on the |chef server|:
 
 .. code-block:: ruby
 
