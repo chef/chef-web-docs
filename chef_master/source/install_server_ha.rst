@@ -199,7 +199,7 @@ Log into the node from Step 1, and we will generate our chef-server frontend nod
 
   .. code-block:: bash
 
-    $ chef-backend-ctl gen-server-config <FE1-FQDN> -f chef-server.rb.<FE1>
+    $ chef-backend-ctl gen-server-config <FE1-FQDN> -f chef-server.rb.FE1
     $ scp chef-server.rb.FE1 USER@<IP_FE1>:/home/<USER>
 
 *Note* `/etc/chef-backend/chef-backend-secrets.json` is *not* made
