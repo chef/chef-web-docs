@@ -11,6 +11,8 @@ A ``ssl`` |inspec resource| block declares an SSL port, and then other propertie
 
 or:
 
+.. code-block:: ruby
+
    describe ssl(port: #).filter('value') do
      it { should be_enabled }
    end
