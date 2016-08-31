@@ -153,7 +153,10 @@ Syntax
 
 Examples
 -----------------------------------------------------
-None.
+
+**Run Foodcritic**
+
+.. include:: ../../step_ctl_delivery/step_ctl_delivery_local_foodcritic.rst
 
 
 delivery review
