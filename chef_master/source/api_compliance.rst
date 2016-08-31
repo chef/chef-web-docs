@@ -2,7 +2,7 @@
 |api compliance|
 =====================================================
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst
 
 The |api compliance| is a REST-based API that is designed to be easy and predictable and to have resource-oriented URL endpoints. It uses common HTTP verbs and response codes to indicate API errors. Therefore the API can be understood by standard HTTP clients and libraries. In general the API uses |json| as data input and output format.
 
@@ -23,7 +23,7 @@ Some notes about API requests:
 
      Authorization: Bearer API_TOKEN
 
-  where the ``API_TOKEN`` is a valid |company_name| |api compliance| token similar to ``eyJhbGciOiJSUzI1NiIsImtpZCI6InJFZi1DUVZQYi1xTXY3WF9CdXZNZ3B5bnc2R3J0OW1adlN3NVhOY2VISjBBZzBaVVFUZTZCYVNROW91UWRob0JsemRvLV93V0VXd3ZJVEU4SS1KMk81enljRVhoZlFvU2JaeThfMVZTekt6SVN6LXFiYVZtUElqZHZiU1hneTNvY3Rla3RKRkYtWWNUa3lXbVhSaTd4OEVNSU9EVFFnVEplMV8zODhTZGt0MEdub0xJUEVnWXpWLTRGR1htOTctTnBfY3EwN0FaMk1rbnFZSmoxMktFcW95YThuUndFZF91QUlLb1JwdHF1Sk5yYXF4d3d5aUVnTTc5c0cxS0JQRUFweGJTUWxELTJTZV9vRFJFRjR1RGJvZlRvbmZ3aXVXVVQtcldyc1owVnllWk...``.
+  where the ``API_TOKEN`` is a valid |company_name| |api compliance| token similar to ``eyJhbGciOiJSUzI1NiIsImtpZCI6InJFZi1DUVZQYi1xTXY3WF9CdXZNZ3B5bnc2R3J0OW1adlN3NVhOY2VISjBB ...``.
 
   .. code-block:: bash
 
@@ -450,7 +450,7 @@ For example:
 
 .. code-block:: bash
 
-   curl -w "%{http_code}" -X DELETE "$API_URL/owners/john/compliance/ssh"
+   curl -w "%{http_code}" -X DELETE "$API_URL/owners/john/compliance/ssh" -H "$AUTH"
 
 
 *** Response ***
@@ -1865,6 +1865,57 @@ The response will return a |json| object similar to:
      "id": "57130678-1a1f-405d-70bf-fe570a25621e"
    }
 
+DELETE (single scan)
+-----------------------------------------------------
+Delete one scan specified in the URL. If this is the most recent scan of a node, the node will be marked as never scanned.
+
+**Request**
+
+.. code-block:: xml
+
+ DELETE /api/owners/USER/scans/SCAN_ID
+
+For example:
+
+.. code-block:: bash
+
+ curl -w "%{http_code}" -X DELETE "$API_URL/owners/john/scans/57130678-1a1f-405d-70bf-fe570a25621e" -H "$AUTH"
+
+**Response**
+
+No Content
+
+
+DELETE (bulk)
+-----------------------------------------------------
+Delete one or multiple scans specified in the payload of the request.
+
+**Request**
+
+.. code-block:: xml
+
+  DELETE /api/owners/USER/scans
+
+with a |json| array of scan ids:
+
+.. code-block:: javascript
+
+ [
+   "57130678-1a1f-405d-70bf-fe570a25621e",
+   "90def607-1688-40f5-5a4c-161c51fd8aac"
+ ]
+
+For example:
+
+.. code-block:: bash
+
+  curl -w "%{http_code}" -X DELETE "$API_URL/owners/john/scans" -H "$AUTH" \
+  -d '["57130678-1a1f-405d-70bf-fe570a25621e","90def607-1688-40f5-5a4c-161c51fd8aac"]'
+
+**Response**
+
+No Content
+
 /scans/SCAN_ID/rules
 =====================================================
 The ``/scans/SCAN_ID/rules`` endpoint has the following methods: ``GET``.
@@ -2520,7 +2571,7 @@ This method has the following parameters:
    * - Parameter
      - Description
    * - ``users``
-     - Required. An array of user identifiers. Full |json| example: '["bob","mary"]'
+     - Required. An array of user identifiers. Full |json| example: '{["bob","mary"]}'
 
 **Request**
 
@@ -2533,7 +2584,7 @@ For example:
 .. code-block:: bash
 
    curl -X POST "$API_URL/orgs/acme/teams/TEAM_ID/members" \
-   -H "Content-Type: application/json" -H "$AUTH" -d '["bob"]'
+   -H "Content-Type: application/json" -H "$AUTH" -d '{["bob"]}'
 
 where ``TEAM_ID`` is similar to ``20aff993-3288-426d-6851-d1d47bb40d80``
 
