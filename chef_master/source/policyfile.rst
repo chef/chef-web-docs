@@ -68,10 +68,10 @@ The following settings may be configured in the |client rb| file for use with |p
    |run_list policy|
 
 ``policy_group``
-   |name policy_name| ``policy_name`` must also be specified.
+   |name policy_group| ``policy_name`` must also be specified.
 
 ``policy_name``
-   |name policy_group| ``policy_group`` must also be specified.
+   |name policy_name| ``policy_group`` must also be specified.
 
 ``use_policyfile``
   |use policyfile| Default value: ``false``.
