@@ -5,4 +5,4 @@ The ``mode`` matcher tests if the mode assigned to the file matches the specifie
 
 .. code-block:: ruby
 
-   its('mode') { should eq 0644 }
+   its('mode') { should cmp '0644' }

@@ -6,5 +6,5 @@
 .. code-block:: ruby
 
    describe file('/dev') do
-    its('mode') { should eq 00755 }
+    its('mode') { should cmp '00755' }
    end
