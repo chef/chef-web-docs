@@ -10,4 +10,5 @@ More books about |chef|:
 * `Learning Chef [Packt Publishing] <https://www.packtpub.com/networking-and-servers/learning-chef/?utm_source=GC-chef.io&utm_medium=pod&utm_campaign=1783285214>`_
 * `Chef Infrastructure Automation Cookbook - Second Edition [Packt Publishing] <https://www.packtpub.com/networking-and-servers/chef-infrastructure-automation-cookbook-second-edition/?utm_source=GC-chef.io&utm_medium=pod&utm_campaign=178528794X>`_
 * `Mastering Chef [Packt Publishing] <https://www.packtpub.com/networking-and-servers/mastering-chef/?utm_source=GC-chef.io&utm_medium=pod&utm_campaign=1783981563>`_
+* `Mastering Chef Provisioning [Packt Publishing] <https://www.packtpub.com/networking-and-servers/mastering-chef-provisioning>`_
 * `Managing Windows Servers with Chef <https://www.packtpub.com/networking-and-servers/managing-windows-servers-chef>`_
