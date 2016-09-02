@@ -7,5 +7,5 @@
 
   describe ssh_config do
     its('owner') { should eq 'root' }
-    its('mode') { should eq 644 }
+    its('mode') { should cmp '0644' }
   end
