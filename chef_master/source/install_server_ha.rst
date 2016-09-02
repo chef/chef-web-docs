@@ -100,6 +100,8 @@ These instructions assume you are using the following versions or newer:
 - chef-server  : 12.5.0
 - chef-backend : 0.8.0
 
+Download `Chef server <https://downloads.chef.io/chef-server/>`_ and `Chef High Availability (chef-backend) <https://downloads.chef.io/chef-backend/>`_ if you do not have them already.
+
 Before creating the backend HA cluster and building at least one |chef
 server| to be part of the frontend group, verify:
 
