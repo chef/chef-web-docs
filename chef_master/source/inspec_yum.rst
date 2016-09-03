@@ -68,6 +68,10 @@ repos
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_yum_matcher_repos.rst
 
+shortname
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_yum_matcher_shortname.rst
+
 Examples
 -----------------------------------------------------
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
