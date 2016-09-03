@@ -1,23 +1,21 @@
 =====================================================
-os
+Common Functionality (InSpec)
 =====================================================
 
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_os.rst
+Each |inspec resource| (including custom resources) share a set of common matchers and helpers to target specific OS-level behaviors.
 
-Syntax
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_os_syntax.rst
+.. _inspec_common_matchers:
 
-Matchers
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+Common Matchers
+=====================================================
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher.rst
 
 be
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_be.rst
 
 cmp
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp.rst
 
 **Compare single value to array**
@@ -41,33 +39,28 @@ cmp
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_octals.rst
 
 eq
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_eq.rst
 
 include
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_include.rst
 
 match
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_match.rst
 
+
+.. _inspec_common_os_family_helpers:
+
 os[:family] Helpers
------------------------------------------------------
+=====================================================
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_os_helpers.rst
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
-**Test for RedHat**
+**Test users on multiple platforms**
 
-.. include:: ../../step_inspec/step_inspec_os_redhat.rst
+.. include:: ../../step_inspec/step_inspec_user_multiple_platforms.rst
 
-**Test for Ubuntu**
-
-.. include:: ../../step_inspec/step_inspec_os_ubuntu.rst
-
-**Test for Microsoft Windows**
-
-.. include:: ../../step_inspec/step_inspec_os_windows.rst

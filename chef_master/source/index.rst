@@ -520,6 +520,7 @@ Addenda
    inspec_bond
    inspec_bridge
    inspec_command
+   inspec_common
    inspec_csv
    inspec_directory
    inspec_etc_group

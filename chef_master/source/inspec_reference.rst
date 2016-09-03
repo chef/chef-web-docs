@@ -55,13 +55,8 @@ Use inspec shell
 
 Common Matchers
 =====================================================
-|inspec| uses matchers to help compare resource values to expectations. The following matchers are available for every |inspec resource|:
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher.rst
 
-* ``be``
-* ``cmp``
-* ``eq``
-* ``include``
-* ``match``
 
 be
 -----------------------------------------------------
@@ -103,6 +98,10 @@ match
 -----------------------------------------------------
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_match.rst
 
+
+os[:family] Helpers
+=====================================================
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_os_helpers.rst
 
 
 apache_conf
