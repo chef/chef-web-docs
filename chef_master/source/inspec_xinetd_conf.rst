@@ -16,6 +16,10 @@ be
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_be.rst
 
+be_enabed
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_xinetd_conf_matcher_be_enabled.rst
+
 cmp
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp.rst
@@ -44,6 +48,10 @@ eq
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_eq.rst
 
+ids
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_xinetd_conf_matcher_ids.rst
+
 include
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_include.rst
@@ -51,6 +59,22 @@ include
 match
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_match.rst
+
+services
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_xinetd_conf_matcher_services.rst
+
+socket_types
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_xinetd_conf_matcher_socket_types.rst
+
+types
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_xinetd_conf_matcher_types.rst
+
+wait
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_xinetd_conf_matcher_wait.rst
 
 Examples
 -----------------------------------------------------
