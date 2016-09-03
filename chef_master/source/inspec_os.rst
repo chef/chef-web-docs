@@ -52,7 +52,7 @@ match
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_match.rst
 
-Helpers
+os[:family] Helpers
 -----------------------------------------------------
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_os_helpers.rst
 
