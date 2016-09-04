@@ -20,6 +20,10 @@ be
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_be.rst
 
+children
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_registry_key_matcher_children.rst
+
 cmp
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp.rst
@@ -48,6 +52,22 @@ eq
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_eq.rst
 
+exists
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_registry_key_matcher_exists.rst
+
+have_property
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_registry_key_matcher_have_property.rst
+
+have_property_value
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_registry_key_matcher_have_property_value.rst
+
+have_value
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_registry_key_matcher_have_value.rst
+
 include
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_include.rst
@@ -67,3 +87,7 @@ Examples
 **Test the start time for the Schedule service**
 
 .. include:: ../../step_inspec/step_inspec_registry_key_schedule_service.rst
+
+**Use a regular expression in responses**
+
+.. include:: ../../step_inspec/step_inspec_registry_key_use_regex_in_response.rst
