@@ -1721,6 +1721,26 @@ Matchers
 -----------------------------------------------------
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
+children
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_registry_key_matcher_children.rst
+
+exists
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_registry_key_matcher_exists.rst
+
+have_property
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_registry_key_matcher_have_property.rst
+
+have_property_value
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_registry_key_matcher_have_property_value.rst
+
+have_value
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_registry_key_matcher_have_value.rst
+
 name
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_registry_key_matcher_name.rst
@@ -1733,6 +1753,9 @@ Examples
 
 .. include:: ../../step_inspec/step_inspec_registry_key_schedule_service.rst
 
+**Use a regular expression in responses**
+
+.. include:: ../../step_inspec/step_inspec_registry_key_use_regex_in_response.rst
 
 script
 =====================================================
