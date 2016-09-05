@@ -5,10 +5,10 @@ The ``protocols`` matcher tests the Internet protocol: |icmp| (``'icmp'``), |tcp
 
 .. code-block:: ruby
 
-   its('protocols') { should eq ['tcp'] }
+   its('protocols') { should include 'tcp' }
 
 or for the |ipv6| protocol:
 
 .. code-block:: ruby
 
-   its('protocols') { should eq ['tcp6'] }
+   its('protocols') { should include 'tcp6' }

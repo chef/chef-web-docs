@@ -12,6 +12,10 @@ Matchers
 -----------------------------------------------------
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
+address
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_port_matcher_address.rst
+
 be
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_be.rst
@@ -91,3 +95,7 @@ Examples
 **Verify if Memcached is installed, enabled, and running** 
 
 .. include:: ../../step_inspec/step_inspec_service_memcached.rst
+
+**Verify port 65432 is not listening** 
+
+.. include:: ../../step_inspec/step_inspec_port_not_listen_port_65432.rst
