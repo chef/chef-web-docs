@@ -1481,9 +1481,21 @@ gids
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_gids.rst
 
+homes
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_uid.rst
+
+length
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_count.rst
+
 passwords
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_passwords.rst
+
+shells
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_username.rst
 
 uids
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1492,22 +1504,6 @@ uids
 users
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_usernames.rst
-
-Matchers for passwd.uid(userid)
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
-
-count
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_count.rst
-
-uid
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_uid.rst
-
-username
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_username.rst
 
 Examples
 -----------------------------------------------------

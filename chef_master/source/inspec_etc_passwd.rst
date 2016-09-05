@@ -44,49 +44,41 @@ eq
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_eq.rst
 
+gids
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_gids.rst
+
+homes
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_uid.rst
+
 include
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_include.rst
+
+length
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_count.rst
 
 match
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_match.rst
 
-passwd
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-The following matchers may be used when filtering **is not** associated with a user identifier:
-
-gids
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_gids.rst
-
 passwords
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_passwords.rst
 
+shells
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_username.rst
+
 uids
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_uids.rst
 
 users
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_usernames.rst
-
-passwd.uid(filter)
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The following matchers may be used when filtering **is** associated with a user identifier:
-
-count
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_count.rst
-
-uid
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_uid.rst
-
-username
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_username.rst
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_usernames.rst
 
 Examples
 -----------------------------------------------------
