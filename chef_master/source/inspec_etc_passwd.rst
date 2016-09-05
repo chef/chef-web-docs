@@ -50,7 +50,7 @@ gids
 
 homes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_uid.rst
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_homes.rst
 
 include
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -58,7 +58,7 @@ include
 
 length
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_count.rst
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_length.rst
 
 match
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -70,7 +70,7 @@ passwords
 
 shells
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_username.rst
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_shells.rst
 
 uids
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -78,7 +78,7 @@ uids
 
 users
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_usernames.rst
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_users.rst
 
 Examples
 -----------------------------------------------------

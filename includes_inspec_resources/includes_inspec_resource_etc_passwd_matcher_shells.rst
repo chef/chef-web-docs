@@ -7,7 +7,7 @@ The ``shells`` matcher tests the absolute path of a shell (or command) to which 
 
    its('shells') { should_not include 'user' }
 
-or to find all users with a nologin shell:
+or to find all users with the nologin shell:
 
 .. code-block:: ruby
 
