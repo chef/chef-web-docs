@@ -11,3 +11,13 @@ A ``port`` |inspec resource| block declares a port, and then depending on what n
    end
 
 where the ``processes`` returns the processes listening on port 514.
+
+For example, to test if the |ssh| daemon is available on a |linux| machine via the default port (22):
+
+.. code-block:: ruby
+
+   describe port(22) do
+     its('processes') { should include 'sshd' }
+     its('protocols') { should include 'tcp' }
+     its('addresses') { should include '0.0.0.0' }
+   end
