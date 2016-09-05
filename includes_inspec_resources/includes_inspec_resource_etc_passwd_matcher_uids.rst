@@ -6,3 +6,12 @@ The ``uids`` matcher tests if the user indentifiers in the test match user ident
 .. code-block:: ruby
 
    its('uids') { should eq ['1234', '1235'] }
+
+or:
+
+.. code-block:: ruby
+
+   describe passwd.uids(0) do
+     its('users') { should cmp 'root' }
+     its('count') { should eq 1 }
+   end
