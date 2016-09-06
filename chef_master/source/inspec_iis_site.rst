@@ -60,6 +60,10 @@ have_binding
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_iis_site_matcher_have_binding.rst
 
+Binding Attributes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_iis_site_matcher_have_binding_attribute.rst
+
 include
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_include.rst
@@ -67,10 +71,6 @@ include
 match
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_match.rst
-
-Binding Attributes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_iis_site_matcher_have_binding_attribute.rst
 
 have_path
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
