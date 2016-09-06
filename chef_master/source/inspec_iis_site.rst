@@ -60,6 +60,10 @@ have_binding
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_iis_site_matcher_have_binding.rst
 
+Binding Attributes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_iis_site_matcher_have_binding_attribute.rst
+
 include
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_include.rst
@@ -67,10 +71,6 @@ include
 match
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_match.rst
-
-Binding Attributes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_iis_site_matcher_have_binding_attribute.rst
 
 have_path
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -83,3 +83,7 @@ Examples
 **Test a default IIS site** 
 
 .. include:: ../../step_inspec/step_inspec_iis_site_default.rst
+
+**Test if IIS service is running**
+
+.. include:: ../../step_inspec/step_inspec_iis_site_service_is_running.rst
