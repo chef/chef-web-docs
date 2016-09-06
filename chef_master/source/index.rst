@@ -18,6 +18,7 @@ component and version you want.
 
 If this is your first visit, we recommend reading `how to learn Chef <https://learn.chef.io/skills/how-to-learn-chef>`_.
 
+
 Overview
 =====================================================
 
