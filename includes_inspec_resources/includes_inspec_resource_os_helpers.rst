@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The ``os`` audit resource includes a collection of helpers that allow more granular testing of platforms, platform names, architectures, and releases.
+The ``os`` audit resource includes a collection of helpers that enable more granular testing of platforms, platform names, architectures, and releases.
 
 Use any of the following platform-specific helpers to test for specific platforms:
 

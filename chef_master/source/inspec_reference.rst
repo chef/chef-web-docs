@@ -1278,7 +1278,7 @@ Matchers
 -----------------------------------------------------
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_no_matchers.rst
 
-Helpers
+os.family? Helpers
 -----------------------------------------------------
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_os_helpers.rst
 
