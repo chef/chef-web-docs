@@ -53,8 +53,16 @@ match
 
 .. _inspec_common_os_family_helpers:
 
-os[:family] Helpers
+Platform Helpers and Symbols
 =====================================================
+More granular platform-specific tests may be built using helpers and symbols that are based on the ``os`` |inspec resource|.
+
+os[:family] Symbols
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_os_symbols.rst
+
+os.family? Helpers
+-----------------------------------------------------
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_os_helpers.rst
 
 Examples
