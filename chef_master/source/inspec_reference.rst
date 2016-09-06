@@ -99,9 +99,9 @@ match
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_match.rst
 
 
-os[:family] Helpers
+os[:family] Symbols
 =====================================================
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_os_helpers.rst
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_os_symbols.rst
 
 
 apache_conf

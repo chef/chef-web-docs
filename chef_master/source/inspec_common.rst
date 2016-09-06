@@ -51,7 +51,7 @@ match
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_match.rst
 
 
-.. _inspec_common_os_family_helpers:
+.. _inspec_common_os_family:
 
 Platform Helpers and Symbols
 =====================================================
