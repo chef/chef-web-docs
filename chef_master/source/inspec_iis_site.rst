@@ -83,3 +83,7 @@ Examples
 **Test a default IIS site** 
 
 .. include:: ../../step_inspec/step_inspec_iis_site_default.rst
+
+**Test if IIS service is running**
+
+.. include:: ../../step_inspec/step_inspec_iis_site_service_is_running.rst
