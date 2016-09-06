@@ -337,7 +337,7 @@ The following steps are performed on the Chef Automate server:
                                    --ssh-identity-file $SSH_IDENTITY_FILE \
                                    --port $SSH_PORT
 
-   You can view the logs at ``/var/log/delivery-ctl/build-node-install_$BUILD_NODE_FDQN.log``.
+   You can view the logs at ``/var/log/delivery-ctl/build-node-install_$BUILD_NODE_FQDN.log``.
 
    You maybe be asked about overwriting your build node's registration in Chef Server.  This will remove any previous run lists or Chef Server configuration on this node.  This is done in case this hostname was previously being used for something else.  Setting the ``--[no]-overwrite-registration`` flag will allow you to avoid that prompt.
 
