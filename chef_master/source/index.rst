@@ -215,6 +215,7 @@ Habitat Overview
 -----------------------------------------------------
 
 :doc:`Habitat Overview </habitat>`
+:doc:`Prism </habitat_prism>`
 
 Tutorials
 -----------------------------------------------------
@@ -507,6 +508,7 @@ Addenda
    foodcritic
    glossary
    habitat
+   habitat_prism
    handlers
    ingest_data_chef_automate
    inspec
