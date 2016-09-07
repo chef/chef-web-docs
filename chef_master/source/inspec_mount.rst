@@ -74,4 +74,4 @@ Examples
 
 **Test a the mount point on '/'**
 
-.. include:: ../../step_inspec/step_inspec_npm_statsd_not_installed.rst
+.. include:: ../../step_inspec/step_inspec_mount_point.rst
