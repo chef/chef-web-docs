@@ -8,6 +8,32 @@ Common Options
 =====================================================
 .. include:: ../../includes_ctl_inspec/includes_ctl_inspec_common_options.rst
 
+
+inspec archive
+=====================================================
+.. include:: ../../includes_ctl_inspec/includes_ctl_inspec_archive.rst
+
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_ctl_inspec/includes_ctl_inspec_archive_syntax.rst
+
+Options
+-----------------------------------------------------
+.. include:: ../../includes_ctl_inspec/includes_ctl_inspec_archive_options.rst
+
+Examples
+-----------------------------------------------------
+The following examples show how to use this subcommand.
+
+**Create a profile archive as zip**
+
+.. include:: ../../includes_ctl_inspec/includes_ctl_inspec_archive_example_zip.rst
+
+**Create a profile archive as tar**
+
+.. include:: ../../includes_ctl_inspec/includes_ctl_inspec_archive_example_tar.rst
+
+
 inspec check
 =====================================================
 .. include:: ../../includes_ctl_inspec/includes_ctl_inspec_check.rst
@@ -15,6 +41,14 @@ inspec check
 Syntax
 -----------------------------------------------------
 .. include:: ../../includes_ctl_inspec/includes_ctl_inspec_check_syntax.rst
+
+Examples
+-----------------------------------------------------
+The following examples show how to use this subcommand.
+
+**Verify a profile**
+
+.. include:: ../../includes_ctl_inspec/includes_ctl_inspec_check_example_verify_profile.rst
 
 inspec detect
 =====================================================

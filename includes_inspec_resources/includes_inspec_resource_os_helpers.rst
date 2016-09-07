@@ -8,6 +8,7 @@ Use any of the following platform-specific helpers to test for specific platform
 
 * ``aix?``
 * ``bsd?`` (including |darwin|, |freebsd|, |netbsd|, and |open bsd|)
+* ``darwin?``
 * ``debian?``
 * ``hpux?``
 * ``linux?`` (including |alpine linux|, |amazon linux|, |archlinux|, |coreos|, |exherbo|, |fedora|, |gentoo|, and |slackware|)

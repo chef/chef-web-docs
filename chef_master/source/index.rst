@@ -560,6 +560,7 @@ Addenda
    inspec_postgres_session
    inspec_powershell
    inspec_process
+   inspec_profiles
    inspec_registry_key
    inspec_script
    inspec_security_policy
