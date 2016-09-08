@@ -299,7 +299,6 @@ Managing the Server
 :doc:`Secrets </delivery_manage_secrets>` |
 :doc:`Tuning </delivery_server_tuning>` |
 :doc:`Users and Roles </delivery_users_and_roles>` |
-:doc:`Ingest Data </ingest_data_chef_automate>` |
 :doc:`Stream Data </stream_data_chef_automate>` |
 `backup-data <http://docs.chef.io/ctl_delivery_server.html#backup-data>`_ |
 `cleanse <http://docs.chef.io/ctl_delivery_server.html#cleanse>`_ |
@@ -511,7 +510,6 @@ Addenda
    habitat
    habitat_prism
    handlers
-   ingest_data_chef_automate
    inspec
    inspec_reference
    inspec_apache_conf
