@@ -12,7 +12,7 @@ This configuration file has the following settings:
 
    .. code-block:: ruby
 
-      chef_server_url 'http://localhost:4000/organizations/ORG_NAME'
+      chef_server_url 'https://localhost/organizations/ORG_NAME'
 
 ``chef_zero.enabled``
    |chef_zero_enabled| This setting requires ``local_mode`` to be set to ``true``. Default value: ``false``. For example:

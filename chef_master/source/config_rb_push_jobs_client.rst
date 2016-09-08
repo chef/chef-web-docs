@@ -20,7 +20,7 @@ This configuration file has the following settings:
 
    .. code-block:: ruby
 
-      http://localhost:4000/organizations/ORG_NAME
+      https://localhost/organizations/ORG_NAME
 
 ``client_key``
    |client_key| Default value: ``/etc/chef/client.pem``.
