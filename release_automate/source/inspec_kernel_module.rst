@@ -1,25 +1,4 @@
-=====================================================
-kernel_module
-=====================================================
+.. THIS PAGE IS IDENTICAL TO docs.chef.io/inspec_kernel_module.html BY DESIGN
+.. THIS PAGE IS LOCATED AT THE /release/automate/ PATH.
 
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_kernel_module.rst
-
-Syntax
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_kernel_module_syntax.rst
-
-Matchers
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
-
-be_loaded
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_kernel_module_matcher_be_loaded.rst
-
-Examples
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
-
-**Test if a module is loaded**
-
-.. include:: ../../step_inspec/step_inspec_kernel_module_loaded.rst
+.. include:: ../../chef_master/source/inspec_kernel_module.rst

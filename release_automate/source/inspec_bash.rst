@@ -1,33 +1,4 @@
-=====================================================
-bash
-=====================================================
+.. THIS PAGE IS IDENTICAL TO docs.chef.io/inspec_bash.html BY DESIGN
+.. THIS PAGE IS LOCATED AT THE /release/automate/ PATH.
 
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_bash.rst
-
-Syntax
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_bash_syntax.rst
-
-Matchers
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
-
-exist
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_bash_matcher_exist.rst
-
-exit_status
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_bash_matcher_exit_status.rst
-
-stderr
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_bash_matcher_stderr.rst
-
-stdout
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_bash_matcher_stdout.rst
-
-Examples
------------------------------------------------------
-None.
+.. include:: ../../chef_master/source/inspec_bash.rst

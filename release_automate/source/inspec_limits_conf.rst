@@ -1,25 +1,4 @@
-=====================================================
-limits_conf
-=====================================================
+.. THIS PAGE IS IDENTICAL TO docs.chef.io/inspec_limits_conf.html BY DESIGN
+.. THIS PAGE IS LOCATED AT THE /release/automate/ PATH.
 
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_limits_conf.rst
-
-Syntax
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_limits_conf_syntax.rst
-
-Matchers
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
-
-domain
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_limits_conf_matcher_domain.rst
-
-Examples
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
-
-**Test limits**
-
-.. include:: ../../step_inspec/step_inspec_limits_conf_settings.rst
+.. include:: ../../chef_master/source/inspec_limits_conf.rst

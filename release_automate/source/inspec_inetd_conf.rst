@@ -1,25 +1,4 @@
-=====================================================
-inetd_conf
-=====================================================
+.. THIS PAGE IS IDENTICAL TO docs.chef.io/inspec_inetd_conf.html BY DESIGN
+.. THIS PAGE IS LOCATED AT THE /release/automate/ PATH.
 
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_inetd_conf.rst
-
-Syntax
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_inetd_conf_syntax.rst
-
-Matchers
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_inetd_conf_matcher_service_name.rst
-
-Examples
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
-
-**Verify that FTP is disabled**
-
-.. include:: ../../step_inspec/step_inspec_inetd_conf_ftp_disabled.rst
-
-**Test if telnet is installed**
-
-.. include:: ../../step_inspec/step_inspec_inetd_conf_telnet_installed.rst
+.. include:: ../../chef_master/source/inspec_inetd_conf.rst

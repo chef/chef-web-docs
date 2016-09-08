@@ -1,29 +1,4 @@
-=====================================================
-os_env
-=====================================================
+.. THIS PAGE IS IDENTICAL TO docs.chef.io/inspec_os_env.html BY DESIGN
+.. THIS PAGE IS LOCATED AT THE /release/automate/ PATH.
 
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_os_env.rst
-
-Syntax
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_os_env_syntax.rst
-
-Matchers
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
-
-content
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_os_env_matcher_content.rst
-
-split
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_os_env_matcher_split.rst
-
-Examples
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
-
-**Test the PATH environment variable**
-
-.. include:: ../../step_inspec/step_inspec_os_env_path.rst
+.. include:: ../../chef_master/source/inspec_os_env.rst

@@ -1,42 +1,4 @@
-=====================================================
-mysql_conf
-=====================================================
+.. THIS PAGE IS IDENTICAL TO docs.chef.io/inspec_mysql_conf.html BY DESIGN
+.. THIS PAGE IS LOCATED AT THE /release/automate/ PATH.
 
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_mysql_conf.rst
-
-Syntax
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_mysql_conf_syntax.rst
-
-Matchers
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
-
-setting
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_mysql_conf_matcher_setting.rst
-
-Examples
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
-
-**Test the maximum number of allowed connections**
-
-.. include:: ../../step_inspec/step_inspec_mysql_conf_max_allowed_connections.rst
-
-**Test slow query logging**
-
-.. include:: ../../step_inspec/step_inspec_mysql_conf_slow_query_logging.rst
-
-**Test the port and socket on which MySQL listens**
-
-.. include:: ../../step_inspec/step_inspec_mysql_conf_port_and_socket.rst
-
-**Test connection and thread variables**
-
-.. include:: ../../step_inspec/step_inspec_mysql_conf_thread_variables.rst
-
-**Test the safe-user-create parameter**
-
-.. include:: ../../step_inspec/step_inspec_mysql_conf_safe_user_create.rst
-  
+.. include:: ../../chef_master/source/inspec_mysql_conf.rst

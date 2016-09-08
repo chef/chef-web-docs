@@ -1,28 +1,4 @@
-=====================================================
-directory
-=====================================================
+.. THIS PAGE IS IDENTICAL TO docs.chef.io/inspec_directory.html BY DESIGN
+.. THIS PAGE IS LOCATED AT THE /release/automate/ PATH.
 
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_directory.rst
-
-Syntax
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_directory_syntax.rst
-
-Matchers
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_directory_matchers_same_as_file.rst
-
-.. 
-.. Examples
-.. -----------------------------------------------------
-.. The following examples show how to use this InSpec resource.
-.. 
-.. **xxxxx** 
-.. 
-.. xxxxx
-.. 
-.. **xxxxx** 
-.. 
-.. xxxxx
-.. 
-
+.. include:: ../../chef_master/source/inspec_directory.rst

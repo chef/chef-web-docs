@@ -1,21 +1,4 @@
-=====================================================
-ntp_conf
-=====================================================
+.. THIS PAGE IS IDENTICAL TO docs.chef.io/inspec_ntp_conf.html BY DESIGN
+.. THIS PAGE IS LOCATED AT THE /release/automate/ PATH.
 
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_ntp_conf.rst
-
-Syntax
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_ntp_conf_syntax.rst
-
-Matchers
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_ntp_conf_matcher_service_name.rst
-
-Examples
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
-
-**Test for clock drift against named servers**
-
-.. include:: ../../step_inspec/step_inspec_ntp_clock_drift.rst
+.. include:: ../../chef_master/source/inspec_ntp_conf.rst
