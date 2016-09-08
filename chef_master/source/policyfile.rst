@@ -82,10 +82,10 @@ knife bootstrap
 A node may be bootstrapped to use |policyfile| files. Use the following options as part of the bootstrap command:
 
 ``--policy-group POLICY_GROUP``
-   |name policy_name|
+   |name policy_group|
 
 ``--policy-name POLICY_NAME``
-   |name policy_group|
+   |name policy_name|
 
 For a customized bootstrap process, add ``policy_name`` and ``policy_group`` to the first-boot |json| file that is passed to the |chef client|.
 
