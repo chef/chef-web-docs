@@ -457,6 +457,7 @@ Addenda
    config_rb_solo
    config_rb_supermarket
    config_yml_kitchen
+   containers
    cookbook_repo
    cookbook_versions
    cookbooks
