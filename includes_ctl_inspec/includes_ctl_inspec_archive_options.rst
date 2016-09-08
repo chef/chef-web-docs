@@ -14,7 +14,7 @@ This subcommand has additional options:
    Use to overwrite an existing profile archive.
 
 ``--tar``
-   Use to generate a profile archive with tar.gz.
+   Use to generate a profile archive with |tar gz|.
 
 ``--zip``
-   Use to generate a profile archive with zip.
+   Use to generate a profile archive with |zip|.
