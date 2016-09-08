@@ -239,7 +239,7 @@ Use the ``require_controls`` keyword to load specific controls from the named pr
 
 
 Profile Archives
------------------------------------------------------
+=====================================================
 .. include:: ../../includes_ctl_inspec/includes_ctl_inspec_archive.rst
 
 **Create a profile archive as zip**
@@ -249,6 +249,4 @@ Profile Archives
 **Create a profile archive as tar**
 
 .. include:: ../../includes_ctl_inspec/includes_ctl_inspec_archive_example_tar.rst
-
-
 
