@@ -5,7 +5,7 @@ The ``handshake`` matcher tests the handshake message type:
 
 .. code-block:: ruby
 
-   its('handshake') { should eq 'handshake_type }
+   its('handshake') { should eq 'handshake_type' }
 
 where ``handshake_type`` is one of:
 
