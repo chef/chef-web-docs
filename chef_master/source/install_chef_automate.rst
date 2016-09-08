@@ -250,8 +250,8 @@ To install Chef Automate:
 
       sudo delivery-ctl setup --license $AUTOMATE_LICENSE \
                              --key $AUTOMATE_CHEF_USER_KEY \
-                             --server-url https://$AUTOMATE_SERVER_FQDN/organizations/$AUTOMATE_CHEF_ORG \
-                             --fqdn $FQDN
+                             --server-url https://$CHEF_SERVER_FQDN/organizations/$AUTOMATE_CHEF_ORG \
+                             --fqdn $AUTOMATE_SERVER_FQDN
 
    ``$AUTOMATE_LICENSE`` is the path to your Chef Automate license file. 
 
