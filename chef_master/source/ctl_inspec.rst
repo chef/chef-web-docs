@@ -58,6 +58,14 @@ Syntax
 -----------------------------------------------------
 .. include:: ../../includes_ctl_inspec/includes_ctl_inspec_detect_syntax.rst
 
+Options
+-----------------------------------------------------
+.. include:: ../../includes_ctl_inspec/includes_ctl_inspec_detect_options.rst
+
+inspec env
+=====================================================
+.. include:: ../../includes_ctl_inspec/includes_ctl_inspec_env.rst
+
 inspec exec
 =====================================================
 .. include:: ../../includes_ctl_inspec/includes_ctl_inspec_exec.rst
@@ -118,6 +126,14 @@ inspec shell
 =====================================================
 .. include:: ../../includes_ctl_inspec/includes_ctl_inspec_shell.rst
 
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_ctl_inspec/includes_ctl_inspec_shell_syntax.rst
+
+Options
+-----------------------------------------------------
+.. include:: ../../includes_ctl_inspec/includes_ctl_inspec_shell_options.rst
+
 Debug Controls
 -----------------------------------------------------
 .. include:: ../../includes_dsl_inspec/includes_dsl_inspec_debug.rst
@@ -129,7 +145,6 @@ Use |pry|
 Use inspec shell
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_dsl_inspec/includes_dsl_inspec_debug_inspec_shell.rst
-
 
 inspec version
 =====================================================

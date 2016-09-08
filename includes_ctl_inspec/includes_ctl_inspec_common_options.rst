@@ -7,14 +7,26 @@ The following options may be used with any of the |inspec cli| subcommands:
 ``-b``, ``--backend``
    Specify the backend. Possible values: ``docker``, ``local``, ``ssh``, or ``winrm``.
 
+``--diagnose``
+   Use to show diagnostics information.
+
 ``--disable_sudo``
    Use to prevent remote scanning via sudo. Default value: ``false``.
 
 ``--host``
    The remote host to be tested.
 
+``--json PATH``
+   Use to read all tests specified by ``PATH``, and then generate a summary in |json| format.
+
 ``--key-files``
    The login key or certificate file required for remote scanning.
+
+``-l LEVEL``, ``--log-level LEVEL``
+   Use to specify the log level. Possible values: ``debug``, ``error``, ``info`` (default), or ``warn``.
+
+``--log-location``
+   Use to specify the location to which log messages are sent. Possible values: ``STDOUT`` (default) and ``STDERR``.
 
 ``--password``
    The login password for remote scanning.
