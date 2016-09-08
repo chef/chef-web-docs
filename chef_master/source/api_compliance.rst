@@ -2,7 +2,7 @@
 |api compliance|
 =====================================================
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst
 
 The |api compliance| is a REST-based API that is designed to be easy and predictable and to have resource-oriented URL endpoints. It uses common HTTP verbs and response codes to indicate API errors. Therefore the API can be understood by standard HTTP clients and libraries. In general the API uses |json| as data input and output format.
 
@@ -1917,6 +1917,57 @@ The response will return a |json| object similar to:
    {
      "id": "57130678-1a1f-405d-70bf-fe570a25621e"
    }
+
+DELETE (single scan)
+-----------------------------------------------------
+Delete one scan specified in the URL. If this is the most recent scan of a node, the node will be marked as never scanned.
+
+**Request**
+
+.. code-block:: xml
+
+ DELETE /api/owners/USER/scans/SCAN_ID
+
+For example:
+
+.. code-block:: bash
+
+ curl -w "%{http_code}" -X DELETE "$API_URL/owners/john/scans/57130678-1a1f-405d-70bf-fe570a25621e" -H "$AUTH"
+
+**Response**
+
+No Content
+
+
+DELETE (bulk)
+-----------------------------------------------------
+Delete one or multiple scans specified in the payload of the request.
+
+**Request**
+
+.. code-block:: xml
+
+  DELETE /api/owners/USER/scans
+
+with a |json| array of scan ids:
+
+.. code-block:: javascript
+
+ [
+   "57130678-1a1f-405d-70bf-fe570a25621e",
+   "90def607-1688-40f5-5a4c-161c51fd8aac"
+ ]
+
+For example:
+
+.. code-block:: bash
+
+  curl -w "%{http_code}" -X DELETE "$API_URL/owners/john/scans" -H "$AUTH" \
+  -d '["57130678-1a1f-405d-70bf-fe570a25621e","90def607-1688-40f5-5a4c-161c51fd8aac"]'
+
+**Response**
+
+No Content
 
 /scans/SCAN_ID/rules
 =====================================================
