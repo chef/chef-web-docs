@@ -272,7 +272,7 @@ Setup
 -----------------------------------------------------
 :doc:`Configure a Pipeline </delivery_pipeline>` |
 :doc:`Configure a Project </config_json_delivery>` |
-:doc:`Enable Visibility </setup_visibility_chef_automate>`
+:doc:`Configure Data Collection </setup_visibility_chef_automate>`
 
 Concepts
 -----------------------------------------------------
