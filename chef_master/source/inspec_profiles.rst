@@ -238,6 +238,42 @@ Use the ``require_controls`` keyword to load specific controls from the named pr
    end
 
 
+Profile Attributes
+=====================================================
+
+Attributes may be used in profiles to define secrets, such as user names and passwords, that should not otherwise be stored in plain-text in a cookbook. First specify a variable in the control for each secret, then add the secret to a |yaml| file located on the local machine, and then run ``inspec exec`` and specify the path to that |yaml| file using the ``--attrs`` attribute.
+
+For example, a control:
+
+.. code-block:: ruby
+
+   val_user = attribute('user', default: 'alice', description: 'An identification for the user')
+   val_password = attribute('password', description: 'A value for the password')
+   
+   describe val_user do
+     it { should eq 'bob' }
+   end
+   
+   describe val_password do
+     it { should eq 'secret' }
+   end
+
+And a |yaml| file named ``profile-attribute.yml``:
+
+.. code-block:: yaml
+
+   user: bob
+   password: secret
+
+The following command runs the tests and applies the secrets specified in ``profile-attribute.yml``:  
+
+.. code-block:: bash
+
+   $ inspec exec examples/profile-attribute --attrs examples/profile-attribute.yml
+
+See `the full example at <https://github.com/chef/inspec/tree/master/examples/profile-attribute>`__ in the InSpec open source repository.
+
+
 Profile Archives
 =====================================================
 .. include:: ../../includes_ctl_inspec/includes_ctl_inspec_archive.rst
@@ -249,4 +285,6 @@ Profile Archives
 **Create a profile archive as tar**
 
 .. include:: ../../includes_ctl_inspec/includes_ctl_inspec_archive_example_tar.rst
+
+
 
