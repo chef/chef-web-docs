@@ -71,14 +71,14 @@ This configuration file has the following settings:
 
    .. code-block:: ruby
 
-      chef_server_url 'http://localhost:4000'
+      chef_server_url 'https://localhost/'
 
 ``chef_server_url``
    |chef_server_url| For example:
 
    .. code-block:: ruby
 
-      chef_server_url 'http://localhost:4000'
+      chef_server_url 'https://localhost/'
 
 ``client_registration_retries``
    |client_registration_retries| Default value: ``5``. For example:
