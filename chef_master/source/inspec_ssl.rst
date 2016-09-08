@@ -52,9 +52,13 @@ eq
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_eq.rst
 
-handshake
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_ssl_matcher_handshake.rst
+.. 
+.. commented out, see source file for more info
+.. 
+.. handshake
+.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. .. include:: ../../includes_inspec_resources/includes_inspec_resource_ssl_matcher_handshake.rst
+.. 
 
 include
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
