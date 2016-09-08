@@ -258,7 +258,7 @@ To install Chef Automate:
    ``$AUTOMATE_CHEF_USER_KEY`` is the key that was created in the previous section on your Chef server.
    Copy it from the Chef server to the Chef Automate server and then provide the path for the ``--key`` argument.
 
-   ``$FQDN`` is the external fully-qualified domain name of the |automate| server.
+   ``$AUTOMATE_SERVER_FQDN`` is the external fully-qualified domain name of the |automate| server.
 
 #. (Optional) If you are using an internal Supermarket, tell the setup command about it by supplying the ``--supermarket-fqdn`` command line argument:
 
@@ -370,4 +370,4 @@ Delivery-truck is Chef Automate's recommended way of setting up build cookbooks.
 Next steps
 =====================================================
 
-After you have setup your Chef Server, |automate|, and any build nodes, you must also perform additional configuration steps on nodes to visualize their data in |automate|. See :doc:`Ingest Node Data into Chef Automate </ingest_data_chef_automate>` for more information.
+After you have setup your Chef Server, |automate|, and any build nodes, you must also perform additional configuration steps on nodes to visualize their data in |automate|. See :doc:`Setup and Configure Visibility in Chef Automate </setup_visibility_chef_automate>` for more information.

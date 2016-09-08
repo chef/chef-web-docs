@@ -699,5 +699,6 @@
   "release/delivery_1-0/integrate_delivery_ldap.html": "/integrate_delivery_ldap.html",
   "supported_platforms.html": "/platforms.html",
   "start_compliance.html": "/compliance.html",
-  "start_delivery.html": "/workflow.html"
+  "start_delivery.html": "/workflow.html",
+  "ingest_data_chef_automate.html": "/setup_visibility_chef_automate.html"
 }

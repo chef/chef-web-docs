@@ -2,21 +2,24 @@
 Setup and Configure Visibility in Chef Automate
 =====================================================
 
-Before using the visibility capabilities of |automate|, you must perform some simple setup and configuration steps to enable visibility.
+Before using the visibility capabilities of |automate|, you must perform some simple setup and configuration steps to before the nodes in your cluster can send data to your |automate| server.
 
-Prerequisites
-================================================================
-
-* Chef Automate Server with workflow and visibility installed
-* Elasticsearch (version 2.3.0 or greater)
-
-Elasticsearch Configuration
-================================================================
+Use an external Elasticsearch cluster
+=====================================================
 
 Chef Automate uses Elasticsearch to store its data, and the default Chef Automate install includes a
 single Elasticsearch service. This single service is sufficient for testing but is likely to not be
 sufficient for production loads. Therefore, we recommend using a multi-node Elasticsearch cluster
 with replication and sharding to store and protect your data.
+
+Prerequisites
+-----------------------------------------------------
+
+* Chef Automate Server with workflow and visibility installed
+* Elasticsearch (version 2.3.0 or greater)
+
+Elasticsearch configuration
+-----------------------------------------------------
 
 To utilize an external Elasticsearch installation, set the following configuration option in your
 ``/etc/delivery/delivery.rb``:
@@ -39,8 +42,38 @@ HTTP ``Host`` header to send with the request. When this attribute is unspecifie
 
 When this attribute *is* specified, the supplied string will be sent as the ``Host`` header on all requests. This may be required for some third-party Elasticsearch offerings.
 
-Understanding and (optionally) creating data collector tokens
-================================================================
+Add Chef Automate certificate to `trusted_certs` directory
+==============================================================
+
+The visibilty features of |automate| require that any self-signed |automate| SSL certificate (``HOSTNAME.crt``) is located 
+in the ``/etc/chef/trusted_certs`` directory on any node that wants to send data to |automate|. This directory is the location into 
+which |ssl| certificates are placed when a node has been bootstrapped with |chef client|. 
+
+To ensure the certificate is in the ``trusted_certs`` directory, you can use utilities such as `scp` or `rsync` to copy 
+``/var/opt/delivery/nginx/ca/HOSTNAME.crt`` from the |automate| server to the ``/etc/chef/trusted_certs`` directory on the 
+node in your |automate| cluster, or use ``knife ssl fetch`` and pass in the URL of the |automate| server when calling the ``fetch`` subcommand.
+
+.. note:: This only applies to self-signed SSL certificates. Any certificate signed by certificate authority should work without any additional configuration required.
+
+Configure Nodes
+=====================================================
+
+To view data in the **Node State** dashboard of |automate|, it must be ingested from 
+Chef clients and/or servers through HTTP POST requests to a data collector endpoint on the |automate| server. 
+Node data, resource convergence status, error messages, and other information is collected during chef-client runs and 
+used to populate the dashboard. 
+
+At a minimum, nodes must be configured to send their data to |automate| by specifying the data collector endpoint and a token value. You can further configure the data collector functionality 
+depending on the needs and requirements of your business.
+
+Prerequisites
+-------------------------------------------------------
+
+* Chef Client (version 12.12.15 or greater)
+* Chef Server (version 12.8 or greater)
+
+Understand and (optionally) create data collector tokens
+-----------------------------------------------------------------
 
 When streaming data to |automate|, POST requests are sent to the data collector endpoint on the |automate| server. Those requests must be authenticated, 
 and a token is used in the authentication process. The token is a SHA-256 checksum of a shared secret that Chef Automate's 
@@ -48,11 +81,99 @@ data collector uses to authenticate POST requests made to the data collector end
 as long as the same value is used between |automate| and your Chef server and/or Chef clients. If unspecified in the |automate| server's ``delivery.rb`` file, the 
 default value for the token is ``'93a49a4f2482c64126f7b6015e6b0f30284287ee4054ff8807fb63d9cbd1c506'``. You may use this value when configuring your nodes.
 
-If you choose to create your own token, add ``data_collector['token'] = 'sometokenvalue'`` to your ``/etc/delivery/delivery.rb`` file. Save your changes 
+If you choose to create your own token, add ``data_collector['token'] = 'sometokenvalue'`` to your ``/etc/delivery/delivery.rb`` file on your |automate| server. Save your changes 
 and then run ``sudo delivery-ctl reconfigure``.
 
-Setting up visibility with previous Chef Delivery installation
-================================================================
+Configure Chef Client to send node and converge data
+-------------------------------------------------------
+
+The data collector functionality is used by the Chef Client to send node and converge data to |automate|. This 
+feature works for the following: Chef Client, Chef Solo (formerly "Chef Client LocalMode"), and Chef Solo Legacy Mode 
+(formerly "Chef Solo").
+
+To send node and converge data to |automate|, modify your Chef config (that is
+`client.rb`, `solo.rb`, or add an additional config file in an appropriate directory, such as
+`client.d`) to contain the following configuration:
+
+.. code-block:: ruby
+
+   data_collector.server_url "https://my-automate-server.mycompany.com/data-collector/v0/"
+   data_collector.token "TOKEN"
+
+where ``my-automate-server.mycompany.com`` is the fully-qualified domain name of your |automate| server and
+``TOKEN`` is the token value you are using for the authentication process.
+
+Additional configuration options include:
+
+  * ``data_collector.mode``: The mode in which the data collector is allowed to operate. This
+    can be used to run data collector only when running as Chef Solo but not when using Chef Client.
+    Options: ``:solo`` (for both Solo Legacy Mode and Solo Mode), ``:client``, or ``:both``.  Default:
+    ``:both``.
+  * ``data_collector.raise_on_failure``: When the data collector cannot send the "starting a run"
+    message to the data collector server, the data collector will be disabled for that run. In some
+    situations, such as highly-regulated environments, it may be more reasonable to prevent Chef
+    from performing the actual run. In these situations, setting this value to ``true`` will cause the
+    Chef run to raise an exception before starting any converge activities. Default: ``false``.
+  * ``data_collector.organization``: A user-supplied organization string that can be sent in
+    payloads generated by the data collector when Chef is run in Solo mode. This allows users to
+    associate their Solo nodes with faux organizations without the nodes being connected to an
+    actual Chef Server.
+
+Configure Chef Client to send InSpec data
+-------------------------------------------------------
+
+To send InSpec data as part of a Chef client run, you will need to use the `audit cookbook <https://github.com/chef-cookbooks/audit>`_. All profiles, which are configured to run during the audit cookbook execution, will send their results back to the Chef Automate server.
+
+To configure the audit cookbook, you will first need to configure the Chef client to send node converge data, as previously described. The ``data_collector.server_url`` and ``data_collector.token`` values will be used as the reporting targets. Once you have done that, configure the the audit cookbook's collector by setting the ``audit.collector`` attribute to ``chef-visibility``. 
+
+A complete audit cookbook attribute configuration would look something like this:
+
+.. code-block:: javascript
+
+    audit: {
+      collector: 'chef-visibility',
+      profiles: {
+        'cis/cis-centos6-level1' => true
+      }
+    }
+
+Configure Chef Server to send Server Object data
+-------------------------------------------------------
+
+|chef server| can be configured to send messages to |automate| whenever an action is taken on a |chef server| object, such as when a cookbook is uploaded to the |chef server| or when a user edits a role.
+
+To enable this feature, add the following settings to ``/etc/opscode/chef-server.rb`` on the |chef server|:
+
+.. code-block:: ruby
+
+   data_collector['root_url'] = 'https://my-automate-server.mycompany.com/data-collector/v0/'
+   data_collector['token'] = 'TOKEN'
+
+where ``my-automate-server.mycompany.com`` is the fully-qualified domain name of your Chef Automate server, and
+``TOKEN`` is the token value you are using for the authentication process.
+
+Save the file and run ``chef-server-ctl reconfigure`` to complete the process.
+
+Additional configuration options include:
+
+ * ``data_collector['timeout']``: timeout in milliseconds to abort an attempt to send a message to the
+   |automate| server. Default: ``30000``.
+ * ``data_collector['http_init_count']``: number of |automate| HTTP workers Chef Server should start.
+   Default: ``25``.
+ * ``data_collector['http_max_count']``: maximum number of |automate| HTTP workers Chef Server should
+   allow to exist at any time. Default: ``100``.
+ * ``data_collector['http_max_age']``: maximum age a |automate| HTTP worker should be allowed to live,
+   specified as an Erlang tuple. Default: ``{70, sec}``.
+ * ``data_collector['http_cull_interval']``: how often Chef Server should cull aged-out |automate|
+   HTTP workers that have exceeded their ``http_max_age``, specified as an Erlang tuple. Default: ``{1,
+   min}``.
+ * ``data_collector['http_max_connection_duration']``: maximum duration an HTTP connection is allowed
+   to exist before it is terminated, specified as an Erlang tuple. Default: ``{70, sec}``.
+
+.. note:: If you define a new organization in your Chef server, but it does not have any nodes associated with it, that organization will not show up in the **Nodes** section of the |automate| UI. This is also true for roles, cookbooks, recipes, attributes, resources, node names, and environments that are not associated with a node in the |automate| cluster.
+
+Set up visibility with previous Chef Delivery installation
+===============================================================
 
 .. note:: Visibility is automatically installed as part of the Chef Automate installation. The following instructions **only** apply to customers who have previously installed Chef Delivery as a stand alone implementation. If you are using visibility in |automate|, you can skip this section.
 
@@ -67,4 +188,4 @@ on your Chef Delivery server and add the following settings:
 Create an authentication token (as described in the previous section) and then run ``sudo delivery-ctl reconfigure`` to complete the process.
 
 Now that you have a token value selected, you are ready to configure your Chef server and any Chef client 
-nodes to start streaming events to |automate|. See :doc:`Ingest Data </ingest_data_chef_automate>` for more details.
+nodes to start streaming data to |automate|.
