@@ -568,6 +568,7 @@ Addenda
    inspec_ssh_config
    inspec_sshd_config
    inspec_ssl
+   inspec_sys_info
    inspec_user
    inspec_windows_feature
    inspec_vbscript
