@@ -2,7 +2,7 @@
 Setup and Configure Visibility in Chef Automate
 =====================================================
 
-Before using the visibility capabilities of |automate|, you must perform some simple setup and configuration steps to before the nodes in your cluster can send data to your |automate| server.
+Before using the visibility capabilities of |automate|, you must perform some simple setup and configuration steps before the nodes in your cluster can send data to your |automate| server.
 
 Use an external Elasticsearch cluster
 =====================================================
