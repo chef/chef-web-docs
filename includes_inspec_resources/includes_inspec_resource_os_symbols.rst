@@ -7,7 +7,7 @@ Use ``os[:family]`` to enable more granular testing of platforms, platform names
 Use any of the following platform-specific symbols to test for specific platforms:
 
 * ``:aix``
-* ``:bsd`` For platforms that are part of the |bsd| family: ``:darwin``, ``:freebsd``, ``:netbsd``, and ``:openbsd``.
+* ``:bsd`` For platforms that are part of the |berkeley os| family: ``:darwin``, ``:freebsd``, ``:netbsd``, and ``:openbsd``.
 * ``:debian``
 * ``:hpux``
 * ``:linux``. For platforms that are part of the |linux| family: ``:alpine``, ``:amazon``, ``:arch``, ``:coreos``, ``:exherbo``, ``:fedora``, ``:gentoo``, and ``:slackware``.

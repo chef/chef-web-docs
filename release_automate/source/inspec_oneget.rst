@@ -1,29 +1,4 @@
-=====================================================
-oneget
-=====================================================
+.. THIS PAGE IS IDENTICAL TO docs.chef.io/inspec_oneget.html BY DESIGN
+.. THIS PAGE IS LOCATED AT THE /release/automate/ PATH.
 
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_oneget.rst
-
-Syntax
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_oneget_syntax.rst
-
-Matchers
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
-
-be_installed
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_oneget_matcher_be_installed.rst
-
-version
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_oneget_matcher_version.rst
-
-Examples
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
-
-**Test if VLC is installed**
-
-.. include:: ../../step_inspec/step_inspec_oneget_vlc_installed.rst
+.. include:: ../../chef_master/source/inspec_oneget.rst

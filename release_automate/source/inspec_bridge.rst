@@ -1,41 +1,4 @@
-=====================================================
-bridge
-=====================================================
+.. THIS PAGE IS IDENTICAL TO docs.chef.io/inspec_bridge.html BY DESIGN
+.. THIS PAGE IS LOCATED AT THE /release/automate/ PATH.
 
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_bridge.rst
-
-Syntax
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_bridge_syntax.rst
-
-Matchers
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
-
-exist
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_bridge_matcher_exist.rst
-
-have_interface
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_bridge_matcher_have_interface.rst
-
-interfaces
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_bridge_matcher_interfaces.rst
-
-.. 
-.. Examples
-.. -----------------------------------------------------
-.. The following examples show how to use this InSpec resource.
-.. 
-.. **xxxxx** 
-.. 
-.. xxxxx
-.. 
-.. **xxxxx** 
-.. 
-.. xxxxx
-.. 
-
-
+.. include:: ../../chef_master/source/inspec_bridge.rst

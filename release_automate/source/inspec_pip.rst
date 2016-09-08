@@ -1,33 +1,4 @@
-=====================================================
-pip
-=====================================================
+.. THIS PAGE IS IDENTICAL TO docs.chef.io/inspec_pip.html BY DESIGN
+.. THIS PAGE IS LOCATED AT THE /release/automate/ PATH.
 
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_pip.rst
-
-Syntax
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_pip_syntax.rst
-
-Matchers
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
-
-be_installed
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_pip_matcher_be_installed.rst
-
-version
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_pip_matcher_version.rst
-
-Examples
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
-
-**Test if Jinja2 is installed on the system**
-
-.. include:: ../../step_inspec/step_inspec_pip_jinja2_installed.rst
-
-**Test if Jinja2 2.8 is installed on the system**
-
-.. include:: ../../step_inspec/step_inspec_pip_jinja2_version_installed.rst
+.. include:: ../../chef_master/source/inspec_pip.rst

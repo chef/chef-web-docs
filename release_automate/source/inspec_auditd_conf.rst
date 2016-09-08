@@ -1,21 +1,4 @@
-=====================================================
-auditd_conf
-=====================================================
+.. THIS PAGE IS IDENTICAL TO docs.chef.io/inspec_auditd_conf.html BY DESIGN
+.. THIS PAGE IS LOCATED AT THE /release/automate/ PATH.
 
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_auditd_conf.rst
-
-Syntax
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_auditd_conf_syntax.rst
-
-Matchers
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_auditd_conf_matcher_keyword.rst
-
-Examples
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
-
-**Test the auditd.conf file**
-
-.. include:: ../../step_inspec/step_inspec_auditd_conf_settings.rst
+.. include:: ../../chef_master/source/inspec_auditd_conf.rst
