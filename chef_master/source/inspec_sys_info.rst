@@ -18,4 +18,12 @@ hostname
 
 Examples
 -----------------------------------------------------
-None.
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+
+**Get system information for example.com**
+
+.. code-block:: ruby
+
+   describe sys_info do
+     its('hostname') { should eq 'example.com' }
+   end
