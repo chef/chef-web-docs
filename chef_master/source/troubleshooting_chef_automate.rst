@@ -165,10 +165,7 @@ Visibility
 
 The following is a possible issue you might run into when using the visibility capabilities in |automate|.
 
-Issue: New organization in Chef server does not show up in |automate| UI
+Issue: Data does not show up in |automate| UI
 ------------------------------------------------------------------------------------
 
-If an organization does not have any nodes associated with it, it does not show up in the **Nodes** section of the |automate| UI. 
-This is also true for roles, cookbooks, recipes, attributes, resources, node names, and environments. Only those items
-that have a node associated with them will appear in the UI. |automate| has all the data for all of these, but does 
-not highlight them in the UI. This is designed to keep the UI focused on the nodes in your cluster.
+.. include:: ../../includes_chef_automate/includes_chef_automate_visibility_no_data_troubleshoot.rst

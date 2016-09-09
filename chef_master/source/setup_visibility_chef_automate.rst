@@ -170,8 +170,6 @@ Additional configuration options include:
  * ``data_collector['http_max_connection_duration']``: maximum duration an HTTP connection is allowed
    to exist before it is terminated, specified as an Erlang tuple. Default: ``{70, sec}``.
 
-.. note:: If you define a new organization in your Chef server, but it does not have any nodes associated with it, that organization will not show up in the **Nodes** section of the |automate| UI. This is also true for roles, cookbooks, recipes, attributes, resources, node names, and environments that are not associated with a node in the |automate| cluster.
-
 Set up visibility with previous Chef Delivery installation
 ===============================================================
 
@@ -189,3 +187,8 @@ Create an authentication token (as described in the previous section) and then r
 
 Now that you have a token value selected, you are ready to configure your Chef server and any Chef client 
 nodes to start streaming data to |automate|.
+
+Troubleshooting: My data does not show up in the UI
+=====================================================
+
+.. include:: ../../includes_chef_automate/includes_chef_automate_visibility_no_data_troubleshoot.rst
