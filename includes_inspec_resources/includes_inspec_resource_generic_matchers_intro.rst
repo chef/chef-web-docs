@@ -2,4 +2,4 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-This |inspec resource| has the following matchers.
+This |inspec resource| has the following matchers:
