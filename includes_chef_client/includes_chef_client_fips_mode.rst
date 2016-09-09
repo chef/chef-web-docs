@@ -9,5 +9,5 @@
 Notes about |fips|:
 
 * May be enabled for nodes running on |windows| and |enterprise_linux| platforms
-* Should should only be enabled for environments that require |fips_current| compliance
+* Should only be enabled for environments that require |fips_current| compliance
 * May not be enabled for any version of the |chef client| earlier than 12.8
