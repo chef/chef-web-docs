@@ -23,7 +23,7 @@ import sys, os
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.todo']
+extensions = ['sphinx.ext.todo', 'sphinxcontrib.restbuilder']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates', '../../_templates']
@@ -183,4 +183,3 @@ html_show_copyright = True
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'chef-client 11.0 Documentation'
-

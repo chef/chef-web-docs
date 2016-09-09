@@ -7,6 +7,103 @@ InSpec Reference
 See below for more information about each |inspec resource|, its related matchers, and examples of how to use it in a recipe.
 
 
+Custom Audit Resources
+=====================================================
+.. include:: ../../includes_dsl_inspec/includes_dsl_inspec_custom_audit_resource.rst
+
+Cookbook Location
+-----------------------------------------------------
+.. include:: ../../includes_dsl_inspec/includes_dsl_inspec_custom_audit_resource_location.rst
+
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_dsl_inspec/includes_dsl_inspec_custom_audit_resource_syntax.rst
+
+Properties
+-----------------------------------------------------
+.. include:: ../../includes_dsl_inspec/includes_dsl_inspec_custom_audit_resource_properties.rst
+
+Methods
+-----------------------------------------------------
+.. include:: ../../includes_dsl_inspec/includes_dsl_inspec_custom_audit_resource_methods.rst
+
+Example
+-----------------------------------------------------
+.. include:: ../../includes_dsl_inspec/includes_dsl_inspec_custom_audit_resource_example.rst
+
+
+About the |dsl inspec|
+=====================================================
+.. include:: ../../includes_dsl_inspec/includes_dsl_inspec.rst
+
+|ruby| Execution
+-----------------------------------------------------
+.. include:: ../../includes_dsl_inspec/includes_dsl_inspec_ruby.rst
+
+Debug Controls
+-----------------------------------------------------
+.. include:: ../../includes_dsl_inspec/includes_dsl_inspec_debug.rst
+
+Use |pry|
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_dsl_inspec/includes_dsl_inspec_debug_pry.rst
+
+Use inspec shell
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_dsl_inspec/includes_dsl_inspec_debug_inspec_shell.rst
+
+
+Common Matchers
+=====================================================
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher.rst
+
+
+be
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_be.rst
+
+cmp
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp.rst
+
+**Compare single value to array**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_value_vs_array.rst
+
+**Compare strings and regular expressions**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_regex.rst
+
+**Compare strings and numbers**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_number.rst
+
+**Ignoring case sensitivity**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_case_sensitive.rst
+
+**Printing octals**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_octals.rst
+
+eq
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_eq.rst
+
+include
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_include.rst
+
+match
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_match.rst
+
+
+os[:family] Symbols
+=====================================================
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_os_symbols.rst
+
+
 apache_conf
 =====================================================
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_apache_conf.rst
@@ -130,6 +227,48 @@ Examples
 **Test if a rule contains a matching element that is identified by a regular expression**
 
 .. include:: ../../step_inspec/step_inspec_auditd_rules_match_element.rst
+
+**Query the audit daemon status**
+
+.. include:: ../../step_inspec/step_inspec_auditd_rules_query_daemon_status.rst
+
+**Query properties of rules targeting specific syscalls or files**
+
+.. include:: ../../step_inspec/step_inspec_auditd_rules_query_rules_properties.rst
+
+
+bash
+=====================================================
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_bash.rst
+
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_bash_syntax.rst
+
+Matchers
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+
+exist
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_bash_matcher_exist.rst
+
+exit_status
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_bash_matcher_exit_status.rst
+
+stderr
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_bash_matcher_stderr.rst
+
+stdout
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_bash_matcher_stdout.rst
+
+Examples
+-----------------------------------------------------
+None.
 
 
 bond
@@ -272,6 +411,13 @@ Examples
 
 .. include:: ../../step_inspec/step_inspec_command_should_not_exist.rst
 
+**Verify NTP**
+
+.. include:: ../../step_inspec/step_inspec_command_verify_ntp.rst
+
+**Verify WiX**
+
+.. include:: ../../step_inspec/step_inspec_file_verify_wix.rst
 
 csv
 =====================================================
@@ -586,6 +732,13 @@ Examples
 
 .. include:: ../../step_inspec/step_inspec_file_sha256_checksum.rst
 
+**Verify NTP**
+
+.. include:: ../../step_inspec/step_inspec_command_verify_ntp.rst
+
+**Verify WiX**
+
+.. include:: ../../step_inspec/step_inspec_file_verify_wix.rst
 
 gem
 =====================================================
@@ -925,6 +1078,45 @@ Examples
 .. include:: ../../step_inspec/step_inspec_login_defs_umask.rst
 
 
+
+mount
+=====================================================
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_mount.rst
+
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_mount_syntax.rst
+
+Matchers
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+
+be_mounted
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_mount_matcher_be_mounted.rst
+
+device
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_mount_matcher_device.rst
+
+options
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_mount_matcher_options.rst
+
+type
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_mount_matcher_type.rst
+
+Examples
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+
+**Test a the mount point on '/'**
+
+.. include:: ../../step_inspec/step_inspec_mount_point.rst
+
+
+
 mysql_conf
 =====================================================
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_mysql_conf.rst
@@ -1086,6 +1278,10 @@ Matchers
 -----------------------------------------------------
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_no_matchers.rst
 
+os.family? Helpers
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_os_helpers.rst
+
 Examples
 -----------------------------------------------------
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
@@ -1131,6 +1327,9 @@ Examples
 
 .. include:: ../../step_inspec/step_inspec_os_env_path.rst
 
+**Test Habitat environment variables**
+
+.. include:: ../../step_inspec/step_inspec_os_env_habitat.rst
 
 package
 =====================================================
@@ -1172,6 +1371,9 @@ Examples
 
 .. include:: ../../step_inspec/step_inspec_package_clamav_installed.rst
 
+**Verify if Memcached is installed, enabled, and running** 
+
+.. include:: ../../step_inspec/step_inspec_service_memcached.rst
 
 parse_config
 =====================================================
@@ -1279,33 +1481,29 @@ gids
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_gids.rst
 
+homes
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_homes.rst
+
+length
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_length.rst
+
 passwords
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_passwords.rst
+
+shells
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_shells.rst
 
 uids
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_uids.rst
 
-usernames
+users
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_usernames.rst
-
-Matchers for passwd.uid(userid)
------------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
-
-count
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_count.rst
-
-uid
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_uid.rst
-
-username
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_username.rst
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_passwd_matcher_users.rst
 
 Examples
 -----------------------------------------------------
@@ -1364,6 +1562,10 @@ Matchers
 -----------------------------------------------------
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
+address
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_port_matcher_address.rst
+
 be_listening
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_port_matcher_be_listening.rst
@@ -1388,6 +1590,10 @@ Examples
 
 .. include:: ../../step_inspec/step_inspec_port_listen_with_tcp.rst
 
+**Test port 80, on a specific address**
+
+.. include:: ../../step_inspec/step_inspec_port_listen_test_port_80.rst
+
 **Test port 80, listening with TCP version IPv6 protocol**
 
 .. include:: ../../step_inspec/step_inspec_port_listen_with_tcp_and_ipv6.rst
@@ -1395,6 +1601,14 @@ Examples
 **Test that only secure ports accept requests**
 
 .. include:: ../../step_inspec/step_inspec_port_listen_on_secure_ports.rst
+
+**Verify if Memcached is installed, enabled, and running** 
+
+.. include:: ../../step_inspec/step_inspec_service_memcached.rst
+
+**Verify port 65432 is not listening** 
+
+.. include:: ../../step_inspec/step_inspec_port_not_listen_port_65432.rst
 
 
 postgres_conf
@@ -1512,6 +1726,26 @@ Matchers
 -----------------------------------------------------
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
+children
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_registry_key_matcher_children.rst
+
+exists
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_registry_key_matcher_exists.rst
+
+have_property
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_registry_key_matcher_have_property.rst
+
+have_property_value
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_registry_key_matcher_have_property_value.rst
+
+have_value
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_registry_key_matcher_have_value.rst
+
 name
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_registry_key_matcher_name.rst
@@ -1524,6 +1758,9 @@ Examples
 
 .. include:: ../../step_inspec/step_inspec_registry_key_schedule_service.rst
 
+**Use a regular expression in responses**
+
+.. include:: ../../step_inspec/step_inspec_registry_key_use_regex_in_response.rst
 
 script
 =====================================================
@@ -1623,6 +1860,17 @@ Examples
 
 .. include:: ../../step_inspec/step_inspec_service_clamav.rst
 
+**Test Unix System V run levels**
+
+.. include:: ../../step_inspec/step_inspec_service_sysv.rst
+
+**Override the service manager**
+
+.. include:: ../../step_inspec/step_inspec_service_override_service_manager.rst
+
+**Verify if Memcached is installed, enabled, and running** 
+
+.. include:: ../../step_inspec/step_inspec_service_memcached.rst
 
 ssh_config
 =====================================================
@@ -1844,6 +2092,10 @@ repo('name')
 repos
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_yum_matcher_repos.rst
+
+shortname
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_yum_matcher_shortname.rst
 
 Examples
 -----------------------------------------------------
