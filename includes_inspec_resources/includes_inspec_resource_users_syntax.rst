@@ -13,7 +13,19 @@ A ``users`` |inspec resource| block declares a user name, and then one (or more)
 
 where
 
-* ``('root')`` is the user to be tested
-* ``it { should exist }`` tests if the user exists
 * ``gid``, ``group``, ``groups``, ``home``, ``maxdays``, ``mindays``, ``shell``, ``uid``, and ``warndays`` are valid matchers for this |inspec resource|
-* ``where(uid: 0).entries`` represents a filter that runs the test only against matching users
+* ``where(uid: 0).entries`` represents a filter that runs the test only against matching users, such as:
+
+  .. code-block:: ruby
+
+     describe users.where { username =~ /.*/ } do
+       it { should exist }
+     end
+
+  or:
+
+  .. code-block:: ruby
+
+     describe users.where { uid =~ /^S-1-5-[0-9-]+-501$/ } do
+       it { should exist }
+     end
