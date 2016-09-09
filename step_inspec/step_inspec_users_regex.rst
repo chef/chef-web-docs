@@ -1,4 +1,10 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
-Use the ``user`` |inspec resource| to test user profiles, including the groups to which they belong, the frequency of required password changes, the directory paths to home and shell.
+.. To use a regular expression to filter users:
+
+.. code-block:: ruby
+
+   describe users.where { uid =~ /S\-1\-5\-21\-\d+\-\d+\-\d+\-500/ } do
+     it { should exist }
+   end

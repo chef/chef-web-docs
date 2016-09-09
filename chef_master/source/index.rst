@@ -569,6 +569,7 @@ Addenda
    inspec_ssl
    inspec_sys_info
    inspec_user
+   inspec_users
    inspec_windows_feature
    inspec_vbscript
    inspec_wmi
