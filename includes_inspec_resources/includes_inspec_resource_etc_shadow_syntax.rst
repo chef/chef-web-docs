@@ -9,6 +9,10 @@ A ``shadow`` |inspec resource| block declares one (or more) users and associated
      its('users') { should_not include 'forbidden_user' }
    end
 
+or with a filter:
+
+.. code-block:: ruby
+
    describe shadow.uid(filter) do
      its('users') { should cmp 'root' }
      its('count') { should eq 1 }
@@ -17,5 +21,4 @@ A ``shadow`` |inspec resource| block declares one (or more) users and associated
 where
 
 * ``homes``, ``gids``, ``passwords``, ``shells``, ``uids``, and ``users`` are valid accessors for ``passwd``
-* ``filter`` one (or more) arguments, for example: ``passwd.users(/name/)`` used to define filtering
-* ``filter`` may take any of the following arguments: ``count`` (retrieves the number of entries), ``lines`` (provides raw ``passwd`` lines), and ``params`` (returns an array of maps for all entries)
+* ``filter`` one (or more) arguments, for example: ``passwd.users(/name/)`` used to define filtering; ``filter`` may take any of the following arguments: ``count`` (retrieves the number of entries), ``lines`` (provides raw ``passwd`` lines), and ``params`` (returns an array of maps for all entries)

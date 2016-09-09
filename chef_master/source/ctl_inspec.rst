@@ -106,6 +106,10 @@ The following examples show how to use this subcommand.
 
    $ inspec exec test.rb -t docker://container_id
 
+**Run the ssl-benchmark example profile**
+
+.. include:: ../../step_inspec/step_inspec_ssl_run_benchmark_profile.rst
+
 inspec help
 =====================================================
 .. include:: ../../includes_ctl_inspec/includes_ctl_inspec_help.rst

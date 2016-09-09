@@ -5,4 +5,4 @@ The ``hostname`` matcher tests the host for which standard output is returned:
 
 .. code-block:: ruby
 
-   its('hostname') { should eq 'example.com' }
+   its('hostname') { should eq 'value' }

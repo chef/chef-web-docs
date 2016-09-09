@@ -1,28 +1,24 @@
 =====================================================
-ssl
+users
 =====================================================
 
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_ssl.rst
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_users.rst
 
 Syntax
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_ssl_syntax.rst
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_users_syntax.rst
 
 Matchers
 -----------------------------------------------------
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
 
+.. 
+.. The users resource has the same set of matchers as the user resource
+.. 
+
 be
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_be.rst
-
-be_enabled
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_ssl_matcher_be_enabled.rst
-
-ciphers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_ssl_matcher_ciphers.rst
 
 cmp
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -52,13 +48,25 @@ eq
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_eq.rst
 
-.. 
-.. commented out, see includes_inspec_resource_ssl_matcher_handshake for more info
-.. 
-.. handshake
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_inspec_resources/includes_inspec_resource_ssl_matcher_handshake.rst
-.. 
+exist
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_user_matcher_exist.rst
+
+gid
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_user_matcher_gid.rst
+
+group
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_user_matcher_group.rst
+
+groups
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_user_matcher_groups.rst
+
+home
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_user_matcher_home.rst
 
 include
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -68,16 +76,30 @@ match
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_match.rst
 
-protocols
+maxdays
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_ssl_matcher_protocols.rst
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_user_matcher_maxdays.rst
+
+mindays
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_user_matcher_mindays.rst
+
+shell
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_user_matcher_shell.rst
+
+uid
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_user_matcher_uid.rst
+
+warndays
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_user_matcher_warndays.rst
 
 Examples
 -----------------------------------------------------
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
-**Run the ssl-benchmark example profile**
+**Use a regular expression to find users**
 
-.. include:: ../../step_inspec/step_inspec_ssl_use_benchmark_profile.rst
-
-.. include:: ../../step_inspec/step_inspec_ssl_run_benchmark_profile.rst
+.. include:: ../../step_inspec/step_inspec_users_regex.rst
