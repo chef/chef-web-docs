@@ -209,6 +209,32 @@ This command has the following options:
    The URL at which remote cookbooks are located. Default value: ``https://supermarket.chef.io``.
 
 
+berks test
+-----------------------------------------------------
+Use ``berks test`` to run |kitchen| from within |berkshelf|.
+
+Syntax
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ berks test KITCHEN_COMMAND (options)
+
+Options
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+This command may run any |kitchen| CLI command, such as:
+
+* `kitchen create <https://docs.chef.io/ctl_kitchen.html#kitchen-create>`__
+* `kitchen converge <https://docs.chef.io/ctl_kitchen.html#kitchen-converge>`__
+* `kitchen destroy <https://docs.chef.io/ctl_kitchen.html#kitchen-destroy>`__
+* `kitchen exec <https://docs.chef.io/ctl_kitchen.html#kitchen-exec>`__
+* `kitchen list <https://docs.chef.io/ctl_kitchen.html#kitchen-list>`__
+* `kitchen test <https://docs.chef.io/ctl_kitchen.html#kitchen-test>`__
+* `kitchen verify <https://docs.chef.io/ctl_kitchen.html#kitchen-verify>`__
+
+See :doc:`kitchen (executable) </ctl_kitchen>` for descriptions of every |kitchen| subcommand.
+
 berks show
 -----------------------------------------------------
 Use ``berks show`` to show the path to the named cookbook.
