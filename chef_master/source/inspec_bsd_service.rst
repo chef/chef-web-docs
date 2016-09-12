@@ -68,8 +68,4 @@ match
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
-
-**xxxxx** 
-
-.. include:: ../../step_inspec/xxxxx.rst
+None.
