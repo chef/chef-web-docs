@@ -520,6 +520,7 @@ Addenda
    inspec_bash
    inspec_bond
    inspec_bridge
+   inspec_bsd_service
    inspec_command
    inspec_common
    inspec_csv
@@ -540,6 +541,7 @@ Addenda
    inspec_json
    inspec_kernel_module
    inspec_kernel_parameter
+   inspec_launchd_service
    inspec_limits_conf
    inspec_login_def
    inspec_mount
@@ -561,6 +563,7 @@ Addenda
    inspec_process
    inspec_profiles
    inspec_registry_key
+   inspec_runit_service
    inspec_script
    inspec_security_policy
    inspec_service
@@ -568,6 +571,9 @@ Addenda
    inspec_sshd_config
    inspec_ssl
    inspec_sys_info
+   inspec_systemd_service
+   inspec_sysv_service
+   inspec_upstart_service
    inspec_user
    inspec_users
    inspec_windows_feature
