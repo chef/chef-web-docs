@@ -4,9 +4,9 @@ service
 
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_service.rst
 
-The following service manager-specific resources are available:
+Under some circumstances, it may be necessary to specify the service manager by using one of the following service manager-specific resources:
 
-* :doc:`bsd_service </inspec_bsd_init_service>`
+* :doc:`bsd_service </inspec_bsd_service>`
 * :doc:`launchd_service </inspec_launchd_service>`
 * :doc:`runit_service </inspec_runit_service>`
 * :doc:`systemd_service </inspec_systemd_service>`
