@@ -1,23 +1,14 @@
 =====================================================
-service
+launchd_service
 =====================================================
 
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_service.rst
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_launchd.rst
 
-The following service manager-specific resources are available:
-
-* :doc:`bsd_service </inspec_bsd_init_service>`
-* :doc:`launchd_service </inspec_launchd_service>`
-* :doc:`runit_service </inspec_runit_service>`
-* :doc:`systemd_service </inspec_systemd_service>`
-* :doc:`sysv_service </inspec_sysv_service>`
-* :doc:`upstart_service </inspec_upstart_service>`
-
-These resources are based on the ``service`` |inspec resource|.
+.. note:: .. include:: ../../includes_notes/includes_notes_inspec_based_on_service.rst
 
 Syntax
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_syntax.rst
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_launchd_syntax.rst
 
 Matchers
 -----------------------------------------------------
