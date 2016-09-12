@@ -1,12 +1,29 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
-A ``json`` |inspec resource| block declares the data to be tested:
+A ``json`` |inspec resource| block declares the data to be tested. Assume the following |json| file:
+
+.. code-block:: javascript
+
+   {
+     "name" : "hello",
+     "meta" : {
+       "creator" : "John Doe"
+     },
+     "array": [
+       "zero",
+       "one"
+     ]
+   }
+
+This file can be queried using:
 
 .. code-block:: ruby
 
-   describe json do
-     its('name') { should eq 'foo' }
+   describe json('/paht/to/name.json') do
+     its('name') { should eq 'hello' }
+     its(['meta','creator']) { should eq 'John Doe' }
+     its(['array', 1]) { should eq 'one' }
    end
 
 where
