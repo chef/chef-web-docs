@@ -214,7 +214,7 @@ Habitat
 Habitat Overview
 -----------------------------------------------------
 
-:doc:`Habitat Overview </habitat>`
+:doc:`Habitat Overview </habitat>` |
 :doc:`Prism </habitat_prism>`
 
 Tutorials
