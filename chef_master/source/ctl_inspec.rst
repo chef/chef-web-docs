@@ -150,6 +150,19 @@ Use inspec shell
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_dsl_inspec/includes_dsl_inspec_debug_inspec_shell.rst
 
+Use |inspec| DSL
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_dsl_inspec/includes_dsl_inspec_debug_inspec_dsl.rst
+
+Use |ruby|
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_dsl_inspec/includes_dsl_inspec_debug_ruby.rst
+
+Connect to Remote Machines
+-----------------------------------------------------
+.. include:: ../../includes_dsl_inspec/includes_ctl_inspec_shell_remote_machines.rst
+
+
 inspec version
 =====================================================
 .. include:: ../../includes_ctl_inspec/includes_ctl_inspec_version.rst
