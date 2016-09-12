@@ -160,7 +160,7 @@ Use |ruby|
 
 Connect to Remote Machines
 -----------------------------------------------------
-.. include:: ../../includes_dsl_inspec/includes_ctl_inspec_shell_remote_machines.rst
+.. include:: ../../includes_ctl_inspec/includes_ctl_inspec_shell_remote_machines.rst
 
 
 inspec version
