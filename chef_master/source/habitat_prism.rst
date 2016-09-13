@@ -17,6 +17,7 @@ Prism supports the following configuration options:
 * **supervisor_host**: The IP/hostname of the Habitat Supervisor to contact for ring information. Default: ``localhost``.
 * **habitat_ring_id**: A string that will be used to uniquely identify your ring in all messages sent to the Visibility API. Default: a UUID will be generated at startup. It is recommended that you generate your own ring ID as the auto-generated UUID will not persist between Prism restarts.
 * **habitat_ring_alias**: A string that will be used in the Visibility UI alongside the ``habitat_ring_id``. This allows you to provide a more meaningful description for your ring. Default: ``default``.
+* **ssl_verification_enabled**: If ``true`` and your ``data_collector_url`` is SSL-enabled, Prism will verify the SSL certificate presented by the Chef Automate server. Set this to ``false`` if your Chef Automate server is using a self-signed certificate. Default: ``true``.
 
 Each of these options can be configured via standard Habitat means, such as via environment variables or configuration updates.
 
