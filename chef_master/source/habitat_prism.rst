@@ -17,12 +17,14 @@ Prism supports the following configuration options:
 * **supervisor_host**: The IP/hostname of the Habitat Supervisor to contact for ring information. Default: ``localhost``.
 * **habitat_ring_id**: A string that will be used to uniquely identify your ring in all messages sent to the Visibility API. Default: a UUID will be generated at startup. It is recommended that you generate your own ring ID as the auto-generated UUID will not persist between Prism restarts.
 * **habitat_ring_alias**: A string that will be used in the Visibility UI alongside the ``habitat_ring_id``. This allows you to provide a more meaningful description for your ring. Default: ``default``.
+* **ssl_verification_enabled**: If ``true`` and your ``data_collector_url`` is SSL-enabled, Prism will verify the SSL certificate presented by the Chef Automate server. Set this to ``false`` if your Chef Automate server is using a self-signed certificate. Default: ``true``.
 
 Each of these options can be configured via standard Habitat means, such as via environment variables or configuration updates.
 
+
 Installing and Running Prism
 =====================================================
-Pre-built Prism packages are available as Habitat packages via the [public Habitat depot](https://willem.habitat.sh/#/pkgs/chef/prism) or as a Docker container via [Docker Hub](https://hub.docker.com/r/chef/prism/). Additionally, the source code for Prism is available via [GitHub](https://github.com/chef/prism) and you may build your own Habitat package from source by following the [Habitat documentation](https://www.habitat.sh/docs/create-packages-build/).
+Pre-built Prism packages are available as Habitat packages via the `public Habitat depot <https://willem.habitat.sh/#/pkgs/chef/prism>`__ or as a Docker container via `Docker Hub <https://hub.docker.com/r/chef/prism/>`__. Additionally, the source code for Prism is available via `GitHub <https://github.com/chef/prism>`__ and you may build your own Habitat package from source by following the `Habitat documentation <https://www.habitat.sh/docs/create-packages-build/>`__.
 
 We recommend running Prism as another supervisor in an existing ring; Prism will join the existing ring and report on all information it discovers. However, you may also run Prism as a standalone application and set the ``supervisor_host`` configuration value to the IP address of an existing supervisor. However, should that supervisor become unavailable, Prism will no longer be able to report on that particular ring. Therefore, we recommend joining Prism to an existing ring.
 
