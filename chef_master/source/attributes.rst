@@ -32,10 +32,6 @@ Attribute Evaluation Order
 -----------------------------------------------------
 .. include:: ../../includes_node/includes_node_attribute_evaluation_order.rst
 
-Accessor Methods
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_cookbooks/includes_cookbooks_attribute_file_methods_accessor.rst
-
 Use Attribute Files
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_node/includes_node_attribute_when_to_use.rst
