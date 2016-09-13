@@ -20,9 +20,10 @@ Prism supports the following configuration options:
 
 Each of these options can be configured via standard Habitat means, such as via environment variables or configuration updates.
 
+
 Installing and Running Prism
 =====================================================
-Pre-built Prism packages are available as Habitat packages via the [public Habitat depot](https://willem.habitat.sh/#/pkgs/chef/prism) or as a Docker container via [Docker Hub](https://hub.docker.com/r/chef/prism/). Additionally, the source code for Prism is available via [GitHub](https://github.com/chef/prism) and you may build your own Habitat package from source by following the [Habitat documentation](https://www.habitat.sh/docs/create-packages-build/).
+Pre-built Prism packages are available as Habitat packages via the `public Habitat depot <https://willem.habitat.sh/#/pkgs/chef/prism>`__ or as a Docker container via `Docker Hub <https://hub.docker.com/r/chef/prism/>`__. Additionally, the source code for Prism is available via `GitHub <https://github.com/chef/prism>`__ and you may build your own Habitat package from source by following the `Habitat documentation <https://www.habitat.sh/docs/create-packages-build/>`__.
 
 We recommend running Prism as another supervisor in an existing ring; Prism will join the existing ring and report on all information it discovers. However, you may also run Prism as a standalone application and set the ``supervisor_host`` configuration value to the IP address of an existing supervisor. However, should that supervisor become unavailable, Prism will no longer be able to report on that particular ring. Therefore, we recommend joining Prism to an existing ring.
 
