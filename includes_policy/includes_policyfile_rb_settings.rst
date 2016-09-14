@@ -41,7 +41,7 @@ A |policyfile rb| file may contain the following settings:
 
          default_source :supermarket
          default_source :supermarket, "https://supermarket.example" do |s|
-           s.preferred_source_for "chef-client"
+           s.preferred_for "chef-client"
          end
 
       List multiple cookbooks on the same line:
@@ -50,7 +50,7 @@ A |policyfile rb| file may contain the following settings:
 
          default_source :supermarket
          default_source :supermarket, "https://supermarket.example" do |s|
-           s.preferred_source_for "chef-client", "nginx", "mysql"
+           s.preferred_for "chef-client", "nginx", "mysql"
          end
 
 ``cookbook "NAME" [, "VERSION_CONSTRAINT"] [, SOURCE_OPTIONS]``
