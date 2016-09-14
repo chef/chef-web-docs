@@ -214,7 +214,7 @@ Habitat
 Habitat Overview
 -----------------------------------------------------
 
-:doc:`Habitat Overview </habitat>`
+:doc:`Habitat Overview </habitat>` |
 :doc:`Prism </habitat_prism>`
 
 Tutorials
@@ -272,7 +272,7 @@ Setup
 -----------------------------------------------------
 :doc:`Configure a Pipeline </delivery_pipeline>` |
 :doc:`Configure a Project </config_json_delivery>` |
-:doc:`Enable Visibility </setup_visibility_chef_automate>`
+:doc:`Configure Data Collection </setup_visibility_chef_automate>`
 
 Concepts
 -----------------------------------------------------
@@ -299,7 +299,6 @@ Managing the Server
 :doc:`Secrets </delivery_manage_secrets>` |
 :doc:`Tuning </delivery_server_tuning>` |
 :doc:`Users and Roles </delivery_users_and_roles>` |
-:doc:`Ingest Data </ingest_data_chef_automate>` |
 :doc:`Stream Data </stream_data_chef_automate>` |
 `backup-data <http://docs.chef.io/ctl_delivery_server.html#backup-data>`_ |
 `cleanse <http://docs.chef.io/ctl_delivery_server.html#cleanse>`_ |
@@ -457,6 +456,7 @@ Addenda
    config_rb_solo
    config_rb_supermarket
    config_yml_kitchen
+   containers
    cookbook_repo
    cookbook_versions
    cookbooks
@@ -510,7 +510,6 @@ Addenda
    habitat
    habitat_prism
    handlers
-   ingest_data_chef_automate
    inspec
    inspec_reference
    inspec_apache_conf
@@ -521,6 +520,7 @@ Addenda
    inspec_bash
    inspec_bond
    inspec_bridge
+   inspec_bsd_service
    inspec_command
    inspec_common
    inspec_csv
@@ -541,6 +541,7 @@ Addenda
    inspec_json
    inspec_kernel_module
    inspec_kernel_parameter
+   inspec_launchd_service
    inspec_limits_conf
    inspec_login_def
    inspec_mount
@@ -562,13 +563,19 @@ Addenda
    inspec_process
    inspec_profiles
    inspec_registry_key
+   inspec_runit_service
    inspec_script
    inspec_security_policy
    inspec_service
    inspec_ssh_config
    inspec_sshd_config
    inspec_ssl
+   inspec_sys_info
+   inspec_systemd_service
+   inspec_sysv_service
+   inspec_upstart_service
    inspec_user
+   inspec_users
    inspec_windows_feature
    inspec_vbscript
    inspec_wmi

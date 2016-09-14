@@ -52,9 +52,13 @@ eq
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_eq.rst
 
-handshake
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_ssl_matcher_handshake.rst
+.. 
+.. commented out, see includes_inspec_resource_ssl_matcher_handshake for more info
+.. 
+.. handshake
+.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. .. include:: ../../includes_inspec_resources/includes_inspec_resource_ssl_matcher_handshake.rst
+.. 
 
 include
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -72,10 +76,8 @@ Examples
 -----------------------------------------------------
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
 
-**xxxxx**
+**Run the ssl-benchmark example profile**
 
-xxxxx
+.. include:: ../../step_inspec/step_inspec_ssl_use_benchmark_profile.rst
 
-**xxxxx**
-
-xxxxx
+.. include:: ../../step_inspec/step_inspec_ssl_run_benchmark_profile.rst

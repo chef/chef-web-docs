@@ -183,4 +183,3 @@ html_show_copyright = True
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'chef-client 11.0 Documentation'
-

@@ -3,8 +3,10 @@
 .. This topic is hooked in globally to install topics for Chef server applications.
 
 
-Reconfigure the |chef server|:
+Reconfigure the |chef server| and the Chef management console (standalone and frontend group members
+  of a High Availabilty installation):
 
 .. code-block:: bash 
 
    $ sudo chef-server-ctl reconfigure
+   $ sudo chef-manage-ctl reconfigure

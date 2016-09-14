@@ -34,10 +34,6 @@ Reload Attributes
 -----------------------------------------------------
 .. include:: ../../includes_cookbooks/includes_cookbooks_attribute_file_reload_from_recipe.rst
 
-Accessor Methods
------------------------------------------------------
-.. include:: ../../includes_cookbooks/includes_cookbooks_attribute_file_methods_accessor.rst
-
 |dsl recipe| Methods
 =====================================================
 .. include:: ../../includes_dsl_recipe/includes_dsl_recipe_method.rst

@@ -4,15 +4,14 @@
 
 Each profile consists of multiple files. Use an profile archive to simplify profile distribution by collecting all of these files into a single location. The |inspec| profile archive format supports:
 
- * tar and gzip (default)
- * zip
- * HTTP
+ * |tar gz| and |gzip| (default)
+ * |zip|
 
 |inspec| profile archives
 
  * MUST be named with the standard suffix
- * MUST be a tar.gz or zip formatted file
+ * MUST be a |tar gz| or |zip| formatted file
  * MUST not contain duplicate entries
- * MAY be compressed with gzip, bzip2, or xz
+ * MAY be compressed with |gzip|
 
-Use ``inspec archive`` to create an archive of the target profile. By default, a tar file is generated on |unix| platforms and a zip file is generated on |windows| and |mac os x|.
+Use ``inspec archive`` to create an archive of the target profile. By default, a |tar gz| file is generated on |unix| platforms and a |zip| file is generated on |windows| and |mac os x|.

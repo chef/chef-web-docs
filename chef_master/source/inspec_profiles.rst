@@ -120,7 +120,7 @@ and to target all of these examples in a single ``inspec.yml`` file:
 
 Profile Dependencies
 =====================================================
-Use the ``depends`` setting in the ``inspec.yml`` file to specify one (or more) profiles on which this profile depends. A profile dependency may be sourced from a path, URL, a |git| repo, a cookbook located on |supermarket| or on |github|.
+Use the ``depends`` setting in the ``inspec.yml`` file to specify one (or more) profiles on which this profile depends. A profile dependency may be sourced from a path, URL, a |git| repo, a cookbook located on |supermarket| or on |github|, or a profile located on the |chef compliance| server.
 
 Path
 -----------------------------------------------------
@@ -201,9 +201,47 @@ For example:
      version: semver_via_tags
 
 
+Chef Compliance
+-----------------------------------------------------
+A ``compliance`` setting specifies a profile that is located on the |chef compliance| server.
+
+For example:
+
+.. code-block:: yaml
+
+   depends:
+     - name: linux
+       compliance: base/linux
+
+
+Define in inspec.yml
+-----------------------------------------------------
+Use the ``depends`` setting in the ``inspec.yml`` file to define any combination of profile dependencies. For example:
+
+.. code-block:: yaml
+
+   depends:
+     - name: ssh-hardening
+       supermarket: hardening/ssh-hardening
+     - name: os-hardening
+       url: https://github.com/dev-sec/tests-os-hardening/archive/master.zip
+     - name: ssl-benchmark
+       git: https://github.com/dev-sec/ssl-benchmark.git
+     - name: windows-patch-benchmark
+       git: https://github.com/chris-rock/windows-patch-benchmark.git
+     - name: linux
+       compliance: base/linux
+
+
 Profile Inheritance
 =====================================================
-The ``include_controls`` keyword may be used in a profile to import all rules from the named profile. For example, to include controls from a profile:
+When a profile is run, it may include controls that are defined in other profiles. Controls may also be required.
+
+include_controls
+-----------------------------------------------------
+The ``include_controls`` keyword may be used in a profile to import all rules from the named profile.
+
+For example, to include controls from the ``cis-level-1`` profile when running the ``cis-fs-2.7`` profile:
 
 .. code-block:: bash
 
@@ -215,7 +253,7 @@ The ``include_controls`` keyword may be used in a profile to import all rules fr
    
    end
 
-or to include controls from a profile, but skip some rules:
+To include controls from the ``cis-level-1`` profile, but skipping two controls within that profile:
 
 .. code-block:: bash
 
@@ -226,7 +264,12 @@ or to include controls from a profile, but skip some rules:
    
    end
 
-Use the ``require_controls`` keyword to load specific controls from the named profile:
+
+require_controls
+-----------------------------------------------------
+The ``require_controls`` keyword may be used to load only specific controls from the named profile.
+
+For example, to require that controls ``cis-fs-2.1`` and ``cis-fs-2.2`` be loaded from the ``cis-level-1`` profile:
 
 .. code-block:: bash
 

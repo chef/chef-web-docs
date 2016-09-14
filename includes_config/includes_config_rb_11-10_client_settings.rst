@@ -38,7 +38,7 @@ This configuration file has the following settings:
 
    .. code-block:: ruby
 
-      chef_server_url 'http://localhost:4000'
+      chef_server_url 'https://localhost/'
 
 ``chef_zero.enabled``
    |chef_zero_enabled| Default value: ``false``. For example:

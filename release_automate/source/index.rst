@@ -23,7 +23,7 @@ Setup
 -----------------------------------------------------
 :doc:`Configure a Pipeline </delivery_pipeline>` |
 :doc:`Configure a Project </config_json_delivery>` |
-:doc:`Enable Visibility </setup_visibility_chef_automate>`
+:doc:`Configure Data Collection </setup_visibility_chef_automate>`
 
 Concepts
 -----------------------------------------------------
@@ -50,7 +50,6 @@ Managing the Server
 :doc:`Secrets </delivery_manage_secrets>` |
 :doc:`Tuning </delivery_server_tuning>` |
 :doc:`Users and Roles </delivery_users_and_roles>` |
-:doc:`Ingest Data </ingest_data_chef_automate>` |
 :doc:`Stream Data </stream_data_chef_automate>` |
 `backup-data <http://docs.chef.io/ctl_delivery_server.html#backup-data>`_ |
 `cleanse <http://docs.chef.io/ctl_delivery_server.html#cleanse>`_ |
@@ -127,7 +126,6 @@ Extend Chef Automate
    delivery_users_and_roles
    dsl_compliance
    dsl_delivery
-   ingest_data_chef_automate
    inspec_apache_conf
    inspec_apt
    inspec_audit_policy

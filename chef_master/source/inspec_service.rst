@@ -4,6 +4,17 @@ service
 
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_service.rst
 
+Under some circumstances, it may be necessary to specify the service manager by using one of the following service manager-specific resources:
+
+* :doc:`bsd_service </inspec_bsd_service>`
+* :doc:`launchd_service </inspec_launchd_service>`
+* :doc:`runit_service </inspec_runit_service>`
+* :doc:`systemd_service </inspec_systemd_service>`
+* :doc:`sysv_service </inspec_sysv_service>`
+* :doc:`upstart_service </inspec_upstart_service>`
+
+These resources are based on the ``service`` |inspec resource|.
+
 Syntax
 -----------------------------------------------------
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_service_syntax.rst
