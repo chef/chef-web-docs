@@ -27,7 +27,7 @@ The following example shows how to use the search index to find all of the items
        comment admin['comment']
        
        home home
-       supports :manage_home => true
+       manage_home true
      end
    
    end

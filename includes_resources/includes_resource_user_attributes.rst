@@ -93,11 +93,6 @@ This resource has the following properties:
 
    |shell|
 
-``supports``
-   **Ruby Type:** Hash
-
-   |supports user| Default value: ``:manage_home => false, :non_unique => false``.
-
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 

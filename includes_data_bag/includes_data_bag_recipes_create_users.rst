@@ -21,7 +21,7 @@ The |chef client| can create users on systems based on the contents of a data ba
        shell admin['shell']
        comment admin['comment']
        home homedir
-       supports :manage_home => true
+       manage_home true
      end
    
    end

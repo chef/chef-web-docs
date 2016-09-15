@@ -64,7 +64,7 @@ The following recipe can be used to create a user for each administrator by load
        shell     admin['shell']
        comment   admin['comment'] 
        home      home
-       supports  :manage_home => true
+       manage_home true
      end
 
    end
@@ -89,7 +89,7 @@ And then the same recipe, modified to load administrators using a search query (
        comment   admin['comment']
     
        home      home
-       supports  :manage_home => true
+       manage_home true
      end
     
    end

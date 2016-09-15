@@ -6,7 +6,7 @@
 .. code-block:: ruby
 
    user 'random' do
-     supports :manage_home => true
+     manage_home true
      comment 'User Random'
      uid '1234'
      gid '1234'

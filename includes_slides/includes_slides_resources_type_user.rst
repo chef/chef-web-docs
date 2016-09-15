@@ -10,5 +10,5 @@ A user that should be managed:
      comment 'Nginx <nginx@example.com>'
      uid '500'
      gid '500'
-     supports :manage_home => true
+     manage_home true
    end
