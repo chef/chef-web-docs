@@ -162,6 +162,13 @@ Connect to Remote Machines
 -----------------------------------------------------
 .. include:: ../../includes_ctl_inspec/includes_ctl_inspec_shell_remote_machines.rst
 
+inspec vendor
+=====================================================
+.. include:: ../../includes_ctl_inspec/includes_ctl_inspec_vendor.rst
+
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_ctl_inspec/includes_ctl_inspec_vendor_syntax.rst
 
 inspec version
 =====================================================
