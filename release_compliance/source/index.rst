@@ -25,7 +25,6 @@
    inspec_bridge
    inspec_bsd_service
    inspec_command
-   inspec_common
    inspec_csv
    inspec_directory
    inspec_etc_group
@@ -34,8 +33,8 @@
    inspec_file
    inspec_gem
    inspec_group
-   inspec_host
    inspec_grub_conf
+   inspec_host
    inspec_iis_site
    inspec_inetd_conf
    inspec_ini
@@ -62,7 +61,6 @@
    inspec_port
    inspec_postgres_conf
    inspec_postgres_session
-   inspec_powershell
    inspec_process
    inspec_profiles
    inspec_reference
