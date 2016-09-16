@@ -355,6 +355,80 @@ interfaces
 .. 
 
 
+bsd_service
+=====================================================
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_bsd.rst
+
+.. note:: .. include:: ../../includes_notes/includes_notes_inspec_based_on_service.rst
+
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_bsd_syntax.rst
+
+Matchers
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+
+be
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_be.rst
+
+be_enabled
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_matcher_be_enabled.rst
+
+be_installed
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_matcher_be_installed.rst
+
+be_running
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_matcher_be_running.rst
+
+cmp
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp.rst
+
+**Compare single value to array**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_value_vs_array.rst
+
+**Compare strings and regular expressions**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_regex.rst
+
+**Compare strings and numbers**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_number.rst
+
+**Ignoring case sensitivity**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_case_sensitive.rst
+
+**Printing octals**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_octals.rst
+
+eq
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_eq.rst
+
+include
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_include.rst
+
+match
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_match.rst
+
+Examples
+-----------------------------------------------------
+None.
+
+
+
+
 command
 =====================================================
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_command.rst
@@ -806,6 +880,76 @@ Examples
 .. include:: ../../step_inspec/step_inspec_group_gid_for_root_group.rst
 
 
+grub_conf
+=====================================================
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_grub_conf.rst
+
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_grub_conf_syntax.rst
+
+Matchers
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+
+be
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_be.rst
+
+cmp
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp.rst
+
+**Compare single value to array**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_value_vs_array.rst
+
+**Compare strings and regular expressions**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_regex.rst
+
+**Compare strings and numbers**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_number.rst
+
+**Ignoring case sensitivity**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_case_sensitive.rst
+
+**Printing octals**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_octals.rst
+
+eq
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_eq.rst
+
+include
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_include.rst
+
+match
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_match.rst
+
+Examples
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+
+**Test a grub.conf file**
+
+.. include:: ../../step_inspec/step_inspec_grub_redhat.rst
+
+**Test a configuration file and boot configuration**
+
+.. include:: ../../step_inspec/step_inspec_grub_test_configuration.rst
+
+**Test a specific kernel**
+
+.. include:: ../../step_inspec/step_inspec_grub_test_specific_kernels.rst
+
+
 host
 =====================================================
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_host.rst
@@ -843,6 +987,97 @@ Examples
 .. include:: ../../step_inspec/step_inspec_host_ip_address_resolved.rst
 
 
+iis_site
+=====================================================
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_iis_site.rst
+
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_iis_site_syntax.rst
+
+Matchers
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+
+be
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_be.rst
+
+be_running
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_iis_site_matcher_be_running.rst
+
+cmp
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp.rst
+
+**Compare single value to array**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_value_vs_array.rst
+
+**Compare strings and regular expressions**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_regex.rst
+
+**Compare strings and numbers**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_number.rst
+
+**Ignoring case sensitivity**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_case_sensitive.rst
+
+**Printing octals**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_octals.rst
+
+eq
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_eq.rst
+
+exist
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_iis_site_matcher_exist.rst
+
+have_app_pool
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_iis_site_matcher_have_app_pool.rst
+
+have_binding
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_iis_site_matcher_have_binding.rst
+
+Binding Attributes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_iis_site_matcher_have_binding_attribute.rst
+
+include
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_include.rst
+
+match
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_match.rst
+
+have_path
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_iis_site_matcher_have_path.rst
+
+Examples
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+
+**Test a default IIS site** 
+
+.. include:: ../../step_inspec/step_inspec_iis_site_default.rst
+
+**Test if IIS service is running**
+
+.. include:: ../../step_inspec/step_inspec_iis_site_service_is_running.rst
+
+
+
 inetd_conf
 =====================================================
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_inetd_conf.rst
@@ -867,6 +1102,68 @@ Examples
 
 .. include:: ../../step_inspec/step_inspec_inetd_conf_telnet_installed.rst
 
+
+
+ini
+=====================================================
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_ini.rst
+
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_ini_syntax.rst
+
+Matchers
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+
+be
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_be.rst
+
+cmp
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp.rst
+
+**Compare single value to array**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_value_vs_array.rst
+
+**Compare strings and regular expressions**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_regex.rst
+
+**Compare strings and numbers**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_number.rst
+
+**Ignoring case sensitivity**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_case_sensitive.rst
+
+**Printing octals**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_octals.rst
+
+eq
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_eq.rst
+
+include
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_include.rst
+
+match
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_match.rst
+
+Examples
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+
+**Test SMTP settings in a PHP INI file**
+
+.. include:: ../../step_inspec/step_inspec_ini_php.rst
 
 
 interface
@@ -1018,6 +1315,80 @@ Examples
 **Test if an IPv6 address accepts redirects**
 
 .. include:: ../../step_inspec/step_inspec_kernel_parameter_ipv6_accepts_redirects.rst
+
+
+launchd_service
+=====================================================
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_launchd.rst
+
+.. note:: .. include:: ../../includes_notes/includes_notes_inspec_based_on_service.rst
+
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_launchd_syntax.rst
+
+Matchers
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+
+be
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_be.rst
+
+be_enabled
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_matcher_be_enabled.rst
+
+be_installed
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_matcher_be_installed.rst
+
+be_running
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_matcher_be_running.rst
+
+cmp
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp.rst
+
+**Compare single value to array**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_value_vs_array.rst
+
+**Compare strings and regular expressions**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_regex.rst
+
+**Compare strings and numbers**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_number.rst
+
+**Ignoring case sensitivity**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_case_sensitive.rst
+
+**Printing octals**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_octals.rst
+
+eq
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_eq.rst
+
+include
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_include.rst
+
+match
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_match.rst
+
+Examples
+-----------------------------------------------------
+None.
+
+
 
 
 limits_conf
@@ -1676,6 +2047,83 @@ Examples
 
 .. include:: ../../step_inspec/step_inspec_postgres_session_risky_database_entry.rst
 
+powershell
+=====================================================
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_powershell.rst
+
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_powershell_syntax.rst
+
+Matchers
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+
+be
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_be.rst
+
+cmp
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp.rst
+
+**Compare single value to array**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_value_vs_array.rst
+
+**Compare strings and regular expressions**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_regex.rst
+
+**Compare strings and numbers**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_number.rst
+
+**Ignoring case sensitivity**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_case_sensitive.rst
+
+**Printing octals**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_octals.rst
+
+eq
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_eq.rst
+
+exit_status
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_powershell_matcher_exit_status.rst
+
+include
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_include.rst
+
+match
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_match.rst
+
+stderr
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_powershell_matcher_stderr.rst
+
+stdout
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_powershell_matcher_stdout.rst
+
+Examples
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+
+**Get all groups of Administrator user**
+
+.. include:: ../../step_inspec/step_inspec_powershell_user_get_all_groups.rst
+
+**Write-Output 'hello'**
+
+.. include:: ../../step_inspec/step_inspec_powershell_hello.rst
+
 
 process
 =====================================================
@@ -1761,6 +2209,80 @@ Examples
 **Use a regular expression in responses**
 
 .. include:: ../../step_inspec/step_inspec_registry_key_use_regex_in_response.rst
+
+
+runit_service
+=====================================================
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_runit.rst
+
+.. note:: .. include:: ../../includes_notes/includes_notes_inspec_based_on_service.rst
+
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_runit_syntax.rst
+
+Matchers
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+
+be
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_be.rst
+
+be_enabled
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_matcher_be_enabled.rst
+
+be_installed
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_matcher_be_installed.rst
+
+be_running
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_matcher_be_running.rst
+
+cmp
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp.rst
+
+**Compare single value to array**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_value_vs_array.rst
+
+**Compare strings and regular expressions**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_regex.rst
+
+**Compare strings and numbers**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_number.rst
+
+**Ignoring case sensitivity**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_case_sensitive.rst
+
+**Printing octals**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_octals.rst
+
+eq
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_eq.rst
+
+include
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_include.rst
+
+match
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_match.rst
+
+Examples
+-----------------------------------------------------
+None.
+
+
 
 script
 =====================================================
@@ -1872,6 +2394,111 @@ Examples
 
 .. include:: ../../step_inspec/step_inspec_service_memcached.rst
 
+
+
+shadow
+=====================================================
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_shadow.rst
+
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_shadow_syntax.rst
+
+Matchers
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+
+be
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_be.rst
+
+cmp
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp.rst
+
+**Compare single value to array**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_value_vs_array.rst
+
+**Compare strings and regular expressions**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_regex.rst
+
+**Compare strings and numbers**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_number.rst
+
+**Ignoring case sensitivity**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_case_sensitive.rst
+
+**Printing octals**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_octals.rst
+
+count
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_shadow_matcher_count.rst
+
+eq
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_eq.rst
+
+expiry_dates
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_shadow_matcher_expiry_dates.rst
+
+inactive_days
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_shadow_matcher_inactive_days.rst
+
+include
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_include.rst
+
+last_changes
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_shadow_matcher_last_changes.rst
+
+match
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_match.rst
+
+max_days
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_shadow_matcher_max_days.rst
+
+min_days
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_shadow_matcher_min_days.rst
+
+passwords
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_shadow_matcher_passwords.rst
+
+users
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_shadow_matcher_users.rst
+
+warn_days
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_etc_shadow_matcher_warn_days.rst
+
+Examples
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+
+**Test for a forbidden user**
+
+.. include:: ../../step_inspec/step_inspec_etc_shadow_forbidden_user.rst
+
+**Test that a user appears one time**
+
+.. include:: ../../step_inspec/step_inspec_etc_shadow_user_appears_once.rst
+
+
+
 ssh_config
 =====================================================
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_ssh_config.rst
@@ -1949,9 +2576,333 @@ Examples
 
 .. include:: ../../step_inspec/step_inspec_sshd_config_ssh.rst
 
+ssl
+=====================================================
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_ssl.rst
+
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_ssl_syntax.rst
+
+Matchers
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+
+be
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_be.rst
+
+be_enabled
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_ssl_matcher_be_enabled.rst
+
+ciphers
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_ssl_matcher_ciphers.rst
+
+cmp
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp.rst
+
+**Compare single value to array**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_value_vs_array.rst
+
+**Compare strings and regular expressions**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_regex.rst
+
+**Compare strings and numbers**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_number.rst
+
+**Ignoring case sensitivity**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_case_sensitive.rst
+
+**Printing octals**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_octals.rst
+
+eq
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_eq.rst
+
+.. 
+.. commented out, see includes_inspec_resource_ssl_matcher_handshake for more info
+.. 
+.. handshake
+.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. .. include:: ../../includes_inspec_resources/includes_inspec_resource_ssl_matcher_handshake.rst
+.. 
+
+include
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_include.rst
+
+match
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_match.rst
+
+protocols
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_ssl_matcher_protocols.rst
+
+Examples
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+
+**Run the ssl-benchmark example profile**
+
+.. include:: ../../step_inspec/step_inspec_ssl_use_benchmark_profile.rst
+
+.. include:: ../../step_inspec/step_inspec_ssl_run_benchmark_profile.rst
+
+sys_info
+=====================================================
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_sys_info.rst
+
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_sys_info_syntax.rst
+
+Matchers
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+
+hostname
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_sys_info_matcher_hostname.rst
+
+Examples
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+
+**Get system information for example.com**
+
+.. include:: ../../step_inspec/step_inspec_sys_info_example_com.rst
+
+
+systemd_service
+=====================================================
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_systemd.rst
+
+.. note:: .. include:: ../../includes_notes/includes_notes_inspec_based_on_service.rst
+
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_systemd_syntax.rst
+
+Matchers
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+
+be
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_be.rst
+
+be_enabled
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_matcher_be_enabled.rst
+
+be_installed
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_matcher_be_installed.rst
+
+be_running
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_matcher_be_running.rst
+
+cmp
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp.rst
+
+**Compare single value to array**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_value_vs_array.rst
+
+**Compare strings and regular expressions**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_regex.rst
+
+**Compare strings and numbers**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_number.rst
+
+**Ignoring case sensitivity**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_case_sensitive.rst
+
+**Printing octals**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_octals.rst
+
+eq
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_eq.rst
+
+include
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_include.rst
+
+match
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_match.rst
+
+Examples
+-----------------------------------------------------
+None.
+
+sysv_service
+=====================================================
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_sysv.rst
+
+.. note:: .. include:: ../../includes_notes/includes_notes_inspec_based_on_service.rst
+
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_sysv_syntax.rst
+
+Matchers
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+
+be
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_be.rst
+
+be_enabled
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_matcher_be_enabled.rst
+
+be_installed
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_matcher_be_installed.rst
+
+be_running
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_matcher_be_running.rst
+
+cmp
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp.rst
+
+**Compare single value to array**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_value_vs_array.rst
+
+**Compare strings and regular expressions**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_regex.rst
+
+**Compare strings and numbers**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_number.rst
+
+**Ignoring case sensitivity**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_case_sensitive.rst
+
+**Printing octals**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_octals.rst
+
+eq
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_eq.rst
+
+include
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_include.rst
+
+match
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_match.rst
+
+Examples
+-----------------------------------------------------
+None.
+
+
+upstart_service
+=====================================================
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_upstart.rst
+
+.. note:: .. include:: ../../includes_notes/includes_notes_inspec_based_on_service.rst
+
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_upstart_syntax.rst
+
+Matchers
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+
+be
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_be.rst
+
+be_enabled
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_matcher_be_enabled.rst
+
+be_installed
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_matcher_be_installed.rst
+
+be_running
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_matcher_be_running.rst
+
+cmp
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp.rst
+
+**Compare single value to array**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_value_vs_array.rst
+
+**Compare strings and regular expressions**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_regex.rst
+
+**Compare strings and numbers**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_number.rst
+
+**Ignoring case sensitivity**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_case_sensitive.rst
+
+**Printing octals**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_octals.rst
+
+eq
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_eq.rst
+
+include
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_include.rst
+
+match
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_match.rst
+
+Examples
+-----------------------------------------------------
+None.
+
 
 user
 =====================================================
+
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_user.rst
 
 Syntax
@@ -1961,6 +2912,38 @@ Syntax
 Matchers
 -----------------------------------------------------
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+
+be
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_be.rst
+
+cmp
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp.rst
+
+**Compare single value to array**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_value_vs_array.rst
+
+**Compare strings and regular expressions**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_regex.rst
+
+**Compare strings and numbers**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_number.rst
+
+**Ignoring case sensitivity**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_case_sensitive.rst
+
+**Printing octals**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_octals.rst
+
+eq
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_eq.rst
 
 exist
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1981,6 +2964,14 @@ groups
 home
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_user_matcher_home.rst
+
+include
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_include.rst
+
+match
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_match.rst
 
 maxdays
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2014,6 +3005,174 @@ Examples
 
 .. include:: ../../step_inspec/step_inspec_user_multiple_platforms.rst
 
+users
+=====================================================
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_users.rst
+
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_users_syntax.rst
+
+Matchers
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+
+.. 
+.. The users resource has the same set of matchers as the user resource
+.. 
+
+be
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_be.rst
+
+cmp
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp.rst
+
+**Compare single value to array**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_value_vs_array.rst
+
+**Compare strings and regular expressions**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_regex.rst
+
+**Compare strings and numbers**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_number.rst
+
+**Ignoring case sensitivity**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_case_sensitive.rst
+
+**Printing octals**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_octals.rst
+
+eq
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_eq.rst
+
+exist
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_user_matcher_exist.rst
+
+gid
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_user_matcher_gid.rst
+
+group
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_user_matcher_group.rst
+
+groups
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_user_matcher_groups.rst
+
+home
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_user_matcher_home.rst
+
+include
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_include.rst
+
+match
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_match.rst
+
+maxdays
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_user_matcher_maxdays.rst
+
+mindays
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_user_matcher_mindays.rst
+
+shell
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_user_matcher_shell.rst
+
+uid
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_user_matcher_uid.rst
+
+warndays
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_user_matcher_warndays.rst
+
+Examples
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+
+**Use a regular expression to find users**
+
+.. include:: ../../step_inspec/step_inspec_users_regex.rst
+
+vbscript
+=====================================================
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_vbscript.rst
+
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_vbscript_syntax.rst
+
+Matchers
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+
+be
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_be.rst
+
+cmp
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp.rst
+
+**Compare single value to array**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_value_vs_array.rst
+
+**Compare strings and regular expressions**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_regex.rst
+
+**Compare strings and numbers**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_number.rst
+
+**Ignoring case sensitivity**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_case_sensitive.rst
+
+**Printing octals**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_octals.rst
+
+eq
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_eq.rst
+
+include
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_include.rst
+
+match
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_match.rst
+
+Examples
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+
+**Test a VBScript**
+
+.. include:: ../../step_inspec/step_inspec_vbscript_hello.rst
+
+
+
 
 windows_feature
 =====================================================
@@ -2039,6 +3198,166 @@ Examples
 
 .. include:: ../../step_inspec/step_inspec_windows_feature_dhcp.rst
 
+
+
+wmi
+=====================================================
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_wmi.rst
+
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_wmi_syntax.rst
+
+Matchers
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+
+be
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_be.rst
+
+cmp
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp.rst
+
+**Compare single value to array**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_value_vs_array.rst
+
+**Compare strings and regular expressions**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_regex.rst
+
+**Compare strings and numbers**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_number.rst
+
+**Ignoring case sensitivity**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_case_sensitive.rst
+
+**Printing octals**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_octals.rst
+
+eq
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_eq.rst
+
+include
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_include.rst
+
+match
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_match.rst
+
+Examples
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+
+**Test a password expiration policy**
+
+.. include:: ../../step_inspec/step_inspec_wmi_password_expiration.rst
+
+**Test if an anonymous user can query the Local Security Authority (LSA)**
+
+.. include:: ../../step_inspec/step_inspec_wmi_anonymous_user_queries.rst
+
+
+xinetd_conf
+=====================================================
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_xinetd_conf.rst
+
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_xinetd_conf_syntax.rst
+
+Matchers
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+
+be
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_be.rst
+
+be_enabed
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_xinetd_conf_matcher_be_enabled.rst
+
+cmp
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp.rst
+
+**Compare single value to array**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_value_vs_array.rst
+
+**Compare strings and regular expressions**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_regex.rst
+
+**Compare strings and numbers**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_number.rst
+
+**Ignoring case sensitivity**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_case_sensitive.rst
+
+**Printing octals**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_octals.rst
+
+eq
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_eq.rst
+
+ids
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_xinetd_conf_matcher_ids.rst
+
+include
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_include.rst
+
+match
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_match.rst
+
+services
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_xinetd_conf_matcher_services.rst
+
+socket_types
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_xinetd_conf_matcher_socket_types.rst
+
+types
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_xinetd_conf_matcher_types.rst
+
+wait
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_xinetd_conf_matcher_wait.rst
+
+Examples
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+
+**Test a socket_type**
+
+.. include:: ../../step_inspec/step_inspec_xinetd_conf_socket_type.rst
+
+**Test a service type**
+
+.. include:: ../../step_inspec/step_inspec_xinetd_conf_service_type.rst
+
+**Test the telnet service**
+
+.. include:: ../../step_inspec/step_inspec_xinetd_conf_telnet.rst
 
 yaml
 =====================================================
