@@ -5,4 +5,4 @@ The ``last_changes`` matcher tests the last time a password was changed:
 
 .. code-block:: ruby
 
-   its('last_changes') { should xxxxx }
+   its('last_changes') { should eq '' }
