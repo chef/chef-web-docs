@@ -22,8 +22,4 @@ Examples
 
 **Get system information for example.com**
 
-.. code-block:: ruby
-
-   describe sys_info do
-     its('hostname') { should eq 'example.com' }
-   end
+.. include:: ../../step_inspec/step_inspec_sys_info_example_com.rst
