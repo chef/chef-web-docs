@@ -32,7 +32,6 @@ The full syntax for all of the properties that are available to the |resource us
      provider                   Chef::Provider::User
      salt                       String
      shell                      String
-     supports                   Hash
      subscribes                 # see description
      system                     TrueClass, FalseClass
      uid                        String, Integer
@@ -45,4 +44,4 @@ where
 * ``user`` is the resource
 * ``name`` is the name of the resource block
 * ``:action`` identifies the steps the |chef client| will take to bring the node into the desired state
-* ``comment``, ``force``, ``gid``, ``home``, ``iterations``, ``manage_home``, ``non_unique``, ``password``, ``provider``, ``salt``, ``shell``, ``supports``, ``system``, ``uid``, and ``username`` are properties of this resource, with the |ruby| type shown. |see attributes|
+* ``comment``, ``force``, ``gid``, ``home``, ``iterations``, ``manage_home``, ``non_unique``, ``password``, ``provider``, ``salt``, ``shell``, ``system``, ``uid``, and ``username`` are properties of this resource, with the |ruby| type shown. |see attributes|

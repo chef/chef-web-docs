@@ -16,10 +16,6 @@ Properties
 =====================================================
 .. include:: ../../includes_resources/includes_resource_user_attributes.rst
 
-Supported Features
-=====================================================
-.. include:: ../../includes_resources/includes_resource_user_supported_features.rst
-
 Password Shadow Hash
 =====================================================
 .. include:: ../../includes_resources/includes_resource_user_password_shadow_hash.rst
