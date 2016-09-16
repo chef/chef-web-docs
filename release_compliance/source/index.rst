@@ -25,6 +25,7 @@
    inspec_bridge
    inspec_bsd_service
    inspec_command
+   inspec_common
    inspec_csv
    inspec_directory
    inspec_etc_group
