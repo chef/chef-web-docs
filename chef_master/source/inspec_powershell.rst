@@ -2,8 +2,6 @@
 powershell
 =====================================================
 
-.. inspec_powershell deprecates inspec_script ... no redirect, just remove inspec_script from TOC and copy the inspec_powershell contents to inspec_script in case a future InSpec resource is generically called script, after which the appropriate changes can be made to that file.
-
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_powershell.rst
 
 Syntax
