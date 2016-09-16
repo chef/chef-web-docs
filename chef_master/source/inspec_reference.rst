@@ -2210,6 +2210,80 @@ Examples
 
 .. include:: ../../step_inspec/step_inspec_registry_key_use_regex_in_response.rst
 
+
+runit_service
+=====================================================
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_runit.rst
+
+.. note:: .. include:: ../../includes_notes/includes_notes_inspec_based_on_service.rst
+
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_runit_syntax.rst
+
+Matchers
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+
+be
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_be.rst
+
+be_enabled
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_matcher_be_enabled.rst
+
+be_installed
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_matcher_be_installed.rst
+
+be_running
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_service_matcher_be_running.rst
+
+cmp
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp.rst
+
+**Compare single value to array**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_value_vs_array.rst
+
+**Compare strings and regular expressions**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_regex.rst
+
+**Compare strings and numbers**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_number.rst
+
+**Ignoring case sensitivity**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_case_sensitive.rst
+
+**Printing octals**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_octals.rst
+
+eq
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_eq.rst
+
+include
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_include.rst
+
+match
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_match.rst
+
+Examples
+-----------------------------------------------------
+None.
+
+
+
 script
 =====================================================
 .. include:: ../../includes_inspec_resources/includes_inspec_resource_script.rst
@@ -2501,6 +2575,90 @@ Examples
 **Test SSH protocols**
 
 .. include:: ../../step_inspec/step_inspec_sshd_config_ssh.rst
+
+ssl
+=====================================================
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_ssl.rst
+
+Syntax
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_ssl_syntax.rst
+
+Matchers
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+
+be
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_be.rst
+
+be_enabled
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_ssl_matcher_be_enabled.rst
+
+ciphers
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_ssl_matcher_ciphers.rst
+
+cmp
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp.rst
+
+**Compare single value to array**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_value_vs_array.rst
+
+**Compare strings and regular expressions**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_regex.rst
+
+**Compare strings and numbers**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_string_vs_number.rst
+
+**Ignoring case sensitivity**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_case_sensitive.rst
+
+**Printing octals**
+
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_cmp_octals.rst
+
+eq
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_eq.rst
+
+.. 
+.. commented out, see includes_inspec_resource_ssl_matcher_handshake for more info
+.. 
+.. handshake
+.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. .. include:: ../../includes_inspec_resources/includes_inspec_resource_ssl_matcher_handshake.rst
+.. 
+
+include
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_include.rst
+
+match
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_matcher_match.rst
+
+protocols
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_ssl_matcher_protocols.rst
+
+Examples
+-----------------------------------------------------
+.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+
+**Run the ssl-benchmark example profile**
+
+.. include:: ../../step_inspec/step_inspec_ssl_use_benchmark_profile.rst
+
+.. include:: ../../step_inspec/step_inspec_ssl_run_benchmark_profile.rst
+
 
 
 user
