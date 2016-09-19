@@ -62,6 +62,7 @@
    inspec_port
    inspec_postgres_conf
    inspec_postgres_session
+   inspec_powershell
    inspec_process
    inspec_profiles
    inspec_reference
