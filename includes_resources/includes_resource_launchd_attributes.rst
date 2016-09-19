@@ -161,9 +161,11 @@ The following resource properties may be used to define keys in the XML property
    Specify if ``initgroups`` is called before running a job. Default value: ``true`` (starting with |mac os x| 10.5).
 
 ``keep_alive``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** TrueClass, FalseClass, Hash
 
    Keep a job running continuously (``true``) or allow demand and conditions on the node to determine if the job keeps running (``false``). Default value: ``false``.
+
+   Hash type was added in Chef client 12.14.
 
 ``launch_only_once``
    **Ruby Types:** TrueClass, FalseClass

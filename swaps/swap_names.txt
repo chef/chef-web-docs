@@ -237,6 +237,7 @@
 .. |resource template| replace:: **template**
 .. |resource user| replace:: **user**
 .. |resource yum_package| replace:: **yum_package**
+.. |resource_yum_repository| replace:: **yum_repository**
 
 .. Lightweight resource providers
 ..

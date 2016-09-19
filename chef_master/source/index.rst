@@ -765,6 +765,7 @@ Addenda
    resource_windows_package
    resource_windows_service
    resource_yum
+   resource_yum_repository
    resources
    roles
    rubocop
