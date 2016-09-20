@@ -701,5 +701,6 @@
   "start_compliance.html": "/compliance.html",
   "start_delivery.html": "/workflow.html",
   "ingest_data_chef_automate.html": "/setup_visibility_chef_automate.html",
-  "release/automate/ingest_data_chef_automate.html": "/release/automate/setup_visibility_chef_automate.html"
+  "release/automate/ingest_data_chef_automate.html": "/release/automate/setup_visibility_chef_automate.html",
+  "release/12-14/release_notes.html": "/release_notes.html"
 }
