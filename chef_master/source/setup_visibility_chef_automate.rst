@@ -7,10 +7,9 @@ Before using the visibility capabilities of |automate|, you must perform some si
 Use an external Elasticsearch cluster
 =====================================================
 
-Chef Automate uses Elasticsearch to store its data, and the default Chef Automate install includes a
-single Elasticsearch service. This single service is sufficient for testing but is likely to not be
-sufficient for production loads. Therefore, we recommend using a multi-node Elasticsearch cluster
-with replication and sharding to store and protect your data.
+Chef Automate uses Elasticsearch to store its data, and the default Chef Automate install includes a single Elasticsearch service. 
+This is sufficient to run production work loads; however for greater data retention, we recommend using a multi-node Elasticsearch 
+cluster with replication and sharding to store and protect your data.
 
 Prerequisites
 -----------------------------------------------------
