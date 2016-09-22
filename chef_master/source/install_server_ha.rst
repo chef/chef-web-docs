@@ -189,7 +189,6 @@ to join nodes in parallel the cluster may fail to become available):
       leaderl        running (pid 6788)  1d 5h 59m 35s  leader: 1; waiting: 0; follower: 2; total: 3
       postgresql     running (pid 6640)  1d 5h 59m 43s  leader: 1; offline: 0; syncing: 0; synced: 2
 
-
 Step 4: Generate |chef server| Configuration
 --------------------------------------------
 
@@ -248,6 +247,42 @@ Upgrading chef-server on the frontend machines
 
 #. On each of the remaining frontends, copy ``/var/opt/opscode/upgrades/migration-level`` from first upgraded frontend to ``/var/opt/opscode/upgrades/migration-level`` on current box.
 
+Configuring front end and backend members on different networks
+----------------------------------------------------------------
+
+By default, |postgresql| only allows systems on its local network to connect to the database server and the ``pg_hba.conf`` used by |postgresql| controls network access to the server.
+
+To allow other systems to connect, such as members of a frontend group that might exist on a different network, you will need to authorize that usage by adding the following line to the ``/etc/chef-backend/chef-backend.rb`` file on all of the backend members.
+
+.. code-block:: none 
+
+   postgresql.md5_auth_cidr_addresses = ["127.0.0.1/24", "YOURNET IN CIDR"]
+
+Afer setting the `md5_auth_cidr_addresses` value and reconfiguring the server, a new entry in the ``pg_hba.conf`` file will be created for each CIDR-Address in the `md5_auth_cidr_addresses` array. Each entry will look like the following:
+
+.. code-block:: none
+
+   host    all         all         <CIDR-Address>           md5
+
+For example, if a frontend host at 192.168.1.3 can reach a backend member over the network, but the backend’s local network is 192.168.2.x, you would add the following line to ``/etc/chef-backend/chef-backend.rb``
+
+.. code-block:: none 
+
+   postgresql.md5_auth_cidr_addresses = ["127.0.0.1/24", "192.168.1.3/24"]
+
+which would result in the following two entries being added to the ``pg_hba.conf`` file.
+
+.. code-block:: none
+
+   host    all         all         127.0.0.1/24           md5
+   host    all         all         192.168.1.3/24         md5
+
+Running ``chef-server-ctl reconfigure`` on all the backends will allow that frontend to complete its connection. 
+
+.. code-block:: none
+
+   chef-server-ctl reconfigure
+   
 Cluster Security Considerations
 ===============================
 
