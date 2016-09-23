@@ -250,32 +250,39 @@ Upgrading chef-server on the frontend machines
 Configuring front end and backend members on different networks
 ----------------------------------------------------------------
 
-By default, |postgresql| only allows systems on its local network to connect to the database server and the ``pg_hba.conf`` used by |postgresql| controls network access to the server.
+By default, |postgresql| only allows systems on its local network to connect to the database server that runs it and the ``pg_hba.conf`` used by |postgresql| controls network access to the server. The default ``pg_nba.conf`` has the following four entries:
+
+.. code-block:: none
+
+   host    all         all         samehost               md5
+   hostssl replication replicator  samehost               md5
+   host    all         all         samenet                md5
+   hostssl replication replicator  samenet                md5
 
 To allow other systems to connect, such as members of a frontend group that might exist on a different network, you will need to authorize that usage by adding the following line to the ``/etc/chef-backend/chef-backend.rb`` file on all of the backend members.
 
 .. code-block:: none 
 
-   postgresql.md5_auth_cidr_addresses = ["127.0.0.1/24", "YOURNET IN CIDR"]
+   postgresql.md5_auth_cidr_addresses = ["samehost", "samenet", "<YOURNET IN CIDR>"]
 
-Afer setting the `md5_auth_cidr_addresses` value and reconfiguring the server, a new entry in the ``pg_hba.conf`` file will be created for each CIDR-Address in the `md5_auth_cidr_addresses` array. Each entry will look like the following:
-
-.. code-block:: none
-
-   host    all         all         <CIDR-Address>           md5
+Afer setting the ``md5_auth_cidr_addresses`` value and reconfiguring the server, two entries will be created in ``pg_hba.conf`` for each value in the ``md5_auth_cidr_addresses`` array. Existing values in ``pg_hba.conf`` will be overwritten by the values in the array, so we must also specify "samehost" and "samenet", which will continue to allow systems on a local network to connect to |postgresql|.
 
 For example, if a frontend host at 192.168.1.3 can reach a backend member over the network, but the backend’s local network is 192.168.2.x, you would add the following line to ``/etc/chef-backend/chef-backend.rb``
 
 .. code-block:: none 
 
-   postgresql.md5_auth_cidr_addresses = ["127.0.0.1/24", "192.168.1.3/24"]
+   postgresql.md5_auth_cidr_addresses = ["samehost", "samenet", "192.168.1.3/24"]
 
 which would result in the following two entries being added to the ``pg_hba.conf`` file.
 
 .. code-block:: none
 
-   host    all         all         127.0.0.1/24           md5
+   host    all         all         samehost               md5
+   hostssl replication replicator  samehost               md5
+   host    all         all         samenet                md5
+   hostssl replication replicator  samenet                md5
    host    all         all         192.168.1.3/24         md5
+   hostssl replication replicator  192.168.1.3/24         md5
 
 Running ``chef-server-ctl reconfigure`` on all the backends will allow that frontend to complete its connection. 
 
