@@ -7,7 +7,7 @@ To set up the |push jobs| server for a high availability configuration:
 
    .. code-block:: bash
 
-      $ dpkg -i opscode-push-jobs-server_<package>.ubuntu.10.04_amd64.deb
+      $ sudo dpkg -i opscode-push-jobs-server_2.1.0-1_amd64.deb
 
 #. Reconfigure the primary backend |push jobs| server:
 

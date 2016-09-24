@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-The following test shows how to audit machines running |windows| 2012 R2 that pwassword complexity is enabled:
+The following test shows how to audit machines running |windows| 2012 R2 that password complexity is enabled:
 
 .. code-block:: ruby
 
