@@ -87,10 +87,12 @@ Node Hostnames and Network Access
 
 The automated configuration of Chef Automate and Chef servers use the
 ``hostname`` command to determine the visible fully-qualified domain name
-(FQDN) of the node.  Prior to installation, ensure that ``hostname`` on
-each node resolves to a correct FQDN that is visible to the
-other nodes in the cluster.   If necessary, update the ``/etc/hosts`` on
+(FQDN) of the node.  Prior to installation, ensure that ``hostname``
+and ``hostname -f`` on each node resolves to a matching, correct FQDN that is visible to the
+other nodes in the cluster.   If necessary, update the ``/etc/hosts`` file on
 the nodes to ensure that the names resolve.
+
+Disable IPv6 on the host and remove any ip6 settings found in ``/etc/hosts``. The host should also point its name at its own external ip address in ``/etc/hosts``.
 
 The Chef Automate server hostname is also expected to match the hostname
 that you will use to work with Chef Automate via its web interface.  It is
@@ -253,12 +255,14 @@ To install Chef Automate:
                              --server-url https://$CHEF_SERVER_FQDN/organizations/$AUTOMATE_CHEF_ORG \
                              --fqdn $AUTOMATE_SERVER_FQDN
 
+   All paths called for here should be supplied as the absolute path to a file, including the filename.
+
    ``$AUTOMATE_LICENSE`` is the path to your Chef Automate license file. 
 
    ``$AUTOMATE_CHEF_USER_KEY`` is the key that was created in the previous section on your Chef server.
    Copy it from the Chef server to the Chef Automate server and then provide the path for the ``--key`` argument.
 
-   ``$AUTOMATE_SERVER_FQDN`` is the external fully-qualified domain name of the |automate| server.
+   ``$AUTOMATE_SERVER_FQDN`` is the external fully-qualified domain name of the |automate| server. This is just the name of the system, not a URL.
 
 #. (Optional) If you are using an internal Supermarket, tell the setup command about it by supplying the ``--supermarket-fqdn`` command line argument:
 
