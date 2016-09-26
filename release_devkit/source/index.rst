@@ -162,6 +162,7 @@ The following tools have been developed by members of the |chef| community. Thes
    handlers
    install_bootstrap
    install_dk
+   inspec
    kitchen
    knife_bootstrap
    knife_client
