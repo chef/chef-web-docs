@@ -312,6 +312,7 @@ The following resources are built-in to the |chef client|:
 * windows_package
 * windows_service
 * yum (based on the package resource)
+* yum_repository
 
 See below for more information about each of these resources, their related actions and properties, and examples of how these resources can be used in recipes.
 
@@ -3246,10 +3247,6 @@ Examples
 .. include:: ../../step_resource/step_resource_service_windows_manual_start.rst
 
 
-
-
-
-
 yum_package
 -----------------------------------------------------
 .. include:: ../../includes_resources/includes_resource_package_yum.rst
@@ -3313,3 +3310,27 @@ Examples
 **Handle cookbook_file and yum_package resources in the same recipe**
 
 .. include:: ../../step_resource/step_resource_yum_package_handle_cookbook_file_and_yum_package.rst
+
+
+yum_repository
+-----------------------------------------------------
+
+.. include:: ../../includes_resources/includes_resource_yum_repository.rst
+
+New in Chef client 12.14.
+
+Syntax
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_resources/includes_resource_yum_repository_syntax.rst
+
+Actions
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_resources/includes_resource_yum_repository_actions.rst
+
+Properties
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_resources/includes_resource_yum_repository_attributes.rst
+
+Examples
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: ../../includes_resources/includes_resource_yum_repository_examples.rst
