@@ -3333,4 +3333,4 @@ Properties
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-None.
+.. include:: ../../includes_resources/includes_resource_yum_repository_examples.rst
