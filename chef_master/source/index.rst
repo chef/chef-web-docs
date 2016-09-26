@@ -153,7 +153,7 @@ Chef DK
 
 
 :doc:`cookstyle </cookstyle>` |
-:doc:`Workflow CLI </ctl_delivery>` |
+:doc:`Delivery CLI </ctl_delivery>` |
 :doc:`Foodcritic </foodcritic>` 
 
 **Kitchen**: :doc:`About Kitchen </kitchen>` | :doc:`kitchen (executable) </ctl_kitchen>` | :doc:`.kitchen.yml </config_yml_kitchen>` :doc:`kitchen-vagrant </plugin_kitchen_vagrant>` 
@@ -262,6 +262,10 @@ Concepts
 :doc:`Visibility Overview </visibility>` |
 :doc:`Compliance Overview </compliance>` 
 
+Delivery CLI
+-----------------------------------------------------
+:doc:`Delivery CLI </ctl_delivery>`
+
 Integrations
 -----------------------------------------------------
 :doc:`w/Bitbucket </integrate_delivery_bitbucket>` |
@@ -270,6 +274,16 @@ Integrations
 :doc:`w/LDAP </integrate_delivery_ldap>` |
 :doc:`w/SAML </integrate_chef_automate_saml>` |
 :doc:`w/Slack </integrate_delivery_slack>` 
+
+Cookbooks
+-----------------------------------------------------
+:doc:`build-cookbook (cookbook) </delivery_build_cookbook>` | 
+:doc:`delivery-truck (cookbook) </delivery_truck>` 
+
+Workflow DSL
+-----------------------------------------------------
+
+:doc:`Workflow DSL </dsl_delivery>` 
 
 Managing the Server
 -----------------------------------------------------
@@ -329,11 +343,6 @@ Resources
 **Recipe DSL**: `attribute? <http://docs.chef.io/dsl_recipe.html#attribute>`_ | `control <http://docs.chef.io/dsl_recipe.html#control>`_ | `control_group <http://docs.chef.io/dsl_recipe.html#control-group>`_ | `cookbook_name <http://docs.chef.io/dsl_recipe.html#cookbook-name>`_ | `data_bag <http://docs.chef.io/dsl_recipe.html#data-bag>`_ | `data_bag_item <http://docs.chef.io/dsl_recipe.html#data-bag-item>`_ | `platform? <http://docs.chef.io/dsl_recipe.html#platform>`_ | `platform_family? <http://docs.chef.io/dsl_recipe.html#platform-family>`_ | `reboot_pending? <http://docs.chef.io/dsl_recipe.html#reboot-pending>`_ | `recipe_name <http://docs.chef.io/dsl_recipe.html#recipe-name>`_ | `registry_data_exists? <http://docs.chef.io/dsl_recipe.html#registry-data-exists>`_ | `registry_get_subkeys <http://docs.chef.io/dsl_recipe.html#registry-get-subkeys>`_ | `registry_get_values <http://docs.chef.io/dsl_recipe.html#registry-get-values>`_ | `registry_has_subkeys? <http://docs.chef.io/dsl_recipe.html#registry-has-subkeys>`_ | `registry_key_exists? <http://docs.chef.io/dsl_recipe.html#registry-key-exists>`_ | `registry_value_exists? <http://docs.chef.io/dsl_recipe.html#registry-value-exists>`_ | `resources <http://docs.chef.io/dsl_recipe.html#resources>`_ | `search <http://docs.chef.io/dsl_recipe.html#search>`_ | `shell_out <http://docs.chef.io/dsl_recipe.html#shell-out>`_ | `shell_out! <http://docs.chef.io/dsl_recipe.html#shell-out-bang>`_ | `shell_out_with_systems_locale <http://docs.chef.io/dsl_recipe.html#shell-out-with-systems-locale>`_ | `tag <http://docs.chef.io/dsl_recipe.html#tag-tagged-untag>`_ | `tagged? <http://docs.chef.io/dsl_recipe.html#tag-tagged-untag>`_ | `untag <http://docs.chef.io/dsl_recipe.html#tag-tagged-untag>`_ | `value_for_platform <http://docs.chef.io/dsl_recipe.html#value-for-platform>`_ | `value_for_platform_family <http://docs.chef.io/dsl_recipe.html#value-for-platform-family>`_ | `Windows Platform Helpers <http://docs.chef.io/dsl_recipe.html#helpers>`_ 
 
  `Community Resources <https://supermarket.chef.io>`_ 
-
-Workflow DSL
------------------------------------------------------
-
-:doc:`Workflow DSL </dsl_delivery>` 
 
 Handlers
 -----------------------------------------------------
