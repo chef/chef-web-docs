@@ -9,7 +9,6 @@
 * ``knife ec2`` for |amazon ec2|
 * ``knife eucalyptus`` for |eucalyptus|
 * ``knife google`` for |google compute engine|
-* ``knife hp`` for |hp cloud|
 * ``knife linode`` for |linode|
 * ``knife openstack`` for |openstack|
 * ``knife rackspace`` for |rackspace|
