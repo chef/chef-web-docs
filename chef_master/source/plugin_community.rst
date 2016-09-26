@@ -9,7 +9,7 @@ This page lists plugins for |knife|, |ohai|, handlers, and the |chef client| tha
 =====================================================
 .. include:: ../../includes_knife/includes_knife.rst
 
-|knife| plugins for cloud hosting platforms--- `knife azure <https://docs.chef.io/plugin_knife_azure.html>`_, `knife bluebox <https://docs.chef.io/plugin_knife_bluebox.html>`_, `knife ec2 <https://docs.chef.io/plugin_knife_ec2.html>`_, `knife eucalyptus <https://docs.chef.io/plugin_knife_eucalyptus.html>`_, `knife google <https://docs.chef.io/plugin_knife_google.html>`_, `knife hp <https://docs.chef.io/plugin_knife_hp.html>`_, `knife linode <https://docs.chef.io/plugin_knife_linode.html>`_, `knife openstack <https://docs.chef.io/plugin_knife_openstack.html>`_, `knife rackspace <https://docs.chef.io/plugin_knife_rackspace.html>`_, and `knife terremark <https://docs.chef.io/plugin_knife_terremark.html>`_ ---are built and maintained by |company_name|. 
+|knife| plugins for cloud hosting platforms--- `knife azure <https://docs.chef.io/plugin_knife_azure.html>`_, `knife bluebox <https://docs.chef.io/plugin_knife_bluebox.html>`_, `knife ec2 <https://docs.chef.io/plugin_knife_ec2.html>`_, `knife eucalyptus <https://docs.chef.io/plugin_knife_eucalyptus.html>`_, `knife google <https://docs.chef.io/plugin_knife_google.html>`_, `knife linode <https://docs.chef.io/plugin_knife_linode.html>`_, `knife openstack <https://docs.chef.io/plugin_knife_openstack.html>`_, `knife rackspace <https://docs.chef.io/plugin_knife_rackspace.html>`_, and `knife terremark <https://docs.chef.io/plugin_knife_terremark.html>`_ ---are built and maintained by |company_name|. 
 
 The following table lists |knife| plugins built by the |chef| community.
 

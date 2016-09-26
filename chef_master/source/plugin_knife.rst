@@ -27,8 +27,6 @@ The following |knife| plug-ins are maintained by |company_name|:
      - .. include:: ../../includes_plugin_knife/includes_plugin_knife_eucalyptus.rst
    * - `knife-google <https://github.com/chef/knife-google>`__
      - .. include:: ../../includes_plugin_knife/includes_plugin_knife_google.rst
-   * - `knife-hp <https://github.com/chef/knife-hp>`__
-     - .. include:: ../../includes_plugin_knife/includes_plugin_knife_hp.rst
    * - `knife-linode <https://github.com/chef/knife-linode>`__
      - .. include:: ../../includes_plugin_knife/includes_plugin_knife_linode.rst
    * - `knife-openstack <https://github.com/chef/knife-openstack>`__

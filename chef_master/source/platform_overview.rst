@@ -114,7 +114,7 @@ Chef Automate creates customizable reports that identify compliance issues, secu
    :align: center
 
 * Use the |chef dk| to build security and compliance checks into your workflow
-* Use :doc:`InSpec audit resources </inspec_reference>` to :doc:`define rules for testing nodes </dsl_compliance>` in your infrastructure. (See the navigation to browse the entire list of |inspec| audit resources.)
+* Use `InSpec  <http://inspec.io>`__ in your infrastructure.
 * Use pre-built certified profiles for CIA (Level 1 and Level 2), as well as best practice profiles for |windows| and |linux| systems
 
 .. image:: ../../images/start_compliance_correct.svg

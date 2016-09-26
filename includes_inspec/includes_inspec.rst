@@ -9,3 +9,5 @@
 * Use |inspec| to examine any node in your infrastructure; run the tests locally or remotely
 * Any detected security, compliance, or policy issues are flagged in a log
 * The |inspec resource| framework is fully compatible with |chef compliance|
+
+To learn more about |inspec|, see the `InSpec website <http://inspec.io/>`__. The site contains tutorials and reference documentation on how to use the various audit resources, profiles, |inspec| CLI, and more.
