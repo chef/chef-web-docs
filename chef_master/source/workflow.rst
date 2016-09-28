@@ -59,7 +59,7 @@ Verification
 -----------------------------------------------------
 When |automate| receives the change, it triggers the Verify stage. The purpose of Verify is to run checks so that the system can decide if it's worth the time of a human to review the change.
 
-When the Verify phases have completed successfully, the change is ready for code review. |automate| provides integrated code review through its web UI. There is also an integration with |github| and another, currently in the works, for |bitbucket server| (by |atlassian|) for teams with existing code review workflows.
+When the Verify phases have completed successfully, the change is ready for code review. |automate| provides integrated code review through its web UI. There is also an integration with |github| and |bitbucket server| (by |atlassian|) for teams with existing code review workflows.
 
 In code review, team members can comment on the diffs. If more changes are required, they can be made either as additional commits on top of the originally submitted feature branch, or the commit(s) can be reworked using ``git commit --amend`` and ``git rebase``. 
 
