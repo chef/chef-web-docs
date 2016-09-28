@@ -506,6 +506,14 @@ user-delete
 
    $ chef-server-ctl user-delete jane_doe
 
+**Options**
+
+This subcommand has the following options:
+
+``-R``, ``--remove-from-admin-groups``
+   Removes a user who is in one or more 'admin' groups unless that user is the only member of the 'admin' group(s).
+
+   New in Chef server 12.9.
 
 user-edit
 -----------------------------------------------------
