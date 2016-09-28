@@ -1,15 +1,23 @@
 =====================================================
-Release Notes: |chef server_title| 12.0 - 12.8
+Release Notes: |chef server_title| 12.0 - 12.9
 =====================================================
 
 .. include:: ../../includes_chef/includes_chef_index.rst
+
+What's New in 12.9
+=====================================================
+The following items are new for |chef server| 12.9:
+
+* **New warning and functionality when trying to delete user in multiple 'admin' groups** If a user is in an admininstrator group in any organization, the ``chef-server-ctl user-delete`` subcommand does not allow you to remove the user from that group. To provide more information when the ``user-delete`` subcommand fails for this reason, the error message contains a list of organizations the user is an adminstrator of. Using the new flag ``--remove-from-admin-groups``, you can now remove that user provided they are not the only user in the ``admin`` group.
+* **LDAP bind passwords now support special characters** 
+* **Updated to OpenSSL 1.0.1u** Updated version of OpenSSL to address security vunerabilities.
 
 What's New in 12.8
 =====================================================
 The following items are new for |chef server| 12.8:
 
 * **Initial support for sending updates to a data collector service** See `Configuring Chef Server to send Chef Client data <https://docs.chef.io/ingest_data_chef_automate.html#configuring-chef-server-to-send-chef-client-data>`_ for more information on how to set up and send data from Chef server to an |automate| server.
-* **Minor bug fixes in postgresql setup**.
+* **Minor bug fixes in postgresql setup**
 
 What's New in 12.7
 =====================================================

@@ -987,5 +987,9 @@
   "inspec_profiles.html": "http://inspec.io/docs/reference/profiles/",
   "release/devkit/inspec_profiles.html": "http://inspec.io/docs/reference/profiles/",
   "release/automate/inspec_profiles.html": "http://inspec.io/docs/reference/profiles/",
-  "release/compliance/inspec_profiles.html": "http://inspec.io/docs/reference/profiles/"
+  "release/compliance/inspec_profiles.html": "http://inspec.io/docs/reference/profiles/",
+  "inspec_reference.html": "http://inspec.io/docs/reference/resources/",
+  "release/compliance/inspec_reference.html": "http://inspec.io/docs/reference/resources/",
+  "release/automate/inspec_reference.html": "http://inspec.io/docs/reference/resources/",
+  "release/devkit/inspec_reference.html": "http://inspec.io/docs/reference/resources/"
 }
