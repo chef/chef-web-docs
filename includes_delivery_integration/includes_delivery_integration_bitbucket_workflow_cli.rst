@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-Install the |delivery_cli|:
+Perform the following steps to install the Delivery CLI and setup your project:
 
 #. `Install the Delivery CLI <https://docs.chef.io/ctl_delivery.html#install-delivery-cli>`__.
 #. In the command shell, create or navigate to the directory in which project repositories are located.
