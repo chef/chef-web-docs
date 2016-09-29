@@ -10,11 +10,11 @@ This subcommand has the following options:
 ``-e=ENTERPRISE``, ``--ent=ENTERPRISE``
    |delivery enterprise|
 
-``-f=PIPELINE``, ``--for=PIPELINE``
-   |delivery pipeline|
-
 ``-o=ORGANIZATION``, ``--org=ORGANIZATION``
    |delivery organization|
+
+``--pipeline=PIPELINE``
+  |delivery pipeline|
 
 ``-s=SERVER``, ``--server=SERVER``
    |delivery server|

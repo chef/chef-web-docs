@@ -49,9 +49,11 @@ Organizations allow you to group related projects and provide scope for authoriz
 
 Each project has one or more pipelines. The typical setup is for each project to have a single pipeline that targets the master branch.
 
+Having multiple pipelines allows the project to target different branches for different changes. A potential use case is maintaining different versions of a project on different branches, enabling you to target a change (for instance, a security fix) against multiple versions quickly and easily.
+
 Changes and Project Pipelines
 =====================================================
-Let's walk through what happens as a change makes its way through |automate|. We'll assume you have created a project in |automate| and want to make a change. 
+Let's walk through what happens as a change makes its way through |automate|. We'll assume you have created a project in |automate| and want to make a change.
 
 You start with a local checkout of the project's |git| repository. You create a feature branch, make a change in that branch and test it locally. When you're ready, submit the change using the ``delivery review`` command (part of the |automate| command line tool). This command submits the change to |automate| and kicks off the pipeline. The command is the equivalent to ``git push``, although it also creates a change in |automate| that is similar to a pull request in |github| and other |git|-based version control systems.
 

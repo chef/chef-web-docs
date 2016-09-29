@@ -19,9 +19,6 @@ This subcommand has the following options:
 ``-e=ENTERPRISE``, ``--ent=ENTERPRISE``
    |delivery enterprise|
 
-``-f=PIPELINE``, ``--for=PIPELINE``
-   |delivery pipeline|
-
 ``-g=URL``, ``--git-url=URL``
    |git url| This URL is used as the remote target for the local |git| checkout when the job is run. If this option is used, the ``--ent``, ``--org``, ``--server``, and ``--user`` options are ignored.
 
@@ -45,6 +42,9 @@ This subcommand has the following options:
 
 ``<phase>``
    |delivery phase|
+
+``--pipeline=PIPELINE``
+   |delivery pipeline|
 
 ``-s=SERVER``, ``--server=SERVER``
    |delivery server|

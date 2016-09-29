@@ -94,3 +94,7 @@ Build Nodes and Phases
 Run-time Dependencies
 -------------------------------------------------------
 .. include:: ../../includes_delivery_config/includes_delivery_config_example_dependencies_on_master.rst
+
+Multiple Pipelines
+-------------------------------------------------------
+.. include:: ../../includes_delivery_config/includes_delivery_config_multiple_pipelines.rst
