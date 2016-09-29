@@ -991,5 +991,7 @@
   "inspec_reference.html": "http://inspec.io/docs/reference/resources/",
   "release/compliance/inspec_reference.html": "http://inspec.io/docs/reference/resources/",
   "release/automate/inspec_reference.html": "http://inspec.io/docs/reference/resources/",
-  "release/devkit/inspec_reference.html": "http://inspec.io/docs/reference/resources/"
+  "release/devkit/inspec_reference.html": "http://inspec.io/docs/reference/resources/",
+  "install_delivery_aws_legacy.html": "/install_chef_automate.html",
+  "install_delivery_ssh_legacy.html": "/install_chef_automate.html"
 }
