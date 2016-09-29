@@ -374,4 +374,4 @@ Delivery-truck is Chef Automate's recommended way of setting up build cookbooks.
 Next steps
 =====================================================
 
-After you have setup your Chef Server, |automate|, and any build nodes, you must also perform additional configuration steps on nodes to visualize their data in |automate|. See :doc:`Setup and Configure Visibility in Chef Automate </setup_visibility_chef_automate>` for more information.
+After you have setup your Chef Server, |automate|, and any build nodes, you must also perform additional configuration steps on nodes to visualize their data in |automate|. See :doc:`Configure Data Collection </setup_visibility_chef_automate>` for more information.

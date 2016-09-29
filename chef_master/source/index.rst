@@ -544,8 +544,6 @@ Addenda
    knife_user
    knife_using
    knife_xargs
-   install_delivery_aws_legacy
-   install_delivery_ssh_legacy
    libraries
    manage
    nodes
