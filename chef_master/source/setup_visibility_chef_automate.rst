@@ -169,6 +169,12 @@ Additional configuration options include:
  * ``data_collector['http_max_connection_duration']``: maximum duration an HTTP connection is allowed
    to exist before it is terminated, specified as an Erlang tuple. Default: ``{70, sec}``.
 
+Send Habitat data to Visibility
+-------------------------------------------------------
+
+The visibility capabilities of |automate| can also be used to collect and report on Habitat ring data. The Prism Habitat package collects this data and sends it to an |automate| server's REST API endpoint. You can configure settings like the data collector URL, token, the Habitat supervisor used to get the ring information, and so on. For more information on the Prism package, see `Habitat Prism <https://docs.chef.io/habitat_prism.html>`__. For more information on Habitat, see the `Habitat site <https://habitat.sh/>`__.
+
+
 Set up visibility with previous Chef Delivery installation
 ===============================================================
 
