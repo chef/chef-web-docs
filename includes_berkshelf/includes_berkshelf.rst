@@ -3,4 +3,3 @@
 
 |berkshelf| is a dependency manager for certain cookbook workflows that is included in the |chef dk|. |berkshelf| stores every version of a cookbook that has ever been installed. By default, the local disk repository for |berkshelf| is located at ``~/.berkshelf``, but this may be modified by setting the ``BERKSHELF_PATH`` environment variable.
 
-.. note:: The |berkshelf| workflow is an older pattern of cookbook management that stores all the cookbooks within local directories using a ``{name}-{version}`` naming convention and does not place any cookbooks within the ``/cookbooks`` directory in the |chef repo|.
