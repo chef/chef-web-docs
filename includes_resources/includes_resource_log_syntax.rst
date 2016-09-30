@@ -31,4 +31,3 @@ where
 * ``message`` is the log message to write
 * ``:action`` identifies the steps the |chef client| will take to bring the node into the desired state
 * ``level``, ``message``, and ``provider`` are properties of this resource, with the |ruby| type shown. |see attributes|
-* set ``count_log_resource_updates`` false in the chef config file to supress the resource count update on running chef-client.
