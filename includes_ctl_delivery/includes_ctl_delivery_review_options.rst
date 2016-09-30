@@ -10,8 +10,8 @@ This subcommand has the following options:
 ``--edit``
    |delivery review_edit|
 
-``-f=PIPELINE``, ``--for=PIPELINE``
-   |delivery pipeline|
-
 ``--no-open``
    |delivery pipeline no_open|
+
+``--pipeline=PIPELINE``
+   |delivery pipeline|
