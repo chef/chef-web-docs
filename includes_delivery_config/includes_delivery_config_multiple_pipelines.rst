@@ -14,6 +14,7 @@ Example:
 ``delivery review --pipeline=$BRANCH_NAME``
 
 The commands that take this flag are:
+
 * ``delivery init``
 * ``delivery review``
 * ``delivery diff``
