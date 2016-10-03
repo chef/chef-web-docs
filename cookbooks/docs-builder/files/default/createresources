@@ -1,0 +1,6 @@
+#!/bin/bash
+
+TEMPLATE_PATH="../../../../chef_master/source"
+
+ruby -C $TEMPLATE_PATH $PWD/allinone.rb "_templates/resources_prologue.rst.txt" \
+"_templates/resources_sections.txt" "resources.rst"

@@ -7,11 +7,11 @@
 .. include:: ../../includes_ctl_push_jobs_client/includes_ctl_push_jobs_client.rst
 
 Options
------------------------------------------------------
+=====================================================
 .. include:: ../../includes_ctl_push_jobs_client/includes_ctl_push_jobs_client_options_2-1.rst
 
 Examples
------------------------------------------------------
+=====================================================
 None.
 
 

@@ -15,15 +15,16 @@ Deploy Strategies
 .. include:: ../../includes_resources/includes_resource_deploy_strategy.rst
 
 Deploy Phases
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 .. include:: ../../includes_resources/includes_resource_deploy_strategy_phases.rst
 
 Deploy Cache File
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. include:: ../../includes_resources/includes_resource_deploy_strategy_start_over.rst
 
 Callbacks
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 .. include:: ../../includes_resources/includes_resource_deploy_strategy_callbacks.rst
 
 **Callbacks and Capistrano**
@@ -31,7 +32,8 @@ Callbacks
 .. include:: ../../includes_resources/includes_resource_deploy_capistrano_callbacks.rst
 
 Layout Modifiers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
+
 .. include:: ../../includes_resources/includes_resource_deploy_strategy_layouts.rst
 
 Actions
@@ -39,7 +41,8 @@ Actions
 .. include:: ../../includes_resources/includes_resource_deploy_actions.rst
 
 Naming Resources
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
+
 .. include:: ../../includes_resources/includes_resource_deploy_actions_resource_names.rst
 
 Properties
@@ -55,15 +58,18 @@ Providers
 .. include:: ../../includes_resources/includes_resource_deploy_providers.rst
 
 deploy_branch
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
+
 .. include:: ../../includes_resources/includes_resource_deploy_providers_deploy_branch.rst
 
 deploy_revision
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
+
 .. include:: ../../includes_resources/includes_resource_deploy_providers_deploy_revision.rst
 
 timestamped_deploy
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
+
 .. include:: ../../includes_resources/includes_resource_deploy_providers_timestamped_deploy.rst
 
 Examples

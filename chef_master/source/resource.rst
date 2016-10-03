@@ -11,11 +11,11 @@ About Resources
 .. include:: ../../includes_resources_common/includes_resources_common_provider_platform.rst
 
 Resources Syntax
------------------------------------------------------
+=====================================================
 .. include:: ../../includes_resources_common/includes_resources_common_syntax.rst
 
 Common Functionality
------------------------------------------------------
+=====================================================
 .. include:: ../../includes_resources_common/includes_resources_common_intro.rst
 
 .. list-table::
@@ -43,7 +43,7 @@ Common Functionality
 
 
 Resources
------------------------------------------------------
+=====================================================
 .. include:: ../../includes_resources_common/includes_resources_common_platform_resources.rst
 
 
