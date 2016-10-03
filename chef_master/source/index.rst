@@ -293,7 +293,7 @@ Managing the Server
 :doc:`Secrets </delivery_manage_secrets>` |
 :doc:`Tuning </delivery_server_tuning>` |
 :doc:`Users and Roles </delivery_users_and_roles>` |
-:doc:`Capacity Planning </scaling_capacity_chef_automate>` |
+:doc:`Capacity Planning </scaling_capacity_planning_chef_automate>` |
 :doc:`Stream Data </stream_data_chef_automate>` |
 `backup-data <http://docs.chef.io/ctl_delivery_server.html#backup-data>`_ |
 `cleanse <http://docs.chef.io/ctl_delivery_server.html#cleanse>`_ |
@@ -460,7 +460,7 @@ Addenda
    custom_resources
    custom_resources_notes
    data_bags
-   scaling_capacity_chef_automate
+   scaling_capacity_planning_chef_automate
    stream_data_chef_automate
    debug
    definitions
