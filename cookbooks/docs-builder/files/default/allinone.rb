@@ -152,96 +152,9 @@ def create_allinone(prologue, topics, outFileName)
   end
 end
 
-
-RUNBOOKPROLOGUE = "runbook_prologue.rst"
-RUNBOOKSECTIONS = [
-  "server_monitor.rst", 
-  "server_logs.rst",
-  "server_firewalls_and_ports.rst",
-  "server_services.rst",
-  "server_security.rst",
-  "server_tuning.rst",
-# missing Resize drbd (probably obsolete)
-  "server_backup_restore.rst"
-]
-RUNBOOKFILE = "runbook2.rst"
-
-
-RESOURCESPROLOGUE = "resources_prologue.rst"
-RESOURCESSECTIONS = [
- "resource_apt_package.rst",
- "resource_apt_update.rst",
- "resource_bash.rst",
- "resource_batch.rst",
- "resource_bff_package.rst",
- "resource_breakpoint.rst",
- "resource_chef_gem.rst",
- "resource_chef_handler.rst",
- "resource_chocolatey_package.rst",
- "resource_cookbook_file.rst",
- "resource_cron.rst",
- "resource_csh.rst",
- "resource_deploy.rst",
- "resource_directory.rst",
- "resource_dpkg_package.rst",
- "resource_dsc_resource.rst",
- "resource_dsc_script.rst",
- "resource_easy_install_package.rst",
- "resource_env.rst",
- "resource_erlang_call.rst",
- "resource_execute.rst",
- "resource_file.rst",
- "resource_freebsd_package.rst",
- "resource_gem_package.rst",
- "resource_git.rst",
- "resource_group.rst",
- "resource_homebrew_package.rst",
- "resource_http_request.rst",
- "resource_ifconfig.rst",
- "resource_ips_package.rst",
- "resource_link.rst",
- "resource_log.rst",
- "resource_macports_package.rst",
- "resource_mdadm.rst",
- "resource_mount.rst",
- "resource_ohai.rst",
- "resource_openbsd_package.rst",
- "resource_osx_profile.rst",
- "resource_package.rst",
- "resource_pacman_package.rst",
- "resource_paludis_package.rst",
- "resource_perl.rst",
- "resource_portage_package.rst",
- "resource_powershell_script.rst",
- "resource_python.rst",
- "resource_reboot.rst",
- "resource_registry_key.rst",
- "resource_remote_directory.rst",
- "resource_remote_file.rst",
- "resource_route.rst",
- "resource_rpm_package.rst",
- "resource_ruby.rst",
- "resource_ruby_block.rst",
- "resource_script.rst",
- "resource_service.rst",
- "resource_smartos_package.rst",
- "resource_solaris_package.rst",
- "resource_subversion.rst",
- "resource_systemd_unit.rst",
- "resource_template.rst",
- "resource_user.rst",
- "resource_windows_package.rst",
- "resource_windows_service.rst",
- "resource_yum.rst"
-]
-RESOURCESFILE = "resources2.rst"
-
-# missing multiple chef_*, ksh, launchd, load_balancer, 
+# Note: missing multiple chef_*, ksh, launchd, load_balancer, 
 # multiple machine_*, private_key, public_key, yum_repository 
 # resource_examples
-
-# create_allinone(RUNBOOKPROLOGUE, RUNBOOKSECTIONS, RUNBOOKFILE)
-# create_allinone(RESOURCESPROLOGUE, RESOURCESSECTIONS, RESOURCESFILE)
 
 def lines_as_array(fileName)
   result = []
@@ -252,10 +165,5 @@ def lines_as_array(fileName)
   end
   result
 end
-
-puts ARGV[0], File.expand_path(ARGV[0])
-puts ARGV[1],  File.expand_path(ARGV[1])
-puts ARGV[2],  File.expand_path(ARGV[2])
-
 
 create_allinone(ARGV[0], lines_as_array(ARGV[1]), ARGV[2])

@@ -62,3 +62,4 @@ resource_user.rst
 resource_windows_package.rst
 resource_windows_service.rst
 resource_yum.rst
+resource_yum_respository.rst
