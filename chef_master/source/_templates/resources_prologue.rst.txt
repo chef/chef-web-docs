@@ -312,5 +312,6 @@ The following resources are built-in to the |chef client|:
 * windows_package
 * windows_service
 * yum (based on the package resource)
+* yum_repository
 
 See below for more information about each of these resources, their related actions and properties, and examples of how these resources can be used in recipes.
