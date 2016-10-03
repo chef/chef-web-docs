@@ -257,7 +257,7 @@ To install Chef Automate:
 
    All paths called for here should be supplied as the absolute path to a file, including the filename.
 
-   ``$AUTOMATE_LICENSE`` is the path to your Chef Automate license file. 
+   ``$AUTOMATE_LICENSE`` is the full path and file name of your Chef Automate license file. 
 
    ``$AUTOMATE_CHEF_USER_KEY`` is the key that was created in the previous section on your Chef server.
    Copy it from the Chef server to the Chef Automate server and then provide the path for the ``--key`` argument.

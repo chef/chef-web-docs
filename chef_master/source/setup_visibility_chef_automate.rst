@@ -2,6 +2,8 @@
 Configure Data Collection
 =====================================================
 
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst
+
 Before using the visibility capabilities of |automate|, you must perform some simple setup and configuration steps before the nodes in your cluster can send data to your |automate| server.
 
 Use an external Elasticsearch cluster
