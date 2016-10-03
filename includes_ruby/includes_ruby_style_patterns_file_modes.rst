@@ -13,4 +13,4 @@ Always specify the file mode with a quoted 3-5 character string that defines the
 
 .. code-block:: ruby
 
-   mode '00755'
+   mode 00755
