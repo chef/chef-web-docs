@@ -12,7 +12,7 @@
 .. |api cookbooks site| replace:: Cookbooks Site API
 .. |api chef server| replace:: Chef server API
 .. |api chef server_title| replace:: Chef Server API
-.. |api delivery| replace:: Automate API
+.. |api delivery| replace:: Chef Automate API
 .. |api omnitruck| replace:: Omnitruck API
 .. |api push jobs| replace:: Push Jobs API
 .. |bento| replace:: Bento
@@ -86,7 +86,7 @@
 .. |cookstyle| replace:: cookstyle
 .. |delivery| replace:: Chef Automate
 .. |data_collector| replace:: data collector
-.. |delivery_cli| replace:: Chef Automate CLI
+.. |delivery_cli| replace:: Delivery CLI
 .. |dsl custom_resource| replace:: Custom Resource DSL
 .. |dsl delivery| replace:: Workflow DSL
 .. |dsl handler| replace:: Handler DSL
