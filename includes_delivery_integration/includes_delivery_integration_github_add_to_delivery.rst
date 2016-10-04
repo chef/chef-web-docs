@@ -4,13 +4,13 @@
 
 To add the |github| |oauth| app to |delivery|, log in to the |delivery| server and run the following command:
 
-**For Github Enterprise**
+**For GitHub Enterprise**
 
 .. code-block:: bash
 
    $ delivery-ctl setup-github-enterprise $GHE_SERVER_ROOT_URL $CLIENT_ID $CLIENT_SECRET
 
-**For Github.com**
+**For GitHub.com**
 
 .. code-block:: bash
 
