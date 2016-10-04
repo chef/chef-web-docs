@@ -38,4 +38,4 @@ For more information ...
 =====================================================
 For more information about |rubocop|:
 
-* `Rubocop Github Repo <https://github.com/bbatsov/rubocop>`_
+* `Rubocop GitHub Repo <https://github.com/bbatsov/rubocop>`_

@@ -370,7 +370,7 @@ Chef Client Plugins
 Addenda
 =====================================================
 
-`Available on Github <https://github.com/chef/chef-web-docs>`_ |
+`Available on GitHub <https://github.com/chef/chef-web-docs>`_ |
 `Get Chef <https://www.chef.io/get-chef>`_ |
 :doc:`Send Feedback </feedback>` |
 `Support <https://www.chef.io/support>`_ |

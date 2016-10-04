@@ -11,7 +11,7 @@ NOTE: A recent change to the chef-docs repo archived the commit history into the
 There are several ways to get feedback about Chef documentation:
 
 1. Email --- Send an email to docs@chef.io for documentation bugs, ideas, thoughts, and suggestions. Typos and little errors and quick fixes will be fixed quickly and without fuss. This email address is not a support email address, however.
-2. Github issues --- Use the https://github.com/chef/chef/issues page for issues specific to Chef itself. Any documentation bug filed here will make its way to the documentation. This is a good place for "important" documentation bugs that may need visibility among a larger group, especially in situations where a doc bug may also surface a product bug.
+2. GitHub issues --- Use the https://github.com/chef/chef/issues page for issues specific to Chef itself. Any documentation bug filed here will make its way to the documentation. This is a good place for "important" documentation bugs that may need visibility among a larger group, especially in situations where a doc bug may also surface a product bug.
 3. Pull request and/or issue -- The documentation repository is here: https://github.com/chef/chef-web-docs. A CLA is not required to submit pull requests to this repo. If you are wondering what is going on in that repository, in terms of structure and what-goes-where, send an email to docs@chef.io.
 4. chef@lists.opscode.com --- Improvements to the documentation are made because of conversations that happen on this mailing list. That said, relying solely on the mailing list is the least effective way to get feedback to Chef about the documentation.
 
@@ -35,7 +35,7 @@ There are several ways to provide feedback about the Chef documentation. See htt
 To determine the location of the actual content on a page:
 
 1. Find the URL of that page on the root of docs.chef.io. For example, the template resource: https://docs.chef.io/resource_template.html
-2. In the chef-docs repo on Github (https://github.com/chef/chef-web-docs), open the `chef_master` directory and find the .rst file in that directory that corresponds exactly to the file on the docs site: resource_template.rst
+2. In the chef-docs repo on GitHub (https://github.com/chef/chef-web-docs), open the `chef_master` directory and find the .rst file in that directory that corresponds exactly to the file on the docs site: resource_template.rst
 3. Open that file and view it in its raw text format. For example: https://raw.githubusercontent.com/chef/chef-web-docs/master/chef_master/source/resource_template.rst
 4. Find the section in which the change is to be made. In nearly every case that section is included using a pattern similar to: .. include:: ../../includes_resources/includes_resource_template_attributes.rst.
 5. In the chef-docs repo, follow that path to the directory, and then the specific file.
