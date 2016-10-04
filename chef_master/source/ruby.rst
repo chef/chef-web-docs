@@ -149,10 +149,6 @@ Naming
 -----------------------------------------------------
 .. include:: ../../includes_ruby/includes_ruby_style_patterns_system_and_component_naming.rst
 
-Default Recipe
------------------------------------------------------
-.. include:: ../../includes_ruby/includes_ruby_style_patterns_default_recipe.rst
-
 Parameter Order
 -----------------------------------------------------
 .. include:: ../../includes_ruby/includes_ruby_style_patterns_resource_parameter_order.rst
