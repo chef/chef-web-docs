@@ -78,6 +78,6 @@ For more information ...
 =====================================================
 For more information about |chef spec|:
 
-* `ChefSpec Github Repo <https://github.com/sethvargo/chefspec>`_
+* `ChefSpec GitHub Repo <https://github.com/sethvargo/chefspec>`_
 
 .. * `RSpec Documentation <https://relishapp.com/rspec/rspec-core/v/3-4/docs/command-line>`_
