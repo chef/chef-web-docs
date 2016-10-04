@@ -18,7 +18,7 @@ The following table lists the Foundational platforms for the |push jobs|:
      - ``5``, ``6``, ``7``
    * - |debian|
      - ``i386``, ``x86_64``
-     - `7``
+     - ``7``
    * - |redhat enterprise linux|
      - ``i386``
      - ``5``, ``6``
