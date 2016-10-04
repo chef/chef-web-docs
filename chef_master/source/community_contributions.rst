@@ -2,38 +2,56 @@
 Community Contributions
 =====================================================
 
-We are glad you want to contribute to Chef! Here's how:
-
-#. Review the `Become a contributor <https://supermarket.chef.io/become-a-contributor>`_ page on |supermarket| and follow the steps described there for signing the contributor license agreement; both individuals and companies must sign the contributor licensing agreement unless the fix is an `Obvious Fix <https://docs.chef.io/community_contributions.html#the-obvious-fix-rule>`_
-#. Create a |github| pull request
-#. Do a `code review <https://github.com/chef/chef/blob/master/CONTRIBUTING.md>`_ with the |company_name| team and/or core committers on the pull request
-
-|company_name| regularly reviews contributions and will get back to you if we have any suggestions or concerns.
-
-|company_name|-managed open source projects are located here: https://github.com/chef. See https://github.com/chef/chef/blob/master/CONTRIBUTING.md for more information about the contribution process itself. See below for more information about CLAs, the |apache| license, and the obvious fix rule.
+We're glad you want to contribute to a Chef project! This guide will help answer common questions you may have during your first contribution.
 
 
-About CLAs and CCLAs
+Submitting Issues
 =====================================================
-A contributor licensing agreement (CLA) and/or a company contributor licensing agreement (CCLA) must be filled out by every contributor to an |company_name|-managed open source project.
+Not every contribution comes in the form of code. Submitting, confirming, and triaging issues is an important task for any project. At Chef we use GitHub to track all project issues.
 
-The CLA (and CCLA) makes everyone's rights clear
+If you are familiar with Chef and know the component, that is causing you a problem, you can file an issue in the corresponding GitHub project. All of our Open Source Software can be found in our GitHub organization at <https://github.com/chef>. All projects include GitHub issue templates to help gather information needed for a thorough review.
 
-* You (or your company) grant copyright license for your contributions to |company_name|
-* You (or your company) grant patent license for your contributions to |company_name|
-* The contribution is entirely voluntary
-* The work is your original creation
-* You (or your company) are not required to provide support for your contributions
-* You (or your company) should read and understand the entire CLA (or CCLA) before signing it. Our description of it is not legally binding.
+We ask you not to submit security concerns via GitHub. For details on submitting potential security issues please see <https://www.chef.io/security/>
 
-The CLA is beneficial to our contributors and users because:
+In addition to GitHub issues, we also utilize a feedback site that helps our product team track and rank feature requests. If you have a feature request, this is an excellent place to start <https://feedback.chef.io>
 
-* It ensures that we will always be able to release our projects, free from any individual contributor revoking our rights to distribute their contribution.
-* This also means that, if you fork an |company_name| project, or utilize it in a commercial product, you know that you are clear of patent and copyright issues.
-* It makes clear what is required of our contributors.
-* The most important thing about the CLA is that it doesn't give |company_name| any special rights - it just makes things more explicit.
+The following repositories are the preferred locations for the creation of issues and bug reports:
 
-|company_name| does not merge any pull requests made against an |company_name|-managed open source repository until that pull request is associated with a signed CLA (or CCLA), with two exceptions: "Obvious Fixes" and pull requests made against the documentation repository (https://github.com/chef/chef-docs).
+.. list-table::
+   :widths: 100 400
+   :header-rows: 1
+
+   * - Repo
+     - URL
+   * - |chef client|
+     - https://github.com/chef/chef
+   * - |ohai|
+     - https://github.com/chef/ohai
+   * - |chef dk_title|
+     - https://github.com/chef/chef-dk
+   * - |chef server_title|
+     - https://github.com/chef/chef-server
+   * - |chef manage_title|
+     - https://github.com/chef/chef-manage-issues
+   * - |push jobs_title|
+     - https://github.com/chef/chef-push
+   * - |automate|
+     - please contact `Chef Support <https://www.chef.io/support/>`_
+
+For additional support about |company_name| products, including documentation, learning, and opening tickets with the support team, see `Chef Support <https://www.chef.io/support/>`_ .
+
+.. warning:: If you require a response from |company_name| per the terms of a support level agreement (SLA), please contact `Chef Support <https://www.chef.io/support/>`_ directly.
+
+.. note:: Questions on how to use Chef should be sent as Support Tickets if you have an SLA, or asked on the `Chef Mailing List <https://discourse.chef.io/>`_, `Stack Overflow <http://stackoverflow.com/questions/tagged/chef>`_, or `Slack <https://community-slack.chef.io/>`_. Bug Trackers are not appropriate for general purpose questions that are not bugs.
+
+
+Contribution Process
+=====================================================
+We have a 3 step process for contributions:
+
+#. Commit changes to a git branch, making sure to sign-off those changes for the Developer Certificate of Origin.
+#. Create a GitHub Pull Request for your change, following the instructions in the pull request template.
+#. Perform a Code Review with the project maintainers on the pull request.
 
 About the |apache| License
 =====================================================
@@ -61,32 +79,73 @@ It does not require you to:
 
 It is our goal to run a successful, truly open source business. To that end, we are protecting our own rights by making them explicit in our choice of licensing: you have the same rights to our open source software that we do.
 
+
+Developer Certification of Origin (DCO)
+=====================================================
+
+To make a good faith effort to ensure the criteria of the Apache License are met, Chef requires the Developer Certificate of Origin (DCO) process to be followed.
+
+The DCO is an attestation attached to every contribution made by every developer. In the commit message of the contribution, the developer simply adds a Signed-off-by statement and thereby agrees to the DCO, which you can find below or at <http://developercertificate.org/>.
+
+.. code-block:: bash
+
+    Developer's Certificate of Origin 1.1
+
+    By making a contribution to this project, I certify that:
+
+    (a) The contribution was created in whole or in part by me and I
+        have the right to submit it under the open source license
+        indicated in the file; or
+
+    (b) The contribution is based upon previous work that, to the
+        best of my knowledge, is covered under an appropriate open
+        source license and I have the right under that license to
+        submit that work with modifications, whether created in whole
+        or in part by me, under the same open source license (unless
+        I am permitted to submit under a different license), as
+        Indicated in the file; or
+
+    (c) The contribution was provided directly to me by some other
+        person who certified (a), (b) or (c) and I have not modified
+        it.
+
+    (d) I understand and agree that this project and the contribution
+        are public and that a record of the contribution (including
+        all personal information I submit with it, including my
+        sign-off) is maintained indefinitely and may be redistributed
+        consistent with this project or the open source license(s)
+        involved.
+
+|company_name| does not merge any pull requests made against an |company_name|-managed open source repository until each commit has been signed for the DCO, with two exceptions: "Obvious Fixes" and pull requests made against the documentation repository (https://github.com/chef/chef-docs).
+
+
 The "Obvious Fix" Rule
 =====================================================
 |company_name|'s contribution policy is aimed at encouraging broad participation from our community, and minimizing risks to |chef| and our community due to inappropriate contributions of the intellectual property of others.
 
-As a general standard, |company_name| requires every contributor to fill out a Contributor License Agreement ("CLA"), either individually or on behalf of a corporation.
+As a general standard, |company_name| requires every contribution to by signed for the Developer Certificate of Origin (DCO).
 
-HOWEVER, very small contributions such as fixing spelling errors, where the content is small enough to not be considered intellectual property, can be submitted by a contributor as a patch, without a CLA. If you submit an obvious fix without first signing a contributor license agreement, then you are agreeing that your submission is not independently copyrightable. The purpose of this exception is to lower the barrier for new contributors to make contributions while retaining the integrity of the project and our community.
+HOWEVER, very small contributions such as fixing spelling errors, where the content is small enough to not be considered intellectual property, can be submitted by a contributor as a patch, without a DCO sign-off. If you submit an obvious fix without a DCO sign-off, then you are agreeing that your submission is not independently copyrightable. The purpose of this exception is to lower the barrier for new contributors to make contributions while retaining the integrity of the project and our community.
 
 How does the Obvious Fix Rule Work?
 -----------------------------------------------------
-Any committer may commit fixes without first signing a CLA for obvious typos, grammar mistakes, and formatting problems wherever they may be — in the web pages, API documentation, source code, etc.
+Any committer may commit fixes without a DCO sign-off for obvious typos, grammar mistakes, and formatting problems wherever they may be — in the web pages, API documentation, source code, etc.
 
 Whenever you invoke the "obvious fix" rule, please say so in your commit message. For example:
 
 .. code-block:: bash
 
    ------------------------------------------------------------------------
-   commit 370adb3f82d55d912b0cf9c1d1e99b132a8ed3b5 
-   Author: danielsdeleo <dan@chef.io> 
-   Date:   Wed Sep 18 11:44:40 2013 -0700      
-   
-     Fix typo in config file docs.          
-   
+   commit 370adb3f82d55d912b0cf9c1d1e99b132a8ed3b5
+   Author: Julia Child <juliachild@chef.io>
+   Date:   Wed Sep 18 11:44:40 2015 -0700
+
+     Fix typo in the README.
+
      Obvious fix.
-   
+
    ------------------------------------------------------------------------
+
 
 What qualifies as an Obvious Fix?
 -----------------------------------------------------
@@ -105,7 +164,7 @@ As a rule of thumb, changes are obvious fixes if they do not introduce any new f
 * Changes in build or installation scripts;
 * Re-ordering of objects or subroutines within a source file (such as alphabetizing routines);
 * Moving source files from one directory or package to another, with no changes in code;
-* Breaking a source file into multiple source files, or consolidating multiple source files into one source file, with no change in code behavior; 
+* Breaking a source file into multiple source files, or consolidating multiple source files into one source file, with no change in code behavior;
 * Changes to words or phrases isolated from their context;
 * Changes to typeface.
 
@@ -115,35 +174,6 @@ Things that would still require signing a CLA before submitting would likely inc
 * A new feature;
 * A translation;
 * Extensive or creative comments.
-
-Issues and Bug Reports
-=====================================================
-Issues and bug reports may be created for |company_name| products, including the |chef client|, the |chef dk|, the |chef server|, the |chef analytics| platform, and the |chef manage| WebUI. The following repositories are the preferred locations for the creation of issues and bug reports:
-
-.. list-table::
-   :widths: 100 400
-   :header-rows: 1
-
-   * - Repo
-     - URL
-   * - |chef client|
-     - https://github.com/chef/chef
-   * - |chef dk_title|
-     - https://github.com/chef/chef-dk
-   * - |chef server_title|
-     - https://github.com/chef/chef-server
-   * - |chef manage_title|
-     - https://github.com/chef/chef-manage-issues
-   * - |push jobs_title|
-     - https://github.com/chef/chef-push
-   * - |automate|
-     - please contact `Chef Support <https://www.chef.io/support/>`_ 
-
-For additional support about |company_name| products, including documentation, learning, and opening tickets with the support team, see `Chef Support <https://www.chef.io/support/>`_ .
-
-.. warning:: If you require a response from |company_name| per the terms of a support level agreement (SLA), please contact `Chef Support <https://www.chef.io/support/>`_ directly.
-
-.. note:: Questions on how to use Chef should be sent as Support Tickets if you have an SLA, or asked on the `Chef Mailing List <https://discourse.chef.io/>`_, `Stack Overflow <http://stackoverflow.com/questions/tagged/chef>`_, or `IRC <http://irc.lc/freenode/chef>`_. Bug Trackers are not appropriate for general purpose questions that are not bugs.
 
 
 Use |git|
