@@ -17,7 +17,7 @@ to return something similar to:
    created_at:         2009-10-28T19:16:54.000Z
    deprecated:         false
    description:        Provides mysql_service, mysql_config, and mysql_client resources
-   external_url:       http://github.com/chef-cookbooks/mysql
+   external_url:       https://github.com/chef-cookbooks/mysql
    foodcritic_failure: true
    issues_url:
    latest_version:     http://cookbooks.opscode.com/api/v1/cookbooks/mysql/versions/6.0.15
