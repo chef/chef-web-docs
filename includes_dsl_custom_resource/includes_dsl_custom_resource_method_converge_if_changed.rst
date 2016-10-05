@@ -10,7 +10,7 @@ To use the ``converge_if_changed`` method, wrap it around the part of a recipe o
 
    action :some_action do
    
-     converge_if_changed
+     converge_if_changed do
        # some property
      end
    
