@@ -34,7 +34,7 @@ Set up Workstation
 -----------------------------------------------------
 .. include:: ../../includes_supermarket/includes_supermarket_manage_cookbooks.rst
 
-Install knife supermarket
+knife
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_supermarket/includes_supermarket_manage_cookbooks_install_plugin.rst
 
