@@ -4,7 +4,11 @@
 
 To upload a cookbook to |supermarket|, do the following:
 
-#. Install the ``knife supermarket`` plugin:
+#. Determine which version of Chef you are using.
+
+   If you are using Chef 12.13 or later, you have everything you need in the knife cookbook site commands
+
+   If you are using Chef 12.12 or earler, you need to install the ``knife supermarket`` plugin:
 
    .. code-block:: bash
 
@@ -29,6 +33,14 @@ To upload a cookbook to |supermarket|, do the following:
       $ knife ssl check https://default-centos-66
 
 #. Upload the cookbook to |supermarket|:
+
+   If you are using Chef 12.13 or later:
+
+   .. code-block:: bash
+
+      $ knife cookbook site share mycookbook "Other"
+
+   If you are using Chef 12.12 or earlier:
 
    .. code-block:: bash
 
