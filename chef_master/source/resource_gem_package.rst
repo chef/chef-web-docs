@@ -17,7 +17,8 @@ Gem Package Options
 .. include:: ../../includes_resources/includes_resource_package_options.rst
 
 Specify with Hash
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
+
 .. include:: ../../includes_resources/includes_resource_package_options_hash.rst
 
 **Example**
@@ -25,7 +26,8 @@ Specify with Hash
 .. include:: ../../step_resource/step_resource_package_install_gem_with_hash_options.rst
 
 Specify with String
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
+
 .. include:: ../../includes_resources/includes_resource_package_options_string.rst
 
 **Example**
@@ -33,7 +35,8 @@ Specify with String
 .. include:: ../../step_resource/step_resource_package_install_gem_with_options_string.rst
 
 Specify with .gemrc File
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
+
 .. include:: ../../includes_resources/includes_resource_package_options_gemrc.rst
 
 **Example**

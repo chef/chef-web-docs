@@ -12,3 +12,5 @@ build/
 *.css_t.map
 
 /.delivery/cli.toml
+
+*.*~
