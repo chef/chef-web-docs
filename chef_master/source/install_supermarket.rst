@@ -22,7 +22,7 @@ Configure
 -----------------------------------------------------
 .. include:: ../../includes_supermarket/includes_supermarket_private_ocid_configure.rst
 
-.. note:: The redirect URL specified for |chef identity| **MUST** match the hostname of the |supermarket| server. The URI must also be correct: ``/auth/chef_oauth2/callback``. Otherwise, an error message similar to ``The redict uri included is not valid.`` will be shown.
+.. note:: The redirect URL specified for |chef identity| **MUST** match the hostname of the |supermarket| server. The URI must also be correct: ``/auth/chef_oauth2/callback``. Otherwise, an error message similar to ``The redirect uri included is not valid.`` will be shown.
 
 Install Supermarket
 =====================================================
