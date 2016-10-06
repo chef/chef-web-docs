@@ -4,7 +4,7 @@
 Chef 12.13 and higher
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you are using Chef 12.13 or higher, use the :doc:`knife cookbook site </knife_cookbook_site>` commands with BOTH Public Supermarket and Private Supermarket.
+If you are using Chef 12.13 or higher, use the `knife cookbook site <https://docs.chef.io/knife_cookbook_site.html>`_ commands with BOTH Public Supermarket and Private Supermarket.
 
 Chef 12.12 and lower
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
