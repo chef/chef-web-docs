@@ -34,7 +34,7 @@ Set up Workstation
 -----------------------------------------------------
 .. include:: ../../includes_supermarket/includes_supermarket_manage_cookbooks.rst
 
-Install knife supermarket
+knife
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_supermarket/includes_supermarket_manage_cookbooks_install_plugin.rst
 
@@ -79,12 +79,6 @@ supermarket-ctl (executable)
 .. include:: ../../includes_ctl_supermarket/includes_ctl_supermarket.rst
 
 For more information about the |supermarket ctl| command line tool, see :doc:`supermarket-ctl </ctl_supermarket>`.
-
-knife supermarket
------------------------------------------------------
-.. include:: ../../includes_plugin_knife/includes_plugin_knife_supermarket.rst
-
-For more information about the ``knife supermarket`` subcommand, see :doc:`knife supermarket </plugin_knife_supermarket>`.
 
 |supermarket rb|
 -----------------------------------------------------

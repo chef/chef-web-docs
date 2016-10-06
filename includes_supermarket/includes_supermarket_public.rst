@@ -4,7 +4,7 @@
 
 The public |supermarket| hosted by |company_name| is located at |url supermarket|.
 
-To interact with the public |supermarket|, use :doc: `knife cookbook site </knife_cookbook_site>` commands.
+To interact with the public |supermarket|, use :doc:`knife cookbook site </knife_cookbook_site>` commands.
 
 .. image:: ../../images/public_supermarket.svg
    :width: 700px
