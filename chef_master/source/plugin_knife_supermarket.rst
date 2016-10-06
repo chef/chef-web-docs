@@ -2,7 +2,7 @@
 knife supermarket
 =====================================================
 
-Only use knife supermarket if you are using a Chef 12.12 or earlier. If you are using Chef 12.13 or later, you should use the :doc:`knife cookbook site </knife_cookbook_site>` commands.
+Only use knife supermarket if you are using a Chef 12.12 or earlier. If you are using Chef 12.13 or later, you should use the `knife cookbook site <https://docs.chef.io/knife_cookbook_site.html>`_ commands.
 
 .. include:: ../../includes_api_cookbooks_site/includes_api_cookbooks_site.rst
 
