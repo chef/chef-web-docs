@@ -10,9 +10,15 @@ The following attribute values must be defined:
 * ``chef_oauth2_app``
 * ``chef_oauth2_secret``
 
+You can get the chef_oauth2_app and chef_oauth2_secret values from your Chef server (which you configured earlier in this process) in ``/etc/opscode/oc-id-applications/supermarket.json``:
+
+For ``chef_server_url``, enter in the url for your chef server.
+For ``chef_oauth2_app``, enter in the uid from ``/etc/opscode/oc-id-applications/supermarket.json``
+For ``chef_oauth2_secret``, enter in the secret from ``/etc/opscode/oc-id-applications/supermarket.json``
+
 To define these attributes, do the following:
 
-#. Open the ``/recipes/default.rb`` file and add the following, after the `include_recipe` line that was added in the previous step, (assuming a data bag named ``apps`` and a data bag item named ``supermarket``):
+#. Open the ``/recipes/default.rb`` file and add the following, BEFORE the `include_recipe` line that was added in the previous step, (assuming a data bag named ``apps`` and a data bag item named ``supermarket``):
 
    .. code-block:: ruby
 
@@ -22,18 +28,21 @@ To define these attributes, do the following:
 
    .. code-block:: ruby
 
-      node.set['supermarket_omnibus']['chef_server_url'] = app['chefserverurl']
-      node.set['supermarket_omnibus']['chef_oauth2_app_id'] = app['app_id']
-      node.set['supermarket_omnibus']['chef_oauth2_secret'] = app['secret']
+      node.set['supermarket_omnibus']['chef_server_url'] = app['chef_server_url']
+      node.set['supermarket_omnibus']['chef_oauth2_app'] = app['chef_oauth2_app']
+      node.set['supermarket_omnibus']['chef_oauth2_secret'] = app['chef_oauth2_secret']
 
    When finished, the ``/recipes/default.rb`` file should have code similar to:
 
    .. code-block:: ruby
 
       app = data_bag_item('apps', 'supermarket')
-      node.set['supermarket_omnibus']['chef_server_url'] = app['chefserverurl']
-      node.set['supermarket_omnibus']['chef_oauth2_app_id'] = app['app_id']
-      node.set['supermarket_omnibus']['chef_oauth2_secret'] = app['secret']
+
+      node.set['supermarket_omnibus']['chef_server_url'] = app['chef_server_url']
+      node.set['supermarket_omnibus']['chef_oauth2_app'] = app['chef_oauth2_app']
+      node.set['supermarket_omnibus']['chef_oauth2_secret'] = app['chef_oauth2_secret']
+
+      include_recipe 'supermarket-omnibus-cookbook'
 
 #. Save and close the ``/recipes/default.rb`` file.
 
