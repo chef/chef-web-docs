@@ -6,10 +6,10 @@ A |supermarket| installation can use an external database running |postgresql| (
 
 .. code-block:: ruby
 
-   node.set['supermarket_omnibus']['postgresql']['enable'] = false
-   node.set['supermarket_omnibus']['database']['user'] = 'supermarket'
-   node.set['supermarket_omnibus']['database']['name'] = 'supermarket'
-   node.set['supermarket_omnibus']['database']['host'] = 'yourcompany...rds.amazon.com'
-   node.set['supermarket_omnibus']['database']['port'] = '5432'
-   node.set['supermarket_omnibus']['database']['pool'] = '25'
-   node.set['supermarket_omnibus']['database']['password'] = 'topsecretneverguessit'
+   node.set['supermarket_omnibus']['config']['postgresql']['enable'] = false
+   node.set['supermarket_omnibus']['config']['database']['user'] = 'supermarket'
+   node.set['supermarket_omnibus']['config']['database']['name'] = 'supermarket'
+   node.set['supermarket_omnibus']['config']['database']['host'] = 'yourcompany...rds.amazon.com'
+   node.set['supermarket_omnibus']['config']['database']['port'] = '5432'
+   node.set['supermarket_omnibus']['config']['database']['pool'] = '25'
+   node.set['supermarket_omnibus']['config']['database']['password'] = 'topsecretneverguessit'

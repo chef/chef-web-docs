@@ -6,5 +6,5 @@
 
 .. code-block:: ruby
 
-   node.set['supermarket_omnibus']['redis']['enable'] = false
-   node.set['supermarket_omnibus']['redis_url'] = 'redis://your-redis-instance:6379'
+   node.set['supermarket_omnibus']['config']['redis']['enable'] = false
+   node.set['supermarket_omnibus']['config']['redis_url'] = 'redis://your-redis-instance:6379'

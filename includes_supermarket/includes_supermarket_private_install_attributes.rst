@@ -46,4 +46,8 @@ To define these attributes, do the following:
 
 #. Save and close the ``/recipes/default.rb`` file.
 
+.. note:: If you are running your private Supermarket in AWS, you may need to set an additional attribute for the node's public ip.  i.e. node node.set['supermarket_omnibus']['config']['fqdn'] = your_node_public_ip
+
+
+
 
