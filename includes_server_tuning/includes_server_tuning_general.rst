@@ -1,7 +1,7 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
-The following settings are typically added to the server configuration file:
+The following settings are typically added to the server configuration file (please note that there is no equal sign necessary to set the value):
 
 ``api_fqdn``
    The |fqdn| for the |chef server|. This setting is not in the server configuration file by default. When added, its value should be equal to the |fqdn| for the service URI used by the |chef server|. For example: ``api_fqdn "chef.example.com"``.
