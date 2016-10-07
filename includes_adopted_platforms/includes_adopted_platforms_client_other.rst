@@ -24,7 +24,7 @@ The following platforms are not tested by Chef Software:
      -
    * - |mac os x|
      -
-     - ``10.8`` (and older), anything PPC-based
+     - ``10.8`` (and older)
    * - |netbsd|
      -
      -
