@@ -1,5 +1,5 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
-.. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics. 
+.. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 To set up an |apt| package repository for |debian| and |ubuntu| platforms:
 
@@ -25,12 +25,12 @@ To set up an |apt| package repository for |debian| and |ubuntu| platforms:
 
    Replace ``<DISTRIBUTION>`` with the appropriate distribution name:
 
-   * For |debian| 6: ``squeeze``
    * For |debian| 7: ``wheezy``
    * For |debian| 8: ``jessie``
-   * For |ubuntu| 10.04: ``lucid``
    * For |ubuntu| 12.04: ``precise``
    * For |ubuntu| 14.04: ``trusty``
+   * For |ubuntu| 16.04: ``xenial``
+
 
 #. Update the package repository list:
 
