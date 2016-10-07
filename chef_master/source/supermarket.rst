@@ -29,6 +29,10 @@ The following tools are recommended for use with a private |supermarket|:
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_supermarket/includes_supermarket_tools_stove.rst
 
+Installing Private Supermarket
+-----------------------------------------------------
+
+To install a Private Supermarket, check out the instructions at https://docs.chef.io/install_supermarket.html
 
 Set up Workstation
 -----------------------------------------------------

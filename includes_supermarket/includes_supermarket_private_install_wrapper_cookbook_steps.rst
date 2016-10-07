@@ -8,13 +8,13 @@ On your workstation, generate a new cookbook using the ``chef`` command line int
 
    .. code-block:: bash
 
-      $ chef generate cookbook my-supermarket-wrapper
+      $ chef generate cookbook my_supermarket_wrapper
 
 #. Change directories into that cookbook:
 
    .. code-block:: bash
 
-      $ cd my-supermarket-wrapper
+      $ cd my_supermarket_wrapper
 
 #. Defines the wrapper cookbook’s dependency on the ``supermarket-omnibus-cookbook`` cookbook. Open the |metadata rb| file of the newly-created cookbook, and then add the following line:
 
@@ -22,7 +22,7 @@ On your workstation, generate a new cookbook using the ``chef`` command line int
 
       depends 'supermarket-omnibus-cookbook'
 
-#. Save and close the |metadata rb| file. 
+#. Save and close the |metadata rb| file.
 
 #. Open the ``/recipes/default.rb`` recipe located within the newly-generated cookbook and add the following content:
 

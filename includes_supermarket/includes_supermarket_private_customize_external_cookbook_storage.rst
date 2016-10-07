@@ -6,6 +6,6 @@ Cookbook artifacts---|tar gz| artifacts that are uploaded to |supermarket| when 
 
 .. code-block:: ruby
 
-   node.set['supermarket_omnibus']['s3_access_key_id'] = false
-   node.set['supermarket_omnibus']['s3_bucket'] = 'supermarket'
-   node.set['supermarket_omnibus']['s3_access_key_id'] = 'yoursecretaccesskey'
+   node.set['supermarket_omnibus']['config']['s3_access_key_id'] = false
+   node.set['supermarket_omnibus']['config']['s3_bucket'] = 'supermarket'
+   node.set['supermarket_omnibus']['config']['s3_access_key_id'] = 'yoursecretaccesskey'
