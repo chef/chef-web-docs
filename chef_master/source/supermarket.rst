@@ -32,7 +32,7 @@ The following tools are recommended for use with a private |supermarket|:
 Installing Private Supermarket
 -----------------------------------------------------
 
-To install a Private Supermarket, check out the instructions at https://docs.chef.io/install_supermarket.html
+To install a Private Supermarket, see the instructions `here <https://docs.chef.io/install_supermarket.html>`__.
 
 Set up Workstation
 -----------------------------------------------------
