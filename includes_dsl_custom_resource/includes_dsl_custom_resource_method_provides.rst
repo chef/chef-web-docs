@@ -14,24 +14,16 @@ For example:
 
 .. code-block:: ruby
 
-   class GenericFile < Chef::Resource
-     provides :file
-   end
+    provides :my_custom_resource
 
-   class LinuxFile < Chef::Resource
-     provides :file, os: 'linux'
-   end
+    provides :my_custom_resource, os: 'linux'
 
-   class DebianFile < Chef::Resource
-     provides :file, platform_family: 'debian'
-   end
+    provides :my_custom_resource, platform: 'fedora'
 
-If the following recipe is run on |ubuntu|, ``DebianFile`` is selected:
+    provides :my_custom_resource, platform_family: 'rhel'
 
-.. code-block:: ruby
+    provides :my_custom_resource, platform_family: 'suse' do |node|
+      node['platform_version'].to_i >= 13
+    end
 
-   file 'x' do
-     ...
-   end
-
-because it is the most specific rule. If the platform is |linux|, but not |debian|, ``LinuxFile`` is selected because it is less specific.
+This allows you to use multiple custom resources files that provide the same resource to the user, but for different operating systems or operation system versions. With this you can eliminate the need for platform or platform version logic within your resources.
