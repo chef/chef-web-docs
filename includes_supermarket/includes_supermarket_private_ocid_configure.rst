@@ -9,11 +9,11 @@ To configure |supermarket| to use |chef identity|, do the following:
 
    .. include:: ../../step_config/step_config_ocid_application_hash_supermarket.rst
 
-Reconfigure the |chef server|
+#. Reconfigure the |chef server|.
 
-.. code-block:: bash
+   .. code-block:: bash
 
-   $ sudo chef-server-ctl reconfigure
+      $ sudo chef-server-ctl reconfigure
 
 #. |oauth| 2.0 data is located in ``/etc/opscode/oc-id-applications/supermarket.json``:
 
