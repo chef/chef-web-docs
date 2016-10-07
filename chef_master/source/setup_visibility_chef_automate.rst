@@ -175,8 +175,8 @@ Additional configuration options include:
 Configure High Availability servers to send server object data
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-To configure front-end servers in your HA cluster to send their object data, you must perform the previous steps for configuring a Chef server as 
-well as ensuring that the ``fqdn`` field in all of your front-end Chef server ``chef-server.rb`` files are the same.
+To configure front-end servers in your HA cluster to send their object data, perform the previous steps for configuring a Chef server as 
+well as ensure that the ``fqdn`` field in all of your front-end Chef server ``chef-server.rb`` files are the same.
 
 The following example sets the ``fqdn`` field to ``"my-chef-server.mycompany.com"`` in two front-end servers.
 
