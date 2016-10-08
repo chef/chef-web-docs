@@ -2,11 +2,11 @@
 Set up |automate| in an air-gapped environment
 ========================================================
 
-|automate| can be setup to deploy cookbooks and applications in an air-gapped environment. The topic describes 
+|automate| can be setup to deploy cookbooks and applications in an air-gapped environment. This topic describes 
 how to setup a basic cookbook to be delivered through |automate| using the ` delivery-truck cookbook <https://github.com/chef-cookbooks/delivery-truck>`__
 in an air-gapped environment.
 
-.. note:: By default, the delivery-truck cookbook is configured for use with |automate|-backed projects that are cookbooks.**
+.. note:: By default, the delivery-truck cookbook is configured for use with |automate|-backed cookbook projects.
 
 Prerequisites
 ========================================================
@@ -21,7 +21,7 @@ build node installed, setup, and running. See `Install Chef Automate <https://do
 Share cookbooks with your private Supermarket
 ========================================================
 
-To use ``delivery-truck`` and it's dependency, ``delivery-sugar``, you must share them with a private Supermarket that is authenticated with your Chef server.
+To use ``delivery-truck`` and it's dependency, ``delivery-sugar``, you must first share them with a private Supermarket that is authenticated with your Chef server.
 
 #. From a workstation, create a cookbooks directory, ``$COOKBOOKS_DIR``:
 
