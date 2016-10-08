@@ -41,9 +41,16 @@ To use ``delivery-truck`` and it's dependency, ``delivery-sugar``, you must firs
 
    .. code-block:: ruby
 
-      ENV['AIR_GAPPED'] = 'true'
+      default['supermarket']['air_gapped'] = 'true'
 
-#. Log out of your private Supermarket.
+#. Save your changes and close the file.
+#. Reconfigure your private Supermarket.
+
+   .. code-block:: bash
+
+      supermarket-ctl reconfigure
+
+
 #. Share the ``delivery-truck`` and ``delivery-sugar`` cookbooks with your private Supermarket using the ``knife`` command-line tool. 
 If you have not configured ``knife`` to share cookbooks with your private Supermarket, see `Upload a Cookbook <https://docs.chef.io/supermarket.html#upload-a-cookbook>`__ before running the following ``knife`` subcommands.
 
