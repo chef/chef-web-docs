@@ -39,9 +39,8 @@ There are several key differences between the highly available |chef server| clu
 * While |apache solr| is used in standalone |chef server| instances, in the highly available |chef server| cluster it is 
 replaced with |elasticsearch|. |elasticsearch| provides more flexible clustering options while maintaining search API compatibility with |apache solr|.
 
-* Writes to the search engine and the database are handled asynchronously via |rabbitmq| and |chef expander| in standalone 
-|chef server| instances. However, the highly available |chef server| cluster writes to the search engine and the database 
-simultaneously. As such the |rabbitmq| and |chef expander| services are no longer present in the highly available |chef server| cluster.
+* Writes to the search engine and the database are handled asynchronously via |rabbitmq| and |chef expander| in standalone |chef server| instances. However, the highly available |chef server| cluster writes to the search engine and the database simultaneously. As such the |rabbitmq| and 
+|chef expander| services are no longer present in the highly available |chef server| cluster.
 
 * Standalone |chef server| instances write |chef bookshelf| data to the filesystem. In a highly available |chef server| cluster, |chef bookshelf| data is written to the database.
 
