@@ -67,7 +67,7 @@ Set Up Projects
 =======================================================
 .. include:: ../../includes_delivery/includes_delivery_projects.rst
 
-Use the Chef Automate CLI
+Use the Delivery CLI
 -------------------------------------------------------
 .. include:: ../../includes_delivery/includes_delivery_projects_add_with_delivery_truck.rst
 

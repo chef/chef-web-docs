@@ -12,7 +12,7 @@ This method has the following parameters:
    * - Parameter
      - Description
    * - ``q``
-     - |SEARCH_QUERY|
+     - |search_query|
    * - ``rows``
      - |rows|
    * - ``sort``

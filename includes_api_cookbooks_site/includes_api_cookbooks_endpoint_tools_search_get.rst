@@ -10,7 +10,7 @@ The ``GET`` method is used to get a list of tools that match a search query. Use
    * - Parameter
      - Description
    * - ``q``
-     - |SEARCH_QUERY|
+     - |search_query|
    * - ``start``
      - |start|
    * - ``items``
