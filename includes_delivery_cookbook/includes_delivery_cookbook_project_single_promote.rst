@@ -6,8 +6,6 @@ When a change to a project is submitted to |delivery|, the ``provision.rb`` does
 
 To submit changes to |delivery|, use commands similar to:
 
-.. code-block:: bash
-
 #. Update to match the working tree:
 
    .. code-block:: bash

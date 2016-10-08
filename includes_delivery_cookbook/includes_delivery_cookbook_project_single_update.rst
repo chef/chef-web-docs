@@ -2,7 +2,7 @@
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
 
-Update a file in the project, and then update the version number in the ``metadata.rb`` file. This ensures this cookbook is promoted, overwriting the old project cookbook, and then updating the project across each stage of the |delivery| pipeline::
+Update a file in the project, and then update the version number in the ``metadata.rb`` file. This ensures this cookbook is promoted, overwriting the old project cookbook, and then updating the project across each stage of the |delivery| pipeline:
 
 #. Check out the project from |delivery|:
 

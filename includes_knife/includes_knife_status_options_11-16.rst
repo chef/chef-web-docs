@@ -5,7 +5,7 @@
 This subcommand has the following options:
 
 ``QUERY``
-   |SEARCH_QUERY|
+   |search_query|
 
 ``-H``, ``--hide-healthy``
    |hide_healthy|

@@ -10,7 +10,7 @@ The ``GET`` method is used to get a list of cookbooks that match a search query.
    * - Parameter
      - Description
    * - ``q``
-     - |SEARCH_QUERY|
+     - |search_query|
    * - ``start``
      - |start|
    * - ``items``

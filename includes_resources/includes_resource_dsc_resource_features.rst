@@ -24,9 +24,9 @@ For built-in |windows powershell_dsc_short| resources, use the following values:
    * - ``:registry``
      - Use to to `manage registry keys and registry key values <https://msdn.microsoft.com/en-us/powershell/dsc/registryresource>`_.
    * - ``:script``
-     - Use to to `run Powershell script blocks <https://msdn.microsoft.com/en-us/powershell/dsc/registryresource>`_.
+     - Use to to `run Powershell script blocks <https://msdn.microsoft.com/en-us/powershell/dsc/scriptresource>`_.
    * - ``:service``
-     - Use to to `manage services <https://msdn.microsoft.com/en-us/powershell/dsc/registryresource>`_.
+     - Use to to `manage services <https://msdn.microsoft.com/en-us/powershell/dsc/serviceresource>`_.
    * - ``:user``
      - Use to to `manage local user accounts <https://msdn.microsoft.com/en-us/powershell/dsc/userresource>`_.
    * - ``:windowsfeature``

@@ -6,4 +6,4 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife supermarket unshare COOKBOOK_NAME/version/VERSION (options)
+   $ knife supermarket unshare COOKBOOK_NAME/versions/VERSION (options)
