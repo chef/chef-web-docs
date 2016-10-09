@@ -70,10 +70,10 @@ There's a `Makefile` in the root of the repo, that should have the majority of t
 
 Run:
 
-    make release
+    make master
 
-This will build *all* the documentation into HTML, and place it inside `./build/chef/`.
-Open `./build/chef/index.html` to view the rendered files locally.
+This will build *all* the documentation into HTML, and place it inside `./build/`.
+Open `./build/index.html` to view the rendered files locally.
 
 IMPORTANT: Depending on what has changed since the last time a build was run, the build process can take anywhere from a few minutes to a few hours. The make file gets changed a lot because Chef uses this file to manage how the docs get published to our website. For your local builds, you may want to edit the make file prior to building to only use the chef_master build, which is the build to use for the current version of Chef.
 
@@ -81,7 +81,11 @@ The first time you run the build, it will take longer (45-75 mins), as it has to
 
 This will also apply when you've run the `make clean` command, which effectively resets your working environment or if files located in the `/swaps` folder are changed.
 
-Subsequent runs of `make release` should be relatively fast (2-5 mins), and you can use subsets. For example: `master` for the main docs build, `server` for the Chef server, `client` for the chef-client, and so on. The full list is available at the top of the `makefile`.
+Subsequent runs of `make master` should be relatively fast (2-5 mins), and you can use subsets. For example: `master` for the main docs build, `server` for the Chef server, `client` for the chef-client, and so on. The full list is available in the `Makefile`.
+
+You can use parallel building with Sphinx > 1.2.x. Specify `PARALLEL_BUILD="-j X"` on the make cmdline. If you have an 8 cpu machine, 6 might be a good number:
+
+    make master PARALLEL_BUILD="-j 6"
 
 ## License
 

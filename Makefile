@@ -34,16 +34,6 @@ BUILD_COMMAND_AND_ARGS = $(BUILD_COMMAND) $(PARALLEL_BUILD)
 # all analytics delivery client devkit server
 #
 
-#
-# Parallel Building:
-# Supported by Sphinx 1.2.x and above
-#
-# Specify PARALLEL_BUILD="-j X" on the make cmdline
-# If you have an 8 cpu machine, 6 might be a good number
-#
-# make master PARALLEL_BUILD="-j 6"
-#
-
 clean:
 	@rm -rf $(BUILDDIR)
 
