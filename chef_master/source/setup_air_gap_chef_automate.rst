@@ -11,11 +11,9 @@ in an air-gapped environment.
 Prerequisites
 ========================================================
 
-* Ensure you have a Chef server with the Chef identify authentication/authorization service configured, a |automate| server, and at least one |automate|
-build node installed, setup, and running. See `Install Chef Automate <https://docs.chef.io/install_chef_automate.html>`__ and `Chef Identify <https://docs.chef.io/install_supermarket.html#chef-identify>`__for more information.
-* Ensure you have created a project in |automate|. Follow these instructions to
-`Set Up Projects <https://docs.chef.io/delivery_build_cookbook.html#set-up-projects>`__.
-* Ensure you have `ChefDK <https://downloads.chef.io/chef-dk/>`__ installed on your `workstation <https://docs.chef.io/workstation.html`__.
+* Ensure you have a Chef server with the Chef identify authentication/authorization service configured, a |automate| server, and at least one |automate| build node installed, setup, and running. See `Install Chef Automate <https://docs.chef.io/install_chef_automate.html>`__ and `Chef Identify <https://docs.chef.io/install_supermarket.html#chef-identify>`__ for more information.
+* Ensure you have created a project in |automate|. Follow these instructions to `Set Up Projects <https://docs.chef.io/delivery_build_cookbook.html#set-up-projects>`__.
+* Ensure you have `ChefDK <https://downloads.chef.io/chef-dk/>`__ installed on your `workstation <https://docs.chef.io/workstation.html>`__.
 * Ensure you have a private Supermarket installed, setup, and running. See `Install Private Supermarket <https://docs.chef.io/install_supermarket.html>`__ for more information.
 
 Share cookbooks with your private Supermarket
@@ -50,9 +48,7 @@ To use ``delivery-truck`` and it's dependency, ``delivery-sugar``, you must firs
 
       supermarket-ctl reconfigure
 
-
-#. Share the ``delivery-truck`` and ``delivery-sugar`` cookbooks with your private Supermarket using the ``knife`` command-line tool. 
-If you have not configured ``knife`` to share cookbooks with your private Supermarket, see `Upload a Cookbook <https://docs.chef.io/supermarket.html#upload-a-cookbook>`__ before running the following ``knife`` subcommands.
+#. Share the ``delivery-truck`` and ``delivery-sugar`` cookbooks with your private Supermarket using the ``knife`` command-line tool. If you have not configured ``knife`` to share cookbooks with your private Supermarket, see `Upload a Cookbook <https://docs.chef.io/supermarket.html#upload-a-cookbook>`__ before running the following ``knife`` subcommands.
 
    .. code-block::bash
 
@@ -65,16 +61,16 @@ Generate a cookbook
 
 #. On your workstation, use ChefDK's `cookbook generator command <https://docs.chef.io/ctl_chef.html#chef-generate-cookbook>`__ to create a default cookbook directory structure called ``my_cookbook``.
 
-.. code-block:: bash
-   
-   chef generate cookbook my_cookbook
+   .. code-block:: bash
+      
+      chef generate cookbook my_cookbook
 
 #. Run ``delivery init`` in your ``my_cookbook`` local directory to create a new project in |automate| and push your first change for review.
 
-.. code-block:: bash
+   .. code-block:: bash
 
-      cd my_cookbook
-      delivery init
+         cd my_cookbook
+         delivery init
 
 #. Finally, check out the added files and commit your changes.
 
@@ -84,7 +80,7 @@ Use the ``delivery-truck`` cookbook in your project
 
 From the root of your project's directory, do the following:
 
-#. Modify the build cookbook's Berksfile to reference ``delivery-truck`` and ``delivery-sugar``:
+#. Modify the build cookbook's Berksfile to reference ``delivery-truck`` and ``delivery-sugar``. By default, this file is located at ``.delivery/build-cookbook/Berksfile``.
 
    .. code-block:: ruby
 
@@ -97,28 +93,24 @@ From the root of your project's directory, do the following:
         cookbook 'delivery-truck'
       end
 
-  By default, this file is located at ``.delivery/build-cookbook/Berksfile``.
+#. Modify the build cookbook's metadata to include ``delivery-truck``.    By default, this file is located at ``.delivery/build-cookbook/metadata.rb``.
 
-#. Modify the build cookbook's metadata to include ``delivery-truck``:
+   .. code-block:: ruby
 
-  .. code-block:: ruby
+      depends 'delivery-truck'
 
-     depends 'delivery-truck'
+#. Edit your build cookbook's recipes to include the corresponding ``delivery-truck`` recipe.
 
-  By default, this file is located at ``.delivery/build-cookbook/metadata.rb``.
+   .. code-block:: none
 
-#. Edit your build cookbook's recipes to include the corresponding ``delivery-truck`` recipe:
+      # Cookbook Name:: $BUILD_COOKBOOK_NAME
+      # Recipe:: $RECIPE
+      #
+      # Copyright (c) 2016 The Authors, All Rights Reserved.
 
-  .. code-block:: ruby
+      include_recipe "delivery-truck::$RECIPE"
 
-     # Cookbook Name:: $BUILD_COOKBOOK_NAME
-     # Recipe:: $RECIPE
-     #
-     # Copyright (c) 2016 The Authors, All Rights Reserved.
-
-     include_recipe "delivery-truck::$RECIPE"
-
-  By default, each build cookbook recipe ``$RECIPE`` is located at ``.delivery/build-cookbook/recipes/$RECIPE.rb``.
+   By default, each build cookbook recipe ``$RECIPE`` is located at ``.delivery/build-cookbook/recipes/$RECIPE.rb``.
 
 #. Increment your build cookbook's version in the cookbook's metadata file.
 

@@ -4,31 +4,21 @@ High Availability: Backend Cluster
 
 .. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
 
-This topic introduces the underlying concepts behind the architecture
-of the highly available |chef server| cluster. The topic then
-describes the setup and installation process for a highly available
-|chef server| cluster comprised of five nodes.
+This topic introduces the underlying concepts behind the architecture of the highly available |chef server| cluster. 
+The topic then describes the setup and installation process for a highly available |chef server| cluster comprised of five nodes.
 
 .. note:: .. include:: ../../includes_chef/includes_chef_subscriptions.rst
 
 Overview
 =====================================================
 
-The |chef server| can operate in a high availability configuration
-that provides automated load balancing and failover for stateful
-components in the system architecture. This type of configuration
-typically splits the servers into two segments: The backend cluster,
-and the frontend group.
+The |chef server| can operate in a high availability configuration that provides automated load balancing and failover for 
+stateful components in the system architecture. This type of configuration typically splits the servers into two segments: 
+The backend cluster, and the frontend group.
 
-* The frontend group, comprised of one (or more) nodes running the
-  |chef server|. Nodes in the frontend group handle requests to the
-  |api chef server| and access to the |chef manage|. Frontend group
-  nodes should be load balanced, and may be scaled horizontally by
-  increasing the number of nodes available to handle requests.
+* The frontend group, comprised of one (or more) nodes running the |chef server|. Nodes in the frontend group handle requests to the |api chef server| and access to the |chef manage|. Frontend group nodes should be load balanced, and may be scaled horizontally by increasing the number of nodes available to handle requests.
 
-* The backend cluster, typically comprised of three nodes working
-  together, provides highly available data persistence for the
-  frontend group.
+* The backend cluster, typically comprised of three nodes working together, provides highly available data persistence for the frontend group.
 
 .. image:: ../../images/chef_server_ha_cluster.svg
 
@@ -36,11 +26,9 @@ Key Differences From Standalone |chef server|
 -----------------------------------------------------
 There are several key differences between the highly available |chef server| cluster and a standalone |chef server| instance.
 
-* While |apache solr| is used in standalone |chef server| instances, in the highly available |chef server| cluster it is 
-replaced with |elasticsearch|. |elasticsearch| provides more flexible clustering options while maintaining search API compatibility with |apache solr|.
+* While |apache solr| is used in standalone |chef server| instances, in the highly available |chef server| cluster it is replaced with |elasticsearch|. |elasticsearch| provides more flexible clustering options while maintaining search API compatibility with |apache solr|.
 
-* Writes to the search engine and the database are handled asynchronously via |rabbitmq| and |chef expander| in standalone |chef server| instances. However, the highly available |chef server| cluster writes to the search engine and the database simultaneously. As such the |rabbitmq| and 
-|chef expander| services are no longer present in the highly available |chef server| cluster.
+* Writes to the search engine and the database are handled asynchronously via |rabbitmq| and |chef expander| in standalone |chef server| instances; however, the highly available |chef server| cluster writes to the search engine and the database simultaneously. As such the |rabbitmq| and |chef expander| services are no longer present in the highly available |chef server| cluster.
 
 * Standalone |chef server| instances write |chef bookshelf| data to the filesystem. In a highly available |chef server| cluster, |chef bookshelf| data is written to the database.
 
@@ -222,7 +210,7 @@ For each additional frontend node you wish to add to your cluster:
    - /etc/opscode/webui_pub.pem
    - /etc/opscode/pivotal.pem
 
-# On the new frontend node: ``mkdir -p /var/opt/opscode/upgrades/``
+#. On the new frontend node: ``mkdir -p /var/opt/opscode/upgrades/``
 
 #. From the first frontend node, copy ``/var/opt/opscode/upgrades/migration-level`` to the same location on the new node.
 
