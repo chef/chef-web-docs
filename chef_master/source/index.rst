@@ -253,7 +253,7 @@ Setup
 :doc:`Configure a Pipeline </delivery_pipeline>` |
 :doc:`Configure a Project </config_json_delivery>` |
 :doc:`Configure Data Collection </setup_visibility_chef_automate>`
-:doc:`SetUp in Air Gap Environment </setup_air_gap_chef_automate>` 
+:doc:`Setup in Air Gap Environment </setup_air_gap_chef_automate>` 
 
 Concepts
 -----------------------------------------------------
