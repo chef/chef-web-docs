@@ -1,6 +1,4 @@
 BUILDDIR = build
-S3BUCKET = chef-docs
-S3OPTIONS = --acl-public --exclude='.doctrees/*' --exclude='chef/.doctrees/*' --config ~/.s3cfg-chef-docs  --add-header "Cache-Control: max-age=900"
 BUILD_COMMAND = sphinx-build -a -W
 PARALLEL_BUILD:=
 BUILD_COMMAND_AND_ARGS = $(BUILD_COMMAND) $(PARALLEL_BUILD)
@@ -239,10 +237,6 @@ server_12-0:
 supermarket:
 	mkdir -p $(BUILDDIR)/release/supermarket/
 	$(BUILD_COMMAND_AND_ARGS) release_supermarket/source $(BUILDDIR)/release/supermarket/
-
-
-upload:	release
-	s3cmd sync $(S3OPTIONS) $(BUILDDIR)/ s3://$(S3BUCKET)/
 
 #
 # OLD BUILDS DO NOT BUILD
