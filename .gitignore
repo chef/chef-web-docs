@@ -13,4 +13,6 @@ build/
 
 /.delivery/cli.toml
 
+/.venv
+
 *.*~
