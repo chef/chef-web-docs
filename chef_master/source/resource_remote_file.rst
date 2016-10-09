@@ -54,6 +54,10 @@ Examples
 
 .. include:: ../../step_resource/step_resource_remote_file_transfer_from_url.rst
 
+**Transfer a file only when the source has changed**
+
+.. include:: ../../step_resource/step_resource_remote_file_transfer_remote_source_changes.rst
+
 **Install a file from a remote location using bash**
 
 .. include:: ../../step_resource/step_resource_remote_file_install_with_bash.rst
