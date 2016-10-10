@@ -11,7 +11,32 @@ Follow the steps in the sections below to install the |chef server| in |amazon a
 
 Launch the AMI
 -----------------------------------------------------
-.. include:: ../../includes_cloud/includes_cloud_aws_chef_server_launch_ami.rst
+
+To get a fully-functional Amazon Machine Images (AMI) for Chef server, do the following:
+
+#. Login to the `AWS Marketplace <https://aws.amazon.com/marketplace>`__ using your Amazon Web Services (AWS) account credentials
+#. Navigate to the Chef server `product page <https://aws.amazon.com/marketplace/pp/B01AMIH01Q>`__ and accept the software terms
+#. Navigate to the `IAM Role section in the AWS console <https://console.aws.amazon.com/iam/home#roles>`__
+   
+   Create a new role for your marketplace instance with the 'Amazon Ec2' service type and attach the 'AWSMarketplaceFullAccess' policy.
+
+   .. note:: You can skip creating a role if you're launching from the IC Marketplace
+   
+#. Navigate back to the Chef server `product page <https://aws.amazon.com/marketplace/pp/B01AMIH01Q>`__ and continue to the launch wizard.
+#. Click the 'Launch with Ec2 Console' button next to the desired region
+   
+   Configure the Amazon EC2 instance type, Amazon Virtual Private Cloud (VPC) settings, SSH key pair, IAM Role and assign `a public IP address <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses>`__.
+   
+   .. note:: You must assign the previously created IAM role or another role with full marketplace access unless you're launching from the IC Marketplace
+   
+   Optionally add additional storage or increase the root volume size.
+   
+   Configure security group to include the required ports for access.
+
+   .. note:: Your security group should allow access from your workstation on ports 22, 443 and 8443
+
+#. Launch Amazon Machine Images (AMI)
+
 
 Install the |chef dk_title|
 -----------------------------------------------------
@@ -59,7 +84,32 @@ Follow the steps in the sections below to install |chef compliance| in |amazon a
 
 Launch the AMI
 -----------------------------------------------------
-.. include:: ../../includes_cloud/includes_cloud_aws_compliance_launch_ami.rst
+
+To get a fully-functional Amazon Machine Images (AMI) for Chef Compliance, do the following:
+
+#. Login to the `AWS Marketplace <https://aws.amazon.com/marketplace>`__ using your Amazon Web Services (AWS) account credentials
+#. Navigate to the Chef Compliance `product page <https://aws.amazon.com/marketplace/pp/B01B3NDVEO>`__ and accept the software terms
+#. Navigate to the `IAM Role section in the AWS console <https://console.aws.amazon.com/iam/home#roles>`__
+
+   Create a new role for your marketplace instance with the 'Amazon Ec2' service type and attach the 'AWSMarketplaceFullAccess' policy.
+
+   .. note:: You can skip creating a role if you're launching from the IC Marketplace
+   
+#. Navigate back to the Chef Compliance `product page <https://aws.amazon.com/marketplace/pp/B01B3NDVEO>`__ and continue to the launch wizard.
+#. Click the 'Launch with Ec2 Console' button next to the desired region
+   
+   Configure the Amazon EC2 instance type, Amazon Virtual Private Cloud (VPC) settings, SSH key pair, IAM Role and assign `a public IP address <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses>`__.
+   
+   .. note:: You must assign the previously created IAM role or another role with full marketplace access unless you're launching from the IC Marketplace
+   
+   Optionally add additional storage or increase the root volume size.
+   
+   Configure security group to include the required ports for access.
+
+   .. note:: Your security group should allow access from your workstation on ports 22 and 443
+
+#. Launch Amazon Machine Images (AMI)
+
 
 Configure |chef compliance|
 -----------------------------------------------------

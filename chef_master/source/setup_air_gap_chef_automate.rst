@@ -69,8 +69,8 @@ Generate a cookbook
 
    .. code-block:: bash
 
-         cd my_cookbook
-         delivery init
+      cd my_cookbook
+      delivery init
 
 #. Finally, check out the added files and commit your changes.
 
