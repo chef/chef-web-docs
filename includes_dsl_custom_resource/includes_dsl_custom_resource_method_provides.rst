@@ -14,16 +14,17 @@ For example:
 
 .. code-block:: ruby
 
-    provides :my_custom_resource
+    provides :my_custom_resource, platform: 'redhat' do |node|
+      node['platform_version'].to_i >= 7
+    end
 
-    provides :my_custom_resource, os: 'linux'
-
-    provides :my_custom_resource, platform: 'fedora'
+    provides :my_custom_resource, platform: 'redhat'
 
     provides :my_custom_resource, platform_family: 'rhel'
 
-    provides :my_custom_resource, platform_family: 'suse' do |node|
-      node['platform_version'].to_i >= 13
-    end
+    provides :my_custom_resource, os: 'linux'
+
+    provides :my_custom_resource
+
 
 This allows you to use multiple custom resources files that provide the same resource to the user, but for different operating systems or operation system versions. With this you can eliminate the need for platform or platform version logic within your resources.
