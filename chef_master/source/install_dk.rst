@@ -16,7 +16,6 @@ The following sections describe how to install the |chef dk| on a workstation:
 #. Select the |omnibus installer| for the desired platform
 #. Run the |omnibus installer|
 #. Set the system |ruby|
-#. Install |git|
 #. Set up the |chef repo|
 #. Create the |chef repo hidden| directory
 #. Get the .pem files and |knife rb| files
@@ -62,18 +61,6 @@ PowerShell
 |windows|
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_windows/includes_windows_set_system_ruby.rst
-
-Install |git|
------------------------------------------------------
-An open source distributed version control system called |git| must be installed before the |chef repo| can be cloned to the workstation from |github|.
-
-To install |git|:
-
-#. Go to the following URL: https://help.github.com/articles/set-up-git.
-
-#. Follow the directions, install |git| (http://git-scm.com/downloads), and then complete the remaining configuration steps on that page.
-
-.. note:: It is not necessary to create or fork a repository in order to clone the |chef repo| from |github|.
 
 Set up the |chef repo|
 -----------------------------------------------------
