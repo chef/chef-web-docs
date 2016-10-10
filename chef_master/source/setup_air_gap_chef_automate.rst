@@ -3,7 +3,7 @@ Set up |automate| in an air-gapped environment
 ========================================================
 
 |automate| can be setup to deploy cookbooks and applications in an air-gapped environment. This topic describes 
-how to setup a basic cookbook to be delivered through |automate| using the ` delivery-truck cookbook <https://github.com/chef-cookbooks/delivery-truck>`__
+how to setup a basic cookbook to be delivered through |automate| using the `delivery-truck cookbook <https://github.com/chef-cookbooks/delivery-truck>`__
 in an air-gapped environment.
 
 .. note:: By default, the delivery-truck cookbook is configured for use with |automate|-backed cookbook projects.
