@@ -13,7 +13,7 @@ To set up an |apt| package repository for |debian| and |ubuntu| platforms:
 
    .. code-block:: bash
 
-      $ wget -qO - https://downloads.chef.io/packages-chef-io-public.key | sudo apt-key add -
+      $ wget -qO - https://packages.chef.io/chef.asc | sudo apt-key add -
 
 #. Create the |apt| repository source file:
 

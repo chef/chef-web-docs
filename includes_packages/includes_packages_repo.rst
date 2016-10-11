@@ -6,4 +6,4 @@ The ``stable`` and ``current`` release channels support the following package re
 * |apt| (|debian| and |ubuntu| platforms)
 * |yum| (|enterprise_linux| platforms)
 
-|chef inc| GPG public key is can be downloaded `here <https://downloads.chef.io/packages-chef-io-public.key>`_.
+|chef inc| GPG public key is can be downloaded `here <https://packages.chef.io/chef.asc>`_.

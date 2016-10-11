@@ -7,7 +7,7 @@ To set up a |yum| package repository for |enterprise_linux| platforms:
 
    .. code-block:: bash
 
-      $ sudo rpm --import https://downloads.chef.io/packages-chef-io-public.key
+      $ sudo rpm --import https://packages.chef.io/chef.asc
 
 #. Create the |yum| repository source file:
 
