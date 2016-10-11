@@ -354,7 +354,7 @@
                 "title": "Install High Availability",
                 "hasSubItems": false,
                 "url": "/install_server_ha.html"
-              },  
+              },
               {
                 "title": "AWS Marketplace",
                 "hasSubItems": false,
@@ -441,6 +441,11 @@
             "url": "/cookbooks.html"
           },
           {
+            "title": "Custom Resources",
+            "hasSubItems": false,
+            "url": "/custom_resources.html"
+          },
+          {
             "title": "Attributes",
             "hasSubItems": false,
             "url": "/attributes.html"
@@ -474,6 +479,147 @@
                 "hasSubItems": false,
                 "url": "/debug.html"
               },
+              {
+                "title": "Recipe DSL",
+                "hasSubItems": true,
+                "subItems": [
+                  {
+                    "title": "attribute?",
+                    "hasSubItems": false,
+                    "url": "/dsl_recipe.html#attribute"
+                  },
+                  {
+                    "title": "control",
+                    "hasSubItems": false,
+                    "url": "/dsl_recipe.html#control"
+                  },
+                  {
+                    "title": "control_group",
+                    "hasSubItems": false,
+                    "url": "/dsl_recipe.html#control-group"
+                  },
+                  {
+                    "title": "cookbook_name",
+                    "hasSubItems": false,
+                    "url": "/dsl_recipe.html#cookbook-name"
+                  },
+                  {
+                    "title": "data_bag",
+                    "hasSubItems": false,
+                    "url": "/dsl_recipe.html#data-bag"
+                  },
+                  {
+                    "title": "data_bag_item",
+                    "hasSubItems": false,
+                    "url": "/dsl_recipe.html#data-bag-item"
+                  },
+                  {
+                    "title": "platform?",
+                    "hasSubItems": false,
+                    "url": "/dsl_recipe.html#platform"
+                  },
+                  {
+                    "title": "platform_family?",
+                    "hasSubItems": false,
+                    "url": "/dsl_recipe.html#platform-family"
+                  },
+                  {
+                    "title": "reboot_pending?",
+                    "hasSubItems": false,
+                    "url": "/dsl_recipe.html#reboot-pending"
+                  },
+                  {
+                    "title": "recipe_name",
+                    "hasSubItems": false,
+                    "url": "/dsl_recipe.html#recipe-name"
+                  },
+                  {
+                    "title": "registry_data_exists?",
+                    "hasSubItems": false,
+                    "url": "/dsl_recipe.html#registry-data-exists"
+                  },
+                  {
+                    "title": "registry_get_subkeys",
+                    "hasSubItems": false,
+                    "url": "/dsl_recipe.html#registry-get-subkeys"
+                  },
+                  {
+                    "title": "registry_get_values",
+                    "hasSubItems": false,
+                    "url": "/dsl_recipe.html#registry-get-values"
+                  },
+                  {
+                    "title": "registry_has_subkeys?",
+                    "hasSubItems": false,
+                    "url": "/dsl_recipe.html#registry-has-subkeys"
+                  },
+                  {
+                    "title": "registry_key_exists?",
+                    "hasSubItems": false,
+                    "url": "/dsl_recipe.html#registry-key-exists"
+                  },
+                  {
+                    "title": "registry_value_exists?",
+                    "hasSubItems": false,
+                    "url": "/dsl_recipe.html#registry-value-exists"
+                  },
+                  {
+                    "title": "resources",
+                    "hasSubItems": false,
+                    "url": "/dsl_recipe.html#resources"
+                  },
+                  {
+                    "title": "search",
+                    "hasSubItems": false,
+                    "url": "/dsl_recipe.html#search"
+                  },
+                  {
+                    "title": "shell_out",
+                    "hasSubItems": false,
+                    "url": "/dsl_recipe.html#shell-out"
+                  },
+                  {
+                    "title": "shell_out!",
+                    "hasSubItems": false,
+                    "url": "/dsl_recipe.html#shell-out-bang"
+                  },
+                  {
+                    "title": "shell_out_with_systems_locale",
+                    "hasSubItems": false,
+                    "url": "/dsl_recipe.html#shell-out-with-systems-locale"
+                  },
+                  {
+                    "title": "tag",
+                    "hasSubItems": false,
+                    "url": "/dsl_recipe.html#tag-tagged-untag"
+                  },
+                  {
+                    "title": "tagged?",
+                    "hasSubItems": false,
+                    "url": "/dsl_recipe.html#tag-tagged-untag"
+                  },
+                  {
+                    "title": "untag",
+                    "hasSubItems": false,
+                    "url": "/dsl_recipe.html#tag-tagged-untag"
+                  },
+                  {
+                    "title": "value_for_platform",
+                    "hasSubItems": false,
+                    "url": "/dsl_recipe.html#value-for-platform"
+                  },
+                  {
+                    "title": "value_for_platform_family",
+                    "hasSubItems": false,
+                    "url": "/dsl_recipe.html#value-for-platform-family"
+                  },
+                  {
+                    "title": "Windows Platform Helpers",
+                    "hasSubItems": false,
+                    "url": "/dsl_recipe.html#helpers"
+                  }
+                ]
+              }
             ]
           },
           {
@@ -1845,12 +1991,12 @@
             "title": "Workflow",
             "hasSubItems": true,
             "subItems": [
-              {            
+              {
                 "title": "Workflow Overview",
                 "hasSubItems": false,
                 "url": "/workflow.html"
               },
-              {            
+              {
                 "title": "Manage Dependencies",
                 "hasSubItems": false,
                 "url": "/delivery_manage_dependencies.html"
@@ -2117,7 +2263,7 @@
             "title": "Upgrade Compliance",
             "hasSubItems": false,
             "url": "/upgrade_compliance.html"
-          },         
+          },
           {
             "title": "chef-compliance.rb",
             "hasSubItems": false,
@@ -2141,163 +2287,6 @@
     "title": "Extension APIs",
     "iconClass": "fa-clone",
     "subItems": [
-      {
-        "title": "Resources",
-        "hasSubItems": true,
-        "subItems": [
-          {
-            "title": "Custom Resources",
-            "hasSubItems": false,
-            "url": "/custom_resources.html"
-          },
-          {
-            "title": "Recipe DSL",
-            "hasSubItems": true,
-            "subItems": [
-              {
-                "title": "attribute?",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#attribute"
-              },
-              {
-                "title": "control",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#control"
-              },
-              {
-                "title": "control_group",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#control-group"
-              },
-              {
-                "title": "cookbook_name",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#cookbook-name"
-              },
-              {
-                "title": "data_bag",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#data-bag"
-              },
-              {
-                "title": "data_bag_item",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#data-bag-item"
-              },
-              {
-                "title": "platform?",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#platform"
-              },
-              {
-                "title": "platform_family?",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#platform-family"
-              },
-              {
-                "title": "reboot_pending?",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#reboot-pending"
-              },
-              {
-                "title": "recipe_name",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#recipe-name"
-              },
-              {
-                "title": "registry_data_exists?",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#registry-data-exists"
-              },
-              {
-                "title": "registry_get_subkeys",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#registry-get-subkeys"
-              },
-              {
-                "title": "registry_get_values",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#registry-get-values"
-              },
-              {
-                "title": "registry_has_subkeys?",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#registry-has-subkeys"
-              },
-              {
-                "title": "registry_key_exists?",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#registry-key-exists"
-              },
-              {
-                "title": "registry_value_exists?",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#registry-value-exists"
-              },
-              {
-                "title": "resources",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#resources"
-              },
-              {
-                "title": "search",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#search"
-              },
-              {
-                "title": "shell_out",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#shell-out"
-              },
-              {
-                "title": "shell_out!",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#shell-out-bang"
-              },
-              {
-                "title": "shell_out_with_systems_locale",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#shell-out-with-systems-locale"
-              },
-              {
-                "title": "tag",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#tag-tagged-untag"
-              },
-              {
-                "title": "tagged?",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#tag-tagged-untag"
-              },
-              {
-                "title": "untag",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#tag-tagged-untag"
-              },
-              {
-                "title": "value_for_platform",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#value-for-platform"
-              },
-              {
-                "title": "value_for_platform_family",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#value-for-platform-family"
-              },
-              {
-                "title": "Windows Platform Helpers",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#helpers"
-              },
-            ]
-          },
-          {
-            "title": "Community Resources",
-            "hasSubItems": false,
-            "url": "https://supermarket.chef.io"
-          },
-        ]
-      },
       {
         "title": "Compliance DSL",
         "hasSubItems": false,
