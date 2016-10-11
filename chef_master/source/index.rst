@@ -253,7 +253,6 @@ Setup
 :doc:`Configure a Pipeline </delivery_pipeline>` |
 :doc:`Configure a Project </config_json_delivery>` |
 :doc:`Configure Data Collection </setup_visibility_chef_automate>`
-:doc:`Setup in Air Gap Environment </setup_air_gap_chef_automate>` 
 
 Concepts
 -----------------------------------------------------
@@ -705,7 +704,6 @@ Addenda
    server_users
    server_webui_tasks
    setup_visibility_chef_automate
-   setup_air_gap_chef_automate
    simple_walkthrough
    slides
    style_guide
