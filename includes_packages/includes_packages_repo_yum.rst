@@ -7,19 +7,19 @@ To set up a |yum| package repository for |enterprise_linux| platforms:
 
    .. code-block:: bash
 
-      $ sudo rpm --import https://downloads.chef.io/packages-chef-io-public.key
+      $ sudo rpm --import https://packages.chef.io/chef.asc
 
 #. Create the |yum| repository source file:
 
    .. code-block:: bash
 
       $ cat >chef-<CHANNEL>.repo <<EOL
-          [chef-<CHANNEL>]
-          name=chef-<CHANNEL>
-          baseurl=https://packages.chef.io/<CHANNEL>-yum/el/<VERSION>/\$basearch/
-          gpgcheck=1
-          enabled=1
-        EOL
+      [chef-<CHANNEL>]
+      name=chef-<CHANNEL>
+      baseurl=https://packages.chef.io/repos/yum/<CHANNEL>/el/<VERSION>/\$basearch/
+      gpgcheck=1
+      enabled=1
+      EOL
 
    Replace ``<CHANNEL>`` with the release channel: ``stable`` or ``current``.
 

@@ -419,7 +419,6 @@
 .. |berkeley db| replace:: Berkeley DB
 .. |berkeley os| replace:: BSD
 .. |berkshelf| replace:: Berkshelf
-.. |bintray| replace:: Bintray
 .. |bitbucket| replace:: Bitbucket
 .. |bitbucket server| replace:: Bitbucket Server
 .. |bittorrent| replace:: BitTorrent

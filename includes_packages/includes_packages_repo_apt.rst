@@ -13,13 +13,13 @@ To set up an |apt| package repository for |debian| and |ubuntu| platforms:
 
    .. code-block:: bash
 
-      $ wget -qO - https://downloads.chef.io/packages-chef-io-public.key | sudo apt-key add -
+      $ wget -qO - https://packages.chef.io/chef.asc | sudo apt-key add -
 
 #. Create the |apt| repository source file:
 
    .. code-block:: bash
 
-      $ echo "deb https://packages.chef.io/<CHANNEL>-apt <DISTRIBUTION> main" > chef-<CHANNEL>.list
+      $ echo "deb https://packages.chef.io/repos/apt/<CHANNEL> <DISTRIBUTION> main" > chef-<CHANNEL>.list
 
    Replace ``<CHANNEL>`` with the release channel: ``stable`` or ``current``.
 
