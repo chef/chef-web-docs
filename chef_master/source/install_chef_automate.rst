@@ -313,7 +313,7 @@ Set up a Build node (Optional)
 
 The following steps are performed on the Chef Automate server:
 
-#. Download the latest ChefDK from either `<https://downloads.chef.io/chef-dk/>`_ or `<https://bintray.com/chef/current/chefdk/view>`_. Version 0.15.16 or greater is required. The download location is referred to below as ``$CHEF_DK_PACKAGE_PATH``.
+#. Download the latest ChefDK from either `<https://downloads.chef.io/chef-dk/>`_. Version 0.15.16 or greater is required. The download location is referred to below as ``$CHEF_DK_PACKAGE_PATH``.
 
 #. If you have an on-premises Supermarket installation, copy the Supermarket certificate file to ``/etc/delivery/supermarket.crt``.
 
