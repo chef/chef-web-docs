@@ -19,7 +19,7 @@ To set up an |apt| package repository for |debian| and |ubuntu| platforms:
 
    .. code-block:: bash
 
-      $ echo "deb https://packages.chef.io/<CHANNEL>-apt <DISTRIBUTION> main" > chef-<CHANNEL>.list
+      $ echo "deb https://packages.chef.io/repos/apt/<CHANNEL> <DISTRIBUTION> main" > chef-<CHANNEL>.list
 
    Replace ``<CHANNEL>`` with the release channel: ``stable`` or ``current``.
 
