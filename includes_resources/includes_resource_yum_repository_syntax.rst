@@ -32,7 +32,7 @@ The full syntax for all of the properties that are available to the |resource_yu
       exclude                 String
       failovermethod          String
       fastestmirror_enabled   TrueClass, FalseClass
-      gpgcheck                TrueClass, FalseClass]
+      gpgcheck                TrueClass, FalseClass
       gpgkey                  String, Array 
       http_caching            String 
       include_config          String 
