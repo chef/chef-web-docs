@@ -1,5 +1,5 @@
 =====================================================
-delivery.rb Optional Settings 
+delivery.rb Optional Settings
 =====================================================
 
 .. warning:: The configuration settings in the ``delivery.rb`` file should not be modified before discussing those changes with |company_name|. Some of these settings should be considered for tuning (see :doc:`Automate Server Tuning </delivery_server_tuning>`), but many of them should be left as default values.
@@ -379,6 +379,9 @@ This configuration file has the following settings for ``java``:
 kibana
 -----------------------------------------------------
 This configuration file has the following settings for ``kibana``:
+
+``kibana['enable']``
+   |enable service| Only enabled if insights is also enabled. |default_value_recommended| Default value: ``'true'``
 
 ``kibana['conf_dir']``
    |directory generic_working| |default_value_recommended| Default value: ``'/var/opt/delivery/kibana/'``.
@@ -792,4 +795,3 @@ This configuration file has the following settings for ``user``:
 
 ``user['username']``
    The username for the delivery services user. Default value: ``"delivery"``.
-
