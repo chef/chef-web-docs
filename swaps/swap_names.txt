@@ -392,7 +392,7 @@
 .. |apple| replace:: Apple
 .. |apple keynote| replace:: Keynote
 .. |apple safari| replace:: Safari
-.. |apple xcode| replace:: Apple XCode
+.. |apple xcode| replace:: Apple Xcode
 .. |apple disk image| replace:: Apple Disk Image (.dmg)
 .. |apt| replace:: Apt
 .. |aptget| replace:: apt-get
