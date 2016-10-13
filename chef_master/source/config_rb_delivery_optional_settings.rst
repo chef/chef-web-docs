@@ -381,7 +381,7 @@ kibana
 This configuration file has the following settings for ``kibana``:
 
 ``kibana['enable']``
-   |enable service| Only enabled if insights is also enabled. |default_value_recommended| Default value: ``'true'``
+   |enable service| Only enabled if ``insights`` is also enabled. |default_value_recommended| Default value: ``'true'``
 
 ``kibana['conf_dir']``
    |directory generic_working| |default_value_recommended| Default value: ``'/var/opt/delivery/kibana/'``.
