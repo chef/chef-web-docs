@@ -1,8 +1,44 @@
 =====================================================
-Release Notes: |chef client| 12.0 - 12.14
+Release Notes: |chef client| 12.0 - 12.15
 =====================================================
 
 .. include:: ../../includes_chef/includes_chef.rst
+
+What's New in 12.15
+=====================================================
+The following items are new for |chef client| 12.15 and/or are changes from previous versions. The short version:
+
+* **Omnibus packages are now available for Ubuntu 16.04**
+* **New cab_package resource** Supports the installation of CAB/cabinet packages on Windows. 
+* **Added new Chef client exit code (213)** New exit code when Chef client exits during upgrade.
+* **Default for gpgcheck on yum_repository resource is set to ``true``** 
+* **Allow deletion of ``registry_key`` without the need for users to pass data key in values hash**
+* **If provided, knife ssh will pass the -P option on the command line as the sudo password and will bypass prompting**
+
+cab_package
+-----------------------------------------------------
+Supports the installation of CAB/cabinet packages on Windows. For example:
+
+.. code-block:: ruby
+
+   cab_package 'Install .NET 3.5 sp1 via KB958488' do
+     source 'C:\Users\xyz\AppData\Local\Temp\Windows6.1-KB958488-x64.cab'
+     action :install
+   end
+
+.. code-block:: ruby
+
+   cab_package 'Remove .NET 3.5 sp1 via KB958488' do
+     source 'C:\Users\xyz\AppData\Local\Temp\Windows6.1-KB958488-x64.cab'
+     action :remove
+   end
+
+.. note:: The ``cab_package`` resource does not support URLs in source.
+
+exit code 213
+-----------------------------------------------------
+This new exit code signals Chef has exited during a client upgrade. This allows for easier testing of chef client upgrades in Test Kitchen. 
+See `Chef Killing <https://github.com/chef-cookbooks/omnibus_updater#chef-killing>`__ in the omnibus_updater cookbook for more information. 
 
 What's New in 12.14
 =====================================================
