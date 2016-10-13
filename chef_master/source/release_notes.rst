@@ -10,7 +10,7 @@ The following items are new for |chef client| 12.14 and/or are changes from prev
 
 * **Upgraded Ruby version from 2.1.9 to 2.3.1** Adds several performance and functionality enhancements.
 * **Now support for Chef client runs on Windows Nano Server** A small patch to Ruby 2.3.1 and improvements to the Ohai network plugin now allow you to do chef client runs on Windows Nano Server.
-* **New yum_repository resource** Use the |resource_yum_repository| resource to manage a yum repository configuration file.
+* **New yum_repository resource** Use the |resource yum_repository| resource to manage a yum repository configuration file.
 * **Added the ability to mark a property of a custom resource as ``sensitive``** This will suppress the property's value when it's used in other outputs, such as messages used by the data collector.
 
 yum_repository

@@ -1,7 +1,7 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
-A |resource_yum_repository| resource creates a Yum repository configuration file to make individual Yum repositories available for use. The |resource_yum_repository| resource can be as simple as the following:
+A |resource yum_repository| resource creates a Yum repository configuration file to make individual Yum repositories available for use. The |resource yum_repository| resource can be as simple as the following:
 
 .. code-block:: ruby
 
@@ -17,7 +17,7 @@ where
 * ``'baseurl'`` is the URL to the directory where the Yum repository's 'repodata' directory lives
 * ``'gpgkey'`` is the GPG key for the repository
 
-The full syntax for all of the properties that are available to the |resource_yum_repository| resource is:
+The full syntax for all of the properties that are available to the |resource yum_repository| resource is:
 
 .. code-block:: ruby
 
@@ -32,7 +32,7 @@ The full syntax for all of the properties that are available to the |resource_yu
       exclude                 String
       failovermethod          String
       fastestmirror_enabled   TrueClass, FalseClass
-      gpgcheck                TrueClass, FalseClass]
+      gpgcheck                TrueClass, FalseClass
       gpgkey                  String, Array 
       http_caching            String 
       include_config          String 
