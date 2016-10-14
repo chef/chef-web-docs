@@ -132,7 +132,7 @@ sensitive
 Providers
 =====================================================
 
-This resource has the following providers:
+This resource has the following provider:
 
 ``Chef::Provider::AptRepository``, ``apt_repository``
    The default provider for all platforms.
