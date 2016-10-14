@@ -15,7 +15,7 @@ The following table lists the Foundational platforms for the |chef dk_title|:
      - ``7.x``, ``8.x``
    * - |mac os x|
      -
-     - ``10.9``, ``10.10``, ``10.11``
+     - ``10.9``, ``10.10``, ``10.11``, ``10.12``
    * - |redhat enterprise linux|
      -
      - ``6.x``, ``7.x``
