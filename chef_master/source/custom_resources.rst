@@ -14,14 +14,6 @@ Example
 -----------------------------------------------------
 .. include:: ../../includes_custom_resources/includes_custom_resources_syntax_example.rst
 
-resource_name
------------------------------------------------------
-.. note:: .. include:: ../../includes_ruby/includes_ruby_style_patterns_hyphens.rst
-
-.. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_resource_name.rst
-
-.. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_resource_name_example.rst
-
 Scenario: website Resource
 =====================================================
 .. include:: ../../includes_custom_resources/includes_custom_resources_slide_website.rst
@@ -39,6 +31,14 @@ Objectives
 What is needed?
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_custom_resources/includes_custom_resources_slide_website_objectives_requirements.rst
+
+Define Resource Name
+-----------------------------------------------------
+.. note:: .. include:: ../../includes_ruby/includes_ruby_style_patterns_hyphens.rst
+
+.. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_resource_name.rst
+
+.. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_resource_name_example.rst
 
 Define Properties
 -----------------------------------------------------
