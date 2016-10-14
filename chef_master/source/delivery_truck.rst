@@ -123,9 +123,9 @@ The surest way to validate a |automate| installation is to create a cookbook, an
 Using ``delivery-truck`` in air-gapped environment
 ========================================================
 
-|automate| can be setup to deploy cookbooks and applications in an air-gapped environment. This section describes 
-how to setup a basic cookbook to be delivered through |automate| using the `delivery-truck cookbook <https://github.com/chef-cookbooks/delivery-truck>`__
-in an air-gapped environment.
+|automate| can be set up to deploy cookbooks and applications in an air-gapped environment and this section describes 
+how to set up a basic cookbook to be delivered through |automate| using the `delivery-truck cookbook <https://github.com/chef-cookbooks/delivery-truck>`__
+in that environment.
 
 .. note:: By default, the delivery-truck cookbook is configured for use with |automate|-backed cookbook projects.
 
@@ -141,7 +141,7 @@ Prerequisites
 Share cookbooks with your private Supermarket
 -----------------------------------------------------
 
-To use ``delivery-truck`` and it's dependency, ``delivery-sugar``, you must first share them with a private Supermarket that is authenticated with your Chef server.
+To use ``delivery-truck`` and its dependency, ``delivery-sugar``, you must first share them with a private Supermarket that is authenticated with your Chef server.
 
 #. From a workstation, create a cookbooks directory, ``$COOKBOOKS_DIR``:
 
@@ -215,7 +215,7 @@ From the root of your project's directory, do the following:
         cookbook 'delivery-truck'
       end
 
-#. Modify the build cookbook's metadata to include ``delivery-truck``.    By default, this file is located at ``.delivery/build-cookbook/metadata.rb``.
+#. Modify the build cookbook's metadata to include ``delivery-truck``. By default, this file is located at ``.delivery/build-cookbook/metadata.rb``.
 
    .. code-block:: ruby
 
