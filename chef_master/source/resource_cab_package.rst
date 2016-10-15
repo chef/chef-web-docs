@@ -18,9 +18,9 @@ A **cab_package** resource installs or removes a cabinet package from the specif
 
 where 
 
-* cab_package is the resource
-* name is the name of the resource block
-* source is the location of the cabinet package
+* ``cab_package`` is the resource
+* ``name`` is the name of the resource block
+* ``source`` is the location of the cabinet package
 
 Actions
 =====================================================

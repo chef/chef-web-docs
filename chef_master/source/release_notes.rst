@@ -11,9 +11,9 @@ The following items are new for |chef client| 12.15 and/or are changes from prev
 * **Omnibus packages are now available for Ubuntu 16.04**
 * **New cab_package resource** Supports the installation of cabinet packages on Microsoft Windows. 
 * **Added new Chef client exit code (213)** New exit code when Chef client exits during upgrade.
-* **Default for gpgcheck on yum_repository resource is set to ``true``** 
-* **Allow deletion of ``registry_key`` without the need for users to pass data key in values hash**
-* **If provided, knife ssh will pass the ``-P`` option on the command line as the sudo password and will bypass prompting**
+* **Default for gpgcheck on yum_repository resource is set to true** 
+* **Allow deletion of registry_key without the need for users to pass data key in values hash**
+* **If provided, knife ssh will pass the -P option on the command line as the sudo password and will bypass prompting**
 
 cab_package
 -----------------------------------------------------
@@ -47,7 +47,7 @@ The following items are new for |chef client| 12.14 and/or are changes from prev
 * **Upgraded Ruby version from 2.1.9 to 2.3.1** Adds several performance and functionality enhancements.
 * **Now support for Chef client runs on Windows Nano Server** A small patch to Ruby 2.3.1 and improvements to the Ohai network plugin now allow you to do chef client runs on Windows Nano Server.
 * **New yum_repository resource** Use the |resource yum_repository| resource to manage a yum repository configuration file.
-* **Added the ability to mark a property of a custom resource as ``sensitive``** This will suppress the property's value when it's used in other outputs, such as messages used by the data collector.
+* **Added the ability to mark a property of a custom resource as sensitive** This will suppress the property's value when it's used in other outputs, such as messages used by the data collector.
 
 yum_repository
 -----------------------------------------------------
