@@ -760,7 +760,6 @@ Examples
 
 cab_package
 -----------------------------------------------------
-
 Use the **cab_package** resource to install or remove Microsoft Windows cabinet (.cab) packages.
 
 New in Chef Client 12.15.
@@ -802,7 +801,6 @@ source
 
 Providers
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-
 This resource has the following provider:
 
 ``Chef::Provider::Package::Cab``, ``cab_package``
@@ -811,7 +809,7 @@ This resource has the following provider:
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-**Installing a cabinet package.
+**Installing a cabinet package**
 
 .. code-block:: ruby
 
@@ -820,7 +818,7 @@ Examples
      action :install
    end
 
-**Removing a cabinet package.
+**Removing a cabinet package**
 
 .. code-block:: ruby
 
