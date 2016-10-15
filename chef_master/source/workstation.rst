@@ -20,8 +20,6 @@ Some important components of workstations include:
        .. include:: ../../includes_chef_repo/includes_chef_repo_structure.rst
    * - :doc:`knife.rb </config_rb_knife>`
      - .. include:: ../../includes_config/includes_config_rb_knife.rst
-   * - :doc:`metadata.rb </config_rb_metadata>`
-     - .. include:: ../../includes_cookbooks/includes_cookbooks_metadata.rst
 
 |chef dk_title|
 =====================================================
