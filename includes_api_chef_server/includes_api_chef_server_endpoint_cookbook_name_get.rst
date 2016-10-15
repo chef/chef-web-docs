@@ -3,17 +3,6 @@
 
 The ``GET`` method is used to return a hash that contains a key-value pair that corresponds to the specified cookbook, with a URL for the cookbook and for each version of the cookbook.
 
-This method has the following parameters:
-
-.. list-table::
-   :widths: 200 300
-   :header-rows: 1
-
-   * - Parameter
-     - Description
-   * - ``num_versions=n``
-     - |num_versions|
-
 **Request**
 
 .. code-block:: none
