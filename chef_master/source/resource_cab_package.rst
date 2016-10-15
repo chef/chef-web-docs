@@ -43,7 +43,6 @@ source
 
 Providers
 =====================================================
-
 This resource has the following provider:
 
 ``Chef::Provider::Package::Cab``, ``cab_package``
@@ -52,7 +51,7 @@ This resource has the following provider:
 Examples
 =====================================================
 
-**Installing a cabinet package.
+**Installing a cabinet package**
 
 .. code-block:: ruby
 
@@ -61,7 +60,7 @@ Examples
      action :install
    end
 
-**Removing a cabinet package.
+**Removing a cabinet package**
 
 .. code-block:: ruby
 
