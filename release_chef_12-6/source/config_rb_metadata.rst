@@ -26,11 +26,6 @@ This configuration file has the following settings:
 
    .. note:: |metadata rb supermarket_not_visible|
 
-``conflicts``
-   |metadata rb only| |metadata rb conflicts| 
-
-   .. include:: ../../includes_cookbooks/includes_cookbooks_metadata_settting_conflicts.rst
-
 ``depends``
    |metadata rb depends|
 
@@ -40,11 +35,6 @@ This configuration file has the following settings:
    |description cookbook|
 
    .. include:: ../../includes_cookbooks/includes_cookbooks_metadata_settting_description.rst
-
-``grouping``
-   |grouping|
-
-   .. include:: ../../includes_cookbooks/includes_cookbooks_metadata_settting_grouping.rst
 
 ``issues_url``
    |url cookbook_issues| |metadata rb supermarket_view_issues|
@@ -96,29 +86,10 @@ This configuration file has the following settings:
 
    .. include:: ../../includes_cookbooks/includes_cookbooks_metadata_settting_recipe.rst
 
-``recommends``
-   |metadata rb only| |metadata rb recommends|
-
-   .. note:: |metadata rb foodcritic_053|
-
-   .. include:: ../../includes_cookbooks/includes_cookbooks_metadata_settting_recommends.rst
-
-``replaces``
-   |metadata rb only| |metadata rb replaces|
-
-   .. include:: ../../includes_cookbooks/includes_cookbooks_metadata_settting_replaces.rst
-
 ``source_url``
    |url cookbook_source| |metadata rb supermarket_view_source|
 
    .. include:: ../../includes_cookbooks/includes_cookbooks_metadata_settting_source_url.rst
-
-``suggests``
-   |metadata rb only| |metadata rb suggests|
-
-   .. note:: |metadata rb foodcritic_052|
-
-   .. include:: ../../includes_cookbooks/includes_cookbooks_metadata_settting_suggests.rst
 
 ``supports``
    |metadata rb supports|
