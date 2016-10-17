@@ -19,11 +19,6 @@ This configuration file has the following settings:
 
    .. include:: ../../includes_cookbooks/includes_cookbooks_metadata_settting_attribute.rst
 
-``conflicts``
-   |metadata rb only| |metadata rb conflicts| 
-
-   .. include:: ../../includes_cookbooks/includes_cookbooks_metadata_settting_conflicts.rst
-
 ``depends``
    |metadata rb depends|
 
@@ -33,11 +28,6 @@ This configuration file has the following settings:
    |description cookbook|
 
    .. include:: ../../includes_cookbooks/includes_cookbooks_metadata_settting_description.rst
-
-``grouping``
-   |grouping|
-
-   .. include:: ../../includes_cookbooks/includes_cookbooks_metadata_settting_grouping.rst
 
 ``license``
    |license metadata_rb|
@@ -73,25 +63,6 @@ This configuration file has the following settings:
    |description recipe|
 
    .. include:: ../../includes_cookbooks/includes_cookbooks_metadata_settting_recipe.rst
-
-``recommends``
-   |metadata rb only| |metadata rb recommends|
-
-   .. note:: |metadata rb foodcritic_053|
-
-   .. include:: ../../includes_cookbooks/includes_cookbooks_metadata_settting_recommends.rst
-
-``replaces``
-   |metadata rb only| |metadata rb replaces|
-
-   .. include:: ../../includes_cookbooks/includes_cookbooks_metadata_settting_replaces.rst
-
-``suggests``
-   |metadata rb only| |metadata rb suggests|
-
-   .. note:: |metadata rb foodcritic_052|
-
-   .. include:: ../../includes_cookbooks/includes_cookbooks_metadata_settting_suggests.rst
 
 ``supports``
    |metadata rb supports|
