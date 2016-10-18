@@ -292,6 +292,7 @@ Managing the Server
 :doc:`Disaster Recovery </delivery_server_disaster_recovery>` |
 :doc:`Secrets </delivery_manage_secrets>` |
 :doc:`Tuning </delivery_server_tuning>` |
+:doc:`Manage Elasticsearch Indices </manage_indices_chef_automate>` |
 :doc:`Users and Roles </delivery_users_and_roles>` |
 :doc:`Capacity Planning </scaling_capacity_planning_chef_automate>` |
 :doc:`Stream Data </stream_data_chef_automate>` |
@@ -548,6 +549,7 @@ Addenda
    knife_xargs
    libraries
    manage
+   manage_indices_chef_automate
    nodes
    ohai
    ohai_custom
