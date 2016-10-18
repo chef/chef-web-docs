@@ -21,7 +21,7 @@ The following list isn't exhaustive; it is intended to help all of us communicat
 * **Be careful in the words that you choose.**
 * **When we disagree, let's all work together to understand why.**
 
-The previous list applies to all forms of communication: IRC, the mailing list, the issue tracker, and any other forum that is used by the community.
+The previous list applies to all forms of communication: slack, the mailing list, the issue tracker, and any other forum that is used by the community.
 
 Please keep in mind that:
 
@@ -54,7 +54,7 @@ Roles
 =====================================================
 * The **Decider** has final say on community guidelines and final authority on punitive actions and appeals. As per the `Chef RFC process <https://github.com/chef/chef-rfc/blob/master/rfc000-rfc-process.md>`__, the top-level decider is Adam Jacob (adam @ chef.io).
 * The **Community Ombudsperson** guides and meets regularly with community advocates, helps enforce punitive actions, hears appeals, is responsible for maintaining a list of incidents, and ensures pertinent information is shared with necessary parties. The community ombudsperson is appointed by the decider.
-* **Community Advocates** may be assigned for each area where the community convenes online (IRC, email list, |github|, etc.). Advocates are responsible for helping enforce the community guidelines.
+* **Community Advocates** may be assigned for each area where the community convenes online (slack, email list, |github|, etc.). Advocates are responsible for helping enforce the community guidelines.
 * A **Community Member** is anyone who participates with the community whether in-person or via online channels. Community members are responsible for following the community guidelines, suggesting updates to the guidelines when warranted, and helping enforce community guidelines.
 
 Community advocates must be agreed on by the community: a simple majority of other advocates must approve. The decider retains veto power. Create a pull request against this document to volunteer or nominate someone as a community advocate for a particular area. Create a pull request against this document to propose an area that needs coverage.
@@ -74,15 +74,15 @@ The |chef| community advocates are well informed on how to deal with incidents. 
    * - Role
      - Advocates
    * - Decider
-     - Adam Jacob - adam @ chef.io; IRC - holoway
+     - Adam Jacob - adam @ chef.io
    * - Ombudsperson
-     - Nathen Harvey - nharvey @ chef.io; phone - +1 202-368-7264; IRC - nathenharvey
+     - Nathen Harvey - nharvey @ chef.io; phone - +1 202-368-7264
    * - Advocates
      - The `list of advocates <https://github.com/chef/chef-rfc/blob/master/rfc020-community-guidelines.md>`__ for the various locations in which |chef| community discussions take place is maintained in the RFC.
 
 The important information to report consists of:
 
-* Identifying information (name, email address, IRC nick, etc.) of the person doing the harassing
+* Identifying information (name, email address, slack name, etc.) of the person doing the harassing
 * The behavior that was in violation
 * The approximate time of the behavior
 * The circumstances surrounding the incident
