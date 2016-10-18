@@ -30,6 +30,8 @@ A Chef Automate installation consists of a minimum of two nodes:
 
 * (Optional) Build nodes are optional components that perform the work of running builds, tests, and deployments out of Chef Automate and are only required when using the workflow capabilities of Chef Automate.
 
+* (Optional) Chef Compliance server for use in conjunction with the ``audit cookbook``.
+
 Prerequisites
 =====================================================
 
@@ -419,6 +421,11 @@ Any host that needs to make outgoing http or https connections will require thes
 (which makes knife calls to Chef Server) and Chef Server (for push jobs) should have these configured.
 
 For more details on the proxy setup, please see `About Proxies <https://docs.chef.io/proxies.html>`__.
+
+Compliance scanning
+===================================================================
+
+Allows nodes to execute infrastructure tests or compliance profiles as part of the chef-client runs. For more details see the `Compliance scanning w/ Chef Automate guide </integrate_compliance_chef_automate>`_.
 
 Troubleshooting
 ===================================================================
