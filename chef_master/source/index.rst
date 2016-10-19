@@ -89,6 +89,8 @@ Concepts
 
 :doc:`Microsoft Windows </windows>` 
 
+**Appendix**: :doc:`Env Variables </environment_variables>` | :doc:`Troubleshooting </errors>` | :doc:`Glossary </glossary>` 
+
 Setup
 -----------------------------------------------------
 :doc:`Proxies </proxies>` |
@@ -405,7 +407,6 @@ Addenda
    chef_quick_overview
    chef_repo
    chef_search
-   chef_server
    chef_shell
    chef_solo
    chef_system_requirements
@@ -417,7 +418,6 @@ Addenda
    compliance
    config_json_delivery
    config_rb
-   config_rb_chef_sync
    config_rb_client
    config_rb_compliance
    config_rb_delivery
@@ -436,7 +436,6 @@ Addenda
    config_rb_solo
    config_rb_supermarket
    config_yml_kitchen
-   containers
    cookbook_repo
    cookbook_versions
    cookbooks
@@ -448,7 +447,6 @@ Addenda
    ctl_chef_server
    ctl_chef_shell
    ctl_chef_solo
-   ctl_chef_sync
    ctl_delivery
    ctl_delivery_server
    ctl_kitchen
@@ -489,7 +487,6 @@ Addenda
    habitat_prism
    handlers
    inspec
-   install
    install_chef_automate
    install_bootstrap
    install_compliance
@@ -580,7 +577,6 @@ Addenda
    reporting
    release_notes
    release_notes_server
-   releases
    resource
    resource_apt_package
    resource_apt_repository
@@ -681,7 +677,6 @@ Addenda
    runbook
    search_query_chef_automate
    secrets
-   security_notes
    server_backup_restore
    server_components
    server_configure_saml
@@ -705,10 +700,7 @@ Addenda
    server_services
    server_tuning
    server_users
-   server_webui_tasks
    setup_visibility_chef_automate
-   simple_walkthrough
-   slides
    style_guide
    supermarket
    supermarket_logs
@@ -724,7 +716,6 @@ Addenda
    upgrade_server_ha_v2
    upgrade_server_notes
    upgrade_server_open_source_notes
-   verify_packages
    visibility
    windows
    workflow
