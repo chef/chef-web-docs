@@ -2,17 +2,17 @@
 delivery-ctl (executable)
 =====================================================
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst
 
 .. include:: ../../includes_ctl_delivery_server/includes_ctl_delivery_server.rst
-
-backup-data
-=====================================================
-.. include:: ../../includes_ctl_delivery_server/includes_ctl_delivery_server_backup_data.rst
 
 cleanse
 =====================================================
 .. include:: ../../includes_ctl_delivery_server/includes_ctl_delivery_server_cleanse.rst
+
+create-backup
+=====================================================
+.. include:: ../../includes_ctl_delivery_server/includes_ctl_delivery_server_create_backup.rst
 
 create-enterprise
 =====================================================
@@ -67,6 +67,9 @@ returns something similar to:
 
    Error: OAuth Application bamboo not found.
 
+delete-backups
+=====================================================
+.. include:: ../../includes_ctl_delivery_server/includes_ctl_delivery_server_delete_backups.rst
 
 delete-enterprise
 =====================================================
@@ -131,6 +134,10 @@ returns something similar to:
     github-enterprise
 
 
+list-backups
+=====================================================
+.. include:: ../../includes_ctl_delivery_server/includes_ctl_delivery_server_list_backups.rst
+
 list-enterprises
 =====================================================
 .. include:: ../../includes_ctl_delivery_server/includes_ctl_delivery_server_list_enterprise.rst
@@ -191,9 +198,9 @@ rename-enterprise
 
 .. include:: ../../includes_ctl_delivery_server/includes_ctl_delivery_server_rename_enterprise_syntax.rst
 
-restore-data
+restore-backup
 =====================================================
-.. include:: ../../includes_ctl_delivery_server/includes_ctl_delivery_server_restore_data.rst
+.. include:: ../../includes_ctl_delivery_server/includes_ctl_delivery_server_restore_backup.rst
 
 revoke-token
 =====================================================

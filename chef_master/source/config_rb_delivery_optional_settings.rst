@@ -59,6 +59,156 @@ This configuration file has the following settings for ``admin``:
 ``admin['password']``
    Default value: ``'snakes'``.
 
+backup
+-----------------------------------------------------
+This configuration file has the following settings for ``backup``:
+
+``backup['cron']['enabled']``
+   Create a cron job that manages backups. Default value: ``false``.
+
+``backup['cron']['max_archives']``
+   Maximum number of backup archives to be kept. Default value: ``7``.
+
+``backup['cron']['max_snapshots']``
+   Maximum number of backup snapshots to be kept. Default value: ``7``.
+
+``backup['cron']['notation']``
+   Time notation for backup cron job. Default value: ``'0 0 * * *'``.
+
+``backup['access_key_id']``
+   |amazon aws| Access Key ID for uploading |delivery| backup archives to S3.
+   Only use this if you cannot configure the machine with an instance profile,
+   shared credentials, or environment variables. Default value: ``nil``.
+
+``backup['bucket']``
+   S3 bucket for storing |delivery| backup archives. Default value: ``nil``.
+
+``backup['base_path']``
+   Optional S3 base path prefix. This is used if you wish to store |delivery|
+   backup archives in a nested path in the S3 bucket. Default value: ``nil``.
+
+``backup['census']['enabled']``
+   Back up |delivery| Census data. Default value: ``true``.
+
+``backup['chef_server_config']``
+   Back up the |chef server| configuration directory.  Usefull for instances
+   when |delivery| and |chef server| are installed on a single node. Default
+   value: ``false``.
+
+``backup['config']['enabled']``
+   Back up the |delivery| configuration directory. Default value: ``true``.
+
+``backup['db']['enabled']``
+   Back up the |delivery| PostgreSQL database. Default value: ``true``.
+
+``backup['elasticsearch']['access_key_id']``
+   |amazon aws| Access Key ID for uploading |delivery| Elasticsearch snapshots
+   to S3. Only use this if you cannot configure the machine with an instance
+   profile, shared credentials, or environment variables. Default value: ``nil``.
+
+``backup['elasticsearch']['bucket']``
+   S3 bucket for storing |delivery| Elasticsearch snapshots. Default value:
+   ``nil``.
+
+``backup['elasticsearch']['base_path']``
+   Optional S3 base path prefix. This is used if you wish to store |delivery|
+   Elasticsearch snapshots in a nested path in the S3 bucket. Default value:
+   ``nil``.
+
+``backup['elasticsearch']['enabled']``
+   Create |delivery| Elasticsearch snapshots. Default value:
+   ``true``.
+
+``backup['elasticsearch']['location']``
+   Shared filesystem repository location for Elasticsearch snapshots. Default
+   value: ``/var/opt/delivery/elasticsearch_backups``.
+
+``backup['elasticsearch']['max_restore_bytes_per_sec']``
+   Maximum snapshot speed when restoring shared filesystem Elasticsearch
+   snaphots. Default value: ``40mb``.
+
+``backup['elasticsearch']['max_snapshot_bytes_per_sec']``
+   Maximum snapshot speed when creating shared filesystem Elasticsearch
+   snaphots. Default value: ``40mb``.
+
+``backup['elasticsearch']['region']``
+   |amazon aws| region to use for |delivery| S3 Elasticsearch snapshots.
+   Default value ``nil``.
+
+``backup['elasticsearch']['secret_access_key']``
+   |amazon aws| Secret Key for uploading |delivery| Elasticsearch snapshots in
+   S3. Only use this if you cannot configure the machine with an instance
+   profile, shared credentials, or environment variables. Default value: ``nil``.
+
+``backup['elasticsearch']['type']``
+   Which backup type to use for |delivery| Elasticsearch snapshots. Shared
+   filesystem and S3 backups are currently supported by using the ``fs`` and
+   ``s3`` types. Default value: ``fs``.
+
+``backup['force']``
+   Agree to any prompts or warnings during the |delivery| backup precedure.
+   Default value: ``false``.
+
+``backup['git']['enabled']``
+   Back up the |delivery| git repositories. Default value: ``true``.
+
+``backup['license']['enabled']``
+   Back up the |delivery| license file. Default value: ``true``.
+
+``backup['list']['types']``
+   Types to list when running the ``delivery-ctl list-backups`` command.
+   Options are ``all``, ``automate``, and ``elasticsearch``. Default value:
+   ``all``.
+
+``backup['list']['format']``
+   Format to return when running the ``delivery-ctl list-backups`` command.
+   Options are ``text`` and ``json``.  Default value: ``text``.
+
+``backup['location']``
+   Location on disk to store |delivery| backup archives. Default value:
+   ``/var/opt/delivery/backups``.
+
+``backup['name']``
+   Name to use for |delivery| backup archives and snapshots. When omitted
+   a default will used automatically. Default value: ``nil``.
+
+``backup['quiet']``
+   Silence non-error information during the |delivery| backup procedure.
+   Default value: ``false``.
+
+``backup['rabbit']['enabled']``
+   Back up the |delivery| RabbitMQ queues. It is disabled by default because
+   it's rare to have a lengthy RabbitMQ queue and the backup procedure requires
+   temporarily shutting down |delivery| services when backing up the queues.
+   Default value: ``false``.
+
+``backup['region']``
+   |amazon aws| region to use when storing |delivery| backup archives in S3.
+   Default value ``nil``.
+
+``backup['type']``
+   Which backup type to use for |delivery| backup archives. Local filesystem and
+   S3 backups are currently supported by using the ``fs`` and ``s3`` types.
+   Default value: ``fs``.
+
+``backup['secret_access_key']``
+   |amazon aws| Secret Key for uploading |delivery| backup archives to S3.
+   Only use this if you cannot configure the machine with an instance profile,
+   shared credentials, or environment variables.
+   Default value: ``nil``.
+
+``backup['staging_dir']``
+   A local directory to use for temporary files when creating a backup archive.
+   The directory will be cleared during backup and used for storing the backup
+   archive, database dump, and configuration file. When not configured it will
+   use a default Ruby temporary directory which is usually nested in ``/tmp`` on
+   linux but will also honor the value of the ``TMPDIR`` environment variable.
+   Default value: ``nil``.
+
+``backup['wait']``
+   Wait for non-blocking steps during the backup procedure. Useful if you'd like
+   the backup to to return early without waiting for the Elasticsearch snapshot
+   to complete. Default setting: ``true``.
 
 deliv_notify
 -----------------------------------------------------
@@ -77,12 +227,6 @@ This configuration file has the following settings for ``delivery``:
 
 ``delivery['audit_max_events']``
    Maximum number of audit events to keep in memory. Default value: ``100``.
-
-``delivery['backup_cron_job']``
-   Default value: ``false``.
-
-``delivery['backup_path']``
-   Default value: ``'/var/opt/delivery/backups'``.
 
 ``delivery['ca_cert_chain_depth']``
    Default value: ``2``.
@@ -105,9 +249,6 @@ This configuration file has the following settings for ``delivery``:
 
 ``delivery['chef_username']``
    Default value: ``"delivery-cd"``.
-
-``delivery['cron_backup_times']``
-   The time vector for backup cron job; conforms to crontab format. Default value: ``'0 0 * * *'``.
 
 ``delivery['db_name']``
    Default value: ``"delivery"``.
@@ -207,9 +348,6 @@ This configuration file has the following settings for ``delivery``:
 ``delivery['log_rotation']['num_to_keep']``
    |log_rotation| Default value: ``10``.
 
-``delivery['max_backups']``
-   The maximum number of backups to be kept. Default value: ``7``.
-
 ``delivery['phase_job_confirmation_timeout']``
    Timeout for waiting for phase job to confirm completion. Default value: ``'5m'``.
 
@@ -235,9 +373,6 @@ This configuration file has the following settings for ``delivery``:
    The amount of time after which the ``READ`` token expires. This value may be specified a string with units (e.g., ``"4d"``, ``"3h"``, ``"2m"``, ``"1s"``), or as bare integers (interpreted as seconds). Valid units are: ``d`` (days), ``h`` (hours), ``m`` (minutes), or ``s`` (seconds). Default value: ``'7d'``.
 
    .. note:: While the ``delivery['read_ttl']`` and ``delivery['write_ttl']`` values may be tuned separately, it is recommended that both values be identical.
-
-``delivery['restore_backup']``
-   Set this option to true to restore the backup after it is made Default value: ``false``.
 
 ``delivery['sql_password']``
    Default value: ``'pokemon'``.
