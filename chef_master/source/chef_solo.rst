@@ -8,6 +8,10 @@ Cookbooks
 =====================================================
 .. include:: ../../includes_chef_solo/includes_chef_solo_cookbooks.rst
 
+Nodes
+=====================================================
+.. include:: ../../includes_chef_solo/includes_chef_solo_nodes.rst
+
 Attributes
 =====================================================
 .. include:: ../../includes_chef_solo/includes_chef_solo_attributes.rst
