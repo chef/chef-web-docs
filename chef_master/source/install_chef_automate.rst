@@ -318,10 +318,7 @@ The following steps are performed on the Chef Automate server:
 #. If you have an on-premises Supermarket installation, copy the Supermarket certificate file to ``/etc/delivery/supermarket.crt``.
 
 #. Run the following commands. Note that the username provided must be a user who has
-   sudo access on the target node. If passwordless sudo is enabled on
-   the target node and ssh authentication is done via a private key,
-   provide the option ``--password none`` to the command below or enter
-   'none' when prompted for the password.
+   sudo access on the target node. 
 
    .. code-block:: bash
 
