@@ -1,7 +1,7 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
 
-A |resource script_ksh| resource block executes scripts using |csh|:
+A |resource script_ksh| resource block executes scripts using |ksh|:
 
 .. code-block:: ruby
 
@@ -12,7 +12,7 @@ A |resource script_ksh| resource block executes scripts using |csh|:
        EOH
    end
 
-where 
+where
 
 * ``code`` specifies the command to run
 
@@ -38,7 +38,7 @@ The full syntax for all of the properties that are available to the |resource sc
      action                     Symbol # defaults to :run if not specified
    end
 
-where 
+where
 
 * ``ksh`` is the resource
 * ``name`` is the name of the resource block
