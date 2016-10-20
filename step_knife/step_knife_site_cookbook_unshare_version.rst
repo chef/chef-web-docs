@@ -6,4 +6,4 @@ To unshare cookbook version ``0.10.0`` for the ``getting-started`` cookbook, ent
 
 .. code-block:: bash
 
-   $ knife cookbook site unshare "getting-started/version/0.10.0"
+   $ knife cookbook site unshare "getting-started/versions/0.10.0"
