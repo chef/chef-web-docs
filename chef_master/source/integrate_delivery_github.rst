@@ -21,7 +21,7 @@ Chef Automate's GitHub integration is designed for use with GitHub.com and GitHu
 Enterprise 2.x, and supports connecting a Chef Automate enterprise with a single
 GitHub server URL.
 
-.. note:: This procedure is for |automate| deployments that will use |github enterprise| or |github com| as the source control manager. |automate| also comes with default |git| capabilities that do not require the |github| |oauth| application.
+.. note:: The Delivery CLI from the latest `ChefDK <https://downloads.chef.io/chef-dk/>`__ (version 0.19 or higher) must be installed on any workstations that setup and initialize GitHub-integrated projects.
 
 Setting up integration with GitHub
 =====================================================
@@ -249,7 +249,6 @@ integration. Here we assume that the initial project creation, import, and pipel
 Configure your Delivery CLI and clone your project's code
 ---------------------------------------------------------
 
-#. Install the Delivery CLI by downloading and installing the latest `ChefDK <https://downloads.chef.io/chef-dk/>`__ (version 0.19 or higher).
 #. In your command shell, create or navigate to a directory where you will store project repositories. Use ``delivery setup`` with arguments as shown below to create a ``.delivery/cli.toml`` file:
 
    .. code-block:: bash
