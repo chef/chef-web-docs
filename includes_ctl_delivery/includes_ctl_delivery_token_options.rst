@@ -10,6 +10,9 @@ This subcommand has the following options:
 ``-e=ENTERPRISE``, ``--ent=ENTERPRISE``
    |delivery enterprise|
 
+``--raw``
+   Print the raw token. 
+
 ``-s=SERVER``, ``--server=SERVER``
    |delivery server|
 
