@@ -4,4 +4,4 @@
 
 Use the ``token`` subcommand to manage a |delivery| API token.
 
-.. note:: If you're running this command on Windows in Git Bash with MintTTY you must include `winpty` before `delivery token` to avoid errors.
+.. note:: If you're running this command on Windows in Git Bash with MintTTY you must include ``winpty`` before ``delivery token`` to avoid errors.
