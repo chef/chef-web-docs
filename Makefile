@@ -1,6 +1,4 @@
 BUILDDIR = build
-S3BUCKET = chef-docs
-S3OPTIONS = --acl-public --exclude='.doctrees/*' --exclude='chef/.doctrees/*' --config ~/.s3cfg-chef-docs  --add-header "Cache-Control: max-age=900"
 BUILD_COMMAND = sphinx-build -a -W
 PARALLEL_BUILD:=
 BUILD_COMMAND_AND_ARGS = $(BUILD_COMMAND) $(PARALLEL_BUILD)
@@ -32,16 +30,6 @@ BUILD_COMMAND_AND_ARGS = $(BUILD_COMMAND) $(PARALLEL_BUILD)
 # enterprise open_source slides
 # 10 private_chef
 # all analytics delivery client devkit server
-#
-
-#
-# Parallel Building:
-# Supported by Sphinx 1.2.x and above
-#
-# Specify PARALLEL_BUILD="-j X" on the make cmdline
-# If you have an 8 cpu machine, 6 might be a good number
-#
-# make master PARALLEL_BUILD="-j 6"
 #
 
 clean:
@@ -249,10 +237,6 @@ server_12-0:
 supermarket:
 	mkdir -p $(BUILDDIR)/release/supermarket/
 	$(BUILD_COMMAND_AND_ARGS) release_supermarket/source $(BUILDDIR)/release/supermarket/
-
-
-upload:	release
-	s3cmd sync $(S3OPTIONS) $(BUILDDIR)/ s3://$(S3BUCKET)/
 
 #
 # OLD BUILDS DO NOT BUILD
