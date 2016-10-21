@@ -1,10 +1,8 @@
-.. This page is the Chef 12 server install page, for high availabilty in AWS.
-
 =====================================================
-Tiered
+Tiered Installation (DEPRECATED)
 =====================================================
 
-.. warning:: This topic is deprecated. See `High Availability: Backend Cluster <https://docs.chef.io/install_server_ha.html>`_ for information on how to set up a highly-available server cluster.
+.. warning:: This topic is deprecated as of the 12.9 release of the Chef servver. For the latest information on high availability and how to set up a highly-available server cluster, see `High Availability: Backend Cluster <https://docs.chef.io/install_server_ha.html>`_.
 
 .. include:: ../../includes_install/includes_install_server_tiered.rst
 

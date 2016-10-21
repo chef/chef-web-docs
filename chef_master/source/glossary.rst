@@ -21,7 +21,7 @@ Glossary
 **chef-client**
    A command-line tool that that runs |chef|. Also, the name of |chef| as it is installed on a node.
 
-**Chef-DK**
+**Chef DK**
    A collection of tools to help development of Chef and Chef resources. It uses the full stack installer to give you everything you need to get going in one package.  You can download it at `Chef Development Kit <https://downloads.chef.io/chef-dk/>`__.
 
 **chef-repo**

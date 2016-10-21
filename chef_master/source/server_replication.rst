@@ -1,6 +1,8 @@
 =====================================================
-|chef replication_title|
+|chef replication_title| (DEPRECATED)
 =====================================================
+
+.. warning:: This topic is deprecated as of the 12.9 release of the Chef servver.
 
 .. include:: ../../includes_server_replication/includes_server_replication_legacy_notice_long.rst
 

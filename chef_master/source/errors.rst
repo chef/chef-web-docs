@@ -1,8 +1,8 @@
 =====================================================
-Errors
+Troubleshooting
 =====================================================
 
-The following sections describe how to troubleshoot some common errors and problems.
+The following sections describe how to troubleshoot the Chef server, Chef client and Chef DK.
 
 401 Unauthorized
 =====================================================
