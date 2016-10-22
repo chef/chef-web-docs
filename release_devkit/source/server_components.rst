@@ -1,4 +1,6 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/chef_server.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/devkit/ PATH.
+=====================================================
+|chef server_title| Components
+=====================================================
 
-.. include:: ../../chef_master/source/chef_server.rst
+.. include:: ../../includes_chef_server/includes_chef_server.rst
+
