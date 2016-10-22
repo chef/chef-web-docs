@@ -201,7 +201,7 @@ Managing the Server
 
 **Supermarket**::doc:`Log Files </supermarket_logs>` | :doc:`Monitoring </supermarket_monitor>` | :doc:`supermarket.rb </config_rb_supermarket>` | :doc:`knife supermarket </plugin_knife_supermarket>` | :doc:`supermarket-ctl </ctl_supermarket>` | :doc:`Cookbooks Site API </api_cookbooks_site>`
 
-**Management Console**: :doc:`Configure SAML </server_configure_saml>` | :doc:`Clients </server_manage_clients>` | :doc:`Cookbooks </server_manage_cookbooks>` | :doc:`Data Bags </server_manage_data_bags>` | :doc:`Environments </server_manage_environments>` | :doc:`Nodes </server_manage_nodes>` | :doc:`Roles </server_manage_roles>` | `Users <http://docs.chef.io/server_users.html#chef-manage-title>`_ | :doc:`manage.rb </config_rb_manage>` | :doc:`chef-manage-ctl </ctl_manage>`
+**Management Console**: :doc:`Configure SAML </server_configure_saml>` | :doc:`Clients </server_manage_clients>` | :doc:`Cookbooks </server_manage_cookbooks>` | :doc:`Data Bags </server_manage_data_bags>` | :doc:`Environments </server_manage_environments>` | :doc:`Nodes </server_manage_nodes>` | :doc:`Roles </server_manage_roles>` | `Users <http://docs.chef.io/server_users.html#chef-manage>`_ | :doc:`manage.rb </config_rb_manage>` | :doc:`chef-manage-ctl </ctl_manage>`
 
 Habitat
 =====================================================
@@ -350,7 +350,7 @@ Knife Plugins
 
 :doc:`About Cloud Plugins </plugin_knife>` |
 :doc:`Custom Plugins </plugin_knife_custom>` |
-`Community Plugins (knife) <http://docs.chef.io/plugin_community.html#knife-title>`_
+`Community Plugins (knife) <http://docs.chef.io/plugin_community.html#knife>`_
 
 Ohai Plugins
 -----------------------------------------------------
@@ -359,7 +359,7 @@ Ohai Plugins
 Chef Client Plugins
 -----------------------------------------------------
 
-`Chef Client Plugins <http://docs.chef.io/plugin_community.html#chef-client-title>`_
+`Chef Client Plugins <http://docs.chef.io/plugin_community.html#chef-client>`_
 
 Addenda
 =====================================================

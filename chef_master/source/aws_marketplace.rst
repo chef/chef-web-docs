@@ -276,7 +276,7 @@ Migrate to AWS
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The process of migrating from an existing Chef server installation to the Amazon Machine Images (AMI) differs depending on which software version being used and the location in which it is deployed. In all scenarios, data is first migrated to the latest Chef server schema, after which it is migrated to the Amazon Machine Images (AMI).
 
-* Verify that the latest version of the Chef server is installed by using the platform package manager: ``rpm -qa | grep chef-server-core`` and compare the result to the latest version available on the `downloads site <https://downloads.chef.io/>`__. If this is not the latest version, download the package, and then `upgrade <https://docs.chef.io/upgrade_server.html#from-chef-server-title-12>`__ to the latest version.
+* Verify that the latest version of the Chef server is installed by using the platform package manager: ``rpm -qa | grep chef-server-core`` and compare the result to the latest version available on the `downloads site <https://downloads.chef.io/>`__. If this is not the latest version, download the package, and then `upgrade <https://docs.chef.io/upgrade_server.html#from-chef-server-12>`__ to the latest version.
 * Upgrade an Enterprise Chef node to the latest version of the Chef server by following the `upgrade instructions <https://docs.chef.io/upgrade_server.html#from-chef-server-oec>`__.
 * Upgrade an Open Source Chef node to the latest version of the Chef server by following the `upgrade instructions <https://docs.chef.io/upgrade_server.html#from-chef-server-osc>`__.
 
