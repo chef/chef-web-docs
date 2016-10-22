@@ -1,8 +1,8 @@
 =====================================================
-Custom Resources 
+Custom Resources
 =====================================================
 
-.. warning:: This approach to building custom resources was introduced in |chef client|, version 12.5. It is the recommended approach for all custom resources starting with that version of the |chef client|. Refer to the `notes about custom resources <https://docs.chef.io/custom_resources_notes.html>`_ if you're curious about other approaches that use the older styles. If you are using an older version of the |chef client|, please use the version picker (in the top left of the navigation) to select your version, and then choose the same topic from the navigation tree ("Extend Chef > Custom Resources"). See also https://github.com/chef-cookbooks/compat_resource for using this features with previous versions of the |chef client|.
+.. warning:: This approach to building custom resources was introduced in |chef client|, version 12.5. It is the recommended approach for all custom resources starting with that version of the |chef client|. If you are using an older version of the |chef client|, please use the version picker (in the top left of the navigation) to select your version, and then choose the same topic from the navigation tree ("Extend Chef > Custom Resources"). See also https://github.com/chef-cookbooks/compat_resource for using custom resources with |chef client| 12.1 - 12.4.
 
 .. include:: ../../includes_custom_resources/includes_custom_resources.rst
 
@@ -13,14 +13,6 @@ Syntax
 Example
 -----------------------------------------------------
 .. include:: ../../includes_custom_resources/includes_custom_resources_syntax_example.rst
-
-resource_name
------------------------------------------------------
-.. note:: .. include:: ../../includes_ruby/includes_ruby_style_patterns_hyphens.rst
-
-.. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_resource_name.rst
-
-.. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_resource_name_example.rst
 
 Scenario: website Resource
 =====================================================
@@ -39,6 +31,14 @@ Objectives
 What is needed?
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_custom_resources/includes_custom_resources_slide_website_objectives_requirements.rst
+
+Define Resource Name
+-----------------------------------------------------
+.. note:: .. include:: ../../includes_ruby/includes_ruby_style_patterns_hyphens.rst
+
+.. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_resource_name.rst
+
+.. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_resource_name_example.rst
 
 Define Properties
 -----------------------------------------------------

@@ -3,12 +3,10 @@
 .. This file is hooked into a slide deck
 
 
-A custom resource:
+Custom Resources are:
 
-* Is a simple extension of |chef|
-* Is implemented as part of a cookbook
-* Follows easy, repeatable syntax patterns
-* Effectively leverages resources that are built into |chef|
-* Is reusable in the same way as resources that are built into |chef|
+A method of extending of |chef| to create your own custom resources that help to automate common patterns used in your cookbooks.
 
-For example, |chef| includes built-in resources to manage files, packages, templates, and services, but it does not include a resource that manages websites.
+Custom resources can:
+
+Utilize built in |chef| resources allowing you to reduce code duplication across multiple cookbooks. They can also contain arbitrary Ruby code from core Ruby or 3rd party gems. This allows for the creation of resources that could interact with system functionality such as RAID controllers, or external systems such as cloud provider API services.

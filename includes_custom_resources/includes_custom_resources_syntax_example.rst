@@ -8,12 +8,6 @@ For example, the ``site.rb`` file in the ``exampleco`` cookbook could be similar
 
    property :homepage, String, default: '<h1>Hello world!</h1>'
 
-   load_current_value do
-     if ::File.exist?('/var/www/html/index.html')
-       homepage IO.read('/var/www/html/index.html')
-     end
-   end
-
    action :create do
      package 'httpd'
 
@@ -35,8 +29,6 @@ For example, the ``site.rb`` file in the ``exampleco`` cookbook could be similar
 where
 
 * ``homepage`` is a property that sets the default HTML for the ``index.html`` file with a default value of ``'<h1>Hello world!</h1>'``
-* the (optional) ``load_current_value`` block loads the current values for all specified properties, in this example there is just a single property: ``homepage``
-* the ``if`` statement checks to see if the ``index.html`` file is already present on the node. If that file is already present, its contents are loaded **instead** of the default value for ``homepage`` 
 * the ``action`` block uses the built-in collection of resources to tell the |chef client| how to install |apache|, start the service, and then create the contents of the file located at ``/var/www/html/index.html``
 * ``action :create`` is the default resource; ``action :delete`` must be called specifically (because it is not the default resource)
 
