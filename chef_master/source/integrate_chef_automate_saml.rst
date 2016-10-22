@@ -2,7 +2,13 @@
 Integrate Chef Automate with SAML
 =====================================================
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst
+.. tag chef_automate_mark
+
+.. image:: ../../images/chef_automate_full.png
+   :width: 40px
+   :height: 17px
+
+.. end_tag
 
 Security Assertion Markup Language (SAML) is an XML-based, open-standard data format for exchanging authentication and authorization data
 between parties, in particular, between an identity provider and a service provider. Chef Automate supports SAML-backed Single Sign On (SSO) as a

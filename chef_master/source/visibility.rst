@@ -1,32 +1,37 @@
 =====================================================
-An Overview of Visibility in |automate|
+An Overview of Visibility in Chef Automate
 =====================================================
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+.. tag chef_automate_mark
+
+.. image:: ../../images/chef_automate_full.png
+   :width: 40px
+   :height: 17px
+
+.. end_tag
 
 Chef Automate allows you to monitor and visualize node status and convergence events from any Chef servers or 
 clients in your Chef Automate cluster during a chef-client run. This data can be filtered and searched in the 
-UI using a simple query language. Searches can then be shared and saved for future reference. 
+UI using a simple query language. Searches can then be shared and saved for future reference.
 
 Setup and Configuration
 ======================================================
 
 Setup and configuration for visibility is done through the following steps:
 
-* Enable the visibility feature after |automate| has been installed on a machine
-* Configure any Chef client and/or servers to connect to your |automate| server to begin ingesting data
+* Enable the visibility feature after Chef Automate has been installed on a machine
+* Configure any Chef client and/or servers to connect to your Chef Automate server to begin ingesting data
 * (Optional) Stream event data out to a websocket consumer for further processing
 
 See :doc:`Configure Data Collection </setup_visibility_chef_automate>` for more information on the initial setup and configuring 
 Chef client and server for data ingestion, and :doc:`Stream Data </stream_data_chef_automate>` to learn how to stream data out for further processing.
 
-
 Navigating the UI
 ======================================================
 
-To see the visibility capabilities of |automate|, log into the |automate| UI and click on the **Nodes** menu item in the top nav bar.
+To see the visibility capabilities of Chef Automate, log into the Chef Automate UI and click on the **Nodes** menu item in the top nav bar.
 This will open the ``http://<yourAutomateServer>/viz`` page, which is the main Dashboard to visualize and filter on the data pushed to 
-your |automate| server from the Chef server and Chef clients that have been configured to do so.
+your Chef Automate server from the Chef server and Chef clients that have been configured to do so.
 
 .. image:: ../../images/visibility_dashboard.png
    :width: 700px
@@ -41,7 +46,7 @@ Further filtering can also be provided by the **Environment** and **Roles** drop
 
 If you wish to share your filtered search with others, you can do so with the share and save icons next to the search bar.
 
-.. note:: If you want to see the raw, real-time events coming into |automate| and perform simple queries and visualizations on them, navigate to ``https://<YourAutomateServer>/kibana``. And for more information on Kibana, see the `Kibana User Guide <https://www.elastic.co/guide/en/kibana/current/index.html>`_.
+.. note:: If you want to see the raw, real-time events coming into Chef Automate and perform simple queries and visualizations on them, navigate to ``https://<YourAutomateServer>/kibana``. And for more information on Kibana, see the `Kibana User Guide <https://www.elastic.co/guide/en/kibana/current/index.html>`_.
 
 Compliance status
 ------------------------------------------------------

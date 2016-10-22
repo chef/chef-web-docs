@@ -2,30 +2,45 @@
 Integrate Compliance w/Chef Server
 =====================================================
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+.. tag chef_automate_mark
 
-.. include:: ../../includes_compliance/includes_compliance_integrate_chef_server.rst
+.. image:: ../../images/chef_automate_full.png
+   :width: 40px
+   :height: 17px
 
-.. note:: .. include:: ../../includes_chef/includes_chef_subscriptions.rst
+.. end_tag
+
+.. tag compliance_integrate_chef_server
+
+Integrate Chef Compliance with the Chef server to allow:
+
+* Users of Chef Compliance to log in using their Chef server credentials
+* Nodes under management by Chef to download Chef Compliance profiles, run them on nodes, and then send the results back to Chef Compliance
+
+.. end_tag
+
+.. note:: .. tag chef_subscriptions
+
+          This feature is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
+
+          .. end_tag
 
 Prerequisites
 =====================================================
-An integration between |chef compliance| and the |chef server| requires:
+An integration between Chef Compliance and the Chef server requires:
 
-* |chef compliance| server, version 1.0 (or later), with a |dns|-resolvable hostname
-* |chef server|, version 12.4.1 (or later), configured as a standalone server
-* A time synchronization policy is in place, such as |ntp|; authentication algorithms are sensitive to time drift
-* |chef compliance| and |chef server| to allow bidirectional communication via port TCP/443; this enables single sign-on (SSO) and auditing use cases
-
+* Chef Compliance server, version 1.0 (or later), with a DNS-resolvable hostname
+* Chef server, version 12.4.1 (or later), configured as a standalone server
+* A time synchronization policy is in place, such as Network Time Protocol (NTP); authentication algorithms are sensitive to time drift
+* Chef Compliance and Chef server to allow bidirectional communication via port TCP/443; this enables single sign-on (SSO) and auditing use cases
 
 Integration steps
 =====================================================
-To complete the integration between |chef compliance| and the |chef server|, shell access to both |chef compliance| and the |chef server| is required.
+To complete the integration between Chef Compliance and the Chef server, shell access to both Chef Compliance and the Chef server is required.
 
-
-Prepare |chef compliance|
+Prepare Chef Compliance
 -----------------------------------------------------
-To prepare |chef compliance| for integration with the |chef server|, do the following:
+To prepare Chef Compliance for integration with the Chef server, do the following:
 
 #. From a command shell, run the following command:
 
@@ -36,7 +51,7 @@ To prepare |chef compliance| for integration with the |chef server|, do the foll
 
    When promoted, either confirm the default values (recommended) or provide custom values.
 
-   The following shows sample output for a |chef compliance| server with a ``compliance.test`` hostname. SSL validation is not included because of the self-signed certificate used by the |chef compliance| server:
+   The following shows sample output for a Chef Compliance server with a ``compliance.test`` hostname. SSL validation is not included because of the self-signed certificate used by the Chef Compliance server:
 
    .. code-block:: bash
 
@@ -45,12 +60,12 @@ To prepare |chef compliance| for integration with the |chef server|, do the foll
        * Name for Chef Server Authentication in Chef Compliance [Chef Server]:
        * Allow Self-signed SSL certificates [false]: true
        * Compliance Server URL [https://compliance.test]:
-   
+
       Generating new shared secret for chef-gate...
         Successfully generated secret for chef-gate
       Please reconfigure Chef Compliance by running this command:
       chef-compliance-ctl reconfigure
-   
+
       Please run the command delimited by --- on the Chef Server node as administrator:
       ---
       CHEF_APP_ID="compliance_server" AUTH_ID="Chef Server" COMPLIANCE_URL="https://compliance.test"\n
@@ -76,19 +91,18 @@ To prepare |chef compliance| for integration with the |chef server|, do the foll
 
    This will create a file under ``/opt/chef-compliance/sv/core/env/CHEF_GATE_COMPLIANCE_SECRET``
 
-#. Restart the |chef compliance| ``core`` service now:
+#. Restart the Chef Compliance ``core`` service now:
 
    .. code-block:: bash
 
       sudo -i
       chef-compliance-ctl restart core
 
-
-Configure the |chef server_title|
+Configure the Chef Server
 -----------------------------------------------------
-To configure the |chef server| for integration with |chef compliance|, do the following:
+To configure the Chef server for integration with Chef Compliance, do the following:
 
-#. From the |chef server| shell, run the command delimited by ``---`` from the previous section. For example:
+#. From the Chef server shell, run the command delimited by ``---`` from the previous section. For example:
 
    .. code-block:: bash
 
@@ -98,7 +112,7 @@ To configure the |chef server| for integration with |chef compliance|, do the fo
       5a70579143a7b48f7ebf25a0dab9c58b86460e392cb942a95b345bb" OIDC_CLIENT_ID="l0IL_ak15qZzkQtP_Orc5\n
       E0Gdka_3CYFVWHIjLKoh5o=@compliance.test" bash <( curl -k https://compliance.test/static/chef-gate.sh )
 
-   This will install a ``chef-gate`` service on the |chef server| that enables the |chef server| to act as an |open id connect| resource server, plus enables the |chef client| to request |chef compliance| profiles, and then report back to |chef compliance| the results of profile scans.
+   This will install a ``chef-gate`` service on the Chef server that enables the Chef server to act as an OpenID Connect (OIDC) resource server, plus enables the chef-client to request Chef Compliance profiles, and then report back to Chef Compliance the results of profile scans.
 
 #. When finished, a command will be printed at the end of the output similar to:
 
@@ -110,12 +124,11 @@ To configure the |chef server| for integration with |chef compliance|, do the fo
 
    Copy this line. It will be used in the next section.
 
-
-Configure |chef compliance|
+Configure Chef Compliance
 -----------------------------------------------------
-To configure |chef compliance| for integration with the |chef server|, do the following:
+To configure Chef Compliance for integration with the Chef server, do the following:
 
-#. From the |chef compliance| shell, run the command that was printed at the end of the output while configuring the |chef server|. For example:
+#. From the Chef Compliance shell, run the command that was printed at the end of the output while configuring the Chef server. For example:
 
    .. code-block:: bash
 
@@ -123,7 +136,7 @@ To configure |chef compliance| for integration with the |chef server|, do the fo
       bd3ae2303f93c2d" --client-secret "3880ed856a14fce2201459e93d667da8fcd22f8ebbc1ad94d8a0a1195\n
       9834b91" --id "Chef Server" --type ocid  --chef-url https://chef.compliance.test --insecure true
 
-#. When finished, reconfigure |chef compliance|:
+#. When finished, reconfigure Chef Compliance:
 
    .. code-block:: bash
 
@@ -132,13 +145,13 @@ To configure |chef compliance| for integration with the |chef server|, do the fo
 
 Test Integration
 -----------------------------------------------------
-Go to the |chef compliance| web interface and click the **Use a different provider** link. The default provider is ``Compliance Server``. Switch it to ``Chef Server``, and then accept the authorization request. Only nodes under management by |chef| that successfully run ``audit::default`` will show up in |chef compliance|.
+Go to the Chef Compliance web interface and click the **Use a different provider** link. The default provider is ``Compliance Server``. Switch it to ``Chef Server``, and then accept the authorization request. Only nodes under management by Chef that successfully run ``audit::default`` will show up in Chef Compliance.
 
 Scan Managed Nodes
 =====================================================
-Once the integration is complete, the ``audit`` cookbook allows |chef compliance| profiles to be run as part of a |chef client| run. Profiles are downloaded from |chef compliance|. Audit results are sent back to |chef compliance|, which uses the |chef server| as a proxy.
+Once the integration is complete, the ``audit`` cookbook allows Chef Compliance profiles to be run as part of a chef-client run. Profiles are downloaded from Chef Compliance. Audit results are sent back to Chef Compliance, which uses the Chef server as a proxy.
 
-The ``audit`` cookbook must be uploaded to the |chef server|, and then added to one (or more) recipes before the |chef client| can run profiles on a node.
+The ``audit`` cookbook must be uploaded to the Chef server, and then added to one (or more) recipes before the chef-client can run profiles on a node.
 
 Upload the audit Cookbook
 -----------------------------------------------------
@@ -147,7 +160,7 @@ The ``audit`` cookbook is available at the following locations:
 * https://supermarket.chef.io/cookbooks/audit
 * https://github.com/chef-cookbooks/audit
 
-Download it from one of those locations, and then upload it to the |chef server| using the same workflow as any other cookbook.
+Download it from one of those locations, and then upload it to the Chef server using the same workflow as any other cookbook.
 
 Use the audit Cookbook
 -----------------------------------------------------
@@ -156,7 +169,7 @@ There are two ways to use the ``audit`` cookbook:
 * Use the custom resources in the ``audit`` cookbook directly in recipes
 * Add the ``audit::default`` recipe to the run-list
 
-The ``default`` recipe requires a ``node['audit']['profiles']`` attribute to be set. For example, defined as part of a |json|-based role or environment file:
+The ``default`` recipe requires a ``node['audit']['profiles']`` attribute to be set. For example, defined as part of a JSON-based role or environment file:
 
 .. code-block:: bash
 
@@ -167,12 +180,12 @@ The ``default`` recipe requires a ``node['audit']['profiles']`` attribute to be 
      }
    }
 
-.. note:: The ``audit`` cookbook requires a time synchronization policy to be in place, such as |ntp|.
+.. note:: The ``audit`` cookbook requires a time synchronization policy to be in place, such as Network Time Protocol (NTP).
 
-Run the |chef client|
+Run the chef-client
 -----------------------------------------------------
-After the ``audit`` cookbook is uploaded to the |chef server| and it has been added to recipes and/or the run-list, the |chef client| run will do the following:
+After the ``audit`` cookbook is uploaded to the Chef server and it has been added to recipes and/or the run-list, the chef-client run will do the following:
 
-* Download the targeted profiles from |chef compliance|, and then run them locally on the node via |inspec|.
+* Download the targeted profiles from Chef Compliance, and then run them locally on the node via InSpec.
 * Log a summary of the audit execution.
-* Submit the full report back to the |chef compliance| server. These reports are saved in a |chef compliance| Organization that has the same name as the Organization to which the node belongs on the |chef server|.
+* Submit the full report back to the Chef Compliance server. These reports are saved in a Chef Compliance Organization that has the same name as the Organization to which the node belongs on the Chef server.

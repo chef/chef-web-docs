@@ -2,7 +2,13 @@
 Node Search Query Reference
 =====================================================
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+.. tag chef_automate_mark
+
+.. image:: ../../images/chef_automate_full.png
+   :width: 40px
+   :height: 17px
+
+.. end_tag
 
 The visibility dashboard in **Nodes** exposes a search bar that allows you to search for nodes based off a 
 defined query language. This language will allow you to search on the following terms:

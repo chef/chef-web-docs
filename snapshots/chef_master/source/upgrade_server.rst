@@ -1,0 +1,534 @@
+=====================================================
+Upgrade to Chef Server 12
+=====================================================
+
+The following sections describe the upgrade process for Chef server 12.
+
+.. note:: Be sure to back up the Chef server data before starting the upgrade process.
+
+From Chef Server 12
+=====================================================
+There are two upgrade scenarios for upgrades from earlier versions of Chef server 12 to a newer version of Chef server 12:
+
+* `Standalone <https://docs.chef.io/upgrade_server.html#standalone>`__
+* `High availability <https://docs.chef.io/upgrade_server.html#high-availability>`__
+
+Standalone
+-----------------------------------------------------
+This section describes the upgrade process for a standalone configuration. The upgrade process will require downtime equal to the amount of time it takes to stop the server, run dpkg or RPM Package Manager, and then upgrade the server.
+
+To upgrade to Chef server 12 from a standalone Chef server server, do the following:
+
+#. Verify that the ``make`` command is available on the Chef server server. If it is not available, install the ``make`` command.
+
+#. Run the following command to make sure all services are in a sane state.
+
+   .. code-block:: bash
+      
+      $ chef-server-ctl reconfigure
+
+#. Stop the server:
+
+   .. code-block:: bash
+      
+      $ chef-server-ctl stop
+
+#. Run dpkg or RPM Package Manager. For dpkg:
+
+   .. code-block:: bash
+      
+      $ dpkg -D10 -i /path/to/chef-server-core-<version>.deb
+
+   where ``-D`` enables debugging and ``10`` creates output for each file that is processed during the upgrade. See the man pages for dpkg for more information about this option.
+   
+   For RPM Package Manager:
+
+   .. code-block:: bash
+      
+      $ rpm -Uvh --nopostun /path/to/chef-server-core-<version>.rpm
+
+#. Upgrade the server with the following command:
+
+   .. code-block:: bash
+      
+      $ chef-server-ctl upgrade
+
+#. Start Chef server 12:
+
+   .. code-block:: bash
+      
+      $ chef-server-ctl start
+
+#. After the upgrade process is complete and everything is tested and verified to be working properly, clean up the server by removing all of the old data:
+
+   .. code-block:: bash
+      
+      $ chef-server-ctl cleanup
+
+#. .. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_install_features.rst
+
+   **Use Downloads**
+
+   .. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_install_features_download.rst
+
+   **Use Local Packages**
+
+   .. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_install_features_manual.rst
+
+
+
+High Availability
+-----------------------------------------------------
+This section describes the upgrade process from a high availability configuration. The upgrade process will require downtime equal to the amount of time it takes to stop the server, run dpkg or RPM Package Manager, and then upgrade the server.
+
+To upgrade to Chef server 12 from a high availability Chef server server, do the following:
+
+#. Verify that the ``make`` command is available on the primary backend Chef server server. If it is not available, install the ``make`` command.
+
+#. Run the following on all servers to make sure all services are in a sane state.
+
+   .. code-block:: bash
+      
+      $ chef-server-ctl reconfigure
+
+#. Stop all of the front end servers:
+
+   .. code-block:: bash
+      
+      $ chef-server-ctl stop
+
+#. Identify the name of the original non-bootstrap backend server. This is the back end server that does **not** have ``:bootstrap => true`` in ``/etc/opscode/private-chef.rb``.
+
+#. Stop Keepalived on the original non-bootstrap backend server. This will ensure that the bootstrap back end server is the active server. This action may trigger a failover.
+
+   .. code-block:: bash
+      
+      $ chef-server-ctl stop keepalived
+
+#. Run dpkg or RPM Package Manager on all servers. For dpkg:
+
+   .. code-block:: bash
+      
+      $ dpkg -D10 -i /path/to/chef-server-core-<version>.deb
+
+   where ``-D`` enables debugging and ``10`` creates output for each file that is processed during the upgrade. See the man pages for dpkg for more information about this option.
+   
+   For RPM Package Manager:
+
+   .. code-block:: bash
+      
+      $ rpm -Uvh --nopostun /path/to/chef-server-core-<version>.rpm
+
+#. On the primary back end server, stop all services except Keepalived. With Chef server 12, the Keepalived service will not be stopped with the following command:
+
+   .. code-block:: bash
+      
+      $ chef-server-ctl stop
+
+   If the upgrade process times out, re-run the command until it finishes successfully.
+
+
+#. Upgrade the back end primary server with the following command:
+
+   .. code-block:: bash
+      
+      $ chef-server-ctl upgrade
+
+   If the upgrade process times out, re-run the command until it finishes successfully.
+
+#. Copy the entire ``/etc/opscode`` directory from the back end primary server to all front and back end nodes. For example, from each server run:
+
+   .. code-block:: bash
+      
+      $ scp -r <Bootstrap server IP>:/etc/opscode /etc
+
+   or from the back end primary server:
+
+   .. code-block:: bash
+      
+      $ scp -r /etc/opscode <each servers IP>:/etc
+
+#. Upgrade the back end secondary server with the following command:
+
+   .. code-block:: bash
+      
+      $ chef-server-ctl upgrade
+
+   In some instances, after the upgrade processes is complete, it may be required to stop Keepalived on the back end secondary server, then restart Keepalived on the back end primary server, and then restart Keepalived on the back end secondary server.
+
+#. Upgrade all front end servers with the following commands:
+
+   .. code-block:: bash
+      
+      $ chef-server-ctl upgrade
+
+#. Run the following command on all front end servers and the primary back end server:
+
+   .. code-block:: bash
+      
+      $ chef-server-ctl start
+
+   .. note:: Do not run this command on the secondary back-end server!
+
+#. After the upgrade process is complete, the state of the system after the upgrade has been tested and verified, and everything looks satisfactory, remove old data, services, and configuration by running the following command on each server:
+
+   .. code-block:: bash
+      
+      $ chef-server-ctl cleanup
+
+   .. note:: The message ``[ERROR] opscode-chef-mover is not running`` is expected, does not indicate an actual error, and is safe to ignore.
+
+#. .. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_install_features.rst
+
+   **Use Downloads**
+
+   .. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_install_features_download.rst
+
+   **Use Local Packages**
+
+   .. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_install_features_manual.rst
+
+
+
+From Enterprise Chef
+=====================================================
+There are two upgrade scenarios for upgrades from Enterprise Chef 11 to Chef server 12: 
+
+* `Standalone <https://docs.chef.io/upgrade_server.html#id1>`__
+* `High availability <https://docs.chef.io/upgrade_server.html#id2>`__
+
+Before upgrading, please `view the notes <https://docs.chef.io/upgrade_server_notes.html>`__ for more background on the upgrade process from Enterprise Chef 11 to Chef server 12.
+
+
+Standalone
+-----------------------------------------------------
+This section describes the upgrade process from a standalone Enterprise Chef 11 to Chef server 12. The upgrade process will require downtime equal to the amount of time it takes to stop the server, run dpkg or RPM Package Manager, and then upgrade the server. The final step will remove older components (like CouchDB) and will destroy the data after the upgrade process is complete.
+
+To upgrade to Chef server 12 from a standalone Enterprise Chef server, do the following:
+
+#. Verify that the ``make`` command is available on the Enterprise Chef server. If it is not available, install the ``make`` command.
+
+#. Run the following command to make sure all services are in a sane state.
+
+   .. code-block:: bash
+      
+      $ private-chef-ctl reconfigure
+
+#. Stop the server:
+
+   .. code-block:: bash
+      
+      $ private-chef-ctl stop
+
+#. Run dpkg or RPM Package Manager. For dpkg:
+
+   .. code-block:: bash
+      
+      $ dpkg -D10 -i /path/to/chef-server-core-<version>.deb
+
+   where ``-D`` enables debugging and ``10`` creates output for each file that is processed during the upgrade. See the man pages for dpkg for more information about this option.
+   
+   For RPM Package Manager:
+
+   .. code-block:: bash
+      
+      $ rpm -Uvh --nopostun /path/to/chef-server-core-<version>.rpm
+
+#. Upgrade the server with the following command:
+
+   .. code-block:: bash
+      
+      $ chef-server-ctl upgrade
+
+#. Start Chef server 12:
+
+   .. code-block:: bash
+      
+      $ chef-server-ctl start
+
+#. After the upgrade process is complete and everything is tested and verified to be working properly, clean up the server by removing all of the old data:
+
+   .. code-block:: bash
+      
+      $ chef-server-ctl cleanup
+
+#. .. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_install_features.rst
+
+   **Use Downloads**
+
+   .. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_install_features_download.rst
+
+   **Use Local Packages**
+
+   .. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_install_features_manual.rst
+
+
+
+High Availability
+-----------------------------------------------------
+This section describes the upgrade process from a high availability Enterprise Chef 11 to Chef server 12. The upgrade process will require downtime equal to the amount of time it takes to stop the server, run dpkg or RPM Package Manager, and then upgrade the server. The final step will remove older components (like CouchDB) and will destroy the data after the upgrade process is complete.
+
+To upgrade to Chef server 12 from a high availability Enterprise Chef server, do the following:
+
+#. Verify that the ``make`` command is available on the primary backend Enterprise Chef server. If it is not available, install the ``make`` command.
+
+#. Run the following on all servers to make sure all services are in a sane state.
+
+   .. code-block:: bash
+      
+      $ private-chef-ctl reconfigure
+
+#. Stop all of the front end servers:
+
+   .. code-block:: bash
+      
+      $ private-chef-ctl stop
+
+#. Identify the name of the original non-bootstrap backend server. This is the back end server that does **not** have ``:bootstrap => true`` in ``/etc/opscode/private-chef.rb``.
+
+#. Stop Keepalived on the original non-bootstrap backend server. This will ensure that the bootstrap back end server is the active server. This action may trigger a failover.
+
+   .. code-block:: bash
+      
+      $ private-chef-ctl stop keepalived
+
+#. Run dpkg or RPM Package Manager on all servers. For dpkg:
+
+   .. code-block:: bash
+      
+      $ dpkg -D10 -i /path/to/chef-server-core-<version>.deb
+
+   where ``-D`` enables debugging and ``10`` creates output for each file that is processed during the upgrade. See the man pages for dpkg for more information about this option.
+   
+   For RPM Package Manager:
+
+   .. code-block:: bash
+      
+      $ rpm -Uvh --nopostun /path/to/chef-server-core-<version>.rpm
+
+#. On the primary back end server, stop all services except Keepalived. With Chef server 12, the Keepalived service will not be stopped with the following command:
+
+   .. code-block:: bash
+      
+      $ chef-server-ctl stop
+
+   If the upgrade process times out, re-run the command until it finishes successfully.
+
+
+#. Upgrade the back end primary server with the following command:
+
+   .. code-block:: bash
+      
+      $ chef-server-ctl upgrade
+
+   If the upgrade process times out, re-run the command until it finishes successfully.
+
+#. Copy the entire ``/etc/opscode`` directory from the back end primary server to all front and back end nodes. For example, from each server run:
+
+   .. code-block:: bash
+      
+      $ scp -r <Bootstrap server IP>:/etc/opscode /etc
+
+   or from the back end primary server:
+
+   .. code-block:: bash
+      
+      $ scp -r /etc/opscode <each servers IP>:/etc
+
+#. Upgrade the back end secondary server with the following command:
+
+   .. code-block:: bash
+      
+      $ chef-server-ctl upgrade
+
+   In some instances, after the upgrade processes is complete, it may be required to stop Keepalived on the back end secondary server, then restart Keepalived on the back end primary server, and then restart Keepalived on the back end secondary server.
+
+#. Upgrade all front end servers with the following commands:
+
+   .. code-block:: bash
+      
+      $ chef-server-ctl upgrade
+
+#. Run the following command on all front end servers and the primary back end server:
+
+   .. code-block:: bash
+      
+      $ chef-server-ctl start
+
+   .. note:: Do not run this command on the secondary back-end server!
+
+#. After the upgrade process is complete, the state of the system after the upgrade has been tested and verified, and everything looks satisfactory, remove old data, services, and configuration by running the following command on each server:
+
+   .. code-block:: bash
+      
+      $ chef-server-ctl cleanup
+
+   .. note:: The message ``[ERROR] opscode-chef-mover is not running`` is expected, does not indicate an actual error, and is safe to ignore.
+
+#. .. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_install_features.rst
+
+   **Use Downloads**
+
+   .. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_install_features_download.rst
+
+   **Use Local Packages**
+
+   .. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_install_features_manual.rst
+
+
+
+From Open Source Chef
+=====================================================
+This section describes the upgrade process from a standalone configuration of Open Source Chef 11.1.0 (or higher) to a standalone configuration of Chef server 12. The upgrade process will require downtime equal to the amount of time it takes to stop the server, run dpkg or RPM Package Manager, and then upgrade the server.
+
+Please `view the notes <https://docs.chef.io/upgrade_server_open_source_notes.html>`__ for more background on the upgrade process from Open Source Chef 11 to Chef server 12.
+
+To upgrade to Chef server 12 from the Open Source Chef server, do the following:
+
+#. Run the following to make sure all services are in a sane state.
+
+   .. code-block:: bash
+      
+      $ chef-server-ctl reconfigure
+
+#. Stop the Open Source Chef server:
+
+   .. code-block:: bash
+      
+      $ chef-server-ctl stop
+
+#. Run dpkg or RPM Package Manager on the server to install Chef server 12. For dpkg:
+
+   .. code-block:: bash
+      
+      $ dpkg -D10 -i /path/to/chef-server-core-<version>.deb
+
+   where ``-D`` enables debugging and ``10`` creates output for each file that is processed during the upgrade. See the man pages for dpkg for more information about this option.
+   
+   For RPM Package Manager:
+
+   .. code-block:: bash
+      
+      $ rpm -Uvh /path/to/chef-server-core-<version>.rpm
+
+   Chef server 12 is installed to ``/opt/opscode``. (The existing Open Source Chef remains at ``/opt/chef-server``.) From this point, the ``chef-server-ctl`` commands are running against the ``/opt/opscode`` location.
+
+#. Upgrade the server with the following command:
+
+   .. code-block:: bash
+      
+      $ chef-server-ctl upgrade
+
+   The upgrade process will automatically detect the presence of Open Source Chef 11, and will step through the migration process, prompting for organization name details along the way.
+
+   The migration process will first download the existing data from the Open Source Chef server, transform that data into the format required for Chef server 12, and then upload that data to the server.
+   
+#. Before data can be uploaded, an organization must be created. When prompted, enter the organization name, and then a full organization name.
+
+   The name must begin with a lower-case letter or digit, may only contain lower-case letters, digits, hyphens, and underscores, and must be between 1 and 255 characters. For example: ``chef``.
+
+   The full name must begin with a non-white space character and must be between 1 and 1023 characters. For example: ``"Chef Software, Inc."``.
+
+   .. note:: The upgrade process will automatically assign the organization name to the ``default_orgname`` setting in the chef-server.rb file. This setting ensures the new organization name is available for Chef server API requests, such as those made by the chef-client and by knife.
+
+   .. warning:: If you receive a ``missing read permission`` error when running the ``knife user list`` subcommand after the upgrade process is finished, you will need to update the value for the ``chef_server_url`` setting in the knife.rb file. The default value for that setting is:
+
+      .. code-block:: ruby
+
+         chef_server_url 'https://CHEF_SERVER_NAME:443/' 
+
+      and should be updated to add ``organizations/ORG_NAME``:
+
+      .. code-block:: ruby
+
+         chef_server_url 'https://CHEF_SERVER_NAME:443/organizations/ORG_NAME'
+
+#. The Chef server is automatically restarted. A prompt is displayed that contains details about how to remove any temporary data that was created during the upgrade process.
+
+#. .. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_install_features.rst
+
+   **Update the Chef server URL**
+
+   The URL for the Chef server needs to be updated on all nodes and workstations. In the client.rb file on each node and in the knife.rb file on each workstation, update the following setting:
+   
+   .. code-block:: ruby
+   
+      chef_server_url "https://url.for.server"
+   
+   .. note:: Any node that is bootstrapped from a workstation with the updated URL will automatically be assigned the new URL for the Chef server. Only existing nodes prior to the upgrade require the URL update.
+
+   .. note:: Any chef-client or knife user that tries to access the Chef server after the upgrade will be able to do so as long as the ``default_orgname`` is set and is part of the default organization on the upgraded Chef server.
+
+   **Use Downloads**
+
+   .. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_install_features_download.rst
+
+   **Use Local Packages**
+
+   .. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_install_features_manual.rst
+
+
+
+Chef Manage
+=====================================================
+Chef management console can be upgraded as part of a standalone or high availability configuration:
+
+#. After upgrading the Chef server, upgrade each of the front end servers. For Red Hat and CentOS 6:
+
+   .. code-block:: bash
+
+      $ chef-server-ctl install opscode-manage
+
+   For Ubuntu, for the Chef management console 1.x to 2.x:
+
+   .. code-block:: bash
+      
+      $ apt-get install chef-manage
+
+#. Reconfigure each of the front end servers:
+
+   .. code-block:: bash
+
+      $ chef-manage-ctl reconfigure
+
+
+
+Chef Push Jobs
+=====================================================
+Chef push jobs can be upgraded as part of a standalone or high availability configuration:
+
+#. After upgrading the Chef server, run the following command on all front and back end servers:
+
+   .. code-block:: bash
+
+      $ chef-server-ctl install opscode-push-jobs-server
+
+#. TCP protocol ports 10000-10003 must be open. This allows the Chef push jobs clients to communicate with the Chef push jobs server. In a configuration with both front and back ends, these ports only need to be open on the back end servers. The Chef push jobs server waits for connections from the Chef push jobs client (and never makes a connection to a Chef push jobs client).
+
+#. Reconfigure the Chef push jobs servers:
+
+   .. code-block:: bash
+
+      $ opscode-push-jobs-server-ctl reconfigure
+
+#. Run the following command on each of the back end servers:
+
+   .. code-block:: bash
+
+      $ chef-server-ctl reconfigure
+
+   This ensures that the Keepalived scripts are regenerated so they are aware of Chef push jobs.
+
+#. Restart the Chef push jobs components:
+
+   .. code-block:: bash
+
+      $ chef-server-ctl restart opscode-pushy-server
+
+#. Verify the installation:
+
+   .. code-block:: bash
+
+      $ opscode-push-jobs-server-ctl test
+
+#. Install the Chef push jobs client on all nodes using the **push-jobs** cookbook, as needed.

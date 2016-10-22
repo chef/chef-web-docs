@@ -1,0 +1,239 @@
+{% set active_product = active_product|default('Chef') -%}
+{% set active_version = active_version|default('Latest') -%}
+{% set defaultNavItems = [
+  {
+    "title": "Chef Client 12.9",
+    "iconClass": "fa-home",
+    "subItems": [
+      {
+        "title": "Getting Started",
+        "hasSubItems": false,
+        "url": "/release/12-9/index.html"
+      },
+      {
+        "title": "Overview",
+        "hasSubItems": false,
+        "url": "/release/12-9/chef_overview.html"
+      },
+      {
+        "title": "Community",
+        "hasSubItems": false,
+        "url": "/community.html"
+      },
+      {
+        "title": "Tutorials",
+        "hasSubItems": false,
+        "url": "https://learn.chef.io/tutorials/"
+      },
+      {
+        "title": "Release Notes",
+        "hasSubItems": false,
+        "url": "/release/12-9/release_notes.html"
+      }
+    ]
+  },
+  {
+    "title": "Theory &amp; Concepts",
+    "iconClass": "fa-star",
+    "subItems": [
+      {
+        "title": "Workstations",
+        "hasSubItems": false,
+        "url": "/release/12-9/workstation.html"
+      },
+      {
+        "title": "Nodes",
+        "hasSubItems": false,
+        "url": "/release/12-9/nodes.html"
+      },
+      {
+        "title": "Chef Server",
+        "hasSubItems": false,
+        "url": "/release/12-9/chef_server.html"
+      },
+      {
+        "title": "Cookbooks",
+        "hasSubItems": false,
+        "url": "/release/12-9/cookbooks.html"
+      },
+      {
+        "title": "Cookbook Components",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "Attributes",
+            "url": "/release/12-9/attributes.html"
+          },
+          {
+            "title": "Definitions",
+            "url": "/release/12-9/definitions.html"
+          },
+          {
+            "title": "Files",
+            "url": "/release/12-9/files.html"
+          },
+          {
+            "title": "Libraries",
+            "url": "/release/12-9/libraries.html"
+          },
+          {
+            "title": "Recipes",
+            "url": "/release/12-9/recipes.html"
+          },
+          {
+            "title": "Templates",
+            "url": "/release/12-9/templates.html"
+          }
+        ]
+      },
+      {
+        "title": "Cookbook Versions",
+        "hasSubItems": false,
+        "url": "/release/12-9/cookbook_versions.html"
+      },
+      {
+        "title": "Policy",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "Data Bags",
+            "url": "/release/12-9/data_bags.html"
+          },
+          {
+            "title": "Environments",
+            "url": "/release/12-9/environments.html"
+          },
+          {
+            "title": "Roles",
+            "url": "/release/12-9/roles.html"
+          },
+          {
+            "title": "Policy Files",
+            "url": "#"
+          }
+        ]
+      },
+      {
+        "title": "Search",
+        "hasSubItems": false,
+        "url": "/release/12-9/chef_search.html"
+      }
+    ]
+  }
+] -%}
+{% set navItems = navItems|default(defaultNavItems) -%}
+<nav class="nav-docs">
+  <ul class="nav-docs-items" id="nav-docs-list">
+    <li class="main-item dark-item docs-search">
+      <form action="/search.html" method="get">
+        <input type="text" placeholder="Search" id="docs-search" name="q">
+        <input type="submit" class="submit-button" value="">
+        <i class="fa fa-search icon-search"></i>
+      </form>
+   
+
+    </li>
+    <li class="version-picker">
+      Filter by product and version
+      {% include 'version-picker.html' with context %}
+    </li>
+    {% block leftnav %}
+    {%- for item in navItems %}
+    <li class="main-item has-sub-items">
+
+      <div class="has-sub-items-content" title="{{ item.title }}">
+        <i class="fa {{ item.iconClass }} icon-left"></i>{{ item.title }}
+        <i class="fa fa-chevron-down"></i>
+      </div>
+
+      <ul class="sub-items">
+
+        {%- for subItem in item.subItems %}
+        {%- if subItem.hasSubItems %}
+
+        <li class="has-sub-items">
+          <div class="has-sub-items-content" title="{{ subItem.title }}">
+            {{ subItem.title }}
+            <i class="fa fa-chevron-down"></i>
+          </div>
+          <ul class="sub-items level-2">
+
+            {%- for subItem2 in subItem.subItems %}
+            {%- if subItem2.hasSubItems %}
+
+            <li class="has-sub-items">
+              <div class="has-sub-items-content" title="{{ subItem2.title }}">
+                {{ subItem2.title }}
+                <i class="fa fa-chevron-down"></i>
+              </div>
+              <ul class="sub-items level-3">
+
+                {%- for subItem3 in subItem2.subItems %}
+
+                <li>
+                  <a class="nav-docs-link" href="{{ subItem3.url }}" title="{{ subItem3.title }}">
+                    {{ subItem3.title }}
+                  </a>
+                </li>
+
+                {%- endfor %} <!-- /for subItem3 in subItem2.subItems -->
+
+              </ul>
+            </li>
+
+            {%- else %} <!-- if subItem2 does not have sub items -->
+
+            <li>
+              <a class="nav-docs-link" href="{{ subItem2.url }}" title="{{ subItem2.title }}">
+                {{ subItem2.title }}
+              </a>
+            </li>
+
+            {%- endif %} <!-- /if subItem2.hasSubItems -->
+            {%- endfor %} <!-- /for subItem2 in subItem.subItems -->
+
+          </ul>
+        
+        </li>
+
+        {%- else %} <!-- if subItem does not have sub items  -->
+
+        <li>
+          <a class="nav-docs-link" href="{{ subItem.url }}" title="{{ subItem.title }}">
+            {{ subItem.title }}
+          </a>
+        </li>
+
+        {% endif %} <!-- /if subItem2.hasSubItems -->
+        {%- endfor %} <!-- /for subItem in subItems -->
+
+      </ul>
+    </li>
+    {%- endfor %} <!-- /for item in navItems -->
+    {% endblock %}
+    <li class="main-item dark-item">
+      <a href="https://github.com/chef/chef-web-docs" title="Available on GitHub">
+        <i class="fa fa-github icon-left"></i>
+        Available on GitHub
+      </a>
+    </li>
+    <li class="main-item dark-item">
+      <a href="https://www.chef.io/chef/get-chef">
+        <i class="fa fa-download icon-left"></i>
+        Get Chef
+      </a>
+    </li>
+    <li class="main-item dark-item">
+      <a href="https://docs.chef.io/feedback.html">
+        <i class="fa fa-commenting icon-left"></i>
+        Send Feedback
+      </a>
+    </li>
+    <li class="main-item dark-item">
+      <a href="https://www.chef.io/support/">
+        <i class="fa fa-support icon-left"></i>
+        Support
+      </a>
+    </li>
+  </ul>
+</nav>

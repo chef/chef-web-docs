@@ -2,7 +2,13 @@
 Manage Secrets in a build-cookbook
 =====================================================
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+.. tag chef_automate_mark
+
+.. image:: ../../images/chef_automate_full.png
+   :width: 40px
+   :height: 17px
+
+.. end_tag
 
 This topic describes how and why to use secrets in a ``build-cookbook``:
 
@@ -33,7 +39,7 @@ Use a Data Bag
 To use the encrypted data bag item, do the following:
 
 #. Ensure that ``metadata.rb`` for the ``build-cookbook`` shows that it depends on the ``delivery-sugar`` cookbook (https://github.com/chef-cookbooks/delivery-sugar)
-#. Update the |berksfile| to point to |github| for the cookbook. The line in your |berksfile| should be similar to:
+#. Update the Berksfile to point to GitHub for the cookbook. The line in your Berksfile should be similar to:
 
    .. code-block:: javascript
 

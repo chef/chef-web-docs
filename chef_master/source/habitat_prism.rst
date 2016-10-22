@@ -21,7 +21,6 @@ Prism supports the following configuration options:
 
 Each of these options can be configured via standard Habitat means, such as via environment variables or configuration updates.
 
-
 Installing and Running Prism
 =====================================================
 Pre-built Prism packages are available as Habitat packages via the `public Habitat depot <https://willem.habitat.sh/#/pkgs/chef/prism>`__ or as a Docker container via `Docker Hub <https://hub.docker.com/r/chef/prism/>`__. Additionally, the source code for Prism is available via `GitHub <https://github.com/chef/prism>`__ and you may build your own Habitat package from source by following the `Habitat documentation <https://www.habitat.sh/docs/create-packages-build/>`__.

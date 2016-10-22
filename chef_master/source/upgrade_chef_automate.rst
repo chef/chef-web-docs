@@ -2,7 +2,13 @@
 Upgrade Chef Automate
 =====================================================
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+.. tag chef_automate_mark
+
+.. image:: ../../images/chef_automate_full.png
+   :width: 40px
+   :height: 17px
+
+.. end_tag
 
 The following sections describe the upgrade process between versions of Chef Automate and when upgrading from a ``delivery-cluster`` setup to Chef Automate.
 
@@ -23,26 +29,25 @@ To upgrade to the latest version of Chef Automate, do the following:
 #. Update the package as appropriate for the server's OS:
 
    For Debian:
-  
+
    .. code-block:: bash
 
       dpkg -i $PATH_TO_AUTOMATE_SERVER_PACKAGE
 
-
    For Red Hat or Centos:
-  
+
    .. code-block:: bash
 
       rpm -Uvh $PATH_TO_AUTOMATE_SERVER_PACKAGE
 
-#. If you are upgrading from a previous version of |automate|, then run ``sudo delivery-ctl reconfigure`` to complete the upgrade process. If you are upgrading from a ``delivery-cluster`` setup, then skip to the section below.
+#. If you are upgrading from a previous version of Chef Automate, then run ``sudo delivery-ctl reconfigure`` to complete the upgrade process. If you are upgrading from a ``delivery-cluster`` setup, then skip to the section below.
 
    .. note:: This will restart your Chef Automate services and may result in a brief period of unavailability.
 
 Upgrading from a ``delivery-cluster`` setup
 --------------------------------------------------------
 
-Chef Delivery clusters configured using the ``delivery-cluster`` setup process specify a search method to identify build nodes that is not compatible with the new build node installation mechanism used by |automate|. In order to ensure that both your existing build nodes and those added with ``delivery-ctl install-build-node`` can be seen by an |automate| server, you will need to edit ``/etc/delivery/delivery.rb`` and modify the value present for ``delivery['default_search']``.
+Chef Delivery clusters configured using the ``delivery-cluster`` setup process specify a search method to identify build nodes that is not compatible with the new build node installation mechanism used by Chef Automate. In order to ensure that both your existing build nodes and those added with ``delivery-ctl install-build-node`` can be seen by an Chef Automate server, you will need to edit ``/etc/delivery/delivery.rb`` and modify the value present for ``delivery['default_search']``.
 
 In the ``delivery.rb`` configured by ``delivery-cluster``, you will find a line that looks like this:
 
@@ -58,9 +63,13 @@ If you have further customized this setting, modify your custom query to include
 
 Save your changes and then run ``sudo delivery-ctl reconfigure`` to complete the upgrade process.
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_build_nodes.rst
+.. tag chef_automate_build_nodes
+
+.. note:: Legacy build nodes created by ``delivery-cluster`` can be used with a Chef Automate server.  Some visibility features are designed to only work with new build nodes installed through the command line process, but the workflow feature in Chef Automate can use legacy, new, or mixed build node pools; however, you cannot upgrade a legacy build node to the new build node model.  If you would like new build nodes, please use fresh hosts or completely wipe your legacy build nodes before attempting to run ``delivery-ctl install-build-node``.
+
+.. end_tag
 
 Upgrading and the ``delivery-ctl setup`` command
 -------------------------------------------------------------------
 
-The ``delivery-ctl setup`` command used during the |automate| installation process is intended to simplify the initial configuration of your |automate| cluster. If your cluster is up and running, you don't need to run this command; however to set up additional build nodes with the ``delivery-ctl install-build-node`` command, running ``delivery-ctl setup`` is recomended to ensure all required files are in the correct place.
+The ``delivery-ctl setup`` command used during the Chef Automate installation process is intended to simplify the initial configuration of your Chef Automate cluster. If your cluster is up and running, you don't need to run this command; however to set up additional build nodes with the ``delivery-ctl install-build-node`` command, running ``delivery-ctl setup`` is recomended to ensure all required files are in the correct place.

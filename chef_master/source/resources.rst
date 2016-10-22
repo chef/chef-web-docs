@@ -1,252 +1,1211 @@
-=====================================================
+*****************************************************
 Resources Reference
+*****************************************************
+
+.. tag resources_common
+
+A resource is a statement of configuration policy that:
+
+* Describes the desired state for a configuration item
+* Declares the steps needed to bring that item to the desired state
+* Specifies a resource type---such as ``package``, ``template``, or ``service`` 
+* Lists additional details (also known as resource properties), as necessary
+* Are grouped into recipes, which describe working configurations
+
+.. end_tag
+
+.. tag resources_common_provider
+
+Where a resource represents a piece of the system (and its desired state), a provider defines the steps that are needed to bring that piece of the system from its current state into the desired state.
+
+.. end_tag
+
+.. tag resources_common_provider_platform
+
+The ``Chef::Platform`` class maps providers to platforms (and platform versions). At the beginning of every chef-client run, Ohai verifies the ``platform`` and ``platform_version`` attributes on each node. The chef-client then uses those values to identify the correct provider, build an instance of that provider, identify the current state of the resource, do the specified action, and then mark the resource as updated (if changes were made).
+
+For example:
+
+.. code-block:: ruby
+
+   directory '/tmp/folder' do
+     owner 'root'
+     group 'root'
+     mode '0755'
+     action :create
+   end
+
+The chef-client will look up the provider for the ``directory`` resource, which happens to be ``Chef::Provider::Directory``, call ``load_current_resource`` to create a ``directory["/tmp/folder"]`` resource, and then, based on the current state of the directory, do the specified action, which in this case is to create a directory called ``/tmp/folder``. If the directory already exists, nothing will happen. If the directory was changed in any way, the resource is marked as updated.
+
+.. end_tag
+
+This reference describes each of the resources available to the chef-client, including a list of actions, a list of properties, (when applicable) a list of providers, and examples of using each resource.
+
 =====================================================
-
-.. include:: ../../includes_resources_common/includes_resources_common.rst
-
-.. include:: ../../includes_resources_common/includes_resources_common_provider.rst
-
-.. include:: ../../includes_resources_common/includes_resources_common_provider_platform.rst
-
-This reference describes each of the resources available to the |chef client|, including a list of actions, a list of properties, (when applicable) a list of providers, and examples of using each resource.
-
-
 Common Functionality
 =====================================================
 The properties and actions in this section apply to all resources.
 
 Actions
------------------------------------------------------
-.. include:: ../../includes_resources_common/includes_resources_common_actions.rst
+=====================================================
+.. tag resources_common_actions
+
+The following actions may be used with any resource:
+
+``:nothing``
+   .. tag resources_common_actions_nothing
+
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the chef-client run.
+
+   .. end_tag
+
+.. end_tag
 
 Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 The following examples show how to use common actions in a recipe.
 
 **Use the :nothing action**
 
-.. include:: ../../step_resource/step_resource_service_use_nothing_action.rst
+.. tag resource_service_use_nothing_action
+
+.. To use the ``:nothing`` common action in a recipe:
+
+.. code-block:: ruby
+
+   service 'memcached' do
+     action :nothing
+     supports :status => true, :start => true, :stop => true, :restart => true
+   end
+
+.. end_tag
 
 Properties
------------------------------------------------------
-.. include:: ../../includes_resources_common/includes_resources_common_attributes.rst
+=====================================================
+.. tag resources_common_attributes
+
+The following properties are common to every resource:
+
+``ignore_failure``
+   **Ruby Types:** TrueClass, FalseClass
+
+   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+
+``provider``
+   **Ruby Type:** Chef Class
+
+   Optional. The chef-client will attempt to determine the correct provider during the chef-client run, and then choose the best/correct provider based on configuration data collected at the start of the chef-client run. In general, a provider does not need to be specified.
+
+``retries``
+   **Ruby Type:** Integer
+
+   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+
+``retry_delay``
+   **Ruby Type:** Integer
+
+   The retry delay (in seconds). Default value: ``2``.
+
+``sensitive``
+   **Ruby Types:** TrueClass, FalseClass
+
+   Ensure that sensitive resource data is not logged by the chef-client. Default value: ``false``. This property only applies to the **execute**, **file** and **template** resources.
+
+``supports``
+   **Ruby Type:** Hash
+
+   A hash of options that contains hints about the capabilities of a resource. The chef-client may use these hints to help identify the correct provider. This property is only used by a small number of providers, including **user** and **service**.
+
+.. end_tag
 
 Provider
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
+-----------------------------------------------------
+.. tag resources_common_provider_attributes
+
+The chef-client will determine the correct provider based on configuration data collected by Ohai at the start of the chef-client run. This configuration data is then mapped to a platform and an associated list of providers.
+
+Generally, it's best to let the chef-client choose the provider, and this is (by far) the most common approach. However, in some cases, specifying a provider may be desirable. There are two approaches:
+
+* Use a more specific short name---``yum_package "foo" do`` instead of ``package "foo" do``, ``script "foo" do`` instead of ``bash "foo" do``, and so on---when available
+* Use the ``provider`` property within the resource block to specify the long name of the provider as a property of a resource. For example: ``provider Chef::Provider::Long::Name``
+
+.. end_tag
 
 Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 The following examples show how to use common properties in a recipe.
 
 **Use the ignore_failure common property**
 
-.. include:: ../../step_resource/step_resource_package_use_ignore_failure_attribute.rst
+.. tag resource_package_use_ignore_failure_attribute
+
+.. To use the ``ignore_failure`` common attribute in a recipe:
+
+.. code-block:: ruby
+
+   gem_package 'syntax' do
+     action :install
+     ignore_failure true
+   end
+
+.. end_tag
 
 **Use the provider common property**
 
-.. include:: ../../step_resource/step_resource_package_use_provider_attribute.rst
+.. tag resource_package_use_provider_attribute
+
+.. To use the ``:provider`` common attribute in a recipe:
+
+.. code-block:: ruby
+
+   package 'some_package' do
+     provider Chef::Provider::Package::Rubygems
+   end
+
+.. end_tag
 
 **Use the supports common property**
 
-.. include:: ../../step_resource/step_resource_service_use_supports_attribute.rst
+.. tag resource_service_use_supports_attribute
+
+.. To use the ``supports`` common attribute in a recipe:
+
+.. code-block:: ruby
+
+   service 'apache' do
+     supports :restart => true, :reload => true
+     action :enable
+   end
+
+.. end_tag
 
 **Use the supports and providers common properties**
 
-.. include:: ../../step_resource/step_resource_service_use_provider_and_supports_attributes.rst
+.. tag resource_service_use_provider_and_supports_attributes
+
+.. To use the ``provider`` and ``supports`` common attributes in a recipe:
+
+.. code-block:: ruby
+
+   service 'some_service' do
+     provider Chef::Provider::Service::Upstart
+     supports :status => true, :restart => true, :reload => true
+     action [ :enable, :start ]
+   end
+
+.. end_tag
 
 Guards
------------------------------------------------------
-.. include:: ../../includes_resources_common/includes_resources_common_guards.rst
+=====================================================
+.. tag resources_common_guards
+
+A guard property can be used to evaluate the state of a node during the execution phase of the chef-client run. Based on the results of this evaluation, a guard property is then used to tell the chef-client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
+
+* A string is executed as a shell command. If the command returns ``0``, the guard is applied. If the command returns any other value, then the guard property is not applied. String guards in a **powershell_script** run Windows PowerShell commands and may return ``true`` in addition to ``0``.
+* A block is executed as Ruby code that must return either ``true`` or ``false``. If the block returns ``true``, the guard property is applied. If the block returns ``false``, the guard property is not applied.
+
+A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for the chef-client to do nothing.
+
+.. end_tag
 
 Attributes
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources_common/includes_resources_common_guards_attributes.rst
+-----------------------------------------------------
+.. tag resources_common_guards_attributes
+
+The following properties can be used to define a guard that is evaluated during the execution phase of the chef-client run:
+
+``not_if``
+   Prevent a resource from executing when the condition returns ``true``.
+
+``only_if``
+   Allow a resource to execute only if the condition returns ``true``.
+
+.. end_tag
 
 Arguments
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources_common/includes_resources_common_guards_arguments.rst
+-----------------------------------------------------
+.. tag resources_common_guards_arguments
+
+The following arguments can be used with the ``not_if`` or ``only_if`` guard properties:
+
+``:user``
+   Specify the user that a command will run as. For example:
+
+   .. code-block:: ruby
+
+      not_if 'grep adam /etc/passwd', :user => 'adam'
+
+``:group``
+   Specify the group that a command will run as. For example:
+
+   .. code-block:: ruby
+
+      not_if 'grep adam /etc/passwd', :group => 'adam'
+
+``:environment``
+   Specify a Hash of environment variables to be set. For example:
+
+   .. code-block:: ruby
+
+      not_if 'grep adam /etc/passwd', :environment => { 
+        'HOME' => '/home/adam' 
+      }
+
+``:cwd``
+   Set the current working directory before running a command. For example:
+
+   .. code-block:: ruby
+
+      not_if 'grep adam passwd', :cwd => '/etc'
+
+``:timeout``
+   Set a timeout for a command. For example:
+
+   .. code-block:: ruby
+
+      not_if 'sleep 10000', :timeout => 10
+
+.. end_tag
 
 not_if Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 The following examples show how to use ``not_if`` as a condition in a recipe:
 
 **Create a file, but not if an attribute has a specific value**
 
-.. include:: ../../step_resource/step_resource_template_add_file_not_if_attribute_has_value.rst
+.. tag resource_template_add_file_not_if_attribute_has_value
+
+The following example shows how to use the ``not_if`` condition to create a file based on a template and using the presence of an attribute value on the node to specify the condition:
+
+.. code-block:: ruby
+
+   template '/tmp/somefile' do
+     mode '0755'
+     source 'somefile.erb'
+     not_if { node[:some_value] }
+   end
+
+.. end_tag
 
 **Create a file with a Ruby block, but not if "/etc/passwd" exists**
 
-.. include:: ../../step_resource/step_resource_template_add_file_not_if_ruby.rst
+.. tag resource_template_add_file_not_if_ruby
+
+The following example shows how to use the ``not_if`` condition to create a file based on a template and then Ruby code to specify the condition:
+
+.. code-block:: ruby
+
+   template '/tmp/somefile' do
+     mode '0755'
+     source 'somefile.erb'
+     not_if do
+       File.exist?('/etc/passwd')
+     end
+   end
+
+.. end_tag
 
 **Create a file with Ruby block that has curly braces, but not if "/etc/passwd" exists**
 
-.. include:: ../../step_resource/step_resource_template_add_file_not_if_ruby_with_curly_braces.rst
+.. tag resource_template_add_file_not_if_ruby_with_curly_braces
+
+The following example shows how to use the ``not_if`` condition to create a file based on a template and using a Ruby block (with curly braces) to specify the condition:
+
+.. code-block:: ruby
+
+   template '/tmp/somefile' do
+     mode '0755'
+     source 'somefile.erb'
+     not_if { File.exist?('/etc/passwd' )}
+   end
+
+.. end_tag
 
 **Create a file using a string, but not if "/etc/passwd" exists**
 
-.. include:: ../../step_resource/step_resource_template_add_file_not_if_string.rst
+.. tag resource_template_add_file_not_if_string
+
+The following example shows how to use the ``not_if`` condition to create a file based on a template and using a string to specify the condition:
+
+.. code-block:: ruby
+
+   template '/tmp/somefile' do
+     mode '0755'
+     source 'somefile.erb'
+     not_if 'test -f /etc/passwd'
+   end
+
+.. end_tag
 
 **Install a file from a remote location using bash**
 
-.. include:: ../../step_resource/step_resource_remote_file_install_with_bash.rst
+.. tag resource_remote_file_install_with_bash
+
+The following is an example of how to install the ``foo123`` module for Nginx. This module adds shell-style functionality to an Nginx configuration file and does the following:
+
+* Declares three variables
+* Gets the Nginx file from a remote location
+* Installs the file using Bash to the path specified by the ``src_filepath`` variable
+
+.. code-block:: ruby
+
+   # the following code sample is similar to the ``upload_progress_module``
+   # recipe in the ``nginx`` cookbook:
+   # https://github.com/chef-cookbooks/nginx
+
+   src_filename = "foo123-nginx-module-v#{
+     node['nginx']['foo123']['version']
+   }.tar.gz"
+   src_filepath = "#{Chef::Config['file_cache_path']}/#{src_filename}"
+   extract_path = "#{
+     Chef::Config['file_cache_path']
+     }/nginx_foo123_module/#{
+     node['nginx']['foo123']['checksum']
+   }"
+
+   remote_file 'src_filepath' do
+     source node['nginx']['foo123']['url']
+     checksum node['nginx']['foo123']['checksum']
+     owner 'root'
+     group 'root'
+     mode '0755'
+   end
+
+   bash 'extract_module' do
+     cwd ::File.dirname(src_filepath)
+     code <<-EOH
+       mkdir -p #{extract_path} 
+       tar xzf #{src_filename} -C #{extract_path}
+       mv #{extract_path}/*/* #{extract_path}/
+       EOH
+     not_if { ::File.exists?(extract_path) }
+   end
+
+.. end_tag
 
 only_if Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 The following examples show how to use ``only_if`` as a condition in a recipe:
 
 **Create a file, but only if an attribute has a specific value**
 
-.. include:: ../../step_resource/step_resource_template_add_file_only_if_attribute_has_value.rst
+.. tag resource_template_add_file_only_if_attribute_has_value
+
+The following example shows how to use the ``only_if`` condition to create a file based on a template and using the presence of an attribute on the node to specify the condition:
+
+.. code-block:: ruby
+
+   template '/tmp/somefile' do
+     mode '0755'
+     source 'somefile.erb'
+     only_if { node[:some_value] }
+   end
+
+.. end_tag
 
 **Create a file with a Ruby block, but only if "/etc/passwd" does not exist**
 
-.. include:: ../../step_resource/step_resource_template_add_file_only_if_ruby.rst
+.. tag resource_template_add_file_only_if_ruby
+
+The following example shows how to use the ``only_if`` condition to create a file based on a template, and then use Ruby to specify a condition:
+
+.. code-block:: ruby
+
+   template '/tmp/somefile' do
+     mode '0755'
+     source 'somefile.erb'
+     only_if do ! File.exist?('/etc/passwd') end
+   end
+
+.. end_tag
 
 **Create a file using a string, but only if "/etc/passwd" exists**
 
-.. include:: ../../step_resource/step_resource_template_add_file_only_if_string.rst
+.. tag resource_template_add_file_only_if_string
+
+The following example shows how to use the ``only_if`` condition to create a file based on a template and using a string to specify the condition:
+
+.. code-block:: ruby
+
+   template '/tmp/somefile' do
+     mode '0755'
+     source 'somefile.erb'
+     only_if 'test -f /etc/passwd'
+   end
+
+.. end_tag
 
 Guard Interpreters
------------------------------------------------------
-.. include:: ../../includes_resources_common/includes_resources_common_guard_interpreter.rst
+=====================================================
+.. tag resources_common_guard_interpreter
+
+Any resource that passes a string command may also specify the interpreter that will be used to evaluate that string command. This is done by using the ``guard_interpreter`` property to specify a **script**-based resource.
+
+.. end_tag
 
 Attributes
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources_common/includes_resources_common_guard_interpreter_attributes.rst
+-----------------------------------------------------
+.. tag resources_common_guard_interpreter_attributes
+
+The ``guard_interpreter`` property may be set to any of the following values:
+
+``:bash``
+   Evaluates a string command using the **bash** resource.
+
+``:batch``
+   Evaluates a string command using the **batch** resource. Default value (within a **batch** resource block): ``:batch``.
+
+``:csh``
+   Evaluates a string command using the **csh** resource.
+
+``:default``
+   Default. Executes the default interpreter as identified by the chef-client.
+
+``:perl``
+   Evaluates a string command using the **perl** resource.
+
+``:powershell_script``
+   Evaluates a string command using the **powershell_script** resource. Default value (within a **batch** resource block): ``:powershell_script``.
+
+``:python``
+   Evaluates a string command using the **python** resource.
+
+``:ruby``
+   Evaluates a string command using the **ruby** resource.
+
+.. end_tag
 
 Inheritance
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources_common/includes_resources_common_guard_interpreter_attributes_inherit.rst
+-----------------------------------------------------
+.. tag resources_common_guard_interpreter_attributes_inherit
+
+The ``guard_interpreter`` property is set to ``:default`` by default for the **bash**, **csh**, **perl**, **python**, and **ruby** resources. When the ``guard_interpreter`` property is set to ``:default``, ``not_if`` or ``only_if`` guard statements **do not inherit** properties that are defined by the **script**-based resource.
+
+.. warning:: The **batch** and **powershell_script** resources inherit properties by default. The ``guard_interpreter`` property is set to ``:batch`` or ``:powershell_script`` automatically when using a ``not_if`` or ``only_if`` guard statement within a **batch** or **powershell_script** resource, respectively.
+
+For example, the ``not_if`` guard statement in the following resource example **does not inherit** the ``environment`` property:
+
+.. code-block:: ruby
+
+   bash 'javatooling' do
+     environment 'JAVA_HOME' => '/usr/lib/java/jdk1.7/home'
+     code 'java-based-daemon-ctl.sh -start'
+     not_if 'java-based-daemon-ctl.sh -test-started'
+   end
+
+and requires adding the ``environment`` property to the ``not_if`` guard statement so that it may use the ``JAVA_HOME`` path as part of its evaluation:
+
+.. code-block:: ruby
+
+   bash 'javatooling' do
+     environment 'JAVA_HOME' => '/usr/lib/java/jdk1.7/home'
+     code 'java-based-daemon-ctl.sh -start'
+     not_if 'java-based-daemon-ctl.sh -test-started', :environment => 'JAVA_HOME' => '/usr/lib/java/jdk1.7/home'
+   end
+
+To inherit properties, add the ``guard_interpreter`` property to the resource block and set it to the appropriate value:
+
+* ``:bash`` for **bash**
+* ``:csh`` for **csh**
+* ``:perl`` for **perl**
+* ``:python`` for **python**
+* ``:ruby`` for **ruby**
+
+For example, using the same example as from above, but this time adding the ``guard_interpreter`` property and setting it to ``:bash``:
+
+.. code-block:: ruby
+
+   bash 'javatooling' do
+     guard_interpreter :bash
+     environment 'JAVA_HOME' => '/usr/lib/java/jdk1.7/home'
+     code 'java-based-daemon-ctl.sh -start'
+     not_if 'java-based-daemon-ctl.sh -test-started'
+   end
+
+The ``not_if`` statement now inherits the ``environment`` property and will use the ``JAVA_HOME`` path as part of its evaluation.
+
+.. end_tag
 
 Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources_common/includes_resources_common_guard_interpreter_example_default.rst
+-----------------------------------------------------
+.. tag resources_common_guard_interpreter_example_default
 
+For example, the following code block will ensure the command is evaluated using the default intepreter as identified by the chef-client:
+
+.. code-block:: ruby
+
+   resource 'name' do
+     guard_interpreter :default
+     # code
+   end
+
+.. end_tag
 
 Lazy Evaluation
------------------------------------------------------
-.. include:: ../../includes_resources_common/includes_resources_common_lazy_evaluation.rst
+=====================================================
+.. tag resources_common_lazy_evaluation
+
+In some cases, the value for a property cannot be known until the execution phase of a chef-client run. In this situation, using lazy evaluation of property values can be helpful. Instead of a property being assigned a value, it may instead be assigned a code block. The syntax for using lazy evaluation is as follows:
+
+.. code-block:: ruby
+
+   attribute_name lazy { code_block }
+
+where ``lazy`` is used to tell the chef-client to evaluate the contents of the code block later on in the resource evaluation process (instead of immediately) and ``{ code_block }`` is arbitrary Ruby code that provides the value.
+
+For example, a resource that is **not** doing lazy evaluation:
+
+.. code-block:: ruby
+
+   template 'template_name' do
+     # some attributes
+     path '/foo/bar'
+   end
+
+and a resource block that is doing lazy evaluation:
+
+.. code-block:: ruby
+
+   template 'template_name' do
+     # some attributes
+     path lazy { ' some Ruby code ' }
+   end
+
+In the previous examples, the first resource uses the value ``/foo/bar`` and the second resource uses the value provided by the code block, as long as the contents of that code block are a valid resource property.
+
+The following example shows how to use lazy evaluation with template variables:
+
+.. code-block:: ruby
+
+   template '/tmp/canvey_island.txt' do
+     source 'canvey_island.txt.erb'
+     variables(
+       lazy {
+         { :canvey_island => node.run_state['sea_power'] }
+       }
+     )
+   end
+
+.. end_tag
 
 Notifications
------------------------------------------------------
-.. include:: ../../includes_resources_common/includes_resources_common_notification.rst
+=====================================================
+.. tag resources_common_notification
+
+A notification is a property on a resource that listens to other resources in the resource collection and then takes actions based on the notification type (``notifies`` or ``subscribes``).
+
+.. end_tag
 
 Timers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources_common/includes_resources_common_notification_timers.rst
+-----------------------------------------------------
+.. tag resources_common_notification_timers
+
+A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+
+``:before``
+   Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
+
+``:delayed``
+   Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+
+``:immediate``, ``:immediately``
+   Specifies that a notification should be run immediately, per resource notified.
+
+.. end_tag
 
 Notifies
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources_common/includes_resources_common_notification_notifies.rst
+-----------------------------------------------------
+.. tag resources_common_notification_notifies
 
-.. include:: ../../includes_resources_common/includes_resources_common_notification_notifies_syntax.rst
+A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+
+.. end_tag
+
+.. tag resources_common_notification_notifies_syntax
+
+The syntax for ``notifies`` is:
+
+.. code-block:: ruby
+
+   notifies :action, 'resource[name]', :timer
+
+.. end_tag
 
 Examples
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 The following examples show how to use the ``notifies`` notification in a recipe.
 
 **Delay notifications**
 
-.. include:: ../../step_resource/step_resource_template_notifies_delay.rst
+.. tag resource_template_notifies_delay
+
+.. To delay running a notification:
+
+.. code-block:: ruby
+
+   template '/etc/nagios3/configures-nagios.conf' do
+     # other parameters
+     notifies :run, 'execute[test-nagios-config]', :delayed
+   end
+
+.. end_tag
 
 **Notify immediately**
 
-.. include:: ../../step_resource/step_resource_template_notifies_run_immediately.rst
+.. tag resource_template_notifies_run_immediately
+
+By default, notifications are ``:delayed``, that is they are queued up as they are triggered, and then executed at the very end of a chef-client run. To run an action immediately, use ``:immediately``:
+
+.. code-block:: ruby
+
+   template '/etc/nagios3/configures-nagios.conf' do
+     # other parameters
+     notifies :run, 'execute[test-nagios-config]', :immediately
+   end
+
+and then the chef-client would immediately run the following:
+
+.. code-block:: ruby
+
+   execute 'test-nagios-config' do
+     command 'nagios3 --verify-config'
+     action :nothing
+   end
+
+.. end_tag
 
 **Notify multiple resources**
 
-.. include:: ../../step_resource/step_resource_template_notifies_multiple_resources.rst
+.. tag resource_template_notifies_multiple_resources
+
+.. To notify multiple resources:
+
+.. code-block:: ruby
+
+   template '/etc/chef/server.rb' do
+     source 'server.rb.erb'
+     owner 'root'
+     group 'root'
+     mode '0755'
+     notifies :restart, 'service[chef-solr]', :delayed
+     notifies :restart, 'service[chef-solr-indexer]', :delayed
+     notifies :restart, 'service[chef-server]', :delayed
+   end
+
+.. end_tag
 
 **Notify in a specific order**
 
-.. include:: ../../step_resource/step_resource_execute_notifies_specific_order.rst
+.. tag resource_execute_notifies_specific_order
+
+To notify multiple resources, and then have these resources run in a certain order, do something like the following:
+
+.. code-block:: ruby
+
+   execute 'foo' do
+     command '...'
+     notifies :create, 'template[baz]', :immediately
+     notifies :install, 'package[bar]', :immediately
+     notifies :run, 'execute[final]', :immediately
+   end
+
+   template 'baz' do
+     ...
+     notifies :run, 'execute[restart_baz]', :immediately
+   end
+
+   package 'bar'
+
+   execute 'restart_baz'
+
+   execute 'final' do
+     command '...'
+   end
+
+where the sequencing will be in the same order as the resources are listed in the recipe: ``execute 'foo'``, ``template 'baz'``, ``execute [restart_baz]``, ``package 'bar'``, and ``execute 'final'``.
+
+.. end_tag
 
 **Reload a service**
 
-.. include:: ../../step_resource/step_resource_template_notifies_reload_service.rst
+.. tag resource_template_notifies_reload_service
+
+.. To reload a service:
+
+.. code-block:: ruby
+
+   template '/tmp/somefile' do
+     mode '0755'
+     source 'somefile.erb'
+     notifies :reload, 'service[apache]', :immediately
+   end
+
+.. end_tag
 
 **Restart a service when a template is modified**
 
-.. include:: ../../step_resource/step_resource_template_notifies_restart_service_when_template_modified.rst
+.. tag resource_template_notifies_restart_service_when_template_modified
+
+.. To restart a resource when a template is modified, use the ``:restart`` attribute for ``notifies``:
+
+.. code-block:: ruby
+
+   template '/etc/www/configures-apache.conf' do
+     notifies :restart, 'service[apache]', :immediately
+   end
+
+.. end_tag
 
 **Send notifications to multiple resources**
 
-.. include:: ../../step_resource/step_resource_template_notifies_send_notifications_to_multiple_resources.rst
+.. tag resource_template_notifies_send_notifications_to_multiple_resources
+
+To send notifications to multiple resources, just use multiple attributes. Multiple attributes will get sent to the notified resources in the order specified.
+
+.. code-block:: ruby
+
+   template '/etc/netatalk/netatalk.conf' do
+     notifies :restart, 'service[afpd]', :immediately
+     notifies :restart, 'service[cnid]', :immediately
+   end
+
+   service 'afpd'
+   service 'cnid'
+
+.. end_tag
 
 **Execute a command using a template**
 
-.. include:: ../../step_resource/step_resource_execute_command_from_template.rst
+.. tag resource_execute_command_from_template
+
+The following example shows how to set up IPv4 packet forwarding using the **execute** resource to run a command named ``forward_ipv4`` that uses a template defined by the **template** resource:
+
+.. code-block:: ruby
+
+   execute 'forward_ipv4' do
+     command 'echo > /proc/.../ipv4/ip_forward'
+     action :nothing
+   end
+
+   template '/etc/file_name.conf' do
+     source 'routing/file_name.conf.erb'
+     notifies :run, 'execute[forward_ipv4]', :delayed
+   end
+
+where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[forward_ipv4]`` (which is defined by the **execute** resource) should be queued up and run at the end of the chef-client run.
+
+.. end_tag
 
 **Restart a service, and then notify a different service**
 
-.. include:: ../../step_resource/step_resource_service_restart_and_notify.rst
+.. tag resource_service_restart_and_notify
+
+The following example shows how start a service named ``example_service`` and immediately notify the Nginx service to restart.
+
+.. code-block:: ruby
+
+   service 'example_service' do
+     action :start
+     provider Chef::Provider::Service::Init
+     notifies :restart, 'service[nginx]', :immediately
+   end
+
+where by using the default ``provider`` for the **service**, the recipe is telling the chef-client to determine the specific provider to be used during the chef-client run based on the platform of the node on which the recipe will run.
+
+.. end_tag
 
 **Notify when a remote source changes**
 
-.. include:: ../../step_resource/step_resource_remote_file_transfer_remote_source_changes.rst
+.. tag resource_remote_file_transfer_remote_source_changes
+
+.. To transfer a file only if the remote source has changed (using the |resource http request| resource):
+
+.. The "Transfer a file only when the source has changed" example is deprecated in chef-client 11-6
+
+.. code-block:: ruby
+
+   remote_file '/tmp/couch.png' do
+     source 'http://couchdb.apache.org/img/sketch.png'
+     action :nothing
+   end
+
+   http_request 'HEAD http://couchdb.apache.org/img/sketch.png' do
+     message ''
+     url 'http://couchdb.apache.org/img/sketch.png'
+     action :head
+     if File.exist?('/tmp/couch.png')
+       headers 'If-Modified-Since' => File.mtime('/tmp/couch.png').httpdate
+     end
+     notifies :create, 'remote_file[/tmp/couch.png]', :immediately
+   end
+
+.. end_tag
 
 Subscribes
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources_common/includes_resources_common_notification_subscribes.rst
+-----------------------------------------------------
+.. tag resources_common_notification_subscribes
 
-.. include:: ../../includes_resources_common/includes_resources_common_notification_subscribes_syntax.rst
+A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
+
+.. end_tag
+
+.. tag resources_common_notification_subscribes_syntax
+
+The syntax for ``subscribes`` is:
+
+.. code-block:: ruby
+
+   subscribes :action, 'resource[name]', :timer
+
+.. end_tag
 
 Examples
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 The following examples show how to use the ``subscribes`` notification in a recipe.
 
 **Prevent restart and reconfigure if configuration is broken**
 
-.. include:: ../../step_resource/step_resource_execute_subscribes_prevent_restart_and_reconfigure.rst
+.. tag resource_execute_subscribes_prevent_restart_and_reconfigure
+
+Use the ``:nothing`` action (common to all resources) to prevent an application from restarting, and then use the ``subscribes`` notification to ask the broken configuration to be reconfigured immediately:
+
+.. code-block:: ruby
+
+   execute 'test-nagios-config' do
+     command 'nagios3 --verify-config'
+     action :nothing
+     subscribes :run, 'template[/etc/nagios3/configures-nagios.conf]', :immediately
+   end
+
+.. end_tag
 
 **Reload a service using a template**
 
-.. include:: ../../step_resource/step_resource_service_subscribes_reload_using_template.rst
+.. tag resource_service_subscribes_reload_using_template
+
+To reload a service based on a template, use the **template** and **service** resources together in the same recipe, similar to the following:
+
+.. code-block:: ruby
+
+   template '/tmp/somefile' do
+     mode '0755'
+     source 'somefile.erb'
+   end
+
+   service 'apache' do
+     supports :restart => true, :reload => true
+     action :enable
+     subscribes :reload, 'template[/tmp/somefile]', :immediately
+   end
+
+where the ``subscribes`` notification is used to reload the service using the template specified by the **template** resource.
+
+.. end_tag
 
 **Stash a file in a data bag**
 
-.. include:: ../../step_resource/step_resource_ruby_block_stash_file_in_data_bag.rst
+.. tag resource_ruby_block_stash_file_in_data_bag
 
+The following example shows how to use the **ruby_block** resource to stash a BitTorrent file in a data bag so that it can be distributed to nodes in the organization.
+
+.. code-block:: ruby
+
+   # the following code sample comes from the ``seed`` recipe
+   # in the following cookbook: https://github.com/mattray/bittorrent-cookbook
+
+   ruby_block 'share the torrent file' do
+     block do
+       f = File.open(node['bittorrent']['torrent'],'rb')
+       #read the .torrent file and base64 encode it
+       enc = Base64.encode64(f.read)
+       data = {
+         'id'=>bittorrent_item_id(node['bittorrent']['file']),
+         'seed'=>node.ipaddress,
+         'torrent'=>enc
+       }
+       item = Chef::DataBagItem.new
+       item.data_bag('bittorrent')
+       item.raw_data = data
+       item.save
+     end
+     action :nothing
+     subscribes :create, "bittorrent_torrent[#{node['bittorrent']['torrent']}]", :immediately
+   end
+
+.. end_tag
 
 Relative Paths
------------------------------------------------------
-.. include:: ../../includes_resources_common/includes_resources_common_relative_paths.rst
+=====================================================
+.. tag resources_common_relative_paths
+
+The following relative paths can be used with any resource:
+
+``#{ENV['HOME']}``
+   Use to return the ``~`` path in Linux and Mac OS X or the ``%HOMEPATH%`` in Microsoft Windows.
+
+.. end_tag
 
 Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../step_resource/step_resource_template_use_relative_paths.rst
+-----------------------------------------------------
+.. tag resource_template_use_relative_paths
 
+.. To use a relative path:
+
+.. code-block:: ruby
+
+   template "#{ENV['HOME']}/chef-getting-started.txt" do
+     source 'chef-getting-started.txt.erb'
+     mode '0755'
+   end
+
+.. end_tag
 
 Run in Compile Phase
------------------------------------------------------
-.. include:: ../../includes_resources_common/includes_resources_common_compile.rst
+=====================================================
+.. tag resources_common_compile
+
+The chef-client processes recipes in two phases:
+
+#. First, each resource in the node object is identified and a resource collection is built. All recipes are loaded in a specific order, and then the actions specified within each of them are identified. This is also referred to as the "compile phase".
+#. Next, the chef-client configures the system based on the order of the resources in the resource collection. Each resource is mapped to a provider, which then examines the node and performs the necessary steps to complete the action. This is also referred to as the "execution phase".
+
+Typically, actions are processed during the execution phase of the chef-client run. However, sometimes it is necessary to run an action during the compile phase. For example, a resource can be configured to install a package during the compile phase to ensure that application is available to other resources during the execution phase.
+
+.. note:: Use the **chef_gem** resource to install gems that are needed by the chef-client during the execution phase.
+
+.. end_tag
 
 run_action
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources_common/includes_resources_common_compile_begin.rst
+-----------------------------------------------------
+.. tag resources_common_compile_begin
 
+Use ``.run_action(:some_action)`` at the end of a resource block to run the specified action during the compile phase. For example:
+
+.. code-block:: ruby
+
+   resource_name 'foo' do
+     action :nothing
+   end.run_action(:some_action)
+
+where ``action`` is set to ``:nothing`` to ensure the ``run_action`` is run during the compile phase and not later during the execution phase.
+
+The following examples show when (and when not) to use ``run_action``.
+
+**Update a package cache**
+
+Sometimes it is necessary to ensure that an operating system's package cache is up to date before installing packages. For example, on Debian or Ubuntu systems, the Apt cache should be updated:
+
+.. code-block:: ruby
+
+   if node['apt']['compile_time_update'] && ( !::File.exist?('/var/lib/apt/periodic/update-success-stamp') || !::File.exist?(first_run_file) )
+     e = bash 'apt-get-update at compile time' do
+       code <<-EOH
+         apt-get update
+         touch #{first_run_file}
+       EOH
+       ignore_failure true
+       only_if { apt_installed? }
+       action :nothing
+     end
+     e.run_action(:run)
+   end
+
+where ``e.run_action(:run)`` tells the chef-client to run the ``apt-get update`` command during the compile phase. This example can be found in the ``default.rb`` recipe of the `apt cookbook <https://github.com/chef-cookbooks/apt>`_ that is maintained by Chef.
+
+**Use the chef_gem resource for Ruby gems**
+
+A very common use case us to install a gem during the compile phase so that it will be available to the chef-client during the execution phase. This is why the **chef_gem** resource exists. For example, this:
+
+.. code-block:: ruby
+
+   chef_gem 'foo' do
+     action :install
+   end
+
+is effectively the same as
+
+.. code-block:: ruby
+
+   gem_package 'foo' do
+     action :nothing
+   end.run_action(:install)
+   Gem.clear_paths
+
+but without needing to define a ``run_action``.
+
+**Notifications will not work**
+
+Resources that are executed during the compile phase cannot notify other resources. For example:
+
+.. code-block:: ruby
+
+   execute 'ifconfig'
+
+   p = package 'vim-enhanced' do
+     action :nothing
+     notifies :run, 'execute[ifconfig]', :immediately
+   end
+   p.run_action(:install)
+
+A better approach in this type of situation is to install the package before the resource collection is built to ensure that it is available to other resources later on.
+
+.. end_tag
 
 Atomic File Updates
------------------------------------------------------
-.. include:: ../../includes_resources_common/includes_resources_common_atomic_update.rst
+=====================================================
+.. tag resources_common_atomic_update
+
+Atomic updates are used with **file**-based resources to help ensure that file updates can be made when updating a binary or if disk space runs out.
+
+Atomic updates are enabled by default. They can be managed globally using the ``file_atomic_update`` setting in the client.rb file. They can be managed on a per-resource basis using the ``atomic_update`` property that is available with the **cookbook_file**, **file**, **remote_file**, and **template** resources.
+
+.. note:: On certain platforms, and after a file has been moved into place, the chef-client may modify file permissions to support features specific to those platforms. On platforms with SELinux enabled, the chef-client will fix up the security contexts after a file has been moved into the correct location by running the ``restorecon`` command. On the Microsoft Windows platform, the chef-client will create files so that ACL inheritance works as expected.
+
+.. end_tag
 
 Windows File Security
------------------------------------------------------
-.. include:: ../../includes_resources_common/includes_resources_common_windows_security.rst
+=====================================================
+.. tag resources_common_windows_security
+
+To support Microsoft Windows security, the **template**, **file**, **remote_file**, **cookbook_file**, **directory**, and **remote_directory** resources support the use of inheritance and access control lists (ACLs) within recipes.
+
+.. end_tag
 
 **Access Control Lists (ACLs)**
 
-.. include:: ../../includes_resources_common/includes_resources_common_windows_security_acl.rst
+.. tag resources_common_windows_security_acl
+
+The ``rights`` property can be used in a recipe to manage access control lists (ACLs), which allow permissions to be given to multiple users and groups. Use the ``rights`` property can be used as many times as necessary; the chef-client will apply them to the file or directory as required. The syntax for the ``rights`` property is as follows:
+
+.. code-block:: ruby
+
+   rights permission, principal, option_type => value
+
+where
+
+``permission``
+   Use to specify which rights are granted to the ``principal``. The possible values are: ``:read``, ``:write``, ``read_execute``, ``:modify``, and ``:full_control``.
+
+   These permissions are cumulative. If ``:write`` is specified, then it includes ``:read``. If ``:full_control`` is specified, then it includes both ``:write`` and ``:read``.
+
+   (For those who know the Microsoft Windows API: ``:read`` corresponds to ``GENERIC_READ``; ``:write`` corresponds to ``GENERIC_WRITE``; ``:read_execute`` corresponds to ``GENERIC_READ`` and ``GENERIC_EXECUTE``; ``:modify`` corresponds to ``GENERIC_WRITE``, ``GENERIC_READ``, ``GENERIC_EXECUTE``, and ``DELETE``; ``:full_control`` corresponds to ``GENERIC_ALL``, which allows a user to change the owner and other metadata about a file.)
+
+``principal``
+   Use to specify a group or user name. This is identical to what is entered in the login box for Microsoft Windows, such as ``user_name``, ``domain\user_name``, or ``user_name@fully_qualified_domain_name``. The chef-client does not need to know if a principal is a user or a group.
+
+``option_type``
+   A hash that contains advanced rights options. For example, the rights to a directory that only applies to the first level of children might look something like: ``rights :write, 'domain\group_name', :one_level_deep => true``. Possible option types:
+
+   .. list-table::
+      :widths: 60 420
+      :header-rows: 1
+
+      * - Option Type
+        - Description
+      * - ``:applies_to_children``
+        - Specify how permissions are applied to children. Possible values: ``true`` to inherit both child directories and files;  ``false`` to not inherit any child directories or files; ``:containers_only`` to inherit only child directories (and not files); ``:objects_only`` to recursively inherit files (and not child directories).
+      * - ``:applies_to_self``
+        - Indicates whether a permission is applied to the parent directory. Possible values: ``true`` to apply to the parent directory or file and its children; ``false`` to not apply only to child directories and files.
+      * - ``:one_level_deep``
+        - Indicates the depth to which permissions will be applied. Possible values: ``true`` to apply only to the first level of children; ``false`` to apply to all children.
+
+For example:
+
+.. code-block:: ruby
+
+   resource 'x.txt' do
+     rights :read, 'Everyone'
+     rights :write, 'domain\group'
+     rights :full_control, 'group_name_or_user_name'
+     rights :full_control, 'user_name', :applies_to_children => true
+   end
+
+or:
+
+.. code-block:: ruby
+
+    rights :read, ['Administrators','Everyone']
+    rights :full_control, 'Users', :applies_to_children => true
+    rights :write, 'Sally', :applies_to_children => :containers_only, :applies_to_self => false, :one_level_deep => true
+
+Some other important things to know when using the ``rights`` attribute:
+
+* Only inherited rights remain. All existing explicit rights on the object are removed and replaced.
+* If rights are not specified, nothing will be changed. The chef-client does not clear out the rights on a file or directory if rights are not specified. 
+* Changing inherited rights can be expensive. Microsoft Windows will propagate rights to all children recursively due to inheritance. This is a normal aspect of Microsoft Windows, so consider the frequency with which this type of action is necessary and take steps to control this type of action if performance is the primary consideration.
+
+Use the ``deny_rights`` property to deny specific rights to specific users. The ordering is independent of using the ``rights`` property. For example, it doesn't matter if rights are granted to everyone is placed before or after ``deny_rights :read, ['Julian', 'Lewis']``, both Julian and Lewis will be unable to read the document. For example:
+
+.. code-block:: ruby
+
+   resource 'x.txt' do
+     rights :read, 'Everyone'
+     rights :write, 'domain\group'
+     rights :full_control, 'group_name_or_user_name'
+     rights :full_control, 'user_name', :applies_to_children => true
+     deny_rights :read, ['Julian', 'Lewis']
+   end
+
+or:
+
+.. code-block:: ruby
+
+   deny_rights :full_control, ['Sally']
+
+.. end_tag
 
 **Inheritance**
 
-.. include:: ../../includes_resources_common/includes_resources_common_windows_security_inherits.rst
+.. tag resources_common_windows_security_inherits
 
+By default, a file or directory inherits rights from its parent directory. Most of the time this is the preferred behavior, but sometimes it may be necessary to take steps to more specifically control rights. The ``inherits`` property can be used to specifically tell the chef-client to apply (or not apply) inherited rights from its parent directory.
 
+For example, the following example specifies the rights for a directory:
+
+.. code-block:: ruby
+
+   directory 'C:\mordor' do
+     rights :read, 'MORDOR\Minions'
+     rights :full_control, 'MORDOR\Sauron'
+   end
+
+and then the following example specifies how to use inheritance to deny access to the child directory:
+
+.. code-block:: ruby
+
+   directory 'C:\mordor\mount_doom' do
+     rights :full_control, 'MORDOR\Sauron'
+     inherits false # Sauron is the only person who should have any sort of access
+   end
+
+If the ``deny_rights`` permission were to be used instead, something could slip through unless all users and groups were denied.
+
+Another example also shows how to specify rights for a directory:
+
+.. code-block:: ruby
+
+   directory 'C:\mordor' do
+     rights :read, 'MORDOR\Minions'
+     rights :full_control, 'MORDOR\Sauron'
+     rights :write, 'SHIRE\Frodo' # Who put that there I didn't put that there
+   end
+
+but then not use the ``inherits`` property to deny those rights on a child directory:
+
+.. code-block:: ruby
+
+   directory 'C:\mordor\mount_doom' do
+     deny_rights :read, 'MORDOR\Minions' # Oops, not specific enough
+   end
+
+Because the ``inherits`` property is not specified, the chef-client will default it to ``true``, which will ensure that security settings for existing files remain unchanged.
+
+.. end_tag
+
+=====================================================
 Resources
 =====================================================
-The following resources are built-in to the |chef client|:
+The following resources are built-in to the chef-client:
 
 * apt_package (based on the package resource)
 * apt_repository
@@ -255,14 +1214,13 @@ The following resources are built-in to the |chef client|:
 * batch
 * bff_package (based on the package resource)
 * breakpoint
-* cab_package
 * chef_gem (based on the package resource)
 * chef_handler (available from the chef_handler cookbook)
 * chocolatey_package (based on the package resource)
 * cookbook_file
 * cron
 * csh
-* deploy (including |git| and |svn|)
+* deploy (including git and Subversion)
 * directory
 * dpkg_package (based on the package resource)
 * dsc_resource
@@ -318,3293 +1276,135 @@ The following resources are built-in to the |chef client|:
 
 See below for more information about each of these resources, their related actions and properties, and examples of how these resources can be used in recipes.
 
-apt_package
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_package_apt.rst
+.. include:: resource_apt_package.rst
 
-.. note:: .. include:: ../../includes_notes/includes_notes_resource_based_on_package.rst
+.. include:: resource_apt_repository.rst
 
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_apt_syntax.rst
+.. include:: resource_apt_update.rst
 
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_apt_actions.rst
+.. include:: resource_bash.rst
 
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_apt_attributes.rst
+.. include:: resource_batch.rst
 
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_apt_providers.rst
+.. include:: resource_bff_package.rst
 
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
+.. include:: resource_breakpoint.rst
 
-**Install a package using package manager** 
+.. include:: resource_chef_gem.rst
 
-.. include:: ../../step_resource/step_resource_apt_package_install_package.rst
+.. include:: resource_chef_handler.rst
 
-**Install a package using local file** 
+.. include:: resource_chocolatey_package.rst
 
-.. include:: ../../step_resource/step_resource_apt_package_install_package_using_local_file.rst
+.. include:: resource_cookbook_file.rst
 
-**Install without using recommend packages as a dependency**
+.. include:: resource_cron.rst
 
-.. include:: ../../step_resource/step_resource_apt_package_install_without_recommends_suggests.rst
+.. include:: resource_csh.rst
 
+.. include:: resource_deploy.rst
 
-apt_repository
------------------------------------------------------
+.. include:: resource_directory.rst
 
-Use the **apt_repository** resource to additional APT repositories. Adding a new repository will notify running the ``execute[apt-get-update]`` resource immediately.
+.. include:: resource_dpkg_package.rst
 
-New in Chef Client 12.9.
+.. include:: resource_dsc_resource.rst
 
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-An **apt_repository** resource specifies APT repository information and adds an additional APT repository to the existing list of repositories:
+.. include:: resource_dsc_script.rst
 
-.. code-block:: ruby
+.. include:: resource_easy_install_package.rst
 
-   apt_repository 'zenoss' do
-     uri        'http://dev.zenoss.org/deb'
-     components ['main', 'stable']
-   end
+.. include:: resource_env.rst
 
-where 
+.. include:: resource_erlang_call.rst
 
-* ``apt_repository`` is the resource
-* ``name`` is the name of the resource block
-* ``uri`` is a base URI for the distribution where the apt packages are located at
-* ``components`` is an array of package groupings in the repository
+.. include:: resource_execute.rst
 
-The full syntax for all of the properties that are available to the **apt_repository** resource is:
+.. include:: resource_file.rst
 
-.. code-block:: ruby
+.. include:: resource_freebsd_package.rst
 
-   apt_repository 'name' do
-      repo_name             String
-      uri                   String
-      distribution          String
-      components            Array
-      arch                  String
-      trusted               TrueClass, FalseClass
-      deb_src               TrueClass, FalseClass
-      keyserver             String
-      key                   String
-      key_proxy             String
-      cookbook              String
-      cache_rebuild         TrueClass, FalseClass
-      sensitive             TrueClass, FalseClass
-   end
+.. include:: resource_gem_package.rst
 
-where 
+.. include:: resource_git.rst
 
-* ``apt_repository`` is the resource
-* ``name`` is the name of the resource block
-* ``repo_name``, ``uri``, ``distribution``, ``components``, ``arch``, ``trusted``, ``deb_src``, ``keyserver``, ``key``, ``key_proxy``, ``cookbook``, ``cache_rebuild``, and ``sensitive`` are properties of this resource, with the |ruby| type shown. See “Properties” section below for more information about all of the properties that may be used with this resource.
+.. include:: resource_group.rst
 
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-This resource has the following actions:
+.. include:: resource_homebrew_package.rst
 
-:add
-   Default. Creates a repository file at ``/etc/apt/sources.list.d/`` and builds the repository listing. 
+.. include:: resource_http_request.rst
 
-:remove
-   Removes the repository listing.
+.. include:: resource_ifconfig.rst
 
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-This resource has the following properties:
-   
-repo_name
-   **Ruby Type:** String
+.. include:: resource_ips_package.rst
 
-   The name of the channel to discover.
+.. include:: resource_link.rst
 
-uri
-   **Ruby Type:** String
+.. include:: resource_log.rst
 
-   The base of the Debian distribution.
+.. include:: resource_macports_package.rst
 
-distribution
-   **Ruby Type:** String
+.. include:: resource_mdadm.rst
 
-   Usually a codename, such as something like karmic, lucid or maverick.
+.. include:: resource_mount.rst
 
-components
-   **Ruby Type:** Array
+.. include:: resource_ohai.rst
 
-   Package groupings, such as 'main' and 'stable'. Default value: empty array.
+.. include:: resource_openbsd_package.rst
 
-arch
-   **Ruby Type:** String
+.. include:: resource_osx_profile.rst
 
-   Constrain packages to a particular CPU architecture such as ``'i386'`` or ``'amd64'``. Default value: ``nil``.
+.. include:: resource_package.rst
 
-trusted
-   **Ruby Type:** TrueClass, FalseClass
+.. include:: resource_pacman_package.rst
 
-   Determines whether you should treat all packages from this repository as authenticated regardless of signature. Default value: ``false``.
+.. include:: resource_paludis_package.rst
 
-deb_src
-   **Ruby Type:** TrueClass, FalseClass
+.. include:: resource_perl.rst
 
-   Determines whether or not to add the repository as a source repo as well. Default value: ``false``.
+.. include:: resource_portage_package.rst
 
-keyserver
-   **Ruby Type:** String
+.. include:: resource_powershell_script.rst
 
-   The GPG keyserver where the key for the repo should be retrieved. Default value: "keyserver.ubuntu.com".
+.. include:: resource_python.rst
 
-key
-   **Ruby Type:** String
+.. include:: resource_reboot.rst
 
-   If a keyserver is provided, this is assumed to be the fingerprint; otherwise it can be either the URI to the GPG key for the repo, or a cookbook_file. Default value: ``nil``.
+.. include:: resource_registry_key.rst
 
-key_proxy
-   **Ruby Type:** String
+.. include:: resource_remote_directory.rst
 
-   If set, a specified proxy is passed to GPG via ``http-proxy=``. Default value: ``nil``.
+.. include:: resource_remote_file.rst
 
-cookbook
-   **Ruby Type:** String
+.. include:: resource_route.rst
 
-   If ``key`` should be a cookbook_file, specify a cookbook where the key is located for files/default. Default value is ``nil``, so it will use the cookbook where the resource is used.
+.. include:: resource_rpm_package.rst
 
-cache_rebuild
-   **Ruby Type:** TrueClass, FalseClass
+.. include:: resource_ruby.rst
 
-   Determines whether to rebuild the apt package cache. Default value: ``true``.
+.. include:: resource_ruby_block.rst
 
-sensitive
-   **Ruby Type:** TrueClass, FalseClass
+.. include:: resource_script.rst
 
-   Determines whether sensitive resource data (such as key information) is not logged by the chef-client. Default value: ``false``.
+.. include:: resource_service.rst
 
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: resource_smartos_package.rst
 
-This resource has the following providers:
+.. include:: resource_solaris_package.rst
 
-``Chef::Provider::AptRepository``, ``apt_repository``
-   The default provider for all platforms.
+.. include:: resource_subversion.rst
 
+.. include:: resource_systemd_unit.rst
 
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. include:: resource_template.rst
 
-**Add repository with basic settings**
+.. include:: resource_user.rst
 
-.. code-block:: ruby
+.. include:: resource_windows_package.rst
 
-   apt_repository 'zenoss' do
-     uri        'http://dev.zenoss.org/deb'
-     components ['main', 'stable']
-   end
+.. include:: resource_windows_service.rst
 
-**Enable Ubuntu multiverse repositories**
+.. include:: resource_yum.rst
 
-.. code-block:: ruby
+.. include:: resource_yum_repository.rst
 
-   apt_repository 'security-ubuntu-multiverse' do
-     uri          'http://security.ubuntu.com/ubuntu'
-     distribution 'trusty-security'
-     components   ['multiverse']
-     deb_src      true
-   end
-
-**Add the Nginx PPA, autodetect the key and repository url**
-
-.. code-block:: ruby
-
-   apt_repository 'nginx-php' do
-     uri          'ppa:nginx/stable'
-     distribution node['lsb']['codename']
-   end
-   
-**Add the JuJu PPA, grab the key from the keyserver, and add source repo**
-
-.. code-block:: ruby
-
-   apt_repository 'juju' do
-     uri 'http://ppa.launchpad.net/juju/stable/ubuntu'
-     components ['main']
-     distribution 'trusty'
-     key 'C8068B11'
-     keyserver 'keyserver.ubuntu.com'
-     action :add
-     deb_src true
-   end
-
-**Add the Cloudera Repo of CDH4 packages for Ubuntu 12.04 on AMD64**
-
-.. code-block:: ruby
-
-   apt_repository 'cloudera' do
-     uri          'http://archive.cloudera.com/cdh4/ubuntu/precise/amd64/cdh'
-     arch         'amd64'
-     distribution 'precise-cdh4'
-     components   ['contrib']
-     key          'http://archive.cloudera.com/debian/archive.key'
-   end
-
-**Remove a repository from the list**
-
-.. code-block:: ruby
-
-   apt_repository 'zenoss' do
-     action :remove
-   end
-
-
-apt_update
------------------------------------------------------
-
-.. include:: ../../includes_resources/includes_resource_apt_update.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_apt_update_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_apt_update_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_apt_update_attributes.rst
-
-.. 
-.. Providers
-.. =====================================================
-.. .. include:: ../../includes_resources_common/includes_resources_common_provider.rst
-.. 
-.. .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
-.. 
-.. .. include:: ../../includes_resources/includes_resource_apt_update_providers.rst
-.. 
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources_common/includes_resources_common_examples_intro.rst
-
-**Update the Apt repository at a specified interval** 
-
-.. include:: ../../step_resource/step_resource_apt_update_periodic.rst
-
-**Update the Apt repository at the start of a chef-client run** 
-
-.. include:: ../../step_resource/step_resource_apt_update_at_start_of_client_run.rst
-
-
-bash
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_script_bash.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_script_bash_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_script_bash_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_script_bash_attributes.rst
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_script_bash_providers.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Use a named provider to run a script**
-
-.. include:: ../../step_resource/step_resource_script_bash_provider_and_interpreter.rst
-
-**Install a file from a remote location using bash**
-
-.. include:: ../../step_resource/step_resource_remote_file_install_with_bash.rst
-
-**Install an application from git using bash**
-
-.. include:: ../../step_resource/step_resource_scm_use_bash_and_ruby_build.rst
-
-**Store certain settings**
-
-.. include:: ../../step_resource/step_resource_remote_file_store_certain_settings.rst
-
-
-batch
------------------------------------------------------
-
-.. include:: ../../includes_resources_common/includes_resources_common_generic.rst
-
-.. include:: ../../includes_resources/includes_resource_batch.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_batch_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_batch_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_batch_attributes.rst
-
-Guards
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_resources_common/includes_resources_common_guards.rst
-
-**Attributes**
-
-.. include:: ../../includes_resources_common/includes_resources_common_guards_attributes.rst
-
-**Arguments**
-
-.. include:: ../../includes_resources_common/includes_resources_common_guards_arguments.rst
-
-.. 
-.. Providers
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_resources/includes_resource_batch_providers.rst
-.. 
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Unzip a file, and then move it**
-
-.. include:: ../../step_resource/step_resource_batch_unzip_file_and_move.rst
-
-
-bff_package
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_package_bff.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_bff_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_bff_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_bff_attributes.rst
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_bff_providers.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Install a package**
-
-.. include:: ../../step_resource/step_resource_bff_package_install.rst
-
-
-
-
-breakpoint
------------------------------------------------------
-
-.. include:: ../../includes_resources_common/includes_resources_common_generic.rst
-
-.. include:: ../../includes_resources/includes_resource_breakpoint.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_breakpoint_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_breakpoint_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_breakpoint_attributes.rst
-
-.. 
-.. Providers
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_resources/includes_resource_breakpoint_providers.rst
-.. 
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**A recipe without a breakpoint**
-
-.. include:: ../../step_resource/step_resource_breakpoint_no.rst
-
-**The same recipe with breakpoints**
-
-.. include:: ../../step_resource/step_resource_breakpoint_yes.rst
-
-cab_package
------------------------------------------------------
-Use the **cab_package** resource to install or remove Microsoft Windows cabinet (.cab) packages.
-
-New in Chef Client 12.15.
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-A **cab_package** resource installs or removes a cabinet package from the specified file path.
-
-.. code-block:: ruby
-
-   cab_package 'name' do
-     source                  String
-   end
-
-where 
-
-* cab_package is the resource
-* name is the name of the resource block
-* source is the location of the cabinet package
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-This resource has the following actions:
-
-:install
-   Installs the cabinet package.
-
-:remove
-   Removes the cabinet package.
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-This resource has the following properties:
-   
-source
-   **Ruby Type:** String
-
-   File path where the cabinet file is located. URLs are not supported.
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-This resource has the following provider:
-
-``Chef::Provider::Package::Cab``, ``cab_package``
-   The provider for the Microsoft Windows platform.
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-**Installing a cabinet package**
-
-.. code-block:: ruby
-
-   cab_package 'Install .NET 3.5 sp1 via KB958488' do
-     source 'C:\Users\xyz\AppData\Local\Temp\Windows6.1-KB958488-x64.cab'
-     action :install
-   end
-
-**Removing a cabinet package**
-
-.. code-block:: ruby
-
-   cab_package 'Remove .NET 3.5 sp1 via KB958488' do
-     source 'C:\Users\xyz\AppData\Local\Temp\Windows6.1-KB958488-x64.cab'
-     action :remove
-   end
-
-chef_gem
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_package_chef_gem.rst
-
-.. warning:: .. include:: ../../includes_notes/includes_notes_chef_gem_vs_gem_package.rst
-
-.. note:: .. include:: ../../includes_notes/includes_notes_resource_based_on_package.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_chef_gem_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_chef_gem_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_chef_gem_attributes.rst
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_chef_gem_providers.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Install a gems file for use in recipes**
-
-.. include:: ../../step_resource/step_resource_chef_gem_install_for_use_in_recipes.rst
-
-**Install MySQL for Chef**
-
-.. include:: ../../step_resource/step_resource_chef_gem_install_mysql.rst
-
-
-
-chef_handler
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_chef_handler.rst
-
-Handler Types
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_handler/includes_handler_types.rst
-
-Exception / Report
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_handler/includes_handler_type_exception_report.rst
-
-.. include:: ../../includes_handler/includes_handler_type_exception_report_run_from_recipe.rst
-
-Start
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_handler/includes_handler_type_start.rst
-
-.. include:: ../../includes_handler/includes_handler_type_start_run_from_recipe.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_chef_handler_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_chef_handler_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_chef_handler_attributes.rst
-
-
-Custom Handlers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_handler/includes_handler_custom.rst
-
-Syntax
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_handler/includes_handler_custom_syntax.rst
-
-report Interface
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_handler/includes_handler_custom_interface_report.rst
-
-Optional Interfaces
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The following interfaces may be used in a handler in the same way as the ``report`` interface to override the default handler behavior in the |chef client|. That said, the following interfaces are not typically used in a handler and, for the most part, are completely unnecessary for a handler to work properly and/or as desired.
-
-**data**
-
-.. include:: ../../includes_handler/includes_handler_custom_interface_data.rst
-
-**run_report_safely**
-
-.. include:: ../../includes_handler/includes_handler_custom_interface_run_report_safely.rst
-
-**run_report_unsafe**
-
-.. include:: ../../includes_handler/includes_handler_custom_interface_run_report_unsafe.rst
-
-run_status Object
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_handler/includes_handler_custom_object_run_status.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Enable the CloudkickHandler handler**
-
-.. include:: ../../step_lwrp/step_lwrp_chef_handler_enable_cloudkickhandler.rst
-
-**Enable handlers during the compile phase**
-
-.. include:: ../../step_lwrp/step_lwrp_chef_handler_enable_during_compile.rst
-
-**Handle only exceptions**
-
-.. include:: ../../step_lwrp/step_lwrp_chef_handler_exceptions_only.rst
-
-**Cookbook Versions (a custom handler)**
-
-.. include:: ../../includes_handler/includes_handler_custom_example_cookbook_versions.rst
-
-cookbook_versions.rb:
-
-.. include:: ../../includes_handler/includes_handler_custom_example_cookbook_versions_handler.rst
-
-default.rb:
-
-.. include:: ../../includes_handler/includes_handler_custom_example_cookbook_versions_recipe.rst
-
-**JsonFile Handler**
-
-.. include:: ../../includes_handler/includes_handler_custom_example_json_file.rst
-
-**Register the JsonFile handler**
-
-.. include:: ../../step_lwrp/step_lwrp_chef_handler_register.rst
-
-**ErrorReport Handler**
-
-.. include:: ../../includes_handler/includes_handler_custom_example_error_report.rst
-
-
-
-chocolatey_package
------------------------------------------------------
-
-.. include:: ../../includes_resources/includes_resource_package_chocolatey.rst
-
-.. note:: .. include:: ../../includes_notes/includes_notes_resource_based_on_package.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_chocolatey_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_chocolatey_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_chocolatey_attributes.rst
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources_common/includes_resources_common_provider.rst
-
-.. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
-
-.. include:: ../../includes_resources/includes_resource_package_chocolatey_providers.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Install a package**
-
-.. include:: ../../step_resource/step_resource_chocolatey_package_install.rst
-
-
-
-cookbook_file
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_cookbook_file.rst
-
-.. include:: ../../includes_resources/includes_resource_cookbook_file_transfers.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_cookbook_file_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_cookbook_file_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_cookbook_file_attributes.rst
-
-.. warning:: .. include:: ../../includes_notes/includes_notes_selinux_file_based_resources.rst
-.. 
-.. Providers
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_resources/includes_resource_cookbook_file_providers.rst
-.. 
-
-File Specificity
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_file/includes_file_cookbook_specificity.rst
-
-.. include:: ../../includes_file/includes_file_cookbook_specificity_pattern.rst
-
-.. include:: ../../includes_file/includes_file_cookbook_specificity_example.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Transfer a file**
-
-.. include:: ../../step_resource/step_resource_cookbook_file_transfer_a_file.rst
-
-**Handle cookbook_file and yum_package resources in the same recipe**
-
-.. include:: ../../step_resource/step_resource_yum_package_handle_cookbook_file_and_yum_package.rst
-
-**Install repositories from a file, trigger a command, and force the internal cache to reload**
-
-.. include:: ../../step_resource/step_resource_yum_package_install_yum_repo_from_file.rst
-
-**Use a case statement**
-
-.. include:: ../../step_resource/step_resource_cookbook_file_use_case_statement.rst
-
-
-cron
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_cron.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_cron_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_cron_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_cron_attributes.rst
-
-.. 
-.. Providers
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_resources/includes_resource_cron_providers.rst
-.. 
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Run a program at a specified interval**
-
-.. include:: ../../step_resource/step_resource_cron_run_program_on_fifth_hour.rst
-
-**Run an entry if a folder exists**
-
-.. include:: ../../step_resource/step_resource_cron_run_entry_when_folder_exists.rst
-
-**Run every Saturday, 8:00 AM**
-
-.. include:: ../../step_resource/step_resource_cron_run_every_saturday.rst
-
-**Run only in November**
-
-.. include:: ../../step_resource/step_resource_cron_run_only_in_november.rst
-
-
-csh
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_script_csh.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_script_csh_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_script_csh_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_script_csh_attributes.rst
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_script_csh_providers.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-None.
-
-
-deploy
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_deploy.rst
-
-.. include:: ../../includes_resources/includes_resource_deploy_capistrano.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_deploy_syntax.rst
-
-Deploy Strategies
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_deploy_strategy.rst
-
-**Deploy Cache File**
-
-.. include:: ../../includes_resources/includes_resource_deploy_strategy_start_over.rst
-
-Deploy Phases
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_resources/includes_resource_deploy_strategy_phases.rst
-
-Callbacks
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_resources/includes_resource_deploy_strategy_callbacks.rst
-
-**Callbacks and Capistrano**
-
-.. include:: ../../includes_resources/includes_resource_deploy_capistrano_callbacks.rst
-
-Layout Modifiers
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_resources/includes_resource_deploy_strategy_layouts.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_deploy_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_deploy_attributes.rst
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_deploy_providers.rst
-
-deploy_branch
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_resources/includes_resource_deploy_providers_deploy_branch.rst
-
-deploy_revision
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_resources/includes_resource_deploy_providers_deploy_revision.rst
-
-timestamped_deploy
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_resources/includes_resource_deploy_providers_timestamped_deploy.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Modify the layout of a Ruby on Rails application**
-
-.. include:: ../../step_resource/step_resource_deploy_custom_application_layout.rst
-
-**Use resources within callbacks**
-
-.. include:: ../../step_resource/step_resource_deploy_embedded_recipes_for_callbacks.rst
-
-**Deploy from a private git repository without using the application cookbook**
-
-.. include:: ../../step_resource/step_resource_deploy_private_git_repo_using_application_cookbook.rst
-
-**Use an SSH wrapper**
-
-.. include:: ../../step_resource/step_resource_deploy_recipe_uses_ssh_wrapper.rst
-
-**Use a callback to include a file that will be passed as a code block**
-
-.. include:: ../../step_resource/step_resource_deploy_use_callback_to_include_code_from_file.rst
-
-**Use a callback to pass a code block**
-
-.. include:: ../../step_resource/step_resource_deploy_use_callback_to_pass_python.rst
-
-**Use the same API for all recipes using the same gem**
-
-.. include:: ../../step_resource/step_resource_deploy_use_same_api_as_gitdeploy_gems.rst
-
-**Deploy without creating symbolic links to a shared folder**
-
-.. include:: ../../step_resource/step_resource_deploy_without_symlink_to_shared.rst
-
-**Clear a layout modifier attribute**
-
-.. include:: ../../step_resource/step_resource_deploy_clear_layout_modifiers.rst
-
-
-directory
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_directory.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_directory_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_directory_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_directory_attributes.rst
-
-Recursive Directories
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_resources/includes_resource_directory_recursive.rst
-
-.. 
-.. Providers
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_resources/includes_resource_directory_providers.rst
-.. 
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Create a directory**
-
-.. include:: ../../step_resource/step_resource_directory_create.rst
-
-**Create a directory in Microsoft Windows**
-
-.. include:: ../../step_resource/step_resource_directory_create_in_windows.rst
-
-**Create a directory recursively**
-
-.. include:: ../../step_resource/step_resource_directory_create_recursively.rst
-
-**Delete a directory**
-
-.. include:: ../../step_resource/step_resource_directory_delete.rst
-
-**Set directory permissions using a variable**
-
-.. include:: ../../step_resource/step_resource_directory_set_permissions_with_variable.rst
-
-**Set directory permissions for a specific type of node**
-
-.. include:: ../../step_resource/step_resource_directory_set_permissions_for_specific_node.rst
-
-**Reload the configuration**
-
-.. include:: ../../step_resource/step_resource_ruby_block_reload_configuration.rst
-
-
-dpkg_package
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_package_dpkg.rst
-
-.. note:: .. include:: ../../includes_notes/includes_notes_resource_based_on_package.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_dpkg_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_dpkg_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_dpkg_attributes.rst
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_dpkg_providers.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Install a package**
-
-.. include:: ../../step_resource/step_resource_dpkg_package_install.rst
-
-
-dsc_resource
------------------------------------------------------
-
-.. include:: ../../includes_resources_common/includes_resources_common_generic.rst
-
-.. include:: ../../includes_resources_common/includes_resources_common_powershell.rst
-
-.. include:: ../../includes_resources_common/includes_resources_common_powershell_dsc.rst
-
-.. include:: ../../includes_resources/includes_resource_dsc_resource.rst
-
-.. warning:: .. include:: ../../includes_resources/includes_resource_dsc_resource_requirements.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_dsc_resource_syntax.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_dsc_resource_attributes.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Open a Zip file**
-
-.. include:: ../../step_resource/step_resource_dsc_resource_zip_file.rst
-
-**Manage users and groups**
-
-.. include:: ../../step_resource/step_resource_dsc_resource_manage_users.rst
-
-**Create a test message queue**
-
-.. include:: ../../step_resource/step_resource_dsc_resource_manage_msmq.rst
-
-
-dsc_script
------------------------------------------------------
-
-.. include:: ../../includes_resources_common/includes_resources_common_generic.rst
-
-.. include:: ../../includes_resources_common/includes_resources_common_powershell.rst
-
-.. include:: ../../includes_resources_common/includes_resources_common_powershell_dsc.rst
-
-.. include:: ../../includes_resources/includes_resource_dsc_script.rst
-
-.. note:: |windows powershell| 4.0 is required for using the |resource dsc_script| resource with |chef|.
-
-.. note:: The |windows remote management| service must be enabled. (Use ``winrm quickconfig`` to enable the service.)
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_dsc_script_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_dsc_script_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_dsc_script_attributes.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Specify DSC code directly**
-
-.. include:: ../../step_resource/step_resource_dsc_script_code.rst
-
-**Specify DSC code using a Windows Powershell data file**
-
-.. include:: ../../step_resource/step_resource_dsc_script_command.rst
-
-**Pass parameters to DSC configurations**
-
-.. include:: ../../step_resource/step_resource_dsc_script_flags.rst
-
-**Use custom configuration data**
-
-Configuration data in |windows powershell_dsc_short| scripts may be customized from a recipe. For example, scripts are typically customized to set the behavior for |windows powershell| credential data types. Configuration data may be specified in one of three ways: by using the ``configuration_data`` or ``configuration_data_script`` attributes or by specifying the path to a valid |windows powershell| data file. 
-
-.. include:: ../../step_resource/step_resource_dsc_script_configuration_data.rst
-
-.. include:: ../../step_resource/step_resource_dsc_script_configuration_name.rst
-
-**Using DSC with other Chef resources**
-
-.. include:: ../../step_resource/step_resource_dsc_script_remote_files.rst
-
-
-
-easy_install_package
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_package_easy_install.rst
-
-.. note:: .. include:: ../../includes_notes/includes_notes_resource_based_on_package.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_easy_install_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_easy_install_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_easy_install_attributes.rst
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_easy_install_providers.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Install a package**
-
-.. include:: ../../step_resource/step_resource_easy_install_package_install.rst
-
-
-env
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_env.rst
-
-.. note:: .. include:: ../../includes_notes/includes_notes_env_resource_variable_on_unix.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_env_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_env_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_env_attributes.rst
-
-.. 
-.. Providers
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_resources/includes_resource_env_providers.rst
-.. 
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Set an environment variable**
-
-.. include:: ../../step_resource/step_resource_environment_set_variable.rst
-
-
-erl_call
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_erlang_call.rst
-
-.. note:: .. include:: ../../includes_notes/includes_notes_erlang_call_resource_must_be_on_path.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_erlang_call_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_erlang_call_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_erlang_call_attributes.rst
-
-.. 
-.. Providers
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_resources/includes_resource_erlang_call_providers.rst
-.. 
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Run a command**
-
-.. include:: ../../step_resource/step_resource_erlang_call_run_command_on_node.rst
-
-
-execute
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_execute.rst
-
-.. note:: .. include:: ../../includes_notes/includes_notes_execute_resource_intepreter.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_execute_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_execute_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_execute_attributes.rst
-
-.. 
-.. Providers
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_resources/includes_resource_execute_providers.rst
-.. 
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Run a command upon notification**
-
-.. include:: ../../step_resource/step_resource_execute_command_upon_notification.rst
-
-**Run a touch file only once while running a command**
-
-.. include:: ../../step_resource/step_resource_execute_command_with_touch_file.rst
-
-**Run a command which requires an environment variable**
-
-.. include:: ../../step_resource/step_resource_execute_command_with_variable.rst
-
-**Delete a repository using yum to scrub the cache**
-
-.. include:: ../../step_resource/step_resource_yum_package_delete_repo_use_yum_to_scrub_cache.rst
-
-**Install repositories from a file, trigger a command, and force the internal cache to reload**
-
-.. include:: ../../step_resource/step_resource_yum_package_install_yum_repo_from_file.rst
-
-**Prevent restart and reconfigure if configuration is broken**
-
-.. include:: ../../step_resource/step_resource_execute_subscribes_prevent_restart_and_reconfigure.rst
-
-**Notify in a specific order**
-
-.. include:: ../../step_resource/step_resource_execute_notifies_specific_order.rst
-
-**Execute a command using a template**
-
-.. include:: ../../step_resource/step_resource_execute_command_from_template.rst
-
-**Add a rule to an IP table**
-
-.. include:: ../../step_resource/step_resource_execute_add_rule_to_iptable.rst
-
-**Stop a service, do stuff, and then restart it**
-
-.. include:: ../../step_resource/step_resource_service_stop_do_stuff_start.rst
-
-**Use the platform_family? method**
-
-.. include:: ../../step_resource/step_resource_remote_file_use_platform_family.rst
-
-**Control a service using the execute resource**
-
-.. include:: ../../step_resource/step_resource_execute_control_a_service.rst
-
-**Use the search recipe DSL method to find users**
-
-.. include:: ../../step_resource/step_resource_execute_use_search_dsl_method.rst
-
-**Enable remote login for Mac OS X**
-
-.. include:: ../../step_resource/step_resource_execute_enable_remote_login.rst
-
-**Execute code immediately, based on the template resource**
-
-.. include:: ../../step_resource/step_resource_template_notifies_run_immediately.rst
-
-**Run a Knife command**
-
-.. include:: ../../step_resource/step_resource_execute_knife_user_create.rst
-
-**Run install command into virtual environment**
-
-.. include:: ../../step_resource/step_resource_execute_install_q.rst
-
-**Run a command as a named user**
-
-.. include:: ../../step_resource/step_resource_execute_bundle_install.rst
-
-
-file
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_file.rst
-
-.. note:: .. include:: ../../includes_notes/includes_notes_file_resource_use_other_resources.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_file_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_file_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_file_attributes.rst
-
-.. 
-.. Providers
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_resources/includes_resource_file_providers.rst
-.. 
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Create a file**
-
-.. include:: ../../step_resource/step_resource_file_create.rst
-
-**Create a file in Microsoft Windows**
-
-.. include:: ../../step_resource/step_resource_file_create_in_windows.rst
-
-**Remove a file**
-
-.. include:: ../../step_resource/step_resource_file_remove.rst
-
-**Set file modes**
-
-.. include:: ../../step_resource/step_resource_file_set_file_mode.rst
-
-**Delete a repository using yum to scrub the cache**
-
-.. include:: ../../step_resource/step_resource_yum_package_delete_repo_use_yum_to_scrub_cache.rst
-
-**Add the value of a data bag item to a file**
-
-.. include:: ../../step_resource/step_resource_file_content_data_bag.rst
-
-**Write a YAML file**
-
-.. include:: ../../step_resource/step_resource_file_content_yaml_config.rst
-
-**Write a string to a file**
-
-.. include:: ../../step_resource/step_resource_file_content_add_string.rst
-
-**Create a file from a copy**
-
-.. include:: ../../step_resource/step_resource_file_copy.rst
-
-
-freebsd_package
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_package_freebsd.rst
-
-.. note:: .. include:: ../../includes_notes/includes_notes_resource_based_on_package.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_freebsd_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_freebsd_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_freebsd_attributes.rst
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_freebsd_providers.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Install a package**
-
-.. include:: ../../step_resource/step_resource_freebsd_package_install.rst
-
-
-gem_package
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_package_gem.rst
-
-.. warning:: .. include:: ../../includes_notes/includes_notes_chef_gem_vs_gem_package.rst
-
-.. note:: .. include:: ../../includes_notes/includes_notes_resource_based_on_package.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_gem_syntax.rst
-
-Gem Package Options
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_options.rst
-
-Use a Hash
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_resources/includes_resource_package_options_hash.rst
-
-**Example**
-
-.. include:: ../../step_resource/step_resource_package_install_gem_with_hash_options.rst
-
-Use a String
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_resources/includes_resource_package_options_string.rst
-
-**Example**
-
-.. include:: ../../step_resource/step_resource_package_install_gem_with_options_string.rst
-
-Use a .gemrc File
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_resources/includes_resource_package_options_gemrc.rst
-
-**Example**
-
-.. include:: ../../step_resource/step_resource_package_install_gem_with_gemrc.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_gem_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_gem_attributes.rst
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_gem_providers.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Install a gems file from the local file system**
-
-.. include:: ../../step_resource/step_resource_package_install_gems_from_local.rst
-
-**Use the ignore_failure common attribute**
-
-.. include:: ../../step_resource/step_resource_package_use_ignore_failure_attribute.rst
-
-
-
-git
------------------------------------------------------
-
-.. include:: ../../includes_resources/includes_resource_scm_git.rst
-
-.. note:: .. include:: ../../includes_notes/includes_notes_scm_resource_use_with_resource_deploy.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_scm_git_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_scm_git_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_scm_git_attributes.rst
-
-.. 
-.. Providers
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_resources/includes_resource_scm_git_providers.rst
-.. 
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Use the git mirror**
-
-.. include:: ../../step_resource/step_resource_scm_use_git_mirror.rst
-
-**Use different branches**
-
-.. include:: ../../step_resource/step_resource_scm_use_different_branches.rst
-
-**Install an application from git using bash**
-
-.. include:: ../../step_resource/step_resource_scm_use_bash_and_ruby_build.rst
-
-**Upgrade packages from git**
-
-.. include:: ../../step_resource/step_resource_scm_upgrade_packages.rst
-
-
-group
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_group.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_group_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_group_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_group_attributes.rst
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_group_providers.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Append users to groups**
-
-.. include:: ../../step_resource/step_resource_group_append_user.rst
-
-
-
-homebrew_package
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_package_homebrew.rst
-
-.. note:: .. include:: ../../includes_notes/includes_notes_resource_based_on_package.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_homebrew_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_homebrew_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_homebrew_attributes.rst
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_homebrew_providers.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Install a package**
-
-.. include:: ../../step_resource/step_resource_homebrew_package_install.rst
-
-**Specify the Homebrew user with a UUID**
-
-.. include:: ../../step_resource/step_resource_homebrew_package_homebrew_user_as_uuid.rst
-
-**Specify the Homebrew user with a string**
-
-.. include:: ../../step_resource/step_resource_homebrew_package_homebrew_user_as_string.rst
-
-
-
-
-http_request
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_http_request.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_http_request_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_http_request_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_http_request_attributes.rst
-
-.. 
-.. Providers
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_resources/includes_resource_http_request_providers.rst
-.. 
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Send a GET request**
-
-.. include:: ../../step_resource/step_resource_http_request_send_get.rst
-
-**Send a POST request**
-
-.. include:: ../../step_resource/step_resource_http_request_send_post.rst
-
-**Transfer a file only when the remote source changes**
-
-.. include:: ../../step_resource/step_resource_remote_file_transfer_remote_source_changes.rst
-
-ifconfig
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_ifconfig.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_ifconfig_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_ifconfig_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_ifconfig_attributes.rst
-
-.. 
-.. Providers
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_resources/includes_resource_ifconfig_providers.rst
-.. 
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Configure a network interface**
-
-.. include:: ../../step_resource/step_resource_ifconfig_configure_network_interface.rst
-
-ips_package
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_package_ips.rst
-
-.. note:: .. include:: ../../includes_notes/includes_notes_resource_based_on_package.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_ips_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_ips_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_ips_attributes.rst
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_ips_providers.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Install a package**
-
-.. include:: ../../step_resource/step_resource_ips_package_install.rst
-
-
-link
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_link.rst
-
-.. include:: ../../includes_resources/includes_resource_link_about.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_link_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_link_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_link_attributes.rst
-
-.. 
-.. Providers
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_resources/includes_resource_link_providers.rst
-.. 
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Create symbolic links**
-
-.. include:: ../../step_resource/step_resource_link_create_symbolic.rst
-
-**Create hard links**
-
-.. include:: ../../step_resource/step_resource_link_create_hard.rst
-
-**Delete links**
-
-.. include:: ../../step_resource/step_resource_link_delete.rst
-
-**Create multiple symbolic links**
-
-.. include:: ../../step_resource/step_resource_link_multiple_links_files.rst
-
-**Create platform-specific symbolic links**
-
-.. include:: ../../step_resource/step_resource_link_multiple_links_redhat.rst
-
-
-log
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_log.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_log_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_log_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_log_attributes.rst
-
-.. 
-.. Providers
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_resources/includes_resource_log_providers.rst
-.. 
-
-Chef::Log Entries
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_ruby/includes_ruby_style_basics_chef_log.rst
-
-.. include:: ../../step_ruby/step_ruby_class_chef_log_fatal.rst
-
-.. include:: ../../step_ruby/step_ruby_class_chef_log_multiple.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Set default logging level**
-
-.. include:: ../../step_resource/step_resource_log_set_info.rst
-
-**Set debug logging level**
-
-.. include:: ../../step_resource/step_resource_log_set_debug.rst
-
-**Add a message to a log file**
-
-.. include:: ../../step_resource/step_resource_log_add_message.rst
-
-
-
-
-macports_package
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_package_macports.rst
-
-.. note:: .. include:: ../../includes_notes/includes_notes_resource_based_on_package.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_macports_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_macports_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_macports_attributes.rst
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_macports_providers.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Install a package**
-
-.. include:: ../../step_resource/step_resource_macports_package_install.rst
-
-
-mdadm
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_mdadm.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_mdadm_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_mdadm_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_mdadm_attributes.rst
-
-.. 
-.. Providers
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_resources/includes_resource_mdadm_providers.rst
-.. 
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Create and assemble a RAID 0 array**
-
-.. include:: ../../step_resource/step_resource_mdadm_raid0.rst
-
-**Create and assemble a RAID 1 array**
-
-.. include:: ../../step_resource/step_resource_mdadm_raid1.rst
-
-**Create and assemble a RAID 5 array**
-
-.. include:: ../../step_resource/step_resource_mdadm_raid5.rst
-
-
-mount
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_mount.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_mount_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_mount_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_mount_attributes.rst
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_mount_providers.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Mount a labeled file system**
-
-.. include:: ../../step_resource/step_resource_mount_labeled_file_system.rst
-
-**Mount a local block drive**
-
-.. include:: ../../step_resource/step_resource_mount_local_block_device.rst
-
-**Mount a non-block file system**
-
-.. include:: ../../step_resource/step_resource_mount_nonblock_file_system.rst
-
-**Mount and add to the file systems table**
-
-.. include:: ../../step_resource/step_resource_mount_remote_file_system_add_to_fstab.rst
-
-**Mount a remote file system**
-
-.. include:: ../../step_resource/step_resource_mount_remote_file_system.rst
-
-**Mount a remote folder in Microsoft Windows**
-
-.. include:: ../../step_resource/step_resource_mount_remote_windows_folder.rst
-
-**Unmount a remote folder in Microsoft Windows**
-
-.. include:: ../../step_resource/step_resource_mount_unmount_remote_windows_drive.rst
-
-**Stop a service, do stuff, and then restart it**
-
-.. include:: ../../step_resource/step_resource_service_stop_do_stuff_start.rst
-
-
-ohai
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_ohai.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_ohai_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_ohai_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_ohai_attributes.rst
-
-.. 
-.. Providers
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_resources/includes_resource_ohai_providers.rst
-.. 
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Reload Ohai**
-
-.. include:: ../../step_resource/step_resource_ohai_reload.rst
-
-**Reload Ohai after a new user is created**
-
-.. include:: ../../step_resource/step_resource_ohai_reload_after_create_user.rst
-
-
-openbsd_package
------------------------------------------------------
-
-.. include:: ../../includes_resources_common/includes_resources_common_generic.rst
-
-.. include:: ../../includes_resources/includes_resource_package_openbsd.rst
-
-.. note:: .. include:: ../../includes_notes/includes_notes_resource_based_on_package.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_openbsd_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_openbsd_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_openbsd_attributes.rst
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources_common/includes_resources_common_provider.rst
-
-.. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
-
-.. include:: ../../includes_resources/includes_resource_package_openbsd_providers.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Install a package**
-
-.. include:: ../../step_resource/step_resource_openbsd_package_install.rst
-
-
-
-
-osx_profile
------------------------------------------------------
-
-.. include:: ../../includes_resources/includes_resource_osx_profile.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_osx_profile_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_osx_profile_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_osx_profile_attributes.rst
-
-..
-.. Providers
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_resources_common/includes_resources_common_provider.rst
-..
-.. .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
-..
-.. .. include:: ../../includes_resources/includes_resource_osx_profile_providers.rst
-..
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-
-**One liner to install profile from cookbook file**
-
-.. include:: ../../step_resource/step_resource_osx_profile_install_file_oneline.rst
-
-**Install profile from cookbook file**
-
-.. include:: ../../step_resource/step_resource_osx_profile_install_file.rst
-
-**Install profile from a hash**
-
-.. include:: ../../step_resource/step_resource_osx_profile_install_hash.rst
-
-**Remove profile using identifier in resource name**
-
-.. include:: ../../step_resource/step_resource_osx_profile_remove_by_name.rst
-
-**Remove profile by identifier and user friendly resource name**
-
-.. include:: ../../step_resource/step_resource_osx_profile_remove_by_identifier.rst
-
-
-
-
-
-package
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_package.rst
-
-.. note:: .. include:: ../../includes_notes/includes_notes_available_package_resources.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_syntax.rst
-
-Gem Package Options
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_options.rst
-
-Specify Options with a Hash
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_resources/includes_resource_package_options_hash.rst
-
-**Example**
-
-.. include:: ../../step_resource/step_resource_package_install_gem_with_hash_options.rst
-
-Specify Options with a String
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_resources/includes_resource_package_options_string.rst
-
-**Example**
-
-.. include:: ../../step_resource/step_resource_package_install_gem_with_options_string.rst
-
-Specify Options with a .gemrc File
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_resources/includes_resource_package_options_gemrc.rst
-
-**Example**
-
-.. include:: ../../step_resource/step_resource_package_install_gem_with_gemrc.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_attributes.rst
-
-Multiple Packages
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_resources_common/includes_resources_common_multiple_packages.rst
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_providers.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Install a gems file for use in recipes**
-
-.. include:: ../../step_resource/step_resource_package_install_gems_for_chef_recipe.rst
-
-**Install a gems file from the local file system**
-
-.. include:: ../../step_resource/step_resource_package_install_gems_from_local.rst
-
-**Install a package**
-
-.. include:: ../../step_resource/step_resource_package_install.rst
-
-**Install a package version**
-
-.. include:: ../../step_resource/step_resource_package_install_version.rst
-
-**Install a package with options**
-
-.. include:: ../../step_resource/step_resource_package_install_with_options.rst
-
-**Install a package with a response_file**
-
-.. include:: ../../step_resource/step_resource_package_install_with_response_file.rst
-
-**Install a package using a specific provider**
-
-.. include:: ../../step_resource/step_resource_package_install_with_specific_provider.rst
-
-**Install a specified architecture using a named provider**
-
-.. include:: ../../step_resource/step_resource_package_install_with_yum.rst
-
-**Purge a package**
-
-.. include:: ../../step_resource/step_resource_package_purge.rst
-
-**Remove a package**
-
-.. include:: ../../step_resource/step_resource_package_remove.rst
-
-**Upgrade a package**
-
-.. include:: ../../step_resource/step_resource_package_upgrade.rst
-
-**Avoid unnecessary string interpolation**
-
-.. include:: ../../step_resource/step_resource_package_avoid_unnecessary_string_interpolation.rst
-
-**Install a package in a platform**
-
-.. include:: ../../step_resource/step_resource_package_install_package_on_platform.rst
-
-**Install sudo, then configure /etc/sudoers/ file**
-
-.. include:: ../../step_resource/step_resource_package_install_sudo_configure_etc_sudoers.rst
-
-**Use a case statement to specify the platform**
-
-.. include:: ../../step_resource/step_resource_package_use_case_statement.rst
-
-**Use symbols to reference attributes**
-
-.. include:: ../../step_resource/step_resource_package_use_symbols_to_reference_attributes.rst
-
-**Use a whitespace array to simplify a recipe**
-
-.. include:: ../../step_resource/step_resource_package_use_whitespace_array.rst
-
-pacman_package
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_package_pacman.rst
-
-.. note:: .. include:: ../../includes_notes/includes_notes_resource_based_on_package.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_pacman_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_pacman_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_pacman_attributes.rst
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_pacman_providers.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Install a package**
-
-.. include:: ../../step_resource/step_resource_pacman_package_install.rst
-
-
-
-paludis_package
------------------------------------------------------
-
-.. include:: ../../includes_resources_common/includes_resources_common_generic.rst
-
-.. include:: ../../includes_resources/includes_resource_package_paludis.rst
-
-.. note:: .. include:: ../../includes_notes/includes_notes_resource_based_on_package.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_paludis_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_paludis_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_paludis_attributes.rst
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources_common/includes_resources_common_provider.rst
-
-.. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
-
-.. include:: ../../includes_resources/includes_resource_package_paludis_providers.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Install a package**
-
-.. include:: ../../step_resource/step_resource_paludis_package_install.rst
-
-
-
-
-perl
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_script_perl.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_script_perl_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_script_perl_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_script_perl_attributes.rst
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_script_perl_providers.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-None.
-
-
-portage_package
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_package_portage.rst
-
-.. note:: .. include:: ../../includes_notes/includes_notes_resource_based_on_package.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_portage_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_portage_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_portage_attributes.rst
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_portage_providers.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Install a package**
-
-.. include:: ../../step_resource/step_resource_portage_package_install.rst
-
-
-powershell_script
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_powershell_script.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_powershell_script_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_powershell_script_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_powershell_script_attributes.rst
-
-.. 
-.. Providers
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_resources/includes_resource_powershell_script_providers.rst
-.. 
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Write to an interpolated path**
-
-.. include:: ../../step_resource/step_resource_powershell_write_to_interpolated_path.rst
-
-**Change the working directory**
-
-.. include:: ../../step_resource/step_resource_powershell_cwd.rst
-
-**Change the working directory in Microsoft Windows**
-
-.. include:: ../../step_resource/step_resource_powershell_cwd_microsoft_env.rst
-
-**Pass an environment variable to a script**
-
-.. include:: ../../step_resource/step_resource_powershell_pass_env_to_script.rst
-
-**Rename computer, join domain, reboot**
-
-.. include:: ../../step_resource/step_resource_powershell_rename_join_reboot.rst
-
-
-
-python
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_script_python.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_script_python_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_script_python_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_script_python_attributes.rst
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_script_python_providers.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-None.
-
-
-
-
-reboot
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_service_reboot.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_service_reboot_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_service_reboot_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_service_reboot_attributes.rst
-
-.. 
-.. Providers
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_resources/includes_resource_service_reboot_providers.rst
-.. 
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Reboot a node immediately**
-
-.. include:: ../../step_resource/step_resource_service_reboot_immediately.rst
-
-**Reboot a node at the end of a chef-client run**
-
-.. include:: ../../step_resource/step_resource_service_reboot_request.rst
-
-**Cancel a reboot**
-
-.. include:: ../../step_resource/step_resource_service_reboot_cancel.rst
-
-**Rename computer, join domain, reboot**
-
-.. include:: ../../step_resource/step_resource_powershell_rename_join_reboot.rst
-
-
-registry_key
------------------------------------------------------
-
-.. include:: ../../includes_resources/includes_resource_registry_key.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_registry_key_syntax.rst
-
-**Registry Key Path Separators**
-
-.. include:: ../../includes_windows/includes_windows_registry_key_backslashes.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_registry_key_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_registry_key_attributes.rst
-
-.. 
-.. Providers
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_resources/includes_resource_registry_key_providers.rst
-.. 
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Create a registry key**
-
-.. include:: ../../step_resource/step_resource_registry_key_create.rst
-
-**Delete a registry key value**
-
-.. include:: ../../step_resource/step_resource_registry_key_delete_value.rst
-
-**Delete a registry key and its subkeys, recursively**
-
-.. include:: ../../step_resource/step_resource_registry_key_delete_recursively.rst
-
-**Use re-directed keys**
-
-.. include:: ../../step_resource/step_resource_registry_key_redirect.rst
-
-**Set proxy settings to be the same as those used by the chef-client**
-
-.. include:: ../../step_resource/step_resource_registry_key_set_proxy_settings_to_same_as_chef_client.rst
-
-**Set the name of a registry key to "(Default)"**
-
-.. include:: ../../step_resource/step_resource_registry_key_set_default.rst
-
-remote_directory
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_remote_directory.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_remote_directory_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_remote_directory_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_remote_directory_attributes.rst
-
-Recursive Directories
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_resources/includes_resource_remote_directory_recursive.rst
-
-.. 
-.. Providers
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_resources/includes_resource_remote_directory_providers.rst
-.. 
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Recursively transfer a directory from a remote location**
-
-.. include:: ../../step_resource/step_resource_remote_directory_recursive_transfer.rst
-
-**Use with the chef_handler lightweight resource**
-
-.. include:: ../../step_resource/step_resource_remote_directory_report_handler.rst
-
-
-remote_file
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_remote_file.rst
-
-.. note:: .. include:: ../../includes_notes/includes_notes_remote_file_resource_fetch_from_files_directory.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_remote_file_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_remote_file_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_remote_file_attributes.rst
-
-.. 
-.. Providers
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_resources/includes_resource_remote_file_providers.rst
-.. 
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Transfer a file from a URL**
-
-.. include:: ../../step_resource/step_resource_remote_file_transfer_from_url.rst
-
-**Transfer a file only when the source has changed**
-
-.. include:: ../../step_resource/step_resource_remote_file_transfer_remote_source_changes.rst
-
-**Install a file from a remote location using bash**
-
-.. include:: ../../step_resource/step_resource_remote_file_install_with_bash.rst
-
-**Store certain settings**
-
-.. include:: ../../step_resource/step_resource_remote_file_store_certain_settings.rst
-
-**Use the platform_family? method**
-
-.. include:: ../../step_resource/step_resource_remote_file_use_platform_family.rst
-
-**Specify local Windows file path as a valid URI**
-
-.. include:: ../../step_resource/step_resource_remote_file_local_windows_path.rst
-
-route
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_route.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_route_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_route_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_route_attributes.rst
-
-.. 
-.. Providers
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_resources/includes_resource_route_providers.rst
-.. 
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Add a host route**
-
-.. include:: ../../step_resource/step_resource_route_add_host.rst
-
-**Delete a network route**
-
-.. include:: ../../step_resource/step_resource_route_delete_network.rst
-
-rpm_package
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_package_rpm.rst
-
-.. note:: .. include:: ../../includes_notes/includes_notes_resource_based_on_package.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_rpm_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_rpm_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_rpm_attributes.rst
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_rpm_providers.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Install a package**
-
-.. include:: ../../step_resource/step_resource_rpm_package_install.rst
-
-ruby
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_script_ruby.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_script_ruby_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_script_ruby_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_script_ruby_attributes.rst
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_script_ruby_providers.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-None.
-
-
-ruby_block
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_ruby_block.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_ruby_block_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_ruby_block_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_ruby_block_attributes.rst
-
-.. 
-.. Providers
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_resources/includes_resource_ruby_block_providers.rst
-.. 
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Re-read configuration data**
-
-.. include:: ../../step_resource/step_resource_ruby_block_reread_chef_client.rst
-
-**Install repositories from a file, trigger a command, and force the internal cache to reload**
-
-.. include:: ../../step_resource/step_resource_yum_package_install_yum_repo_from_file.rst
-
-**Use an if statement with the platform recipe DSL method**
-
-.. include:: ../../step_resource/step_resource_ruby_block_if_statement_use_with_platform.rst
-
-**Stash a file in a data bag**
-
-.. include:: ../../step_resource/step_resource_ruby_block_stash_file_in_data_bag.rst
-
-**Update the /etc/hosts file**
-
-.. include:: ../../step_resource/step_resource_ruby_block_update_etc_host.rst
-
-**Set environment variables**
-
-.. include:: ../../step_resource/step_resource_ruby_block_use_variables_to_set_env_variables.rst
-
-**Set JAVA_HOME**
-
-.. include:: ../../step_resource/step_resource_ruby_block_use_variables_to_set_java_home.rst
-
-**Run specific blocks of Ruby code on specific platforms**
-
-.. include:: ../../step_resource/step_resource_ruby_block_run_specific_ruby_blocks_on_specific_platforms.rst
-
-**Reload the configuration**
-
-.. include:: ../../step_resource/step_resource_ruby_block_reload_configuration.rst
-
-
-script
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_script.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_script_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_script_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_script_attributes.rst
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_script_providers.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Use a named provider to run a script**
-
-.. include:: ../../step_resource/step_resource_script_bash_provider_and_interpreter.rst
-
-**Run a script**
-
-.. include:: ../../step_resource/step_resource_script_bash_script.rst
-
-**Install a file from a remote location using bash**
-
-.. include:: ../../step_resource/step_resource_remote_file_install_with_bash.rst
-
-**Install an application from git using bash**
-
-.. include:: ../../step_resource/step_resource_scm_use_bash_and_ruby_build.rst
-
-**Store certain settings**
-
-.. include:: ../../step_resource/step_resource_remote_file_store_certain_settings.rst
-
-
-
-service
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_service.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_service_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_service_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_service_attributes.rst
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_service_providers.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Start a service**
-
-.. include:: ../../step_resource/step_resource_service_start_service.rst
-
-**Start a service, enable it**
-
-.. include:: ../../step_resource/step_resource_service_start_service_and_enable_at_boot.rst
-
-**Use a pattern**
-
-.. include:: ../../step_resource/step_resource_service_process_table_has_different_value.rst
-
-**Manage a service, depending on the node platform**
-
-.. include:: ../../step_resource/step_resource_service_manage_ssh_based_on_node_platform.rst
-
-**Change a service provider, depending on the node platform**
-
-.. include:: ../../step_resource/step_resource_service_change_service_provider_based_on_node.rst
-
-**Set an IP address using variables and a template**
-
-.. include:: ../../step_resource/step_resource_template_set_ip_address_with_variables_and_template.rst
-
-**Use a cron timer to manage a service**
-
-.. include:: ../../step_resource/step_resource_service_use_variable.rst
-
-**Restart a service, and then notify a different service**
-
-.. include:: ../../step_resource/step_resource_service_restart_and_notify.rst
-
-**Stop a service, do stuff, and then restart it**
-
-.. include:: ../../step_resource/step_resource_service_stop_do_stuff_start.rst
-
-**Control a service using the execute resource**
-
-.. include:: ../../step_resource/step_resource_execute_control_a_service.rst
-
-
-smartos_package
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_package_smartos.rst
-
-.. note:: .. include:: ../../includes_notes/includes_notes_resource_based_on_package.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_smartos_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_smartos_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_smartos_attributes.rst
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_smartos_providers.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Install a package**
-
-.. include:: ../../step_resource/step_resource_smartos_package_install.rst
-
-
-solaris_package
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_package_solaris.rst
-
-.. note:: .. include:: ../../includes_notes/includes_notes_resource_based_on_package.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_solaris_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_solaris_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_solaris_attributes.rst
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_solaris_providers.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Install a package**
-
-.. include:: ../../step_resource/step_resource_solaris_package_install.rst
-
-
-
-subversion
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_scm_subversion.rst
-
-.. note:: .. include:: ../../includes_notes/includes_notes_scm_resource_use_with_resource_deploy.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_scm_subversion_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_scm_subversion_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_scm_subversion_attributes.rst
-
-.. 
-.. Providers
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_resources/includes_resource_scm_subversion_providers.rst
-.. 
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Get the latest version of an application**
-
-.. include:: ../../step_resource/step_resource_scm_get_latest_version.rst
-
-systemd_unit
-----------------------------------------------------
-
-.. include:: ../../includes_resources/includes_resource_systemd_unit.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_systemd_unit_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_systemd_unit_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_systemd_unit_attributes.rst
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources_common/includes_resources_common_provider.rst
-
-.. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
-
-.. include:: ../../includes_resources/includes_resource_systemd_unit_providers.rst
-
-template
------------------------------------------------------
-.. include:: ../../includes_template/includes_template.rst
-
-.. include:: ../../includes_resources/includes_resource_template.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_template_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_template_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_template_attributes.rst
-
-.. 
-.. Providers
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_resources/includes_resource_template_providers.rst
-.. 
-
-Using Templates
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_template/includes_template_requirements.rst
-
-File Specificity
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_template/includes_template_specificity.rst
-
-**Pattern**
-
-.. include:: ../../includes_template/includes_template_specificity_pattern.rst
-
-**Example**
-
-.. include:: ../../includes_template/includes_template_specificity_example.rst
-
-Helpers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_template_helper.rst
-
-**Inline Methods**
-
-.. include:: ../../step_resource/step_resource_template_inline_method.rst
-
-**Inline Modules**
-
-.. include:: ../../step_resource/step_resource_template_inline_module.rst
-
-**Library Modules**
-
-.. include:: ../../step_resource/step_resource_template_library_module.rst
-
-Host Notation
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_template/includes_template_host_notation.rst
-
-Partial Templates
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_template/includes_template_partials.rst
-
-**render Method**
-
-.. include:: ../../includes_template/includes_template_partials_render_method.rst
-
-Transfer Frequency
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_template/includes_template_transfer_frequency.rst
-
-Variables
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_template/includes_template_variables.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Configure a file from a template**
-
-.. include:: ../../step_resource/step_resource_template_configure_file.rst
-
-**Configure a file from a local template**
-
-.. include:: ../../step_resource/step_resource_template_configure_file_from_local.rst
-
-**Configure a file using a variable map**
-
-.. include:: ../../step_resource/step_resource_template_configure_file_with_variable_map.rst
-
-**Use the not_if condition**
-
-.. include:: ../../step_resource/step_resource_template_add_file_not_if_attribute_has_value.rst
-
-.. include:: ../../step_resource/step_resource_template_add_file_not_if_ruby.rst
-
-.. include:: ../../step_resource/step_resource_template_add_file_not_if_ruby_with_curly_braces.rst
-
-.. include:: ../../step_resource/step_resource_template_add_file_not_if_string.rst
-
-**Use the only_if condition**
-
-.. include:: ../../step_resource/step_resource_template_add_file_only_if_attribute_has_value.rst
-
-.. include:: ../../step_resource/step_resource_template_add_file_only_if_ruby.rst
-
-.. include:: ../../step_resource/step_resource_template_add_file_only_if_string.rst
-
-**Use a whitespace array (%w)**
-
-.. include:: ../../step_resource/step_resource_template_use_whitespace_array.rst
-
-**Use a relative path**
-
-.. include:: ../../step_resource/step_resource_template_use_relative_paths.rst
-
-**Delay notifications**
-
-.. include:: ../../step_resource/step_resource_template_notifies_delay.rst
-
-**Notify immediately**
-
-.. include:: ../../step_resource/step_resource_template_notifies_run_immediately.rst
-
-**Notify multiple resources**
-
-.. include:: ../../step_resource/step_resource_template_notifies_multiple_resources.rst
-
-**Reload a service**
-
-.. include:: ../../step_resource/step_resource_template_notifies_reload_service.rst
-
-**Restart a service when a template is modified**
-
-.. include:: ../../step_resource/step_resource_template_notifies_restart_service_when_template_modified.rst
-
-**Send notifications to multiple resources**
-
-.. include:: ../../step_resource/step_resource_template_notifies_send_notifications_to_multiple_resources.rst
-
-**Execute a command using a template**
-
-.. include:: ../../step_resource/step_resource_execute_command_from_template.rst
-
-**Set an IP address using variables and a template**
-
-.. include:: ../../step_resource/step_resource_template_set_ip_address_with_variables_and_template.rst
-
-**Add a rule to an IP table**
-
-.. include:: ../../step_resource/step_resource_execute_add_rule_to_iptable.rst
-
-**Apply proxy settings consistently across a Chef organization**
-
-.. include:: ../../step_resource/step_resource_template_consistent_proxy_settings.rst
-
-**Get template settings from a local file**
-
-.. include:: ../../step_resource/step_resource_template_get_settings_from_local_file.rst
-
-**Pass values from recipe to template**
-
-.. include:: ../../step_resource/step_resource_template_pass_values_to_template_from_recipe.rst
-
-
-
-
-user
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_user.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_user_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_user_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_user_attributes.rst
-
-Password Shadow Hash
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_user_password_shadow_hash.rst
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_user_providers.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Create a user named "random"**
-
-.. include:: ../../step_resource/step_resource_user_create_random.rst
-
-**Create a system user**
-
-.. include:: ../../step_resource/step_resource_user_create_system.rst
-
-**Create a system user with a variable**
-
-.. include:: ../../step_resource/step_resource_user_create_system_user_with_variable.rst
-
-
-windows_package
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_package_windows.rst
-
-.. note:: .. include:: ../../includes_notes/includes_notes_resource_based_on_package.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_windows_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_windows_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_windows_attributes.rst
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_windows_providers.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Install a package**
-
-.. include:: ../../step_resource/step_resource_windows_package_install.rst
-
-
-
-windows_service
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_service_windows.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_service_windows_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_service_windows_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_service_windows_attributes.rst
-
-.. 
-.. Providers
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_resources/includes_resource_service_windows_providers.rst
-.. 
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Start a service manually**
-
-.. include:: ../../step_resource/step_resource_service_windows_manual_start.rst
-
-
-yum_package
------------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_package_yum.rst
-
-.. note:: .. include:: ../../includes_notes/includes_notes_yum_resource_using_file_names.rst
-
-.. note:: .. include:: ../../includes_notes/includes_notes_resource_based_on_package.rst
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_yum_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_yum_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_yum_attributes.rst
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_package_yum_providers.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-|generic resource statement|
-
-**Install an exact version**
-
-.. include:: ../../step_resource/step_resource_yum_package_install_exact_version.rst
-
-**Install a minimum version**
-
-.. include:: ../../step_resource/step_resource_yum_package_install_minimum_version.rst
-
-**Install a minimum version using the default action**
-
-.. include:: ../../step_resource/step_resource_yum_package_install_package_using_default_action.rst
-
-**To install a package**
-
-.. include:: ../../step_resource/step_resource_yum_package_install_package.rst
-
-**To install a partial minimum version**
-
-.. include:: ../../step_resource/step_resource_yum_package_install_partial_minimum_version.rst
-
-**To install a specific architecture**
-
-.. include:: ../../step_resource/step_resource_yum_package_install_specific_architecture.rst
-
-**To install a specific version-release**
-
-.. include:: ../../step_resource/step_resource_yum_package_install_specific_version_release.rst
-
-**To install a specific version (even when older than the current)**
-
-.. include:: ../../step_resource/step_resource_yum_package_install_specific_version.rst
-
-**Handle cookbook_file and yum_package resources in the same recipe**
-
-.. include:: ../../step_resource/step_resource_yum_package_handle_cookbook_file_and_yum_package.rst
-
-
-yum_repository
------------------------------------------------------
-
-.. include:: ../../includes_resources/includes_resource_yum_repository.rst
-
-New in Chef client 12.14.
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_yum_repository_syntax.rst
-
-Actions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_yum_repository_actions.rst
-
-Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_yum_repository_attributes.rst
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_yum_repository_examples.rst

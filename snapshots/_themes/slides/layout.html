@@ -1,0 +1,188 @@
+{#
+
+revealjs/layout.html
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Master layout template for Sphinx themes.
+
+:copyright: tell-k <ffk2005@gmail.com>
+:license: MIT License
+
+#}
+{%- block doctype -%}
+<!DOCTYPE html>
+{%- endblock %}
+{%- set url_root = pathto('', 1) %}
+{# XXX necessary? #}
+{%- if url_root == '#' %}{% set url_root = '' %}{% endif %}
+{%- if not embedded and docstitle %}
+{%- set titlesuffix = " &mdash; "|safe + docstitle|e %}
+{%- else %}
+{%- set titlesuffix = "" %}
+{%- endif %}
+
+{%- macro script() %}
+<script src="{{ pathto('_static/js/jquery.min.js', 1) }}"></script>
+<script src="{{ pathto('_static/lib/js/head.min.js', 1) }}"></script>
+<script src="{{ pathto('_static/js/reveal.min.js', 1) }}"></script>
+{%- endmacro %}
+
+{%- macro css() %}
+<link rel="stylesheet" href="{{ pathto('_static/css/reveal.min.css', 1) }}">
+<link rel="stylesheet" href="{{ pathto('_static/css/theme/default.css', 1) }}" id="theme">
+<link rel="stylesheet" href="{{ pathto('_static/lib/css/zenburn.css', 1) }}">
+<link rel="stylesheet" href="{{ pathto('_static/' + style, 1) }}" type="text/css" />
+{%- for cssfile in css_files %}
+<link rel="stylesheet" href="{{ pathto(cssfile, 1) }}" type="text/css" />
+{%- endfor %}
+{%- endmacro %}
+
+<html lang="{{ theme_lang }}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    {%- block htmltitle %}
+    <title align="left">{{ title|striptags|e }}{{ titlesuffix }}</title>
+    {%- endblock %}
+
+    {{ metatags }}
+
+    {{ css() }}
+
+    {%- if not embedded %}
+      {%- if favicon %}
+      <link rel="shortcut icon" href="{{ pathto('_static/' + favicon, 1) }}"/>
+      {%- endif %}
+    {%- endif %}
+
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+        if(window.location.search.match(/print-pdf/gi)) {
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = '{{ pathto('_static/css/print/pdf.css', 1) }}';
+            document.getElementsByTagName('head')[0].appendChild(link);
+        }
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="{{ pathto('_static/lib/js/html5shiv.js', 1) }}"></script>
+    <![endif]-->
+
+    {%- for scriptfile in script_files %}
+    {%- if scriptfile not in ('_static/jquery.js', '_static/underscore.js', '_static/doctools.js') %}
+      <script type="text/javascript" src="{{ pathto(scriptfile, 1) }}"></script>
+    {%- endif %}
+    {%- endfor %}
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides" align="left">
+        {% block body %}{% endblock %}
+      </div>
+    </div>
+    {{ script() }}
+    <script>
+
+      // change DOM for reveal.js
+      $("div.section h1").remove();
+      var content = $("div.section").html();
+      $("div.section").remove();
+      $("div.slides").html(content);
+
+      Reveal.initialize({
+        width: {{ theme_width }},
+        height: {{ theme_height }},
+
+        margin: {{ theme_margin }},
+
+        minScale: {{ theme_min_scale }},
+        maxScale: {{ theme_max_scale }},
+
+        controls: {{ theme_controls|lower }},
+        progress: {{ theme_progress|lower }},
+        history: {{ theme_history|lower }},
+        center: {{ theme_center|lower }},
+
+        keyboard : {{ theme_keyboard|lower }},
+        overview: {{ theme_overview|lower }},
+        touch: {{ theme_touch|lower }},
+        loop: {{ theme_loop|lower }},
+        rtl: {{ theme_rtl|lower }},
+        fragments: {{ theme_fragments|lower }},
+
+        autoSlide: {{ theme_auto_slide|lower }},
+        mouseWheel: {{ theme_mouse_wheel|lower }},
+        rollingLinks: {{ theme_rolling_links|lower }},
+        previewLinks: {{ theme_preview_links|lower }},
+
+        transitionSpeed: "{{ theme_transition_speed }}",
+        backgroundTransition: "{{ theme_background_transition }}",
+
+        slideNumber: {{ theme_slide_number|lower }},
+        embedded: {{ theme_embedded|lower }},
+        autoSlideStoppable: {{ theme_auto_slide_stoppable|lower }},
+        hideAddressBar: {{ theme_hide_address_bar|lower }},
+
+        parallaxBackgroundImage: "{{ theme_parallax_background_image }}",
+        parallaxBackgroundSize: "{{ theme_parallax_background_size }}",
+
+        focusBodyOnPageVisiblityChange: {{ theme_focus_body_on_page_visibility_change|lower }},
+
+        viewDistance: {{ theme_view_distance }},
+
+        theme: Reveal.getQueryHash().theme || "{{ theme_theme }}",
+        transition: Reveal.getQueryHash().transition || "{{ theme_transition }}",
+
+        {% if theme_multiplex %}
+        multiplex: {
+            {%- for k, v in theme_multiplex.items() -%}
+            {%- if v %}
+                {{ k }}: "{{ v }}"{%- if not loop.last %},{% endif -%}
+            {% endif -%}
+            {% endfor %}
+        },
+        {% endif -%}
+        {%- if theme_leap %}
+        leap: {
+            {% for k, v in theme_leap.items() -%}
+                {% if k in ('autoCenter', 'naturalSwipe') -%}
+                    {{ k }}: {{ v|lower }}{% if not loop.last -%},{% endif %}
+                {% elif k in ('pointerColor') -%}
+                    {{ k }}: "{{ v }}"{% if not loop.last -%},{% endif %}
+                {% else -%}
+                    {{ k }}: {{ v }}{% if not loop.last -%},{% endif %}
+                {% endif -%}
+            {% endfor -%}
+        },
+        {% endif %}
+        {%- if theme_math  %}
+        math: {
+            {% for k, v in theme_math.items() -%}
+                {{ k }}: "{{ v }}"{%- if not loop.last %},{% endif -%}
+            {% endfor -%}
+        },
+        {% endif %}
+
+        dependencies: [
+           { src: '{{ pathto('_static/lib/js/classList.js', 1) }}', condition: function() { return !document.body.classList; } },
+           { src: '{{ pathto('_static/plugin/markdown/marked.js', 1) }}', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+           { src: '{{ pathto('_static/plugin/markdown/markdown.js', 1) }}', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+           { src: '{{ pathto('_static/plugin/highlight/highlight.js', 1) }}', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+           { src: '{{ pathto('_static/plugin/zoom-js/zoom.js', 1) }}', async: true, condition: function() { return !!document.body.classList; } },
+           {%- for plugin in theme_plugin_list %}
+           { src: '{{ plugin }}', async: true, condition: function() { return !!document.body.classList; } },
+           {% endfor %}
+           { src: '{{ pathto('_static/plugin/notes/notes.js', 1) }}', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+    </script>
+    {% if theme_customjs  -%}
+    <script src="{{ pathto('_static/' + theme_customjs, 1) }}"></script>
+    {% endif  %}
+  </body>
+</html>

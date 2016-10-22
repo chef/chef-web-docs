@@ -1,8 +1,14 @@
 =====================================================
-Integrate Chef Automate with |github|
+Integrate Chef Automate with GitHub
 =====================================================
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+.. tag chef_automate_mark
+
+.. image:: ../../images/chef_automate_full.png
+   :width: 40px
+   :height: 17px
+
+.. end_tag
 
 Chef Automate's GitHub integration allows you to use GitHub as the canonical git repository for your projects while 
 benefiting from Chef Automate's workflow and pipeline automation. When you enable the integration on a project in 
@@ -61,48 +67,48 @@ Debian
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 #. Log into your Chef Automate Server as root.
-#. Change directory to ``ca-certificates``. 
+#. Change directory to ``ca-certificates``.
 
    .. code-block:: bash
-   
+
       cd /usr/local/share/ca-certificates
 
 #. Copy your certificate into the ``/usr/local/share/ca-certificates`` directory.
 
    .. code-block:: bash
-   
+
       openssl s_client -showcerts -connect {your-GitHub-server}:443 </dev/null 2>/dev/null|openssl x509 -outform PEM >{your-GitHub-server}.crt
 
 #. Update the CA store on the Chef Automate server.
 
    .. code-block:: bash
-   
+
      update-ca-certificates
 
 Rhel/Centos 6.x and greater
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 #. Log into your Chef Automate Server as root.
-#. Install the ``ca-certificates`` package. 
+#. Install the ``ca-certificates`` package.
 
    .. code-block:: bash
-   
-      yum install ca-certificates 
-      
+
+      yum install ca-certificates
+
    .. note:: You only need to do this once for 6.x servers.
 
 #. Enable the dynamic CA configuration feature.
 
    .. code-block:: bash
-   
+
       update-ca-trust force-enable
-      
+
    .. note:: You only need to do this once for 6.x servers.
 
 #. Change directory to the ``anchors`` directory.
 
    .. code-block:: bash
-   
+
       cd /etc/pki/ca-trust/source/anchors/
 
 #. Copy your certificate into the ``/etc/pki/ca-trust/source/anchors/`` directory.
@@ -114,7 +120,7 @@ Rhel/Centos 6.x and greater
 #. Create or update the generated CA certificate bundle files located in the ``/etc/pki/ca-trust/extracted`` directory hierarchy.
 
    .. code-block:: bash
-   
+
       update-ca-trust extract
 
 Associating Chef Automate with your GitHub instance
@@ -123,7 +129,7 @@ Associating Chef Automate with your GitHub instance
 #. In Chef Automate's web UI, click the ``Admin`` button in the top navigation.
 #. From the left navigation, click ``SCM Setup``.
 #. Click the ``GitHub`` tab.
-#. Fill out the following fields. 
+#. Fill out the following fields.
 
     *   ``GitHub URL`` - The URL for your GitHub instance.
     *   ``GitHub Username`` - The username of the service account that Chef Automate will use to interact with GitHub.
@@ -168,12 +174,12 @@ Initializing a new GitHub project in Chef Automate
 #. Start the initialization process by running:
 
    .. code-block:: bash
-   
+
       delivery init --github $GITHUB_ORGANIZATION --repo-name $REPOSITORY_NAME
 
    By default, Chef Automate will use the current directory name as the new project name. If you want to name the project something else, 
-   you may specify the project name as an argument (``--project=$AUTOMATE_PROJECT_NAME``). 
-   
+   you may specify the project name as an argument (``--project=$AUTOMATE_PROJECT_NAME``).
+
    After importing your code, this command will generate a `.delivery/config.json` file, create a build cookbook, and submit a change to 
    Chef Automate to initialize a pipeline for the project. Your browser will open to the change in Chef Automate.
    At this point, you should be able to see a corresponding pull request in GitHub.
@@ -279,7 +285,7 @@ Code Review
 
 You may conduct a code review using either Chef Automate or
 GitHub; however, the merging of a pull request is handled by Chef Automate and
-occurs when a change in Chef Automate is approved. 
+occurs when a change in Chef Automate is approved.
 
 .. warning:: Do not merge the pull request from within GitHub.
 

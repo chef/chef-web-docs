@@ -1,29 +1,35 @@
 =====================================================
-|api compliance|
+Compliance API
 =====================================================
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+.. tag chef_automate_mark
 
-The |api compliance| is a REST-based API that is designed to be easy and predictable and to have resource-oriented URL endpoints. It uses common HTTP verbs and response codes to indicate API errors. Therefore the API can be understood by standard HTTP clients and libraries. In general the API uses |json| as data input and output format.
+.. image:: ../../images/chef_automate_full.png
+   :width: 40px
+   :height: 17px
 
-The |api compliance| is located at ``https://hostname/api/`` for on-premises installations of the |chef compliance| server.
+.. end_tag
+
+The Compliance API is a REST-based API that is designed to be easy and predictable and to have resource-oriented URL endpoints. It uses common HTTP verbs and response codes to indicate API errors. Therefore the API can be understood by standard HTTP clients and libraries. In general the API uses JSON as data input and output format.
+
+The Compliance API is located at ``https://hostname/api/`` for on-premises installations of the Chef Compliance server.
 
 About API Requests
 =====================================================
 Some notes about API requests:
 
 * There are two kinds of tokens involved: ``refresh tokens`` and ``access tokens``. A ``refresh token`` is a long-lived token that can be used to initially identify with the service, in exchange for an ``access token``. The ``access token`` is short-lived (12 hours) and used for every request against the API. It is mostly referred to as "API token" below.
-* Examples in this document use ``-H "Authorization: Bearer $API_TOKEN"`` to represent the retrieved API (access) token. A retrieved API token is a |json jwt| and quite large. See the examples below for how to get an access token in |bash|.
-* When running commands as an administrator and if the ``API_TOKEN`` is not used, some requests to the |api compliance| will return ``403`` (forbidden) if the user making the requests does not have appropriate permissions.
-* Any time a |json| block is part of a request to the |api compliance|, the content type ``application/json`` must also be specified. Use the ``-H`` option: ``-H "Content-Type: application/json"``.
+* Examples in this document use ``-H "Authorization: Bearer $API_TOKEN"`` to represent the retrieved API (access) token. A retrieved API token is a JSON Web Token (JWT) and quite large. See the examples below for how to get an access token in Bash.
+* When running commands as an administrator and if the ``API_TOKEN`` is not used, some requests to the Compliance API will return ``403`` (forbidden) if the user making the requests does not have appropriate permissions.
+* Any time a JSON block is part of a request to the Compliance API, the content type ``application/json`` must also be specified. Use the ``-H`` option: ``-H "Content-Type: application/json"``.
 
-  |chef compliance| uses the API token to allow access to the |api compliance|. The API token must be included as part of ``every HTTP request`` to the |api compliance| with the API token included as part of the header:
+  Chef Compliance uses the API token to allow access to the Compliance API. The API token must be included as part of ``every HTTP request`` to the Compliance API with the API token included as part of the header:
 
   .. code-block:: javascript
 
      Authorization: Bearer API_TOKEN
 
-  where the ``API_TOKEN`` is a valid |company_name| |api compliance| token similar to ``eyJhbGciOiJSUzI1NiIsImtpZCI6InJFZi1DUVZQYi1xTXY3WF9CdXZNZ3B5bnc2R3J0OW1adlN3NVhOY2VISjBB ...``.
+  where the ``API_TOKEN`` is a valid Chef Compliance API token similar to ``eyJhbGciOiJSUzI1NiIsImtpZCI6InJFZi1DUVZQYi1xTXY3WF9CdXZNZ3B5bnc2R3J0OW1adlN3NVhOY2VISjBB ...``.
 
   .. code-block:: bash
 
@@ -31,7 +37,7 @@ Some notes about API requests:
      API_TOKEN="eyJhbGciOiJSUzI1NiIsImtpZCI6InJFZi1DUVZQYi1xTXY3WF9CdXZNZ3B5bnc2R3J0OW1adlN3NVhOY2VISjBBZzBaVVFUZTZCYVNROW91UWRob0JsemRvLV93V0VXd3ZJVEU4SS1KMk81enljRVhoZlFvU2JaeThfMVZTekt6SVN6LXFiYVZtUElqZHZiU1hneTNvY3Rla3RKRkYtWWNUa3lXbVhSaTd4OEVNSU9EVFFnVEplMV8zODhTZGt0MEdub0xJUEVnWXp..."
      curl -X GET "$API_URL/users" -H "Authorization: Bearer $API_TOKEN"
 
-  For readability, most API examples on this page reference |chef compliance| object names (or ``login`` in the case of users and organizations). You can also use object **UUIDs** instead. For example, both these calls retrieve the ``Dev Ops`` environment:
+  For readability, most API examples on this page reference Chef Compliance object names (or ``login`` in the case of users and organizations). You can also use object **UUIDs** instead. For example, both these calls retrieve the ``Dev Ops`` environment:
 
   .. code-block:: bash
 
@@ -42,12 +48,11 @@ Some notes about API requests:
      $ curl -X GET "$API_URL/owners/1654fe61-d15b-4fbe-5fa9-67859135fc7e/envs/53a7f189-4417-44ba-57f4-f3d397589973" -H "$AUTH"
      {"owner":"1654fe61-d15b-4fbe-5fa9-67859135fc7e","name":"Dev Ops","lastScan":"0001-01-01T00:00:00Z","complianceStatus":-1,"patchlevelStatus":-1,"unknownStatus":0,"id":"53a7f189-4417-44ba-57f4-f3d397589973"}
 
-
 Obtaining an API token
 =====================================================
 There are three ways of obtaining an API token:
 
-1. Using the "About" dialogue of |chef compliance|
+1. Using the "About" dialogue of Chef Compliance
 2. Using a ``refresh token`` (which can also be obtained from the "About" dialogue, but can be reused).
 3. By sending username and password to the login endpoint.
 
@@ -81,17 +86,16 @@ Revoked refresh tokens can no longer be used to obtain access tokens:
      $ curl -X POST $API_URL/login -d "{\"token\": \"$REFRESH_TOKEN\"}"
      unable to trade refresh token for access token with issuer: invalid_request
 
-To get an access token given |chef compliance| user credentials, use the ``/login`` endpoint:
+To get an access token given Chef Compliance user credentials, use the ``/login`` endpoint:
 
   .. code-block:: bash
 
      $ curl -X POST $API_URL/login -d "{\"userid\": \"admin\", \"password\": \"nimda\"}"
      eyJhbGciOiJSUzI1NiIsImtpZCI6InRySE ...abbreviated...
 
-
 Response Codes
 =====================================================
-The |api compliance| uses conventional HTTP response codes to highlight a request success or failure. The following codes are used:
+The Compliance API uses conventional HTTP response codes to highlight a request success or failure. The following codes are used:
 
 .. list-table::
    :widths: 200 300
@@ -116,7 +120,7 @@ The |api compliance| uses conventional HTTP response codes to highlight a reques
    * - ``500``, ``501``, ``502``, ``503``
      - Server Error. Something went wrong.
 
-In general, ``2xx`` codes indicate success, ``4xx`` indicate a request error (e.g. data is missing) and ``5xx`` indicate an error with the |api compliance|.
+In general, ``2xx`` codes indicate success, ``4xx`` indicate a request error (e.g. data is missing) and ``5xx`` indicate an error with the Compliance API.
 
 /version
 =====================================================
@@ -124,7 +128,7 @@ The ``/version`` endpoint has the following method: ``GET``.
 
 GET
 -----------------------------------------------------
-Use this method to get the version of the |api compliance| without authentication.
+Use this method to get the version of the Compliance API without authentication.
 
 **Request**
 
@@ -144,7 +148,7 @@ Example tested in ``bash``:
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -155,7 +159,7 @@ The response will return a |json| object similar to:
 
 /compliance
 =====================================================
-The ``/compliance`` endpoint has the following methods: ``GET`` and ``POST``. The ``GET`` method may be used to return information about owners, all users, a named user, to download a profile as a |tar gz| file, and to upload profiles (including as |tar gz| or |zip| files).
+The ``/compliance`` endpoint has the following methods: ``GET`` and ``POST``. The ``GET`` method may be used to return information about owners, all users, a named user, to download a profile as a tar.gz file, and to upload profiles (including as tar.gz or Zip files).
 
 GET (all users)
 -----------------------------------------------------
@@ -175,7 +179,7 @@ For example:
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -229,7 +233,7 @@ For example:
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -277,7 +281,7 @@ For example:
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -336,10 +340,9 @@ It contains the following attributes:
    * - ``copyright_email``
      - String. The email for the ``copyright`` holder.}
 
-
 GET (profile as tar.gz)
 -----------------------------------------------------
-Use to download a profile as |tar gz| file. A profile, once downloaded, may be edited locally, and then re-uploaded back to the |chef compliance| server using the ``POST`` method.
+Use to download a profile as tar.gz file. A profile, once downloaded, may be edited locally, and then re-uploaded back to the Chef Compliance server using the ``POST`` method.
 
 **Request**
 
@@ -360,7 +363,7 @@ TAR STREAM
 
 POST
 -----------------------------------------------------
-Use to upload a compliance profile as a |tar gz| or |zip|. This process will extract the owner and identifier, and then use that information to place the profile into the correct location on the |chef compliance| server.
+Use to upload a compliance profile as a tar.gz or Zip. This process will extract the owner and identifier, and then use that information to place the profile into the correct location on the Chef Compliance server.
 
 **Request**
 
@@ -386,7 +389,7 @@ No Content
 
 POST (profile as tar.gz)
 -----------------------------------------------------
-Use to upload a profile using a |tar gz| file.
+Use to upload a profile using a tar.gz file.
 
 **Request**
 
@@ -408,13 +411,13 @@ No Content
 
 POST (profile as Zip)
 -----------------------------------------------------
-Use to upload a profile using a |zip| file. A |zip| file may be created with a command similar to:
+Use to upload a profile using a Zip file. A Zip file may be created with a command similar to:
 
 .. code-block:: bash
 
    $ zip -r /tmp/newprofile.zip profile_directory
 
-or it may be created from the context menus in the |windows| and/or |mac os x| graphical user interfaces.
+or it may be created from the context menus in the Microsoft Windows and/or Mac OS X graphical user interfaces.
 
 **Request**
 
@@ -452,7 +455,6 @@ For example:
 
    curl -w "%{http_code}" -X DELETE "$API_URL/owners/john/compliance/ssh" -H "$AUTH"
 
-
 *** Response ***
 
 No Content
@@ -481,7 +483,7 @@ For example:
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -513,7 +515,7 @@ For example:
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -568,7 +570,7 @@ For example:
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -624,7 +626,7 @@ For example:
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -691,7 +693,7 @@ For example:
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -746,7 +748,7 @@ It contains the following attributes:
    * - ``status``
      - String. The status of the job run: ``done``, ``scheduled``, or ``skipped``.
    * - ``tasks``
-     - An array of compliance scans or patch runs. Two types of tasks are available: ``scan`` and ``patchrun``. The |json| object for ``tasks`` is similar to:
+     - An array of compliance scans or patch runs. Two types of tasks are available: ``scan`` and ``patchrun``. The JSON object for ``tasks`` is similar to:
 
        .. code-block:: javascript
 
@@ -778,7 +780,7 @@ Use to create a job.
 
    POST /api/owners/USER/jobs
 
-The request uses a |json| object similar to:
+The request uses a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -820,7 +822,7 @@ For example:
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -874,7 +876,7 @@ For example:
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -920,7 +922,7 @@ This method has the following parameters:
    * - ``name``
      - String. The human-readable name of the key.
    * - ``private``
-     - String. The private key, in |open ssh| format.
+     - String. The private key, in OpenSSH format.
 
 **Request**
 
@@ -928,7 +930,7 @@ This method has the following parameters:
 
    POST /api/owners/USER/keys
 
-with a |json| object similar to:
+with a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -956,7 +958,7 @@ For example:
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -998,7 +1000,7 @@ Use to create one or multiple nodes.
 
    POST /api/owners/USER/nodes
 
-with a |json| object similar to:
+with a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -1030,7 +1032,7 @@ For example:
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -1049,7 +1051,7 @@ Use to update one or multiple nodes in one request.
 
    PATCH /api/owners/USER/nodes
 
-with a |json| object similar to:
+with a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -1093,7 +1095,7 @@ Delete one or multiple nodes specified in the payload of the request.
 
    DELETE /api/owners/USER/nodes
 
-with a |json| array of node ids:
+with a JSON array of node ids:
 
 .. code-block:: javascript
 
@@ -1135,7 +1137,7 @@ For example:
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -1183,7 +1185,7 @@ For example:
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -1221,7 +1223,7 @@ Use to create a node.
 
    POST /api/owners/USER/envs/ENV/nodes
 
-with a |json| object similar to:
+with a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -1243,7 +1245,7 @@ For example:
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -1286,7 +1288,7 @@ Use to update a node.
 
    PATCH /api/owners/USER/envs/ENV/nodes/NODE_ID
 
-with a |json| object similar to:
+with a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -1414,7 +1416,7 @@ For example:
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -1458,7 +1460,7 @@ For example:
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -1493,7 +1495,7 @@ For example:
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -1537,7 +1539,7 @@ For example:
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -1569,7 +1571,7 @@ For example:
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -1641,7 +1643,7 @@ For example:
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -1699,7 +1701,7 @@ For example:
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -1739,7 +1741,7 @@ where ``SCAN_ID`` is similar to ``90def607-1688-40f5-5a4c-161c51fd8aac``.
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -1827,7 +1829,7 @@ This method has the following parameters:
 
    POST /api/owners/USER/scans
 
-with a |json| object similar to:
+with a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -1857,7 +1859,7 @@ For example:
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -1885,7 +1887,6 @@ For example:
 
 No Content
 
-
 DELETE (bulk)
 -----------------------------------------------------
 Delete one or multiple scans specified in the payload of the request.
@@ -1896,7 +1897,7 @@ Delete one or multiple scans specified in the payload of the request.
 
   DELETE /api/owners/USER/scans
 
-with a |json| array of scan ids:
+with a JSON array of scan ids:
 
 .. code-block:: javascript
 
@@ -1940,7 +1941,7 @@ where ``SCAN_ID`` is similar to ``90def607-1688-40f5-5a4c-161c51fd8aac``.
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -1998,7 +1999,7 @@ where ``SCAN_ID`` is similar to ``90def607-1688-40f5-5a4c-161c51fd8aac``.
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -2059,7 +2060,7 @@ and ``NODE_ID`` is similar to ``9b764f79-b96c-4dfa-5a02-9fa3b1abf35b``
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -2118,7 +2119,7 @@ and ``NODE_ID`` is similar to ``9b764f79-b96c-4dfa-5a02-9fa3b1abf35b``
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -2175,7 +2176,7 @@ and ``NODE_ID`` is similar to ``9b764f79-b96c-4dfa-5a02-9fa3b1abf35b``
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -2201,11 +2202,11 @@ The response will return a |json| object similar to:
 =====================================================
 The ``/server/config`` endpoint has the following methods: ``GET`` and ``PATCH``.
 
-.. note:: Some parameters of the |chef compliance| server are exposed and are configurable from the |api compliance|.
+.. note:: Some parameters of the Chef Compliance server are exposed and are configurable from the Compliance API.
 
 GET
 -----------------------------------------------------
-Use to return the global configuration for the |chef compliance| server. The configuration may be edited via the |api compliance| or by using the COMPLIANCE_CONFIG_FILE. Only parameters that may be safely tuned are exposed. All timeout configuration settings are defined in seconds, i.e. ``1800`` is ``30 minutes``.
+Use to return the global configuration for the Chef Compliance server. The configuration may be edited via the Compliance API or by using the COMPLIANCE_CONFIG_FILE. Only parameters that may be safely tuned are exposed. All timeout configuration settings are defined in seconds, i.e. ``1800`` is ``30 minutes``.
 
 **Request**
 
@@ -2222,7 +2223,7 @@ For example:
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -2239,7 +2240,7 @@ The response will return a |json| object similar to:
 
 PATCH
 -----------------------------------------------------
-Use to edit the global configuration for the |chef compliance| server.
+Use to edit the global configuration for the Chef Compliance server.
 
 **Request**
 
@@ -2280,7 +2281,7 @@ For example:
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -2311,7 +2312,7 @@ For example:
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -2346,7 +2347,7 @@ For example:
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -2434,7 +2435,7 @@ For example:
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -2516,7 +2517,7 @@ where ``TEAM_ID`` is similar to ``20aff993-3288-426d-6851-d1d47bb40d80``
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -2571,7 +2572,7 @@ This method has the following parameters:
    * - Parameter
      - Description
    * - ``users``
-     - Required. An array of user identifiers. Full |json| example: '{["bob","mary"]}'
+     - Required. An array of user identifiers. Full JSON example: '{["bob","mary"]}'
 
 **Request**
 
@@ -2614,7 +2615,7 @@ For example:
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -2630,7 +2631,6 @@ The response will return a |json| object similar to:
        "id":"f3a5c286-d4d4-4860-63b0-5dbfb58e5e69"
      }
    ]
-
 
 GET (named user)
 -----------------------------------------------------
@@ -2650,7 +2650,7 @@ For example:
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -2702,7 +2702,7 @@ For example:
 
 **Response**
 
-The response will return a |json| object similar to:
+The response will return a JSON object similar to:
 
 .. code-block:: javascript
 
@@ -2739,7 +2739,6 @@ For example:
 
    curl -w "%{http_code}" -X PATCH "$API_URL/users/john" \
    -H "Content-Type: application/json" -H "$AUTH" -d '{ "name":"Sir. Lee Smith" }'
-
 
 **Response**
 

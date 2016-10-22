@@ -17,7 +17,7 @@ An **apt_repository** resource specifies APT repository information and adds an 
      components ['main', 'stable']
    end
 
-where 
+where
 
 * ``apt_repository`` is the resource
 * ``name`` is the name of the resource block
@@ -44,18 +44,18 @@ The full syntax for all of the properties that are available to the **apt_reposi
       sensitive             TrueClass, FalseClass
    end
 
-where 
+where
 
 * ``apt_repository`` is the resource
 * ``name`` is the name of the resource block
-* ``repo_name``, ``uri``, ``distribution``, ``components``, ``arch``, ``trusted``, ``deb_src``, ``keyserver``, ``key``, ``key_proxy``, ``cookbook``, ``cache_rebuild``, and ``sensitive`` are properties of this resource, with the |ruby| type shown. See “Properties” section below for more information about all of the properties that may be used with this resource.
+* ``repo_name``, ``uri``, ``distribution``, ``components``, ``arch``, ``trusted``, ``deb_src``, ``keyserver``, ``key``, ``key_proxy``, ``cookbook``, ``cache_rebuild``, and ``sensitive`` are properties of this resource, with the Ruby type shown. See “Properties” section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
 This resource has the following actions:
 
 :add
-   Default. Creates a repository file at ``/etc/apt/sources.list.d/`` and builds the repository listing. 
+   Default. Creates a repository file at ``/etc/apt/sources.list.d/`` and builds the repository listing.
 
 :remove
    Removes the repository listing.
@@ -63,7 +63,7 @@ This resource has the following actions:
 Properties
 =====================================================
 This resource has the following properties:
-   
+
 repo_name
    **Ruby Type:** String
 
@@ -137,7 +137,6 @@ This resource has the following provider:
 ``Chef::Provider::AptRepository``, ``apt_repository``
    The default provider for all platforms.
 
-
 Examples
 =====================================================
 
@@ -169,7 +168,7 @@ Examples
      uri          'ppa:nginx/stable'
      distribution node['lsb']['codename']
    end
-   
+
 **Add the JuJu PPA, grab the key from the keyserver, and add source repo**
 
 .. code-block:: ruby

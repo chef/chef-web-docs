@@ -1,7 +1,0 @@
-.. The contents of this file may be included in multiple topics (using the includes directive).
-.. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
-
-
-|foodcritic| is a static linting tool that analyzes all of the |ruby| code that is authored in a cookbook against a number of rules, and then returns a list of violations. Because |foodcritic| is a static linting tool, using it is fast. The code in a cookbook is read, broken down, and then compared to |foodcritic| rules. The code is **not** run (a |chef client| run does not occur). |foodcritic| does not validate the intention of a recipe, rather it evaluates the structure of the code, and helps enforce specific behavior, detect portability of recipes, identify potential run-time failures, and spot common anti-patterns.
-
-When |foodcritic| returns a violation, this does not automatically mean the code needs to be changed. It is important to first understand the intention of the rule before making the changes it suggests. For example, rule ``FC003`` describes a scenario where a recipe uses the ``search`` method in the |dsl recipe| to retrieve data from the |chef server|. Rule ``FC003`` may suggest that a cookbook will raise an error if that cookbook is run in a situation where a |chef server| is not present. Adopting this rule is only necessary when |chef solo| is part of the team's workflow (because |chef solo| does not use a |chef server|). 

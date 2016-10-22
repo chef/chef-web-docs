@@ -2,7 +2,13 @@
 Chef Automate
 =====================================================
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+.. tag chef_automate_mark
+
+.. image:: ../../images/chef_automate_full.png
+   :width: 40px
+   :height: 17px
+
+.. end_tag
 
 Chef Automate provides a full suite of enterprise capabilities for workflow, visibility and compliance. 
 Chef Automate integrates with the open-source products Chef, InSpec and Habitat. Chef Automate comes with 
@@ -12,9 +18,8 @@ comprehensive 24×7 support services for the entire platform, including open sou
    :width: 600px
    :align: center
 
-
 Compliance
-====================================================== 
+======================================================
 
 Chef Automate creates customizable reports that identify compliance issues, security risks, 
 and outdated software. You can write your own compliance rules in InSpec, or you can get started quickly 

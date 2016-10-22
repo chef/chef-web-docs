@@ -1,0 +1,10 @@
+<div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+  <div class="sphinxsidebarwrapper">
+    {%- if sidebars != None %}
+      {#- new style sidebar: explicitly include/exclude templates #}
+      {%- for sidebartemplate in sidebars %}
+      {%- include sidebartemplate %}
+      {%- endfor %}
+    {%- endif %}
+  </div>
+</div>

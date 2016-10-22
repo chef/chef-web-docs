@@ -2,31 +2,106 @@
 Install Reporting
 =====================================================
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst
+.. tag chef_automate_mark
 
-.. include:: ../../includes_reporting/includes_reporting.rst
+.. image:: ../../images/chef_automate_full.png
+   :width: 40px
+   :height: 17px
 
-.. note:: .. include:: ../../includes_chef/includes_chef_subscriptions.rst
+.. end_tag
+
+.. tag reporting_summary
+
+Use Reporting to keep track of what happens during the execution of chef-client runs across all of the machines that are under management by Chef. Reports can be generated for the entire organization and they can be generated for specific nodes.
+
+Reporting data is collected during the chef-client run and the results are posted to the Chef server at the end of the chef-client run at the same time the node object is uploaded to the Chef server.
+
+.. end_tag
+
+.. note:: .. tag chef_subscriptions
+
+          This feature is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
+
+          .. end_tag
 
 Requirements
 =====================================================
-.. include:: ../../includes_system_requirements/includes_system_requirements_reporting.rst
+.. tag system_requirements_reporting
+
+Reporting has the following minimum requirements:
+
+* Chef server 12
+* chef-client version 11.6.0 (or later)
+
+Reporting can make use of an external database, but to do so Reporting 1.5.5 or later is needed along with Chef server 12.2.0 or later.
+
+The Reporting client is built into the chef-client and can run on all platforms that chef-client is supported on.
+
+.. warning:: Reporting does not work on chef-client version 11.8.0; upgrade to chef-client version 11.8.2 (or later) if Reporting is being run in your organization.
+
+.. warning:: The only supported versions of Reporting are 1.5.5 or later.
+
+.. end_tag
 
 Install the Server
 =====================================================
 
 Standalone
 -----------------------------------------------------
-.. include:: ../../includes_install/includes_install_reporting_standalone.rst
+To set up the Reporting server:
 
-|chef ha_title|
+#. Install the package on the Chef server:
+
+   .. code-block:: bash
+
+      $ chef-server-ctl install opscode-reporting
+
+#. Reconfigure the Chef server:
+
+   .. code-block:: bash
+
+      $ chef-server-ctl reconfigure
+
+#. Reconfigure Reporting services on each server:
+
+   .. code-block:: bash
+
+      $ opscode-reporting-ctl reconfigure
+
+   .. note:: .. tag chef_license_reconfigure_reporting
+
+             Starting with Reporting 1.6.0, the `Chef MLSA <https://docs.chef.io/chef_license.html>`__ must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``opscode-reporting-ctl reconfigure --accept-license`` to automatically accept the license.
+
+             .. end_tag
+
+#. Verify the installation:
+
+   .. code-block:: bash
+
+      $ opscode-reporting-ctl test
+
+Chef HA
 -----------------------------------------------------
-|reporting| is not compatible with |chef ha|.
+Reporting is not compatible with Chef high availability.
 
 Install the Client
 =====================================================
-.. include:: ../../includes_install/includes_install_reporting_client.rst
+Reporting is automatically enabled in the chef-client (version 11.6.0 or later). In order to check if reporting data is being sent, you can check the output of the chef-client ``INFO`` logging level for the log message confirming the data has been sent. At the end of the chef-client run:
+
+.. code-block:: bash
+
+   $ chef-client -l info
+   ...
+   ...
+   [date] INFO: Chef Run complete in 1.069059018 seconds
+   [date] INFO: Running report handlers
+   [date] INFO: Report handlers complete
+   Chef Client finished, 2 resources updated
+   [date] INFO: Sending resource update report (run-id: 51ceb817-ba7e-47e5-9bca-096fe9ef9740)
+
+This includes the run identifier of the chef-client run, which can be used in the `knife reporting plugin <https://docs.chef.io/plugin_knife_reporting.html>`_ or the Chef management console to access the reporting information generated during the chef-client run.
 
 Install the Workstation
 =====================================================
-.. include:: ../../includes_install/includes_install_reporting_workstation.rst
+To set up the Reporting workstation, install the `knife reporting plugin <https://docs.chef.io/plugin_knife_reporting.html>`_. Once
+installed, the following subcommands will be available: ``knife runs list``, ``knife runs show``.
