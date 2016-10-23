@@ -66,7 +66,7 @@ Contribute
 * `Chef on GitHub <https://github.com/chef>`_
 * `Chef-managed cookbooks <https://github.com/chef-cookbooks>`_
 * `Community cookbooks <https://supermarket.chef.io>`_
-* `Documentation <https://github.com/chef/chef-docs>`_
+* `Documentation <https://github.com/chef/chef-web-docs>`_
 * `Share your Chef product ideas <https://feedback.chef.io>`_
 
 Supermarket

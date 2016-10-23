@@ -114,7 +114,7 @@ The DCO is an attestation attached to every contribution made by every developer
         consistent with this project or the open source license(s)
         involved.
 
-Chef does not merge any pull requests made against an Chef-managed open source repository until each commit has been signed for the DCO, with two exceptions: "Obvious Fixes" and pull requests made against the documentation repository (https://github.com/chef/chef-docs).
+Chef does not merge any pull requests made against an Chef-managed open source repository until each commit has been signed for the DCO, with two exceptions: "Obvious Fixes" and pull requests made against the documentation repository (https://github.com/chef/chef-web-docs).
 
 The "Obvious Fix" Rule
 =====================================================
