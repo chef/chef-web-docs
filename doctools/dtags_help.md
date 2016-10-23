@@ -27,7 +27,7 @@ Note that `.. tag` and `.. tag_end` are comments in
 restructuredText. They are ignored by the Sphinx documentation
 generator.
 
-The `dtags` searches for files in the current working directory. For convenience, you'll want to put it in your path, make a symbolic link or create an alias. The `dtags` script is located in the the `doctools` directory of this repo.
+`dtags`searches for files in the current working directory. For convenience, you'll want to put it in your path, make a symbolic link or create an alias. The `dtags` script is located in the the `doctools` directory of this repo.
 
 Usage:
 

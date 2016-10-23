@@ -49,19 +49,9 @@ Using include files for structured content starts innocently enough.
 
 It quickly becomes difficult. Include files can themselves be included
 in other include files. The number of include statements can
-proliferate to the point of being unmanageable. 
-
-For example, if you make a change to an include file, it can be very
-tricky to figure out what the consequences of that change might be. In
-fact, many of us have even seen warnings like this at the top of
-include files:
-
-```rst
-.. The contents of this file may be included in multiple topics 
-   (using the includes directive).
-.. The contents of this file should be modified in a way that preserves
-   its ability to appear in multiple topics.
-```
+proliferate to the point of being unmanageable. If you make a change
+to an include file, it can be very tricky to figure out what the
+consequences of that change might be.
 
 Systems for structured content that are based on include files were
 originally created with the assumption that a dedicated team of
@@ -137,7 +127,7 @@ master branch. A user can safely experiment with tool-generated
 changes to content without endangering the changes they've made by
 hand but have not yet published.
 
-To understand this how this works, let's look at the `dtags` workflow.
+To understand how this works, let's look at the `dtags` workflow.
 
 ## Suggested workflow
 
@@ -194,13 +184,13 @@ diff --git a/src/examples/A.rst b/src/examples/A.rst
     .. end_tag
 ```
 
-We can also build the html output and check that it's what we want. 
+We can also build the HTML output and check that it's what we want. 
 
 When we're satisfied with our change locally, we can check its impact
 on other parts of the documentation. By the way, we had this same
 obligation under the old system of include files, except we had no
 practical way of doing it! In many cases, people just changed the
-include file and wished for the best.
+include file and hoped for the best.
 
 With `dtags` the first step would be to put our changes into a safe
 location. We can do this by adding our change to the git index, the
@@ -234,8 +224,8 @@ Inconsistent tagged regions:
 The `dtags` tool compares the tags across the doc set (the current working
 directory) and reports inconsistencies.
 
-The output is sorted by tag name, and it gives a hash digest of each tagged
-region, as well as the file name and line number where the tag is seen.
+The output gives a hash digest of each tagged region, as well as the
+file name and line number where the tag is seen.
 
 We can apply the changes to all or part of the documentation set
 in our working set with the `dtags replicate` subcommand.
@@ -289,12 +279,9 @@ Oops, we just overwrote our changes with the old text! This isn't a
 problem. We can fix that glitch by "unstaging" `A.rst` and putting
 `A.rst` back in the index:
 
-```
-git reset HEAD A.rst
-git add A.rst
-dtags replicate -- A.rst
-```
-All fixed! The `--` value is a placeholder that says to replicate all tags found in the given topic.
+``` git reset HEAD A.rst git add A.rst dtags replicate -- A.rst ```
+All fixed! The `--` value is a placeholder that says to replicate all
+tags found in the given topic.
 
 The final step is to make sure all of the tagged regions are
 consistent and commit our changes and push them to the repo used for
