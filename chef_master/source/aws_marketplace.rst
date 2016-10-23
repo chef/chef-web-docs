@@ -1,6 +1,7 @@
 =====================================================
 AWS Marketplace
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/aws_marketplace.rst>`__
 
 Chef provides a fully licensed Amazon Machine Images (AMI) for the Chef server and Chef Compliance that can be launched from the `AWS Marketplace <https://aws.amazon.com/marketplace/seller-profile/ref=srh_res_product_vendor?ie=UTF8&id=e7b7691e-634a-4d35-b729-a8b576175e8c>`__. Billing is done through your Amazon Web Services (AWS) account on an hourly basis and is dynamically updated to reflect current node usage.
 

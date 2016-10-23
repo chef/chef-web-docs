@@ -1,6 +1,7 @@
 =====================================================
 High Availability: Backend Cluster
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_server_ha.rst>`__
 
 .. tag chef_automate_mark
 

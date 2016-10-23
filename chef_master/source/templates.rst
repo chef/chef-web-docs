@@ -1,6 +1,7 @@
 =====================================================
 About Templates
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/templates.rst>`__
 
 .. tag template
 

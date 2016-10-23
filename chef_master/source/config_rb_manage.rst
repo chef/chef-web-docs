@@ -1,6 +1,7 @@
 =====================================================
 manage.rb
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_manage.rst>`__
 
 .. tag chef_automate_mark
 

@@ -1,6 +1,7 @@
 =====================================================
 Microsoft Azure Portal
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/azure_portal.rst>`__
 
 .. tag cloud_azure_portal
 

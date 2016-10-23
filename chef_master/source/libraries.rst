@@ -1,6 +1,7 @@
 =====================================================
 About Libraries
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/libraries.rst>`__
 
 .. tag libraries_summary
 

@@ -3,6 +3,7 @@
 =====================================================
 About the Custom Resource DSL
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/dsl_custom_resource.rst>`__
 
 .. tag dsl_custom_resource_summary
 

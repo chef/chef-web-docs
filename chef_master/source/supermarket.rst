@@ -1,6 +1,7 @@
 =====================================================
 Chef Supermarket
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/supermarket.rst>`__
 
 .. tag supermarket_summary
 

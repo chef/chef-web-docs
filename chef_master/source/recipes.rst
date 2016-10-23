@@ -1,6 +1,7 @@
 =====================================================
 About Recipes
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/recipes.rst>`__
 
 .. tag cookbooks_recipe
 

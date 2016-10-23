@@ -1,6 +1,7 @@
 =====================================================
 Manage Secrets
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/secrets.rst>`__
 
 One way to manage secrets used by Chef is with data bags.
 

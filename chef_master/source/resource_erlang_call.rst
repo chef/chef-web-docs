@@ -1,6 +1,7 @@
 =====================================================
 erl_call
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_erlang_call.rst>`__
 
 .. tag resource_erlang_call_summary
 

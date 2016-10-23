@@ -1,6 +1,7 @@
 *****************************************************
 Resources Reference
 *****************************************************
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resources.rst>`__
 
 .. tag resources_common
 

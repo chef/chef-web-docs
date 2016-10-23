@@ -1,6 +1,7 @@
 =====================================================
 Community Guidelines
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/community_guidelines.rst>`__
 
 The Chef community is a mixture of professionals and volunteers who come from all over the world and work together to make Chef better. Community members fulfill many roles, including mentoring, teaching, and connecting with other members of the community.
 

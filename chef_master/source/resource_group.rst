@@ -1,6 +1,7 @@
 =====================================================
 group
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_group.rst>`__
 
 .. tag resource_group_summary
 

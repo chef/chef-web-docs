@@ -1,6 +1,7 @@
 =====================================================
 systemd_unit
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_systemd_unit.rst>`__
 
 Use the **systemd_unit** resource to create, manage, and run `systemd units <https://www.freedesktop.org/software/systemd/man/systemd.html#Concepts>`_.
 

@@ -1,6 +1,7 @@
 =====================================================
 Firewalls and Ports
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_firewalls_and_ports.rst>`__
 
 .. tag server_firewalls_and_ports_summary
 

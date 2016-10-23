@@ -1,6 +1,7 @@
 =====================================================
 Chef Automate API
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/api_delivery.rst>`__
 
 .. tag chef_automate_mark
 

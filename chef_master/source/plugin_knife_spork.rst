@@ -1,6 +1,7 @@
 =====================================================
 knife-spork
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/plugin_knife_spork.rst>`__
 
 The ``knife-spork`` plugin adds workflow that enables multiple developers to work on the same Chef server and repository, but without stepping on each other's toes. This plugin is designed around the workflow at Etsy, where several people work in the same repository and Chef server simultaneously. A quick overview of the arguments in this plugin (see the GitHub documentation for full details):
 

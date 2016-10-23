@@ -1,6 +1,7 @@
 =====================================================
 ruby_block
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_ruby_block.rst>`__
 
 .. tag resource_ruby_block_summary
 

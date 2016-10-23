@@ -1,6 +1,7 @@
 =====================================================
 machine_batch
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_machine_batch.rst>`__
 
 .. tag resource_machine_batch_summary
 

@@ -1,6 +1,7 @@
 =====================================================
 knife reporting
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/plugin_knife_reporting.rst>`__
 
 .. tag reporting_summary
 

@@ -1,6 +1,7 @@
 =====================================================
 Uninstall
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/uninstall.rst>`__
 
 The following sections describe how to uninstall Chef, add-ons, and other components.
 

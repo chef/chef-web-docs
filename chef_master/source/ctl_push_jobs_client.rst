@@ -1,6 +1,7 @@
 =====================================================
 push-jobs-client (executable)
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ctl_push_jobs_client.rst>`__
 
 .. tag push_jobs_summary
 

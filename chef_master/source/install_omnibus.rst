@@ -1,6 +1,7 @@
 =====================================================
 Install via URL
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_omnibus.rst>`__
 
 .. tag packages_install_script
 

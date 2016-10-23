@@ -1,6 +1,7 @@
 =====================================================
 push-jobs-client.rb
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_push_jobs_client.rst>`__
 
 A ``push-jobs-client.rb`` file is used to specify the configuration details for the Chef push jobs client.
 

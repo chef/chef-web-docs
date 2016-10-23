@@ -1,6 +1,7 @@
 =====================================================
 Quick Start
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/quick_start.rst>`__
 
 For the quickest way to get started using Chef:
 

@@ -1,6 +1,7 @@
 =====================================================
 About the Workflow DSL
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/dsl_delivery.rst>`__
 
 The Workflow DSL is a collection of helper methods that is used in recipes as a way to enhance the Recipe DSL to collect data about:
 

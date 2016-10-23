@@ -1,6 +1,7 @@
 =====================================================
 About Search
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_search.rst>`__
 
 .. tag search
 

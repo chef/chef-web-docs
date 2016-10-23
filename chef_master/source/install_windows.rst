@@ -1,6 +1,7 @@
 =====================================================
 Install the chef-client on Microsoft Windows
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_windows.rst>`__
 
 .. tag windows_install_overview
 

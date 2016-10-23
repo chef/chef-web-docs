@@ -1,6 +1,7 @@
 =====================================================
 chef-client Upgrades 
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/upgrade_client.rst>`__
 
 The following sections describe the upgrade process for chef-client 12.
 

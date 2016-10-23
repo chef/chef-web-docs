@@ -1,6 +1,7 @@
 =====================================================
 chef_client
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_chef_client.rst>`__
 
 .. warning:: .. tag notes_provisioning
 

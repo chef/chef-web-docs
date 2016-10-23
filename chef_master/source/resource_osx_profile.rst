@@ -1,6 +1,7 @@
 =====================================================
 osx_profile
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_osx_profile.rst>`__
 
 .. tag resource_osx_profile_summary
 

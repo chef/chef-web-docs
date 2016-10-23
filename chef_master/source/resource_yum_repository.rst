@@ -1,6 +1,7 @@
 ==========================================
 yum_repository
 ==========================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_yum_repository.rst>`__
 
 .. tag resource_yum_repository_summary
 

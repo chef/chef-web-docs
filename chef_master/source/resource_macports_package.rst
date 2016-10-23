@@ -1,6 +1,7 @@
 =====================================================
 macports_package
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_macports_package.rst>`__
 
 .. tag resource_package_macports
 

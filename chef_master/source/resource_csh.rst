@@ -1,6 +1,7 @@
 =====================================================
 csh
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_csh.rst>`__
 
 .. tag resource_script_csh
 

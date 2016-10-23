@@ -1,6 +1,7 @@
 =====================================================
 Integrate Compliance w/Chef Server
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/integrate_compliance_chef_server.rst>`__
 
 .. tag chef_automate_mark
 

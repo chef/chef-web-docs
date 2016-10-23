@@ -1,6 +1,7 @@
 =====================================================
 Common Functionality 
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_common.rst>`__
 
 .. tag resources_common_intro
 

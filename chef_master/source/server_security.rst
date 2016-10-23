@@ -1,6 +1,7 @@
 =====================================================
 Security
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_security.rst>`__
 
 Configuration of SSL for the Chef server using certificate authority-verified certificates is done by placing the certificate and private key file obtained from the certifying authority in the correct files after the initial configuration of Chef server.
 

@@ -1,6 +1,7 @@
 =====================================================
 Page not found
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/page_not_found.rst>`__
 
 This page you were looking for is not here. If you think it's our fault, :doc:`please let us know </feedback>`.
 

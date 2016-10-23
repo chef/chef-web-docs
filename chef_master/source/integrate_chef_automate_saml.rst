@@ -1,6 +1,7 @@
 =====================================================
 Integrate Chef Automate with SAML
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/integrate_chef_automate_saml.rst>`__
 
 .. tag chef_automate_mark
 

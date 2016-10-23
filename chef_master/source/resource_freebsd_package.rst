@@ -1,6 +1,7 @@
 =====================================================
 freebsd_package
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_freebsd_package.rst>`__
 
 .. tag resource_package_freebsd
 

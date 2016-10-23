@@ -1,6 +1,7 @@
 =====================================================
 Server Tuning
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_tuning.rst>`__
 
 The server configuration file contains a list of all configuration options that are available for the Chef server. Some of these values should be modified for large-scale installations.
 

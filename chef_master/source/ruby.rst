@@ -1,6 +1,7 @@
 =====================================================
 Chef Style Guide
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ruby.rst>`__
 
 .. tag ruby_summary
 

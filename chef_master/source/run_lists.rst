@@ -1,6 +1,7 @@
 =====================================================
 About Run-lists
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/run_lists.rst>`__
 
 .. tag node_run_list
 

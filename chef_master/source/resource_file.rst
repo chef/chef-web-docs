@@ -1,6 +1,7 @@
 =====================================================
 file
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_file.rst>`__
 
 .. tag resource_file_summary
 

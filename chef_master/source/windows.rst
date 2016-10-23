@@ -1,6 +1,7 @@
 =====================================================
 Chef for Microsoft Windows
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/windows.rst>`__
 
 .. note:: This page collects information about Chef that is specific to using Chef with Microsoft Windows.
 

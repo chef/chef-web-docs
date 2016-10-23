@@ -1,6 +1,7 @@
 =====================================================
 Chef Manage
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/manage.rst>`__
 
 .. tag chef_automate_mark
 

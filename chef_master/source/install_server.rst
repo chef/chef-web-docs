@@ -1,8 +1,8 @@
-.. This page is the Chef 12 server install page.
-
 =====================================================
 Install the Chef Server
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_server.rst>`__
+
 There are three configuration scenarios for the Chef server:
 
 * `Standalone <https://docs.chef.io/server/install_server.html#standalone>`__ (everything on a single machine)

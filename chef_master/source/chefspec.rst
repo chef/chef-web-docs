@@ -1,6 +1,7 @@
 =====================================================
 ChefSpec
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chefspec.rst>`__
 
 .. tag chefspec_summary
 

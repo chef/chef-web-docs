@@ -1,6 +1,7 @@
 =====================================================
 knife xargs
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_xargs.rst>`__
 
 .. tag knife_xargs_summary
 

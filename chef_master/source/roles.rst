@@ -1,6 +1,7 @@
 =====================================================
 About Roles
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/roles.rst>`__
 
 .. tag role
 

@@ -1,6 +1,7 @@
 =====================================================
 chef-apply (executable)
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ctl_chef_apply.rst>`__
 
 chef-apply is an executable program that runs a single recipe from the command line:
 

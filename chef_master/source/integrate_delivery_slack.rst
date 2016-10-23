@@ -4,6 +4,7 @@
 =====================================================
 Integrate Chef Automate with Slack
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/integrate_delivery_slack.rst>`__
 
 .. tag chef_automate_mark
 

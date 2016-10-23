@@ -1,6 +1,7 @@
 ==================================================
 Scaling and Capacity Planning for Visibility
 ==================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/scaling_capacity_planning_chef_automate.rst>`__
 
 .. tag chef_automate_mark
 

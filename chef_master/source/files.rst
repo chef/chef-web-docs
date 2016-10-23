@@ -1,6 +1,7 @@
 =====================================================
 About Files
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/files.rst>`__
 
 Files are managed using the following resources:
 

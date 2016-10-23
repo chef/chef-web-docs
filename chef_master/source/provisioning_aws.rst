@@ -1,6 +1,7 @@
 =====================================================
 AWS Driver Resources
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/provisioning_aws.rst>`__
 
 .. warning:: .. tag notes_provisioning
 

@@ -1,6 +1,7 @@
 =====================================================
 About Handlers
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/handlers.rst>`__
 
 .. tag handler
 

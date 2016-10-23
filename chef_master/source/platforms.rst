@@ -1,6 +1,7 @@
 =====================================================
 Platforms
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/platforms.rst>`__
 
 The sections below list the platforms that Chef have adopted for the chef-client, Ohai, and the Chef server.
 

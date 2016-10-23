@@ -1,6 +1,7 @@
 =====================================================
 Upgrade Chef Compliance
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/upgrade_compliance.rst>`__
 
 The following sections describe the upgrade process for Chef Compliance.
 

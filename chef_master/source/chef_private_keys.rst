@@ -1,6 +1,7 @@
 =====================================================
 Public and Private Keys
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_private_keys.rst>`__
 
 .. tag security_chef_validator
 

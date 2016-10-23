@@ -1,6 +1,7 @@
 =====================================================
 http_request
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_http_request.rst>`__
 
 .. tag resource_http_request_summary
 

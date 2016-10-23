@@ -1,6 +1,7 @@
 =====================================================
 Documentation Style Guide
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/style_guide.rst>`__
 
 Chef reference documentation is written using restructuredText (reST) and built with Sphinx version 1.2.3.
 

@@ -1,6 +1,7 @@
 =====================================================
 kitchen-vagrant
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/plugin_kitchen_vagrant.rst>`__
 
 .. tag test_kitchen_driver_vagrant
 

@@ -1,6 +1,7 @@
 =====================================================
 Manage Reports
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_manage_reports.rst>`__
 
 .. tag chef_automate_mark
 

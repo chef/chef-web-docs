@@ -1,6 +1,7 @@
 =====================================================
 bash
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_bash.rst>`__
 
 .. tag resource_script_bash
 

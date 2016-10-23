@@ -1,6 +1,7 @@
 =====================================================
 knife client 
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_client.rst>`__
 
 .. tag knife_client_summary
 

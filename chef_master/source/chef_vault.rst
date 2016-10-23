@@ -1,6 +1,7 @@
 =====================================================
 chef-vault
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_vault.rst>`__
 
 chef-vault is a RubyGems package that is included in the Chef development kit. chef-vault allows the encryption of a data bag item by using the public keys of a list of nodes, allowing only those nodes to decrypt the encrypted values. chef-vault adds the ``knife vault`` subcommand.
 

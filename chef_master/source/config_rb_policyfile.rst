@@ -1,6 +1,7 @@
 =====================================================
 Policyfile.rb
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_policyfile.rst>`__
 
 .. tag policyfile_summary
 

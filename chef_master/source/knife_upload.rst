@@ -1,6 +1,7 @@
 =====================================================
 knife upload
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_upload.rst>`__
 
 .. tag knife_upload_summary
 

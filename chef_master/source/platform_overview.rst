@@ -3,6 +3,7 @@
 =====================================================
 Platform Overview
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/platform_overview.rst>`__
 
 Chef is an automation company. Ever since it was founded in 2008, we've been bringing together developers and system administrators with our namesake product, Chef. Over the years, what we mean by automation has expanded. Today, Chef has a complete automation solution for both infrastructure and applications that takes you all the way from development to production. Here's the complete Chef solution.
 

@@ -1,6 +1,7 @@
 =====================================================
 Release Notes: Chef Server 12.0 - 12.9
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_server.rst>`__
 
 .. tag chef_index
 

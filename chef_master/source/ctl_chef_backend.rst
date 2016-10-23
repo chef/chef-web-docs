@@ -1,6 +1,7 @@
 =====================================================
 chef-backend-ctl
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ctl_chef_backend.rst>`__
 
 .. tag ctl_chef_backend_summary
 

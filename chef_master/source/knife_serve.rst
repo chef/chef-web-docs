@@ -1,6 +1,7 @@
 =====================================================
 knife serve
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_serve.rst>`__
 
 .. tag knife_serve_summary
 

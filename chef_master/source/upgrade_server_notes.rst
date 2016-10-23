@@ -1,6 +1,7 @@
 ======================================================
 Notes for Enterprise Chef Upgrades
 ======================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/upgrade_server_notes.rst>`__
 
 The following sections contain more information about the upgrade process from Enterprise Chef to Chef server version 12. Please consult with Chef support about any of these situations if needed.
 

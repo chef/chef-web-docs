@@ -1,6 +1,7 @@
 =====================================================
 About the chef-repo
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_repo.rst>`__
 
 .. tag all
 

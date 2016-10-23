@@ -1,6 +1,7 @@
 =====================================================
 chef-client Security
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_client_security.rst>`__
 
 .. tag chef_auth
 

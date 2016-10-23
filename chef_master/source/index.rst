@@ -1,6 +1,8 @@
 =====================================================
 Site Map
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/index.rst>`__
+
 This is the documentation for
 
 - Chef, including the Chef server, the Chef client, the Chef

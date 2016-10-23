@@ -1,6 +1,7 @@
 =====================================================
 Supermarket Logs
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/supermarket_logs.rst>`__
 
 The Chef Supermarket omnibus package does not log Ruby on Rails messages by default. To enable debug logging, edit the ``/opt/supermarket/embedded/service/supermarket/config/environments/production.rb`` file and set the ``config.log_level`` setting to ``:debug``:
 

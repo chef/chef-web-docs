@@ -1,6 +1,7 @@
 =====================================================
 About Chef Licenses
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_license.rst>`__
 
 .. tag chef_license_summary
 

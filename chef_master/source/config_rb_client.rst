@@ -1,6 +1,7 @@
 =====================================================
 client.rb
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_client.rst>`__
 
 .. tag config_rb_client_summary
 

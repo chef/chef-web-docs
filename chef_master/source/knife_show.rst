@@ -1,6 +1,7 @@
 =====================================================
 knife show 
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_show.rst>`__
 
 .. tag knife_show_summary
 

@@ -1,6 +1,7 @@
 =====================================================
 subversion
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_subversion.rst>`__
 
 .. tag resource_scm_subversion
 

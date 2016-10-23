@@ -1,6 +1,7 @@
 =====================================================
 Omnitruck API
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/api_omnitruck.rst>`__
 
 The Omnitruck API can be used to download platform-appropriate versions of various Chef Software Inc products.
 

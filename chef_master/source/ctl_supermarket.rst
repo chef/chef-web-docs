@@ -1,6 +1,7 @@
 =====================================================
 supermarket-ctl (executable)
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ctl_supermarket.rst>`__
 
 .. tag ctl_supermarket_summary
 

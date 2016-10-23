@@ -1,6 +1,7 @@
 =====================================================
 Unix Environment Variables
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/environment_variables.rst>`__
 
 .. tag environment_variables_summary
 

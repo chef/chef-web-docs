@@ -1,6 +1,7 @@
 =====================================================
 Push Jobs API
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/api_push_jobs.rst>`__
 
 The Push Jobs API is used to create jobs and retrieve status using Chef push jobs, a tool that pushes jobs against a set of nodes in the organization.
 All requests are signed using the Chef server API and the validation key on the workstation from which the requests are made.

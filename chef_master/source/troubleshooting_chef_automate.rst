@@ -1,6 +1,7 @@
 =====================================================
 Troubleshooting Chef Automate
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/troubleshooting_chef_automate.rst>`__
 
 .. tag chef_automate_mark
 

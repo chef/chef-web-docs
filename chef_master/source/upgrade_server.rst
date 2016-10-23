@@ -1,6 +1,7 @@
 =====================================================
 Upgrade to Chef Server 12
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/upgrade_server.rst>`__
 
 The following sections describe the upgrade process for Chef server 12.
 

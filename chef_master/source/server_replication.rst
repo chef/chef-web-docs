@@ -1,6 +1,7 @@
 =====================================================
 Chef Replication (DEPRECATED)
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_replication.rst>`__
 
 .. warning:: This topic is deprecated as of the 12.9 release of the Chef servver.
 

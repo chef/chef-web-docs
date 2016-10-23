@@ -1,6 +1,7 @@
 =====================================================
 Glossary
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/glossary.rst>`__
 
 **Acceptance**
    A Chef Automate stage. The Acceptance stage is where your team decides whether the submitted change should ship all the way out to its final destination.

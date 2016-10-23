@@ -1,6 +1,7 @@
 =====================================================
 execute
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_execute.rst>`__
 
 .. tag resource_execute_summary
 

@@ -1,6 +1,7 @@
 =====================================================
 knife ssl_fetch
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_ssl_fetch.rst>`__
 
 .. tag knife_ssl_fetch_summary
 

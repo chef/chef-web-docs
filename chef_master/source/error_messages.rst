@@ -1,6 +1,7 @@
 =====================================================
 Error Messages
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/error_messages.rst>`__
 
 The following sections describe how to troubleshoot some common errors and problems.
 

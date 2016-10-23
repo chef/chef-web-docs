@@ -1,6 +1,7 @@
 =====================================================
 knife list
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_list.rst>`__
 
 .. tag knife_list_summary
 

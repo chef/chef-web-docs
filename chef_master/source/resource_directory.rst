@@ -1,6 +1,7 @@
 =====================================================
 directory
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_directory.rst>`__
 
 .. tag resource_directory_summary
 

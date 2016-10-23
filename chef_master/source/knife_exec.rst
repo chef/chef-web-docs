@@ -1,6 +1,7 @@
 =====================================================
 knife exec
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_exec.rst>`__
 
 .. tag knife_exec_summary
 

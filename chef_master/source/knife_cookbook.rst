@@ -1,6 +1,7 @@
 =====================================================
 knife cookbook 
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_cookbook.rst>`__
 
 .. tag cookbooks_summary
 

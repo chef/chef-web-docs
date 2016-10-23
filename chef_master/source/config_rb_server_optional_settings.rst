@@ -1,6 +1,7 @@
 =====================================================
 chef-server.rb Optional Settings
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_server_optional_settings.rst>`__
 
 .. tag config_rb_server_summary
 

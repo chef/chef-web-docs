@@ -1,6 +1,7 @@
 =====================================================
 Chef for OpenStack
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/openstack.rst>`__
 
 OpenStack is a cloud operating system that provides support for provisioning large networks of virtual machines, pluggable and scalable network and IP management, and object and block storage.
 

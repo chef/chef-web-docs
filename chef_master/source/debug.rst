@@ -1,6 +1,7 @@
 =====================================================
 Debug Recipes, chef-client Runs
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/debug.rst>`__
 
 .. tag chef
 

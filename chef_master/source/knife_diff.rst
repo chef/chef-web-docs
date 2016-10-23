@@ -1,6 +1,7 @@
 =====================================================
 knife diff
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_diff.rst>`__
 
 .. tag knife_diff_summary
 

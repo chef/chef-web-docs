@@ -1,6 +1,7 @@
 =====================================================
 Community Plugins
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/plugin_community.rst>`__
 
 This page lists plugins for knife, Ohai, handlers, and the chef-client that are developed and maintained by the Chef community.
 

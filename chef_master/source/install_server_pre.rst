@@ -1,6 +1,7 @@
 =====================================================
 Prerequisites
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_server_pre.rst>`__
 
 The following prerequisites apply to every installation of the Chef server.
 

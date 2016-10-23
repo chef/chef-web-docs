@@ -1,6 +1,7 @@
 =====================================================
 knife bootstrap
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_bootstrap.rst>`__
 
 .. tag chef_client_bootstrap_node
 

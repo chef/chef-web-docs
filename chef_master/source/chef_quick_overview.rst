@@ -1,6 +1,7 @@
 =====================================================
 A Quick Overview of Chef
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_quick_overview.rst>`__
 
 Welcome to Chef!
 

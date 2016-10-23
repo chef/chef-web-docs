@@ -1,6 +1,7 @@
 =====================================================
 opscode-reporting.rb
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_reporting.rst>`__
 
 .. tag chef_automate_mark
 

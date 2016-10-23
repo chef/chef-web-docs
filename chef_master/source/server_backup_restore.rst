@@ -1,6 +1,7 @@
 =====================================================
 Backup and Restore
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_backup_restore.rst>`__
 
 Periodic backups of Chef server data are an essential part of managing and maintaining a healthy configuration and to help ensure that important data can be restored, if required.
 

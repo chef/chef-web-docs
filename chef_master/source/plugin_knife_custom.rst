@@ -1,6 +1,7 @@
 =====================================================
 Custom Knife Plugins
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/plugin_knife_custom.rst>`__
 
 .. tag plugin_knife_summary
 

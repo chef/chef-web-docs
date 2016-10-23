@@ -1,6 +1,7 @@
 =====================================================
 ohai (executable)
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ctl_ohai.rst>`__
 
 .. tag ohai_summary
 

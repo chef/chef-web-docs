@@ -1,6 +1,7 @@
 =====================================================
 About Environments
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/environments.rst>`__
 
 .. tag environment
 

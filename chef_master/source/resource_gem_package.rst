@@ -1,6 +1,7 @@
 =====================================================
 gem_package
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_gem_package.rst>`__
 
 .. warning:: .. tag notes_chef_gem_vs_gem_package
 

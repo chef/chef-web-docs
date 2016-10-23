@@ -1,6 +1,7 @@
 =====================================================
 Manage Elasticsearch indices used by Chef Automate
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/manage_indices_chef_automate.rst>`__
 
 .. tag chef_automate_mark
 

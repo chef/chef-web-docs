@@ -1,6 +1,7 @@
 =====================================================
 About Foodcritic
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/foodcritic.rst>`__
 
 Use Foodcritic to check cookbooks for common problems:
 

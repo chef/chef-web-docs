@@ -1,6 +1,7 @@
 =====================================================
 Chef Maintained Cookbooks
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_cookbooks.rst>`__
 
 A cookbook is the fundamental unit of configuration and policy distribution. Each cookbook defines a scenario, and includes some (or all) of the following:
 

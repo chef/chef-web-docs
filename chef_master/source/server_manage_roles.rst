@@ -1,6 +1,7 @@
 =====================================================
 Manage Roles
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_manage_roles.rst>`__
 
 .. note:: This topic is about using the Chef management console to manage roles.
 

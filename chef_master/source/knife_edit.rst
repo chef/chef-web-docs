@@ -1,6 +1,7 @@
 =====================================================
 knife edit
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_edit.rst>`__
 
 .. tag knife_edit_summary
 

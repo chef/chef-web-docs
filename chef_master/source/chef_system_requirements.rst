@@ -1,6 +1,7 @@
 =====================================================
 System Requirements
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_system_requirements.rst>`__
 
 Before installing Chef:
 

@@ -1,6 +1,7 @@
 =====================================================
 About the delivery-truck Cookbook
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/delivery_truck.rst>`__
 
 .. tag delivery_cookbook_delivery_truck
 

@@ -1,6 +1,7 @@
 =====================================================
 chef-shell (executable)
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ctl_chef_shell.rst>`__
 
 .. tag chef_shell_summary
 

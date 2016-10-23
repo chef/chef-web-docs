@@ -1,6 +1,7 @@
 =====================================================
 About Data Bags
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/data_bags.rst>`__
 
 .. tag data_bag
 

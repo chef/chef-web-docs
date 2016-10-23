@@ -1,6 +1,7 @@
 =====================================================
 chef (executable)
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ctl_chef.rst>`__
 
 The chef executable is a command-line tool that does the following:
 

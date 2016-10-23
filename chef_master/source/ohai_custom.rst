@@ -1,6 +1,7 @@
 =====================================================
 Ohai Custom Plugins
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ohai_custom.rst>`__
 
 .. tag ohai_summary
 

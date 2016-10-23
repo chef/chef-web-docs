@@ -1,6 +1,7 @@
 =====================================================
 machine_execute
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_machine_execute.rst>`__
 
 .. tag resource_machine_execute_summary
 

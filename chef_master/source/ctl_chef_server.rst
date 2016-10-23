@@ -1,6 +1,7 @@
 =====================================================
 chef-server-ctl (executable)
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ctl_chef_server.rst>`__
 
 .. tag ctl_chef_server_summary
 

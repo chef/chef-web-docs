@@ -1,6 +1,7 @@
 =====================================================
 apt_update
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_apt_update.rst>`__
 
 .. tag resource_apt_update_summary
 

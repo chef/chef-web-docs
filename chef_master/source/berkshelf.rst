@@ -1,6 +1,7 @@
 =====================================================
 About Berkshelf
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/berkshelf.rst>`__
 
 Berkshelf is a dependency manager for certain cookbook workflows that is included in the Chef development kit. Berkshelf stores every version of a cookbook that has ever been installed. By default, the local disk repository for Berkshelf is located at ``~/.berkshelf``, but this may be modified by setting the ``BERKSHELF_PATH`` environment variable.
 

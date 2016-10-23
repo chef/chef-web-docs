@@ -1,6 +1,7 @@
 =====================================================
 Manage Users and Roles
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/delivery_users_and_roles.rst>`__
 
 .. tag chef_automate_mark
 

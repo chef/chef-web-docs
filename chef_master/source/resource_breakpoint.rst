@@ -1,6 +1,7 @@
 =====================================================
 breakpoint
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_breakpoint.rst>`__
 
 .. tag resource_breakpoint_summary
 

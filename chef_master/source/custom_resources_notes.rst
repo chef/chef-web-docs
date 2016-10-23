@@ -1,6 +1,7 @@
 =====================================================
 Custom Resources Notes
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/custom_resources_notes.rst>`__
 
 .. warning:: This page mentions multiple ways of building custom resources. Chef recommends you try the approach outlined at https://docs.chef.io/custom_resources.html first before trying the resource/provider pair (older approach), or library type (pure Ruby) approaches. If you run into issues while designing 12.5-style custom resources, please ask for help in https://discourse.chef.io or file a bug with the chef-client https://github.com/chef/chef.
 

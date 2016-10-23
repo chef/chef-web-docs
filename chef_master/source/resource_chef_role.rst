@@ -1,6 +1,7 @@
 =====================================================
 chef_role
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_chef_role.rst>`__
 
 .. warning:: .. tag notes_provisioning
 

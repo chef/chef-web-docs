@@ -1,6 +1,7 @@
 =====================================================
 Services
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_services.rst>`__
 
 The Chef server has a built in process supervisor, which ensures that all of the required services are in the appropriate state at any given time. The supervisor starts two processes per service.
 

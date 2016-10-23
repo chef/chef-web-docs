@@ -1,6 +1,7 @@
 =====================================================
 Cookbooks Site API
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/api_cookbooks_site.rst>`__
 
 .. tag api_cookbooks_site_summary
 

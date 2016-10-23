@@ -1,6 +1,7 @@
 =====================================================
 chef_data_bag_item
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_chef_data_bag_item.rst>`__
 
 .. warning:: .. tag notes_provisioning
 

@@ -1,6 +1,7 @@
 =====================================================
 dsc_script
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_dsc_script.rst>`__
 
 .. tag resources_common_powershell
 

@@ -1,6 +1,7 @@
 =====================================================
 git
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_git.rst>`__
 
 .. tag resource_scm_git
 

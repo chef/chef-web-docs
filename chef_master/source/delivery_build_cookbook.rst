@@ -1,6 +1,7 @@
 =======================================================
 About the build-cookbook
 =======================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/delivery_build_cookbook.rst>`__
 
 Chef Automate uses the chef-client to run recipes for each phase in a build pipeline. The phases are grouped into different stages.
 

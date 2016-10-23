@@ -1,6 +1,7 @@
 =====================================================
 knife ssl check
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_ssl_check.rst>`__
 
 .. tag knife_ssl_check_summary
 

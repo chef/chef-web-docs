@@ -1,6 +1,7 @@
 =====================================================
 InSpec
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/inspec.rst>`_
 .. tag inspec_summary
 
 InSpec is an open-source run-time framework and rule language used to specify compliance, security, and policy requirements for testing any node in your infrastructure.

@@ -1,6 +1,7 @@
 =====================================================
 Install Reporting
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_reporting.rst>`__
 
 .. tag chef_automate_mark
 

@@ -1,8 +1,9 @@
 =====================================================
 Push Jobs Server Sent Events Feed
 =====================================================
-The Push Jobs server provides feeds of events associated with actions, via the `Server-Sent-Events (SSE)
-protocol <http://www.w3.org/TR/eventsource/>`_. There are two SSE feeds available:
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_sent_events.rst>`__
+
+The Push Jobs server provides feeds of events associated with actions, via the `Server-Sent-Events (SSE) protocol <http://www.w3.org/TR/eventsource/>`_. There are two SSE feeds available:
 
 1. Job Feed: Stream of events for a particular job
 2. Organization Feed: Stream of events for all jobs across an organization

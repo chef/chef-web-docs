@@ -1,6 +1,7 @@
 =====================================================
 Monitor
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_monitor.rst>`__
 
 Monitoring the Chef server involves two types of checks: application and system. In addition monitoring the HTTP requests that workstations and nodes are making to the Chef server and per-disk data storage volumes is recommended.
 

@@ -1,6 +1,7 @@
 =====================================================
 Active Directory and LDAP
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_ldap.rst>`__
 
 The Chef server supports Active Directory and LDAP authentication, which enables users to log in to the Chef server using their corporate credentials.
 

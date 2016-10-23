@@ -1,6 +1,7 @@
 =====================================================
 About Knife Cloud Plugins
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/plugin_knife.rst>`__
 
 .. tag plugin_knife_summary
 

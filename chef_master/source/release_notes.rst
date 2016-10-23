@@ -1,6 +1,7 @@
 =====================================================
 Release Notes: chef-client 12.0 - 12.15
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes.rst>`__
 
 .. tag chef
 

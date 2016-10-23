@@ -1,6 +1,7 @@
 =====================================================
 chef-client (executable) 
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ctl_chef_client.rst>`__
 
 .. tag chef_client_summary
 

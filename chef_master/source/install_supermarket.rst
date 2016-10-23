@@ -1,6 +1,7 @@
 =====================================================
 Install Private Supermarket
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_supermarket.rst>`__
 
 .. tag supermarket_summary
 

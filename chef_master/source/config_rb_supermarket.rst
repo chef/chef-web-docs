@@ -1,6 +1,7 @@
 =====================================================
 supermarket.rb Settings
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_supermarket.rst>`__
 
 .. tag config_rb_supermarket_summary
 

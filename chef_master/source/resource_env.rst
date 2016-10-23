@@ -1,6 +1,7 @@
 =====================================================
 env
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_env.rst>`__
 
 .. tag resource_env_summary
 

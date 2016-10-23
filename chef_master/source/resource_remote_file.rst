@@ -1,6 +1,7 @@
 =====================================================
 remote_file
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_remote_file.rst>`__
 
 .. tag resource_remote_file_summary
 

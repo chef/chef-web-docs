@@ -1,6 +1,7 @@
 =====================================================
 Habitat Prism
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/habitat_prism.rst>`__
 
 Prism is a Habitat package that collects data about an individual Habitat ring of supervisors and reports the data to Visibility. Visibility users will be able to collect and query data about all their rings within Visibility.
 

@@ -1,6 +1,7 @@
 =====================================================
 Install Chef Push Jobs
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_push_jobs.rst>`__
 
 Chef push jobs is installed to the following locations:
 

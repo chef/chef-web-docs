@@ -1,6 +1,7 @@
 =====================================================
 reboot
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_reboot.rst>`__
 
 .. tag resource_service_reboot
 

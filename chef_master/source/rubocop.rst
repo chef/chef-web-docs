@@ -1,6 +1,7 @@
 =====================================================
 RuboCop
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/rubocop.rst>`__
 
 .. tag ruby_style_patterns
 

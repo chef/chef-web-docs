@@ -1,6 +1,7 @@
 =====================================================
 Delivery CLI
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ctl_delivery.rst>`__
 
 The Delivery CLI is the command-line interface for the workflow capabilities in Chef Automate. It sits in-between a local git repository and the Chef Automate server.
 

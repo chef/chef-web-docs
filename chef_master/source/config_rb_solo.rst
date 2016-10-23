@@ -1,6 +1,7 @@
 =====================================================
 solo.rb
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_solo.rst>`__
 
 .. warning:: .. tag notes_chef_solo_use_local_mode
 

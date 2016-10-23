@@ -1,6 +1,7 @@
 =====================================================
 An Overview of Chef
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_overview.rst>`__
 
 .. tag chef
 

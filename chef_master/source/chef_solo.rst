@@ -1,6 +1,7 @@
 =====================================================
 chef-solo
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_solo.rst>`__
 
 .. tag chef_solo_summary
 

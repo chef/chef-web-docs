@@ -1,6 +1,7 @@
 =====================================================
 About the Chef Community
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/community.rst>`__
 
 The Chef community is an active, caring, wickedly smart, and fast growing group of practitioners who want to help you succeed with Chef. There are a number of ways for you to engage with, learn from, follow, and contribute, such as reading books, going to meetups, listening to podcasts, taking some training, and simply being a part of the community.
 

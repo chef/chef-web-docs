@@ -1,6 +1,7 @@
 =====================================================
 About Proxies
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/proxies.rst>`__
 
 In an environment that requires proxies to reach the Internet, many Chef commands will not work until they are configured correctly. To configure Chef to work in an environment that requires proxies, set the ``http_proxy``, ``https_proxy``, ``ftp_proxy``, and/or ``no_proxy`` environment variables to specify the proxy settings using a lowercase value.
 

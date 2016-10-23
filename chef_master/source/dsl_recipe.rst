@@ -1,6 +1,7 @@
 =====================================================
 About the Recipe DSL
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/dsl_recipe.rst>`__
 
 .. tag dsl_recipe_summary
 

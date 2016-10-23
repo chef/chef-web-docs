@@ -1,6 +1,7 @@
 =====================================================
 opscode-expander-ctl (executable)
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ctl_opscode_expander.rst>`__
 
 .. tag ctl_opscode_expander_summary
 

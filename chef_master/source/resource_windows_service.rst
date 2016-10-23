@@ -1,6 +1,7 @@
 =====================================================
 windows_service
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_service.rst>`__
 
 .. tag resource_service_windows
 

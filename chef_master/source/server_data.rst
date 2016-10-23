@@ -1,6 +1,7 @@
 =====================================================
 Server Data Storage
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_data.rst>`__
 
 Managing how data is stored on the Chef server is sometimes necessary, such as rezising DRBD logical volumes, volume groups, and space available on the primary backend machine.
 

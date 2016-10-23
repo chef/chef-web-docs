@@ -1,6 +1,7 @@
 =====================================================
 About Policyfile
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/policyfile.rst>`__
 
 .. tag policyfile_summary
 
