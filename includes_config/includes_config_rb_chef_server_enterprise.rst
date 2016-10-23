@@ -1,5 +1,0 @@
-.. The contents of this file may be included in multiple topics (using the includes directive).
-.. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
-
-
-The |enterprise rb| file contains all of the non-default configuration settings used by the |chef server oec| server. (The default settings are built-in to the |chef server| configuration and should only be added to the |enterprise rb| file to apply non-default values.) These configuration settings are processed when the ``private-chef-ctl reconfigure`` command is run, such as immediately after setting up the |chef server oec| server or after making a change to the underlying configuration settings after the server has been deployed. The |enterprise rb| file is a |ruby| file, which means that conditional statements can be used in the configuration file.

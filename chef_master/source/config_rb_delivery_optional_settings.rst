@@ -1,8 +1,9 @@
 =====================================================
 delivery.rb Optional Settings
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_delivery_optional_settings.rst>`__
 
-.. warning:: The configuration settings in the ``delivery.rb`` file should not be modified before discussing those changes with |company_name|. Some of these settings should be considered for tuning (see :doc:`Automate Server Tuning </delivery_server_tuning>`), but many of them should be left as default values.
+.. warning:: The configuration settings in the ``delivery.rb`` file should not be modified before discussing those changes with Chef. Some of these settings should be considered for tuning (see :doc:`Automate Server Tuning </delivery_server_tuning>`), but many of them should be left as default values.
 
 Settings
 =====================================================
@@ -29,7 +30,7 @@ This configuration file has the following general settings:
       )
 
 ``dir``
-   |directory generic_working| |default_value_recommended| Default value: ``"/opt/delivery"``.
+   The working directory. The default value is the recommended value. Default value: ``"/opt/delivery"``.
 
 ``install_path``
    Default value: ``"/opt/delivery"``.
@@ -76,47 +77,47 @@ This configuration file has the following settings for ``backup``:
    Time notation for backup cron job. Default value: ``'0 0 * * *'``.
 
 ``backup['access_key_id']``
-   |amazon aws| Access Key ID for uploading |delivery| backup archives to S3.
+   Amazon Web Services (AWS) Access Key ID for uploading Chef Automate backup archives to S3.
    Only use this if you cannot configure the machine with an instance profile,
    shared credentials, or environment variables. Default value: ``nil``.
 
 ``backup['bucket']``
-   S3 bucket for storing |delivery| backup archives. Default value: ``nil``.
+   S3 bucket for storing Chef Automate backup archives. Default value: ``nil``.
 
 ``backup['base_path']``
-   Optional S3 base path prefix. This is used if you wish to store |delivery|
+   Optional S3 base path prefix. This is used if you wish to store Chef Automate
    backup archives in a nested path in the S3 bucket. Default value: ``nil``.
 
 ``backup['census']['enabled']``
-   Back up |delivery| Census data. Default value: ``true``.
+   Back up Chef Automate Census data. Default value: ``true``.
 
 ``backup['chef_server_config']``
-   Back up the |chef server| configuration directory.  Usefull for instances
-   when |delivery| and |chef server| are installed on a single node. Default
+   Back up the Chef server configuration directory.  Usefull for instances
+   when Chef Automate and Chef server are installed on a single node. Default
    value: ``false``.
 
 ``backup['config']['enabled']``
-   Back up the |delivery| configuration directory. Default value: ``true``.
+   Back up the Chef Automate configuration directory. Default value: ``true``.
 
 ``backup['db']['enabled']``
-   Back up the |delivery| PostgreSQL database. Default value: ``true``.
+   Back up the Chef Automate PostgreSQL database. Default value: ``true``.
 
 ``backup['elasticsearch']['access_key_id']``
-   |amazon aws| Access Key ID for uploading |delivery| Elasticsearch snapshots
+   Amazon Web Services (AWS) Access Key ID for uploading Chef Automate Elasticsearch snapshots
    to S3. Only use this if you cannot configure the machine with an instance
    profile, shared credentials, or environment variables. Default value: ``nil``.
 
 ``backup['elasticsearch']['bucket']``
-   S3 bucket for storing |delivery| Elasticsearch snapshots. Default value:
+   S3 bucket for storing Chef Automate Elasticsearch snapshots. Default value:
    ``nil``.
 
 ``backup['elasticsearch']['base_path']``
-   Optional S3 base path prefix. This is used if you wish to store |delivery|
+   Optional S3 base path prefix. This is used if you wish to store Chef Automate
    Elasticsearch snapshots in a nested path in the S3 bucket. Default value:
    ``nil``.
 
 ``backup['elasticsearch']['enabled']``
-   Create |delivery| Elasticsearch snapshots. Default value:
+   Create Chef Automate Elasticsearch snapshots. Default value:
    ``true``.
 
 ``backup['elasticsearch']['location']``
@@ -132,28 +133,28 @@ This configuration file has the following settings for ``backup``:
    snaphots. Default value: ``40mb``.
 
 ``backup['elasticsearch']['region']``
-   |amazon aws| region to use for |delivery| S3 Elasticsearch snapshots.
+   Amazon Web Services (AWS) region to use for Chef Automate S3 Elasticsearch snapshots.
    Default value ``nil``.
 
 ``backup['elasticsearch']['secret_access_key']``
-   |amazon aws| Secret Key for uploading |delivery| Elasticsearch snapshots in
+   Amazon Web Services (AWS) Secret Key for uploading Chef Automate Elasticsearch snapshots in
    S3. Only use this if you cannot configure the machine with an instance
    profile, shared credentials, or environment variables. Default value: ``nil``.
 
 ``backup['elasticsearch']['type']``
-   Which backup type to use for |delivery| Elasticsearch snapshots. Shared
+   Which backup type to use for Chef Automate Elasticsearch snapshots. Shared
    filesystem and S3 backups are currently supported by using the ``fs`` and
    ``s3`` types. Default value: ``fs``.
 
 ``backup['force']``
-   Agree to any prompts or warnings during the |delivery| backup precedure.
+   Agree to any prompts or warnings during the Chef Automate backup precedure.
    Default value: ``false``.
 
 ``backup['git']['enabled']``
-   Back up the |delivery| git repositories. Default value: ``true``.
+   Back up the Chef Automate git repositories. Default value: ``true``.
 
 ``backup['license']['enabled']``
-   Back up the |delivery| license file. Default value: ``true``.
+   Back up the Chef Automate license file. Default value: ``true``.
 
 ``backup['list']['types']``
    Types to list when running the ``delivery-ctl list-backups`` command.
@@ -165,34 +166,34 @@ This configuration file has the following settings for ``backup``:
    Options are ``text`` and ``json``.  Default value: ``text``.
 
 ``backup['location']``
-   Location on disk to store |delivery| backup archives. Default value:
+   Location on disk to store Chef Automate backup archives. Default value:
    ``/var/opt/delivery/backups``.
 
 ``backup['name']``
-   Name to use for |delivery| backup archives and snapshots. When omitted
+   Name to use for Chef Automate backup archives and snapshots. When omitted
    a default will used automatically. Default value: ``nil``.
 
 ``backup['quiet']``
-   Silence non-error information during the |delivery| backup procedure.
+   Silence non-error information during the Chef Automate backup procedure.
    Default value: ``false``.
 
 ``backup['rabbit']['enabled']``
-   Back up the |delivery| RabbitMQ queues. It is disabled by default because
+   Back up the Chef Automate RabbitMQ queues. It is disabled by default because
    it's rare to have a lengthy RabbitMQ queue and the backup procedure requires
-   temporarily shutting down |delivery| services when backing up the queues.
+   temporarily shutting down Chef Automate services when backing up the queues.
    Default value: ``false``.
 
 ``backup['region']``
-   |amazon aws| region to use when storing |delivery| backup archives in S3.
+   Amazon Web Services (AWS) region to use when storing Chef Automate backup archives in S3.
    Default value ``nil``.
 
 ``backup['type']``
-   Which backup type to use for |delivery| backup archives. Local filesystem and
+   Which backup type to use for Chef Automate backup archives. Local filesystem and
    S3 backups are currently supported by using the ``fs`` and ``s3`` types.
    Default value: ``fs``.
 
 ``backup['secret_access_key']``
-   |amazon aws| Secret Key for uploading |delivery| backup archives to S3.
+   Amazon Web Services (AWS) Secret Key for uploading Chef Automate backup archives to S3.
    Only use this if you cannot configure the machine with an instance profile,
    shared credentials, or environment variables.
    Default value: ``nil``.
@@ -216,7 +217,6 @@ This configuration file has the following settings for ``deliv_notify``:
 
 ``deliv_notify['config']``
    Default value: ``[]``.
-
 
 delivery
 -----------------------------------------------------
@@ -254,7 +254,7 @@ This configuration file has the following settings for ``delivery``:
    Default value: ``"delivery"``.
 
 ``delivery['db_pool_init_count']``
-   |db_pool_size| Default value: ``20``.
+   The number of open connections to PostgreSQL that are maintained by the service. Default value: ``20``.
 
 ``delivery['db_pool_max_count']``
    The maximum number of open connections to PostgreSQL. Default value: ``100``.
@@ -270,10 +270,10 @@ This configuration file has the following settings for ``delivery``:
         "recipes:delivery_build\\\\:\\\\:default)"
 
 ``delivery['dir']``
-   |directory generic_working| |default_value_recommended| Default value: ``"/var/opt/delivery/delivery"``.
+   The working directory. The default value is the recommended value. Default value: ``"/var/opt/delivery/delivery"``.
 
 ``delivery['enable']``
-   |enable service| Default value: ``true``.
+   Enable a service. Default value: ``true``.
 
 ``delivery['etc_dir']``
    Default value: ``"/var/opt/delivery/delivery/etc"``.
@@ -312,53 +312,53 @@ This configuration file has the following settings for ``delivery``:
    The attribute that maps to user email address. Default value: ``'mail'``.
 
 ``delivery['ldap_base_dn']``
-   |ldap base_dn| Default value:
+   The root LDAP node under which all other nodes exist in the directory structure. Default value:
 
    .. code-block:: ruby
 
       "OU=Employees,OU=Domain users,DC=examplecorp,DC=com"
 
 ``delivery['ldap_bind_dn']``
-   |ldap bind_dn| Default value: ``"ldapbind"``.
+   The distinguished name used to bind to the LDAP server. Default value: ``"ldapbind"``.
 
 ``delivery['ldap_bind_dn_password']``
-   |ldap bind_password| Default value: ``"secret123"``.
+   The password for the binding user. Default value: ``"secret123"``.
 
 ``delivery['ldap_encryption']``
    Default value: ``"start_tls"``.
 
 ``delivery['ldap_hosts']``
-   |ldap host| Default value: ``[]``.
+   The name (or IP address) of the LDAP server. Default value: ``[]``.
 
 ``delivery['ldap_port']``
-   |ldap port| Default value: ``3269``.
+   An integer that specifies the port on which the LDAP server listens. Default value: ``3269``.
 
 ``delivery['ldap_timeout']``
-   |timeout| Default value: ``5000``.
+   The amount of time (in seconds) to wait before timing out. Default value: ``5000``.
 
 ``delivery['listen']``
-   |ip_address virtual| Default value: ``'127.0.0.1'``.
+   The virtual IP address. Default value: ``'127.0.0.1'``.
 
 ``delivery['log_directory']``
-   |directory logs| |default_value_recommended| Default value: ``"/var/log/delivery/delivery"``.
+   The directory in which log data is stored. The default value is the recommended value. Default value: ``"/var/log/delivery/delivery"``.
 
 ``delivery['log_rotation']['file_maxbytes']``
-   |log_rotation| Default value: ``1024 * 1000 * 10``.
+   The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value: ``1024 * 1000 * 10``.
 
 ``delivery['log_rotation']['num_to_keep']``
-   |log_rotation| Default value: ``10``.
+   The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value: ``10``.
 
 ``delivery['phase_job_confirmation_timeout']``
    Timeout for waiting for phase job to confirm completion. Default value: ``'5m'``.
 
 ``delivery['port']``
-   |port service| Default value: ``9611``.
+   The port on which the service is to listen. Default value: ``9611``.
 
 ``delivery['primary']``
-   Specifies if the |automate| server is the primary server. Default value: ``true``.
+   Specifies if the Chef Automate server is the primary server. Default value: ``true``.
 
 ``delivery['primary_ip']``
-   The IP address for the primary |automate| server. Default value: ``nil``.
+   The IP address for the primary Chef Automate server. Default value: ``nil``.
 
 ``delivery['push_jobs_max_retries']``
    Maximum number of retries a push job can incur without an intervening nack. Default value: ``3``.
@@ -405,7 +405,7 @@ This configuration file has the following settings for ``delivery``:
       }
 
 ``delivery['standby_ip']``
-   The IP address for the cold standby |automate| server. Default value: ``nil``.
+   The IP address for the cold standby Chef Automate server. Default value: ``nil``.
 
 ``delivery['use_ssl_termination']``
    Default value: ``false``.
@@ -416,8 +416,7 @@ This configuration file has the following settings for ``delivery``:
    .. note:: While the ``delivery['read_ttl']`` and ``delivery['write_ttl']`` values may be tuned separately, it is recommended that both values be identical.
 
 ``delivery['vip']``
-   |ip_address virtual| Default value: ``'127.0.0.1'``.
-
+   The virtual IP address. Default value: ``'127.0.0.1'``.
 
 delivery_web
 -----------------------------------------------------
@@ -433,7 +432,7 @@ This configuration file has the following settings for ``delivery_web``:
    Default value: ``"e0435c6ccfd74dfaacf7dfc987c9a7fa"``.
 
 ``delivery_web['etc_dir']``
-   |directory generic_working| |default_value_recommended| Default value: ``"/var/opt/delivery/delivery_web/etc"``.
+   The working directory. The default value is the recommended value. Default value: ``"/var/opt/delivery/delivery_web/etc"``.
 
 ``delivery_web['external_auth']``
    Default value: ``false``.
@@ -448,7 +447,6 @@ This configuration file has the following settings for ``delivery_web``:
 
       "#{node['delivery']['install_path']}/embedded/service/delivery_web"
 
-
 elasticsearch
 -----------------------------------------------------
 This configuration file has the following settings for ``elasticsearch``:
@@ -457,19 +455,19 @@ This configuration file has the following settings for ``elasticsearch``:
    The fully qualified domain name(s) of your Elasticsearch cluster. If not specified a local elasticsearch cluster will be utilized. Default value: ``"http://127.0.0.1:9200"``.
 
 ``elasticsearch['config_directory']``
-   |directory generic_working| |default_value_recommended| Default value: ``"/var/opt/delivery/elasticsearch/conf"``.
+   The working directory. The default value is the recommended value. Default value: ``"/var/opt/delivery/elasticsearch/conf"``.
 
 ``elasticsearch['home']``
    Default value: ``"#{node['delivery']['user']['home']}/elasticsearch"``.
 
 ``elasticsearch['log_directory']``
-   |directory logs| |default_value_recommended| Default value: ``"/var/log/delivery/elasticsearch"``.
+   The directory in which log data is stored. The default value is the recommended value. Default value: ``"/var/log/delivery/elasticsearch"``.
 
 ``elasticsearch['log_rotation']['file_maxbytes']``
-   |log_rotation| Default value: ``100 * 1024 * 1024`` (100MB).
+   The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value: ``100 * 1024 * 1024`` (100MB).
 
 ``elasticsearch['log_rotation']['num_to_keep']``
-   |log_rotation| Default value: ``10``.
+   The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value: ``10``.
 
 ``elasticsearch['memory']``
    Default value:
@@ -477,7 +475,6 @@ This configuration file has the following settings for ``elasticsearch``:
    .. code-block:: ruby
 
       "#{(node.memory.total.to_i * 0.4 ).floor / 1024}m"
-
 
 git
 -----------------------------------------------------
@@ -498,7 +495,6 @@ This configuration file has the following settings for ``git``:
 ``git['username']``
    Default value: ``"git"``.
 
-
 java
 -----------------------------------------------------
 This configuration file has the following settings for ``java``:
@@ -510,29 +506,27 @@ This configuration file has the following settings for ``java``:
 
       "#{node['delivery']['install_path']}/embedded/jre/bin"
 
-
 kibana
 -----------------------------------------------------
 This configuration file has the following settings for ``kibana``:
 
 ``kibana['enable']``
-   |enable service| Only enabled if ``insights`` is also enabled. |default_value_recommended| Default value: ``'true'``
+   Enable a service. Only enabled if ``insights`` is also enabled. The default value is the recommended value. Default value: ``'true'``
 
 ``kibana['conf_dir']``
-   |directory generic_working| |default_value_recommended| Default value: ``'/var/opt/delivery/kibana/'``.
+   The working directory. The default value is the recommended value. Default value: ``'/var/opt/delivery/kibana/'``.
 
 ``kibana['log_directory']``
-   |directory logs| |default_value_recommended| Default value: ``"/var/log/delivery/kibana"``.
+   The directory in which log data is stored. The default value is the recommended value. Default value: ``"/var/log/delivery/kibana"``.
 
 ``kibana['log_rotation']['file_maxbytes']``
-   |log_rotation| Default value: ``100 * 1024 * 1024`` (100MB).
+   The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value: ``100 * 1024 * 1024`` (100MB).
 
 ``kibana['log_rotation']['num_to_keep']``
-   |log_rotation| Default value: ``10``.
+   The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value: ``10``.
 
 ``kibana['port']``
-   |port service| Default value: ``5601``.
-
+   The port on which the service is to listen. Default value: ``5601``.
 
 lb
 -----------------------------------------------------
@@ -541,48 +535,46 @@ This configuration file has the following settings for ``lb``:
 ``lb['debug']``
    Default value: ``false``.
 
-
 logstash
 -----------------------------------------------------
 This configuration file has the following settings for ``logstash``:
 
 ``logstash['config_dir']``
-   |directory generic_working| |default_value_recommended| Default value: ``"/var/opt/delivery/logstash"``.
+   The working directory. The default value is the recommended value. Default value: ``"/var/opt/delivery/logstash"``.
 
 ``logstash['filebeats']['port']``
    Default value: 5044.
 
 ``logstash['log_directory']``
-   |directory logs| |default_value_recommended| Default value: ``"/var/log/delivery/logstash"``.
+   The directory in which log data is stored. The default value is the recommended value. Default value: ``"/var/log/delivery/logstash"``.
 
 ``logstash['log_rotation']['file_maxbytes']``
-   |log_rotation| Default value: ``100 * 1024 * 1024`` (100MB).
+   The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value: ``100 * 1024 * 1024`` (100MB).
 
 ``logstash['log_rotation']['num_to_keep']``
-   |log_rotation| Default value: ``10``.
+   The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value: ``10``.
 
 ``logstash['port']``
-   |port service| Default value: ``8080``.
-
+   The port on which the service is to listen. Default value: ``8080``.
 
 lsyncd
 -----------------------------------------------------
 This configuration file has the following settings for ``lsyncd``:
 
 ``lsyncd['dir']``
-   |directory generic_working| |default_value_recommended| Default value: ``"/var/opt/delivery/lsyncd"``.
+   The working directory. The default value is the recommended value. Default value: ``"/var/opt/delivery/lsyncd"``.
 
 ``lsyncd['enable']``
-   |enable service| Default value: ``true``.
+   Enable a service. Default value: ``true``.
 
 ``lsyncd['log_directory']``
-   |directory logs| |default_value_recommended| Default value: ``"/var/log/delivery/lsyncd"``.
+   The directory in which log data is stored. The default value is the recommended value. Default value: ``"/var/log/delivery/lsyncd"``.
 
 ``lsyncd['log_rotation']['file_maxbytes']``
-   |log_rotation| Default value: ``100 * 1024 * 1024`` (100MB).
+   The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value: ``100 * 1024 * 1024`` (100MB).
 
 ``lsyncd['log_rotation']['num_to_keep']``
-   |log_rotation| Default value: ``10``.
+   The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value: ``10``.
 
 ``lsyncd['ssh_key']``
    Default value:
@@ -594,43 +586,42 @@ This configuration file has the following settings for ``lsyncd``:
 ``lsyncd['user']``
    Default value: ``node['delivery']['user']['username']``.
 
-
 nginx
 -----------------------------------------------------
 This configuration file has the following settings for ``nginx``:
 
 ``nginx['cache_max_size']``
-   |nginx cache_max_size| Default value: ``'5000m'``.
+   The ``max_size`` parameter used by the Nginx cache manager, which is part of the ``proxy_cache_path`` directive. When the size of file storage exceeds this value, the Nginx cache manager removes the least recently used data. Default value: ``'5000m'``.
 
 ``nginx['client_max_body_size']``
-   |nginx client_max_body_size| Default value: ``'250m'``.
+   The maximum accepted body size for a client request, as indicated by the ``Content-Length`` request header. When the maximum accepted body size is greater than this value, a ``413 Request Entity Too Large`` error is returned. Default value: ``'250m'``.
 
 ``nginx['dir']``
-   |directory generic_working| |default_value_recommended| Default value: ``"/var/opt/delivery/nginx"``.
+   The working directory. The default value is the recommended value. Default value: ``"/var/opt/delivery/nginx"``.
 
 ``nginx['enable']``
-   |enable service| Default value: ``true``.
+   Enable a service. Default value: ``true``.
 
 ``nginx['enable_non_ssl']``
-   |enable non_ssl| Default value: ``false``.
+   Allow port 80 redirects to port 443. When this value is set to ``true``, load balancers on the front-end hardware are allowed to do SSL termination of the WebUI and API. Default value: ``false``.
 
 ``nginx['fqdns']``
-   An array of |fqdn| to which |nginx| responds. Default value: ``[]``.
+   An array of FQDN to which Nginx responds. Default value: ``[]``.
 
 ``nginx['gzip']``
-   |enable gzip| Possible values: ``on`` or ``off``. Default value: ``'on'``.
+   Enable  gzip compression. Possible values: ``on`` or ``off``. Default value: ``'on'``.
 
 ``nginx['gzip_comp_level']``
-   |gzip compression_level| Possible values: any integer between ``1`` and ``9`` (inclusive). Default value: ``"2"``.
+   The compression level used with gzip, from least amount of compression (``1``, fastest) to the most (``2``, slowest). Possible values: any integer between ``1`` and ``9`` (inclusive). Default value: ``"2"``.
 
 ``nginx['gzip_http_version']``
-   |gzip http_version| Possible values: ``1.0`` or ``1.1``. Default value: ``"1.0"``.
+   Enable gzip depending on the version of the HTTP request. Possible values: ``1.0`` or ``1.1``. Default value: ``"1.0"``.
 
 ``nginx['gzip_proxied']``
-   |gzip proxied| Possible values: ``any`` (gzip everything), ``auth``, ``expired``, ``no-cache``, ``no-store``, ``no_etag``, ``no_last_modified``, ``off``, or ``private``. Default value: `"any"`.
+   The type of compression used based on the request and response. Possible values: ``any`` (gzip everything), ``auth``, ``expired``, ``no-cache``, ``no-store``, ``no_etag``, ``no_last_modified``, ``off``, or ``private``. Default value: `"any"`.
 
 ``nginx['gzip_types']``
-   |gzip types| Default value:
+   Enable compression for the specified MIME-types. Default value:
 
    .. code-block:: ruby
 
@@ -642,62 +633,62 @@ This configuration file has the following settings for ``nginx``:
       ]
 
 ``nginx['ha']``
-   |use ha| |ha true| Default value: ``false``.
+   Run the Chef server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
 
 ``nginx['keepalive_timeout']``
-   |worker_max_keepalive| Default value: ``65``.
+   The amount of time (in seconds) to wait for requests on a Keepalived connection. Default value: ``65``.
 
 ``nginx['log_directory']``
-   |directory logs| |default_value_recommended| Default value: ``"/var/log/delivery/nginx"``.
+   The directory in which log data is stored. The default value is the recommended value. Default value: ``"/var/log/delivery/nginx"``.
 
 ``nginx['log_rotation']['file_maxbytes']``
-   |log_rotation| Default value: ``100 * 1024 * 1024`` (100MB).
+   The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value: ``100 * 1024 * 1024`` (100MB).
 
 ``nginx['log_rotation']['num_to_keep']``
-   |log_rotation| Default value: ``10``.
+   The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value: ``10``.
 
 ``nginx['non_ssl_port']``
-   |port non_ssl_nginx| Default value: ``80``. Use ``nginx['enable_non_ssl']`` to enable or disable |ssl| redirects on this port number. Set to ``false`` to disable non-SSL connections.
+   The port on which the WebUI and API are bound for non-SSL connections. Default value: ``80``. Use ``nginx['enable_non_ssl']`` to enable or disable SSL redirects on this port number. Set to ``false`` to disable non-SSL connections.
 
 ``nginx['sendfile']``
-   |use sendfile| Possible values: ``on`` or ``off``. Default value: ``'on'``.
+   Copy data between file descriptors when ``sendfile()`` is used. Possible values: ``on`` or ``off``. Default value: ``'on'``.
 
 ``nginx['server_name']``
-   |server_fqdn| Default value: ``node['delivery']['fqdn']``.
+   The FQDN for the server. Default value: ``node['delivery']['fqdn']``.
 
 ``nginx['ssl_certificate']``
-   |ssl_certificate| Default value: created automatically during setup.
+   The SSL certificate used to verify communication over HTTPS. Default value: created automatically during setup.
 
 ``nginx['ssl_certificate_key']``
-   |ssl_certificate key| Default value: created automatically during setup.
+   The certificate key used for SSL communication. Default value: created automatically during setup.
 
 ``nginx['ssl_ciphers']``
-   |ssl_ciphers| To favor AES256 with ECDHE forward security, drop the ``RC4-SHA:RC4-MD5:RC4:RSA`` prefix. See `this link <https://wiki.mozilla.org/Security/Server_Side_TLS>`__ for more information. Default value:
+   The list of supported cipher suites that are used to establish a secure connection. To favor AES256 with ECDHE forward security, drop the ``RC4-SHA:RC4-MD5:RC4:RSA`` prefix. See `this link <https://wiki.mozilla.org/Security/Server_Side_TLS>`__ for more information. Default value:
 
    .. code-block:: ruby
 
       "RC4-SHA:RC4-MD5:RC4:RSA:HIGH:MEDIUM:!LOW:!kEDH:!aNULL:!ADH:!eNULL:!EXP:!SSLv2:!SEED:!CAMELLIA:!PSK"
 
 ``nginx['ssl_company_name']``
-   |nginx ssl_company_name| Default value: "Chef".
+   The name of your company. Default value: "Chef".
 
 ``nginx['ssl_country_name']``
-   |nginx ssl_country_name| Default value: "US".
+   The country in which your company is located. Default value: "US".
 
 ``nginx['ssl_email_address']``
-   |nginx ssl_email_address| Default value: ``"delivery@getchef.com"``.
+   The default email address for your company. Default value: ``"delivery@getchef.com"``.
 
 ``nginx['ssl_locality_name']``
-   |nginx ssl_locality_name| Default value: "Seattle".
+   The city in which your company is located. Default value: "Seattle".
 
 ``nginx['ssl_organizational_unit_name']``
-   |nginx ssl_organizational_unit_name| Default value: "Engineering".
+   The organization or group within your company that is running the Chef server. Default value: "Engineering".
 
 ``nginx['ssl_port']``
    Default value: ``443``.
 
 ``nginx['ssl_protocols']``
-   |version protocols_ssl| For the highest possible security, disable |ssl| 3.0 and allow only TLS:
+   The SSL protocol versions that are enabled. For the highest possible security, disable SSL 3.0 and allow only TLS:
 
    .. code-block:: ruby
 
@@ -706,39 +697,38 @@ This configuration file has the following settings for ``nginx``:
    Default value: Default value: ``"SSLv3 TLSv1"``.
 
 ``nginx['ssl_state_name']``
-   |nginx ssl_state_name| Default value: "WA".
+   The state, province, or region in which your company is located. Default value: "WA".
 
 ``nginx['tcp_nodelay']``
-   |use nagle| Possible values: ``on`` or ``off``. Default value: ``'on'``.
+   Enable the Nagle buffering algorithm. Possible values: ``on`` or ``off``. Default value: ``'on'``.
 
 ``nginx['tcp_nopush']``
-   |use tcpip| Possible values: ``on`` or ``off``. Default value: ``'on'``.
+   Enable TCP/IP transactions. Possible values: ``on`` or ``off``. Default value: ``'on'``.
 
 ``nginx['worker_connections']``
-   |worker_connections| Use with ``nginx['worker_processes']`` to determine the maximum number of allowed clients. Default value: ``10240``.
+   The maximum number of simultaneous clients. Use with ``nginx['worker_processes']`` to determine the maximum number of allowed clients. Default value: ``10240``.
 
 ``nginx['worker_processes']``
-   |worker_processes| Use with ``nginx['worker_connections']`` to determine the maximum number of allowed clients. Default value: ``node['cpu']['total'].to_i``.
-
+   The number of allowed worker processes. Use with ``nginx['worker_connections']`` to determine the maximum number of allowed clients. Default value: ``node['cpu']['total'].to_i``.
 
 postgresql
 -----------------------------------------------------
 This configuration file has the following settings for ``postgresql``:
 
 ``postgresql['checkpoint_completion_target']``
-   |checkpoint_completion_target| Default value: ``0.5``.
+   A completion percentage that is used to determine how quickly a checkpoint should finish in relation to the completion status of the next checkpoint. For example, if the value is ``0.5``, then a checkpoint attempts to finish before 50% of the next checkpoint is done. Default value: ``0.5``.
 
 ``postgresql['checkpoint_segments']``
-   |checkpoint_segments| Default value: ``3``.
+   The maximum amount (in megabytes) between checkpoints in log file segments. Default value: ``3``.
 
 ``postgresql['checkpoint_timeout']``
-   |checkpoint_timeout| Default value: ``"5min"``.
+   The amount of time (in minutes) between checkpoints. Default value: ``"5min"``.
 
 ``postgresql['checkpoint_warning']``
-   |checkpoint_warning| Default value: ``"30s"``.
+   The frequency (in seconds) at which messages are sent to the server log files if checkpoint segments are being filled faster than their currently configured values. Default value: ``"30s"``.
 
 ``postgresql['data_dir']``
-   |directory generic_data| |default_value_recommended| Default value:
+   The directory in which on-disk data is stored. The default value is the recommended value. Default value:
 
    .. code-block:: ruby
 
@@ -748,51 +738,51 @@ This configuration file has the following settings for ``postgresql``:
    Default value: ``false``.
 
 ``postgresql['dir']``
-   |directory generic_working| |default_value_recommended| Default value:
+   The working directory. The default value is the recommended value. Default value:
 
    .. code-block:: ruby
 
       "/var/opt/delivery/postgresql/#{node['delivery']['postgresql']['version']}"
 
 ``postgresql['effective_cache_size']``
-   |effective_cache_size postgresql| Default value: ``"128MB"``.
+   The size of the disk cache that is used for data files. Default value: ``"128MB"``.
 
 ``postgresql['enable']``
-   |enable service| Default value: ``true``.
+   Enable a service. Default value: ``true``.
 
 ``postgresql['ha']``
-   |use ha| |ha true| Default value: ``false``.
+   Run the Chef server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
 
 ``postgresql['home']``
-   |directory postgresql_home| Default value: ``"/var/opt/delivery/postgresql"``.
+   The home directory for PostgreSQL. Default value: ``"/var/opt/delivery/postgresql"``.
 
 ``postgresql['listen_address']``
-   |port listen_postgresql| Default value: ``'localhost'``. In a disaster recovery configuration, this value is similar to: ``'localhost,192.168.10.11'``.
+   The connection source to which PostgreSQL is to respond. Default value: ``'localhost'``. In a disaster recovery configuration, this value is similar to: ``'localhost,192.168.10.11'``.
 
 ``postgresql['log_directory']``
-   |directory logs| |default_value_recommended| Default value:
+   The directory in which log data is stored. The default value is the recommended value. Default value:
 
    .. code-block:: ruby
 
       "/var/log/delivery/postgresql/#{node['delivery']['postgresql']['version']}"
 
 ``postgresql['log_rotation']['file_maxbytes']``
-   |log_rotation| Default value: ``100 * 1024 * 1024`` (100MB).
+   The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value: ``100 * 1024 * 1024`` (100MB).
 
 ``postgresql['log_rotation']['num_to_keep']``
-   |log_rotation| Default value: ``10``.
+   The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value: ``10``.
 
 ``postgresql['max_connections']``
-   |max_connections| Default value: ``350``.
+   The maximum number of allowed concurrent connections. Default value: ``350``.
 
 ``postgresql['md5_auth_cidr_addresses']``
-   |md5_auth_cidr_addresses| Default value: ``[ ]``.
+   Use instead of ``trust_auth_cidr_addresses`` to encrypt passwords using MD5 hashes. Default value: ``[ ]``.
 
 ``postgresql['port']``
-   |port service| Default value: ``5432``.
+   The port on which the service is to listen. Default value: ``5432``.
 
 ``postgresql['shared_buffers']``
-   |shared_buffers postgresql| Default value:
+   The amount of memory that is dedicated to PostgreSQL for data caching. Default value:
 
    .. code-block:: ruby
 
@@ -802,13 +792,13 @@ This configuration file has the following settings for ``postgresql``:
    Default value: ``"/bin/bash"``.
 
 ``postgresql['shmall']``
-   |postgresql shmall| Default value: ``4194304``.
+   The total amount of available shared memory. Default value: ``4194304``.
 
 ``postgresql['shmmax']``
-   |postgresql shmax| Default value: ``17179869184``.
+   The maximum amount of shared memory. Default value: ``17179869184``.
 
 ``postgresql['sql_password']``
-   |password postgresql_user| Default value: ``"snakepliskin"``.
+   The password for the PostgreSQL user account. Default value: ``"snakepliskin"``.
 
 ``postgresql['sql_ro_password']``
    Default value: ``"shmunzeltazzen"``.
@@ -820,7 +810,7 @@ This configuration file has the following settings for ``postgresql``:
    Default value: ``"chef"``.
 
 ``postgresql['trust_auth_cidr_addresses']``
-   |trust_auth_cidr_addresses| See ``md5_auth_cidr_addresses``. Default value: ``[ '127.0.0.1/32', '::1/128' ]``.
+   Use for clear-text passwords. See ``md5_auth_cidr_addresses``. Default value: ``[ '127.0.0.1/32', '::1/128' ]``.
 
 ``postgresql['user_path']``
    Default value:
@@ -830,27 +820,26 @@ This configuration file has the following settings for ``postgresql``:
       "/opt/delivery/embedded/bin:/opt/delivery/bin:$PATH"
 
 ``postgresql['username']``
-   |name user postgresql| Default value: ``"chef-pgsql"``.
+   The PostgreSQL account user name. Default value: ``"chef-pgsql"``.
 
 ``postgresql['work_mem']``
-   |work_mem| Default value: ``"8MB"``.
+   The size (in megabytes) of allowed in-memory sorting. Default value: ``"8MB"``.
 
 ``postgresql['version']``
-   |version postgresql| Default value: ``"9.2"``.
+   The (currently) hardcoded version of PostgreSQL. Default value: ``"9.2"``.
 
 ``postgresql['vip']``
-   |ip_address virtual| Default value: ``"127.0.0.1"``.
-
+   The virtual IP address. Default value: ``"127.0.0.1"``.
 
 rabbitmq
 -----------------------------------------------------
 This configuration file has the following settings for ``rabbitmq``:
 
 ``rabbitmq['dir']``
-   |directory generic_working| |default_value_recommended| Default value: ``'/var/opt/delivery/rabbitmq'``.
+   The working directory. The default value is the recommended value. Default value: ``'/var/opt/delivery/rabbitmq'``.
 
 ``rabbitmq['data_dir']``
-   |directory generic_data| |default_value_recommended| Default value: ``'/var/opt/delivery/rabbitmq/db'``.
+   The directory in which on-disk data is stored. The default value is the recommended value. Default value: ``'/var/opt/delivery/rabbitmq/db'``.
 
 ``rabbitmq['env_path']``
    Default value:
@@ -860,45 +849,44 @@ This configuration file has the following settings for ``rabbitmq``:
       '/opt/delivery/bin:/opt/delivery/embedded/bin:/usr/bin:/bin'
 
 ``rabbitmq['log_directory']``
-   |directory logs| |default_value_recommended| Default value:
+   The directory in which log data is stored. The default value is the recommended value. Default value:
 
    .. code-block:: ruby
 
       File.join(default_log_directory, "rabbitmq")
 
 ``rabbitmq['log_rotation']['file_maxbytes']``
-   |log_rotation| Default value: ``100 * 1024 * 1024`` (100MB).
+   The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value: ``100 * 1024 * 1024`` (100MB).
 
 ``rabbitmq['log_rotation']['num_to_keep']``
-   |log_rotation| Default value: ``10``.
+   The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value: ``10``.
 
 ``rabbitmq['management_enabled']``
-   |rabbitmq management_enabled| Default value: ``true``.
+   Specify if the rabbitmq-management plugin is enabled. Default value: ``true``.
 
 ``rabbitmq['management_password']``
-   |rabbitmq management_password| Default value: ``'chefrocks'``.
+   The rabbitmq-management plugin password. Default value: ``'chefrocks'``.
 
 ``rabbitmq['management_port']``
-   |rabbitmq management_port| Default value: ``15672``.
+   The rabbitmq-management plugin port. Default value: ``15672``.
 
 ``rabbitmq['management_user']``
-   |rabbitmq management_user| Default value: ``'rabbitmgmt'``.
+   The rabbitmq-management plugin user. Default value: ``'rabbitmgmt'``.
 
 ``rabbitmq['node_ip_address']``
-   |ip_address rabbitmq| Default value: ``'0.0.0.0'``.
+   The bind IP address for RabbitMQ. Default value: ``'0.0.0.0'``.
 
 ``rabbitmq['nodename']``
-   |name node| Default value: ``'rabbit@localhost'``.
+   The name of the node. Default value: ``'rabbit@localhost'``.
 
 ``rabbitmq['password']``
-   |password rabbitmq| Default value: ``'chefrocks'``.
+   The password for the RabbitMQ user. Default value: ``'chefrocks'``.
 
 ``rabbitmq['port']``
-   |port service| Default value: ``'5672'``.
+   The port on which the service is to listen. Default value: ``'5672'``.
 
 ``rabbitmq['vip']``
-   |ip_address virtual| Default value: ``'127.0.0.1'``.
-
+   The virtual IP address. Default value: ``'127.0.0.1'``.
 
 ssh_git
 -----------------------------------------------------
@@ -908,15 +896,14 @@ This configuration file has the following settings for ``ssh_git``:
    Default value: ``nil``.
 
 ``ssh_git['keys_dir']``
-   |directory generic_working| |default_value_recommended| Default value:
+   The working directory. The default value is the recommended value. Default value:
 
    .. code-block:: ruby
 
       "#{node['delivery']['delivery']['etc_dir']}/ssh_git_server_keys"
 
 ``ssh_git['port']``
-   |port service| Default value: ``8989``.
-
+   The port on which the service is to listen. Default value: ``8989``.
 
 user
 -----------------------------------------------------

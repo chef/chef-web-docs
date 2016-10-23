@@ -1,5 +1,0 @@
-.. The contents of this file may be included in multiple topics (using the includes directive).
-.. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
-
-
-Signed header authentication is used to validate communications between the |chef server| and any node that is being managed by the |chef server|. An API client manages each authentication request. A public and private key pair is used for the authentication itself. The public key is stored in the database on the |chef server|. The private key is stored locally on each node and is kept separate from node data (typically in the |path chef private key| directory). Each request to the |chef server| by a node must include a request signature in the HTTP headers. This signature is computed from a hash of request content and is encrypted using the private key.

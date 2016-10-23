@@ -1,6 +1,7 @@
 ==========================================
 cab_package
 ==========================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_cab_package.rst>`__
 
 Use the **cab_package** resource to install or remove Microsoft Windows cabinet (.cab) packages.
 
@@ -16,7 +17,7 @@ A **cab_package** resource installs or removes a cabinet package from the specif
      source                  String
    end
 
-where 
+where
 
 * ``cab_package`` is the resource
 * ``name`` is the name of the resource block
@@ -35,7 +36,7 @@ This resource has the following actions:
 Properties
 =====================================================
 This resource has the following properties:
-   
+
 source
    **Ruby Type:** String
 

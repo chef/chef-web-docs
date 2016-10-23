@@ -1,4 +1,0 @@
-.. The contents of this file may be included in multiple topics (using the includes directive).
-.. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics. 
-
-The |omnibus installer| is used to set up a |chef server| using a single command to install the server and all of its dependencies, including |erlang|, |ruby|, |rabbitmq|, |nginx|, and |postgresql|. The |omnibus installer| puts everything into a unique directory (``/etc/chef-server/``) so that the |chef server| will not interfere with other applications that may be running on the target server.

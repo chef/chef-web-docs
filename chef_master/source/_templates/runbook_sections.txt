@@ -1,7 +1,0 @@
-server_monitor.rst
-server_logs.rst
-server_firewalls_and_ports.rst
-server_services.rst
-server_security.rst
-server_tuning.rst
-server_backup_restore.rst

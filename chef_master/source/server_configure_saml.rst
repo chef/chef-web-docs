@@ -1,8 +1,15 @@
 =====================================================
 Configuring for SAML Authentication
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_configure_saml.rst>`__
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+.. tag chef_automate_mark
+
+.. image:: ../../images/chef_automate_full.png
+   :width: 40px
+   :height: 17px
+
+.. end_tag
 
 Chef Manage can support logging in users via SAML authentication. In order to do so, there must be a Chef Automate Server that is configured to act as a SAML Identity Provider (IdP). When the Chef Automate Server is configured to do so, it will provide an OpenID Connect (OIDC) protocol end-point that Chef Manage can use to initiate authentication.
 

@@ -1,6 +1,7 @@
 =====================================================
 Habitat Prism
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/habitat_prism.rst>`__
 
 Prism is a Habitat package that collects data about an individual Habitat ring of supervisors and reports the data to Visibility. Visibility users will be able to collect and query data about all their rings within Visibility.
 
@@ -20,7 +21,6 @@ Prism supports the following configuration options:
 * **ssl_verification_enabled**: If ``true`` and your ``data_collector_url`` is SSL-enabled, Prism will verify the SSL certificate presented by the Chef Automate server. Set this to ``false`` if your Chef Automate server is using a self-signed certificate. Default: ``true``.
 
 Each of these options can be configured via standard Habitat means, such as via environment variables or configuration updates.
-
 
 Installing and Running Prism
 =====================================================

@@ -1,4 +1,0 @@
-.. The contents of this file may be included in multiple topics (using the includes directive).
-.. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
-
-An organization is the top-level entity for role-based access control in the |chef server|. Each organization contains the default groups (``admins``, ``clients``, and ``users``, plus ``billing_admins`` for the hosted |chef server|), at least one user and at least one node (on which the |chef client| is installed). The |chef server| supports multiple organizations. The |chef server| includes a single default organization that is defined during setup. Additional organizations can be created after the initial setup and configuration of the |chef server|.
