@@ -1,6 +1,6 @@
 # chef-docs
 
-The source of the Chef documentation, located at https://docs.chef.io/
+The source of Chef documentation, located at https://docs.chef.io/
 
 This README focuses on people who want to contribute to the Chef documentation.
 
