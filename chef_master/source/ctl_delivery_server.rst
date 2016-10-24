@@ -37,68 +37,7 @@ This subcommand has the following syntax:
 
 create-backup
 =====================================================
-The ``create-backup`` subcommand is used to create Chef Automate backup archives and Elasticseach snapshots. When used with the default configuration it will create backup archives and Elasticseach snapshots and export them into the ``/var/opt/delivery/backups`` and ``/var/opt/delivery/elasticsearch_backups`` directories.
-
-The storage location of the backup archives and snapshots can be configured by setting ``backup['location']`` and ``backup['elasticsearch']['location']`` in ``delivery.rb``.
-
-.. note:: Under normal operating circumstances the Chef Automate RabbitMQ queues are not likely to be lengthy. When factoring that fact with the requirement of shutting down Chef Automate services in order to take a backup of RabbitMQ, it was determined that it was not ideal to include RabbitMQ data by default.
-
-**Backing up to S3**
-
-While not enabled by default, the utility supports backing up Chef Automate archives and snapshots directly to Amazon Web Services (AWS) S3.
-
-To enable this functionality, first configure the machine with access to the desired S3 bucket using either an instance profile with a valid S3 policy or a standard shared credential file located at ``/root/.aws/credentials``.
-
-Below is an example Amazon Web Services (AWS) instance profile policy with the required permissions:
-
-.. code-block:: json
-
-   {
-     "Statement": [
-       {
-         "Action": [
-           "s3:CreateBucket",
-           "s3:ListBucket",
-           "s3:GetBucketLocation",
-           "s3:ListBucketMultipartUploads",
-           "s3:ListBucketVersions"
-         ],
-         "Effect": "Allow",
-         "Resource": [
-           "arn:aws:s3:::example-backups"
-         ]
-       },
-       {
-         "Action": [
-           "s3:GetObject",
-           "s3:PutObject",
-           "s3:DeleteObject",
-           "s3:AbortMultipartUpload",
-           "s3:ListMultipartUploadParts"
-         ],
-         "Effect": "Allow",
-         "Resource": [
-           "arn:aws:s3:::example-backups/\*"
-         ]
-       }
-     ],
-     "Version": "2012-10-17"
-   }
-
-Next, configure Chef Automate to use S3. For example:
-
-.. code-block:: ruby
-
-   backup['bucket']                    = 'example-backups'
-   backup['region']                    = 'us-west-2'
-   backup['type']                      = 's3'
-   backup['elasticsearch']['bucket']   = 'example-backups'
-   backup['elasticsearch']['region']   = 'us-west-2'
-   backup['elasticsearch']['type']     = 's3'
-
-.. note:: Using the same bucket for backup archives and snapshots is supported but both must be configured independently.
-
-See the complete list of Chef Automate :doc:`configuration options </config_rb_delivery_optional_settings>` for additional backup configuration.
+The ``create-backup`` subcommand is used to create Chef Automate backup archives and Elasticseach snapshots. When used with the default configuration it will create backup archives and Elasticseach snapshots
 
 **Syntax**
 
@@ -451,40 +390,9 @@ The command is intended to restore an Automate instance completely from backup, 
 .. note:: The ``ELASTICSEARCH_SNAPSHOT`` value is optional when given a backup archive path.
 
 **Examples**
-
-Complete restoration of a local backup archive and shared filesystem Elasticsearch snapshot:
-
-  1. Copy the Chef Automate backup archive to a directory that is large enough to expand the the archive, e.g.:
-       ``scp user@backup-server:2016-10-14-08-38-55-chef-automate-backup.zst /mnt/ephemeral/``
-  2. Install the same version of Chef Automate that was used to take the backup. If the versions do not match you be prompted with a compatibility warning but can still proceed with the restore if you choose to do so.
-       ``dpkg -i delivery.rpm``
-  3. Mount the Elasticsearch shared filesystem to the same mount point.
-       ``mount backup-server:/export/chef-automate/elasticsearch_backups /var/opt/delivery/elasticsearch_backups``
-  4. Restore the backup archive and snapshot:
-       ``$ delivery-ctl restore-backup /mnt/ephemeral/2016-10-14-08-38-55-chef-automate-backup.zst 2016-10-14-08-38-55-chef-automate-backup --staging-dir /mnt/ephemeral/restore``
-
-.. note:: Specifying a staging directory is not mandatatory but when given it will clear **all** existing data from it.
-
-Complete restoration with a backup archive and Elasticsearch snapshot in S3:
-
-  1. Install the same version of Chef Automate that was used to take the backup. If the versions do not match you can still proceed with the restore but we cannot guarantee compatibility.
-       ``dpkg -i delivery.rpm``
-  2. Restore the backup archive and snapshot:
-       ``$ delivery-ctl restore-backup us-east-1:your-s3-bucket:2016-10-14-08-38-55-chef-automate-backup.zst 2016-10-14-08-38-55-chef-automate-backup``
-
-Restore only an Elasticsearch snapshot:
-
-  1. Determine the snapshot you want to restore
-       ``delivery-ctl list-backups --elasticsearch``
-  2. Restore it
-       ``delivery-ctl restore-backup 2016-10-14-08-38-55-chef-automate-backup``
-
-Restore only database and git repositories from an archive in S3:
-
-  1. Determine the archive you want to restore
-       ``delivery-ctl list-backups --automate``
-  2. Restore it
-       ``$ delivery-ctl restore-backup us-east-1:your-s3-bucket:2016-10-14-08-38-55-chef-automate-backup.zst --no-census --no-license --no-config``
+ ``$ delivery-ctl restore-backup us-east-1:your-s3-bucket:2016-10-14-08-38-55-chef-automate-backup.zst 2016-10-14-08-38-55-chef-automate-backup``
+ ``delivery-ctl restore-backup 2016-10-14-08-38-55-chef-automate-backup``
+ ``$ delivery-ctl restore-backup us-east-1:your-s3-bucket:2016-10-14-08-38-55-chef-automate-backup.zst --no-census --no-license --no-config``
 
 revoke-token
 =====================================================
