@@ -343,25 +343,25 @@ Services and Secrets
 Communication with PostgreSQL requires password authentication. The backend cluster generates PostgreSQL users and passwords during the initial cluster-create. These passwords are present in the following files on disk:
 
 .. list-table::
-   :widths: 400 100 100 100
+   :widths: 325 75 75 50
    :header-rows: 1
 
-    * - Secret
-      - Owner
-      - Group
-      - Mode
-    * - ``/etc/chef-backend/secrets.json``
-      - ``root``
-      - ``chef_pgsql``
-      - ``0640``
-    * - ``/var/opt/chef-backend/leaderl/data/sys.config``
-      - ``chef_pgsql``
-      - ``chef_pgsql``
-      - ``0600``
-    * - ``/var/opt/chef-backend/PostgreSQL/9.5/recovery.conf``
-      - ``chef_pgsql``
-      - ``chef_pgsql``
-      - ``0600``
+   * - Secret
+     - Owner
+     - Group
+     - Mode
+   * - ``/etc/chef-backend/secrets.json``
+     - ``root``
+     - ``chef_pgsql``
+     - ``0640``
+   * - ``/var/opt/chef-backend/leaderl/data/sys.config``
+     - ``chef_pgsql``
+     - ``chef_pgsql``
+     - ``0600``
+   * - ``/var/opt/chef-backend/PostgreSQL/9.5/recovery.conf``
+     - ``chef_pgsql``
+     - ``chef_pgsql``
+     - ``0600``
 
 The following services run on each node in the backend cluster. The user account under which the service runs as listed the second column:
 
