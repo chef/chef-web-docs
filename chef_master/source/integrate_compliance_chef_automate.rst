@@ -40,7 +40,11 @@ This method is compatible with nodes managed by a Chef Server integrated with `C
 Integration instructions can be found `here
 <https://docs.chef.io/integrate_compliance_chef_server.html>`_.
 
-.. include:: ../../includes_compliance/includes_compliance_integrate_chef_server.rst
+Integrate Chef Compliance with Chef Server to allow:
+
+* Users of Chef Compliance to log in using their Chef Server credentials
+
+* Nodes under management by Chef to download Chef Compliance profiles, run them on nodes, and then send the results back to Chef Compliance
 
 When setting the ``node['audit]['collector']`` attribute to ``chef-server``, the ``audit`` cookbook can retrieve profiles from the following sources: ``Chef Compliance server``, ``Chef Supermarket``, ``local filesystem`` and ``git repository``.
 
