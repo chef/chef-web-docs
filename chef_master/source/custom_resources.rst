@@ -800,13 +800,14 @@ Use the ``property`` method to define properties for the custom resource. The sy
 
 .. code-block:: ruby
 
-   property :name, ruby_type, default: 'value'
+   property :name, ruby_type, default: 'value', validator: 'value'
 
 where
 
 * ``:name`` is the name of the property
-* ``ruby_type`` is the Ruby type, such as ``String``, ``Integer``, ``TrueClass``, or ``FalseClass``
-* ``default: 'value'`` is the default value loaded into the resource
+* ``ruby_type`` is the Ruby type or array of types, such as ``String``, ``Integer``, ``TrueClass``, or ``FalseClass``
+* ``default: 'value'`` is the optional default value loaded into the resource
+* ``validator: 'value'`` are optional validation parameters
 
 For example, the following properties define ``username`` and ``password`` properties with no default values specified:
 
@@ -838,7 +839,7 @@ For example, the following properties define the ``owner``, ``group``, and ``mod
 
 validators
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_dsl_custom_resource/includes_dsl_custom_resource_method_property_attribute_validation_parameter.rst
+.. include:: ../../snapshots/includes_dsl_custom_resource/includes_dsl_custom_resource_method_property_attribute_validation_parameter.rst
 
 identity
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

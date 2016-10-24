@@ -11,7 +11,7 @@ A validation parameter is used to add zero (or more) validation parameters to an
    * - Parameter
      - Description
    * - ``:callbacks``
-     - Use to define a collection of unique keys and values (a |ruby hash|) for which the key is the error message and the value is a lambda to validate the parameter. For example: ``"Option #{key}'s value #{value} #{message}!"``, which will insert a key into an error message if the |ruby proc| object does not return true. For example:
+     - Use to define a collection of unique keys and values (a ruby hash) for which the key is the error message and the value is a lambda to validate the parameter. For example: ``"Option #{key}'s value #{value} #{message}!"``, which will insert a key into an error message if the ruby proc object does not return true. For example:
 
        .. code-block:: ruby
        
@@ -54,7 +54,7 @@ A validation parameter is used to add zero (or more) validation parameters to an
           equal_to: ['php', 'perl']
 
    * - ``rubytype``
-     - The property rubytype is a positional parameter. Use to ensure a value is of a particular |ruby| class, such as ``TrueClass``, ``FalseClass``, ``NilClass``, ``String``, ``Array``, ``Hash``, and so on. Use an array of |ruby| classes to allow a value to be of more than one type. For example:
+     - The property rubytype is a positional parameter. Use to ensure a value is of a particular ruby class, such as ``TrueClass``, ``FalseClass``, ``NilClass``, ``String``, ``Array``, ``Hash``, and so on. Use an array of ruby classes to allow a value to be of more than one type. For example:
 
        .. code-block:: ruby
        
