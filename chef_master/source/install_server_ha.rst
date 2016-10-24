@@ -340,6 +340,29 @@ By service role, access requirements are as follows:
 Services and Secrets
 -----------------------------------------------------
 
+Communication with PostgreSQL requires password authentication. The backend cluster generates PostgreSQL users and passwords during the initial cluster-create. These passwords are present in the following files on disk:
+
+.. list-table::
+   :widths: 325 75 75 50
+   :header-rows: 1
+
+   * - Secret
+     - Owner
+     - Group
+     - Mode
+   * - ``/etc/chef-backend/secrets.json``
+     - ``root``
+     - ``chef_pgsql``
+     - ``0640``
+   * - ``/var/opt/chef-backend/leaderl/data/sys.config``
+     - ``chef_pgsql``
+     - ``chef_pgsql``
+     - ``0600``
+   * - ``/var/opt/chef-backend/PostgreSQL/9.5/recovery.conf``
+     - ``chef_pgsql``
+     - ``chef_pgsql``
+     - ``0600``
+
 The following services run on each node in the backend cluster. The user account under which the service runs as listed the second column:
 
 .. list-table::
@@ -350,21 +373,14 @@ The following services run on each node in the backend cluster. The user account
      - Process Owner
    * - ``postgresql``
      - ``chef_pgsql``
-
-       Communication with PostgreSQL requires password authentication. The backend cluster generates PostgreSQL users and passwords during the initial cluster-create. These passwords are present in the following files on disk:
-
-       * ``/etc/chef-backend/secrets.json`` (owner root, 0600)
-       * ``/var/opt/chef-backend/leaderl/data/sys.config`` (owner chef-backend, mode 0600.
-       * ``/var/opt/chef-backend/PostgreSQL/9.5/recovery.conf`` (owner chef\_pgsql, mode 0600)
-
    * - ``elasticsearch``
      - ``chef-backend``
    * - ``etcd``
      - ``chef-backend``
    * - ``leaderl``
-     - ``chef-backend``
+     - ``chef_pgsql``
    * - ``epmd``
-     - ``root``
+     - ``chef_pgsql`` (or first user launching an erlang process)
 
 Chef Server Frontend
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
