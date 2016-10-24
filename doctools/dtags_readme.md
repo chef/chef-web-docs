@@ -29,12 +29,12 @@ another file. Here's an example:
    As mentioned above, **Foo** is a powerful feature of our product.
 ```
 
-The file `../../includes/about_foo.rst` contains the reusable content:
+The file `../../includes/foo_summary.rst` contains the reusable content:
 
 ```rst
 **Foo** does lots of things.
 ```
-Of course, the whole point is that `../../includes/about_foo.rst`
+Of course, the whole point is that `../../includes/foo_summary.rst`
 can appear in lots of places, for example, in `B.rst`:
 
 `B.rst`
@@ -109,7 +109,7 @@ and
    
    But as impressive as **Foo** is, **Enterprise Foo** does even more.
 ```
-Include files like `../../includes/about_foo.rst` go away.
+Include files like `../../includes/foo_summary.rst` go away.
 
 How do we keep the tagged regions in sync? They are, after all, in two
 source files at the same time, and it's not reasonable to require
