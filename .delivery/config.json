@@ -7,5 +7,10 @@
   "skip_phases": [
     "quality",
     "security"
-  ]
+  ],
+  "delivery-truck":{
+    "publish": {
+      "github": "chef/chef-web-docs"
+    }
+  }
 }
