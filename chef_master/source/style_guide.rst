@@ -49,7 +49,6 @@ If a topic requires sections, use the equals symbol (=) below the H1 header name
 
    H1 Heading
    =====================================================
-
    This is the body.
 
 H2
@@ -58,7 +57,6 @@ Use the dash symbol (-) below the header name to indicate H2 headers::
 
    H2 Heading
    -----------------------------------------------------
-
    This is the body.
 
 H3
@@ -67,7 +65,6 @@ Use the plus symbol (+) below the header name to indicate H3 headers::
 
    H3 Heading
    +++++++++++++++++++++++++++++++++++++++++++++++++++++
-
    This is the body.
 
 H4
@@ -76,7 +73,6 @@ Use the caret symbol (^) below the header name to indicate H4 headers::
 
    H4 Heading
    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
    This is the paragraph.
 
 Other headers
