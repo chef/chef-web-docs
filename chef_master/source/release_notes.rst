@@ -2782,13 +2782,14 @@ Use the ``property`` method to define properties for the custom resource. The sy
 
 .. code-block:: ruby
 
-   property :name, ruby_type, default: 'value'
+   property :name, ruby_type, default: 'value', validator: 'value'
 
 where
 
 * ``:name`` is the name of the property
-* ``ruby_type`` is the Ruby type, such as ``String``, ``Integer``, ``TrueClass``, or ``FalseClass``
-* ``default: 'value'`` is the default value loaded into the resource
+* ``ruby_type`` is the Ruby type or array of types, such as ``String``, ``Integer``, ``TrueClass``, or ``FalseClass``
+* ``default: 'value'`` is the optional default value loaded into the resource
+* ``validator: 'value'`` optional validation parameters
 
 For example, the following properties define ``username`` and ``password`` properties with no default values specified:
 
