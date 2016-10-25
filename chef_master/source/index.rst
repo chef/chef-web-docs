@@ -285,15 +285,18 @@ Workflow DSL
 Managing the Server
 -----------------------------------------------------
 
-:doc:`Upgrades </upgrade_chef_automate>` |
+:doc:`Backups </delivery_server_backup>` |
+:doc:`Capacity Planning </scaling_capacity_planning_chef_automate>` |
+:doc:`delivery.rb </config_rb_delivery>` |
+:doc:`Delivery API </api_delivery>` |
 :doc:`Disaster Recovery </delivery_server_disaster_recovery>` |
 :doc:`Secrets </delivery_manage_secrets>` |
-:doc:`Tuning </delivery_server_tuning>` |
 :doc:`Manage Elasticsearch Indices </manage_indices_chef_automate>` |
-:doc:`Users and Roles </delivery_users_and_roles>` |
-:doc:`Capacity Planning </scaling_capacity_planning_chef_automate>` |
+:doc:`Node Search Reference </search_query_chef_automate>` |
 :doc:`Stream Data </stream_data_chef_automate>` |
-`backup-data <http://docs.chef.io/ctl_delivery_server.html#backup-data>`_ |
+:doc:`Tuning </delivery_server_tuning>` |
+:doc:`Upgrades </upgrade_chef_automate>` |
+:doc:`Users and Roles </delivery_users_and_roles>` |
 `cleanse <http://docs.chef.io/ctl_delivery_server.html#cleanse>`_ |
 `create-enterprise <http://docs.chef.io/ctl_delivery_server.html#create-enterprise>`_ |
 `create-user <http://docs.chef.io/ctl_delivery_server.html#create-user>`_ |
@@ -308,14 +311,10 @@ Managing the Server
 `migrate-patchset-diffs <http://docs.chef.io/ctl_delivery_server.html#migrate-patchset-diffs>`_ |
 `reconfigure <http://docs.chef.io/ctl_delivery_server.html#reconfigure>`_ |
 `rename-enterprise <http://docs.chef.io/ctl_delivery_server.html#rename-enterprise>`_ |
-`restore-data <http://docs.chef.io/ctl_delivery_server.html#restore-data>`_ |
 `revoke-token <http://docs.chef.io/ctl_delivery_server.html#revoke-token>`_ |
 `show-config <http://docs.chef.io/ctl_delivery_server.html#show-config>`_ |
 `uninstall <http://docs.chef.io/ctl_delivery_server.html#uninstall>`_ |
-`update-project-hooks <http://docs.chef.io/ctl_delivery_server.html#update-project-hooks>`_ |
-:doc:`delivery.rb </config_rb_delivery>` |
-:doc:`Delivery API </api_delivery>` |
-:doc:`Node Search Reference </search_query_chef_automate>`
+`update-project-hooks <http://docs.chef.io/ctl_delivery_server.html#update-project-hooks>`_
 
 Compliance scanner
 -----------------------------------------------------
@@ -459,6 +458,7 @@ Addenda
    delivery_build_cookbook
    delivery_manage_dependencies
    delivery_manage_secrets
+   delivery_server_backup
    delivery_server_disaster_recovery
    delivery_server_tuning
    delivery_truck
