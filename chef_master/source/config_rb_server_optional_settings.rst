@@ -557,6 +557,9 @@ This configuration file has the following settings for ``nginx``:
 ``nginx['log_rotation']``
    The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value: ``{ 'file_maxbytes' => 104857600, 'num_to_keep' => 10 }``
 
+``nginx['log_x_forwarded_for']``
+  Log $http_x_forwarded_for ("X-Forwarded-For") instead of $remote_addr if ``true``.  Default value ``false``.
+
 ``nginx['non_ssl_port']``
    The port on which the WebUI and API are bound for non-SSL connections. Default value: ``80``. Use ``nginx['enable_non_ssl']`` to enable or disable SSL redirects on this port number. Set to ``false`` to disable non-SSL connections.
 
