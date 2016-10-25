@@ -102,6 +102,17 @@ This configuration file has the following settings for ``backup``:
 ``backup['db']['enabled']``
    Back up the Chef Automate PostgreSQL database. Default value: ``true``.
 
+``backup['delete']['pattern']``
+   The pattern to match when deleting backup archives and Elasticsearch
+   snapshots. Default value: ``nil``.
+
+``backup['delete']['max_archives']``
+   The maximum number of backup archives to keep. Default value: ``nil``.
+
+``backup['delete']['max_snapshots']``
+   The maximum number of Elasticsearch snapshots to keep. Default value:
+   ``nil``.
+
 ``backup['elasticsearch']['access_key_id']``
    Amazon Web Services (AWS) Access Key ID for uploading Chef Automate Elasticsearch snapshots
    to S3. Only use this if you cannot configure the machine with an instance

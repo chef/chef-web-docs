@@ -258,7 +258,7 @@ Chef docs uses tags to indicate text that is used in more than one topic::
 
    .. end_tag
 
-The docs will only build if all tagged regions with the same tag name have the same content. The ``dtags`` utility is included to help synchronize tagged regions. Refer to the ``README.md`` file in the ``chef/chef-web-docs`` repo for more information.
+The docs will only build if all tagged regions with the same tag name have the same content. The ``dtags`` utility is included to help synchronize tagged regions. Refer to the `README.md <https://github.com/chef/chef-web-docs/blob/master/README.md>`__ file in the `chef/chef-web-docs <https://github.com/chef/chef-web-docs>`__ repo for more information.
 
 Here are some guidelines for using tags:
 
