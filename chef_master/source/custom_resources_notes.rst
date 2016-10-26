@@ -44,7 +44,7 @@ in ``resources/whatever.rb``:
 
 "Old school" LWRPS
 =====================================================
-This method is preferable to writing library providers. It has the same functionality as library providers, only you cannot subclass and must use mixins for code sharing (which is good).
+This method is not recommended, but is preferable to writing library resources/providers (as described below). It has the same functionality as library providers, only you cannot subclass and must use mixins for code sharing (which is good).
 
 in ``resources/my_resource.rb``:
 
