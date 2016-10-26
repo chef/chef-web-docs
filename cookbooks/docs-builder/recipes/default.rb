@@ -58,7 +58,7 @@ end
 git '/srv/chef-web-docs' do
   action :sync
   repository node['docs-builder']['repo_location']
-  revision 'master'
+  revision 'web'
   environment 'GIT_SSH' => '/root/bin/git_ssh'
 end
 
