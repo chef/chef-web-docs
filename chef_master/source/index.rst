@@ -321,6 +321,7 @@ Compliance scanner
 :doc:`Overview </compliance>` |
 :doc:`Installation Guide </install_compliance>` |
 :doc:`Integrate w/Chef Server </integrate_compliance_chef_server>` |
+:doc:`Integrate w/Chef Automate </integrate_compliance_chef_automate>` |
 :doc:`Upgrade Compliance </upgrade_compliance>` |
 :doc:`chef-compliance.rb </config_rb_compliance>` |
 :doc:`Chef Compliance API </api_compliance>`
@@ -497,6 +498,7 @@ Addenda
    install_windows
    integrate_chef_automate_saml
    integrate_compliance_chef_server
+   integrate_compliance_chef_automate
    integrate_delivery_bitbucket
    integrate_delivery_github
    integrate_delivery_ldap
