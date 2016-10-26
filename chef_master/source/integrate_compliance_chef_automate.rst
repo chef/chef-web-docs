@@ -21,7 +21,7 @@ This method is compatible with Chef Server managed nodes or Chef Solo (commonly 
 
 When setting the ``node['audit]['collector']`` attribute to ``chef-visibility``, the ``audit`` cookbook can retrieve profiles from the following sources: ``Chef Supermarket``, ``local filesystem`` and ``git repository``.
 
-The profiles execution result will be sent to Chef Automate(Visibility) using the ``data_collector`` url and ``token``. For more details, see the README file of the `audit <https://github.com/chef-cookbooks/audit>` cookbook.
+The profiles execution result will be sent to Chef Automate using the ``data_collector`` url and ``token``. For more details, see the README file of the `audit <https://github.com/chef-cookbooks/audit>` cookbook.
 
 Collector: ``chef-compliance``
 =====================================================
@@ -35,12 +35,12 @@ The profiles execution result will be sent to Chef Compliance. Attributes to spe
 Collector: ``chef-server``
 =====================================================
 
-This method is compatible with nodes managed by a Chef Server integrated with `Chef Compliance <https://docs.chef.io/compliance.html>`_.
+This method is compatible with nodes managed by a Chef server integrated with `Chef Compliance <https://docs.chef.io/compliance.html>`_.
 
 Integration instructions can be found `here
 <https://docs.chef.io/integrate_compliance_chef_server.html>`_.
 
-Integrate Chef Compliance with Chef Server to allow:
+Integrating Chef Compliance with Chef server allows:
 
 * Users of Chef Compliance to log in using their Chef Server credentials
 
