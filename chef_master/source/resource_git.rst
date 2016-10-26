@@ -261,13 +261,13 @@ This resource has the following properties:
 
    The system user that is responsible for the checked-out code. Default value: the home directory of this user, as indicated by the ``HOME`` environment variable.
 
-.. 
+..
 .. Providers
 .. =====================================================
 .. .. include:: ../../includes_resources_common/includes_resources_common_provider.rst
-.. 
+..
 .. .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
-.. 
+..
 .. .. include:: ../../includes_resources/includes_resource_scm_git_providers.rst
 ..
 
@@ -305,12 +305,12 @@ To use different branches, depending on the environment of the node:
       branch_name = 'master'
    end
 
-   git '/home/user/deployment' do                            
+   git '/home/user/deployment' do
       repository 'git@github.com:gitsite/deployment.git'
-      revision branch_name                                   
-      action :sync                                     
-      user 'user'                                    
-      group 'test'                                      
+      revision branch_name
+      action :sync
+      user 'user'
+      group 'test'
    end
 
 where the ``branch_name`` variable is set to ``staging`` or ``master``, depending on the environment of the node. Once this is determined, the ``branch_name`` variable is used to set the revision for the repository. If the ``git status`` command is used after running the example above, it will return the branch name as ``deploy``, as this is the default value. Run the chef-client in debug mode to verify that the correct branches are being checked out:

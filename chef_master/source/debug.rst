@@ -24,7 +24,7 @@ Elements of good approaches to building cookbooks and recipes that are reliable 
 
 Ideally, the best way to debug a recipe is to not have to debug it in the first place. That said, the following sections discuss various approaches to debugging recipes and failed chef-client runs.
 
-Basic 
+Basic
 =====================================================
 Some simple ways to quickly identify common issues that can trigger recipe and/or chef-client run failures include:
 
@@ -457,15 +457,15 @@ to return something similar to:
 
 .. code-block:: bash
 
-   $ => [node[i-f09a939b], node[i-049a936f], node[i-eaaaa581], node[i-9154b1fb], 
-        node[i-6a213101], node[i-c2687aa9], node[i-7abeaa11], node[i-4eb8ac25], 
-        node[i-9a2030f1], node[i-a06875cb], node[i-145f457f], node[i-e032398b], 
-        node[i-dc8c98b7], node[i-6afdf401], node[i-f49b119c], node[i-5abfab31], 
-        node[i-78b8ac13], node[i-d99678b3], node[i-02322269], node[i-feb4a695], 
-        node[i-9e2232f5], node[i-6e213105], node[i-cdde3ba7], node[i-e8bfb083], 
-        node[i-743c2c1f], node[i-2eaca345], node[i-aa7f74c1], node[i-72fdf419], 
-        node[i-140e1e7f], node[i-f9d43193], node[i-bd2dc8d7], node[i-8e7f70e5], 
-        node[i-78f2e213], node[i-962232fd], node[i-4c322227], node[i-922232f9], 
+   $ => [node[i-f09a939b], node[i-049a936f], node[i-eaaaa581], node[i-9154b1fb],
+        node[i-6a213101], node[i-c2687aa9], node[i-7abeaa11], node[i-4eb8ac25],
+        node[i-9a2030f1], node[i-a06875cb], node[i-145f457f], node[i-e032398b],
+        node[i-dc8c98b7], node[i-6afdf401], node[i-f49b119c], node[i-5abfab31],
+        node[i-78b8ac13], node[i-d99678b3], node[i-02322269], node[i-feb4a695],
+        node[i-9e2232f5], node[i-6e213105], node[i-cdde3ba7], node[i-e8bfb083],
+        node[i-743c2c1f], node[i-2eaca345], node[i-aa7f74c1], node[i-72fdf419],
+        node[i-140e1e7f], node[i-f9d43193], node[i-bd2dc8d7], node[i-8e7f70e5],
+        node[i-78f2e213], node[i-962232fd], node[i-4c322227], node[i-922232f9],
         node[i-c02728ab], node[i-f06c7b9b]]
 
 The ``list`` command can take a code block, which will applied (but not saved) to each object that is returned from the server. For example:
@@ -736,7 +736,7 @@ The chef-client run can also be rewound, and then stepped through.
 .. code-block:: bash
 
    $ chef:recipe > Chef::Log.level = :debug # debug logging won't turn on automatically in this case
-       => :debug 
+       => :debug
      chef:recipe > chef_run.rewind
        => 0
      chef:recipe > chef_run.step
@@ -1037,22 +1037,22 @@ This command has the following options:
 
                 .. code-block:: javascript
 
-                   { 
+                   {
                      "name": "dev-99",
                      "description": "Install some stuff",
                      "override_attributes": {
                        "apptastic": {
                          "enable_apptastic": "false",
                          "apptastic_tier_name": "dev-99.bomb.com"
-                       }  
-                     }  
+                       }
+                     }
                    }
 
                 will result in a node object similar to:
 
                 .. code-block:: javascript
 
-                   { 
+                   {
                      "name": "maybe-dev-99",
                      "normal": {
                      "name": "dev-99",
@@ -1061,8 +1061,8 @@ This command has the following options:
                          "apptastic": {
                            "enable_apptastic": "false",
                            "apptastic_tier_name": "dev-99.bomb.com"
-                         }  
-                       }  
+                         }
+                       }
                      }
                    }
 
@@ -1156,7 +1156,7 @@ When the chef-client is installed using RubyGems or a package manager, chef-shel
 
 .. code-block:: bash
 
-   $ bin/shef 
+   $ bin/shef
      ./bin/../lib/chef.rb:30: warning: already initialized constant VERSION
      loading configuration: none (standalone shef session)
      Loading.......done.
@@ -1183,32 +1183,32 @@ Typing is evaluated in the same context as recipes. Create a file resource:
 .. code-block:: bash
 
    $ chef:recipe_mode > file "/tmp/ohai2u_shef"
-       => #<Chef::Resource::File:0x1b691ac 
-          @enclosing_provider=nil, 
-          @resource_name=:file, 
-          @before=nil, 
-          @supports={}, 
-          @backup=5, 
+       => #<Chef::Resource::File:0x1b691ac
+          @enclosing_provider=nil,
+          @resource_name=:file,
+          @before=nil,
+          @supports={},
+          @backup=5,
           @allowed_actions=[:nothing, :create, :delete, :touch, :create_if_missing],
-          @only_if=nil, 
-          @noop=nil, 
-          @collection=#<Chef::ResourceCollection:0x1b9926c 
+          @only_if=nil,
+          @noop=nil,
+          @collection=#<Chef::ResourceCollection:0x1b9926c
           @insert_after_idx=nil,
-          @resources_by_name={"file[/tmp/ohai2u_shef]"=>0}, 
-          @resources=[#<Chef::Resource::File:0x1b691ac ...>]>, 
-          @updated=false, 
-          @provider=nil, 
-          @node=<Chef::Node:0xdeeaae 
-          @name="eigenstate.local">, 
-          @recipe_name=nil, 
-          @not_if=nil, 
-          @name="/tmp/ohai2u_shef", 
-          @action="create", 
-          @path="/tmp/ohai2u_shef", 
-          @source_line="/Users/danielsdeleo/ruby/chef/chef/(irb#1) line 1", 
-          @params={}, 
-          @actions={}, 
-          @cookbook_name=nil, 
+          @resources_by_name={"file[/tmp/ohai2u_shef]"=>0},
+          @resources=[#<Chef::Resource::File:0x1b691ac ...>]>,
+          @updated=false,
+          @provider=nil,
+          @node=<Chef::Node:0xdeeaae
+          @name="eigenstate.local">,
+          @recipe_name=nil,
+          @not_if=nil,
+          @name="/tmp/ohai2u_shef",
+          @action="create",
+          @path="/tmp/ohai2u_shef",
+          @source_line="/Users/danielsdeleo/ruby/chef/chef/(irb#1) line 1",
+          @params={},
+          @actions={},
+          @cookbook_name=nil,
           @ignore_failure=false>
 
 (The previous example was formatted for presentation.) At this point, chef-shell has created the resource and put it in the run-list, but not yet created the file. To initiate the chef-client run, use the ``run_chef`` command:
@@ -1235,7 +1235,7 @@ Switch back to recipe_mode context and use the attributes:
 .. code-block:: bash
 
    $ chef:attributes > recipe_mode
-       => :attributes 
+       => :attributes
      chef:recipe_mode > file "/tmp/#{node.hello}"
 
 Now, run the chef-client again:
@@ -1256,7 +1256,7 @@ Because the first resource (``file[/tmp/ohai2u_shef]``) is still in the run-list
 .. code-block:: bash
 
    $ chef:recipe_mode > ls("/tmp").grep(/ohai/)
-       => ["ohai2u-again", "ohai2u_shef"] 
+       => ["ohai2u-again", "ohai2u_shef"]
 	 Shell Tutorial
 
 .. end_tag

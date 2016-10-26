@@ -15,14 +15,14 @@ The **deploy** resource is modeled after Capistrano, a utility and framework for
 .. .. list-table::
 ..    :widths: 200 300
 ..    :header-rows: 1
-.. 
+..
 ..    * - Task
 ..      - Description
 ..    * - ``deploy``
-..      - The ``deploy`` task is used to deploy a project. This task first calls ``update``, which calls ``update_code`` to copy the project to its deployed location, which calls ``finalize_update`` to touch up the released code. After ``update`` is finished, ``create_symlink`` is called to update symlinks. And then ``restart`` is called to restart the application. 
+..      - The ``deploy`` task is used to deploy a project. This task first calls ``update``, which calls ``update_code`` to copy the project to its deployed location, which calls ``finalize_update`` to touch up the released code. After ``update`` is finished, ``create_symlink`` is called to update symlinks. And then ``restart`` is called to restart the application.
 ..    * - ``deploy:migrations``
 ..      - The ``deploy:migrations`` task is used to deploy and run migrations. This task is similar to the ``deploy`` task, but with the ``migrate`` task running between ``update_code`` and ``create_symlink``.
-..  
+..
 .. .. note:: In Capistrano, the ``deploy:cleanup`` task is used to define the cleanup steps; in Chef, cleanup is handled automatically.
 
 Syntax
@@ -245,7 +245,7 @@ The **deploy** resource expects an application to be structured like a Ruby on R
    * - ``create_dirs_before_symlink``
      - Create directories in the release directory before symbolic links are created. This property runs after ``purge_before_symlink`` and before ``symlink``.
    * - ``purge_before_symlink``
-     - An array of directories (relative to the application root) to be removed from a checkout before symbolic links are created. This attribute runs before ``create_dirs_before_symlink`` and before ``symlink``. 
+     - An array of directories (relative to the application root) to be removed from a checkout before symbolic links are created. This attribute runs before ``create_dirs_before_symlink`` and before ``symlink``.
    * - ``symlink_before_migrate``
      - Map files in a shared directory to the current release directory. The symbolic links for these files are created before any migration is run. Use parentheses ``( )`` around curly braces ``{ }`` to ensure the contents within the curly braces are interpreted as a block and not as an empty Hash. Set to ``symlink_before_migrate({})`` to prevent the creation of symbolic links.
    * - ``symlinks``
@@ -634,13 +634,13 @@ The layout of the **deploy** resource matches a Ruby on Rails app by default, bu
      restart_command 'touch tmp/restart.txt'
      create_dirs_before_symlink  %w{tmp public config deploy}
 
-     # You can use this to customize if your app has extra configuration files 
+     # You can use this to customize if your app has extra configuration files
      # such as amqp.yml or app_config.yml
      symlink_before_migrate  'config/database.yml' => 'config/database.yml'
 
      # If your app has extra files in the shared folder, specify them here
-     symlinks  'system' => 'public/system', 
-               'pids' => 'tmp/pids', 
+     symlinks  'system' => 'public/system',
+               'pids' => 'tmp/pids',
                'log' => 'log',
                'deploy/before_migrate.rb' => 'deploy/before_migrate.rb',
                'deploy/before_symlink.rb' => 'deploy/before_symlink.rb',
@@ -787,7 +787,7 @@ To pass a block of Python code before a migration is run:
      # ...
 
      before_migrate do
-       # release_path is the path to the timestamp dir 
+       # release_path is the path to the timestamp dir
        # for the current release
        current_release = release_path
 
@@ -880,8 +880,8 @@ Using the default property values for the various resources is the recommended s
      symlink_before_migrate       {'config/database.yml' => 'config/database.yml'}
      create_dirs_before_symlink   %w{tmp public config}
      purge_before_symlink         %w{log tmp/pids public/system}
-     symlinks                     { 'system' => 'public/system', 
-                                    'pids' => 'tmp/pids', 
+     symlinks                     { 'system' => 'public/system',
+                                    'pids' => 'tmp/pids',
                                     'log' => 'log'
                                   }
      ...

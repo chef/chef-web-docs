@@ -399,8 +399,8 @@ Ohai configuration settings can be added to the client.rb file.
    .. code-block:: ruby
 
       Ohai.disabled_plugins = [
-        :MyPlugin, 
-        :MyPlugin, 
+        :MyPlugin,
+        :MyPlugin,
         :MyPlugin
       ]
 
@@ -409,8 +409,8 @@ Ohai configuration settings can be added to the client.rb file.
    .. code-block:: ruby
 
       Ohai.disabled_plugins = [
-		:MyPlugin, 
-        :MyPlugin, 
+		:MyPlugin,
+        :MyPlugin,
         'my_ohai_6_plugin'
       ]
 

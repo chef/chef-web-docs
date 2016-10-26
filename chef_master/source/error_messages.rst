@@ -212,8 +212,8 @@ One (or more) of the PostgreSQL predefined users already exists.
   .. code-block:: none
 
      oc_id['sql_user'] = 'alternative_username'
-     oc_id['sql_ro_user'] = alternative_username_for_ro_access' 
+     oc_id['sql_ro_user'] = alternative_username_for_ro_access'
      opscode_erchef['sql_user'] = 'alternative_username'
-     opscode_erchef['sql_ro_user'] = 'alternative_username_for_ro_access' 
-     oc_bifrost['sql_ro_user'] = 'alternative_username' 
-     oc_bifrost['sql_ro_user'] = 'alternative_username_for_ro_access' 
+     opscode_erchef['sql_ro_user'] = 'alternative_username_for_ro_access'
+     oc_bifrost['sql_ro_user'] = 'alternative_username'
+     oc_bifrost['sql_ro_user'] = 'alternative_username_for_ro_access'

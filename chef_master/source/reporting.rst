@@ -1,5 +1,5 @@
 =====================================================
-Reporting  
+Reporting
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/reporting.rst>`__
 
@@ -254,10 +254,10 @@ For a chef-client run that succeeded, the command will return something similar 
          owner:    root
        id:               /tmp/test
        initial_state:
-         checksum: 
-         group:    
-         mode:     
-         owner:    
+         checksum:
+         group:
+         mode:
+         owner:
        name:             /tmp/test
        result:           touch
        type:             file
@@ -308,8 +308,8 @@ The syntax for the ``state_attrs`` method is as follows:
 
 .. code-block:: ruby
 
-   state_attrs :property, 
-               :property, 
+   state_attrs :property,
+               :property,
                :property
 
 where ``:property`` is a comma-delimited list of properties. For example, the ``ebs_volume`` resource (available from the `aws <https://github.com/chef-cookbooks/aws>`_ cookbook) uses the ``state_attrs`` method to tell the Reporting server to track the following properties:

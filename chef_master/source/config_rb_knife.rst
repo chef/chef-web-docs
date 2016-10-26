@@ -67,9 +67,9 @@ This configuration file has the following settings:
 
    .. code-block:: ruby
 
-      cookbook_path [ 
-        '/var/chef/cookbooks', 
-        '/var/chef/site-cookbooks' 
+      cookbook_path [
+        '/var/chef/cookbooks',
+        '/var/chef/site-cookbooks'
       ]
 
 ``data_bag_encrypt_version``

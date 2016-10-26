@@ -36,7 +36,7 @@ The full syntax for all of the properties that are available to the **systemd_un
 
 where
 
-* ``name`` is the name of the unit 
+* ``name`` is the name of the unit
 * ``active`` specifies if the service unit type should be started
 * ``user`` is the user account that systemd units run under. If not specified, systemd units will run under the system account.
 * ``content`` describes the behavior of the unit
@@ -122,7 +122,7 @@ This resource has the following properties:
 ``user``
    **Ruby Type:** String
 
-   The user account that the systemd unit process is run under. The path to the unit for that user would be something like 
+   The user account that the systemd unit process is run under. The path to the unit for that user would be something like
    ``/etc/systemd/user/sshd.service``. If no user account is specified, the systemd unit will run under a ``system`` account, with the path to the unit being something like ``/etc/systemd/system/sshd.service``.
 
 ``content``
@@ -161,7 +161,7 @@ This resource has the following providers:
 ``Chef::Provider::SystemdUnit``, ``systemd_unit``
    The provider for systemd_unit.
 
-.. 
+..
 .. Examples
 .. =====================================================
-.. 
+..

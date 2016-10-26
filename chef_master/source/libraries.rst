@@ -197,16 +197,16 @@ A database can contain a list of virtual hosts that are used by customers. A cus
      def self.vhosts
        v = []
        @db = Sequel.mysql(
-         'web', 
-         :user => 'example', 
-         :password => 'example_pw', 
+         'web',
+         :user => 'example',
+         :password => 'example_pw',
          :host => 'dbserver.example.com'
        )
        @db[
-         "SELECT virtualhost.domainname, 
-              usertable.userid, 
-              usertable.uid, 
-              usertable.gid, 
+         "SELECT virtualhost.domainname,
+              usertable.userid,
+              usertable.uid,
+              usertable.gid,
               usertable.homedir
           FROM usertable, virtualhost
           WHERE usertable.userid = virtualhost.user_name"
@@ -283,12 +283,12 @@ A simple library could be created that extends ``Chef::Recipe::``, like this:
 .. code-block:: ruby
 
    class Chef
-     class Recipe    
+     class Recipe
        # A shortcut to a customer
        def customer(name)
          node[:mycompany_customers][name]
        end
-     end 
+     end
    end
 
 Loop Over a Record

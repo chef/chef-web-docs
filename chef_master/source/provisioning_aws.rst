@@ -23,7 +23,7 @@ A driver-specific resource is a statement of configuration policy that:
 
 * Describes the desired state for a configuration item that is created using Chef provisioning
 * Declares the steps needed to bring that item to the desired state
-* Specifies a resource type---such as ``package``, ``template``, or ``service`` 
+* Specifies a resource type---such as ``package``, ``template``, or ``service``
 * Lists additional details (also known as properties), as necessary
 * Are grouped into recipes, which describe working configurations
 
@@ -263,9 +263,9 @@ A ``aws_cache_cluster`` resource block manages cache clusters in Amazon ElastiCa
      engine_version '1.2.3'
      node_type 'cache.m3.large'
      number_nodes 10
-     preferred_availability_zones [ 
-       'PreferredAvailabilityZones.member.1=us-east-1a', 
-       'PreferredAvailabilityZones.member.2=us-east-1c', 
+     preferred_availability_zones [
+       'PreferredAvailabilityZones.member.1=us-east-1a',
+       'PreferredAvailabilityZones.member.2=us-east-1c',
        'PreferredAvailabilityZones.member.3=us-east-1d'
      ]
      subnet_group_name 'subnet-1'
@@ -370,9 +370,9 @@ This Chef provisioning driver-specific resource has the following properties:
 
        .. code-block:: ruby
 
-          preferred_availability_zones [ 
-            'PreferredAvailabilityZones.member.1=us-east-1a', 
-            'PreferredAvailabilityZones.member.2=us-east-1c', 
+          preferred_availability_zones [
+            'PreferredAvailabilityZones.member.1=us-east-1a',
+            'PreferredAvailabilityZones.member.2=us-east-1c',
             'PreferredAvailabilityZones.member.3=us-east-1d'
           ]
 
@@ -447,9 +447,9 @@ A ``aws_cache_replication_group`` resource block manages replication groups for 
      engine_version '1.2.3'
      node_type 'cache.m3.large'
      number_cache_clusters 3
-     preferred_availability_zones [ 
-       'PreferredAvailabilityZones.member.1=us-east-1a', 
-       'PreferredAvailabilityZones.member.2=us-east-1c', 
+     preferred_availability_zones [
+       'PreferredAvailabilityZones.member.1=us-east-1a',
+       'PreferredAvailabilityZones.member.2=us-east-1c',
        'PreferredAvailabilityZones.member.3=us-east-1d'
      ]
      subnet_group_name 'subnet-1'
@@ -555,9 +555,9 @@ This Chef provisioning driver-specific resource has the following properties:
 
        .. code-block:: ruby
 
-          preferred_availability_zones [ 
-            'PreferredAvailabilityZones.member.1=us-east-1a', 
-            'PreferredAvailabilityZones.member.2=us-east-1c', 
+          preferred_availability_zones [
+            'PreferredAvailabilityZones.member.1=us-east-1a',
+            'PreferredAvailabilityZones.member.2=us-east-1c',
             'PreferredAvailabilityZones.member.3=us-east-1d'
           ]
 
@@ -772,7 +772,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``index_fields``
      - **Ruby Type:** Array
 
-       An array that specifies `the desired index fields <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_IndexField.html>`__. Must include the following keys: ``index_field_name`` and ``index_field_type``. 
+       An array that specifies `the desired index fields <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_IndexField.html>`__. Must include the following keys: ``index_field_name`` and ``index_field_type``.
    * - ``instance_type``
      - **Ruby Type:** String
 
@@ -1236,7 +1236,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``name``
      - **Ruby Type:** String
 
-       Use to specify the name of an elastic IP address. 
+       Use to specify the name of an elastic IP address.
    * - ``public_ip``
      - **Ruby Type:** String
 
@@ -1569,7 +1569,7 @@ The full syntax for all of the properties that are available to the ``aws_key_pa
      allow_overwrite               TrueClass, FalseClass
      private_key_options()         Hash
      private_key_path              String
-     public_key_path               String      
+     public_key_path               String
    end
 
 where
@@ -1979,7 +1979,7 @@ The full syntax for all of the properties that are available to the ``network_ac
      inbound_rules                 Array, Hash
      network_acl_id                String
      outbound_rules                Array, Hash
-     vpc                           String, AwsVpc, AWS::EC2::VPC     
+     vpc                           String, AwsVpc, AWS::EC2::VPC
    end
 
 where
@@ -2508,7 +2508,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``description``
      - **Ruby Type:** String
 
-       The description of the subnet group. 
+       The description of the subnet group.
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
@@ -3255,7 +3255,7 @@ The full syntax for all of the properties that are available to the ``aws_server
 
    aws_server_certificate 'name' do
      certificate_body              String
-     private_key                   String      
+     private_key                   String
    end
 
 where

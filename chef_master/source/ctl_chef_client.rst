@@ -1,5 +1,5 @@
 =====================================================
-chef-client (executable) 
+chef-client (executable)
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ctl_chef_client.rst>`__
 
@@ -161,22 +161,22 @@ This command has the following options:
 
    .. code-block:: javascript
 
-      { 
+      {
         "name": "dev-99",
         "description": "Install some stuff",
         "override_attributes": {
           "apptastic": {
             "enable_apptastic": "false",
             "apptastic_tier_name": "dev-99.bomb.com"
-          }  
-        }  
+          }
+        }
       }
 
    will result in a node object similar to:
 
    .. code-block:: javascript
 
-      { 
+      {
         "name": "maybe-dev-99",
         "normal": {
         "name": "dev-99",
@@ -185,8 +185,8 @@ This command has the following options:
             "apptastic": {
               "enable_apptastic": "false",
               "apptastic_tier_name": "dev-99.bomb.com"
-            }  
-          }  
+            }
+          }
         }
       }
 
@@ -710,15 +710,15 @@ The following example shows how to install a service:
 .. code-block:: ruby
 
    execute "install #{node['chef_client']['svc_name']} in SRC" do
-     command "mkssys -s #{node['chef_client']['svc_name']} 
-                     -p #{node['chef_client']['bin']} 
-                     -u root 
-                     -S 
-                     -n 15 
-                     -f 9 
-                     -o #{node['chef_client']['log_dir']}/client.log 
+     command "mkssys -s #{node['chef_client']['svc_name']}
+                     -p #{node['chef_client']['bin']}
+                     -u root
+                     -S
+                     -n 15
+                     -f 9
+                     -o #{node['chef_client']['log_dir']}/client.log
                      -e #{node['chef_client']['log_dir']}/client.log -a '
-                     -i #{node['chef_client']['interval']} 
+                     -i #{node['chef_client']['interval']}
                      -s #{node['chef_client']['splay']}'"
      not_if "lssrc -s #{node['chef_client']['svc_name']}"
      action :run
@@ -729,7 +729,7 @@ and then enable it using the ``mkitab`` command:
 .. code-block:: ruby
 
    execute "enable #{node['chef_client']['svc_name']}" do
-     command "mkitab '#{node['chef_client']['svc_name']}:2:once:/usr/bin/startsrc 
+     command "mkitab '#{node['chef_client']['svc_name']}:2:once:/usr/bin/startsrc
                      -s #{node['chef_client']['svc_name']} > /dev/console 2>&1'"
      not_if "lsitab #{node['chef_client']['svc_name']}"
    end

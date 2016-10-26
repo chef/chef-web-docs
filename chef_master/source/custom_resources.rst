@@ -1,5 +1,5 @@
 =====================================================
-Custom Resources 
+Custom Resources
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/custom_resources.rst>`__
 
@@ -91,7 +91,7 @@ where
 
 * ``homepage`` is a property that sets the default HTML for the ``index.html`` file with a default value of ``'<h1>Hello world!</h1>'``
 * the (optional) ``load_current_value`` block loads the current values for all specified properties, in this example there is just a single property: ``homepage``
-* the ``if`` statement checks to see if the ``index.html`` file is already present on the node. If that file is already present, its contents are loaded **instead** of the default value for ``homepage`` 
+* the ``if`` statement checks to see if the ``index.html`` file is already present on the node. If that file is already present, its contents are loaded **instead** of the default value for ``homepage``
 * the ``action`` block uses the built-in collection of resources to tell the chef-client how to install Apache, start the service, and then create the contents of the file located at ``/var/www/html/index.html``
 * ``action :create`` is the default resource; ``action :delete`` must be called specifically (because it is not the default resource)
 
@@ -407,7 +407,7 @@ httpd.conf.erb
      Require all denied
    </Directory>
    DocumentRoot "/var/www/vhosts/<%= @instance_name %>"
-   <IfModule mime_module> 
+   <IfModule mime_module>
      TypesConfig /etc/mime.types
    </IfModule>
 

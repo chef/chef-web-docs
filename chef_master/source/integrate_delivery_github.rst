@@ -11,8 +11,8 @@ Integrate Chef Automate with GitHub
 
 .. end_tag
 
-Chef Automate's GitHub integration allows you to use GitHub as the canonical git repository for your projects while 
-benefiting from Chef Automate's workflow and pipeline automation. When you enable the integration on a project in 
+Chef Automate's GitHub integration allows you to use GitHub as the canonical git repository for your projects while
+benefiting from Chef Automate's workflow and pipeline automation. When you enable the integration on a project in
 Chef Automate, you will be able to:
 
 *   Review pull requests and make code comments in the GitHub UI.
@@ -178,10 +178,10 @@ Initializing a new GitHub project in Chef Automate
 
       delivery init --github $GITHUB_ORGANIZATION --repo-name $REPOSITORY_NAME
 
-   By default, Chef Automate will use the current directory name as the new project name. If you want to name the project something else, 
+   By default, Chef Automate will use the current directory name as the new project name. If you want to name the project something else,
    you may specify the project name as an argument (``--project=$AUTOMATE_PROJECT_NAME``).
 
-   After importing your code, this command will generate a `.delivery/config.json` file, create a build cookbook, and submit a change to 
+   After importing your code, this command will generate a `.delivery/config.json` file, create a build cookbook, and submit a change to
    Chef Automate to initialize a pipeline for the project. Your browser will open to the change in Chef Automate.
    At this point, you should be able to see a corresponding pull request in GitHub.
 

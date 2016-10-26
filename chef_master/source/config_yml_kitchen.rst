@@ -31,7 +31,7 @@ The basic structure of a .kitchen.yml file is as follows:
 
 .. code-block:: yaml
 
-   driver: 
+   driver:
      name: driver_name
 
    provisioner:
@@ -94,10 +94,10 @@ For example, a very simple .kitchen.yml file:
 
 .. code-block:: yaml
 
-   driver: 
+   driver:
      name: vagrant
 
-   provisioner: 
+   provisioner:
      name: chef_zero
 
    platforms:
@@ -127,11 +127,11 @@ Kitchen can configure the chef-zero provisioner with the following Chef-specific
    * - Setting
      - Description
    * - ``attributes``
-     - 
+     -
    * - ``chef_client_path``
-     - chef-client provisioner only. 
+     - chef-client provisioner only.
    * - ``chef_metadata_url``
-     - 
+     -
    * - ``chef_omnibus_install_options``
      - Use to specify the package to be installed. Possible values: ``-P chef`` (for the chef-client) and ``-P chefdk`` (for the chef-client that is packaged as part of the Chef development kit). Use ``-n`` to specify the nightly build. For example: ``-P chefdk`` or ``-n -P chefdk``.
    * - ``chef_omnibus_root``
@@ -141,7 +141,7 @@ Kitchen can configure the chef-zero provisioner with the following Chef-specific
    * - ``chef_solo_path``
      - chef-solo provisioner only.
    * - ``chef_zero_host``
-     - chef-client provisioner only. 
+     - chef-client provisioner only.
    * - ``chef_zero_port``
      - chef-client provisioner only. The port on which chef-zero is to listen.
    * - ``client_rb``
@@ -173,9 +173,9 @@ Kitchen can configure the chef-zero provisioner with the following Chef-specific
    * - ``install_msi_url``
      - An alternate URL for a Windows MSI package that will install chef-client on the machine under test.
    * - ``json_attributes``
-     - chef-client provisioner only. 
+     - chef-client provisioner only.
    * - ``log_file``
-     - 
+     -
    * - ``nodes_path``
      - The relative path to the directory in which node data is located. This data must be defined as JSON.
    * - ``require_chef_omnibus``
@@ -185,9 +185,9 @@ Kitchen can configure the chef-zero provisioner with the following Chef-specific
    * - ``root_path``
      - The directory in which Kitchen will stage all content on the target node. This directory should be large enough to store all the content and must be writable. (Typically, this value does not need to be modified from the default value.) Default value: ``/tmp/kitchen``.
    * - ``ruby_bindir``
-     - chef-client provisioner only. 
+     - chef-client provisioner only.
    * - ``run_list``
-     - 
+     -
    * - ``solo_rb``
      - chef-solo provisioner only.
 
@@ -334,7 +334,7 @@ Driver-specific configuration settings may be required. Use a block similar to:
 
 .. code-block:: yaml
 
-   driver: 
+   driver:
      name: driver_name
      optional_settings: values
 
@@ -422,7 +422,7 @@ The following attributes are used to configure ``kitchen-vagrant`` for Chef:
    * - ``box``
      - Required. Use to specify the box on which Vagrant will run. Default value: computed from the platform name of the instance.
    * - ``box_check_update``
-     - Use to check for box updates. Default value: ``false``. 
+     - Use to check for box updates. Default value: ``false``.
    * - ``box_url``
      - Use to specify the URL at which the configured box is located. Default value: computed from the platform name of the instance, but only when the Vagrant provider is VirtualBox- or VMware-based.
    * - ``communicator``

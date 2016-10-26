@@ -263,13 +263,13 @@ This resource has the following properties:
 
    The day of the week on which this entry is to run (0 - 6), where Sunday = 0. Default value: ``*``.
 
-.. 
+..
 .. Providers
 .. =====================================================
 .. .. include:: ../../includes_resources_common/includes_resources_common_provider.rst
-.. 
+..
 .. .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
-.. 
+..
 .. .. include:: ../../includes_resources/includes_resource_cron_providers.rst
 ..
 
@@ -302,10 +302,10 @@ The following examples demonstrate various approaches for using resources in rec
 .. code-block:: ruby
 
    cron 'ganglia_tomcat_thread_max' do
-     command "/usr/bin/gmetric 
-       -n 'tomcat threads max' 
-       -t uint32 
-       -v '/usr/local/bin/tomcat-stat 
+     command "/usr/bin/gmetric
+       -n 'tomcat threads max'
+       -t uint32
+       -v '/usr/local/bin/tomcat-stat
        --thread-max'"
      only_if do File.exist?('/home/jboss') end
    end

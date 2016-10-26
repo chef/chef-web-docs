@@ -1,5 +1,5 @@
 =====================================================
-knife environment 
+knife environment
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_environment.rst>`__
 
@@ -329,7 +329,7 @@ to return:
    override_attributes:
 
    \\
-   \\ 
+   \\
    \\
    \\
 

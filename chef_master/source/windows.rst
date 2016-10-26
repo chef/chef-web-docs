@@ -11,7 +11,7 @@ The chef-client has specific components that are designed to support unique aspe
 * Six resources dedicated to the Microsoft Windows platform are built into the chef-client: **batch**, **dsc_script**, **env**, **powershell_script**, **registry_key**, and **windows_package**
 * Use the **dsc_resource** to use Powershell DSC resources in Chef!
 * Two knife plugins dedicated to the Microsoft Windows platform are available: ``knife azure`` is used to manage virtual instances in Microsoft Azure; ``knife windows`` is used to interact with and manage physical nodes that are running Microsoft Windows, such as desktops and servers
-* Four cookbooks provide application-specific support. For `PowerShell 4.0 <https://github.com/chef-cookbooks/powershell>`_. For `IIS 7.0/7.5/8.0 <https://github.com/chef-cookbooks/iis>`_. For `SQL Server <https://github.com/chef-cookbooks/database>`_. And for configuring various settings and behaviors on a machine that is running `Windows <https://github.com/chef-cookbooks/windows>`_ 
+* Four cookbooks provide application-specific support. For `PowerShell 4.0 <https://github.com/chef-cookbooks/powershell>`_. For `IIS 7.0/7.5/8.0 <https://github.com/chef-cookbooks/iis>`_. For `SQL Server <https://github.com/chef-cookbooks/database>`_. And for configuring various settings and behaviors on a machine that is running `Windows <https://github.com/chef-cookbooks/windows>`_
 * Support for both :i386 and :x86_64 architectures
 * The following Microsoft Windows platform-specific helpers can be used in recipes:
 
@@ -91,7 +91,7 @@ The chef-client can be used to manage machines that run on the following version
    * - Windows
      - 2003 R2, 2008
      - i686, x86_64
-   * - 
+   * -
      - 2008 R2, 2012
      - x86_64
 
@@ -1423,9 +1423,9 @@ To provision a medium-sized CentOS machine configured as a web server in the ``W
 
 .. code-block:: bash
 
-   $ knife azure server create -r "role[webserver]" --service-location "West US" 
-     --hosted-service-name webservers --storage-account webservers-storage --ssh-user foo 
-     --ssh--password password --role-name web-apache-0001 --host-name web-apache 
+   $ knife azure server create -r "role[webserver]" --service-location "West US"
+     --hosted-service-name webservers --storage-account webservers-storage --ssh-user foo
+     --ssh--password password --role-name web-apache-0001 --host-name web-apache
      --tcp-endpoints 80:80,8080:8080 --source-image name_of_source_image --role-size Medium
 
 **Provision an instance using new hosted service and storage accounts**
@@ -1434,8 +1434,8 @@ To provision a medium-sized CentOS machine configured as a web server in the ``W
 
 .. code-block:: bash
 
-   $ knife azure server create -r "role[webserver]" --service-location "West US" --ssh-user foo 
-     --ssh--password password --role-name web-apache-0001 --host-name web-apache 
+   $ knife azure server create -r "role[webserver]" --service-location "West US" --ssh-user foo
+     --ssh--password password --role-name web-apache-0001 --host-name web-apache
      --tcp-endpoints 80:80,8080:8080 --source-image name_of_source_image --role-size Medium
 
 server delete
@@ -2071,13 +2071,13 @@ A resource is a statement of configuration policy that:
 
 * Describes the desired state for a configuration item
 * Declares the steps needed to bring that item to the desired state
-* Specifies a resource type---such as ``package``, ``template``, or ``service`` 
+* Specifies a resource type---such as ``package``, ``template``, or ``service``
 * Lists additional details (also known as resource properties), as necessary
 * Are grouped into recipes, which describe working configurations
 
 .. end_tag
 
-Common Functionality 
+Common Functionality
 -----------------------------------------------------
 The following sections describe Microsoft Windows-specific functionality that applies generally to all resources:
 
@@ -2177,7 +2177,7 @@ or:
 Some other important things to know when using the ``rights`` attribute:
 
 * Only inherited rights remain. All existing explicit rights on the object are removed and replaced.
-* If rights are not specified, nothing will be changed. The chef-client does not clear out the rights on a file or directory if rights are not specified. 
+* If rights are not specified, nothing will be changed. The chef-client does not clear out the rights on a file or directory if rights are not specified.
 * Changing inherited rights can be expensive. Microsoft Windows will propagate rights to all children recursively due to inheritance. This is a normal aspect of Microsoft Windows, so consider the frequency with which this type of action is necessary and take steps to control this type of action if performance is the primary consideration.
 
 Use the ``deny_rights`` property to deny specific rights to specific users. The ordering is independent of using the ``rights`` property. For example, it doesn't matter if rights are granted to everyone is placed before or after ``deny_rights :read, ['Julian', 'Lewis']``, both Julian and Lewis will be unable to read the document. For example:
@@ -2539,7 +2539,7 @@ To run a batch file that unzips and then moves Ruby, do something like:
 
    batch 'unzip_and_move_ruby' do
      code <<-EOH
-       7z.exe x #{Chef::Config[:file_cache_path]}/ruby-1.8.7-p352-i386-mingw32.7z  
+       7z.exe x #{Chef::Config[:file_cache_path]}/ruby-1.8.7-p352-i386-mingw32.7z
          -oC:\\source -r -y
        xcopy C:\\source\\ruby-1.8.7-p352-i386-mingw32 C:\\ruby /e /y
        EOH
@@ -2560,7 +2560,7 @@ or:
 
    batch 'unzip_and_move_ruby' do
      code <<-EOH
-       7z.exe x #{Chef::Config[:file_cache_path]}/ruby-1.8.7-p352-i386-mingw32.7z  
+       7z.exe x #{Chef::Config[:file_cache_path]}/ruby-1.8.7-p352-i386-mingw32.7z
          -oC:\\source -r -y
        xcopy C:\\source\\ruby-1.8.7-p352-i386-mingw32 C:\\ruby /e /y
        EOH
@@ -3236,7 +3236,7 @@ Use the ``command`` property to specify the path to a Windows PowerShell data fi
 
 .. code-block:: powershell
 
-   Configuration 'DefaultEditor'  
+   Configuration 'DefaultEditor'
    {
      Environment 'texteditor'
        {
@@ -3264,7 +3264,7 @@ If a DSC script contains configuration data that takes parameters, those paramet
 .. code-block:: powershell
 
    $choices = @{'emacs' = 'c:\emacs\bin\emacs';'vi' = 'c:\vim\vim.exe';'powershell' = 'powershell_ise.exe'}
-     Configuration 'DefaultEditor' 
+     Configuration 'DefaultEditor'
        {
          [CmdletBinding()]
          param
@@ -3354,7 +3354,7 @@ The following example shows how to specify custom configuration data using the `
 
 .. code-block:: powershell
 
-   Configuration 'emacs'  
+   Configuration 'emacs'
      {
        Environment 'TextEditor'
        {
@@ -3363,7 +3363,7 @@ The following example shows how to specify custom configuration data using the `
        }
    }
 
-   Configuration 'vi'   
+   Configuration 'vi'
    {
        Environment 'TextEditor'
        {
@@ -4063,8 +4063,8 @@ The syntax for the ``registry_data_exists?`` method is as follows:
 .. code-block:: ruby
 
    registry_data_exists?(
-     KEY_PATH, 
-     { :name => 'NAME', :type => TYPE, :data => DATA }, 
+     KEY_PATH,
+     { :name => 'NAME', :type => TYPE, :data => DATA },
      ARCHITECTURE
    )
 
@@ -4234,8 +4234,8 @@ The syntax for the ``registry_value_exists?`` method is as follows:
 .. code-block:: ruby
 
    registry_value_exists?(
-     KEY_PATH, 
-     { :name => 'NAME' }, 
+     KEY_PATH,
+     { :name => 'NAME' },
      ARCHITECTURE
    )
 
@@ -5152,8 +5152,8 @@ The syntax for the ``registry_data_exists?`` method is as follows:
 .. code-block:: ruby
 
    registry_data_exists?(
-     KEY_PATH, 
-     { :name => 'NAME', :type => TYPE, :data => DATA }, 
+     KEY_PATH,
+     { :name => 'NAME', :type => TYPE, :data => DATA },
      ARCHITECTURE
    )
 
@@ -5174,7 +5174,7 @@ This method will return ``true`` or ``false``.
 
 .. end_tag
 
-registry_get_subkeys 
+registry_get_subkeys
 -----------------------------------------------------
 .. tag dsl_recipe_method_registry_get_subkeys
 
@@ -5323,8 +5323,8 @@ The syntax for the ``registry_value_exists?`` method is as follows:
 .. code-block:: ruby
 
    registry_value_exists?(
-     KEY_PATH, 
-     { :name => 'NAME' }, 
+     KEY_PATH,
+     { :name => 'NAME' },
      ARCHITECTURE
    )
 

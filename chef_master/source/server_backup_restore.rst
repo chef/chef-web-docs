@@ -36,7 +36,7 @@ Required Directories
 
 Data stored in the following directories should be backed up periodically:
 
-* /etc/opscode 
+* /etc/opscode
 * /var/opt/opscode
 
 This data is also essential when any type of backup and restore operation is done for the Chef server.
@@ -79,7 +79,7 @@ When restoring Chef server data, the previously backed-up files will be required
 
 #. Restore the previously backed-up files to the following locations:
 
-   * ``/etc/opscode`` 
+   * ``/etc/opscode``
    * ``/var/opt/opscode``
 
    by using the following command, which will exclude PostgreSQL files:

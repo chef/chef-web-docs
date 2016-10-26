@@ -20,7 +20,7 @@ The key concepts in Kitchen are:
 * A platform is the operating system or target environment on which a cookbook is to be tested
 * A suite is the chef-client configuration, a run-list, and (optionally) node attributes
 * An instance is the combination of a specific platform and a specific suite, with each instance being assigned an auto-generated name
-* A driver is the lifecycle that implements the actions associated with a specific instance---create the instance, do what is needed to converge on that instance (such as installing the chef-client, uploading cookbooks, starting the chef-client run, and so on), setup anything else needed for testing, verify one (or more) suites post-converge, and then destroy that instance 
+* A driver is the lifecycle that implements the actions associated with a specific instance---create the instance, do what is needed to converge on that instance (such as installing the chef-client, uploading cookbooks, starting the chef-client run, and so on), setup anything else needed for testing, verify one (or more) suites post-converge, and then destroy that instance
 * A provisioner is the component on which the chef-client code will be run, either using chef-zero or chef-solo via the ``chef_zero`` and ``chef_solo`` provisioners, respectively
 
 Bento
@@ -48,7 +48,7 @@ The following frameworks are good options for building integration tests with Ki
    * - `Minitest <https://github.com/seattlerb/minitest>`_
      - A small, fast, testing framework.
    * - `Rspec <http://rspec.info>`_
-     - The primary testing framework for Ruby, using the words ``describe`` and ``it`` to express tests as conversation. bats, Minitest, Serverspec are all based on RSpec. 
+     - The primary testing framework for Ruby, using the words ``describe`` and ``it`` to express tests as conversation. bats, Minitest, Serverspec are all based on RSpec.
    * - `Serverspec <http://serverspec.org>`_
      - RSpec-based tests for servers.
 
@@ -189,7 +189,7 @@ The basic structure of a .kitchen.yml file is as follows:
 
 .. code-block:: yaml
 
-   driver: 
+   driver:
      name: driver_name
 
    provisioner:
@@ -252,10 +252,10 @@ For example, a very simple .kitchen.yml file:
 
 .. code-block:: yaml
 
-   driver: 
+   driver:
      name: vagrant
 
-   provisioner: 
+   provisioner:
      name: chef_zero
 
    platforms:
