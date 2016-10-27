@@ -260,7 +260,7 @@ Each environment is defined as a Ruby file (i.e. a file that ends with ``.rb``).
        .. code-block:: ruby
 
           override_attributes(
-            :apache2 => { 
+            :apache2 => {
               :prefork => { :min_spareservers => '5' }
             }
           )
@@ -513,8 +513,8 @@ Or, to include the same search in a recipe, use a code block similar to:
 
 .. code-block:: ruby
 
-   qa_nodes = search(:node,"chef_environment:QA")      
-   qa_nodes.each do |qa_node|                          
+   qa_nodes = search(:node,"chef_environment:QA")
+   qa_nodes.each do |qa_node|
        # Do useful work specific to qa nodes only
    end
 

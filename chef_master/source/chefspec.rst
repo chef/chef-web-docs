@@ -16,7 +16,7 @@ Use ChefSpec to simulate the convergence of resources on a node:
 
 ChefSpec is a framework that tests resources and recipes as part of a simulated chef-client run. ChefSpec tests execute very quickly. When used as part of the cookbook authoring workflow, ChefSpec tests are often the first indicator of problems that may exist within a cookbook.
 
-.. 
+..
 .. The following topic needs to be better before it can be uncommented, along with an H1 (=====) header added.
 ..
 .. .. include:: ../../includes_chefspec/includes_chefspec_compare_to_resource.rst

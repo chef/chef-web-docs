@@ -491,7 +491,7 @@ The following example shows how to create a cookbook, with project and pipeline,
 Using ``delivery-truck`` in air-gapped environment
 ========================================================
 
-Chef Automate can be set up to deploy cookbooks and applications in an air-gapped environment and this section describes 
+Chef Automate can be set up to deploy cookbooks and applications in an air-gapped environment and this section describes
 how to set up a basic cookbook to be delivered through Chef Automate using the `delivery-truck cookbook <https://github.com/chef-cookbooks/delivery-truck>`__
 in that environment.
 

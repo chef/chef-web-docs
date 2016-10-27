@@ -441,7 +441,7 @@ Use the ``Ohai::Log`` class in an Ohai plugin to define log entries that are cre
 
 where
 
-* ``log_type`` can be ``.debug``, ``.info``, ``.warn``, ``.error``, or ``.fatal`` 
+* ``log_type`` can be ``.debug``, ``.info``, ``.warn``, ``.error``, or ``.fatal``
 * ``'message'`` is the message that is logged.
 
 For example:
@@ -470,7 +470,7 @@ For example:
        else
          Ohai::Log.debug('NOT ohai openstack')
        end
-     end 
+     end
    end
 
 .. end_tag
@@ -489,7 +489,7 @@ Use the ``rescue`` clause to make sure that a log message is always provided. Fo
 
 .. end_tag
 
-Examples 
+Examples
 =====================================================
 The following examples show different ways of building Ohai plugins.
 

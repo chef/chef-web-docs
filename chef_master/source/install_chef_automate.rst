@@ -85,7 +85,7 @@ Chef Automate has the following infrastructure requirements:
        - 4GB
        - 60GB
 
-\*If you use your own Elasticsearch cluster instead of the single Elasticsearch instance provided with Chef Automate, 
+\*If you use your own Elasticsearch cluster instead of the single Elasticsearch instance provided with Chef Automate,
 then the Chef Automate server only requires 8 GB of RAM.
 
 .. note:: If you already have a Chef server installation, you can update it with push jobs as detailed in `Push Jobs Server installation <#push_job_installation>`_. If you have both already configured, skip to `Completing Setup <#completing-setup>`_. Also, any build nodes must be accessible from the Chef Automate server over SSH and they must have a user account configured that has sudo privileges.
@@ -336,9 +336,9 @@ To install Chef Automate:
    to interact with an internal Supermarket. The setup command can be re-run
    as often as necessary.
 
-Once setup of your Chef Automate server completes, you will be prompted to apply the configuration. 
-This will apply the configuration changes and bring service online, or restart them if you've previously 
-run setup and applied configuration at that time. You can bypass this prompt by passing in the argument 
+Once setup of your Chef Automate server completes, you will be prompted to apply the configuration.
+This will apply the configuration changes and bring service online, or restart them if you've previously
+run setup and applied configuration at that time. You can bypass this prompt by passing in the argument
 ``--configure`` to the ``setup`` command, which will run it automatically, or pass in ``--no-configure`` to skip it.
 
 If you've applied the configuration, you will also be prompted to
@@ -412,12 +412,12 @@ The following steps are performed on the Chef Automate server:
 About Proxies
 --------------------------------------------------
 
-If the Chef Automate setup process is happening in an environment that is configured to only allow http/https traffic to go 
+If the Chef Automate setup process is happening in an environment that is configured to only allow http/https traffic to go
 through a proxy server, then some additional steps need to be taken.
 
-The ``http_proxy``, ``https_proxy`` and ``no_proxy`` environment variables will need to be set appropriately for the setup process 
-to complete successfully. These can be set in the environment directly, or added to a knife.rb file (for example, in ``/root/.chef/knife.rb``). 
-Any host that needs to make outgoing http or https connections will require these settings. For example, the Chef Automate Server 
+The ``http_proxy``, ``https_proxy`` and ``no_proxy`` environment variables will need to be set appropriately for the setup process
+to complete successfully. These can be set in the environment directly, or added to a knife.rb file (for example, in ``/root/.chef/knife.rb``).
+Any host that needs to make outgoing http or https connections will require these settings. For example, the Chef Automate Server
 (which makes knife calls to Chef Server) and Chef Server (for push jobs) should have these configured.
 
 For more details on the proxy setup, please see `About Proxies <https://docs.chef.io/proxies.html>`__.
@@ -430,7 +430,7 @@ Allows nodes to execute infrastructure tests or compliance profiles as part of t
 Troubleshooting
 ===================================================================
 
-Once you have setup completed, you should be able to submit a change request for review through the workflow pipeline 
+Once you have setup completed, you should be able to submit a change request for review through the workflow pipeline
 and Chef Automate will run it through the complete process. If there are problems, see :doc:`Troubleshooting Chef Automate Deployments </troubleshooting_chef_automate>` for debugging tips.
 
 Delivery-truck setup

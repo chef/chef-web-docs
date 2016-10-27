@@ -19,16 +19,16 @@ The following table lists the Foundational platforms for the Chef server:
      - Architecture
      - Version
    * - CentOS
-     - 
+     -
      - ``5.x``, ``6.x``, ``7.x``
    * - Oracle Linux
-     - 
+     -
      - ``5.x``, ``6.x``
    * - Red Hat Enterprise Linux
-     - 
+     -
      - ``5.x``, ``6.x``, ``7.x``
    * - Ubuntu
-     - 
+     -
      - ``12.04 LTS``, ``14.04 LTS``, ``16.04 LTS``
 
 .. end_tag
@@ -354,7 +354,7 @@ The Chef server server requires that every node that is under management by Chef
 
    [Tue, 01 Nov 2011 16:55:23 -0700] INFO: *** Chef 11.X.X ***
    [Tue, 01 Nov 2011 16:55:23 -0700] INFO: Client key /etc/chef/client.pem is not present - registering
-   [Tue, 01 Nov 2011 16:55:24 -0700] INFO: HTTP Request Returned 401 Unauthorized: 
+   [Tue, 01 Nov 2011 16:55:24 -0700] INFO: HTTP Request Returned 401 Unauthorized:
        Failed to authenticate as ORGANIZATION-validator. Synchronize the clock on your host.
    [Tue, 01 Nov 2011 16:55:24 -0700] FATAL: Stacktrace dumped to /var/chef/cache/chef-stacktrace.out
    [Tue, 01 Nov 2011 16:55:24 -0700] FATAL: Net::HTTPServerException: 401 "Unauthorized"

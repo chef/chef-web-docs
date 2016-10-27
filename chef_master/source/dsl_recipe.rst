@@ -111,9 +111,9 @@ For example:
      # do debian/ubuntu things with the Ruby array %w{} shortcut
    end
 
-.. 
+..
 .. The ``%w`` array will use single-quotes, will not have access to code interpolation, and may only use a limited set of escape characters: ``\``.
-.. 
+..
 .. .. note:: Use an upper-case W---``%W``---to create an array with double-quotes, access to code interpolation, and access to all escape characters.
 ..
 
@@ -1609,7 +1609,7 @@ The following example shows how an if statement can be used with the ``platform?
      ruby_block 'copy libmysql.dll into ruby path' do
        block do
          require 'fileutils'
-         FileUtils.cp "#{node['mysql']['client']['lib_dir']}\\libmysql.dll", 
+         FileUtils.cp "#{node['mysql']['client']['lib_dir']}\\libmysql.dll",
            node['mysql']['client']['ruby_dir']
        end
        not_if { File.exist?("#{node['mysql']['client']['ruby_dir']}\\libmysql.dll") }
@@ -1651,7 +1651,7 @@ or:
 
 .. future example: step_resource_remote_file_use_platform_family
 
-.. 
+..
 .. Parameters
 .. +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. .. include:: ../../includes_dsl_recipe/includes_dsl_recipe_method_platform_family_parameters.rst
@@ -2155,7 +2155,7 @@ The following example shows how to use the ``search`` method in the Recipe DSL t
 where
 
 * the search will use both of the **execute** resources, unless the condition specified by the ``not_if`` commands are met
-* the ``environments`` property in the first **execute** resource is being used to define values that appear as variables in the OpenVPN configuration 
+* the ``environments`` property in the first **execute** resource is being used to define values that appear as variables in the OpenVPN configuration
 * the **template** resource tells the chef-client which template to use
 
 .. end_tag
@@ -2244,21 +2244,21 @@ For example:
 
    tag('machine')
 
-   if tagged?('machine') 
-      Chef::Log.info('Hey I'm #{node[:tags]}') 
+   if tagged?('machine')
+      Chef::Log.info('Hey I'm #{node[:tags]}')
    end
 
    untag('machine')
 
-   if not tagged?('machine') 
-      Chef::Log.info('I has no tagz') 
+   if not tagged?('machine')
+      Chef::Log.info('I has no tagz')
    end
 
 Will return something like this:
 
 .. code-block:: none
 
-   [Thu, 22 Jul 2010 18:01:45 +0000] INFO: Hey I'm machine 
+   [Thu, 22 Jul 2010 18:01:45 +0000] INFO: Hey I'm machine
    [Thu, 22 Jul 2010 18:01:45 +0000] INFO: I has no tagz
 
 .. end_tag
@@ -2691,7 +2691,7 @@ Use a library to define the code that sends email when a chef-client run fails. 
          message << "Chef run failed on #{node_name}\n"
          Net::SMTP.start('localhost', 25) do |smtp|
            smtp.send_message message, 'chef@chef.io', 'grantmc@chef.io'
-         end    
+         end
        end
      end
    end
@@ -2820,8 +2820,8 @@ The syntax for the ``registry_data_exists?`` method is as follows:
 .. code-block:: ruby
 
    registry_data_exists?(
-     KEY_PATH, 
-     { :name => 'NAME', :type => TYPE, :data => DATA }, 
+     KEY_PATH,
+     { :name => 'NAME', :type => TYPE, :data => DATA },
      ARCHITECTURE
    )
 
@@ -2991,8 +2991,8 @@ The syntax for the ``registry_value_exists?`` method is as follows:
 .. code-block:: ruby
 
    registry_value_exists?(
-     KEY_PATH, 
-     { :name => 'NAME' }, 
+     KEY_PATH,
+     { :name => 'NAME' },
      ARCHITECTURE
    )
 

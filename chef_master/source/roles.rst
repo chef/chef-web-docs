@@ -196,8 +196,8 @@ Domain-specific Ruby attributes:
 
        .. code-block:: ruby
 
-          default_attributes 'apache2' => { 
-            'listen_ports' => [ '80', '443' ] 
+          default_attributes 'apache2' => {
+            'listen_ports' => [ '80', '443' ]
           }
    * - ``description``
      - A description of the functionality that is covered. For example:
@@ -210,7 +210,7 @@ Domain-specific Ruby attributes:
 
        .. code-block:: ruby
 
-          env_run_lists 'prod' => ['recipe[apache2]'], 
+          env_run_lists 'prod' => ['recipe[apache2]'],
                         'staging' => ['recipe[apache2::staging]'
 
        .. warning:: Using ``env_run_lists`` with roles is discouraged as it can be difficult to maintain over time. Instead, consider using multiple roles to define the required behavior.
@@ -225,8 +225,8 @@ Domain-specific Ruby attributes:
 
        .. code-block:: ruby
 
-          override_attributes 'apache2' => { 
-            'max_children' => '50' 
+          override_attributes 'apache2' => {
+            'max_children' => '50'
           }
 
        The parameters in a Ruby file are Ruby method calls, so parentheses can be used to provide clarity when specifying numerous or deeply-nested attributes. For example:
@@ -234,7 +234,7 @@ Domain-specific Ruby attributes:
        .. code-block:: ruby
 
           override_attributes(
-            :apache2 => { 
+            :apache2 => {
               :prefork => { :min_spareservers => '5' }
             }
           )
@@ -250,14 +250,14 @@ Domain-specific Ruby attributes:
             :tomcat => {
               :worker_threads => '100'
             }
-          )  
+          )
    * - ``run_list``
      - A list of recipes and/or roles to be applied and the order in which they are to be applied. For example, the following run-list:
 
        .. code-block:: ruby
 
-          run_list 'recipe[apache2]', 
-                   'recipe[apache2::mod_ssl]', 
+          run_list 'recipe[apache2]',
+                   'recipe[apache2::mod_ssl]',
                    'role[monitor]'
 
        would apply the ``apache2`` recipe first, then the ``apache2::mod_ssl`` recipe, and then the ``role[monitor]`` recipe.
@@ -296,7 +296,7 @@ The JSON format for roles maps directly to the domain-specific Ruby format: same
      "json_class": "Chef::Role",
      "default_attributes": {
        "apache2": {
-         "listen_ports": [ 
+         "listen_ports": [
            "80",
            "443"
          ]

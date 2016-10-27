@@ -987,13 +987,13 @@ to produce results like this:
 
 .. code-block:: ruby
 
-   [Tue, 16 Aug 2011 14:44:26 -0700] INFO: 
+   [Tue, 16 Aug 2011 14:44:26 -0700] INFO:
             {
-              "startservers"=>30, 
-              "minspareservers"=>20, 
-              "maxspareservers"=>40, 
+              "startservers"=>30,
+              "minspareservers"=>20,
+              "maxspareservers"=>40,
               "serverlimit"=>400,
-              "maxclients"=>400, 
+              "maxclients"=>400,
               "maxrequestsperchild"=>10000
             }
 

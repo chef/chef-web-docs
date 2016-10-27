@@ -3992,7 +3992,7 @@ The response is similar to:
      "automatic": { ... },
      "normal": { "tags": [ ] },
      "default": { },
-     "override": { } 
+     "override": { }
    }
 
 **Response Codes**
@@ -4849,8 +4849,8 @@ The ``POST`` method is used to return partial search results. For example, if a 
 
 .. code-block:: none
 
-   { 
-     'x' => 'foo', 
+   {
+     'x' => 'foo',
      'kernel' => { 'a' => 1, 'foo' => 'bar', 'version' => [ 1, 2, 3 ] }
    }
 
@@ -4943,11 +4943,11 @@ The response will return something like the following:
 .. code-block:: javascript
 
    {
-     "status": "pong", 
-     "upstreams": 
+     "status": "pong",
+     "upstreams":
        {
-         "service_name": "pong", 
-         "service_name": "pong", 
+         "service_name": "pong",
+         "service_name": "pong",
          ...
        }
     }
@@ -4961,7 +4961,7 @@ The response will return something like the following:
    * - Response Code
      - Description
    * - ``200``
-     - All communications are OK. 
+     - All communications are OK.
    * - ``500``
      - One (or more) services are down. For example:
 

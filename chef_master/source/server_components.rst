@@ -107,7 +107,7 @@ CCRs/min
 -----------------------------------------------------
 The key unit of measure for scaling the Chef server is the number of chef-client runs per minute: CCRs/min. For example, 500 nodes set to check in every 30 minutes is equivalent to 16.66 CCRs/min.
 
-Typically, the Chef server does not require a high availability or tiered topology until the 
+Typically, the Chef server does not require a high availability or tiered topology until the
 number of CCRs/min is higher than 333/min (approximately 10k nodes).
 
 While synthetic benchmarks should be taken with a grain of salt, as they don't typically represent real-world performance, internal synthetic benchmarks at Chef have seen a standalone Chef server installed on a ``c3.2xlarge`` Amazon Web Services (AWS) instance handle more than 1,000 CCRs/min (30k nodes).

@@ -36,51 +36,51 @@ The full syntax for all of the properties that are available to the **yum_reposi
    yum_repository 'name' do
       baseurl                 String
       cost                    String
-      clean_headers           TrueClass, FalseClass 
-      clean_metadata          TrueClass, FalseClass 
-      description             String 
+      clean_headers           TrueClass, FalseClass
+      clean_metadata          TrueClass, FalseClass
+      description             String
       enabled                 TrueClass, FalseClass
       enablegroups            TrueClass, FalseClass
       exclude                 String
       failovermethod          String
       fastestmirror_enabled   TrueClass, FalseClass
       gpgcheck                TrueClass, FalseClass
-      gpgkey                  String, Array 
-      http_caching            String 
-      include_config          String 
-      includepkgs             String 
-      keepalive               TrueClass, FalseClass 
-      make_cache              TrueClass, FalseClass 
-      max_retries             String, Integer 
-      metadata_expire         String 
-      mirrorexpire            String 
-      mirrorlist              String 
-      mirror_expire           String 
+      gpgkey                  String, Array
+      http_caching            String
+      include_config          String
+      includepkgs             String
+      keepalive               TrueClass, FalseClass
+      make_cache              TrueClass, FalseClass
+      max_retries             String, Integer
+      metadata_expire         String
+      mirrorexpire            String
+      mirrorlist              String
+      mirror_expire           String
       mirrorlist_expire       String
-      options                 Hash 
-      priority                String 
-      proxy                   String 
-      proxy_username          String 
-      proxy_password          String 
-      username                String 
-      password                String 
-      repo_gpgcheck           TrueClass, FalseClass 
-      report_instanceid       TrueClass, FalseClass 
-      repositoryid            String 
-      sensitive               TrueClass, FalseClass 
-      skip_if_unavailable     TrueClass, FalseClass 
-      source                  String 
-      sslcacert               String 
-      sslclientcert           String 
-      sslclientkey            String 
-      sslverify               TrueClass, FalseClass 
-      timeout                 String 
+      options                 Hash
+      priority                String
+      proxy                   String
+      proxy_username          String
+      proxy_password          String
+      username                String
+      password                String
+      repo_gpgcheck           TrueClass, FalseClass
+      report_instanceid       TrueClass, FalseClass
+      repositoryid            String
+      sensitive               TrueClass, FalseClass
+      skip_if_unavailable     TrueClass, FalseClass
+      source                  String
+      sslcacert               String
+      sslclientcert           String
+      sslclientkey            String
+      sslverify               TrueClass, FalseClass
+      timeout                 String
       action                  Symbol # default is :create if not specified
    end
 
 where
 
-* ``yum_repository`` is the resource 
+* ``yum_repository`` is the resource
 * ``name`` is the name of the resource block
 * ``:action`` identifies which steps the chef-client will take to bring the node into the desired state
 *  ``baseurl``, ``cost``, ``clean_headers``, ``clean_metadata``, ``description``, ``enabled``, ``enablegroups``, ``exclude``, ``failovermethod``, ``fastestmirror_enabled``, ``gpgcheck``, ``gpgkey``, ``http_caching``, ``include_config``, ``includepkgs``, ``keepalive``, ``make_cache``, ``max_retries``, ``metadata_expire``, ``mirrorexpire``, ``mirrorlist``, ``mirror_expire``, ``mirrorlist_expire``, ``options``, ``priority``, ``proxy``, ``proxy_username``, ``proxy_password``, ``username``, ``password``, ``repo_gpgcheck``, ``report_instanceid``, ``repositoryid``, ``sensitive``, ``skip_if_unavailable``, ``source``, ``sslcacert``, ``sslclientcert``, ``sslclientkey``, ``sslverify``, ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.

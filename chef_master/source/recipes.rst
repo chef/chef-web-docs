@@ -393,7 +393,7 @@ To select a package name based on platform:
        package_name "apache2"
      when "arch"
        package_name "apache"
-     end 
+     end
      action :install
    end
 
@@ -581,30 +581,30 @@ For example:
 
    tag('machine')
 
-   if tagged?('machine') 
-      Chef::Log.info('Hey I'm #{node[:tags]}') 
+   if tagged?('machine')
+      Chef::Log.info('Hey I'm #{node[:tags]}')
    end
 
    untag('machine')
 
-   if not tagged?('machine') 
-      Chef::Log.info('I has no tagz') 
+   if not tagged?('machine')
+      Chef::Log.info('I has no tagz')
    end
 
 Will return something like this:
 
 .. code-block:: none
 
-   [Thu, 22 Jul 2010 18:01:45 +0000] INFO: Hey I'm machine 
+   [Thu, 22 Jul 2010 18:01:45 +0000] INFO: Hey I'm machine
    [Thu, 22 Jul 2010 18:01:45 +0000] INFO: I has no tagz
 
 .. end_tag
 
-End chef-client Run 
+End chef-client Run
 -----------------------------------------------------
 Sometimes it may be necessary to stop processing a recipe and/or stop processing the entire chef-client run. There are a few ways to do this:
 
-* Use the ``return`` keyword to stop processing a recipe based on a condition, but continue processing the chef-client run 
+* Use the ``return`` keyword to stop processing a recipe based on a condition, but continue processing the chef-client run
 * Use the ``raise`` keyword to stop a chef-client run by triggering an unhandled exception
 * Use a ``rescue`` block in Ruby code
 * Use an `exception handler <https://docs.chef.io/handlers.html>`_

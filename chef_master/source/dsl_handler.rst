@@ -250,7 +250,7 @@ Use a library to define the code that sends email when a chef-client run fails. 
          message << "Chef run failed on #{node_name}\n"
          Net::SMTP.start('localhost', 25) do |smtp|
            smtp.send_message message, 'chef@chef.io', 'grantmc@chef.io'
-         end    
+         end
        end
      end
    end

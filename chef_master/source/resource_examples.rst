@@ -187,7 +187,7 @@ The following is an example of how to install the ``foo123`` module for Nginx. T
    bash 'extract_module' do
      cwd ::File.dirname(src_filepath)
      code <<-EOH
-       mkdir -p #{extract_path} 
+       mkdir -p #{extract_path}
        tar xzf #{src_filename} -C #{extract_path}
        mv #{extract_path}/*/* #{extract_path}/
        EOH
@@ -581,7 +581,7 @@ Use the **apt_package** resource to manage packages for the Debian and Ubuntu pl
 
 .. code-block:: ruby
 
-   apt_package 'jwhois' do    
+   apt_package 'jwhois' do
      action :install
      source '/path/to/jwhois.deb'
    end
@@ -709,7 +709,7 @@ The following is an example of how to install the ``foo123`` module for Nginx. T
    bash 'extract_module' do
      cwd ::File.dirname(src_filepath)
      code <<-EOH
-       mkdir -p #{extract_path} 
+       mkdir -p #{extract_path}
        tar xzf #{src_filename} -C #{extract_path}
        mv #{extract_path}/*/* #{extract_path}/
        EOH
@@ -818,7 +818,7 @@ To run a batch file that unzips and then moves Ruby, do something like:
 
    batch 'unzip_and_move_ruby' do
      code <<-EOH
-       7z.exe x #{Chef::Config[:file_cache_path]}/ruby-1.8.7-p352-i386-mingw32.7z  
+       7z.exe x #{Chef::Config[:file_cache_path]}/ruby-1.8.7-p352-i386-mingw32.7z
          -oC:\\source -r -y
        xcopy C:\\source\\ruby-1.8.7-p352-i386-mingw32 C:\\ruby /e /y
        EOH
@@ -839,7 +839,7 @@ or:
 
    batch 'unzip_and_move_ruby' do
      code <<-EOH
-       7z.exe x #{Chef::Config[:file_cache_path]}/ruby-1.8.7-p352-i386-mingw32.7z  
+       7z.exe x #{Chef::Config[:file_cache_path]}/ruby-1.8.7-p352-i386-mingw32.7z
          -oC:\\source -r -y
        xcopy C:\\source\\ruby-1.8.7-p352-i386-mingw32 C:\\ruby /e /y
        EOH
@@ -1147,7 +1147,7 @@ This recipe will generate report output similar to the following:
 .. code-block:: ruby
 
    [2013-11-26T03:11:06+00:00] INFO: Chef Run complete in 0.300029878 seconds
-   [2013-11-26T03:11:06+00:00] INFO: Running report handlers 
+   [2013-11-26T03:11:06+00:00] INFO: Running report handlers
    [2013-11-26T03:11:06+00:00] INFO: Cookbooks and versions run: ["chef_handler 1.1.4", "cookbook_versions_handler 1.0.0"]
    [2013-11-26T03:11:06+00:00] INFO: Report handlers complete
 
@@ -1182,7 +1182,7 @@ After it has run, the run status data can be loaded and inspected via Interactiv
 .. code-block:: ruby
 
    irb(main):001:0> require 'rubygems' => true
-   irb(main):002:0> require 'json' => true 
+   irb(main):002:0> require 'json' => true
    irb(main):003:0> require 'chef' => true
    irb(main):004:0> r = JSON.parse(IO.read('/var/chef/reports/chef-run-report-20110322060731.json')) => ... output truncated
    irb(main):005:0> r.keys => ['end_time', 'node', 'updated_resources', 'exception', 'all_resources', 'success', 'elapsed_time', 'start_time', 'backtrace']
@@ -1433,10 +1433,10 @@ Use the **cron** resource to manage cron entries for time-based job scheduling. 
 .. code-block:: ruby
 
    cron 'ganglia_tomcat_thread_max' do
-     command "/usr/bin/gmetric 
-       -n 'tomcat threads max' 
-       -t uint32 
-       -v '/usr/local/bin/tomcat-stat 
+     command "/usr/bin/gmetric
+       -n 'tomcat threads max'
+       -t uint32
+       -v '/usr/local/bin/tomcat-stat
        --thread-max'"
      only_if do File.exist?('/home/jboss') end
    end
@@ -1519,13 +1519,13 @@ The layout of the **deploy** resource matches a Ruby on Rails app by default, bu
      restart_command 'touch tmp/restart.txt'
      create_dirs_before_symlink  %w{tmp public config deploy}
 
-     # You can use this to customize if your app has extra configuration files 
+     # You can use this to customize if your app has extra configuration files
      # such as amqp.yml or app_config.yml
      symlink_before_migrate  'config/database.yml' => 'config/database.yml'
 
      # If your app has extra files in the shared folder, specify them here
-     symlinks  'system' => 'public/system', 
-               'pids' => 'tmp/pids', 
+     symlinks  'system' => 'public/system',
+               'pids' => 'tmp/pids',
                'log' => 'log',
                'deploy/before_migrate.rb' => 'deploy/before_migrate.rb',
                'deploy/before_symlink.rb' => 'deploy/before_symlink.rb',
@@ -1672,7 +1672,7 @@ To pass a block of Python code before a migration is run:
      # ...
 
      before_migrate do
-       # release_path is the path to the timestamp dir 
+       # release_path is the path to the timestamp dir
        # for the current release
        current_release = release_path
 
@@ -1765,8 +1765,8 @@ Using the default property values for the various resources is the recommended s
      symlink_before_migrate       {'config/database.yml' => 'config/database.yml'}
      create_dirs_before_symlink   %w{tmp public config}
      purge_before_symlink         %w{log tmp/pids public/system}
-     symlinks                     { 'system' => 'public/system', 
-                                    'pids' => 'tmp/pids', 
+     symlinks                     { 'system' => 'public/system',
+                                    'pids' => 'tmp/pids',
                                     'log' => 'log'
                                   }
      ...
@@ -2180,7 +2180,7 @@ Use the ``command`` property to specify the path to a Windows PowerShell data fi
 
 .. code-block:: powershell
 
-   Configuration 'DefaultEditor'  
+   Configuration 'DefaultEditor'
    {
      Environment 'texteditor'
        {
@@ -2208,7 +2208,7 @@ If a DSC script contains configuration data that takes parameters, those paramet
 .. code-block:: powershell
 
    $choices = @{'emacs' = 'c:\emacs\bin\emacs';'vi' = 'c:\vim\vim.exe';'powershell' = 'powershell_ise.exe'}
-     Configuration 'DefaultEditor' 
+     Configuration 'DefaultEditor'
        {
          [CmdletBinding()]
          param
@@ -2298,7 +2298,7 @@ The following example shows how to specify custom configuration data using the `
 
 .. code-block:: powershell
 
-   Configuration 'emacs'  
+   Configuration 'emacs'
      {
        Environment 'TextEditor'
        {
@@ -2307,7 +2307,7 @@ The following example shows how to specify custom configuration data using the `
        }
    }
 
-   Configuration 'vi'   
+   Configuration 'vi'
    {
        Environment 'TextEditor'
        {
@@ -2613,11 +2613,11 @@ The following example shows how to add a rule named ``test_rule`` to an IP table
 .. code-block:: ruby
 
    execute 'test_rule' do
-     command 'command_to_run 
-       --option value 
+     command 'command_to_run
+       --option value
        ...
-       --option value 
-       --source #{node[:name_of_node][:ipsec][:local][:subnet]} 
+       --option value
+       --source #{node[:name_of_node][:ipsec][:local][:subnet]}
        -j test_rule'
      action :nothing
    end
@@ -2803,7 +2803,7 @@ The following example shows how to use the ``search`` method in the Recipe DSL t
 where
 
 * the search will use both of the **execute** resources, unless the condition specified by the ``not_if`` commands are met
-* the ``environments`` property in the first **execute** resource is being used to define values that appear as variables in the OpenVPN configuration 
+* the ``environments`` property in the first **execute** resource is being used to define values that appear as variables in the OpenVPN configuration
 * the **template** resource tells the chef-client which template to use
 
 .. end_tag
@@ -2816,7 +2816,7 @@ where
 
 .. code-block:: ruby
 
-   execute 'enable ssh' do 
+   execute 'enable ssh' do
      command '/usr/sbin/systemsetup -setremotelogin on'
      not_if '/usr/sbin/systemsetup -getremotelogin | /usr/bin/grep On'
      action :run
@@ -3191,12 +3191,12 @@ To use different branches, depending on the environment of the node:
       branch_name = 'master'
    end
 
-   git '/home/user/deployment' do                            
+   git '/home/user/deployment' do
       repository 'git@github.com:gitsite/deployment.git'
-      revision branch_name                                   
-      action :sync                                     
-      user 'user'                                    
-      group 'test'                                      
+      revision branch_name
+      action :sync
+      user 'user'
+      group 'test'
    end
 
 where the ``branch_name`` variable is set to ``staging`` or ``master``, depending on the environment of the node. Once this is determined, the ``branch_name`` variable is used to set the revision for the repository. If the ``git status`` command is used after running the example above, it will return the branch name as ``deploy``, as this is the default value. Run the chef-client in debug mode to verify that the correct branches are being checked out:
@@ -3459,7 +3459,7 @@ will create the following interface:
 
 .. code-block:: none
 
-   vagrant@default-ubuntu-1204:~$ cat /etc/network/interfaces.d/ifcfg-eth1 
+   vagrant@default-ubuntu-1204:~$ cat /etc/network/interfaces.d/ifcfg-eth1
    iface eth1 inet dhcp
 
 .. end_tag
@@ -4835,7 +4835,7 @@ The following example shows how to rename a computer, join a domain, and then re
      EOH
      not_if <<-EOH
        $ComputerSystem = gwmi win32_computersystem
-       ($ComputerSystem.Name -like '#{node['some_attribute_that_has_the_new_name']}') -and 
+       ($ComputerSystem.Name -like '#{node['some_attribute_that_has_the_new_name']}') -and
          $ComputerSystem.partofdomain)
      EOH
      notifies :reboot_now, 'reboot[Restart Computer]', :immediately
@@ -4940,7 +4940,7 @@ The following example shows how to rename a computer, join a domain, and then re
      EOH
      not_if <<-EOH
        $ComputerSystem = gwmi win32_computersystem
-       ($ComputerSystem.Name -like '#{node['some_attribute_that_has_the_new_name']}') -and 
+       ($ComputerSystem.Name -like '#{node['some_attribute_that_has_the_new_name']}') -and
          $ComputerSystem.partofdomain)
      EOH
      notifies :reboot_now, 'reboot[Restart Computer]', :immediately
@@ -5306,7 +5306,7 @@ The following is an example of how to install the ``foo123`` module for Nginx. T
    bash 'extract_module' do
      cwd ::File.dirname(src_filepath)
      code <<-EOH
-       mkdir -p #{extract_path} 
+       mkdir -p #{extract_path}
        tar xzf #{src_filename} -C #{extract_path}
        mv #{extract_path}/*/* #{extract_path}/
        EOH
@@ -5561,7 +5561,7 @@ The following example shows how an if statement can be used with the ``platform?
      ruby_block 'copy libmysql.dll into ruby path' do
        block do
          require 'fileutils'
-         FileUtils.cp "#{node['mysql']['client']['lib_dir']}\\libmysql.dll", 
+         FileUtils.cp "#{node['mysql']['client']['lib_dir']}\\libmysql.dll",
            node['mysql']['client']['ruby_dir']
        end
        not_if { File.exist?("#{node['mysql']['client']['ruby_dir']}\\libmysql.dll") }
@@ -5616,7 +5616,7 @@ The following example shows how the **ruby_block** resource can be used to updat
    ruby_block 'edit etc hosts' do
      block do
        rc = Chef::Util::FileEdit.new('/etc/hosts')
-       rc.search_file_replace_line(/^127\.0\.0\.1 localhost$/, 
+       rc.search_file_replace_line(/^127\.0\.0\.1 localhost$/,
           '127.0.0.1 #{new_fqdn} #{new_hostname} localhost')
        rc.write_file
      end
@@ -5807,7 +5807,7 @@ The following is an example of how to install the ``foo123`` module for Nginx. T
    bash 'extract_module' do
      cwd ::File.dirname(src_filepath)
      code <<-EOH
-       mkdir -p #{extract_path} 
+       mkdir -p #{extract_path}
        tar xzf #{src_filename} -C #{extract_path}
        mv #{extract_path}/*/* #{extract_path}/
        EOH
@@ -6282,15 +6282,15 @@ The following example shows how to install a service:
 .. code-block:: ruby
 
    execute "install #{node['chef_client']['svc_name']} in SRC" do
-     command "mkssys -s #{node['chef_client']['svc_name']} 
-                     -p #{node['chef_client']['bin']} 
-                     -u root 
-                     -S 
-                     -n 15 
-                     -f 9 
-                     -o #{node['chef_client']['log_dir']}/client.log 
+     command "mkssys -s #{node['chef_client']['svc_name']}
+                     -p #{node['chef_client']['bin']}
+                     -u root
+                     -S
+                     -n 15
+                     -f 9
+                     -o #{node['chef_client']['log_dir']}/client.log
                      -e #{node['chef_client']['log_dir']}/client.log -a '
-                     -i #{node['chef_client']['interval']} 
+                     -i #{node['chef_client']['interval']}
                      -s #{node['chef_client']['splay']}'"
      not_if "lssrc -s #{node['chef_client']['svc_name']}"
      action :run
@@ -6301,7 +6301,7 @@ and then enable it using the ``mkitab`` command:
 .. code-block:: ruby
 
    execute "enable #{node['chef_client']['svc_name']}" do
-     command "mkitab '#{node['chef_client']['svc_name']}:2:once:/usr/bin/startsrc 
+     command "mkitab '#{node['chef_client']['svc_name']}:2:once:/usr/bin/startsrc
                      -s #{node['chef_client']['svc_name']} > /dev/console 2>&1'"
      not_if "lsitab #{node['chef_client']['svc_name']}"
    end
@@ -6759,11 +6759,11 @@ The following example shows how to add a rule named ``test_rule`` to an IP table
 .. code-block:: ruby
 
    execute 'test_rule' do
-     command 'command_to_run 
-       --option value 
+     command 'command_to_run
+       --option value
        ...
-       --option value 
-       --source #{node[:name_of_node][:ipsec][:local][:subnet]} 
+       --option value
+       --source #{node[:name_of_node][:ipsec][:local][:subnet]}
        -j test_rule'
      action :nothing
    end

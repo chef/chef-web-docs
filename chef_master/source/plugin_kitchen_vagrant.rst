@@ -22,7 +22,7 @@ The following attributes are used to configure ``kitchen-vagrant`` for Chef:
    * - ``box``
      - Required. Use to specify the box on which Vagrant will run. Default value: computed from the platform name of the instance.
    * - ``box_check_update``
-     - Use to check for box updates. Default value: ``false``. 
+     - Use to check for box updates. Default value: ``false``.
    * - ``box_url``
      - Use to specify the URL at which the configured box is located. Default value: computed from the platform name of the instance, but only when the Vagrant provider is VirtualBox- or VMware-based.
    * - ``communicator``

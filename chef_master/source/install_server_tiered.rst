@@ -15,7 +15,7 @@ Before installing the Chef server software, perform the following steps:
 
 * The backend server must be accessible from each frontend server. A virtual IP address is created and managed by the Chef server, but will also need to be added to the DNS so that all machines in the tiered configuration may access it.
 * Persistent data on the backend Chef server is primarily composed of cookbook files and directories. Separate disks should be dedicated entirely to storing this data prior to installing the Chef server.
-* Load-balancing should be used with frontend servers, along with a DNS entry for the virtual IP address used for load balancing. This virtual IP address is added to the chef-server.rb file as the ``api_fqdn``. 
+* Load-balancing should be used with frontend servers, along with a DNS entry for the virtual IP address used for load balancing. This virtual IP address is added to the chef-server.rb file as the ``api_fqdn``.
 * All required ports must be open. See the Firewalls section (below) for the list of ports. All connections to and from the Chef server are accomplished via TCP. Refer to the operating system's manual or your systems administrators for instructions on how to configure to ports, if necessary.
 * The hostname for the Chef server must be an FQDN, including the domain suffix, and must be resolvable by the backend and frontend servers. See `Hostnames, FQDNs <https://docs.chef.io/install_server_pre.html#hostnames>`_ for more information.
 * ``chef-server-ctl reconfigure`` will not bind the ``backend_vip`` to the backend server. The easiest thing to do is just define ``backend_vip`` as the already configured main IP address of the backend system. If you need to use an additional address, it will need to be configured and bound on the system before ``chef-server-ctl reconfigure`` is run.
@@ -417,7 +417,7 @@ A completed chef-server.rb configuration file for a four server tiered Chef serv
      - 192.168.4.4
      - frontend
    * - chef.example.com
-     - 
+     -
      - load balanced frontend VIP
    * - be.example.com
      - 192.168.4.7
@@ -509,7 +509,7 @@ For back-end servers in a tiered Chef server installation, ensure that ports mar
 
        .. end_tag
 
-     - 
+     -
    * - 8983
      - **opscode-solr4**
 
@@ -519,7 +519,7 @@ For back-end servers in a tiered Chef server installation, ensure that ports mar
 
        .. end_tag
 
-     - 
+     -
    * - 5432
      - **postgresql**
 
@@ -529,7 +529,7 @@ For back-end servers in a tiered Chef server installation, ensure that ports mar
 
        .. end_tag
 
-     - 
+     -
    * - 5672, 15672
      - **rabbitmq**
 
@@ -539,7 +539,7 @@ For back-end servers in a tiered Chef server installation, ensure that ports mar
 
        .. end_tag
 
-     - 
+     -
    * - 16379
      - **redis_lb**
 
@@ -549,7 +549,7 @@ For back-end servers in a tiered Chef server installation, ensure that ports mar
 
        .. end_tag
 
-     - 
+     -
    * - 4321
      - **bookshelf**
 
@@ -559,7 +559,7 @@ For back-end servers in a tiered Chef server installation, ensure that ports mar
 
        .. end_tag
 
-     - 
+     -
    * - 8000
      - **opscode-erchef**
 
@@ -614,7 +614,7 @@ For front-end servers, ensure that ports marked as external (marked as ``yes`` i
 
        .. end_tag
 
-     - 
+     -
    * - 9090
      - **oc-id**
 
@@ -624,7 +624,7 @@ For front-end servers, ensure that ports marked as external (marked as ``yes`` i
 
        .. end_tag
 
-     - 
+     -
    * - 8000
      - **opscode-erchef**
 

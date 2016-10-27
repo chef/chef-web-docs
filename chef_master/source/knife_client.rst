@@ -1,5 +1,5 @@
 =====================================================
-knife client 
+knife client
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_client.rst>`__
 
@@ -388,7 +388,7 @@ to return something similar to:
    i-12345678
    rs-123456
 
-To verify that an API client can authenticate to the 
+To verify that an API client can authenticate to the
 Chef server correctly, try getting a list of clients using ``-u`` and ``-k`` options to specify its name and private key:
 
 .. code-block:: bash

@@ -7,7 +7,7 @@ This is the documentation for
 
 - Chef, including the Chef server, the Chef client, the Chef
   development kit (Chef DK) and related tools
-- Habitat 
+- Habitat
 - InSpec
 - Chef Automate
 
@@ -138,7 +138,7 @@ Chef DK
 -----------------------------------------------------
 
 :doc:`Berkshelf </berkshelf>` |
-:doc:`chef-apply (executable) </ctl_chef_apply>` 
+:doc:`chef-apply (executable) </ctl_chef_apply>`
 :doc:`chef-shell (executable) </chef_shell>`
 
 **chef (executable)**:`chef env <http://docs.chef.io/ctl_chef.html#chef-env>`_ | `chef exec <http://docs.chef.io/ctl_chef.html#chef-exec>`_ | `chef gem <http://docs.chef.io/ctl_chef.html#chef-gem>`_ | `chef generate app <http://docs.chef.io/ctl_chef.html#chef-generate-app>`_ | `chef generate attribute <http://docs.chef.io/ctl_chef.html#chef-generate-attribute>`_ | `chef generate cookbook <http://docs.chef.io/ctl_chef.html#chef-generate-cookbook>`_ | `chef generate file <http://docs.chef.io/ctl_chef.html#chef-generate-file>`_ | `chef generate lwrp <http://docs.chef.io/ctl_chef.html#chef-generate-lwrp>`_ | `chef generate recipe <http://docs.chef.io/ctl_chef.html#chef-generate-recipe>`_ | `chef generate repo <http://docs.chef.io/ctl_chef.html#chef-generate-repo>`_ | `chef generate template <http://docs.chef.io/ctl_chef.html#chef-generate-template>`_ | `chef provision <http://docs.chef.io/ctl_chef.html#chef-provision>`_ | `chef shell-init <http://docs.chef.io/ctl_chef.html#chef-shell-init>`_ | `chef verify <http://docs.chef.io/ctl_chef.html#chef-verify>`_
@@ -274,7 +274,7 @@ Integrations
 
 Cookbooks
 -----------------------------------------------------
-:doc:`build-cookbook (cookbook) </delivery_build_cookbook>` | 
+:doc:`build-cookbook (cookbook) </delivery_build_cookbook>` |
 :doc:`delivery-truck (cookbook) </delivery_truck>`
 
 Workflow DSL

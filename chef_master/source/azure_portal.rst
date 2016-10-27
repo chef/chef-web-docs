@@ -456,7 +456,7 @@ The following examples show how to use the ``Set-AzureVMChefExtension`` cmdlet:
    $vmObj1 = Add-AzureProvisioningConfig -VM $vmObj1 -Password $password -AdminUsername $username –Windows
 
    # set azure chef extension
-   $vmObj1 = Set-AzureVMChefExtension -VM $vmObj1 -ValidationPem "C:\\users\\azure\\msazurechef-validator.pem" -ClientRb 
+   $vmObj1 = Set-AzureVMChefExtension -VM $vmObj1 -ValidationPem "C:\\users\\azure\\msazurechef-validator.pem" -ClientRb
    "C:\\users\\azure\\client.rb" -RunList "getting-started" -Windows
 
    New-AzureVM -Location 'West US' -ServiceName $svc -VM $vmObj1
@@ -478,7 +478,7 @@ The following examples show how to use the ``Set-AzureVMChefExtension`` cmdlet:
    $vmObj1 = Add-AzureProvisioningConfig -VM $vmObj1 -Password $password -Linux -LinuxUser $username
 
    # set azure chef extension
-   $vmObj1 = Set-AzureVMChefExtension -VM $vmObj1 -ValidationPem "C:\\users\\azure\\msazurechef-validator.pem" -ClientRb 
+   $vmObj1 = Set-AzureVMChefExtension -VM $vmObj1 -ValidationPem "C:\\users\\azure\\msazurechef-validator.pem" -ClientRb
    "C:\\users\\azure\\client.rb" -RunList "getting-started" -Linux
 
    New-AzureVM -Location 'West US' -ServiceName $svc -VM $vmObj1
@@ -499,7 +499,7 @@ The following examples show how to use the ``Set-AzureVMChefExtension`` cmdlet:
    $vmObj1 = Add-AzureProvisioningConfig -VM $vmObj1 -Password $password -Linux -LinuxUser $username
 
    # set azure chef extension
-   $vmObj1 = Set-AzureVMChefExtension -VM $vmObj1 -ValidationPem "C:\\users\\azure\\msazurechef-validator.pem" -ClientRb 
+   $vmObj1 = Set-AzureVMChefExtension -VM $vmObj1 -ValidationPem "C:\\users\\azure\\msazurechef-validator.pem" -ClientRb
    "C:\\users\\azure\\client.rb" -RunList "getting-started" -Linux
 
    New-AzureVM -Location 'West US' -ServiceName $svc -VM $vmObj1
