@@ -7,8 +7,6 @@ Custom Resources
 
 .. tag custom_resources_summary
 
-.. This file is hooked into a slide deck
-
 A custom resource:
 
 * Is a simple extension of Chef
@@ -181,8 +179,6 @@ and is then usable in a recipe like this:
 
 Scenario: website Resource
 =====================================================
-.. This file is hooked into a slide deck
-
 Create a resource that configures Apache httpd for Red Hat Enterprise Linux 7 and CentOS 7.
 
 This scenario covers the following:
@@ -198,8 +194,6 @@ This scenario covers the following:
 
 Create a Cookbook
 -----------------------------------------------------
-.. This file is hooked into a slide deck
-
 This article assumes that a cookbook directory named ``website`` exists in a chef-repo with (at least) the following directories:
 
 .. code-block:: text
@@ -215,8 +209,6 @@ See https://docs.chef.io/ctl_chef.html for more information about how to use the
 
 Objectives
 -----------------------------------------------------
-.. This file is hooked into a slide deck
-
 Define a custom resource!
 
 A custom resource typically contains:
@@ -227,8 +219,6 @@ A custom resource typically contains:
 
 What is needed?
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. This file is hooked into a slide deck
-
 This custom resource requires:
 
 * Two template files
@@ -237,16 +227,12 @@ This custom resource requires:
 
 Define Properties
 -----------------------------------------------------
-.. This file is hooked into a slide deck
-
 Custom properties are defined in the resource. This custom resource needs two:
 
 * ``instance_name``
 * ``port``
 
 These properties are defined as variables in the ``httpd.conf.erb`` file. A **template** block in recipes will tell the chef-client how to apply these variables.
-
-.. This file is hooked into a slide deck
 
 In the custom resource, add the following custom properties:
 
@@ -264,8 +250,6 @@ The ``instance_name`` property is then used within the custom resource in many l
 
 Define Actions
 -----------------------------------------------------
-.. This file is hooked into a slide deck
-
 Each custom resource must have at least one action that is defined within an ``action`` block:
 
 .. code-block:: ruby
@@ -287,14 +271,10 @@ For example, the ``action`` appears as a property when this custom resource is u
 
 Define Resource
 -----------------------------------------------------
-.. This file is hooked into a slide deck
-
 Use the **package**, **template** (two times), **directory**, and **service** resources to define the ``website`` resource. Remember: `order matters <https://docs.chef.io/decks/recipe_order_matters.html>`_!
 
 package
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. This file is hooked into a slide deck
-
 Use the **package** resource to install httpd:
 
 .. code-block:: ruby
@@ -305,8 +285,6 @@ Use the **package** resource to install httpd:
 
 template, httpd.service
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. This file is hooked into a slide deck
-
 Use the **template** resource to create an ``httpd.service`` on the node based on the ``httpd.service.erb`` template located in the cookbook:
 
 .. code-block:: ruby
@@ -329,8 +307,6 @@ where
 
 template, httpd.conf
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. This file is hooked into a slide deck
-
 Use the **template** resource to configure httpd on the node based on the ``httpd.conf.erb`` template located in the cookbook:
 
 .. code-block:: ruby
@@ -354,8 +330,6 @@ where
 
 directory
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. This file is hooked into a slide deck
-
 Use the **directory** resource to create the ``/var/www/vhosts`` directory on the node:
 
 .. code-block:: ruby
@@ -370,8 +344,6 @@ Use the **directory** resource to create the ``/var/www/vhosts`` directory on th
 
 service
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. This file is hooked into a slide deck
-
 Use the **service** resource to enable, and then start the service:
 
 .. code-block:: ruby
@@ -382,8 +354,6 @@ Use the **service** resource to enable, and then start the service:
 
 Create Templates
 -----------------------------------------------------
-.. This file is hooked into a slide deck
-
 The ``/templates`` directory must contain two templates:
 
 * ``httpd.conf.erb`` to configure Apache httpd
@@ -391,8 +361,6 @@ The ``/templates`` directory must contain two templates:
 
 httpd.conf.erb
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. This file is hooked into a slide deck
-
 ``httpd.conf.erb`` stores information about the website and is typically located under the ``/etc/httpd``:
 
 .. code-block:: ruby
@@ -415,8 +383,6 @@ Copy it as shown, add it under ``/templates/default``, and then name the file ``
 
 Template Variables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. This file is hooked into a slide deck
-
 The ``httpd.conf.erb`` template has two variables:
 
 * ``<%= @instance_name %>``
@@ -431,8 +397,6 @@ They are:
 
 httpd.service.erb
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. This file is hooked into a slide deck
-
 ``httpd.service.erb`` tells systemd how to start and stop the website:
 
 .. code-block:: none
@@ -458,9 +422,6 @@ Copy it as shown, add it under ``/templates/default``, and then name it ``httpd.
 
 Final Resource
 -----------------------------------------------------
-.. This file is hooked into a slide deck
-.. This is the consolidated version of includes_custom_resources_slide_website_final_resource_part1, includes_custom_resources_slide_website_final_resource_part2, includes_custom_resources_slide_website_final_resource_part3
-
 .. code-block:: ruby
 
    property :instance_name, String, name_property: true
@@ -510,8 +471,6 @@ Final Resource
 
 Final Cookbook Directory
 -----------------------------------------------------
-.. This file is hooked into a slide deck
-
 When finished adding the templates and building the custom resource, the cookbook directory structure should look like this:
 
 .. code-block:: text
@@ -530,8 +489,6 @@ When finished adding the templates and building the custom resource, the cookboo
 
 Recipe
 -----------------------------------------------------
-.. This file is hooked into a slide deck
-
 The custom resource name is inferred from the name of the cookbook (``website``), the name of the recipe (``httpd``), and is separated by an underscore(``_``): ``website_httpd``.
 
 .. code-block:: ruby

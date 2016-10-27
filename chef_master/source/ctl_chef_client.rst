@@ -106,8 +106,6 @@ This command has the following options:
 
    .. tag node_ctl_run_list
 
-   .. This file documents specifc behavior related to the -j option in the chef-client, chef-solo, and chef-shell executables.
-
    Use this option to define a ``run_list`` object. For example, a JSON file similar to:
 
    .. code-block:: javascript
@@ -155,8 +153,6 @@ This command has the following options:
 
    .. tag node_ctl_attribute
 
-   .. This file documents specifc behavior related to the -j option in the chef-client, chef-solo, and chef-shell executables.
-
    Any other attribute type that is contained in this JSON file will be treated as a ``normal`` attribute. For example, attempting to update ``override`` attributes using the ``-j`` option:
 
    .. code-block:: javascript
@@ -195,8 +191,6 @@ This command has the following options:
    **Specify a policy**
 
    .. tag policy_ctl_run_list
-
-   .. This file documents specifc behavior related to the -j option in the chef-client, chef-solo, and chef-shell executables.
 
    Use this option to use policy files by specifying a JSON file that contains the following settings:
 

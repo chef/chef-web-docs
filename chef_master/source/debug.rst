@@ -336,7 +336,7 @@ chef-shell is a recipe debugging tool that allows the use of breakpoints within 
 
 .. tag chef_shell_modes
 
-chef-shell has three run modes:
+chef-shell is tool that is run using an Interactive Ruby (IRb) session. chef-shell currently supports recipe and attribute file syntax, as well as interactive debugging features. chef-shell has three run modes:
 
 .. list-table::
    :widths: 200 300
@@ -964,8 +964,6 @@ This command has the following options:
 
    .. tag node_ctl_run_list
 
-   .. This file documents specifc behavior related to the -j option in the chef-client, chef-solo, and chef-shell executables.
-
    Use this option to define a ``run_list`` object. For example, a JSON file similar to:
 
    .. code-block:: javascript
@@ -984,8 +982,6 @@ This command has the following options:
    .. end_tag
 
    .. warning:: .. tag node_ctl_attribute
-
-                .. This file documents specifc behavior related to the -j option in the chef-client, chef-solo, and chef-shell executables.
 
                 Any other attribute type that is contained in this JSON file will be treated as a ``normal`` attribute. For example, attempting to update ``override`` attributes using the ``-j`` option:
 

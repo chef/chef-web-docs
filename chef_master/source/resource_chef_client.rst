@@ -197,16 +197,6 @@ This resource has the following properties:
 ``validator``
    Use to specify if the chef-client is a chef-validator.
 
-..
-.. Providers
-.. =====================================================
-.. .. include:: ../../includes_resources_common/includes_resources_common_provider.rst
-..
-.. .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
-..
-.. .. include:: ../../includes_resources/includes_resource_chef_client_providers.rst
-..
-
 Examples
 =====================================================
 None.

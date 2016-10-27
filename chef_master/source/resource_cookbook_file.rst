@@ -465,16 +465,6 @@ Because the ``inherits`` property is not specified, the chef-client will default
 
 .. end_tag
 
-..
-.. Providers
-.. =====================================================
-.. .. include:: ../../includes_resources_common/includes_resources_common_provider.rst
-..
-.. .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
-..
-.. .. include:: ../../includes_resources/includes_resource_cookbook_file_providers.rst
-..
-
 File Specificity
 =====================================================
 A cookbook is frequently designed to work across many platforms and is often required to distribute a specific file to a specific platform. A cookbook can be designed to support the distribution of files across platforms, while ensuring that the correct file ends up on each system.

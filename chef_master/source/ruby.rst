@@ -43,36 +43,6 @@ Use a comment to explain code that exists in a cookbook or recipe. Anything afte
 
    # This is a comment.
 
-..
-..
-.. Ideally, a comment explains why the code exists, while the code itself describes how Chef will apply it. For example:
-..
-.. .. code-block:: ruby
-..
-..    action :restart do
-..
-..    # With Upstart, restarting the service doesn't behave "as expected".
-..    # We want the post-start stanzas, which wait until the service is
-..    # available before returning.
-..    #
-..    # http://upstart.ubuntu.com/cookbook/#restart
-..
-..      service "#{new_resource.name} :restart stop #{mysql_name}" do
-..        service_name mysql_name
-..        provider Chef::Provider::Service::Upstart
-..        action :stop
-..      end
-..
-..      service "#{new_resource.name} :restart start #{mysql_name}" do
-..        service_name mysql_name
-..        provider Chef::Provider::Service::Upstart
-..        action :start
-..      end
-..
-..    end
-..
-..
-
 Local Variables
 -----------------------------------------------------
 Assign a local variable:
@@ -226,15 +196,6 @@ For example:
    if %w{debian ubuntu}.include?(node['platform'])
      # do debian/ubuntu things with the Ruby array %w{} shortcut
    end
-
-..
-.. The ``%w`` array will use single-quotes, will not have access to code interpolation, and may only use a limited set of escape characters: ``\``.
-..
-.. .. note:: Use an upper-case W---``%W``---to create an array with double-quotes, access to code interpolation, and access to all escape characters.
-..
-
-.. future example: step_resource_package_use_whitespace_array
-.. future example: step_resource_template_use_whitespace_array
 
 .. end_tag
 

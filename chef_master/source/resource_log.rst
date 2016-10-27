@@ -171,16 +171,6 @@ This resource has the following properties:
 
 .. end_tag
 
-..
-.. Providers
-.. =====================================================
-.. .. include:: ../../includes_resources_common/includes_resources_common_provider.rst
-..
-.. .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
-..
-.. .. include:: ../../includes_resources/includes_resource_log_providers.rst
-..
-
 Chef::Log Entries
 =====================================================
 .. tag ruby_style_basics_chef_log

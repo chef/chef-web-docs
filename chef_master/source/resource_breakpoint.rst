@@ -65,7 +65,7 @@ Modes
 -----------------------------------------------------
 .. tag chef_shell_modes
 
-chef-shell has three run modes:
+chef-shell is tool that is run using an Interactive Ruby (IRb) session. chef-shell currently supports recipe and attribute file syntax, as well as interactive debugging features. chef-shell has three run modes:
 
 .. list-table::
    :widths: 200 300

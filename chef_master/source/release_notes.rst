@@ -2416,8 +2416,6 @@ Custom Resources
 -----------------------------------------------------
 .. tag custom_resources_summary
 
-.. This file is hooked into a slide deck
-
 A custom resource:
 
 * Is a simple extension of Chef
@@ -3402,8 +3400,6 @@ The following options are new or updated for the chef-client executable and enab
    This option now supports using a JSON file to associate a policy revision.
 
    .. tag policy_ctl_run_list
-
-   .. This file documents specifc behavior related to the -j option in the chef-client, chef-solo, and chef-shell executables.
 
    Use this option to use policy files by specifying a JSON file that contains the following settings:
 
