@@ -39,7 +39,7 @@ The following table lists the Foundational platforms for the chef-client:
      - ``9``, ``10``
    * - Mac OS X
      - ``x86_64``
-     - ``10.9``, ``10.10``, ``10.11``
+     - ``10.9``, ``10.10``, ``10.11``, ``10.12``
    * - Oracle Linux
      - ``i386``, ``x86_64``
      - ``5``, ``6``, ``7``
@@ -170,7 +170,7 @@ The following table lists the Foundational platforms for the Chef DK:
      - ``7.x``, ``8.x``
    * - Mac OS X
      -
-     - ``10.9``, ``10.10``, ``10.11``
+     - ``10.9``, ``10.10``, ``10.11``, ``10.12``
    * - Red Hat Enterprise Linux
      -
      - ``6.x``, ``7.x``
@@ -303,4 +303,3 @@ The following table lists the Foundational platforms for the Chef push jobs:
      - ``2008r2``, ``2012``, ``2012r2``, ``7``, ``8``, ``8.1``, ``10``
 
 .. end_tag
-
