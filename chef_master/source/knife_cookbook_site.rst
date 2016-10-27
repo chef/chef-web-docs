@@ -1,5 +1,5 @@
 =====================================================
-knife cookbook site 
+knife cookbook site
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_cookbook_site.rst>`__
 
@@ -153,7 +153,7 @@ to return something like:
    Checking out the master branch.
    Updating 4d44b5b..b4c32f2
    Fast-forward
-    cookbooks/getting-started/README.rdoc              |    4 +++  
+    cookbooks/getting-started/README.rdoc              |    4 +++
     cookbooks/getting-started/attributes/default.rb    |    1 +
     cookbooks/getting-started/metadata.json            |   29 ++++++++++++++++++++
     cookbooks/getting-started/metadata.rb              |    6 ++++
@@ -249,7 +249,7 @@ to return something like:
 
    apache2:
      cookbook:              https://supermarket.chef.io/api/v1/cookbooks/apache2
-     cookbook_description:  Installs and configures apache2 using Debian symlinks 
+     cookbook_description:  Installs and configures apache2 using Debian symlinks
                             with helper definitions
      cookbook_maintainer:   chef
      cookbook_name:         apache2

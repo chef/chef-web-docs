@@ -201,13 +201,13 @@ This resource has the following properties:
 
    The actual file to which the link is to be created.
 
-.. 
+..
 .. Providers
 .. =====================================================
 .. .. include:: ../../includes_resources_common/includes_resources_common_provider.rst
-.. 
+..
 .. .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
-.. 
+..
 .. .. include:: ../../includes_resources/includes_resource_link_providers.rst
 ..
 

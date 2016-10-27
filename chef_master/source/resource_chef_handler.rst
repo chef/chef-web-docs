@@ -391,7 +391,7 @@ The `error_report <https://github.com/chef/chef/blob/master/lib/chef/handler/err
 
    class Chef
      class Handler
-       class ErrorReport < ::Chef::Handler 
+       class ErrorReport < ::Chef::Handler
          def report
            Chef::FileCache.store('failed-run-data.json', Chef::JSONCompat.to_json_pretty(data), 0640)
            Chef::Log.fatal("Saving node information to #{Chef::FileCache.load('failed-run-data.json', false)}")
@@ -646,7 +646,7 @@ This recipe will generate report output similar to the following:
 .. code-block:: ruby
 
    [2013-11-26T03:11:06+00:00] INFO: Chef Run complete in 0.300029878 seconds
-   [2013-11-26T03:11:06+00:00] INFO: Running report handlers 
+   [2013-11-26T03:11:06+00:00] INFO: Running report handlers
    [2013-11-26T03:11:06+00:00] INFO: Cookbooks and versions run: ["chef_handler 1.1.4", "cookbook_versions_handler 1.0.0"]
    [2013-11-26T03:11:06+00:00] INFO: Report handlers complete
 
@@ -681,7 +681,7 @@ After it has run, the run status data can be loaded and inspected via Interactiv
 .. code-block:: ruby
 
    irb(main):001:0> require 'rubygems' => true
-   irb(main):002:0> require 'json' => true 
+   irb(main):002:0> require 'json' => true
    irb(main):003:0> require 'chef' => true
    irb(main):004:0> r = JSON.parse(IO.read('/var/chef/reports/chef-run-report-20110322060731.json')) => ... output truncated
    irb(main):005:0> r.keys => ['end_time', 'node', 'updated_resources', 'exception', 'all_resources', 'success', 'elapsed_time', 'start_time', 'backtrace']

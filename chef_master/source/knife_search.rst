@@ -1,5 +1,5 @@
 =====================================================
-knife search 
+knife search
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_search.rst>`__
 
@@ -505,7 +505,7 @@ Operators must be in ALL CAPS. Parentheses can be used to group clauses and to f
    .. code-block:: bash
 
       ERROR: knife search failed: invalid search query:
-      'datacenter%3A123%20AND%20NOT%20hostname%3Adev-%20AND%20NOT%20hostanem%3Asyslog-' 
+      'datacenter%3A123%20AND%20NOT%20hostname%3Adev-%20AND%20NOT%20hostanem%3Asyslog-'
       Parse error at offset: 38 Reason: Expected one of \ at line 1, column 42 (byte 42) after AND
 
    Use ``-`` instead of ``NOT``. For example:
@@ -614,7 +614,7 @@ to return something like:
          "id": "qux",
          "animal", "penguin"
        }
-     ] 
+     ]
    }
 
 .. end_tag

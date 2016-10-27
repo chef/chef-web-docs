@@ -72,7 +72,7 @@ For a standalone installation, ensure that ports marked as external (marked as `
 
        .. end_tag
 
-     - 
+     -
    * - 9090
      - **oc-id**
 
@@ -82,7 +82,7 @@ For a standalone installation, ensure that ports marked as external (marked as `
 
        .. end_tag
 
-     - 
+     -
    * - 8000
      - **opscode-erchef**
 
@@ -100,7 +100,7 @@ For a standalone installation, ensure that ports marked as external (marked as `
 
        .. end_tag
 
-     - 
+     -
    * - 8983
      - **opscode-solr4**
 
@@ -110,7 +110,7 @@ For a standalone installation, ensure that ports marked as external (marked as `
 
        .. end_tag
 
-     - 
+     -
    * - 5432
      - **postgresql**
 
@@ -120,7 +120,7 @@ For a standalone installation, ensure that ports marked as external (marked as `
 
        .. end_tag
 
-     - 
+     -
    * - 5672
      - **rabbitmq**
 
@@ -130,7 +130,7 @@ For a standalone installation, ensure that ports marked as external (marked as `
 
        .. end_tag
 
-     - 
+     -
    * - 16379
      - **redis_lb**
 
@@ -187,7 +187,7 @@ For front-end servers, ensure that ports marked as external (marked as ``yes`` i
 
        .. end_tag
 
-     - 
+     -
    * - 9090
      - **oc-id**
 
@@ -197,7 +197,7 @@ For front-end servers, ensure that ports marked as external (marked as ``yes`` i
 
        .. end_tag
 
-     - 
+     -
    * - 8000
      - **opscode-erchef**
 
@@ -301,7 +301,7 @@ For back-end servers, ensure that ports marked as external (marked as ``yes`` in
        .. end_tag
 
      - yes
-   * - 
+   * -
      - **opscode-expander**
 
        .. tag server_services_expander
@@ -320,7 +320,7 @@ For back-end servers, ensure that ports marked as external (marked as ``yes`` in
 
        .. end_tag
 
-     - 
+     -
    * - 5432
      - **postgresql**
 
@@ -402,7 +402,7 @@ For front-end servers, ensure that ports marked as external (marked as ``yes`` i
 
        .. end_tag
 
-     - 
+     -
    * - 9090
      - **oc-id**
 
@@ -412,7 +412,7 @@ For front-end servers, ensure that ports marked as external (marked as ``yes`` i
 
        .. end_tag
 
-     - 
+     -
    * - 8000
      - **opscode-erchef**
 
@@ -467,7 +467,7 @@ For back-end servers in a tiered Chef server installation, ensure that ports mar
 
        .. end_tag
 
-     - 
+     -
    * - 8983
      - **opscode-solr4**
 
@@ -477,7 +477,7 @@ For back-end servers in a tiered Chef server installation, ensure that ports mar
 
        .. end_tag
 
-     - 
+     -
    * - 5432
      - **postgresql**
 
@@ -487,7 +487,7 @@ For back-end servers in a tiered Chef server installation, ensure that ports mar
 
        .. end_tag
 
-     - 
+     -
    * - 5672, 15672
      - **rabbitmq**
 
@@ -497,7 +497,7 @@ For back-end servers in a tiered Chef server installation, ensure that ports mar
 
        .. end_tag
 
-     - 
+     -
    * - 16379
      - **redis_lb**
 
@@ -507,7 +507,7 @@ For back-end servers in a tiered Chef server installation, ensure that ports mar
 
        .. end_tag
 
-     - 
+     -
    * - 4321
      - **bookshelf**
 
@@ -517,7 +517,7 @@ For back-end servers in a tiered Chef server installation, ensure that ports mar
 
        .. end_tag
 
-     - 
+     -
    * - 8000
      - **opscode-erchef**
 

@@ -57,8 +57,8 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     "node_name": "FIONA", 
-     "status": "down", 
+     "node_name": "FIONA",
+     "status": "down",
      "updated_at": "Tue, 04 Sep 2012 23:17:56 GMT"
    }
 
@@ -591,18 +591,18 @@ The response is similar to:
 
    {
      {
-       "node_name": "FARQUAD", 
-       "status": "up", 
+       "node_name": "FARQUAD",
+       "status": "up",
        "updated_at": "Tue, 04 Sep 2012 23:17:56 GMT"
      }
      {
-       "node_name": "DONKEY", 
-       "status": "up", 
+       "node_name": "DONKEY",
+       "status": "up",
        "updated_at": "Tue, 04 Sep 2012 23:17:56 GMT"
      }
      {
-       "node_name": "FIONA", 
-       "status": "down", 
+       "node_name": "FIONA",
+       "status": "down",
        "updated_at": "Tue, 04 Sep 2012 23:17:56 GMT"
      }
    }
@@ -657,8 +657,8 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     "node_name": "FIONA", 
-     "status": "down", 
+     "node_name": "FIONA",
+     "status": "down",
      "updated_at": "Tue, 04 Sep 2012 23:17:56 GMT"
    }
 

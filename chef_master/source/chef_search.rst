@@ -691,7 +691,7 @@ Operators must be in ALL CAPS. Parentheses can be used to group clauses and to f
    .. code-block:: bash
 
       ERROR: knife search failed: invalid search query:
-      'datacenter%3A123%20AND%20NOT%20hostname%3Adev-%20AND%20NOT%20hostanem%3Asyslog-' 
+      'datacenter%3A123%20AND%20NOT%20hostname%3Adev-%20AND%20NOT%20hostanem%3Asyslog-'
       Parse error at offset: 38 Reason: Expected one of \ at line 1, column 42 (byte 42) after AND
 
    Use ``-`` instead of ``NOT``. For example:
@@ -804,7 +804,7 @@ to return something like:
          "id": "qux",
          "animal", "penguin"
        }
-     ] 
+     ]
    }
 
 .. end_tag
@@ -1013,8 +1013,8 @@ Or, to include the same search in a recipe, use a code block similar to:
 
 .. code-block:: ruby
 
-   qa_nodes = search(:node,"chef_environment:QA")      
-   qa_nodes.each do |qa_node|                          
+   qa_nodes = search(:node,"chef_environment:QA")
+   qa_nodes.each do |qa_node|
        # Do useful work specific to qa nodes only
    end
 
@@ -1091,7 +1091,7 @@ The following recipe can be used to create a user for each administrator by load
        uid       admin['uid']
        gid       admin['gid']
        shell     admin['shell']
-       comment   admin['comment'] 
+       comment   admin['comment']
        home      home
        manage_home true
      end

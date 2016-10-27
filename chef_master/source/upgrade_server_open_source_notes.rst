@@ -1,5 +1,5 @@
 =====================================================
-Notes for Open Source Chef Upgrades 
+Notes for Open Source Chef Upgrades
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/upgrade_server_open_source_notes.rst>`__
 
@@ -53,7 +53,7 @@ The Open Source Chef uses a validation key and validation client name to ensure 
    * - Setting
      - Description
    * - ``validation_client_name``
-     - The name of the chef-validator key that is used by the chef-client to access the Chef server during the initial chef-client run. 
+     - The name of the chef-validator key that is used by the chef-client to access the Chef server during the initial chef-client run.
    * - ``validation_key``
      - The location of the file that contains the key used when a chef-client is registered with a Chef server. A validation key is signed using the ``validation_client_name`` for authentication. Default value: ``/etc/chef/validation.pem``.
 
@@ -264,14 +264,14 @@ If this error occurs, re-run the upgrade process, adding the ``--upload-threads`
 
 This option will ensure that only one cookbook is uploaded at a time. This approach will be slower, but will prevent a race condition (and this error) from occuring. It may also be helpful to run each stage of the upgrade process separately. See the section "Subcommands Reference" below for more information about the individual commands.
 
-Verify Nodes and Cookbooks 
+Verify Nodes and Cookbooks
 =====================================================
 .. tag upgrade_verify_nodes_and_cookbooks
 
 Install the latest version of the chef-client on a small number of test nodes. Download all cookbooks, and then and check the following:
 
 * Run ``knife cookbook test``. Do they all pass validation with the version of the chef-client you plan on using?
-* Run ``egrep -L ^name */metadata.rb``. Do they all have a metadata.rb file? 
+* Run ``egrep -L ^name */metadata.rb``. Do they all have a metadata.rb file?
 * Does the cookbook name in the metadata.rb file match the name in the run-list? (Some older versions of the chef-client used the cookbook name for the run-list based on the directory name of the cookbook and not the value of the ``cookbook_name`` setting in the metadata.rb file.)
 * Do all cookbooks have a metadata.rb file or metadata.json file?
 * Do all cookbooks used in the organization also exist in source control?

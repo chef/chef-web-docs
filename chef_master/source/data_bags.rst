@@ -309,7 +309,7 @@ that will return JSON output similar to:
 
 .. end_tag
 
-.. 
+..
 .. Store Keys on Nodes
 .. -----------------------------------------------------
 .. .. include:: ../../includes_data_bag/includes_data_bag_encryption_store_on_nodes.rst
@@ -459,7 +459,7 @@ The following recipe can be used to create a user for each administrator by load
        uid       admin['uid']
        gid       admin['gid']
        shell     admin['shell']
-       comment   admin['comment'] 
+       comment   admin['comment']
        home      home
        manage_home true
      end
@@ -607,7 +607,7 @@ To create a data bag item from a recipe:
    }
    databag_item = Chef::DataBagItem.new
    databag_item.data_bag('users')
-   databag_item.raw_data = sam 
+   databag_item.raw_data = sam
    databag_item.save
 
 To edit the contents of a data bag item from a recipe:

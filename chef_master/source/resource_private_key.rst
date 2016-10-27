@@ -176,13 +176,13 @@ This resource has the following properties:
 ``type``
    Use to specify the type of private key. Possible values: ``dsa`` and ``rsa``. Default value: ``rsa``.
 
-.. 
+..
 .. Providers
 .. =====================================================
 .. .. include:: ../../includes_resources_common/includes_resources_common_provider.rst
-.. 
+..
 .. .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
-.. 
+..
 .. .. include:: ../../includes_resources/includes_resource_private_key_providers.rst
 ..
 

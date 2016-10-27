@@ -102,7 +102,7 @@ This resource has the following properties:
 
                 gem_package 'package' do
                   gem_binary Chef::Util::PathHelper.join(Chef::Config.embedded_dir,'bin','gem')
-                  action :install             
+                  action :install
                 end
 
 ``compile_time``

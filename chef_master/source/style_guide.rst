@@ -9,7 +9,7 @@ We recommend that you use the conventions described in this guide when contribut
 
 The HTML version of the doc set can be found at |url docs|.
 
-Building 
+Building
 =====================================================
 
 Run the command
@@ -316,8 +316,8 @@ The Chef reference documentation is found at
 
 https://github.com/chef/chef-web-docs
 
-* The chef-web-docs repo contains a ``chef_master/source`` directory which holds most the reST files in the doc set. 
-* The ``images`` directory stores the image files used in the docs. 
+* The chef-web-docs repo contains a ``chef_master/source`` directory which holds most the reST files in the doc set.
+* The ``images`` directory stores the image files used in the docs.
 * The ``conf.py`` tells Sphinx what to do when it's asked to build Chef docs. Don't modify this file.
 
 The ``build`` directory contains the output of the ``make`` command.

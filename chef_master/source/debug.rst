@@ -12,7 +12,7 @@ Elements of good approaches to building cookbooks and recipes that are reliable 
 
 Ideally, the best way to debug a recipe is to not have to debug it in the first place. That said, the following sections discuss various approaches to debugging recipes and failed chef-client runs.
 
-Basic 
+Basic
 =====================================================
 Some simple ways to quickly identify common issues that can trigger recipe and/or chef-client run failures include:
 
@@ -991,22 +991,22 @@ This command has the following options:
 
                 .. code-block:: javascript
 
-                   { 
+                   {
                      "name": "dev-99",
                      "description": "Install some stuff",
                      "override_attributes": {
                        "apptastic": {
                          "enable_apptastic": "false",
                          "apptastic_tier_name": "dev-99.bomb.com"
-                       }  
-                     }  
+                       }
+                     }
                    }
 
                 will result in a node object similar to:
 
                 .. code-block:: javascript
 
-                   { 
+                   {
                      "name": "maybe-dev-99",
                      "normal": {
                      "name": "dev-99",
@@ -1015,8 +1015,8 @@ This command has the following options:
                          "apptastic": {
                            "enable_apptastic": "false",
                            "apptastic_tier_name": "dev-99.bomb.com"
-                         }  
-                       }  
+                         }
+                       }
                      }
                    }
 

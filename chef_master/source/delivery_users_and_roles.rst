@@ -30,7 +30,7 @@ Chef Automate has a standard users and roles permissions scheme. Roles are sets 
    * - **Observer**
      - Can observe the actions and results of the pipeline as the change progresses through the stages. Cannot take any action.
    * - **Reviewer**
-     - Can approve the successful completion of the **Verify** stage. Once approved, the change automatically moves to the **Build** stage. Also, can read and write comments. 
+     - Can approve the successful completion of the **Verify** stage. Once approved, the change automatically moves to the **Build** stage. Also, can read and write comments.
    * - **Shipper**
      - Can ship a change from the **Acceptance** stage into the shared pipeline stages, **Union** **Rehearsal** and **Delivered**.
 
@@ -55,7 +55,7 @@ The following table describes the LDAP attributes that may be used with Chef Aut
    * - Setting
      - Description
    * - ``ldap_attr_fullname``
-     - The full user name for an LDAP user. Default value: ``nil``.     
+     - The full user name for an LDAP user. Default value: ``nil``.
    * - ``ldap_attr_login``
      - The login user name for an LDAP user. Default value: ``sAMAccountName``.
    * - ``ldap_attr_mail``
@@ -128,7 +128,7 @@ To add or edit a user to Chef Automate:
 #. Select **Users** from the drop-down menu on the upper right.
 
    The **Users** list page opens. You can use the search filter in the upper right corner to make sure that the user is not already added.
-#. Click the plus sign (**+**) next to **Add a New User**.  
+#. Click the plus sign (**+**) next to **Add a New User**.
 #. In the Add New a User text area, select one of two types for the new user. The selection box is grey for the active selection.
 
    * **Internal** means you are manually adding the user to the Chef Automate database.
@@ -162,7 +162,7 @@ To edit LDAP details for a user:
 #. Select **Users** from the drop-down menu on the upper right.
 
    The **Users** list page opens. You can use the search filter in the upper right corner to make sure that the user is not already added.
-#. Click the plus sign (**+**) next to **Add a New User**. 
+#. Click the plus sign (**+**) next to **Add a New User**.
 #. In the **Add New a User** text area, select one of two types for the new user. The selection box is grey for the active selection.
 
    **Internal** means you are manually adding the user to the Delivery database.
@@ -351,9 +351,9 @@ To add SSH keys to Chef Automate, do the following:
    .. code-block:: none
 
       Generating public/private rsa key pair.
-      Enter file in which to save the key (/Users/username/.ssh/id_rsa): 
-      Enter passphrase (empty for no passphrase): 
-      Enter same passphrase again: 
+      Enter file in which to save the key (/Users/username/.ssh/id_rsa):
+      Enter passphrase (empty for no passphrase):
+      Enter same passphrase again:
       Your identification has been saved in /Users/path/to/.ssh/id_rsa.
       Your public key has been saved in /Users/path/to/.ssh/id_rsa.pub.
       The key fingerprint is:

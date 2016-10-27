@@ -16,8 +16,8 @@ Before using the visibility capabilities of Chef Automate, you must perform some
 Use an external Elasticsearch cluster
 =====================================================
 
-Chef Automate uses Elasticsearch to store its data, and the default Chef Automate install includes a single Elasticsearch service. 
-This is sufficient to run production work loads; however for greater data retention, we recommend using a multi-node Elasticsearch 
+Chef Automate uses Elasticsearch to store its data, and the default Chef Automate install includes a single Elasticsearch service.
+This is sufficient to run production work loads; however for greater data retention, we recommend using a multi-node Elasticsearch
 cluster with replication and sharding to store and protect your data.
 
 Prerequisites
@@ -42,7 +42,7 @@ a load-balancer or a third-party Elasticsearch-as-a-service offering.
 
 After saving the file, run ``sudo delivery-ctl reconfigure``.
 
-An additional Elasticsearch-related configuration properties is ``elasticsearch['host_header']``. This is the 
+An additional Elasticsearch-related configuration properties is ``elasticsearch['host_header']``. This is the
 HTTP ``Host`` header to send with the request. When this attribute is unspecified, the default behavior is as follows:
 
   * If the ``urls`` parameter contains a single entry, the host of the supplied URI will be sent as the Host header.
@@ -53,12 +53,12 @@ When this attribute *is* specified, the supplied string will be sent as the ``Ho
 Add Chef Automate certificate to `trusted_certs` directory
 ==============================================================
 
-The visibilty features of Chef Automate require that any self-signed Chef Automate SSL certificate (``HOSTNAME.crt``) is located 
-in the ``/etc/chef/trusted_certs`` directory on any node that wants to send data to Chef Automate. This directory is the location into 
+The visibilty features of Chef Automate require that any self-signed Chef Automate SSL certificate (``HOSTNAME.crt``) is located
+in the ``/etc/chef/trusted_certs`` directory on any node that wants to send data to Chef Automate. This directory is the location into
 which SSL certificates are placed when a node has been bootstrapped with chef-client.
 
-To ensure the certificate is in the ``trusted_certs`` directory, you can use utilities such as `scp` or `rsync` to copy 
-``/var/opt/delivery/nginx/ca/HOSTNAME.crt`` from the Chef Automate server to the ``/etc/chef/trusted_certs`` directory on the 
+To ensure the certificate is in the ``trusted_certs`` directory, you can use utilities such as `scp` or `rsync` to copy
+``/var/opt/delivery/nginx/ca/HOSTNAME.crt`` from the Chef Automate server to the ``/etc/chef/trusted_certs`` directory on the
 node in your Chef Automate cluster, or use ``knife ssl fetch`` and pass in the URL of the Chef Automate server when calling the ``fetch`` subcommand.
 
 .. note:: This only applies to self-signed SSL certificates. Any certificate signed by certificate authority should work without any additional configuration required.
@@ -66,12 +66,12 @@ node in your Chef Automate cluster, or use ``knife ssl fetch`` and pass in the U
 Configure Nodes
 =====================================================
 
-To view data in the **Node State** dashboard of Chef Automate, it must be ingested from 
-Chef clients and/or servers through HTTP POST requests to a data collector endpoint on the Chef Automate server. 
-Node data, resource convergence status, error messages, and other information is collected during chef-client runs and 
+To view data in the **Node State** dashboard of Chef Automate, it must be ingested from
+Chef clients and/or servers through HTTP POST requests to a data collector endpoint on the Chef Automate server.
+Node data, resource convergence status, error messages, and other information is collected during chef-client runs and
 used to populate the dashboard.
 
-At a minimum, nodes must be configured to send their data to Chef Automate by specifying the data collector endpoint and a token value. You can further configure the data collector functionality 
+At a minimum, nodes must be configured to send their data to Chef Automate by specifying the data collector endpoint and a token value. You can further configure the data collector functionality
 depending on the needs and requirements of your business.
 
 Prerequisites
@@ -83,20 +83,20 @@ Prerequisites
 Understand and (optionally) create data collector tokens
 -----------------------------------------------------------------
 
-When streaming data to Chef Automate, POST requests are sent to the data collector endpoint on the Chef Automate server. Those requests must be authenticated, 
-and a token is used in the authentication process. The token is a SHA-256 checksum of a shared secret that Chef Automate's 
-data collector uses to authenticate POST requests made to the data collector endpoint on the Chef Automate server. You may use any SHA-256 value for the token 
-as long as the same value is used between Chef Automate and your Chef server and/or Chef clients. If unspecified in the Chef Automate server's ``delivery.rb`` file, the 
+When streaming data to Chef Automate, POST requests are sent to the data collector endpoint on the Chef Automate server. Those requests must be authenticated,
+and a token is used in the authentication process. The token is a SHA-256 checksum of a shared secret that Chef Automate's
+data collector uses to authenticate POST requests made to the data collector endpoint on the Chef Automate server. You may use any SHA-256 value for the token
+as long as the same value is used between Chef Automate and your Chef server and/or Chef clients. If unspecified in the Chef Automate server's ``delivery.rb`` file, the
 default value for the token is ``'93a49a4f2482c64126f7b6015e6b0f30284287ee4054ff8807fb63d9cbd1c506'``. You may use this value when configuring your nodes.
 
-If you choose to create your own token, add ``data_collector['token'] = 'sometokenvalue'`` to your ``/etc/delivery/delivery.rb`` file on your Chef Automate server. Save your changes 
+If you choose to create your own token, add ``data_collector['token'] = 'sometokenvalue'`` to your ``/etc/delivery/delivery.rb`` file on your Chef Automate server. Save your changes
 and then run ``sudo delivery-ctl reconfigure``.
 
 Configure Chef client to send node and converge data
 -------------------------------------------------------
 
-The data collector functionality is used by the Chef client to send node and converge data to Chef Automate. This 
-feature works for the following: Chef client, Chef solo (formerly "Chef client local mode"), and Chef solo legacy mode 
+The data collector functionality is used by the Chef client to send node and converge data to Chef Automate. This
+feature works for the following: Chef client, Chef solo (formerly "Chef client local mode"), and Chef solo legacy mode
 (formerly "Chef solo").
 
 To send node and converge data to Chef Automate, modify your Chef config (that is
@@ -148,7 +148,7 @@ A complete audit cookbook attribute configuration would look something like this
 Configure Chef server to send server object data
 -------------------------------------------------------
 
-Chef server can be configured to send messages to Chef Automate whenever an action is taken on a Chef server object, such as when a cookbook is uploaded to 
+Chef server can be configured to send messages to Chef Automate whenever an action is taken on a Chef server object, such as when a cookbook is uploaded to
 the Chef server or when a user edits a role.
 
 To enable this feature, add the following settings to ``/etc/opscode/chef-server.rb`` on the Chef server:
@@ -182,7 +182,7 @@ Additional configuration options include:
 Configure High Availability servers to send server object data
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-To configure front-end servers in your HA cluster to send their object data, perform the previous steps for configuring a Chef server as 
+To configure front-end servers in your HA cluster to send their object data, perform the previous steps for configuring a Chef server as
 well as ensure that the ``fqdn`` field in all of your front-end Chef server ``chef-server.rb`` files are the same.
 
 The following example sets the ``fqdn`` field to ``"my-chef-server.mycompany.com"`` in two front-end servers.
@@ -231,7 +231,7 @@ on your Chef Delivery server and add the following settings:
 
 Create an authentication token (as described in the previous section) and then run ``sudo delivery-ctl reconfigure`` to complete the process.
 
-Now that you have a token value selected, you are ready to configure your Chef server and any Chef client 
+Now that you have a token value selected, you are ready to configure your Chef server and any Chef client
 nodes to start streaming data to Chef Automate.
 
 Troubleshooting: My data does not show up in the UI
@@ -239,9 +239,9 @@ Troubleshooting: My data does not show up in the UI
 
 .. tag chef_automate_visibility_no_data_troubleshoot
 
-If an organization does not have any nodes associated with it, it does not show up in the **Nodes** section of the Chef Automate UI. 
+If an organization does not have any nodes associated with it, it does not show up in the **Nodes** section of the Chef Automate UI.
 This is also true for roles, cookbooks, recipes, attributes, resources, node names, and environments. Only those items
-that have a node associated with them will appear in the UI. Chef Automate has all the data for all of these, but does 
+that have a node associated with them will appear in the UI. Chef Automate has all the data for all of these, but does
 not highlight them in the UI. This is designed to keep the UI focused on the nodes in your cluster.
 
 .. end_tag

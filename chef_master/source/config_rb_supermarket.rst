@@ -61,7 +61,7 @@ This configuration file has the following general settings:
    Default value: ``'/var/opt/supermarket'``.
 
 .. there are these as well:
-.. 
+..
 .. supermarket['fieri_url'] = nil
 .. supermarket['fieri_key'] = nil
 .. supermarket['from_email'] = nil

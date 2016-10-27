@@ -254,8 +254,8 @@ The following Chef Automate-specific helpers can be used in recipes:
         }
       }
 
-   This ``publish`` option requires the ``supermarket_user`` and ``supermarket_key`` credentials to be available from the 
-   ``delivery-secrets`` data bag on the Chef server that is part of this Chef Automate configuration. For more information on the ``delivery-secrets`` data bag, 
+   This ``publish`` option requires the ``supermarket_user`` and ``supermarket_key`` credentials to be available from the
+   ``delivery-secrets`` data bag on the Chef server that is part of this Chef Automate configuration. For more information on the ``delivery-secrets`` data bag,
    see `Handling Secrets <https://github.com/chef-cookbooks/delivery-sugar#handling-secrets-alpha>`_ in the ``delivery-sugar`` cookbook README file.
 
    .. end_tag

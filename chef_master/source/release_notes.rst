@@ -20,9 +20,9 @@ What's New in 12.15
 The following items are new for chef-client 12.15 and/or are changes from previous versions. The short version:
 
 * **Omnibus packages are now available for Ubuntu 16.04**
-* **New cab_package resource** Supports the installation of cabinet packages on Microsoft Windows. 
+* **New cab_package resource** Supports the installation of cabinet packages on Microsoft Windows.
 * **Added new Chef client exit code (213)** New exit code when Chef client exits during upgrade.
-* **Default for gpgcheck on yum_repository resource is set to true** 
+* **Default for gpgcheck on yum_repository resource is set to true**
 * **Allow deletion of registry_key without the need for users to pass data key in values hash**
 * **If provided, knife ssh will pass the -P option on the command line as the sudo password and will bypass prompting**
 
@@ -48,7 +48,7 @@ Supports the installation of cabinet packages on Microsoft Windows. For example:
 
 exit code 213
 -----------------------------------------------------
-This new exit code signals Chef has exited during a client upgrade. This allows for easier testing of chef client upgrades in Test Kitchen. 
+This new exit code signals Chef has exited during a client upgrade. This allows for easier testing of chef client upgrades in Test Kitchen.
 See `Chef Killing <https://github.com/chef-cookbooks/omnibus_updater#chef-killing>`__ in the omnibus_updater cookbook for more information.
 
 What's New in 12.14
@@ -72,7 +72,7 @@ For syntax, a list of properties and actions, see :doc:`yum_repository </resourc
 
 sensitive: true
 -----------------------------------------------------
-Some properties in custom resources may include sensitive data, such as a password for a database server. When the resource's state is built for use by data collector or a similar auditing tool, 
+Some properties in custom resources may include sensitive data, such as a password for a database server. When the resource's state is built for use by data collector or a similar auditing tool,
 a hash is built of all state properties for that resource and their values. This leads to sensitive data being transmitted and potentially stored in the clear.
 
 Individual properties can now be marked as sensitive and then have the value of that property suppressed when exporting the resource's state. To do this, add ``sensitive: true`` when definine the property, such as in the following example:
@@ -185,7 +185,7 @@ What's New in 12.11
 =====================================================
 The following items are new for chef-client 12.11 and/or are changes from previous versions. The short version:
 
-* **Support for standard exit codes in Chef client** Standard exit codes are now used by Chef client and should be identical across all OS platforms. New configuration setting ``exit_status`` has been added to specify how Chef client reports non-standard exit codes. 
+* **Support for standard exit codes in Chef client** Standard exit codes are now used by Chef client and should be identical across all OS platforms. New configuration setting ``exit_status`` has been added to specify how Chef client reports non-standard exit codes.
 * **New data collector functionality for run statistics** New feature that provides a unified method for sharing statistics about your Chef runs in webhook-like manner.
 * **Default chef-solo behavior is equivalent to chef-client local mode** chef-solo now uses chef-client local mode. To use the previous ``chef-solo`` behavior, run in ``chef-solo --legacy-mode``.
 * **New systemd_unit resource** Use the **systemd_unit** to manage systemd units.
@@ -210,7 +210,7 @@ To enable the data collector, specify the following settings in your client conf
 
 Replace previous Chef-solo behavior with Chef client local mode
 ----------------------------------------------------------------
-The default operation of chef-solo is now the equivalent to ``chef-client -z`` or ``chef-client --local-mode``, but you can use the previous chef-solo behavior by running in ``chef-solo --legacy-mode``. 
+The default operation of chef-solo is now the equivalent to ``chef-client -z`` or ``chef-client --local-mode``, but you can use the previous chef-solo behavior by running in ``chef-solo --legacy-mode``.
 As part of this change, environment and role files written in ruby are now fully supported by ``knife upload``.
 
 systemd_unit
@@ -246,7 +246,7 @@ The full syntax for all of the properties that are available to the **systemd_un
 
 where
 
-* ``name`` is the name of the unit 
+* ``name`` is the name of the unit
 * ``active`` specifies if the service unit type should be started
 * ``user`` is the user account that systemd units run under. If not specified, systemd units will run under the system account.
 * ``content`` describes the behavior of the unit
@@ -332,7 +332,7 @@ This resource has the following properties:
 ``user``
    **Ruby Type:** String
 
-   The user account that the systemd unit process is run under. The path to the unit for that user would be something like 
+   The user account that the systemd unit process is run under. The path to the unit for that user would be something like
    ``/etc/systemd/user/sshd.service``. If no user account is specified, the systemd unit will run under a ``system`` account, with the path to the unit being something like ``/etc/systemd/system/sshd.service``.
 
 ``content``
@@ -619,7 +619,7 @@ What's New in 12.9
 =====================================================
 The following items are new for chef-client 12.9 and/or are changes from previous versions. The short version:
 
-* **64-bit chef-client for Microsoft Windows** Starting with chef-client 12.9, 64-bit 
+* **64-bit chef-client for Microsoft Windows** Starting with chef-client 12.9, 64-bit
 * **New property for the mdadm resource** Use the ``mdadm_defaults`` property to set the default values for ``chunk`` and ``metadata`` to ``nil``, which allows mdadm to apply its own default values.
 * **File redirection in Windows for 32-bit applications** Files on Microsoft Windows that are managed by the **file** and **directory** resources are subject to file redirection, depending if the chef-client is 64-bit or 32-bit.
 * **Registry key redirection in Windows for 32-bit applications** Registry keys on Microsoft Windows that are managed by the **registry_key** resource are subject to key redirection, depending if the chef-client is 64-bit or 32-bit.
@@ -2025,7 +2025,7 @@ What's New in 12.6
 =====================================================
 The following items are new for chef-client 12.6 and/or are changes from previous versions. The short version:
 
-* **New timer for resource notifications** Use the ``:before`` timer with the ``notifies`` and ``subscribes`` properties to specify that the action on a notified resource should be run before processing the resource block in which the notification is located. 
+* **New timer for resource notifications** Use the ``:before`` timer with the ``notifies`` and ``subscribes`` properties to specify that the action on a notified resource should be run before processing the resource block in which the notification is located.
 * **New ksh resource** The **ksh** resource is added and is based on the **script** resource.
 * **New metadata.rb settings** The metadata.rb file has settings for ``chef_version`` and ``ohai_version`` that allow ranges to be specified that declare the supported versions of the chef-client and Ohai.
 * **dsc_resource supports reboots** The **dsc_resource** resource supports immediate and queued reboots. This uses the **reboot** resource and its ``:reboot_now`` or ``:request_reboot`` actions.
@@ -2500,7 +2500,7 @@ where
 
 * ``homepage`` is a property that sets the default HTML for the ``index.html`` file with a default value of ``'<h1>Hello world!</h1>'``
 * the (optional) ``load_current_value`` block loads the current values for all specified properties, in this example there is just a single property: ``homepage``
-* the ``if`` statement checks to see if the ``index.html`` file is already present on the node. If that file is already present, its contents are loaded **instead** of the default value for ``homepage`` 
+* the ``if`` statement checks to see if the ``index.html`` file is already present on the node. If that file is already present, its contents are loaded **instead** of the default value for ``homepage``
 * the ``action`` block uses the built-in collection of resources to tell the chef-client how to install Apache, start the service, and then create the contents of the file located at ``/var/www/html/index.html``
 * ``action :create`` is the default resource; ``action :delete`` must be called specifically (because it is not the default resource)
 
@@ -3160,7 +3160,7 @@ Use a library to define the code that sends email when a chef-client run fails. 
          message << "Chef run failed on #{node_name}\n"
          Net::SMTP.start('localhost', 25) do |smtp|
            smtp.send_message message, 'chef@chef.io', 'grantmc@chef.io'
-         end    
+         end
        end
      end
    end
@@ -5959,7 +5959,7 @@ The following items are new for chef-client 12.0 and/or are changes from previou
 * **Ruby 2.0 (or higher) for Windows; and Ruby 2.1 (or higher) for Unix/Linux** Ruby versions 1.8.7, 1.9.1, 1.9.2, and 1.9.3 are no longer supported. See `this blog post <https://www.chef.io/blog/2014/11/25/ruby-1-9-3-eol-and-chef-12/>`_ for more info.
 * **The number of changes between Ruby 1.9 and 2.0 is small** Please review the `Ruby 2.0 release notes <https://github.com/ruby/ruby/blob/v2_0_0_0/NEWS>`_ or `Ruby 2.1 release notes <https://github.com/ruby/ruby/blob/v2_1_0/NEWS>`_ for the full list of changes.
 * **provides method for building custom resources** Use the ``provides`` method to associate a custom resource with a built-in chef-client resource and to specify platforms on which the custom resource may be used.
-* **The chef-client supports the AIX platform** The chef-client may now be used to configure nodes that are running on the AIX platform, versions 6.1 (TL6 or higher, recommended) and 7.1 (TL0 SP3 or higher, recommended). The **service** resource supports starting, stopping, and restarting services that are managed by System Resource Controller (SRC), as well as managing all service states with BSD-based init systems. 
+* **The chef-client supports the AIX platform** The chef-client may now be used to configure nodes that are running on the AIX platform, versions 6.1 (TL6 or higher, recommended) and 7.1 (TL0 SP3 or higher, recommended). The **service** resource supports starting, stopping, and restarting services that are managed by System Resource Controller (SRC), as well as managing all service states with BSD-based init systems.
 * **New bff_package resource** Use the **bff_package** resource to install packages on the AIX platform.
 * **New homebrew_package resource** Use the **homebrew_package** resource to install packages on the Mac OS X platform. The **homebrew_package** resource also replaces the **macports_package** resource as the default package installer on the Mac OS X platform.
 * **New reboot resource** Use the **reboot** resource to reboot a node during or at the end of a chef-client run.
@@ -5982,7 +5982,7 @@ The following items are new for chef-client 12.0 and/or are changes from previou
 * **All files and templates in a cookbook are synchronized at the start of the chef-client run** The ``no_lazy_load`` configuration setting in the client.rb file now defaults to ``true``. This avoids issues where time-sensitive URLs in a cookbook manifest timeout before the **cookbook_file** or **template** resources converged.
 * **File staging now defaults to the destination directory by default** Staging into a system's temporary directory---typically ``/tmp`` or ``/var/tmp``---as opposed to the destination directory may cause issues with permissions, available space, or cross-device renames. Files are now staged to the destination directory by default.
 * **Partial search updates** Use ``:filter_result`` to build search results into a Hash. This replaces the previous functionality that was provided by the ``partial_search`` cookbook, albeit with a different API. Use the ``--filter-result`` option to return only attributes that match the specified filter. For example: ``\"ServerName=name, Kernel=kernel.version\"``.
-* **Client-side key generation is enabled by default** When a new chef-client is created using the validation client account, the Chef server allows the chef-client to generate a key-pair locally, and then send the public key to the Chef server. This behavior is controlled by the ``local_key_generation`` attribute in the client.rb file and now defaults to ``true``. 
+* **Client-side key generation is enabled by default** When a new chef-client is created using the validation client account, the Chef server allows the chef-client to generate a key-pair locally, and then send the public key to the Chef server. This behavior is controlled by the ``local_key_generation`` attribute in the client.rb file and now defaults to ``true``.
 * **New guard_interpreter property defaults** The ``guard_interpreter`` property now defaults to ``:batch`` for the **batch** resource and ``:powershell_script`` for the **powershell_script** resource.
 * **Events are sent to the Application event log on the Windows platform by default** Events are sent to the Microsoft Windows "Application" event log at the start and end of a chef-client run, and also if a chef-client run fails. Set the ``disable_event_logger`` configuration setting in the client.rb file to ``true`` to disable event logging.
 * **The installer_type property for the windows_package resource uses a symbol instead of a string** Previous versions of the chef-client (starting with version 11.8) used a string.
@@ -6599,15 +6599,15 @@ The following example shows how to install a service:
 .. code-block:: ruby
 
    execute "install #{node['chef_client']['svc_name']} in SRC" do
-     command "mkssys -s #{node['chef_client']['svc_name']} 
-                     -p #{node['chef_client']['bin']} 
-                     -u root 
-                     -S 
-                     -n 15 
-                     -f 9 
-                     -o #{node['chef_client']['log_dir']}/client.log 
+     command "mkssys -s #{node['chef_client']['svc_name']}
+                     -p #{node['chef_client']['bin']}
+                     -u root
+                     -S
+                     -n 15
+                     -f 9
+                     -o #{node['chef_client']['log_dir']}/client.log
                      -e #{node['chef_client']['log_dir']}/client.log -a '
-                     -i #{node['chef_client']['interval']} 
+                     -i #{node['chef_client']['interval']}
                      -s #{node['chef_client']['splay']}'"
      not_if "lssrc -s #{node['chef_client']['svc_name']}"
      action :run
@@ -6618,7 +6618,7 @@ and then enable it using the ``mkitab`` command:
 .. code-block:: ruby
 
    execute "enable #{node['chef_client']['svc_name']}" do
-     command "mkitab '#{node['chef_client']['svc_name']}:2:once:/usr/bin/startsrc 
+     command "mkitab '#{node['chef_client']['svc_name']}:2:once:/usr/bin/startsrc
                      -s #{node['chef_client']['svc_name']} > /dev/console 2>&1'"
      not_if "lsitab #{node['chef_client']['svc_name']}"
    end

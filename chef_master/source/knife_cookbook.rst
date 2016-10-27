@@ -1,5 +1,5 @@
 =====================================================
-knife cookbook 
+knife cookbook
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_cookbook.rst>`__
 
@@ -107,7 +107,7 @@ This argument has the following options:
 
           .. end_tag
 
-Examples 
+Examples
 -----------------------------------------------------
 The following examples show how to use this knife subcommand:
 

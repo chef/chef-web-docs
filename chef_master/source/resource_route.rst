@@ -173,13 +173,13 @@ This resource has the following properties:
 
 .. Properties in the route resource that aren't in the route provider: domain, domainname, hostname, metric, networking, networking_ipv6, route_type ... these shouldn't be visible in this properties list at this time.
 
-.. 
+..
 .. Providers
 .. =====================================================
 .. .. include:: ../../includes_resources_common/includes_resources_common_provider.rst
-.. 
+..
 .. .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
-.. 
+..
 .. .. include:: ../../includes_resources/includes_resource_route_providers.rst
 ..
 

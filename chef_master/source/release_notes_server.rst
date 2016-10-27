@@ -16,7 +16,7 @@ What's New in 12.9
 The following items are new for Chef server 12.9:
 
 * **New warning and functionality when trying to delete user in multiple 'admin' groups** If a user is in an admininstrator group in any organization, the ``chef-server-ctl user-delete`` subcommand does not allow you to remove the user from that group. To provide more information when the ``user-delete`` subcommand fails for this reason, the error message contains a list of organizations the user is an adminstrator of. Using the new flag ``--remove-from-admin-groups``, you can now remove that user provided they are not the only user in the ``admin`` group.
-* **LDAP bind passwords now support special characters** 
+* **LDAP bind passwords now support special characters**
 * **Updated to OpenSSL 1.0.1u** Updated version of OpenSSL to address security vunerabilities.
 * **Multiple ACL updates on the Chef server API** The ``_acl`` endpoint now requires that any users being added to an object's ACL exist in the same organization as the object itself. Existing users that are not organization members and have already been added to an ACL will not be affected, and will still be in the GET response for this API. Additional changes can be found `here <https://github.com/chef/chef-server/blob/master/RELEASE_NOTES.md#api-changes>`__.
 
@@ -101,7 +101,7 @@ The ``public_key_read_access`` group controls which users and clients have :doc:
 
 * GET /clients/CLIENT/keys
 * GET /clients/CLIENT/keys/KEY
-* GET /users/USER/keys 
+* GET /users/USER/keys
 * GET /users/USER/keys/
 
 By default, the ``public_key_read_access`` assigns all members of the ``users`` and ``clients`` group permission to these endpoints:

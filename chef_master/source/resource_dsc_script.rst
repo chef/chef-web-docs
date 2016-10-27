@@ -327,7 +327,7 @@ Use the ``command`` property to specify the path to a Windows PowerShell data fi
 
 .. code-block:: powershell
 
-   Configuration 'DefaultEditor'  
+   Configuration 'DefaultEditor'
    {
      Environment 'texteditor'
        {
@@ -355,7 +355,7 @@ If a DSC script contains configuration data that takes parameters, those paramet
 .. code-block:: powershell
 
    $choices = @{'emacs' = 'c:\emacs\bin\emacs';'vi' = 'c:\vim\vim.exe';'powershell' = 'powershell_ise.exe'}
-     Configuration 'DefaultEditor' 
+     Configuration 'DefaultEditor'
        {
          [CmdletBinding()]
          param
@@ -445,7 +445,7 @@ The following example shows how to specify custom configuration data using the `
 
 .. code-block:: powershell
 
-   Configuration 'emacs'  
+   Configuration 'emacs'
      {
        Environment 'TextEditor'
        {
@@ -454,7 +454,7 @@ The following example shows how to specify custom configuration data using the `
        }
    }
 
-   Configuration 'vi'   
+   Configuration 'vi'
    {
        Environment 'TextEditor'
        {

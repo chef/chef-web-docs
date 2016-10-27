@@ -725,11 +725,11 @@ The following table lists all of the cookbooks that are available for Chef for O
    * - metering
      - Installs Ceilometer, an OpenStack project that provides monitoring and metering services services for use within the OpenStack family. For more information about Ceilometer, see https://wiki.openstack.org/wiki/Ceilometer.
 
-       .. 
+       ..
        .. commented out until link can be updated
-       .. 
+       ..
        .. This cookbook is located at: https://github.com/openstack/cookbook-openstack-metering.
-       .. 
+       ..
    * - network
      - Installs Networking, an OpenStack project that provides an API for defining network connectivity and addressing in the cloud. For more information about Networking, see http://docs.openstack.org/trunk/openstack-network/admin/content/.
 

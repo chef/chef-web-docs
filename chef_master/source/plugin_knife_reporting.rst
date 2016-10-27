@@ -118,7 +118,7 @@ where ``node_name`` is the name of a node.
 
 .. end_tag
 
-runs show 
+runs show
 =====================================================
 .. tag plugin_knife_reporting_runs_show
 
@@ -186,10 +186,10 @@ For a chef-client run that succeeded, the command will return something similar 
          owner:    root
        id:               /tmp/test
        initial_state:
-         checksum: 
-         group:    
-         mode:     
-         owner:    
+         checksum:
+         group:
+         mode:
+         owner:
        name:             /tmp/test
        result:           touch
        type:             file

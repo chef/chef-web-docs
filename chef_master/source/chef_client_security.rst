@@ -68,7 +68,7 @@ Changes Prior to Chef 12
 
 The following changes were made during certain chef-client release prior to the chef-client 12 release:
 
-* In the chef-client 11.8 release, the ``verify_api_cert`` setting was added to the client.rb file with a default value of ``false``. 
+* In the chef-client 11.8 release, the ``verify_api_cert`` setting was added to the client.rb file with a default value of ``false``.
 * In the chef-client 11.12 release, the ``local_key_generation`` setting was added to the client.rb file.
 
   The ``ssl_verify_mode`` continued to default to ``:verify_none``, but now returned a warning: ``SSL validation of HTTPS requests is disabled...``, followed by steps for how to configure SSL certificate validation for the chef-client.
