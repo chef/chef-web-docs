@@ -632,12 +632,12 @@ Returns:
 
 Credential Rotation
 =====================================================
-Use the following commands to manage and rotate shared secrets and service credentials. The secrets file used for credential rotation is located 
+Use the following commands to manage and rotate shared secrets and service credentials. The secrets file used for credential rotation is located
 at ``/etc/opscode/private-chef-secrets.json`` on your Chef server.
 
 require-credential-rotation
 -----------------------------------------------------
-The ``require-credential-rotation`` subcommand takes the Chef server offline and requires a complete service credential rotation before the Chef server(s) in your cluster can restart again. 
+The ``require-credential-rotation`` subcommand takes the Chef server offline and requires a complete service credential rotation before the Chef server(s) in your cluster can restart again.
 Run ``rotate-shared-secrets`` to create a new shared secret, salt, and generate the new service credentials. Then copy the secrets file to each Chef server and run ``sudo chef-server-ctl reconfigure`` on them to complete the rotation process.
 
 .. note:: Credential rotation does not rotate the pivotal, user, or client keys, or remove any Chef server policy or cookbooks that have been uploaded.
@@ -675,7 +675,7 @@ This subcommand has the following syntax:
 
 rotate-credentials
 -----------------------------------------------------
-The ``rotate-credentials`` subcommand generates new credential values for all credentials for a given service by incrementing 
+The ``rotate-credentials`` subcommand generates new credential values for all credentials for a given service by incrementing
 the value and creating a new hash value. You can choose whether to copy the updated secrets file to each node in the cluster and reconfiguring or by running this subcommand for that specific service on all the nodes.
 
 *New in Chef server 12.7*
@@ -690,8 +690,8 @@ This subcommand has the following syntax:
 
 rotate-shared-secrets
 -----------------------------------------------------
-The ``rotate-shared-secrets`` subcommand creates a new shared secret and salt, in addition to generating new service credentials. It also resets 
-the ``credential_version`` number for the services to 0. After you have run this subcommand, a new shared secret has been created, so you must copy the secrets file to 
+The ``rotate-shared-secrets`` subcommand creates a new shared secret and salt, in addition to generating new service credentials. It also resets
+the ``credential_version`` number for the services to 0. After you have run this subcommand, a new shared secret has been created, so you must copy the secrets file to
 each Chef server and run ``sudo chef-server-ctl reconfigure`` on them to complete the rotation process.
 
 *New in Chef server 12.7*

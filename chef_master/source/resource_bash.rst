@@ -285,8 +285,8 @@ The following arguments can be used with the ``not_if`` or ``only_if`` guard pro
 
    .. code-block:: ruby
 
-      not_if 'grep adam /etc/passwd', :environment => { 
-        'HOME' => '/home/adam' 
+      not_if 'grep adam /etc/passwd', :environment => {
+        'HOME' => '/home/adam'
       }
 
 ``:cwd``
@@ -396,7 +396,7 @@ The following is an example of how to install the ``foo123`` module for Nginx. T
    bash 'extract_module' do
      cwd ::File.dirname(src_filepath)
      code <<-EOH
-       mkdir -p #{extract_path} 
+       mkdir -p #{extract_path}
        tar xzf #{src_filename} -C #{extract_path}
        mv #{extract_path}/*/* #{extract_path}/
        EOH

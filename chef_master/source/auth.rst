@@ -1,5 +1,5 @@
 =====================================================
-Authentication, Authorization 
+Authentication, Authorization
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/auth.rst>`__
 
@@ -352,7 +352,7 @@ In some cases, the chef-client may receive a 401 response to the authentication 
 
 .. code-block:: bash
 
-   [Wed, 05 Oct 2011 15:43:34 -0700] INFO: HTTP Request Returned 401 
+   [Wed, 05 Oct 2011 15:43:34 -0700] INFO: HTTP Request Returned 401
    Unauthorized: Failed to authenticate as node_name. Ensure that your node_name and client key are correct.
 
 To debug authentication problems, determine which chef-client is attempting to authenticate. This is often found in the log messages for that chef-client. Debug logging can be enabled on a chef-client using the following command:
@@ -418,7 +418,7 @@ The Chef server uses organizations, groups, and users to define role-based acces
           :width: 100px
           :align: center
 
-     - A user is any non-administrator human being who will manage data that is uploaded to the Chef server from a workstation or who will log on to the Chef management console web user interface. The Chef server includes a single default user that is defined during setup and is automatically assigned to the ``admins`` group. 
+     - A user is any non-administrator human being who will manage data that is uploaded to the Chef server from a workstation or who will log on to the Chef management console web user interface. The Chef server includes a single default user that is defined during setup and is automatically assigned to the ``admins`` group.
    * - .. image:: ../../images/icon_chef_client.svg
           :width: 100px
           :align: center
@@ -436,7 +436,7 @@ The Chef server uses organizations, groups, and users to define role-based acces
 When a user makes a request to the Chef server using the Chef server API, permission to perform that action is determined by the following process:
 
 #. Check if the user has permission to the object type
-#. If no, recursively check if the user is a member of a security group that has permission to that object 
+#. If no, recursively check if the user is a member of a security group that has permission to that object
 #. If yes, allow the user to perform the action
 
 Permissions are managed using the Chef management console add-on in the Chef server web user interface.

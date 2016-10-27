@@ -133,13 +133,13 @@ This resource has the following properties:
 
    .. end_tag
 
-.. 
+..
 .. Providers
 .. =====================================================
 .. .. include:: ../../includes_resources_common/includes_resources_common_provider.rst
-.. 
+..
 .. .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
-.. 
+..
 .. .. include:: ../../includes_resources/includes_resource_service_reboot_providers.rst
 ..
 
@@ -217,7 +217,7 @@ The following example shows how to rename a computer, join a domain, and then re
      EOH
      not_if <<-EOH
        $ComputerSystem = gwmi win32_computersystem
-       ($ComputerSystem.Name -like '#{node['some_attribute_that_has_the_new_name']}') -and 
+       ($ComputerSystem.Name -like '#{node['some_attribute_that_has_the_new_name']}') -and
          $ComputerSystem.partofdomain)
      EOH
      notifies :reboot_now, 'reboot[Restart Computer]', :immediately

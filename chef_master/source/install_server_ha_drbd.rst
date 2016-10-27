@@ -20,7 +20,7 @@ Before installing the Chef server software, perform the following steps:
 * Backend servers `should have a dedicated connection <http://www.drbd.org/users-guide/s-prepare-network.html>`_. This is required for replication between the two servers.
 * Backend servers will share a virtual IP address that must also be accessible from each frontend server. This virtual IP address is created and managed by the Chef server, but will also need to be added to the DNS so that all servers in the high availability configuration may access it.
 * Persistent data on backend servers of the Chef server is primarily composed of cookbook files and directories. Separate disks should be dedicated entirely to storing this data prior to installing the Chef server.
-* Load-balancing should be used with frontend machines, along with a DNS entry for the virtual IP address used for load balancing. This virtual IP address is added to the chef-server.rb file as the ``api_fqdn``. 
+* Load-balancing should be used with frontend machines, along with a DNS entry for the virtual IP address used for load balancing. This virtual IP address is added to the chef-server.rb file as the ``api_fqdn``.
 * All required ports must be open. See the Firewalls section (below) for the list of ports. All connections to and from the Chef server are accomplished via TCP. Refer to the operating system's manual or your systems administrators for instructions on how to configure to ports, if necessary.
 * The hostname for the Chef server must be an FQDN, including the domain suffix, and must be resolvable by the other backend and frontend servers. See `Hostnames, FQDNs <https://docs.chef.io/install_server_pre.html#hostnames>`_ for more information.
 
@@ -725,23 +725,23 @@ A completed chef-server.rb configuration file for a four server tiered Chef serv
      - backend
    * - fe1.example.com
      - 192.168.4.2
-     - 
+     -
      - frontend
    * - fe2.example.com
      - 192.168.4.3
-     - 
+     -
      - frontend
    * - fe3.example.com
      - 192.168.4.4
-     - 
+     -
      - frontend
    * - chef.example.com
      - 192.168.4.5
-     - 
+     -
      - load balanced frontend VIP
    * - be.example.com
      - 192.168.4.7
-     - 
+     -
      - load balanced backend VIP
 
 Looks like this:
@@ -885,7 +885,7 @@ For back-end servers, ensure that ports marked as external (marked as ``yes`` in
        .. end_tag
 
      - yes
-   * - 
+   * -
      - **opscode-expander**
 
        .. tag server_services_expander
@@ -904,7 +904,7 @@ For back-end servers, ensure that ports marked as external (marked as ``yes`` in
 
        .. end_tag
 
-     - 
+     -
    * - 5432
      - **postgresql**
 
@@ -974,7 +974,7 @@ For front-end servers, ensure that ports marked as external (marked as ``yes`` i
 
        .. end_tag
 
-     - 
+     -
    * - 9090
      - **oc-id**
 
@@ -984,7 +984,7 @@ For front-end servers, ensure that ports marked as external (marked as ``yes`` i
 
        .. end_tag
 
-     - 
+     -
    * - 8000
      - **opscode-erchef**
 

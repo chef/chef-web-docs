@@ -177,13 +177,13 @@ This resource has the following properties:
 
    The URL to which an HTTP request is sent.
 
-.. 
+..
 .. Providers
 .. =====================================================
 .. .. include:: ../../includes_resources_common/includes_resources_common_provider.rst
-.. 
+..
 .. .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
-.. 
+..
 .. .. include:: ../../includes_resources/includes_resource_http_request_providers.rst
 ..
 

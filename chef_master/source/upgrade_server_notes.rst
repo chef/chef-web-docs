@@ -16,14 +16,14 @@ If the **template** resource is managing the private-chef.rb file in Enterprise 
 #. Re-create the management process that was used prior to the upgrade, but make the necessary changes so that Chef is managing the chef-server.rb file.
 #. Verify that the chef-server.rb file is being managed and that the symlink from private-chef.rb to chef-server.rb is not broken.
 
-Verify Nodes and Cookbooks 
+Verify Nodes and Cookbooks
 =====================================================
 .. tag upgrade_verify_nodes_and_cookbooks
 
 Install the latest version of the chef-client on a small number of test nodes. Download all cookbooks, and then and check the following:
 
 * Run ``knife cookbook test``. Do they all pass validation with the version of the chef-client you plan on using?
-* Run ``egrep -L ^name */metadata.rb``. Do they all have a metadata.rb file? 
+* Run ``egrep -L ^name */metadata.rb``. Do they all have a metadata.rb file?
 * Does the cookbook name in the metadata.rb file match the name in the run-list? (Some older versions of the chef-client used the cookbook name for the run-list based on the directory name of the cookbook and not the value of the ``cookbook_name`` setting in the metadata.rb file.)
 * Do all cookbooks have a metadata.rb file or metadata.json file?
 * Do all cookbooks used in the organization also exist in source control?

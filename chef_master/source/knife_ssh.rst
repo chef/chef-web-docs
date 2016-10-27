@@ -1,5 +1,5 @@
 =====================================================
-knife ssh 
+knife ssh
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_ssh.rst>`__
 
@@ -177,7 +177,7 @@ where ``screen`` is one of the following values: ``cssh``, ``interactive``, ``ma
 
 .. code-block:: bash
 
-   you need the rb-appscript gem to use knife ssh macterm. 
+   you need the rb-appscript gem to use knife ssh macterm.
    `(sudo) gem    install rb-appscript` to install
    ERROR: LoadError: cannot load such file -- appscript
 

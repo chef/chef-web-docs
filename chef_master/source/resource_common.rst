@@ -1,5 +1,5 @@
 =====================================================
-Common Functionality 
+Common Functionality
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_common.rst>`__
 
@@ -216,8 +216,8 @@ The following arguments can be used with the ``not_if`` or ``only_if`` guard pro
 
    .. code-block:: ruby
 
-      not_if 'grep adam /etc/passwd', :environment => { 
-        'HOME' => '/home/adam' 
+      not_if 'grep adam /etc/passwd', :environment => {
+        'HOME' => '/home/adam'
       }
 
 ``:cwd``
@@ -1043,7 +1043,7 @@ or:
 Some other important things to know when using the ``rights`` attribute:
 
 * Only inherited rights remain. All existing explicit rights on the object are removed and replaced.
-* If rights are not specified, nothing will be changed. The chef-client does not clear out the rights on a file or directory if rights are not specified. 
+* If rights are not specified, nothing will be changed. The chef-client does not clear out the rights on a file or directory if rights are not specified.
 * Changing inherited rights can be expensive. Microsoft Windows will propagate rights to all children recursively due to inheritance. This is a normal aspect of Microsoft Windows, so consider the frequency with which this type of action is necessary and take steps to control this type of action if performance is the primary consideration.
 
 Use the ``deny_rights`` property to deny specific rights to specific users. The ordering is independent of using the ``rights`` property. For example, it doesn't matter if rights are granted to everyone is placed before or after ``deny_rights :read, ['Julian', 'Lewis']``, both Julian and Lewis will be unable to read the document. For example:

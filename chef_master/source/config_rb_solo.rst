@@ -99,9 +99,9 @@ A sample solo.rb file that contains all possible settings (listed alphabetically
    add_formatter :foo
    add_formatter :bar
    checksum_path '/var/chef/checksums'
-   cookbook_path [ 
-                  '/var/chef/cookbooks', 
-                  '/var/chef/site-cookbooks' 
+   cookbook_path [
+                  '/var/chef/cookbooks',
+                  '/var/chef/site-cookbooks'
                  ]
    data_bag_path '/var/chef/data_bags'
    environment 'production'

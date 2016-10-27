@@ -171,13 +171,13 @@ This resource has the following properties:
 
 .. end_tag
 
-.. 
+..
 .. Providers
 .. =====================================================
 .. .. include:: ../../includes_resources_common/includes_resources_common_provider.rst
-.. 
+..
 .. .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
-.. 
+..
 .. .. include:: ../../includes_resources/includes_resource_log_providers.rst
 ..
 
@@ -195,16 +195,16 @@ The following log levels are supported:
 
    * - Log Level
      - Syntax
-   * - Debug
-     - ``Chef::Log.debug('string')``
-   * - Error
-     - ``Chef::Log.error('string')``
    * - Fatal
      - ``Chef::Log.fatal('string')``
-   * - Info
-     - ``Chef::Log.info('string')``
+   * - Error
+     - ``Chef::Log.error('string')``
    * - Warn
      - ``Chef::Log.warn('string')``
+   * - Info
+     - ``Chef::Log.info('string')``
+   * - Debug
+     - ``Chef::Log.debug('string')``
 
 .. note:: The parentheses are optional, e.g. ``Chef::Log.info 'string'`` may be used instead of ``Chef::Log.info('string')``.
 

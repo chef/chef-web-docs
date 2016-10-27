@@ -11,7 +11,7 @@ Node Search Query Reference
 
 .. end_tag
 
-The visibility dashboard in **Nodes** exposes a search bar that allows you to search for nodes based off a 
+The visibility dashboard in **Nodes** exposes a search bar that allows you to search for nodes based off a
 defined query language. This language will allow you to search on the following terms:
 
   * attribute

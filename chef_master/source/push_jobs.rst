@@ -131,17 +131,17 @@ where ``["ntpdate"] = "ntpdate -u time"`` is added to the whitelist:
      "ntpdate" => "ntpdate -u time",
    }
 
-.. 
+..
 .. Commented out, probably move to new file(s)
-.. 
+..
 .. Messages
 .. =====================================================
 .. xxxxx sends two types of messages: heartbeat and job.
-.. 
+..
 .. Heartbeat Messages
 .. -----------------------------------------------------
 .. .. include:: ../../includes_push_jobs/includes_push_jobs_messages_heartbeat.rst
-.. 
+..
 .. Job Messages
 .. -----------------------------------------------------
 .. .. include:: ../../includes_push_jobs/includes_push_jobs_messages_jobs.rst
@@ -382,8 +382,8 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     "node_name": "FIONA", 
-     "status": "down", 
+     "node_name": "FIONA",
+     "status": "down",
      "updated_at": "Tue, 04 Sep 2012 23:17:56 GMT"
    }
 
@@ -477,8 +477,8 @@ with a request body similar to:
 .. code-block:: javascript
 
    {
-     "command": "chef-client", 
-     "run_timeout": 300, 
+     "command": "chef-client",
+     "run_timeout": 300,
      "nodes": ["NODE1", "NODE2", "NODE3", "NODE4", "NODE5", "NODE6"]
    }
 
@@ -538,8 +538,8 @@ with a request body similar to:
 .. code-block:: javascript
 
    {
-     "command": "chef-client", 
-     "run_timeout": 300, 
+     "command": "chef-client",
+     "run_timeout": 300,
      "nodes": ["NODE1", "NODE2", "NODE3", "NODE4", "NODE5", "NODE6"]
    }
 
@@ -583,15 +583,15 @@ The response will return something similar to:
 .. code-block:: javascript
 
    {
-     "id": "aaaaaaaaaaaa25fd67fa8715fd547d3d", 
-     "command": "chef-client", 
-     "run_timeout": 300, 
+     "id": "aaaaaaaaaaaa25fd67fa8715fd547d3d",
+     "command": "chef-client",
+     "run_timeout": 300,
      "status": "running",
-     "created_at": "Tue, 04 Sep 2012 23:01:02 GMT", 
-     "updated_at": "Tue, 04 Sep 2012 23:17:56 GMT", 
+     "created_at": "Tue, 04 Sep 2012 23:01:02 GMT",
+     "updated_at": "Tue, 04 Sep 2012 23:17:56 GMT",
      "nodes": {
-       "running": ["NODE1", "NODE5"], 
-       "complete": ["NODE2", "NODE3", "NODE4"], 
+       "running": ["NODE1", "NODE5"],
+       "complete": ["NODE2", "NODE3", "NODE4"],
        "crashed": ["NODE6"]
      }
    }
@@ -649,18 +649,18 @@ The response is similar to:
 
    {
      {
-       "node_name": "FARQUAD", 
-       "status": "up", 
+       "node_name": "FARQUAD",
+       "status": "up",
        "updated_at": "Tue, 04 Sep 2012 23:17:56 GMT"
      }
      {
-       "node_name": "DONKEY", 
-       "status": "up", 
+       "node_name": "DONKEY",
+       "status": "up",
        "updated_at": "Tue, 04 Sep 2012 23:17:56 GMT"
      }
      {
-       "node_name": "FIONA", 
-       "status": "down", 
+       "node_name": "FIONA",
+       "status": "down",
        "updated_at": "Tue, 04 Sep 2012 23:17:56 GMT"
      }
    }
@@ -715,8 +715,8 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     "node_name": "FIONA", 
-     "status": "down", 
+     "node_name": "FIONA",
+     "status": "down",
      "updated_at": "Tue, 04 Sep 2012 23:17:56 GMT"
    }
 

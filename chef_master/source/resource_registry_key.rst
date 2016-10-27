@@ -133,8 +133,8 @@ The syntax for the ``registry_data_exists?`` method is as follows:
 .. code-block:: ruby
 
    registry_data_exists?(
-     KEY_PATH, 
-     { :name => 'NAME', :type => TYPE, :data => DATA }, 
+     KEY_PATH,
+     { :name => 'NAME', :type => TYPE, :data => DATA },
      ARCHITECTURE
    )
 
@@ -304,8 +304,8 @@ The syntax for the ``registry_value_exists?`` method is as follows:
 .. code-block:: ruby
 
    registry_value_exists?(
-     KEY_PATH, 
-     { :name => 'NAME' }, 
+     KEY_PATH,
+     { :name => 'NAME' },
      ARCHITECTURE
    )
 
@@ -494,13 +494,13 @@ This resource has the following properties:
 
 .. end_tag
 
-.. 
+..
 .. Providers
 .. =====================================================
 .. .. include:: ../../includes_resources_common/includes_resources_common_provider.rst
-.. 
+..
 .. .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
-.. 
+..
 .. .. include:: ../../includes_resources/includes_resource_registry_key_providers.rst
 ..
 

@@ -25,7 +25,7 @@ Consider the following example:
 
    % exit # Return to original shell
    exit
-   % export WOO # Export variable 
+   % export WOO # Export variable
    % bash
    % echo $WOO #Shell variable now available in children.
    woo

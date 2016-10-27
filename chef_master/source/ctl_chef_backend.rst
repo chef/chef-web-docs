@@ -214,7 +214,7 @@ This command will:
 
 * Run the ``chef-backend-ctl cluster-status`` subcommand to determine if a leader exists.
 
-  .. warning:: Nodes in the backend HA cluster may not be visible to each other when they are located in network parititions. This may prevent a cluster status check from discovering that a leader exists. If nodes exist on network parititions, to prevent this scenario, first run ``chef-backend-ctl cluster-status``, and then verify the expected number of nodes in the backend HA cluster as healthy and ``waiting_for_leader`` before running this command. 
+  .. warning:: Nodes in the backend HA cluster may not be visible to each other when they are located in network parititions. This may prevent a cluster status check from discovering that a leader exists. If nodes exist on network parititions, to prevent this scenario, first run ``chef-backend-ctl cluster-status``, and then verify the expected number of nodes in the backend HA cluster as healthy and ``waiting_for_leader`` before running this command.
 * Complete with an exit code of ``0`` if the node from which the command is run becomes the leader.
 * Return an error message and a non-zero exit code if a leader already exists.
 
@@ -734,9 +734,9 @@ is similar to:
 
 .. code-block:: bash
 
-   Service        Local Status        Time in State  Distributed Node Status 
+   Service        Local Status        Time in State  Distributed Node Status
    elasticsearch  running (pid 6661)  1d 5h 59m 41s  state: green; nodes online: 3/3
-   etcd           running (pid 6742)  1d 5h 59m 39s  health: green; healthy nodes: 3/3 
+   etcd           running (pid 6742)  1d 5h 59m 39s  health: green; healthy nodes: 3/3
    leaderl        running (pid 6788)  1d 5h 59m 35s  leader: 1; waiting: 0; follower: 2; total: 3
    postgresql     running (pid 6640)  1d 5h 59m 43s  leader: 1; offline: 0; syncing: 0; synced: 2
 

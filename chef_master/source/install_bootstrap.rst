@@ -45,33 +45,33 @@ The ``knife bootstrap`` subcommand is used to run a bootstrap operation that ins
    .. code-block:: bash
 
       Bootstrapping Chef on 123.45.6.789
-      123.45.6.789 knife sudo password: 
-      Enter your password: 
-      123.45.6.789 
+      123.45.6.789 knife sudo password:
+      Enter your password:
+      123.45.6.789
       123.45.6.789 [Fri, 07 Sep 2012 11:05:05 -0700] INFO: *** Chef 10.12.0 ***
-      123.45.6.789 
+      123.45.6.789
       123.45.6.789 [Fri, 07 Sep 2012 11:05:07 -0700] INFO: Client key /etc/chef/client.pem is not present - registering
-      123.45.6.789 
+      123.45.6.789
       123.45.6.789 [Fri, 07 Sep 2012 11:05:15 -0700] INFO: Setting the run_list to [] from JSON
-      123.45.6.789 
+      123.45.6.789
       123.45.6.789 [Fri, 07 Sep 2012 11:05:15 -0700] INFO: Run List is []
-      123.45.6.789 
+      123.45.6.789
       123.45.6.789 [Fri, 07 Sep 2012 11:05:15 -0700] INFO: Run List expands to []
-      123.45.6.789 
+      123.45.6.789
       123.45.6.789 [Fri, 07 Sep 2012 11:05:15 -0700] INFO: Starting Chef Run for name_of_node
-      123.45.6.789 
+      123.45.6.789
       123.45.6.789 [Fri, 07 Sep 2012 11:05:15 -0700] INFO: Running start handlers
-      123.45.6.789 
+      123.45.6.789
       123.45.6.789 [Fri, 07 Sep 2012 11:05:15 -0700] INFO: Start handlers complete.
-      123.45.6.789 
+      123.45.6.789
       123.45.6.789 [Fri, 07 Sep 2012 11:05:17 -0700] INFO: Loading cookbooks []
-      123.45.6.789 
+      123.45.6.789
       123.45.6.789 [Fri, 07 Sep 2012 11:05:17 -0700] WARN: Node name_of_node has an empty run list.
-      123.45.6.789 
+      123.45.6.789
       123.45.6.789 [Fri, 07 Sep 2012 11:05:19 -0700] INFO: Chef Run complete in 3.986283452 seconds
-      123.45.6.789 
+      123.45.6.789
       123.45.6.789 [Fri, 07 Sep 2012 11:05:19 -0700] INFO: Running report handlers
-      123.45.6.789 
+      123.45.6.789
       123.45.6.789 [Fri, 07 Sep 2012 11:05:19 -0700] INFO: Report handlers complete
       123.45.6.789
 
@@ -201,7 +201,7 @@ At this time, only the users ``sean_horn`` and ``angle`` are authorized to read 
      angle
    clients:
    id:           power
-   search_query: 
+   search_query:
    some:         content for them
 
 It is definitely an encrypted databag, see?

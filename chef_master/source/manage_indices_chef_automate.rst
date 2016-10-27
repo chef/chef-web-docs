@@ -21,10 +21,10 @@ Configuration
 Reaper has a number of configuration parameters you may specify in your ``/etc/delivery/delivery.rb`` configuration file.
 
 * ``reaper['enable']``: boolean. If ``true``, Reaper will be enabled and run every 15 minutes. Default: ``false``.
-* ``reaper['mode']``: string. Valid options are ``'delete'`` or ``'archive'``. **This setting is required if reaper['enable'] is set to true**. 
+* ``reaper['mode']``: string. Valid options are ``'delete'`` or ``'archive'``. **This setting is required if reaper['enable'] is set to true**.
    * If set to ``'delete'``, Reaper will delete any indices older than the value specified in ``reaper['retention_period_in_days']``.
    * If set to ``'archive'``, Reaper will take snapshots of any indices older than ``reaper['retention_period_in_days']`` and then delete the indices.
-* ``reaper['archive_destination']``: string. Valid options are ``'fs'`` or ``'s3'``. **This setting is required if reaper['mode'] is set to 'archive'**. 
+* ``reaper['archive_destination']``: string. Valid options are ``'fs'`` or ``'s3'``. **This setting is required if reaper['mode'] is set to 'archive'**.
    * If set to ``'fs'``, Reaper will take snapshots to a filesystem location on your Elasticsearch nodes.
    * If set to ``'s3'``, Reaper will take snapshots and store them on an AWS S3 bucket.
 * ``reaper['retention_period_in_days']``: integer. Any indices older than this value will reaped by Reaper. Default: ``14``.
