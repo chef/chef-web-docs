@@ -5,9 +5,6 @@ chef-shell (executable)
 
 .. tag chef_shell_summary
 
-.. This file describes a command or a subcommand for Knife.
-.. This file should not be changed in a way that hinders its ability to appear in multiple documentation sets.
-
 chef-shell is a recipe debugging tool that allows the use of breakpoints within recipes. chef-shell runs as an Interactive Ruby (IRb) session. chef-shell supports both recipe and attribute file syntax, as well as interactive debugging features.
 
 .. end_tag
@@ -18,10 +15,7 @@ Modes
 =====================================================
 .. tag chef_shell_modes
 
-.. This file describes a command or a subcommand for Knife.
-.. This file should not be changed in a way that hinders its ability to appear in multiple documentation sets.
-
-chef-shell is tool that is run using an Interactive Ruby (IRb) session. chef-shell currently supports recipe and attribute file syntax, as well as interactive debugging features. chef-shell has three run modes:
+chef-shell has three run modes:
 
 .. list-table::
    :widths: 200 300
