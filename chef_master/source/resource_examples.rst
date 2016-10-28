@@ -925,8 +925,6 @@ Use the **breakpoint** resource to add breakpoints to recipes. Run the chef-shel
 
 .. tag resource_breakpoint_yes
 
-.. A resource with breakpoints:
-
 .. code-block:: ruby
 
    breakpoint "before yum_key node['yum']['repo_name']['key']" do
