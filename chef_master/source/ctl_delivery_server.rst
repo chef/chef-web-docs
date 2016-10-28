@@ -219,6 +219,54 @@ This subcommand has the following syntax:
 
    $ delivery-ctl help
 
+install-runner
+=====================================================
+The ```install-runner``` subcommand configures a remote node as a job runner. These are used by the V2 job dispatch system to run jobs.
+
+You can obtain a delivery token by performing the following command on a workstation with the ChefDK installed:
+
+.. code-block:: bash
+
+   $ delivery token
+   Chef Delivery
+   Loading configuration from /Users/admin_user/delivery/delivery
+   Requesting Token
+   Delivery password:
+   token: <some_token>
+   saved API token to: /Users/admin_user/.delivery/api-tokens
+
+Use ``<some_token>`` for the ``--admin-token`` parameter below.
+
+**Syntax**
+
+.. code-block:: bash
+
+   $ delivery-ctl install-runner [options]
+      -f, --fqdn                    FQDN of the remote host that will be configured into a runner
+      -u, --username                SSH username to use for authentication to the remote host
+      -P, --password                SSH password to use for authentication to the remote host
+      -i, --ssh-identity-file       SSH identity file used for authentication to the remote host
+      -p, --port                    SSH port to connect to on the remote host (Default: 22)
+      -I, --installer               The location of the ChefDK package for the build node
+      -a, --admin-user              Workflow admin username
+      -t, --admin-token             Workflow admin token
+      -e, --enterprise              Workflow enterprise to add the runner into
+      -h, --help                    Show the usage message
+
+**Example**
+
+.. code-block:: bash
+
+   $ delivery-ctl install-runner
+
+All parameters are optional on the command line. The installation process will prompt for the necessary parameters.
+
+.. code-block:: bash
+
+   $ delivery-ctl install-runner -f runner-hostname.mydomain.co -u ubuntu -i ~/.ssh/id_rsa -I ./chefdk.deb -a delivery_admin -t 'vKuYXMy8DfT53y0zcHh9kpawmdz3Gipb52bAmzMCYEY=' -e MyEnterprise
+
+You only need to supply one of ``--password`` or ``--ssh-identity-file``.
+
 list-applications
 =====================================================
 The ``list-applications`` subcommand lists all applications with OAuth credentials.
@@ -692,4 +740,3 @@ The ``usr1`` subcommand is used to send the services a USR1.
 usr2
 -----------------------------------------------------
 The ``usr2`` subcommand is used to send the services a USR2.
-
