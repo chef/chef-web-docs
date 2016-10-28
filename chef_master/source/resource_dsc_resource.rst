@@ -331,6 +331,28 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. end_tag
 
+**Create and register a windows service**
+
+.. tag resource_dsc_resource_windows_service
+
+.. To create a windows service:
+
+The following example creates a windows service, defines it's execution path, and prevents windows from starting the service 
+in case the executable is not at the defined location:
+
+.. code-block:: ruby
+
+  dsc_resource 'NAME' do
+    resource :service
+    property :name, 'NAME'
+    property :startuptype, 'Disabled'
+    property :path, 'D:\\Sites\\Site_name\file_to_run.exe'
+    property :ensure, 'Present'
+    property :state, 'Stopped'
+  end
+
+.. end tag
+
 **Create a test message queue**
 
 .. tag resource_dsc_resource_manage_msmq
