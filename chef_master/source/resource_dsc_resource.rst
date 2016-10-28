@@ -351,7 +351,7 @@ in case the executable is not at the defined location:
     property :state, 'Stopped'
   end
 
-.. end tag
+.. end_tag
 
 **Create a test message queue**
 
