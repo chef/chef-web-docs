@@ -262,13 +262,14 @@ Use the ``property`` method to define properties for the custom resource. The sy
 
 .. code-block:: ruby
 
-   property :name, ruby_type, default: 'value'
+   property :name, ruby_type, default: 'value', parameter: 'value'
 
 where
 
 * ``:name`` is the name of the property
-* ``ruby_type`` is the Ruby type, such as ``String``, ``Integer``, ``TrueClass``, or ``FalseClass``
-* ``default: 'value'`` is the default value loaded into the resource
+* ``ruby_type`` is the optional Ruby type or array of types, such as ``String``, ``Integer``, ``TrueClass``, or ``FalseClass``
+* ``default: 'value'`` is the optional default value loaded into the resource
+* ``parameter: 'value'`` optional parameters
 
 For example, the following properties define ``username`` and ``password`` properties with no default values specified:
 
@@ -276,6 +277,128 @@ For example, the following properties define ``username`` and ``password`` prope
 
    property :username, String
    property :password, String
+
+.. end_tag
+
+ruby_type
+-----------------------------------------------------
+.. tag dsl_custom_resource_method_property_ruby_type
+
+The property ruby_type is a positional parameter. Use to ensure a property value is of a particular ruby class, such as ``TrueClass``, ``FalseClass``, ``NilClass``, ``String``, ``Array``, ``Hash``. Use an array of ruby classes to allow a value to be of more than one type. For example:
+
+       .. code-block:: ruby
+
+          property :name, String
+
+       .. code-block:: ruby
+
+          property :name, Fixnum
+
+       .. code-block:: ruby
+
+          property :name, Hash
+
+       .. code-block:: ruby
+
+          property :name, [TrueClass, FalseClass]
+
+       .. code-block:: ruby
+
+          property :name, [String, NilClass]
+
+       .. code-block:: ruby
+
+          property :name, [Class, String, Symbol]
+
+       .. code-block:: ruby
+
+          property :name, [Array, Hash]
+
+.. end_tag
+
+validators
+-----------------------------------------------------
+.. tag dsl_custom_resource_method_property_validation_parameter
+
+A validation parameter is used to add zero (or more) validation parameters to a property.
+
+.. list-table::
+   :widths: 150 450
+   :header-rows: 1
+
+   * - Parameter
+     - Description
+   * - ``:callbacks``
+     - Use to define a collection of unique keys and values (a ruby hash) for which the key is the error message and the value is a lambda to validate the parameter. For example:
+
+       .. code-block:: ruby
+
+          callbacks: {
+                       'should be a valid non-system port' => lambda {
+                         |p| p > 1024 && p < 65535
+                       }
+                     }
+
+   * - ``:default``
+     - Use to specify the default value for a property. For example:
+
+       .. code-block:: ruby
+
+          default: 'a_string_value'
+
+       .. code-block:: ruby
+
+          default: 123456789
+
+       .. code-block:: ruby
+
+          default: []
+
+       .. code-block:: ruby
+
+          default: ()
+
+       .. code-block:: ruby
+
+          default: {}
+   * - ``:equal_to``
+     - Use to match a value with ``==``. Use an array of values to match any of those values with ``==``. For example:
+
+       .. code-block:: ruby
+
+          equal_to: [true, false]
+
+       .. code-block:: ruby
+
+          equal_to: ['php', 'perl']
+   * - ``:regex``
+     - Use to match a value to a regular expression. For example:
+
+       .. code-block:: ruby
+
+          regex: [ /^([a-z]|[A-Z]|[0-9]|_|-)+$/, /^\d+$/ ]
+   * - ``:required``
+     - Indicates that a property is required. For example:
+
+       .. code-block:: ruby
+
+          required: true
+   * - ``:respond_to``
+     - Use to ensure that a value has a given method. This can be a single method name or an array of method names. For example:
+
+       .. code-block:: ruby
+
+          respond_to: valid_encoding?
+
+Some examples of combining validation parameters:
+
+.. code-block:: ruby
+
+   property :spool_name, String, regex: /$\w+/
+
+.. code-block:: ruby
+
+   property :enabled, equal_to: [true, false, 'true', 'false'], default: true
 
 .. end_tag
 
@@ -319,7 +442,7 @@ For example, the following properties define ``username`` and ``password`` prope
 .. end_tag
 
 Block Arguments
------------------------------------------------------
+=====================================================
 .. tag dsl_custom_resource_method_property_block_argument
 
 Any properties that are marked ``identity: true`` or ``desired_state: false`` will be available from ``load_current_value``. If access to other properties of a resource is needed, use a block argument that contains all of the properties of the requested resource. For example:
