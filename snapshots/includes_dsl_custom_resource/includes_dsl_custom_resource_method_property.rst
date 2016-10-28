@@ -1,6 +1,5 @@
 .. The contents of this file may be included in multiple topics (using the includes directive).
 .. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
-.. tag dsl_custom_resource_method_property
 
 Use the ``property`` method to define properties for the custom resource. The syntax is:
 
@@ -21,5 +20,3 @@ For example, the following properties define ``username`` and ``password`` prope
 
    property :username, String
    property :password, String
-
-.. end_tag
