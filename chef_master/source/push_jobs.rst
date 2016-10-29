@@ -131,21 +131,6 @@ where ``["ntpdate"] = "ntpdate -u time"`` is added to the whitelist:
      "ntpdate" => "ntpdate -u time",
    }
 
-..
-.. Commented out, probably move to new file(s)
-..
-.. Messages
-.. =====================================================
-.. xxxxx sends two types of messages: heartbeat and job.
-..
-.. Heartbeat Messages
-.. -----------------------------------------------------
-.. .. include:: ../../includes_push_jobs/includes_push_jobs_messages_heartbeat.rst
-..
-.. Job Messages
-.. -----------------------------------------------------
-.. .. include:: ../../includes_push_jobs/includes_push_jobs_messages_jobs.rst
-
 Reference
 =====================================================
 The following sections describe the knife subcommands, the Push Jobs API, and configuration settings used by Chef push jobs.
@@ -159,10 +144,6 @@ The ``knife push jobs`` subcommand is used by Chef push jobs to start jobs, view
 .. end_tag
 
 .. note:: Review the list of `common options <https://docs.chef.io/knife_common_options.html>`_ available to this (and all) knife subcommands and plugins.
-
-.. Install this plugin
-.. -----------------------------------------------------
-.. .. include:: ../../step_plugin_knife/step_plugin_knife_push_jobs_install_rubygem.rst
 
 job list
 -----------------------------------------------------

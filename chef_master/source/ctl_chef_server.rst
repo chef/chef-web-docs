@@ -1315,18 +1315,6 @@ This subcommand has the following syntax:
 
    $ chef-server-ctl show-config
 
-..
-..
-.. Uncomment when https://github.com/chef/chef-server/issues/35 is available.
-..
-.. show-versions
-.. =====================================================
-.. .. warning:: This command will be added to the Chef server in an upcoming release.
-..
-.. .. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_show-versions.rst
-..
-..
-
 uninstall
 =====================================================
 .. tag ctl_chef_server_uninstall

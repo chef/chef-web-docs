@@ -153,16 +153,6 @@ This resource has the following properties:
 
 .. end_tag
 
-..
-.. Providers
-.. =====================================================
-.. .. include:: ../../includes_resources_common/includes_resources_common_provider.rst
-..
-.. .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
-..
-.. .. include:: ../../includes_resources/includes_resource_apt_update_providers.rst
-..
-
 Examples
 =====================================================
 .. tag resources_common_examples_intro

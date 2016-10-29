@@ -37,8 +37,6 @@ Workstations
 =====================================================
 .. tag workstation_summary
 
-.. This file is included in Chef Automate docs
-
 A workstation is a computer that is configured to run various Chef command-line tools that synchronize with a chef-repo, author cookbooks, interact with the Chef server, and interact with nodes.
 
 The workstation is the location from which most users do most of their work, including:

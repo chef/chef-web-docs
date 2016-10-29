@@ -111,15 +111,6 @@ For example:
      # do debian/ubuntu things with the Ruby array %w{} shortcut
    end
 
-..
-.. The ``%w`` array will use single-quotes, will not have access to code interpolation, and may only use a limited set of escape characters: ``\``.
-..
-.. .. note:: Use an upper-case W---``%W``---to create an array with double-quotes, access to code interpolation, and access to all escape characters.
-..
-
-.. future example: step_resource_package_use_whitespace_array
-.. future example: step_resource_template_use_whitespace_array
-
 .. end_tag
 
 Include Recipes
@@ -1648,14 +1639,6 @@ or:
    if platform_family?('debian', 'rhel')
      # do things on debian and rhel families
    end
-
-.. future example: step_resource_remote_file_use_platform_family
-
-..
-.. Parameters
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_dsl_recipe/includes_dsl_recipe_method_platform_family_parameters.rst
-..
 
 For example:
 

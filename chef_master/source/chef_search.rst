@@ -762,10 +762,6 @@ to return something like:
 
 .. end_tag
 
-.. AND -id:foo
-.. -----------------------------------------------------
-.. .. include:: ../../step_search/step_search_boolean_andnot.rst
-
 NOT
 -----------------------------------------------------
 .. tag search_boolean_not

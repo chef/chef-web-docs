@@ -313,12 +313,6 @@ that will return JSON output similar to:
 
 .. end_tag
 
-..
-.. Store Keys on Nodes
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_data_bag/includes_data_bag_encryption_store_on_nodes.rst
-..
-
 Edit a Data Bag Item
 -----------------------------------------------------
 .. tag data_bag_edit
