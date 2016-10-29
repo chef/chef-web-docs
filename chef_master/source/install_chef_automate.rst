@@ -318,10 +318,10 @@ To install Chef Automate:
 
    All paths called for here should be supplied as the absolute path to a file, including the filename.
 
-   ``$AUTOMATE_LICENSE`` is the full path and file name of your Chef Automate license file.
+   ``$AUTOMATE_LICENSE`` is the full path and file name of your Chef Automate license file. For example: ``/root/delivery.license``.
 
    ``$AUTOMATE_CHEF_USER_KEY`` is the key that was created in the previous section on your Chef server.
-   Copy it from the Chef server to the Chef Automate server and then provide the path for the ``--key`` argument.
+   Copy it from the Chef server to the Chef Automate server and then provide the path for the ``--key`` argument. For example: ``/root/john_doe.pem``.
 
    ``$AUTOMATE_SERVER_FQDN`` is the external fully-qualified domain name of the Chef Automate server. This is just the name of the system, not a URL.
 
@@ -425,7 +425,7 @@ For more details on the proxy setup, please see `About Proxies <https://docs.che
 Compliance scanning
 ===================================================================
 
-Allows nodes to execute infrastructure tests or compliance profiles as part of the chef-client runs. For more details see the `Compliance scanning w/ Chef Automate guide </integrate_compliance_chef_automate>`_.
+Allows nodes to execute infrastructure tests or compliance profiles as part of the chef-client runs. For more details, see :doc:`Compliance scanning w/ Chef Automate guide </integrate_compliance_chef_automate>`.
 
 Troubleshooting
 ===================================================================

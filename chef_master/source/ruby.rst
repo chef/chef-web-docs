@@ -43,36 +43,6 @@ Use a comment to explain code that exists in a cookbook or recipe. Anything afte
 
    # This is a comment.
 
-..
-..
-.. Ideally, a comment explains why the code exists, while the code itself describes how Chef will apply it. For example:
-..
-.. .. code-block:: ruby
-..
-..    action :restart do
-..
-..    # With Upstart, restarting the service doesn't behave "as expected".
-..    # We want the post-start stanzas, which wait until the service is
-..    # available before returning.
-..    #
-..    # http://upstart.ubuntu.com/cookbook/#restart
-..
-..      service "#{new_resource.name} :restart stop #{mysql_name}" do
-..        service_name mysql_name
-..        provider Chef::Provider::Service::Upstart
-..        action :stop
-..      end
-..
-..      service "#{new_resource.name} :restart start #{mysql_name}" do
-..        service_name mysql_name
-..        provider Chef::Provider::Service::Upstart
-..        action :start
-..      end
-..
-..    end
-..
-..
-
 Local Variables
 -----------------------------------------------------
 Assign a local variable:
@@ -226,15 +196,6 @@ For example:
    if %w{debian ubuntu}.include?(node['platform'])
      # do debian/ubuntu things with the Ruby array %w{} shortcut
    end
-
-..
-.. The ``%w`` array will use single-quotes, will not have access to code interpolation, and may only use a limited set of escape characters: ``\``.
-..
-.. .. note:: Use an upper-case W---``%W``---to create an array with double-quotes, access to code interpolation, and access to all escape characters.
-..
-
-.. future example: step_resource_package_use_whitespace_array
-.. future example: step_resource_template_use_whitespace_array
 
 .. end_tag
 
@@ -905,7 +866,7 @@ node.set
 -----------------------------------------------------
 Use ``node.default`` (or maybe ``node.override``) instead of ``node.set`` because ``node.set`` is an alias for ``node.normal``. Normal data is persisted on the node object. Therefore, using ``node.set`` will persist data in the node object. If the code that uses ``node.set`` is later removed, if that data has already been set on the node, it will remain.
 
-Normal and override attributes are cleared at the start of the chef-client run, and are then rebuilt as part of the run based on the code in the cookbooks and recipes at that time.
+Default and override attributes are cleared at the start of the chef-client run, and are then rebuilt as part of the run based on the code in the cookbooks and recipes at that time.
 
 ``node.set`` (and ``node.normal``) should only be used to do something like generate a password for a database on the first chef-client run, after which it's remembered (instead of persisted). Even this case should be avoided, as using a data bag is the recommended way to store this type of data.
 

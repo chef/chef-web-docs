@@ -94,11 +94,7 @@ Attributes are provided to the chef-client from the following locations:
 * Environments
 * Roles
 
-If we go back to the `overview of Chef <https://docs.chef.io/release/11-18/chef_overview.html>`_, but then focus only on where attributes are located, it looks something like this:
-
-.. image:: ../../images/overview_chef_11x_attributes.png
-
-where
+Notes:
 
 * Many attributes are maintained in the chef-repo for environments, roles, and cookbooks (attribute files and recipes)
 * Many attributes are collected by Ohai on each individual node at the start of every chef-client run

@@ -34,7 +34,7 @@ few days. The important part is submitting your change.
 ## The next fastest way
 
 If your change involves edits to multiple topics, or if you contribute
-frequently, you'll want to fork this repo in GitHib, clone it on your
+frequently, you'll want to fork this repo in GitHub, clone it on your
 workstation, and make pull requests from commits you push to your
 forked repo. After you fork `chef/chef-web-docs` using the GitHub web
 interface, clone the forked repo to your workstation, following these [instructions](https://docs.chef.io/community_contributions.html#use-git).

@@ -171,18 +171,6 @@ This resource has the following properties:
 
    The IP address of the target route. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
 
-.. Properties in the route resource that aren't in the route provider: domain, domainname, hostname, metric, networking, networking_ipv6, route_type ... these shouldn't be visible in this properties list at this time.
-
-..
-.. Providers
-.. =====================================================
-.. .. include:: ../../includes_resources_common/includes_resources_common_provider.rst
-..
-.. .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
-..
-.. .. include:: ../../includes_resources/includes_resource_route_providers.rst
-..
-
 Examples
 =====================================================
 The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.

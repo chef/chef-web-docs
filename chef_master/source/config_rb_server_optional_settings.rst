@@ -173,13 +173,6 @@ This configuration file has the following settings for ``dark_launch``:
 ``dark_launch['sql_users']``
    Default value: ``true``.
 
-..
-.. this has been moved to the chef-ha add-on? verify
-..
-.. drbd
-.. -----------------------------------------------------
-.. .. include:: ../../includes_config/includes_config_rb_server_settings_drbd.rst
-
 data_collector
 -----------------------------------------------------
 This configuration file has the following settings for ``data_collector``:
@@ -224,13 +217,6 @@ This configuration file has the following settings for ``estatsd``:
 
 ``estatsd['vip']``
    The virtual IP address. Default value: ``'127.0.0.1'``.
-
-..
-.. this has been moved to the chef-ha add-on? verify
-..
-.. ha
-.. -----------------------------------------------------
-.. .. include:: ../../includes_config/includes_config_rb_server_settings_ha.rst
 
 jetty
 -----------------------------------------------------

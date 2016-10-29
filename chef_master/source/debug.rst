@@ -3,18 +3,6 @@ Debug Recipes, chef-client Runs
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/debug.rst>`__
 
-.. tag chef
-
-Chef is a powerful automation platform that transforms infrastructure into code. Whether you’re operating in the cloud, on-premises, or in a hybrid environment, Chef automates how infrastructure is configured, deployed, and managed across your network, no matter its size.
-
-This diagram shows how you develop, test, and deploy your Chef code.
-
-.. image:: ../../images/start_chef.svg
-   :width: 700px
-   :align: center
-
-.. end_tag
-
 Elements of good approaches to building cookbooks and recipes that are reliable include:
 
 * A consistent syntax pattern when constructing recipes
@@ -342,19 +330,11 @@ chef-shell
 -----------------------------------------------------
 .. tag chef_shell_summary
 
-.. This file describes a command or a subcommand for Knife.
-.. This file should not be changed in a way that hinders its ability to appear in multiple documentation sets.
-
 chef-shell is a recipe debugging tool that allows the use of breakpoints within recipes. chef-shell runs as an Interactive Ruby (IRb) session. chef-shell supports both recipe and attribute file syntax, as well as interactive debugging features.
 
 .. end_tag
 
-.. note:: chef-shell is the new name for Shef as of chef-client version 11.0. chef-shell is backwards compatible and aside from the name change, has the same set of functionality as with previous releases.
-
 .. tag chef_shell_modes
-
-.. This file describes a command or a subcommand for Knife.
-.. This file should not be changed in a way that hinders its ability to appear in multiple documentation sets.
 
 chef-shell is tool that is run using an Interactive Ruby (IRb) session. chef-shell currently supports recipe and attribute file syntax, as well as interactive debugging features. chef-shell has three run modes:
 
@@ -377,9 +357,6 @@ Configure
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag chef_shell_config
 
-.. This file describes a command or a subcommand for Knife.
-.. This file should not be changed in a way that hinders its ability to appear in multiple documentation sets.
-
 chef-shell determines which configuration file to load based on the following:
 
 #. If a configuration file is specified using the ``-c`` option, chef-shell will use the specified configuration file
@@ -393,9 +370,6 @@ chef-shell determines which configuration file to load based on the following:
 chef-shell.rb
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag chef_shell_config_rb
-
-.. This file describes a command or a subcommand for Knife.
-.. This file should not be changed in a way that hinders its ability to appear in multiple documentation sets.
 
 The chef-shell.rb file can be used to configure chef-shell in the same way as the client.rb file is used to configure the chef-client. For example, to configure chef-shell to authenticate to the Chef server, copy the ``node_name``, ``client_key``, and ``chef_server_url`` settings from the knife.rb file:
 
@@ -413,9 +387,6 @@ Run as a chef-client
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag chef_shell_run_as_chef_client
 
-.. This file describes a command or a subcommand for Knife.
-.. This file should not be changed in a way that hinders its ability to appear in multiple documentation sets.
-
 By default, chef-shell loads in standalone mode and does not connect to the Chef server. The chef-shell can be run as a chef-client to verify functionality that is only available when the chef-client connects to the Chef server, such as search functionality or accessing data stored in data bags.
 
 chef-shell can use the same credentials as knife when connecting to a Chef server. Make sure that the settings in chef-shell.rb are the same as those in knife.rb, and then use the ``-z`` option as part of the command. For example:
@@ -429,9 +400,6 @@ chef-shell can use the same credentials as knife when connecting to a Chef serve
 Manage
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag chef_shell_manage
-
-.. This file describes a command or a subcommand for Knife.
-.. This file should not be changed in a way that hinders its ability to appear in multiple documentation sets.
 
 When chef-shell is configured to access a Chef server, chef-shell can list, show, search for and edit cookbooks, clients, nodes, roles, environments, and data bags.
 
@@ -555,9 +523,6 @@ breakpoint Resource
 -----------------------------------------------------
 .. tag chef_shell_breakpoints
 
-.. This file describes a command or a subcommand for Knife.
-.. This file should not be changed in a way that hinders its ability to appear in multiple documentation sets.
-
 chef-shell allows the current position in a run-list to be manipulated during a chef-client run. Add breakpoints to a recipe to take advantage of this functionality.
 
 .. end_tag
@@ -651,8 +616,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. tag resource_breakpoint_yes
 
-.. A resource with breakpoints:
-
 .. code-block:: ruby
 
    breakpoint "before yum_key node['yum']['repo_name']['key']" do
@@ -692,9 +655,6 @@ where the name of each breakpoint is an arbitrary string. In the previous exampl
 Step Through Run-list
 -----------------------------------------------------
 .. tag chef_shell_step_through_run_list
-
-.. This file describes a command or a subcommand for Knife.
-.. This file should not be changed in a way that hinders its ability to appear in multiple documentation sets.
 
 To explore how using the **breakpoint** to manually step through a chef-client run, create a simple recipe in chef-shell:
 
@@ -781,9 +741,6 @@ Debug Existing Recipe
 -----------------------------------------------------
 .. tag chef_shell_debug_existing_recipe
 
-.. This file describes a command or a subcommand for Knife.
-.. This file should not be changed in a way that hinders its ability to appear in multiple documentation sets.
-
 chef-shell can be used to debug existing recipes. The recipe first needs to be added to a run-list for the node, so that it is cached when starting chef-shell and then used for debugging. chef-shell will report which recipes are being cached when it is started:
 
 .. code-block:: bash
@@ -827,9 +784,6 @@ After the recipes that are to be debugged have been loaded, use the ``run_chef``
 Advanced Debugging
 -----------------------------------------------------
 .. tag chef_shell_advanced_debug
-
-.. This file describes a command or a subcommand for Knife.
-.. This file should not be changed in a way that hinders its ability to appear in multiple documentation sets.
 
 In chef-shell, it is possible to get extremely verbose debugging using the tracing feature in Interactive Ruby (IRb). chef-shell provides a shortcut for turning tracing on and off. For example:
 
@@ -1010,8 +964,6 @@ This command has the following options:
 
    .. tag node_ctl_run_list
 
-   .. This file documents specifc behavior related to the -j option in the chef-client, chef-solo, and chef-shell executables.
-
    Use this option to define a ``run_list`` object. For example, a JSON file similar to:
 
    .. code-block:: javascript
@@ -1030,8 +982,6 @@ This command has the following options:
    .. end_tag
 
    .. warning:: .. tag node_ctl_attribute
-
-                .. This file documents specifc behavior related to the -j option in the chef-client, chef-solo, and chef-shell executables.
 
                 Any other attribute type that is contained in this JSON file will be treated as a ``normal`` attribute. For example, attempting to update ``override`` attributes using the ``-j`` option:
 
@@ -1147,9 +1097,6 @@ where ``-r`` corresponds to ``recipe_url`` and ``-j`` corresponds to ``json_attr
 
 .. tag chef_shell_example_hello_world
 
-.. This file describes a command or a subcommand for Knife.
-.. This file should not be changed in a way that hinders its ability to appear in multiple documentation sets.
-
 This example shows how to run chef-shell in standalone mode. (For chef-solo or chef-client modes, you would need to run chef-shell using the ``-s`` or ``-z`` command line options, and then take into consideration the necessary configuration settings.)
 
 When the chef-client is installed using RubyGems or a package manager, chef-shell should already be installed. When the chef-client is run from a git clone, it will be located in ``chef/bin/chef shell``. To start chef-shell, just run it without any options. You'll see the loading message, then the banner, and then the chef-shell prompt:
@@ -1264,9 +1211,6 @@ Because the first resource (``file[/tmp/ohai2u_shef]``) is still in the run-list
 **Get Specific Nodes**
 
 .. tag chef_shell_example_get_specific_nodes
-
-.. This file describes a command or a subcommand for Knife.
-.. This file should not be changed in a way that hinders its ability to appear in multiple documentation sets.
 
 To get a list of nodes using a recipe named ``postfix`` use ``search(:node,"recipe:postfix")``. To get a list of nodes using a sub-recipe named ``delivery``, use chef-shell. For example:
 

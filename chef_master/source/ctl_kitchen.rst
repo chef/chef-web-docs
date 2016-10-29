@@ -78,22 +78,6 @@ will return something similar to:
 
    client-centos-65
 
-.. kitchen console
-.. =====================================================
-.. .. include:: ../../includes_ctl_kitchen/includes_ctl_kitchen_console.rst
-..
-.. Syntax
-.. -----------------------------------------------------
-.. .. include:: ../../includes_ctl_kitchen/includes_ctl_kitchen_console_syntax.rst
-..
-.. Options
-.. -----------------------------------------------------
-.. This subcommand does not have any options.
-..
-.. Examples
-.. -----------------------------------------------------
-.. None.
-
 kitchen converge
 =====================================================
 Use the ``converge`` subcommand to converge one (or more) instances. Instances are based on the list of platforms in the .kitchen.yml file. This process will install the chef-client on an instance using the omnibus installer, upload cookbook files and minimal configuration to the instance, and then start a chef-client run using the run-list and attributes specified in the .kitchen.yml file.
