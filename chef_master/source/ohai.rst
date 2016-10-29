@@ -318,7 +318,7 @@ A custom Ohai plugin describes a set of attributes to be collected by Ohai, and 
 
 .. note:: See https://github.com/rackerlabs/ohai-plugins/tree/master/plugins for some great examples of custom Ohai plugins.
 
-.. warning:: The syntax for custom plugins changes significantly between Ohai 6 and newer versions of Ohai. This page is about newer plugins and `this page is about Ohai 6 plugins <https://docs.chef.io/release/ohai-6/>`_). While Chef has worked to ensure backwards compatibility for all Ohai 6 plugins, a plan should be put in place to update the syntax for all Ohai 6 plugins so they are usable with the new pattern. Once updated, please test and verify those plugins before running them in a production environment.
+.. warning:: The syntax for custom plugins changed significantly between Ohai 6 and later versions. This page is about plugins after Ohai 6. While Chef has worked to ensure backwards compatibility for all Ohai 6 plugins, a plan should be put in place to update the syntax for all Ohai 6 plugins so they are usable with the new pattern. Once updated, please test and verify those plugins before running them in a production environment.
 
 Syntax
 -----------------------------------------------------

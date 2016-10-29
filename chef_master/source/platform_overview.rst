@@ -134,7 +134,7 @@ Chef Automate creates customizable reports that identify compliance issues, secu
 * :doc:`Set up the Chef Compliance server </install_compliance>`
 * :doc:`Allow nodes to download compliance profiles </integrate_compliance_chef_server>` from the Chef server
 * Send the results of compliance scans to the Chef Compliance server via the Chef server
-* Use the Chef Automate workflow feature to `build remediation into your software deployment pipeline <https://docs.chef.io/release/delivery/>`__
+* Use the Chef Automate workflow feature to :doc:`build remediation into your software deployment pipeline <workflow>`
 
 High availability
 -----------------------------------------------------
