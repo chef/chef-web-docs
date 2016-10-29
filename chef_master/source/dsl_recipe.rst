@@ -1640,17 +1640,6 @@ or:
      # do things on debian and rhel families
    end
 
-<<<<<<< 0450f7346cda5d833994228f7c560871b39f101e
-.. future example: step_resource_remote_file_use_platform_family
-
-..
-.. Parameters
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_dsl_recipe/includes_dsl_recipe_method_platform_family_parameters.rst
-..
-
-=======
->>>>>>> Remove obsolete comments
 For example:
 
 .. code-block:: ruby
