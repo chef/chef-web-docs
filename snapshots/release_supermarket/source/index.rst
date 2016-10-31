@@ -7,16 +7,16 @@ All about Supermarket
 .. include:: ../../includes_supermarket/includes_supermarket.rst
 
 The following topics are available for Chef Supermarket:
-
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/supermarket/xxxxx.html">About Supermarket</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/supermarket/xxxxx.html">knife supermarket</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/supermarket/xxxxx.html">Install Supermarket</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/supermarket/xxxxx.html">supermarket.rb</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/supermarket/xxxxx.html">supermarket-ctl</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/supermarket/xxxxx.html">Berkshelf</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/supermarket/xxxxx.html">Cookbooks Site API</a> </br>
+:doc:`<api_cookbooks_site`
+:doc:`<chef_overview>`
+:doc:`<community_contributions>`
+:doc:`<config_rb_supermarket>`
+:doc:`<ctl_supermarket>`
+:doc:`<install_supermarket>`
+:doc:`<plugin_knife_supermarket>`
+:doc:`<supermarket>`
+:doc:`<supermarket_logs>`
+:doc:`<supermarket_monitor>`
 
 .. Hide the TOC from this file.
 

@@ -30,12 +30,10 @@ Deployment Scenarios
 
 The following sections discuss these deployment configuration options in greater detail:
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/server_deploy_standalone.html">Standalone</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/server_deploy_be.html">Scaled Back End</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/server_deploy_fe.html">Scaled Front End</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/server_deploy_febe.html">Scaled Front and Back Ends</a> </br>
+:doc:`<server_deploy_standalone>`
+:doc:`<server_deploy_be>`
+:doc:`<server_deploy_fe>`
+:doc:`<server_deploy_febe>`
 
 .. note:: For more information about signing up for hosted Enterprise Chef, see https://manage.chef.io/signup.
 
@@ -43,74 +41,60 @@ Install Enterprise Chef
 -----------------------------------------------------
 The Chef server can be installed via download or by using the Omnitruck API:
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/install_server.html">Install the Enterprise Chef Server</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/api_omnitruck.html">Download the chef-client using the Omnitruck API</a> </br>
+:doc:`<install_server>`
+:doc:`<api_omnitruck>`
 
 Installation scenarios:
 
-.. raw:: html
+:doc:`<install_server_pre>`
+:doc:`<install_server_standalone>`
+:doc:`<install_server_be>`
+:doc:`<install_server_fe>`
+:doc:`<install_server_febe>`
 
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/install_server_pre.html">Prerequisites</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/install_server_standalone.html">Standalone</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/install_server_be.html">Scaled Back End</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/install_server_fe.html">Scaled Front End</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/install_server_febe.html">Scaled Front and Back Ends</a> </br>
+:doc:`<migrate_to_enterprise>`
 
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/migrate_to_enterprise.html">Migrate from Open Source Chef</a> </br>
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/upgrade_server_standalone.html">Standalone Upgrade</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/upgrade_server_ha.html">High Availability Upgrade</a> </br>
+:doc:`<upgrade_server_standalone>`
+:doc:`<upgrade_server_ha>`
 
 Options: 
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/install_server_ldap.html">Active Directory / LDAP</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/install_server_users.html">Create Users</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/install_server_orgs.html">Create Organizations</a> </br>
+:doc:`<install_server_ldap>`
+:doc:`<install_server_users>`
+:doc:`<install_server_orgs>`
 
 Manage Enterprise Chef
 =====================================================
 The Chef server can be managed in the following ways:
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/server_backup_restore.html">Backup and Restore</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/server_firewalls_and_ports.html">Firewalls and Ports</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/server_high_availability.html">High Availability</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/server_ldap.html">LDAP / Active Directory</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/server_logs.html">Logs</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/server_monitor.html">Monitor</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/server_tuning.html">Performance Tuning</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/server_security.html">Security</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/server_services.html">Services</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/server_users.html">Users</a> </br>
+:doc:`<server_backup_restore>`
+:doc:`<server_firewalls_and_ports>`
+:doc:`<server_high_availability>`
+:doc:`<server_ldap>`
+:doc:`<server_logs>`
+:doc:`<server_monitor>`
+:doc:`<server_tuning>`
+:doc:`<server_security>`
+:doc:`<server_services>`
+:doc:`<server_users>`
 
 Settings and Tools 
 =====================================================
 The following settings files are used to configure behavior for the Chef server:
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/config_rb_chef_server_enterprise.html">private-chef.rb</a> </br>
+:doc:`<config_rb_chef_server_enterprise>`
 
 The following command-line tools can be run on the Chef server:
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/orgmapper.html">orgmapper</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/ctl_private_chef.html">private-chef-ctl</a> </br>
+:doc:`<orgmapper>`
+:doc:`<ctl_private_chef>`
 
 
 APIs
 =====================================================
 The following APIs can be used to access data on the Chef server:
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/api_chef_server.html">Chef Server API</a> </br>
+:doc:`<api_chef_server>`
 
 
 

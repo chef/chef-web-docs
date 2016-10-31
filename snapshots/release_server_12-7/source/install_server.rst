@@ -34,15 +34,11 @@ High Availability
 =====================================================
 The following links describe how to configure the Chef server for high availability:
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/server_12-7/install_server_ha_aws.html">High Availability using Amazon Web Services</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/server_12-7/install_server_ha_drbd.html">High Availability using DRBD</a> </br>
+:doc:`<install_server_ha_aws>`
+:doc:`<install_server_ha_drbd>`
 
 Tiered (Single Backend)
 =====================================================
 The following link describes how to configure the Chef server with a single backend machine and multiple frontend machines:
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/server_12-7/install_server_tiered.html">Tiered</a> </br>
+:doc:`<install_server_tiered>`

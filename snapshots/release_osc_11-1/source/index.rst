@@ -28,38 +28,28 @@ Install Open Source Chef
 =====================================================
 The Chef server can be installed via download or by using the Omnitruck API:
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/osc_11-1/install_server.html">Install the Enterprise Chef Server</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/osc_11-1/api_omnitruck.html">Download the chef-client using the Omnitruck API</a> </br>
+:doc:`<install_server>`
+:doc:`<api_omnitruck>`
 
 The Chef server can be upgraded:
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/osc_11-1/upgrade_server_open_source.html">Upgrade to Open Source Chef Server 11.0</a> </br>
+:doc:`<upgrade_server_open_source>`
    
 Settings and Tools 
 =====================================================
 The following settings files are used to configure behavior for the Chef server:
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/osc_11-1/config_rb_chef_server.html">chef-server.rb</a> </br>
+:doc:`<config_rb_chef_server>`
 
 The following command-line tools can be run on the Chef server:
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/osc_11-1/ctl_chef_server.html">ctl-chef-server</a> </br>
+:doc:`<ctl_chef_server>`
 
 APIs
 =====================================================
 The following APIs can be used to access data on the Chef server:
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/osc_11-1/api_chef_server.html">Chef Server API</a> </br>
+:doc:`<api_chef_server>`
 
 
 .. Hide the TOC from this file.
