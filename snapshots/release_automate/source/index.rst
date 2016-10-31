@@ -1,5 +1,5 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/start_delivery.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/delivery/ PATH.
+
+
 
 Chef Automate
 =====================================================

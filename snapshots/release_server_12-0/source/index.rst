@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS Chef server version 12.0
+
 
 =====================================================
 About Chef Server 12.0

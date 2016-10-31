@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS Enterprise Chef server version 11.0
+
 
 =====================================================
 Sign up for the Hosted Chef Server

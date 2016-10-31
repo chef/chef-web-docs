@@ -1,5 +1,5 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/delivery_server_tuning.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/delivery/ PATH.
+
+
 
 =====================================================
 Chef Automate Server Tuning

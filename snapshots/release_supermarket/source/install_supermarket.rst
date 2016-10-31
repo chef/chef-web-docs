@@ -1,5 +1,5 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/install_supermarket.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/supermarket/ PATH.
+
+
 
 =====================================================
 Install Private Supermarket

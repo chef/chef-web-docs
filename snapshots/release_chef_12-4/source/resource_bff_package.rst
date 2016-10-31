@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS chef-client version 12.4
+
 
 =====================================================
 bff_package

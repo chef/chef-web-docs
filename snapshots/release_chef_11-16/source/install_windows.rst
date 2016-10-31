@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS chef-client version 11.16
+
 
 =====================================================
 Install the chef-client on Microsoft Windows

@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS Open Source Chef server version 11.0
+
 
 =====================================================
 Chef Server API

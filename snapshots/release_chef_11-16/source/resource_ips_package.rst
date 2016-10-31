@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS chef-client version 11.16
+
 
 =====================================================
 ips_package

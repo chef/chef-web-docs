@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS Chef server version 12.4
+
 
 =====================================================
 chef-server-ctl (executable)

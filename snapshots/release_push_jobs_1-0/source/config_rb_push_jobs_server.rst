@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS Push Jobs version 1.0
+
 
 =====================================================
 opscode-push-jobs-server.rb

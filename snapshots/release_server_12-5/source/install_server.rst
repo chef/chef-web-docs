@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS Chef server version 12.5
+
 
 =====================================================
 Install the Chef Server

@@ -1,5 +1,5 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/resource_apt_update.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/devkit/ PATH.
+
+
 
 =====================================================
 apt_update

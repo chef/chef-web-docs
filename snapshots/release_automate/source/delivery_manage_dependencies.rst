@@ -1,5 +1,5 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/delivery_manage_dependencies.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/delivery/ PATH.
+
+
 
 =======================================================
 Managing Run-time Dependencies

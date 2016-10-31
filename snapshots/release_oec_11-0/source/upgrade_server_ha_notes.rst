@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS Enterprise Chef server version 11.0
+
 
 ======================================================
 Notes for High Availability Enterprise Chef Upgrades 

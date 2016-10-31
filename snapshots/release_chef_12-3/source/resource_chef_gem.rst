@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS chef-client version 12.3
+
 
 =====================================================
 chef_gem

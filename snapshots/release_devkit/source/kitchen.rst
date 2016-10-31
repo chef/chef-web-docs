@@ -1,5 +1,5 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/kitchen.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/devkit/ PATH.
+
+
 
 =====================================================
 Kitchen

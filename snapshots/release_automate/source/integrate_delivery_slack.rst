@@ -1,8 +1,8 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/integrate_delivery_slack.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/delivery/ PATH.
 
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/integrate_delivery_slack.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /delivery/ PATH.
+
+
+
+
 
 =====================================================
 Integrate Chef Automate with Slack

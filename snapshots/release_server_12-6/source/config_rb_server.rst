@@ -1,5 +1,5 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/config_rb_server.html BY DESIGN
-.. THIS PAGE DOCUMENTS Chef server version 12.6
+
+
 
 =====================================================
 chef-server.rb Settings

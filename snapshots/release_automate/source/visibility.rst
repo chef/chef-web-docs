@@ -1,5 +1,5 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/visibility.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/automate/ PATH.
+
+
 
 =====================================================
 An Overview of Visibility in Chef Automate

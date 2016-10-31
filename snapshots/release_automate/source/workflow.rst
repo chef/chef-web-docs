@@ -1,5 +1,5 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/workflow.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/automate/ PATH.
+
+
 
 =====================================================
 An Overview of Workflow in Chef Automate

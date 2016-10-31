@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS chef-client version 11.14
+
 
 =====================================================
 Install Chef 11.x on a Workstation

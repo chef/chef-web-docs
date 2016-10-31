@@ -1,5 +1,5 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/integrate_chef_automate_saml.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/automate/ PATH.
+
+
 
 =====================================================
 Integrate Chef Automate with SAML

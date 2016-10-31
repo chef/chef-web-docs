@@ -1,4 +1,4 @@
-.. THIS PAGE IS LOCATED AT THE /release/supermarket/ PATH.
+
 
 =====================================================
 An Overview of Chef

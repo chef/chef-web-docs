@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS chef-client version 12.8
+
 
 =====================================================
 smartos_package

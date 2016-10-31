@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS Push Jobs version 2.1
+
 
 =====================================================
 Install Chef Push Jobs

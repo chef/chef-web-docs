@@ -1,5 +1,5 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/integrate_delivery_github.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/delivery/ PATH.
+
+
 
 =====================================================
 Integrate Chef Automate with GitHub

@@ -1,8 +1,8 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/config_rb_delivery.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/delivery/ PATH.
 
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/config_rb_delivery_optional_settings.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /delivery/ PATH.
+
+
+
+
 
 =====================================================
 delivery.rb Settings

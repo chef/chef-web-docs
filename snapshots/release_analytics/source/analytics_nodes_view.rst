@@ -1,4 +1,4 @@
-.. THIS PAGE IS LOCATED AT THE /release/analytics_1-2/ PATH.
+
 
 =====================================================
 Chef Analytics Nodes View

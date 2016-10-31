@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS Enterprise Chef server version 11.0
+
 
 =====================================================
 Migrate to Enterprise Chef

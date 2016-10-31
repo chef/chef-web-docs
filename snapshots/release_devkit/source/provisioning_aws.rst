@@ -1,5 +1,5 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/provisioning_aws.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/devkit/ PATH.
+
+
 
 =====================================================
 AWS Driver Resources

@@ -1,5 +1,5 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/ctl_chef_client.html BY DESIGN
-.. THIS PAGE DOCUMENTS chef-client version 12.7
+
+
 
 =====================================================
 chef-client (executable)

@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS Chef server version 12.7
+
 
 =====================================================
 chef-server.rb Optional Settings

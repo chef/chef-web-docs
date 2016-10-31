@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS Chef server version 12.8
+
 
 =====================================================
 Chef Server API

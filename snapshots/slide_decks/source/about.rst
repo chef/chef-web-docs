@@ -1,4 +1,4 @@
-.. THIS PAGE IS LOCATED AT THE /decks/ PATH.
+
 
 ================================================
 About Slide Decks

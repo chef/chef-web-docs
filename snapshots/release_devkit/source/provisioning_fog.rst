@@ -1,5 +1,5 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/provisioning_fog.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/devkit/ PATH.
+
+
 
 =====================================================
 Fog Driver Resources

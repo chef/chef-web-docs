@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS chef-client version 11.10
+
 
 =====================================================
 Debug Recipes and chef-client Runs

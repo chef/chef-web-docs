@@ -1,4 +1,4 @@
-.. THIS PAGE IS LOCATED AT THE /release/devkit/ PATH.
+
 
 =====================================================
 About Knife

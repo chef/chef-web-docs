@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS Enterprise Chef server version 11.1
+
 
 =====================================================
 Standalone

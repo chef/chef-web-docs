@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS Open Source Chef server version 11.1
+
 
 =====================================================
 Install Open Source Chef

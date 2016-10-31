@@ -1,4 +1,4 @@
-.. THIS PAGE IS LOCATED AT THE /release/analytics/ PATH.
+
 
 =====================================================
 Install Reporting

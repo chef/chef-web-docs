@@ -1,5 +1,5 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/resources.html BY DESIGN
-.. THIS PAGE DOCUMENTS Chef server version 12.0
+
+
 
 =====================================================
 Resources Reference

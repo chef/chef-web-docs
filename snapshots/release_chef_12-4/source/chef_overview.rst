@@ -1,5 +1,5 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/chef_overview.html BY DESIGN
-.. THIS PAGE DOCUMENTS Chef server version 12.4
+
+
 
 =====================================================
 An Overview of Chef

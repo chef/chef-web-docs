@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS Open Source Chef server version 11.1
+
 
 =====================================================
 Upgrade the Open Source Chef Server

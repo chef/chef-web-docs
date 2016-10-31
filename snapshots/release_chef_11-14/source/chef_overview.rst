@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS chef-client version 11.14
+
 
 =====================================================
 An Overview of Chef

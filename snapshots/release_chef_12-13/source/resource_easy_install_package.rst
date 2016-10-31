@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS chef-client version 12.13
+
 
 =====================================================
 easy_install_package
