@@ -146,6 +146,8 @@ Some popular drivers:
      - A driver for Hyper-V Server.
    * - `kitchen-joyent <https://github.com/test-kitchen/kitchen-joyent>`__
      - A driver for Joyent.
+   * - `kitchen-linode <https://github.com/ssplatt/kitchen-linode>`__
+     - A driver for Linode.
    * - `kitchen-opennebula <https://github.com/test-kitchen/kitchen-opennebula>`__
      - A driver for OpenNebula.
    * - `kitchen-openstack <https://github.com/test-kitchen/kitchen-openstack>`__
