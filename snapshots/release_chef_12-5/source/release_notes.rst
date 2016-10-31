@@ -23,8 +23,6 @@ Custom Resources
 -----------------------------------------------------
 .. include:: ../../includes_custom_resources/includes_custom_resources.rst
 
-.. note:: See https://docs.chef.io/custom_resources.html for more information about custom resources, including a scenario that shows how to build a ``website`` resource. Read this scenario as an HTML presentation at https://docs.chef.io/decks/custom_resources.html.
-
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_custom_resources/includes_custom_resources_syntax.rst
@@ -123,7 +121,7 @@ Example: Send Email
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_dsl_handler/includes_dsl_handler_slide_send_email.rst
 
-.. note:: See https://docs.chef.io/dsl_handler.html for more information about using event handlers in recipes. Read the scenario for sending email if the chef-client run fails as an HTML presentation at https://docs.chef.io/decks/event_handlers.html.
+.. note:: See :doc:`dsl_handler` for more information about using event handlers in recipes. 
 
 **Define How Email is Sent**
 

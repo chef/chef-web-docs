@@ -22,8 +22,6 @@ Send Email
 -----------------------------------------------------
 .. include:: ../../includes_dsl_handler/includes_dsl_handler_slide_send_email.rst
 
-.. note:: Read this scenario as an HTML presentation at https://docs.chef.io/decks/event_handlers.html.
-
 Define How Email is Sent
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_dsl_handler/includes_dsl_handler_slide_send_email_library.rst

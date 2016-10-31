@@ -215,7 +215,7 @@ Rules
 =====================================================
 .. include:: ../../includes_analytics_rules/includes_analytics_rules.rst
 
-.. note:: For more information about Chef Analytics rules, see https://docs.chef.io/analytics_rules.html.
+.. note:: For more information about Chef Analytics rules, see :doc:`<analytics_rules>`.
 
 Chef Analytics Webui
 =====================================================

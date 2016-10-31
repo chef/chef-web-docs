@@ -31,7 +31,7 @@ The following items are new for Chef server 12:
 
 Upgrade to Chef server 12!
 -----------------------------------------------------
-Upgrades to Chef server 12 are supported for both Enterprise Chef and Open Source Chef users. See https://docs.chef.io/server/upgrade_server.html for more information about upgrades. If you are upgrading from Open Source Chef, please see https://docs.chef.io/server/upgrade_server_open_source_notes.html as well.
+Upgrades to Chef server 12 are supported for both Enterprise Chef and Open Source Chef users. See :doc:`upgrade_server` for more information about upgrades. If you are upgrading from Open Source Chef, please see :doc:`upgrade_server_open_source_notes` as well.
 
 HA using AWS
 -----------------------------------------------------

@@ -19,7 +19,7 @@ The following items are new for Chef server 12.1:
 
 Key Rotation
 -----------------------------------------------------
-The ``knife user`` and ``knife client`` subcommands support key rotation. Use the ``create``, ``delete``, ``edit``, ``list``, and ``show`` subcommands to manage keys for users and clients, such as creating multiple expiring keys for a single user and also for basic key management. See https://docs.chef.io/knife_user.html and https://docs.chef.io/knife_client.html for more information about these subcommands.
+The ``knife user`` and ``knife client`` subcommands support key rotation. Use the ``create``, ``delete``, ``edit``, ``list``, and ``show`` subcommands to manage keys for users and clients, such as creating multiple expiring keys for a single user and also for basic key management. 
 
 X-Ops-Server-API-Version
 -----------------------------------------------------

@@ -4,8 +4,6 @@
 private-chef.rb
 =====================================================
 
-.. warning:: This topic documents the settings for Enterprise Chef. The current version of the Chef server is version 12. All of the documentation at https://docs.chef.io is about the current version of the Chef server. The documentation for Enterprise Chef has been moved: `Enterprise Chef 11.0 <https://docs.chef.io/release/oec_11-0/>`__, `Enterprise Chef 11.1 <https://docs.chef.io/release/oec_11-1/>`__, and `Enterprise Chef 11.2 <https://docs.chef.io/release/oec_11-1/>`__.
-
 .. include:: ../../includes_config/includes_config_rb_chef_server_enterprise.rst
 
 .. note:: The private-chef.rb file does not exist by default. To modify the settings for the Chef server, create a file named ``private-chef.rb`` in the ``/etc/opscode/`` directory.

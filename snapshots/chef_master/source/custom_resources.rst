@@ -26,8 +26,6 @@ Scenario: website Resource
 =====================================================
 .. include:: ../../includes_custom_resources/includes_custom_resources_slide_website.rst
 
-.. note:: Read this scenario as an HTML presentation at https://docs.chef.io/decks/custom_resources.html.
-
 Create a Cookbook
 -----------------------------------------------------
 .. include:: ../../includes_custom_resources/includes_custom_resources_slide_website_cookbook.rst

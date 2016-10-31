@@ -30,8 +30,6 @@ Ohai 7
 
 .. include:: ../../includes_ohai/includes_ohai_platforms.rst
 
-.. note:: See the `Ohai 7 documentation <https://docs.chef.io/release/ohai-7/>`_ and :doc:`release notes <release_notes>` for all of the details.
-
 collect_data Method
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. include:: ../../includes_dsl_ohai/includes_dsl_ohai.rst

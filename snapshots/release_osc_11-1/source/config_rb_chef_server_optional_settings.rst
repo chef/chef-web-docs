@@ -4,8 +4,6 @@
 chef-server.rb Optional Settings
 =====================================================
 
-.. warning:: This topic documents the settings for Open Source Chef. The current version of the Chef server is version 12. All of the documentation at https://docs.chef.io is about the current version of the Chef server. The documentation for Open Source Chef has been moved: `Open Source Chef 11.0 <https://docs.chef.io/release/osc_11-0/>`__ and `Open Source Chef 11.1 <https://docs.chef.io/release/osc_11-1/>`__.
-
 .. include:: ../../includes_config/includes_config_rb_chef_server.rst
 
 Settings

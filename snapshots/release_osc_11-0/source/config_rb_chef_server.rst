@@ -4,8 +4,6 @@
 chef-server.rb
 =====================================================
 
-.. warning:: This topic documents the settings for Open Source Chef. The current version of the Chef server is version 12. All of the documentation at https://docs.chef.io is about the current version of the Chef server. The documentation for Open Source Chef has been moved: `Open Source Chef 11.0 <https://docs.chef.io/release/osc_11-0/>`__ and `Open Source Chef 11.1 <https://docs.chef.io/release/osc_11-1/>`__.
-
 .. include:: ../../includes_config/includes_config_rb_chef_server.rst
 
 .. note:: The chef-server.rb file does not exist by default. To modify the settings for the Chef server, create a file named ``chef-server.rb`` in the ``/etc/chef-server/`` directory.
@@ -19,7 +17,7 @@ The following shows a common starting point for settings in a chef-server.rb:
    # /etc/chef-server/chef-server.rb
    # This file is used to configure the chef server. 
    # After making any changes you need to run 'chef-server-ctl reconfigure' for the changes to be implemented
-   # For a full list of parameters, see: https://docs.chef.io/config_rb_chef_server.html
+   # For a full list of parameters, see: doc:`<config_rb_chef_server>`
    # All examples shown are default values
    
    # lb['api_fqdn'] = node['fqdn']
