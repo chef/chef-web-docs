@@ -16,7 +16,7 @@ There are two ways to use Chef Supermarket:
 .. end_tag
 
 The following topics are available for Chef Supermarket:
-:doc:`<api_cookbooks_site`
+:doc:`api_cookbooks_site`
 :doc:`chef_overview`
 :doc:`community_contributions`
 :doc:`config_rb_supermarket`
