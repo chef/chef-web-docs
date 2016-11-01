@@ -12,7 +12,7 @@ Chef push jobs is installed to the following locations:
 
 Install the Server
 =====================================================
-Use the :ref:`chef-server-ctl install <ctl_chef_server-install>` command to add Chef push jobs.
+Use the chef-server-ctl install command to add Chef push jobs.
 
 Install the Client
 =====================================================

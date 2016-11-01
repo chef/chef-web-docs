@@ -531,7 +531,7 @@ The chef-client may now be used to configure nodes that are running on the AIX p
 
 .. tag ctl_chef_client_aix_requirements
 
-The chef-client has the :ref:`same system requirements <chef_system_requirements-chef-client>` on the AIX platform as any other platform, with the following notes:
+The chef-client has the same system requirements on the AIX platform as any other platform, with the following notes:
 
 * Expand the file system on the AIX platform using ``chfs`` or by passing the ``-X`` flag to ``installp`` to automatically expand the logical partition (LPAR)
 * The EN_US (UTF-8) character set should be installed on the logical partition prior to installing the chef-client

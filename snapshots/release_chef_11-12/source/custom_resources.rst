@@ -1278,7 +1278,7 @@ Disable
 
 The ``use_inline_resources`` method should be considered a default method for any provider that defines a custom resource. It's the correct behavior. And it will soon become the default behavior in a future version of the chef-client.
 
-Because inline compile mode makes it impossible for embedded resources to notify resources in the parent resource collection, inline compile mode may cause issues with some provider implementations. In these cases, use a definition to work around inline compile mode. See :ref:`this example <essentials_cookbook_definitions-many-recipes-one-definition>` for how to use a definition in this situation.
+Because inline compile mode makes it impossible for embedded resources to notify resources in the parent resource collection, inline compile mode may cause issues with some provider implementations. In these cases, use a definition to work around inline compile mode. See this example for how to use a definition in this situation.
 
 .. end_tag
 

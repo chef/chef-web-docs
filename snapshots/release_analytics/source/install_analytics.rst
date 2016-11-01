@@ -30,7 +30,7 @@ The Chef Analytics server shares the :doc:`same prerequisites </install_server_p
 
 * Chef server version 12.0.3 **or** Enterprise Chef version 11.3 is required to use Chef Analytics 1.1
 * chef-client version 12.1 is required for audit-mode and using the ``control_group`` and ``control`` Recipe DSL methods
-* The Chef management console must be installed on the Chef server prior to installing Chef Analytics; follow :ref:`these steps <ctl_chef_server-install>` to install the Chef management console
+* The Chef management console must be installed on the Chef server prior to installing Chef Analytics; follow these steps to install the Chef management console
 * Reporting is installed on the Chef server. Reporting version 1.2.3 is required to view the results of audit-mode, i.e. ``run_start``, ``run_resource``, and ``run_converge`` messages; earlier versions of Reporting may be used, but will not show these results
 * An x86_64 compatible system architecture; Red Hat Enterprise Linux and CentOS may require updates prior to installation
 * A resolvable hostname that is specified using a FQDN or an IP address
@@ -69,7 +69,7 @@ Standalone
 -----------------------------------------------------
 In a standalone configuration, the Chef Analytics deployment is on a different server from the Chef server. This allows you to scale Chef Analytics independently from the Chef server. To set up Chef Analytics in a standalone configuration, an existing Chef server deployment should already running. Chef Analytics is installed in two steps: configuring the Chef server for Chef Analytics, and then installing Chef Analytics.
 
-.. warning:: The Chef management console must be installed on the Chef server prior to installing Chef Analytics; follow :ref:`these steps <ctl_chef_server-install>` to install the Chef management console prior to installing Chef Analytics.
+.. warning:: The Chef management console must be installed on the Chef server prior to installing Chef Analytics; follow these steps to install the Chef management console prior to installing Chef Analytics.
 
 Install Chef Analytics:
 

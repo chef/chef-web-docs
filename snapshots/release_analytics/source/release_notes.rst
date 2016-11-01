@@ -1628,7 +1628,7 @@ The **oc-id** service enables OAuth 2.0 authentication to the Chef server by ext
 .. end_tag
 
 These settings are configured in the 
- :ref:`chef-server.rb <config_rb_server_optional_settings-oc-id>` file.
+ chef-server.rb file.
 
 knife analytics
 -----------------------------------------------------

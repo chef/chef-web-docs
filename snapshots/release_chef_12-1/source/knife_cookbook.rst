@@ -87,7 +87,7 @@ create
 =====================================================
 .. tag knife_cookbook_create
 
-.. note:: This command was deprecated in Chef client 12.12 and will be removed in a future release. Use the :ref:`chef generate cookbook <ctl_chef-chef-generate-cookbook>` command instead.
+.. note:: This command was deprecated in Chef client 12.12 and will be removed in a future release. Use the chef generate cookbook command instead.
 
 .. end_tag
 

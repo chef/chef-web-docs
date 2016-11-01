@@ -48,7 +48,7 @@ The following platforms are not tested by Chef Software:
 
 Capacity Planning
 =====================================================
-Read the :ref:`guidance around capacity planning <server_components-capacity-planning>` for information about how to choose the right toplogy for the Chef server.
+Read the guidance around capacity planning for information about how to choose the right toplogy for the Chef server.
 
 Software Requirements
 =====================================================

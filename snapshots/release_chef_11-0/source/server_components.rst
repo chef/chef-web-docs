@@ -282,7 +282,7 @@ Use the following configuration settings in the chef-server.rb file to configure
 
 .. end_tag
 
-.. note:: See the list of :ref:`error messages that may be present <error_messages-external-postgresql>` when configuring the Chef server to use a remote PostgreSQL server.
+.. note:: See the list of error messages that may be present when configuring the Chef server to use a remote PostgreSQL server.
 
 .. end_tag
 
