@@ -67,6 +67,8 @@ To install the Chef development kit:
 
 #. Optional. Set the default shell. On Microsoft Windows it is strongly recommended to use Windows PowerShell and cmd.exe.
 
+.. _install_dk-set-system-ruby:
+
 Set System Ruby
 -----------------------------------------------------
 For many users of Chef, the Chef development kit version of Ruby that is included in the Chef development kit should be configured as the default version of Ruby.

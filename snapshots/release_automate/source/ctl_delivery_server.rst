@@ -25,6 +25,8 @@ The Chef Automate server includes a command-line utility named delivery-ctl. Use
 
 .. end_tag
 
+.. _ctl_delivery_server-cleanse:
+
 cleanse
 =====================================================
 .. tag ctl_delivery_server_cleanse
@@ -43,6 +45,8 @@ This subcommand has the following syntax:
    $ delivery-ctl cleanse
 
 .. end_tag
+
+.. _ctl_delivery_server-create-backup:
 
 create-backup
 =====================================================
@@ -142,6 +146,8 @@ Elasticsearch snapshot only:
 Automate archive only
   ``$ delivery-ctl create-backup --no-elasticsearch``
 
+.. _ctl_delivery_server-create-enterprise:
+
 create-enterprise
 =====================================================
 .. tag ctl_delivery_server_create_enterprise
@@ -163,6 +169,8 @@ This subcommand has the following syntax:
 .. note:: The ``ENT_NAME`` value must be alphanumeric.
 
 .. end_tag
+
+.. _ctl_delivery_server-create-user:
 
 create-user
 =====================================================
@@ -189,6 +197,8 @@ This subcommand has the following syntax:
 .. code-block:: bash
 
    $ delivery-ctl create-user ENT_NAME john_smith
+
+.. _ctl_delivery_server-delete-application:
 
 delete-application
 =====================================================
@@ -247,6 +257,8 @@ Deleting a single Elasticsearch snapshot:
 Deleting all backup archives and snapshots from October, 2016:
   ``$ delivery-ctl delete-backups 2016-10-.+-chef-automate-backup --force``
 
+.. _ctl_delivery_server-delete-enterprise:
+
 delete-enterprise
 =====================================================
 .. tag ctl_delivery_server_delete_enterprise
@@ -273,6 +285,8 @@ This subcommand has the following syntax:
 
    $ delivery-ctl delete-enterprise pedant-testing-org
 
+.. _ctl_delivery_server-delete-project:
+
 delete-project
 =====================================================
 .. tag ctl_delivery_server_delete_project
@@ -292,6 +306,8 @@ This subcommand has the following syntax:
    $ delivery-ctl delete-project ENT_NAME ORG_NAME PROJECT_NAME
 
 .. end_tag
+
+.. _ctl_delivery_server-delete-user:
 
 delete-user
 =====================================================
@@ -332,6 +348,8 @@ This subcommand has the following syntax:
    $ delivery-ctl help
 
 .. end_tag
+
+.. _ctl_delivery_server-list-applications:
 
 list-applications
 =====================================================
@@ -379,6 +397,8 @@ The ``list-backups`` subcommand is used to list Chef Automate backup archives an
 Return a list all backups as JSON:
   ``$ delivery-ctl list-backups --format json``
 
+.. _ctl_delivery_server-list-enterprises:
+
 list-enterprises
 =====================================================
 .. tag ctl_delivery_server_list_enterprise
@@ -399,6 +419,8 @@ This subcommand has the following syntax:
 
 .. end_tag
 
+.. _ctl_delivery_server-list-users:
+
 list-users
 =====================================================
 .. tag ctl_delivery_server_list_users
@@ -418,6 +440,8 @@ This subcommand has the following syntax:
    $ delivery-ctl list-users ENT_NAME
 
 .. end_tag
+
+.. _ctl_delivery_server-migrate-change-description:
 
 migrate-change-description
 =====================================================
@@ -459,6 +483,8 @@ This subcommand has the following syntax:
 
 .. end_tag
 
+.. _ctl_delivery_server-migrate-patchset-diffs:
+
 migrate-patchset-diffs
 =====================================================
 .. tag ctl_delivery_server_migrate_patchset_diffs
@@ -499,6 +525,8 @@ This subcommand has the following syntax:
 
 .. end_tag
 
+.. _ctl_delivery_server-reconfigure:
+
 reconfigure
 =====================================================
 .. tag ctl_delivery_server_reconfigure
@@ -512,6 +540,8 @@ This subcommand has the following syntax:
    $ delivery-ctl reconfigure
 
 .. end_tag
+
+.. _ctl_delivery_server-rename-enterprise:
 
 rename-enterprise
 =====================================================
@@ -532,6 +562,8 @@ This subcommand has the following syntax:
    $ delivery-ctl rename-enterprise CURRENT_ENT_NAME NEW_ENT_NAME
 
 .. end_tag
+
+.. _ctl_delivery_server-restore-backup:
 
 restore-backup
 =====================================================
@@ -599,6 +631,8 @@ Restore only database and git repositories from an archive in S3:
   2. Restore it
        ``$ delivery-ctl restore-backup us-east-1:your-s3-bucket:2016-10-14-08-38-55-chef-automate-backup.zst --no-census --no-license --no-config``
 
+.. _ctl_delivery_server-revoke-token:
+
 revoke-token
 =====================================================
 .. tag ctl_delivery_server_revoke_token
@@ -619,6 +653,8 @@ This subcommand has the following syntax:
 
 .. end_tag
 
+.. _ctl_delivery_server-show-config:
+
 show-config
 =====================================================
 .. tag ctl_delivery_server_show_config
@@ -632,6 +668,8 @@ This subcommand has the following syntax:
    $ delivery-ctl show-config
 
 .. end_tag
+
+.. _ctl_delivery_server-uninstall:
 
 uninstall
 =====================================================
@@ -648,6 +686,8 @@ This subcommand has the following syntax:
 .. note:: To revert the ``uninstall`` subcommand, run the ``reconfigure`` subcommand (because the ``start`` subcommand is disabled by the ``uninstall`` command).
 
 .. end_tag
+
+.. _ctl_delivery_server-update-project-hooks:
 
 update-project-hooks
 =====================================================

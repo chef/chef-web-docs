@@ -19,6 +19,8 @@ There are two upgrade scenarios for upgrades from earlier versions of Chef serve
 
 .. _upgrade_server-id1:
 
+.. _upgrade_server-standalone:
+
 Standalone
 -----------------------------------------------------
 This section describes the upgrade process for a standalone configuration. The upgrade process will require downtime equal to the amount of time it takes to stop the server, run dpkg or RPM Package Manager, and then upgrade the server.
@@ -179,6 +181,8 @@ To upgrade to Chef server 12 from a standalone Chef server server, do the follow
    The ``chef-server-ctl`` command will install the first ``chef-manage`` package found in the ``/root/packages`` directory.
 
    .. end_tag
+
+.. _upgrade_server-high-availability:
 
 High Availability
 -----------------------------------------------------

@@ -60,6 +60,8 @@ The following settings are typically added to the server configuration file (no 
 
 .. end_tag
 
+.. _config_rb_server-ssl-protocols:
+
 SSL Protocols
 -----------------------------------------------------
 .. tag server_tuning_nginx

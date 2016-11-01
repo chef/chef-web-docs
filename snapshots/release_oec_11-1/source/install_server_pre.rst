@@ -58,6 +58,8 @@ The Chef server requires an x86_64 compatible systems architecture. When the Che
 
 .. end_tag
 
+.. _install_server_pre-hostnames:
+
 Hostnames
 =====================================================
 .. tag install_common_hostname

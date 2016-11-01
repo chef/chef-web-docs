@@ -232,6 +232,8 @@ This subcommand has the following syntax:
 
 .. end_tag
 
+.. _ctl_chef_server-install:
+
 install
 =====================================================
 .. tag ctl_chef_server_install

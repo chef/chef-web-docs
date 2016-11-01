@@ -124,6 +124,8 @@ The key components of nodes that are under management by Chef include:
 
 .. end_tag
 
+.. _chef_client-the-chef-client-run:
+
 The chef-client Run
 =====================================================
 .. tag chef_client_run

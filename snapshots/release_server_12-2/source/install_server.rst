@@ -22,6 +22,8 @@ The Chef server has the :doc:`following prerequisites </install_server_pre>`:
 * Disabling the Apache Qpid daemon on CentOS and Red Hat systems
 * Optional. A local user account under which services will run, a local user account for PostgreSQL, and a group account under which services will run. See :ref:`install_server_pre-uids-and-gids` for more information.
 
+.. _install_server-standalone:
+
 Standalone
 =====================================================
 .. tag install_server_standalone_2
@@ -214,12 +216,16 @@ To install Chef server 12:
 
 .. end_tag
 
+.. _install_server-high-availability:
+
 High Availability
 =====================================================
 The following links describe how to configure the Chef server for high availability:
 
 :doc:`install_server_ha_aws`
 :doc:`install_server_ha_drbd`
+
+.. _install_server-tiered-single-backend:
 
 Tiered (Single Backend)
 =====================================================

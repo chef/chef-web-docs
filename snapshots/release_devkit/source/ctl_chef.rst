@@ -129,6 +129,8 @@ to return something similar to:
    /Users/user/.chefdk/gem/ruby/2.1.0/gems/knife-config-1.1.0/lib/chef/knife/config.rb
    /Users/user/.chefdk/gem/ruby/2.1.0/gems/knife-config-1.1.0/lib/knife-config.rb
 
+.. _ctl_chef-chef-generate-app:
+
 chef generate app
 =====================================================
 .. note:: This command is built around the idea that there should be a middle ground between the "one cookbook per repo" and the "all cookbooks in one repo" approaches.
@@ -279,6 +281,8 @@ will return something similar to:
 
      * template[/Users/grantmc/chef-repo/cookbooks/chef-repo/attributes/FOO.rb] action create
        - create new file /Users/grantmc/chef-repo/cookbooks/chef-repo/attributes/FOO.rb
+
+.. _ctl_chef-chef-generate-cookbook:
 
 chef generate cookbook
 =====================================================

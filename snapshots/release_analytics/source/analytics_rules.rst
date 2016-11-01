@@ -75,6 +75,8 @@ where:
 
 .. end_tag
 
+.. _analytics_rules-message-types:
+
 Message Types
 -----------------------------------------------------
 .. tag analytics_rules_syntax_message_types

@@ -67,6 +67,8 @@ To install the Chef development kit:
 
 #. Optional. Set the default shell. On Microsoft Windows it is strongly recommended to use Windows PowerShell and cmd.exe.
 
+.. _install_dk-set-system-ruby:
+
 Set System Ruby
 -----------------------------------------------------
 For many users of Chef, the Chef development kit version of Ruby that is included in the Chef development kit should be configured as the default version of Ruby.
@@ -407,6 +409,8 @@ where ``configuration_file`` is the name of the configuration file for the speci
    echo 'export PATH="/opt/chefdk/embedded/bin:$PATH"' >> ~/.bash_profile && source ~/.bash_profile
 
 .. warning:: On Microsoft Windows, ``C:/opscode/chefdk/bin`` must be before ``C:/opscode/chefdk/embedded/bin`` in the ``PATH``.
+
+.. _install_dk-get-ssl-certificates:
 
 Get SSL Certificates
 -----------------------------------------------------

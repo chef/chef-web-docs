@@ -1116,6 +1116,8 @@ This configuration file has the following settings for ``opscode-expander``:
 
 .. end_tag
 
+.. _config_rb_server_optional_settings-opscode-solr4:
+
 opscode-solr4
 -----------------------------------------------------
 .. tag server_services_solr4

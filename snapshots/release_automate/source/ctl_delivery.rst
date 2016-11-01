@@ -8,6 +8,8 @@ Delivery CLI
 
 The Delivery CLI is the command-line interface for the workflow capabilities in Chef Automate. It sits in-between a local git repository and the Chef Automate server.
 
+.. _ctl_delivery-install-delivery-cli:
+
 Install Delivery CLI
 =====================================================
 .. tag delivery_cli_install

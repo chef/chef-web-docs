@@ -22,6 +22,8 @@ A node is any machine---physical, virtual, cloud, network device, etc.---that is
 
 .. end_tag
 
+.. _server_manage_nodes-manage:
+
 Manage
 =====================================================
 Nodes can be managed from the Chef management console web user interface.
@@ -69,6 +71,8 @@ To search nodes:
    .. image:: ../../images/step_manage_webui_nodes_search.png
 
 #. The results will appear in the list below.
+
+.. _server_manage_nodes-node-attributes:
 
 Node Attributes
 =====================================================
@@ -121,6 +125,8 @@ To view the attributes for a node:
 #. Select a node.
 #. Click the **Attributes** tab.
 #. Click **Edit**.
+
+.. _server_manage_nodes-run-lists:
 
 Run-lists
 =====================================================
@@ -230,6 +236,8 @@ To view the current run-list for a node:
 
    .. image:: ../../images/step_manage_webui_node_run_list_view_current.png
 
+.. _server_manage_nodes-permissions:
+
 Permissions
 =====================================================
 .. tag server_rbac_permissions
@@ -289,6 +297,8 @@ To view permissions for a node:
 #. Select a node.
 #. Click the **Permissions** tab.
 #. Set the appropriate permissions: **Delete**, **Grant**, **Read**, and/or **Update**.
+
+.. _server_manage_nodes-manage-tags:
 
 Manage Tags
 =====================================================

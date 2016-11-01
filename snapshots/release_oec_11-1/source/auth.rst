@@ -12,6 +12,8 @@ All communication with the Chef server must be authenticated using the Chef serv
 
 .. end_tag
 
+.. _auth-authentication:
+
 Authentication
 =====================================================
 .. tag chef_auth_authentication
@@ -397,6 +399,8 @@ If the authentication is happening on the node, there are a number of common cau
 * The system clock has drifted from the actual time by more than 15 minutes. This can be fixed by syncing the clock with an Network Time Protocol (NTP) server.
 
 .. end_tag
+
+.. _auth-authorization:
 
 Authorization
 =====================================================

@@ -203,6 +203,8 @@ This command has the following options:
 ``-z``, ``--local-mode``
    Run the chef-client in local mode. This allows all commands that work against the Chef server to also work against the local chef-repo.
 
+.. _ctl_chef_client-run-in-local-mode:
+
 Run in Local Mode
 =====================================================
 .. tag chef_client_local_mode

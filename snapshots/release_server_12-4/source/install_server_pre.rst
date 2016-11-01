@@ -75,6 +75,8 @@ In addition:
 
 .. end_tag
 
+.. _install_server_pre-uids-and-gids:
+
 UIDs and GIDs
 -----------------------------------------------------
 .. tag install_common_uid_max
@@ -237,6 +239,8 @@ Enterprise Linux Updates
 The Chef server requires an x86_64 compatible systems architecture. When the Chef server is installed on Red Hat Enterprise Linux or CentOS, run ``yum update`` prior to installing the Chef server. This will ensure those platforms are fully compatible with this requirement.
 
 .. end_tag
+
+.. _install_server_pre-hostnames:
 
 Hostnames
 -----------------------------------------------------

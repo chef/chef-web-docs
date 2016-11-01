@@ -232,6 +232,8 @@ This subcommand has the following syntax:
 
 .. end_tag
 
+.. _ctl_chef_server-install:
+
 install
 =====================================================
 .. tag ctl_chef_server_install
@@ -662,6 +664,8 @@ Credential Rotation
 Use the following commands to manage and rotate shared secrets and service credentials. The secrets file used for credential rotation is located 
 at ``/etc/opscode/private-chef-secrets.json`` on your Chef server.
 
+.. _ctl_chef_server-require-credential-rotation:
+
 require-credential-rotation
 -----------------------------------------------------
 The ``require-credential-rotation`` subcommand takes the Chef server offline and requires a complete service credential rotation before the Chef server(s) in your cluster can restart again. 
@@ -686,6 +690,8 @@ This subcommand has the following options:
 ``-y, --yes``
    Bypass a prompt in the terminal and agree that you want to disable the Chef server, and require credential rotation.
 
+.. _ctl_chef_server-rotate-all-credentials:
+
 rotate-all-credentials
 -----------------------------------------------------
 The ``rotate-all-credentials`` subcommand generates new credential values for all service credentials by incrementing the credential version number and creating a new hash value. You can choose whether to copy the updated secrets file to each node in the cluster and reconfiguring or by running this subcommand on all the nodes.
@@ -699,6 +705,8 @@ This subcommand has the following syntax:
 .. code-block:: bash
 
    $ chef-server-ctl rotate-all-credentials
+
+.. _ctl_chef_server-rotate-credentials:
 
 rotate-credentials
 -----------------------------------------------------
@@ -715,6 +723,8 @@ This subcommand has the following syntax:
 
    $ chef-server-ctl rotate-credentials $SERVICE_NAME
 
+.. _ctl_chef_server-rotate-shared-secrets:
+
 rotate-shared-secrets
 -----------------------------------------------------
 The ``rotate-shared-secrets`` subcommand creates a new shared secret and salt, in addition to generating new service credentials. It also resets 
@@ -730,6 +740,8 @@ This subcommand has the following syntax:
 .. code-block:: bash
 
    $ chef-server-ctl rotate-shared-secrets
+
+.. _ctl_chef_server-show-service-credentials:
 
 show-service-credentials
 -----------------------------------------------------

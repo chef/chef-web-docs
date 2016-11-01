@@ -94,6 +94,8 @@ The following diagram shows the various components that are part of a Chef serve
 
        .. end_tag
 
+.. _server_components-capacity-planning:
+
 Capacity Planning
 =====================================================
 This section provides guidance for capacity planning and how to choose the right configuration--standalone, high availability, or tiered--for the Chef server. This section provides guidance and not hard/fast rules. This is because some requests to the Chef server API are more computationally expensive than others. In general, it's better to start small and then scale the Chef server as needed. Premature optimization can hinder more than help because it may introduce unnecessary complexity.

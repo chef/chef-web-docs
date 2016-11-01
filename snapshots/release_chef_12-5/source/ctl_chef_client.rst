@@ -312,6 +312,8 @@ The chef-client uses a lock file to ensure that only one chef-client run is in p
 
 .. end_tag
 
+.. _ctl_chef_client-run-in-local-mode:
+
 Run in Local Mode
 =====================================================
 .. tag chef_client_local_mode

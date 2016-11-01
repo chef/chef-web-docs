@@ -95,6 +95,8 @@ will return something similar to:
 .. -----------------------------------------------------
 .. None.
 
+.. _ctl_kitchen-kitchen-converge:
+
 kitchen converge
 =====================================================
 Use the ``converge`` subcommand to converge one (or more) instances. Instances are based on the list of platforms in the .kitchen.yml file. This process will install the chef-client on an instance using the omnibus installer, upload cookbook files and minimal configuration to the instance, and then start a chef-client run using the run-list and attributes specified in the .kitchen.yml file.
@@ -264,6 +266,8 @@ The chef-client is downloaded the first time this command is run. The output of 
           Finished converging <default-ubuntu-1404> (0m15.67s).
    -----> Kitchen is finished. (0m15.96s)
 
+.. _ctl_kitchen-kitchen-create:
+
 kitchen create
 =====================================================
 Use the ``create`` subcommand to create one (or more) instances. Instances are based on the list of platforms and suites in the .kitchen.yml file.
@@ -398,6 +402,8 @@ The output of the command is similar to:
           Vagrant instance <default-ubuntu-1404> created.
           Finished creating <default-ubuntu-1404> (4m1.59s).
    -----> Kitchen is finished. (10m58.24s)
+
+.. _ctl_kitchen-kitchen-destroy:
 
 kitchen destroy
 =====================================================
@@ -640,6 +646,8 @@ Examples
 -----------------------------------------------------
 None.
 
+.. _ctl_kitchen-kitchen-exec:
+
 kitchen exec
 =====================================================
 Use the ``exec`` subcommand to execute a command on a remote instance.
@@ -757,6 +765,8 @@ will return something similar to:
    Fetching: kitchen-vagrant-0.12.0.gem (100%)
    Successfully installed kitchen-vagrant-0.12.0
    1 gem installed
+
+.. _ctl_kitchen-kitchen-list:
 
 kitchen list
 =====================================================
@@ -954,6 +964,8 @@ Examples
 -----------------------------------------------------
 None.
 
+.. _ctl_kitchen-kitchen-test:
+
 kitchen test
 =====================================================
 Use the ``test`` subcommand to test one (or more) verified instances. Instances are based on the list of platforms and suites in the .kitchen.yml file. This subcommand will create a new instance (cleaning up a previous instance, if necessary), converge that instance, set up the test harness, verify the instance using that test harness, and then destroy the instance.
@@ -1093,6 +1105,8 @@ or:
 .. code-block:: bash
 
    $ kitchen test -c 4
+
+.. _ctl_kitchen-kitchen-verify:
 
 kitchen verify
 =====================================================

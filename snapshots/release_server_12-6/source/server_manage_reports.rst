@@ -24,6 +24,8 @@ Reporting data is collected during the chef-client run and the results are poste
 
 .. end_tag
 
+.. _server_manage_reports-configure-reports:
+
 Configure Reports
 =====================================================
 Reports can be built based on environments, by report status, by date range, and by organization.
@@ -69,6 +71,8 @@ To show a specific set of chef-client run histories:
 #. Click **Reports**.
 #. Click **Run History**.
 #. Select the range for which run histories will be shown: all runs that occurred in the last 3 months, the last month, the last week, the last twenty-four hours, after a specific date, or between two specific dates.
+
+.. _server_manage_reports-view-reports:
 
 View Reports
 =====================================================

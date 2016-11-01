@@ -177,6 +177,8 @@ The Recipe DSL provides support for using attributes, data bags (and encrypted d
 
 .. end_tag
 
+.. _dsl_recipe-attribute:
+
 attribute?
 -----------------------------------------------------
 .. tag dsl_recipe_method_attribute
@@ -198,6 +200,8 @@ For example:
    end
 
 .. end_tag
+
+.. _dsl_recipe-control:
 
 control
 -----------------------------------------------------
@@ -893,6 +897,8 @@ To audit attribute values in a ``control`` block, first assign the attribute as 
 
 .. end_tag
 
+.. _dsl_recipe-control-group:
+
 control_group
 -----------------------------------------------------
 .. tag dsl_recipe_method_control_group
@@ -1179,6 +1185,8 @@ The following ``control_group`` verifies that the ``git`` package has been insta
 
 .. end_tag
 
+.. _dsl_recipe-cookbook-name:
+
 cookbook_name
 -----------------------------------------------------
 .. tag dsl_recipe_method_cookbook_name
@@ -1198,6 +1206,8 @@ This method is often used as part of a log entry. For example:
    Chef::Log.info('I am a message from the #{recipe_name} recipe in the #{cookbook_name} cookbook.')
 
 .. end_tag
+
+.. _dsl_recipe-data-bag:
 
 data_bag
 -----------------------------------------------------
@@ -1244,6 +1254,8 @@ Iterate over the contents of the data bag to get the associated ``data_bag_item`
 The ``id`` for each data bag item will be returned as a string.
 
 .. end_tag
+
+.. _dsl_recipe-data-bag-item:
 
 data_bag_item
 -----------------------------------------------------
@@ -1550,6 +1562,8 @@ For example:
 
 .. end_tag
 
+.. _dsl_recipe-platform:
+
 platform?
 -----------------------------------------------------
 .. tag dsl_recipe_method_platform
@@ -1657,6 +1671,8 @@ The following example shows how an if statement can be used with the ``platform?
 
 .. end_tag
 
+.. _dsl_recipe-platform-family:
+
 platform_family?
 -----------------------------------------------------
 .. tag dsl_recipe_method_platform_family
@@ -1755,6 +1771,8 @@ where a command for installing Python might look something like:
 
 .. end_tag
 
+.. _dsl_recipe-reboot-pending:
+
 reboot_pending?
 -----------------------------------------------------
 .. tag dsl_recipe_method_reboot_pending
@@ -1768,6 +1786,8 @@ The syntax for the ``reboot_pending?`` method is as follows:
    reboot_pending?
 
 .. end_tag
+
+.. _dsl_recipe-recipe-name:
 
 recipe_name
 -----------------------------------------------------
@@ -1788,6 +1808,8 @@ This method is often used as part of a log entry. For example:
    Chef::Log.info('I am a message from the #{recipe_name} recipe in the #{cookbook_name} cookbook.')
 
 .. end_tag
+
+.. _dsl_recipe-resources:
 
 resources
 -----------------------------------------------------
@@ -1825,6 +1847,8 @@ and then later in the same recipe, or elsewhere:
 where ``file`` is the type of resource, ``/etc/hosts`` is the name, and ``f.mode`` is used to set the ``mode`` property on the **file** resource.
 
 .. end_tag
+
+.. _dsl_recipe-search:
 
 search
 -----------------------------------------------------
@@ -2219,6 +2243,8 @@ where
 
 .. end_tag
 
+.. _dsl_recipe-shell-out:
+
 shell_out
 -----------------------------------------------------
 .. tag dsl_recipe_method_shell_out
@@ -2253,6 +2279,8 @@ where ``command_args`` is the command that is run against the node. This method 
 
 .. end_tag
 
+.. _dsl_recipe-shell-out-with-systems-locale:
+
 shell_out_with_systems_locale
 -----------------------------------------------------
 .. tag dsl_recipe_method_shell_out_with_systems_locale
@@ -2268,6 +2296,8 @@ The syntax for the ``shell_out_with_systems_locale`` method is as follows:
 where ``command_args`` is the command that is run against the node.
 
 .. end_tag
+
+.. _dsl_recipe-tag-tagged-untag:
 
 tag, tagged?, untag
 -----------------------------------------------------
@@ -2323,6 +2353,8 @@ Will return something like this:
    [Thu, 22 Jul 2010 18:01:45 +0000] INFO: I has no tagz
 
 .. end_tag
+
+.. _dsl_recipe-value-for-platform:
 
 value_for_platform
 -----------------------------------------------------
@@ -2431,6 +2463,8 @@ The following example shows using version constraints to specify a value based o
    )
 
 .. end_tag
+
+.. _dsl_recipe-value-for-platform-family:
 
 value_for_platform_family
 -----------------------------------------------------
@@ -2876,6 +2910,8 @@ Six methods are present in the Recipe DSL to help verify the registry during a c
 
           .. end_tag
 
+.. _dsl_recipe-registry-data-exists:
+
 registry_data_exists?
 -----------------------------------------------------
 .. tag dsl_recipe_method_registry_data_exists
@@ -2915,6 +2951,8 @@ This method will return ``true`` or ``false``.
 
 .. end_tag
 
+.. _dsl_recipe-registry-get-subkeys:
+
 registry_get_subkeys
 -----------------------------------------------------
 .. tag dsl_recipe_method_registry_get_subkeys
@@ -2947,6 +2985,8 @@ This returns an array of registry key values.
           .. end_tag
 
 .. end_tag
+
+.. _dsl_recipe-registry-get-values:
 
 registry_get_values
 -----------------------------------------------------
@@ -2981,6 +3021,8 @@ This returns an array of registry key values.
 
 .. end_tag
 
+.. _dsl_recipe-registry-has-subkeys:
+
 registry_has_subkeys?
 -----------------------------------------------------
 .. tag dsl_recipe_method_registry_has_subkeys
@@ -3014,6 +3056,8 @@ This method will return ``true`` or ``false``.
 
 .. end_tag
 
+.. _dsl_recipe-registry-key-exists:
+
 registry_key_exists?
 -----------------------------------------------------
 .. tag dsl_recipe_method_registry_key_exists
@@ -3046,6 +3090,8 @@ This method will return ``true`` or ``false``. (Any registry key values that are
           .. end_tag
 
 .. end_tag
+
+.. _dsl_recipe-registry-value-exists:
 
 registry_value_exists?
 -----------------------------------------------------
@@ -3085,6 +3131,8 @@ This method will return ``true`` or ``false``.
           .. end_tag
 
 .. end_tag
+
+.. _dsl_recipe-helpers:
 
 Helpers
 -----------------------------------------------------

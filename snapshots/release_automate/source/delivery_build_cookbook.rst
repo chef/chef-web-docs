@@ -184,6 +184,8 @@ and so on for all of the recipes. This ensures that all of the default behavior 
 
 .. end_tag
 
+.. _delivery_build_cookbook-set-up-projects:
+
 Set Up Projects
 =======================================================
 Chef Automate uses projects to organize work across multiple teams. You can create as many projects as you need. A common approach is to have one project for each major component of the system. Each project has its own git repository.
