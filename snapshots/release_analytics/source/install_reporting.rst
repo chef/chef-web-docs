@@ -61,7 +61,7 @@ To set up the Reporting server:
 
       $ opscode-reporting-ctl reconfigure
 
-   .. note:: Starting with Reporting 1.6.0, the :doc:`Chef MLSA <chef_license>` must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``opscode-reporting-ctl reconfigure --accept-license`` to automatically accept the license.
+   .. note:: Starting with Reporting 1.6.0, the Chef MLSA must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``opscode-reporting-ctl reconfigure --accept-license`` to automatically accept the license.
 
 #. Copy the entire ``/etc/opscode-reporting`` directory from the backend primary server to all frontend and backend servers. For example, from each server run:
 
@@ -110,7 +110,7 @@ Reporting is automatically enabled in the chef-client (version 11.6.0 or later).
    Chef Client finished, 2 resources updated
    [date] INFO: Sending resource update report (run-id: 51ceb817-ba7e-47e5-9bca-096fe9ef9740)
 
-This includes the run identifier of the chef-client run, which can be used in the :doc:`knife reporting plugin <plugin_knife_reporting>` or the Chef management console to access the reporting information generated during the chef-client run.
+This includes the run identifier of the chef-client run, which can be used in the knife reporting plugin or the Chef management console to access the reporting information generated during the chef-client run.
 
 Install the Workstation
 =====================================================

@@ -14,11 +14,11 @@ Server Essentials
 =====================================================
 The server acts as a hub for all of the data needed by the chef-client while it configures a node:
 
-* A :doc:`node object <nodes>` exists for each node that is being managed by the chef-client
-* Each node object consists of a :doc:`run-list <nodes>` and a :doc:`collection of attributes <attributes>`
+* A node object exists for each node that is being managed by the chef-client
+* Each node object consists of a run-list and a :doc:`collection of attributes <attributes>`
 * Cookbooks are the fundamental unit of configuration and policy distribution and include: :doc:`attribute files <attributes>`, :doc:`definitions <definitions>`, :doc:`files, <files>`, :doc:`libraries <libraries>`, :doc:`metadata <cookbook_repo>`, :doc:`recipes <recipes>`, :doc:`resources <resources>`, :doc:`templates <templates>`, and :doc:`versions <cookbook_versions>`
 * All data that is stored on the Chef server---including everything uploaded to the server from the chef-repo and by the chef-client---is :doc:`searchable <chef_search>` from both recipes and the workstation (using the `knife search <knife_search>` subcommand). The chef-client does the actual configuration on :doc:`the nodes <nodes>`. The chef-client receives its instructions from cookbooks (:doc:`recipes <recipes>`, mostly). The process of configuring a node is called :doc:`the chef-client run <nodes>`. At the beginning of each run, the chef-client :doc:`validates to the server <chef_client>`, :doc:`collects important data about that node <ohai>`, and then configures the node. At the end of each run, the chef-client :doc:`reports the successes and failures that may have occurred <handlers>`
-* The Chef server can apply :doc:`global policy settings <policy>` to all nodes across the organization, including for :doc:`data bags <data_bags>`, :doc:`environments <environments>`, and :doc:`roles <roles>`
+* The Chef server can apply global policy settings to all nodes across the organization, including for :doc:`data bags <data_bags>`, :doc:`environments <environments>`, and :doc:`roles <roles>`
 * The :ref:`authentication <auth-authentication>` process ensures that requests can only be made to the Chef server by authorized users
 * Users, once :ref:`authorized <auth-authorization>` can only perform certain actions
 

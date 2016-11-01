@@ -16,7 +16,7 @@ The ``knife user`` subcommand is used to manage the list of users and their asso
 
              In versions of the chef-client prior to version 12.0, this subcommand ONLY works when run against the open source Chef server; it does not run against Enterprise Chef (including hosted Enterprise Chef), or Private Chef.
 
-             Starting with Chef server 12.0, this functionality is built into the :doc:`chef-server-ctl <ctl_chef_server>` command-line tool as part of the following arguments:
+             Starting with Chef server 12.0, this functionality is built into the chef-server-ctl command-line tool as part of the following arguments:
 
              * :ref:`user-create <ctl_chef_server-user-create>`
              * :ref:`user-delete <ctl_chef_server-user-delete>`

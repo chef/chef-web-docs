@@ -110,7 +110,7 @@ To upgrade to Chef server 12 from a standalone Chef server server, do the follow
 
           .. note:: .. tag chef_license_reconfigure_manage
 
-                    Starting with the Chef management console 2.3.0, the :doc:`Chef MLSA <chef_license>` must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
+                    Starting with the Chef management console 2.3.0, the Chef MLSA must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
 
                     .. end_tag
 
@@ -319,7 +319,7 @@ To upgrade to Chef server 12 from a high availability Chef server server, do the
 
           .. note:: .. tag chef_license_reconfigure_manage
 
-                    Starting with the Chef management console 2.3.0, the :doc:`Chef MLSA <chef_license>` must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
+                    Starting with the Chef management console 2.3.0, the Chef MLSA must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
 
                     .. end_tag
 
@@ -394,7 +394,7 @@ There are two upgrade scenarios for upgrades from Enterprise Chef 11 to Chef ser
 * :ref:`Standalone <upgrade_server-id1>`
 * :ref:`High availability <upgrade_server-id2>`
 
-Before upgrading, please :doc:`view the notes <upgrade_server_notes>` for more background on the upgrade process from Enterprise Chef 11 to Chef server 12.
+Before upgrading, please view the notes for more background on the upgrade process from Enterprise Chef 11 to Chef server 12.
 
 Standalone
 -----------------------------------------------------
@@ -489,7 +489,7 @@ To upgrade to Chef server 12 from a standalone Enterprise Chef server, do the fo
 
           .. note:: .. tag chef_license_reconfigure_manage
 
-                    Starting with the Chef management console 2.3.0, the :doc:`Chef MLSA <chef_license>` must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
+                    Starting with the Chef management console 2.3.0, the Chef MLSA must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
 
                     .. end_tag
 
@@ -698,7 +698,7 @@ To upgrade to Chef server 12 from a high availability Enterprise Chef server, do
 
           .. note:: .. tag chef_license_reconfigure_manage
 
-                    Starting with the Chef management console 2.3.0, the :doc:`Chef MLSA <chef_license>` must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
+                    Starting with the Chef management console 2.3.0, the Chef MLSA must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
 
                     .. end_tag
 
@@ -887,7 +887,7 @@ To upgrade to Chef server 12 from the Open Source Chef server, do the following:
 
           .. note:: .. tag chef_license_reconfigure_manage
 
-                    Starting with the Chef management console 2.3.0, the :doc:`Chef MLSA <chef_license>` must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
+                    Starting with the Chef management console 2.3.0, the Chef MLSA must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
 
                     .. end_tag
 

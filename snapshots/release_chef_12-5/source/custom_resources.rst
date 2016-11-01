@@ -6,7 +6,7 @@
 Custom Resources 
 =====================================================
 
-.. warning:: This approach to building custom resources was introduced in chef-client, version 12.5. It is the recommended approach for all custom resources starting with that version of the chef-client. Refer to the :doc:`notes about custom resources <custom_resources_notes>` if you're curious about other approaches that use the older styles. If you are using an older version of the chef-client, please use the version picker (in the top left of the navigation) to select your version, and then choose the same topic from the navigation tree ("Extend Chef > Custom Resources"). See also https://github.com/chef-cookbooks/compat_resource for using this features with previous versions of the chef-client.
+.. warning:: This approach to building custom resources was introduced in chef-client, version 12.5. It is the recommended approach for all custom resources starting with that version of the chef-client. Refer to the notes about custom resources if you're curious about other approaches that use the older styles. If you are using an older version of the chef-client, please use the version picker (in the top left of the navigation) to select your version, and then choose the same topic from the navigation tree ("Extend Chef > Custom Resources"). See also https://github.com/chef-cookbooks/compat_resource for using this features with previous versions of the chef-client.
 
 .. tag custom_resources_27
 
@@ -218,7 +218,7 @@ This article assumes that a cookbook directory named ``website`` exists in a che
 
 You may use a cookbook that already exists or you may create a new cookbook.
 
-See :doc:`ctl_chef` for more information about how to use the ``chef`` command-line tool that is packaged with the Chef development kit to build the chef-repo, plus related cookbook sub-directories.
+See for more information about how to use the ``chef`` command-line tool that is packaged with the Chef development kit to build the chef-repo, plus related cookbook sub-directories.
 
 .. end_tag
 

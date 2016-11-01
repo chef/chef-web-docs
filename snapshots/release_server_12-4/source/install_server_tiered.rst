@@ -304,7 +304,7 @@ Chef Manage
 
    .. note:: .. tag chef_license_reconfigure_manage
 
-             Starting with the Chef management console 2.3.0, the :doc:`Chef MLSA <chef_license>` must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
+             Starting with the Chef management console 2.3.0, the Chef MLSA must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
 
              .. end_tag
 
@@ -354,7 +354,7 @@ To set up the Reporting server:
 
       $ opscode-reporting-ctl reconfigure
 
-   .. note:: Starting with Reporting 1.6.0, the :doc:`Chef MLSA <chef_license>` must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``opscode-reporting-ctl reconfigure --accept-license`` to automatically accept the license.
+   .. note:: Starting with Reporting 1.6.0, the Chef MLSA must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``opscode-reporting-ctl reconfigure --accept-license`` to automatically accept the license.
 
 #. Copy the entire ``/etc/opscode-reporting`` directory from the backend primary server to all frontend and backend servers. For example, from each server run:
 

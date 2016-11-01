@@ -14,7 +14,7 @@ This diagram shows how you develop, test, and deploy your Chef code.
 
 .. end_tag
 
-Please :doc:`view the notes <upgrade_client_notes>` for more background on the upgrade process from chef-client 11 to chef-client 12.
+Please view the notes for more background on the upgrade process from chef-client 11 to chef-client 12.
 
 What's New
 =====================================================

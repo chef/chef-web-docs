@@ -37,7 +37,7 @@ The Reporting client is built into the chef-client and can run on all platforms 
 
 .. end_tag
 
-Reporting is configured as :doc:`a premium feature </install_reporting>` of the Chef server and requires acceptance of the :doc:`Chef MLSA <chef_license>` as part of the installation process, starting with version 1.6.0.
+Reporting is configured as :doc:`a premium feature </install_reporting>` of the Chef server and requires acceptance of the Chef MLSA as part of the installation process, starting with version 1.6.0.
 
 The Reporting Run
 =====================================================
@@ -78,7 +78,7 @@ Knife Reporting
 =====================================================
 The ``knife reporting`` subcommand is used by Reporting to report about chef-client runs across the organization.
 
-.. note:: Review the list of :doc:`common options <knife_common_options>` available to this (and all) knife subcommands and plugins.
+.. note:: Review the list of common options available to this (and all) knife subcommands and plugins.
 
 Install the Plugin
 -----------------------------------------------------

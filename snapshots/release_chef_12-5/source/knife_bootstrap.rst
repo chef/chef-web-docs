@@ -27,7 +27,7 @@ Use the ``knife bootstrap`` subcommand to run a bootstrap operation that install
 
 .. note:: .. tag notes_knife_bootstrap_on_windows
 
-          To bootstrap the chef-client on Microsoft Windows machines, the :doc:`knife-windows <plugin_knife_windows>` plugins is required, which includes the necessary bootstrap scripts that are used to do the actual installation.
+          To bootstrap the chef-client on Microsoft Windows machines, the knife-windows plugins is required, which includes the necessary bootstrap scripts that are used to do the actual installation.
 
           .. end_tag
 

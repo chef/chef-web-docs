@@ -335,7 +335,7 @@ Cookbooks are comprised of the following components:
 
        .. end_tag
 
-       Chef has :doc:`many built-in resources <resources>` that cover all of the most common actions across all of the most common platforms. You can :doc:`build your own resources <lwrp>` for handle any situation that isn't covered by a built-in resource.
+       Chef has many built-in resources that cover all of the most common actions across all of the most common platforms. You can build your own resources for handle any situation that isn't covered by a built-in resource.
    * - .. image:: ../../images/icon_cookbook_templates.svg
           :width: 100px
           :align: center

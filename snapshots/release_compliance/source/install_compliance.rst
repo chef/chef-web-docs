@@ -94,7 +94,7 @@ To install the Chef Compliance server:
 
    .. note:: .. tag chef_license_reconfigure_compliance
 
-             Starting with Chef Compliance 1.1.9, the :doc:`Chef MLSA <chef_license>` must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-compliance-ctl reconfigure --accept-license`` to automatically accept the license.
+             Starting with Chef Compliance 1.1.9, the Chef MLSA must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-compliance-ctl reconfigure --accept-license`` to automatically accept the license.
 
              .. end_tag
 
@@ -104,7 +104,7 @@ To install the Chef Compliance server:
 
 AWS Marketplace
 =====================================================
-See :doc:`aws_marketplace` for more information.
+See for more information.
 
 Configure SSL
 =====================================================

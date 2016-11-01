@@ -38,7 +38,7 @@ The Nodes
 
 .. tag chef_index_ohai
 
-**Ohai:** :doc:`About Ohai <ohai>` | :doc:`Custom Ohai Plugins <ohai_custom>`
+**Ohai:** About Ohai | :doc:`Custom Ohai Plugins <ohai_custom>`
 
 .. end_tag
 

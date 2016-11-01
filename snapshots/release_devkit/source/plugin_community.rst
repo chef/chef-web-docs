@@ -23,7 +23,7 @@ knife is a command-line tool that provides an interface between a local chef-rep
 
 .. end_tag
 
-knife plugins for cloud hosting platforms--- :doc:`knife azure <plugin_knife_azure>`, :doc:`knife bluebox <plugin_knife_bluebox>`, :doc:`knife ec2 <plugin_knife_ec2>`, :doc:`knife eucalyptus <plugin_knife_eucalyptus>`, :doc:`knife google <plugin_knife_google>`, :doc:`knife linode <plugin_knife_linode>`, :doc:`knife openstack <plugin_knife_openstack>`, :doc:`knife rackspace <plugin_knife_rackspace>`, and :doc:`knife terremark <plugin_knife_terremark>` ---are built and maintained by Chef.
+knife plugins for cloud hosting platforms--- :doc:`knife azure <plugin_knife_azure>`, :doc:`knife bluebox <plugin_knife_bluebox>`, :doc:`knife ec2 <plugin_knife_ec2>`, :doc:`knife eucalyptus <plugin_knife_eucalyptus>`, :doc:`knife google <plugin_knife_google>`, :doc:`knife linode <plugin_knife_linode>`, :doc:`knife openstack <plugin_knife_openstack>`, :doc:`knife rackspace <plugin_knife_rackspace>`, and knife terremark ---are built and maintained by Chef.
 
 The following table lists knife plugins built by the Chef community.
 

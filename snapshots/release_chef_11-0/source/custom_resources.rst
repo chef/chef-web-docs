@@ -223,7 +223,7 @@ Some of the most popular Chef-maintained cookbooks are listed below:
    * - `postfix <https://github.com/chef-cookbooks/postfix>`_
      - Use to install and configure postfix for client or outbound relayhost.
    * - `powershell <https://github.com/chef-cookbooks/powershell>`_
-     - Use to run Windows PowerShell. See the :doc:`powershell_script resource <resource_powershell_script>` (built into the chef-client) for more information about improved ways to run Windows PowerShell when using Chef.
+     - Use to run Windows PowerShell. See the powershell_script resource (built into the chef-client) for more information about improved ways to run Windows PowerShell when using Chef.
    * - `squid <https://github.com/chef-cookbooks/squid>`_
      - Use to configure squid as a caching proxy.
    * - `sudo <https://github.com/chef-cookbooks/sudo>`_

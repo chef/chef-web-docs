@@ -27,7 +27,7 @@ For example: ``/organizations/organization_name/pushy/jobs/ID`` or ``/organizati
 
           where ``RAW`` is a boolean indicating whether you want the raw body returned, or JSON inflated. For Push Jobs API endpoints, we recommend ``false``.
 
-          See :doc:`knife exec <knife_exec>` for detailed information on usage.
+          See knife exec for detailed information on usage.
 
 connect/NODE_NAME
 -----------------------------------------------------

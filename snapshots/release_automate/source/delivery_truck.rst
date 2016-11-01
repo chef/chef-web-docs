@@ -501,7 +501,7 @@ in that environment.
 Prerequisites
 -----------------------------------------------------
 
-* Ensure you have a private Supermarket installed, setup, and running. See :doc:`Install Private Supermarket <install_supermarket>` for more information.
+* Ensure you have a private Supermarket installed, setup, and running. See Install Private Supermarket for more information.
 * Ensure you have a Chef server with the Chef identify authentication/authorization service configured, a Chef Automate server setup that references your private Supermarket, and at least one Chef Automate build node installed, setup, and running. See :doc:`Install Chef Automate <install_chef_automate>` and Chef Identify for more information.
 * Ensure you have created a project in Chef Automate. Follow these instructions to :ref:`Set Up Projects <delivery_build_cookbook-set-up-projects>`.
 * Ensure you have `ChefDK <https://downloads.chef.io/chef-dk/>`__ installed on your :doc:`workstation <workstation>`.
