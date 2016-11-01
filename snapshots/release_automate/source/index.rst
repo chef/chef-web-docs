@@ -63,7 +63,7 @@ Managing the Server
  :ref:`migrate-patchset-diffs <ctl_delivery_server-migrate-patchset-diffs>` |
  :ref:`reconfigure <ctl_delivery_server-reconfigure>` |
  :ref:`rename-enterprise <ctl_delivery_server-rename-enterprise>` |
- :ref:`restore-data <ctl_delivery_server-restore-data>` |
+ :ref:`restore-backup <ctl_delivery_server-restore-backup>` |
  :ref:`revoke-token <ctl_delivery_server-revoke-token>` |
  :ref:`show-config <ctl_delivery_server-show-config>` |
  :ref:`uninstall <ctl_delivery_server-uninstall>` |
