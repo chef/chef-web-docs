@@ -320,7 +320,7 @@ Define Resource
 
 .. This file is hooked into a slide deck
 
-Use the **package**, **template** (two times), **directory**, and **service** resources to define the ``website`` resource. Remember: :doc:`order matters <recipe_order_matters>`!
+Use the **package**, **template** (two times), **directory**, and **service** resources to define the ``website`` resource. Remember: order matters !
 
 .. end_tag
 

@@ -186,7 +186,7 @@ Some of the most popular Chef-maintained cookbooks are listed below:
      - The ``aws`` cookbook is used to manage resources that are running in Amazon Web Services (AWS).
    * - `bluepill <https://github.com/chef-cookbooks/bluepill>`_
      - The ``bluepill`` cookbook is used to install Blue Pill, and then use it to manage services.
-   * - :doc:`chef_handler <resource_chef_handler>`
+   * - chef_handler 
      - The **chef_handler** cookbook is used to distribute and enable exception and report handlers. This cookbook also exposes the **chef_handler** resource, which allows exception and report handlers to be exposed from within recipes, as opposed to having them hard-coded within the client.rb file.
    * - `cron <https://github.com/chef-cookbooks/cron>`_
      - Use to install cron and start the crond service.
@@ -1312,7 +1312,7 @@ where ``whyrun_supported?`` is set to ``true`` for any custom provider that supp
 
 .. end_tag
 
-.. note:: When a lightweight provider contains only platform resources, the ``converge_by`` method is not required because it is already built into all of the platform :doc:`resources <resource>`.
+.. note:: When a lightweight provider contains only platform resources, the ``converge_by`` method is not required because it is already built into all of the platform resources .
 
 Examples
 -----------------------------------------------------

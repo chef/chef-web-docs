@@ -419,7 +419,7 @@ to complete successfully. These can be set in the environment directly, or added
 Any host that needs to make outgoing http or https connections will require these settings. For example, the Chef Automate Server 
 (which makes knife calls to Chef Server) and Chef Server (for push jobs) should have these configured.
 
-For more details on the proxy setup, please see :doc:`About Proxies <proxies>`.
+For more details on the proxy setup, please see About Proxies .
 
 Troubleshooting
 ===================================================================

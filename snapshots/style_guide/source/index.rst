@@ -392,7 +392,7 @@ Internal w/short names
 -----------------------------------------------------
 An internal link is one that resolves to another topic that is built by Sphinx. Sometimes it's better to have the name of the link that displays be as short as possible (and different from the actual title of the topic). What it looks like as reST::
 
-   :doc:`Actions </resource_common_actions>`
+   Actions 
 
 where ``:doc:`` tells Sphinx that what follows is a file name that Sphinx will encounter during the build process. ``Actions`` represents the short name that will display on the page in which this internal link is located, and then ``resource_common_actions`` is the filename and is contained within brackets (< >). If this isn't formatted correctly, Sphinx will let you know.
 
@@ -1007,7 +1007,7 @@ There are other build directories: ``docs_all``, ``docs_analytics``, ``docs_clie
    +++++++++++++++++++++++++++++++++++++++++++++++++++++
    .. tag server_rbac_permissions_default_public_key_read_access
 
-   The ``public_key_read_access`` group controls which users and clients have :doc:`read permissions to the following endpoints </api_chef_server>`:
+   The ``public_key_read_access`` group controls which users and clients have read permissions to the following endpoints :
 
    * GET /clients/CLIENT/keys
    * GET /clients/CLIENT/keys/KEY

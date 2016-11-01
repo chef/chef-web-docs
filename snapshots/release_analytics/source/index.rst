@@ -30,7 +30,7 @@ The :doc:`Chef analytics platform </analytics>` provides real-time visibility in
 
 Use this visibility to verify compliance against internal controls.
 
-If you are new to Chef, familiarize yourself with the other core components: :doc:`the server, workstations, and nodes <chef_overview>`. For more information about workstations, cookbooks, and nodes, see the documentation for the chef-client. For more information about the server, see documentation for the Chef server.
+If you are new to Chef, familiarize yourself with the other core components: the server, workstations, and nodes . For more information about workstations, cookbooks, and nodes, see the documentation for the chef-client. For more information about the server, see documentation for the Chef server.
 
 Install, Upgrade
 =====================================================

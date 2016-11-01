@@ -114,5 +114,5 @@ This includes the run identifier of the chef-client run, which can be used in th
 
 Install the Workstation
 =====================================================
-To set up the Reporting workstation, install the :doc:`knife reporting plugin <plugin_knife_reporting>`. Once
+To set up the Reporting workstation, install the knife reporting plugin . Once
 installed, the following subcommands will be available: ``knife runs list``, ``knife runs show``.

@@ -6,7 +6,7 @@
 Tiered Installation (DEPRECATED)
 =====================================================
 
-.. warning:: This topic is deprecated as of the 12.9 release of the Chef servver. For the latest information on high availability and how to set up a highly-available server cluster, see :doc:`High Availability: Backend Cluster <install_server_ha>`.
+.. warning:: This topic is deprecated as of the 12.9 release of the Chef servver. For the latest information on high availability and how to set up a highly-available server cluster, see High Availability: Backend Cluster .
 
 This topic describes how to set up the Chef server with a single back end and multiple load-balanced frontend servers.
 

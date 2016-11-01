@@ -6,7 +6,7 @@
 High Availability: AWS (DEPRECATED)
 =====================================================
 
-.. warning:: This topic is deprecated as of the 12.9 release of the Chef servver. For the latest information on high availability and how to set up a highly-available server cluster, see :doc:`High Availability: Backend Cluster <install_server_ha>`.
+.. warning:: This topic is deprecated as of the 12.9 release of the Chef servver. For the latest information on high availability and how to set up a highly-available server cluster, see High Availability: Backend Cluster .
 
 This topic describes how to set up the Chef server for high availability in Amazon Web Services (AWS).
 
