@@ -38,7 +38,7 @@ Manage the Chef Server
 =====================================================
 The Chef server can be managed in the following ways:
 
-:doc:`runbook`
+
 :doc:`server_backup_restore`
 :doc:`server_data`
 :doc:`server_firewalls_and_ports`
@@ -80,7 +80,7 @@ This section contains links to topics about configuration files, command-line to
 **APIs**
 
 :doc:`api_chef_server`
-:doc:`api_push_jobs`
+
 
 .. Hide the TOC from this file. Just keep these alphabetized please.
 

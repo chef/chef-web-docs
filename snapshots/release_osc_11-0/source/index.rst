@@ -29,7 +29,7 @@ Install Open Source Chef
 The Chef server can be installed via download or by using the Omnitruck API:
 
 :doc:`install_server`
-:doc:`api_omnitruck`
+
 
 The Chef server can be upgraded:
 

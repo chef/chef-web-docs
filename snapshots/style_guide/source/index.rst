@@ -384,7 +384,7 @@ Internal
 -----------------------------------------------------
 An internal link is one that resolves to another topic that is built by Sphinx. What it looks like as reST::
 
-   :doc:`essentials_nodes`
+   
 
 where ``:doc:`` tells Sphinx that what follows is a file name that Sphinx will encounter during the build process. If this isn't formatted correctly, Sphinx will let you know.
 
