@@ -23,7 +23,7 @@ To upgrade to newer versions of the Open Source Chef server, do the following:
 #. Configure Chef server 11 by running the following command:
 
    .. code-block:: bash
-   
+
       $ sudo chef-server-ctl reconfigure
 
    This command will set up all of the required components, including Erchef, RabbitMQ, and PostgreSQL.
@@ -31,9 +31,8 @@ To upgrade to newer versions of the Open Source Chef server, do the following:
 #. Restart Chef server 11 by running the following command:
 
    .. code-block:: bash
-   
-      $ sudo chef-server-ctl restart
 
+      $ sudo chef-server-ctl restart
 
 Upgrade from Open Source Chef 11.0.4 (or higher)
 -----------------------------------------------------
@@ -45,39 +44,38 @@ Upgrade from Open Source Chef 11.0.4 (or higher)
 The new upgrade process is simpler. Stop the services, update the package on the system, run the ``upgrade`` subcommand, and then restart the Open Source Chef server.
 
 #. Stop the services:
-   
+
    .. code-block:: bash
-   
+
       $ chef-server-ctl stop
 
 #. After all of the services have shut down, update the package (using the appropriate package manager for the system on which the server is running):
-   
+
    .. code-block:: bash
-   
+
       $ dpkg -i package.deb
 
 #. Upgrade the server itself:
-   
+
    .. code-block:: bash
-   
+
       $ chef-server-ctl upgrade
-   
+
    .. note:: The following error may be present in the logs for PostgreSQL during the upgrade process: ``ERROR: duplicate key value violates unique constraint "checksums_pkey"``. This error does not represent an issue with the upgrade process and can be safely ignored.
 
 #. Restart all of the services:
-   
+
    .. code-block:: bash
-   
+
       $ chef-server-ctl restart
 
    Sometimes the upgrade process may orphan processes. If orphaned processes are discovered, they can be killed safely.
 
 #. Check the status of everything:
-   
-   .. code-block:: bash
-   
-      $ chef-server-ctl status
 
+   .. code-block:: bash
+
+      $ chef-server-ctl status
 
 Upgrade to Open Source Chef 11.1.4 (or higher)
 -----------------------------------------------------
@@ -86,25 +84,24 @@ Upgrade to Open Source Chef 11.1.4 (or higher)
 The new upgrade process is simpler. Update the package on the system, and then run the ``upgrade`` subcommand:
 
 #. After all of the services have shut down, update the package (using the appropriate package manager for the system on which the server is running):
-   
+
    .. code-block:: bash
-   
+
       $ dpkg -i package.deb
 
 #. Upgrade the server itself:
-   
+
    .. code-block:: bash
-   
+
       $ chef-server-ctl upgrade
-   
+
    .. note:: The following error may be present in the logs for PostgreSQL during the upgrade process: ``ERROR: duplicate key value violates unique constraint "checksums_pkey"``. This error does not represent an issue with the upgrade process and can be safely ignored.
 
 #. Check the status of everything:
-   
-   .. code-block:: bash
-   
-      $ chef-server-ctl status
 
+   .. code-block:: bash
+
+      $ chef-server-ctl status
 
 Upgrade from Open Source Chef 10
 =====================================================
@@ -114,7 +111,7 @@ Upgrading to Chef server 11 from Chef server 10 is a relatively simple process: 
 * ``knife list``
 * ``knife upload``
 
-These subcommands will be used to download the data from Chef server 10 (as JSON), and then upload it to the Chef server 11 server. This approach bypasses the need to interact directly with either database or having to worry about how the data is stored in either location. 
+These subcommands will be used to download the data from Chef server 10 (as JSON), and then upload it to the Chef server 11 server. This approach bypasses the need to interact directly with either database or having to worry about how the data is stored in either location.
 
 .. note:: chef-client version 10.x requires the ``knife-essentials`` plugin. To install the latest version of the ``knife-essentials`` plugin for chef-client 10.x, run the following command:
 
@@ -123,7 +120,6 @@ These subcommands will be used to download the data from Chef server 10 (as JSON
       $ gem install knife-essentials
 
    For more information about ``knife-essentials``, see https://github.com/jkeiser/knife-essentials. ``knife-essentials`` was added to Chef starting with the 11.0 release.
-
 
 Requirements
 -----------------------------------------------------
@@ -167,7 +163,6 @@ Use the following steps to configure a workstation so that it can communicate wi
 
    to return a list of all clients, including ``/clients/chef-webui.json`` and ``/clients/chef-validator.json``.
 
-
 Download Data
 -----------------------------------------------------
 To download data from the Chef server 10, run the following command:
@@ -177,7 +172,6 @@ To download data from the Chef server 10, run the following command:
    $ knife download -c .chef/knife-chef10.rb /
 
 This will transfer all of the data on Chef server 10 to the transfer directory.
-
 
 Set up Chef Server 11 Access 
 -----------------------------------------------------
@@ -211,10 +205,9 @@ Use the following steps to configure a workstation so that it can communicate wi
 
    to return a list of all users, including ``/users/admin.json``.
 
-
 Update chef-validator settings
 -----------------------------------------------------
-The chef-validator client is no longer special; Chef server 11 requires the ``chef-validator`` flag to be set in order for the chef-validator to be created. 
+The chef-validator client is no longer special; Chef server 11 requires the ``chef-validator`` flag to be set in order for the chef-validator to be created.
 
 #. Edit the ``/clients/chef-validator.json`` file---located in the ``~/transfer`` directory---and add ``"validator": true`` as a property, like this:
 
@@ -242,7 +235,6 @@ The chef-validator client is no longer special; Chef server 11 requires the ``ch
 
    to return a list of all clients, including ``/clients/chef-validator.json``.
 
-
 Verify the admin public key
 -----------------------------------------------------
 The ``admin.pem`` private key must be correct for each workstation that will have access to Chef server 11. Chef server 11 has a new user named ``admin``, whereas many instances of Chef server 10 have an admin client named ``admin``. For Chef server 11, knife requires a private key named ``admin.pem``. This naming similarity can be an issue if the name of the client doesn't match the name of the private key.
@@ -257,19 +249,19 @@ The ``admin.pem`` private key must be correct for each workstation that will hav
 #. User-hashed passwords are not transferred to or from the Chef server when using the ``knife download`` or ``knife upload`` subcommands. When using these commands to upgrade to a newer version of the Open Source Chef server, each user should run the following command:
 
    .. code-block:: bash
-   
+
       $ knife user edit user_name
-   
+
    and then add the following to the JSON data:
-   
+
    .. code-block:: javascript
-   
+
       "password":"password_value"
 
 #. Chef server 11 prefers the ``syntax_check_cache_path`` setting for keeping track of cookbook files that have been syntax checked. Add the ``syntax_check_cache_path`` setting to the knife.rb file if it is not already there. For example:
 
    .. code-block:: ruby
-   
+
       syntax_check_cache_path  '/home/<user>/.chef/syntax_check_cache'
 
 #. Replace the public key in ``/users/admin.json`` with the results of the previous step:
@@ -293,7 +285,6 @@ The ``admin.pem`` private key must be correct for each workstation that will hav
 
    to return a list of all users, including ``/users/admin.json``.
 
-
 Upload Data
 -----------------------------------------------------
 To upload data to the Chef server 11, run the following command:
@@ -303,7 +294,6 @@ To upload data to the Chef server 11, run the following command:
    $ knife upload /
 
 This will transfer all of the data in the transfer directory to Chef server 11.
-
 
 Last Steps
 -----------------------------------------------------

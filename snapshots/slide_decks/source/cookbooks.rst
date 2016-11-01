@@ -2,7 +2,6 @@
 Cookbooks
 ================================================
 
-
 .. revealjs::
 
  .. revealjs:: Cookbook Training
@@ -11,7 +10,17 @@ Cookbooks
 
  .. revealjs:: About Cookbooks
 
-    .. include:: ../../includes_cookbooks/includes_cookbooks.rst
+    .. tag cookbooks_26
+
+    A cookbook is the fundamental unit of configuration and policy distribution. A cookbook defines a scenario and contains everything that is required to support that scenario:
+
+    * Recipes that specify the resources to use and the order in which they are to be applied
+    * Attribute values
+    * File distributions
+    * Templates
+    * Extensions to Chef, such as libraries, definitions, and custom resources
+
+    .. end_tag
 
  .. revealjs:: Objectives
 
@@ -34,9 +43,9 @@ Cookbooks
  .. revealjs:: cookbook_file
 
     Use the **cookbook_file** resource for a file that is stored a cookbook's ``/files`` directory:
-    
+
     .. code-block:: none
-    
+
        motd
           ├── Berksfile
           ├── README.md
@@ -51,9 +60,9 @@ Cookbooks
  .. revealjs:: file
 
     Use the **file** resource to define the contents of a file inline within the recipe:
-    
+
     .. code-block:: ruby
-           
+
        file '/etc/motd' do
          content 'Property of COMPANY NAME'
          action :create
@@ -65,9 +74,9 @@ Cookbooks
  .. revealjs:: remote_file
 
     Use the **remote_file** resource when a file is stored at a remote location, such as on the web:
-    
+
     .. code-block:: ruby
-           
+
        file '/etc/motd' do
          url 'http://some.where.com/motd'
          action :create
@@ -79,9 +88,9 @@ Cookbooks
  .. revealjs:: template
 
     Use the **template** resource when a template is stored a cookbook's ``/templates`` directory:
-    
+
     .. code-block:: none
-           
+
        motd
           ├── Berksfile
           ├── README.md
@@ -92,11 +101,11 @@ Cookbooks
           └── templates
               └── default
                   └── motd.erb
-    
+
     This template is then rendered to create a file:
-    
+
     .. code-block:: ruby
-           
+
        Property of <%= @company_name %>
 
  .. revealjs:: Recap - Which Resource to Use?
@@ -117,9 +126,9 @@ Cookbooks
  .. revealjs:: Message of the day
 
     State is policy that describes the resource. For example, create the ``motd`` file if it does not already exist:
-    
+
     .. code-block:: ruby
-           
+
        file '/etc/motd' do
          content 'Property of COMPANY NAME'
          action :create
@@ -131,9 +140,9 @@ Cookbooks
  .. revealjs:: Message of the day
 
     Content is data that may change independent of policy changes. For example, adding content and setting permissions:
-    
+
     .. code-block:: ruby
-           
+
        file '/etc/motd' do
          content 'Property of COMPANY NAME'
          action :create
@@ -144,4 +153,11 @@ Cookbooks
 
  .. revealjs:: Questions
 
-    .. include:: ../../includes_slides/includes_slides_core_questions.rst
+    .. tag slides_core_questions
+
+    .. Use this slide every time the slide deck stops for Q/A sessions with attendees.
+
+    .. image:: ../../images/slides_questions.png
+
+    .. end_tag
+

@@ -1,6 +1,5 @@
 
 
-
 =======================================================
 Managing Run-time Dependencies
 =======================================================
@@ -23,7 +22,23 @@ If neither the **Dependencies** or **Required By** tabs are visible, then that p
 
 Configure Dependencies
 -----------------------------------------------------
-.. include:: ../../includes_delivery_config/includes_delivery_config_example_dependencies_on_master.rst
+.. tag delivery_config_example_dependencies_on_master
+
+The following example shows a run-time dependency against the master branch of a project named ``BackendAPI``:
+
+.. code-block:: javascript
+
+   {
+     "version": "2",
+     "build_cookbook": {
+       "name": "build-cookbook",
+       "path": ".delivery/build-cookbook"
+     },
+     "skip_phases": [],
+     "dependencies": ["BackendAPI"]
+   }
+
+.. end_tag
 
 Dependencies and Promotion
 ==========================================================
@@ -41,8 +56,6 @@ It's important to note that you may have a situation where some projects are ent
 Handle Failures
 -----------------------------------------------------
 As described above, dependency failures are breakages in your dependency graph, which keep the current project's pipeline from being able to ship safely. You can see such failures as warnings on the change view in the Chef Automate server web UI. These failures are tracked because they allow Chef Automate to know which changes are safe to promote.
-
-
 
 Examples
 ==========================================================

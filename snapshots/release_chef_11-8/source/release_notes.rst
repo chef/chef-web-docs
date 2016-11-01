@@ -2,8 +2,17 @@
 Release Notes: chef-client 11.8
 =====================================================
 
-.. include:: ../../includes_chef/includes_chef.rst
+.. tag chef
 
+Chef is a powerful automation platform that transforms infrastructure into code. Whether you’re operating in the cloud, on-premises, or in a hybrid environment, Chef automates how infrastructure is configured, deployed, and managed across your network, no matter its size.
+
+This diagram shows how you develop, test, and deploy your Chef code.
+
+.. image:: ../../images/start_chef.svg
+   :width: 700px
+   :align: center
+
+.. end_tag
 
 What's New
 =====================================================
@@ -16,7 +25,11 @@ The following items are new for chef-client 11.8 and/or are changes from previou
 
 chef-zero
 -----------------------------------------------------
-.. include:: ../../includes_chef/includes_chef_zero.rst
+.. tag chef_zero
+
+chef-zero is a very lightweight Chef server that runs in-memory on the local machine. This allows the chef-client to be run against the chef-repo as if it were running against the Chef server. chef-zero was `originally a standalone tool <https://github.com/chef/chef-zero>`_; it is enabled from within the chef-client by using the ``--local-mode`` option. chef-zero is very useful for quickly testing and validating the behavior of the chef-client, cookbooks, recipes, and run-lists before uploading that data to the actual Chef server.
+
+.. end_tag
 
 chef-client Local Mode
 -----------------------------------------------------
@@ -25,8 +38,15 @@ The chef-client can be run in local mode using the ``--local-mode`` option:
 ``-z``, ``--local-mode``
    Run the chef-client in local mode. This allows all commands that work against the Chef server to also work against the local chef-repo.
 
-.. include:: ../../includes_chef_client/includes_chef_client_local_mode.rst
+.. tag chef_client_local_mode
 
+Local mode is a way to run the chef-client against the chef-repo on a local machine as if it were running against the Chef server. Local mode relies on chef-zero, which acts as a very lightweight instance of the Chef server. chef-zero reads and writes to the ``chef_repo_path``, which allows all commands that normally work against the Chef server to be used against the local chef-repo.
+
+Local mode does not require a configuration file, instead it will look for a directory named ``/cookbooks`` and will set ``chef_repo_path`` to be just above that. (Local mode will honor the settings in a configuration file, if desired.) If the client.rb file is not found and no configuration file is specified, local mode will search for a knife.rb file.
+
+Local mode will store temporary and cache files under the ``<chef_repo_path>/.cache`` directory by default. This allows a normal user to run the chef-client in local mode without requiring root access.
+
+.. end_tag
 
 Knife Support for chef-zero
 -----------------------------------------------------
@@ -37,7 +57,6 @@ New common options have been added:
 
 ``-z``, ``--local-mode``
    Run the chef-client in local mode. This allows all commands that work against the Chef server to also work against the local chef-repo.
-
 
 New Config Settings
 -----------------------------------------------------
@@ -70,11 +89,9 @@ New settings are available for the knife.rb and client.rb configuration files:
    * - ``verify_api_cert``
      - Verify the SSL certificate on the Chef server. When ``true``, the chef-client always verifies the SSL certificate. When ``false``, the chef-client uses the value of ``ssl_verify_mode`` to determine if the SSL certificate requires verification. Default value: ``false``.
 
-
 New Man Pages
 -----------------------------------------------------
 The man pages built into knife, chef-client, chef-shell, chef-solo, and Ohai are now synchronized with the same topics from |url docs| and are current as of the chef-client 11.8 release. The man pages and online topics are published using the same process, which means that the information published to each format is identical. That said, the |url docs| pages are updated more frequently than man pages will be; changes made to the topics on |url docs| after this release will be included in future updates of the chef-client.
-
 
 **http_request** resource, JSON messages
 -----------------------------------------------------
@@ -101,8 +118,6 @@ And starting with chef-client 11.8, they should be like:
      message ({:some => "data"}.to_json)
      headers({"AUTHORIZATION" => "Basic #{Base64.encode64("username:password")}","Content-Type" => "application/data"})
    end
-
-
 
 What's Fixed
 =====================================================

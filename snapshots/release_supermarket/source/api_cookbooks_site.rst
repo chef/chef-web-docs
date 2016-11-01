@@ -1,11 +1,14 @@
 
 
-
 =====================================================
 Cookbooks Site API
 =====================================================
 
-.. include:: ../../includes_api_cookbooks_site/includes_api_cookbooks_site.rst
+.. tag api_cookbooks_site_summary
+
+The Cookbooks Site API is used to provide access to the cookbooks community hosted at |url community_cookbooks|. All of the cookbooks in the community are accessible through a RESTful API located at |url api_cookbooks| by using any of the supported endpoints. In most cases, using knife is the best way to interact with these cookbooks; in some cases, using the Cookbooks Site API directly is necessary.
+
+.. end_tag
 
 .. note:: In general, using knife (and the ``knife cookbook site`` subcommand) to manage cookbooks that are located on the Cookbooks site is more efficient than using the Cookbooks Site API and is the recommended approach for managing cookbooks on that site. This document provides information about the Cookbooks Site API in the event that using the API is necessary.
 
@@ -13,10 +16,19 @@ Endpoints
 =====================================================
 The Cookbooks Site API has the following endpoints.
 
-
 /cookbooks
 -----------------------------------------------------
-.. include:: ../../includes_cookbooks/includes_cookbooks.rst
+.. tag cookbooks_26
+
+A cookbook is the fundamental unit of configuration and policy distribution. A cookbook defines a scenario and contains everything that is required to support that scenario:
+
+* Recipes that specify the resources to use and the order in which they are to be applied
+* Attribute values
+* File distributions
+* Templates
+* Extensions to Chef, such as libraries, definitions, and custom resources
+
+.. end_tag
 
 The ``/cookbooks`` endpoint has the following methods: ``GET`` and ``POST``.
 
@@ -147,7 +159,6 @@ The response will return the name of the cookbook, a description, URI, the name 
      - Description
    * - ``200``
      - OK. The request was successful. One or more cookbooks were returned as a result of the search query.
-
 
 /cookbooks/NAME
 -----------------------------------------------------
@@ -284,7 +295,6 @@ If a cookbook is deprecated, that status is noted by the ``deprecated`` field (b
              "error_code": "NOT_FOUND"
           }
 
-
 /cookbooks/VERSION
 -----------------------------------------------------
 A cookbook version always takes the form x.y.z, where x, y, and z are decimal numbers that are used to represent major (x), minor (y), and patch (z) versions. A two-part version (x.y) is also allowed. When passing a cookbook version using this method, underscores ("_") should be used as the separator between versions. For example, a cookbook with a version 1.0.1 would be 1_0_1.
@@ -405,11 +415,14 @@ The response will return details for a cookbook version, including the license u
              "error_code": "NOT_FOUND"
           }
 
-
 /search
 -----------------------------------------------------
 
-.. include:: ../../includes_search/includes_search.rst
+.. tag search
+
+Search indexes allow queries to be made for any type of data that is indexed by the Chef server, including data bags (and data bag items), environments, nodes, and roles. A defined query syntax is used to support search patterns like exact, wildcard, range, and fuzzy. A search is a full-text query that can be done from several locations, including from within a recipe, by using the ``search`` subcommand in knife, the ``search`` method in the Recipe DSL, the search box in the Chef management console, and by using the ``/search`` or ``/search/INDEX`` endpoints in the Chef server API. The search engine is based on Apache Solr and is run from the Chef server.
+
+.. end_tag
 
 The ``/search`` endpoint has the following methods: ``GET``.
 
@@ -475,7 +488,6 @@ The response will return a list of cookbooks by name and description and will re
      - Description
    * - ``200``
      - OK. The request was successful. One or more cookbooks were returned as a result of the search query.
-
 
 /tools
 -----------------------------------------------------
@@ -564,7 +576,6 @@ The response will return the name of the tool, a type, description, owner, sourc
    * - ``200``
      - OK. The request was successful. One or more tools were returned.
 
-
 /tools-search
 -----------------------------------------------------
 The ``tools`` endpoint allows Chef Supermarket tools to be searched. This endpoint has the following methods: ``GET``.
@@ -636,7 +647,6 @@ The response will return a list of tools that match the search query. Each retur
    * - ``200``
      - OK. The request was successful. One or more tools were returned as a result of the search query.
 
-
 /tools/SLUG
 -----------------------------------------------------
 The ``tools/[SLUG]`` endpoint allows a specific tool to be accessed. This endpoint has the following methods: ``GET``.
@@ -687,7 +697,6 @@ The response will return details for a tool, including the name of the tool, a t
              ["Resource does not exist"],
              "error_code": "NOT_FOUND"
           }
-
 
 /universe
 -----------------------------------------------------
@@ -754,7 +763,6 @@ The response will return an embedded hash, with the name of each cookbook as a t
      - Description
    * - ``200``
      - OK. The request was successful. One (or more) cookbooks and associated cookbook version information was returned.
-
 
 /users/USERNAME
 -----------------------------------------------------

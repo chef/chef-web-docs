@@ -6,7 +6,13 @@ Chef Open Source Slide Decks
 
  .. revealjs:: Chef Open Source Slide Decks
 
-  .. include:: ../../includes_slides/includes_slides_core_splash.rst
+  .. tag slides_core_splash
+
+  .. Use this slide as the very first slide in every slide deck. The title of this slide (as included in the slide map file) is what identifies the training.
+
+  .. image:: ../../images/slides_splash.png
+
+  .. end_tag
 
 .. Hide the TOC from this file. Just keep these alphabetized please.
 

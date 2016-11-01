@@ -28,11 +28,11 @@ The Open Source Chef server supports IPv6. Set the ``ip_version`` setting in the
      - Description
    * - ``ip_version``
      - Enable IPv6 and run Open Source Chef in "dual IPv4/IPv6 mode". When this setting is ``ipv6``, the Open Source Chef server uses IPv6 for all internal comunication and is able to accept external communications that are using IPv6 (via the Nginx load balancer). Default value: ``ipv4``. For example:
-	   
+
 	   .. code-block:: ruby
-	   
+
 	      ip_version ipv6
-       
+
 	   without an equals symbol (``=``).
 
        .. note:: Setting ``ip_version`` to ``ipv6`` will also set ``nginx['enable_ipv6']`` to ``true``.
@@ -83,7 +83,7 @@ Custom Cookbook Storage
 -----------------------------------------------------
 By defalt, Open Source Chef stores cookbooks in Bookshelf. Open Source Chef is designed for a standalone configuration, which means Bookshelf is located on the same physical machine. It is possible to offload cookbook storage, such as a different physical machine behind the firewall or to a proxy location that is hosted on Amazon Simple Storage Service (S3).
 
-The following settings may be changed to support the storing of cookbooks in a non-default location: 
+The following settings may be changed to support the storing of cookbooks in a non-default location:
 
 .. list-table::
    :widths: 200 300
@@ -95,8 +95,8 @@ The following settings may be changed to support the storing of cookbooks in a n
      - The URL from which the chef-client is to download cookbooks. By default, this is the ``Host:`` header provided by the chef-client when it contacts the Chef server. When cookbook storage is located behind a firewall and/or when the ``Host:`` header is not used, this value must be a URL that is accessible to the chef-client. Default value: ``:host_header``.
    * - ``bookshelf['url']``
      - The URL at which cookbooks are stored.
-	 
-In addition, these settings may be necessary when configuring the storing of cookbooks in a non-default location: 
+
+In addition, these settings may be necessary when configuring the storing of cookbooks in a non-default location:
 
 .. list-table::
    :widths: 200 300
@@ -109,7 +109,7 @@ In addition, these settings may be necessary when configuring the storing of coo
    * - ``bookshelf['s3_secret_key_id']``
      - The secret key.	 
    * - ``erchef['s3_bucket']``
-     - The bucket name. Default value: ``bookshelf``.	 
+     - The bucket name. Default value: ``bookshelf``.
 
 New ``upgrade`` Subcommand
 -----------------------------------------------------
@@ -119,14 +119,13 @@ The upgrade process for a standalone configuration Open Source Chef server has b
 
 .. warning:: Back up the server data before running the ``upgrade`` command. Even though it's not a requirement (because it's an in-place upgrade) and even though there is no step for "restoring data" as part of the upgrade process, in the event something unexpected does happen, it's important to be able to restore this data to the server.
 
-
 chef-server-ctl upgrade
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The ``chef-server-ctl`` command has a new subcommand: ``upgrade``:
 
 ``upgrade``
    Use for in-place upgrades of the Open Source Chef server, version 11.0.4 (or higher). This subcommand will apply the necessary SQL changes without having to back up data and install the server from scratch. (Data should still be backed up before performing the upgrade, just to ensure that it is available, should it be needed.)
-   
+
    .. note:: This subcommand may only be used when the Open Source Chef server is configured for a standalone topology and it assumes that all services used by Open Source Chef are enabled.
 
 Upgrade Process
@@ -136,26 +135,24 @@ Upgrade Process
 The new upgrade process is simpler. Update the package on the system, and then run the ``upgrade`` subcommand:
 
 #. After all of the services have shut down, update the package (using the appropriate package manager for the system on which the server is running):
-   
+
    .. code-block:: bash
-   
+
       $ dpkg -i package.deb
 
 #. Upgrade the server itself:
-   
+
    .. code-block:: bash
-   
+
       $ chef-server-ctl upgrade
-   
+
    .. note:: The following error may be present in the logs for PostgreSQL during the upgrade process: ``ERROR: duplicate key value violates unique constraint "checksums_pkey"``. This error does not represent an issue with the upgrade process and can be safely ignored.
 
 #. Check the status of everything:
-   
+
    .. code-block:: bash
-   
+
       $ chef-server-ctl status
-
-
 
 What's Fixed
 =====================================================
@@ -194,7 +191,7 @@ For the Open Source Chef web user interface, the following bugs were fixed:
 * `CHEF-3883 <http://tickets.opscode.com/browse/CHEF-3883>`_  --- Chef 11 status page does not list all nodes
 * `CHEF-3267 <http://tickets.opscode.com/browse/CHEF-3267>`_  --- webui status page doesn't respect environment selection
 * `CHEF-2060 <http://tickets.opscode.com/browse/CHEF-2060>`_  --- Auto-complete is enabled in Chef html - /users/login_exec
- 
+
 .. What's Improved
 .. =====================================================
 .. The following improvements were made:

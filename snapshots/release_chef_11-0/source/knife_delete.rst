@@ -4,19 +4,46 @@
 knife delete
 =====================================================
 
-.. include:: ../../includes_knife/includes_knife_delete.rst
+.. tag knife_delete_25
+
+Use the ``knife delete`` subcommand to delete an object from a Chef server. This subcommand works similar to ``knife cookbook delete``, ``knife data bag delete``, ``knife environment delete``, ``knife node delete``, and ``knife role delete``, but with a single verb (and a single action).
+
+.. end_tag
 
 Syntax
 =====================================================
-.. include:: ../../includes_knife/includes_knife_delete_syntax.rst
+.. tag knife_delete_syntax
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ knife delete [PATTERN...] (options)
+
+.. end_tag
 
 Options
 =====================================================
-.. note:: .. include:: ../../includes_knife/includes_knife_common_see_common_options_link.rst
+.. note:: .. tag knife_common_see_common_options_link
 
-.. include:: ../../includes_knife/includes_knife_delete_options_11-4.rst
+          Review the list of :doc:`common options </knife_common_options>` available to this (and all) knife subcommands and plugins.
 
-.. note:: .. include:: ../../includes_knife/includes_knife_common_see_all_config_options.rst
+          .. end_tag
+
+.. tag 4_1
+
+This subcommand has the following options:
+
+``--recurse``
+   Use ``--recurse`` to delete directories recursively. Default: ``--no-recurse``.
+
+.. end_tag
+
+.. note:: .. tag knife_common_see_all_config_options
+
+          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+
+          .. end_tag
 
 Examples
 =====================================================

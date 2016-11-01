@@ -2,7 +2,17 @@
 Release Notes: chef-client 11.10
 =====================================================
 
-.. include:: ../../includes_chef/includes_chef.rst
+.. tag chef
+
+Chef is a powerful automation platform that transforms infrastructure into code. Whether you’re operating in the cloud, on-premises, or in a hybrid environment, Chef automates how infrastructure is configured, deployed, and managed across your network, no matter its size.
+
+This diagram shows how you develop, test, and deploy your Chef code.
+
+.. image:: ../../images/start_chef.svg
+   :width: 700px
+   :align: center
+
+.. end_tag
 
 .. Adopted Platforms
 .. =====================================================
@@ -62,15 +72,37 @@ The following attributes have been added to the **git** resource:
 
 knife environment compare
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_environment_compare.rst
+.. tag knife_environment_compare
+
+Use the ``compare`` argument to compare the cookbook version constraints that are set on one (or more) environments.
+
+.. end_tag
 
 **Syntax**
 
-.. include:: ../../includes_knife/includes_knife_environment_compare_syntax.rst
+.. tag knife_environment_compare_syntax
+
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife environment compare [ENVIRONMENT_NAME...] (options)
+
+.. end_tag
 
 **Options**
 
-.. include:: ../../includes_knife/includes_knife_environment_compare_options.rst
+.. tag knife_environment_compare_options
+
+This argument has the following options:
+
+``-a``, ``--all``
+   Upload all environments found at the specified path.
+
+``-m``, ``--mismatch``
+   Show only matching versions.
+
+.. end_tag
 
 **Example**
 
@@ -86,7 +118,6 @@ will return something similar to:
    apache      2.3.1        1.2.2
    windows     4.1.2        1.0.0
    postgresql  1.0.0        1.0.0
-
 
 What's Fixed
 =====================================================

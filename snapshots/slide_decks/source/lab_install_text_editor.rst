@@ -2,7 +2,6 @@
 Lab One - Install a Text Editor
 ================================================
 
-
 .. revealjs::
 
  .. revealjs:: Install a text editor
@@ -66,7 +65,15 @@ Lab One - Install a Text Editor
 
  .. revealjs:: About chef-apply
 
-  .. include:: ../../includes_ctl_chef_apply/includes_ctl_chef_apply.rst
+  .. tag ctl_chef_apply_24
+
+  chef-apply is an executable program that runs a single recipe from the command line:
+
+  * Is part of the Chef development kit
+  * A great way to explore resources
+  * Is **NOT** how Chef is run in production
+
+  .. end_tag
 
  .. revealjs:: What does chef-apply do?
 
@@ -89,19 +96,66 @@ Lab One - Install a Text Editor
       -v, --version               Show chef version
       -W, --why-run               Enable whyrun mode
       -h, --help                  Show this message
-  
 
  .. revealjs:: Install vim
 
-  .. include:: ../../step_ctl_chef_apply/step_ctl_chef_apply_install_vim.rst
+  .. tag ctl_chef_apply_install_vim
+
+  Run:
+
+  .. code-block:: bash
+
+     $ sudo chef-apply -e "package 'vim'"
+
+  Returns:
+
+  .. code-block:: bash
+
+     Recipe: (chef-apply cookbook)::(chef-apply recipe)
+       * package[vim] action install
+         - install version 7.2.411-1.8.el6 of package vim-enhanced
+
+  .. end_tag
 
  .. revealjs:: Install emacs
 
-  .. include:: ../../step_ctl_chef_apply/step_ctl_chef_apply_install_emacs.rst
+  .. tag ctl_chef_apply_install_emacs
+
+  Run:
+
+  .. code-block:: bash
+
+     $ sudo chef-apply -e "package 'emacs'"
+
+  Returns:
+
+  .. code-block:: bash
+
+     Recipe: (chef-apply cookbook)::(chef-apply recipe)
+       * package[emacs] action install
+         - install version 23.1-25.el6 of package emacs
+
+  .. end_tag
 
  .. revealjs:: Install nano
 
-  .. include:: ../../step_ctl_chef_apply/step_ctl_chef_apply_install_nano.rst
+  .. tag ctl_chef_apply_install_nano
+
+  Run:
+
+  .. code-block:: bash
+
+     $ sudo chef-apply -e "package 'nano'"
+
+  Returns:
+
+  .. code-block:: bash
+
+     Recipe: (chef-apply cookbook)::(chef-apply recipe)
+       * package[nano] action install
+         - install version 2.0.9-7.el6 of package nano
+
+  .. end_tag
 
  .. revealjs:: Resources
 
@@ -111,7 +165,22 @@ Lab One - Install a Text Editor
 
  .. revealjs:: Install $EDITOR again with chef-apply
 
-  .. include:: ../../step_ctl_chef_apply/step_ctl_chef_apply_rerun_recipe.rst
+  .. tag ctl_chef_apply_rerun_recipe
+
+  Run:
+
+  .. code-block:: bash
+
+     $ sudo chef-apply -e "package 'vim'"
+
+  Returns:
+
+  .. code-block:: bash
+
+     Recipe: (chef-apply cookbook)::(chef-apply recipe)
+       * package[vim] action install (up to date)
+
+  .. end_tag
 
  .. revealjs:: Recap
 
@@ -119,7 +188,13 @@ Lab One - Install a Text Editor
 
  .. revealjs:: Questions
 
-  .. include:: ../../includes_slides/includes_slides_core_questions.rst
+  .. tag slides_core_questions
+
+  .. Use this slide every time the slide deck stops for Q/A sessions with attendees.
+
+  .. image:: ../../images/slides_questions.png
+
+  .. end_tag
 
  .. revealjs:: More Info About chef-apply
 

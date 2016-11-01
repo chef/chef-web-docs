@@ -1,11 +1,16 @@
 
 
-
 =====================================================
 kitchen (executable)
 =====================================================
 
-.. include:: ../../includes_ctl_kitchen/includes_ctl_kitchen.rst
+.. tag ctl_kitchen_summary
+
+kitchen is the command-line tool for Kitchen, an integration testing tool used by the chef-client. Kitchen runs tests against any combination of platforms using any combination of test suites. Each test, however, is done against a specific instance, which is comprised of a single platform and a single set of testing criteria. This allows each test to be run in isolation, ensuring that different behaviors within the same codebase can be tested thoroughly before those changes are committed to production.
+
+.. note:: Any Kitchen subcommand that does not specify an instance will be applied to all instances.
+
+.. end_tag
 
 .. note:: This topic details functionality that is packaged with Chef development kit. See http://kitchen.ci/docs/getting-started/ for more information about Kitchen.
 
@@ -74,7 +79,6 @@ will return something similar to:
 
    client-centos-65
 
-
 .. kitchen console
 .. =====================================================
 .. .. include:: ../../includes_ctl_kitchen/includes_ctl_kitchen_console.rst
@@ -112,7 +116,6 @@ This subcommand has the following syntax:
 
    $ kitchen converge PLATFORMS (options)
 
-
 Options
 -----------------------------------------------------
 This subcommand has the following options:
@@ -126,7 +129,22 @@ This subcommand has the following options:
 ``PLATFORMS``
    Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
-   .. include:: ../../includes_ctl_kitchen/includes_ctl_kitchen_common_option_platforms.rst
+   .. tag ctl_kitchen_common_option_platforms
+
+   For example, if a .kitchen.yml file contains the following:
+
+   .. code-block:: javascript
+
+       - name: centos-5.10
+       - name: centos-6.5
+       - name: fedora-19
+       - name: ubuntu-1004
+       - name: ubuntu-1204
+       - name: ubuntu-1310
+
+   then a regular expression like ``(04|5)`` would run Kitchen against ``centos-5.10``, ``centos-6.5``, ``ubuntu-1004``, and ``ubuntu-1204``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1004``, ``ubuntu-1204``, and ``ubuntu-1310``. A regular expression like ``(fedora-19)`` would run Kitchen against only ``fedora-19``. Default: ``all``.
+
+   .. end_tag
 
 Examples
 -----------------------------------------------------
@@ -246,7 +264,6 @@ The chef-client is downloaded the first time this command is run. The output of 
           Finished converging <default-ubuntu-1404> (0m15.67s).
    -----> Kitchen is finished. (0m15.96s)
 
-
 kitchen create
 =====================================================
 Use the ``create`` subcommand to create one (or more) instances. Instances are based on the list of platforms and suites in the .kitchen.yml file.
@@ -258,7 +275,6 @@ This subcommand has the following syntax:
 .. code-block:: bash
 
    $ kitchen create PLATFORMS (options)
-
 
 Options
 -----------------------------------------------------
@@ -273,7 +289,22 @@ This subcommand has the following options:
 ``PLATFORMS``
    Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
-   .. include:: ../../includes_ctl_kitchen/includes_ctl_kitchen_common_option_platforms.rst
+   .. tag ctl_kitchen_common_option_platforms
+
+   For example, if a .kitchen.yml file contains the following:
+
+   .. code-block:: javascript
+
+       - name: centos-5.10
+       - name: centos-6.5
+       - name: fedora-19
+       - name: ubuntu-1004
+       - name: ubuntu-1204
+       - name: ubuntu-1310
+
+   then a regular expression like ``(04|5)`` would run Kitchen against ``centos-5.10``, ``centos-6.5``, ``ubuntu-1004``, and ``ubuntu-1204``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1004``, ``ubuntu-1204``, and ``ubuntu-1310``. A regular expression like ``(fedora-19)`` would run Kitchen against only ``fedora-19``. Default: ``all``.
+
+   .. end_tag
 
 Examples
 -----------------------------------------------------
@@ -380,7 +411,6 @@ This subcommand has the following syntax:
 
    $ kitchen destroy PLATFORMS (options)
 
-
 Options
 -----------------------------------------------------
 This subcommand has the following options:
@@ -394,7 +424,22 @@ This subcommand has the following options:
 ``PLATFORMS``
    Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
-   .. include:: ../../includes_ctl_kitchen/includes_ctl_kitchen_common_option_platforms.rst
+   .. tag ctl_kitchen_common_option_platforms
+
+   For example, if a .kitchen.yml file contains the following:
+
+   .. code-block:: javascript
+
+       - name: centos-5.10
+       - name: centos-6.5
+       - name: fedora-19
+       - name: ubuntu-1004
+       - name: ubuntu-1204
+       - name: ubuntu-1310
+
+   then a regular expression like ``(04|5)`` would run Kitchen against ``centos-5.10``, ``centos-6.5``, ``ubuntu-1004``, and ``ubuntu-1204``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1004``, ``ubuntu-1204``, and ``ubuntu-1310``. A regular expression like ``(fedora-19)`` would run Kitchen against only ``fedora-19``. Default: ``all``.
+
+   .. end_tag
 
 Examples
 -----------------------------------------------------
@@ -404,7 +449,6 @@ kitchen diagnose
 =====================================================
 Use the ``diagnose`` subcommand to show a computed diagnostic configuration for one (or more) instances. This subcommand will make all implicit configuration settings explicit because it echoes back all of the configuration data as YAML.
 
-
 Syntax
 -----------------------------------------------------
 This subcommand has the following syntax:
@@ -412,8 +456,6 @@ This subcommand has the following syntax:
 .. code-block:: bash
 
    $ kitchen diagnose PLATFORMS (options)
-
-
 
 Options
 -----------------------------------------------------
@@ -434,7 +476,22 @@ This subcommand has the following options:
 ``PLATFORMS``
    Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
-   .. include:: ../../includes_ctl_kitchen/includes_ctl_kitchen_common_option_platforms.rst
+   .. tag ctl_kitchen_common_option_platforms
+
+   For example, if a .kitchen.yml file contains the following:
+
+   .. code-block:: javascript
+
+       - name: centos-5.10
+       - name: centos-6.5
+       - name: fedora-19
+       - name: ubuntu-1004
+       - name: ubuntu-1204
+       - name: ubuntu-1310
+
+   then a regular expression like ``(04|5)`` would run Kitchen against ``centos-5.10``, ``centos-6.5``, ``ubuntu-1004``, and ``ubuntu-1204``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1004``, ``ubuntu-1204``, and ``ubuntu-1310``. A regular expression like ``(fedora-19)`` would run Kitchen against only ``fedora-19``. Default: ``all``.
+
+   .. end_tag
 
 Examples
 -----------------------------------------------------
@@ -469,7 +526,6 @@ or:
        filename: "/Users/username/Projects/sandbox/path/to/kitchen.yml"
        raw_data: #...
      local_config:
-
 
 **Diagnose an instance using --instances option**
 
@@ -541,7 +597,6 @@ and will track information about provisioners:
          clients_path: 
          name: chef_zero
 
-
 kitchen driver create
 =====================================================
 Use the ``driver create`` subcommand to create a new Kitchen driver in the RubyGems project.
@@ -554,14 +609,12 @@ This subcommand has the following syntax:
 
    $ kitchen driver create NAME
 
-
 Options
 -----------------------------------------------------
 This subcommand has the following options:
 
 ``-l``, ``--license``
    The license for the RubyGems file. Possible values: ``apachev2``, ``lgplv3``, ``mit``, and ``reserved``. Default: ``apachev2``.
- 
 
 Examples
 -----------------------------------------------------
@@ -578,7 +631,6 @@ This subcommand has the following syntax:
 .. code-block:: bash
 
    $ kitchen driver discover
-
 
 Options
 -----------------------------------------------------
@@ -610,7 +662,22 @@ This subcommand has the following options:
 ``PLATFORMS``
    Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
-   .. include:: ../../includes_ctl_kitchen/includes_ctl_kitchen_common_option_platforms.rst
+   .. tag ctl_kitchen_common_option_platforms
+
+   For example, if a .kitchen.yml file contains the following:
+
+   .. code-block:: javascript
+
+       - name: centos-5.10
+       - name: centos-6.5
+       - name: fedora-19
+       - name: ubuntu-1004
+       - name: ubuntu-1204
+       - name: ubuntu-1310
+
+   then a regular expression like ``(04|5)`` would run Kitchen against ``centos-5.10``, ``centos-6.5``, ``ubuntu-1004``, and ``ubuntu-1204``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1004``, ``ubuntu-1204``, and ``ubuntu-1310``. A regular expression like ``(fedora-19)`` would run Kitchen against only ``fedora-19``. Default: ``all``.
+
+   .. end_tag
 
 Examples
 -----------------------------------------------------
@@ -632,7 +699,6 @@ This subcommand has the following syntax:
 
    $ kitchen init
 
-
 Options
 -----------------------------------------------------
 This subcommand has the following options:
@@ -652,7 +718,22 @@ This subcommand has the following options:
 ``PLATFORMS``
    Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
-   .. include:: ../../includes_ctl_kitchen/includes_ctl_kitchen_common_option_platforms.rst
+   .. tag ctl_kitchen_common_option_platforms
+
+   For example, if a .kitchen.yml file contains the following:
+
+   .. code-block:: javascript
+
+       - name: centos-5.10
+       - name: centos-6.5
+       - name: fedora-19
+       - name: ubuntu-1004
+       - name: ubuntu-1204
+       - name: ubuntu-1310
+
+   then a regular expression like ``(04|5)`` would run Kitchen against ``centos-5.10``, ``centos-6.5``, ``ubuntu-1004``, and ``ubuntu-1204``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1004``, ``ubuntu-1204``, and ``ubuntu-1310``. A regular expression like ``(fedora-19)`` would run Kitchen against only ``fedora-19``. Default: ``all``.
+
+   .. end_tag
 
 Examples
 -----------------------------------------------------
@@ -689,7 +770,6 @@ This subcommand has the following syntax:
 
    $ kitchen list PLATFORMS (options)
 
-
 Options
 -----------------------------------------------------
 This subcommand has the following options:
@@ -703,7 +783,22 @@ This subcommand has the following options:
 ``PLATFORMS``
    Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
-   .. include:: ../../includes_ctl_kitchen/includes_ctl_kitchen_common_option_platforms.rst
+   .. tag ctl_kitchen_common_option_platforms
+
+   For example, if a .kitchen.yml file contains the following:
+
+   .. code-block:: javascript
+
+       - name: centos-5.10
+       - name: centos-6.5
+       - name: fedora-19
+       - name: ubuntu-1004
+       - name: ubuntu-1204
+       - name: ubuntu-1310
+
+   then a regular expression like ``(04|5)`` would run Kitchen against ``centos-5.10``, ``centos-6.5``, ``ubuntu-1004``, and ``ubuntu-1204``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1004``, ``ubuntu-1204``, and ``ubuntu-1310``. A regular expression like ``(fedora-19)`` would run Kitchen against only ``fedora-19``. Default: ``all``.
+
+   .. end_tag
 
 Examples
 -----------------------------------------------------
@@ -758,7 +853,6 @@ or if there are multiple suites defined, such as ``default`` and ``test``:
    test-ubuntu-10.04     vagrant  chef_zero     <not created>
    test-centos-6.5       vagrant  chef_zero     <not created>
 
-
 kitchen login
 =====================================================
 Use the ``login`` subcommand to log in to a single instance. Instances are based on the list of platforms and suites in the .kitchen.yml file. After logging in successfully, the instance can be interacted with just like any other virtual machine, including adding or removing packages, starting or stopping services, and so on. It's a sandbox. Make any change necessary to help improve the coverage for cookbook testing.
@@ -771,7 +865,6 @@ This subcommand has the following syntax:
 
    $ kitchen login PLATFORM (options)
 
-
 Options
 -----------------------------------------------------
 This subcommand has the following options:
@@ -782,7 +875,22 @@ This subcommand has the following options:
 ``PLATFORMS``
    Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
-   .. include:: ../../includes_ctl_kitchen/includes_ctl_kitchen_common_option_platforms.rst
+   .. tag ctl_kitchen_common_option_platforms
+
+   For example, if a .kitchen.yml file contains the following:
+
+   .. code-block:: javascript
+
+       - name: centos-5.10
+       - name: centos-6.5
+       - name: fedora-19
+       - name: ubuntu-1004
+       - name: ubuntu-1204
+       - name: ubuntu-1310
+
+   then a regular expression like ``(04|5)`` would run Kitchen against ``centos-5.10``, ``centos-6.5``, ``ubuntu-1004``, and ``ubuntu-1204``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1004``, ``ubuntu-1204``, and ``ubuntu-1310``. A regular expression like ``(fedora-19)`` would run Kitchen against only ``fedora-19``. Default: ``all``.
+
+   .. end_tag
 
 Examples
 -----------------------------------------------------
@@ -812,7 +920,6 @@ This subcommand has the following syntax:
 
    $ kitchen setup PLATFORMS (options)
 
-
 Options
 -----------------------------------------------------
 This subcommand has the following options:
@@ -826,7 +933,22 @@ This subcommand has the following options:
 ``PLATFORMS``
    Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
-   .. include:: ../../includes_ctl_kitchen/includes_ctl_kitchen_common_option_platforms.rst
+   .. tag ctl_kitchen_common_option_platforms
+
+   For example, if a .kitchen.yml file contains the following:
+
+   .. code-block:: javascript
+
+       - name: centos-5.10
+       - name: centos-6.5
+       - name: fedora-19
+       - name: ubuntu-1004
+       - name: ubuntu-1204
+       - name: ubuntu-1310
+
+   then a regular expression like ``(04|5)`` would run Kitchen against ``centos-5.10``, ``centos-6.5``, ``ubuntu-1004``, and ``ubuntu-1204``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1004``, ``ubuntu-1204``, and ``ubuntu-1310``. A regular expression like ``(fedora-19)`` would run Kitchen against only ``fedora-19``. Default: ``all``.
+
+   .. end_tag
 
 Examples
 -----------------------------------------------------
@@ -845,7 +967,6 @@ This subcommand has the following syntax:
 .. code-block:: bash
 
    $ kitchen test PLATFORMS (options)
-
 
 Options
 -----------------------------------------------------
@@ -866,7 +987,22 @@ This subcommand has the following options:
 ``PLATFORMS``
    Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
-   .. include:: ../../includes_ctl_kitchen/includes_ctl_kitchen_common_option_platforms.rst
+   .. tag ctl_kitchen_common_option_platforms
+
+   For example, if a .kitchen.yml file contains the following:
+
+   .. code-block:: javascript
+
+       - name: centos-5.10
+       - name: centos-6.5
+       - name: fedora-19
+       - name: ubuntu-1004
+       - name: ubuntu-1204
+       - name: ubuntu-1310
+
+   then a regular expression like ``(04|5)`` would run Kitchen against ``centos-5.10``, ``centos-6.5``, ``ubuntu-1004``, and ``ubuntu-1204``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1004``, ``ubuntu-1204``, and ``ubuntu-1310``. A regular expression like ``(fedora-19)`` would run Kitchen against only ``fedora-19``. Default: ``all``.
+
+   .. end_tag
 
 Examples
 -----------------------------------------------------
@@ -909,9 +1045,9 @@ to return something similar to:
    Converging 2 resources
    Recipe: git::default
      * package[git] action install[date/time] INFO: Processing package[git] action install (git::default line 10)
-   
+
        - install version 1:2.3.4.5-6 of package git
-   
+
      * log[log_description] action write[date/time] INFO: Processing log[log_description] action write (git::default line 5)
    ...
    Chef Client finished, 2 resources updated
@@ -958,7 +1094,6 @@ or:
 
    $ kitchen test -c 4
 
-
 kitchen verify
 =====================================================
 Use the ``verify`` subcommand to verify one (or more) instances. Instances are based on the list of platforms and suites in the .kitchen.yml file.
@@ -973,7 +1108,6 @@ This subcommand has the following syntax:
 
    $ kitchen verify PLATFORMS (options)
 
-
 Options
 -----------------------------------------------------
 This subcommand has the following options:
@@ -987,7 +1121,22 @@ This subcommand has the following options:
 ``PLATFORMS``
    Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
-   .. include:: ../../includes_ctl_kitchen/includes_ctl_kitchen_common_option_platforms.rst
+   .. tag ctl_kitchen_common_option_platforms
+
+   For example, if a .kitchen.yml file contains the following:
+
+   .. code-block:: javascript
+
+       - name: centos-5.10
+       - name: centos-6.5
+       - name: fedora-19
+       - name: ubuntu-1004
+       - name: ubuntu-1204
+       - name: ubuntu-1310
+
+   then a regular expression like ``(04|5)`` would run Kitchen against ``centos-5.10``, ``centos-6.5``, ``ubuntu-1004``, and ``ubuntu-1204``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1004``, ``ubuntu-1204``, and ``ubuntu-1310``. A regular expression like ``(fedora-19)`` would run Kitchen against only ``fedora-19``. Default: ``all``.
+
+   .. end_tag
 
 Examples
 -----------------------------------------------------
@@ -1053,7 +1202,6 @@ This subcommand has the following syntax:
 .. code-block:: bash
 
    $ kitchen version
-
 
 Options
 -----------------------------------------------------

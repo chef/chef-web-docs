@@ -1,11 +1,14 @@
 
 
-
 =====================================================
 RuboCop
 =====================================================
 
-.. include:: ../../includes_ruby/includes_ruby_style_patterns.rst
+.. tag ruby_style_patterns
+
+Most of the code that is authored when working with Chef is written as Ruby. Just about every file within a cookbook---with few exceptions!---is a Ruby file.
+
+.. end_tag
 
 Use RuboCop to author better Ruby code:
 
@@ -41,9 +44,9 @@ RuboCop returns a list, via standard output, that shows the results of the evalu
 
    Inspecting 8 files
    CWCWCCCC
-   
+
    Offences:
-   
+
    cookbooks/apache/attributes/default.rb:1:1: C: Missing utf-8 encoding comment.
    default["apache"]["indexfile"] = "index1.html"
    ^
@@ -106,7 +109,7 @@ The following symbols appear in the standard output and are used to indicate the
 =====================================================
 Use a .rubocop.yml file in a cookbook to override the default settings in RuboCop for enabled and disabled rules. Only enabled rules---either in the ``enabled.yml`` file in RuboCop itself or rules that are specifically enabled in a cookbook's .rubocop.yml file---will be used during the evaluation. Any rule that becomes unhelpful should be disabled in the .rubocop.yml file.
 
-Each cookbook has its own .rubocop.yml file, which means that each cookbook may have its own set of enabled, disabled, and custom rules. That said, it's more common for all cookbooks to have the same set of enabled, disabled, and custom rules. When RuboCop is run against a cookbook, the full set of enabled and disabled rules (as defined the ``enabled.yml`` and ``disabled.yml`` files in RuboCop itself) are loaded first, and are then compared against the settings in the cookbook's .rubocop.yml file. 
+Each cookbook has its own .rubocop.yml file, which means that each cookbook may have its own set of enabled, disabled, and custom rules. That said, it's more common for all cookbooks to have the same set of enabled, disabled, and custom rules. When RuboCop is run against a cookbook, the full set of enabled and disabled rules (as defined the ``enabled.yml`` and ``disabled.yml`` files in RuboCop itself) are loaded first, and are then compared against the settings in the cookbook's .rubocop.yml file.
 
 Custom rules should be specified in the .rubocop.yml file. The state of rules---enabled or disabled---in a .rubocop.yml file take precedence over the state of rules defined in the ``enabled.yml`` and ``disabled.yml`` files.
 
@@ -134,13 +137,13 @@ A typical ``.rubocop.yml`` that is used with Chef looks like:
 
    AlignParameters:
      Enabled: false
-   
+
    Encoding:
      Enabled: false
-   
+
    LineLength:
      Max: 200
-   
+
    StringLiterals:
      Enabled: false
 

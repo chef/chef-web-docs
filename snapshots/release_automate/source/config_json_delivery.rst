@@ -1,11 +1,16 @@
 
 
-
 =========================================================
 Configure a Project through config.json (Chef Automate)
 =========================================================
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+.. tag chef_automate_mark
+
+.. image:: ../../images/chef_automate_full.png
+   :width: 40px
+   :height: 17px
+
+.. end_tag
 
 The ``config.json`` file is located at the root of the ``.delivery`` folder that is located within a project managed by Chef Automate and configures that project to publish to a Chef Automate pipeline.
 
@@ -37,25 +42,42 @@ The structure of the ``config.json`` file is similar to:
 
 Configuration Settings
 -----------------------------------------------------
-.. include:: ../../includes_delivery_config/includes_delivery_config_json_setting.rst
+.. tag delivery_config_json_setting
+
+The behavior of pipeline phases can be customized using the project's ``config.json`` file. Each ``config.json`` file has a set of required settings as well as optional settings that can be set, such as which build nodes to use for specific phases, whether to skip certain phases, and so on. The basic settings are defined below; however, additional settings, such as which linting rules to follow, can also be added. See the `delivery-truck readme <https://github.com/chef-cookbooks/delivery-truck/blob/master/README.md>`_ for examples on how to add custom settings.
+
+.. end_tag
 
 ``build-cookbook``
    **Required**
 
-   .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_build_cookbook.rst
+   .. tag delivery_config_json_setting_build_cookbook
+
+   The ``build_cookbook`` setting specifies the location of the ``build-cookbook`` used by this project. A ``build-cookbook`` may be fetched from four locations:
+
+   * A local directory within the project
+   * A git repository
+   * A Chef Supermarket instance (public or private)
+   * A Chef server
+
+   .. end_tag
 
 ``build_nodes``
    **Optional**
 
-   .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_build_nodes.rst
+   .. tag delivery_config_json_setting_build_nodes
+
+   The ``build_nodes`` setting specifies which build nodes to use for specific phases in the Chef Automate pipeline. The build node may be defined as well as queried via wildcard search.
+
+   .. end_tag
 
 ``delivery-truck``
    **Optional**
 
    The ``delivery-truck`` setting specifies configurations for specific phases of the Chef Automate pipeline:
-   
+
    .. code-block:: javascript
-   
+
       "delivery-truck": {
         "lint": {
           "foodcritic": {
@@ -77,19 +99,53 @@ Configuration Settings
 ``dependencies``
    **Optional**
 
-   .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_dependencies.rst
+   .. tag delivery_config_json_setting_dependencies
+
+   The ``dependencies`` setting specifies run-time dependencies on which the current project depends. These dependency associations affect how projects are promoted through the Union, Rehearsal, and Delivered stages. Dependencies may be defined in the following ways:
+
+   * ``"project_name"``
+   * ``"project_name:pipeline_name"``
+   * ``"org_name/project_name"``
+   * ``"org_name/project_name:pipeline_name"``
+
+   If only a project name is provided, the master pipeline for that project is the dependency.
+
+   .. end_tag
 
 ``skip_phases``
    **Optional**
 
-   .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_skip_phases.rst
+   .. tag delivery_config_json_setting_skip_phases
+
+   The ``skip_phases`` setting specifies which phases are skipped by Chef Automate during the execution of a change through the pipeline. If a phase is defined as skipped, this applies to all stages in the pipeline.
+
+   Currently, the ``functional.rb``, ``quality.rb``, ``security.rb``, and ``smoke.rb`` recipes are blank by default and should be set to skipped in the ``config.json`` file:
+
+   .. code-block:: javascript
+
+      "skip_phases": [
+        "functional",
+        "quality",
+        "security",
+        "smoke"
+      ]
+
+   .. end_tag
 
 ``version``
    **Required**
 
-   .. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_version.rst
+   .. tag delivery_config_json_setting_version
 
-.. note:: .. include:: ../../includes_delivery_cookbook/includes_delivery_cookbook_delivery_truck.rst
+   The ``version`` setting specifies the version of the configuration that the Chef Automate server must user. The current default value is ``2``,
+
+   .. end_tag
+
+.. note:: .. tag delivery_cookbook_delivery_truck
+
+          ``delivery-truck`` is a cookbook for Chef Automate that should be a dependency of every recipe in a ``build-cookbook``, which is effectively a project-specific wrapper cookbook for the ``delivery-truck`` cookbook. The ``delivery-truck`` cookbook defines a set of recipes that correspond to the phases and stages in the Chef Automate pipeline and help ensure good default ``build-cookbook`` behavior. Chef recommends including the ``delivery-truck`` cookbook in all recipes in a ``build-cookbook``.
+
+          .. end_tag
 
 Phase Settings
 -----------------------------------------------------
@@ -101,23 +157,108 @@ The ``publish`` phase configuration settings specify the location(s) to which co
 
 Chef Server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_delivery_truck_publish_chef_server.rst
+.. tag delivery_config_json_setting_delivery_truck_publish_chef_server
+
+If the ``config.json`` file specifies the following cookbooks are published to the Chef server that is part of this Chef Automate configuration:
+
+.. code-block:: javascript
+
+   "delivery-truck":{
+     "publish": {
+       "chef_server": "true"
+     }
+   }
+
+.. end_tag
 
 git
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_delivery_truck_publish_git.rst
+.. tag delivery_config_json_setting_delivery_truck_publish_git
+
+If the ``config.json`` file specifies the following cookbooks are published to a git repository located on an open source git server:
+
+.. code-block:: javascript
+
+   "delivery-truck":{
+     "publish": {
+       "git": "ssh://git@stash:2222/<project-name>/<repo-name>"
+     }
+   }
+
+This publishing option requires the ``git`` deploy key for that repository to be available from a data bag on the Chef server that is part of this Chef Automate configuration.
+
+.. end_tag
 
 GitHub
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_delivery_truck_publish_github.rst
+.. tag delivery_config_json_setting_delivery_truck_publish_github
+
+If the ``config.json`` file specifies the following cookbooks are published to a GitHub repository:
+
+.. code-block:: javascript
+
+   "delivery-truck":{
+     "publish": {
+       "github": "chef/chef-web-docs"
+     }
+   }
+
+where ``"chef/chef-web-docs"`` represents the organization/repository to which the ``build-cookbook`` belongs.
+
+This publishing option requires the ``github`` deploy key for that repository to be available from a data bag on the Chef server that is part of this Chef Automate configuration.
+
+.. end_tag
 
 Supermarket
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_delivery_truck_publish_supermarket.rst
+.. tag delivery_config_json_setting_delivery_truck_publish_supermarket
 
-.. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_delivery_truck_publish_supermarket_private.rst
+Publish cookbooks to the public Chef Supermarket:
 
-.. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_delivery_truck_publish_supermarket_credentials.rst
+If the ``config.json`` file specifies the following cookbooks are published to the public Chef Supermarket:
+
+.. code-block:: javascript
+
+   "delivery-truck":{
+     "publish": {
+       "supermarket": "https://supermarket.chef.io"
+     }
+   }
+
+.. end_tag
+
+.. tag delivery_config_json_setting_delivery_truck_publish_supermarket_private
+
+Publish cookbooks to a private Chef Supermarket:
+
+.. code-block:: javascript
+
+   "delivery-truck":{
+     "publish": {
+       "supermarket": "https://private-supermarket.example.com"
+     }
+   }
+
+.. end_tag
+
+.. tag delivery_config_json_setting_delivery_truck_publish_supermarket_credentials
+
+Publish cookbooks to Chef Supermarket, but with custom credentials:
+
+.. code-block:: javascript
+
+   "delivery-truck":{
+     "publish": {
+       "supermarket": "https://supermarket.chef.io",
+       "supermarket-custom-credentials": "true"
+     }
+   }
+
+This ``publish`` option requires the ``supermarket_user`` and ``supermarket_key`` credentials to be available from the 
+``delivery-secrets`` data bag on the Chef server that is part of this Chef Automate configuration. For more information on the ``delivery-secrets`` data bag, 
+see `Handling Secrets <https://github.com/chef-cookbooks/delivery-sugar#handling-secrets-alpha>`_ in the ``delivery-sugar`` cookbook README file.
+
+.. end_tag
 
 Multiple Locations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -156,35 +297,131 @@ The following examples show how to specify the location of the ``build-cookbook`
 
 **A local directory**
 
-.. include:: ../../includes_delivery_config/includes_delivery_config_example_build_cookbook_local.rst
+.. tag delivery_config_example_build_cookbook_local
+
+.. To specify a build-cookbook located in a local directory:
+
+.. code-block:: javascript
+
+   "build_cookbook": {
+     "name": "build-cookbook",
+     "path": ".delivery/build-cookbook"
+   }
+
+.. end_tag
 
 **A git source**
 
-.. include:: ../../includes_delivery_config/includes_delivery_config_example_build_cookbook_git.rst
+.. tag delivery_config_example_build_cookbook_git
+
+.. To specify a build-cookbook located at a git source:
+
+.. code-block:: javascript
+
+   "build_cookbook": {
+      "name"  : "delivery-truck",
+      "git"   : "https://github.com/chef-cookbooks/delivery-truck.git",
+      "branch": "master"
+   }
+
+.. end_tag
 
 **A public Supermarket (https://supermarket.chef.io)**
 
-.. include:: ../../includes_delivery_config/includes_delivery_config_example_build_cookbook_supermarket_public.rst
+.. tag delivery_config_example_build_cookbook_supermarket_public
+
+.. To specify a build-cookbook located in a public Supermarket:
+
+.. code-block:: javascript
+
+   "build_cookbook": {
+      "name": "delivery-truck",
+      "supermarket": "true"
+   }
+
+.. end_tag
 
 **A private Supermarket**
 
-.. include:: ../../includes_delivery_config/includes_delivery_config_example_build_cookbook_supermarket_private.rst
+.. tag delivery_config_example_build_cookbook_supermarket_private
+
+.. To specify a build-cookbook located in a private Supermarket:
+
+.. code-block:: javascript
+
+   "build_cookbook": {
+      "name": "delivery-truck",
+      "supermarket": "true",
+      "site": "https://private-supermarket.example.com"
+   }
+
+.. end_tag
 
 **A Chef server**
 
-.. include:: ../../includes_delivery_config/includes_delivery_config_example_build_cookbook_server.rst
+.. tag delivery_config_example_build_cookbook_server
+
+.. To specify a build-cookbook located on a Chef server:
+
+.. code-block:: javascript
+
+   "build_cookbook": {
+      "name": "delivery-truck",
+      "server": "true"
+   }
+
+.. end_tag
 
 **Multiple locations**
 
-.. include:: ../../includes_delivery_config/includes_delivery_config_example_build_cookbook_server.rst
+.. tag delivery_config_example_build_cookbook_server
+
+.. To specify a build-cookbook located on a Chef server:
+
+.. code-block:: javascript
+
+   "build_cookbook": {
+      "name": "delivery-truck",
+      "server": "true"
+   }
+
+.. end_tag
 
 Build Nodes and Phases
 -----------------------------------------------------
-.. include:: ../../includes_delivery_config/includes_delivery_config_example_build_nodes_by_phase.rst
+.. tag delivery_config_example_build_nodes_by_phase
+
+The following example shows how to specify build nodes to be used for specific phases.
+
+.. code-block:: javascript
+
+   "build_nodes": {
+     "provision": ["name:builder-*-2.delivery.chef.co AND platform_version:14.04"],
+     "deploy": ["name:builder-*-2.delivery.chef.co AND platform_version:14.04"],
+     "functional": ["name:builder* AND platform_version:14.04 NOT name:builder-*-2.delivery.chef.co"]
+   }
+
+.. end_tag
 
 Run-time Dependencies
 -----------------------------------------------------
-.. include:: ../../includes_delivery_config/includes_delivery_config_example_dependencies_on_master.rst
+.. tag delivery_config_example_dependencies_on_master
+
+The following example shows a run-time dependency against the master branch of a project named ``BackendAPI``:
+
+.. code-block:: javascript
+
+   {
+     "version": "2",
+     "build_cookbook": {
+       "name": "build-cookbook",
+       "path": ".delivery/build-cookbook"
+     },
+     "skip_phases": [],
+     "dependencies": ["BackendAPI"]
+   }
+
+.. end_tag
 
 Stages and Platforms
 -----------------------------------------------------
@@ -219,16 +456,100 @@ For example:
 
 Test Patterns
 -----------------------------------------------------
-.. include:: ../../includes_delivery_config/includes_delivery_config_example_test_patterns.rst
+.. tag delivery_config_example_test_patterns
+
+The following example shows how to configure Chef Automate to ignore and/or run certain Foodcritic rules, and to exclude running tests that are located in the specified cookbook directories:
+
+.. code-block:: javascript
+
+   {
+     "version": "2",
+     "build_cookbook": {
+       "name": "delivery-truck",
+       "git": "https://github.com/chef-cookbooks/delivery-truck.git"
+     },
+     "delivery-truck": {
+       "lint": {
+         "foodcritic": {
+           "ignore_rules": ["FC009", "FC057", "FC058"],
+           "only_rules": ["FC002"],
+           "excludes": ["spec", "test"],
+           "fail_tags": ["any"]
+         }
+       }
+     }
+   }
+
+where:
+
+* ``ignore_rules`` is set to ignore Foodcritic rules ``FC009``, ``FC057``, ``FC058``
+* ``only_rules`` is set to run only Foodcritic rule ``FC002``; omit this setting to specify all rules not specified by ``ignore_rules``
+* ``excludes`` prevents Foodcritic rules from running if they are present in a cookbook's ``/spec`` and/or ``/test`` diretories
+* ``fail_tags`` states which rules should cause the run to fail; omit this setting to specify ``correctness``
+
+.. end_tag
 
 Foodcritic, excludes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_delivery_truck_lint_foodcritic_excludes.rst
+.. tag delivery_config_json_setting_delivery_truck_lint_foodcritic_excludes
+
+If the ``config.json`` file specifies:
+
+.. code-block:: javascript
+
+   "delivery-truck": {
+     "lint": {
+       "foodcritic": {
+         "ignore_rules": ["RULE", "RULE", ...],
+         "only_rules": ["RULE", "RULE", ...],
+         "excludes": ["spec", "test"]
+       }
+     }
+   }
+
+then Foodcritic rules are not run against tests that are located in the specified directories, in this case the ``/spec`` and ``/test`` directories.
+
+.. end_tag
 
 Foodcritic, ignore_rules
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_delivery_truck_lint_foodcritic_ignore_rules.rst
+.. tag delivery_config_json_setting_delivery_truck_lint_foodcritic_ignore_rules
+
+If the ``config.json`` file specifies:
+
+.. code-block:: javascript
+
+   "delivery-truck": {
+     "lint": {
+       "foodcritic": {
+         "ignore_rules": ["FC009", "FC057", "FC058"],
+         "excludes": ["DIRECTORY", "DIRECTORY", ...]
+       }
+     }
+   }
+
+then all Foodcritic rules except ``FC009``, ``FC057``, and ``FC058``  rules are run.
+
+.. end_tag
 
 Foodcritic, only_rules
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_delivery_config/includes_delivery_config_json_setting_delivery_truck_lint_foodcritic_only_rules.rst
+.. tag delivery_config_json_setting_delivery_truck_lint_foodcritic_only_rules
+
+If the ``config.json`` file specifies:
+
+.. code-block:: javascript
+
+   "delivery-truck": {
+     "lint": {
+       "foodcritic": {
+         "only_rules": ["FC002"],
+         "excludes": ["DIRECTORY", "DIRECTORY", ...]
+       }
+     }
+   }
+
+then only the ``FC002`` Foodcritic rules is run.
+
+.. end_tag
+

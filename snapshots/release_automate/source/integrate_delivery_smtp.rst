@@ -1,14 +1,16 @@
 
 
-
-
-
-
 =====================================================
 Integrate Chef Automate with SMTP
 =====================================================
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+.. tag chef_automate_mark
+
+.. image:: ../../images/chef_automate_full.png
+   :width: 40px
+   :height: 17px
+
+.. end_tag
 
 Chef Automate may be configured to allow projects to send email notifications to users about changes submitted to that project's pipeline, such as:
 
@@ -53,7 +55,6 @@ To subscribe to SMTP notifications:
    The **Deliver** category enables notifications related to changes that have passed acceptance (and may be delivered) or to changes that have been delivered.
 
    The **Observe** category enables notifications related to the status of the pipeline as changes move through it.
-
 
 Unsubscribe from Notifications
 =====================================================

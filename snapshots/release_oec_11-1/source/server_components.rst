@@ -30,7 +30,7 @@ The following diagram shows the various components that are part of a Chef serve
        .. note:: Even though the Chef server is authored in Erlang, writing code in Erlang is NOT a requirement for using Chef.
    * - Message Queues
      - Messages are sent to the Search Index using the following components:
-       
+
           #. RabbitMQ is used as the message queue for the Chef server. All items that will be added to the search index repository are first added to a queue.
           #. chef-expander is used to pull messages from the RabbitMQ queue, process them into the required format, and then post them to chef-solr for indexing.
           #. chef-solr wraps Apache Solr and exposes its REST API for indexing and search.

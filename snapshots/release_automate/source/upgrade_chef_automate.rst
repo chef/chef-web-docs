@@ -1,11 +1,16 @@
 
 
-
 =====================================================
 Upgrade Chef Automate
 =====================================================
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+.. tag chef_automate_mark
+
+.. image:: ../../images/chef_automate_full.png
+   :width: 40px
+   :height: 17px
+
+.. end_tag
 
 The following sections describe the upgrade process between versions of Chef Automate and when upgrading from a ``delivery-cluster`` setup to Chef Automate.
 
@@ -26,14 +31,13 @@ To upgrade to the latest version of Chef Automate, do the following:
 #. Update the package as appropriate for the server's OS:
 
    For Debian:
-  
+
    .. code-block:: bash
 
       dpkg -i $PATH_TO_AUTOMATE_SERVER_PACKAGE
 
-
    For Red Hat or Centos:
-  
+
    .. code-block:: bash
 
       rpm -Uvh $PATH_TO_AUTOMATE_SERVER_PACKAGE
@@ -61,7 +65,11 @@ If you have further customized this setting, modify your custom query to include
 
 Save your changes and then run ``sudo delivery-ctl reconfigure`` to complete the upgrade process.
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_build_nodes.rst
+.. tag chef_automate_build_nodes
+
+.. note:: Legacy build nodes created by ``delivery-cluster`` can be used with a Chef Automate server.  Some visibility features are designed to only work with new build nodes installed through the command line process, but the workflow feature in Chef Automate can use legacy, new, or mixed build node pools; however, you cannot upgrade a legacy build node to the new build node model.  If you would like new build nodes, please use fresh hosts or completely wipe your legacy build nodes before attempting to run ``delivery-ctl install-build-node``.
+
+.. end_tag
 
 Upgrading and the ``delivery-ctl setup`` command
 -------------------------------------------------------------------

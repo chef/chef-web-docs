@@ -2,7 +2,6 @@
 Recipes
 ================================================
 
-
 .. revealjs::
 
  .. revealjs:: Recipes Training
@@ -11,27 +10,130 @@ Recipes
 
  .. revealjs:: Recipes
 
-    .. include:: ../../includes_slides/includes_slides_recipes.rst
+    .. tag slides_recipes
+
+    * A resource is a piece of the system and its desired state
+    * A recipe is a collection of resources
+
+    .. end_tag
 
  .. revealjs:: Order Matters
 
-    .. include:: ../../includes_slides/includes_slides_recipes_order.rst
+    .. tag slides_recipes_order
+
+    .. code-block:: ruby
+
+       package 'haproxy' do
+        action :install
+       end
+
+       template '/etc/haproxy/haproxy.cfg' do
+         source 'haproxy.cfg.erb'
+         owner 'root'
+         group 'root'
+         mode '0644'
+         notifies :restart, 'service[haproxy]'
+       end
+
+       service 'haproxy' do
+         supports :restart => :true
+         action [:start, :enable]
+       end
+
+    .. end_tag
 
  .. revealjs:: Order Matters - Package Runs First
 
-    .. include:: ../../includes_slides/includes_slides_recipes_order_package.rst
+    .. tag slides_recipes_order_package
+
+    .. code-block:: ruby
+
+       package 'haproxy' do
+         action :install
+       end
+
+    .. code-block:: ruby
+
+       template '/etc/haproxy/haproxy.cfg' do
+         source 'haproxy.cfg.erb'
+         owner 'root'
+         group 'root'
+         mode '0644'
+         notifies :restart, 'service[haproxy]'
+       end
+
+       service 'haproxy' do
+         supports :restart => :true
+         action [:start, :enable]
+       end
+
+    .. end_tag
 
  .. revealjs:: Order Matters - Template Runs Second
 
-    .. include:: ../../includes_slides/includes_slides_recipes_order_template.rst
+    .. tag slides_recipes_order_template
+
+    .. code-block:: ruby
+
+       package 'haproxy' do
+         action :install
+       end
+
+    .. code-block:: ruby
+
+       template '/etc/haproxy/haproxy.cfg' do
+         source 'haproxy.cfg.erb'
+         owner 'root'
+         group 'root'
+         mode '0644'
+         notifies :restart, 'service[haproxy]'
+       end
+
+    .. code-block:: ruby
+
+       service 'haproxy' do
+         supports :restart => :true
+         action [:start, :enable]
+       end
+
+    .. end_tag
 
  .. revealjs:: Order Matters - Service Runs Third
 
-    .. include:: ../../includes_slides/includes_slides_recipes_order_service.rst
+    .. tag slides_recipes_order_service
+
+    .. code-block:: ruby
+
+       package 'haproxy' do
+         action :install
+       end
+
+       template '/etc/haproxy/haproxy.cfg' do
+         source 'haproxy.cfg.erb'
+         owner 'root'
+         group 'root'
+         mode '0644'
+         notifies :restart, 'service[haproxy]'
+       end
+
+    .. code-block:: ruby
+
+       service 'haproxy' do
+         supports :restart => :true
+         action [:start, :enable]
+       end
+
+    .. end_tag
 
  .. revealjs:: Questions
 
-    .. include:: ../../includes_slides/includes_slides_core_questions.rst
+    .. tag slides_core_questions
+
+    .. Use this slide every time the slide deck stops for Q/A sessions with attendees.
+
+    .. image:: ../../images/slides_questions.png
+
+    .. end_tag
 
  .. revealjs:: More Info About Resources
 

@@ -1,17 +1,22 @@
 
 
-
 =====================================================
 Manage Users and Roles
 =====================================================
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+.. tag chef_automate_mark
+
+.. image:: ../../images/chef_automate_full.png
+   :width: 40px
+   :height: 17px
+
+.. end_tag
 
 This topic describes the roles and permissions that may be assigned to users of Chef Automate, how to integrate an LDAP system with Chef Automate, how to add and edit users, and how to add user SSH keys.
 
 Roles and Permissions
 =====================================================
-Chef Automate has a standard users and roles permissions scheme. Roles are sets of permissions defined by Chef Automate. Users can be assigned multiple roles.  
+Chef Automate has a standard users and roles permissions scheme. Roles are sets of permissions defined by Chef Automate. Users can be assigned multiple roles.
 
 .. list-table::
    :widths: 150 450
@@ -32,27 +37,153 @@ Chef Automate has a standard users and roles permissions scheme. Roles are sets 
 
 Integrate LDAP
 =====================================================
-.. include:: ../../includes_delivery_integration/includes_delivery_integration_ldap.rst
+.. tag delivery_integration_ldap
+
+You can configure Chef Automate to access your own LDAP database.
+
+.. end_tag
 
 LDAP Attributes
 -----------------------------------------------------
-.. include:: ../../includes_delivery_integration/includes_delivery_integration_ldap_attributes.rst
+.. tag delivery_integration_ldap_attributes
+
+The following table describes the LDAP attributes that may be used with Chef Automate:
+
+.. list-table::
+   :widths: 200 300
+   :header-rows: 1
+
+   * - Setting
+     - Description
+   * - ``ldap_attr_fullname``
+     - The full user name for an LDAP user. Default value: ``nil``.     
+   * - ``ldap_attr_login``
+     - The login user name for an LDAP user. Default value: ``sAMAccountName``.
+   * - ``ldap_attr_mail``
+     - The email for an LDAP user. Default value: ``mail``.
+   * - ``ldap_base_dn``
+     - Base dn to use when searching for users in LDAP, typically ``OU=Users`` and then the domain. Default value: ``OU=Employees,OU=Domain users,DC=examplecorp,DC=com``.
+   * - ``ldap_bind_dn``
+     - The user Chef Automate will use to perform LDAP searches. This is often the administrator or manager user. This user needs to have read access to all LDAP users that require authentication. The Chef Automate server must do an LDAP search before any user can log in. Many LDAP systems do not allow an anonymous bind. If anonymous bind is allowed, leave the ``bind_dn`` and ``bind_dn_password`` settings blank. If anonymous bind is not allowed, a user with ``READ`` access to the directory is required. This user must be specified as an LDAP distinguished name (``dn``). Default value: ``nil``.
+   * - ``ldap_bind_dn_password``
+     - The password for the user specified by ``ldap['bind_dn']``. Leave this value and ``ldap['bind_dn']`` unset if anonymous bind is sufficient. Default value: ``secret123``.
+   * - ``ldap_encryption``
+     - The type of encryption used to communicate with Chef Automate. Default value: ``start_tls``. If tls is not in use, set to ``no_tls``.
+   * - ``ldap_hosts``
+     - An array of hostname(s) of the LDAP server. Be sure Chef Automate is able to resolve any host names. Default value: ``[]``.
+   * - ``ldap_port``
+     - The default value is an appropriate value for most configurations. Default value: ``3269``.
+   * - ``ldap_timeout``
+     - Timeout when Chef Automate connects to LDAP. Default value: ``5000``.
+
+.. end_tag
 
 Configure LDAP
 -----------------------------------------------------
-.. include:: ../../includes_delivery_integration/includes_delivery_integration_ldap_configure.rst
+.. tag delivery_integration_ldap_configure
+
+To configure LDAP for Chef Automate:
+
+#. Open ``/etc/delivery/delivery.rb`` and enter the LDAP attributes you want Chef Automate to use. If you do not specify an LDAP port, the default port of ``3269`` is used.
+
+   .. code-block:: ruby
+
+      delivery['ldap_hosts'] = ["ldap.tld"]
+      delivery['ldap_port'] = 3269
+      delivery['ldap_timeout'] = 5000
+      delivery['ldap_base_dn'] = "OU=Employees,OU=Domain users,DC=opscodecorp,DC=com"
+      delivery['ldap_bind_dn'] = "ldapbind"
+      delivery['ldap_bind_dn_password'] = "secret123"
+      delivery['ldap_encryption'] = "start_tls"
+      delivery['ldap_attr_login'] = 'sAMAccountName'
+      delivery['ldap_attr_mail'] = 'mail'
+      delivery['ldap_attr_full_name'] = 'fullName'
+
+#. Run the following command to complete the configuration process:
+
+   .. code-block:: bash
+
+      $ sudo delivery-ctl reconfigure
+
+Once Chef Automate is set up, you will have a usable **LDAP** option in the Chef Automate **Users** page that allows you to find users through your LDAP database.
+
+.. end_tag
 
 Manage Users
 -----------------------------------------------------
-.. include:: ../../includes_delivery_integration/includes_delivery_integration_ldap_users.rst
+.. tag delivery_integration_ldap_users
+
+Integrating Chef Automate with your LDAP system allows you to automatically add more user details and authenticate users against your existing identity management system. However, even once your LDAP system has been integrated to Chef Automate, you must manually add users. If you are going to add a user in your integrated LDAP system to Chef Automate, you must have their LDAP name.
+
+.. end_tag
 
 Add
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_delivery_integration/includes_delivery_integration_ldap_users_add.rst
+.. tag delivery_integration_ldap_users_add
+
+.. note:: In order to add or edit users, you must have root shell access and the **Admin** role assigned in Chef Automate.
+
+To add or edit a user to Chef Automate:
+
+#. Log into the Chef Automate web UI as an administrator.
+#. Select **Users** from the drop-down menu on the upper right.
+
+   The **Users** list page opens. You can use the search filter in the upper right corner to make sure that the user is not already added.
+#. Click the plus sign (**+**) next to **Add a New User**.  
+#. In the Add New a User text area, select one of two types for the new user. The selection box is grey for the active selection.
+
+   * **Internal** means you are manually adding the user to the Chef Automate database.
+
+   * **LDAP** means the user is in an LDAP system that has been integrated to this Chef Automate.
+
+   If you select **Internal**, options for **Name and Email**, first name, last name, email address, and **Security Information**, a login name and password, appear.
+
+   If you select **LDAP**, the **Name and Email** options go away and a **Security Information** option for the user's LDAP username and SSH public key appears.
+#. Enter the appropriate information for the type of user you are adding. Leave the **SSH Public Key** area blank, the user must log in and enter this information.
+
+   Select user **Roles Within the Enterprise**.
+
+   Click **Save and Close**, or **Cancel** to discard the operation.
+
+   The **User** list page opens and a status message appears.
+
+To check that the user was added properly when using LDAP, click **Edit** and verify that the user details are present.
+
+.. end_tag
 
 Edit
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_delivery_integration/includes_delivery_integration_ldap_users_edit.rst
+.. tag delivery_integration_ldap_users_edit
+
+.. note:: In order to add or edit users, you must have root shell access and the **Admin** role assigned in Chef Automate.
+
+To edit LDAP details for a user:
+
+#. Log into the Chef Automate web UI as an administrator.
+#. Select **Users** from the drop-down menu on the upper right.
+
+   The **Users** list page opens. You can use the search filter in the upper right corner to make sure that the user is not already added.
+#. Click the plus sign (**+**) next to **Add a New User**. 
+#. In the **Add New a User** text area, select one of two types for the new user. The selection box is grey for the active selection.
+
+   **Internal** means you are manually adding the user to the Delivery database.
+
+   **LDAP** means the user is in an LDAP system that has been integrated to this Chef Automate.
+
+   If you select **Internal**, options for **Name and Email**, first name, last name, email address, and **Security Information**, a login name and password, appear.
+
+   If you select **LDAP**, the **Name and Email** options go away and a **Security Information** option for the user's LDAP username appears.
+#. Enter the appropriate information for the type of user you are adding. Leave the **SSH Public Key**  area blank. The user must log in and enter this information.
+
+   Select user **Roles Within the Enterprise**.
+
+   Click **Save and Close**, or **Cancel** to discard the operation.
+
+   The **User** list page opens and a status message appears.
+
+To check that the user was added properly when using LDAP, click **Edit** and verify that the user details are present.
+
+.. end_tag
 
 Onboard Users
 =====================================================
@@ -62,7 +193,7 @@ Chef Automate with GitHub
 -----------------------------------------------------
 Once a project is created, you will want to add users to that project so that they can submit changes and collaborate via the Chef Automate shared workflow using GitHub.
 
-You may integrate Chef Automate and GitHub Enterprise or https://github.com/. If you do this, you will be able to use GitHub as a **Source Code Provider** when creating a project. 
+You may integrate Chef Automate and GitHub Enterprise or https://github.com/. If you do this, you will be able to use GitHub as a **Source Code Provider** when creating a project.
 
 .. note:: Before you can follow this procedure, you must have integrated Chef Automate and GitHub Enterprise or https://github.com/. This is the same procedure whether you have Amazon Web Services (AWS) provisioning or SSH provisioning.
 
@@ -131,7 +262,7 @@ For an integrated GitHub Enterprise project or a project that is hosted at https
 
 Chef Automate with Internal git
 -----------------------------------------------------
-Once a project is created, you will want to add users to that project so that they can submit changes and collaborate via the Chef Automate shared workflow. These procedures apply to Chef Automate deployments that are using the internal Chef Automate git capabilities and are not integrated to GitHub Enterprise or https://github.com. 
+Once a project is created, you will want to add users to that project so that they can submit changes and collaborate via the Chef Automate shared workflow. These procedures apply to Chef Automate deployments that are using the internal Chef Automate git capabilities and are not integrated to GitHub Enterprise or https://github.com.
 
 Add Users
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -140,11 +271,11 @@ To onboard a user that is not using GitHub Enterprise or a project hosted at htt
 #. Add or edit any users who are managed by the LDAP integration.
 #. Have the user log into the Chef Automate web UI and add their SSH public key to their profile.
 
-The associated user can now create a feature branch and submit changes to Chef Automate for review. 
+The associated user can now create a feature branch and submit changes to Chef Automate for review.
 
 Submit Changes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The change submission process is the familiar git process: 
+The change submission process is the familiar git process:
 
 #. You must be onboarded to Chef Automate, a task likely to be done by your sysadmin. Once your GitHub username is linked to your Chef Automate username and you have properly set up a workstation.
 #. Clone the GitHub repo to which changes are submitted. Be sure you have the right permissions.
@@ -160,8 +291,6 @@ The change submission process is the familiar git process:
    #. When the change has passed **Verify**, approve change, or get someone to, by clicking **Approve** in Chef Automate web UI. Doing this marks you as the "Signed-off-by" user of the change.
    #. After change is approved, sync your local branch to master: ``git checkout master`` and then ``git pull delivery master``.
    #. Press the **Deliver** button in the Chef Automate web UI when it is active. Note that your change may be superseded by another change. That is, if another change in the pipeline is approved (merged to master) and then your change is approved, when **Deliver** is pressed, both changes are moved to the final three stages. This goes for all approved changes in the pipeline. Also note that changes that would conflict with approved changes will not be moved past **Acceptance**.
- 
-
 
 Add User SSH Keys
 =====================================================
@@ -169,11 +298,32 @@ First install the Delivery CLI, and then generate the user's SSH keys.
 
 Install the CLI
 -----------------------------------------------------
-.. include:: ../../includes_delivery/includes_delivery_cli_install.rst
+.. tag delivery_cli_install
+
+The Delivery CLI is required for the workstation and for many Chef Automate functions. It is included in the Chef DK and can be obtained by :doc:`installing the latest version <install_dk>`.
+
+.. note:: You must delete your old Delivery CLI if you installed it prior to it being included in the Chef DK.
+
+.. end_tag
 
 Configure the CLI
 -----------------------------------------------------
-.. include:: ../../includes_delivery/includes_delivery_cli_configure.rst
+.. tag delivery_cli_configure
+
+Before you use the Delivery CLI from a workstation, you need to provide it with details such as the URL of the Chef Automate server, and the names of the relevant enterprise, organization, and user. The ``delivery setup`` subcommand creates a configuration file named ``.delivery/cli.toml`` with the required information.
+
+The placement of the ``.delivery`` directory in your file hierarchy is significant. Like git, Delivery CLI commands search the current directory and parent directories to locate server settings. Because server settings are unique to an organization, we recommend that you create a directory for each organization you belong to and run the ``delivery setup`` command from that directory.
+
+.. code-block:: bash
+
+   $ delivery setup --server=DELIVERY_SERVER_IP_ADDR --ent=ENTERPRISE --org=ORGANIZATION --user=USERNAME
+
+The following settings may be added to the ``.delivery/cli.toml`` file:
+
+``auto_bump``
+   Bumps the cookbook metadata version number automatically when ``delivery review`` is run. Default value: ``false``.
+
+.. end_tag
 
 Add SSH Keys
 -----------------------------------------------------
@@ -300,4 +450,4 @@ To add SSH keys to Chef Automate, do the following:
       adding remote delivery: ssh://USERNAME@ENTERPRISE@SERVER_DNS:8989/ENTERPRISE/ORGANIZATION/PROJECT
 
 The user can now create a local branch, make and submit changes to Chef Automate.
-  
+

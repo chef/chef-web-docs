@@ -244,42 +244,39 @@ Looks like this:
 .. code-block:: ruby
 
    topology "ha"
-   
+
    server "be1.example.com",
      :ipaddress => "192.168.4.1",
      :role => "backend",
      :bootstrap => true,
      :cluster_ipaddress => "10.1.2.10"
-   
+
    server "be2.example.com",
      :ipaddress => "192.168.4.6",
      :role => "backend",
      :cluster_ipaddress => "10.1.2.12"
-   
+
    backend_vip "be.example.com",
      :ipaddress => "192.168.4.7",
      :device => "eth0"
-   
+
    server "fe1.example.com",
      :ipaddress => "192.168.4.2",
      :role => "frontend"
-   
+
    server "fe2.example.com",
      :ipaddress => "192.168.4.3",
      :role => "frontend"
-   
+
    server "fe3.example.com",
      :ipaddress => "192.168.4.4",
      :role => "frontend"
-   
+
    api_fqdn "chef.example.com"
-
-
 
 Add Package to Servers
 =====================================================
 Upload the package provided to the servers you wish to install on, and record its location on the file-system. The rest of this section will assume that it was uploaded to the ``/tmp`` directory on each system.
-
 
 Add private-chef.rb to /etc/opscode
 =====================================================
@@ -332,7 +329,6 @@ The installer will pause, asking you to confirm that you have set up DRBD. Press
    $ drbdadm create-md pc0
    $ drbdadm up pc0
 
-
 Copy config to non-bootstrap back-end server
 =====================================================
 To configure DRBD on the non-bootstrap back-end server, first copy all the contents of ``/etc/opscode`` on the bootstrap node to the non-bootstrap back-end. On the non-bootstrap server, run the following command:
@@ -358,10 +354,9 @@ The installer will pause, asking you to confirm that you have set up DRBD. Press
    $ drbdadm create-md pc0
    $ drbdadm up pc0
 
-
 Set bootstrap server to be the primary server
 =====================================================
-With both servers now configured for DRBD, let the cluster know that the bootstrap server should be primary for the shared device. 
+With both servers now configured for DRBD, let the cluster know that the bootstrap server should be primary for the shared device.
 
 For DRBD on Red Hat and CentOS 6:
 
@@ -375,7 +370,6 @@ For Ubuntu:
 
    $ drbdadm -- --overwrite-data-of-peer primary pc0
 
-
 Mount the file system on the DRBD server
 =====================================================
 On the bootstrap server, if the file system is named ``ext4``, run the following command to create the file system for DRBD:
@@ -385,7 +379,6 @@ On the bootstrap server, if the file system is named ``ext4``, run the following
    $ mkfs.ext4 /dev/drbd0
    $ mkdir -p /var/opt/opscode/drbd/data
    $ mount /dev/drbd0 /var/opt/opscode/drbd/data
-
 
 Monitor the DRBD server for initial synchronization
 =====================================================
@@ -400,7 +393,7 @@ Output similar to the following will be shown:
 .. code-block:: none
 
    cat /proc/drbd output
-   
+
    version: 8.4.1 (api:1/proto:86[STRIKEOUT:100)
    GIT-hash: 91b4c048c1a0e06777b5f65d312b38d47abaea80 build by
    dag@Build64R6, 2011]12[STRIKEOUT:21 06:08:50
@@ -432,8 +425,6 @@ With synchronization complete, DRBD is ready to be used on the bootstrap node. L
 
    $ touch /var/opt/opscode/drbd/drbd_ready
 
-
-
 Configure the Chef server on the bootstrap server
 =========================================================
 To continue setting up the Chef server on a bootstrap server, run:
@@ -450,7 +441,6 @@ This command may take several minutes to run, during which you will see the outp
 
 .. note:: Chef server is composed of many different services, which work together to create a functioning system. One impact of this is that it can take a few minutes for the system to finish starting up. One way to tell that the system is fully ready is to use the top command. You will notice high CPU utilization for several Ruby processes while the system is starting up. When that utilization drops off, the system is ready.
 
-
 Configure the Chef server on non-bootstrap back-end
 ===========================================================
 .. warning:: Make sure DRBD synchronization has completed, and that the Chef server has fully started on the bootstrap node before continuing!
@@ -466,7 +456,6 @@ Followed by:
 .. code-block:: bash
 
    $ private-chef-ctl reconfigure
-
 
 Configure the front-ends
 =====================================================
@@ -495,7 +484,6 @@ For Ubuntu:
 .. code-block:: bash
 
    $ dpkg -i /tmp/chef-server-core-<version>.deb
-
 
 Configure
 -----------------------------------------------------
@@ -542,5 +530,4 @@ Set the following in ``/etc/opscode/private-chef.rb``:
      :device => "eth0"
 
 And set the Keepalived unicast addresses to the GRE tunnel addresses.
-
 

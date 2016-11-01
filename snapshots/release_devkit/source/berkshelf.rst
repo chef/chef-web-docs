@@ -1,12 +1,10 @@
 
 
-
 =====================================================
 About Berkshelf
 =====================================================
 
 Berkshelf is a dependency manager for certain cookbook workflows that is included in the Chef development kit. Berkshelf stores every version of a cookbook that has ever been installed. By default, the local disk repository for Berkshelf is located at ``~/.berkshelf``, but this may be modified by setting the ``BERKSHELF_PATH`` environment variable.
-
 
 Berkshelf CLI
 =====================================================
@@ -26,7 +24,6 @@ Common Options
 
 ``-q``, ``--quiet``
    Use to silence all informational output. Default value: ``false``.
-
 
 berks apply
 -----------------------------------------------------
@@ -53,7 +50,6 @@ This command has the following options:
 ``--ssl-verify``
    Use to enable (``true``) or disable (``false``) SSL verification when applying Berksfile version locks to an environment.
 
-
 berks contingent
 -----------------------------------------------------
 Use ``berks contingent`` to list all cookbooks in a Berksfile that depend on the named cookbook.
@@ -73,13 +69,11 @@ This command has the following options:
 ``-b PATH``, ``--berksfile PATH``
    The path to the Berksfile in which the cookbook is located.
 
-
 berks cookbook
 -----------------------------------------------------
 Use ``berks cookbook`` to create a skeleton for a new cookbook.
 
 .. warning:: This command is deprecated in favor of ``chef generate cookbook``.
-
 
 berks info
 -----------------------------------------------------
@@ -100,20 +94,17 @@ This command has the following options:
 ``-b PATH``, ``--berksfile PATH``
    The path to the Berksfile in which the cookbook is located.
 
-
 berks init
 -----------------------------------------------------
 Use ``berks init`` to initialize Berkshelf to the specified directory.
 
 .. warning:: This command is deprecated in favor of ``chef generate cookbook``.
 
-
 berks install
 -----------------------------------------------------
 Use ``berks install`` to install cookbooks to the named Berksfile.
 
 .. warning:: This command is deprecated. Run ``berks vendor`` instead.
-
 
 berks list
 -----------------------------------------------------
@@ -140,7 +131,6 @@ This command has the following options:
 ``-o [GROUP, GROUP, ...]``, ``--only [GROUP, GROUP, ...]``
    An array of cookbook groups to be listed. When this option is used, cookbooks that exist in groups not listed will not be listed.
 
-
 berks outdated
 -----------------------------------------------------
 Use ``berks outdated`` to list dependencies for the named cookbook, and then check if there are new versions available for version constraints that may exist.
@@ -165,7 +155,6 @@ This command has the following options:
 
 ``-o [GROUP, GROUP, ...]``, ``--only [GROUP, GROUP, ...]``
    An array of cookbook groups to be checked for version constraints. When this option is used, cookbooks that exist in groups not listed will not be checked for version constraints.
-
 
 berks package
 -----------------------------------------------------
@@ -192,7 +181,6 @@ This command has the following options:
 ``-o [GROUP, GROUP, ...]``, ``--only [GROUP, GROUP, ...]``
    An array of cookbook groups to be vendored, and then archived. When this option is used, cookbooks that exist in groups not listed will not be vendored or archived.
 
-
 berks search
 -----------------------------------------------------
 Use ``berks search`` to search the remote source for cookbooks that match the search query. The query itself will match partial cookbook names.
@@ -211,7 +199,6 @@ This command has the following options:
 
 ``--source URL``
    The URL at which remote cookbooks are located. Default value: ``https://supermarket.chef.io``.
-
 
 berks test
 -----------------------------------------------------
@@ -258,7 +245,6 @@ This command has the following options:
 ``-b PATH``, ``--berksfile PATH``
    The path to the Berksfile in which the named cookbook is defined.
 
-
 berks update
 -----------------------------------------------------
 Use ``berks update`` to update the named cookbook or cookbooks (and any dependencies).
@@ -283,7 +269,6 @@ This command has the following options:
 
 ``-o [GROUP, GROUP, ...]``, ``--only [GROUP, GROUP, ...]``
    An array of cookbook groups to be updated. When this option is used, cookbooks that exist in groups not listed will not be updated.
-
 
 berks upload
 -----------------------------------------------------
@@ -325,7 +310,6 @@ This command has the following options:
 ``-s``, ``--skip-syntax-check``
    Use to skip Ruby syntax checking when uploading a cookbook to the Chef server. Default value: ``false``.
 
-
 berks vendor
 -----------------------------------------------------
 Use ``berks vendor`` to vendor groups of cookbooks (as specified by group name) into a directory.
@@ -354,7 +338,6 @@ This command has the following options:
 ``-o [GROUP, GROUP, ...]``, ``--only [GROUP, GROUP, ...]``
    An array of cookbook groups to be vendored. When this option is used, cookbooks that exist in groups not listed will not be vendored.
 
-
 berks verify
 -----------------------------------------------------
 Use ``berks verify`` to perform a validation of the contents of resolved cookbooks.
@@ -374,11 +357,9 @@ This command has the following options:
 ``-b PATH``, ``--berksfile PATH``
    The path to the Berksfile from which resolved cookbooks are validated.
 
-
 berks version
 -----------------------------------------------------
 Use ``berks version`` to display the version of Berkshelf.
-
 
 berks viz
 -----------------------------------------------------
@@ -401,7 +382,6 @@ This command has the following options:
 
 ``-o NAME``, ``--outfile NAME``
    The name of the file to which output is saved. Default value: ``graph.png``.
-
 
 For more information ...
 =====================================================

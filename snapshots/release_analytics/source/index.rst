@@ -4,11 +4,23 @@
 About Chef Analytics 
 =====================================================
 
-.. include:: ../../includes_analytics/includes_analytics_legacy.rst 
+.. tag analytics_legacy
 
-.. include:: ../../includes_chef/includes_chef_index.rst
+.. note:: This topic is meant to support existing customers using Analytics. The visibility capabilities of Chef Automate replace the features and functionality of Chef Analytics and we encourage customers to adopt Chef Automate going forward.
 
-.. include:: ../../includes_analytics/includes_analytics.rst
+.. end_tag
+
+.. tag chef_index
+
+Chef is a systems and cloud infrastructure automation framework that makes it easy to deploy servers and applications to any physical, virtual, or cloud location, no matter the size of the infrastructure. Each organization is comprised of one (or more) workstations, a single server, and every node that will be configured and maintained by the chef-client. Cookbooks (and recipes) are used to tell the chef-client how each node in your organization should be configured. The chef-client (which is installed on every node) does the actual configuration.
+
+.. end_tag
+
+.. tag analytics_summary
+
+The Chef Analytics platform is a feature of Chef that provides real-time visibility into what is happening on the Chef server, including what's changing, who made those changes, and when they occurred. Individuals may be notified of these changes in real-time. Use this visibility to verify compliance against internal controls.
+
+.. end_tag
 
 View the :doc:`release notes </release_notes>` for all versions of Chef Analytics.
 
@@ -53,7 +65,7 @@ This section contains links to topics about configuration files, command-line to
 :doc:`api_analytics`
 :doc:`plugin_knife_analytics`
 :doc:`config_rb_analytics`
-:doc:`ctl_analytics` 
+:doc:`ctl_analytics`
 
 .. Hide the TOC from this file.
 

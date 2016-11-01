@@ -4,7 +4,11 @@
 About Chef Server 12.3
 =====================================================
 
-.. include:: ../../includes_chef/includes_chef_index.rst
+.. tag chef_index
+
+Chef is a systems and cloud infrastructure automation framework that makes it easy to deploy servers and applications to any physical, virtual, or cloud location, no matter the size of the infrastructure. Each organization is comprised of one (or more) workstations, a single server, and every node that will be configured and maintained by the chef-client. Cookbooks (and recipes) are used to tell the chef-client how each node in your organization should be configured. The chef-client (which is installed on every node) does the actual configuration.
+
+.. end_tag
 
 .. note:: Chef server 12 is the new Chef server! The documentation for Open Source Chef and Enterprise Chef is still available from the version list.
 
@@ -15,7 +19,6 @@ Getting Started
 If you are new to Chef, familiarize yourself with its main components: :doc:`the server, workstations, and nodes </chef_overview>`. For more information about workstations, cookbooks, and nodes, see the documentation for the chef-client.
 
 The `Chef supermarket <https://supermarket.chef.io>`_ is the location in which community cookbooks are authored and maintained. Cookbooks that are part of the Chef Supermarket may be used by any Chef user.
-
 
 Install, Upgrade
 =====================================================
@@ -29,9 +32,7 @@ The Chef server may be configured for high availability to enable failover on ba
 :doc:`install_server_ha_aws`
 :doc:`install_server_ha_drbd`
 
-
-.. note:: Premium features of the Chef server must be installed and configured after the Chef server. The Chef management console must be installed before Reporting because they share the same web user interface. The Chef management console, Reporting, and Chef replication can all be installed using the :ref:`chef-server-ctl install <ctl_chef_server-install>` command. 
-
+.. note:: Premium features of the Chef server must be installed and configured after the Chef server. The Chef management console must be installed before Reporting because they share the same web user interface. The Chef management console, Reporting, and Chef replication can all be installed using the :ref:`chef-server-ctl install <ctl_chef_server-install>` command.
 
 Manage the Chef Server
 =====================================================
@@ -49,7 +50,6 @@ The Chef server can be managed in the following ways:
 :doc:`server_security`
 :doc:`server_services`
 :doc:`server_tuning`
-
 
 Management Console
 -----------------------------------------------------

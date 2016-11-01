@@ -4,17 +4,96 @@
 Install Reporting
 =====================================================
 
-.. include:: ../../includes_reporting/includes_reporting.rst
+.. tag reporting_summary
 
-.. note:: .. include:: ../../includes_chef/includes_chef_subscriptions.rst
+Use Reporting to keep track of what happens during the execution of chef-client runs across all of the machines that are under management by Chef. Reports can be generated for the entire organization and they can be generated for specific nodes.
+
+Reporting data is collected during the chef-client run and the results are posted to the Chef server at the end of the chef-client run at the same time the node object is uploaded to the Chef server.
+
+.. end_tag
+
+.. note:: .. tag chef_subscriptions
+
+          This feature is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
+
+          .. end_tag
 
 Requirements
 =====================================================
-.. include:: ../../includes_system_requirements/includes_system_requirements_reporting.rst
+.. tag system_requirements_reporting
+
+Reporting has the following minimum requirements:
+
+* Chef server 12
+* chef-client version 11.6.0 (or later)
+
+Reporting can make use of an external database, but to do so Reporting 1.5.5 or later is needed along with Chef server 12.2.0 or later.
+
+The Reporting client is built into the chef-client and can run on all platforms that chef-client is supported on.
+
+.. warning:: Reporting does not work on chef-client version 11.8.0; upgrade to chef-client version 11.8.2 (or later) if Reporting is being run in your organization.
+
+.. warning:: The only supported versions of Reporting are 1.5.5 or later.
+
+.. end_tag
 
 Install the Server
 =====================================================
-.. include:: ../../includes_install/includes_install_reporting_ha.rst
+.. tag install_reporting_ha
+
+To set up the Reporting server:
+
+#. Install the package on each frontend and backend Chef server:
+
+   .. code-block:: bash
+
+      $ chef-server-ctl install opscode-reporting
+
+#. Reconfigure the Chef server on the backend primary server (bootstrap):
+
+   .. code-block:: bash
+
+      $ chef-server-ctl reconfigure
+
+#. Reconfigure the Reporting server on the backend primary server (bootstrap):
+
+   .. code-block:: bash
+
+      $ opscode-reporting-ctl reconfigure
+
+   .. note:: Starting with Reporting 1.6.0, the :doc:`Chef MLSA <chef_license>` must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``opscode-reporting-ctl reconfigure --accept-license`` to automatically accept the license.
+
+#. Copy the entire ``/etc/opscode-reporting`` directory from the backend primary server to all frontend and backend servers. For example, from each server run:
+
+   .. code-block:: bash
+
+      $ scp -r <Bootstrap server IP>:/etc/opscode-reporting /etc
+
+   or from the backend primary server:
+
+   .. code-block:: bash
+
+      $ scp -r /etc/opscode-reporting <each servers IP>:/etc
+
+#. Reconfigure any Chef server on which Reporting services have been installed:
+
+   .. code-block:: bash
+
+      $ chef-server-ctl reconfigure
+
+#. Reconfigure Reporting services on each server:
+
+   .. code-block:: bash
+
+      $ opscode-reporting-ctl reconfigure
+
+#. Verify the installation:
+
+   .. code-block:: bash
+
+      $ opscode-reporting-ctl test
+
+.. end_tag
 
 Install the Client
 =====================================================

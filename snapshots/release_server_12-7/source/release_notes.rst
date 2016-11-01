@@ -2,7 +2,11 @@
 Release Notes: Chef Server 12.7
 =====================================================
 
-.. include:: ../../includes_chef/includes_chef_index.rst
+.. tag chef_index
+
+Chef is a systems and cloud infrastructure automation framework that makes it easy to deploy servers and applications to any physical, virtual, or cloud location, no matter the size of the infrastructure. Each organization is comprised of one (or more) workstations, a single server, and every node that will be configured and maintained by the chef-client. Cookbooks (and recipes) are used to tell the chef-client how each node in your organization should be configured. The chef-client (which is installed on every node) does the actual configuration.
+
+.. end_tag
 
 What's New
 =====================================================
@@ -24,7 +28,7 @@ Five new commands have been created to support credential rotation:
 * :ref:`rotate-shared-secrets <ctl_chef_server-rotate-shared-secrets>`
 * :ref:`show-service-credentials <ctl_chef_server-show-service-credentials>`
 
-Your secrets file is located at ``/etc/opscode/private-chef-secrets.json``, so whenever you rotate your service credentials, or update your shared secrets, this file will contain the changes. 
+Your secrets file is located at ``/etc/opscode/private-chef-secrets.json``, so whenever you rotate your service credentials, or update your shared secrets, this file will contain the changes.
 
 Supporting SAML-authentication in Chef Manage
 =====================================================

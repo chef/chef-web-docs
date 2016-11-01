@@ -28,7 +28,11 @@ The Enterprise Chef acts as a hub for configuration data. The :doc:`components t
 
 Deployment Scenarios
 =====================================================
-.. include:: ../../includes_server_deploy/includes_server_deploy.rst
+.. tag server_deploy
+
+There are several configuration options for the Chef server: hosted by Chef, all on a single machine (standalone), multiple machines and a scaled front end, multiple machines and a scaled back end, or multiple machines with both scaled front and back ends.
+
+.. end_tag
 
 The following sections discuss these deployment configuration options in greater detail:
 
@@ -59,7 +63,7 @@ Installation scenarios:
 :doc:`upgrade_server_standalone`
 :doc:`upgrade_server_ha`
 
-Options: 
+Options:
 
 :doc:`install_server_ldap`
 :doc:`install_server_users`
@@ -96,7 +100,6 @@ APIs
 The following APIs can be used to access data on the Chef server:
 
 :doc:`api_chef_server`
-
 
 .. Hide the TOC from this file.
 

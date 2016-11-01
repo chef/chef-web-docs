@@ -1,15 +1,20 @@
 
 
-
 =====================================================
 An Overview of Workflow in Chef Automate
 =====================================================
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+.. tag chef_automate_mark
 
-Chef Automate manages changes to both infrastructure and application code, giving your operations and development teams a common platform for developing, testing, and deploying cookbooks, applications, and more. 
+.. image:: ../../images/chef_automate_full.png
+   :width: 40px
+   :height: 17px
 
-Chef Automate accelerates the adoption of continuous delivery and encourages DevOps collaboration. It provides a proven, reproducible workflow for managing changes as they flow through the pipeline from a local workstation, through automated tests, and out into production. 
+.. end_tag
+
+Chef Automate manages changes to both infrastructure and application code, giving your operations and development teams a common platform for developing, testing, and deploying cookbooks, applications, and more.
+
+Chef Automate accelerates the adoption of continuous delivery and encourages DevOps collaboration. It provides a proven, reproducible workflow for managing changes as they flow through the pipeline from a local workstation, through automated tests, and out into production.
 
 Chef Automate handles many types of software systems. Use it to:
 
@@ -19,8 +24,6 @@ Chef Automate handles many types of software systems. Use it to:
 * Push build artifacts to production servers in real time
 
 .. note:: If you are new to Chef Automate, you can see it in action in the self-paced tutorial `Get started with Chef Automate on AWS <https://learn.chef.io/tutorials/#chef-automate>`__. In the tutorial, you'll set up your own Chef Automate cluster and a sample application to experiment with.
-
-
 
 Pipelines
 =====================================================
@@ -66,21 +69,21 @@ When Chef Automate receives the change, it triggers the Verify stage. The purpos
 
 When the Verify phases have completed successfully, the change is ready for code review. Chef Automate provides integrated code review through its web UI. There is also an integration with GitHub and Bitbucket Server (by Atlassian) for teams with existing code review workflows.
 
-In code review, team members can comment on the diffs. If more changes are required, they can be made either as additional commits on top of the originally submitted feature branch, or the commit(s) can be reworked using ``git commit --amend`` and ``git rebase``. 
+In code review, team members can comment on the diffs. If more changes are required, they can be made either as additional commits on top of the originally submitted feature branch, or the commit(s) can be reworked using ``git commit --amend`` and ``git rebase``.
 
 To submit the updates on a feature branch for review, simply run ``delivery review`` again. There's no need to worry about force pushing if you've squashed commits. Chef Automate patchset handling will work with your workflow. When you resubmit a change with updates from code review, Chef Automate triggers a fresh run of the Verify stage using the updated feature branch. This can be repeated as necessary. When Verify has passed and the team is happy with the change, it can be approved. Changes are approved by clicking the Approve button in the web UI.
 
 Approval
 -----------------------------------------------------
-When someone clicks the Approve button, the feature branch that contains your change is merged into the target branch of the pipeline (usually this is master). At this point, the Build stage begins and the same tests that were run in Verify are run again. This is because the target branch may have moved ahead by other approvals. Assuming these tests pass, the Build stage proceeds with the quality and security phases. The Build stage is also a good place to run additional test suites, as well as security scanning checks, that might be too time consuming to run during Verify. 
+When someone clicks the Approve button, the feature branch that contains your change is merged into the target branch of the pipeline (usually this is master). At this point, the Build stage begins and the same tests that were run in Verify are run again. This is because the target branch may have moved ahead by other approvals. Assuming these tests pass, the Build stage proceeds with the quality and security phases. The Build stage is also a good place to run additional test suites, as well as security scanning checks, that might be too time consuming to run during Verify.
 
 The Build stage concludes with the publish phase. The purpose of the publish phase is to assemble one or more potentially releasable artifacts and make them available to the remaining stages of the pipeline. You can, for example, publish to a Chef server, to Chef Supermarket, and to JFrog Artifactory.
 
-If the pipeline succeeds in generating and publishing the artifacts, then the Acceptance stage begins. This is the first phase that assesses build artifacts rather than source code. 
+If the pipeline succeeds in generating and publishing the artifacts, then the Acceptance stage begins. This is the first phase that assesses build artifacts rather than source code.
 
 Acceptance
 -----------------------------------------------------
-The Acceptance stage is where your team decides whether the change should ship all the way out to its final destination. 
+The Acceptance stage is where your team decides whether the change should ship all the way out to its final destination.
 
 During the Acceptance stage, infrastructure is provisioned (if needed), and the artifacts published at the end of the Build stage are deployed. The deployment is verified with automated smoke tests, and then the health of the resulting system is verified by running a functional test suite. At this point, the pipeline pauses and waits for explicit approval from someone who has the "shipper" role. The Acceptance stage is where you can run ad-hoc tests, and perform manual user acceptance testing. For the internal use of Chef Automate at Chef, we have our product owners review changes in Acceptance and decide whether or not to click the Deliver button.
 
@@ -126,7 +129,7 @@ In addition to the Verify checks, the Build stage provides three additional phas
 
 * **Quality**. A place to run additional test suites and code analysis tools. Some tests are too time consuming to run in Verify and are better reserved for changes that have received approval.
 * **Security**. In many organizations, a suite of security tests must be run before a change can be deployed. The Build phase is the place to run such scans and checks. (You can also add compliance checks into the functional test suites that run against the deployed artifacts.)
-* **Publish**. The goal of the publish phase is to produce the potentially releasable artifacts and to make them available to the rest of the pipeline. 
+* **Publish**. The goal of the publish phase is to produce the potentially releasable artifacts and to make them available to the rest of the pipeline.
 
 Acceptance Stage
 -----------------------------------------------------
@@ -135,7 +138,7 @@ Beginning with the Acceptance stage, the pipeline switches from analyzing the pr
 * **Provision**. Provision infrastructure needed to test the artifact(s). Examples include instantiating new infrastructure with Chef provisioning (or another API-accessible mechanism) and manipulating Chef server environments to designate the nodes used by the current stage. Of course, what executes in any phase is up to you and determined by the project's build cookbook.
 * **Deploy**. Deploy the artifacts published in the Build stage to the portion of your infrastructure that has been set aside for acceptance testing.
 * **Smoke**. Smoke tests should be relatively short-running tests that verify that the code that should have been deployed has indeed been deployed and that the system passes minimal health checks.
-* **Functional**. The functional tests should give you confidence that the system is meeting its business requirements. 
+* **Functional**. The functional tests should give you confidence that the system is meeting its business requirements.
 
 Union Stage
 -----------------------------------------------------
@@ -149,14 +152,13 @@ Chef Automate ensures that only one change is active in each of the Union, Rehea
 
 Rehearsal Stage
 -----------------------------------------------------
-If all phases of Union succeed, then the Rehearsal stage is triggered. Rehearsal increases confidence in the artifacts and the deployment by repeating the process that occurred in Union in a different environment. 
+If all phases of Union succeed, then the Rehearsal stage is triggered. Rehearsal increases confidence in the artifacts and the deployment by repeating the process that occurred in Union in a different environment.
 
 If a failure occurs in Union, Rehearsal serves a different and critical purpose. When you submit a new change and it fixes the break in Union, you will have proved that a sequence of two changes, one that breaks the system, and one that comes after and fixes it, results in a healthy system. You do not yet know what happens when you apply the cumulative change to an environment that never saw the failure. Sometimes a fix's success depends upon state left behind as a result of a preceding failure. The Rehearsal stage is an opportunity to test the change in an environment that didn't see the failure.
 
 Delivered Stage
 -----------------------------------------------------
 Delivered is the final stage of the pipeline. What "delivered" means for your system is up to you. It could mean deploying the change so that it is live and receiving production traffic, or it might mean publishing a set of artifacts so they are accessible for your customers.
-
 
 Components
 =====================================================
@@ -168,16 +170,15 @@ The following diagram shows the servers that are involved in a Chef Automate ins
 
 The build cookbook, hosted on the Chef server, determines what happens during each phase job. Build nodes, under control of the Chef server, run the phase jobs. It's a good idea to have at least three build nodes so that the lint, syntax and unit phases can run in parallel.
 
-
 Environments 
 =====================================================
 As changes flow through the Chef Automate pipeline, they are tested in a series of runtime environments that are increasingly similar to the final runtime target environment.
 
-Chef Automate allows you to define the infrastructure that participates in each stage.  How you map infrastructure environments to pipeline phases is controlled by the build cookbook. In other words, whether a given phase job distributes work to other infrastructure is up to you. There are many ways to map infrastructure environments to pipeline phases, but here are some possible approaches. 
+Chef Automate allows you to define the infrastructure that participates in each stage.  How you map infrastructure environments to pipeline phases is controlled by the build cookbook. In other words, whether a given phase job distributes work to other infrastructure is up to you. There are many ways to map infrastructure environments to pipeline phases, but here are some possible approaches.
 
 Because they test source code, the Verify and Build stages ordinarily run exclusively on the build nodes and don't involve other infrastructure. The necessary runtime environments are created and destroyed during the execution of the stage. For example, they can be established using virtual machines created by testing frameworks such as Kitchen.
 
-The stages that test artifacts---Acceptance, Union, Rehearsal and Delivered---almost always need access to additional infrastructure to perform their tests. 
+The stages that test artifacts---Acceptance, Union, Rehearsal and Delivered---almost always need access to additional infrastructure to perform their tests.
 
 For the Acceptance stage, a common approach is to provision one or more nodes that test the deployment. The Acceptance stage nodes for a project are usually dedicated to that project and can be either persistent, or they can be created and destroyed every time the Acceptance stage runs.
 

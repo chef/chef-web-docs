@@ -1,6 +1,5 @@
 
 
-
 Chef Automate
 =====================================================
 
@@ -8,7 +7,7 @@ Getting Started
 -----------------------------------------------------
 
 :doc:`Chef Automate Overview </chef_automate>` |
-:doc:`Installation Guide </install_chef_automate>` 
+:doc:`Installation Guide </install_chef_automate>`
 
 Tutorials
 -----------------------------------------------------
@@ -17,7 +16,7 @@ Tutorials
 `Visibility into Infrastructure <https://learn.chef.io/automate/visibility>`_ |
 `Deploy with Chef Automate <https://learn.chef.io/automate/deploy-cookbook>`_ |
 `Assess for Compliance <https://learn.chef.io/tutorials/#compliance-assess>`_ |
-`Remediate Compliance Failures <https://learn.chef.io/tutorials/#compliance-remediate>`_ 
+`Remediate Compliance Failures <https://learn.chef.io/tutorials/#compliance-remediate>`_
 
 Setup
 -----------------------------------------------------
@@ -31,7 +30,7 @@ Concepts
 **Workflow**: :doc:`Workflow Overview </workflow>` | :doc:`Manage Dependencies </delivery_manage_dependencies>`
 
 :doc:`Visibility Overview </visibility>` |
-:doc:`Compliance Overview </compliance>` 
+:doc:`Compliance Overview </compliance>`
 
 Integrations
 -----------------------------------------------------
@@ -40,7 +39,7 @@ Integrations
 :doc:`w/GitHub </integrate_delivery_github>` |
 :doc:`w/LDAP </integrate_delivery_ldap>` |
 :doc:`w/SAML </integrate_chef_automate_saml>` |
-:doc:`w/Slack </integrate_delivery_slack>` 
+:doc:`w/Slack </integrate_delivery_slack>`
 
 Managing the Server
 -----------------------------------------------------
@@ -90,17 +89,17 @@ Compliance scanner
 :doc:`Integrate w/Chef Server </integrate_compliance_chef_server>` |
 :doc:`Upgrade Compliance </upgrade_compliance>` |
 :doc:`chef-compliance.rb </config_rb_compliance>` |
-:doc:`Chef Compliance API </api_compliance>` 
+:doc:`Chef Compliance API </api_compliance>`
 
 Troubleshooting
 -----------------------------------------------------
-:doc:`Troubleshooting </troubleshooting_chef_automate>` 
+:doc:`Troubleshooting </troubleshooting_chef_automate>`
 
 Extend Chef Automate
 -----------------------------------------------------
-:doc:`Workflow DSL </dsl_delivery>` 
+:doc:`Workflow DSL </dsl_delivery>`
 
-.. Hide the TOC from this file.   
+.. Hide the TOC from this file.
 
 .. toctree::
    :hidden:
@@ -142,4 +141,4 @@ Extend Chef Automate
    upgrade_compliance
    visibility
    workflow
- 
+

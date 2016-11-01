@@ -2,7 +2,24 @@
 Release Notes: Ohai 7
 =====================================================
 
-.. include:: ../../includes_ohai/includes_ohai.rst
+.. tag ohai
+
+Ohai is a tool that is used to detect attributes on a node, and then provide these attributes to the chef-client at the start of every chef-client run. Ohai is required by the chef-client and must be present on a node. (Ohai is installed on a node as part of the chef-client install process.)
+
+The types of attributes Ohai collects include (but are not limited to):
+
+* Platform details
+* Network usage
+* Memory usage
+* CPU data
+* Kernel data
+* Host names
+* Fully qualified domain names
+* Other configuration details
+
+Attributes that are collected by Ohai are automatic attributes, in that these attributes are used by the chef-client to ensure that these attributes remain unchanged after the chef-client is done configuring the node.
+
+.. end_tag
 
 .. Adopted Platforms
 .. =====================================================
@@ -13,11 +30,89 @@ What's New
 Ohai 7 collects all of the same information that Ohai 6 collected and Ohai 7 introduces two major changes. The short version:
 
 * **New DSL** New features like ``collect_data()`` blocks and ``depends`` / ``provides`` statements make it easier to build plugins for platform-specific situations.
-* **Attribute name-based user interaction** Only specify the name of the attribute; Ohai 7 will figure out which plugins are required to collect that data. 
+* **Attribute name-based user interaction** Only specify the name of the attribute; Ohai 7 will figure out which plugins are required to collect that data.
 
 Ohai 6 vs. Ohai 7 Plugins
 -----------------------------------------------------
-.. include:: ../../includes_ohai/includes_ohai_migrate_plugins_6_to_7.rst
+.. tag ohai_migrate_plugins_6_to_7
+
+Ohai 7 is backwards compatible with existing Ohai 6 plugins; however, none of the new (or future) functionality will be made available to Ohai 6 plugins. It is recommended that all Ohai 6 plugins be updated for new DSL behavior in Ohai 7 as soon as possible. When migrating Ohai 6 plugins to Ohai 7, consider the following:
+
+* Pick a name for the existing plugin, and then define it as an Ohai 7 plugin
+* Convert the ``required_plugin()`` calls to ``depends`` statements
+* Move the Ohai 6 plugin logic into a ``collect_data()`` block
+
+For example, Ohai 6:
+
+.. code-block:: ruby
+
+   provides 'my_app'
+
+   require_plugin('kernel')
+
+   my_app Mash.new
+   my_app[:version] = shell_out('my_app -v').stdout
+   my_app[:message] = 'Using #{kernel[:version]}'
+
+and then Ohai 7:
+
+.. code-block:: ruby
+
+   Ohai.plugin(:MyAPP) do
+     provides 'my_app'
+     depends 'kernel'
+
+     collect_data do
+       my_app Mash.new
+       my_app[:version] = shell_out('my_app -v').stdout
+       my_app[:message] = 'Using #{kernel[:version]}'
+     end
+   end
+
+Another example, for Ohai 6:
+
+.. code-block:: ruby
+
+   provide 'ipaddress'
+   require_plugin '#{os}::network'
+   require_plugin '#{os}::virtualization'
+   require_plugin 'passwd'
+
+   if virtualization['system'] == 'vbox'
+     if etc['passwd'].any? { |k,v| k == 'vagrant'}
+       if network['interfaces']['eth1']
+         network['interfaces']['eth1']['addresses'].each do |ip, params|
+           if params['family'] == ('inet')
+             ipaddress ip
+           end
+         end
+       end
+     end
+   end
+
+and then Ohai 7:
+
+.. code-block:: ruby
+
+   Ohai.plugin(:Vboxipaddress) do
+     provides 'ipaddress'
+     depends 'ipaddress', 'network/interfaces', 'virtualization/system', 'etc/passwd'
+     collect_data(:default) do
+       if virtualization['system'] == 'vbox'
+         if etc['passwd'].any? { |k,v| k == 'vagrant'}
+           if network['interfaces']['eth1']
+             network['interfaces']['eth1']['addresses'].each do |ip, params|
+               if params['family'] == ('inet')
+                 ipaddress ip
+               end
+             end
+           end
+         end
+       end  
+     end
+   end
+
+.. end_tag
 
 The Ohai 7 DSL
 -----------------------------------------------------
@@ -34,7 +129,11 @@ Ohai 6 required users to know the file path for each plugin in order to use it. 
 
 Disable plugins
 -----------------------------------------------------
-.. include:: ../../includes_config/includes_config_rb_ohai.rst
+.. tag config_rb_ohai
+
+Ohai configuration settings can be added to the client.rb file.
+
+.. end_tag
 
 Use the following setting to disable plugins:
 

@@ -2,7 +2,13 @@
 Release Notes: Chef Push Jobs 2.1
 =====================================================
 
-.. include:: ../../includes_push_jobs/includes_push_jobs.rst
+.. tag push_jobs_1
+
+Chef push jobs is an extension of the Chef server that allows jobs to be run against nodes independently of a chef-client run. A job is an action or a command to be executed against a subset of nodes; the nodes against which a job is run are determined by the results of a search query made to the Chef server.
+
+Chef push jobs uses the Chef server API and a Ruby client to initiate all connections to the Chef server. Connections use the same authentication and authorization model as any other request made to the Chef server. A knife plugin is used to initiate job creation and job tracking.
+
+.. end_tag
 
 What's New
 =====================================================
@@ -35,7 +41,6 @@ Both the ``knife-push`` library and the Chef Push Jobs API provide options to di
 
    $ knife job output --channel stdout 26e98ba162fa7ba6fb2793125553c7ae node1
    foobar
-
 
 Environment Control
 =====================================================

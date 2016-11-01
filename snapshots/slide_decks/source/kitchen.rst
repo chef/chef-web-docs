@@ -2,7 +2,6 @@
 Kitchen
 ================================================
 
-
 .. revealjs::
 
  .. revealjs:: Kitchen Training
@@ -11,7 +10,17 @@ Kitchen
 
  .. revealjs:: About Kitchen
 
-  .. include:: ../../includes_test_kitchen/includes_test_kitchen.rst
+  .. tag test_kitchen
+
+  Use `Kitchen <http://kitchen.ci>`_  to automatically test cookbook data across any combination of platforms and test suites:
+
+  * Defined in a .kitchen.yml file
+  * Uses a driver plugin architecture
+  * Supports cookbook testing across many cloud providers and virtualization technologies
+  * Supports all common testing frameworks that are used by the Ruby community
+  * Uses a comprehensive set of base images provided by `Bento <https://github.com/chef/bento>`_
+
+  .. end_tag
 
  .. revealjs:: Objectives
 
@@ -54,53 +63,97 @@ Kitchen
  .. revealjs:: Kitchen Workflow
 
   A typical Kitchen workflow:
-  
+
   #. ``kitchen create``
   #. ``kitchen converge``
   #. ``kitchen verify``
   #. ``kitchen destroy``
-  
+
   Use ``kitchen test`` to run all of these commands.
 
  .. revealjs:: Move to the Proper Directory
 
-  .. include:: ../../includes_slides/includes_slides_chef_repo_open_cookbooks.rst
+  .. tag slides_chef_repo_open_cookbooks
+
+  Run:
+
+  .. code-block:: bash
+
+     $ cd ~/chef-repo/cookbooks
+
+  .. end_tag
 
  .. revealjs:: Generate the Apache Cookbook
 
-  .. include:: ../../includes_slides/includes_slides_cookbook_apache_generate_cookbook.rst
+  .. tag slides_cookbook_apache_generate_cookbook
+
+  Run:
+
+  .. code-block:: bash
+
+     $ chef generate cookbook apache
+
+  Returns:
+
+  .. code-block:: none
+
+     Compiling Cookbooks...
+     Recipe: code_generator::cookbook
+       * directory[/home/chef/chef-repo/cookbooks/apache] action create
+         - create new directory /home/chef/chef-repo/cookbooks/apache
+         - restore selinux security context
+       * template[/home/chef/chef-repo/cookbooks/apache/metadata.rb] action
+         create_if_missing
+         - create new file /home/chef/chef-repo/cookbooks/apache/metadata.rb
+         - update content in /home/chef/chef-repo/cookbooks/apache/metadata.rb
+           from none to 4c0e2d
+         - restore selinux security context
+       * template[/home/chef/chef-repo/cookbooks/apache/README.md] action
+         create_if_missing
+         - create new file /home/chef/chef-repo/cookbooks/apache/README.md
+      ...
+
+  .. end_tag
 
  .. revealjs:: Move to the Apache Directory
 
   Run:
-  
+
   .. code-block:: bash
-  
+
      $ cd apache
 
  .. revealjs:: Add the Cookbook to a Git Repo
 
-  .. include:: ../../includes_slides/includes_slides_github_commit_chef_repo_git_add.rst
+  .. tag slides_github_commit_chef_repo_git_add
+
+  Run:
+
+  .. code-block:: bash
+
+     $ git add .
+
+  .. end_tag
 
  .. revealjs:: Commit the Cookbook to the Git Repo
 
   Run:
-  
+
   .. code-block:: bash
-  
+
      $ git commit –m "initial apache cookbook"
 
  .. revealjs:: Test Matrix - Two Platforms
 
   Two operating systems:
-  
+
   * ubuntu-12.04
   * centos-6.4
 
  .. revealjs:: Test Matrix - Two Platforms, One Recipe
 
   Two operating systems and a recipe:
-  
+
   * ubuntu-12.04
   * centos-6.4
   * apache::default
@@ -108,7 +161,7 @@ Kitchen
  .. revealjs:: Test Matrix - Two Platforms, Two Recipes
 
   Two operating systems and two recipes:
-  
+
   * ubuntu-12.04
   * centos-6.4
   * apache::default
@@ -117,7 +170,7 @@ Kitchen
  .. revealjs:: Test Matrix - Three Platforms, Two Recipes
 
   Three operating systems and two recipes:
-  
+
   * ubuntu-12.04
   * ubuntu-14.04
   * centos-6.4
@@ -127,20 +180,20 @@ Kitchen
  .. revealjs:: .kitchen.yml
 
   The .kitchen.yml file defines the test coverage:
-  
+
   .. code-block:: yaml
-  
+
      ---
      driver:
        name: vagrant
-     
+
      provisioner:
        name: chef_zero
-     
+
      platforms:
        - name: ubuntu-12.04
        - name: centos-6.4
-     
+
      suites:
        - name: default
          run_list:
@@ -151,47 +204,47 @@ Kitchen
 
   #. Open ``apache/.kitchen.yml``.
   #. Add:
-  
+
      .. code-block:: yaml
-     
+
         ---
         driver:
           name: vagrant
-        
+
         provisioner:
           name: chef_zero
-        
+
         platforms:
           - name: ubuntu-12.04
           - name: centos-6.4
-        
+
         suites:
           - name: default
             run_list:
               - recipe[apache::default]
             attributes:
-  
+
   #. Save the file.
 
  .. revealjs:: .kitchen.yml - Driver
 
   A driver specifies a virtualization or cloud provider by name:
-  
+
   .. code-block:: yaml
-  
+
      ---
      driver:
        name: vagrant
-  
+
   .. code-block:: yaml
-  
+
      provisioner:
        name: chef_zero
-     
+
      platforms:
        - name: ubuntu-12.04
        - name: centos-6.4
-     
+
      suites:
        - name: default
          run_list:
@@ -201,24 +254,24 @@ Kitchen
  .. revealjs:: .kitchen.yml - Provisioner
 
   A provisioner tells Kitchen how to configure the node:
-  
+
   .. code-block:: yaml
-  
+
      ---
      driver:
        name: vagrant
-  
+
   .. code-block:: yaml
-  
+
      provisioner:
        name: chef_zero
-  
+
   .. code-block:: yaml
-  
+
      platforms:
        - name: ubuntu-12.04
        - name: centos-6.4
-     
+
      suites:
        - name: default
          run_list:
@@ -228,24 +281,24 @@ Kitchen
  .. revealjs:: .kitchen.yml - Platforms
 
   A platform is a specific version of an operating system:
-  
+
   .. code-block:: yaml
-  
+
      ---
      driver:
        name: vagrant
-     
+
      provisioner:
        name: chef_zero
-  
+
   .. code-block:: yaml
-  
+
      platforms:
        - name: ubuntu-12.04
        - name: centos-6.4
-  
+
   .. code-block:: yaml
-  
+
      suites:
        - name: default
          run_list:
@@ -255,22 +308,22 @@ Kitchen
  .. revealjs:: .kitchen.yml - Suites
 
   A suite defines the target configurations for testing:
-  
+
   .. code-block:: yaml
-  
+
      ---
      driver:
        name: vagrant
-     
+
      provisioner:
        name: chef_zero
-     
+
      platforms:
        - name: ubuntu-12.04
        - name: centos-6.4
-     
+
   .. code-block:: yaml
-  
+
      suites:
        - name: default
          run_list:
@@ -280,24 +333,24 @@ Kitchen
  .. revealjs:: .kitchen.yml - Example - Two Platforms
 
   Two platforms, one test suite:
-  
+
   .. code-block:: yaml
-  
+
      ---
      driver:
        name: vagrant
-     
+
      provisioner:
        name: chef_zero
-  
+
   .. code-block:: yaml
-  
+
      platforms:
        - name: ubuntu-12.04
        - name: centos-6.4
-  
+
   .. code-block:: yaml
-  
+
      suites:
        - name: default
          run_list:
@@ -306,22 +359,22 @@ Kitchen
  .. revealjs:: .kitchen.yml - Exmple - Two Suites
 
   Two platforms, two test suites:
-  
+
   .. code-block:: yaml
-  
+
      ---
      driver:
        name: vagrant
-     
+
      provisioner:
        name: chef_zero
-     
+
      platforms:
        - name: ubuntu-12.04
        - name: centos-6.4
-  
+
   .. code-block:: yaml
-  
+
      suites:
        - name: default
          run_list:
@@ -333,23 +386,23 @@ Kitchen
  .. revealjs:: .kitchen.yml - Exmple - Three Platforms, Two Suites
 
   Three platforms, two test suites:
-  
+
   .. code-block:: yaml
-  
+
      ---
      driver:
        name: vagrant
-     
+
      provisioner:
        name: chef_zero
-  
+
   .. code-block:: yaml
-  
+
      platforms:
        - name: ubuntu-12.04
        - name: ubuntu-14.04
        - name: centos-6.4
-     
+
      suites:
        - name: default
          run_list:
@@ -362,25 +415,25 @@ Kitchen
 
   #. Open ``cookbooks/apache/.kitchen.yml``.
   #. Add:
-  
+
      .. code-block:: yaml
-     
+
         ---
         driver:
           name: docker
-        
+
         provisioner:
           name: chef_zero
-        
+
         platforms:
           - name: centos-6.5
-        
+
         suites:
           - name: default
             run_list:
               - recipe[apache::default]
             attributes:
-  
+
   #. Save the file.
 
  .. revealjs:: About Docker
@@ -392,15 +445,15 @@ Kitchen
  .. revealjs:: Install Docker Image
 
   Run:
-  
+
   .. code-block:: bash
-  
+
      $ sudo docker images
-  
+
   Returns:
-  
+
   .. code-block:: none
-  
+
      REPOSITORY    TAG           IMAGE ID      CREATED       VIRTUAL SIZE
      centos        centos6       70441cac1ed5  6 days ago    215.8 MB
      ubuntu        12.04         0b310e6bf058  2 weeks ago   116.1 MB
@@ -414,52 +467,60 @@ Kitchen
  .. revealjs:: Verify kitchen-docker is Installed
 
   Run:
-  
+
   .. code-block:: bash
-  
+
      $ gem list kitchen
-  
+
   Returns:
-  
+
   .. code-block:: none
-  
+
      *** LOCAL GEMS ***
-     
+
      kitchen-docker (1.5.0)
      kitchen-vagrant (0.15.0)
      test-kitchen (1.2.1)
 
  .. revealjs:: Move to the Apache Cookbook Directory
 
-  .. include:: ../../includes_slides/includes_slides_cookbook_apache_directory_open.rst
+  .. tag slides_cookbook_apache_directory_open
+
+  Run:
+
+  .. code-block:: bash
+
+     $ cd ~/chef-repo/cookbooks/apache
+
+  .. end_tag
 
  .. revealjs:: List Test Kitchen Instances
 
   Run:
-  
+
   .. code-block:: bash
-  
+
      $ kitchen list
-  
+
   Returns:
-  
+
   .. code-block:: none
-  
+
      Instance           Driver  Provisioner  Last Action
      default-centos-65  Docker  ChefZero     <Not Created>
 
  .. revealjs:: Create the Kitchen Instance
 
   Run:
-  
+
   .. code-block:: bash
-  
+
      $ kitchen create
-  
+
   Returns:
-  
+
   .. code-block:: none
-  
+
      -----> Starting Kitchen (v1.2.1)
      -----> Creating <default-centos-64>...
             Step 0 : FROM centos:centos6
@@ -482,7 +543,23 @@ Kitchen
 
  .. revealjs:: Login to the Kitchen Instance
 
-  .. include:: ../../includes_slides/includes_slides_kitchen_login.rst
+  .. tag slides_kitchen_login
+
+  Run:
+
+  .. code-block:: bash
+
+     $ kitchen login
+
+  Returns:
+
+  .. code-block:: none
+
+     kitchen@localhost's password:
+
+  Enter: ``kitchen``.
+
+  .. end_tag
 
  .. revealjs:: Kitchen Login
 
@@ -503,24 +580,47 @@ Kitchen
 
  .. revealjs:: Exit Kitchen
 
-  .. include:: ../../includes_slides/includes_slides_kitchen_exit.rst
+  .. tag slides_kitchen_exit
+
+  Run:
+
+  .. code-block:: bash
+
+     $ exit
+
+  Returns:
+
+  .. code-block:: none
+
+     logout
+     Connection to localhost closed.
+
+  .. end_tag
 
  .. revealjs:: Move to the Apache Cookbook Directory (Again)
 
-  .. include:: ../../includes_slides/includes_slides_cookbook_apache_directory_open.rst
+  .. tag slides_cookbook_apache_directory_open
+
+  Run:
+
+  .. code-block:: bash
+
+     $ cd ~/chef-repo/cookbooks/apache
+
+  .. end_tag
 
  .. revealjs:: Apply the Policy
 
   Run:
-  
+
   .. code-block:: bash
-  
+
      $ kitchen converge
-  
+
   Returns:
-  
+
   .. code-block:: none
-  
+
      ----> Starting Kitchen (v1.2.1)
      -----> Converging <default-centos-64>...
             Preparing files for transfer
@@ -561,11 +661,23 @@ Kitchen
 
  .. revealjs:: Questions
 
-   .. include:: ../../includes_slides/includes_slides_core_questions.rst
+   .. tag slides_core_questions
+
+   .. Use this slide every time the slide deck stops for Q/A sessions with attendees.
+
+   .. image:: ../../images/slides_questions.png
+
+   .. end_tag
 
  .. revealjs:: Time to Hack
 
-   .. include:: ../../includes_slides/includes_slides_core_hack.rst
+   .. tag slides_core_hack
+
+   .. Use this slide every time the slide deck stops for Q/A sessions with attendees.
+
+   .. image:: ../../images/slides_hack.png
+
+   .. end_tag
 
  .. revealjs:: More Info About Kitchen
 

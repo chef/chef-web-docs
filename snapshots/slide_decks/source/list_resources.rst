@@ -2,7 +2,6 @@
 The 9 most popular resources!
 ================================================
 
-
 .. revealjs::
 
  .. revealjs:: The 9 most popular resources!
@@ -35,26 +34,26 @@ The 9 most popular resources!
     * ``nagios3 --verify-config``
     * ``/etc/init.d/tomcat6 start``
     * ... any command you want!
-    
+
     Let's face it. While being able to make your infrastruture as code is a big reason why people choose Chef, not everything can be managed as code right from the start. Sometimes you need a wrapper to put around an existing script because that script works right now.
-    
+
     The **execute** resource will help you do that. Later on, after you get all of the things working with Chef, you can always come back and refactor that code to better take advantage of the full power of Chef.
 
  .. revealjs:: execute, examples
 
     A very simple example of using the **execute** resource is to start the service that runs Apache Tomcat:
-    
+
     .. code-block:: ruby
-    
+
        execute 'start-tomcat' do
          command '/etc/init.d/tomcat6 start'
          action :run
        end
 
     As mentioned, a better approach is to use the **service** resource:
-    
+
     .. code-block:: ruby
-    
+
        service 'tomcat' do
          action :start
        end
@@ -64,9 +63,9 @@ The 9 most popular resources!
     Use the :doc:`template resource <resource_template>` to build a file on a node that is based on a template located in a cookbook. Chef uses Embedded Ruby (ERB) templates and Ruby expressions to define a template file.
 
     For example, when setting up Nginx, there is a default site:
-    
+
     .. code-block:: none
-    
+
        server { # php/fastcgi
           listen       80;
           server_name  domain1.com www.domain1.com;
@@ -80,9 +79,9 @@ The 9 most popular resources!
  .. revealjs:: template, examples
 
     Manage this site with Chef by using a template:
-    
+
     .. code-block:: ruby
-    
+
        server {
          listen        <%= node['nginx']['port'] -%>;
          server_name   <%= node['hostname'] %>;
@@ -94,11 +93,11 @@ The 9 most popular resources!
        }
 
  .. revealjs:: template, examples (continued)
- 
+
     and then create that site using the **template** resource in a recipe:
-    
+
     .. code-block:: ruby
-    
+
        template "#{node['nginx']['dir']}/sites-available/default" do
          source 'default-site.erb'
          owner 'root'
@@ -112,11 +111,11 @@ The 9 most popular resources!
     Use the :doc:`template resource <resource_directory>` to manage a directory struture on a node directoy. Directories are hierarchies of folders that comprise all the information that is stored on a computer.
 
     If you want to transfer in a directory structure from a cookbook, use the :doc:`remote_directory resource <resource_directory>` instead.
-    
+
     For example:
-    
+
     .. code-block:: ruby
-    
+
        directory "/tmp/something" do
          owner 'root'
          group 'root'
@@ -127,20 +126,20 @@ The 9 most popular resources!
  .. revealjs:: 4. file
 
     Use the :doc:`file resource <resource_file>` to manage files that already exist on a node.
-    
+
     For example, create a copy of a file in a different directory:
-    
+
     .. code-block:: ruby
-    
+
        file '/root/test.txt' do
          content IO.read("/tmp/something/test.txt")
          action :create
        end
-    
+
     And then delete the file in the ``/tmp`` directory:
-    
+
     .. code-block:: ruby
-    
+
        file '/tmp/something' do
          action :delete
        end
@@ -148,11 +147,11 @@ The 9 most popular resources!
  .. revealjs:: 5. service
 
     Use the :doc:`service resource <resource_service>` to manage services. Start them, stop them, restart them. Most applications have services, which is why this resource is essential.
-    
+
     For example, to start Apache Tomcat:
-    
+
     .. code-block:: ruby
-    
+
        service 'nginx' do
          action :start
        end
@@ -162,17 +161,17 @@ The 9 most popular resources!
     Use the :doc:`package resource <resource_package>` to install a package on a node. After you have installed the package, use the **template** resource to set up the configuration file for that application, and then start it using the **service** resource.
 
     Chef has many platform-specific resources for package management, but most of the time the **package** itself is all that's required! Chef will figure out which package manager to use based on the node's platform.
-    
+
     The default behavior of the **package** resource is to install a package, so all you need to put in a recipe is:
-    
+
     .. code-block:: ruby
-    
+
        package 'tar'
-    
+
     which is the same as:
-    
+
     .. code-block:: ruby
-    
+
        package 'tar' do
          action :install
        end
@@ -180,11 +179,11 @@ The 9 most popular resources!
  .. revealjs:: 7. cookbook_file
 
     Use the :doc:`cookbook_file resource <resource_cookbook_file>` to move a file from a cookbook to a node.
-    
+
     For example:
-    
+
     .. code-block:: ruby
-    
+
        cookbook_file "file.txt" do
          mode '0644'
        end
@@ -192,9 +191,9 @@ The 9 most popular resources!
  .. revealjs:: 8. remote_file
 
     Use the :doc:`remote_file resource <resource_remote_file>` to get a file from a remote location, typically via HTTP, but sometimes via FTP, UNC, or a local network path, and then move that file from the remote location to a node.
-    
+
     For example:
-    
+
     .. code-block:: ruby
 
        remote_file '#{cache_path}/vim-#{source_version}.tar.bz2' do
@@ -210,7 +209,7 @@ The 9 most popular resources!
     The **bash** resouce is the most popular, but they all behave in a similar manner.
 
     .. code-block:: ruby
-    
+
        bash 'install_vim' do
          cwd cache_path
          code <<-EOH
@@ -228,8 +227,4 @@ The 9 most popular resources!
  .. revealjs:: Conclusion
 
     The resources mentioned in this article are the most popular resources in Chef. Many cookbooks exist using only these resources. That said, there are :doc:`many more resources <resources>` that are built into Chef.
-
-
-
-
 

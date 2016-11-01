@@ -4,7 +4,11 @@
 Monitor Chef Analytics
 =====================================================
 
-.. include:: ../../includes_analytics/includes_analytics_legacy.rst 
+.. tag analytics_legacy
+
+.. note:: This topic is meant to support existing customers using Analytics. The visibility capabilities of Chef Automate replace the features and functionality of Chef Analytics and we encourage customers to adopt Chef Automate going forward.
+
+.. end_tag
 
 Application-level checks should be done periodically to ensure that there is enough disk space.
 
@@ -180,7 +184,6 @@ If snapshots and log files are not cleaned up periodically, eventually the disk 
       2015-03-16_15:59:23.51030 chef_analytics [INFO] http_bolt - b0d60543-e2da-4d14-a74d-6d84a92eab26 posting message
       2015-03-16_15:59:23.53049 chef_analytics [INFO] http_bolt - b0d60543-e2da-4d14-a74d-6d84a92eab26 successfully posted message to endpoint
       2015-03-16_15:59:23.53050 chef_analytics [INFO] http_bolt - b0d60543-e2da-4d14-a74d-6d84a92eab26 acknowledging message
-       
 
 Remove Events
 =====================================================
@@ -202,12 +205,100 @@ Depending on the number and frequency of events published to the Chef Analytics 
    EOF
    chmod +x /etc/cron.daily/chef-analytics.cron
 
-.. include:: ../../includes_server_tuning/includes_server_tuning_rabbitmq.rst
+.. tag server_tuning_rabbitmq
+
+.. note:: Chef Analytics has been replaced by Chef Automate.
+
+The following settings must be modified when the Chef Analytics server is configured as a standalone server:
+
+``rabbitmq['node_ip_address']``
+   The bind IP address for RabbitMQ. Default value: ``"127.0.0.1"``.
+
+   Chef Analytics uses the same RabbitMQ service that is configured on the Chef server. When the Chef Analytics server is configured as a standalone server, the default settings for ``rabbitmq['node_ip_address']`` and ``rabbitmq['vip']`` must be updated. When the Chef Analytics server is configured as a standalone server, change this value to ``0.0.0.0``.
+
+``rabbitmq['vip']``
+   The virtual IP address. Default value: ``"127.0.0.1"``.
+
+   Chef Analytics uses the same RabbitMQ service that is configured on the Chef server. When the Chef Analytics server is configured as a standalone server, the default settings for ``rabbitmq['node_ip_address']`` and ``rabbitmq['vip']`` must be updated. When the Chef Analytics server is configured as a standalone server, change this value to the backend VIP address for the Chef server.
+
+.. end_tag
 
 Analytics Queues
 =====================================================
 .. warning:: Tuning the RabbitMQ queue settings requires Chef server, version 12.3. These settings :ref:`must be configured in the chef-server.rb file <config_rb_server_optional_settings-rabbitmq>`.
 
-.. include:: ../../includes_server_tuning/includes_server_tuning_rabbitmq_analytics_queue.rst
+.. tag server_tuning_rabbitmq_analytics_queue
 
-.. include:: ../../includes_server_tuning/includes_server_tuning_rabbitmq_analytics_queue_settings.rst
+If the RabbitMQ queue that is used by Chef Analytics stops consuming messages, the Chef server data partition will fill up and may affect the overall performance of the Chef server application itself. The settings for the RabbitMQ queue are tunable, including for queue length monitoring, queue capacity, maximum number of messages that can be in the queue before messages are dropped, the point at which messages are dropped, for settings used by the rabbitmq-management plugin, and so on.
+
+.. end_tag
+
+.. tag server_tuning_rabbitmq_analytics_queue_settings
+
+The following settings may be used for tuning RabbitMQ queues used by Chef Analytics and the Chef server:
+
+``rabbitmq['analytics_max_length']``
+   The maximum number of messages that can be queued before RabbitMQ automatically drops messages from the front of the queue to make room for new messages. Default value: ``10000``.
+
+``rabbitmq['drop_on_full_capacity']``
+   Specify if messages will stop being sent to the RabbitMQ queue when it is at capacity. Default value: ``true``.
+
+``rabbitmq['management_enabled']``
+   Specify if the rabbitmq-management plugin is enabled. Default value: ``true``.
+
+``rabbitmq['management_password']``
+   The rabbitmq-management plugin password. Default value: ``'chefrocks'``.
+
+``rabbitmq['management_port']``
+   The rabbitmq-management plugin port. Default value: ``15672``.
+
+``rabbitmq['management_user']``
+   The rabbitmq-management plugin user. Default value: ``'rabbitmgmt'``.
+
+``rabbitmq['prevent_erchef_startup_on_full_capacity']``
+   Specify if the Chef server will start when the monitored RabbitMQ queue is full. Default value: ``false``.
+
+``rabbitmq['queue_at_capacity_affects_overall_status']``
+   Specify if the ``_status`` endpoint in the Chef server API will fail if the monitored queue is at capacity. Default value: ``false``.
+
+``rabbitmq['queue_length_monitor_enabled']``
+   Specify if the queue length monitor is enabled. Default value: ``true``.
+
+``rabbitmq['queue_length_monitor_millis']``
+   The frequency (in milliseconds) at which the length of the RabbitMQ queue is checked. Default value: ``30000``.
+
+``rabbitmq['queue_length_monitor_timeout_millis']``
+   The timeout (in milliseconds) at which calls to the queue length monitor will stop if the Chef server is overloaded. Default value: ``5000``.
+
+``rabbitmq['queue_length_monitor_queue']``
+   The RabbitMQ queue that is observed by queue length monitor. Default value: ``'alaska'``.
+
+``rabbitmq['queue_length_monitor_vhost']``
+   The virtual host for the RabbitMQ queue that is observed by queue length monitor. Default value: ``'/analytics'``.
+
+``rabbitmq['rabbit_mgmt_http_cull_interval']``
+   The maximum cull interval (in seconds) for the HTTP connection pool that is used by the rabbitmq-management plugin. Default value: ``60``.
+
+``rabbitmq['rabbit_mgmt_http_init_count']``
+   The initial worker count for the HTTP connection pool that is used by the rabbitmq-management plugin. Default value: ``25``.
+
+``rabbitmq['rabbit_mgmt_http_max_age']``
+   The maximum connection worker age (in seconds) for the HTTP connection pool that is used by the rabbitmq-management plugin. Default value: ``70``.
+
+``rabbitmq['rabbit_mgmt_http_max_connection_duration']``
+   The maximum connection duration (in seconds) for the HTTP connection pool that is used by the rabbitmq-management plugin. Default value: ``70``.
+
+``rabbitmq['rabbit_mgmt_http_max_count']``
+   The maximum worker count for the HTTP connection pool that is used by the rabbitmq-management plugin. Default value: ``100``.
+
+``rabbitmq['rabbit_mgmt_ibrowse_options']``
+   An array of comma-separated key-value pairs of ibrowse options for the HTTP connection pool that is used by the rabbitmq-management plugin. Default value: ``'{connect_timeout, 10000}'``.
+
+``rabbitmq['rabbit_mgmt_timeout']``
+   The timeout for the HTTP connection pool that is used by the rabbitmq-management plugin. Default value: ``30000``.
+
+``rabbitmq['ssl_versions']``
+   The SSL versions used by the rabbitmq-management plugin. (See also |url rabbitmqssl|.) Default value: ``['tlsv1.2', 'tlsv1.1']``.
+
+.. end_tag
+

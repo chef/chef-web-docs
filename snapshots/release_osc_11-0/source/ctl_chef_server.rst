@@ -38,7 +38,6 @@ This command has the following options:
 ``test --all``
    Execute chef-pedant, an integration test suite for the Chef server installation. By default, only a subset of the available test are run. Add the ``--all`` flag to run the full test suite.
 
-
 Examples
 =====================================================
 The following examples show how to use chef-server-ctl to manage services.

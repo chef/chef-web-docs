@@ -2,10 +2,21 @@
 InSpec Reference
 =====================================================
 
-.. include:: ../../includes_inspec/includes_inspec.rst
+.. tag inspec_summary
+
+InSpec is an open-source run-time framework and rule language used to specify compliance, security, and policy requirements for testing any node in your infrastructure.
+
+* The project name refers to "infrastructure specification"
+* InSpec includes a collection of resources to help you write auditing rules quickly and easily using the Compliance DSL
+* Use InSpec to examine any node in your infrastructure; run the tests locally or remotely
+* Any detected security, compliance, or policy issues are flagged in a log
+* The InSpec audit resource framework is fully compatible with Chef Compliance
+
+To learn more about InSpec, see the `InSpec website <http://inspec.io/>`__. The site contains tutorials and reference documentation on how to use the various audit resources, profiles, InSpec CLI, and more.
+
+.. end_tag
 
 See below for more information about each InSpec audit resource, its related matchers, and examples of how to use it in a recipe.
-
 
 Custom Audit Resources
 =====================================================
@@ -62,30 +73,30 @@ The following example shows a full resource using attributes and methods to prov
 
    class GordonConfig < Inspec.resource(1)
      name 'gordon_config'
-   
+
      desc '
        Resource description ...
      '
-   
+
      example '
        describe gordon_config do
          its("signal") { should eq "on" }
        end
      '
-   
+
      # Load the configuration file on initialization
      def initialize(path = nil)
        @path = path || '/etc/gordon.conf'
        @params = SimpleConfig.new( read_content )
      end
-   
+
      # Expose all parameters of the configuration file.
      def method_missing(name)
        @params[name]
      end
-   
+
      private
-   
+
      def read_content
        f = inspec.file(@path)
        # Test if the path exist and that it's a file
@@ -98,8 +109,6 @@ The following example shows a full resource using attributes and methods to prov
        end
      end
    end
-
-
 
 About the InSpec DSL
 =====================================================
@@ -230,7 +239,6 @@ Use Pry inside both the controls and resources. Similarly, for development and t
       its('exit_status') { should eq 0 }
     end
 
-
 Common Matchers
 =====================================================
 InSpec uses matchers to help compare resource values to expectations. The following matchers are available for every InSpec audit resource:
@@ -240,7 +248,6 @@ InSpec uses matchers to help compare resource values to expectations. The follow
 * ``eq``
 * ``include``
 * ``match``
-
 
 be
 -----------------------------------------------------
@@ -271,7 +278,6 @@ String vs. regular expression:
      its('log_format') { should cmp /raw/i }
    end
 
-
 **Compare strings and numbers**
 
 Strings vs. numbers:
@@ -290,7 +296,6 @@ vs:
      its('Protocol') { should cmp '2' }
      its('Protocol') { should cmp 2 }
    end
-
 
 **Ignoring case sensitivity**
 
@@ -320,7 +325,6 @@ prints something similar to:
    expected: 0345
    got: 0444
 
-
 eq
 -----------------------------------------------------
 Use the ``eq`` matcher to test the equality of two values: ``its('Port') { should eq '22' }``.
@@ -334,7 +338,6 @@ Use the ``include`` matcher to verify that a string value is included in a list:
 match
 -----------------------------------------------------
 Use the ``match`` matcher to check if a string matches a regular expression: ``its('string') { should_not match /regex/ }``.
-
 
 os[:family] Symbols
 =====================================================
@@ -378,7 +381,6 @@ For example, both of the following tests should have the same result:
        its('processes') { should include 'xinetd' }
      end
    end
-
 
 apache_conf
 =====================================================
@@ -425,7 +427,11 @@ For example:
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test for blocking .htaccess files on CentOS**
 
@@ -446,7 +452,6 @@ Examples
    describe apache_conf do
      its('Listen') { should eq '443'}
    end
-
 
 apt
 =====================================================
@@ -471,7 +476,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 be_enabled
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -491,7 +500,11 @@ The ``exist`` matcher tests if a package exists on the system:
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test if apt repository exists and is enabled**
 
@@ -526,7 +539,6 @@ Examples
      it { should_not be_enabled }
    end
 
-
 audit_policy
 =====================================================
 Use the ``audit_policy`` InSpec audit resource to test auditing policies on the Microsoft Windows platform. An auditing policy is a category of security-related events to be audited. Auditing is disabled by default and may be enabled for categories like account management, logon events, policy changes, process tracking, privilege use, system events, or object access. For each auditing category property that is enabled, the auditing level may be set to ``No Auditing``, ``Not Specified``, ``Success``, ``Success and Failure``, or ``Failure``.
@@ -548,11 +560,19 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_no_matchers.rst
+.. tag inspec_resource_generic_no_matchers
+
+This InSpec audit resource does not have any resource-specific matchers.
+
+.. end_tag
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test that a parameter is not set to "No Auditing"**
 
@@ -573,7 +593,6 @@ Examples
    describe audit_policy do
      its('User Account Management') { should eq 'Success' }
    end
-
 
 auditd_conf
 =====================================================
@@ -611,7 +630,11 @@ or:
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test the auditd.conf file**
 
@@ -636,7 +659,6 @@ Examples
      its('disk_error_action') { should cmp 'halt' }
    end
 
-
 auditd_rules
 =====================================================
 Use the ``auditd_rules`` InSpec audit resource to test the rules for logging that exist on the system. The ``audit.rules`` file is typically located under ``/etc/audit/`` and contains the list of rules that define what is captured in log files.
@@ -646,7 +668,6 @@ Use the ``auditd_rules`` InSpec audit resource to test the rules for logging tha
 Syntax
 -----------------------------------------------------
 An ``auditd_rules`` InSpec audit resource block declares one (or more) rules to be tested, and then what that rule should do. The syntax depends on the version of ``audit``:
-
 
 For ``audit`` >= 2.3:
 
@@ -708,12 +729,15 @@ where each test must declare one (or more) rules to be tested.
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test if a rule contains a matching element that is identified by a regular expression**
 
 .. To test if a rule contains a matching element that is identified by a regular expression:
-
 
 For ``audit`` >= 2.3:
 
@@ -767,7 +791,6 @@ Filters may be chained. For example:
      it { should eq(['exit']) }
    end
 
-
 bash
 =====================================================
 
@@ -802,7 +825,11 @@ For example:
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 exist
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -840,7 +867,6 @@ Examples
 -----------------------------------------------------
 None.
 
-
 bond
 =====================================================
 Use the ``bond`` InSpec audit resource to test a logical, bonded network interface (i.e. "two or more network interfaces aggregated into a single, logical network interface"). On Linux platforms, any value in the ``/proc/net/bonding`` directory may be tested.
@@ -862,7 +888,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 content
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -906,7 +936,11 @@ The ``params`` matcher tests arbitrary parameters for the bonded network interfa
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test if eth0 is a secondary interface for bond0**
 
@@ -934,7 +968,6 @@ Examples
      its('Down Delay (ms)') { should eq '0' }
    end
 
-
 bridge
 =====================================================
 Use the ``bridge`` InSpec audit resource to test basic network bridge properties, such as name, if an interface is defined, and the associations for any defined interface.
@@ -955,7 +988,11 @@ A ``bridge`` InSpec audit resource block declares the bridge to be tested and wh
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 exist
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -995,8 +1032,7 @@ The ``interfaces`` matcher tests if the named interface is present:
 .. **xxxxx** 
 .. 
 .. xxxxx
-.. 
-
+..
 
 command
 =====================================================
@@ -1021,7 +1057,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 exist
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1059,7 +1099,11 @@ The ``stdout`` matcher tests results of the command as returned in standard outp
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test for PostgreSQL database running a RC, development, or beta release**
 
@@ -1131,11 +1175,45 @@ Examples
 
 **Verify NTP**
 
-.. include:: ../../step_inspec/step_inspec_command_verify_ntp.rst
+.. tag inspec_command_verify_ntp
+
+The following example shows how to use the InSpec ``file`` audit resource to verify if the ``ntp.conf`` and ``leap-seconds`` files are present, and then the ``command`` resource to verify if Network Time Protocol (NTP) is installed and running:
+
+.. code-block:: ruby
+
+   describe file('/etc/ntp.conf') do
+      it { should be_file }
+   end
+
+   describe file('/etc/ntp.leapseconds') do
+     it { should be_file }
+   end
+
+   describe command('pgrep ntp') do
+      its('exit_status') { should eq 0 }
+   end
+
+.. end_tag
 
 **Verify WiX**
 
-.. include:: ../../step_inspec/step_inspec_file_verify_wix.rst
+.. tag inspec_file_verify_wix
+
+WiX includes serveral tools -- such as ``candle`` (preprocesses and compiles source files into object files), ``light`` (links and binds object files to an installer database), and ``heat`` (harvests files from various input formats). The following example uses a whitespace array and the InSpec ``file`` audit resource to verify if these three tools are present:
+
+.. code-block:: ruby
+
+   %w(
+     candle.exe
+     heat.exe
+     light.exe
+   ).each do |utility|
+     describe file("C:/wix/#{utility}") do
+       it { should be_file }
+     end
+   end
+
+.. end_tag
 
 csv
 =====================================================
@@ -1159,7 +1237,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 name
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1171,7 +1253,11 @@ The ``name`` matcher tests the value of ``name`` as read from a CSV file versus 
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test a CSV file**
 
@@ -1182,7 +1268,6 @@ Examples
    describe csv('some_file.csv') do
      its('setting') { should eq 1 }
    end
-
 
 directory
 =====================================================
@@ -1214,8 +1299,7 @@ This InSpec audit resource may use any of the matchers available to the ``file``
 .. **xxxxx** 
 .. 
 .. xxxxx
-.. 
-
+..
 
 etc_group
 =====================================================
@@ -1249,7 +1333,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 gids
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1295,7 +1383,11 @@ where ``item`` may be one (or more) of:
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test group identifiers (GIDs) for duplicates**
 
@@ -1337,7 +1429,6 @@ Examples
      its('groups') { should include 'my_group' }
    end
 
-
 file
 =====================================================
 Use the ``file`` InSpec audit resource to test all system file types, including files, directories, symbolic links, named pipes, sockets, character devices, block devices, and doors.
@@ -1360,7 +1451,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 be_block_device
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1674,7 +1769,7 @@ The ``sha256sum`` matcher tests if the SHA-256 checksum for a file matches the s
 .. code-block:: ruby
 
    its('sha256sum') { should eq 'b837ch38lh19bb8eaopl8jvxwd2e4g58jn9lkho1w3ed9jbkeicalplaad9k0pjn' }
-   
+
 size
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The ``size`` matcher tests if a file's size matches, is greater than, or is less than the specified value. For example, equal:
@@ -1722,7 +1817,11 @@ or:
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test the contents of a file for MD5 requirements**
 
@@ -1898,9 +1997,9 @@ Examples
 
    require 'digest'
    cpuinfo = file('/proc/cpuinfo').content
-   
+
    md5sum = Digest::MD5.hexdigest(cpuinfo)
-   
+
    describe file('/proc/cpuinfo') do
      its('md5sum') { should eq md5sum }
    end
@@ -1913,20 +2012,54 @@ Examples
 
    require 'digest'
    cpuinfo = file('/proc/cpuinfo').content
-   
+
    sha256sum = Digest::SHA256.hexdigest(cpuinfo)
-   
+
    describe file('/proc/cpuinfo') do
      its('sha256sum') { should eq sha256sum }
    end
 
 **Verify NTP**
 
-.. include:: ../../step_inspec/step_inspec_command_verify_ntp.rst
+.. tag inspec_command_verify_ntp
+
+The following example shows how to use the InSpec ``file`` audit resource to verify if the ``ntp.conf`` and ``leap-seconds`` files are present, and then the ``command`` resource to verify if Network Time Protocol (NTP) is installed and running:
+
+.. code-block:: ruby
+
+   describe file('/etc/ntp.conf') do
+      it { should be_file }
+   end
+
+   describe file('/etc/ntp.leapseconds') do
+     it { should be_file }
+   end
+
+   describe command('pgrep ntp') do
+      its('exit_status') { should eq 0 }
+   end
+
+.. end_tag
 
 **Verify WiX**
 
-.. include:: ../../step_inspec/step_inspec_file_verify_wix.rst
+.. tag inspec_file_verify_wix
+
+WiX includes serveral tools -- such as ``candle`` (preprocesses and compiles source files into object files), ``light`` (links and binds object files to an installer database), and ``heat`` (harvests files from various input formats). The following example uses a whitespace array and the InSpec ``file`` audit resource to verify if these three tools are present:
+
+.. code-block:: ruby
+
+   %w(
+     candle.exe
+     heat.exe
+     light.exe
+   ).each do |utility|
+     describe file("C:/wix/#{utility}") do
+       it { should be_file }
+     end
+   end
+
+.. end_tag
 
 gem
 =====================================================
@@ -1949,7 +2082,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 be_installed
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1969,7 +2106,11 @@ The ``version`` matcher tests if the named package version is on the system:
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Verify that a gem package is installed, with a specific version**
 
@@ -1991,7 +2132,6 @@ Examples
    describe gem('rubocop') do
      it { should_not be_installed }
    end
-
 
 group
 =====================================================
@@ -2015,7 +2155,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 be_local
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2043,7 +2187,11 @@ The ``gid`` matcher tests the named group identifier:
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test the group identifier for the root group**
 
@@ -2055,7 +2203,6 @@ Examples
      it { should exist }
      its('gid') { should eq 0 }
    end
-
 
 host
 =====================================================
@@ -2081,7 +2228,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 be_reachable
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2109,7 +2260,11 @@ The ``ipaddress`` matcher tests if a host name is resolvable to a specific IP ad
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Verify host name is reachable over a specific protocol and port number**
 
@@ -2131,7 +2286,6 @@ Examples
      it { should be_resolvable }
      its('ipaddress') { should include '192.168.1.1' }
    end
-
 
 inetd_conf
 =====================================================
@@ -2185,7 +2339,11 @@ For example:
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Verify that FTP is disabled**
 
@@ -2230,8 +2388,6 @@ then the same test will return ``false`` for ``ftp`` and the entire test will fa
      its('telnet') { should eq nil }
    end
 
-
-
 interface
 =====================================================
 Use the ``interface`` InSpec audit resource to test basic network adapter properties, such as name, status, state, address, and link speed (in MB/sec).
@@ -2253,7 +2409,11 @@ An ``interface`` InSpec audit resource block declares network interface properti
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 be_up
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2293,7 +2453,6 @@ The ``speed`` matcher tests the speed of the network interface, in MB/sec:
 .. xxxxx
 ..
 
-
 iptables
 =====================================================
 Use the ``iptables`` InSpec audit resource to test rules that are defined in ``iptables``, which maintains tables of IP packet filtering rules. There may be more than one table. Each table contains one (or more) chains (both built-in and custom). A chain is a list of rules that match packets. When the rule matches, the rule defines what target to assign to the packet.
@@ -2318,7 +2477,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 have_rule
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2330,7 +2493,11 @@ The ``have_rule`` matcher tests the named rule against the information in the ``
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test if the IP table allows a packet through**
 
@@ -2351,7 +2518,6 @@ Examples
    describe iptables(table:'mangle', chain: 'input') do
      it { should have_rule('-P INPUT ACCEPT') }
    end
-
 
 json
 =====================================================
@@ -2391,7 +2557,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 name
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2403,7 +2573,11 @@ The ``name`` matcher tests the value of ``name`` as read from a JSON file versus
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test a cookbook version in a policyfile.lock.json file**
 
@@ -2414,7 +2588,6 @@ Examples
    describe json('policyfile.lock.json') do
      its(['cookbook_locks', 'omnibus', 'version']) { should eq('2.2.0') }
    end
-
 
 kernel_module
 =====================================================
@@ -2437,7 +2610,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 be_loaded
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2449,7 +2626,11 @@ The ``be_loaded`` matcher tests if the module is a loadable kernel module:
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test if a module is loaded**
 
@@ -2460,7 +2641,6 @@ Examples
    describe kernel_module('bridge') do
      it { should be_loaded }
    end
-
 
 kernel_parameter
 =====================================================
@@ -2483,7 +2663,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 value
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2492,10 +2676,14 @@ The ``value`` matcher tests the value assigned to the named IP address versus th
 .. code-block:: ruby
 
    its('value') { should eq 0 }
-   
+
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test if global forwarding is enabled for an IPv4 address**
 
@@ -2526,7 +2714,6 @@ Examples
    describe kernel_parameter('net.ipv6.conf.interface.accept_redirects') do
      its('value') { should eq 'true' }
    end
-
 
 limits_conf
 =====================================================
@@ -2566,7 +2753,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 domain
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2584,7 +2775,11 @@ For example:
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test limits**
 
@@ -2596,7 +2791,6 @@ Examples
      its('*') { should include ['soft', 'core', '0'], ['hard', 'rss', '10000'] }
      its('ftp') { should eq ['hard', 'nproc', '0'] }
    end
-
 
 login_defs
 =====================================================
@@ -2619,7 +2813,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 name
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2631,7 +2829,11 @@ The ``name`` matcher tests the value of ``name`` as read from ``login.defs`` ver
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test password expiration settings**
 
@@ -2667,8 +2869,6 @@ Examples
      its('PASS_MAX_DAYS') { should eq '90' }
    end
 
-
-
 mount
 =====================================================
 Use the ``mount`` InSpec audit resource to test the mount points on Linux systems.
@@ -2691,7 +2891,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 be_mounted
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2727,7 +2931,11 @@ The ``type`` matcher tests the file system type:
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test a the mount point on '/'**
 
@@ -2741,8 +2949,6 @@ Examples
      its('type') { should eq  'ext4' }
      its('options') { should eq ['rw', 'mode=620'] }
    end
-
-
 
 mysql_conf
 =====================================================
@@ -2766,7 +2972,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 setting
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2780,7 +2990,11 @@ Use a ``setting`` matcher for each setting to be tested.
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test the maximum number of allowed connections**
 
@@ -2845,7 +3059,6 @@ Examples
    describe mysql_conf.params('mysqld') do
      its('safe-user-create') { should eq('1') }
    end
-  
 
 mysql_session
 =====================================================
@@ -2869,7 +3082,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 output
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2881,7 +3098,11 @@ The ``output`` matcher tests the results of the query:
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test for matching databases**
 
@@ -2890,11 +3111,10 @@ Examples
 .. code-block:: ruby
 
    sql = mysql_session('my_user','password')
-   
+
    describe sql.query('show databases like \'test\';') do
      its('stdout') { should_not match(/test/) }
    end
-
 
 npm
 =====================================================
@@ -2917,7 +3137,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 be_installed
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2937,7 +3161,11 @@ The ``version`` matcher tests if the named package version is on the system:
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Verify that bower is installed, with a specific version**
 
@@ -2959,7 +3187,6 @@ Examples
    describe npm('statsd') do
      it { should_not be_installed }
    end
-
 
 ntp_conf
 =====================================================
@@ -3006,7 +3233,11 @@ For example:
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test for clock drift against named servers**
 
@@ -3022,7 +3253,6 @@ Examples
        2.ubuntu.pool.ntp.org
      ] }
    end
-
 
 oneget
 =====================================================
@@ -3045,7 +3275,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 be_installed
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -3065,7 +3299,11 @@ The ``version`` matcher tests if the named package version is on the system:
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test if VLC is installed**
 
@@ -3076,7 +3314,6 @@ Examples
    describe oneget('VLC') do
      it { should be_installed }
    end
-
 
 os
 =====================================================
@@ -3104,7 +3341,11 @@ or using the block name:
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_no_matchers.rst
+.. tag inspec_resource_generic_no_matchers
+
+This InSpec audit resource does not have any resource-specific matchers.
+
+.. end_tag
 
 os.family? Helpers
 -----------------------------------------------------
@@ -3170,7 +3411,11 @@ Use the following helpers to test for operating system names, releases, and arch
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test for RedHat**
 
@@ -3202,7 +3447,6 @@ Examples
      it { should eq 'windows' }
    end
 
-
 os_env
 =====================================================
 Use the ``os_env`` InSpec audit resource to test the environment variables for the platform on which the system is running.
@@ -3224,7 +3468,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 content
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -3256,7 +3504,11 @@ Use ``-1`` to test for cases where there is a trailing colon (``:``), such as ``
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test the PATH environment variable**
 
@@ -3316,7 +3568,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 be_installed
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -3336,7 +3592,11 @@ The ``version`` matcher tests if the named package version is on the system:
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test if nginx version 1.9.5 is installed**
 
@@ -3390,9 +3650,29 @@ Examples
      it { should_not be_running }
    end
 
-**Verify if Memcached is installed, enabled, and running** 
+**Verify if Memcached is installed, enabled, and running**
 
-.. include:: ../../step_inspec/step_inspec_service_memcached.rst
+.. tag inspec_service_memcached
+
+Memcached is an in-memory key-value store that helps improve the performance of database-driven websites and can be `installed, maintained, and tested <https://github.com/chef-cookbooks/memcached>`__ using the ``memcached`` cookbook (maintained by Chef). The following example is from the ``memcached`` cookbook and shows how to use a combination of the ``package``, ``service``, and ``port`` InSpec audit resources to test if Memcached is installed, enabled, and running:
+
+.. code-block:: ruby
+
+   describe package('memcached') do
+     it { should be_installed }
+   end
+
+   describe service('memcached') do
+     it { should be_installed }
+     it { should be_enabled }
+     it { should be_running }
+   end
+
+   describe port(11_211) do
+     it { should be_listening }
+   end
+
+.. end_tag
 
 parse_config
 =====================================================
@@ -3447,27 +3727,107 @@ This InSpec audit resource supports the following options for parsing configurat
 
 assignment_re
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_options_assign_regex.rst
+.. tag inspec_resource_common_options_assign_regex
+
+Use ``assignment_re`` to test a key value using a regular expression:
+
+.. code-block:: ruby
+
+   'key = value'
+
+may be tested using the following regular expression, which determines assignment from key to value:
+
+.. code-block:: ruby
+
+   assignment_re: /^\s*([^=]*?)\s*=\s*(.*?)\s*$/
+
+.. end_tag
 
 comment_char
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_options_comment_char.rst
+.. tag inspec_resource_common_options_comment_char
+
+Use ``comment_char`` to test for comments in a configuration file:
+
+.. code-block:: ruby
+
+   comment_char: '#'
+
+.. end_tag
 
 key_vals
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_options_key_values.rst
+.. tag inspec_resource_common_options_key_values
+
+Use ``key_vals`` to test how many values a key contains:
+
+.. code-block:: ruby
+
+   key = a b c
+
+contains three values. To test that value to ensure it only contains one, use:
+
+.. code-block:: ruby
+
+   key_vals: 1
+
+.. end_tag
 
 multiple_values
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_options_multiple_values.rst
+.. tag inspec_resource_common_options_multiple_values
+
+Use ``multiple_values`` if the source file uses the same key multiple times. All values will be aggregated in an array:
+
+.. code-block:: ruby
+
+   # # file structure:
+   # key = a
+   # key = b
+   # key2 = c
+   params['key'] = ['a', 'b']
+   params['key2'] = ['c']
+
+To use plain key value mapping, use ``multiple_values: false``:
+
+.. code-block:: ruby
+
+   # # file structure:
+   # key = a
+   # key = b
+   # key2 = c
+   params['key'] = 'b'
+   params['key2'] = 'c'
+
+.. end_tag
 
 standalone_comments
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_options_standalone.rst
+.. tag inspec_resource_common_options_standalone
+
+Use ``standalone_comments`` to parse comments as a line, otherwise inline comments are allowed:
+
+.. code-block:: ruby
+
+   'key = value # comment'
+   params['key'] = 'value # comment'
+
+Use ``standalone_comments: false``, to parse the following:
+
+.. code-block:: ruby
+
+   'key = value # comment'
+   params['key'] = 'value'
+
+.. end_tag
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test the expiration time for new account passwords**
 
@@ -3490,7 +3850,6 @@ Examples
    describe parse_config(data, { multiple_values: true }) do
      its('users') { should include 'bob'}
    end
-
 
 parse_config_file
 =====================================================
@@ -3542,27 +3901,107 @@ This InSpec audit resource supports the following options for parsing configurat
 
 assignment_re
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_options_assign_regex.rst
+.. tag inspec_resource_common_options_assign_regex
+
+Use ``assignment_re`` to test a key value using a regular expression:
+
+.. code-block:: ruby
+
+   'key = value'
+
+may be tested using the following regular expression, which determines assignment from key to value:
+
+.. code-block:: ruby
+
+   assignment_re: /^\s*([^=]*?)\s*=\s*(.*?)\s*$/
+
+.. end_tag
 
 comment_char
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_options_comment_char.rst
+.. tag inspec_resource_common_options_comment_char
+
+Use ``comment_char`` to test for comments in a configuration file:
+
+.. code-block:: ruby
+
+   comment_char: '#'
+
+.. end_tag
 
 key_vals
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_options_key_values.rst
+.. tag inspec_resource_common_options_key_values
+
+Use ``key_vals`` to test how many values a key contains:
+
+.. code-block:: ruby
+
+   key = a b c
+
+contains three values. To test that value to ensure it only contains one, use:
+
+.. code-block:: ruby
+
+   key_vals: 1
+
+.. end_tag
 
 multiple_values
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_options_multiple_values.rst
+.. tag inspec_resource_common_options_multiple_values
+
+Use ``multiple_values`` if the source file uses the same key multiple times. All values will be aggregated in an array:
+
+.. code-block:: ruby
+
+   # # file structure:
+   # key = a
+   # key = b
+   # key2 = c
+   params['key'] = ['a', 'b']
+   params['key2'] = ['c']
+
+To use plain key value mapping, use ``multiple_values: false``:
+
+.. code-block:: ruby
+
+   # # file structure:
+   # key = a
+   # key = b
+   # key2 = c
+   params['key'] = 'b'
+   params['key2'] = 'c'
+
+.. end_tag
 
 standalone_comments
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_common_options_standalone.rst
+.. tag inspec_resource_common_options_standalone
+
+Use ``standalone_comments`` to parse comments as a line, otherwise inline comments are allowed:
+
+.. code-block:: ruby
+
+   'key = value # comment'
+   params['key'] = 'value # comment'
+
+Use ``standalone_comments: false``, to parse the following:
+
+.. code-block:: ruby
+
+   'key = value # comment'
+   params['key'] = 'value'
+
+.. end_tag
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test a configuration setting**
 
@@ -3583,7 +4022,6 @@ Examples
    describe parse_config_file('/path/to/file.conf', { multiple_values: true }) do
     its('PARAM_X') { should include 'Y' }
    end
-
 
 passwd
 =====================================================
@@ -3626,7 +4064,11 @@ where
 
 Matchers for passwd
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 gids
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -3719,7 +4161,11 @@ The ``users`` matcher tests if the user names in the test match user names in ``
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test usernames and UIDs**
 
@@ -3748,7 +4194,6 @@ Examples
      its('count') { should eq 1 }
    end
 
-
 pip
 =====================================================
 Use the ``pip`` InSpec audit resource to test packages that are installed using the pip installer.
@@ -3770,7 +4215,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 be_installed
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -3790,7 +4239,11 @@ The ``version`` matcher tests if the named package version is on the system:
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test if Jinja2 is installed on the system**
 
@@ -3854,7 +4307,11 @@ For example, to test if the SSH daemon is available on a Linux machine via the d
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 address
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -3904,7 +4361,11 @@ or for the Internet Protocol version 6 (IPv6) protocol:
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test port 80, listening with the TCP protocol**
 
@@ -3951,13 +4412,48 @@ or:
 
 **Test that only secure ports accept requests**
 
-.. include:: ../../step_inspec/step_inspec_port_listen_on_secure_ports.rst
+.. tag inspec_port_listen_on_secure_ports
 
-**Verify if Memcached is installed, enabled, and running** 
+.. To only accept requests on secure ports:
 
-.. include:: ../../step_inspec/step_inspec_service_memcached.rst
+.. code-block:: ruby
 
-**Verify port 65432 is not listening** 
+   describe port(80) do
+     it { should_not be_listening }
+   end
+
+   describe port(443) do
+     it { should be_listening }
+     its('protocols') {should eq ['tcp']}
+   end
+
+.. end_tag
+
+**Verify if Memcached is installed, enabled, and running**
+
+.. tag inspec_service_memcached
+
+Memcached is an in-memory key-value store that helps improve the performance of database-driven websites and can be `installed, maintained, and tested <https://github.com/chef-cookbooks/memcached>`__ using the ``memcached`` cookbook (maintained by Chef). The following example is from the ``memcached`` cookbook and shows how to use a combination of the ``package``, ``service``, and ``port`` InSpec audit resources to test if Memcached is installed, enabled, and running:
+
+.. code-block:: ruby
+
+   describe package('memcached') do
+     it { should be_installed }
+   end
+
+   describe service('memcached') do
+     it { should be_installed }
+     it { should be_enabled }
+     it { should be_running }
+   end
+
+   describe port(11_211) do
+     it { should be_listening }
+   end
+
+.. end_tag
+
+**Verify port 65432 is not listening**
 
 .. To test that port 22 is listening and that 65432 is not listening:
 
@@ -3968,11 +4464,10 @@ or:
      its('protocols') { should include('tcp') }
      its('protocols') { should_not include('udp') }
    end
-   
+
    describe port(65432) do
      it { should_not be_listening }
    end
-
 
 postgres_conf
 =====================================================
@@ -3996,7 +4491,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 setting
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -4010,7 +4509,11 @@ Use a ``setting`` matcher for each setting to be tested.
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test the maximum number of allowed client connections**
 
@@ -4061,7 +4564,6 @@ Examples
 
 where ``unix_socket_group`` is set to the PostgreSQL default setting (the group to which the server user belongs).
 
-
 postgres_session
 =====================================================
 Use the ``postgres_session`` InSpec audit resource to test SQL commands run against a PostgreSQL database.
@@ -4086,7 +4588,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 output
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -4098,7 +4604,11 @@ The ``output`` matcher tests the results of the query:
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test the PostgreSQL shadow password**
 
@@ -4126,8 +4636,6 @@ Examples
      its('output') { should eq '0' }
    end
 
-
-
 process
 =====================================================
 Use the ``processes`` InSpec audit resource to test properties for programs that are running on the system.
@@ -4145,11 +4653,15 @@ A ``processes`` InSpec audit resource block declares the name of the process to 
 where
 
 * ``processes('process_name')`` must specify the name of a process that is running on the system
-* ``property_name`` may be used to test user (``its('users')``) and state properties (``its('states')``) 
+* ``property_name`` may be used to test user (``its('users')``) and state properties (``its('states')``)
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 property_name
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -4161,7 +4673,11 @@ The ``property_name`` matcher tests the named property for the specified value:
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test if the list length for the mysqld process is 1**
 
@@ -4175,7 +4691,7 @@ Examples
 
 **Test if the init process is owned by the root user**
 
-.. To test if the init process is owned by the root user: 
+.. To test if the init process is owned by the root user:
 
 .. code-block:: ruby
 
@@ -4192,7 +4708,6 @@ Examples
    describe processes('some_process') do
      its('states') { should eq ['R<'] }
    end
-
 
 registry_key
 =====================================================
@@ -4230,14 +4745,37 @@ Or use a Hash:
      its('Start') { should eq 2 }
    end
 
-
 Registry Key Path Separators
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_windows/includes_windows_registry_key_backslashes.rst
+.. tag windows_registry_key_backslashes
+
+A Microsoft Windows registry key can be used as a string in Ruby code, such as when a registry key is used as the name of a recipe. In Ruby, when a registry key is enclosed in a double-quoted string (``" "``), the same backslash character (``\``) that is used to define the registry key path separator is also used in Ruby to define an escape character. Therefore, the registry key path separators must be escaped when they are enclosed in a double-quoted string. For example, the following registry key:
+
+.. code-block:: ruby
+
+   HKCU\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Themes
+
+may be encloused in a single-quoted string with a single backslash:
+
+.. code-block:: ruby
+
+   'HKCU\SOFTWARE\path\to\key\Themes'
+
+or may be enclosed in a double-quoted string with an extra backslash as an escape character:
+
+.. code-block:: ruby
+
+   "HKCU\\SOFTWARE\\path\\to\\key\\Themes"
+
+.. end_tag
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 children
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -4312,11 +4850,15 @@ The ``name`` matcher tests the value for the specified registry setting:
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test the start time for the Schedule service**
 
-.. To test the start time for the Schedule service: 
+.. To test the start time for the Schedule service:
 
 .. code-block:: ruby
 
@@ -4328,7 +4870,7 @@ where ``'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\Schedule'`` is the
 
 **Use a regular expression in responses**
 
-.. To use a regular expression in the response: 
+.. To use a regular expression in the response:
 
 .. code-block:: ruby
 
@@ -4342,7 +4884,6 @@ where ``'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\Schedule'`` is the
 script
 =====================================================
 Use the ``script`` InSpec audit resource to test a Windows PowerShell script on the Microsoft Windows platform.
-
 
 Syntax
 -----------------------------------------------------
@@ -4358,7 +4899,6 @@ A ``script`` InSpec audit resource block declares a script to be tested, and the
      its('matcher') { should eq 'output' }
    end
 
-
 where
 
 * ``'script'`` must specify a Powershell script to be run
@@ -4367,7 +4907,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 exit_status
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -4395,11 +4939,15 @@ The ``stdout`` matcher tests results of the command as returned in standard outp
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Get all groups of Administrator user**
 
-.. To get all groups of Administrator user: 
+.. To get all groups of Administrator user:
 
 .. code-block:: ruby
 
@@ -4410,11 +4958,10 @@ Examples
      $groups = $user.GetRelated('Win32_Group') | Select-Object -Property Caption, Domain, Name, LocalAccount, SID, SIDType, Status
      $groups | ConvertTo-Json
    EOH
-   
+
    describe script(myscript) do
      its('stdout') { should_not eq '' }
    end
-
 
 security_policy
 =====================================================
@@ -4437,7 +4984,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 policy_name
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -4449,7 +5000,11 @@ The ``policy_name`` matcher must be the name of a security policy:
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Verify that only the Administrators group has remote access**
 
@@ -4460,7 +5015,6 @@ Examples
    describe security_policy do
      its('SeRemoteInteractiveLogonRight') { should eq '*S-1-5-32-544' }
    end
-
 
 service
 =====================================================
@@ -4485,7 +5039,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 be_enabled
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -4513,7 +5071,11 @@ The ``be_running`` matcher tests if the named service is running:
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test if the postgresql service is both running and enabled**
 
@@ -4595,9 +5157,29 @@ For example, if the ``sv`` command for services managed by runit is not in the `
      it { should be_running }
    end
 
-**Verify if Memcached is installed, enabled, and running** 
+**Verify if Memcached is installed, enabled, and running**
 
-.. include:: ../../step_inspec/step_inspec_service_memcached.rst
+.. tag inspec_service_memcached
+
+Memcached is an in-memory key-value store that helps improve the performance of database-driven websites and can be `installed, maintained, and tested <https://github.com/chef-cookbooks/memcached>`__ using the ``memcached`` cookbook (maintained by Chef). The following example is from the ``memcached`` cookbook and shows how to use a combination of the ``package``, ``service``, and ``port`` InSpec audit resources to test if Memcached is installed, enabled, and running:
+
+.. code-block:: ruby
+
+   describe package('memcached') do
+     it { should be_installed }
+   end
+
+   describe service('memcached') do
+     it { should be_installed }
+     it { should be_enabled }
+     it { should be_running }
+   end
+
+   describe port(11_211) do
+     it { should be_listening }
+   end
+
+.. end_tag
 
 ssh_config
 =====================================================
@@ -4621,7 +5203,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 name
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -4639,7 +5225,11 @@ or:
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test SSH configuration settings**
 
@@ -4655,11 +5245,33 @@ Examples
 
 **Test which variables from the local environment are sent to the server**
 
-.. include:: ../../step_inspec/step_inspec_ssh_config_owner_and_group.rst
+.. tag inspec_ssh_config_owner_and_group
+
+.. To test owner and group permissions:
+
+.. code-block:: ruby
+
+  describe ssh_config do
+    its('owner') { should eq 'root' }
+    its('mode') { should cmp '0644' }
+  end
+
+.. end_tag
 
 **Test owner and group permissions**
 
-.. include:: ../../step_inspec/step_inspec_ssh_config_owner_and_group.rst
+.. tag inspec_ssh_config_owner_and_group
+
+.. To test owner and group permissions:
+
+.. code-block:: ruby
+
+  describe ssh_config do
+    its('owner') { should eq 'root' }
+    its('mode') { should cmp '0644' }
+  end
+
+.. end_tag
 
 **Test SSH configuration**
 
@@ -4673,7 +5285,6 @@ Examples
     its('SendEnv') { should eq 'LANG LC_*' }
     its('HashKnownHosts') { should eq 'yes' }
   end
-
 
 sshd_config
 =====================================================
@@ -4697,7 +5308,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 name
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -4715,7 +5330,11 @@ or:
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test which variables may be sent to the server**
 
@@ -4749,7 +5368,17 @@ Examples
 
 **Test for approved, strong ciphers**
 
-.. include:: ../../step_inspec/step_inspec_sshd_conf_use_strong_ciphers.rst
+.. tag inspec_sshd_conf_use_strong_ciphers
+
+.. To use approved strong ciphers:
+
+.. code-block:: ruby
+
+   describe sshd_config do
+     its('Ciphers') { should cmp('chacha20-poly1305@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr') }
+   end
+
+.. end_tag
 
 **Test SSH protocols**
 
@@ -4767,7 +5396,6 @@ Examples
         '/etc/ssh/ssh_host_ecdsa_key',
       ] }
   end
-
 
 user
 =====================================================
@@ -4800,7 +5428,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 exist
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -4896,7 +5528,11 @@ where ``5`` represents the number of days a user is warned.
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Verify available users for the MySQL server**
 
@@ -4930,7 +5566,6 @@ The Nginx user is typically ``www-data``, but on CentOS it's ``nginx``. The foll
      it { should exist }
    end
 
-
 windows_feature
 =====================================================
 Use the ``windows_feature`` InSpec audit resource to test features on Microsoft Windows via the ``Get-WindowsFeature`` cmdlet.
@@ -4952,7 +5587,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 be_installed
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -4964,7 +5603,11 @@ The ``be_installed`` matcher tests if the named Microsoft Windows feature is ins
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test the DHCP Server feature**
 
@@ -4975,7 +5618,6 @@ Examples
    describe windows_feature('DHCP Server') do
      it{ should be_installed }
    end
-
 
 yaml
 =====================================================
@@ -5008,7 +5650,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 name
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -5020,12 +5666,25 @@ The ``name`` matcher tests the value of ``name`` as read from a YAML file versus
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test a kitchen.yml file driver**
 
-.. include:: ../../step_inspec/step_inspec_yaml_kitchen_driver.rst
+.. tag inspec_yaml_kitchen_driver
 
+.. To test a kitchen.yml file driver:
+
+.. code-block:: ruby
+
+   describe yaml('.kitchen.yaml') do
+     its('driver.name') { should eq('vagrant') }
+   end
+
+.. end_tag
 
 yum
 =====================================================
@@ -5048,7 +5707,11 @@ where
 
 Matchers
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_matchers_intro.rst
+.. tag inspec_resource_generic_matchers_intro
+
+This InSpec audit resource has the following matchers:
+
+.. end_tag
 
 be_enabled
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -5096,7 +5759,11 @@ The ``shortname`` matcher names a specific package repository's group identifier
 
 Examples
 -----------------------------------------------------
-.. include:: ../../includes_inspec_resources/includes_inspec_resource_generic_examples_intro.rst
+.. tag inspec_resource_generic_examples_intro
+
+The following examples show how to use this InSpec audit resource.
+
+.. end_tag
 
 **Test if the yum repo exists**
 

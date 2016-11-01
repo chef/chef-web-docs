@@ -2,18 +2,34 @@
 About the Chef DK
 =====================================================
 
-.. include:: ../../includes_chef_dk/includes_chef_dk.rst
+.. tag chef_dk
+
+The Chef development kit is a package that contains everything that is needed to start using Chef:
+
+* chef-client
+* chef
+* Ohai
+* chef-zero
+* Testing tools like Kitchen, ChefSpec, and Foodcritic
+* Policy, including policy files
+* Chef provisioning
+* Everything else needed to author cookbooks and upload them to the Chef server
+
+.. end_tag
 
 Getting Started
 =====================================================
-.. include:: ../../includes_chef/includes_chef_index.rst
+.. tag chef_index
+
+Chef is a systems and cloud infrastructure automation framework that makes it easy to deploy servers and applications to any physical, virtual, or cloud location, no matter the size of the infrastructure. Each organization is comprised of one (or more) workstations, a single server, and every node that will be configured and maintained by the chef-client. Cookbooks (and recipes) are used to tell the chef-client how each node in your organization should be configured. The chef-client (which is installed on every node) does the actual configuration.
+
+.. end_tag
 
 :doc:`chef_overview`
 :doc:`install_dk`
 :doc:`ruby`
 
 .. note:: See this blog post by Irving Popovetsky about running the Chef DK on Windows: https://www.chef.io/blog/2014/11/04/the-chefdk-on-windows-survival-guide/.
-
 
 About Workflow
 -----------------------------------------------------
@@ -23,7 +39,7 @@ The Chef development kit defines a common workflow for cookbook development:
 
 #. Create a virtual machine environment using Kitchen. This is the environment that will be used to develop the cookbook, including the location in which automated testing and debugging of that cookbook will be done as it is being developed.
 
-#. Write the recipes for the cookbook and debug those recipes as they are being written. This is typically an iterative process, where cookbook are tested as they are developed, bugs are fixed quickly, and then cookbooks are tested again. A text editor---Sublime Text, vim, TextMate, EditPad, or any other preferred text editor---is used to author the files in the cookbook. 
+#. Write the recipes for the cookbook and debug those recipes as they are being written. This is typically an iterative process, where cookbook are tested as they are developed, bugs are fixed quickly, and then cookbooks are tested again. A text editor---Sublime Text, vim, TextMate, EditPad, or any other preferred text editor---is used to author the files in the cookbook.
 
 #. Perform acceptance tests. These tests are not done in a development environment, but rather are done against a full Chef server using an environment that matches the production environment as closely as possible.
 

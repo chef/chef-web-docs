@@ -34,7 +34,7 @@ The Chef server can be installed via download or by using the Omnitruck API:
 The Chef server can be upgraded:
 
 :doc:`upgrade_server_open_source`
-   
+
 Settings and Tools 
 =====================================================
 The following settings files are used to configure behavior for the Chef server:
@@ -51,9 +51,7 @@ The following APIs can be used to access data on the Chef server:
 
 :doc:`api_chef_server`
 
-
 .. Hide the TOC from this file.
-
 
 .. toctree::
    :hidden:

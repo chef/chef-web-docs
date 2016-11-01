@@ -1,13 +1,27 @@
 
 
-
 =====================================================
 chef_client
 =====================================================
 
-.. warning:: .. include:: ../../includes_notes/includes_notes_provisioning.rst
+.. warning:: .. tag notes_provisioning
 
-.. include:: ../../includes_chef_client/includes_chef_client.rst
+             This functionality is available with Chef provisioning and is packaged in the Chef development kit. Chef provisioning is a framework that allows clusters to be managed by the chef-client and the Chef server in the same way nodes are managed: with recipes. Use Chef provisioning to describe, version, deploy, and manage clusters of any size and complexity using a common set of tools.
+
+             .. end_tag
+
+.. tag chef_client_26
+
+A chef-client is an agent that runs locally on every node that is under management by Chef. When a chef-client is run, it will perform all of the steps that are required to bring the node into the expected state, including:
+
+* Registering and authenticating the node with the Chef server
+* Building the node object
+* Synchronizing cookbooks
+* Compiling the resource collection by loading each of the required cookbooks, including recipes, attributes, and all other dependencies
+* Taking the appropriate and required actions to configure the node
+* Looking for exceptions and notifications, handling each as required
+
+.. end_tag
 
 Use the **chef_client** resource to manage clients.
 
@@ -23,7 +37,7 @@ The syntax for using the **chef_client** resource in a recipe is as follows:
      action :action # see actions section below
    end
 
-where 
+where
 
 * ``chef_client`` tells the chef-client to use the ``Chef::Provider::ChefClient`` provider during the chef-client run
 * ``name`` is the name of the resource block; when the ``name`` property is not specified as part of a recipe, ``name`` is also the name of the chef-client
@@ -41,7 +55,11 @@ This resource has the following actions:
    Use to delete a chef-client.
 
 ``:nothing``
-   .. include:: ../../includes_resources_common/includes_resources_common_actions_nothing.rst
+   .. tag resources_common_actions_nothing
+
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the chef-client run.
+
+   .. end_tag
 
 ``:regenerate_keys``
    Use to regenerate the RSA public key for a chef-client.
@@ -70,11 +88,36 @@ This resource has the following properties:
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
-   .. include:: ../../includes_resources_common/includes_resources_common_notification_notifies.rst
+   .. tag resources_common_notification_notifies
 
-   .. include:: ../../includes_resources_common/includes_resources_common_notification_timers.rst
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
 
-   .. include:: ../../includes_resources_common/includes_resources_common_notification_notifies_syntax.rst
+   .. end_tag
+
+   .. tag resources_common_notification_timers
+
+   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+
+   ``:before``
+      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
+
+   ``:delayed``
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+
+   ``:immediate``, ``:immediately``
+      Specifies that a notification should be run immediately, per resource notified.
+
+   .. end_tag
+
+   .. tag resources_common_notification_notifies_syntax
+
+   The syntax for ``notifies`` is:
+
+   .. code-block:: ruby
+
+      notifies :action, 'resource[name]', :timer
+
+   .. end_tag
 
 ``output_key_format``
    Use to specify the format of a public key. Possible values: ``pem``, ``der``, or ``openssh``. Default value: ``openssh``.
@@ -84,9 +127,9 @@ This resource has the following properties:
 
 ``raw_json``
    The chef-client as JSON data. For example:
-       
+
    .. code-block:: javascript
-       
+
       {
         "clientname": "client_name",
         "orgname": "org_name",
@@ -121,11 +164,36 @@ This resource has the following properties:
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
-   .. include:: ../../includes_resources_common/includes_resources_common_notification_subscribes.rst
+   .. tag resources_common_notification_subscribes
 
-   .. include:: ../../includes_resources_common/includes_resources_common_notification_timers.rst
+   A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
 
-   .. include:: ../../includes_resources_common/includes_resources_common_notification_subscribes_syntax.rst
+   .. end_tag
+
+   .. tag resources_common_notification_timers
+
+   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+
+   ``:before``
+      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
+
+   ``:delayed``
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+
+   ``:immediate``, ``:immediately``
+      Specifies that a notification should be run immediately, per resource notified.
+
+   .. end_tag
+
+   .. tag resources_common_notification_subscribes_syntax
+
+   The syntax for ``subscribes`` is:
+
+   .. code-block:: ruby
+
+      subscribes :action, 'resource[name]', :timer
+
+   .. end_tag
 
 ``validator``
    Use to specify if the chef-client is a chef-validator.
@@ -138,7 +206,7 @@ This resource has the following properties:
 .. .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
 .. 
 .. .. include:: ../../includes_resources/includes_resource_chef_client_providers.rst
-.. 
+..
 
 Examples
 =====================================================

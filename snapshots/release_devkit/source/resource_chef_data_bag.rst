@@ -1,13 +1,20 @@
 
 
-
 =====================================================
 chef_data_bag
 =====================================================
 
-.. warning:: .. include:: ../../includes_notes/includes_notes_provisioning.rst
+.. warning:: .. tag notes_provisioning
 
-.. include:: ../../includes_data_bag/includes_data_bag.rst
+             This functionality is available with Chef provisioning and is packaged in the Chef development kit. Chef provisioning is a framework that allows clusters to be managed by the chef-client and the Chef server in the same way nodes are managed: with recipes. Use Chef provisioning to describe, version, deploy, and manage clusters of any size and complexity using a common set of tools.
+
+             .. end_tag
+
+.. tag data_bag
+
+A data bag is a global variable that is stored as JSON data and is accessible from a Chef server. A data bag is indexed for searching and can be loaded by a recipe or accessed during a search.
+
+.. end_tag
 
 Use the **chef_data_bag** resource to manage data bags.
 
@@ -23,7 +30,7 @@ The syntax for using the **chef_data_bag** resource in a recipe is as follows:
      action :action # see actions section below
    end
 
-where 
+where
 
 * ``chef_data_bag`` tells the chef-client to use the ``Chef::Provider::ChefDataBag`` provider during the chef-client run
 * ``name`` is the name of the resource block and also the name of the data bag
@@ -41,7 +48,11 @@ This resource has the following actions:
    Use to delete a data bag.
 
 ``:nothing``
-   .. include:: ../../includes_resources_common/includes_resources_common_actions_nothing.rst
+   .. tag resources_common_actions_nothing
+
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the chef-client run.
+
+   .. end_tag
 
 Properties
 =====================================================
@@ -61,11 +72,36 @@ This resource has the following properties:
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
-   .. include:: ../../includes_resources_common/includes_resources_common_notification_notifies.rst
+   .. tag resources_common_notification_notifies
 
-   .. include:: ../../includes_resources_common/includes_resources_common_notification_timers.rst
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
 
-   .. include:: ../../includes_resources_common/includes_resources_common_notification_notifies_syntax.rst
+   .. end_tag
+
+   .. tag resources_common_notification_timers
+
+   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+
+   ``:before``
+      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
+
+   ``:delayed``
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+
+   ``:immediate``, ``:immediately``
+      Specifies that a notification should be run immediately, per resource notified.
+
+   .. end_tag
+
+   .. tag resources_common_notification_notifies_syntax
+
+   The syntax for ``notifies`` is:
+
+   .. code-block:: ruby
+
+      notifies :action, 'resource[name]', :timer
+
+   .. end_tag
 
 ``retries``
    **Ruby Type:** Integer
@@ -80,11 +116,36 @@ This resource has the following properties:
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
-   .. include:: ../../includes_resources_common/includes_resources_common_notification_subscribes.rst
+   .. tag resources_common_notification_subscribes
 
-   .. include:: ../../includes_resources_common/includes_resources_common_notification_timers.rst
+   A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
 
-   .. include:: ../../includes_resources_common/includes_resources_common_notification_subscribes_syntax.rst
+   .. end_tag
+
+   .. tag resources_common_notification_timers
+
+   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+
+   ``:before``
+      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
+
+   ``:delayed``
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+
+   ``:immediate``, ``:immediately``
+      Specifies that a notification should be run immediately, per resource notified.
+
+   .. end_tag
+
+   .. tag resources_common_notification_subscribes_syntax
+
+   The syntax for ``subscribes`` is:
+
+   .. code-block:: ruby
+
+      subscribes :action, 'resource[name]', :timer
+
+   .. end_tag
 
 .. 
 .. Providers
@@ -94,7 +155,7 @@ This resource has the following properties:
 .. .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
 .. 
 .. .. include:: ../../includes_resources/includes_resource_chef_databag_providers.rst
-.. 
+..
 
 Examples
 =====================================================

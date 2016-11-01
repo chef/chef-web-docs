@@ -1,11 +1,16 @@
 
 
-
 =====================================================
 Configure Data Collection
 =====================================================
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst
+.. tag chef_automate_mark
+
+.. image:: ../../images/chef_automate_full.png
+   :width: 40px
+   :height: 17px
+
+.. end_tag
 
 Before using the visibility capabilities of Chef Automate, you must perform some simple setup and configuration steps before the nodes in your cluster can send data to your Chef Automate server.
 
@@ -51,7 +56,7 @@ Add Chef Automate certificate to `trusted_certs` directory
 
 The visibilty features of Chef Automate require that any self-signed Chef Automate SSL certificate (``HOSTNAME.crt``) is located 
 in the ``/etc/chef/trusted_certs`` directory on any node that wants to send data to Chef Automate. This directory is the location into 
-which SSL certificates are placed when a node has been bootstrapped with chef-client. 
+which SSL certificates are placed when a node has been bootstrapped with chef-client.
 
 To ensure the certificate is in the ``trusted_certs`` directory, you can use utilities such as `scp` or `rsync` to copy 
 ``/var/opt/delivery/nginx/ca/HOSTNAME.crt`` from the Chef Automate server to the ``/etc/chef/trusted_certs`` directory on the 
@@ -65,7 +70,7 @@ Configure Nodes
 To view data in the **Node State** dashboard of Chef Automate, it must be ingested from 
 Chef clients and/or servers through HTTP POST requests to a data collector endpoint on the Chef Automate server. 
 Node data, resource convergence status, error messages, and other information is collected during chef-client runs and 
-used to populate the dashboard. 
+used to populate the dashboard.
 
 At a minimum, nodes must be configured to send their data to Chef Automate by specifying the data collector endpoint and a token value. You can further configure the data collector functionality 
 depending on the needs and requirements of your business.
@@ -128,7 +133,7 @@ Configure Chef client to send InSpec data
 
 To send InSpec data as part of a Chef client run, you will need to use the `audit cookbook <https://github.com/chef-cookbooks/audit>`_. All profiles, which are configured to run during the audit cookbook execution, will send their results back to the Chef Automate server.
 
-To configure the audit cookbook, you will first need to configure the Chef client to send node converge data, as previously described. The ``data_collector.server_url`` and ``data_collector.token`` values will be used as the reporting targets. Once you have done that, configure the the audit cookbook's collector by setting the ``audit.collector`` attribute to ``chef-visibility``. 
+To configure the audit cookbook, you will first need to configure the Chef client to send node converge data, as previously described. The ``data_collector.server_url`` and ``data_collector.token`` values will be used as the reporting targets. Once you have done that, configure the the audit cookbook's collector by setting the ``audit.collector`` attribute to ``chef-visibility``.
 
 A complete audit cookbook attribute configuration would look something like this:
 
@@ -212,7 +217,6 @@ Send Habitat data to Visibility
 
 The visibility capabilities of Chef Automate can also be used to collect and report on Habitat ring data. The Prism Habitat package collects this data and sends it to an Chef Automate server's REST API endpoint. You can configure settings like the data collector URL, token, the Habitat supervisor used to get the ring information, and so on. For more information on the Prism package, see :doc:`Habitat Prism <habitat_prism>`. For more information on Habitat, see the `Habitat site <https://habitat.sh/>`__.
 
-
 Set up visibility with previous Chef Delivery installation
 ===============================================================
 
@@ -234,4 +238,12 @@ nodes to start streaming data to Chef Automate.
 Troubleshooting: My data does not show up in the UI
 =====================================================
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_visibility_no_data_troubleshoot.rst
+.. tag chef_automate_visibility_no_data_troubleshoot
+
+If an organization does not have any nodes associated with it, it does not show up in the **Nodes** section of the Chef Automate UI. 
+This is also true for roles, cookbooks, recipes, attributes, resources, node names, and environments. Only those items
+that have a node associated with them will appear in the UI. Chef Automate has all the data for all of these, but does 
+not highlight them in the UI. This is designed to keep the UI focused on the nodes in your cluster.
+
+.. end_tag
+

@@ -1,15 +1,20 @@
 
 
-
 =====================================================
 An Overview of Visibility in Chef Automate
 =====================================================
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+.. tag chef_automate_mark
+
+.. image:: ../../images/chef_automate_full.png
+   :width: 40px
+   :height: 17px
+
+.. end_tag
 
 Chef Automate allows you to monitor and visualize node status and convergence events from any Chef servers or 
 clients in your Chef Automate cluster during a chef-client run. This data can be filtered and searched in the 
-UI using a simple query language. Searches can then be shared and saved for future reference. 
+UI using a simple query language. Searches can then be shared and saved for future reference.
 
 Setup and Configuration
 ======================================================
@@ -22,7 +27,6 @@ Setup and configuration for visibility is done through the following steps:
 
 See :doc:`Configure Data Collection </setup_visibility_chef_automate>` for more information on the initial setup and configuring 
 Chef client and server for data ingestion, and :doc:`Stream Data </stream_data_chef_automate>` to learn how to stream data out for further processing.
-
 
 Navigating the UI
 ======================================================
