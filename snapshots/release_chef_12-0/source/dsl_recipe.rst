@@ -1030,6 +1030,8 @@ where ``command_args`` is the command that is run against the node.
 
 .. end_tag
 
+.. _dsl_recipe-shell-out-bang:
+
 shell_out!
 -----------------------------------------------------
 .. tag dsl_recipe_method_shell_out_bang

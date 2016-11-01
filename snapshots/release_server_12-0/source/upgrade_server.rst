@@ -17,6 +17,8 @@ There are two upgrade scenarios for upgrades from earlier versions of Chef serve
 * :ref:`Standalone <upgrade_server-standalone>`
 * :ref:`High availability <upgrade_server-high-availability>`
 
+.. _upgrade_server-id1:
+
 Standalone
 -----------------------------------------------------
 This section describes the upgrade process for a standalone configuration. The upgrade process will require downtime equal to the amount of time it takes to stop the server, run dpkg or RPM Package Manager, and then upgrade the server.
@@ -391,8 +393,8 @@ From Enterprise Chef
 =====================================================
 There are two upgrade scenarios for upgrades from Enterprise Chef 11 to Chef server 12:
 
-* :ref:`Standalone <upgrade_server-id1>`
-* :ref:`High availability <upgrade_server-id2>`
+* :ref:`Standalone <upgrade_server-standalone>`
+* :ref:`High availability <upgrade_server-high-availability>`
 
 Before upgrading, please view the notes for more background on the upgrade process from Enterprise Chef 11 to Chef server 12.
 
