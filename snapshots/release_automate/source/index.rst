@@ -48,26 +48,26 @@ Managing the Server
 :doc:`Tuning </delivery_server_tuning>` |
 :doc:`Users and Roles </delivery_users_and_roles>` |
 :doc:`Stream Data </stream_data_chef_automate>` |
- :ref:`create-backup <ctl_delivery_server-create-backup>` |
- :ref:`cleanse <ctl_delivery_server-cleanse>` |
- :ref:`create-enterprise <ctl_delivery_server-create-enterprise>` |
- :ref:`create-user <ctl_delivery_server-create-user>` |
- :ref:`delete-application <ctl_delivery_server-delete-application>` |
- :ref:`delete-enterprise <ctl_delivery_server-delete-enterprise>` |
- :ref:`delete-project <ctl_delivery_server-delete-project>` |
- :ref:`delete-user <ctl_delivery_server-delete-user>` |
- :ref:`list-applications <ctl_delivery_server-list-applications>` |
- :ref:`list-enterprises <ctl_delivery_server-list-enterprises>` |
- :ref:`list-users <ctl_delivery_server-list-users>` |
- :ref:`migrate-change-description <ctl_delivery_server-migrate-change-description>` |
- :ref:`migrate-patchset-diffs <ctl_delivery_server-migrate-patchset-diffs>` |
- :ref:`reconfigure <ctl_delivery_server-reconfigure>` |
- :ref:`rename-enterprise <ctl_delivery_server-rename-enterprise>` |
- :ref:`restore-backup <ctl_delivery_server-restore-backup>` |
- :ref:`revoke-token <ctl_delivery_server-revoke-token>` |
- :ref:`show-config <ctl_delivery_server-show-config>` |
- :ref:`uninstall <ctl_delivery_server-uninstall>` |
- :ref:`update-project-hooks <ctl_delivery_server-update-project-hooks>` |
+:ref:`create-backup <ctl_delivery_server-create-backup>` |
+:ref:`cleanse <ctl_delivery_server-cleanse>` |
+:ref:`create-enterprise <ctl_delivery_server-create-enterprise>` |
+:ref:`create-user <ctl_delivery_server-create-user>` |
+:ref:`delete-application <ctl_delivery_server-delete-application>` |
+:ref:`delete-enterprise <ctl_delivery_server-delete-enterprise>` |
+:ref:`delete-project <ctl_delivery_server-delete-project>` |
+:ref:`delete-user <ctl_delivery_server-delete-user>` |
+:ref:`list-applications <ctl_delivery_server-list-applications>` |
+:ref:`list-enterprises <ctl_delivery_server-list-enterprises>` |
+:ref:`list-users <ctl_delivery_server-list-users>` |
+:ref:`migrate-change-description <ctl_delivery_server-migrate-change-description>` |
+:ref:`migrate-patchset-diffs <ctl_delivery_server-migrate-patchset-diffs>` |
+:ref:`reconfigure <ctl_delivery_server-reconfigure>` |
+:ref:`rename-enterprise <ctl_delivery_server-rename-enterprise>` |
+:ref:`restore-backup <ctl_delivery_server-restore-backup>` |
+:ref:`revoke-token <ctl_delivery_server-revoke-token>` |
+:ref:`show-config <ctl_delivery_server-show-config>` |
+:ref:`uninstall <ctl_delivery_server-uninstall>` |
+:ref:`update-project-hooks <ctl_delivery_server-update-project-hooks>` |
 :doc:`delivery.rb </config_rb_delivery>` |
 :doc:`Delivery API </api_delivery>` |
 :doc:`Node Search Reference </search_query_chef_automate>`
