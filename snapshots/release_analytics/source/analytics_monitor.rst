@@ -225,7 +225,7 @@ The following settings must be modified when the Chef Analytics server is config
 
 Analytics Queues
 =====================================================
-.. warning:: Tuning the RabbitMQ queue settings requires Chef server, version 12.3. These settings :ref:`must be configured in the chef-server.rb file <config_rb_server_optional_settings-rabbitmq>`.
+.. warning:: Tuning the RabbitMQ queue settings requires Chef server, version 12.3. These settings must be configured in the chef-server.rb file.
 
 .. tag server_tuning_rabbitmq_analytics_queue
 

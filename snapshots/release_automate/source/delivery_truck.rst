@@ -538,7 +538,7 @@ To use ``delivery-truck`` and its dependency, ``delivery-sugar``, you must first
 
       supermarket-ctl reconfigure
 
-#. Share the ``delivery-truck`` and ``delivery-sugar`` cookbooks with your private Supermarket using the ``knife`` command-line tool. If you have not configured ``knife`` to share cookbooks with your private Supermarket, see :ref:`Upload a Cookbook <supermarket-upload-a-cookbook>` before running the following ``knife`` subcommands.
+#. Share the ``delivery-truck`` and ``delivery-sugar`` cookbooks with your private Supermarket using the ``knife`` command-line tool. If you have not configured ``knife`` to share cookbooks with your private Supermarket, see Upload a Cookbook before running the following ``knife`` subcommands.
 
    .. code-block::bash
 

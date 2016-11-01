@@ -16,11 +16,11 @@ The ``knife user`` subcommand is used to manage the list of users and their asso
 
              Starting with Chef server 12.0, this functionality is built into the chef-server-ctl command-line tool as part of the following arguments:
 
-             * :ref:`user-create <ctl_chef_server-user-create>`
-             * :ref:`user-delete <ctl_chef_server-user-delete>`
-             * :ref:`user-edit <ctl_chef_server-user-edit>`
-             * :ref:`user-list <ctl_chef_server-user-list>`
-             * :ref:`user-show <ctl_chef_server-user-show>`
+             * user-create
+             * user-delete
+             * user-edit
+             * user-list
+             * user-show
 
              Starting with chef-client version 12.4.1, the ``knife user`` functionality is restored for the following arguments: ``user-edit``, ``user-list``, and ``user-show`` for Chef server version 12.0 (and higher).
 

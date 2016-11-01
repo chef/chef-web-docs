@@ -6,7 +6,7 @@ chef-solo
 
 .. warning:: .. tag notes_chef_solo_use_local_mode
 
-             The chef-client :ref:`includes an option called local mode <ctl_chef_client-run-in-local-mode>` (``--local-mode`` or ``-z``), which runs the chef-client against the chef-repo on the local machine as if it were running against a Chef server. Local mode was added to the chef-client in the 11.8 release. If you are running that version of the chef-client (or later), you should consider using local mode instead of using chef-solo.
+             The chef-client includes an option called local mode (``--local-mode`` or ``-z``), which runs the chef-client against the chef-repo on the local machine as if it were running against a Chef server. Local mode was added to the chef-client in the 11.8 release. If you are running that version of the chef-client (or later), you should consider using local mode instead of using chef-solo.
 
              .. end_tag
 

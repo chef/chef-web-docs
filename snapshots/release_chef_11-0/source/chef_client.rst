@@ -272,7 +272,7 @@ The following changes were made during certain chef-client release prior to the 
   These new settings and tools enabled users who wanted to use stronger SSL settings to generate the private/public key pair from the chef-client, verify HTTPS requests, verify SSL certificates, and pull the SSL certificate from the Chef server down to the ``/.chef/trusted_certs`` directory.
 * In the chef-client 12 release, the default value for ``local_key_generation`` was changed to ``true`` and the default value for ``ssl_verify_mode`` was changed to ``:verify_peer``.
 
-Starting with chef-client 12, SSL certificate validation is enabled by default and the ``knife ssl fetch`` is a necessary :ref:`part of the setup process <install_dk-get-ssl-certificates>` for every workstation.
+Starting with chef-client 12, SSL certificate validation is enabled by default and the ``knife ssl fetch`` is a necessary part of the setup process for every workstation.
 
 .. end_tag
 
