@@ -104,7 +104,7 @@ To install the Chef Compliance server:
 
 AWS Marketplace
 =====================================================
-See :doc:`<aws_marketplace>` for more information.
+See :doc:`aws_marketplace` for more information.
 
 Configure SSL
 =====================================================
