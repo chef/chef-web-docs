@@ -170,12 +170,8 @@ The following Ohai plugins are available from the open source community:
 
    * - Plugin
      - Description
-   * - `chef-ohai-mdadm <https://github.com/tas50/chef-ohai-mdadm>`_
-     - Adds output for mdadm software RAID volumes.
    * - `dell.rb <https://github.com/demonccc/chef-ohai-plugins/blob/master/dell.rb>`_
      - Adds some useful Dell server information to Ohai. For example: service tag, express service code, storage info, RAC info, and so on. To use this plugin, OMSA and SMBIOS applications need to be installed.
-   * - `dpkg.rb <https://github.com/demonccc/chef-ohai-plugins/blob/master/linux/dpkg.rb>`_
-     - Adds dpkg info to Ohai so that information about the status of Debian packages and various installed packages can be collected.
    * - `ipmi.rb <https://bitbucket.org/retr0h/ohai>`_
      - Adds a MAC address and an IP address to Ohai, where available.
    * - `kvm_extensions.rb <https://github.com/albertsj1/ohai-plugins/blob/master/kvm_extensions.rb>`_

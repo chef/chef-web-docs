@@ -9,11 +9,11 @@ Submitting Issues
 =====================================================
 Not every contribution comes in the form of code. Submitting, confirming, and triaging issues is an important task for any project. At Chef we use GitHub to track all project issues.
 
-If you are familiar with Chef and know the component, that is causing you a problem, you can file an issue in the corresponding GitHub project. All of our Open Source Software can be found in our GitHub organization at <https://github.com/chef>. All projects include GitHub issue templates to help gather information needed for a thorough review.
+If you are familiar with Chef and know the component, that is causing you a problem, you can file an issue in the corresponding GitHub project. All of our Open Source Software can be found in our GitHub organization at https://github.com/chef. All projects include GitHub issue templates to help gather information needed for a thorough review.
 
-We ask you not to submit security concerns via GitHub. For details on submitting potential security issues please see <https://www.chef.io/security/>
+We ask you not to submit security concerns via GitHub. For details on submitting potential security issues please see https://www.chef.io/security/.
 
-In addition to GitHub issues, we also utilize a feedback site that helps our product team track and rank feature requests. If you have a feature request, this is an excellent place to start <https://feedback.chef.io>
+In addition to GitHub issues, we also utilize a feedback site that helps our product team track and rank feature requests. If you have a feature request, this is an excellent place to start: https://feedback.chef.io.
 
 The following repositories are the preferred locations for the creation of issues and bug reports:
 
@@ -42,7 +42,7 @@ For additional support about Chef products, including documentation, learning, a
 
 .. warning:: If you require a response from Chef per the terms of a support level agreement (SLA), please contact `Chef Support <https://www.chef.io/support/>`_ directly.
 
-.. note:: Questions on how to use Chef should be sent as Support Tickets if you have an SLA, or asked on the `Chef Mailing List <https://discourse.chef.io/>`_, `Stack Overflow <http://stackoverflow.com/questions/tagged/chef>`_, or `Slack <https://community-slack.chef.io/>`_. Bug Trackers are not appropriate for general purpose questions that are not bugs.
+.. note:: Questions on how to use Chef should be sent as Support Tickets if you have an SLA, or asked on the `Chef Mailing List <https://discourse.chef.io/>`_, or `Chef Community Slack <https://community-slack.chef.io/>`_. Bug Trackers are not appropriate for general purpose questions that are not bugs.
 
 Contribution Process
 =====================================================
@@ -83,7 +83,7 @@ Developer Certification of Origin (DCO)
 
 To make a good faith effort to ensure the criteria of the Apache License are met, Chef requires the Developer Certificate of Origin (DCO) process to be followed.
 
-The DCO is an attestation attached to every contribution made by every developer. In the commit message of the contribution, the developer simply adds a Signed-off-by statement and thereby agrees to the DCO, which you can find below or at <http://developercertificate.org/>.
+The DCO is an attestation attached to every contribution made by every developer. In the commit message of the contribution, the developer simply adds a Signed-off-by statement and thereby agrees to the DCO, which you can find below or at http://developercertificate.org/.
 
 .. code-block:: bash
 
