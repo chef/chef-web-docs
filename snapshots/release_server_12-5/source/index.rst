@@ -21,47 +21,47 @@ Install, Upgrade
 =====================================================
 The Chef server can be installed on new hardware. Existing server configurations may be upgraded.
 
-:doc:`<install_server>`
-:doc:`<upgrade_server>`
+:doc:`install_server`
+:doc:`upgrade_server`
 
 The Chef server may be configured for high availability to enable failover on backend and load balancing on frontend machines. The following high availability scenarios are supported:
 
-:doc:`<install_server_ha_aws>`
-:doc:`<install_server_ha_drbd>`
+:doc:`install_server_ha_aws`
+:doc:`install_server_ha_drbd`
 
 
-.. note:: Premium features of the Chef server must be installed and configured after the Chef server. The Chef management console must be installed before Reporting because they share the same web user interface. The Chef management console, Reporting, and Chef replication can all be installed using the `chef-server-ctl install <https://docs.chef.io/release/server_12-5/ctl_chef_server.html#install>`_ command. 
+.. note:: Premium features of the Chef server must be installed and configured after the Chef server. The Chef management console must be installed before Reporting because they share the same web user interface. The Chef management console, Reporting, and Chef replication can all be installed using the :ref:`chef-server-ctl install <ctl_chef_server-install>` command. 
 
 
 Manage the Chef Server
 =====================================================
 The Chef server can be managed in the following ways:
 
-:doc:`<runbook>`
-:doc:`<server_backup_restore>`
-:doc:`<server_data>`
-:doc:`<server_firewalls_and_ports>`
-:doc:`<server_high_availability>`
-:doc:`<server_logs>`
-:doc:`<server_monitor>`
-:doc:`<server_orgs>`
-:doc:`<server_replication>`
-:doc:`<server_security>`
-:doc:`<server_services>`
-:doc:`<server_tuning>`
+:doc:`runbook`
+:doc:`server_backup_restore`
+:doc:`server_data`
+:doc:`server_firewalls_and_ports`
+:doc:`server_high_availability`
+:doc:`server_logs`
+:doc:`server_monitor`
+:doc:`server_orgs`
+:doc:`server_replication`
+:doc:`server_security`
+:doc:`server_services`
+:doc:`server_tuning`
 
 
 Management Console
 -----------------------------------------------------
 The Chef management console provides a web user interface with access to objects, such as nodes and cookbooks, through role-based access control:
 
-:doc:`<server_manage_clients>`
-:doc:`<server_manage_cookbooks>`
-:doc:`<server_manage_data_bags>`
-:doc:`<server_manage_environments>`
-:doc:`<server_manage_nodes>`
-:doc:`<server_manage_reports>`
-:doc:`<server_manage_roles>`
+:doc:`server_manage_clients`
+:doc:`server_manage_cookbooks`
+:doc:`server_manage_data_bags`
+:doc:`server_manage_environments`
+:doc:`server_manage_nodes`
+:doc:`server_manage_reports`
+:doc:`server_manage_roles`
 
 Reference
 =====================================================
@@ -69,18 +69,18 @@ This section contains links to topics about configuration files, command-line to
 
 **Configuration Files**
 
-:doc:`<config_rb_server>`
-:doc:`<config_rb_manage>`
+:doc:`config_rb_server`
+:doc:`config_rb_manage`
 
 **Command-line Tools**
 
-:doc:`<ctl_chef_server>`
-:doc:`<ctl_opscode_expander>`
+:doc:`ctl_chef_server`
+:doc:`ctl_opscode_expander`
 
 **APIs**
 
-:doc:`<api_chef_server>`
-:doc:`<api_push_jobs>`
+:doc:`api_chef_server`
+:doc:`api_push_jobs`
 
 .. Hide the TOC from this file. Just keep these alphabetized please.
 

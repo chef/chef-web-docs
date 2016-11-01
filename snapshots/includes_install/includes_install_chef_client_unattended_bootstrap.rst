@@ -13,5 +13,5 @@ When the chef-client is installed using an unattended bootstrap, remember that t
 
 When the chef-client is installed using an unattended bootstrap, it is typically built into an image that starts the chef-client on boot. The type of image used depends on the platform on which the unattended bootstrap will take place.
 
-Use settings in the `client.rb file <https://docs.chef.io/config_rb_client.html>`_---``chef_server_url``, ``http_proxy``, and so on---to ensure that configuration details are built into the unattended bootstrap process.
+Use settings in the :doc:`client.rb file <config_rb_client>`---``chef_server_url``, ``http_proxy``, and so on---to ensure that configuration details are built into the unattended bootstrap process.
 

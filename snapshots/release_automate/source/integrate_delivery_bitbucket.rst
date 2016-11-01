@@ -189,7 +189,7 @@ Delivery CLI
 -----------------------------------------------------
 Perform the following steps to install the Delivery CLI and setup your project:
 
-#. `Install the Delivery CLI <https://docs.chef.io/ctl_delivery.html#install-delivery-cli>`__.
+#. :ref:`Install the Delivery CLI <ctl_delivery-install-delivery-cli>`.
 #. In the command shell, create or navigate to the directory in which project repositories are located.
 #. Use the ``delivery setup`` command with the following arguments to create the ``.delivery/cli.toml`` file:
 

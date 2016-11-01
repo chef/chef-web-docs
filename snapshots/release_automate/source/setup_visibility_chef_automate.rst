@@ -210,7 +210,7 @@ The following example sets the ``fqdn`` field to ``"my-chef-server.mycompany.com
 Send Habitat data to Visibility
 -------------------------------------------------------
 
-The visibility capabilities of Chef Automate can also be used to collect and report on Habitat ring data. The Prism Habitat package collects this data and sends it to an Chef Automate server's REST API endpoint. You can configure settings like the data collector URL, token, the Habitat supervisor used to get the ring information, and so on. For more information on the Prism package, see `Habitat Prism <https://docs.chef.io/habitat_prism.html>`__. For more information on Habitat, see the `Habitat site <https://habitat.sh/>`__.
+The visibility capabilities of Chef Automate can also be used to collect and report on Habitat ring data. The Prism Habitat package collects this data and sends it to an Chef Automate server's REST API endpoint. You can configure settings like the data collector URL, token, the Habitat supervisor used to get the ring information, and so on. For more information on the Prism package, see :doc:`Habitat Prism <habitat_prism>`. For more information on Habitat, see the `Habitat site <https://habitat.sh/>`__.
 
 
 Set up visibility with previous Chef Delivery installation

@@ -340,10 +340,10 @@ in that environment.
 Prerequisites
 -----------------------------------------------------
 
-* Ensure you have a private Supermarket installed, setup, and running. See `Install Private Supermarket <https://docs.chef.io/install_supermarket.html>`__ for more information.
-* Ensure you have a Chef server with the Chef identify authentication/authorization service configured, a Chef Automate server setup that references your private Supermarket, and at least one Chef Automate build node installed, setup, and running. See `Install Chef Automate <https://docs.chef.io/install_chef_automate.html>`__ and `Chef Identify <https://docs.chef.io/install_supermarket.html#chef-identify>`__ for more information.
-* Ensure you have created a project in Chef Automate. Follow these instructions to `Set Up Projects <https://docs.chef.io/delivery_build_cookbook.html#set-up-projects>`__.
-* Ensure you have `ChefDK <https://downloads.chef.io/chef-dk/>`__ installed on your `workstation <https://docs.chef.io/workstation.html>`__.
+* Ensure you have a private Supermarket installed, setup, and running. See :doc:`Install Private Supermarket <install_supermarket>` for more information.
+* Ensure you have a Chef server with the Chef identify authentication/authorization service configured, a Chef Automate server setup that references your private Supermarket, and at least one Chef Automate build node installed, setup, and running. See :doc:`Install Chef Automate <install_chef_automate>` and :ref:`Chef Identify <install_supermarket-chef-identify>` for more information.
+* Ensure you have created a project in Chef Automate. Follow these instructions to :ref:`Set Up Projects <delivery_build_cookbook-set-up-projects>`.
+* Ensure you have `ChefDK <https://downloads.chef.io/chef-dk/>`__ installed on your :doc:`workstation <workstation>`.
 
 
 Share cookbooks with your private Supermarket
@@ -378,7 +378,7 @@ To use ``delivery-truck`` and its dependency, ``delivery-sugar``, you must first
 
       supermarket-ctl reconfigure
 
-#. Share the ``delivery-truck`` and ``delivery-sugar`` cookbooks with your private Supermarket using the ``knife`` command-line tool. If you have not configured ``knife`` to share cookbooks with your private Supermarket, see `Upload a Cookbook <https://docs.chef.io/supermarket.html#upload-a-cookbook>`__ before running the following ``knife`` subcommands.
+#. Share the ``delivery-truck`` and ``delivery-sugar`` cookbooks with your private Supermarket using the ``knife`` command-line tool. If you have not configured ``knife`` to share cookbooks with your private Supermarket, see :ref:`Upload a Cookbook <supermarket-upload-a-cookbook>` before running the following ``knife`` subcommands.
 
    .. code-block::bash
 
@@ -389,7 +389,7 @@ To use ``delivery-truck`` and its dependency, ``delivery-sugar``, you must first
 Generate a cookbook
 -----------------------------------------------------
 
-#. On your workstation, use ChefDK's `cookbook generator command <https://docs.chef.io/ctl_chef.html#chef-generate-cookbook>`__ to create a default cookbook directory structure called ``my_cookbook``.
+#. On your workstation, use ChefDK's :ref:`cookbook generator command <ctl_chef-chef-generate-cookbook>` to create a default cookbook directory structure called ``my_cookbook``.
 
    .. code-block:: bash
       

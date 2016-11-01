@@ -18,7 +18,7 @@ Some of the most popular Chef-maintained cookbooks are listed below:
      - The ``aws`` cookbook is used to manage resources that are running in Amazon Web Services (AWS).
    * - `bluepill <https://github.com/chef-cookbooks/bluepill>`_
      - The ``bluepill`` cookbook is used to install Blue Pill, and then use it to manage services.
-   * - `chef_handler <https://docs.chef.io/resource_chef_handler.html>`_
+   * - :doc:`chef_handler <resource_chef_handler>`
      - The **chef_handler** cookbook is used to distribute and enable exception and report handlers. This cookbook also exposes the **chef_handler** resource, which allows exception and report handlers to be exposed from within recipes, as opposed to having them hard-coded within the client.rb file.
    * - `cron <https://github.com/chef-cookbooks/cron>`_
      - Use to install cron and start the crond service.
@@ -49,7 +49,7 @@ Some of the most popular Chef-maintained cookbooks are listed below:
    * - `postfix <https://github.com/chef-cookbooks/postfix>`_
      - Use to install and configure postfix for client or outbound relayhost.
    * - `powershell <https://github.com/chef-cookbooks/powershell>`_
-     - Use to run Windows PowerShell. See the `powershell_script resource <https://docs.chef.io/resource_powershell_script.html>`__ (built into the chef-client) for more information about improved ways to run Windows PowerShell when using Chef.
+     - Use to run Windows PowerShell. See the :doc:`powershell_script resource <resource_powershell_script>` (built into the chef-client) for more information about improved ways to run Windows PowerShell when using Chef.
    * - `squid <https://github.com/chef-cookbooks/squid>`_
      - Use to configure squid as a caching proxy.
    * - `sudo <https://github.com/chef-cookbooks/sudo>`_

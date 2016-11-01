@@ -206,7 +206,7 @@ Depending on the number and frequency of events published to the Chef Analytics 
 
 Analytics Queues
 =====================================================
-.. warning:: Tuning the RabbitMQ queue settings requires Chef server, version 12.3. These settings `must be configured in the chef-server.rb file <https://docs.chef.io/config_rb_server_optional_settings.html#rabbitmq>`__.
+.. warning:: Tuning the RabbitMQ queue settings requires Chef server, version 12.3. These settings :ref:`must be configured in the chef-server.rb file <config_rb_server_optional_settings-rabbitmq>`.
 
 .. include:: ../../includes_server_tuning/includes_server_tuning_rabbitmq_analytics_queue.rst
 

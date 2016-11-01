@@ -12,7 +12,7 @@ Requirements
 =====================================================
 .. include:: ../../includes_system_requirements/includes_system_requirements_reporting.rst
 
-Reporting is configured as :doc:`a premium feature </install_reporting>` of the Chef server and requires acceptance of the `Chef MLSA <https://docs.chef.io/chef_license.html>`__ as part of the installation process, starting with version 1.6.0.
+Reporting is configured as :doc:`a premium feature </install_reporting>` of the Chef server and requires acceptance of the :doc:`Chef MLSA <chef_license>` as part of the installation process, starting with version 1.6.0.
 
 The Reporting Run
 =====================================================
@@ -30,7 +30,7 @@ Knife Reporting
 =====================================================
 The ``knife reporting`` subcommand is used by Reporting to report about chef-client runs across the organization.
 
-.. note:: Review the list of `common options <https://docs.chef.io/knife_common_options.html>`_ available to this (and all) knife subcommands and plugins.
+.. note:: Review the list of :doc:`common options <knife_common_options>` available to this (and all) knife subcommands and plugins.
 
 Install the Plugin
 -----------------------------------------------------

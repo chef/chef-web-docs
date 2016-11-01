@@ -8,15 +8,15 @@ All about Supermarket
 
 The following topics are available for Chef Supermarket:
 :doc:`<api_cookbooks_site`
-:doc:`<chef_overview>`
-:doc:`<community_contributions>`
-:doc:`<config_rb_supermarket>`
-:doc:`<ctl_supermarket>`
-:doc:`<install_supermarket>`
-:doc:`<plugin_knife_supermarket>`
-:doc:`<supermarket>`
-:doc:`<supermarket_logs>`
-:doc:`<supermarket_monitor>`
+:doc:`chef_overview`
+:doc:`community_contributions`
+:doc:`config_rb_supermarket`
+:doc:`ctl_supermarket`
+:doc:`install_supermarket`
+:doc:`plugin_knife_supermarket`
+:doc:`supermarket`
+:doc:`supermarket_logs`
+:doc:`supermarket_monitor`
 
 .. Hide the TOC from this file.
 

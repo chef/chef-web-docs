@@ -51,26 +51,26 @@ Managing the Server
 :doc:`Tuning </delivery_server_tuning>` |
 :doc:`Users and Roles </delivery_users_and_roles>` |
 :doc:`Stream Data </stream_data_chef_automate>` |
-`backup-data <http://docs.chef.io/ctl_delivery_server.html#backup-data>`_ |
-`cleanse <http://docs.chef.io/ctl_delivery_server.html#cleanse>`_ |
-`create-enterprise <http://docs.chef.io/ctl_delivery_server.html#create-enterprise>`_ |
-`create-user <http://docs.chef.io/ctl_delivery_server.html#create-user>`_ |
-`delete-application <http://docs.chef.io/ctl_delivery_server.html#delete-application>`_ |
-`delete-enterprise <http://docs.chef.io/ctl_delivery_server.html#delete-enterprise>`_ |
-`delete-project <http://docs.chef.io/ctl_delivery_server.html#delete-project>`_ |
-`delete-user <http://docs.chef.io/ctl_delivery_server.html#delete-user>`_ |
-`list-applications <http://docs.chef.io/ctl_delivery_server.html#list-applications>`_ |
-`list-enterprises <http://docs.chef.io/ctl_delivery_server.html#list-enterprises>`_ |
-`list-users <http://docs.chef.io/ctl_delivery_server.html#list-users>`_ |
-`migrate-change-description <http://docs.chef.io/ctl_delivery_server.html#migrate-change-description>`_ |
-`migrate-patchset-diffs <http://docs.chef.io/ctl_delivery_server.html#migrate-patchset-diffs>`_ |
-`reconfigure <http://docs.chef.io/ctl_delivery_server.html#reconfigure>`_ |
-`rename-enterprise <http://docs.chef.io/ctl_delivery_server.html#rename-enterprise>`_ |
-`restore-data <http://docs.chef.io/ctl_delivery_server.html#restore-data>`_ |
-`revoke-token <http://docs.chef.io/ctl_delivery_server.html#revoke-token>`_ |
-`show-config <http://docs.chef.io/ctl_delivery_server.html#show-config>`_ |
-`uninstall <http://docs.chef.io/ctl_delivery_server.html#uninstall>`_ |
-`update-project-hooks <http://docs.chef.io/ctl_delivery_server.html#update-project-hooks>`_ |
+ :ref:`backup-data <ctl_delivery_server-backup-data>` |
+ :ref:`cleanse <ctl_delivery_server-cleanse>` |
+ :ref:`create-enterprise <ctl_delivery_server-create-enterprise>` |
+ :ref:`create-user <ctl_delivery_server-create-user>` |
+ :ref:`delete-application <ctl_delivery_server-delete-application>` |
+ :ref:`delete-enterprise <ctl_delivery_server-delete-enterprise>` |
+ :ref:`delete-project <ctl_delivery_server-delete-project>` |
+ :ref:`delete-user <ctl_delivery_server-delete-user>` |
+ :ref:`list-applications <ctl_delivery_server-list-applications>` |
+ :ref:`list-enterprises <ctl_delivery_server-list-enterprises>` |
+ :ref:`list-users <ctl_delivery_server-list-users>` |
+ :ref:`migrate-change-description <ctl_delivery_server-migrate-change-description>` |
+ :ref:`migrate-patchset-diffs <ctl_delivery_server-migrate-patchset-diffs>` |
+ :ref:`reconfigure <ctl_delivery_server-reconfigure>` |
+ :ref:`rename-enterprise <ctl_delivery_server-rename-enterprise>` |
+ :ref:`restore-data <ctl_delivery_server-restore-data>` |
+ :ref:`revoke-token <ctl_delivery_server-revoke-token>` |
+ :ref:`show-config <ctl_delivery_server-show-config>` |
+ :ref:`uninstall <ctl_delivery_server-uninstall>` |
+ :ref:`update-project-hooks <ctl_delivery_server-update-project-hooks>` |
 :doc:`delivery.rb </config_rb_delivery>` |
 :doc:`Delivery API </api_delivery>` |
 :doc:`Node Search Reference </search_query_chef_automate>`

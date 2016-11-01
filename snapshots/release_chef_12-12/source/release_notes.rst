@@ -10,7 +10,7 @@ The following items are new for chef-client 12.12 and/or are changes from previo
 
 * **New node attribute APIs** Common set of methods to read, write, delete, and check if node attributes exist.
 * **Data collector updates** Minor enhancements to data that the data collector reports on.
-* **knife cookbook create has been deprecated** You should use `chef generate cookbook <https://docs.chef.io/ctl_chef.html#chef-generate-cookbook>`_ instead.
+* **knife cookbook create has been deprecated** You should use :ref:`chef generate cookbook <ctl_chef-chef-generate-cookbook>` instead.
 
 New node attribute read, write, unlink, and exist? APIs
 -----------------------------------------------------------

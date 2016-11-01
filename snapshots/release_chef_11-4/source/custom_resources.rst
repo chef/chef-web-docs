@@ -175,7 +175,7 @@ whyrun_supported?
 
 .. include:: ../../includes_dsl_provider/includes_dsl_provider_method_whyrun_supported.rst
 
-.. note:: When a lightweight provider contains only platform resources, the ``converge_by`` method is not required because it is already built into all of the platform `resources <https://docs.chef.io/resource.html>`_.
+.. note:: When a lightweight provider contains only platform resources, the ``converge_by`` method is not required because it is already built into all of the platform :doc:`resources <resource>`.
 
 Examples
 -----------------------------------------------------

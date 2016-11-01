@@ -10,7 +10,7 @@ What's New (1.4)
 =====================================================
 The following items are new for Chef Analytics 1.4 and/or are changes from previous versions:
 
-* **Chef MLSA** Starting with Chef Analytics 1.4.0, the `Chef MLSA <https://docs.chef.io/chef_license.html>`__ must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``opscode-analytics-ctl reconfigure --accept-license`` to automatically accept the license.
+* **Chef MLSA** Starting with Chef Analytics 1.4.0, the :doc:`Chef MLSA <chef_license>` must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``opscode-analytics-ctl reconfigure --accept-license`` to automatically accept the license.
 
 What's New (1.3)
 =====================================================
@@ -64,7 +64,7 @@ Nodes View
 
 RabbitMQ Queues
 -----------------------------------------------------
-.. warning:: Tuning the RabbitMQ queue settings requires Chef server, version 12.3. These settings `must be configured in the chef-server.rb file <https://docs.chef.io/config_rb_server_optional_settings.html#rabbitmq>`__.
+.. warning:: Tuning the RabbitMQ queue settings requires Chef server, version 12.3. These settings :ref:`must be configured in the chef-server.rb file <config_rb_server_optional_settings-rabbitmq>`.
 
 .. include:: ../../includes_server_tuning/includes_server_tuning_rabbitmq_analytics_queue.rst
 
@@ -262,7 +262,7 @@ Examples
 .. include:: ../../includes_server_services/includes_server_services_oc_id.rst
 
 These settings are configured in the 
-`chef-server.rb <https://docs.chef.io/config_rb_server_optional_settings.html#oc-id>`_ file.
+ :ref:`chef-server.rb <config_rb_server_optional_settings-oc-id>` file.
 
 
 knife analytics

@@ -29,7 +29,7 @@ The 9 most popular resources!
 
  .. revealjs:: 1. execute
 
-    Use the `execute resource <https://docs.chef.io/resource_execute.html>`__ to execute a command on a node:
+    Use the :doc:`execute resource <resource_execute>` to execute a command on a node:
 
     * ``yum clean all``
     * ``nagios3 --verify-config``
@@ -61,7 +61,7 @@ The 9 most popular resources!
 
  .. revealjs:: 2. template
 
-    Use the `template resource <https://docs.chef.io/resource_template.html>`__ to build a file on a node that is based on a template located in a cookbook. Chef uses Embedded Ruby (ERB) templates and Ruby expressions to define a template file.
+    Use the :doc:`template resource <resource_template>` to build a file on a node that is based on a template located in a cookbook. Chef uses Embedded Ruby (ERB) templates and Ruby expressions to define a template file.
 
     For example, when setting up Nginx, there is a default site:
     
@@ -109,9 +109,9 @@ The 9 most popular resources!
 
  .. revealjs:: 3. directory
 
-    Use the `template resource <https://docs.chef.io/resource_directory.html>`__ to manage a directory struture on a node directoy. Directories are hierarchies of folders that comprise all the information that is stored on a computer.
+    Use the :doc:`template resource <resource_directory>` to manage a directory struture on a node directoy. Directories are hierarchies of folders that comprise all the information that is stored on a computer.
 
-    If you want to transfer in a directory structure from a cookbook, use the `remote_directory resource <https://docs.chef.io/resource_directory.html>`__ instead.
+    If you want to transfer in a directory structure from a cookbook, use the :doc:`remote_directory resource <resource_directory>` instead.
     
     For example:
     
@@ -126,7 +126,7 @@ The 9 most popular resources!
 
  .. revealjs:: 4. file
 
-    Use the `file resource <https://docs.chef.io/resource_file.html>`__ to manage files that already exist on a node.
+    Use the :doc:`file resource <resource_file>` to manage files that already exist on a node.
     
     For example, create a copy of a file in a different directory:
     
@@ -147,7 +147,7 @@ The 9 most popular resources!
 
  .. revealjs:: 5. service
 
-    Use the `service resource <https://docs.chef.io/resource_service.html>`__ to manage services. Start them, stop them, restart them. Most applications have services, which is why this resource is essential.
+    Use the :doc:`service resource <resource_service>` to manage services. Start them, stop them, restart them. Most applications have services, which is why this resource is essential.
     
     For example, to start Apache Tomcat:
     
@@ -159,7 +159,7 @@ The 9 most popular resources!
 
  .. revealjs:: 6. package
 
-    Use the `package resource <https://docs.chef.io/resource_package.html>`__ to install a package on a node. After you have installed the package, use the **template** resource to set up the configuration file for that application, and then start it using the **service** resource.
+    Use the :doc:`package resource <resource_package>` to install a package on a node. After you have installed the package, use the **template** resource to set up the configuration file for that application, and then start it using the **service** resource.
 
     Chef has many platform-specific resources for package management, but most of the time the **package** itself is all that's required! Chef will figure out which package manager to use based on the node's platform.
     
@@ -179,7 +179,7 @@ The 9 most popular resources!
 
  .. revealjs:: 7. cookbook_file
 
-    Use the `cookbook_file resource <https://docs.chef.io/resource_cookbook_file.html>`__ to move a file from a cookbook to a node.
+    Use the :doc:`cookbook_file resource <resource_cookbook_file>` to move a file from a cookbook to a node.
     
     For example:
     
@@ -191,7 +191,7 @@ The 9 most popular resources!
 
  .. revealjs:: 8. remote_file
 
-    Use the `remote_file resource <https://docs.chef.io/resource_remote_file.html>`__ to get a file from a remote location, typically via HTTP, but sometimes via FTP, UNC, or a local network path, and then move that file from the remote location to a node.
+    Use the :doc:`remote_file resource <resource_remote_file>` to get a file from a remote location, typically via HTTP, but sometimes via FTP, UNC, or a local network path, and then move that file from the remote location to a node.
     
     For example:
     
@@ -205,7 +205,7 @@ The 9 most popular resources!
 
  .. revealjs:: 9. bash
 
-    Use the `bash resource <https://docs.chef.io/resource_bash.html>`__ to run a script on a node. There are **script** resources for Bash, csh, Perl, Python, Ruby, and Windows PowerShell.
+    Use the :doc:`bash resource <resource_bash>` to run a script on a node. There are **script** resources for Bash, csh, Perl, Python, Ruby, and Windows PowerShell.
 
     The **bash** resouce is the most popular, but they all behave in a similar manner.
 
@@ -227,7 +227,7 @@ The 9 most popular resources!
 
  .. revealjs:: Conclusion
 
-    The resources mentioned in this article are the most popular resources in Chef. Many cookbooks exist using only these resources. That said, there are `many more resources <https://docs.chef.io/resources.html>`__ that are built into Chef.
+    The resources mentioned in this article are the most popular resources in Chef. Many cookbooks exist using only these resources. That said, there are :doc:`many more resources <resources>` that are built into Chef.
 
 
 

@@ -14,13 +14,13 @@ Server Essentials
 =====================================================
 The server acts as a hub for all of the data needed by the chef-client while it configures a node:
 
-* A `node object <https://docs.chef.io/nodes.html>`_ exists for each node that is being managed by the chef-client
-* Each node object consists of a `run-list <https://docs.chef.io/nodes.html>`_ and a `collection of attributes <https://docs.chef.io/attributes.html>`_
-* Cookbooks are the fundamental unit of configuration and policy distribution and include: `attribute files <https://docs.chef.io/attributes.html>`_, `definitions <https://docs.chef.io/definitions.html>`_, `files, <https://docs.chef.io/files.html>`_, `libraries <https://docs.chef.io/libraries.html>`_, `metadata <https://docs.chef.io/cookbook_repo.html>`_, `recipes <https://docs.chef.io/recipes.html>`_, `resources <https://docs.chef.io/resources.html>`_, `templates <https://docs.chef.io/templates.html>`_, and `versions <https://docs.chef.io/cookbook_versions.html>`_
-* All data that is stored on the Chef server---including everything uploaded to the server from the chef-repo and by the chef-client---is `searchable <https://docs.chef.io/chef_search.html>`_ from both recipes (using the `search method <https://docs.chef.io/dsl_recipe.html#search>`_ in the Recipe DSL) and the workstation (using the `knife search <https://docs.chef.io/knife_search.html>`_ subcommand). The chef-client does the actual configuration on `the nodes <https://docs.chef.io/nodes.html>`_. The chef-client receives its instructions from cookbooks (`recipes <https://docs.chef.io/recipes.html>`_, mostly). The process of configuring a node is called `the chef-client run <https://docs.chef.io/nodes.html>`_. At the beginning of each run, the chef-client `validates to the server <https://docs.chef.io/chef_client.html>`_, `collects important data about that node <https://docs.chef.io/ohai.html>`_, and then configures the node. At the end of each run, the chef-client `reports the successes and failures that may have occurred <https://docs.chef.io/handlers.html>`_
-* The Chef server can apply `global policy settings <https://docs.chef.io/policy.html>`_ to all nodes across the organization, including for `data bags <https://docs.chef.io/data_bags.html>`_, `environments <https://docs.chef.io/environments.html>`_, and `roles <https://docs.chef.io/roles.html>`_
-* The `authentication <https://docs.chef.io/auth.html#authentication>`_ process ensures that requests can only be made to the Chef server by authorized users
-* Users, once `authorized <https://docs.chef.io/auth.html#authorization>`_ can only perform certain actions
+* A :doc:`node object <nodes>` exists for each node that is being managed by the chef-client
+* Each node object consists of a :doc:`run-list <nodes>` and a :doc:`collection of attributes <attributes>`
+* Cookbooks are the fundamental unit of configuration and policy distribution and include: :doc:`attribute files <attributes>`, :doc:`definitions <definitions>`, :doc:`files, <files>`, :doc:`libraries <libraries>`, :doc:`metadata <cookbook_repo>`, :doc:`recipes <recipes>`, :doc:`resources <resources>`, :doc:`templates <templates>`, and :doc:`versions <cookbook_versions>`
+* All data that is stored on the Chef server---including everything uploaded to the server from the chef-repo and by the chef-client---is :doc:`searchable <chef_search>` from both recipes (using the :ref:`search method <dsl_recipe-search>` in the Recipe DSL) and the workstation (using the :doc:`knife search <knife_search>` subcommand). The chef-client does the actual configuration on :doc:`the nodes <nodes>`. The chef-client receives its instructions from cookbooks (:doc:`recipes <recipes>`, mostly). The process of configuring a node is called :doc:`the chef-client run <nodes>`. At the beginning of each run, the chef-client :doc:`validates to the server <chef_client>`, :doc:`collects important data about that node <ohai>`, and then configures the node. At the end of each run, the chef-client :doc:`reports the successes and failures that may have occurred <handlers>`
+* The Chef server can apply :doc:`global policy settings <policy>` to all nodes across the organization, including for :doc:`data bags <data_bags>`, :doc:`environments <environments>`, and :doc:`roles <roles>`
+* The :ref:`authentication <auth-authentication>` process ensures that requests can only be made to the Chef server by authorized users
+* Users, once :ref:`authorized <auth-authorization>` can only perform certain actions
 
 Server Components
 =====================================================
@@ -32,10 +32,10 @@ Deployment Scenarios
 
 The following sections discuss these deployment configuration options in greater detail:
 
-:doc:`<server_deploy_standalone>`
-:doc:`<server_deploy_be>`
-:doc:`<server_deploy_fe>`
-:doc:`<server_deploy_febe>`
+:doc:`server_deploy_standalone`
+:doc:`server_deploy_be`
+:doc:`server_deploy_fe`
+:doc:`server_deploy_febe`
 
 .. note:: For more information about signing up for hosted Enterprise Chef, see https://manage.chef.io/signup.
 
@@ -43,60 +43,60 @@ Install Enterprise Chef
 -----------------------------------------------------
 The Chef server can be installed via download or by using the Omnitruck API:
 
-:doc:`<install_server>`
-:doc:`<api_omnitruck>`
+:doc:`install_server`
+:doc:`api_omnitruck`
 
 Installation scenarios:
 
-:doc:`<install_server_pre>`
-:doc:`<install_server_standalone>`
-:doc:`<install_server_be>`
-:doc:`<install_server_fe>`
-:doc:`<install_server_febe>`
+:doc:`install_server_pre`
+:doc:`install_server_standalone`
+:doc:`install_server_be`
+:doc:`install_server_fe`
+:doc:`install_server_febe`
 
-:doc:`<migrate_to_enterprise>`
+:doc:`migrate_to_enterprise`
 
-:doc:`<upgrade_server_standalone>`
-:doc:`<upgrade_server_ha>`
-:doc:`<install_manage>`
+:doc:`upgrade_server_standalone`
+:doc:`upgrade_server_ha`
+:doc:`install_manage`
 
 Options: 
 
-:doc:`<install_server_ldap>`
-:doc:`<install_server_users>`
-:doc:`<install_server_orgs>`
+:doc:`install_server_ldap`
+:doc:`install_server_users`
+:doc:`install_server_orgs`
 
 Manage Enterprise Chef
 =====================================================
 The Chef server can be managed in the following ways:
 
-:doc:`<server_backup_restore>`
-:doc:`<server_firewalls_and_ports>`
-:doc:`<server_high_availability>`
-:doc:`<server_ldap>`
-:doc:`<server_logs>`
-:doc:`<server_monitor>`
-:doc:`<server_tuning>`
-:doc:`<server_security>`
-:doc:`<server_services>`
-:doc:`<server_users>`
+:doc:`server_backup_restore`
+:doc:`server_firewalls_and_ports`
+:doc:`server_high_availability`
+:doc:`server_ldap`
+:doc:`server_logs`
+:doc:`server_monitor`
+:doc:`server_tuning`
+:doc:`server_security`
+:doc:`server_services`
+:doc:`server_users`
 
 Settings and Tools 
 =====================================================
 The following settings files are used to configure behavior for the Chef server:
 
-:doc:`<config_rb_chef_server_enterprise>`
+:doc:`config_rb_chef_server_enterprise`
 
 The following command-line tools can be run on the Chef server:
 
-:doc:`<orgmapper>`
-:doc:`<ctl_private_chef>`
+:doc:`orgmapper`
+:doc:`ctl_private_chef`
 
 APIs
 =====================================================
 The following APIs can be used to access data on the Chef server:
 
-:doc:`<api_chef_server>`
+:doc:`api_chef_server`
 
 
 .. Hide the TOC from this file.

@@ -30,7 +30,7 @@ Attribute Precedence
 Custom Ohai 6 Plugins
 =====================================================
 
-.. warning:: Custom plugins change significantly in Ohai 7 (see the `release notes <https://docs.chef.io/release/ohai-7/release_notes.html>`_). While Chef has worked to ensure backwards compatibility for all Ohai plugins, all plugins that were built for Ohai 6 should be updated, tested, and then verified for Ohai 7.
+.. warning:: Custom plugins change significantly in Ohai 7 (see the :doc:`release notes <release_notes>`). While Chef has worked to ensure backwards compatibility for all Ohai plugins, all plugins that were built for Ohai 6 should be updated, tested, and then verified for Ohai 7.
 
 .. include:: ../../includes_ohai/includes_ohai_custom_plugin.rst
 

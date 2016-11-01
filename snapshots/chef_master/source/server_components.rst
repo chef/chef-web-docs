@@ -176,4 +176,4 @@ PostgreSQL Settings
 -----------------------------------------------------
 .. include:: ../../includes_server_ha/includes_server_ha_external_postgresql_settings.rst
 
-.. note:: See the list of `error messages that may be present <https://docs.chef.io/error_messages.html#external-postgresql>`_ when configuring the Chef server to use a remote PostgreSQL server.
+.. note:: See the list of :ref:`error messages that may be present <error_messages-external-postgresql>` when configuring the Chef server to use a remote PostgreSQL server.

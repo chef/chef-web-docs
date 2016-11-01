@@ -8,7 +8,7 @@ knife analytics
 
 .. include:: ../../includes_plugin_knife/includes_plugin_knife_analytics.rst
 
-.. note:: Review the list of `common options <https://docs.chef.io/knife_common_options.html>`_ available to this (and all) knife subcommands and plugins.
+.. note:: Review the list of :doc:`common options <knife_common_options>` available to this (and all) knife subcommands and plugins.
 
 .. note:: .. include:: ../../includes_chef/includes_chef_subscriptions.rst
 

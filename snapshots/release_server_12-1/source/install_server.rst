@@ -6,9 +6,9 @@ Install the Chef Server
 
 There are three configuration scenarios for the Chef server:
 
-* `Standalone <https://docs.chef.io/release/server_12-1/install_server.html#standalone>`__ (everything on a single machine)
-* `High availability <https://docs.chef.io/release/server_12-1/install_server.html#high-availability>`__ (machines configured for front-end and back-end, allowing for failover on the back-end and load-balancing on the front-end, as required)
-* `Tiered <https://docs.chef.io/release/server_12-1/install_server.html#tiered-single-backend>`__ (machines configured for front-end and back-end, with a single back-end and load-balancing on the front-end, as required)
+* :ref:`Standalone <install_server-standalone>` (everything on a single machine)
+* :ref:`High availability <install_server-high-availability>` (machines configured for front-end and back-end, allowing for failover on the back-end and load-balancing on the front-end, as required)
+* :ref:`Tiered <install_server-tiered-single-backend>` (machines configured for front-end and back-end, with a single back-end and load-balancing on the front-end, as required)
 
 Prerequisites
 =====================================================
@@ -30,11 +30,11 @@ High Availability
 =====================================================
 The following links describe how to configure the Chef server for high availability:
 
-:doc:`<install_server_ha_aws>`
-:doc:`<install_server_ha_drbd>`
+:doc:`install_server_ha_aws`
+:doc:`install_server_ha_drbd`
 
 Tiered (Single Backend)
 =====================================================
 The following link describes how to configure the Chef server with a single backend machine and multiple frontend machines:
 
-:doc:`<install_server_tiered>`
+:doc:`install_server_tiered`

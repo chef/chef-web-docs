@@ -18,11 +18,11 @@ Service credential rotation support
 
 Five new commands have been created to support credential rotation:
 
-* `require-credential-rotation <https://docs.chef.io/ctl_chef_server.html#require-credential-rotation>`_
-* `rotate-all-credentials <https://docs.chef.io/ctl_chef_server.html#rotate-all-credentials>`_
-* `rotate-credentials <https://docs.chef.io/ctl_chef_server.html#rotate-credentials>`_
-* `rotate-shared-secrets <https://docs.chef.io/ctl_chef_server.html#rotate-shared-secrets>`_
-* `show-service-credentials <https://docs.chef.io/ctl_chef_server.html#show-service-credentials>`_
+* :ref:`require-credential-rotation <ctl_chef_server-require-credential-rotation>`
+* :ref:`rotate-all-credentials <ctl_chef_server-rotate-all-credentials>`
+* :ref:`rotate-credentials <ctl_chef_server-rotate-credentials>`
+* :ref:`rotate-shared-secrets <ctl_chef_server-rotate-shared-secrets>`
+* :ref:`show-service-credentials <ctl_chef_server-show-service-credentials>`
 
 Your secrets file is located at ``/etc/opscode/private-chef-secrets.json``, so whenever you rotate your service credentials, or update your shared secrets, this file will contain the changes. 
 

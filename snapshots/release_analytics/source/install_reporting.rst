@@ -31,9 +31,9 @@ Reporting is automatically enabled in the chef-client (version 11.6.0 or later).
    Chef Client finished, 2 resources updated
    [date] INFO: Sending resource update report (run-id: 51ceb817-ba7e-47e5-9bca-096fe9ef9740)
 
-This includes the run identifier of the chef-client run, which can be used in the `knife reporting plugin <https://docs.chef.io/plugin_knife_reporting.html>`_ or the Chef management console to access the reporting information generated during the chef-client run.
+This includes the run identifier of the chef-client run, which can be used in the :doc:`knife reporting plugin <plugin_knife_reporting>` or the Chef management console to access the reporting information generated during the chef-client run.
 
 Install the Workstation
 =====================================================
-To set up the Reporting workstation, install the `knife reporting plugin <https://docs.chef.io/plugin_knife_reporting.html>`_. Once
+To set up the Reporting workstation, install the :doc:`knife reporting plugin <plugin_knife_reporting>`. Once
 installed, the following subcommands will be available: ``knife runs list``, ``knife runs show``.

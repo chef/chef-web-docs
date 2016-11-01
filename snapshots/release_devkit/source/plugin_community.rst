@@ -12,7 +12,7 @@ Knife
 =====================================================
 .. include:: ../../includes_knife/includes_knife.rst
 
-knife plugins for cloud hosting platforms--- `knife azure <https://docs.chef.io/plugin_knife_azure.html>`_, `knife bluebox <https://docs.chef.io/plugin_knife_bluebox.html>`_, `knife ec2 <https://docs.chef.io/plugin_knife_ec2.html>`_, `knife eucalyptus <https://docs.chef.io/plugin_knife_eucalyptus.html>`_, `knife google <https://docs.chef.io/plugin_knife_google.html>`_, `knife linode <https://docs.chef.io/plugin_knife_linode.html>`_, `knife openstack <https://docs.chef.io/plugin_knife_openstack.html>`_, `knife rackspace <https://docs.chef.io/plugin_knife_rackspace.html>`_, and `knife terremark <https://docs.chef.io/plugin_knife_terremark.html>`_ ---are built and maintained by Chef. 
+knife plugins for cloud hosting platforms--- :doc:`knife azure <plugin_knife_azure>`, :doc:`knife bluebox <plugin_knife_bluebox>`, :doc:`knife ec2 <plugin_knife_ec2>`, :doc:`knife eucalyptus <plugin_knife_eucalyptus>`, :doc:`knife google <plugin_knife_google>`, :doc:`knife linode <plugin_knife_linode>`, :doc:`knife openstack <plugin_knife_openstack>`, :doc:`knife rackspace <plugin_knife_rackspace>`, and :doc:`knife terremark <plugin_knife_terremark>` ---are built and maintained by Chef. 
 
 The following table lists knife plugins built by the Chef community.
 

@@ -2,7 +2,7 @@
 knife supermarket
 =====================================================
 
-.. warning:: Only use knife supermarket if you are using a Chef 12.12 or earlier. If you are using Chef 12.13 or later, you should use the `knife cookbook site <https://docs.chef.io/knife_cookbook_site.html>`_ commands.
+.. warning:: Only use knife supermarket if you are using a Chef 12.12 or earlier. If you are using Chef 12.13 or later, you should use the :doc:`knife cookbook site <knife_cookbook_site>` commands.
 
 .. include:: ../../includes_api_cookbooks_site/includes_api_cookbooks_site.rst
 
@@ -15,7 +15,7 @@ The ``knife supermarket`` subcommand is used to interact with cookbooks that are
 
 .. note:: .. include:: ../../includes_notes/includes_notes_knife_cookbook_site_use_devkit_berkshelf.rst
 
-.. note:: Review the list of `common options <https://docs.chef.io/knife_common_options.html>`_ available to this (and all) knife subcommands and plugins.
+.. note:: Review the list of :doc:`common options <knife_common_options>` available to this (and all) knife subcommands and plugins.
 
 download
 =====================================================

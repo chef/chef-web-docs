@@ -8,9 +8,9 @@ Getting Started
 =====================================================
 .. include:: ../../includes_chef/includes_chef_index.rst
 
-:doc:`<chef_overview>`
-:doc:`<install_dk>`
-:doc:`<ruby>`
+:doc:`chef_overview`
+:doc:`install_dk`
+:doc:`ruby`
 
 .. note:: See this blog post by Irving Popovetsky about running the Chef DK on Windows: https://www.chef.io/blog/2014/11/04/the-chefdk-on-windows-survival-guide/.
 
@@ -76,50 +76,50 @@ Chef DK Tools
 -----------------------------------------------------
 The following tools are available only in the Chef development kit:
 
-:doc:`<ctl_chef>`
-:doc:`<policyfile>`
-:doc:`<config_rb_policyfile>`
+:doc:`ctl_chef`
+:doc:`policyfile`
+:doc:`config_rb_policyfile`
 
 Chef Provisioning
 -----------------------------------------------------
 The following resources are part of Chef provisioning and are now available in the Chef development kit:
 
-:doc:`<resource_machine>`
-:doc:`<resource_machine_batch>`
-:doc:`<resource_machine_execute>`
-:doc:`<resource_machine_file>`
-:doc:`<resource_machine_image>`
+:doc:`resource_machine`
+:doc:`resource_machine_batch`
+:doc:`resource_machine_execute`
+:doc:`resource_machine_file`
+:doc:`resource_machine_image`
 
 The following resources are available in the Chef development kit and may be used as part of Chef provisioning:
 
-:doc:`<resource_chef_acl>`
-:doc:`<resource_chef_client>`
-:doc:`<resource_chef_container>`
-:doc:`<resource_chef_data_bag_item>`
-:doc:`<resource_chef_data_bag>`
-:doc:`<resource_chef_environment>`
-:doc:`<resource_chef_group>`
-:doc:`<resource_chef_mirror>`
-:doc:`<resource_chef_node>`
-:doc:`<resource_chef_organization>`
-:doc:`<resource_chef_role>`
-:doc:`<resource_chef_user>`
-:doc:`<resource_private_key>`
-:doc:`<resource_public_key>`
+:doc:`resource_chef_acl`
+:doc:`resource_chef_client`
+:doc:`resource_chef_container`
+:doc:`resource_chef_data_bag_item`
+:doc:`resource_chef_data_bag`
+:doc:`resource_chef_environment`
+:doc:`resource_chef_group`
+:doc:`resource_chef_mirror`
+:doc:`resource_chef_node`
+:doc:`resource_chef_organization`
+:doc:`resource_chef_role`
+:doc:`resource_chef_user`
+:doc:`resource_private_key`
+:doc:`resource_public_key`
 
 Community Tools
 -----------------------------------------------------
 The following tools have been developed by members of the Chef community. These tools are considered to be a useful part of the Chef workflow and have been packaged as part of the Chef development kit. (They are all available independently of the Chef development kit, as well.) The use of these tools as part of your workflow is recommended, but at the same time is completely optional. Use them in the way that makes sense for your organization:
 
-:doc:`<berkshelf>`
-:doc:`<chef_vault>`
-:doc:`<chefspec>`
-:doc:`<foodcritic>`
-:doc:`<kitchen>`
-:doc:`<ctl_kitchen>`
-:doc:`<config_yml_kitchen>`
-:doc:`<plugin_kitchen_vagrant>`
-:doc:`<rubocop>`
+:doc:`berkshelf`
+:doc:`chef_vault`
+:doc:`chefspec`
+:doc:`foodcritic`
+:doc:`kitchen`
+:doc:`ctl_kitchen`
+:doc:`config_yml_kitchen`
+:doc:`plugin_kitchen_vagrant`
+:doc:`rubocop`
 
 .. Hide the TOC from this file.
 

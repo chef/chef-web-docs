@@ -76,7 +76,7 @@ Testing Overview
 
     For more information, see:
 
-    * `ChefSpec <https://docs.chef.io/decks/chefspec.html>`__
-    * `Foodcritic <https://docs.chef.io/decks/foodcritic.html>`__
-    * `Kitchen <https://docs.chef.io/decks/kitchen.html>`__
-    * `Serverspec <https://docs.chef.io/decks/serverspec.html>`__
+    * :doc:`ChefSpec <chefspec>`
+    * :doc:`Foodcritic <foodcritic>`
+    * :doc:`Kitchen <kitchen>`
+    * :doc:`Serverspec <serverspec>`

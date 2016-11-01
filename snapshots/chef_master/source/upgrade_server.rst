@@ -10,8 +10,8 @@ From Chef Server 12
 =====================================================
 There are two upgrade scenarios for upgrades from earlier versions of Chef server 12 to a newer version of Chef server 12:
 
-* `Standalone <https://docs.chef.io/upgrade_server.html#standalone>`__
-* `High availability <https://docs.chef.io/upgrade_server.html#high-availability>`__
+* :ref:`Standalone <upgrade_server-standalone>`
+* :ref:`High availability <upgrade_server-high-availability>`
 
 Standalone
 -----------------------------------------------------
@@ -194,10 +194,10 @@ From Enterprise Chef
 =====================================================
 There are two upgrade scenarios for upgrades from Enterprise Chef 11 to Chef server 12: 
 
-* `Standalone <https://docs.chef.io/upgrade_server.html#id1>`__
-* `High availability <https://docs.chef.io/upgrade_server.html#id2>`__
+* :ref:`Standalone <upgrade_server-id1>`
+* :ref:`High availability <upgrade_server-id2>`
 
-Before upgrading, please `view the notes <https://docs.chef.io/upgrade_server_notes.html>`__ for more background on the upgrade process from Enterprise Chef 11 to Chef server 12.
+Before upgrading, please :doc:`view the notes <upgrade_server_notes>` for more background on the upgrade process from Enterprise Chef 11 to Chef server 12.
 
 
 Standalone
@@ -381,7 +381,7 @@ From Open Source Chef
 =====================================================
 This section describes the upgrade process from a standalone configuration of Open Source Chef 11.1.0 (or higher) to a standalone configuration of Chef server 12. The upgrade process will require downtime equal to the amount of time it takes to stop the server, run dpkg or RPM Package Manager, and then upgrade the server.
 
-Please `view the notes <https://docs.chef.io/upgrade_server_open_source_notes.html>`__ for more background on the upgrade process from Open Source Chef 11 to Chef server 12.
+Please :doc:`view the notes <upgrade_server_open_source_notes>` for more background on the upgrade process from Open Source Chef 11 to Chef server 12.
 
 To upgrade to Chef server 12 from the Open Source Chef server, do the following:
 

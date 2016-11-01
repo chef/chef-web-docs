@@ -12,7 +12,7 @@ Nodes
 =====================================================
 .. include:: ../../includes_node/includes_node.rst
 
-The Chef management console provides ways for users to `delete nodes and reset their private keys <https://docs.chef.io/server_manage_nodes.html#manage>`_, `edit node attributes <https://docs.chef.io/server_manage_nodes.html#node-attributes>`_, `manage the run-lists <https://docs.chef.io/server_manage_nodes.html#run-lists>`_, `configure user and group permissions <https://docs.chef.io/server_manage_nodes.html#permissions>`_, and `manage tags <https://docs.chef.io/server_manage_nodes.html#manage-tags>`_.
+The Chef management console provides ways for users to :ref:`delete nodes and reset their private keys <server_manage_nodes-manage>`, :ref:`edit node attributes <server_manage_nodes-node-attributes>`, :ref:`manage the run-lists <server_manage_nodes-run-lists>`, :ref:`configure user and group permissions <server_manage_nodes-permissions>`, and :ref:`manage tags <server_manage_nodes-manage-tags>`.
 
 .. image:: ../../images/step_manage_webui_nodes.png
 
@@ -70,7 +70,7 @@ Reports
 =====================================================
 .. include:: ../../includes_reporting/includes_reporting.rst
 
-The Chef management console provides ways for users to `configure the timeframe <https://docs.chef.io/server_manage_reports.html#configure-reports>`_ around which a report is built, and then to `review the reports <https://docs.chef.io/server_manage_reports.html#view-reports>`_ that are available for that timeframe.
+The Chef management console provides ways for users to :ref:`configure the timeframe <server_manage_reports-configure-reports>` around which a report is built, and then to :ref:`review the reports <server_manage_reports-view-reports>` that are available for that timeframe.
 
 .. image:: ../../images/step_manage_webui_reports.png
 
@@ -78,7 +78,7 @@ Policy
 =====================================================
 .. include:: ../../includes_policy/includes_policy.rst
 
-The Chef management console provides ways for users to manage `data bags <https://docs.chef.io/server_manage_data_bags.html>`_, `environments <https://docs.chef.io/server_manage_environments.html>`_, `roles <https://docs.chef.io/server_manage_roles.html>`_, `cookbooks <https://docs.chef.io/server_manage_cookbooks.html>`_, `clients <https://docs.chef.io/server_manage_clients.html>`_, and `managing tags <https://docs.chef.io/server_manage_nodes.html#manage-tags>`_.
+The Chef management console provides ways for users to manage :doc:`data bags <server_manage_data_bags>`, :doc:`environments <server_manage_environments>`, :doc:`roles <server_manage_roles>`, :doc:`cookbooks <server_manage_cookbooks>`, :doc:`clients <server_manage_clients>`, and :ref:`managing tags <server_manage_nodes-manage-tags>`.
 
 .. image:: ../../images/step_manage_webui_policy.png
 

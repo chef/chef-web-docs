@@ -19,7 +19,7 @@ The following items are new for chef-client 11.10 and/or are changes from previo
 
 chef-client Options
 -----------------------------------------------------
-A recipe can be specified when `running the chef-client <https://docs.chef.io/ctl_chef_client.html>`_, typically when running the chef-client in local mode:
+A recipe can be specified when :doc:`running the chef-client <ctl_chef_client>`, typically when running the chef-client in local mode:
 
 ``RECIPE_FILE``
    The path to a recipe. For example, if a recipe file is in the current directory, use ``recipe_file.rb``. This is typically used with the ``--local-mode`` option.

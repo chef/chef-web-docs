@@ -63,7 +63,7 @@ Here it is represented graphically:
 
 All the examples below are represented in graphical table form, where projects are denoted by uppercase letters and a test failure corresponding to a project is denoted by with a lowercase "x". For example, Bx would represent a test failure in project B.
 
-`Dependency Management Scenarios <http://docs.chef.io/decks/manage_dependencies.html>`_ also provides a visual representation of these examples.
+:doc:`Dependency Management Scenarios <manage_dependencies>` also provides a visual representation of these examples.
 
 Simple Break and Clear
 -----------------------------------------------------------

@@ -8,7 +8,7 @@ About the Recipe DSL
 
 .. include:: ../../includes_dsl_recipe/includes_dsl_recipe.rst
 
-The following methods are `part of the Recipe DSL <https://docs.chef.io/dsl_recipe.html>`_ and are specific to the Chef Analytics platform. Use them to define audit rules within a recipe. The audit rules are processed when the chef-client is run in audit-mode.
+The following methods are :doc:`part of the Recipe DSL <dsl_recipe>` and are specific to the Chef Analytics platform. Use them to define audit rules within a recipe. The audit rules are processed when the chef-client is run in audit-mode.
 
 .. warning:: These methods require chef-client version 12.0.0 (or higher).
 

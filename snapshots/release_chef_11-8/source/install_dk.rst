@@ -219,7 +219,7 @@ For a workstation that will interact with Enterprise Chef (including hosted Ente
 
 For a workstation that will interact with the open source Chef server, do the following:
 
-* Create a knife.rb file. This `configuration file <https://docs.chef.io/config_rb_knife.html>`_ must be created by running ``knife configure --initial`` on the machine that will be run as a workstation. The ``validation_key`` attribute in the knife.rb file must specify the path to the validation key. The ``validation_client_name`` attribute defaults to ``chef-validator`` (which is the chef-validator.pem private key created by the open source Chef server on startup). When prompted for the URL for the Chef server, use the FQDN for the Chef server.
+* Create a knife.rb file. This :doc:`configuration file <config_rb_knife>` must be created by running ``knife configure --initial`` on the machine that will be run as a workstation. The ``validation_key`` attribute in the knife.rb file must specify the path to the validation key. The ``validation_client_name`` attribute defaults to ``chef-validator`` (which is the chef-validator.pem private key created by the open source Chef server on startup). When prompted for the URL for the Chef server, use the FQDN for the Chef server.
 * Create a USER.pem file. (This private key is created at the same time as the knife.rb file when running ``knife configure --initial``.)
 * Find the chef-validator.pem file on the open source Chef server. This private key is created by the open source Chef server on startup and is located in the ``/etc/chef-server`` folder on the server after it is created.
 

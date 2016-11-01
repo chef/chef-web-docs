@@ -18,42 +18,42 @@ The :doc:`Chef analytics platform </analytics>` provides real-time visibility in
 
 Use this visibility to verify compliance against internal controls.
 
-If you are new to Chef, familiarize yourself with the other core components: `the server, workstations, and nodes <https://docs.chef.io/chef_overview.html>`_. For more information about workstations, cookbooks, and nodes, see the documentation for the chef-client. For more information about the server, see documentation for the Chef server.
+If you are new to Chef, familiarize yourself with the other core components: :doc:`the server, workstations, and nodes <chef_overview>`. For more information about workstations, cookbooks, and nodes, see the documentation for the chef-client. For more information about the server, see documentation for the Chef server.
 
 Install, Upgrade
 =====================================================
 The Chef server can be installed on new hardware. Existing Enterprise Chef and Open Source Chef configurations may be upgraded to Chef server 12.
 
-:doc:`<install_analytics>`
-:doc:`<upgrade_analytics>`
+:doc:`install_analytics`
+:doc:`upgrade_analytics`
 
 Features
 =====================================================
 The following features are part of the Chef Analytics platform:
 
-:doc:`<actions>`
-:doc:`<analytics_rules>`
-:doc:`<analytics_nodes_view>`
-:doc:`<dsl_recipe>`
-:doc:`<chef_client>`
-:doc:`<reporting>`
-:doc:`<analytics_splunk>`
-:doc:`<analytics_webui_tasks>`
+:doc:`actions`
+:doc:`analytics_rules`
+:doc:`analytics_nodes_view`
+:doc:`dsl_recipe`
+:doc:`chef_client`
+:doc:`reporting`
+:doc:`analytics_splunk`
+:doc:`analytics_webui_tasks`
 
 Manage Chef Analytics
 =====================================================
 Chef Analytics can be managed in the following ways:
 
-:doc:`<analytics_monitor>`
+:doc:`analytics_monitor`
 
 Reference
 =====================================================
 This section contains links to topics about configuration files, command-line tools, and APIs that are used by the Chef Analytics platform.
 
-:doc:`<api_analytics>`
-:doc:`<plugin_knife_analytics>`
-:doc:`<config_rb_analytics>`
-:doc:`<ctl_analytics>` 
+:doc:`api_analytics`
+:doc:`plugin_knife_analytics`
+:doc:`config_rb_analytics`
+:doc:`ctl_analytics` 
 
 .. Hide the TOC from this file.
 

@@ -3,4 +3,4 @@
 .. This file is hooked into a slide deck
 
 
-Use the **package**, **template** (two times), **directory**, and **service** resources to define the ``website`` resource. Remember: `order matters <https://docs.chef.io/decks/recipe_order_matters.html>`_!
+Use the **package**, **template** (two times), **directory**, and **service** resources to define the ``website`` resource. Remember: :doc:`order matters <recipe_order_matters>`!

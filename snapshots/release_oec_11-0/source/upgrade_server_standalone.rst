@@ -8,7 +8,7 @@ Upgrade to Enterprise Chef 11: Standalone
 
 This topic describes the upgrade process from Private Chef to Enterprise Chef. The upgrade process will require downtime equal to the amount of time it takes to stop the machine, run dpkg or RPM Package Manager, and then upgrade the machine. The final step will remove older components and will destroy the data after the upgrade process is complete.
 
-.. Please `view the notes <https://docs.chef.io/upgrade_server_standalone_notes.html>`_ about the standalone Enterprise Chef upgrade for any changes that may exist for your upgrade process.
+.. Please :doc:`view the notes <upgrade_server_standalone_notes>` about the standalone Enterprise Chef upgrade for any changes that may exist for your upgrade process.
 
 To upgrade to Enterprise Chef, do the following:
 

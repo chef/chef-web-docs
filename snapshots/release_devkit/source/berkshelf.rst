@@ -229,13 +229,13 @@ Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 This command may run any Kitchen CLI command, such as:
 
-* `kitchen create <https://docs.chef.io/ctl_kitchen.html#kitchen-create>`__
-* `kitchen converge <https://docs.chef.io/ctl_kitchen.html#kitchen-converge>`__
-* `kitchen destroy <https://docs.chef.io/ctl_kitchen.html#kitchen-destroy>`__
-* `kitchen exec <https://docs.chef.io/ctl_kitchen.html#kitchen-exec>`__
-* `kitchen list <https://docs.chef.io/ctl_kitchen.html#kitchen-list>`__
-* `kitchen test <https://docs.chef.io/ctl_kitchen.html#kitchen-test>`__
-* `kitchen verify <https://docs.chef.io/ctl_kitchen.html#kitchen-verify>`__
+* :ref:`kitchen create <ctl_kitchen-kitchen-create>`
+* :ref:`kitchen converge <ctl_kitchen-kitchen-converge>`
+* :ref:`kitchen destroy <ctl_kitchen-kitchen-destroy>`
+* :ref:`kitchen exec <ctl_kitchen-kitchen-exec>`
+* :ref:`kitchen list <ctl_kitchen-kitchen-list>`
+* :ref:`kitchen test <ctl_kitchen-kitchen-test>`
+* :ref:`kitchen verify <ctl_kitchen-kitchen-verify>`
 
 See :doc:`kitchen (executable) </ctl_kitchen>` for descriptions of every Kitchen subcommand.
 

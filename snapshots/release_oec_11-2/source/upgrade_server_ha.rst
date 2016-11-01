@@ -8,7 +8,7 @@ Upgrade to Enterprise Chef 11: High Availability
 
 This topic describes the upgrade process from Private Chef to Enterprise Chef. The upgrade process will require downtime equal to the amount of time it takes to stop all of the machines, run dpkg or RPM Package Manager, and then upgrade each of the machines. The final step will remove older components (like the CouchDB) and will destroy the data after the upgrade process is complete.
 
-Please `view the notes <https://docs.chef.io/upgrade_server_ha_notes.html>`_ about the high availability Enterprise Chef upgrade for any changes that may exist for your upgrade process.
+Please :doc:`view the notes <upgrade_server_ha_notes>` about the high availability Enterprise Chef upgrade for any changes that may exist for your upgrade process.
 
 To upgrade to Enterprise Chef, do the following:
 
