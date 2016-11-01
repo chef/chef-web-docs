@@ -1,5 +1,3 @@
-
-
 Chef Automate
 =====================================================
 
@@ -50,7 +48,7 @@ Managing the Server
 :doc:`Tuning </delivery_server_tuning>` |
 :doc:`Users and Roles </delivery_users_and_roles>` |
 :doc:`Stream Data </stream_data_chef_automate>` |
- :ref:`backup-data <ctl_delivery_server-backup-data>` |
+ :ref:`create-backup <ctl_delivery_server-create-backup>` |
  :ref:`cleanse <ctl_delivery_server-cleanse>` |
  :ref:`create-enterprise <ctl_delivery_server-create-enterprise>` |
  :ref:`create-user <ctl_delivery_server-create-user>` |
