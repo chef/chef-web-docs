@@ -16,14 +16,6 @@ The Chef Analytics platform is a feature of Chef that provides real-time visibil
 
 .. end_tag
 
-There is also a `tutorial on Learnchef <https://learn.chef.io/get-started-with-chef-analytics/linux/install-and-configure-chef-analytics/>`_ that walks through the setup and configuration of Chef Analytics.
-
-.. note:: .. tag chef_subscriptions
-
-          This feature is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
-
-          .. end_tag
-
 Prerequisites
 =====================================================
 The Chef Analytics server shares the :doc:`same prerequisites </install_server_pre>` as the Chef server. In addition:
