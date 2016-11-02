@@ -41,11 +41,7 @@ interface, clone the forked repo to your workstation, following these [instructi
 
 After making your changes but before submitting a PR, run the shell
 command `make master` to check for errors and build a local version of
-the doc set in HTML for testing. The docs build in a minute or two. To
-view the local version you built, open the file `build/index.html` in
-your browser.
-
-Before running `make master` for the first time, you'll need to
+the doc set in HTML for testing. Before running `make master` for the first time, you'll need to
 install Sphinx, the documentation generator, possibly using `sudo`:
 
 ```bash
@@ -55,6 +51,22 @@ install Sphinx, the documentation generator, possibly using `sudo`:
 We currently require version 1.2.3 of
 [Sphinx](http://sphinx-doc.org/). You may also need to install Python,
 depending on your system.
+
+The docs build in a minute or two. To
+view the local version you built, you have two options:
+
+* Open the file `build/<filename>` in your browser 
+* Use a local web server like the `http-server` node module
+
+Viewing your content using the `http-server` node module allows you to navigate through the documentation as if you were browsing it on https://docs.chef.io. To install and use the `http-server` module, do the following:
+
+1. Install it through npm. Setting the `-g` flag allows you to use `http-server` from the command-line.
+
+   ```bash
+      npm install http-server -g
+   ```
+2. Navigate to the `build` directory.
+3. Run `http-server`. After http-server starts up, you can connect to your docs through your loopback IP address (http://127.0.0.1:8080).
 
 If you need tips on the source language for the docs, check out the
 [instructions](https://docs.chef.io/style_guide.html). We use a subset
