@@ -1,15 +1,34 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/provisioning_aws.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/devkit/ PATH.
+
 
 =====================================================
 AWS Driver Resources
 =====================================================
 
-.. warning:: .. include:: ../../includes_notes/includes_notes_provisioning.rst
+.. warning:: .. tag notes_provisioning
 
-.. include:: ../../includes_provisioning/includes_provisioning.rst
+             This functionality is available with Chef provisioning and is packaged in the Chef development kit. Chef provisioning is a framework that allows clusters to be managed by the chef-client and the Chef server in the same way nodes are managed: with recipes. Use Chef provisioning to describe, version, deploy, and manage clusters of any size and complexity using a common set of tools.
 
-.. include:: ../../includes_resources_provisioning/includes_resources_provisioning.rst
+             .. end_tag
+
+.. tag provisioning_summary
+
+Chef provisioning is a collection of resources that enable the creation of machines and machine infrastructures using the chef-client. It has a plugin model that allows bootstrap operations to be done against any infrastructure, such as VirtualBox, DigitalOcean, Amazon EC2, LXC, bare metal, and more.
+
+Chef provisioning is built around two major components: the **machine** resource and drivers.
+
+.. end_tag
+
+.. tag resources_provisioning
+
+A driver-specific resource is a statement of configuration policy that:
+
+* Describes the desired state for a configuration item that is created using Chef provisioning
+* Declares the steps needed to bring that item to the desired state
+* Specifies a resource type---such as ``package``, ``template``, or ``service`` 
+* Lists additional details (also known as properties), as necessary
+* Are grouped into recipes, which describe working configurations
+
+.. end_tag
 
 The following driver-specific resources are available for Amazon Web Services (AWS) and Chef provisioning:
 
@@ -39,7 +58,6 @@ The following driver-specific resources are available for Amazon Web Services (A
 * ``aws_sqs_queue``
 * ``aws_subnet``
 * ``aws_vpc``
-
 
 Common Actions
 =====================================================
@@ -94,7 +112,7 @@ The full syntax for all of the properties that are available to the ``aws_auto_s
      options                       Hash
    end
 
-where 
+where
 
 * ``aws_auto_scaling_group`` is the resource
 * ``name`` is the name of the resource block and also the name of the auto scaling group in Amazon EC2
@@ -119,7 +137,20 @@ This Chef provisioning driver-specific resource has the following properties:
 
        Specify a Hash of Amazon Web Services (AWS) tags.
 
-       .. include:: ../../includes_resources_provisioning/includes_resources_provisioning_aws_attributes_aws_tag_example.rst
+       .. tag resources_provisioning_aws_attributes_aws_tag_example
+
+       For example:
+
+       .. code-block:: ruby
+
+          aws_tags company: 'my_company', 'key_as_string' => :value_as_symbol
+
+       .. code-block:: ruby
+
+          aws_tags 'Name' => 'custom-vpc-name'
+
+       .. end_tag
+
    * - ``chef_server``
      - **Ruby Type:** Hash
 
@@ -167,12 +198,55 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Define an auto scaling group**
 
-.. include:: ../../step_resource_provisioning/step_resource_provisioning_aws_launch_config_auto_scale.rst
+.. tag resource_provisioning_aws_launch_config_auto_scale
+
+.. To define an auto scaling group:
+
+The following example uses the ``aws_launch_config`` resource to create an image and instance type, and then the ``aws_auto_scaling_group`` resource to build out a group of machines:
+
+.. code-block:: ruby
+
+   require 'chef/provisioning/aws_driver'
+
+   with_driver 'aws::eu-west-1' do
+     aws_launch_config 'launch-config-name' do
+       image 'ami-f0b11187'
+       instance_type 't1.micro'
+     end
+
+     aws_auto_scaling_group 'auto-scaling-group-name' do
+       desired_capacity 3
+       min_size 1
+       max_size 5
+       launch_config 'launch-config-name'
+     end
+   end
+
+.. end_tag
 
 **Destroy auto scaling group and associated launch configuration**
 
-.. include:: ../../step_resource_provisioning/step_resource_provisioning_aws_launch_config_auto_scale_destroy.rst
+.. tag resource_provisioning_aws_launch_config_auto_scale_destroy
 
+.. To destroy an auto scaling group:
+
+The following example destroys an auto scaling group and the associated launch configuration:
+
+.. code-block:: ruby
+
+   require 'chef/provisioning/aws_driver'
+
+   with_driver 'aws::eu-west-1' do
+     aws_auto_scaling_group 'my-awesome-auto-scaling-group' do
+       action :destroy
+     end
+
+     aws_launch_config 'my-sweet-launch-config' do
+       action :destroy
+     end
+   end
+
+.. end_tag
 
 aws_cache_cluster
 =====================================================
@@ -215,7 +289,7 @@ The full syntax for all of the properties that are available to the ``aws_cache_
      subnet_group_name             String
    end
 
-where 
+where
 
 * ``aws_cache_cluster`` is the resource
 * ``name`` is the name of the resource block
@@ -236,7 +310,20 @@ This Chef provisioning driver-specific resource has the following properties:
 
        Specify a Hash of Amazon Web Services (AWS) tags.
 
-       .. include:: ../../includes_resources_provisioning/includes_resources_provisioning_aws_attributes_aws_tag_example.rst
+       .. tag resources_provisioning_aws_attributes_aws_tag_example
+
+       For example:
+
+       .. code-block:: ruby
+
+          aws_tags company: 'my_company', 'key_as_string' => :value_as_symbol
+
+       .. code-block:: ruby
+
+          aws_tags 'Name' => 'custom-vpc-name'
+
+       .. end_tag
+
    * - ``az_mode``
      - **Ruby Type:** String
 
@@ -305,8 +392,45 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Define a VPC, subnets, and security group for a cache cluster**
 
-.. include:: ../../step_resource_provisioning/step_resource_provisioning_aws_cache_cluster_create.rst
+.. tag resource_provisioning_aws_cache_cluster_create
 
+.. To define a VPC, subnets, and security group for a cache cluster:
+
+.. code-block:: ruby
+
+   require 'chef/provisioning/aws_driver'
+   with_driver 'aws::us-east-1'
+
+   aws_vpc 'test' do
+     cidr_block '10.0.0.0/24'
+   end
+
+   aws_subnet 'public-test' do
+     vpc 'test'
+     availability_zone 'us-east-1a'
+     cidr_block '10.0.0.0/24'
+   end
+
+   aws_cache_subnet_group 'test-ec' do
+     description 'My awesome group'
+     subnets [ 'public-test' ]
+   end
+
+   aws_security_group 'test-sg' do
+     vpc 'test'
+   end
+
+   aws_cache_cluster 'my-cluster-mem' do
+     az_mode 'single-az'
+     number_nodes 2
+     node_type 'cache.t2.micro'
+     engine 'memcached'
+     engine_version '1.4.14'
+     security_groups ['test-sg']
+     subnet_group_name 'test-ec'
+   end
+
+.. end_tag
 
 aws_cache_replication_group
 =====================================================
@@ -350,7 +474,7 @@ The full syntax for all of the properties that are available to the ``aws_cache_
      subnet_group_name             String
    end
 
-where 
+where
 
 * ``aws_cache_replication_group`` is the resource
 * ``name`` is the name of the resource block
@@ -375,7 +499,20 @@ This Chef provisioning driver-specific resource has the following properties:
 
        Specify a Hash of Amazon Web Services (AWS) tags.
 
-       .. include:: ../../includes_resources_provisioning/includes_resources_provisioning_aws_attributes_aws_tag_example.rst
+       .. tag resources_provisioning_aws_attributes_aws_tag_example
+
+       For example:
+
+       .. code-block:: ruby
+
+          aws_tags company: 'my_company', 'key_as_string' => :value_as_symbol
+
+       .. code-block:: ruby
+
+          aws_tags 'Name' => 'custom-vpc-name'
+
+       .. end_tag
+
    * - ``chef_server``
      - **Ruby Type:** Hash
 
@@ -438,7 +575,6 @@ Examples
 -----------------------------------------------------
 None.
 
-
 aws_cache_subnet_group
 =====================================================
 The ``aws_cache_subnet_group`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_cache_subnet_group`` resource to manage a `cache subnet group <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/ManagingVPC.CreatingSubnetGroup.html>`__, which is a collection of subnets that may be designated for cache clusters in Amazon Virtual Private Cloud (VPC).
@@ -464,7 +600,7 @@ The full syntax for all of the properties that are available to the ``aws_cache_
      subnets                       String, Array
    end
 
-where 
+where
 
 * ``aws_cache_subnet_group`` is the resource
 * ``name`` is the name of the resource block (and is the same as the ``group_name`` property if ``group_name`` is not specified in the resource block)
@@ -485,7 +621,20 @@ This Chef provisioning driver-specific resource has the following properties:
 
        Specify a Hash of Amazon Web Services (AWS) tags.
 
-       .. include:: ../../includes_resources_provisioning/includes_resources_provisioning_aws_attributes_aws_tag_example.rst
+       .. tag resources_provisioning_aws_attributes_aws_tag_example
+
+       For example:
+
+       .. code-block:: ruby
+
+          aws_tags company: 'my_company', 'key_as_string' => :value_as_symbol
+
+       .. code-block:: ruby
+
+          aws_tags 'Name' => 'custom-vpc-name'
+
+       .. end_tag
+
    * - ``chef_server``
      - **Ruby Type:** Hash
 
@@ -517,9 +666,45 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Define a cache subnet group for a cache cluster**
 
-.. include:: ../../step_resource_provisioning/step_resource_provisioning_aws_cache_cluster_create.rst
+.. tag resource_provisioning_aws_cache_cluster_create
 
+.. To define a VPC, subnets, and security group for a cache cluster:
 
+.. code-block:: ruby
+
+   require 'chef/provisioning/aws_driver'
+   with_driver 'aws::us-east-1'
+
+   aws_vpc 'test' do
+     cidr_block '10.0.0.0/24'
+   end
+
+   aws_subnet 'public-test' do
+     vpc 'test'
+     availability_zone 'us-east-1a'
+     cidr_block '10.0.0.0/24'
+   end
+
+   aws_cache_subnet_group 'test-ec' do
+     description 'My awesome group'
+     subnets [ 'public-test' ]
+   end
+
+   aws_security_group 'test-sg' do
+     vpc 'test'
+   end
+
+   aws_cache_cluster 'my-cluster-mem' do
+     az_mode 'single-az'
+     number_nodes 2
+     node_type 'cache.t2.micro'
+     engine 'memcached'
+     engine_version '1.4.14'
+     security_groups ['test-sg']
+     subnet_group_name 'test-ec'
+   end
+
+.. end_tag
 
 aws_cloudsearch_domain
 =====================================================
@@ -553,7 +738,7 @@ The full syntax for all of the properties that are available to the ``aws_clouds
      replication_count             Integer
    end
 
-where 
+where
 
 * ``aws_cloudsearch_domain`` is the resource
 * ``name`` is the name of the resource block
@@ -618,9 +803,6 @@ Examples
 -----------------------------------------------------
 None.
 
-
-
-
 aws_dhcp_options
 =====================================================
 The ``aws_dhcp_options`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_dhcp_options`` resource to manage the `option sets <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html>`__ for the Dynamic Host Configuration Protocol (DHCP) protocol. Option sets are associated with the Amazon Web Services (AWS) account and may be used across all instances in Amazon Virtual Private Cloud (VPC).
@@ -653,7 +835,7 @@ The full syntax for all of the properties that are available to the ``aws_dhcp_o
      netbios_node_type             Integer
    end
 
-where 
+where
 
 * ``aws_dhcp_options`` is the resource
 * ``name`` is the name of the resource block and also the name of an option set for the Dynamic Host Configuration Protocol (DHCP) protocol
@@ -674,7 +856,20 @@ This Chef provisioning driver-specific resource has the following properties:
 
        Specify a Hash of Amazon Web Services (AWS) tags.
 
-       .. include:: ../../includes_resources_provisioning/includes_resources_provisioning_aws_attributes_aws_tag_example.rst
+       .. tag resources_provisioning_aws_attributes_aws_tag_example
+
+       For example:
+
+       .. code-block:: ruby
+
+          aws_tags company: 'my_company', 'key_as_string' => :value_as_symbol
+
+       .. code-block:: ruby
+
+          aws_tags 'Name' => 'custom-vpc-name'
+
+       .. end_tag
+
    * - ``chef_server``
      - **Ruby Type:** Hash
 
@@ -744,7 +939,6 @@ The following examples demonstrate various approaches for using resources in rec
      action :destroy
    end
 
-
 aws_ebs_volume
 =====================================================
 The ``aws_ebs_volume`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_ebs_volume`` resource to manage a `block-level storage device <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html>`__ that is attached to an Amazon EC2 instance.
@@ -782,7 +976,7 @@ The full syntax for all of the properties that are available to the ``aws_ebs_vo
      volume_type                   String
    end
 
-where 
+where
 
 * ``aws_ebs_volume`` is the resource
 * ``name`` is the name of the resource block and also the name of a block-level storage device that is attached to an Amazon EC2 instance
@@ -807,7 +1001,20 @@ This Chef provisioning driver-specific resource has the following properties:
 
        Specify a Hash of Amazon Web Services (AWS) tags.
 
-       .. include:: ../../includes_resources_provisioning/includes_resources_provisioning_aws_attributes_aws_tag_example.rst
+       .. tag resources_provisioning_aws_attributes_aws_tag_example
+
+       For example:
+
+       .. code-block:: ruby
+
+          aws_tags company: 'my_company', 'key_as_string' => :value_as_symbol
+
+       .. code-block:: ruby
+
+          aws_tags 'Name' => 'custom-vpc-name'
+
+       .. end_tag
+
    * - ``chef_server``
      - **Ruby Type:** Hash
 
@@ -940,8 +1147,30 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Destroy volumes for batch of machines, along with keys**
 
-.. include:: ../../step_resource_provisioning/step_resource_provisioning_aws_ebs_volume_delete_machine_and_keys.rst
+.. tag resource_provisioning_aws_ebs_volume_delete_machine_and_keys
 
+.. To destroy a named group of machines along with keys:
+
+The following example destroys an Amazon Elastic Block Store (EBS) volume for the specified batch of machines, along with any associated public and/or private keys:
+
+.. code-block:: ruby
+
+   ['ref-volume-ebs', 'ref-volume-ebs-2'].each { |volume|
+     aws_ebs_volume volume do
+       action :destroy
+     end
+   }
+
+   machine_batch do
+     machines 'ref-machine-1', 'ref-machine-2'
+     action :destroy
+   end
+
+   aws_key_pair 'ref-key-pair-ebs' do
+     action :destroy
+   end
+
+.. end_tag
 
 aws_eip_address
 =====================================================
@@ -969,7 +1198,7 @@ The full syntax for all of the properties that are available to the ``aws_eip_ad
      public_ip                     String
    end
 
-where 
+where
 
 * ``aws_eip_address`` is the resource
 * ``name`` is the name of the resource block and also the name of an Amazon Elastic IP Address (EIP)
@@ -1035,15 +1264,15 @@ The following examples demonstrate various approaches for using resources in rec
 .. code-block:: ruby
 
    require 'chef/provisioning/aws_driver'
-   
+
    with_driver 'aws::us-west-2' do
-   
+
      machine "SRV_OR_Web_1" do
        machine_options :bootstrap_options => {
          :key_name => 'Tst_Prov'
        }
      end
-   
+
      aws_eip_address 'Web_IP_1' do
        machine 'SRV_OR_Web_1'
      end
@@ -1059,7 +1288,6 @@ The following examples demonstrate various approaches for using resources in rec
      machine 'SRV_OR_Web_1'
      associate_to_vpc true
    end
-
 
 aws_image
 =====================================================
@@ -1083,7 +1311,7 @@ The full syntax for all of the properties that are available to the ``aws_image`
      image_id                      String
    end
 
-where 
+where
 
 * ``aws_image`` is the resource
 * ``name`` is the name of the resource block and also the name of an Amazon Machine Images (AMI) image
@@ -1104,7 +1332,20 @@ This Chef provisioning driver-specific resource has the following properties:
 
        Specify a Hash of Amazon Web Services (AWS) tags.
 
-       .. include:: ../../includes_resources_provisioning/includes_resources_provisioning_aws_attributes_aws_tag_example.rst
+       .. tag resources_provisioning_aws_attributes_aws_tag_example
+
+       For example:
+
+       .. code-block:: ruby
+
+          aws_tags company: 'my_company', 'key_as_string' => :value_as_symbol
+
+       .. code-block:: ruby
+
+          aws_tags 'Name' => 'custom-vpc-name'
+
+       .. end_tag
+
    * - ``chef_server``
      - **Ruby Type:** Hash
 
@@ -1130,7 +1371,6 @@ Examples
 -----------------------------------------------------
 None.
 
-
 aws_instance
 =====================================================
 The ``aws_instance`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_instance`` resource to manage an instance in Amazon EC2.
@@ -1153,7 +1393,7 @@ The full syntax for all of the properties that are available to the ``aws_instan
      instance_id                   String
    end
 
-where 
+where
 
 * ``aws_instance`` is the resource
 * ``name`` is the name of the resource block and also the name of an instance in Amazon EC2
@@ -1174,7 +1414,20 @@ This Chef provisioning driver-specific resource has the following properties:
 
        Specify a Hash of Amazon Web Services (AWS) tags.
 
-       .. include:: ../../includes_resources_provisioning/includes_resources_provisioning_aws_attributes_aws_tag_example.rst
+       .. tag resources_provisioning_aws_attributes_aws_tag_example
+
+       For example:
+
+       .. code-block:: ruby
+
+          aws_tags company: 'my_company', 'key_as_string' => :value_as_symbol
+
+       .. code-block:: ruby
+
+          aws_tags 'Name' => 'custom-vpc-name'
+
+       .. end_tag
+
    * - ``chef_server``
      - **Ruby Type:** Hash
 
@@ -1200,7 +1453,6 @@ Examples
 -----------------------------------------------------
 None.
 
-
 aws_internet_gateway
 =====================================================
 The ``aws_internet_gateway`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_internet_gateway`` resource to configure an internet gateway for a defined virtual network within Amazon Virtual Private Cloud (VPC) (the networking layer of Amazon EC2).
@@ -1225,7 +1477,7 @@ The full syntax for all of the properties that are available to the ``aws_intern
      internet_gateway_id           String
    end
 
-where 
+where
 
 * ``aws_internet_gateway`` is the resource
 * ``name`` is the name of the resource block and also the name of an internet gateway for a defined virtual network within Amazon Virtual Private Cloud (VPC)
@@ -1246,7 +1498,20 @@ This Chef provisioning driver-specific resource has the following properties:
 
        Specify a Hash of Amazon Web Services (AWS) tags.
 
-       .. include:: ../../includes_resources_provisioning/includes_resources_provisioning_aws_attributes_aws_tag_example.rst
+       .. tag resources_provisioning_aws_attributes_aws_tag_example
+
+       For example:
+
+       .. code-block:: ruby
+
+          aws_tags company: 'my_company', 'key_as_string' => :value_as_symbol
+
+       .. code-block:: ruby
+
+          aws_tags 'Name' => 'custom-vpc-name'
+
+       .. end_tag
+
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
@@ -1278,7 +1543,6 @@ The following examples demonstrate various approaches for using resources in rec
      internet_gateway_id '1234567890'
    end
 
-
 aws_key_pair
 =====================================================
 The ``aws_key_pair`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_key_pair`` resource to manage key pairs in Amazon EC2.
@@ -1309,7 +1573,7 @@ The full syntax for all of the properties that are available to the ``aws_key_pa
      public_key_path               String      
    end
 
-where 
+where
 
 * ``aws_key_pair`` is the resource
 * ``name`` is the name of the resource block
@@ -1334,7 +1598,20 @@ This Chef provisioning driver-specific resource has the following properties:
 
        Specify a Hash of Amazon Web Services (AWS) tags.
 
-       .. include:: ../../includes_resources_provisioning/includes_resources_provisioning_aws_attributes_aws_tag_example.rst
+       .. tag resources_provisioning_aws_attributes_aws_tag_example
+
+       For example:
+
+       .. code-block:: ruby
+
+          aws_tags company: 'my_company', 'key_as_string' => :value_as_symbol
+
+       .. code-block:: ruby
+
+          aws_tags 'Name' => 'custom-vpc-name'
+
+       .. end_tag
+
    * - ``chef_server``
      - **Ruby Type:** Hash
 
@@ -1381,12 +1658,60 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Destroy volumes for batch of machines, along with keys**
 
-.. include:: ../../step_resource_provisioning/step_resource_provisioning_aws_ebs_volume_delete_machine_and_keys.rst
+.. tag resource_provisioning_aws_ebs_volume_delete_machine_and_keys
+
+.. To destroy a named group of machines along with keys:
+
+The following example destroys an Amazon Elastic Block Store (EBS) volume for the specified batch of machines, along with any associated public and/or private keys:
+
+.. code-block:: ruby
+
+   ['ref-volume-ebs', 'ref-volume-ebs-2'].each { |volume|
+     aws_ebs_volume volume do
+       action :destroy
+     end
+   }
+
+   machine_batch do
+     machines 'ref-machine-1', 'ref-machine-2'
+     action :destroy
+   end
+
+   aws_key_pair 'ref-key-pair-ebs' do
+     action :destroy
+   end
+
+.. end_tag
 
 **Set up a VPC, route table, key pair, and machine**
 
-.. include:: ../../step_resource_provisioning/step_resource_provisioning_aws_route_table_define_vpc_key_machine.rst
+.. tag resource_provisioning_aws_route_table_define_vpc_key_machine
 
+.. To define a VPC, route table, key pair, and machine:
+
+.. code-block:: ruby
+
+   require 'chef/provisioning/aws_driver'
+
+   with_driver 'aws::eu-west-1'
+
+   aws_vpc 'test-vpc' do
+     cidr_block '10.0.0.0/24'
+     internet_gateway true
+   end
+
+   aws_route_table 'ref-public1' do
+     vpc 'test-vpc'
+     routes '0.0.0.0/0' => :internet_gateway
+   end
+
+   aws_key_pair 'ref-key-pair'
+
+   m = machine 'test' do
+     machine_options bootstrap_options: { key_name: 'ref-key-pair' }
+   end
+
+.. end_tag
 
 aws_launch_configuration
 =====================================================
@@ -1414,7 +1739,7 @@ The full syntax for all of the properties that are available to the ``aws_launch
      options                       Hash
    end
 
-where 
+where
 
 * ``aws_launch_configuration`` is the resource
 * ``name`` is the name of the resource block and also the name of an Amazon Machine Images (AMI) instance type
@@ -1435,7 +1760,20 @@ This Chef provisioning driver-specific resource has the following properties:
 
        Specify a Hash of Amazon Web Services (AWS) tags.
 
-       .. include:: ../../includes_resources_provisioning/includes_resources_provisioning_aws_attributes_aws_tag_example.rst
+       .. tag resources_provisioning_aws_attributes_aws_tag_example
+
+       For example:
+
+       .. code-block:: ruby
+
+          aws_tags company: 'my_company', 'key_as_string' => :value_as_symbol
+
+       .. code-block:: ruby
+
+          aws_tags 'Name' => 'custom-vpc-name'
+
+       .. end_tag
+
    * - ``chef_server``
      - **Ruby Type:** Hash
 
@@ -1483,12 +1821,55 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Define an auto scaling group**
 
-.. include:: ../../step_resource_provisioning/step_resource_provisioning_aws_launch_config_auto_scale.rst
+.. tag resource_provisioning_aws_launch_config_auto_scale
+
+.. To define an auto scaling group:
+
+The following example uses the ``aws_launch_config`` resource to create an image and instance type, and then the ``aws_auto_scaling_group`` resource to build out a group of machines:
+
+.. code-block:: ruby
+
+   require 'chef/provisioning/aws_driver'
+
+   with_driver 'aws::eu-west-1' do
+     aws_launch_config 'launch-config-name' do
+       image 'ami-f0b11187'
+       instance_type 't1.micro'
+     end
+
+     aws_auto_scaling_group 'auto-scaling-group-name' do
+       desired_capacity 3
+       min_size 1
+       max_size 5
+       launch_config 'launch-config-name'
+     end
+   end
+
+.. end_tag
 
 **Destroy auto scaling group and associated launch configuration**
 
-.. include:: ../../step_resource_provisioning/step_resource_provisioning_aws_launch_config_auto_scale_destroy.rst
+.. tag resource_provisioning_aws_launch_config_auto_scale_destroy
 
+.. To destroy an auto scaling group:
+
+The following example destroys an auto scaling group and the associated launch configuration:
+
+.. code-block:: ruby
+
+   require 'chef/provisioning/aws_driver'
+
+   with_driver 'aws::eu-west-1' do
+     aws_auto_scaling_group 'my-awesome-auto-scaling-group' do
+       action :destroy
+     end
+
+     aws_launch_config 'my-sweet-launch-config' do
+       action :destroy
+     end
+   end
+
+.. end_tag
 
 aws_load_balancer
 =====================================================
@@ -1512,7 +1893,7 @@ The full syntax for all of the properties that are available to the ``aws_load_b
      load_balancer_id              String
    end
 
-where 
+where
 
 * ``aws_load_balancer`` is the resource
 * ``name`` is the name of the resource block and also the name of a load balancer in Amazon Elastic Load Balancing (ELB)
@@ -1533,7 +1914,20 @@ This Chef provisioning driver-specific resource has the following properties:
 
        Specify a Hash of Amazon Web Services (AWS) tags.
 
-       .. include:: ../../includes_resources_provisioning/includes_resources_provisioning_aws_attributes_aws_tag_example.rst
+       .. tag resources_provisioning_aws_attributes_aws_tag_example
+
+       For example:
+
+       .. code-block:: ruby
+
+          aws_tags company: 'my_company', 'key_as_string' => :value_as_symbol
+
+       .. code-block:: ruby
+
+          aws_tags 'Name' => 'custom-vpc-name'
+
+       .. end_tag
+
    * - ``chef_server``
      - **Ruby Type:** Hash
 
@@ -1558,7 +1952,6 @@ This Chef provisioning driver-specific resource has the following properties:
 Examples
 -----------------------------------------------------
 None.
-
 
 aws_network_acl
 =====================================================
@@ -1590,7 +1983,7 @@ The full syntax for all of the properties that are available to the ``network_ac
      vpc                           String, AwsVpc, AWS::EC2::VPC     
    end
 
-where 
+where
 
 * ``aws_network_acl`` is the resource
 * ``name`` is the name of the resource block
@@ -1611,7 +2004,20 @@ This Chef provisioning driver-specific resource has the following properties:
 
        Specify a Hash of Amazon Web Services (AWS) tags.
 
-       .. include:: ../../includes_resources_provisioning/includes_resources_provisioning_aws_attributes_aws_tag_example.rst
+       .. tag resources_provisioning_aws_attributes_aws_tag_example
+
+       For example:
+
+       .. code-block:: ruby
+
+          aws_tags company: 'my_company', 'key_as_string' => :value_as_symbol
+
+       .. code-block:: ruby
+
+          aws_tags 'Name' => 'custom-vpc-name'
+
+       .. end_tag
+
    * - ``chef_server``
      - **Ruby Type:** Hash
 
@@ -1644,7 +2050,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
        * ``port`` is the port number or range. For example: ``80`` (number) or ``1024..2048`` (range)
        * ``protocol`` is the protocol to be used. For example: ``:http`` or ``:tcp``
-       * ``sources`` is an IP address (or a classless inter-domain routing (CIDR) of IP addresses), a security group to be authorized, and/or a load balancer to be authorized. 
+       * ``sources`` is an IP address (or a classless inter-domain routing (CIDR) of IP addresses), a security group to be authorized, and/or a load balancer to be authorized.
 
        For example, IP addresses:
 
@@ -1732,7 +2138,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
        * ``port`` is the port number or range. For example: ``80`` (number) or ``1024..2048`` (range)
        * ``protocol`` is the protocol to be used. For example: ``:http`` or ``:tcp``
-       * ``sources`` is an IP address (or a classless inter-domain routing (CIDR) of IP addresses), a security group to be authorized, and/or a load balancer to be authorized. 
+       * ``sources`` is an IP address (or a classless inter-domain routing (CIDR) of IP addresses), a security group to be authorized, and/or a load balancer to be authorized.
 
        For example, IP addresses:
 
@@ -1793,7 +2199,6 @@ Examples
 -----------------------------------------------------
 None.
 
-
 aws_network_interface
 =====================================================
 The ``aws_network_interface`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_network_interface`` resource to manage a network interface in Amazon EC2.
@@ -1826,7 +2231,7 @@ The full syntax for all of the properties that are available to the ``aws_networ
      security_groups               Array
    end
 
-where 
+where
 
 * ``aws_network_interface`` is the resource
 * ``name`` is the name of the resource block and also the name of a network interface in Amazon EC2
@@ -1847,7 +2252,20 @@ This Chef provisioning driver-specific resource has the following properties:
 
        Specify a Hash of Amazon Web Services (AWS) tags.
 
-       .. include:: ../../includes_resources_provisioning/includes_resources_provisioning_aws_attributes_aws_tag_example.rst
+       .. tag resources_provisioning_aws_attributes_aws_tag_example
+
+       For example:
+
+       .. code-block:: ruby
+
+          aws_tags company: 'my_company', 'key_as_string' => :value_as_symbol
+
+       .. code-block:: ruby
+
+          aws_tags 'Name' => 'custom-vpc-name'
+
+       .. end_tag
+
    * - ``chef_server``
      - **Ruby Type:** Hash
 
@@ -1910,7 +2328,6 @@ The following examples demonstrate various approaches for using resources in rec
      description 'ref-eni-desc'
    end
 
-
 aws_rds_instance
 =====================================================
 The ``aws_rds_instance`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_rds_instance`` resource to manage `a database instance <https://aws.amazon.com/rds/>`__ using Amazon Relational Database Service (RDS).
@@ -1952,7 +2369,7 @@ The full syntax for all of the properties that are available to the ``aws_rds_in
      publicly_accessible           TrueClass, FalseClass
    end
 
-where 
+where
 
 * ``aws_rds_instance`` is the resource
 * ``name`` is the name of the resource block
@@ -2045,7 +2462,6 @@ Examples
 -----------------------------------------------------
 None.
 
-
 aws_rds_subnet_group
 =====================================================
 The ``aws_rds_subnet_group`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_rds_subnet_group`` resource to manage `a collection of subnets <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html>`__ that exist in an Amazon Virtual Private Cloud (VPC) that is passed to the Amazon Relational Database Service (RDS) instance. At least two subnets must be specified.
@@ -2070,7 +2486,7 @@ The full syntax for all of the properties that are available to the ``aws_rds_su
      subnets                       String, Array, AwsSubnet, AWS::EC2::Subnet
    end
 
-where 
+where
 
 * ``aws_rds_subnet_group`` is the resource
 * ``name`` is the name of the resource block
@@ -2115,10 +2531,6 @@ Examples
 -----------------------------------------------------
 None.
 
-
-
-
-
 aws_route_table
 =====================================================
 The ``aws_route_table`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_route_table`` resource to `define a route table <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html>`__ within Amazon Virtual Private Cloud (VPC) (the networking layer of Amazon EC2).
@@ -2147,7 +2559,7 @@ The full syntax for all of the properties that are available to the ``aws_route_
      vpc                           String
    end
 
-where 
+where
 
 * ``aws_route_table`` is the resource
 * ``name`` is the name of the resource block and also the name of a route table in Amazon Virtual Private Cloud (VPC)
@@ -2168,7 +2580,20 @@ This Chef provisioning driver-specific resource has the following properties:
 
        Specify a Hash of Amazon Web Services (AWS) tags.
 
-       .. include:: ../../includes_resources_provisioning/includes_resources_provisioning_aws_attributes_aws_tag_example.rst
+       .. tag resources_provisioning_aws_attributes_aws_tag_example
+
+       For example:
+
+       .. code-block:: ruby
+
+          aws_tags company: 'my_company', 'key_as_string' => :value_as_symbol
+
+       .. code-block:: ruby
+
+          aws_tags 'Name' => 'custom-vpc-name'
+
+       .. end_tag
+
    * - ``chef_server``
      - **Ruby Type:** Hash
 
@@ -2236,8 +2661,33 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Set up a VPC, route table, key pair, and machine**
 
-.. include:: ../../step_resource_provisioning/step_resource_provisioning_aws_route_table_define_vpc_key_machine.rst
+.. tag resource_provisioning_aws_route_table_define_vpc_key_machine
 
+.. To define a VPC, route table, key pair, and machine:
+
+.. code-block:: ruby
+
+   require 'chef/provisioning/aws_driver'
+
+   with_driver 'aws::eu-west-1'
+
+   aws_vpc 'test-vpc' do
+     cidr_block '10.0.0.0/24'
+     internet_gateway true
+   end
+
+   aws_route_table 'ref-public1' do
+     vpc 'test-vpc'
+     routes '0.0.0.0/0' => :internet_gateway
+   end
+
+   aws_key_pair 'ref-key-pair'
+
+   m = machine 'test' do
+     machine_options bootstrap_options: { key_name: 'ref-key-pair' }
+   end
+
+.. end_tag
 
 aws_s3_bucket
 =====================================================
@@ -2266,7 +2716,7 @@ The full syntax for all of the properties that are available to the ``aws_s3_buc
      website_options               Hash
    end
 
-where 
+where
 
 * ``aws_s3_bucket`` is the resource
 * ``name`` is the name of the resource block and also the name of an Amazon Simple Storage Service (S3) bucket
@@ -2287,7 +2737,20 @@ This Chef provisioning driver-specific resource has the following properties:
 
        Specify a Hash of Amazon Web Services (AWS) tags.
 
-       .. include:: ../../includes_resources_provisioning/includes_resources_provisioning_aws_attributes_aws_tag_example.rst
+       .. tag resources_provisioning_aws_attributes_aws_tag_example
+
+       For example:
+
+       .. code-block:: ruby
+
+          aws_tags company: 'my_company', 'key_as_string' => :value_as_symbol
+
+       .. code-block:: ruby
+
+          aws_tags 'Name' => 'custom-vpc-name'
+
+       .. end_tag
+
    * - ``chef_server``
      - **Ruby Type:** Hash
 
@@ -2329,7 +2792,7 @@ The following examples demonstrate various approaches for using resources in rec
 
    require 'chef/provisioning/aws_driver'
    with_driver 'aws'
-   
+
    aws_s3_bucket 'aws-bucket' do
      enable_website_hosting true
      website_options :index_document => {
@@ -2348,11 +2811,10 @@ The following examples demonstrate various approaches for using resources in rec
 
    require 'chef/provisioning/aws_driver'
    with_driver 'aws'
-   
+
    aws_s3_bucket 'aws-bucket' do
      action :destroy
    end
-
 
 aws_security_group
 =====================================================
@@ -2386,7 +2848,7 @@ The full syntax for all of the properties that are available to the ``aws_securi
      vpc                           String
    end
 
-where 
+where
 
 * ``aws_security_group`` is the resource
 * ``name`` is the name of the resource block and also the name of a security group in Amazon Web Services (AWS)
@@ -2449,7 +2911,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
        * ``port`` is the port number or range. For example: ``80`` (number) or ``1024..2048`` (range)
        * ``protocol`` is the protocol to be used. For example: ``:http`` or ``:tcp``
-       * ``sources`` is an IP address (or a classless inter-domain routing (CIDR) of IP addresses), a security group to be authorized, and/or a load balancer to be authorized. 
+       * ``sources`` is an IP address (or a classless inter-domain routing (CIDR) of IP addresses), a security group to be authorized, and/or a load balancer to be authorized.
 
        For example, IP addresses:
 
@@ -2533,7 +2995,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
        * ``port`` is the port number or range. For example: ``80`` (number) or ``1024..2048`` (range)
        * ``protocol`` is the protocol to be used. For example: ``:http`` or ``:tcp``
-       * ``sources`` is an IP address (or a classless inter-domain routing (CIDR) of IP addresses), a security group to be authorized, and/or a load balancer to be authorized. 
+       * ``sources`` is an IP address (or a classless inter-domain routing (CIDR) of IP addresses), a security group to be authorized, and/or a load balancer to be authorized.
 
        For example, IP addresses:
 
@@ -2603,7 +3065,7 @@ The following examples demonstrate various approaches for using resources in rec
    aws_security_group 'test-sg' do
      vpc 'test-vpc'
      action :delete
-   end	
+   end
 
 **Add inbound and outbound rules**
 
@@ -2673,12 +3135,105 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Define a security group for a cache cluster**
 
-.. include:: ../../step_resource_provisioning/step_resource_provisioning_aws_cache_cluster_create.rst
+.. tag resource_provisioning_aws_cache_cluster_create
+
+.. To define a VPC, subnets, and security group for a cache cluster:
+
+.. code-block:: ruby
+
+   require 'chef/provisioning/aws_driver'
+   with_driver 'aws::us-east-1'
+
+   aws_vpc 'test' do
+     cidr_block '10.0.0.0/24'
+   end
+
+   aws_subnet 'public-test' do
+     vpc 'test'
+     availability_zone 'us-east-1a'
+     cidr_block '10.0.0.0/24'
+   end
+
+   aws_cache_subnet_group 'test-ec' do
+     description 'My awesome group'
+     subnets [ 'public-test' ]
+   end
+
+   aws_security_group 'test-sg' do
+     vpc 'test'
+   end
+
+   aws_cache_cluster 'my-cluster-mem' do
+     az_mode 'single-az'
+     number_nodes 2
+     node_type 'cache.t2.micro'
+     engine 'memcached'
+     engine_version '1.4.14'
+     security_groups ['test-sg']
+     subnet_group_name 'test-ec'
+   end
+
+.. end_tag
 
 **Define a security group for a batch of machines**
 
-.. include:: ../../step_resource_provisioning/step_resource_provisioning_aws_security_group_machine_batch.rst
+.. tag resource_provisioning_aws_security_group_machine_batch
 
+.. To define a VPC, subnets, and security group for a batch of machines:
+
+.. code-block:: ruby
+
+   require 'chef/provisioning/aws_driver'
+
+   with_driver 'aws::eu-west-1'
+     aws_vpc 'provisioning-vpc' do
+       cidr_block '10.0.0.0/24'
+       internet_gateway true
+       main_routes '0.0.0.0/0' => :internet_gateway
+     end
+
+     aws_subnet 'provisioning-vpc-subnet-a' do
+       vpc 'provisioning-vpc'
+       cidr_block '10.0.0.0/26'
+       availability_zone 'eu-west-1a'
+       map_public_ip_on_launch true
+     end
+
+     aws_subnet 'provisioning-vpc-subnet-b' do
+       vpc 'provisioning-vpc'
+       cidr_block '10.0.0.128/26'
+       availability_zone 'eu-west-1a'
+       map_public_ip_on_launch true
+     end
+
+   machine_batch do
+     machines %w(mario-a mario-b)
+     action :destroy
+   end
+
+   machine_batch do
+     machine 'mario-a' do
+       machine_options bootstrap_options: { subnet: 'provisioning-vpc-subnet-a' }
+     end
+
+     machine 'mario-b' do
+       machine_options bootstrap_options: { subnet: 'provisioning-vpc-subnet-b' }
+     end
+   end
+
+   aws_security_group 'provisioning-vpc-security-group' do
+     inbound_rules [
+       {:port => 2223, :protocol => :tcp, :sources => ['10.0.0.0/24'] },
+       {:port => 80..100, :protocol => :udp, :sources => ['1.1.1.0/24'] }
+     ]
+     outbound_rules [
+       {:port => 2223, :protocol => :tcp, :destinations => ['1.1.1.0/16'] },
+       {:port => 8080, :protocol => :tcp, :destinations => ['2.2.2.0/24'] }
+     ]
+     vpc 'provisioning-vpc'
+   end
+
+.. end_tag
 
 aws_server_certificate
 =====================================================
@@ -2704,7 +3259,7 @@ The full syntax for all of the properties that are available to the ``aws_server
      private_key                   String      
    end
 
-where 
+where
 
 * ``aws_server_certificate`` is the resource
 * ``name`` is the name of the resource block
@@ -2725,7 +3280,20 @@ This Chef provisioning driver-specific resource has the following properties:
 
        Specify a Hash of Amazon Web Services (AWS) tags.
 
-       .. include:: ../../includes_resources_provisioning/includes_resources_provisioning_aws_attributes_aws_tag_example.rst
+       .. tag resources_provisioning_aws_attributes_aws_tag_example
+
+       For example:
+
+       .. code-block:: ruby
+
+          aws_tags company: 'my_company', 'key_as_string' => :value_as_symbol
+
+       .. code-block:: ruby
+
+          aws_tags 'Name' => 'custom-vpc-name'
+
+       .. end_tag
+
    * - ``certificate_body``
      - **Ruby Type:** String
 
@@ -2747,14 +3315,13 @@ This Chef provisioning driver-specific resource has the following properties:
 
        Use to specify name of the server certificate.
    * - ``private_key``
-     - **Ruby Type:** 
+     - **Ruby Type:**
 
        Use to specify contents of the private key in PEM-encoded format.
 
 Examples
 -----------------------------------------------------
 None.
-
 
 aws_sns_topic
 =====================================================
@@ -2803,7 +3370,20 @@ This Chef provisioning driver-specific resource has the following properties:
 
        Specify a Hash of Amazon Web Services (AWS) tags.
 
-       .. include:: ../../includes_resources_provisioning/includes_resources_provisioning_aws_attributes_aws_tag_example.rst
+       .. tag resources_provisioning_aws_attributes_aws_tag_example
+
+       For example:
+
+       .. code-block:: ruby
+
+          aws_tags company: 'my_company', 'key_as_string' => :value_as_symbol
+
+       .. code-block:: ruby
+
+          aws_tags 'Name' => 'custom-vpc-name'
+
+       .. end_tag
+
    * - ``chef_server``
      - **Ruby Type:** Hash
 
@@ -2845,7 +3425,6 @@ The following examples demonstrate various approaches for using resources in rec
      action :destroy
    end
 
-
 aws_sqs_queue
 =====================================================
 The ``aws_sqs_queue`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_sqs_queue`` resource to create a queue in Amazon Simple Queue Service (SQS). Amazon Simple Queue Service (SQS) offers reliable and scalable hosted queues for storing messages as they travel between distributed components of applications and without requiring each component to be always available.
@@ -2868,7 +3447,7 @@ The full syntax for all of the properties that are available to the ``aws_sqs_qu
      options                       Hash
    end
 
-where 
+where
 
 * ``aws_sqs_queue`` is the resource
 * ``name`` is the name of the resource block and also the name of a queue in Amazon Simple Queue Service (SQS)
@@ -2889,7 +3468,20 @@ This Chef provisioning driver-specific resource has the following properties:
 
        Specify a Hash of Amazon Web Services (AWS) tags.
 
-       .. include:: ../../includes_resources_provisioning/includes_resources_provisioning_aws_attributes_aws_tag_example.rst
+       .. tag resources_provisioning_aws_attributes_aws_tag_example
+
+       For example:
+
+       .. code-block:: ruby
+
+          aws_tags company: 'my_company', 'key_as_string' => :value_as_symbol
+
+       .. code-block:: ruby
+
+          aws_tags 'Name' => 'custom-vpc-name'
+
+       .. end_tag
+
    * - ``chef_server``
      - **Ruby Type:** Hash
 
@@ -2937,7 +3529,6 @@ The following examples demonstrate various approaches for using resources in rec
      action :destroy
    end
 
-
 aws_subnet
 =====================================================
 The ``aws_subnet`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_subnet`` resource to configure a subnet within a defined virtual network in Amazon Virtual Private Cloud (VPC) (the networking layer of Amazon EC2).
@@ -2972,7 +3563,7 @@ The full syntax for all of the properties that are available to the ``aws_subnet
      vpc                           String
    end
 
-where 
+where
 
 * ``aws_subnet`` is the resource
 * ``name`` is the name of the resource block and also the name of a subnet within a defined virtual network in Amazon Virtual Private Cloud (VPC)
@@ -2997,7 +3588,20 @@ This Chef provisioning driver-specific resource has the following properties:
 
        Specify a Hash of Amazon Web Services (AWS) tags.
 
-       .. include:: ../../includes_resources_provisioning/includes_resources_provisioning_aws_attributes_aws_tag_example.rst
+       .. tag resources_provisioning_aws_attributes_aws_tag_example
+
+       For example:
+
+       .. code-block:: ruby
+
+          aws_tags company: 'my_company', 'key_as_string' => :value_as_symbol
+
+       .. code-block:: ruby
+
+          aws_tags 'Name' => 'custom-vpc-name'
+
+       .. end_tag
+
    * - ``chef_server``
      - **Ruby Type:** Hash
 
@@ -3069,12 +3673,105 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Define a subnet for a cache cluster**
 
-.. include:: ../../step_resource_provisioning/step_resource_provisioning_aws_cache_cluster_create.rst
+.. tag resource_provisioning_aws_cache_cluster_create
+
+.. To define a VPC, subnets, and security group for a cache cluster:
+
+.. code-block:: ruby
+
+   require 'chef/provisioning/aws_driver'
+   with_driver 'aws::us-east-1'
+
+   aws_vpc 'test' do
+     cidr_block '10.0.0.0/24'
+   end
+
+   aws_subnet 'public-test' do
+     vpc 'test'
+     availability_zone 'us-east-1a'
+     cidr_block '10.0.0.0/24'
+   end
+
+   aws_cache_subnet_group 'test-ec' do
+     description 'My awesome group'
+     subnets [ 'public-test' ]
+   end
+
+   aws_security_group 'test-sg' do
+     vpc 'test'
+   end
+
+   aws_cache_cluster 'my-cluster-mem' do
+     az_mode 'single-az'
+     number_nodes 2
+     node_type 'cache.t2.micro'
+     engine 'memcached'
+     engine_version '1.4.14'
+     security_groups ['test-sg']
+     subnet_group_name 'test-ec'
+   end
+
+.. end_tag
 
 **Define subnets for a batch of machines**
 
-.. include:: ../../step_resource_provisioning/step_resource_provisioning_aws_security_group_machine_batch.rst
+.. tag resource_provisioning_aws_security_group_machine_batch
 
+.. To define a VPC, subnets, and security group for a batch of machines:
+
+.. code-block:: ruby
+
+   require 'chef/provisioning/aws_driver'
+
+   with_driver 'aws::eu-west-1'
+     aws_vpc 'provisioning-vpc' do
+       cidr_block '10.0.0.0/24'
+       internet_gateway true
+       main_routes '0.0.0.0/0' => :internet_gateway
+     end
+
+     aws_subnet 'provisioning-vpc-subnet-a' do
+       vpc 'provisioning-vpc'
+       cidr_block '10.0.0.0/26'
+       availability_zone 'eu-west-1a'
+       map_public_ip_on_launch true
+     end
+
+     aws_subnet 'provisioning-vpc-subnet-b' do
+       vpc 'provisioning-vpc'
+       cidr_block '10.0.0.128/26'
+       availability_zone 'eu-west-1a'
+       map_public_ip_on_launch true
+     end
+
+   machine_batch do
+     machines %w(mario-a mario-b)
+     action :destroy
+   end
+
+   machine_batch do
+     machine 'mario-a' do
+       machine_options bootstrap_options: { subnet: 'provisioning-vpc-subnet-a' }
+     end
+
+     machine 'mario-b' do
+       machine_options bootstrap_options: { subnet: 'provisioning-vpc-subnet-b' }
+     end
+   end
+
+   aws_security_group 'provisioning-vpc-security-group' do
+     inbound_rules [
+       {:port => 2223, :protocol => :tcp, :sources => ['10.0.0.0/24'] },
+       {:port => 80..100, :protocol => :udp, :sources => ['1.1.1.0/24'] }
+     ]
+     outbound_rules [
+       {:port => 2223, :protocol => :tcp, :destinations => ['1.1.1.0/16'] },
+       {:port => 8080, :protocol => :tcp, :destinations => ['2.2.2.0/24'] }
+     ]
+     vpc 'provisioning-vpc'
+   end
+
+.. end_tag
 
 aws_vpc
 =====================================================
@@ -3121,7 +3818,7 @@ The full syntax for all of the properties that are available to the ``aws_vpc`` 
      vpc_id                        String
    end
 
-where 
+where
 
 * ``aws_vpc`` is the resource
 * ``name`` is the name of the resource block and also the name of the defined virtual network in Amazon Virtual Private Cloud (VPC)
@@ -3142,7 +3839,20 @@ This Chef provisioning driver-specific resource has the following properties:
 
        Specify a Hash of Amazon Web Services (AWS) tags.
 
-       .. include:: ../../includes_resources_provisioning/includes_resources_provisioning_aws_attributes_aws_tag_example.rst
+       .. tag resources_provisioning_aws_attributes_aws_tag_example
+
+       For example:
+
+       .. code-block:: ruby
+
+          aws_tags company: 'my_company', 'key_as_string' => :value_as_symbol
+
+       .. code-block:: ruby
+
+          aws_tags 'Name' => 'custom-vpc-name'
+
+       .. end_tag
+
    * - ``chef_server``
      - **Ruby Type:** Hash
 
@@ -3250,23 +3960,144 @@ An Amazon Virtual Private Cloud (VPC) cannot be deleted when it has a non-main r
      }
      only_if { !self.aws_object.nil? }
    end
-   
+
    aws_route_table 'ref-main-route-table' do
      action :destroy
    end
-   
+
    aws_vpc 'ref-vpc' do
      action :destroy
    end
 
 **Set up a VPC, route table, key pair, and machine**
 
-.. include:: ../../step_resource_provisioning/step_resource_provisioning_aws_route_table_define_vpc_key_machine.rst
+.. tag resource_provisioning_aws_route_table_define_vpc_key_machine
+
+.. To define a VPC, route table, key pair, and machine:
+
+.. code-block:: ruby
+
+   require 'chef/provisioning/aws_driver'
+
+   with_driver 'aws::eu-west-1'
+
+   aws_vpc 'test-vpc' do
+     cidr_block '10.0.0.0/24'
+     internet_gateway true
+   end
+
+   aws_route_table 'ref-public1' do
+     vpc 'test-vpc'
+     routes '0.0.0.0/0' => :internet_gateway
+   end
+
+   aws_key_pair 'ref-key-pair'
+
+   m = machine 'test' do
+     machine_options bootstrap_options: { key_name: 'ref-key-pair' }
+   end
+
+.. end_tag
 
 **Define a VPC for a cache cluster**
 
-.. include:: ../../step_resource_provisioning/step_resource_provisioning_aws_cache_cluster_create.rst
+.. tag resource_provisioning_aws_cache_cluster_create
+
+.. To define a VPC, subnets, and security group for a cache cluster:
+
+.. code-block:: ruby
+
+   require 'chef/provisioning/aws_driver'
+   with_driver 'aws::us-east-1'
+
+   aws_vpc 'test' do
+     cidr_block '10.0.0.0/24'
+   end
+
+   aws_subnet 'public-test' do
+     vpc 'test'
+     availability_zone 'us-east-1a'
+     cidr_block '10.0.0.0/24'
+   end
+
+   aws_cache_subnet_group 'test-ec' do
+     description 'My awesome group'
+     subnets [ 'public-test' ]
+   end
+
+   aws_security_group 'test-sg' do
+     vpc 'test'
+   end
+
+   aws_cache_cluster 'my-cluster-mem' do
+     az_mode 'single-az'
+     number_nodes 2
+     node_type 'cache.t2.micro'
+     engine 'memcached'
+     engine_version '1.4.14'
+     security_groups ['test-sg']
+     subnet_group_name 'test-ec'
+   end
+
+.. end_tag
 
 **Define a VPC for a batch of machines**
 
-.. include:: ../../step_resource_provisioning/step_resource_provisioning_aws_security_group_machine_batch.rst
+.. tag resource_provisioning_aws_security_group_machine_batch
+
+.. To define a VPC, subnets, and security group for a batch of machines:
+
+.. code-block:: ruby
+
+   require 'chef/provisioning/aws_driver'
+
+   with_driver 'aws::eu-west-1'
+     aws_vpc 'provisioning-vpc' do
+       cidr_block '10.0.0.0/24'
+       internet_gateway true
+       main_routes '0.0.0.0/0' => :internet_gateway
+     end
+
+     aws_subnet 'provisioning-vpc-subnet-a' do
+       vpc 'provisioning-vpc'
+       cidr_block '10.0.0.0/26'
+       availability_zone 'eu-west-1a'
+       map_public_ip_on_launch true
+     end
+
+     aws_subnet 'provisioning-vpc-subnet-b' do
+       vpc 'provisioning-vpc'
+       cidr_block '10.0.0.128/26'
+       availability_zone 'eu-west-1a'
+       map_public_ip_on_launch true
+     end
+
+   machine_batch do
+     machines %w(mario-a mario-b)
+     action :destroy
+   end
+
+   machine_batch do
+     machine 'mario-a' do
+       machine_options bootstrap_options: { subnet: 'provisioning-vpc-subnet-a' }
+     end
+
+     machine 'mario-b' do
+       machine_options bootstrap_options: { subnet: 'provisioning-vpc-subnet-b' }
+     end
+   end
+
+   aws_security_group 'provisioning-vpc-security-group' do
+     inbound_rules [
+       {:port => 2223, :protocol => :tcp, :sources => ['10.0.0.0/24'] },
+       {:port => 80..100, :protocol => :udp, :sources => ['1.1.1.0/24'] }
+     ]
+     outbound_rules [
+       {:port => 2223, :protocol => :tcp, :destinations => ['1.1.1.0/16'] },
+       {:port => 8080, :protocol => :tcp, :destinations => ['2.2.2.0/24'] }
+     ]
+     vpc 'provisioning-vpc'
+   end
+
+.. end_tag
+

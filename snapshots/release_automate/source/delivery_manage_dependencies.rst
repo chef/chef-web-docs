@@ -1,5 +1,4 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/delivery_manage_dependencies.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/delivery/ PATH.
+
 
 =======================================================
 Managing Run-time Dependencies
@@ -23,7 +22,23 @@ If neither the **Dependencies** or **Required By** tabs are visible, then that p
 
 Configure Dependencies
 -----------------------------------------------------
-.. include:: ../../includes_delivery_config/includes_delivery_config_example_dependencies_on_master.rst
+.. tag delivery_config_example_dependencies_on_master
+
+The following example shows a run-time dependency against the master branch of a project named ``BackendAPI``:
+
+.. code-block:: javascript
+
+   {
+     "version": "2",
+     "build_cookbook": {
+       "name": "build-cookbook",
+       "path": ".delivery/build-cookbook"
+     },
+     "skip_phases": [],
+     "dependencies": ["BackendAPI"]
+   }
+
+.. end_tag
 
 Dependencies and Promotion
 ==========================================================
@@ -41,8 +56,6 @@ It's important to note that you may have a situation where some projects are ent
 Handle Failures
 -----------------------------------------------------
 As described above, dependency failures are breakages in your dependency graph, which keep the current project's pipeline from being able to ship safely. You can see such failures as warnings on the change view in the Chef Automate server web UI. These failures are tracked because they allow Chef Automate to know which changes are safe to promote.
-
-
 
 Examples
 ==========================================================
@@ -63,7 +76,7 @@ Here it is represented graphically:
 
 All the examples below are represented in graphical table form, where projects are denoted by uppercase letters and a test failure corresponding to a project is denoted by with a lowercase "x". For example, Bx would represent a test failure in project B.
 
-`Dependency Management Scenarios <http://docs.chef.io/decks/manage_dependencies.html>`_ also provides a visual representation of these examples.
+Dependency Management Scenarios also provides a visual representation of these examples.
 
 Simple Break and Clear
 -----------------------------------------------------------

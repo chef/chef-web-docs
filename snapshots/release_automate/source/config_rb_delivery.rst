@@ -1,20 +1,41 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/config_rb_delivery.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/delivery/ PATH.
 
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/config_rb_delivery_optional_settings.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /delivery/ PATH.
 
 =====================================================
 delivery.rb Settings
 =====================================================
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+.. tag chef_automate_mark
+
+.. image:: ../../images/chef_automate_full.png
+   :width: 40px
+   :height: 17px
+
+.. end_tag
 
 The ``delivery.rb`` file contains all of the non-default configuration settings used by the Chef Automate. (The default settings are built-in to the Chef Automate configuration and should only be added to the ``delivery.rb`` file to apply non-default values.) These configuration settings are processed when the ``delivery-server-ctl reconfigure`` command is run, such as immediately after setting up Chef Automate or after making a change to the underlying configuration settings after the server has been deployed. The ``delivery.rb`` file is a Ruby file, which means that conditional statements can be used in the configuration file.
 
 Recommended Settings
 =====================================================
-.. include:: ../../includes_delivery_server/includes_delivery_server_tuning_general.rst
+.. tag delivery_server_tuning_general
+
+The following settings are typically added to the server configuration file, including:
+
+* Logging directories
+* Maximum file sizes at which log rotation occurs
+* The number of log files to keep
+
+These values have the same default across all Chef Automate services, but individual services can have their values overwritten. Add the service-specific values to the ``delivery.rb`` file. The list of services delivery starts which include logging can be determined by looking in the ``node['delivery']['log_directory']`` directory.
+
+``<service_name>['log_directory']``
+   The directory in which log data is stored. The default value is the recommended value. Default value: ``/var/log/delivery/<service_name>``.
+
+``<service_name>['log_rotation']['file_maxbytes']``
+   The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value: ``100 * 1024 * 1024`` (100MB).
+
+``<service_name>['log_rotation']['num_to_keep']``
+   The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value: ``10``.
+
+.. end_tag
 
 SSL Protocols
 -----------------------------------------------------
@@ -63,15 +84,14 @@ For example, after copying the SSL certificate files to the Chef Automate server
    nginx['ssl_ciphers'] = "HIGH:MEDIUM:!LOW:!kEDH:!aNULL:!ADH:!eNULL:!EXP:!SSLv2:!SEED:!CAMELLIA:!PSK"
    nginx['ssl_protocols'] = "TLSv1 TLSv1.1 TLSv1.2"
 
-
 Optional Settings
 =====================================================
 Additional settings are available for performance tuning of the Chef Automate server.
 
 .. note:: When changes are made to the ``delivery.rb`` file the Chef Automate server must be reconfigured by running the following command:
-          
+
           .. code-block:: bash
-          
+
              $ delivery-server-ctl reconfigure
 
 .. note:: Review the full list of :doc:`optional settings </config_rb_delivery_optional_settings>` that can be added to the ``delivery.rb`` file. Many of these optional settings should not be added without first consulting with Chef support.

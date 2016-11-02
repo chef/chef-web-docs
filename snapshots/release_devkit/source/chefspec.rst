@@ -1,11 +1,19 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/chefspec.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/devkit/ PATH.
+
 
 =====================================================
 ChefSpec
 =====================================================
 
-.. include:: ../../includes_chefspec/includes_chefspec.rst
+.. tag chefspec_1
+
+Use ChefSpec to simulate the convergence of resources on a node:
+
+* Runs the chef-client on a local machine
+* Uses chef-zero or chef-solo
+* Is an extension of RSpec, a behavior-driven development (BDD) framework for Ruby
+* Is the fastest way to test resources and recipes
+
+.. end_tag
 
 ChefSpec is a framework that tests resources and recipes as part of a simulated chef-client run. ChefSpec tests execute very quickly. When used as part of the cookbook authoring workflow, ChefSpec tests are often the first indicator of problems that may exist within a cookbook.
 
@@ -25,21 +33,130 @@ ChefSpec is packaged as part of the Chef development kit. To run ChefSpec:
 
 Unit Tests
 =====================================================
-.. include:: ../../includes_rspec/includes_rspec.rst
+.. tag rspec
+
+RSpec is a behavior-driven development (BDD) framework that uses a natural language domain-specific language (DSL) to quickly describe scenarios in which systems are being tested. RSpec allows a scenario to be set up, and then executed. The results are compared to a set of defined expectations.
+
+.. end_tag
 
 ChefSpec is built on the RSpec DSL.
 
 Syntax
 -----------------------------------------------------
-.. include:: ../../includes_rspec/includes_rspec_syntax.rst
+.. tag rspec_syntax
+
+The syntax of RSpec-based tests should follow the natural language descriptions of RSpec itself. The tests themselves should create an English-like sentence: "The sum of one plus one equals two, and not three." For example:
+
+.. code-block:: ruby
+
+   describe '1 plus 1' do
+     it 'equals 2' do
+       a = 1
+       b = 1
+       sum = a + b
+       expect(sum).to eq(2)
+       expect(sum).not_to eq(3)
+     end
+   end
+
+where:
+
+* ``describe`` creates the testing scenario: ``1 plus 1``
+* ``it`` is a block that defines a list of parameters to test, along with parameters that define the expected outcome
+* ``describe`` and ``it`` should have human readable descriptions: "one plus one equals two"
+* ``a``, ``b``, and ``sum`` define the testing scenario: ``a`` equals one, ``b`` equals one, the ``sum`` of one plus equals two
+* ``expect()`` defines the expectation: the sum of one plus one equals two---``expect(sum).to eq(2)``---and does not equal three--``expect(sum).not_to eq(3)``
+* ``.to`` tests the results of the test for true; ``.not_to`` tests the result of the test for false; a test passes when the results of the test are true
+
+.. end_tag
 
 context
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_rspec/includes_rspec_syntax_context.rst
+.. tag rspec_syntax_context
+
+RSpec-based tests may contain ``context`` blocks. Use ``context`` blocks within ``describe`` blocks to define "tests within tests". Each ``context`` block is tested individually. All ``context`` blocks within a ``describe`` block must be true for the test to pass. For example:
+
+.. code-block:: ruby
+
+   describe 'math' do
+     context 'when adding 1 + 1' do
+       it 'equals 2' do
+         expect(sum).to eq(2)
+       end
+     end
+
+     context 'when adding 2 + 2' do
+       it 'equals 4' do
+         expect(sum).to eq(4)
+       end
+     end
+   end
+
+where each ``context`` block describes a different testing scenario: "The sum of one plus one to equal two, and also the sum of two plus two to equal four." A ``context`` block is useful to handle platform-specific scenarios. For example, "When on platform A, test for foo; when on platform B, test for bar." For example:
+
+.. code-block:: ruby
+
+   describe 'cookbook_name::recipe_name' do
+
+     context 'when on Debian' do
+       it 'equals 2' do
+         a = 1
+         b = 1
+         sum = a + b
+         expect(sum).to eq(2)
+       end
+     end
+
+     context 'when on Ubuntu' do
+       it 'equals 2' do
+         expect(1 + 1).to eq(2)
+       end
+     end
+
+     context 'when on Windows' do
+       it 'equals 3' do
+         expect(1 + 2).to eq(3)
+       end
+     end
+
+   end
+
+.. end_tag
 
 let
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_rspec/includes_rspec_syntax_let.rst
+.. tag rspec_syntax_let
+
+RSpec-based tests may contain ``let`` statements within a ``context`` block. Use ``let`` statements to create a symbol, assign it a value, and then use it elsewhere in the ``context`` block. For example:
+
+.. code-block:: ruby
+
+   describe 'Math' do
+     context 'when adding 1 + 1' do
+       let(:sum) { 1 + 1 }
+
+       it 'equals 2' do
+         expect(sum).to eq(2)
+       end
+     end
+
+     context 'when adding 2 + 2' do
+       let(:sum) do
+         2 + 2
+       end
+
+       it 'equals 4' do
+         expect(sum).to eq(4)
+       end
+     end
+   end
+
+where:
+
+* The first ``let`` statement creates the ``:sum`` symbol, and then assigns it the value of one plus one. The ``expect`` statement later in the test uses ``sum`` to test that one plus one equals two
+* The second ``let`` statement creates the ``:sum`` symbol, and then assigns it the value of two plus two. The ``expect`` statement later in the test uses ``sum`` to test that two plus two equals four
+
+.. end_tag
 
 Require ChefSpec
 -----------------------------------------------------

@@ -1,14 +1,16 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/integrate_delivery_slack.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/delivery/ PATH.
 
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/integrate_delivery_slack.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /delivery/ PATH.
 
 =====================================================
 Integrate Chef Automate with Slack
 =====================================================
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+.. tag chef_automate_mark
+
+.. image:: ../../images/chef_automate_full.png
+   :width: 40px
+   :height: 17px
+
+.. end_tag
 
 Chef Automate may be configured to allow projects to send Slack notifications to users about changes submitted to that project's pipeline, such as:
 
@@ -22,7 +24,7 @@ Chef Automate may be configured to allow projects to send Slack notifications to
 Integrating Chef Automate with Slack requires a webhook to be created in Slack, and then saving that webhook in Chef Automate. A webhook may be specified at two levels:
 
 * By organization. A webhook that is specified at the organization level enables Slack notifications for all projects that belong to that organization. 
-* By project. A webhook that is specified at the project level enables Slack notifications only for that project. 
+* By project. A webhook that is specified at the project level enables Slack notifications only for that project.
 
 .. note:: Notifications sent to Slack by Chef Automate do not support retries. Therefore, notifications sent while Slack is experiencing API issues, outages, or some other unplanned downtime may never be received by the channel. Undelivered notifications are not re-sent.
 
@@ -37,7 +39,6 @@ To create a webhook in Slack:
 #. Click **Add Incoming Webhooks Integration**. Slack will create the new webhook, and then provide a location from which the URL for that webhook can be copied.
 #. Copy the URL.
 
-
 Add a Webhook to Chef Automate
 =====================================================
 To add a Slack webhook for Chef Automate:
@@ -47,7 +48,6 @@ To add a Slack webhook for Chef Automate:
 #. Click **Edit** to open the details for that organization or project.
 #. Pick a meaningful name for the webhook, and then paste the webhook URL.
 #. Click **Send a Test**. If a test notification is successful, click **Save**.
-
 
 Disable Slack Notifications
 =====================================================

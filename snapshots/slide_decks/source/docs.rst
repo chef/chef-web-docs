@@ -1,4 +1,4 @@
-.. THIS PAGE IS LOCATED AT THE /decks/ PATH.
+
 
 ================================================
 About Chef Documentation
@@ -71,11 +71,23 @@ About Chef Documentation
 
  .. revealjs:: Questions?
 
-  .. include:: ../../includes_slides/includes_slides_core_questions.rst
+  .. tag slides_core_questions
+
+  .. Use this slide every time the slide deck stops for Q/A sessions with attendees.
+
+  .. image:: ../../images/slides_questions.png
+
+  .. end_tag
 
  .. revealjs:: Let's Hack!
 
-  .. include:: ../../includes_slides/includes_slides_core_hack.rst
+  .. tag slides_core_hack
+
+  .. Use this slide every time the slide deck stops for Q/A sessions with attendees.
+
+  .. image:: ../../images/slides_hack.png
+
+  .. end_tag
 
  .. revealjs:: More Info About Authoring Chef Docs
 

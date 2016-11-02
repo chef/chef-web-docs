@@ -1,22 +1,31 @@
-.. THIS PAGE IS LOCATED AT THE /release/supermarket/ PATH.
+
 
 =====================================================
 All about Supermarket
 =====================================================
 
-.. include:: ../../includes_supermarket/includes_supermarket.rst
+.. tag supermarket_summary
+
+Chef Supermarket is the site for community cookbooks. It provides an easily searchable cookbook repository and a friendly web UI. Cookbooks that are part of the Chef Supermarket are accessible by any Chef user.
+
+There are two ways to use Chef Supermarket:
+
+* The public Chef Supermarket is hosted by Chef and is located at |url supermarket|. Contributing to cookbooks on Chef Supermarket :doc:`requires signing a license </community_contributions>`.
+* A private Chef Supermarket may be installed on-premise behind the firewall on the internal network. Cookbook retrieval from a private Chef Supermarket is often faster than from the public Chef Supermarket because of closer proximity and fewer cookbooks to resolve. A private cookbook can also help formalize internal cookbook release management processes (e.g. "a cookbook is not released until it's published on Chef Supermarket").
+
+.. end_tag
 
 The following topics are available for Chef Supermarket:
-
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/supermarket/xxxxx.html">About Supermarket</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/supermarket/xxxxx.html">knife supermarket</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/supermarket/xxxxx.html">Install Supermarket</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/supermarket/xxxxx.html">supermarket.rb</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/supermarket/xxxxx.html">supermarket-ctl</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/supermarket/xxxxx.html">Berkshelf</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/supermarket/xxxxx.html">Cookbooks Site API</a> </br>
+:doc:`api_cookbooks_site`
+:doc:`chef_overview`
+:doc:`community_contributions`
+:doc:`config_rb_supermarket`
+:doc:`ctl_supermarket`
+:doc:`install_supermarket`
+:doc:`plugin_knife_supermarket`
+:doc:`supermarket`
+:doc:`supermarket_logs`
+:doc:`supermarket_monitor`
 
 .. Hide the TOC from this file.
 

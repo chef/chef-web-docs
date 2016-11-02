@@ -2,7 +2,11 @@
 About chef-client 12.9
 =====================================================
 
-.. include:: ../../includes_chef/includes_chef_index.rst
+.. tag chef_index
+
+Chef is a systems and cloud infrastructure automation framework that makes it easy to deploy servers and applications to any physical, virtual, or cloud location, no matter the size of the infrastructure. Each organization is comprised of one (or more) workstations, a single server, and every node that will be configured and maintained by the chef-client. Cookbooks (and recipes) are used to tell the chef-client how each node in your organization should be configured. The chef-client (which is installed on every node) does the actual configuration.
+
+.. end_tag
 
 View the :doc:`release notes </release_notes>` for chef-client 12.9.
 
@@ -13,7 +17,6 @@ Getting Started
 **Key concepts:** :doc:`Workstations </workstation>` | :doc:`The Server </server_components>` | :doc:`Nodes </nodes>` | :doc:`Cookbooks </cookbooks>` | :doc:`Attributes </attributes>` | :doc:`Resources </resource>` | :doc:`Custom Resources </custom_resources>` | :doc:`Knife </knife>`
 
 **Using Ruby:** :doc:`Just Enough Ruby for Chef </ruby>`
-
 
 The Workstation
 =====================================================
@@ -28,14 +31,17 @@ The Workstation
 
 **Tools:** :doc:`chef-shell (executable) </ctl_chef_shell>` | :doc:`chef-apply (executable) </ctl_chef_apply>`
 
-
 The Nodes
 =====================================================
 **The Basics:** :doc:`About Nodes </nodes>` | :doc:`chef-client (agent) </chef_client>` | :doc:`The chef-client Run </chef_client>` | :doc:`Chef Solo </chef_solo>` | :doc:`Debug Recipes </debug>`
 
 **Install:** :doc:`Install the chef-client on a Node (Bootstrap) </install_bootstrap>` and :doc:`knife bootstrap </knife_bootstrap>` | :doc:`Install the chef-client on Windows </install_windows>` | :doc:`Download the chef-client with Omnitruck API </api_omnitruck>`
 
-.. include:: ../../includes_chef/includes_chef_index_ohai.rst
+.. tag chef_index_ohai
+
+**Ohai:** About Ohai | Custom Ohai Plugins 
+
+.. end_tag
 
 **Settings:** :doc:`client.rb </config_rb_client>` | :doc:`solo.rb </config_rb_solo>`
 
@@ -49,10 +55,9 @@ Cookbooks
 
 **Other Cookbook Components:** :doc:`About Definitions </definitions>` | :doc:`About Files </files>` | :doc:`About Libraries </libraries>` | :doc:`About Cookbook Metadata </cookbook_repo>` | :doc:`About Templates </templates>` | :doc:`About Versions </cookbook_versions>`
 
-**The Recipe DSL:** :doc:`About the Recipe DSL </dsl_recipe>` --- **Methods:** `attribute? <https://docs.chef.io/release/12-2/dsl_recipe.html#attribute>`_ | `control <https://docs.chef.io/release/12-2/dsl_recipe.html#control>`_ | `control_group <https://docs.chef.io/release/12-2/dsl_recipe.html#control-group>`_ | `cookbook_name <https://docs.chef.io/release/12-2/dsl_recipe.html#cookbook-name>`_ | `data_bag <https://docs.chef.io/release/12-2/dsl_recipe.html#data-bag>`_ | `data_bag_item <https://docs.chef.io/release/12-2/dsl_recipe.html#data-bag-item>`_ | `platform? <https://docs.chef.io/release/12-2/dsl_recipe.html#platform>`_ | `platform_family? <https://docs.chef.io/release/12-2/dsl_recipe.html#platform-family>`_ | `reboot_pending <https://docs.chef.io/release/12-2/dsl_recipe.html#reboot-pending>`_ |  `recipe_name <https://docs.chef.io/release/12-2/dsl_recipe.html#recipe-name>`_ | `registry_data_exists? <https://docs.chef.io/release/12-2/dsl_recipe.html#registry-data-exists>`_ | `registry_get_subkeys <https://docs.chef.io/release/12-2/dsl_recipe.html#registry-get-subkeys>`_ | `registry_get_values <https://docs.chef.io/release/12-2/dsl_recipe.html#registry-get-values>`_ | `registry_has_subkeys? <https://docs.chef.io/release/12-2/dsl_recipe.html#registry-has-subkeys>`_ | `registry_key_exists? <https://docs.chef.io/release/12-2/dsl_recipe.html#registry-key-exists>`_ | `registry_value_exists? <https://docs.chef.io/release/12-2/dsl_recipe.html#registry-value-exists>`_ | `resources <https://docs.chef.io/release/12-2/dsl_recipe.html#resources>`_ | `search <https://docs.chef.io/release/12-2/dsl_recipe.html#search>`_ | `shell_out <https://docs.chef.io/release/12-2/dsl_recipe.html#shell-out>`_ | `shell_out! <https://docs.chef.io/release/12-2/dsl_recipe.html#id2>`_ | `shell_out_with_systems_locale <https://docs.chef.io/release/12-2/dsl_recipe.html#shell-out-with-systems-locale>`_ | `tag <https://docs.chef.io/release/12-2/dsl_recipe.html#tag-tagged-untag>`_ | `tagged? <https://docs.chef.io/release/12-2/dsl_recipe.html#tag-tagged-untag>`_ | `untag <https://docs.chef.io/release/12-2/dsl_recipe.html#tag-tagged-untag>`_ | `value_for_platform <https://docs.chef.io/release/12-2/dsl_recipe.html#value-for-platform>`_ | `value_for_platform_family <https://docs.chef.io/release/12-2/dsl_recipe.html#value-for-platform-family>`_ | `Windows Platform Helpers <https://docs.chef.io/release/12-2/dsl_recipe.html#helpers>`_
+**The Recipe DSL:** :doc:`About the Recipe DSL </dsl_recipe>` --- **Methods:** :ref:`attribute? <dsl_recipe-attribute>` | :ref:`control <dsl_recipe-control>` | :ref:`control_group <dsl_recipe-control-group>` | :ref:`cookbook_name <dsl_recipe-cookbook-name>` | :ref:`data_bag <dsl_recipe-data-bag>` | :ref:`data_bag_item <dsl_recipe-data-bag-item>` | :ref:`platform? <dsl_recipe-platform>` | :ref:`platform_family? <dsl_recipe-platform-family>` | :ref:`reboot_pending <dsl_recipe-reboot-pending>` |  :ref:`recipe_name <dsl_recipe-recipe-name>` | :ref:`registry_data_exists? <dsl_recipe-registry-data-exists>` | :ref:`registry_get_subkeys <dsl_recipe-registry-get-subkeys>` | :ref:`registry_get_values <dsl_recipe-registry-get-values>` | :ref:`registry_has_subkeys? <dsl_recipe-registry-has-subkeys>` | :ref:`registry_key_exists? <dsl_recipe-registry-key-exists>` | :ref:`registry_value_exists? <dsl_recipe-registry-value-exists>` | :ref:`resources <dsl_recipe-resources>` | :ref:`search <dsl_recipe-search>` | :ref:`shell_out <dsl_recipe-shell-out>` | :ref:`shell_out! <dsl_recipe-shell-out-bang>` | :ref:`shell_out_with_systems_locale <dsl_recipe-shell-out-with-systems-locale>` | :ref:`tag <dsl_recipe-tag-tagged-untag>` | :ref:`tagged? <dsl_recipe-tag-tagged-untag>` | :ref:`untag <dsl_recipe-tag-tagged-untag>` | :ref:`value_for_platform <dsl_recipe-value-for-platform>` | :ref:`value_for_platform_family <dsl_recipe-value-for-platform-family>` | :ref:`Windows Platform Helpers <dsl_recipe-helpers>`
 
 **Resources:** :doc:`About Resources </resource>` | :doc:`Common Functionality </resource_common>` --- :doc:`apt_package </resource_apt_package>` | :doc:`bash </resource_bash>` | :doc:`batch </resource_batch>` | :doc:`bff_package </resource_bff_package>` | :doc:`breakpoint </resource_breakpoint>` | :doc:`chef_gem </resource_chef_gem>` | :doc:`chef_handler </resource_chef_handler>` | :doc:`cookbook_file </resource_cookbook_file>` | :doc:`cron </resource_cron>` | :doc:`deploy </resource_deploy>` | :doc:`directory </resource_directory>` | :doc:`dpkg_package </resource_dpkg_package>` | :doc:`dsc_resource </resource_dsc_resource>` | :doc:`dsc_script </resource_dsc_script>` | :doc:`easy_install_package </resource_easy_install_package>` | :doc:`env </resource_env>` | :doc:`erl_call </resource_erlang_call>` | :doc:`execute </resource_execute>` | :doc:`file </resource_file>` | :doc:`gem_package </resource_gem_package>` | :doc:`git </resource_git>` | :doc:`group </resource_group>` | :doc:`homebrew_package </resource_homebrew_package>` | :doc:`http_request </resource_http_request>` | :doc:`ifconfig </resource_ifconfig>` | :doc:`link </resource_link>` | :doc:`log </resource_log>` | :doc:`mdadm </resource_mdadm>` | :doc:`mount </resource_mount>` | :doc:`ohai </resource_ohai>` | :doc:`osx_profile </resource_osx_profile>` | :doc:`package </resource_package>` | :doc:`powershell_script </resource_powershell_script>` | :doc:`reboot </resource_reboot>` | :doc:`registry_key </resource_registry_key>` | :doc:`remote_directory </resource_remote_directory>` | :doc:`remote_file </resource_remote_file>` | :doc:`route </resource_route>` | :doc:`rpm_package </resource_rpm_package>` | :doc:`ruby_block </resource_ruby_block>` | :doc:`script </resource_script>` | :doc:`service </resource_service>` | :doc:`subversion </resource_subversion>` | :doc:`template </resource_template>` | :doc:`user </resource_user>` | :doc:`windows_package </resource_windows_package>` | :doc:`windows_service </resource_windows_service>` | :doc:`yum_package </resource_yum>`
-
 
 .. Hide the TOC from this file.
 

@@ -2,7 +2,11 @@
 About chef-client 11.12
 =====================================================
 
-.. include:: ../../includes_chef/includes_chef_index.rst
+.. tag chef_index
+
+Chef is a systems and cloud infrastructure automation framework that makes it easy to deploy servers and applications to any physical, virtual, or cloud location, no matter the size of the infrastructure. Each organization is comprised of one (or more) workstations, a single server, and every node that will be configured and maintained by the chef-client. Cookbooks (and recipes) are used to tell the chef-client how each node in your organization should be configured. The chef-client (which is installed on every node) does the actual configuration.
+
+.. end_tag
 
 View the :doc:`release notes </release_notes>` for chef-client 11.12.
 
@@ -13,8 +17,6 @@ Getting Started
 **Key concepts:** :doc:`Workstations </workstation>` | :doc:`The Server </server_components>` | :doc:`Nodes </nodes>` | :doc:`Cookbooks </cookbooks>` | :doc:`Attributes </attributes>` | :doc:`Resources and Providers </resource>` | :doc:`Custom Resources </custom_resources>` | :doc:`Knife </knife>`
 
 **Using Ruby:** :doc:`Just Enough Ruby for Chef </ruby>`
-
-
 
 The Workstation
 =====================================================
@@ -28,21 +30,21 @@ The Workstation
 
 **Tools:** :doc:`chef-shell (executable) </ctl_chef_shell>` | :doc:`chef-apply (executable) </ctl_chef_apply>`
 
-
-
-
 The Nodes
 =====================================================
 **The Basics:** :doc:`About Nodes </nodes>` | :doc:`chef-client (agent) </chef_client>` | :doc:`The chef-client Run </nodes>` | :doc:`Chef Solo </chef_solo>` | :doc:`Debug Recipes </debug>`
 
 **Install:** :doc:`Install the chef-client on a Node (Bootstrap) </install_bootstrap>` and :doc:`knife bootstrap </knife_bootstrap>` | :doc:`Install the chef-client on Windows </install_windows>` | :doc:`Download the chef-client with Omnitruck API </api_omnitruck>`
 
-.. include:: ../../includes_chef/includes_chef_index_ohai.rst
+.. tag chef_index_ohai
+
+**Ohai:** About Ohai | Custom Ohai Plugins 
+
+.. end_tag
 
 **Settings:** :doc:`client.rb </config_rb_client>` | :doc:`solo.rb </config_rb_solo>`
 
 **Command-line Tools:** :doc:`chef-client (executable) </ctl_chef_client>` | :doc:`chef-shell (executable) </ctl_chef_shell>` | :doc:`chef-solo (executable) </ctl_chef_solo>`
-
 
 Cookbooks
 =====================================================

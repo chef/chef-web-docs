@@ -2,7 +2,17 @@
 Release Notes: chef-client 12.12
 =====================================================
 
-.. include:: ../../includes_chef/includes_chef.rst
+.. tag chef
+
+Chef is a powerful automation platform that transforms infrastructure into code. Whether you’re operating in the cloud, on-premises, or in a hybrid environment, Chef automates how infrastructure is configured, deployed, and managed across your network, no matter its size.
+
+This diagram shows how you develop, test, and deploy your Chef code.
+
+.. image:: ../../images/start_chef.svg
+   :width: 700px
+   :align: center
+
+.. end_tag
 
 What's New
 =====================================================
@@ -10,7 +20,7 @@ The following items are new for chef-client 12.12 and/or are changes from previo
 
 * **New node attribute APIs** Common set of methods to read, write, delete, and check if node attributes exist.
 * **Data collector updates** Minor enhancements to data that the data collector reports on.
-* **knife cookbook create has been deprecated** You should use `chef generate cookbook <https://docs.chef.io/ctl_chef.html#chef-generate-cookbook>`_ instead.
+* **knife cookbook create has been deprecated** You should use chef generate cookbook instead.
 
 New node attribute read, write, unlink, and exist? APIs
 -----------------------------------------------------------
@@ -18,7 +28,7 @@ The four methods ``read``, ``write``, ``unlink``, and ``exist?`` (and their corr
 
 read/read!
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-Use the ``read`` method to retrieve an attribute value on a node object. It is a safe, non-autovivifying reader that returns ``nil`` if the attribute does not exist.  
+Use the ``read`` method to retrieve an attribute value on a node object. It is a safe, non-autovivifying reader that returns ``nil`` if the attribute does not exist.
 
 ``node.read("foo", "bar", "baz")`` is equivalent to ``node["foo"]["bar"]["baz"]`` but returns ``nil`` instead of raising an exception when no value is set.
 
@@ -63,7 +73,6 @@ data_collector updates
 -----------------------------------------------------
 * Adds ``node`` to the data_collector message.
 * ``data_collector`` reports on all resources and not just those that have been processed.
-
 
 Changelog
 =====================================================

@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS Open Source Chef server version 11.1
+
 
 =====================================================
 chef-server-ctl (executable)
@@ -37,12 +37,11 @@ This command has the following options:
 
 ``test --all``
    Execute chef-pedant, an integration test suite for the Chef server installation. By default, only a subset of the available test are run. Add the ``--all`` flag to run the full test suite.
-   
+
 ``upgrade --all``
    Use for in-place upgrades of the Open Source Chef server, version 11.0.4 (or higher). This subcommand applies the necessary SQL changes without having to back up data and installs the server from scratch. Back up your data before performing the upgrade anyway, just to ensure that it is available, should it be needed. This subcommand may only be used when the Open Source Chef server is configured for a standalone topology and it assumes that all services used by Open Source Chef are enabled.
-   
-   .. warning:: The ``upgrade`` option applies only to upgrading standalone configurations of the Open Source Chef server.
 
+   .. warning:: The ``upgrade`` option applies only to upgrading standalone configurations of the Open Source Chef server.
 
 Examples
 =====================================================

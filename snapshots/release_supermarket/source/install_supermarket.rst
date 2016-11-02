@@ -1,15 +1,35 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/install_supermarket.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/supermarket/ PATH.
+
 
 =====================================================
 Install Private Supermarket
 =====================================================
 
-.. include:: ../../includes_supermarket/includes_supermarket.rst
+.. tag supermarket_summary
 
-.. include:: ../../includes_supermarket/includes_supermarket_private.rst
+Chef Supermarket is the site for community cookbooks. It provides an easily searchable cookbook repository and a friendly web UI. Cookbooks that are part of the Chef Supermarket are accessible by any Chef user.
 
-.. note:: .. include:: ../../includes_supermarket/includes_supermarket_private_source_code.rst
+There are two ways to use Chef Supermarket:
+
+* The public Chef Supermarket is hosted by Chef and is located at |url supermarket|. Contributing to cookbooks on Chef Supermarket :doc:`requires signing a license </community_contributions>`.
+* A private Chef Supermarket may be installed on-premise behind the firewall on the internal network. Cookbook retrieval from a private Chef Supermarket is often faster than from the public Chef Supermarket because of closer proximity and fewer cookbooks to resolve. A private cookbook can also help formalize internal cookbook release management processes (e.g. "a cookbook is not released until it's published on Chef Supermarket").
+
+.. end_tag
+
+.. tag supermarket_private
+
+The private Chef Supermarket is installed behind the firewall on the internal network. Outside of changing the location from which community cookbooks are maintained, it otherwise behaves the same as the public Chef Supermarket.
+
+.. end_tag
+
+.. note:: .. tag supermarket_private_source_code
+
+          The source code for Chef Supermarket is located at the following URLs:
+
+          * The application itself: https://github.com/chef/supermarket. Report issues to: https://github.com/chef/supermarket/issues.
+          * The code that builds Chef Supermarket as an omnibus package: https://github.com/chef/omnibus-supermarket. Use a Kitchen-based environment to build your own omnibus packages.
+          * The cookbook that is run by the ``supermarket-ctl reconfigure`` command: https://github.com/chef/omnibus-supermarket/tree/master/cookbooks/omnibus-supermarket
+
+          .. end_tag
 
 Requirements
 =====================================================
@@ -34,7 +54,18 @@ To configure Chef Supermarket to use Chef identify, do the following:
 #. Log on to the Chef server via SSH and elevate to an admin-level user. If running a multi-node Chef server cluster, log on to the node acting as the primary node in the cluster.
 #. Update the ``/etc/opscode/chef-server.rb`` configuration file.
 
-   .. include:: ../../step_config/step_config_ocid_application_hash_supermarket.rst
+   .. tag config_ocid_application_hash_supermarket
+
+   To define OAuth 2 information for Chef Supermarket, create a Hash similar to:
+
+      .. code-block:: ruby
+
+         oc_id['applications'] ||= {}
+         oc_id['applications']['supermarket'] = {
+           'redirect_uri' => 'https://supermarket.mycompany.com/auth/chef_oauth2/callback'
+         }
+
+   .. end_tag
 
 #. Reconfigure the Chef server.
 
@@ -165,10 +196,6 @@ To define these attributes, do the following:
 #. Save and close the ``/recipes/default.rb`` file.
 
 .. note:: If you are running your private Supermarket in AWS, you may need to set an additional attribute for the node's public ip.  i.e. node node.set['supermarket_omnibus']['config']['fqdn'] = your_node_public_ip
-
-
-
-
 
 Upload the Wrapper
 -----------------------------------------------------

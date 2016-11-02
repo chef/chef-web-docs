@@ -2,7 +2,17 @@
 Release Notes: chef-client 11.0
 =====================================================
 
-.. include:: ../../includes_chef/includes_chef.rst
+.. tag chef
+
+Chef is a powerful automation platform that transforms infrastructure into code. Whether you’re operating in the cloud, on-premises, or in a hybrid environment, Chef automates how infrastructure is configured, deployed, and managed across your network, no matter its size.
+
+This diagram shows how you develop, test, and deploy your Chef code.
+
+.. image:: ../../images/start_chef.svg
+   :width: 700px
+   :align: center
+
+.. end_tag
 
 The following items are new for chef-client 11.0 and/or are changes from chef-client 10.x.
 
@@ -167,7 +177,7 @@ and the new output looks something like:
                "guests": {
                  "EXAMPLE": {
                    "id": "3"
-                
+
                  }
              }
            }
@@ -187,7 +197,7 @@ In chef-client 10 (and earlier), code like the following will not work if you in
 
    node.default[:app][:name] = "my_app"
    node.default[:app][:env] = "development"
-   
+
    # In Chef 10.x, this will be the wrong value if you overwrite
    # node.default[:app][:name] or :env with roles.
    #
@@ -217,7 +227,7 @@ For example, given code like this:
 
    # In a role.rb file:
    default_attributes "app_name" => "from-role"
-   
+
    # In a recipe file:
    node.default["app_name"] = "from-recipe"
 
@@ -248,7 +258,7 @@ In the new implementation, this is tracked by ``Chef::RunContext``. Use the foll
 
 Subtractive Merge Removed
 -----------------------------------------------------
-A special knockout prefix---``!merge``---could be used with attribute values to make the deep merge algorithm remove values from arrays. This feature is seldom used, often confusing, and its use greatly increased the time and space complexity of the deep merge implementation. 
+A special knockout prefix---``!merge``---could be used with attribute values to make the deep merge algorithm remove values from arrays. This feature is seldom used, often confusing, and its use greatly increased the time and space complexity of the deep merge implementation.
 
 For example, substituting an existing string in an array::
 
@@ -263,7 +273,6 @@ The ``!merge`` knockout prefix is removed from the chef-client, starting with ve
 Chef::REST#run_request Removed
 -----------------------------------------------------
 The ``Chef::REST#run_request`` method is removed. Use ``api_request`` or ``streaming_request`` for low-level access, or (better) use the higher-level ``GET``, ``PUT``, ``POST``, ``DELETE``, and ``HEAD`` methods.
-
 
 Delayed Notifications Changes
 -----------------------------------------------------
@@ -297,7 +306,6 @@ Instead of the above, just put multiple calls to notifies in your resource decla
      notifies :run, "execute[another-thing]"
    end
 
-
 Encryption Changes
 -----------------------------------------------------
 In chef-client 10, objects in encrypted data bag items are serialized to YAML before being encrypted. Unfortunately, discrepancies between YAML engines in different versions of Ruby (in particular, 1.8.7 and 1.9.3) may cause silent corruption of serialized data when decrypting the data bag (the version stored on the Chef server is untouched and can be correctly deserialized with the same Ruby version that was used to create it, however).
@@ -318,7 +326,7 @@ When trying to decrypt a chef-client 11 format data bag item with chef-client 10
 .. code-block:: none
 
    shell$ knife data bag show secret-10-stable bar -c ~/opscode-ops/chef-oss-dev/.chef/knife.rb -s password
-   
+
    ERROR: knife encountered an unexpected error
    This may be a bug in the 'data bag show' knife command or plugin
    Please collect the output of this command with the `-VV` option before filing a bug report.
@@ -336,10 +344,9 @@ Server Versions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 Because encrypted data bag items are implemented as a client-side layer on top of regular data bag items, the format change is transparent to the server. You can begin using chef-client 11 data bags even if your server is version chef-client 10.
 
-
 Non-recipe File Evaluation Includes Dependencies
 ---------------------------------------------------------------
-In chef-client 10 and lower, library, attribute, lightweight resource, and resource definition files are loaded in undefined order (based on the order given by the Ruby Hash implementation, which differs based on version and vendor patching). 
+In chef-client 10 and lower, library, attribute, lightweight resource, and resource definition files are loaded in undefined order (based on the order given by the Ruby Hash implementation, which differs based on version and vendor patching).
 
 This behavior is changed, starting with chef-client 11. Files are loaded according to the following logic:
 
@@ -352,8 +359,6 @@ For users of chef-solo , the new loading logic means that files belonging to coo
 .. code-block:: none
 
    FATAL: Chef::Exceptions::CookbookNotFound: Cookbook runit not found. If you're loading runit from another cookbook, make sure you configure the dependency in your metadata
-
-
 
 knife Configuration Parameter Changes
 -----------------------------------------------------
@@ -403,7 +408,7 @@ Default values must be managed manually until support for chef-client 10 is remo
 
    ssh_user_name = locate_config_value(:ssh_user) || "root"
 
-Further information is available in the following ticket: 
+Further information is available in the following ticket:
 
 * `CHEF-3497 <http://tickets.opscode.com/browse/CHEF-3497>`_  --- Allow knife.rb to implicitly provide all knife related options
 
@@ -420,8 +425,6 @@ Values for the ``source`` attribute are internally stored as an array starting w
    def after_created
      true
    end
-
-
 
 What's New for the Chef server
 =====================================================
@@ -465,7 +468,6 @@ OpenId support has been removed
 -----------------------------------------------------
 Support for OpenID is no longer available to the chef-client.
 
-
 The Ruby server code has been removed
 -----------------------------------------------------
 As part of the move to Erchef, the Ruby API server code along with classes not needed by the client-side have been removed from the main chef-repo.
@@ -473,7 +475,6 @@ As part of the move to Erchef, the Ruby API server code along with classes not n
 knife cookbook delete --purge is ignored by Chef Server 11
 ------------------------------------------------------------------
 In Chef server 11, the server keeps track of which cookbooks use a given piece of cookbook content (via checksum). When a cookbook version is deleted, associated content will be deleted if not referenced by another cookbook version object. Therefore, there is no need for a purge operation when using the Chef server 11.
-
 
 Other Notable Changes
 =====================================================
@@ -536,12 +537,50 @@ In chef-client 11, lightweight resources resources now inherit from a ``LWRPBase
 
 Partial Support in Templates
 -----------------------------------------------------
-.. include:: ../../includes_template/includes_template_partials.rst
+.. tag template_partials
+
+A template can be built in a way that allows it to contain references to one (or more) smaller template files. (These smaller template files are also referred to as partials.) A partial can be referenced from a template file in one of the following ways:
+
+* By using the ``render`` method in the template file
+* By using the **template** resource and the ``variables`` property.
+
+.. end_tag
 
 render Method
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_template/includes_template_partials_render_method.rst
- 
+.. tag template_partials_render_method
+
+Use the ``render`` method in a template to reference a partial template file:
+
+.. code-block:: ruby
+
+   <%= render "partial_name.txt.erb", :option => {} %>
+
+where ``partial_name`` is the name of the partial template file and ``:option`` is one (or more) of the following:
+
+.. list-table::
+   :widths: 60 420
+   :header-rows: 1
+
+   * - Option
+     - Description
+   * - ``:cookbook``
+     - By default, a partial template file is assumed to be located in the cookbook that contains the top-level template. Use this option to specify the path to a different cookbook
+   * - ``:local``
+     - Indicates that the name of the partial template file should be interpreted as a path to a file in the local file system or looked up in a cookbook using the normal rules for template files. Set to ``true`` to interpret as a path to a file in the local file system and to ``false`` to use the normal rules for template files
+   * - ``:source``
+     - By default, a partial template file is identified by its file name. Use this option to specify a different name or a local path to use (instead of the name of the partial template file)
+   * - ``:variables``
+     - A hash of ``variable_name => value`` that will be made available to the partial template file. When this option is used, any variables that are defined in the top-level template that are required by the partial template file must have them defined explicitly using this option
+
+For example:
+
+.. code-block:: ruby
+
+   <%= render "simple.txt.erb", :variables => {:user => Etc.getlogin }, :local => true %>
+
+.. end_tag
+
 chef-apply
 -----------------------------------------------------
 There is now a ``chef-apply RECIPE`` command that will run a single recipe with no ``JSON/run_list/config`` file required.
@@ -553,9 +592,6 @@ Miscellaneous
 * ``knife search`` assumes node search when the object type is omitted
 * ``knife search`` will search over roles, tags, FQDN, and IP addresses when the given query is not in Apache Solr format (does not contain a colon ``:`` character)
 * knife essentials (``knife upload``, ``knife download``, ``knife diff``, and so on) have been merged into chef-client 11.
-
-
-
 
 What's Fixed
 =====================================================

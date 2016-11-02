@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS Enterprise Chef server version 11.1
+
 
 =====================================================
 Backup and Restore
@@ -18,7 +18,7 @@ To configure backups on the backend servers in a high availability configuration
    HOME=/opt/opscode/bin
    PATH=/usr/bin:/usr/sbin:/bin:/opt/opscode/embedded/bin:/opt/opscode/bin
    MAILTO=SOMEONE@payingattention
-   #17 23 * * * root drbd-backups -g opscode -l drbd > /dev/null 2>&1 
+   #17 23 * * * root drbd-backups -g opscode -l drbd > /dev/null 2>&1
 
 A cron job similar to the previous example will mount a new snapshot logical volume named::
 

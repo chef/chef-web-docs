@@ -1,16 +1,28 @@
-.. THIS PAGE IS LOCATED AT THE /release/analytics/ PATH.
+
 
 =====================================================
 Install Chef Analytics
 =====================================================
 
-.. include:: ../../includes_analytics/includes_analytics_legacy.rst 
+.. tag analytics_legacy
 
-.. include:: ../../includes_analytics/includes_analytics.rst
+.. note:: This topic is meant to support existing customers using Analytics. The visibility capabilities of Chef Automate replace the features and functionality of Chef Analytics and we encourage customers to adopt Chef Automate going forward.
+
+.. end_tag
+
+.. tag analytics_summary
+
+The Chef Analytics platform is a feature of Chef that provides real-time visibility into what is happening on the Chef server, including what's changing, who made those changes, and when they occurred. Individuals may be notified of these changes in real-time. Use this visibility to verify compliance against internal controls.
+
+.. end_tag
 
 There is also a `tutorial on Learnchef <https://learn.chef.io/get-started-with-chef-analytics/linux/install-and-configure-chef-analytics/>`_ that walks through the setup and configuration of Chef Analytics.
 
-.. note:: .. include:: ../../includes_chef/includes_chef_subscriptions.rst
+.. note:: .. tag chef_subscriptions
+
+          This feature is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
+
+          .. end_tag
 
 Prerequisites
 =====================================================
@@ -18,7 +30,7 @@ The Chef Analytics server shares the :doc:`same prerequisites </install_server_p
 
 * Chef server version 12.0.3 **or** Enterprise Chef version 11.3 is required to use Chef Analytics 1.1
 * chef-client version 12.1 is required for audit-mode and using the ``control_group`` and ``control`` Recipe DSL methods
-* The Chef management console must be installed on the Chef server prior to installing Chef Analytics; follow `these steps <https://docs.chef.io/ctl_chef_server.html#install>`_ to install the Chef management console
+* The Chef management console must be installed on the Chef server prior to installing Chef Analytics; follow these steps to install the Chef management console
 * Reporting is installed on the Chef server. Reporting version 1.2.3 is required to view the results of audit-mode, i.e. ``run_start``, ``run_resource``, and ``run_converge`` messages; earlier versions of Reporting may be used, but will not show these results
 * An x86_64 compatible system architecture; Red Hat Enterprise Linux and CentOS may require updates prior to installation
 * A resolvable hostname that is specified using a FQDN or an IP address
@@ -26,7 +38,7 @@ The Chef Analytics server shares the :doc:`same prerequisites </install_server_p
 * A local mail transfer agent that allows Chef Analytics to send email notifications; for versions of Chef Analytics prior to 1.1.3, ``to``, ``from``, ``host`` (the email server), ``password``, ``port``, and ``username`` must be specified.
 * Using cron and the ``/etc/cron.d`` directory for periodic maintenance tasks
 * Disabling the Apache Qpid daemon on CentOS and Red Hat systems
-* Optional. A local user account under which services will run, a local user account for PostgreSQL, and a group account under which services will run. See https://docs.chef.io/install_server_pre.html#uids-and-gids for more information.
+* Optional. A local user account under which services will run, a local user account for PostgreSQL, and a group account under which services will run. See :ref:`install_server_pre-uids-and-gids` for more information.
 * The RabbitMQ queues on the Chef server that are used by Chef Analytics---``/analytics``---are capped to prevent unintended disk overruns. For example:
 
   .. code-block:: bash
@@ -37,7 +49,15 @@ The Chef Analytics server shares the :doc:`same prerequisites </install_server_p
 
 Hostnames
 -----------------------------------------------------
-.. include:: ../../includes_install/includes_install_analytics_hostname.rst
+.. tag install_analytics_hostname
+
+The hostname for the Chef Analytics server may be specified using a FQDN or an IP address. This hostname must be resolvable. For example, a Chef Analytics server that is running in a production environment with a resolvable FQDN hostname can be added in the DNS system. But when deploying Chef Analytics into a testing environment, adding the hostname to the ``/etc/hosts`` file is enough to ensure that hostname is resolvable.
+
+* **FQDN Hostnames** When the hostname for the Chef Analytics server is a FQDN be sure to include the domain suffix. For example, something like ``myanalyticsserver.example.com`` (and not something like ``myanalyticsserver``).
+
+The ``analytics_fqdn`` setting must be added to the opscode-analytics.rb file (it is not there by default). Its value should be equal to the FQDN or IP address for the service URI used by the Chef Analytics server. For example: ``analytics_fqdn "chef-analytics.example.com"`` or ``analytics_fqdn 123.45.67.890``.
+
+.. end_tag
 
 .. warning:: The FQDN for the Chef Analytics server should not exceed 64 characters when using OpenSSL. OpenSSL requires the ``CN`` in a certificate to be no longer than 64 characters. By default, Chef Analytics uses the FQDN of the server to determine the common name (``CN``). If the FQDN of the Chef Analytics server is longer than 64 characters, the ``chef-server-ctl reconfigure`` command will not fail, but an empty certificate file will be created. Nginx will not start if a certificate file is empty.
 
@@ -49,7 +69,7 @@ Standalone
 -----------------------------------------------------
 In a standalone configuration, the Chef Analytics deployment is on a different server from the Chef server. This allows you to scale Chef Analytics independently from the Chef server. To set up Chef Analytics in a standalone configuration, an existing Chef server deployment should already running. Chef Analytics is installed in two steps: configuring the Chef server for Chef Analytics, and then installing Chef Analytics.
 
-.. warning:: The Chef management console must be installed on the Chef server prior to installing Chef Analytics; follow `these steps <https://docs.chef.io/ctl_chef_server.html#install>`_ to install the Chef management console prior to installing Chef Analytics.
+.. warning:: The Chef management console must be installed on the Chef server prior to installing Chef Analytics; follow these steps to install the Chef management console prior to installing Chef Analytics.
 
 Install Chef Analytics:
 
@@ -115,7 +135,11 @@ Configure the Chef server. On each server in the Chef server configuration, do t
 
       $ chef-manage-ctl reconfigure
 
-   .. note:: .. include:: ../../includes_chef_license/includes_chef_license_reconfigure_manage.rst
+   .. note:: .. tag chef_license_reconfigure_manage
+
+             Starting with the Chef management console 2.3.0, the Chef MLSA must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
+
+             .. end_tag
 
 Configure the Chef Analytics standalone server:
 
@@ -142,7 +166,11 @@ Configure the Chef Analytics standalone server:
 
       $ opscode-analytics-ctl reconfigure
 
-   .. note:: .. include:: ../../includes_chef_license/includes_chef_license_reconfigure_analytics.rst
+   .. note:: .. tag chef_license_reconfigure_analytics
+
+             Starting with Chef Analytics 1.4.0, the Chef MLSA must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``opscode-analytics-ctl reconfigure --accept-license`` to automatically accept the license.
+
+             .. end_tag
 
 Standalone (version 1.0)
 -----------------------------------------------------
@@ -162,7 +190,7 @@ On the Chef server:
    .. code-block:: bash
 
       $ chef-server-ctl stop
-	  
+
 #. Enable remote access to RabbitMQ on the Chef server backend machine by adding the following settings to ``/etc/opscode/chef-server.rb``:
 
    .. code-block:: ruby
@@ -172,7 +200,7 @@ On the Chef server:
 
    where ``BACKEND_VIP`` is the external IP address for the backend Chef server. ``node_ip_address`` MUST be set to ``0.0.0.0``.
 
-   .. note:: Chef Analytics uses the same RabbitMQ service that is configured on the Chef server. When the Chef Analytics server is configured as a standalone server, the default settings for ``rabbitmq['node_ip_address']`` and ``rabbitmq['vip']`` must be updated. 
+   .. note:: Chef Analytics uses the same RabbitMQ service that is configured on the Chef server. When the Chef Analytics server is configured as a standalone server, the default settings for ``rabbitmq['node_ip_address']`` and ``rabbitmq['vip']`` must be updated.
 
 #. Reconfigure the Chef server:
 
@@ -181,7 +209,7 @@ On the Chef server:
       $ chef-server-ctl reconfigure
 
 #. Restart the Chef server:
-   
+
    .. code-block:: bash
 
       $ chef-server-ctl start

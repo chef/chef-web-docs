@@ -1,5 +1,4 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/plugin_community.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/devkit/ PATH.
+
 
 =====================================================
 Community Plugins
@@ -7,12 +6,24 @@ Community Plugins
 
 This page lists plugins for knife, Ohai, handlers, and the chef-client that are developed and maintained by the Chef community.
 
-
 Knife
 =====================================================
-.. include:: ../../includes_knife/includes_knife.rst
+.. tag knife_24
 
-knife plugins for cloud hosting platforms--- `knife azure <https://docs.chef.io/plugin_knife_azure.html>`_, `knife bluebox <https://docs.chef.io/plugin_knife_bluebox.html>`_, `knife ec2 <https://docs.chef.io/plugin_knife_ec2.html>`_, `knife eucalyptus <https://docs.chef.io/plugin_knife_eucalyptus.html>`_, `knife google <https://docs.chef.io/plugin_knife_google.html>`_, `knife linode <https://docs.chef.io/plugin_knife_linode.html>`_, `knife openstack <https://docs.chef.io/plugin_knife_openstack.html>`_, `knife rackspace <https://docs.chef.io/plugin_knife_rackspace.html>`_, and `knife terremark <https://docs.chef.io/plugin_knife_terremark.html>`_ ---are built and maintained by Chef. 
+knife is a command-line tool that provides an interface between a local chef-repo and the Chef server. knife helps users to manage:
+
+* Nodes
+* Cookbooks and recipes
+* Roles
+* Stores of JSON data (data bags), including encrypted data
+* Environments
+* Cloud resources, including provisioning
+* The installation of the chef-client on management workstations
+* Searching of indexed data on the Chef server
+
+.. end_tag
+
+knife plugins for cloud hosting platforms--- knife azure , knife bluebox , knife ec2 , knife eucalyptus , knife google , knife linode , knife openstack , knife rackspace , and knife terremark ---are built and maintained by Chef.
 
 The following table lists knife plugins built by the Chef community.
 
@@ -131,10 +142,26 @@ The following table lists knife plugins built by the Chef community.
    * - `knife-xapi <https://github.com/spheromak/knife-xapi>`_
      - Adds support for Citrix XenServer.
 
-
 Ohai
 =====================================================
-.. include:: ../../includes_ohai/includes_ohai.rst
+.. tag ohai
+
+Ohai is a tool that is used to detect attributes on a node, and then provide these attributes to the chef-client at the start of every chef-client run. Ohai is required by the chef-client and must be present on a node. (Ohai is installed on a node as part of the chef-client install process.)
+
+The types of attributes Ohai collects include (but are not limited to):
+
+* Platform details
+* Network usage
+* Memory usage
+* CPU data
+* Kernel data
+* Host names
+* Fully qualified domain names
+* Other configuration details
+
+Attributes that are collected by Ohai are automatic attributes, in that these attributes are used by the chef-client to ensure that these attributes remain unchanged after the chef-client is done configuring the node.
+
+.. end_tag
 
 The following Ohai plugins are available from the open source community:
 
@@ -179,13 +206,68 @@ The following Ohai plugins are available from the open source community:
    * - `win32_svc.rb <https://github.com/timops/ohai-plugins/blob/master/win32_svc.rb>`_
      - Adds the ability for Ohai to query using Windows Management Instrumentation (WMI) to get information about all services that are registered on a node that is running Microsoft Windows.
 
-
 Handlers
 =====================================================
-.. include:: ../../includes_handler/includes_handler.rst
+.. tag handler
 
-.. include:: ../../includes_handler/includes_handler_community_handlers.rst
+Use a handler to identify situations that arise during a chef-client run, and then tell the chef-client how to handle these situations when they occur.
 
+.. end_tag
+
+.. tag handler_community_handlers
+
+The following open source handlers are available from the Chef community:
+
+.. list-table::
+   :widths: 60 420
+   :header-rows: 1
+
+   * - Handler
+     - Description
+   * - `Airbrake <https://github.com/timops/ohai-plugins/blob/master/win32_svc.rb>`_
+     - A handler that sends exceptions (only) to Airbrake, an application that collects data and aggregates it for review.
+   * - `Asynchronous Resources <https://github.com/rottenbytes/chef/tree/master/async_handler>`_
+     - A handler that asynchronously pushes exception and report handler data to a STOMP queue, from which data can be processed into data storage.
+   * - `Campfire <https://github.com/ampledata/chef-handler-campfire>`_
+     - A handler that collects exception and report handler data and reports it to Campfire, a web-based group chat tool.
+   * - `Cloudkick <https://github.com/ampledata/chef-handler-campfire>`_
+     - A handler that collects exception and report handler data and sends it to Cloudkick, a set of cloud server monitoring and management tools.
+   * - `Datadog <https://github.com/DataDog/chef-handler-datadog>`_
+     - A handler that collects chef-client stats and sends them into a DATADOG newsfeed.
+   * - `Flowdock <https://github.com/mmarschall/chef-handler-flowdock>`_
+     - A handler that collects exception and report handler data and sends it to users via the Flowdock API..
+   * - `Graphite <https://github.com/imeyer/chef-handler-graphite/wiki>`_
+     - A handler that collects exception and report handler data and reports it to Graphite, a graphic rendering application.
+   * - `Graylog2 GELF <https://github.com/jellybob/chef-gelf/>`_
+     - A handler that provides exception and report handler status (including changes) to a Graylog2 server, so that the data can be viewed using Graylog Extended Log Format (GELF).
+   * - `Growl <http://rubygems.org/gems/chef-handler-growl>`_
+     - A handler that collects exception and report handler data and then sends it as a Growl notification.
+   * - `HipChat <https://github.com/mojotech/hipchat/blob/master/lib/hipchat/chef.rb>`_
+     - A handler that collects exception handler data and sends it to HipChat, a hosted private chat service for companies and teams.
+   * - `IRC Snitch <https://rubygems.org/gems/chef-irc-snitch>`_
+     - A handler that notifies administrators (via Internet Relay Chat (IRC)) when a chef-client run fails.
+   * - `Journald <https://github.com/marktheunissen/chef-handler-journald>`_
+     - A handler that logs an entry to the systemd journal with the chef-client run status, exception details, configurable priority, and custom details.
+   * - `net/http <https://github.com/b1-systems/chef-handler-httpapi/>`_
+     - A handler that reports the status of a Chef run to any API via net/HTTP.
+   * - `Simple Email <https://rubygems.org/gems/chef-handler-mail>`_
+     - A handler that collects exception and report handler data and then uses pony to send email reports that are based on Erubis templates.
+   * - `SendGrid Mail Handler <https://github.com/sendgrid-ops/chef-sendgrid_mail_handler>`_
+     - A chef handler that collects exception and report handler data and then uses SendGrid Ruby gem to send email reports that are based on Erubis templates.
+   * - `SNS <http://onddo.github.io/chef-handler-sns/>`_
+     - A handler that notifies exception and report handler data and sends it to a SNS topic.
+   * - `Slack <https://github.com/rackspace-cookbooks/chef-slack_handler>`_
+     - A handler to send chef-client run notifications to a Slack channel.
+   * - `Splunk Storm <http://ampledata.org/splunk_storm_chef_handler.html>`_
+     - A handler that supports exceptions and reports for Splunk Storm.
+   * - `Syslog <https://github.com/jblaine/syslog_handler>`_
+     - A handler that logs basic essential information, such as about the success or failure of a chef-client run.
+   * - `Updated Resources <https://rubygems.org/gems/chef-handler-updated-resources>`_
+     - A handler that provides a simple way to display resources that were updated during a chef-client run.
+   * - `ZooKeeper <http://onddo.github.io/chef-handler-zookeeper/>`_
+     - A Chef report handler to send Chef run notifications to ZooKeeper.
+
+.. end_tag
 
 chef-client
 =====================================================

@@ -1,10 +1,19 @@
-.. THIS PAGE DOCUMENTS chef-client version 12.2
+
 
 =====================================================
 client.rb
 =====================================================
 
-.. include:: ../../includes_config/includes_config_rb_client.rst
+.. tag config_rb_client_27
+
+A client.rb file is used to specify the configuration details for the chef-client.
+
+* This file is loaded every time this executable is run
+* On UNIX- and Linux-based machines, the default location for this file is ``/etc/chef/client.rb``; on Microsoft Windows machines, the default location for this file is ``C:\chef\client.rb``; use the ``--config`` option from the command line to change this location
+* This file is not created by default
+* When a client.rb file is present in the default location, the settings contained within that client.rb file will override the default configuration settings
+
+.. end_tag
 
 Settings
 =====================================================
@@ -50,7 +59,19 @@ This configuration file has the following settings:
 ``chef_gem_compile_time``
    Controls the phase during which a gem is installed on a node. Set to ``true`` to install a gem while the resource collection is being built (the "compile phase"). Set to ``false`` to install a gem while the chef-client is configuring the node (the "converge phase"). Recommended value: ``false``.
 
-   .. note:: .. include:: ../../includes_resources/includes_resource_package_chef_gem_attribute_compile_time.rst
+   .. note:: .. tag resource_package_chef_gem_attribute_compile_time
+
+             .. This topic is hooked into client.rb topics, starting with 12.1, in addition to the resource reference pages.
+
+             To suppress warnings for cookbooks authored prior to chef-client 12.1, use a ``respond_to?`` check to ensure backward compatibility. For example:
+
+             .. code-block:: ruby
+
+                chef_gem 'aws-sdk' do
+                  compile_time false if respond_to?(:compile_time)
+                end
+
+             .. end_tag
 
 ``cookbook_path``
    The sub-directory for cookbooks on the chef-client. This value can be a string or an array of file system locations, processed in the specified order. The last cookbook is considered to override local modifications.
@@ -80,7 +101,7 @@ This configuration file has the following settings:
    Enable or disable sending events to the Microsoft Windows "Application" event log. When ``false``, events are sent to the Microsoft Windows "Application" event log at the start and end of a chef-client run, and also if a chef-client run fails. Set to ``true`` to disable event logging. Default value: ``true``.
 
 ``enable_reporting``
-   Cause the chef-client to send data to the Chef server for use with Reporting. 
+   Cause the chef-client to send data to the Chef server for use with Reporting.
 
 ``enable_reporting_url_fatals``
    Cause the chef-client run to fail when Reporting data cannot be sent to the Chef server (for any reason).
@@ -100,7 +121,11 @@ This configuration file has the following settings:
 ``file_atomic_update``
    Apply atomic file updates to all resources. Set to ``true`` for global atomic file updates. Set to ``false`` for global non-atomic file updates. (Use the ``atomic_update`` setting on a per-resource basis to override this setting.) Default value: ``true``.
 
-   .. warning:: .. include:: ../../includes_notes/includes_notes_config_rb_no_file_atomic_update.rst
+   .. warning:: .. tag notes_config_rb_no_file_atomic_update
+
+                Changing this setting to ``false`` may cause file corruption, data loss, or instability. Use the ``atomic_update`` property on the **cookbook_file**, **file**, **remote_file**, and **template** resources to tune this behavior at the recipe level.
+
+                .. end_tag
 
 ``file_backup_path``
    The location in which backup files are stored. If this value is empty, backup files are stored in the directory of the target file. Default value: ``/var/chef/backup``.
@@ -221,17 +246,17 @@ This configuration file has the following settings:
 
 ``ssl_verify_mode``
    Set the verify mode for HTTPS requests.
-       
+
    * Use ``:verify_none`` to do no validation of SSL certificates.
    * Use ``:verify_peer`` to do validation of all SSL certificates, including the Chef server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in the chef-client run. This is the recommended setting.
-       
+
    Depending on how OpenSSL is configured, the ``ssl_ca_path`` may need to be specified. Default value: ``:verify_peer``.
 
 ``syntax_check_cache_path``
    All files in a cookbook must contain valid Ruby syntax. Use this setting to specify the location in which knife caches information about files that have been checked for valid Ruby syntax.
 
 ``umask``
-   The file mode creation mask, or umask. Default value: ``0022``. 
+   The file mode creation mask, or umask. Default value: ``0022``.
 
 ``user``
    The user that owns a process. This is required when starting any executable as a daemon. Default value: ``nil``.
@@ -271,16 +296,119 @@ This configuration file has the following settings:
 
 Automatic Proxy Config
 -----------------------------------------------------
-.. include:: ../../includes_proxy/includes_proxy_env.rst
+.. tag proxy_env
+
+If ``http_proxy``, ``https_proxy``, ``ftp_proxy``, or ``no_proxy`` is set in the client.rb file, the chef-client will configure the ``ENV`` variable based on these (and related) settings. For example:
+
+.. code-block:: ruby
+
+   http_proxy 'http://proxy.example.org:8080'
+   http_proxy_user 'myself'
+   http_proxy_pass 'Password1'
+
+will be set to:
+
+.. code-block:: ruby
+
+   ENV['http_proxy'] = 'http://myself:Password1@proxy.example.org:8080'
+
+.. end_tag
 
 Ohai Settings
 =====================================================
 
-.. include:: ../../includes_config/includes_config_rb_ohai.rst
+.. tag config_rb_ohai
 
-.. include:: ../../includes_config/includes_config_rb_12-4_ohai_settings.rst
+Ohai configuration settings can be added to the client.rb file.
+
+.. end_tag
+
+.. tag 4_ohai_settings
+
+``Ohai::Config[:directory]``
+   The directory in which Ohai plugins are located.
+
+``Ohai::Config[:disabled_plugins]``
+   An array of Ohai plugins to be disabled on a node. The list of plugins included in Ohai can be found in the ``ohai/lib/ohai/plugins`` directory. For example, disabling a single plugin:
+
+   .. code-block:: ruby
+
+      Ohai::Config[:disabled_plugins] = [
+        :MyPlugin
+      ]
+
+    or disabling multiple plugins:
+
+   .. code-block:: ruby
+
+      Ohai::Config[:disabled_plugins] = [
+        :MyPlugin, 
+        :MyPlugin, 
+        :MyPlugin
+      ]
+
+   and to disable multiple plugins, including Ohai 6 plugins:
+
+   .. code-block:: ruby
+
+      Ohai::Config[:disabled_plugins] = [
+		:MyPlugin, 
+        :MyPlugin, 
+        'my_ohai_6_plugin'
+      ]
+
+   When a plugin is disabled, the chef-client log file will contain entries similar to:
+
+   .. code-block:: ruby
+
+      [2014-06-13T23:49:12+00:00] DEBUG: Skipping disabled plugin MyPlugin
+
+``Ohai::Config[:hints_path]``
+   The path to the file that contains hints for Ohai.
+
+``Ohai::Config[:log_level]``
+   The level of logging to be stored in a log file.
+
+``Ohai::Config[:log_location]``
+   The location of the log file.
+
+``Ohai::Config[:plugin_path]``
+   An array of paths at which Ohai plugins are located. Default value: ``[<CHEF_GEM_PATH>/ohai-9.9.9/lib/ohai/plugins]``. When custom Ohai plugins are added, the paths must be added to the array. For example, a single plugin:
+
+   .. code-block:: ruby
+
+      Ohai::Config[:plugin_path] << '/etc/chef/ohai_plugins'
+
+   and for multiple plugins:
+
+   .. code-block:: ruby
+
+      Ohai::Config[:plugin_path] += [
+        '/etc/chef/ohai_plugins',
+        '/path/to/other/plugins'
+        ]
+
+``Ohai::Config[:version]``
+   The version of Ohai.
+
+.. note:: The Ohai executable ignores settings in the client.rb file when Ohai is run independently of the chef-client.
+
+.. end_tag
 
 Example
 =====================================================
-.. include:: ../../includes_config/includes_config_rb_client_example.rst
+.. tag config_rb_client_example
+
+A sample client.rb file that contains the most simple way to connect to https://manage.chef.io:
+
+.. code-block:: ruby
+
+   log_level        :info
+   log_location     STDOUT
+   chef_server_url  'https://api.opscode.com/organizations/<orgname>'
+   validation_client_name '<orgname>-validator'
+   validation_key '/etc/chef/validator.pem'
+   client_key '/etc/chef/client.pem'
+
+.. end_tag
 

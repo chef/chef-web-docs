@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS Enterprise Chef server version 11.1
+
 
 =====================================================
 Standalone
@@ -87,7 +87,7 @@ A single loopback interface should be configured using the ``127.0.0.1`` address
 
 Hostnames, FQDNs
 -----------------------------------------------------
-The hostname for the Chef server must be a FQDN, including the domain suffix, and must be resolvable. See `Hostnames, FQDNs <https://docs.chef.io/install_server_pre.html#hostnames>`__ for more information.
+The hostname for the Chef server must be a FQDN, including the domain suffix, and must be resolvable. See :ref:`Hostnames, FQDNs <install_server_pre-hostnames>` for more information.
 
 Add Package to Server
 =====================================================

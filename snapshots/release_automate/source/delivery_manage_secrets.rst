@@ -1,11 +1,16 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/delivery_manage_secrets.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/delivery/ PATH.
+
 
 =====================================================
 Manage Secrets in a build-cookbook
 =====================================================
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+.. tag chef_automate_mark
+
+.. image:: ../../images/chef_automate_full.png
+   :width: 40px
+   :height: 17px
+
+.. end_tag
 
 This topic describes how and why to use secrets in a ``build-cookbook``:
 

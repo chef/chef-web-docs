@@ -1,10 +1,10 @@
-.. THIS PAGE DOCUMENTS Push Jobs version 1.0
+
 
 =====================================================
 push-jobs-client.rb
 =====================================================
 
-A ``push-jobs-client.rb`` file is used to specify the configuration details for the Chef push jobs client. 
+A ``push-jobs-client.rb`` file is used to specify the configuration details for the Chef push jobs client.
 
 * This file is loaded every time this executable is run
 * This file is not created by default
@@ -32,10 +32,10 @@ This configuration file has the following settings:
 
 ``ssl_verify_mode``
    Set the verify mode for HTTPS requests.
-       
+
    * Use ``:verify_none`` to do no validation of SSL certificates.
    * Use ``:verify_peer`` to do validation of all SSL certificates, including the Chef server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in the chef-client run. This is the recommended setting.
-       
+
    Depending on how OpenSSL is configured, the ``ssl_ca_path`` may need to be specified. Default value: ``:verify_peer``.
 
 ``trusted_certs_dir``

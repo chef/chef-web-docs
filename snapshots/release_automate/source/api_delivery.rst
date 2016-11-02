@@ -1,11 +1,16 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/api_delivery.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/delivery/ PATH.
+
 
 =====================================================
 Chef Automate API
 =====================================================
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+.. tag chef_automate_mark
+
+.. image:: ../../images/chef_automate_full.png
+   :width: 40px
+   :height: 17px
+
+.. end_tag
 
 The Chef Automate API is a REST API that provides access to the ``_status`` object on the Chef Automate server.
 
@@ -44,7 +49,7 @@ For a standalone server, the response will be similar to:
      ]
    }
 
-The top-level ``status`` value refers to the state of the core Chef Automate server only. It will return ``pong`` as long as the Chef Automate server is healthy even if there's a problem with one of the upstream systems; however, a response code of 500 will be returned in that case (as described in the response code section below). 
+The top-level ``status`` value refers to the state of the core Chef Automate server only. It will return ``pong`` as long as the Chef Automate server is healthy even if there's a problem with one of the upstream systems; however, a response code of 500 will be returned in that case (as described in the response code section below).
 
 .. note:: ``lsyncd`` should always report a status of ``not_running`` in a standalone configuration: any other value would indicate that it's configured when it shouldn't be (``lsync`` should only run on a disaster recovery primary).
 
@@ -106,9 +111,9 @@ In this configuration, ``lsyncd`` should not be running; any other value would i
      - Description
    * - ``200``
      - All services are OK. The response will show the service status as ``pong`` or ``not_running``. For example:
-       
+
        .. code-block:: javascript
-       
+
           {
             "status": "pong",
             "configuration mode": "standalone",
@@ -126,9 +131,9 @@ In this configuration, ``lsyncd`` should not be running; any other value would i
 
    * - ``500``
      - One (or more) services are down. The response will show the service status as ``fail`` or ``degraded``. For example:
-       
+
        .. code-block:: javascript
-       
+
           {
             "status": "pong",
             "configuration mode": "cold_standby",
@@ -147,7 +152,7 @@ In this configuration, ``lsyncd`` should not be running; any other value would i
        For example, if replication is not running:
 
        .. code-block:: javascript
-       
+
           {
             "status": "pong",
             "configuration mode": "primary",

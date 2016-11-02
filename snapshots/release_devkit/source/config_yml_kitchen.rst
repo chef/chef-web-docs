@@ -1,19 +1,121 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/config_yml_kitchen.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/devkit/ PATH.
+
 
 ==========================================================================
 .kitchen.yml
 ==========================================================================
 
-.. include:: ../../includes_test_kitchen/includes_test_kitchen.rst
+.. tag test_kitchen
 
-.. include:: ../../includes_test_kitchen/includes_test_kitchen_yml.rst
+Use `Kitchen <http://kitchen.ci>`_  to automatically test cookbook data across any combination of platforms and test suites:
+
+* Defined in a .kitchen.yml file
+* Uses a driver plugin architecture
+* Supports cookbook testing across many cloud providers and virtualization technologies
+* Supports all common testing frameworks that are used by the Ruby community
+* Uses a comprehensive set of base images provided by `Bento <https://github.com/chef/bento>`_
+
+.. end_tag
+
+.. tag test_kitchen_yml
+
+Use a .kitchen.yml file to define what is required to run Kitchen, including drivers, provisioners, platforms, and test suites.
+
+.. end_tag
 
 .. note:: This topic details functionality that is packaged with Chef development kit. See http://kitchen.ci/docs/getting-started/ for more information about Kitchen.
 
 Syntax
 ==========================================================================
-.. include:: ../../includes_test_kitchen/includes_test_kitchen_yml_syntax.rst
+.. tag test_kitchen_yml_syntax
+
+The basic structure of a .kitchen.yml file is as follows:
+
+.. code-block:: yaml
+
+   driver: 
+     name: driver_name
+
+   provisioner:
+     name: provisioner_name
+
+   verifier:
+     name: verifier_name
+
+   transport:
+     name: transport_name
+
+   platforms:
+     - name: platform-version
+       driver:
+         name: driver_name
+     - name: platform-version
+
+   suites:
+     - name: suite_name
+       run_list:
+         - recipe[cookbook_name::recipe_name]
+       attributes: { foo: "bar" }
+       excludes:
+         - platform-version
+     - name: suite_name
+       driver:
+         name: driver_name
+       run_list:
+         - recipe[cookbook_name::recipe_name]
+       attributes: { foo: "bar" }
+       includes:
+         - platform-version
+
+where:
+
+* ``driver_name`` is the name of a driver that will be used to create platform instances used during cookbook testing. This is the default driver used for all platforms and suites **unless** a platform or suite specifies a ``driver`` to override the default driver for that platform or suite; a driver specified for a suite will override a driver set for a platform
+* ``provisioner_name`` specifies how the chef-client will be simulated during testing. ``chef_zero``  and ``chef_solo`` are the most common provisioners used for testing cookbooks
+* ``verifier_name`` specifies which application to use when running tests, such as ``inspec``
+* ``transport_name`` specifies which transport to use when executing commands remotely on the test instance. ``winrm`` is the default transport on Windows. The ``ssh`` transport is the default on all other operating systems.
+* ``platform-version`` is a the name of a platform on which Kitchen will perform cookbook testing, for example, ``ubuntu-12.04`` or ``centos-6.4``; depending on the platform, additional driver details---for example, instance names and URLs used with cloud platforms like OpenStack or Amazon EC2---may be required
+* ``platforms`` may define Chef server attributes that are common to the collection of test suites
+* ``suites`` is a collection of test suites, with each ``suite_name`` grouping defining an aspect of a cookbook to be tested. Each ``suite_name`` must specify a run-list, for example:
+
+  .. code-block:: ruby
+
+     run_list:
+       - recipe[cookbook_name::default]
+       - recipe[cookbook_name::recipe_name]
+
+* Each ``suite_name`` grouping may specify ``attributes`` as a Hash: ``{ foo: "bar" }``
+* A ``suite_name`` grouping may use ``excludes`` and ``includes`` to exclude/include one (or more) platforms. For example:
+
+  .. code-block:: ruby
+
+     excludes:
+        - platform-version
+        - platform-version       # for additional platforms
+
+For example, a very simple .kitchen.yml file:
+
+.. code-block:: yaml
+
+   driver: 
+     name: vagrant
+
+   provisioner: 
+     name: chef_zero
+
+   platforms:
+     - name: ubuntu-12.04
+     - name: centos-6.4
+     - name: debian-7.1.0
+
+  suites:
+    - name: default
+      run_list:
+        - recipe[apache::httpd]
+      excludes:
+        - debian-7.1.0
+
+This file uses Vagrant as the driver, which requires no additional configuration because it's the default driver used by Kitchen, chef-zero as the provisioner, and a single (default) test suite that runs on Ubuntu 12.04, and CentOS 6.4.
+
+.. end_tag
 
 Provisioner Settings
 ==========================================================================
@@ -92,7 +194,6 @@ Kitchen can configure the chef-zero provisioner with the following Chef-specific
 
 These settings may be added to the ``provisioner`` section of the .kitchen.yml file when the provisioner is chef-zero or chef-solo.
 
-
 .. note:: There are two community provisioners for Kitchen: `kitchen-dsc <https://github.com/smurawski/kitchen-dsc>`__ and `kitchen-pester <https://github.com/smurawski/kitchen-pester>`__.
 
 Transport Settings
@@ -162,21 +263,48 @@ These settings may be added to the ``transport`` section of the .kitchen.yml fil
 
 Work with Proxies
 --------------------------------------------------------------------------
-.. include:: ../../includes_test_kitchen/includes_test_kitchen_yml_syntax_proxy.rst
+.. tag test_kitchen_yml_syntax_proxy
+
+The environment variables ``http_proxy``, ``https_proxy``, and ``ftp_proxy`` are honored by Kitchen for proxies. The client.rb file is read to look for proxy configuration settings. If ``http_proxy``, ``https_proxy``, and ``ftp_proxy`` are specified in the client.rb file, the chef-client will configure the ``ENV`` variable based on these (and related) settings. For example:
+
+.. code-block:: ruby
+
+   http_proxy 'http://proxy.example.org:8080'
+   http_proxy_user 'myself'
+   http_proxy_pass 'Password1'
+
+will be set to:
+
+.. code-block:: ruby
+
+   ENV['http_proxy'] = 'http://myself:Password1@proxy.example.org:8080'
+
+Kitchen also supports ``http_proxy`` and ```https_proxy`` in the ``.kitchen.yml`` file:
+
+.. code-block:: yaml
+
+   driver:
+     name: vagrant
+
+   provisioner:
+     name: chef_zero
+     http_proxy: http://10.0.0.1
+
+.. end_tag
 
 chef-client Settings
 ==========================================================================
 A .kitchen.yml file may define chef-client-specific settings, such as whether to require the omnibus installer or the URL from which the chef-client is downloaded, or to override settings in the client.rb file:
 
 .. code-block:: yaml
-      
+
    provisioner:
      name: chef_zero *or* chef_solo
      require_chef_omnibus: true
      chef_omnibus_url: https://www.chef.io/chef/install.sh
-   
+
    ...
-   
+
    suites:
      - name: config
      run_list:
@@ -201,7 +329,6 @@ where:
 * ``chef_omnibus_url`` is used to specify the URL from which the chef-client is downloaded
 * All of the ``attributes`` for the ``config`` test suite contain specific client.rb settings for use with this test suite
 
-
 Driver Settings
 ==========================================================================
 Driver-specific configuration settings may be required. Use a block similar to:
@@ -216,19 +343,148 @@ Specific ``optional_settings: values`` may be specified.
 
 Bento
 --------------------------------------------------------------------------
-.. include:: ../../includes_bento/includes_bento.rst
+.. tag bento
+
+`Bento <https://github.com/chef/bento>`_ is a project that contains a set of base images that are used by Chef for internal testing and to provide a comprehensive set of base images for use with Kitchen. By default, Kitchen uses the base images provided by Bento. (Custom images may also be built using Packer.)
+
+.. end_tag
 
 Drivers
 --------------------------------------------------------------------------
-.. include:: ../../includes_test_kitchen/includes_test_kitchen_drivers.rst
+.. tag test_kitchen_drivers
+
+Kitchen uses a driver plugin architecture to enable Kitchen to simulate testing on cloud providers, such as Amazon EC2, OpenStack, and Rackspace, and also on non-cloud platforms, such as Microsoft Windows. Each driver is responsible for managing a virtual instance of that platform so that it may be used by Kitchen during cookbook testing.
+
+.. note:: The Chef development kit includes the ``kitchen-vagrant`` driver.
+
+Most drivers have driver-specific configuration settings that must be added to the .kitchen.yml file before Kitchen will be able to use that platform during cookbook testing. For information about these driver-specific settings, please refer to the driver-specific documentation.
+
+Some popular drivers:
+
+.. list-table::
+   :widths: 150 450
+   :header-rows: 1
+
+   * - Driver Plugin
+     - Description
+   * - `kitchen-all <https://rubygems.org/gems/kitchen-all>`__
+     - A driver for everything, or "all the drivers in a single Ruby gem".
+   * - `kitchen-bluebox <https://github.com/blueboxgroup/kitchen-bluebox>`__
+     - A driver for Blue Box.
+   * - `kitchen-cloudstack <https://github.com/test-kitchen/kitchen-cloudstack>`__
+     - A driver for CloudStack.
+   * - `kitchen-digitalocean <https://github.com/test-kitchen/kitchen-digitalocean>`__
+     - A driver for DigitalOcean.
+   * - `kitchen-docker <https://github.com/portertech/kitchen-docker>`__
+     - A driver for Docker.
+   * - `kitchen-dsc <https://github.com/test-kitchen/kitchen-dsc>`__
+     - A driver for Windows PowerShell Desired State Configuration (DSC).
+   * - `kitchen-ec2 <https://github.com/test-kitchen/kitchen-ec2>`__
+     - A driver for Amazon EC2.
+   * - `kitchen-fog <https://github.com/TerryHowe/kitchen-fog>`__
+     - A driver for Fog, a Ruby gem for interacting with various cloud providers.
+   * - `kitchen-google <https://github.com/anl/kitchen-google>`__
+     - A driver for Google Compute Engine.
+   * - `kitchen-hyperv <https://github.com/test-kitchen/kitchen-hyperv>`__
+     - A driver for Hyper-V Server.
+   * - `kitchen-joyent <https://github.com/test-kitchen/kitchen-joyent>`__
+     - A driver for Joyent.
+   * - `kitchen-opennebula <https://github.com/test-kitchen/kitchen-opennebula>`__
+     - A driver for OpenNebula.
+   * - `kitchen-openstack <https://github.com/test-kitchen/kitchen-openstack>`__
+     - A driver for OpenStack.
+   * - `kitchen-pester <https://github.com/test-kitchen/kitchen-pester>`__
+     - A driver for Pester, a testing framework for Microsoft Windows.
+   * - `kitchen-rackspace <https://github.com/test-kitchen/kitchen-rackspace>`__
+     - A driver for Rackspace.
+   * - `kitchen-vagrant <https://github.com/test-kitchen/kitchen-vagrant>`__
+     - A driver for Vagrant. The default driver packaged with the Chef development kit.
+
+.. end_tag
 
 kitchen-vagrant
 --------------------------------------------------------------------------
-.. include:: ../../includes_test_kitchen/includes_test_kitchen_driver_vagrant.rst
+.. tag test_kitchen_driver_vagrant
 
-.. include:: ../../includes_test_kitchen/includes_test_kitchen_driver_vagrant_settings.rst
+The ``kitchen-vagrant`` driver for Kitchen generates a single Vagrantfile for each instance of Kitchen in a sandboxed directory. The ``kitchen-vagrant`` driver supports VirtualBox and VMware Fusion, requires Vagrant 1.1.0 (or higher), and is the default driver for Kitchen.
 
-.. include:: ../../includes_test_kitchen/includes_test_kitchen_driver_vagrant_config.rst
+.. end_tag
+
+.. tag test_kitchen_driver_vagrant_settings
+
+The following attributes are used to configure ``kitchen-vagrant`` for Chef:
+
+.. list-table::
+   :widths: 60 420
+   :header-rows: 1
+
+   * - Attribute
+     - Description
+   * - ``box``
+     - Required. Use to specify the box on which Vagrant will run. Default value: computed from the platform name of the instance.
+   * - ``box_check_update``
+     - Use to check for box updates. Default value: ``false``. 
+   * - ``box_url``
+     - Use to specify the URL at which the configured box is located. Default value: computed from the platform name of the instance, but only when the Vagrant provider is VirtualBox- or VMware-based.
+   * - ``communicator``
+     - Use to override the ``config.vm.communicator`` setting in Vagrant. For example, when a base box is a Microsoft Windows operating system that does not have SSH installed and enabled, Vagrant will not be able to boot without a custom Vagrant file. Default value: ``nil`` (assumes SSH is available).
+   * - ``customize``
+     - A hash of key-value pairs that define customizations that should be made to the Vagrant virtual machine. For example: ``customize: memory: 1024 cpuexecutioncap: 50``.
+   * - ``guest``
+     - Use to specify the ``config.vm.guest`` setting in the default Vagrantfile.
+   * - ``gui``
+     - Use to enable the graphical user interface for the defined platform. This is passed to the ``config.vm.provider`` setting in Vagrant, but only when the Vagrant provider is VirtualBox- or VMware-based.
+   * - ``network``
+     - Use to specify an array of network customizations to be applied to the virtual machine. Default value: ``[]``. For example: ``network: - ["forwarded_port", {guest: 80, host: 8080}] - ["private_network", {ip: "192.168.33.33"}]``.
+   * - ``pre_create_command``
+     - Use to run a command immediately prior to ``vagrant up --no-provisioner``.
+   * - ``provider``
+     - Use to specify the Vagrant provider. This value must match a provider name in Vagrant.
+   * - ``provision``
+     - Use to provision Vagrant when the instance is created. This is useful if the operating system needs customization during provisioning. Default value: ``false``.
+   * - ``ssh_key``
+     - Use to specify the private key file used for SSH authentication.
+   * - ``synced_folders``
+     - Use to specify a collection of synchronized folders on each Vagrant instance. Source paths are relative to the Kitchen root path. Default value: ``[]``. For example: ``synced_folders: - ["data/%{instance_name}", "/opt/instance_data"] - ["/host_path", "/vm_path", "create: true, type: :nfs"]``.
+   * - ``vagrantfile_erb``
+     - Use to specify an alternate Vagrant Embedded Ruby (ERB) template to be used by this driver.
+   * - ``vagrantfiles``
+     - An array of paths to one (or more) Vagrant files to be merged with the default Vagrant file. The paths may be absolute or relative to the .kitchen.yml file.
+   * - ``vm_hostname``
+     - Use to specify the internal hostname for the instance. This is not required when connecting to a Vagrant virtual machine. Set this to ``false`` to prevent this value from being rendered in the default Vagrantfile. Default value: computed from the platform name of the instance.
+
+.. end_tag
+
+.. tag test_kitchen_driver_vagrant_config
+
+The ``kitchen-vagrant`` driver can predict the box name for Vagrant and the download URL that have been published by Chef. For example:
+
+.. code-block:: ruby
+
+   platforms:
+   - name: ubuntu-12.04
+   - name: ubuntu-12.10
+   - name: ubuntu-13.04
+   - name: centos-5.9
+   - name: centos-6.4
+   - name: debian-7.1.0
+
+which will generate a configuration file similar to:
+
+.. code-block:: ruby
+
+   platforms:
+   - name: ubuntu-12.04
+     driver:
+       box: opscode-ubuntu-12.04
+       box_url: https://opscode-vm-bento.s3.amazonaws.com/vagrant/opscode_ubuntu-12.04_provisionerless.box
+   - name: ubuntu-12.10
+     driver:
+       box: opscode-ubuntu-12.10
+       box_url: ...
+   # ...
+
+.. end_tag
 
 Examples
 ==========================================================================
@@ -241,7 +497,7 @@ The following example shows the provisioner settings needed to install the Chef 
 To install the latest version of the Chef development kit:
 
 .. code-block:: yaml
-   
+
    provisioner:
      ...
      chef_omnibus_install_options: -P chefdk
@@ -262,9 +518,9 @@ Microsoft Windows Platform
 The following example shows platform settings for the Microsoft Windows platform:
 
 .. code-block:: yaml
-   
+
    ---
-   
+
    platforms:
      - name: eval-win2012r2-standard
        os_type: windows
@@ -279,19 +535,19 @@ chef-client, audit-mode
 The following example shows provisioner settings for running the chef-client in audit-mode:
 
 .. code-block:: yaml
-   
+
    ---
    driver:
      name: vagrant
      customize:
        memory: 1024
        cpus: 2
-   
+
    provisioner:
      name: chef_zero
      client_rb:
        audit_mode: :enabled
-   
+
    platforms:
      - name: ubuntu-14.04
        run_list:
@@ -302,7 +558,7 @@ The following example shows provisioner settings for running the chef-client in 
      - name: centos-6.6
        run_list:
        - recipe[audit-cis::centos6-110]
-   
+
    suites:
      - name: default
 
@@ -323,10 +579,10 @@ The following .kitchen.yml file is part of the ``chef-client`` cookbook and ensu
 
    driver:
      name: vagrant
-   
+
    provisioner:
      name: chef_zero
-   
+
    platforms:
      - name: centos-5.10
      - name: centos-6.5
@@ -336,7 +592,7 @@ The following .kitchen.yml file is part of the ``chef-client`` cookbook and ensu
      - name: ubuntu-1310
 
    suites:
-   
+
    - name: service_init
      run_list:
      - recipe[minitest-handler]
@@ -344,7 +600,7 @@ The following .kitchen.yml file is part of the ``chef-client`` cookbook and ensu
      - recipe[chef-client_test::service_init]
      - recipe[chef-client::init_service]
      attributes: {}
-   
+
    - name: service_runit
      run_list:
      - recipe[minitest-handler]
@@ -352,7 +608,7 @@ The following .kitchen.yml file is part of the ``chef-client`` cookbook and ensu
      - recipe[chef-client_test::service_runit]
      - recipe[chef-client::runit_service]
      attributes: {}
-   
+
    - name: service_upstart
      run_list:
      - recipe[minitest-handler]
@@ -360,13 +616,13 @@ The following .kitchen.yml file is part of the ``chef-client`` cookbook and ensu
      - recipe[chef-client::upstart_service]
      excludes: ["centos-5.9"]
      attributes: {}
-   
+
    - name: cron
      run_list:
      - recipe[minitest-handler]
      - recipe[chef-client::cron]
      attributes: {}
-   
+
    - name: delete_validation
      run_list:
      - recipe[chef-client::delete_validation]
@@ -453,16 +709,16 @@ The following .kitchen.yml file is part of the ``yum`` cookbook:
 
    driver:
      name: vagrant
-   
+
    provisioner:
      name: chef_zero
-   
+
    platforms:
      - name: centos-5.11
      - name: centos-6.7
      - name: centos-7.2
      - name: fedora-22
-   
+
    suites:
      - name: default
        run_list:
@@ -498,10 +754,10 @@ The following .kitchen.yml file sets up a simple tiered configuration of the Che
    ---
    driver:
      name: vagrant
-   
+
    provisioner:
      name: chef_zero
-   
+
    platforms:
      - name: ubuntu-12.04
        attributes:
@@ -518,7 +774,7 @@ The following .kitchen.yml file sets up a simple tiered configuration of the Che
              manage: http://123.456.789.0/path/to/opscode-manage_1.3.1-1_amd64.deb
              reporting: http://123.456.789.0/path/to/opscode-reporting_1.1.1-1_amd64.deb
              push_jobs: http://123.456.789.0/path/to/opscode-push-jobs-server_1.1.1-1_amd64.deb
-   
+
    suites:
      - name: frontend1
        driver:

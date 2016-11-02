@@ -252,9 +252,6 @@ Dependency Management Scenarios
     * |url slides_docs_chef_io|
     * https://docs.chef.io/delivery_manage_dependencies.html
 
-
-
-
 ..
 .. Notes for future sections:
 ..
@@ -262,7 +259,6 @@ Dependency Management Scenarios
 .. 2) proper location of the defaut.rb recipe (not in this cookbook!)
 .. 3) Actual test scenarios for Kitchen and otherwise
 ..
-
 
 ..
 ..  .. revealjs:: Test

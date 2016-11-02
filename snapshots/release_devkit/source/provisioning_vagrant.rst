@@ -1,15 +1,34 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/provisioning_vagrant.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/devkit/ PATH.
+
 
 =====================================================
 Vagrant Driver Resources
 =====================================================
 
-.. warning:: .. include:: ../../includes_notes/includes_notes_provisioning.rst
+.. warning:: .. tag notes_provisioning
 
-.. include:: ../../includes_provisioning/includes_provisioning.rst
+             This functionality is available with Chef provisioning and is packaged in the Chef development kit. Chef provisioning is a framework that allows clusters to be managed by the chef-client and the Chef server in the same way nodes are managed: with recipes. Use Chef provisioning to describe, version, deploy, and manage clusters of any size and complexity using a common set of tools.
 
-.. include:: ../../includes_resources_provisioning/includes_resources_provisioning.rst
+             .. end_tag
+
+.. tag provisioning_summary
+
+Chef provisioning is a collection of resources that enable the creation of machines and machine infrastructures using the chef-client. It has a plugin model that allows bootstrap operations to be done against any infrastructure, such as VirtualBox, DigitalOcean, Amazon EC2, LXC, bare metal, and more.
+
+Chef provisioning is built around two major components: the **machine** resource and drivers.
+
+.. end_tag
+
+.. tag resources_provisioning
+
+A driver-specific resource is a statement of configuration policy that:
+
+* Describes the desired state for a configuration item that is created using Chef provisioning
+* Declares the steps needed to bring that item to the desired state
+* Specifies a resource type---such as ``package``, ``template``, or ``service`` 
+* Lists additional details (also known as properties), as necessary
+* Are grouped into recipes, which describe working configurations
+
+.. end_tag
 
 The following driver-specific resources are available for Vagrant and Chef provisioning:
 
@@ -41,7 +60,7 @@ The full syntax for all of the properties that are available to the ``vagrant_bo
      url                     String
    end
 
-where 
+where
 
 * ``vagrant_box`` is the resource
 * ``name`` is the name of the resource block and also the name of an instance in Amazon EC2
@@ -102,7 +121,7 @@ The full syntax for all of the properties that are available to the ``vagrant_cl
      path                    String
    end
 
-where 
+where
 
 * ``vagrant_cluster`` is the resource
 * ``name`` is the name of the resource block and also the name of a cluster

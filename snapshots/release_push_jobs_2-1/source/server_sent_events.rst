@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS Push Jobs version 2.1
+
 
 =====================================================
 Push Jobs Server Sent Events Feed
@@ -31,7 +31,6 @@ The structure of an individual event appears as follows:
 
 In addition, SSE allows comments in the stream, indicated by a starting colon. Push Jobs Server uses comments to send "no-op" events every 15 (configurable) seconds,
 as a form of keepalive for the socket.
-
 
 start
 -----------------------------------------------------

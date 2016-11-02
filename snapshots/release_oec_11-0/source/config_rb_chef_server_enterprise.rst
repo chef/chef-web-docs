@@ -1,22 +1,54 @@
-.. THIS PAGE DOCUMENTS Enterprise Chef server version 11.0
+
 
 =====================================================
 private-chef.rb
 =====================================================
 
-.. warning:: This topic documents the settings for Enterprise Chef. The current version of the Chef server is version 12. All of the documentation at https://docs.chef.io is about the current version of the Chef server. The documentation for Enterprise Chef has been moved: `Enterprise Chef 11.0 <https://docs.chef.io/release/oec_11-0/>`__, `Enterprise Chef 11.1 <https://docs.chef.io/release/oec_11-1/>`__, and `Enterprise Chef 11.2 <https://docs.chef.io/release/oec_11-1/>`__.
+.. tag config_rb_chef_server_enterprise_2
 
-.. include:: ../../includes_config/includes_config_rb_chef_server_enterprise.rst
+The private-chef.rb file contains all of the non-default configuration settings used by the Enterprise Chef server. (The default settings are built-in to the Chef server configuration and should only be added to the private-chef.rb file to apply non-default values.) These configuration settings are processed when the ``private-chef-ctl reconfigure`` command is run, such as immediately after setting up the Enterprise Chef server or after making a change to the underlying configuration settings after the server has been deployed. The private-chef.rb file is a Ruby file, which means that conditional statements can be used in the configuration file.
+
+.. end_tag
 
 .. note:: The private-chef.rb file does not exist by default. To modify the settings for the Chef server, create a file named ``private-chef.rb`` in the ``/etc/opscode/`` directory.
 
 Use Conditions
 =====================================================
-.. include:: ../../step_config/step_config_add_condition.rst
+.. tag config_add_condition
+
+Use a ``case`` statement to apply different values based on whether the setting exists on the front-end or back-end servers. Add code to the server configuration file similar to the following:
+
+.. code-block:: ruby
+
+   role_name = ChefServer["servers"][node['fqdn']]["role"]
+   case role_name
+   when "backend"
+     # backend-specific configuration here
+   when "frontend"
+     # frontend-specific configuration here
+   end
+
+.. end_tag
 
 Recommended Settings
 =====================================================
-.. include:: ../../includes_server_tuning/includes_server_tuning_general.rst
+.. tag server_tuning_general
+
+The following settings are typically added to the server configuration file (no equal sign is necessary to set the value):
+
+``api_fqdn``
+   The FQDN for the Chef server. This setting is not in the server configuration file by default. When added, its value should be equal to the FQDN for the service URI used by the Chef server. For example: ``api_fqdn "chef.example.com"``.
+
+``bootstrap``
+   Default value: ``true``.
+
+``ip_version``
+   Use to set the IP version: ``"ipv4"`` or ``"ipv6"``. When set to ``"ipv6"``, the API listens on IPv6 and front end and back end services communicate via IPv6 when a high availability configuration is used. When configuring for IPv6 in a high availability configuration, be sure to set the netmask on the IPv6 ``backend_vip`` attribute. Default value: ``"ipv4"``.
+
+``notification_email``
+   Default value: ``info@example.com``.
+
+.. end_tag
 
 Optional Settings
 =====================================================
@@ -28,40 +60,147 @@ The following settings are often used for performance tuning of Enterprise Chef 
 
 bookshelf
 -----------------------------------------------------
-.. include:: ../../includes_server_tuning/includes_server_tuning_bookshelf.rst
+.. tag server_tuning_bookshelf
+
+The following setting is often modified from the default as part of the tuning effort for the **bookshelf** service:
+
+``bookshelf['vip']``
+   The virtual IP address. Default value: ``node['fqdn']``.
+
+.. end_tag
 
 opscode-account
 -----------------------------------------------------
-.. include:: ../../includes_server_tuning/includes_server_tuning_account.rst
+.. tag server_tuning_account
+
+The following setting is often modified from the default as part of the tuning effort for the **opscode-account** service:
+
+``opscode_account['worker_processes']``
+   The number of allowed worker processes. This value should be increased if requests made to the **opscode-account** service are timing out, but only if the front-end machines have available CPU and RAM. Default value: ``4``.
+
+.. end_tag
 
 opscode-erchef
 -----------------------------------------------------
-.. include:: ../../includes_server_tuning/includes_server_tuning_erchef.rst
+.. tag server_tuning_erchef
+
+The following settings are often modified from the default as part of the tuning effort for the **opscode-erchef** service:
+
+``opscode_erchef['db_pool_size']``
+   The number of open connections to PostgreSQL that are maintained by the service. If failures indicate that the **opscode-erchef** service ran out of connections, try increasing the ``postgresql['max_connections']`` setting. If failures persist, then increase this value (in small increments) and also increase the value for ``postgresql['max_connections']``. Default value: ``20``.
+
+``opscode_erchef['s3_url_ttl']``
+   The amount of time (in seconds) before connections to the server expire. If chef-client runs are timing out, increase this setting to ``3600``, and then adjust again if necessary. Default value: ``900``.
+
+``opscode_erchef['strict_search_result_acls']``
+   .. tag settings_strict_search_result_acls
+
+   Use to specify that search results only return objects to which an actor (user, client, etc.) has read access, as determined by ACL settings. This affects all searches. When ``true``, the performance of the Chef management console may increase because it enables the Chef management console to skip redundant ACL checks. To ensure the Chef management console is configured properly, after this setting has been applied with a ``chef-server-ctl reconfigure`` run ``chef-manage-ctl reconfigure`` to ensure the Chef management console also picks up the setting. Default value: ``false``.
+
+   .. warning:: When ``true``, ``opscode_erchef['strict_search_result_acls']`` affects all search results and any actor (user, client, etc.) that does not have read access to a search result will not be able to view it. For example, this could affect search results returned during chef-client runs if a chef-client does not have permission to read the information.
+
+   .. end_tag
+
+.. end_tag
 
 opscode-expander
 -----------------------------------------------------
-.. include:: ../../includes_server_tuning/includes_server_tuning_expander.rst
+.. tag server_tuning_expander
+
+The following setting is often modified from the default as part of the tuning effort for the **opscode-expander** service:
+
+``opscode_expander['nodes']``
+   The number of allowed worker processes. The **opscode-expander** service runs on the back-end and feeds data to the **opscode-solr** service, which creates and maintains search data used by the Chef server. Additional memory may be required by these worker processes depending on the frequency and volume of chef-client runs across the organization, but only if the back-end machines have available CPU and RAM. Default value: ``2``.
+
+.. end_tag
 
 opscode-solr
 -----------------------------------------------------
-.. include:: ../../includes_server_tuning/includes_server_tuning_solr.rst
+.. tag server_tuning_solr
+
+The following sections describe ways of tuning the **opscode-solr4** service to improve performance around large node sizes, available memory, and update frequencies.
+
+.. end_tag
 
 Update Frequency
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_server_tuning/includes_server_tuning_solr_update_frequency.rst
+.. tag server_tuning_solr_update_frequency
+
+At the end of every chef-client run, the node object is saved to the Chef server. From the Chef server, each node object is then added to the ``SOLR`` search index. This process is asynchronous. By default, node objects are committed to the search index every 60 seconds or per 1000 node objects, whichever occurs first.
+
+When data is committed to the Apache Solr index, all incoming updates are blocked. If the duration between updates is too short, it is possible for the rate at which updates are asked to occur to be faster than the rate at which objects can be actually committed.
+
+Use the following configuration setting to improve the indexing performance of node objects:
+
+``opscode_solr4['commit_interval']``
+   The frequency (in seconds) at which node objects are added to the Apache Solr search index. Default value: ``60000`` (every 60 seconds).
+
+``opscode_solr4['max_commit_docs']``
+   The frequency (in documents) at which node objects are added to the Apache Solr search index. Default value: ``1000`` (every 1000 documents).
+
+.. end_tag
 
 opscode-webui
 -----------------------------------------------------
-.. include:: ../../includes_server_tuning/includes_server_tuning_webui.rst
+.. tag server_tuning_webui
+
+The following setting is often modified from the default as part of the tuning effort for the **opscode-webui** service:
+
+``opscode_webui['worker_processes']``
+   The number of allowed worker processes. This setting should be increased or decreased based on the number of users in an organization who use the Chef server web user interface. The default value is ``2``.
+
+.. end_tag
 
 postgresql
 -----------------------------------------------------
-.. include:: ../../includes_server_tuning/includes_server_tuning_postgresql.rst
+.. tag server_tuning_postgresql
+
+The following setting is often modified from the default as part of the tuning effort for the **postgresql** service:
+
+``postgresql['max_connections']``
+   The maximum number of allowed concurrent connections. This value should only be tuned when the ``opscode_erchef['db_pool_size']`` value used by the **opscode-erchef** service is modified. Default value: ``350``.
+
+   If there are more than two front end machines in a cluster, the ``postgresql['max_connections']`` setting should be increased. The increased value depends on the number of machines in the front end, but also the number of services that are running on each of these machines.
+
+   * Each front end machine always runs the **oc_bifrost** and **opscode-erchef** services.
+   * The Reporting add-on adds the **reporting** service.
+   * The Chef push jobs service adds the **push_jobs** service.
+
+   Each of these services requires 25 connections, above the default value.
+
+   Use the following formula to help determine what the increased value should be:
+
+   .. code-block:: ruby
+
+      new_value = current_value + [
+                  (# of front end machines - 2) * (25 * # of services)
+   			   ]
+
+   For example, if the current value is 350, there are four front end machines, and all add-ons are installed, then the formula looks like:
+
+   .. code-block:: ruby
+
+      550 = 350 + [(4 - 2) * (25 * 4)]
+
+.. end_tag
 
 rabbitmq
 -----------------------------------------------------
-.. include:: ../../includes_server_tuning/includes_server_tuning_rabbitmq.rst
+.. tag server_tuning_rabbitmq
 
+.. note:: Chef Analytics has been replaced by Chef Automate.
 
+The following settings must be modified when the Chef Analytics server is configured as a standalone server:
 
+``rabbitmq['node_ip_address']``
+   The bind IP address for RabbitMQ. Default value: ``"127.0.0.1"``.
+
+   Chef Analytics uses the same RabbitMQ service that is configured on the Chef server. When the Chef Analytics server is configured as a standalone server, the default settings for ``rabbitmq['node_ip_address']`` and ``rabbitmq['vip']`` must be updated. When the Chef Analytics server is configured as a standalone server, change this value to ``0.0.0.0``.
+
+``rabbitmq['vip']``
+   The virtual IP address. Default value: ``"127.0.0.1"``.
+
+   Chef Analytics uses the same RabbitMQ service that is configured on the Chef server. When the Chef Analytics server is configured as a standalone server, the default settings for ``rabbitmq['node_ip_address']`` and ``rabbitmq['vip']`` must be updated. When the Chef Analytics server is configured as a standalone server, change this value to the backend VIP address for the Chef server.
+
+.. end_tag
 

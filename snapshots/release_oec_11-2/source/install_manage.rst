@@ -1,10 +1,14 @@
-.. THIS PAGE DOCUMENTS Enterprise Chef server version 11.2
+
 
 =====================================================
 Install Chef Manage
 =====================================================
 
-.. include:: ../../includes_manage/includes_manage.rst
+.. tag manage_9
+
+The Chef management console enables the management of nodes, data bags, roles, environments, and cookbooks by using a web user interface. In addition, access to nodes, data bags, roles, environments, and cookbooks is configurable using role-based access control (RBAC).
+
+.. end_tag
 
 Requirements
 =====================================================
@@ -55,8 +59,7 @@ To set up Chef management console for a standalone configuration:
 .. 
 ..       $ opscode-manage-ctl test
 .. 
-..    The Chef management console should now be running and accessible by a web browser on port 443 (HTTPS). 
-
+..    The Chef management console should now be running and accessible by a web browser on port 443 (HTTPS).
 
 High Availability
 -----------------------------------------------------
@@ -72,7 +75,7 @@ To set up the Chef management console server for a high availability configurati
 #. Disable the legacy web interface. Modify the private-chef.rb file (located at ``/etc/opscode/private-chef.rb``) to disable the existing **opscode-webui** service:
 
    .. code-block:: bash
-   
+
       if PrivateChef['servers'][node['fqdn']]['role'] == 'frontend'
         opscode_webui['enable'] = false
       end
@@ -101,8 +104,7 @@ To set up the Chef management console server for a high availability configurati
 .. 
 ..       $ opscode-manage-ctl test
 .. 
-..    The Chef management console should now be running and accessible by a web browser on port 443 (HTTPS). 
-
+..    The Chef management console should now be running and accessible by a web browser on port 443 (HTTPS).
 
 Upgrade the Server
 =====================================================
@@ -123,6 +125,4 @@ Chef management console can be upgraded as part of a standalone or high availabi
       $ opscode-manage-ctl reconfigure
 
    This step is required for each of the front end servers in the Enterprise Chef deployment. For example, in a configuration with two back end servers and three front end servers, this command would need to be run on all three front end machines.
-
-
 

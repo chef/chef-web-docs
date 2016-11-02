@@ -2,11 +2,23 @@
 Release Notes: Chef Compliance
 =====================================================
 
-.. include:: ../../includes_compliance/includes_compliance.rst
+.. tag compliance_2
+
+Chef Compliance allows you to assess your infrastructure's adherence to compliance requirements and to monitor that infrastructure on an ongoing basis. It includes:
+
+* The Chef Compliance server
+* Prebuilt compliance profiles to help you get started quickly
+* A language for writing audit controls, which includes audit resources that you can invoke
+
+.. end_tag
 
 What's New (1.1)
 =====================================================
 The following items are new for Chef Compliance 1.1:
 
-* **Chef MLSA** .. include:: ../../includes_chef_license/includes_chef_license_reconfigure_compliance.rst
+* **Chef MLSA** .. tag chef_license_reconfigure_compliance
+
+                Starting with Chef Compliance 1.1.9, the Chef MLSA must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-compliance-ctl reconfigure --accept-license`` to automatically accept the license.
+
+                .. end_tag
 

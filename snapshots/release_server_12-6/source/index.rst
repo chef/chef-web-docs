@@ -1,10 +1,14 @@
-.. THIS PAGE DOCUMENTS Chef server version 12.6
+
 
 =====================================================
 About Chef Server 12.6
 =====================================================
 
-.. include:: ../../includes_chef/includes_chef_index.rst
+.. tag chef_index
+
+Chef is a systems and cloud infrastructure automation framework that makes it easy to deploy servers and applications to any physical, virtual, or cloud location, no matter the size of the infrastructure. Each organization is comprised of one (or more) workstations, a single server, and every node that will be configured and maintained by the chef-client. Cookbooks (and recipes) are used to tell the chef-client how each node in your organization should be configured. The chef-client (which is installed on every node) does the actual configuration.
+
+.. end_tag
 
 .. note:: Chef server 12 is the new Chef server! The documentation for Open Source Chef and Enterprise Chef is still available from the version list.
 
@@ -16,60 +20,48 @@ If you are new to Chef, familiarize yourself with its main components: :doc:`the
 
 The `Chef supermarket <https://supermarket.chef.io>`_ is the location in which community cookbooks are authored and maintained. Cookbooks that are part of the Chef Supermarket may be used by any Chef user.
 
-
 Install, Upgrade
 =====================================================
 The Chef server can be installed on new hardware. Existing server configurations may be upgraded.
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/server_12-6/install_server.html">Install the Chef Server</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/server_12-6/upgrade_server.html">Upgrade the Chef Server</a> </br>
+:doc:`install_server`
+:doc:`upgrade_server`
 
 The Chef server may be configured for high availability to enable failover on backend and load balancing on frontend machines. The following high availability scenarios are supported:
 
-.. raw:: html
+:doc:`install_server_ha_aws`
+:doc:`install_server_ha_drbd`
 
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/server_12-6/install_server_ha_aws.html">High Availability: Amazon Web Services</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/server_12-6/install_server_ha_drbd.html">High Availability: DRBD</a> </br>
-
-
-.. note:: Premium features of the Chef server must be installed and configured after the Chef server. The Chef management console must be installed before Reporting because they share the same web user interface. The Chef management console, Reporting, and Chef replication can all be installed using the `chef-server-ctl install <https://docs.chef.io/release/server_12-6/ctl_chef_server.html#install>`_ command. 
-
+.. note:: Premium features of the Chef server must be installed and configured after the Chef server. The Chef management console must be installed before Reporting because they share the same web user interface. The Chef management console, Reporting, and Chef replication can all be installed using the :ref:`chef-server-ctl install <ctl_chef_server-install>` command.
 
 Manage the Chef Server
 =====================================================
 The Chef server can be managed in the following ways:
 
-.. raw:: html
 
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/runbook.html">Runbook</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/server_12-6/server_backup_restore.html">Backup / Restore</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/server_12-6/server_data.html">Data</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/server_12-6/server_firewalls_and_ports.html">Firewalls and Ports</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/server_12-6/server_high_availability.html">High Availability</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/server_12-6/server_logs.html">Log Files</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/server_12-6/server_monitor.html">Monitor</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/server_12-6/server_orgs.html">Organizations, Groups, and Users</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/server_12-6/server_replication.html">Replication</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/server_12-6/server_security.html">Security</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/server_12-6/server_services.html">Services</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/server_12-6/server_tuning.html">Server Tuning</a> </br>
-
+:doc:`server_backup_restore`
+:doc:`server_data`
+:doc:`server_firewalls_and_ports`
+:doc:`server_high_availability`
+:doc:`server_logs`
+:doc:`server_monitor`
+:doc:`server_orgs`
+:doc:`server_replication`
+:doc:`server_security`
+:doc:`server_services`
+:doc:`server_tuning`
 
 Management Console
 -----------------------------------------------------
 The Chef management console provides a web user interface with access to objects, such as nodes and cookbooks, through role-based access control:
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/server_12-6/server_manage_clients.html">Manage Clients</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/server_12-6/server_manage_cookbooks.html">Manage Cookbooks</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/server_12-6/server_manage_data_bags.html">Manage Data Bags</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/server_12-6/server_manage_environments.html">Manage Environments</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/server_12-6/server_manage_nodes.html">Manage Nodes</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/server_12-6/server_manage_reports.html">Manage Reports</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/server_12-6/server_manage_roles.html">Manage Roles</a> </br>
+:doc:`server_manage_clients`
+:doc:`server_manage_cookbooks`
+:doc:`server_manage_data_bags`
+:doc:`server_manage_environments`
+:doc:`server_manage_nodes`
+:doc:`server_manage_reports`
+:doc:`server_manage_roles`
 
 Reference
 =====================================================
@@ -77,24 +69,18 @@ This section contains links to topics about configuration files, command-line to
 
 **Configuration Files**
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/server_12-6/config_rb_server.html">chef-server.rb</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/server_12-6/config_rb_manage.html">manage.rb</a> </br>
+:doc:`config_rb_server`
+:doc:`config_rb_manage`
 
 **Command-line Tools**
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/server_12-6/ctl_chef_server.html">chef-server-ctl</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/server_12-6/ctl_opscode_expander.html">opscode-expander-ctl</a> </br>
+:doc:`ctl_chef_server`
+:doc:`ctl_opscode_expander`
 
 **APIs**
 
-.. raw:: html
+:doc:`api_chef_server`
 
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/server_12-6/api_chef_server.html">Chef Server API</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/server_12-6/api_push_jobs.html">Push Jobs API</a> </br>
 
 .. Hide the TOC from this file. Just keep these alphabetized please.
 
