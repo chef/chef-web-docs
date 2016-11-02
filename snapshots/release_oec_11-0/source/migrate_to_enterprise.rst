@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS Enterprise Chef server version 11.0
+
 
 =====================================================
 Migrate to Enterprise Chef
@@ -59,11 +59,11 @@ The knife.rb file should look similar to the following:
    # client_key
    # chef_server_url
    #
-   
+
    node_name ""
-    
+
    client_key "/etc/chef/client.pem"
-    
+
    chef_server_url "http://url_for_open_source_chef_server"
 
 Update knife.rb
@@ -71,7 +71,7 @@ Update knife.rb
 On the workstation from which the migration is being done, add the ``versioned_cookbook`` setting to the knife.rb file, and then set it to true. This setting ensures that all cookbooks and cookbook versions are downloaded when using the ``knife download`` subcommand. The knife.rb file should look similar to:
 
 .. code-block:: ruby
-   
+
    current_dir = File.dirname(__FILE__)
    chef_server_url           "https://open-source-chef.opscode.piab"
    client_key                "#{current_dir}/admin.pem"
@@ -79,8 +79,6 @@ On the workstation from which the migration is being done, add the ``versioned_c
    versioned_cookbooks       "true"
    syntax_check_cache_path   "#{ENV['HOME']}/.chef/syntax_check_cache"
    cookbook_path             ["#{current_dir}/../cookbooks"]
-   
-
 
 Run knife download
 =====================================================
@@ -110,13 +108,12 @@ On the workstation from which the migration is being done, update the value for 
    # client_key
    # chef_server_url
    #
-   
-   node_name ""
-    
-   client_key "/etc/chef/client.pem"
-    
-   chef_server_url "https://api.opscode.com"
 
+   node_name ""
+
+   client_key "/etc/chef/client.pem"
+
+   chef_server_url "https://api.opscode.com"
 
 Run knife upload
 =====================================================
@@ -138,9 +135,44 @@ or from anywhere in the chef-repo, enter:
 
 A cookbook can be uploaded individually using the ``upload`` argument for the ``knife cookbook`` subcommand.
 
-
 Configure Permissions
 =====================================================
-.. include:: ../../includes_server_rbac/includes_server_rbac_clients.rst
+.. tag server_rbac_clients
 
-.. include:: ../../includes_server_rbac/includes_server_rbac_permissions_key.rst
+A client is an actor that has permission to access the Chef server. A client is most often a node (on which the chef-client runs), but is also a workstation (on which knife runs), or some other machine that is configured to use the Chef server API. Each request to the Chef server that is made by a client uses a private key for authentication that must be authorized by the public key on the Chef server.
+
+.. end_tag
+
+.. tag server_rbac_permissions_key
+
+Keys should have ``DELETE``, ``GRANT``, ``READ`` and ``UPDATE`` permissions.
+
+Use the following code to set the correct permissions:
+
+.. code-block:: ruby
+
+   #!/usr/bin/env ruby
+   require 'rubygems'
+   require 'chef/knife'
+
+   Chef::Config.from_file(File.join(Chef::Knife.chef_config_dir, 'knife.rb'))
+
+   rest = Chef::REST.new(Chef::Config[:chef_server_url])
+
+   Chef::Node.list.each do |node|
+     %w{read update delete grant}.each do |perm|
+       ace = rest.get("nodes/#{node[0]}/_acl")[perm]
+       ace['actors'] << node[0] unless ace['actors'].include?(node[0])
+       rest.put("nodes/#{node[0]}/_acl/#{perm}", perm => ace)
+       puts "Client \"#{node[0]}\" granted \"#{perm}\" access on node \"#{node[0]}\""
+     end
+   end
+
+Save it as a Ruby script---``chef_server_permissions.rb``, for example---in the ``.chef/scripts`` directory located in the chef-repo, and then run a knife command similar to:
+
+.. code-block:: bash
+
+   $ knife exec chef_server_permissions.rb
+
+.. end_tag
+

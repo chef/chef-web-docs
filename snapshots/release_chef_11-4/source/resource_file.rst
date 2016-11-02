@@ -1,46 +1,411 @@
-.. THIS PAGE DOCUMENTS chef-client version 11.4
+
 
 =====================================================
 file
 =====================================================
 
-.. include:: ../../includes_resources/includes_resource_file_11-4.rst
+.. tag 4_15
 
-.. include:: ../../includes_resources/includes_resource_cookbook_file_transfers.rst
+Use the **file** resource to manage files that are present on a node, including setting or updating the contents of those files.
 
-.. note:: .. include:: ../../includes_notes/includes_notes_file_resource_use_other_resources.rst
+.. end_tag
+
+.. tag resource_cookbook_file_transfers
+
+During a chef-client run, the checksum for each local file is calculated and then compared against the checksum for the same file as it currently exists in the cookbook on the Chef server. A file is not transferred when the checksums match. Only files that require an update are transferred from the Chef server to a node.
+
+.. end_tag
+
+.. note:: .. tag notes_file_resource_use_other_resources
+
+          Use the **cookbook_file** resource to copy a file from a cookbook's ``/files`` directory. Use the **template** resource to create a file based on a template in a cookbook's ``/templates`` directory. And use the **remote_file** resource to transfer a file to a node from a remote location.
+
+          .. end_tag
 
 Syntax
 =====================================================
-.. include:: ../../includes_resources/includes_resource_file_syntax_11-4.rst
+.. tag 4_18
+
+A **file** resource block manages files that exist on nodes. For example, to write the home page for an Apache website:
+
+.. code-block:: ruby
+
+   file '/var/www/customers/public_html/index.php' do
+     content '<html>This is a placeholder for the home page.</html>'
+     mode '0755'
+     owner 'web_admin'
+     group 'web_admin'
+   end
+
+where
+
+* ``'/var/www/customers/public_html/index.php'`` is path to the file and also the filename to be managed
+* ``content`` defines the contents of the file
+
+The full syntax for all of the properties that are available to the **file** resource is:
+
+.. code-block:: ruby
+
+   file 'name' do
+     backup                     FalseClass, Integer
+     checksum                   String
+     content                    String
+     group                      String, Integer
+     inherits                   TrueClass, FalseClass
+     mode                       String, Integer
+     notifies                   # see description
+     owner                      String, Integer
+     path                       String # defaults to 'name' if not specified
+     provider                   Chef::Provider::File
+     rights                     Hash
+     subscribes                 # see description
+     action                     Symbol # defaults to :create if not specified
+   end
+
+where
+
+* ``file`` is the resource
+* ``name`` is the name of the resource block; when the ``path`` property is not specified as part of a recipe, ``name`` is also the path to the file
+* ``content`` specifies the contents of the file
+* ``:action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``backup``, ``checksum``, ``content``, ``group``, ``inherits``, ``mode``, ``owner``, ``path``, ``provider``, and ``rights`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+
+.. end_tag
 
 Actions
 =====================================================
-.. include:: ../../includes_resources/includes_resource_file_actions_11-4.rst
+.. tag 4_16
+
+This resource has the following actions:
+
+``:create``
+   Default. Create a file. If a file already exists (but does not match), update that file to match.
+
+``:create_if_missing``
+   Create a file only if the file does not exist. When the file exists, nothing happens.
+
+``:delete``
+   Delete a file.
+
+``:nothing``
+   .. tag resources_common_actions_nothing
+
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the chef-client run.
+
+   .. end_tag
+
+``:touch``
+   Touch a file. This updates the access (atime) and file modification (mtime) times for a file.
+
+.. end_tag
 
 Properties
 =====================================================
-.. include:: ../../includes_resources/includes_resource_file_attributes_11-4.rst
+.. tag 4_17
+
+This resource has the following properties:
+
+``backup``
+   **Ruby Types:** FalseClass, Integer
+
+   The number of backups to be kept in ``/var/chef/backup`` (for UNIX- and Linux-based platforms) or ``C:/chef/backup`` (for the Microsoft Windows platform). Set to ``false`` to prevent backups from being kept. Default value: ``5``.
+
+``checksum``
+   **Ruby Type:** String
+
+   The SHA-256 checksum of the file. Use to ensure that a specific file is used. If the checksum does not match, the file is not used. Default value: no checksum required.
+
+``content``
+   **Ruby Type:** String
+
+   A string that is written to the file. The contents of this property replace any previous content when this property has something other than the default value. The default behavior will not modify content.
+
+``group``
+   **Ruby Types:** Integer, String
+
+   A string or ID that identifies the group owner by group name, including fully qualified group names such as ``domain\group`` or ``group@domain``. If this value is not specified, existing groups remain unchanged and new group assignments use the default ``POSIX`` group (if available).
+
+``ignore_failure``
+   **Ruby Types:** TrueClass, FalseClass
+
+   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+
+``inherits``
+   **Ruby Types:** TrueClass, FalseClass
+
+   Microsoft Windows only. Whether a file inherits rights from its parent directory. Default value: ``true``.
+
+``mode``
+   **Ruby Types:** Integer, String
+
+   A quoted 3-5 character string that defines the octal mode. For example: ``'755'``, ``'0755'``, or ``00755``. If ``mode`` is not specified and if the file already exists, the existing mode on the file is used. If ``mode`` is not specified, the file does not exist, and the ``:create`` action is specified, the chef-client assumes a mask value of ``'0777'` and then applies the umask for the system on which the file is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, the chef-client uses the default value of ``'0755'``.
+
+   The behavior is different depending on the platform.
+
+   UNIX- and Linux-based systems: A quoted 3-5 character string that defines the octal mode that is passed to chmod. For example: ``'755'``, ``'0755'``, or ``00755``. If the value is specified as a quoted string, it works exactly as if the ``chmod`` command was passed. If the value is specified as an integer, prepend a zero (``0``) to the value to ensure that it is interpreted as an octal number. For example, to assign read, write, and execute rights for all users, use ``'0777'`` or ``'777'``; for the same rights, plus the sticky bit, use ``01777`` or ``'1777'``.
+
+   Microsoft Windows: A quoted 3-5 character string that defines the octal mode that is translated into rights for Microsoft Windows security. For example: ``'755'``, ``'0755'``, or ``00755``. Values up to ``'0777'`` are allowed (no sticky bits) and mean the same in Microsoft Windows as they do in UNIX, where ``4`` equals ``GENERIC_READ``, ``2`` equals ``GENERIC_WRITE``, and ``1`` equals ``GENERIC_EXECUTE``. This property cannot be used to set ``:full_control``. This property has no effect if not specified, but when it and ``rights`` are both specified, the effects are cumulative.
+
+``notifies``
+   **Ruby Type:** Symbol, 'Chef::Resource[String]'
+
+   .. tag resources_common_notification_notifies
+
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+
+   .. end_tag
+
+   .. tag 5_3
+
+   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+
+   ``:delayed``
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+
+   ``:immediate``, ``:immediately``
+      Specifies that a notification should be run immediately, per resource notified.
+
+   .. end_tag
+
+   .. tag resources_common_notification_notifies_syntax
+
+   The syntax for ``notifies`` is:
+
+   .. code-block:: ruby
+
+      notifies :action, 'resource[name]', :timer
+
+   .. end_tag
+
+``owner``
+   **Ruby Types:** Integer, String
+
+   A string or ID that identifies the group owner by user name, including fully qualified user names such as ``domain\user`` or ``user@domain``. If this value is not specified, existing owners remain unchanged and new owner assignments use the current user (when necessary).
+
+``path``
+   **Ruby Type:** String
+
+   The full path to the file, including the file name and its extension. For example: ``/files/file.txt``. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+
+``provider``
+   **Ruby Type:** Chef Class
+
+   Optional. Explicitly specifies a provider.
+
+``retries``
+   **Ruby Type:** Integer
+
+   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+
+``retry_delay``
+   **Ruby Type:** Integer
+
+   The retry delay (in seconds). Default value: ``2``.
+
+``rights``
+   **Ruby Types:** Integer, String
+
+   Microsoft Windows only. The permissions for users and groups in a Microsoft Windows environment. For example: ``rights <permissions>, <principal>, <options>`` where ``<permissions>`` specifies the rights granted to the principal, ``<principal>`` is the group or user name, and ``<options>`` is a Hash with one (or more) advanced rights options.
+
+``subscribes``
+   **Ruby Type:** Symbol, 'Chef::Resource[String]'
+
+   .. tag resources_common_notification_subscribes
+
+   A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
+
+   .. end_tag
+
+   .. tag 5_3
+
+   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+
+   ``:delayed``
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+
+   ``:immediate``, ``:immediately``
+      Specifies that a notification should be run immediately, per resource notified.
+
+   .. end_tag
+
+   .. tag resources_common_notification_subscribes_syntax
+
+   The syntax for ``subscribes`` is:
+
+   .. code-block:: ruby
+
+      subscribes :action, 'resource[name]', :timer
+
+   .. end_tag
+
+.. end_tag
 
 Windows File Security
 -----------------------------------------------------
-.. include:: ../../includes_resources_common/includes_resources_common_windows_security.rst
+.. tag resources_common_windows_security
+
+To support Microsoft Windows security, the **template**, **file**, **remote_file**, **cookbook_file**, **directory**, and **remote_directory** resources support the use of inheritance and access control lists (ACLs) within recipes.
+
+.. end_tag
 
 **Access Control Lists (ACLs)**
 
-.. include:: ../../includes_resources_common/includes_resources_common_windows_security_acl.rst
+.. tag resources_common_windows_security_acl
+
+The ``rights`` property can be used in a recipe to manage access control lists (ACLs), which allow permissions to be given to multiple users and groups. Use the ``rights`` property can be used as many times as necessary; the chef-client will apply them to the file or directory as required. The syntax for the ``rights`` property is as follows:
+
+.. code-block:: ruby
+
+   rights permission, principal, option_type => value
+
+where
+
+``permission``
+   Use to specify which rights are granted to the ``principal``. The possible values are: ``:read``, ``:write``, ``read_execute``, ``:modify``, and ``:full_control``.
+
+   These permissions are cumulative. If ``:write`` is specified, then it includes ``:read``. If ``:full_control`` is specified, then it includes both ``:write`` and ``:read``.
+
+   (For those who know the Microsoft Windows API: ``:read`` corresponds to ``GENERIC_READ``; ``:write`` corresponds to ``GENERIC_WRITE``; ``:read_execute`` corresponds to ``GENERIC_READ`` and ``GENERIC_EXECUTE``; ``:modify`` corresponds to ``GENERIC_WRITE``, ``GENERIC_READ``, ``GENERIC_EXECUTE``, and ``DELETE``; ``:full_control`` corresponds to ``GENERIC_ALL``, which allows a user to change the owner and other metadata about a file.)
+
+``principal``
+   Use to specify a group or user name. This is identical to what is entered in the login box for Microsoft Windows, such as ``user_name``, ``domain\user_name``, or ``user_name@fully_qualified_domain_name``. The chef-client does not need to know if a principal is a user or a group.
+
+``option_type``
+   A hash that contains advanced rights options. For example, the rights to a directory that only applies to the first level of children might look something like: ``rights :write, 'domain\group_name', :one_level_deep => true``. Possible option types:
+
+   .. list-table::
+      :widths: 60 420
+      :header-rows: 1
+
+      * - Option Type
+        - Description
+      * - ``:applies_to_children``
+        - Specify how permissions are applied to children. Possible values: ``true`` to inherit both child directories and files;  ``false`` to not inherit any child directories or files; ``:containers_only`` to inherit only child directories (and not files); ``:objects_only`` to recursively inherit files (and not child directories).
+      * - ``:applies_to_self``
+        - Indicates whether a permission is applied to the parent directory. Possible values: ``true`` to apply to the parent directory or file and its children; ``false`` to not apply only to child directories and files.
+      * - ``:one_level_deep``
+        - Indicates the depth to which permissions will be applied. Possible values: ``true`` to apply only to the first level of children; ``false`` to apply to all children.
+
+For example:
+
+.. code-block:: ruby
+
+   resource 'x.txt' do
+     rights :read, 'Everyone'
+     rights :write, 'domain\group'
+     rights :full_control, 'group_name_or_user_name'
+     rights :full_control, 'user_name', :applies_to_children => true
+   end
+
+or:
+
+.. code-block:: ruby
+
+    rights :read, ['Administrators','Everyone']
+    rights :full_control, 'Users', :applies_to_children => true
+    rights :write, 'Sally', :applies_to_children => :containers_only, :applies_to_self => false, :one_level_deep => true
+
+Some other important things to know when using the ``rights`` attribute:
+
+* Only inherited rights remain. All existing explicit rights on the object are removed and replaced.
+* If rights are not specified, nothing will be changed. The chef-client does not clear out the rights on a file or directory if rights are not specified. 
+* Changing inherited rights can be expensive. Microsoft Windows will propagate rights to all children recursively due to inheritance. This is a normal aspect of Microsoft Windows, so consider the frequency with which this type of action is necessary and take steps to control this type of action if performance is the primary consideration.
+
+Use the ``deny_rights`` property to deny specific rights to specific users. The ordering is independent of using the ``rights`` property. For example, it doesn't matter if rights are granted to everyone is placed before or after ``deny_rights :read, ['Julian', 'Lewis']``, both Julian and Lewis will be unable to read the document. For example:
+
+.. code-block:: ruby
+
+   resource 'x.txt' do
+     rights :read, 'Everyone'
+     rights :write, 'domain\group'
+     rights :full_control, 'group_name_or_user_name'
+     rights :full_control, 'user_name', :applies_to_children => true
+     deny_rights :read, ['Julian', 'Lewis']
+   end
+
+or:
+
+.. code-block:: ruby
+
+   deny_rights :full_control, ['Sally']
+
+.. end_tag
 
 **Inheritance**
 
-.. include:: ../../includes_resources_common/includes_resources_common_windows_security_inherits.rst
+.. tag resources_common_windows_security_inherits
+
+By default, a file or directory inherits rights from its parent directory. Most of the time this is the preferred behavior, but sometimes it may be necessary to take steps to more specifically control rights. The ``inherits`` property can be used to specifically tell the chef-client to apply (or not apply) inherited rights from its parent directory.
+
+For example, the following example specifies the rights for a directory:
+
+.. code-block:: ruby
+
+   directory 'C:\mordor' do
+     rights :read, 'MORDOR\Minions'
+     rights :full_control, 'MORDOR\Sauron'
+   end
+
+and then the following example specifies how to use inheritance to deny access to the child directory:
+
+.. code-block:: ruby
+
+   directory 'C:\mordor\mount_doom' do
+     rights :full_control, 'MORDOR\Sauron'
+     inherits false # Sauron is the only person who should have any sort of access
+   end
+
+If the ``deny_rights`` permission were to be used instead, something could slip through unless all users and groups were denied.
+
+Another example also shows how to specify rights for a directory:
+
+.. code-block:: ruby
+
+   directory 'C:\mordor' do
+     rights :read, 'MORDOR\Minions'
+     rights :full_control, 'MORDOR\Sauron'
+     rights :write, 'SHIRE\Frodo' # Who put that there I didn't put that there
+   end
+
+but then not use the ``inherits`` property to deny those rights on a child directory:
+
+.. code-block:: ruby
+
+   directory 'C:\mordor\mount_doom' do
+     deny_rights :read, 'MORDOR\Minions' # Oops, not specific enough
+   end
+
+Because the ``inherits`` property is not specified, the chef-client will default it to ``true``, which will ensure that security settings for existing files remain unchanged.
+
+.. end_tag
 
 Providers
 =====================================================
-.. include:: ../../includes_resources_common/includes_resources_common_provider.rst
+.. tag resources_common_provider
 
-.. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
+Where a resource represents a piece of the system (and its desired state), a provider defines the steps that are needed to bring that piece of the system from its current state into the desired state.
 
-.. include:: ../../includes_resources/includes_resource_file_providers.rst
+.. end_tag
+
+.. tag resources_common_provider_attributes
+
+The chef-client will determine the correct provider based on configuration data collected by Ohai at the start of the chef-client run. This configuration data is then mapped to a platform and an associated list of providers.
+
+Generally, it's best to let the chef-client choose the provider, and this is (by far) the most common approach. However, in some cases, specifying a provider may be desirable. There are two approaches:
+
+* Use a more specific short name---``yum_package "foo" do`` instead of ``package "foo" do``, ``script "foo" do`` instead of ``bash "foo" do``, and so on---when available
+* Use the ``provider`` property within the resource block to specify the long name of the provider as a property of a resource. For example: ``provider Chef::Provider::Long::Name``
+
+.. end_tag
+
+.. tag resource_file_providers
+
+This resource has the following providers:
+
+``Chef::Provider::File``, ``file``
+   The default provider for all platforms.
+
+.. end_tag
 
 Examples
 =====================================================
@@ -48,32 +413,140 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Create a file**
 
-.. include:: ../../step_resource/step_resource_file_create.rst
+.. tag resource_file_create
+
+.. To create a file:
+
+.. code-block:: ruby
+
+   file '/tmp/something' do
+     owner 'root'
+     group 'root'
+     mode '0755'
+     action :create
+   end
+
+.. end_tag
 
 **Create a file in Microsoft Windows**
 
-.. include:: ../../step_resource/step_resource_file_create_in_windows.rst
+.. tag resource_file_create_in_windows
+
+To create a file in Microsoft Windows, be sure to add an escape character---``\``---before the backslashes in the paths:
+
+.. code-block:: ruby
+
+   file 'C:\\tmp\\something.txt' do
+     rights :read, 'Everyone'
+     rights :full_control, 'DOMAIN\\User'
+     action :create
+   end
+
+.. end_tag
 
 **Remove a file**
 
-.. include:: ../../step_resource/step_resource_file_remove.rst
+.. tag resource_file_remove
+
+.. To remove a file:
+
+.. code-block:: ruby
+
+   file '/tmp/something' do
+     action :delete
+   end
+
+.. end_tag
 
 **Set file modes**
 
-.. include:: ../../step_resource/step_resource_file_set_file_mode.rst
+.. tag resource_file_set_file_mode
+
+.. To set a file mode:
+
+.. code-block:: ruby
+
+   file '/tmp/something' do
+     mode '0755'
+   end
+
+.. end_tag
 
 **Delete a repository using yum to scrub the cache**
 
-.. include:: ../../step_resource/step_resource_yum_package_delete_repo_use_yum_to_scrub_cache.rst
+.. tag resource_yum_package_delete_repo_use_yum_to_scrub_cache
+
+.. To delete a repository while using Yum to scrub the cache to avoid issues:
+
+.. code-block:: ruby
+
+   # the following code sample thanks to gaffneyc @ https://gist.github.com/918711
+
+   execute 'clean-yum-cache' do
+     command 'yum clean all'
+     action :nothing
+   end
+
+   file '/etc/yum.repos.d/bad.repo' do
+     action :delete
+     notifies :run, 'execute[clean-yum-cache]', :immediately
+     notifies :create, 'ruby_block[reload-internal-yum-cache]', :immediately
+   end
+
+.. end_tag
 
 **Add the value of a data bag item to a file**
 
-.. include:: ../../step_resource/step_resource_file_content_data_bag.rst
+.. tag resource_file_content_data_bag
+
+The following example shows how to get the contents of a data bag item named ``impossible_things``, create a .pem file located at ``some/directory/path/``, and then use the ``content`` attribute to update the contents of that file with the value of the ``impossible_things`` data bag item:
+
+.. code-block:: ruby
+
+   private_key = data_bag_item('impossible_things', private_key_name)['private_key']
+
+   file "some/directory/path/#{private_key_name}.pem" do
+     content private_key
+     owner 'root'
+     group 'group'
+     mode '0755'
+   end
+
+.. end_tag
 
 **Write a YAML file**
 
-.. include:: ../../step_resource/step_resource_file_content_yaml_config.rst
+.. tag resource_file_content_yaml_config
+
+The following example shows how to use the ``content`` property to write a YAML file:
+
+.. code-block:: ruby
+
+   file "#{app['deploy_to']}/shared/config/settings.yml" do
+     owner "app['owner']"
+     group "app['group']"
+     mode '0755'
+     content app.to_yaml
+   end
+
+.. end_tag
 
 **Write a string to a file**
 
-.. include:: ../../step_resource/step_resource_file_content_add_string.rst
+.. tag resource_file_content_add_string
+
+The following example specifies a directory, and then uses the ``content`` property to add a string to the file created in that directory:
+
+.. code-block:: ruby
+
+   status_file = '/path/to/file/status_file'
+
+   file status_file do
+     owner 'root'
+     group 'root'
+     mode '0755'
+     content 'My favourite foremost coastal Antarctic shelf, oh Larsen B!'
+   end
+
+.. end_tag
+

@@ -1,10 +1,19 @@
-.. THIS PAGE DOCUMENTS chef-client version 11.12
+
 
 =====================================================
 client.rb
 =====================================================
 
-.. include:: ../../includes_config/includes_config_rb_client.rst
+.. tag config_rb_client_27
+
+A client.rb file is used to specify the configuration details for the chef-client.
+
+* This file is loaded every time this executable is run
+* On UNIX- and Linux-based machines, the default location for this file is ``/etc/chef/client.rb``; on Microsoft Windows machines, the default location for this file is ``C:\chef\client.rb``; use the ``--config`` option from the command line to change this location
+* This file is not created by default
+* When a client.rb file is present in the default location, the settings contained within that client.rb file will override the default configuration settings
+
+.. end_tag
 
 Settings
 =====================================================
@@ -53,7 +62,7 @@ This configuration file has the following settings:
    The maximum size (in bytes) of a diff file created by the chef-client. Default value: ``1000000``.
 
 ``enable_reporting``
-   Cause the chef-client to send data to the Chef server for use with Reporting. 
+   Cause the chef-client to send data to the Chef server for use with Reporting.
 
    .. warning:: This setting is available only when using Reporting, an add-on for Enterprise Chef that collects reporting data about nodes.
 
@@ -77,7 +86,11 @@ This configuration file has the following settings:
 ``file_atomic_update``
    Apply atomic file updates to all resources. Set to ``true`` for global atomic file updates. Set to ``false`` for global non-atomic file updates. (Use the ``atomic_update`` setting on a per-resource basis to override this setting.) Default value: ``true``.
 
-   .. warning:: .. include:: ../../includes_notes/includes_notes_config_rb_no_file_atomic_update.rst
+   .. warning:: .. tag notes_config_rb_no_file_atomic_update
+
+                Changing this setting to ``false`` may cause file corruption, data loss, or instability. Use the ``atomic_update`` property on the **cookbook_file**, **file**, **remote_file**, and **template** resources to tune this behavior at the recipe level.
+
+                .. end_tag
 
 ``file_backup_path``
    The location in which backup files are stored. If this value is empty, backup files are stored in the directory of the target file. Default value: ``/var/chef/backup``.
@@ -174,10 +187,10 @@ This configuration file has the following settings:
 
 ``ssl_verify_mode``
    Set the verify mode for HTTPS requests.
-       
+
    * Use ``:verify_none`` to do no validation of SSL certificates.
    * Use ``:verify_peer`` to do validation of all SSL certificates, including the Chef server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in the chef-client run. This is the recommended setting.
-       
+
    Depending on how OpenSSL is configured, the ``ssl_ca_path`` may need to be specified.
 
 ``syntax_check_cache_path``
@@ -219,6 +232,81 @@ This configuration file has the following settings:
 Ohai Settings
 =====================================================
 
-.. include:: ../../includes_config/includes_config_rb_ohai.rst
+.. tag config_rb_ohai
 
-.. include:: ../../includes_config/includes_config_rb_12-4_ohai_settings.rst
+Ohai configuration settings can be added to the client.rb file.
+
+.. end_tag
+
+.. tag 4_ohai_settings
+
+``Ohai::Config[:directory]``
+   The directory in which Ohai plugins are located.
+
+``Ohai::Config[:disabled_plugins]``
+   An array of Ohai plugins to be disabled on a node. The list of plugins included in Ohai can be found in the ``ohai/lib/ohai/plugins`` directory. For example, disabling a single plugin:
+
+   .. code-block:: ruby
+
+      Ohai::Config[:disabled_plugins] = [
+        :MyPlugin
+      ]
+
+    or disabling multiple plugins:
+
+   .. code-block:: ruby
+
+      Ohai::Config[:disabled_plugins] = [
+        :MyPlugin, 
+        :MyPlugin, 
+        :MyPlugin
+      ]
+
+   and to disable multiple plugins, including Ohai 6 plugins:
+
+   .. code-block:: ruby
+
+      Ohai::Config[:disabled_plugins] = [
+		:MyPlugin, 
+        :MyPlugin, 
+        'my_ohai_6_plugin'
+      ]
+
+   When a plugin is disabled, the chef-client log file will contain entries similar to:
+
+   .. code-block:: ruby
+
+      [2014-06-13T23:49:12+00:00] DEBUG: Skipping disabled plugin MyPlugin
+
+``Ohai::Config[:hints_path]``
+   The path to the file that contains hints for Ohai.
+
+``Ohai::Config[:log_level]``
+   The level of logging to be stored in a log file.
+
+``Ohai::Config[:log_location]``
+   The location of the log file.
+
+``Ohai::Config[:plugin_path]``
+   An array of paths at which Ohai plugins are located. Default value: ``[<CHEF_GEM_PATH>/ohai-9.9.9/lib/ohai/plugins]``. When custom Ohai plugins are added, the paths must be added to the array. For example, a single plugin:
+
+   .. code-block:: ruby
+
+      Ohai::Config[:plugin_path] << '/etc/chef/ohai_plugins'
+
+   and for multiple plugins:
+
+   .. code-block:: ruby
+
+      Ohai::Config[:plugin_path] += [
+        '/etc/chef/ohai_plugins',
+        '/path/to/other/plugins'
+        ]
+
+``Ohai::Config[:version]``
+   The version of Ohai.
+
+.. note:: The Ohai executable ignores settings in the client.rb file when Ohai is run independently of the chef-client.
+
+.. end_tag
+

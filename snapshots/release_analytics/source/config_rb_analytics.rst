@@ -1,10 +1,14 @@
-.. THIS PAGE IS LOCATED AT THE /release/analytics/ PATH.
+
 
 =====================================================
 opscode-analytics.rb
 =====================================================
 
-.. include:: ../../includes_analytics/includes_analytics_legacy.rst 
+.. tag analytics_legacy
+
+.. note:: This topic is meant to support existing customers using Analytics. The visibility capabilities of Chef Automate replace the features and functionality of Chef Analytics and we encourage customers to adopt Chef Automate going forward.
+
+.. end_tag
 
 The opscode-analytics.rb file contains all of the non-default configuration settings used by the Chef Analytics add-on for the Chef server.  (The default settings are built-in to the Chef Analytics configuration and should only be added to the opscode-analytics.rb file to apply non-default values.)
 
@@ -14,7 +18,11 @@ The configuration file is located at: ``/etc/opscode-analytics/opscode-analytics
 
 .. note:: If the opscode-analytics.rb file does not exist, create a file called ``opscode-analytics.rb`` and put it in the ``/etc/opscode-analytics/`` directory.
 
-.. note:: .. include:: ../../includes_chef/includes_chef_subscriptions.rst
+.. note:: .. tag chef_subscriptions
+
+          This feature is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
+
+          .. end_tag
 
 Example
 ==========================================================================
@@ -95,8 +103,6 @@ The following settings are often modified from the default as part of the tuning
      - The HTTP URL for Chef management console. If your Chef server has a Chef management console installation which is on a different port or host from the Chef server API, specify the full URL to the root of the Chef management console installation here, e.g. ``"http://manage.example.com:8080"``.
    * - ``actions['session_expiry']``
      - Expiration time for web client sessions (in minutes). If web clients are timing out too quickly, increase this setting. Default value: ``30``.
-
-
 
 paritioning
 ----------------------------------------------------

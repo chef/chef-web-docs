@@ -1,22 +1,110 @@
-.. THIS PAGE IS LOCATED AT THE /release/analytics/ PATH.
+
 
 =====================================================
 Chef Analytics Rules
 =====================================================
 
-.. include:: ../../includes_analytics/includes_analytics_legacy.rst 
+.. tag analytics_legacy
 
-.. include:: ../../includes_analytics_rules/includes_analytics_rules.rst
+.. note:: This topic is meant to support existing customers using Analytics. The visibility capabilities of Chef Automate replace the features and functionality of Chef Analytics and we encourage customers to adopt Chef Automate going forward.
 
-.. note:: .. include:: ../../includes_chef/includes_chef_subscriptions.rst
+.. end_tag
+
+.. tag analytics_rules_summary
+
+Chef Analytics includes a powerful rules processing system that allows notifications to be generated based on observed events in the data stream, such as:
+
+* Cookbook uploads
+* Modifications to environments
+* Machines on which chef-client runs have failed
+* Machines on which audit-mode runs have failed
+* Resources that were updated as a result of a chef-client run
+
+Notifications may be sent to any email address, a chat service like HipChat or Slack, or to a webhook-based service for generic intergrations.
+
+.. end_tag
+
+.. note:: .. tag chef_subscriptions
+
+          This feature is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
+
+          .. end_tag
 
 Rule Syntax
 =====================================================
-.. include:: ../../includes_analytics_rules/includes_analytics_rules_syntax.rst
+.. tag analytics_rules_syntax
+
+The syntax for a Chef Analytics rule is as follows:
+
+.. code-block:: none
+
+   rules 'name'
+     with priority=n
+     rule 'name' on message_type
+     when
+       // comment
+       function()
+     then
+       // comment
+       function()
+     otherwise
+       // comment
+       function()
+     end
+
+     rule ...
+       ...
+     end
+
+     ...
+   end
+
+where:
+
+* ``rules`` defines a rules group which is comprised of individual rules (``rule``)
+* ``rule`` defines an individual rule; each rule must be contained in its own ``rule`` block
+* ``with priority=n`` is a positive or negative integer that defines the relative priority of a rules group as compared to all other rules groups
+* ``'name'`` is name of the rule group and/or the name of the rule; required for ``rules``, optional for each ``rule``
+* ``message_type`` is one of the following: ``action``, ``run_control``, ``run_control_group``, ``run_converge``, ``run_resource``, or ``run_start``
+* ``when`` is a series of evaluations that result in ``true`` or ``false``
+* ``then`` is a comma-separated group of statements that are used to test data
+* ``otherwise`` is a comma-separated group of statements that are used to test data
+* ``function()`` is a statement that tests a value in the JSON object; functions may be one of ``array:contains()``, ``alert:<level>()``, ``datetime:component()``, ``get()``, ``log()``, or ``mustache_template()``. (See "Functions" below for more information about the individual functions.)
+* A comment starts with two forward slashes--``//``---and continues to the end of the line on which the comment begins
+* Whitespace is ignored by the rules parser unless it contained within single- or double-quoted strings. For example, the parser will preserve the white space in ``'white space'`` and ``"white space"``
+
+.. end_tag
+
+.. _analytics_rules-message-types:
 
 Message Types
 -----------------------------------------------------
-.. include:: ../../includes_analytics_rules/includes_analytics_rules_syntax_message_types.rst
+.. tag analytics_rules_syntax_message_types
+
+Each individual ``rule`` must be associated with a specific message type. As a rule is triggered during the chef-client run, a message is sent to the Chef Analytics server. A rule may be configured to send notifications about a message to recipients that are located outside of the Chef Analytics server.
+
+A message type must be one of the following:
+
+.. list-table::
+   :widths: 60 420
+   :header-rows: 1
+
+   * - Message Type
+     - Description
+   * - ``action``
+     - Use to build rules for messages about actions that occur on the Chef server.
+   * - ``run_control``
+     - Use to build rules for a single audit to be evaluated.
+   * - ``run_control_group``
+     - Use to build rules for a group of audits to be evaluated.
+   * - ``run_converge``
+     - Use to build rules for messages that are sent at the end of a chef-client run.
+   * - ``run_resource``
+     - Use to build rules for messages that are sent as each resource is converged during a chef-client run.
+   * - ``run_start``
+     - Use to build rules for messages that are sent at the start of a chef-client run.
+
+.. end_tag
 
 when
 -----------------------------------------------------
@@ -79,7 +167,7 @@ An expression defines a specific test in a rule and uses fields within the expre
 
    array:contains(run_list, 'role[opscode-reporting]')
 
-where both ``total_resource_count``, ``updated_resource_count``, and ``run_list`` are the `fields specific to a message type <https://docs.chef.io/analytics_rules.html#message-types>`_.
+where both ``total_resource_count``, ``updated_resource_count``, and ``run_list`` are the :ref:`fields specific to a message type <analytics_rules-message-types>`.
 
 then
 -----------------------------------------------------
@@ -253,7 +341,7 @@ Numbers may be compared with the following operators:
      - Less than equal.
 
 .. note:: If a number is compared to a non-number, the rule will not match and an error is logged.
-	 
+
 For example, all of the following are valid numbers:
 
 .. code-block:: ruby
@@ -379,11 +467,11 @@ Use the following to match boundaries:
    * - ``\b``
      - Use to match a word boundary.
    * - ``\B``
-     - Use to match a non-word boundary.	 
+     - Use to match a non-word boundary.
 
 Nested Fields, Arrays
 -----------------------------------------------------
-Some messages that contain nested fields or arrays. 
+Some messages that contain nested fields or arrays.
 
 * Use dot syntax---``.foo``---to access integer values in nested fields.
 * Use square bracket syntax---``[index]``---to access integer values in arrays.
@@ -575,7 +663,7 @@ The following fields are available for the ``run_control_group`` message type:
      - The error reported by the chef-client. For example:
 
        .. code-block:: javascript
-       
+
           "error": {
             "class": "#<TypeError: user[chef] (/var/file.rb line 56) has error",
             "message": "user[chef] (/var/file.rb line 87) has error",
@@ -626,7 +714,6 @@ The following fields are available for the ``run_control_group`` message type:
      - string
      - The status of the control object. For example: ``'failure'``.
 
-
 run_converge
 -----------------------------------------------------
 The following fields are available for the ``run_converge`` message type:
@@ -649,7 +736,7 @@ The following fields are available for the ``run_converge`` message type:
      - The details of errors that occurred during the chef-client run, if present. For example:
 
        .. code-block:: javascript
-       
+
           "error": {
             "class": "#<TypeError: user[chef] (/var/file.rb line 87) has error",
             "message": "user[chef] (/var/file.rb line 87) has error",
@@ -741,9 +828,9 @@ The following fields are available for the ``run_resource`` message type:
    * - ``delta``
      - string
      - The difference between the intial and final value of resource. For example:
-       
+
        .. code-block:: none
-       
+
           --- /etc/motd.tail
           2013-06-30 17:41:31.667050237 -0600\n
           +++ /tmp/chef-rendered-template 18:11:54.7 -0600\n
@@ -992,7 +1079,7 @@ where:
 * ``notificationName`` is the name of the notification to trigger.
 * ``stringTemplate`` is an optional Mustache template that defines the notification. The template must evaluate to a valid JSON string.
 
-Field names in the Mustache template must be prefixed by ``message.``, e.g. ``{{message.reported_at}}`` using `a valid field name for the message type <https://docs.chef.io/analytics_rules.html#message-types>`_. For more information on the Mustache template format, see https://mustache.github.io.
+Field names in the Mustache template must be prefixed by ``message.``, e.g. ``{{message.reported_at}}`` using :ref:`a valid field name for the message type <analytics_rules-message-types>`. For more information on the Mustache template format, see https://mustache.github.io.
 
 For example:
 
@@ -1061,7 +1148,30 @@ where every ``action`` will notify ``"some_alias"``.
 
 Raise Audit
 -----------------------------------------------------
-.. include:: ../../step_analytics_rules/step_analytics_rules_raise_audit.rst
+.. tag analytics_rules_raise_audit
+
+The following rule raises an alert when a ``run_control_group`` fails, signifying that one or more controls failed:
+
+.. code-block:: javascript
+
+    rules "throw errors on control group failure"
+     rule on run_converge
+     when
+       true
+     then
+       alert:info("Run converge detected at {{ message.end_time }} ")
+     end
+
+     rule on run_control_group
+     when
+       true
+     then
+       // the run_control_group name will appear in double quotes
+       alert:info("Run control group \"{{ message.name }}\" failed on {{ message.run.node_name }}")
+     end
+   end
+
+.. end_tag
 
 .. _analytics_rules_send_a_notification:
 
@@ -1092,7 +1202,47 @@ The below rule would trigger this notification for every ``run_start`` message:
 
 Regular Expressions
 -----------------------------------------------------
-.. include:: ../../step_analytics_rules/step_analytics_rules_regular_expression.rst
+.. tag analytics_rules_regular_expression
+
+The following rule shows using a regular expression:
+
+.. code-block:: none
+
+   rules "user-agent matching"
+     rule on action
+     when
+       get(#user_agent, false) != false
+     then
+       log("Something else set #user_agent")
+     end
+
+     rule on action
+     when
+       // match if the user_agent starts with the string "Chef Manage"
+       user_agent =~ "Chef Manage.*"
+     then
+       // if #user_agent has been set before
+       // this command will overwrite it's value
+     set(#user_agent, "Chef Manage")
+     end
+
+     rule on action
+     when
+       // match if the user_agent starts with the string "Chef Client"
+       user_agent =~ "Chef Client.*"
+     then
+       set(#user_agent, "Chef Client")
+     end
+
+     rule on action
+     when
+       get(#user_agent, false) != false
+     then
+       alert:info("User agent {{user_defined_values.#user_agent}}")
+     end
+   end
+
+.. end_tag
 
 Notify on Port 23
 -----------------------------------------------------
@@ -1128,9 +1278,9 @@ The following rule sets, and then uses a user-defined value:
      otherwise
        set(#bar, task)
      end
-   
+
      // ... other rules could go here
-   
+
      rule on action
      when
        // #foo might be undefined, so use get()
@@ -1161,8 +1311,40 @@ The following rule checks the day of the week on which an action runs:
 
 Verify Resource Updates
 -----------------------------------------------------
-.. include:: ../../step_analytics_rules/step_analytics_rules_verify_resource_updates.rst
+.. tag analytics_rules_verify_resource_updates
+
+The following rule verifies if resources have been updated on a ``run_converge``:
+
+.. code-block:: ruby
+
+   rules "Match a run converge"
+     rule on run_converge
+     when
+       total_resource_count > 1 and 
+       updated_resource_count > 0
+     then
+       alert:info("Run converge detected at {{ message.end_time }} ")
+     end
+   end
+
+.. end_tag
 
 Verify Run-lists
 -----------------------------------------------------
-.. include:: ../../step_analytics_rules/step_analytics_rules_verify_run_lists.rst
+.. tag analytics_rules_verify_run_lists
+
+The following rule verfies if a specific role appears in a run-list:
+
+.. code-block:: ruby
+
+   rules "Check a converge run_list"
+     rule on run_converge
+     when
+       array:contains(run_list, 'role[opscode-reporting]')
+     then
+       alert:info("run_list contains role[opscode-reporting]")
+     end
+   end
+
+.. end_tag
+

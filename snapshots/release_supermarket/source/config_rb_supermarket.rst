@@ -1,11 +1,14 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/config_rb_supermarket.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/supermarket/ PATH.
+
 
 =====================================================
 supermarket.rb Settings
 =====================================================
 
-.. include:: ../../includes_config/includes_config_rb_supermarket.rst
+.. tag config_rb_supermarket_summary
+
+The supermarket.rb file contains all of the non-default configuration settings used by the Chef Supermarket. (The default settings are built-in to the Chef Supermarket configuration and should only be added to the supermarket.rb file to apply non-default values.) These configuration settings are processed when the ``supermarket-ctl reconfigure`` command is run, such as immediately after setting up Chef Supermarket or after making a change to the underlying configuration settings after the server has been deployed. The supermarket.rb file is a Ruby file, which means that conditional statements can be used in the configuration file.
+
+.. end_tag
 
 .. note:: The supermarket.rb file does not exist by default. To modify the settings for the Chef server, create a file named ``supermarket.rb`` in the ``/etc/supermarket/`` directory.
 
@@ -99,28 +102,20 @@ CLA
 This configuration file has the following settings for the Chef Supermarket Contributor License Agreement (CLA):
 
 ``supermarket['ccla_version']``
-   
 
 ``supermarket['cla_report_email']``
-   
 
 ``supermarket['cla_signature_notification_email']``
-   
 
 ``supermarket['curry_cla_location']``
-   
 
 ``supermarket['curry_success_label']``
-   
 
 ``supermarket['icla_location']``
-   
 
 ``supermarket['icla_version']``
-   
 
 ``supermarket['seed_cla_data']``
-   
 
 Database
 -----------------------------------------------------
@@ -149,7 +144,6 @@ Nginx
 This configuration file has the following settings for Nginx:
 
 ``supermarket['nginx']['access_log_options']``
-   
 
 ``supermarket['nginx']['cache']['directory']``
    Default value: ``"#{node['supermarket']['var_directory']}/nginx//cache"``.
@@ -158,7 +152,6 @@ This configuration file has the following settings for Nginx:
    Default value: ``false``.
 
 ``supermarket['nginx']['client_body_buffer_size']``
-   
 
 ``supermarket['nginx']['client_max_body_size']``
    The maximum accepted body size for a client request, as indicated by the ``Content-Length`` request header. When the maximum accepted body size is greater than this value, a ``413 Request Entity Too Large`` error is returned. Default value: ``250m``.
@@ -179,13 +172,11 @@ This configuration file has the following settings for Nginx:
    Default value: ``false``.
 
 ``supermarket['nginx']['error_log_options']``
-   
 
 ``supermarket['nginx']['enable']``
    Enable a service. Default value: ``true``.
 
 ``supermarket['nginx']['event']``
-   
 
 ``supermarket['nginx']['force_ssl']``
    Default value: ``true``.
@@ -197,7 +188,6 @@ This configuration file has the following settings for Nginx:
    Enable  gzip compression. Default value: ``on``.
 
 ``supermarket['gzip_buffers']``
-   
 
 ``supermarket['nginx']['gzip_comp_level']``
    The compression level used with gzip, from least amount of compression (``1``, fastest) to the most (``2``, slowest). Default value: ``2``.
@@ -245,7 +235,6 @@ This configuration file has the following settings for Nginx:
    Default value: ``"#{node['supermarket']['nginx']['directory']}/nginx.pid"``.
 
 ``supermarket['nginx']['proxy_read_timeout']``
-   
 
 ``supermarket['nginx']['redirect_to_canonical']``
    Default value: ``true``.
@@ -257,7 +246,6 @@ This configuration file has the following settings for Nginx:
    Default value: ``64``.
 
 ``supermarket['nginx']['server_tokens']``
-   
 
 ``supermarket['nginx']['ssl_port']``
    Default value: ``443``.
@@ -275,7 +263,6 @@ This configuration file has the following settings for Nginx:
    The maximum number of simultaneous clients. Use with ``nginx['worker_processes']`` to determine the maximum number of allowed clients. Default value: ``1024``.
 
 ``supermarket['nginx']['worker_rlimit_nofile']``
-   
 
 ``supermarket['nginx']['worker_processes']``
    The number of allowed worker processes. Use with ``nginx['worker_connections']`` to determine the maximum number of allowed clients. Default value: ``node['cpu'] && node['cpu']['total'] ? node['cpu']['total'] : 1``.
@@ -285,10 +272,8 @@ Oauth2
 This configuration file has the following settings for the Chef server identity service:
 
 ``supermarket['chef_oauth2_app_id']``
-   
 
 ``supermarket['chef_oauth2_secret']``
-   
 
 ``supermarket['chef_oauth2_url']``
    Default value: ``node['supermarket']['chef_server_url']``.
@@ -420,16 +405,13 @@ SMTP
 This configuration file has the following settings for SMTP:
 
 ``supermarket['smtp_address']``
-   
 
 ``supermarket['smtp_password']``
-   
 
 ``supermarket['smtp_port']``
    The port on which the service is to listen.
 
 ``supermarket['smtp_user_name']``
-   
 
 SSL
 -----------------------------------------------------
@@ -496,16 +478,13 @@ Unicorn
 This configuration file has the following settings for Unicorn:
 
 ``supermarket['unicorn']['after_fork']``
-   
 
 ``supermarket['unicorn']['copy_on_write']``
    Default value: ``true``.
 
 ``supermarket['unicorn']['before_exec']``
-   
 
 ``supermarket['unicorn']['before_fork']``
-   
 
 ``supermarket['unicorn']['enable_stats']``
    Default value: ``false``.
@@ -529,13 +508,10 @@ This configuration file has the following settings for Unicorn:
    Default value: ``true``.
 
 ``supermarket['unicorn']['stderr_path']``
-   
 
 ``supermarket['unicorn']['stdout_path']``
-   
 
 ``supermarket['unicorn']['unicorn_command_line']``
-   
 
 ``supermarket['unicorn']['worker_processes']``
    The number of allowed worker processes. Default value: ``node['nginx']['worker_processes']``.
@@ -544,7 +520,6 @@ This configuration file has the following settings for Unicorn:
    The amount of time (in seconds) before a worker process times out. Default value: ``15``.
 
 ``supermarket['unicorn']['working_directory']``
-   
 
 URLs
 -----------------------------------------------------

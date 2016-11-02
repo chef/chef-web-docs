@@ -1,14 +1,22 @@
-.. THIS PAGE DOCUMENTS Enterprise Chef server version 11.1
+
 
 =====================================================
 Monitor
 =====================================================
 
-.. include:: ../../includes_server_monitor/includes_server_monitor.rst
+.. tag server_monitor_12
+
+Monitoring the Chef server involves two types of checks: application and system. In addition monitoring the HTTP requests that workstations and nodes are making to the Chef server and per-disk data storage volumes is recommended.
+
+.. end_tag
 
 Application Checks
 =====================================================
-.. include:: ../../includes_server_monitor/includes_server_monitor_application.rst
+.. tag server_monitor_application
+
+Application-level checks should be done periodically to ensure that there is enough disk space, enough memory, and that the front-end and back-end services are communicating.
+
+.. end_tag
 
 CouchDB
 -----------------------------------------------------
@@ -104,58 +112,394 @@ To connect to the **opscode-org-creator** service, use the following command:
 
 Nginx
 -----------------------------------------------------
-.. include:: ../../includes_server_monitor/includes_server_monitor_application_nginx.rst
+.. tag server_monitor_application_nginx
+
+Use Nginx to monitor for services that may be returning 504 errors. Use the following command on a front-end machine:
+
+.. code-block:: bash
+
+   $ grep 'HTTP/1.1" 504' /var/log/opscode/nginx/access.log
+
+and then extract the URLs and sort them by ``uniq`` count:
+
+.. code-block:: bash
+
+   $ grep 'HTTP/1.1" 504' nginx-access.log | cut -d' ' -f8 | sort | uniq -c | sort
+
+In a large installation, restricting these results to a subset of results may be necessary:
+
+.. code-block:: bash
+
+   $ tail -10000 nginx-access.log | grep 'HTTP/1.1" 504' | cut -d' ' -f8 | sort | uniq -c | sort
+
+.. end_tag
 
 PostgreSQL
 -----------------------------------------------------
-.. include:: ../../includes_server_monitor/includes_server_monitor_application_postgresql.rst
+.. tag server_monitor_application_postgresql
+
+psql is the management tool for PostgreSQL. It can be used to obtain information about data stored in PostgreSQL. For more information about psql, see http://www.postgresql.org/docs/manuals/, and then the doc set appropriate for the version of PostgreSQL being used.
+
+To connect to the PostgreSQL database, run the following command:
+
+.. code-block:: bash
+
+   $ cd /opt/opscode/embedded/service/postgresql/
+     export PATH=$PATH:/opt/opscode/bin:/opt/opscode/embedded/bin
+     bin/psql -U opscode_chef
+
+.. warning:: Connecting to the PostgreSQL database should only be done when directed by Chef support services.
+
+.. end_tag
 
 RabbitMQ
 -----------------------------------------------------
-.. include:: ../../includes_server_monitor/includes_server_monitor_application_rabbitmq.rst
+.. tag server_monitor_application_rabbitmq
+
+rabbitmqctl is the management tool for RabbitMQ. It can be used to obtain status information and to ensure that message queuing is running properly. For more information about rabbitmqctl, see https://www.rabbitmq.com/man/rabbitmqctl.1.man.html.
+
+To obtain status information for message queues, run the following command:
+
+.. code-block:: bash
+
+   $ export PATH=$PATH:/opt/opscode/bin:/opt/opscode/embedded/bin
+     rabbitmqctl status
+
+to return something similar to:
+
+.. code-block:: bash
+
+   Status of node rabbit@localhost ...
+   [{pid,3044},
+    {running_applications, [{rabbit,"RabbitMQ","2.7.1"},
+                            {mnesia,"MNESIA CXC 138 12","4.7.1},
+                            {os_mon,"CPO CXC 138 46","2.2.10},
+                            ...
+                            {kernel,"ERTS CXC 138 10","2.15.2"}]},
+    {os,{unix,linux}},
+    {erlang_version,"Erlang R15B02 (erts-5.9.2) [source] [64-bit] ..."},
+    {memory,[{total,96955896},
+             {processes,38634560},
+             ...
+             {ets,5850336}]},
+    {vm_memory_high_watermark,0.39999999995176794},
+    {vm_memory_limit,1658647347}]
+    ... done
+
+.. end_tag
 
 Redis
 -----------------------------------------------------
-.. include:: ../../includes_server_monitor/includes_server_monitor_application_redis.rst
+.. tag server_monitor_application_redis
+
+The **redis_lb** service located on the back end machine handles requests that are made from the Nginx service that is located on all front end machines in a Chef server cluster.
+
+In the event of a disk full condition for the Redis data store, the ``dump.rdb`` (the primary data store ``.rdb`` used by Redis) can become corrupt and saved as a zero byte file.
+
+When this occurs, after the **redis_lb** service started, it's logs will show a statement similar to the following:
+
+.. code-block:: bash
+
+   2015-03-23_16:11:31.44256 [11529] 23 Mar 16:10:09.624 # Server started, Redis version 2.8.2
+   2015-03-23_16:11:31.44256 [11529] 23 Mar 16:10:09.624 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+   2015-03-23_16:11:31.44257 [11529] 23 Mar 16:11:31.438 # Short read or OOM loading DB. Unrecoverable error, aborting now.
+
+The ``dump.rdb`` file will be empty:
+
+.. code-block:: bash
+
+   ls -al /var/opt/opscode/redis_lb/data/
+   total 20
+   drwxr-x--- 2 opscode opscode 4096 Mar 23 15:58 .
+   drwxr-x--- 4 opscode opscode 4096 Dec 22 18:59 ..
+   -rw-r--r-- 1 opscode opscode    0 Mar 23 15:58 dump.rdb
+
+This situation is caused by a bug in Redis where saves are allowed to succeed even when the disk has been full for some time, and not just on edge cases where the disk becomes full as Redis is writing. To fix this issue, do the following:
+
+1. Stop the **redis_lb** service:
+
+   .. code-block:: bash
+
+      chef-server-ctl stop redis_lb
+
+2. Remove the corrupt files:
+
+   .. code-block:: bash
+
+      cd /var/opt/opscode/redis_lb/data
+      rm -fr *rdb
+
+3. Start the **redis_lb** service:
+
+   .. code-block:: bash
+
+      chef-server-ctl start redis_lb
+
+      less /var/log/opscode/redis_lb/current
+      2015-03-23_17:05:18.82516 [28676] 23 Mar 17:05:18.825 * The server is now ready to accept connections on port 16379
+
+4. Reconfigure the Chef server to re-populate Redis:
+
+   .. code-block:: bash
+
+      chef-server-ctl reconfigure
+
+5. Verify that Redis is re-populated, as indicated by the key ``dl_default``:
+
+   .. code-block:: bash
+
+      /opt/opscode/embedded/bin/redis-cli -p 16379 keys \*
+      1) "dl_default"
+
+.. end_tag
 
 System Checks
 =====================================================
-.. include:: ../../includes_server_monitor/includes_server_monitor_system.rst
+.. tag server_monitor_system
+
+System-level checks should be done for the following components: ports, services, and high availability status.
+
+.. end_tag
 
 ha-status
 -----------------------------------------------------
-.. include:: ../../includes_ctl_private_chef/includes_ctl_private_chef_ha_status.rst
+.. tag ctl_private_chef_ha_status
+
+The ``ha-status`` subcommand is used to check the status for services running in a high availability topology. This command will verify the following:
+
+       * The Keepalived daemon is enabled in the config
+       * The DRBD process is enabled in the config
+       * The underlying block device or logical volume for DRBD has been created and configured
+       * The DRBD device exists
+       * The current state of the server is ``master`` or ``backup``; any migration processes have completed
+       * The failover virtual IP address is correctly attached to only the ``master`` node
+       * The DRBD state is correct based on the state of the server being ``master`` or ``backup``
+       * The DRBD mount point is correctly mounted to only the ``master`` node
+       * The DRBD replication IP addresses are pingable
+       * The ``runit`` status of the services are correct (up or down) based on the ``master`` or ``backup`` state of the server
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ private-chef-ctl ha-status
+
+If this command runs successfully, it will return the following:
+
+.. code-block:: bash
+
+   $ [OK] all checks passed.
+
+Otherwise it will print out a list of errors, similar to the following:
+
+.. code-block:: bash
+
+   ...
+   [OK] nginx is running correctly, and I am master.
+   [ERROR] nrpe is not running.
+   [OK] opscode-account is running correctly, and I am master.
+   ...
+   [ERROR] ERRORS WERE DETECTED.
+
+For example:
+
+.. code-block:: bash
+
+   [OK] keepalived HA services enabled
+   [OK] DRBD disk replication enabled
+   [OK] DRBD partition /dev/opscode/drbd found
+   [OK] DRBD device /dev/drbd0 found
+   [OK] cluster status = master
+   [OK] found VIP IP address and I am master
+   [OK] found VRRP communications interface eth1
+   [OK] my DRBD status is Connected/Primary/UpToDate and I am master
+   [OK] my DRBD partition is mounted and I am master
+   [OK] DRBD primary IP address pings
+   [OK] DRBD secondary IP address pings
+   ...
+   [OK] all checks passed.
+
+.. end_tag
 
 opscode-authz
 -----------------------------------------------------
-.. include:: ../../includes_server_monitor/includes_server_monitor_system_authz.rst
+.. tag server_monitor_system_authz
+
+The authz API provides a high-level view of the health of the **opscode-authz** service with a simple endpoint: ``_ping``. This endpoint can be accessed using cURL and GNU Wget. For example:
+
+.. code-block:: bash
+
+   $ curl http://localhost:9463/_ping
+
+This command typically prints a lot of information. Use Python to use pretty-print output:
+
+.. code-block:: bash
+
+   $ curl http://localhost:9463/_ping | python -mjson.tool
+
+.. end_tag
 
 opscode-erchef
 -----------------------------------------------------
-.. include:: ../../includes_server_monitor/includes_server_monitor_system_erchef.rst
+.. tag server_monitor_system_erchef
+
+The status API provides a high-level view of the health of the system with a simple endpoint: ``_status``. This endpoint can be accessed using cURL and GNU Wget. For example:
+
+.. code-block:: bash
+
+   $ curl http://localhost:8000/_status
+
+which will return something similar to:
+
+.. code-block:: bash
+
+   {
+     "status":"pong",
+     "upstreams":{"upstream_service":"pong","upstream_service":"fail",...},
+   }
+
+For each of the upstream services, ``pong`` or ``fail`` is returned. The possible upstream names are:
+
+* ``chef_solr`` (for the **opscode-solr4** service)
+* ``chef_sql`` (for the **postgresql** service)
+* ``oc_chef_authz`` (for the **opscode-authz** service)
+
+If any of the status values return ``fail``, this typically means the Chef server is unavailable for that service.
+
+.. end_tag
 
 opscode-expander
 -----------------------------------------------------
-.. include:: ../../includes_server_monitor/includes_server_monitor_system_expander.rst
+.. tag server_monitor_system_expander
+
+As the queue depth increases it may take longer for updates posted to the Chef server by each chef-client to be added to the search indexes on the Chef server. The depth of this queue should be monitored using the following command:
+
+.. code-block:: bash
+
+   $ cd /opt/opscode/embedded/service/opscode-expander/
+     export PATH=$PATH:/opt/opscode/bin:/opt/opscode/embedded/bin
+
+.. end_tag
 
 Search Indexes
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_search/includes_search.rst
+.. tag search
 
-.. include:: ../../includes_server_monitor/includes_server_monitor_system_expander_search.rst
+Search indexes allow queries to be made for any type of data that is indexed by the Chef server, including data bags (and data bag items), environments, nodes, and roles. A defined query syntax is used to support search patterns like exact, wildcard, range, and fuzzy. A search is a full-text query that can be done from several locations, including from within a recipe, by using the ``search`` subcommand in knife, the ``search`` method in the Recipe DSL, the search box in the Chef management console, and by using the ``/search`` or ``/search/INDEX`` endpoints in the Chef server API. The search engine is based on Apache Solr and is run from the Chef server.
+
+.. end_tag
+
+.. tag server_monitor_system_expander_search
+
+If the search indexes are not being updated properly, first ensure that the **opscode-expander** service is running on the backend machine:
+
+.. code-block:: bash
+
+   $ chef-server-ctl status opscode-expander
+
+and then (if it is not running), start the service:
+
+.. code-block:: bash
+
+   $ chef-server-ctl start opscode-expander
+
+If the **opscode-expander** does not start correctly, then take a look at the ``/var/log/opscode/opscode-expander/current`` log file for error messages.
+
+If the **opscode-expander** is running, check the queue length:
+
+.. code-block:: bash
+
+   $ watch -n1 sudo -E bin/opscode-expanderctl queue-depth
+
+If the number of total messages continues to increase, increase the number of workers available to the **opscode-expander** service.
+
+.. end_tag
 
 opscode-expanderctl
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_ctl_opscode_expander/includes_ctl_opscode_expander.rst
+.. tag ctl_opscode_expander_9
 
-.. include:: ../../includes_ctl_opscode_expander/includes_ctl_opscode_expander_options.rst
+The opscode-expander-ctl executable can be used to generate status information for the **opscode-expander** service. The opscode-expander-ctl executable is run as a command-line tool from the master backend machine.
 
-.. include:: ../../includes_ctl_opscode_expander/includes_ctl_opscode_expander_example.rst
+.. end_tag
+
+.. tag ctl_opscode_expander_options
+
+This tool has the following syntax::
+
+   opscode-expanderctl OPTION
+
+This tool has the following options:
+
+``log-level``
+   Use to show the log level for all nodes in the cluster.
+
+``node-status``
+   Use to show the status for all nodes in the cluster.
+
+``queue-depth``
+   Use to display the aggregate queue backlog.
+
+``queue-status``
+   Use to show the backlog and consumer counts for each vnode queue.
+
+.. end_tag
+
+.. tag ctl_opscode_expander_example
+
+For example, to view the aggregate queue backlog, enter the following:
+
+.. code-block:: bash
+
+   $ cd /opt/opscode/embedded/service/opscode-expander/
+     export PATH=$PATH:/opt/opscode/bin:/opt/opscode/embedded/bin
+     bin/opscode-expanderctl queue-depth
+
+to return something similar to:
+
+.. code-block:: bash
+
+       total messages:       0
+       average queue depth:  0.0
+       max queue depth:      0
+       min queue depth:      0
+
+.. end_tag
 
 Nodes, Workstations
 =====================================================
-.. include:: ../../includes_server_monitor/includes_server_monitor_system_client.rst
+.. tag server_monitor_system_client
+
+If a client makes an HTTP request to the server that returns a non-specific error message, this is typically an issue with the **opscode-chef** or **opscode-erchef** services. View the full error message for these services in their respective log files. The error is most often a stacktrace from the application error. In some cases, the error message will clearly indicate a problem with another service, which can then be investigated further. For non-obvious errors, please contact Chef support services.
+
+.. end_tag
 
 Disks
 =====================================================
-.. include:: ../../includes_server_monitor/includes_server_monitor_system_disk.rst
+.. tag server_monitor_system_disk
+
+Over time, and with enough data, disks will fill up or exceed the per-disk quotas that may have been set for them and they will not be able to write data. A disk that is not able to write data will not be able to support certain components of the Chef server, such as PostgreSQL, RabbitMQ, service log files, and deleted file handles. Monitoring disk usage is the best way to ensure that disks don't fill up or exceed their quota.
+
+Use the following commands to monitor global disk usage on a Chef server with a typical installation:
+
+.. code-block:: bash
+
+   $ du -sh /var/opt/opscode
+
+and:
+
+.. code-block:: bash
+
+   $ du -sh /var/log/opscode
+
+To keep the Chef server healthy, both ``/var/opt/opscode`` and ``/var/log/opscode`` should never exceed 80% use. In situations where disk space grows at a rapid pace, it may be preferable to shut down the Chef server and contact Chef support.
+
+The following components should be monitored for signs that disks may be rapidly filling up:
+
+* **PostgreSQL** PostgreSQL is the data store for the Chef server.
+* **RabbitMQ** The RabbitMQ data folder can fill up if the **opscode-expander** service is not able to keep up with the data being moved into the search database by RabbitMQ. When the **opscode-expander** service falls behind, RabbitMQ will start storing the individual messages on-disk while it waits for the **opscode-expander** service to catch up. If the RabbitMQ disk fills up completely, RabbitMQ will need to be restarted to free up the disk space and any data that was stored on-disk will be lost.
+* **Log files** If ``/var/log/opscode`` is taking up a lot of disk space, ensure that the Chef server log rotation cron job is running without errors. These errors can be found in ``/var/log/messages``, ``/var/log/syslog`` and/or the root user's local mail.
+* **Deleted file handles** Running processes with file handles associated with one (or more) deleted files will prevent the disk space being used by the deleted files from being reclaimed. Use the ``sudo lsof | grep '(deleted)'`` command to find all deleted file handles.
+
+.. end_tag
+

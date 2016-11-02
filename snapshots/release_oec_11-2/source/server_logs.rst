@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS Enterprise Chef server version 11.2
+
 
 =====================================================
 Logs
@@ -30,9 +30,29 @@ Another way to view log files is to use the system utility tail:
 
 tail Log Files
 -----------------------------------------------------
-.. include:: ../../includes_ctl_private_chef/includes_ctl_private_chef_tail.rst
+.. tag ctl_private_chef_tail
 
-.. include:: ../../step_server_services/step_server_services_general_tail.rst
+The ``tail`` subcommand is used to follow all Enterprise Chef logs for all services. This command can also be run for an individual service by specifying the name of the service in the command.
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ private-chef-ctl tail name_of_service
+
+where ``name_of_service`` represents the name of any service that is listed after running the ``service-list`` subcommand.
+
+.. end_tag
+
+.. tag server_services_general_tail
+
+Another common approach to tailing the log files for a service is to use the system utility ``tail``. For example:
+
+.. code-block:: bash
+
+   $ tail -50f /var/log/opscode/opscode-chef/current
+
+.. end_tag
 
 Supervisor
 =====================================================
@@ -140,9 +160,9 @@ A failed request, on the other hand produces a large amount of output. The follo
    2013-08-06_16:05:26.77612  [Tue, 06 Aug 2013 16:05:26 +0000] ERROR: Server returned error for http://1
    2013-08-06_16:05:37.77876  [Tue, 06 Aug 2013 16:05:37 +0000] ERROR: Server returned error for http://1
    2013-08-06_16:05:57.78131  [Tue, 06 Aug 2013 16:05:57 +0000] ERROR: Server returned error for http://1
-   
-   [..SNIP..] 
-   
+
+   [..SNIP..]
+
    2013-08-06_16:06:51.32997  A Net::HTTPFatalError occurred in clients#index:
    2013-08-06_16:06:51.32997  
    2013-08-06_16:06:51.32997    502 "Bad Gateway"
@@ -198,7 +218,15 @@ The ``nginx`` service creates both supervisor and administrator logs. The admini
    * - ``/var/log/opscode/nginx/rewrite-port-80.log``
      - The rewrite logs for traffic that uses HTTP instead of HTTPS.
 
-.. include:: ../../step_server_services/step_server_services_nginx_tail.rst
+.. tag server_services_nginx_tail
+
+To follow the logs for the service:
+
+.. code-block:: bash
+
+   $ chef-server-ctl tail nginx
+
+.. end_tag
 
 Read nginx Logs
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

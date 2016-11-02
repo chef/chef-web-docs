@@ -1,4 +1,4 @@
-.. THIS PAGE IS LOCATED AT THE /decks/ PATH.
+
 
 ================================================
 Technical Overview
@@ -31,22 +31,57 @@ Technical Overview
  .. revealjs:: Resources
 
    Declare the state of the system. For example:
-   
+
    * A package is installed
    * A configuration file exists (and is managed by a template)
    * A service is running
 
  .. revealjs:: package
 
-  .. include:: ../../includes_slides/includes_slides_resources_type_package.rst
+  .. tag slides_resources_type_package
+
+  A package to be installed:
+
+  .. code-block:: ruby
+
+     package 'haproxy' do
+      action :install
+     end
+
+  .. end_tag
 
  .. revealjs:: template
 
-  .. include:: ../../includes_slides/includes_slides_resources_type_template.rst
+  .. tag slides_resources_type_template
+
+  A file to be generated from a template:
+
+  .. code-block:: ruby
+
+     template '/etc/haproxy/haproxy.cfg' do
+       source 'haproxy.cfg.erb'
+       owner 'root'
+       group 'root'
+       mode '0644'
+       notifies :restart, 'service[haproxy]'
+     end
+
+  .. end_tag
 
  .. revealjs:: service
 
-  .. include:: ../../includes_slides/includes_slides_resources_type_service.rst
+  .. tag slides_resources_type_service
+
+  A service that should be started:
+
+  .. code-block:: ruby
+
+     service 'haproxy' do
+       supports :restart => :true
+       action [:enable, :start]
+     end
+
+  .. end_tag
 
  .. revealjs:: Building Blocks: Recipes
 
@@ -59,19 +94,111 @@ Technical Overview
 
  .. revealjs:: Order Matters
 
-  .. include:: ../../includes_slides/includes_slides_recipes_order.rst
+  .. tag slides_recipes_order
+
+  .. code-block:: ruby
+
+     package 'haproxy' do
+      action :install
+     end
+
+     template '/etc/haproxy/haproxy.cfg' do
+       source 'haproxy.cfg.erb'
+       owner 'root'
+       group 'root'
+       mode '0644'
+       notifies :restart, 'service[haproxy]'
+     end
+
+     service 'haproxy' do
+       supports :restart => :true
+       action [:start, :enable]
+     end
+
+  .. end_tag
 
  .. revealjs:: Package Runs First
 
-  .. include:: ../../includes_slides/includes_slides_recipes_order_package.rst
+  .. tag slides_recipes_order_package
+
+  .. code-block:: ruby
+
+     package 'haproxy' do
+       action :install
+     end
+
+  .. code-block:: ruby
+
+     template '/etc/haproxy/haproxy.cfg' do
+       source 'haproxy.cfg.erb'
+       owner 'root'
+       group 'root'
+       mode '0644'
+       notifies :restart, 'service[haproxy]'
+     end
+
+     service 'haproxy' do
+       supports :restart => :true
+       action [:start, :enable]
+     end
+
+  .. end_tag
 
  .. revealjs:: Template Runs Second
 
-  .. include:: ../../includes_slides/includes_slides_recipes_order_template.rst
+  .. tag slides_recipes_order_template
+
+  .. code-block:: ruby
+
+     package 'haproxy' do
+       action :install
+     end
+
+  .. code-block:: ruby
+
+     template '/etc/haproxy/haproxy.cfg' do
+       source 'haproxy.cfg.erb'
+       owner 'root'
+       group 'root'
+       mode '0644'
+       notifies :restart, 'service[haproxy]'
+     end
+
+  .. code-block:: ruby
+
+     service 'haproxy' do
+       supports :restart => :true
+       action [:start, :enable]
+     end
+
+  .. end_tag
 
  .. revealjs:: Service Runs Third
 
-  .. include:: ../../includes_slides/includes_slides_recipes_order_service.rst
+  .. tag slides_recipes_order_service
+
+  .. code-block:: ruby
+
+     package 'haproxy' do
+       action :install
+     end
+
+     template '/etc/haproxy/haproxy.cfg' do
+       source 'haproxy.cfg.erb'
+       owner 'root'
+       group 'root'
+       mode '0644'
+       notifies :restart, 'service[haproxy]'
+     end
+
+  .. code-block:: ruby
+
+     service 'haproxy' do
+       supports :restart => :true
+       action [:start, :enable]
+     end
+
+  .. end_tag
 
  .. revealjs:: Building Blocks: Cookbooks
 
@@ -81,9 +208,9 @@ Technical Overview
 
    * Contain recipes
    * Define steps to address expected outcomes
-   
+
    .. code-block:: none
-          
+
       haproxy
          ├── CHANGELOG.md
          ├── CONTRIBUTING
@@ -106,7 +233,7 @@ Technical Overview
  .. revealjs:: Roles
 
    .. image:: ../../images/blocks_roles_example.svg
-   
+
    .. 
    .. the following is the legacy slide. the question is: does that mean anything if it's in the first overview someone sees? suggestion: make it more visual. the image is just a mockup attempt.
    .. 
@@ -130,7 +257,7 @@ Technical Overview
    ..      recipe[my-app::application]
    ..      recipe[my-app::webserver]
    .. 
-   .. 
+   ..
 
  .. revealjs:: Building Blocks: Environments
 
@@ -139,9 +266,7 @@ Technical Overview
  .. revealjs:: Environments
 
    .. image:: ../../images/blocks_environments_example.svg
-   
-   
-   
+
    .. 
    .. the following is the legacy slide. the question is: does that mean anything if it's in the first overview someone sees? suggestion: make it more visual. the image is just a mockup attempt.
    .. 
@@ -159,7 +284,7 @@ Technical Overview
    ..    json_class:          Chef::Environment
    ..    name:                development
    ..    override_attribute
-   .. 
+   ..
 
  .. revealjs:: Building Blocks: Data Bags
 
@@ -168,9 +293,9 @@ Technical Overview
  .. revealjs:: Data Bags
 
    Define global variables that are accessible to all the things:
-   
+
    .. code-block:: javascript
-   
+
       deploy_key:
         cipher:         aes-256-cbc
         encrypted_data: lIpW3sqd69wXt7+MB+uGXr0GfcrEf6rOnHLMA7H00ZCb
@@ -178,7 +303,7 @@ Technical Overview
                         a0aNhrzrXhT9eDKNpru7hpuEkOZPRNstx1121bdMZ9lh
                         . . . . . . . . . . . . . . 
         iv:             tpz6zFz9xkscoi36kRw4JQ==
-        
+
         version:        1
       id:               jenkins_ssh_key
 
@@ -188,5 +313,11 @@ Technical Overview
 
  .. revealjs:: Questions
 
-   .. include:: ../../includes_slides/includes_slides_core_questions.rst
+   .. tag slides_core_questions
+
+   .. Use this slide every time the slide deck stops for Q/A sessions with attendees.
+
+   .. image:: ../../images/slides_questions.png
+
+   .. end_tag
 

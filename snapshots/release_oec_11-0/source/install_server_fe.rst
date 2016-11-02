@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS Enterprise Chef server version 11.0
+
 
 =====================================================
 Scaled Front End
@@ -174,29 +174,28 @@ Looks like this:
 .. code-block:: ruby
 
    topology "tier"
-   
+
    server "be1.example.com",
      :ipaddress => "192.168.4.1",
      :role => "backend",
      :bootstrap => true
-   
+
    backend_vip "be1.example.com",
      :ipaddress => "192.168.4.1"
-   
+
    server "fe1.example.com",
      :ipaddress => "192.168.4.2",
      :role => "frontend"
-   
+
    server "fe2.example.com",
      :ipaddress => "192.168.4.3",
      :role => "frontend"
-   
+
    server "fe3.example.com",
      :ipaddress => "192.168.4.4",
      :role => "frontend"
-   
-   api_fqdn "chef.example.com"
 
+   api_fqdn "chef.example.com"
 
 Add Package to Servers
 =====================================================
@@ -209,7 +208,6 @@ The following sections describe what is required to configure the bootstrap serv
 Add private-chef.rb
 -----------------------------------------------------
 Copy the private-chef.rb file to ``/etc/opscode/private-chef.rb`` on the bootstrap server.
-
 
 Configure 
 -----------------------------------------------------
@@ -254,7 +252,6 @@ Install the Chef server package on Ubuntu:
 .. code-block:: bash
 
    $ dpkg -i /tmp/chef-server-core-<version>.deb
-
 
 Reconfigure the Server
 -----------------------------------------------------

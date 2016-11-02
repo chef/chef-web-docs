@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS Open Source Chef server version 11.1
+
 
 =====================================================
 Install Open Source Chef
@@ -13,13 +13,13 @@ To install the Open Source Chef server:
 #. Install the Chef server package on the server, using the name of the package provided by Chef. For Red Hat and CentOS 6:
 
    .. code-block:: bash
-      
+
       $ rpm -Uvh /tmp/chef-server-core-<version>.rpm
 
    For Ubuntu:
 
    .. code-block:: bash
-      
+
       $ dpkg -i /tmp/chef-server-core-<version>.deb
 
    The Chef server is now installed on the server.
@@ -27,11 +27,8 @@ To install the Open Source Chef server:
 #. Run the following to start all of the services:
 
    .. code-block:: bash
-      
+
       $ chef-server-ctl reconfigure
 
    Because the Chef server is composed of many different services that work together to create a functioning system, this step may take a few minutes to complete.
-
-
-
 

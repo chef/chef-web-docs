@@ -1,20 +1,40 @@
-.. THIS PAGE DOCUMENTS chef-client version 11.6
+
 
 =====================================================
 knife index rebuild
 =====================================================
 
-.. include:: ../../includes_knife/includes_knife_index_rebuild.rst
+.. tag knife_index_rebuild_9
 
-.. warning:: .. include:: ../../includes_notes/includes_notes_knife_server_10x_only.rst
+Use the ``knife index rebuild`` subcommand to rebuild the search indexes for the open source Chef server. This operation is destructive and may take some time.
+
+.. end_tag
+
+.. warning:: .. tag notes_knife_server_10x_only
+
+             This subcommand ONLY works when run against the open source Chef server version 10.x. This subcommand will NOT run against open source Chef server 11, Enterprise Chef (including hosted Enterprise Chef), or Private Chef.
+
+             .. end_tag
 
 Syntax
 =====================================================
-.. include:: ../../includes_knife/includes_knife_index_rebuild_syntax.rst
+.. tag knife_index_rebuild_syntax
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ knife index rebuild
+
+.. end_tag
 
 Options
 =====================================================
-.. note:: .. include:: ../../includes_knife/includes_knife_common_see_common_options_link.rst
+.. note:: .. tag knife_common_see_common_options_link
+
+          Review the list of :doc:`common options </knife_common_options>` available to this (and all) knife subcommands and plugins.
+
+          .. end_tag
 
 This command does not have any specific options.
 

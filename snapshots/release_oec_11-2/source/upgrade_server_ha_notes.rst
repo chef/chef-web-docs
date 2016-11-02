@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS Enterprise Chef server version 11.2
+
 
 ======================================================
 Notes for High Availability Enterprise Chef Upgrades 
@@ -13,12 +13,10 @@ All upgrades should be performed first with a copy of production data, but in an
 
 Backups are good to have for many reasons, at all times. This is especially true during upgrades. Therefore, ensure that tested backups are available during the entire upgrade process.
 
-
 Upgrading from Private Chef 1.2.x
 =====================================================
 
 Upgrading from Private Chef 1.2.x to any version of Enterprise Chef 11 **REQUIRES** that Private Chef 1.2.x first be upgraded (on all systems) to Private Chef 1.4.6+.
-
 
 Upgrading from Private Chef 1.4.6+ to Enterprise Chef 11.1.3+
 ===========================================================================
@@ -53,7 +51,6 @@ Before Enterprise Chef 11.1.8:
 
 .. warning:: Check runsvdir status during the upgrade, especially between each upgrade of the system. Here is an example of the highest level upgrade process that should be followed: check runsvdir status -> Private Chef 1.2.x -> check runsvdir status -> Private Chef 1.4.6+ -> check runsvdir status -> Enterprise Chef 11.1.3+ -> check runsvdir status. See "Runit Process Structure and Checks" below for more information.
 
-
 Pre-Flight Check
 =====================================================
 It is recommended to do the following:
@@ -85,7 +82,7 @@ It is recommended to do the following:
    .. list-table::
       :widths: 200 300
       :header-rows: 1
-   
+
       * - Chef Server Version
         - Migration Level
       * - Private Chef 1.4.6+
@@ -98,7 +95,6 @@ It is recommended to do the following:
 #. While running Private Chef 1.4.6+ and before the upgrade, be sure that the status for runit looks good. See "Runit Process Structure and Checks" below for more information.
 
 #. Before proceeding, make sure that the bootstrap back end machine and all of its services are healthy, and that all services are stopped on the standby. Please check runsvdir status to make a determination about "healthy". See "Runit Process Structure and Checks" below for more information.
-
 
 Upgrade Steps
 =====================================================
@@ -136,7 +132,6 @@ During a 1.4.x to 11.x upgrade, the following services will remain down/unavaila
 
       private-chef-ctl upgrade
 
-   
     See "Runit Process Structure and Checks" below for more information.
 #. Copy the entire ``/etc/opscode`` directory from the bootstrap back end machine to all front end and back end machines. For example, from each machine run:
 
@@ -167,7 +162,6 @@ During a 1.4.x to 11.x upgrade, the following services will remain down/unavaila
    .. code-block:: bash
 
       private-chef-ctl cleanup
-
 
 Runit Process Structure and Checks
 =====================================================
@@ -236,7 +230,7 @@ The following is one specific problem-fix scenario encountered while proceeding 
       getting stuck on the old OPC 1.4.6 processes. This is likely because
       the OPC 1.4.6 runsvdir was no longer able to control the processes through
       incorrect permissions leading to a bad runsvdir state.
-      
+
       2. Just for good measure, I removed the following links that pointed to
       the old process run control directories
       lrwxrwxrwx. 1 root root 24 Feb 3 08:08 fcgiwrap ->/opt/opscode/sv/fcgiwrap
@@ -245,25 +239,24 @@ The following is one specific problem-fix scenario encountered while proceeding 
       lrwxrwxrwx. 1 root root 28 Feb 3 08:07 opscode-chef -> /opt/opscode/sv/opscode-chef
       lrwxrwxrwx. 1 root root 23 Feb 3 08:08 php-fpm -> /opt/opscode/sv/php-fpm
       lrwxrwxrwx. 1 root root 21 Feb 3 08:07 redis -> /opt/opscode/sv/redis
-      
+
       3. We had to cancel the first upgrade attempt, stop opscode-runsvdir and
       private-chef-runsvdir and make sure all their child processes were removed from the process list.
-      
+
       4. chown -R opscode.opscode /var/log/opscode # Fix permissions, so
       that the new runsvdir can do stuff with its runsv and svlogd processes.
-      
-      5. start private-chef-runsvdir
-      
-      6. Wait for good bootstrap master state.
-      
-      7. Check ps aux | grep runsvdir. Status looks good.
-      
-      8. Restart the upgrade.
-      
-      9. Proceeded to the end of the upgrade.
-      
-      10. p-c-c cleanup
 
+      5. start private-chef-runsvdir
+
+      6. Wait for good bootstrap master state.
+
+      7. Check ps aux | grep runsvdir. Status looks good.
+
+      8. Restart the upgrade.
+
+      9. Proceeded to the end of the upgrade.
+
+      10. p-c-c cleanup
 
 Enterprise Chef Patches as of 11.1.8
 ======================================
@@ -282,7 +275,7 @@ Copy this file to ``/opt/opscode/embedded/cookbooks/enterprise/definitions/compo
                                      :action => :enable do
       component = params[:name]
       log_directory = params[:log_directory] || node['private_chef'][component]['log_directory']
-      
+
       template "#{log_directory}/config" do
         source "config.svlogd"
         cookbook "enterprise"
@@ -294,7 +287,7 @@ Copy this file to ``/opt/opscode/embedded/cookbooks/enterprise/definitions/compo
           :svlogd_num  => ( params[:svlogd_num] || node['private_chef'][component]['log_rotation']['num_to_keep'])
         )
       end
-      
+
       runit_service component do
         action :enable
         retries 20
@@ -303,13 +296,13 @@ Copy this file to ``/opt/opscode/embedded/cookbooks/enterprise/definitions/compo
           :log_directory => log_directory
         )
       end
-      
+
       if params[:action] == :down
         log "stop runit_service[#{component}]" do
           notifies :down, "runit_service[#{component}]", :immediately
         end
       end
-      
+
       # Keepalive management
       #
       # Our keepalived setup knows which services it must manage by
@@ -320,15 +313,13 @@ Copy this file to ``/opt/opscode/embedded/cookbooks/enterprise/definitions/compo
         file "#{node['runit']['sv_dir']}/#{component}/keepalive_me" do
           action is_keepalive_service ? :create : :delete
         end
-        
+
         file "#{node['runit']['sv_dir']}/#{component}/down" do
           action is_keepalive_service ? :create : :delete
         end
       end
-      
-    end
-    
 
+    end
 
 OC-11601 patch for Enterprise Chef 11.1.x
 -------------------------------------------
@@ -352,14 +343,14 @@ Copy this file to ``/opt/opscode/embedded/cookbooks/private-chef/recipes/redis_l
     # See the License for the specific language governing permissions and
     # limitations under the License.
     #
-    
+
     redis = node['private_chef']['redis_lb']
     redis_dir = redis['dir']
     redis_etc_dir = File.join(redis_dir, "etc")
     redis_data_dir = redis['data_dir']
     redis_data_dir_symlink = File.join(redis_dir, "data")
     redis_log_dir = redis['log_directory']
-    
+
     [
       redis_dir,
       redis_etc_dir,
@@ -372,16 +363,16 @@ Copy this file to ``/opt/opscode/embedded/cookbooks/private-chef/recipes/redis_l
         recursive true
       end
     end
-    
+
     redis_config = File.join(redis_etc_dir, "redis.conf")
-        
+
     link redis_data_dir_symlink do
       to redis_data_dir
       not_if { redis_data_dir_symlink == redis_data_dir }
     end
-    
+
     component_runit_service "redis_lb"
-    
+
     redis_data = redis
     template redis_config do
       source "redis_lb.conf.erb"
@@ -391,12 +382,12 @@ Copy this file to ``/opt/opscode/embedded/cookbooks/private-chef/recipes/redis_l
       variables(redis_data.to_hash)
       notifies :restart, 'service[redis_lb]', :immediately if is_data_master?
     end
-    
+
     runit_service "redis_lb" do
       action :start
       only_if { is_data_master? }
     end
-    
+
     # log rotation
     template "/etc/opscode/logrotate.d/redis_lb" do
       source "logrotate.erb"
@@ -405,7 +396,7 @@ Copy this file to ``/opt/opscode/embedded/cookbooks/private-chef/recipes/redis_l
       mode "0644"
       variables(redis.to_hash)
     end
-    
+
     #
     # This should be guarded by a test that redis is running.
     #
@@ -430,14 +421,14 @@ Copy this file to ``/opt/opscode/embedded/cookbooks/private-chef/recipes/redis_l
         next while not redis.spop("banned_ips").nil?
         next while not redis.spop("maint_data").nil?
         keys = redis.hkeys "dl_default"
-        
+
         # Clear all dl_default keys except for the 503 mode we just set.
         redis.pipelined do
           keys.each do |key|
             redis.hdel "dl_default", key unless key == "503_mode"
           end
         end
-        
+
         redis.pipelined do
           # Now we're clear to repopulate from configuration.
           if (!banned_ips.nil?)
@@ -458,7 +449,7 @@ Copy this file to ``/opt/opscode/embedded/cookbooks/private-chef/recipes/redis_l
             end
           end
         end
-        
+
         if xdl && xdl.has_key?("503_mode")
           redis.hset "dl_default", "503_mode", xdl["503_mode"]
         else
@@ -467,5 +458,4 @@ Copy this file to ``/opt/opscode/embedded/cookbooks/private-chef/recipes/redis_l
       end
       action :create
     end
-
 

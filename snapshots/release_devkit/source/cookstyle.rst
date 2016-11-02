@@ -1,11 +1,14 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/cookstyle.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/devkit/ PATH.
+
 
 =====================================================
 cookstyle
 =====================================================
 
-.. include:: ../../includes_ruby/includes_ruby_style_patterns.rst
+.. tag ruby_style_patterns
+
+Most of the code that is authored when working with Chef is written as Ruby. Just about every file within a cookbook---with few exceptions!---is a Ruby file.
+
+.. end_tag
 
 cookstyle is a linting tool based on RuboCop designed to address the following issues:
 

@@ -1,19 +1,27 @@
-.. THIS PAGE IS LOCATED AT THE /release/analytics/ PATH.
+
 
 =====================================================
 Automate API
 =====================================================
 
-.. include:: ../../includes_analytics/includes_analytics_legacy.rst 
+.. tag analytics_legacy
+
+.. note:: This topic is meant to support existing customers using Analytics. The visibility capabilities of Chef Automate replace the features and functionality of Chef Analytics and we encourage customers to adopt Chef Automate going forward.
+
+.. end_tag
 
 The Automate API is a REST API that provides access to objects on the Chef Analytics server, including actions, messages, and rules.
 
-.. note:: .. include:: ../../includes_chef/includes_chef_subscriptions.rst
+.. note:: .. tag chef_subscriptions
+
+          This feature is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
+
+          .. end_tag
 
 Encryption
 =====================================================
 All connections to Chef Analytics from any web browser, any API client, and any service uses HTTPS. HTTP access to the Chef Analytics platform is not allowed.
- 
+
 Authentication
 =====================================================
 Chef Analytics uses token-based authentication to the Automate API.
@@ -57,7 +65,7 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     
+
    }
 
 **Response Codes**
@@ -90,7 +98,7 @@ This method has no parameters.
 .. code-block:: xml
 
    GET /actions/ID/payload
-   
+
 **Response**
 
 The response is similar to:
@@ -98,7 +106,7 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     
+
    }
 
 **Response Codes**
@@ -129,7 +137,7 @@ The ``GET`` method is used to get details for the specified audit.
 .. code-block:: xml
 
    GET /organizations/NAME/audits/ID
-   
+
 **Response**
 
 The response is similar to:
@@ -137,7 +145,7 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     
+
    }
 
 **Response Codes**
@@ -166,7 +174,7 @@ This method has no parameters.
 .. code-block:: xml
 
    GET /authentication-configuration
-   
+
 **Response**
 
 The response is similar to:
@@ -201,7 +209,7 @@ The response is similar to:
 .. POST
 .. +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. .. include:: ../../includes_api_analytics/includes_api_analytics_endpoint_messages_post.rst
-.. 
+..
 
 /organization/NAME
 -----------------------------------------------------
@@ -218,7 +226,7 @@ This method has no parameters.
 .. code-block:: xml
 
    GET /organizations/NAME
-   
+
 **Response**
 
 The response is similar to:
@@ -226,7 +234,7 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     
+
    }
 
 **Response Codes**
@@ -268,7 +276,7 @@ This method has the following parameters:
 .. code-block:: xml
 
    GET /searches
-   
+
 **Response**
 
 The response is similar to:
@@ -276,7 +284,7 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     
+
    }
 
 **Response Codes**
@@ -340,7 +348,7 @@ with a request body similar to:
      },
      "required": [ "rule", "modified_by", "with", "active"]
    }
-   
+
 **Response**
 
 The response is similar to:
@@ -348,7 +356,7 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     
+
    }
 
 **Response Codes**
@@ -383,7 +391,7 @@ This method has no parameters.
    DELETE /searches/ID
 
 This method has no request body.
-   
+
 **Response**
 
 The response is similar to:
@@ -391,7 +399,7 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     
+
    }
 
 **Response Codes**
@@ -420,7 +428,7 @@ This method has no parameters.
 .. code-block:: xml
 
    GET /searches/ID
-   
+
 **Response**
 
 The response is similar to:
@@ -428,7 +436,7 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     
+
    }
 
 **Response Codes**
@@ -478,7 +486,7 @@ with a request body similar to:
        }
      }
    }
-   
+
 **Response**
 
 The response is similar to:
@@ -486,7 +494,7 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     
+
    }
 
 **Response Codes**
@@ -536,7 +544,7 @@ with a request body similar to:
        }
      }
    }
-   
+
 **Response**
 
 The response will return the JSON for the updated search item.
@@ -571,7 +579,7 @@ This method has no parameters.
 .. code-block:: xml
 
    GET /user
-   
+
 **Response**
 
 The response is similar to:
@@ -608,7 +616,6 @@ The response is similar to:
      - OK. The request was successful.
    * - ``401``
      - Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
-
 
 Organization Endpoints
 =====================================================
@@ -648,7 +655,7 @@ This method has the following parameters:
 .. code-block:: xml
 
    GET /organizations/NAME/actions
-   
+
 **Response**
 
 The response is similar to:
@@ -656,7 +663,7 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     
+
    }
 
 **Response Codes**
@@ -689,7 +696,7 @@ This method has no parameters.
 .. code-block:: xml
 
    GET /organizations/NAME/actions/export
-   
+
 **Response**
 
 The response is similar to:
@@ -697,7 +704,7 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     
+
    }
 
 **Response Codes**
@@ -839,7 +846,7 @@ with a request body similar to:
        ...
      }
    }
-   
+
 **Response**
 
 The response is similar to:
@@ -847,7 +854,7 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     
+
    }
 
 **Response Codes**
@@ -880,7 +887,7 @@ This method has no parameters.
    DELETE /organizations/NAME/aliases/ID
 
 This method has no request body.
-   
+
 **Response**
 
 The response is similar to:
@@ -888,7 +895,7 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     
+
    }
 
 **Response Codes**
@@ -913,7 +920,7 @@ This method has no parameters.
 .. code-block:: xml
 
    GET /organizations/NAME/aliases/ID
-   
+
 **Response**
 
 The response is similar to:
@@ -1105,7 +1112,6 @@ with a request body similar to:
      }
    }
 
-   
 **Response**
 
 The response will return the JSON for the updated alias.
@@ -1153,7 +1159,7 @@ This method has the following parameters:
 .. code-block:: xml
 
    GET /organizations/NAME/audits
-   
+
 **Responses**
 
 A response for ``action`` is similar to:
@@ -1359,7 +1365,7 @@ This method has no parameters.
 .. code-block:: xml
 
    GET /organizations/NAME/autocomplete
-   
+
 **Response**
 
 The response is similar to:
@@ -1367,7 +1373,7 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     
+
    }
 
 **Response Codes**
@@ -1400,7 +1406,7 @@ This method has no parameters.
 .. code-block:: xml
 
    GET /organization/NAME/rules
-   
+
 **Response**
 
 The response is similar to:
@@ -1408,7 +1414,7 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     
+
    }
 
 **Response Codes**
@@ -1468,7 +1474,7 @@ with a request body similar to:
      },
      "required": [ "rule", "modified_by", "with", "active"]
    }
-   
+
 **Response**
 
 The response is similar to:
@@ -1476,7 +1482,7 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     
+
    }
 
 **Response Codes**
@@ -1509,7 +1515,7 @@ This method has no parameters.
    DELETE /organizations/NAME/rules/ID
 
 This method has no request body.
-   
+
 **Response**
 
 The response is similar to:
@@ -1517,7 +1523,7 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     
+
    }
 
 **Response Codes**
@@ -1542,7 +1548,7 @@ This method has no parameters.
 .. code-block:: xml
 
    GET /organizations/NAME/rules/ID
-   
+
 **Response**
 
 The response is similar to:
@@ -1550,7 +1556,7 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     
+
    }
 
 **Response Codes**
@@ -1563,7 +1569,6 @@ The response is similar to:
      - Description
    * - ``200``
      - OK. The request was successful.
-
 
 PUT
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1611,7 +1616,7 @@ with a request body similar to:
      },
      "required": [ "rule", "modified_by", "with", "active"]
    }
-   
+
 **Response**
 
 The response will return the JSON for the updated rule.

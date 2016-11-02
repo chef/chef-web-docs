@@ -2,7 +2,17 @@
 Release Notes: chef-client 11.6
 =====================================================
 
-.. include:: ../../includes_chef/includes_chef.rst
+.. tag chef
+
+Chef is a powerful automation platform that transforms infrastructure into code. Whether you’re operating in the cloud, on-premises, or in a hybrid environment, Chef automates how infrastructure is configured, deployed, and managed across your network, no matter its size.
+
+This diagram shows how you develop, test, and deploy your Chef code.
+
+.. image:: ../../images/start_chef.svg
+   :width: 700px
+   :align: center
+
+.. end_tag
 
 Known Issues
 =====================================================
@@ -44,11 +54,62 @@ Required Updates
 
 Atomic File Updates
 -----------------------------------------------------
-.. include:: ../../includes_resources_common/includes_resources_common_atomic_update.rst
+.. tag resources_common_atomic_update
+
+Atomic updates are used with **file**-based resources to help ensure that file updates can be made when updating a binary or if disk space runs out.
+
+Atomic updates are enabled by default. They can be managed globally using the ``file_atomic_update`` setting in the client.rb file. They can be managed on a per-resource basis using the ``atomic_update`` property that is available with the **cookbook_file**, **file**, **remote_file**, and **template** resources.
+
+.. note:: On certain platforms, and after a file has been moved into place, the chef-client may modify file permissions to support features specific to those platforms. On platforms with SELinux enabled, the chef-client will fix up the security contexts after a file has been moved into the correct location by running the ``restorecon`` command. On the Microsoft Windows platform, the chef-client will create files so that ACL inheritance works as expected.
+
+.. end_tag
 
 Lazy Attribute Evaluation
 -----------------------------------------------------
-.. include:: ../../includes_resources_common/includes_resources_common_lazy_evaluation.rst
+.. tag resources_common_lazy_evaluation
+
+In some cases, the value for a property cannot be known until the execution phase of a chef-client run. In this situation, using lazy evaluation of property values can be helpful. Instead of a property being assigned a value, it may instead be assigned a code block. The syntax for using lazy evaluation is as follows:
+
+.. code-block:: ruby
+
+   attribute_name lazy { code_block }
+
+where ``lazy`` is used to tell the chef-client to evaluate the contents of the code block later on in the resource evaluation process (instead of immediately) and ``{ code_block }`` is arbitrary Ruby code that provides the value.
+
+For example, a resource that is **not** doing lazy evaluation:
+
+.. code-block:: ruby
+
+   template 'template_name' do
+     # some attributes
+     path '/foo/bar'
+   end
+
+and a resource block that is doing lazy evaluation:
+
+.. code-block:: ruby
+
+   template 'template_name' do
+     # some attributes
+     path lazy { ' some Ruby code ' }
+   end
+
+In the previous examples, the first resource uses the value ``/foo/bar`` and the second resource uses the value provided by the code block, as long as the contents of that code block are a valid resource property.
+
+The following example shows how to use lazy evaluation with template variables:
+
+.. code-block:: ruby
+
+   template '/tmp/canvey_island.txt' do
+     source 'canvey_island.txt.erb'
+     variables(
+       lazy {
+         { :canvey_island => node.run_state['sea_power'] }
+       }
+     )
+   end
+
+.. end_tag
 
 **file**-based Resources
 -----------------------------------------------------
@@ -73,7 +134,6 @@ Prior to chef-client 11.6, the chef-client relied on the underlying Ruby impleme
         group "bob"
         mode 0600
       end
-
 
 * File-based providers now have a defined behavior for when they encounter something other than a file when attempting to update a file. The ``force_unlink`` attribute is used to trigger an error (default) or to overwrite the target with the specified file. See the attributes section (below) for more information about this attribute.
 * Many methods that were present in the file-based providers prior to chef-client 11.6 have been deprecated. If a custom provider has been authored that subclasses the pre-chef-client 11.6 file-based providers, the behavior of that custom provider should be re-tested after upgrading to chef-client 11.6 to verify all of the desired behaviors.
@@ -157,19 +217,109 @@ New attributes:
 
 Helper Methods
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_template_helper.rst
+.. tag resource_template_helper
+
+A helper is a method or a module that can be used to extend a template. There are three approaches:
+
+* An inline helper method
+* An inline helper module
+* A cookbook library module
+
+Use the ``helper`` attribute in a recipe to define an inline helper method. Use the ``helpers`` attribute to define an inline helper module or a cookbook library module.
+
+.. end_tag
 
 **Inline Helper Methods**
 
-.. include:: ../../step_resource/step_resource_template_inline_method.rst
+.. tag resource_template_inline_method
+
+A template helper method is always defined inline on a per-resource basis. A simple example:
+
+.. code-block:: ruby
+
+   template '/path' do
+     helper(:hello_world) { 'hello world' }
+   end
+
+Another way to define an inline helper method is to reference a node object so that repeated calls to one (or more) cookbook attributes can be done efficiently:
+
+.. code-block:: ruby
+
+   template '/path' do
+     helper(:app) { node['app'] }
+   end
+
+An inline helper method can also take arguments:
+
+.. code-block:: ruby
+
+   template '/path' do
+     helper(:app_conf) { |setting| node['app'][setting] }
+   end
+
+Once declared, a template can then use the helper methods to build a file. For example:
+
+.. code-block:: ruby
+
+   Say hello: <%= hello_world %>
+
+or:
+
+.. code-block:: ruby
+
+   node['app']['listen_port'] is: <%= app['listen_port'] %>
+
+or:
+
+.. code-block:: ruby
+
+   node['app']['log_location'] is: <%= app_conf('log_location') %>
+
+.. end_tag
 
 **Inline Helper Modules**
 
-.. include:: ../../step_resource/step_resource_template_inline_module.rst
+.. tag resource_template_inline_module
+
+A template helper module can be defined inline on a per-resource basis. This approach can be useful when a template requires more complex information. For example:
+
+.. code-block:: ruby
+
+   template '/path' do
+     helpers do
+
+       def hello_world
+         'hello world'
+       end
+
+       def app
+         node['app']
+       end
+
+       def app_conf(setting)
+         node['app']['setting']
+       end
+
+     end
+   end
+
+where the ``hello_world``, ``app``, and ``app_conf(setting)`` methods comprise the module that extends a template.
+
+.. end_tag
 
 **Cookbook Library Modules**
 
-.. include:: ../../step_resource/step_resource_template_library_module.rst
+.. tag resource_template_library_module
+
+A template helper module can be defined in a library. This is useful when extensions need to be reused across recipes or to make it easier to manage code that would otherwise be defined inline on a per-recipe basis.
+
+.. code-block:: ruby
+
+   template '/path/to/template.erb' do
+     helpers(MyHelperModule)
+   end
+
+.. end_tag
 
 **cookbook_file** Attributes
 -----------------------------------------------------
@@ -186,7 +336,7 @@ The **cookbook_file** resource was updated to be fully-based on the **file** res
 
 Updated Behavior for mode Attribute
 -----------------------------------------------------
-The default behavior for the ``mode`` attribute has been updated. For the **directory** resource: 
+The default behavior for the ``mode`` attribute has been updated. For the **directory** resource:
 
 .. list-table::
    :widths: 150 450
@@ -197,7 +347,7 @@ The default behavior for the ``mode`` attribute has been updated. For the **dire
    * - ``mode``
      - If ``mode`` is not specified and if the directory already exists, the existing mode on the directory is used. If ``mode`` is not specified, the directory does not exist, and the ``:create`` action is specified, the chef-client assumes a mask value of ``'0777'``, and then applies the umask for the system on which the directory is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, the chef-client uses the default value of ``'0755'``.
 
-And for each of the file-based resources (**cookbook_file**, **file**, **remote_file**, and **template**): 
+And for each of the file-based resources (**cookbook_file**, **file**, **remote_file**, and **template**):
 
 .. list-table::
    :widths: 150 450
@@ -208,40 +358,416 @@ And for each of the file-based resources (**cookbook_file**, **file**, **remote_
    * - ``mode``
      - If ``mode`` is not specified and if the file already exists, the existing mode on the file is used. If ``mode`` is not specified, the file does not exist, and the ``:create`` action is specified, the chef-client assumes a mask value of ``'0777'`` and then applies the umask for the system on which the file is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, the chef-client uses the default value of ``'0755'``.
 
-
 **batch** Resource 
 -----------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_batch.rst
+.. tag resource_batch_21
+
+Use the **batch** resource to execute a batch script using the cmd.exe interpreter. The **batch** resource creates and executes a temporary file (similar to how the **script** resource behaves), rather than running the command inline. This resource inherits actions (``:run`` and ``:nothing``) and properties (``creates``, ``cwd``, ``environment``, ``group``, ``path``, ``timeout``, and ``user``) from the **execute** resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
+
+.. end_tag
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_batch_syntax.rst
+.. tag resource_batch_syntax
+
+A **batch** resource block executes a batch script using the cmd.exe interpreter:
+
+.. code-block:: ruby
+
+   batch 'echo some env vars' do
+     code <<-EOH
+       echo %TEMP%
+       echo %SYSTEMDRIVE%
+       echo %PATH%
+       echo %WINDIR%
+       EOH
+   end
+
+The full syntax for all of the properties that are available to the **batch** resource is:
+
+.. code-block:: ruby
+
+   batch 'name' do
+     architecture               Symbol
+     code                       String
+     command                    String, Array
+     creates                    String
+     cwd                        String
+     flags                      String
+     group                      String, Integer
+     guard_interpreter          Symbol
+     interpreter                String
+     notifies                   # see description
+     provider                   Chef::Provider::Batch
+     returns                    Integer, Array
+     subscribes                 # see description
+     timeout                    Integer, Float
+     user                       String, Integer
+     action                     Symbol # defaults to :run if not specified
+   end
+
+where
+
+* ``batch`` is the resource
+* ``name`` is the name of the resource block
+* ``command`` is the command to be run and ``cwd`` is the location from which the command is run
+* ``:action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``architecture``, ``code``, ``command``, ``creates``, ``cwd``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``provider``, ``returns``, ``timeout``, and ``user`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+
+.. end_tag
 
 Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_batch_actions.rst
+.. tag resource_batch_actions
+
+This resource has the following actions:
+
+``:nothing``
+   .. tag resources_common_actions_nothing
+
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the chef-client run.
+
+   .. end_tag
+
+``:run``
+   Run a batch file.
+
+.. end_tag
 
 Attributes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_batch_attributes_11-16.rst
+.. tag 16_12
 
+This resource has the following properties:
+
+``architecture``
+   **Ruby Type:** Symbol
+
+   The architecture of the process under which a script is executed. If a value is not provided, the chef-client defaults to the correct value for the architecture, as determined by Ohai. An exception is raised when anything other than ``:i386`` is specified for a 32-bit process. Possible values: ``:i386`` (for 32-bit processes) and ``:x86_64`` (for 64-bit processes).
+
+``code``
+   **Ruby Type:** String
+
+   A quoted (" ") string of code to be executed.
+
+``command``
+   **Ruby Types:** String, Array
+
+   The name of the command to be executed.
+
+``creates``
+   **Ruby Type:** String
+
+   Prevent a command from creating a file when that file already exists.
+
+``cwd``
+   **Ruby Type:** String
+
+   The current working directory from which a command is run.
+
+``flags``
+   **Ruby Type:** String
+
+   One or more command line flags that are passed to the interpreter when a command is invoked.
+
+``group``
+   **Ruby Types:** String, Integer
+
+   The group name or group ID that must be changed before running a command.
+
+``ignore_failure``
+   **Ruby Types:** TrueClass, FalseClass
+
+   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+
+``notifies``
+   **Ruby Type:** Symbol, 'Chef::Resource[String]'
+
+   .. tag resources_common_notification_notifies
+
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+
+   .. end_tag
+
+   .. tag 5_3
+
+   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+
+   ``:delayed``
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+
+   ``:immediate``, ``:immediately``
+      Specifies that a notification should be run immediately, per resource notified.
+
+   .. end_tag
+
+   .. tag resources_common_notification_notifies_syntax
+
+   The syntax for ``notifies`` is:
+
+   .. code-block:: ruby
+
+      notifies :action, 'resource[name]', :timer
+
+   .. end_tag
+
+``provider``
+   **Ruby Type:** Chef Class
+
+   Optional. Explicitly specifies a provider.
+
+``retries``
+   **Ruby Type:** Integer
+
+   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+
+``retry_delay``
+   **Ruby Type:** Integer
+
+   The retry delay (in seconds). Default value: ``2``.
+
+``returns``
+   **Ruby Types:** Integer, Array
+
+   The return value for a command. This may be an array of accepted values. An exception is raised when the return value(s) do not match. Default value: ``0``.
+
+``subscribes``
+   **Ruby Type:** Symbol, 'Chef::Resource[String]'
+
+   .. tag resources_common_notification_subscribes
+
+   A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
+
+   .. end_tag
+
+   .. tag 5_3
+
+   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+
+   ``:delayed``
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+
+   ``:immediate``, ``:immediately``
+      Specifies that a notification should be run immediately, per resource notified.
+
+   .. end_tag
+
+   .. tag resources_common_notification_subscribes_syntax
+
+   The syntax for ``subscribes`` is:
+
+   .. code-block:: ruby
+
+      subscribes :action, 'resource[name]', :timer
+
+   .. end_tag
+
+``timeout``
+   **Ruby Types:** Integer, Float
+
+   The amount of time (in seconds) a command is to wait before timing out. Default value: ``3600``.
+
+``user``
+   **Ruby Types:** String, Integer
+
+   A user name or identifier that must be changed before running a command.
+
+.. note:: .. tag notes_batch_resource_link_to_cmdexe_technet
+
+          See http://technet.microsoft.com/en-us/library/bb490880.aspx for more information about the cmd.exe interpreter.
+
+          .. end_tag
+
+.. end_tag
 
 **powershell_script** Resource 
 -----------------------------------------------------
-.. include:: ../../includes_resources/includes_resource_powershell_script.rst
+.. tag resource_powershell_script_21
+
+Use the **powershell_script** resource to execute a script using the Windows PowerShell interpreter, much like how the **script** and **script**-based resources---**bash**, **csh**, **perl**, **python**, and **ruby**---are used. The **powershell_script** is specific to the Microsoft Windows platform and the Windows PowerShell interpreter.
+
+The **powershell_script** resource creates and executes a temporary file (similar to how the **script** resource behaves), rather than running the command inline. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
+
+.. end_tag
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_powershell_script_syntax.rst
+.. tag resource_powershell_script_syntax
+
+A **powershell_script** resource block executes a batch script using the Windows PowerShell interpreter. For example, writing to an interpolated path:
+
+.. code-block:: ruby
+
+   powershell_script 'write-to-interpolated-path' do
+     code <<-EOH
+     $stream = [System.IO.StreamWriter] "#{Chef::Config[:file_cache_path]}/powershell-test.txt"
+     $stream.WriteLine("In #{Chef::Config[:file_cache_path]}...word.")
+     $stream.close()
+     EOH
+   end
+
+The full syntax for all of the properties that are available to the **powershell_script** resource is:
+
+.. code-block:: ruby
+
+   powershell_script 'name' do
+     architecture               Symbol
+     code                       String
+     command                    String, Array
+     convert_boolean_return     TrueClass, FalseClass
+     creates                    String
+     cwd                        String
+     environment                Hash
+     flags                      String
+     group                      String, Integer
+     guard_interpreter          Symbol
+     interpreter                String
+     notifies                   # see description
+     provider                   Chef::Provider::PowershellScript
+     returns                    Integer, Array
+     subscribes                 # see description
+     timeout                    Integer, Float
+     action                     Symbol # defaults to :run if not specified
+   end
+
+where
+
+* ``powershell_script`` is the resource
+* ``name`` is the name of the resource block
+* ``command`` is the command to be run and ``cwd`` is the location from which the command is run
+* ``:action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``architecture``, ``code``, ``command``, ``convert_boolean_return``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``provider``, ``returns``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+
+.. end_tag
 
 Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_powershell_script_actions.rst
+.. tag resource_powershell_script_actions
+
+This resource has the following actions:
+
+``:nothing``
+   Inherited from **execute** resource. Prevent a command from running. This action is used to specify that a command is run only when another resource notifies it.
+
+``:run``
+   Default. Run the script.
+
+.. end_tag
 
 Attributes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_powershell_script_attributes_11-10.rst
+.. tag 10_7
 
+This resource has the following properties:
+
+``architecture``
+   **Ruby Type:** Symbol
+
+   The architecture of the process under which a script is executed. If a value is not provided, the chef-client defaults to the correct value for the architecture, as determined by Ohai. An exception is raised when anything other than ``:i386`` is specified for a 32-bit process. Possible values: ``:i386`` (for 32-bit processes) and ``:x86_64`` (for 64-bit processes).
+
+``code``
+   **Ruby Type:** String
+
+   A quoted (" ") string of code to be executed.
+
+``command``
+   **Ruby Types:** String, Array
+
+   The name of the command to be executed. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+
+``flags``
+   **Ruby Type:** String
+
+   A string that is passed to the Windows PowerShell command. Default value: ``-NoLogo, -NonInteractive, -NoProfile, -ExecutionPolicy RemoteSigned, -InputFormat None, -File``.
+
+``ignore_failure``
+   **Ruby Types:** TrueClass, FalseClass
+
+   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+
+``interpreter``
+   **Ruby Type:** String
+
+   The script interpreter to use during code execution. Changing the default value of this property is not supported.
+
+``notifies``
+   **Ruby Type:** Symbol, 'Chef::Resource[String]'
+
+   .. tag resources_common_notification_notifies
+
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+
+   .. end_tag
+
+   .. tag 5_3
+
+   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+
+   ``:delayed``
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+
+   ``:immediate``, ``:immediately``
+      Specifies that a notification should be run immediately, per resource notified.
+
+   .. end_tag
+
+   .. tag resources_common_notification_notifies_syntax
+
+   The syntax for ``notifies`` is:
+
+   .. code-block:: ruby
+
+      notifies :action, 'resource[name]', :timer
+
+   .. end_tag
+
+``provider``
+   **Ruby Type:** Chef Class
+
+   Optional. Explicitly specifies a provider.
+
+``retries``
+   **Ruby Type:** Integer
+
+   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+
+``retry_delay``
+   **Ruby Type:** Integer
+
+   The retry delay (in seconds). Default value: ``2``.
+
+``subscribes``
+   **Ruby Type:** Symbol, 'Chef::Resource[String]'
+
+   .. tag resources_common_notification_subscribes
+
+   A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
+
+   .. end_tag
+
+   .. tag 5_3
+
+   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+
+   ``:delayed``
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+
+   ``:immediate``, ``:immediately``
+      Specifies that a notification should be run immediately, per resource notified.
+
+   .. end_tag
+
+   .. tag resources_common_notification_subscribes_syntax
+
+   The syntax for ``subscribes`` is:
+
+   .. code-block:: ruby
+
+      subscribes :action, 'resource[name]', :timer
+
+   .. end_tag
+
+.. end_tag
 
 client.rb Settings
 -----------------------------------------------------
@@ -294,43 +820,163 @@ New subcommands have been added to knife:
 
 knife deps
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_knife/includes_knife_deps.rst
+.. tag knife_deps_22
+
+Use the ``knife deps`` subcommand to identify dependencies for a node, role, or cookbook.
+
+.. end_tag
 
 **Syntax**
 
-.. include:: ../../includes_knife/includes_knife_deps_syntax.rst
+.. tag knife_deps_syntax
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ knife deps (options)
+
+.. end_tag
 
 **Options**
 
-.. include:: ../../includes_knife/includes_knife_deps_options.rst
+.. tag knife_deps_options
+
+This subcommand has the following options:
+
+``--chef-repo-path PATH``
+   The path to the chef-repo. This setting will override the default path to the chef-repo. Default: same value as specified by ``chef_repo_path`` in client.rb.
+
+``--concurrency``
+   The number of allowed concurrent connections. Default: ``10``.
+
+``--[no-]recurse``
+   Use ``--recurse`` to list dependencies recursively. This option can only be used when ``--tree`` is set to ``true``. Default: ``--no-recurse``.
+
+``--remote``
+   Determine dependencies from objects located on the Chef server instead of in the local chef-repo. Default: ``false``.
+
+``--repo-mode MODE``
+   The layout of the local chef-repo. Possible values: ``static``, ``everything``, or ``hosted_everything``. Use ``static`` for just roles, environments, cookbooks, and data bags. By default, ``everything`` and ``hosted_everything`` are dynamically selected depending on the server type. Default: ``everything`` / ``hosted_everything``.
+
+``--tree``
+   Show dependencies in a visual tree structure (including duplicates, if they exist). Default: ``false``.
+
+.. end_tag
 
 Many of these settings are also configurable in the knife.rb file.
 
 knife edit
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_knife/includes_knife_edit.rst
+.. tag knife_edit_22
+
+Use the ``knife edit`` subcommand to edit objects on the Chef server. This subcommand works similar to ``knife cookbook edit``, ``knife data bag edit``, ``knife environment edit``, ``knife node edit``, and ``knife role edit``, but with a single verb (and a single action).
+
+.. end_tag
 
 **Syntax**
 
-.. include:: ../../includes_knife/includes_knife_edit_syntax.rst
+.. tag knife_edit_syntax
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ knife edit (options)
+
+.. end_tag
 
 **Options**
 
-.. include:: ../../includes_knife/includes_knife_edit_options.rst
+.. tag knife_edit_options
+
+This subcommand has the following options:
+
+``--chef-repo-path PATH``
+   The path to the chef-repo. This setting will override the default path to the chef-repo. Default: same value as specified by ``chef_repo_path`` in client.rb.
+
+``--concurrency``
+   The number of allowed concurrent connections. Default: ``10``.
+
+``--local``
+   Show files in the local chef-repo instead of a remote location. Default: ``false``.
+
+``--repo-mode MODE``
+   The layout of the local chef-repo. Possible values: ``static``, ``everything``, or ``hosted_everything``. Use ``static`` for just roles, environments, cookbooks, and data bags. By default, ``everything`` and ``hosted_everything`` are dynamically selected depending on the server type. Default: ``everything`` / ``hosted_everything``.
+
+.. end_tag
 
 Many of these settings are also configurable in the knife.rb file.
 
 knife xargs
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_knife/includes_knife_xargs.rst
+.. tag knife_xargs_22
+
+Use the ``knife xargs`` subcommand to take patterns from standard input, download as JSON, run a command against the downloaded JSON, and then upload any changes.
+
+.. end_tag
 
 **Syntax**
 
-.. include:: ../../includes_knife/includes_knife_xargs_syntax.rst
+.. tag knife_xargs_syntax
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ knife xargs [PATTERN...] (options)
+
+.. end_tag
 
 **Options**
 
-.. include:: ../../includes_knife/includes_knife_xargs_options.rst
+.. tag knife_xargs_options
+
+This subcommand has the following options:
+
+``-0``
+   |use null_character| Default: ``false``.
+
+``--chef-repo-path PATH``
+   The path to the chef-repo. This setting will override the default path to the chef-repo. Default: same value as specified by ``chef_repo_path`` in client.rb.
+
+``--concurrency``
+   The number of allowed concurrent connections. Default: ``10``.
+
+``--[no-]diff``
+   Show a diff when a file changes. Default: ``--diff``.
+
+``--dry-run``
+   Prevent changes from being uploaded to the Chef server. Default: ``false``.
+
+``--[no-]force``
+   Force the upload of files even if they haven't been changed. Default: ``--no-force``.
+
+``-I REPLACE_STRING``, ``--replace REPLACE_STRING``
+   Define a string that is to be used to replace all occurrences of a file name. Default: ``nil``.
+
+``-J REPLACE_STRING``, ``--replace-first REPLACE_STRING``
+   Define a string that is to be used to replace the first occurrence of a file name. Default: ``nil``.
+
+``--local``
+   Build or execute a command line against a local file. Set to ``false`` to build or execute against a remote file. Default: ``false``.
+
+``-n MAX_ARGS``, ``--max-args MAX_ARGS``
+   The maximum number of arguments per command line. Default: ``nil``.
+
+``-p [PATTERN...]``, ``--pattern [PATTERN...]``
+   One (or more) patterns for a command line. If this option is not specified, a list of patterns may be expected on standard input. Default: ``nil``.
+
+``--repo-mode MODE``
+   The layout of the local chef-repo. Possible values: ``static``, ``everything``, or ``hosted_everything``. Use ``static`` for just roles, environments, cookbooks, and data bags. By default, ``everything`` and ``hosted_everything`` are dynamically selected depending on the server type. Default value: ``default``.
+
+``-s LENGTH``, ``--max-chars LENGTH``
+   The maximum size (in characters) for a command line. Default: ``nil``.
+
+``-t``
+   Run the print command on the command line. Default: ``nil``.
+
+.. end_tag
 
 Many of these settings are also configurable in the knife.rb file.
 
@@ -383,7 +1029,6 @@ knife upload
 ``--[no-]diff``
    Upload only new and modified files. Set to ``false`` to upload all files. Default: ``--diff``.
 
-
 New common options for certain Knife subcommands
 -----------------------------------------------------
 The following options are new for the ``knife delete``, ``knife deps``, ``knife diff``, ``knife download``, ``knife edit``, ``knife list``, ``knife raw``, ``knife show``, ``knife upload``, and ``knife xargs`` subcommands:
@@ -418,7 +1063,47 @@ chef-solo Environments
 -----------------------------------------------------
 chef-solo now supports environments.
 
-.. include:: ../../includes_chef_solo/includes_chef_solo_environments.rst
+.. tag chef_solo_environments
+
+An environment is defined using JSON or the Ruby DSL. chef-solo will look for environments in ``/var/chef/environments``, but this location can be modified by changing the setting for ``environment_path`` in solo.rb. For example, the following setting in solo.rb:
+
+.. code-block:: ruby
+
+   environment_path '/var/chef-solo/environments'
+
+Environment data looks like the following in JSON:
+
+.. code-block:: javascript
+
+   {
+     "name": "dev",
+     "default_attributes": {
+       "apache2": {
+         "listen_ports": [
+           "80",
+           "443"
+         ]
+       }
+     },
+     "json_class": "Chef::Environment",
+       "description": "",
+       "cookbook_versions": {
+       "couchdb": "= 11.0.0"
+     },
+     "chef_type": "environment"
+     }
+
+and like the following in the Ruby DSL:
+
+.. code-block:: ruby
+
+   name 'environment_name'
+   description 'environment_description'
+   cookbook OR cookbook_versions  'cookbook' OR 'cookbook' => 'cookbook_version'
+   default_attributes 'node' => { 'attribute' => [ 'value', 'value', 'etc.' ] }
+   override_attributes 'node' => { 'attribute' => [ 'value', 'value', 'etc.' ] }
+
+.. end_tag
 
 solo.rb
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -440,7 +1125,6 @@ A new setting has been added to the solo.rb file:
 Force a Redeploy
 -----------------------------------------------------
 Previous versions required the cache file to be deleted to force a redeploy. In chef-client 11.6, in addition to deleting the cache file, deleting the deployment directory will also force a redeploy.
-
 
 What's Fixed
 =====================================================

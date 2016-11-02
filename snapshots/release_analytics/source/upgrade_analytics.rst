@@ -1,10 +1,14 @@
-.. THIS PAGE IS LOCATED AT THE /release/analytics/ PATH.
+
 
 =====================================================
 Upgrading Chef Analytics
 =====================================================
 
-.. include:: ../../includes_analytics/includes_analytics_legacy.rst 
+.. tag analytics_legacy
+
+.. note:: This topic is meant to support existing customers using Analytics. The visibility capabilities of Chef Automate replace the features and functionality of Chef Analytics and we encourage customers to adopt Chef Automate going forward.
+
+.. end_tag
 
 .. note:: The upgrade process has changed for Chef Analytics 1.3.x. Please carefully read the following before upgrading. Some steps are marked as "(1.2.x -> 1.3.x upgrade only.)". Only run those steps for upgrades of Chef Analytics 1.2.x to 1.3.x.
 
@@ -56,7 +60,11 @@ Recommended. The following steps describe upgrading Chef Analytics with partitio
 
       $ opscode-analytics-ctl reconfigure
 
-   .. note:: .. include:: ../../includes_chef_license/includes_chef_license_reconfigure_analytics.rst
+   .. note:: .. tag chef_license_reconfigure_analytics
+
+             Starting with Chef Analytics 1.4.0, the Chef MLSA must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``opscode-analytics-ctl reconfigure --accept-license`` to automatically accept the license.
+
+             .. end_tag
 
 #. (1.2.x -> 1.3.x upgrade only.) Migrate to partitions:
 
@@ -71,7 +79,6 @@ Recommended. The following steps describe upgrading Chef Analytics with partitio
    .. code-block:: bash
 
       $ opscode-analytics-ctl start
-
 
 Upgrade without Paritions
 -----------------------------------------------------
@@ -113,7 +120,11 @@ The following steps describe upgrading Chef Analytics with partitions disabled.
 
       $ opscode-analytics-ctl reconfigure
 
-   .. note:: .. include:: ../../includes_chef_license/includes_chef_license_reconfigure_analytics.rst
+   .. note:: .. tag chef_license_reconfigure_analytics
+
+             Starting with Chef Analytics 1.4.0, the Chef MLSA must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``opscode-analytics-ctl reconfigure --accept-license`` to automatically accept the license.
+
+             .. end_tag
 
 #. Start the services:
 
@@ -122,25 +133,25 @@ The following steps describe upgrading Chef Analytics with partitions disabled.
       $ opscode-analytics-ctl start
 
    .. code-block:: bash
-      
+
       $ opscode-analytics-ctl stop
 
 #. Run dpkg or RPM Package Manager. For dpkg:
 
    .. code-block:: bash
-      
+
       $ dpkg -i /path/to/opscode-analytics-<version>.deb
-   
+
    For RPM Package Manager:
 
    .. code-block:: bash
-      
+
       $ rpm -Uvh /path/to/opscode-analytics-<version>.rpm
 
 #. Run the pre-flight check:
 
    .. code-block:: bash
-      
+
       $ opscode-analytics-ctl preflight-check
 
 #. Copy in the ``/etc/opscode-analytics`` directory from the Chef server.
@@ -160,6 +171,6 @@ The following steps describe upgrading Chef Analytics with partitions disabled.
 #. Start the services:
 
    .. code-block:: bash
-      
+
       $ opscode-analytics-ctl start
 

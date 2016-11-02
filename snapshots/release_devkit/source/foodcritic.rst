@@ -1,15 +1,27 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/foodcritic.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/devkit/ PATH.
+
 
 =====================================================
 About Foodcritic
 =====================================================
 
-.. include:: ../../includes_foodcritic/includes_foodcritic.rst
+.. tag foodcritic_1
+
+Use Foodcritic to check cookbooks for common problems:
+
+* Style
+* Correctness
+* Syntax
+* Best practices
+* Common mistakes
+* Deprecations
+
+Foodcritic looks for lint-like behavior and reports it!
+
+.. end_tag
 
 Foodcritic is a static linting tool that analyzes all of the Ruby code that is authored in a cookbook against a number of rules, and then returns a list of violations. Because Foodcritic is a static linting tool, using it is fast. The code in a cookbook is read, broken down, and then compared to Foodcritic rules. The code is **not** run (a chef-client run does not occur). Foodcritic does not validate the intention of a recipe, rather it evaluates the structure of the code, and helps enforce specific behavior, detect portability of recipes, identify potential run-time failures, and spot common anti-patterns.
 
-When Foodcritic returns a violation, this does not automatically mean the code needs to be changed. It is important to first understand the intention of the rule before making the changes it suggests. For example, rule ``FC003`` describes a scenario where a recipe uses the ``search`` method in the Recipe DSL to retrieve data from the Chef server. Rule ``FC003`` may suggest that a cookbook will raise an error if that cookbook is run in a situation where a Chef server is not present. Adopting this rule is only necessary when chef-solo is part of the team's workflow (because chef-solo does not use a Chef server). 
+When Foodcritic returns a violation, this does not automatically mean the code needs to be changed. It is important to first understand the intention of the rule before making the changes it suggests. For example, rule ``FC003`` describes a scenario where a recipe uses the ``search`` method in the Recipe DSL to retrieve data from the Chef server. Rule ``FC003`` may suggest that a cookbook will raise an error if that cookbook is run in a situation where a Chef server is not present. Adopting this rule is only necessary when chef-solo is part of the team's workflow (because chef-solo does not use a Chef server).
 
 Run Foodcritic
 =====================================================

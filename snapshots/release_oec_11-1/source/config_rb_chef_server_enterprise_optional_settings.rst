@@ -1,12 +1,14 @@
-.. THIS PAGE DOCUMENTS Enterprise Chef server version 11.1
+
 
 =====================================================
 private-chef.rb Optional Settings
 =====================================================
 
-.. warning:: This topic documents the settings for Enterprise Chef. The current version of the Chef server is version 12. All of the documentation at https://docs.chef.io is about the current version of the Chef server. The documentation for Enterprise Chef has been moved: `Enterprise Chef 11.0 <https://docs.chef.io/release/oec_11-0/>`__, `Enterprise Chef 11.1 <https://docs.chef.io/release/oec_11-1/>`__, and `Enterprise Chef 11.2 <https://docs.chef.io/release/oec_11-1/>`__.
+.. tag config_rb_chef_server_enterprise_2
 
-.. include:: ../../includes_config/includes_config_rb_chef_server_enterprise.rst
+The private-chef.rb file contains all of the non-default configuration settings used by the Enterprise Chef server. (The default settings are built-in to the Chef server configuration and should only be added to the private-chef.rb file to apply non-default values.) These configuration settings are processed when the ``private-chef-ctl reconfigure`` command is run, such as immediately after setting up the Enterprise Chef server or after making a change to the underlying configuration settings after the server has been deployed. The private-chef.rb file is a Ruby file, which means that conditional statements can be used in the configuration file.
+
+.. end_tag
 
 Settings
 =====================================================
@@ -72,7 +74,6 @@ The **bookshelf** service has the following settings:
    * - ``bookshelf['url']``
      - This value will default to the value of the URL for Nginx, which is built from the configured ``api_fqdn`` and the SSL port for Nginx.
 
-
 bootstrap
 -----------------------------------------------------
 This configuration file has the following settings for bootstrap:
@@ -86,7 +87,7 @@ This configuration file has the following settings for bootstrap:
    * - ``bootstrap['enable']``
      - Indicates whether an attempt to bootstrap the Enterprise Chef is made. Generally only enabled on systems that have bootstrap enabled via a ``server`` entry. Default value: ``true``.
    * - ``bootstrap['bootstrap_server']``
-     - 
+     -
 
 couchdb
 -----------------------------------------------------
@@ -225,8 +226,38 @@ This configuration file has the following settings for Keepalived:
 
 ldap
 -----------------------------------------------------
-.. include:: ../../includes_config/includes_config_rb_chef_server_enterprise_settings_ldap.rst
+.. tag config_rb_chef_server_enterprise_settings_ldap
 
+The private-chef.rb file contains the settings required to configure LDAP or Active Directory:
+
+``ldap['base_dn']``
+   The root LDAP node under which all other nodes exist in the directory structure. For Active Directory, this is typically ``cn=users`` and then the domain. For example: ``'cn=users,dc=opscode,dc=com'``. Default value: ``nil``.
+
+``ldap['bind_dn']``
+   The distinguished name used to bind to the LDAP server. This is often the administrator or manager user. This user needs to have read access to all LDAP users that require authentication. Enterprise Chef must do an LDAP search before any user can log in. Many Active Directory and LDAP systems do not allow an anonymous bind. If anonymous bind is allowed, leave the ``bind_dn`` setting blank. If anonymous bind is not allowed, a user with ``READ`` access to the directory is required. This user must be specified as an LDAP distinguished name similar to ``'cn=user_name,dc=domain_name,dc=com'``. Default value: ``nil``.
+
+``ldap['bind_password']``
+   The password for the binding user. Leave this value unset if anonymous bind is sufficient. Default value: ``nil``.
+
+``ldap['encryption']``
+   Use to specify the encryption method. Possible values: ``:start_tls`` or ``:simple_tls``. Default value: ``nil``.
+
+``ldap['host']``
+   The name (or IP address) of the LDAP server. Be sure the Enterprise Chef is able to resolve any host names. Default value: ``nil``.
+
+``ldap['login_attribute']``
+   The LDAP attribute that holds the user's login name. For Active Directory, this is typically ``sAMAccountName``. For OpenLDAP, this is typically ``uid``. Default value: ``sAMAccountName``.
+
+``ldap['port']``
+   An integer that specifies the port on which the LDAP server listens. The default value is an appropriate value for most configurations. Default value: ``389``.
+
+``ldap['ssl_enabled']``
+   Cause the Chef server to connect to the LDAP server using SSL. Be sure SSL is enabled on the LDAP server and that the ``ldap['port']`` setting is updated with the correct value (often ``636``). Default value: ``false``.
+
+``ldap['system_adjective']``
+   A descriptive name for the login system that is displayed to users in the Chef server management console. If a value like "corporate" is used, then the Enterprise Chef user interface will display strings like "the corporate login server", "corporate login", or "corporate password." Default value: ``AD/LDAP``.
+
+.. end_tag
 
 load-balancer
 -----------------------------------------------------
@@ -314,7 +345,6 @@ And for the internal load balancers:
    * - ``lb_internal['vip']``
      - The virtual IP address. Default value: ``'127.0.0.1'``.
 
-
 nginx
 -----------------------------------------------------
 This configuration file has the following settings for Nginx:
@@ -396,11 +426,10 @@ This configuration file has the following settings for Nginx:
    * - ``nginx['x_forwarded_proto']``
      - The protocol used to connect to the server. Possible values: ``http`` and ``https``. This is the protocol used to connect to Enterprise Chef by a chef-client or a workstation. Default value: ``'https'``.
 
-
 oc_chef_authz
 -----------------------------------------------------
 .. warning:: This table is available in Enterprise Chef 11.2.5 (or higher).
- 
+
 This configuration file has the following settings for ``oc_chef_authz``:
 
 .. list-table::
@@ -484,7 +513,79 @@ This configuration file has the following settings for chef-pedant:
 
 oc-id
 -----------------------------------------------------
-.. include:: ../../includes_config/includes_config_rb_server_settings_oc_id.rst
+.. tag config_rb_server_settings_oc_id
+
+This configuration file has the following settings for ``oc-id``:
+
+``oc_id['administrators']``
+   An array of Chef server user names who may add applications to the identity service. For example, ``['user1', 'user2']``. Default value: ``[ ]``.
+
+``oc_id['applications']``
+   A Hash that contains OAuth 2 application information. Default value: ``{ }``.
+
+   .. tag config_ocid_application_hash_supermarket
+
+   To define OAuth 2 information for Chef Supermarket, create a Hash similar to:
+
+      .. code-block:: ruby
+
+         oc_id['applications'] ||= {}
+         oc_id['applications']['supermarket'] = {
+           'redirect_uri' => 'https://supermarket.mycompany.com/auth/chef_oauth2/callback'
+         }
+
+   .. end_tag
+
+   To define OAuth 2 information for Chef Analytics, create a Hash similar to:
+
+      .. code-block:: ruby
+
+         oc_id['applications'] ||= {}
+         oc_id['applications']['analytics'] = {
+           'redirect_uri' => 'https://analytics.rhel.aws'
+         }
+
+``oc_id['db_pool_size']``
+   The number of open connections to PostgreSQL that are maintained by the service. Default value: ``'20'``.
+
+``oc_id['dir']``
+   The working directory. The default value is the recommended value. Default value: none.
+
+``oc_id['enable']``
+   Enable a service. Default value: ``true``.
+
+``oc_id['ha']``
+   Run the Chef server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
+
+``oc_id['log_directory']``
+   The directory in which log data is stored. The default value is the recommended value. Default value: ``'/var/opt/opscode/oc_id'``.
+
+``oc_id['log_rotation']``
+   The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value:
+
+   .. code-block:: ruby
+
+      { 'file_maxbytes' => 104857600, 'num_to_keep' => 10 }
+
+``oc_id['num_to_keep']``
+   The number of log files to keep. Default value: ``10``.
+
+``oc_id['port']``
+   The port on which the service is to listen. Default value: ``9090``.
+
+``oc_id['sql_database']``
+   The name of the database. Default value: ``oc_id``.
+
+``oc_id['sql_password']``
+   The password for the ``sql_user``. Default value: ``snakepliskin``.
+
+``oc_id['sql_user']``
+   The user with permission to write to ``sql_database``. Default value: ``oc_id``.
+
+``oc_id['vip']``
+   The virtual IP address. Default value: ``'127.0.0.1'``.
+
+.. end_tag
 
 opscode-account
 -----------------------------------------------------
@@ -637,7 +738,6 @@ The **opscode-erchef** service has the following settings:
    * - ``opscode_erchef['web_ui_client_name']``
      - Default value: ``chef-webui``.
 
-
 opscode-expander
 -----------------------------------------------------
 The **opscode-expander** service has the following settings:
@@ -664,7 +764,6 @@ The **opscode-expander** service has the following settings:
      - The number of allowed worker processes. Default value: ``2``.
    * - ``opscode_expander['reindexer_log_directory']``
      - Default value: ``/var/log/chef-server/chef-expander-reindexer``.
-
 
 opscode-org-creator
 -----------------------------------------------------
@@ -696,7 +795,6 @@ The **opscode-org-creator** service has the following settings:
      - The port on which the service is to listen. Default value: ``4369``.
    * - ``opscode_org_creator['ready_org_depth']``
      - Default value: ``10``.
-
 
 opscode-solr
 -----------------------------------------------------
@@ -749,7 +847,6 @@ The **opscode-solr** service has the following settings:
    * - ``opscode_solr['vip']``
      - The virtual IP address. Default value: ``127.0.0.1``.
 
-
 opscode-webui
 -----------------------------------------------------
 The **opscode-webui** service has the following settings:
@@ -799,7 +896,6 @@ The **opscode-webui** service has the following settings:
    * - ``opscode_webui['worker_timeout']``
      - The amount of time (in seconds) that a worker can be silent before it is killed and restarted. Default value: ``3600``.
 
-
 orgmapper
 -----------------------------------------------------
 This configuration file has the following settings for orgmapper:
@@ -813,7 +909,7 @@ This configuration file has the following settings for orgmapper:
    * - ``orgmapper['']``
      - 
    * - ``org-creator['']``
-     - 
+     -
 
 postgresql
 -----------------------------------------------------
@@ -897,7 +993,6 @@ The **postgresql** service has the following settings:
    * - ``postgresql['work_mem']``
      - The size (in megabytes) of allowed in-memory sorting. Default value: ``8MB``.
 
-
 rabbitmq
 -----------------------------------------------------
 The **rabbitmq** service has the following settings:
@@ -957,7 +1052,6 @@ The **rabbitmq** service has the following settings:
 
        Chef Analytics uses the same RabbitMQ service that is configured on the Chef server. When the Chef Analytics server is configured as a standalone server, the default settings for ``rabbitmq['node_ip_address']`` and ``rabbitmq['vip']`` must be updated. When the Chef Analytics server is configured as a standalone server, change this value to the backend VIP address for the Chef server.
 
-
 redis
 -----------------------------------------------------
 The **redis** service has the following settings:
@@ -1010,7 +1104,6 @@ The **redis** service has the following settings:
             'pages'=>'134217728',
             'max_threads'=>'4'
           }
-
 
 redis-lb
 -----------------------------------------------------
@@ -1065,8 +1158,6 @@ The **redis_lb** service has the following settings:
    * - ``redis_lb['vip']``
      - The virtual IP address. Default value: ``'127.0.0.1'``.
 
-
-
 users
 -----------------------------------------------------
 This configuration file has the following settings for users:
@@ -1083,5 +1174,4 @@ This configuration file has the following settings for users:
      - Default value: ``/bin/sh``.
    * - ``user['username']``
      - Default value: ``opscode``.
-
 

@@ -1,11 +1,16 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/delivery_server_disaster_recovery.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/delivery/ PATH.
+
 
 =====================================================
 Chef Automate Disaster Recovery
 =====================================================
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+.. tag chef_automate_mark
+
+.. image:: ../../images/chef_automate_full.png
+   :width: 40px
+   :height: 17px
+
+.. end_tag
 
 Use a standby Chef Automate server to protect against the loss of the primary Chef Automate server. A standby Chef Automate server is configured to replicate data from the primary Chef Automate server. In the event of loss of the primary Chef Automate server, the standby is then reconfigured to become the primary.
 
@@ -24,7 +29,6 @@ A disaster recovery configuration for Chef Automate has the following requiremen
 * The latest version of the Chef development kit is installed on the provisioning node
 * A Chef Automate license
 
-
 Install a Standby Chef Automate Server
 =====================================================
 The following steps describe how to manually install a Chef Automate server for use as a standby.
@@ -35,17 +39,16 @@ The following steps describe how to manually install a Chef Automate server for 
 
 #. Download the Chef Automate package to the standby server: `<https://downloads.chef.io/automate/>`_.
 
-#. As a root user, install the Chef Automate package on the server, using the name of the package provided by Chef. 
+#. As a root user, install the Chef Automate package on the server, using the name of the package provided by Chef.
 
    For Debian:
-  
+
    .. code-block:: bash
 
       dpkg -i $PATH_TO_AUTOMATE_SERVER_PACKAGE
 
-
    For Red Hat or Centos:
-  
+
    .. code-block:: bash
 
       rpm -Uvh $PATH_TO_AUTOMATE_SERVER_PACKAGE
@@ -87,7 +90,6 @@ The following steps describe how to manually install a Chef Automate server for 
       delivery['primary'] = false
       delivery['primary_ip'] = '<PRIMARY_IP_ADDRESS>'
       postgresql['listen_address'] = 'localhost,<STANDBY_IP_ADDRESS>'
-
 
    where ``PRIMARY_IP_ADDRESS``, ``STANDBY_IP_ADDRESS``, and ``AUTOMATE_URL``, ``CHEF_SERVER_URL`` should be replaced with the actual values for the Chef Automate configuration. The ``PRIMARY_IP_ADDRESS`` and ``STANDBY_IP_ADDRESS`` values should be from a private network between the two machines.
 
@@ -168,7 +170,6 @@ The following steps describe how to manually install a Chef Automate server for 
    .. code-block:: bash
 
       $ sudo delivery-ctl reconfigure
-
 
 Disaster Recovery
 =====================================================

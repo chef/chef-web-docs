@@ -1,10 +1,20 @@
-.. THIS PAGE DOCUMENTS chef-client version 11.8
+
 
 =====================================================
 Install Chef 11.x on a Workstation
 =====================================================
 
-.. include:: ../../includes_chef/includes_chef.rst
+.. tag chef
+
+Chef is a powerful automation platform that transforms infrastructure into code. Whether you’re operating in the cloud, on-premises, or in a hybrid environment, Chef automates how infrastructure is configured, deployed, and managed across your network, no matter its size.
+
+This diagram shows how you develop, test, and deploy your Chef code.
+
+.. image:: ../../images/start_chef.svg
+   :width: 700px
+   :align: center
+
+.. end_tag
 
 The omnibus installer is used to set up a workstation. The omnibus installer uses a single command to install the chef-client and all of its dependencies, including an embedded version of Ruby, RubyGems, OpenSSL, key-value stores, parsers, libraries, and command line utilities. The omnibus installer puts everything into a unique directory (``opt/opscode/``) so that the chef-client will not interfere with other applications that may be running on the target machine. Once installed, the chef-client requires a few more configuration steps before it can be run as a workstation.
 
@@ -97,16 +107,15 @@ To install the chef-client on a workstation, you must run the omnibus installer.
                /share
                /ssl
 
-
 Install git
 =====================================================
-An open source distributed version control system called git must be installed before the chef-repo can be cloned to the workstation from GitHub. 
+An open source distributed version control system called git must be installed before the chef-repo can be cloned to the workstation from GitHub.
 
 To install git:
 
 #. Go to the following URL: https://help.github.com/articles/set-up-git.
-   
-#. Follow the directions, install git (http://git-scm.com/downloads), and then complete the remaining configuration steps on that page. 
+
+#. Follow the directions, install git (http://git-scm.com/downloads), and then complete the remaining configuration steps on that page.
 
 .. note:: It is not necessary to create or fork a repository in order to clone the chef-repo from GitHub.
 
@@ -164,7 +173,6 @@ To clone the chef-repo:
          environments/
          roles/
 
-
 Create .chef Directory
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The .chef directory is used to store three files:
@@ -202,7 +210,6 @@ To create the .chef directory:
 
       $ echo '.chef' >> ~/chef-repo/.gitignore
 
-
 Get Config Files
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The Chef server provides three files that must be in the chef-repo and are required when connecting to the Chef server.
@@ -219,7 +226,7 @@ For a workstation that will interact with Enterprise Chef (including hosted Ente
 
 For a workstation that will interact with the open source Chef server, do the following:
 
-* Create a knife.rb file. This `configuration file <https://docs.chef.io/config_rb_knife.html>`_ must be created by running ``knife configure --initial`` on the machine that will be run as a workstation. The ``validation_key`` attribute in the knife.rb file must specify the path to the validation key. The ``validation_client_name`` attribute defaults to ``chef-validator`` (which is the chef-validator.pem private key created by the open source Chef server on startup). When prompted for the URL for the Chef server, use the FQDN for the Chef server.
+* Create a knife.rb file. This :doc:`configuration file <config_rb_knife>` must be created by running ``knife configure --initial`` on the machine that will be run as a workstation. The ``validation_key`` attribute in the knife.rb file must specify the path to the validation key. The ``validation_client_name`` attribute defaults to ``chef-validator`` (which is the chef-validator.pem private key created by the open source Chef server on startup). When prompted for the URL for the Chef server, use the FQDN for the Chef server.
 * Create a USER.pem file. (This private key is created at the same time as the knife.rb file when running ``knife configure --initial``.)
 * Find the chef-validator.pem file on the open source Chef server. This private key is created by the open source Chef server on startup and is located in the ``/etc/chef-server`` folder on the server after it is created.
 

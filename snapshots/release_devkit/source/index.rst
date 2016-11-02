@@ -2,20 +2,34 @@
 About the Chef DK
 =====================================================
 
-.. include:: ../../includes_chef_dk/includes_chef_dk.rst
+.. tag chef_dk
+
+The Chef development kit is a package that contains everything that is needed to start using Chef:
+
+* chef-client
+* chef
+* Ohai
+* chef-zero
+* Testing tools like Kitchen, ChefSpec, and Foodcritic
+* Policy, including policy files
+* Chef provisioning
+* Everything else needed to author cookbooks and upload them to the Chef server
+
+.. end_tag
 
 Getting Started
 =====================================================
-.. include:: ../../includes_chef/includes_chef_index.rst
+.. tag chef_index
 
-.. raw:: html
+Chef is a systems and cloud infrastructure automation framework that makes it easy to deploy servers and applications to any physical, virtual, or cloud location, no matter the size of the infrastructure. Each organization is comprised of one (or more) workstations, a single server, and every node that will be configured and maintained by the chef-client. Cookbooks (and recipes) are used to tell the chef-client how each node in your organization should be configured. The chef-client (which is installed on every node) does the actual configuration.
 
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/chef_overview.html">An Overview of Chef</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/install_dk.html">Install the Chef DK</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/ruby.html">Using Ruby</a> </br>
+.. end_tag
+
+:doc:`chef_overview`
+:doc:`install_dk`
+:doc:`ruby`
 
 .. note:: See this blog post by Irving Popovetsky about running the Chef DK on Windows: https://www.chef.io/blog/2014/11/04/the-chefdk-on-windows-survival-guide/.
-
 
 About Workflow
 -----------------------------------------------------
@@ -25,7 +39,7 @@ The Chef development kit defines a common workflow for cookbook development:
 
 #. Create a virtual machine environment using Kitchen. This is the environment that will be used to develop the cookbook, including the location in which automated testing and debugging of that cookbook will be done as it is being developed.
 
-#. Write the recipes for the cookbook and debug those recipes as they are being written. This is typically an iterative process, where cookbook are tested as they are developed, bugs are fixed quickly, and then cookbooks are tested again. A text editor---Sublime Text, vim, TextMate, EditPad, or any other preferred text editor---is used to author the files in the cookbook. 
+#. Write the recipes for the cookbook and debug those recipes as they are being written. This is typically an iterative process, where cookbook are tested as they are developed, bugs are fixed quickly, and then cookbooks are tested again. A text editor---Sublime Text, vim, TextMate, EditPad, or any other preferred text editor---is used to author the files in the cookbook.
 
 #. Perform acceptance tests. These tests are not done in a development environment, but rather are done against a full Chef server using an environment that matches the production environment as closely as possible.
 
@@ -78,100 +92,50 @@ Chef DK Tools
 -----------------------------------------------------
 The following tools are available only in the Chef development kit:
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/ctl_chef.html">chef (executable)</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/policyfile.html">Policyfile</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/config_rb_policyfile.html">Policyfile.rb</a> </br>
+:doc:`ctl_chef`
+:doc:`policyfile`
+:doc:`config_rb_policyfile`
 
 Chef Provisioning
 -----------------------------------------------------
 The following resources are part of Chef provisioning and are now available in the Chef development kit:
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/resource_machine.html">machine</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/resource_machine_batch.html">machine_batch</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/resource_machine_execute.html">machine_execute</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/resource_machine_file.html">machine_file</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/resource_machine_image.html">machine_image</a> </br>
+:doc:`resource_machine`
+:doc:`resource_machine_batch`
+:doc:`resource_machine_execute`
+:doc:`resource_machine_file`
+:doc:`resource_machine_image`
 
 The following resources are available in the Chef development kit and may be used as part of Chef provisioning:
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/resource_chef_acl.html">chef_acl</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/resource_chef_client.html">chef_client</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/resource_chef_container.html">chef_container</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/resource_chef_data_bag_item.html">chef_data_bag_item</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/resource_chef_data_bag.html">chef_data_bag</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/resource_chef_environment.html">chef_environment</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/resource_chef_group.html">chef_group</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/resource_chef_mirror.html">chef_mirror</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/resource_chef_node.html">chef_node</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/resource_chef_organization.html">chef_organization</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/resource_chef_role.html">chef_role</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/resource_chef_user.html">chef_user</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/resource_private_key.html">private_key</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/resource_public_key.html">public_key</a> </br>
-
-The following driver-specific resources are available for Amazon Web Services (AWS) and may be used as part of Chef provisioning:
-
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/provisioning.html#aws-auto-scaling-group">aws_auto_scaling_group</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/provisioning.html#aws-cache-cluster">aws_cache_cluster</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/provisioning.html#aws-cache-replication-group">aws_cache_replication_group</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/provisioning.html#aws-cache-subnet-group">aws_cache_subnet_group</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/provisioning.html#aws-dhcp-options">aws_dhcp_options</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/provisioning.html#aws-ebs-volume">aws_ebs_volume</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/provisioning.html#aws-eip-address">aws_eip_address</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/provisioning.html#aws-image">aws_image</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/provisioning.html#aws-instance">aws_instance</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/provisioning.html#aws-internet-gateway">aws_internet_gateway</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/provisioning.html#aws-key-pair">aws_key_pair</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/provisioning.html#aws-launch-configuration">aws_launch_configuration</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/provisioning.html#aws-load-balancer">aws_load_balancer</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/provisioning.html#aws-network-acl">aws_network_acl</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/provisioning.html#aws-network-interface">aws_network_interface</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/provisioning.html#aws-route-table">aws_route_table</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/provisioning.html#aws-s3-bucket">aws_s3_bucket</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/provisioning.html#aws-security-group">aws_security_group</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/provisioning.html#aws-server-certificate">aws_server_certificate</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/provisioning.html#aws-sns-topic">aws_sns_topic</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/provisioning.html#aws-sqs-queue">aws_sqs_queue</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/provisioning.html#aws-subnet">aws_subnet</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/provisioning.html#aws-vpc">aws_vpc</a> </br>
-
-The following driver-specific resources are available for Fog and may be used as part of Chef provisioning:
-
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/provisioning.html#fog-key-pair">fog_key_pair</a> </br>
-
-The following driver-specific resources are available for Vagrant and may be used as part of Chef provisioning:
-
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/provisioning.html#vagrant-box">vagrant_box</a> </br>
+:doc:`resource_chef_acl`
+:doc:`resource_chef_client`
+:doc:`resource_chef_container`
+:doc:`resource_chef_data_bag_item`
+:doc:`resource_chef_data_bag`
+:doc:`resource_chef_environment`
+:doc:`resource_chef_group`
+:doc:`resource_chef_mirror`
+:doc:`resource_chef_node`
+:doc:`resource_chef_organization`
+:doc:`resource_chef_role`
+:doc:`resource_chef_user`
+:doc:`resource_private_key`
+:doc:`resource_public_key`
 
 Community Tools
 -----------------------------------------------------
 The following tools have been developed by members of the Chef community. These tools are considered to be a useful part of the Chef workflow and have been packaged as part of the Chef development kit. (They are all available independently of the Chef development kit, as well.) The use of these tools as part of your workflow is recommended, but at the same time is completely optional. Use them in the way that makes sense for your organization:
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/berkshelf.html">Berkshelf</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/chef_vault.html">chef-vault</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/chefspec.html">ChefSpec</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/foodcritic.html">Foodcritic</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/kitchen.html">Kitchen</a> </br>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/ctl_kitchen.html">kitchen (the command-line executable for Kitchen)</a> </br>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/config_yml_kitchen.html">kitchen.yml (the configuration file for Kitchen)</a> </br>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/plugin_kitchen_vagrant.html">kitchen-vagrant (the default driver plugin for Kitchen)</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/devkit_1-0/rubocop.html">RuboCop</a> </br>
-
-
+:doc:`berkshelf`
+:doc:`chef_vault`
+:doc:`chefspec`
+:doc:`foodcritic`
+:doc:`kitchen`
+:doc:`ctl_kitchen`
+:doc:`config_yml_kitchen`
+:doc:`plugin_kitchen_vagrant`
+:doc:`rubocop`
 
 .. Hide the TOC from this file.
 

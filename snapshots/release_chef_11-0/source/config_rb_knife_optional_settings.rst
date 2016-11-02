@@ -1,12 +1,26 @@
-.. THIS PAGE DOCUMENTS chef-client version 11.0
+
 
 =====================================================
 knife.rb Optional Settings
 =====================================================
 
-.. include:: ../../includes_knife/includes_knife_using_knife_rb.rst
+.. tag knife_using_knife_rb
 
-.. warning:: .. include:: ../../includes_notes/includes_notes_knife_most_config_settings_should_not_be_used.rst
+In addition to the default settings in a knife.rb file, there are other subcommand-specific settings that can be added. When a subcommand is run, knife will use:
+
+#. A value passed via the command-line
+#. A value contained in the knife.rb file
+#. The default value
+
+A value passed via the command line will override a value in the knife.rb file; a value in a knife.rb file will override a default value.
+
+.. end_tag
+
+.. warning:: .. tag notes_knife_most_config_settings_should_not_be_used
+
+             Many optional settings should not be added to the knife.rb file. The reasons for not adding them can vary. For example, using ``--yes`` as a default in the knife.rb file will cause knife to always assume that "Y" is the response to any prompt, which may lead to undesirable outcomes. Other settings, such as ``--hide-healthy`` (used only with the ``knife status`` subcommand) or ``--bare-directories`` (used only with the ``knife list`` subcommand) probably aren't used often enough (and in the same exact way) to justify adding them to the knife.rb file. In general, if the optional settings are not listed on :doc:`the main knife.rb topic <config_rb_knife>`, then add settings only after careful consideration. Do not use optional settings in a production environment until after the setting's performance has been validated in a safe testing environment.
+
+             .. end_tag
 
 The following list describes all of the optional settings that can be added to the knife.rb file:
 
@@ -49,7 +63,29 @@ The following list describes all of the optional settings that can be added to t
    * - ``knife[:disable_editing]``
      - Prevent the $EDITOR from being opened and accept data as-is.
    * - ``knife[:distro]``
-     - .. include:: ../../includes_knife/includes_knife_bootstrap_distro.rst
+     - .. tag knife_bootstrap_distro
+
+       The template file to be used during a bootstrap operation. The following distributions are supported:
+
+       * ``chef-full`` (the default bootstrap)
+       * ``centos5-gems``
+       * ``fedora13-gems``
+       * ``ubuntu10.04-gems``
+       * ``ubuntu10.04-apt``
+       * ``ubuntu12.04-gems``
+       * The name of a custom bootstrap template file.
+
+       When this option is used, knife searches for the template file in the following order:
+
+       #. The ``bootstrap/`` folder in the current working directory
+       #. The ``bootstrap/`` folder in the chef-repo
+       #. The ``bootstrap/`` folder in the ``~/.chef/`` directory
+       #. A default bootstrap file.
+
+       Do not use the ``--template-file`` option when ``--distro`` is specified.
+
+       .. end_tag
+
    * - ``knife[:download_directory]``
      - The directory in which cookbooks are located.
    * - ``knife[:editor]``

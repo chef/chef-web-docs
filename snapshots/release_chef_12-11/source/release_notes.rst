@@ -2,7 +2,17 @@
 Release Notes: chef-client 12.11
 =====================================================
 
-.. include:: ../../includes_chef/includes_chef.rst
+.. tag chef
+
+Chef is a powerful automation platform that transforms infrastructure into code. Whether you’re operating in the cloud, on-premises, or in a hybrid environment, Chef automates how infrastructure is configured, deployed, and managed across your network, no matter its size.
+
+This diagram shows how you develop, test, and deploy your Chef code.
+
+.. image:: ../../images/start_chef.svg
+   :width: 700px
+   :align: center
+
+.. end_tag
 
 What's New
 =====================================================
@@ -13,14 +23,11 @@ The following items are new for chef-client 12.11 and/or are changes from previo
 * **Default chef-solo behavior is equivalent to chef-client local mode** chef-solo now uses chef-client local mode. To use the previous ``chef-solo`` behavior, run in ``chef-solo --legacy-mode``.
 * **New systemd_unit resource** Use the **systemd_unit** to manage systemd units.
 
-
-
 exit_status
 -----------------------------------------------------
 When set to ``:enabled``, chef-client will use |url exit codes| for Chef client run status, and any non-standard exit codes will be converted to ``1`` or ``GENERIC_FAILURE``. This setting can also be set to ``:disabled`` which preserves the old behavior of using non-standardized exit codes and skips the deprecation warnings. Default value: ``nil``.
 
    .. note:: The behavior with the default value consists of a warning on the use of deprecated and non-standard exit codes. In a future release of Chef client, using standardized exit codes will be the default behavior.
-
 
 Data collector
 -----------------------------------------------------
@@ -45,16 +52,133 @@ Use the **systemd_unit** resource to create, manage, and run `systemd units <htt
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_systemd_unit_syntax.rst
+.. tag resource_systemd_unit_syntax
+
+A **systemd_unit** resource describes the configuration behavior for systemd units. For example:
+
+.. code-block:: ruby
+
+   systemd_unit 'sysstat-collect.timer' do
+     enabled true
+     content '[Unit]\nDescription=Run system activity accounting tool every 10 minutes\n\n[Timer]\nOnCalendar=*:00/10\n\n[Install]\nWantedBy=sysstat.service'
+   end
+
+The full syntax for all of the properties that are available to the **systemd_unit** resource is:
+
+.. code-block:: ruby
+
+   systemd_unit 'name' do
+     enabled                Boolean
+     active                 Boolean
+     masked                 Boolean
+     static                 Boolean
+     user                   String
+     content                String or Hash
+     triggers_reload        Boolean
+   end
+
+where
+
+* ``name`` is the name of the unit 
+* ``active`` specifies if the service unit type should be started
+* ``user`` is the user account that systemd units run under. If not specified, systemd units will run under the system account.
+* ``content`` describes the behavior of the unit
+
+.. end_tag
 
 Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_systemd_unit_actions.rst
+.. tag resource_systemd_unit_actions
+
+This resource has the following actions:
+
+``:create``
+   Create a unit file, if it does not already exist.
+
+``:delete``
+   Delete a unit file, if it exists.
+
+``:enable``
+   Ensure the unit will be started after the next system boot.
+
+``:disable``
+   Ensure the unit will not be started after the next system boot.
+
+``:nothing``
+   Default. Do nothing with the unit.
+
+``:mask``
+   Ensure the unit will not start, even to satisfy dependencies.
+
+``:unmask``
+   Stop the unit from being masked and cause it to start as specified.
+
+``:start``
+   Start a unit based in its systemd unit file.
+
+``:stop``
+   Stop a running unit.
+
+``:restart``
+   Restart a unit.
+
+``:reload``
+   Reload the configuration file for a unit.
+
+``:try_restart``
+   Try to restart a unit if the unit is running.
+
+``:reload_or_restart``
+   For units that are services, this action reloads the configuration of the service without restarting, if possible; otherwise, it will restart the service so the new configuration is applied.
+
+``:reload_or_try_restart``
+   For units that are services, this action reloads the configuration of the service without restarting, if possible; otherwise, it will try to restart the service so the new configuration is applied.
+
+.. end_tag
 
 Properties
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. include:: ../../includes_resources/includes_resource_systemd_unit_attributes.rst
+.. tag resource_systemd_unit_attributes
 
+This resource has the following properties:
+
+``enabled``
+   **Ruby Types:** TrueClass, FalseClass
+
+   Specifies whether the unit is enabled or disabled.
+
+``active``
+   **Ruby Type:** TrueClass, FalseClass
+
+   Specifies whether the unit is started or stopped.
+
+``masked``
+   **Ruby Type:** TrueClass, FalseClass
+
+   Specifies whether the unit is masked or not.
+
+``static``
+   **Ruby Type:** TrueClass, FalseClass
+
+   Specifies whether the unit is static or not. Static units cannot be enabled or disabled.
+
+``user``
+   **Ruby Type:** String
+
+   The user account that the systemd unit process is run under. The path to the unit for that user would be something like 
+   ``/etc/systemd/user/sshd.service``. If no user account is specified, the systemd unit will run under a ``system`` account, with the path to the unit being something like ``/etc/systemd/system/sshd.service``.
+
+``content``
+   **Ruby Type:** String, Hash
+
+   A string or hash that contains a systemd `unit file <https://www.freedesktop.org/software/systemd/man/systemd.unit.html>`_ definition that describes the properties of systemd-managed entities, such as services, sockets, devices, and so on.
+
+``triggers_reload``
+   **Ruby Type:** TrueClass, FalseClass
+
+   Specifies whether to trigger a daemon reload when creating or deleting a unit. Default is true.
+
+.. end_tag
 
 Changelog
 =====================================================

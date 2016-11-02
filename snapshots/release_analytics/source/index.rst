@@ -1,14 +1,26 @@
-.. THIS PAGE IS LOCATED AT THE /release/analytics/ PATH.
+
 
 =====================================================
 About Chef Analytics 
 =====================================================
 
-.. include:: ../../includes_analytics/includes_analytics_legacy.rst 
+.. tag analytics_legacy
 
-.. include:: ../../includes_chef/includes_chef_index.rst
+.. note:: This topic is meant to support existing customers using Analytics. The visibility capabilities of Chef Automate replace the features and functionality of Chef Analytics and we encourage customers to adopt Chef Automate going forward.
 
-.. include:: ../../includes_analytics/includes_analytics.rst
+.. end_tag
+
+.. tag chef_index
+
+Chef is a systems and cloud infrastructure automation framework that makes it easy to deploy servers and applications to any physical, virtual, or cloud location, no matter the size of the infrastructure. Each organization is comprised of one (or more) workstations, a single server, and every node that will be configured and maintained by the chef-client. Cookbooks (and recipes) are used to tell the chef-client how each node in your organization should be configured. The chef-client (which is installed on every node) does the actual configuration.
+
+.. end_tag
+
+.. tag analytics_summary
+
+The Chef Analytics platform is a feature of Chef that provides real-time visibility into what is happening on the Chef server, including what's changing, who made those changes, and when they occurred. Individuals may be notified of these changes in real-time. Use this visibility to verify compliance against internal controls.
+
+.. end_tag
 
 View the :doc:`release notes </release_notes>` for all versions of Chef Analytics.
 
@@ -18,53 +30,42 @@ The :doc:`Chef analytics platform </analytics>` provides real-time visibility in
 
 Use this visibility to verify compliance against internal controls.
 
-If you are new to Chef, familiarize yourself with the other core components: `the server, workstations, and nodes <https://docs.chef.io/chef_overview.html>`_. For more information about workstations, cookbooks, and nodes, see the documentation for the chef-client. For more information about the server, see documentation for the Chef server.
+If you are new to Chef, familiarize yourself with the other core components: the server, workstations, and nodes . For more information about workstations, cookbooks, and nodes, see the documentation for the chef-client. For more information about the server, see documentation for the Chef server.
 
 Install, Upgrade
 =====================================================
 The Chef server can be installed on new hardware. Existing Enterprise Chef and Open Source Chef configurations may be upgraded to Chef server 12.
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/analytics/install_analytics.html#standalone-version-1-1">Install Analytics as Standalone</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/analytics/upgrade_analytics.html">Upgrade Analytics</a> </br>
+:doc:`install_analytics`
+:doc:`upgrade_analytics`
 
 Features
 =====================================================
 The following features are part of the Chef Analytics platform:
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/analytics/actions.html">Actions</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/analytics/analytics_rules.html">Rules</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/analytics/analytics_nodes_view.html">Nodes View</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/analytics/dsl_recipe.html">Control Groups and Controls (Recipe DSL Methods)</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/analytics/chef_client.html">chef-client, audit-mode</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/analytics/reporting.html">Reporting</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/analytics/analytics_splunk.html">Splunk App for Chef Server</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/analytics/analytics_webui_tasks.html">Web User Interface</a> </br>
+:doc:`actions`
+:doc:`analytics_rules`
+:doc:`analytics_nodes_view`
+:doc:`dsl_recipe`
+:doc:`chef_client`
+:doc:`reporting`
+:doc:`analytics_splunk`
+:doc:`analytics_webui_tasks`
 
 Manage Chef Analytics
 =====================================================
 Chef Analytics can be managed in the following ways:
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/analytics/analytics_monitor.html">Monitor</a> </br>
+:doc:`analytics_monitor`
 
 Reference
 =====================================================
 This section contains links to topics about configuration files, command-line tools, and APIs that are used by the Chef Analytics platform.
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/analytics/api_analytics.html">Analytics API</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/analytics/plugin_knife_analytics.html">knife-analytics (Knife plugin)</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/analytics/config_rb_analytics.html">opscode-analytics.rb</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/analytics/ctl_analytics.html">opscode-analytics-ctl</a> </br> 
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/api_chef_server.html#authenticate-user">authenticate_user endpoint in Chef Server API</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/config_rb_server_optional_settings.html#rabbitmq">RabbitMQ settings in chef-server.rb</a> </br>   
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/config_rb_server_optional_settings.html#oc-id">OAuth 2.0 authentication to the Chef server</a> </br>    
+:doc:`api_analytics`
+:doc:`plugin_knife_analytics`
+:doc:`config_rb_analytics`
+:doc:`ctl_analytics`
 
 .. Hide the TOC from this file.
 

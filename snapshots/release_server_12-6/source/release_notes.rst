@@ -2,7 +2,11 @@
 Release Notes: Chef Server 12.6
 =====================================================
 
-.. include:: ../../includes_chef/includes_chef_index.rst
+.. tag chef_index
+
+Chef is a systems and cloud infrastructure automation framework that makes it easy to deploy servers and applications to any physical, virtual, or cloud location, no matter the size of the infrastructure. Each organization is comprised of one (or more) workstations, a single server, and every node that will be configured and maintained by the chef-client. Cookbooks (and recipes) are used to tell the chef-client how each node in your organization should be configured. The chef-client (which is installed on every node) does the actual configuration.
+
+.. end_tag
 
 What's New
 =====================================================
@@ -14,7 +18,11 @@ About Chef Licenses
 =====================================================
 All Chef products have a license that governs the entire product and includes links to license files for any third-party software included in Chef packages. The ``/opt/<PRODUCT-NAME>/LICENSES`` directory contains individual copies of all referenced licenses.
 
-.. warning:: .. include:: ../../includes_chef_license/includes_chef_license_note_current.rst
+.. warning:: .. tag chef_license_note_current
+
+             The ``chef-server-ctl install`` command no longer works in the 12.5 (and earlier) versions of the Chef server due to a change in how packages are downloaded from Chef.
+
+             .. end_tag
 
 Apache 2.0
 -----------------------------------------------------

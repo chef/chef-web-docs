@@ -1,11 +1,14 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/ctl_supermarket.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/supermarket/ PATH.
+
 
 =====================================================
 supermarket-ctl (executable)
 =====================================================
 
-.. include:: ../../includes_ctl_supermarket/includes_ctl_supermarket.rst
+.. tag ctl_supermarket_summary
+
+The Chef Supermarket installations that are done using the omnibus installer include a command-line utility named supermarket-ctl. This command-line tool is used to start and stop individual services, reconfigure the Chef Supermarket server, run smoke tests, and tail the Chef Supermarket log files.
+
+.. end_tag
 
 cleanse
 =====================================================
@@ -17,9 +20,6 @@ This subcommand has the following syntax:
 
    $ supermarket-ctl cleanse
 
-
-
-
 help
 =====================================================
 The ``help`` subcommand is used to print a list of all available supermarket-ctl commands.
@@ -29,9 +29,6 @@ This subcommand has the following syntax:
 .. code-block:: bash
 
    $ supermarket-ctl help
-
-
-
 
 make-admin
 =====================================================
@@ -65,9 +62,6 @@ This subcommand has the following syntax:
 
    $ supermarket-ctl show-config
 
-
-
-
 uninstall
 =====================================================
 The ``uninstall`` subcommand is used to remove the Chef Supermarket application, but without removing any of the data. This subcommand will shut down all services (including the ``runit`` process supervisor).
@@ -80,14 +74,13 @@ This subcommand has the following syntax:
 
 .. note:: To revert the ``uninstall`` subcommand, run the ``reconfigure`` subcommand (because the ``start`` subcommand is disabled by the ``uninstall`` command).
 
-
-
-
-
-
 Service Subcommands
 =====================================================
-.. include:: ../../includes_ctl_common/includes_ctl_common_service_subcommands.rst
+.. tag ctl_common_service_subcommands
+
+This command has a built in process supervisor that ensures all of the required services are in the appropriate state at any given time. The supervisor starts two processes per service and provides the following subcommands for managing services: ``hup``, ``int``, ``kill``, ``once``, ``restart``, ``service-list``, ``start``, ``status``, ``stop``, ``tail``, and ``term``.
+
+.. end_tag
 
 hup
 -----------------------------------------------------
@@ -101,9 +94,6 @@ This subcommand has the following syntax:
 
 where ``name_of_service`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
-
-
-
 int
 -----------------------------------------------------
 The ``int`` subcommand is used to send a ``SIGINT`` to all services. This command can also be run for an individual service by specifying the name of the service in the command.
@@ -116,7 +106,6 @@ This subcommand has the following syntax:
 
 where ``name_of_service`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
-
 kill
 -----------------------------------------------------
 The ``kill`` subcommand is used to send a ``SIGKILL`` to all services. This command can also be run for an individual service by specifying the name of the service in the command.
@@ -128,9 +117,6 @@ This subcommand has the following syntax:
    $ supermarket-ctl kill name_of_service
 
 where ``name_of_service`` represents the name of any service that is listed after running the ``service-list`` subcommand.
-
-
-
 
 once
 -----------------------------------------------------
@@ -145,9 +131,6 @@ This subcommand has the following syntax:
    $ supermarket-ctl once name_of_service
 
 where ``name_of_service`` represents the name of any service that is listed after running the ``service-list`` subcommand.
-
-
-
 
 restart
 -----------------------------------------------------
@@ -165,9 +148,6 @@ where ``name_of_service`` represents the name of any service that is listed afte
 
    $ ok: run: service_name: (pid 12345) 1s
 
-
-
-
 service-list
 -----------------------------------------------------
 The ``service-list`` subcommand is used to display a list of all available services. A service that is enabled is labeled with an asterisk (*).
@@ -177,9 +157,6 @@ This subcommand has the following syntax:
 .. code-block:: bash
 
    $ supermarket-ctl service-list
-
-
-
 
 start
 -----------------------------------------------------
@@ -198,9 +175,6 @@ where ``name_of_service`` represents the name of any service that is listed afte
    $ ok: run: service_name: (pid 12345) 1s
 
 The supervisor for Chef Supermarket is configured to wait seven seconds for a service to respond to a command from the supervisor. If you see output that references a timeout, it means that a signal has been sent to the process, but that the process has yet to actually comply. In general, processes that have timed out are not a big concern, unless they are failing to respond to the signals at all. If a process is not responding, use a command like the ``kill`` subcommand to stop the process, investigate the cause (if required), and then use the ``start`` subcommand to re-enable it.
-
-
-
 
 status
 -----------------------------------------------------
@@ -326,7 +300,4 @@ This subcommand has the following syntax:
    $ supermarket-ctl term name_of_service
 
 where ``name_of_service`` represents the name of any service that is listed after running the ``service-list`` subcommand.
-
-
-
 

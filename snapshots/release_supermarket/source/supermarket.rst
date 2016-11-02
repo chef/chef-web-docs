@@ -1,17 +1,25 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/supermarket.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/supermarket/ PATH.
+
 
 =====================================================
 Chef Supermarket
 =====================================================
 
-.. include:: ../../includes_supermarket/includes_supermarket.rst
+.. tag supermarket_summary
+
+Chef Supermarket is the site for community cookbooks. It provides an easily searchable cookbook repository and a friendly web UI. Cookbooks that are part of the Chef Supermarket are accessible by any Chef user.
+
+There are two ways to use Chef Supermarket:
+
+* The public Chef Supermarket is hosted by Chef and is located at |url supermarket|. Contributing to cookbooks on Chef Supermarket :doc:`requires signing a license </community_contributions>`.
+* A private Chef Supermarket may be installed on-premise behind the firewall on the internal network. Cookbook retrieval from a private Chef Supermarket is often faster than from the public Chef Supermarket because of closer proximity and fewer cookbooks to resolve. A private cookbook can also help formalize internal cookbook release management processes (e.g. "a cookbook is not released until it's published on Chef Supermarket").
+
+.. end_tag
 
 Public Supermarket
 =====================================================
 The public Chef Supermarket hosted by Chef is located at |url supermarket|.
 
-To interact with the public Chef Supermarket, use `knife cookbook site <https://docs.chef.io/knife_cookbook_site.html>`_ commands.
+To interact with the public Chef Supermarket, use knife cookbook site commands.
 
 .. image:: ../../images/public_supermarket.svg
    :width: 700px
@@ -19,9 +27,21 @@ To interact with the public Chef Supermarket, use `knife cookbook site <https://
 
 Private Supermarket
 =====================================================
-.. include:: ../../includes_supermarket/includes_supermarket_private.rst
+.. tag supermarket_private
 
-.. note:: .. include:: ../../includes_supermarket/includes_supermarket_private_source_code.rst
+The private Chef Supermarket is installed behind the firewall on the internal network. Outside of changing the location from which community cookbooks are maintained, it otherwise behaves the same as the public Chef Supermarket.
+
+.. end_tag
+
+.. note:: .. tag supermarket_private_source_code
+
+          The source code for Chef Supermarket is located at the following URLs:
+
+          * The application itself: https://github.com/chef/supermarket. Report issues to: https://github.com/chef/supermarket/issues.
+          * The code that builds Chef Supermarket as an omnibus package: https://github.com/chef/omnibus-supermarket. Use a Kitchen-based environment to build your own omnibus packages.
+          * The cookbook that is run by the ``supermarket-ctl reconfigure`` command: https://github.com/chef/omnibus-supermarket/tree/master/cookbooks/omnibus-supermarket
+
+          .. end_tag
 
 Recommended Tools
 -----------------------------------------------------
@@ -48,11 +68,11 @@ Stove is a utility for packaging and releasing Chef cookbooks: https://github.co
 Installing Private Supermarket
 -----------------------------------------------------
 
-To install a Private Supermarket, see the instructions `here <https://docs.chef.io/install_supermarket.html>`__.
+To install a Private Supermarket, see the instructions :doc:`here <install_supermarket>`.
 
 Set up Workstation
 -----------------------------------------------------
-If you are using Chef 12.13 or higher, use the `knife cookbook site <https://docs.chef.io/knife_cookbook_site.html>`_ commands to work with cookbooks in both Public Chef Supermarket and a Private Chef Supermarket.
+If you are using Chef 12.13 or higher, use the knife cookbook site commands to work with cookbooks in both Public Chef Supermarket and a Private Chef Supermarket.
 
 If you are using Chef 12.12 or lower, use the ``knife supermarket`` plugin to work with cookbooks in a Private Chef Supermarket.
 
@@ -61,7 +81,7 @@ knife
 Chef 12.13 and higher
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you are using Chef 12.13 or higher, use the `knife cookbook site <https://docs.chef.io/knife_cookbook_site.html>`_ commands with BOTH Public Supermarket and Private Supermarket.
+If you are using Chef 12.13 or higher, use the knife cookbook site commands with BOTH Public Supermarket and Private Supermarket.
 
 Chef 12.12 and lower
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -152,11 +172,11 @@ The ``default.rb`` recipe is created when a cookbook is generated. A recipe is u
 .. code-block:: ruby
 
    package 'apache2' # Installs the apache2 package
-   
+
    service 'apache2' do
      action [:start, :enable] # Starts and enables the apache2 service on boot
    end
-   
+
    template '/var/www/html/index.html' do
      source 'index.html.erb' # Template for /var/www/html/index.html
    end
@@ -253,19 +273,31 @@ Re-share the cookbook. This time the message returned should be similar to:
 
 supermarket-ctl (executable)
 -----------------------------------------------------
-.. include:: ../../includes_ctl_supermarket/includes_ctl_supermarket.rst
+.. tag ctl_supermarket_summary
+
+The Chef Supermarket installations that are done using the omnibus installer include a command-line utility named supermarket-ctl. This command-line tool is used to start and stop individual services, reconfigure the Chef Supermarket server, run smoke tests, and tail the Chef Supermarket log files.
+
+.. end_tag
 
 For more information about the supermarket-ctl command line tool, see :doc:`supermarket-ctl </ctl_supermarket>`.
 
 supermarket.rb
 -----------------------------------------------------
-.. include:: ../../includes_config/includes_config_rb_supermarket.rst
+.. tag config_rb_supermarket_summary
+
+The supermarket.rb file contains all of the non-default configuration settings used by the Chef Supermarket. (The default settings are built-in to the Chef Supermarket configuration and should only be added to the supermarket.rb file to apply non-default values.) These configuration settings are processed when the ``supermarket-ctl reconfigure`` command is run, such as immediately after setting up Chef Supermarket or after making a change to the underlying configuration settings after the server has been deployed. The supermarket.rb file is a Ruby file, which means that conditional statements can be used in the configuration file.
+
+.. end_tag
 
 For more information about the supermarket.rb file, see :doc:`supermarket.rb </config_rb_supermarket>`.
 
 Cookbooks Site API
 -----------------------------------------------------
-.. include:: ../../includes_api_cookbooks_site/includes_api_cookbooks_site.rst
+.. tag api_cookbooks_site_summary
+
+The Cookbooks Site API is used to provide access to the cookbooks community hosted at |url community_cookbooks|. All of the cookbooks in the community are accessible through a RESTful API located at |url api_cookbooks| by using any of the supported endpoints. In most cases, using knife is the best way to interact with these cookbooks; in some cases, using the Cookbooks Site API directly is necessary.
+
+.. end_tag
 
 For more information about the Cookbooks Site API, see :doc:`Cookbooks Site API </api_cookbooks_site>`.
 

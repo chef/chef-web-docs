@@ -1,10 +1,20 @@
-.. THIS PAGE DOCUMENTS chef-client version 11.14
+
 
 =====================================================
 About Cookbooks
 =====================================================
 
-.. include:: ../../includes_cookbooks/includes_cookbooks.rst
+.. tag cookbooks_26
+
+A cookbook is the fundamental unit of configuration and policy distribution. A cookbook defines a scenario and contains everything that is required to support that scenario:
+
+* Recipes that specify the resources to use and the order in which they are to be applied
+* Attribute values
+* File distributions
+* Templates
+* Extensions to Chef, such as libraries, definitions, and custom resources
+
+.. end_tag
 
 The chef-client uses Ruby as its reference language for creating cookbooks and defining recipes, with an extended DSL for specific resources. The chef-client provides a reasonable set of resources, enough to support many of the most common infrastructure automation scenarios; however, this DSL can also be extended when additional resources and capabilities are required.
 
@@ -19,9 +29,29 @@ Some important components of cookbooks include:
    * - Feature
      - Description
    * - :doc:`Attributes </attributes>`
-     - .. include:: ../../includes_cookbooks/includes_cookbooks_attribute.rst
+     - .. tag cookbooks_attribute
+
+       An attribute can be defined in a cookbook (or a recipe) and then used to override the default settings on a node. When a cookbook is loaded during a chef-client run, these attributes are compared to the attributes that are already present on the node. Attributes that are defined in attribute files are first loaded according to cookbook order. For each cookbook, attributes in the ``default.rb`` file are loaded first, and then additional attribute files (if present) are loaded in lexical sort order. When the cookbook attributes take precedence over the default attributes, the chef-client will apply those new settings and values during the chef-client run on the node.
+
+       .. end_tag
+
    * - :doc:`Recipes </recipes>`
-     - .. include:: ../../includes_cookbooks/includes_cookbooks_recipe.rst
+     - .. tag cookbooks_recipe
+
+       A recipe is the most fundamental configuration element within the organization. A recipe:
+
+       * Is authored using Ruby, which is a programming language designed to read and behave in a predictable manner
+       * Is mostly a collection of resources, defined using patterns (resource names, attribute-value pairs, and actions); helper code is added around this using Ruby, when needed
+       * Must define everything that is required to configure part of a system
+       * Must be stored in a cookbook
+       * May be included in a recipe
+       * May use the results of a search query and read the contents of a data bag (including an encrypted data bag)
+       * May have a dependency on one (or more) recipes
+       * May tag a node to facilitate the creation of arbitrary groupings
+       * Must be added to a run-list before it can be used by the chef-client
+       * Is always executed in the same order as listed in a run-list
+
+       .. end_tag
 
 The chef-client will run a recipe only when asked. When the chef-client runs the same recipe more than once, the results will be the same system state each time. When a recipe is run against a system, but nothing has changed on either the system or in the recipe, the chef-client won't change anything.
 
@@ -44,11 +74,17 @@ In addition to attributes and recipes, the following items are also part of cook
    * - :doc:`Metadata </cookbook_repo>`
      - A metadata file is used to ensure that each cookbook is correctly deployed to each node.\
    * - :doc:`Resources and Providers </resource>`
-     - A resource is a package, a service, a group of users, and so on. A resource tells the chef-client which provider to use during a chef-client run for various tasks like installing packages, running Ruby code, or accessing directories and file systems. The resource is generic: "install program A" while the provider knows what to do with that process on Debian and Ubuntu and Microsoft Windows. A provider defines the steps that are required to bring that piece of the system into the desired state. The chef-client includes default providers that cover all of the most common scenarios. For the full list of resources that are built-in to the chef-client, see https://docs.chef.io/resources.html.
+     - A resource is a package, a service, a group of users, and so on. A resource tells the chef-client which provider to use during a chef-client run for various tasks like installing packages, running Ruby code, or accessing directories and file systems. The resource is generic: "install program A" while the provider knows what to do with that process on Debian and Ubuntu and Microsoft Windows. A provider defines the steps that are required to bring that piece of the system into the desired state. The chef-client includes default providers that cover all of the most common scenarios. 
    * - :doc:`Templates </templates>`
      - A template is a file written in markup language that uses Ruby statements to solve complex configuration scenarios.
    * - :doc:`Cookbook Versions </cookbook_versions>`
-     - .. include:: ../../includes_cookbooks/includes_cookbooks_version.rst
+     - .. tag cookbooks_version
+
+       A cookbook version represents a set of functionality that is different from the cookbook on which it is based. A version may exist for many reasons, such as ensuring the correct use of a third-party component, updating a bug fix, or adding an improvement. A cookbook version is defined using syntax and operators, may be associated with environments, cookbook metadata, and/or run-lists, and may be frozen (to prevent unwanted updates from being made).
+
+       A cookbook version is maintained just like a cookbook, with regard to source control, uploading it to the Chef server, and how the chef-client applies that cookbook when configuring nodes.
+
+       .. end_tag
 
 Community Cookbooks
 =====================================================

@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS Open Source Chef server version 11.0
+
 
 =====================================================
 chef-server-ctl (executable)
@@ -37,7 +37,6 @@ This command has the following options:
 
 ``test --all``
    Execute chef-pedant, an integration test suite for the Chef server installation. By default, only a subset of the available test are run. Add the ``--all`` flag to run the full test suite.
-
 
 Examples
 =====================================================

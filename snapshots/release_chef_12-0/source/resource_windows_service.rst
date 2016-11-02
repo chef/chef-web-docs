@@ -1,10 +1,14 @@
-.. THIS PAGE DOCUMENTS chef-client version 12.0
+
 
 =====================================================
 windows_service
 =====================================================
 
-.. include:: ../../includes_resources/includes_resource_service_windows.rst
+.. tag resource_service_windows
+
+Use the **windows_service** resource to manage a service on the Microsoft Windows platform.
+
+.. end_tag
 
 Syntax
 =====================================================
@@ -39,7 +43,7 @@ The full syntax for all of the properties that are available to the **windows_se
      action                     Symbol # defaults to :nothing if not specified
    end
 
-where 
+where
 
 * ``windows_service`` is the resource
 * ``name`` is the name of the resource block
@@ -48,7 +52,35 @@ where
 
 Actions
 =====================================================
-.. include:: ../../includes_resources/includes_resource_service_windows_actions.rst
+.. tag resource_service_windows_actions
+
+This resource has the following actions:
+
+``:configure_startup``
+   Configure a service based on the value of the ``startup_type`` property.
+
+``:disable``
+   Disable a service. This action is equivalent to a ``Disabled`` startup type on the Microsoft Windows platform.
+
+``:enable``
+   Enable a service at boot. This action is equivalent to an ``Automatic`` startup type on the Microsoft Windows platform.
+
+``:nothing``
+   Default. Do nothing with a service.
+
+``:reload``
+   Reload the configuration for this service.
+
+``:restart``
+   Restart a service.
+
+``:start``
+   Start a service, and keep it running until stopped or disabled.
+
+``:stop``
+   Stop a service.
+
+.. end_tag
 
 Properties
 =====================================================
@@ -67,11 +99,33 @@ This resource has the following properties:
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
-   .. include:: ../../includes_resources_common/includes_resources_common_notification_notifies.rst
+   .. tag resources_common_notification_notifies
 
-   .. include:: ../../includes_resources_common/includes_resources_common_notification_timers_12-5.rst
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
 
-   .. include:: ../../includes_resources_common/includes_resources_common_notification_notifies_syntax.rst
+   .. end_tag
+
+   .. tag 5_3
+
+   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+
+   ``:delayed``
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+
+   ``:immediate``, ``:immediately``
+      Specifies that a notification should be run immediately, per resource notified.
+
+   .. end_tag
+
+   .. tag resources_common_notification_notifies_syntax
+
+   The syntax for ``notifies`` is:
+
+   .. code-block:: ruby
+
+      notifies :action, 'resource[name]', :timer
+
+   .. end_tag
 
 ``pattern``
    **Ruby Type:** String
@@ -131,11 +185,33 @@ This resource has the following properties:
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
-   .. include:: ../../includes_resources_common/includes_resources_common_notification_subscribes.rst
+   .. tag resources_common_notification_subscribes
 
-   .. include:: ../../includes_resources_common/includes_resources_common_notification_timers_12-5.rst
+   A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
 
-   .. include:: ../../includes_resources_common/includes_resources_common_notification_subscribes_syntax.rst
+   .. end_tag
+
+   .. tag 5_3
+
+   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+
+   ``:delayed``
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+
+   ``:immediate``, ``:immediately``
+      Specifies that a notification should be run immediately, per resource notified.
+
+   .. end_tag
+
+   .. tag resources_common_notification_subscribes_syntax
+
+   The syntax for ``subscribes`` is:
+
+   .. code-block:: ruby
+
+      subscribes :action, 'resource[name]', :timer
+
+   .. end_tag
 
 ``supports``
    **Ruby Type:** Hash
@@ -149,11 +225,33 @@ This resource has the following properties:
 
 Providers
 =====================================================
-.. include:: ../../includes_resources_common/includes_resources_common_provider.rst
+.. tag resources_common_provider
 
-.. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
+Where a resource represents a piece of the system (and its desired state), a provider defines the steps that are needed to bring that piece of the system from its current state into the desired state.
 
-.. include:: ../../includes_resources/includes_resource_service_windows_providers.rst
+.. end_tag
+
+.. tag resources_common_provider_attributes
+
+The chef-client will determine the correct provider based on configuration data collected by Ohai at the start of the chef-client run. This configuration data is then mapped to a platform and an associated list of providers.
+
+Generally, it's best to let the chef-client choose the provider, and this is (by far) the most common approach. However, in some cases, specifying a provider may be desirable. There are two approaches:
+
+* Use a more specific short name---``yum_package "foo" do`` instead of ``package "foo" do``, ``script "foo" do`` instead of ``bash "foo" do``, and so on---when available
+* Use the ``provider`` property within the resource block to specify the long name of the provider as a property of a resource. For example: ``provider Chef::Provider::Long::Name``
+
+.. end_tag
+
+.. tag resource_service_windows_providers
+
+The **windows_service** resource does not have service-specific short names. This is because the chef-client identifies the platform at the start of every chef-client run based on data collected by Ohai. The chef-client looks up the platform, and then determines the correct provider for that platform. In certain situations, such as when more than one init system is available on a node, a specific provider may need to be identified by using the ``provider`` attribute and the long name for that provider.
+
+This resource has the following providers:
+
+``Chef::Provider::Service::Windows``, ``windows_service``
+   The provider that is used with the Microsoft Windows platform.
+
+.. end_tag
 
 Examples
 =====================================================
@@ -161,5 +259,16 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Start a service manually**
 
-.. include:: ../../step_resource/step_resource_service_windows_manual_start.rst
+.. tag resource_service_windows_manual_start
+
+.. To install a package:
+
+.. code-block:: ruby
+
+   windows_service 'BITS' do
+     action :configure_startup
+     startup_type :manual
+   end
+
+.. end_tag
 

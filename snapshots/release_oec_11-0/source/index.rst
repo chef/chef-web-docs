@@ -12,13 +12,13 @@ Server Essentials
 =====================================================
 The server acts as a hub for all of the data needed by the chef-client while it configures a node:
 
-* A `node object <https://docs.chef.io/nodes.html>`_ exists for each node that is being managed by the chef-client
-* Each node object consists of a `run-list <https://docs.chef.io/nodes.html>`_ and a `collection of attributes <https://docs.chef.io/attributes.html>`_
-* Cookbooks are the fundamental unit of configuration and policy distribution and include: `attribute files <https://docs.chef.io/attributes.html>`_, `definitions <https://docs.chef.io/definitions.html>`_, `files, <https://docs.chef.io/files.html>`_, `libraries <https://docs.chef.io/libraries.html>`_, `metadata <https://docs.chef.io/cookbook_repo.html>`_, `recipes <https://docs.chef.io/recipes.html>`_, `resources <https://docs.chef.io/resources.html>`_, `templates <https://docs.chef.io/templates.html>`_, and `versions <https://docs.chef.io/cookbook_versions.html>`_
-* All data that is stored on the Chef server---including everything uploaded to the server from the chef-repo and by the chef-client---is `searchable <https://docs.chef.io/chef_search.html>`_ from both recipes (using the `search method <https://docs.chef.io/dsl_recipe.html#search>`_ in the Recipe DSL) and the workstation (using the `knife search <https://docs.chef.io/knife_search.html>`_ subcommand). The chef-client does the actual configuration on `the nodes <https://docs.chef.io/nodes.html>`_. The chef-client receives its instructions from cookbooks (`recipes <https://docs.chef.io/recipes.html>`_, mostly). The process of configuring a node is called `the chef-client run <https://docs.chef.io/nodes.html>`_. At the beginning of each run, the chef-client `validates to the server <https://docs.chef.io/chef_client.html>`_, `collects important data about that node <https://docs.chef.io/ohai.html>`_, and then configures the node. At the end of each run, the chef-client `reports the successes and failures that may have occurred <https://docs.chef.io/handlers.html>`_
-* The Chef server can apply `global policy settings <https://docs.chef.io/policy.html>`_ to all nodes across the organization, including for `data bags <https://docs.chef.io/data_bags.html>`_, `environments <https://docs.chef.io/environments.html>`_, and `roles <https://docs.chef.io/roles.html>`_
-* The `authentication <https://docs.chef.io/auth.html#authentication>`_ process ensures that requests can only be made to the Chef server by authorized users
-* Users, once `authorized <https://docs.chef.io/auth.html#authorization>`_ can only perform certain actions
+* A node object exists for each node that is being managed by the chef-client
+* Each node object consists of a run-list and a collection of attributes 
+* Cookbooks are the fundamental unit of configuration and policy distribution and include: attribute files , definitions , files, , libraries , metadata , recipes , resources , templates , and versions 
+* All data that is stored on the Chef server---including everything uploaded to the server from the chef-repo and by the chef-client---is :doc:`searchable <chef_search>` from both recipes and the workstation (using the `knife search <knife_search>` subcommand). The chef-client does the actual configuration on the nodes . The chef-client receives its instructions from cookbooks (recipes , mostly). The process of configuring a node is called the chef-client run . At the beginning of each run, the chef-client validates to the server , collects important data about that node , and then configures the node. At the end of each run, the chef-client reports the successes and failures that may have occurred 
+* The Chef server can apply global policy settings to all nodes across the organization, including for data bags , environments , and roles 
+* The :ref:`authentication <auth-authentication>` process ensures that requests can only be made to the Chef server by authorized users
+* Users, once :ref:`authorized <auth-authorization>` can only perform certain actions
 
 Server Components
 =====================================================
@@ -26,16 +26,18 @@ The Enterprise Chef acts as a hub for configuration data. The :doc:`components t
 
 Deployment Scenarios
 =====================================================
-.. include:: ../../includes_server_deploy/includes_server_deploy.rst
+.. tag server_deploy
+
+There are several configuration options for the Chef server: hosted by Chef, all on a single machine (standalone), multiple machines and a scaled front end, multiple machines and a scaled back end, or multiple machines with both scaled front and back ends.
+
+.. end_tag
 
 The following sections discuss these deployment configuration options in greater detail:
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/server_deploy_standalone.html">Standalone</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/server_deploy_be.html">Scaled Back End</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/server_deploy_fe.html">Scaled Front End</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/server_deploy_febe.html">Scaled Front and Back Ends</a> </br>
+:doc:`server_deploy_standalone`
+:doc:`server_deploy_be`
+:doc:`server_deploy_fe`
+:doc:`server_deploy_febe`
 
 .. note:: For more information about signing up for hosted Enterprise Chef, see https://manage.chef.io/signup.
 
@@ -43,76 +45,59 @@ Install Enterprise Chef
 -----------------------------------------------------
 The Chef server can be installed via download or by using the Omnitruck API:
 
-.. raw:: html
+:doc:`install_server`
 
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/install_server.html">Install the Enterprise Chef Server</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/api_omnitruck.html">Download the chef-client using the Omnitruck API</a> </br>
 
 Installation scenarios:
 
-.. raw:: html
+:doc:`install_server_pre`
+:doc:`install_server_standalone`
+:doc:`install_server_be`
+:doc:`install_server_fe`
+:doc:`install_server_febe`
 
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/install_server_pre.html">Prerequisites</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/install_server_standalone.html">Standalone</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/install_server_be.html">Scaled Back End</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/install_server_fe.html">Scaled Front End</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/install_server_febe.html">Scaled Front and Back Ends</a> </br>
+:doc:`migrate_to_enterprise`
 
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/migrate_to_enterprise.html">Migrate from Open Source Chef</a> </br>
+:doc:`upgrade_server_standalone`
+:doc:`upgrade_server_ha`
 
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/upgrade_server_standalone.html">Standalone Upgrade</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/upgrade_server_ha.html">High Availability Upgrade</a> </br>
+Options:
 
-Options: 
-
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/install_server_ldap.html">Active Directory / LDAP</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/install_server_users.html">Create Users</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/install_server_orgs.html">Create Organizations</a> </br>
+:doc:`install_server_ldap`
+:doc:`install_server_users`
+:doc:`install_server_orgs`
 
 Manage Enterprise Chef
 =====================================================
 The Chef server can be managed in the following ways:
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/server_backup_restore.html">Backup and Restore</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/server_firewalls_and_ports.html">Firewalls and Ports</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/server_high_availability.html">High Availability</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/server_ldap.html">LDAP / Active Directory</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/server_logs.html">Logs</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/server_monitor.html">Monitor</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/server_tuning.html">Performance Tuning</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/server_security.html">Security</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/server_services.html">Services</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/server_users.html">Users</a> </br>
+:doc:`server_backup_restore`
+:doc:`server_firewalls_and_ports`
+:doc:`server_high_availability`
+:doc:`server_ldap`
+:doc:`server_logs`
+:doc:`server_monitor`
+:doc:`server_tuning`
+:doc:`server_security`
+:doc:`server_services`
+:doc:`server_users`
 
 Settings and Tools 
 =====================================================
 The following settings files are used to configure behavior for the Chef server:
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/config_rb_chef_server_enterprise.html">private-chef.rb</a> </br>
+:doc:`config_rb_chef_server_enterprise`
 
 The following command-line tools can be run on the Chef server:
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/orgmapper.html">orgmapper</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/ctl_private_chef.html">private-chef-ctl</a> </br>
-
+:doc:`orgmapper`
+:doc:`ctl_private_chef`
 
 APIs
 =====================================================
 The following APIs can be used to access data on the Chef server:
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/release/oec_11-1/api_chef_server.html">Chef Server API</a> </br>
-
-
+:doc:`api_chef_server`
 
 .. Hide the TOC from this file.
 

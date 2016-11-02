@@ -1,27 +1,82 @@
-.. THIS PAGE DOCUMENTS chef-client version 11.0
+
 
 =====================================================
 knife list
 =====================================================
 
-.. include:: ../../includes_knife/includes_knife_list.rst
+.. tag knife_list_25
+
+Use the ``knife list`` subcommand to view a list of objects on the Chef server. This subcommand works similar to ``knife cookbook list``, ``knife data bag list``, ``knife environment list``, ``knife node list``, and ``knife role list``, but with a single verb (and a single action).
+
+.. end_tag
 
 Syntax
 =====================================================
-.. include:: ../../includes_knife/includes_knife_list_syntax.rst
+.. tag knife_list_syntax
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ knife list [PATTERN...] (options)
+
+.. end_tag
 
 Options
 =====================================================
-.. note:: .. include:: ../../includes_knife/includes_knife_common_see_common_options_link.rst
+.. note:: .. tag knife_common_see_common_options_link
 
-.. include:: ../../includes_knife/includes_knife_list_options_11-4.rst
+          Review the list of :doc:`common options </knife_common_options>` available to this (and all) knife subcommands and plugins.
 
-.. note:: .. include:: ../../includes_knife/includes_knife_common_see_all_config_options.rst
+          .. end_tag
+
+.. tag 4_4
+
+This subcommand has the following options:
+
+``-d``
+   Prevent a directory's children from showing when a directory matches a pattern.
+
+``-R``
+   List directories recursively.
+
+.. end_tag
+
+.. note:: .. tag knife_common_see_all_config_options
+
+          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+
+          .. end_tag
 
 Examples
 =====================================================
-.. include:: ../../step_knife/step_knife_list_roles.rst
+.. tag knife_list_roles
 
-.. include:: ../../step_knife/step_knife_list_roles_and_environments.rst
+For example, to view a list of roles on the Chef server:
 
-.. include:: ../../step_knife/step_knife_list_everything.rst
+.. code-block:: bash
+
+   $ knife list roles/
+
+.. end_tag
+
+.. tag knife_list_roles_and_environments
+
+To view a list of roles and environments on the Chef server:
+
+.. code-block:: bash
+
+   $ knife list roles/ environments/
+
+.. end_tag
+
+.. tag knife_list_everything
+
+To view a list of absolutely everything on the Chef server:
+
+.. code-block:: bash
+
+   $ knife list -R /
+
+.. end_tag
+

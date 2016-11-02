@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS chef-client version 12.1
+
 
 =====================================================
 chef_gem
@@ -6,7 +6,16 @@ chef_gem
 
 .. warning:: ../../includes_notes/includes_notes_chef_gem_vs_gem_package.rst
 
-.. include:: ../../includes_resources/includes_resource_package_chef_gem.rst
+.. tag resource_package_chef_gem
+
+Use the **chef_gem** resource to install a gem only for the instance of Ruby that is dedicated to the chef-client. When a package is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources.
+
+The **chef_gem** resource works with all of the same properties and options as the **gem_package** resource, but does not accept the ``gem_binary`` property because it always uses the ``CurrentGemEnvironment`` under which the chef-client is running. In addition to performing actions similar to the **gem_package** resource, the **chef_gem** resource does the following:
+
+* Runs its actions immediately, before convergence, allowing a gem to be used in a recipe immediately after it is installed
+* Runs ``Gem.clear_paths`` after the action, ensuring that gem is aware of changes so that it can be required immediately after it is installed
+
+.. end_tag
 
 .. note:: ../../includes_notes/includes_notes_resource_based_on_package.rst
 
@@ -37,7 +46,7 @@ The full syntax for all of the properties that are available to the **chef_gem**
      action                     Symbol # defaults to :install if not specified
    end
 
-where 
+where
 
 * ``chef_gem`` tells the chef-client to manage a package
 * ``'name'`` is the name of the package
@@ -46,7 +55,33 @@ where
 
 Actions
 =====================================================
-.. include:: ../../includes_resources/includes_resource_package_chef_gem_actions.rst
+.. tag resource_package_chef_gem_actions
+
+This resource has the following actions:
+
+``:install``
+   Default. Install a package. If a version is specified, install the specified version of the package.
+
+``:nothing``
+   .. tag resources_common_actions_nothing
+
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the chef-client run.
+
+   .. end_tag
+
+``:purge``
+   Purge a package. This action typically removes the configuration files as well as the package.
+
+``:reconfig``
+   Reconfigure a package. This action requires a response file.
+
+``:remove``
+   Remove a package.
+
+``:upgrade``
+   Install a package and/or ensure that a package is the latest version.
+
+.. end_tag
 
 Properties
 =====================================================
@@ -56,10 +91,34 @@ This resource has the following properties:
    **Ruby Types:** TrueClass, FalseClass
 
    Controls the phase during which a gem is installed on a node. Set to ``true`` to install a gem while the resource collection is being built (the "compile phase"). Set to ``false`` to install a gem while the chef-client is configuring the node (the "converge phase"). Possible values: ``nil`` (for verbose warnings), ``true`` (to warn once per chef-client run), or ``false`` (to remove all warnings). Recommended value: ``false``.
-   
-   .. include:: ../../includes_resources/includes_resource_package_chef_gem_attribute_compile_time.rst 
-     
-   .. warning:: .. include:: ../../includes_notes/includes_notes_chef_gem_chef_sugar.rst
+
+   .. tag resource_package_chef_gem_attribute_compile_time
+
+   .. This topic is hooked into client.rb topics, starting with 12.1, in addition to the resource reference pages.
+
+   To suppress warnings for cookbooks authored prior to chef-client 12.1, use a ``respond_to?`` check to ensure backward compatibility. For example:
+
+   .. code-block:: ruby
+
+      chef_gem 'aws-sdk' do
+        compile_time false if respond_to?(:compile_time)
+      end
+
+   .. end_tag
+
+   .. warning:: .. tag notes_chef_gem_chef_sugar
+
+                If you are using ``chef-sugar``---a `community cookbook <https://supermarket.chef.io/cookbooks/chef-sugar>`__---it must be version 3.0.1 (or higher) to use the previous example. If you are using an older version of ``chef-sugar``, the following workaround is required:
+
+                .. code-block:: ruby
+
+                   chef_gem 'gem_name' do
+                     compile_time true if Chef::Resource::ChefGem.instance_methods(false).include?(:compile_time)
+                   end
+
+                See this `blog post <http://jtimberman.housepub.org/blog/2015/03/20/chef-gem-compile-time-compatibility/>`__ for more background on this behavior.
+
+                .. end_tag
 
 ``ignore_failure``
    **Ruby Types:** TrueClass, FalseClass
@@ -69,11 +128,33 @@ This resource has the following properties:
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
-   .. include:: ../../includes_resources_common/includes_resources_common_notification_notifies.rst
+   .. tag resources_common_notification_notifies
 
-   .. include:: ../../includes_resources_common/includes_resources_common_notification_timers_12-5.rst
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
 
-   .. include:: ../../includes_resources_common/includes_resources_common_notification_notifies_syntax.rst
+   .. end_tag
+
+   .. tag 5_3
+
+   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+
+   ``:delayed``
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+
+   ``:immediate``, ``:immediately``
+      Specifies that a notification should be run immediately, per resource notified.
+
+   .. end_tag
+
+   .. tag resources_common_notification_notifies_syntax
+
+   The syntax for ``notifies`` is:
+
+   .. code-block:: ruby
+
+      notifies :action, 'resource[name]', :timer
+
+   .. end_tag
 
 ``options``
    **Ruby Type:** String
@@ -108,11 +189,33 @@ This resource has the following properties:
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
-   .. include:: ../../includes_resources_common/includes_resources_common_notification_subscribes.rst
+   .. tag resources_common_notification_subscribes
 
-   .. include:: ../../includes_resources_common/includes_resources_common_notification_timers_12-5.rst
+   A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
 
-   .. include:: ../../includes_resources_common/includes_resources_common_notification_subscribes_syntax.rst
+   .. end_tag
+
+   .. tag 5_3
+
+   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+
+   ``:delayed``
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+
+   ``:immediate``, ``:immediately``
+      Specifies that a notification should be run immediately, per resource notified.
+
+   .. end_tag
+
+   .. tag resources_common_notification_subscribes_syntax
+
+   The syntax for ``subscribes`` is:
+
+   .. code-block:: ruby
+
+      subscribes :action, 'resource[name]', :timer
+
+   .. end_tag
 
 ``timeout``
    **Ruby Types:** String, Integer
@@ -126,11 +229,34 @@ This resource has the following properties:
 
 Providers
 =====================================================
-.. include:: ../../includes_resources_common/includes_resources_common_provider.rst
+.. tag resources_common_provider
 
-.. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
+Where a resource represents a piece of the system (and its desired state), a provider defines the steps that are needed to bring that piece of the system from its current state into the desired state.
 
-.. include:: ../../includes_resources/includes_resource_package_chef_gem_providers.rst
+.. end_tag
+
+.. tag resources_common_provider_attributes
+
+The chef-client will determine the correct provider based on configuration data collected by Ohai at the start of the chef-client run. This configuration data is then mapped to a platform and an associated list of providers.
+
+Generally, it's best to let the chef-client choose the provider, and this is (by far) the most common approach. However, in some cases, specifying a provider may be desirable. There are two approaches:
+
+* Use a more specific short name---``yum_package "foo" do`` instead of ``package "foo" do``, ``script "foo" do`` instead of ``bash "foo" do``, and so on---when available
+* Use the ``provider`` property within the resource block to specify the long name of the provider as a property of a resource. For example: ``provider Chef::Provider::Long::Name``
+
+.. end_tag
+
+.. tag resource_package_chef_gem_providers
+
+This resource has the following providers:
+
+``Chef::Provider::Package``, ``package``
+   When this short name is used, the chef-client will attempt to determine the correct provider during the chef-client run.
+
+``Chef::Provider::Package::Rubygems``, ``chef_gem``
+   Can be used with the ``options`` attribute.
+
+.. end_tag
 
 Examples
 =====================================================
@@ -138,9 +264,52 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Compile time vs. converge time installation of gems**
 
-.. include:: ../../step_resource/step_resource_chef_gem_install_for_use_in_recipes.rst
+.. tag resource_chef_gem_install_for_use_in_recipes
+
+.. To install a gems file for use in a recipe:
+
+To install a gem while the chef-client is configuring the node (the “converge phase”), set the ``compile_time`` property to ``false``:
+
+.. code-block:: ruby
+
+   chef_gem 'right_aws' do
+     compile_time false
+     action :install
+   end
+
+To install a gem while the resource collection is being built (the “compile phase”), set the ``compile_time`` property to ``true``:
+
+.. code-block:: ruby
+
+   chef_gem 'right_aws' do
+     compile_time true
+     action :install
+   end
+
+.. end_tag
 
 **Install MySQL for Chef**
 
-.. include:: ../../step_resource/step_resource_chef_gem_install_mysql.rst
+.. tag resource_chef_gem_install_mysql
+
+.. To install MySQL:
+
+.. code-block:: ruby
+
+   execute 'apt-get update' do
+     ignore_failure true
+     action :nothing
+   end.run_action(:run) if node['platform_family'] == 'debian'
+
+   node.set['build_essential']['compiletime'] = true
+   include_recipe 'build-essential'
+   include_recipe 'mysql::client'
+
+   node['mysql']['client']['packages'].each do |mysql_pack|
+     resources("package[#{mysql_pack}]").run_action(:install)
+   end
+
+   chef_gem 'mysql'
+
+.. end_tag
 

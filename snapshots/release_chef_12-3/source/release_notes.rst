@@ -2,7 +2,17 @@
 Release Notes: chef-client 12.3
 =====================================================
 
-.. include:: ../../includes_chef/includes_chef.rst
+.. tag chef
+
+Chef is a powerful automation platform that transforms infrastructure into code. Whether you’re operating in the cloud, on-premises, or in a hybrid environment, Chef automates how infrastructure is configured, deployed, and managed across your network, no matter its size.
+
+This diagram shows how you develop, test, and deploy your Chef code.
+
+.. image:: ../../images/start_chef.svg
+   :width: 700px
+   :align: center
+
+.. end_tag
 
 What's New
 =====================================================
@@ -44,8 +54,31 @@ This setting may be configured using the ``minimal_ohai`` setting in the client.
 
 Dynamic Resolution
 -----------------------------------------------------
-.. include:: ../../includes_libraries/includes_libraries_dynamic_resolution.rst
+.. tag libraries_dynamic_resolution
 
+Resources and providers are resolved dynamically and can handle multiple ``provides`` lines for a specific platform. When multiple ``provides`` lines exist, such as ``Homebrew`` and ``MacPorts`` packages for the Mac OS X platform, then one is selected based on resource priority mapping performed by the chef-client during the chef-client run.
+
+Use the following helpers in a library file to get and/or set resource and/or provider priority mapping before any recipes are compiled:
+
+``Chef.get_provider_priority_array(resource_name)``
+   Get the priority mapping for a provider.
+
+``Chef.get_resource_priority_array(resource_name)``
+   Get the priority mapping for a resource.
+
+``Chef.set_provider_priority_array(resource_name, Array<Class>, *filter)``
+   Set the priority mapping for a provider.
+
+``Chef.set_resource_priority_array(resource_name, Array<Class>, *filter)``
+   Set the priority mapping for a resource.
+
+For example:
+
+.. code-block:: ruby
+
+   Chef.set_resource_priority_array(:package, [ Chef::Resource::MacportsPackage ], os: 'darwin')
+
+.. end_tag
 
 Changelog
 =====================================================

@@ -1,4 +1,4 @@
-.. THIS PAGE DOCUMENTS Enterprise Chef server version 11.1
+
 
 =====================================================
 High Availability
@@ -26,7 +26,6 @@ The front-end servers require load-balancers. Chef recommends:
 * Hardware load-balancers (such as F5 or NetScalar)
 * SSL off-loading
 * Round-robin as the load-balancing algorithm
-
 
 Scalability 
 =====================================================
@@ -57,7 +56,7 @@ which will initiate a failover from the primary to the secondary. This will caus
 #. Remove the virtual IP address.
 #. Stop the services.
 #. Unmount the DRBD device.
-#. Becoming secondary for the DRBD device. 
+#. Becoming secondary for the DRBD device.
 
 Meanwhile, the backup will be undergoing the same steps as listed above. Use the ``ha-status`` option to view the progress:
 
@@ -65,10 +64,62 @@ Meanwhile, the backup will be undergoing the same steps as listed above. Use the
 
    $ watch -n1 sudo private-chef-ctl ha-status
 
-
 Status
 =====================================================
-.. include:: ../../includes_api_chef_server/includes_api_chef_server_endpoint_status.rst
+.. tag api_chef_server_endpoint_status
+
+The ``/_status`` endpoint can be used to check the status of communications between the front and back end servers. This endpoint is located at ``/_status`` on the front end servers.
+
+**Request**
+
+.. code-block:: none
+
+   api.get("https://chef_server.front_end.url/_status")
+
+This method has no request body.
+
+**Response**
+
+The response will return something like the following:
+
+.. code-block:: javascript
+
+   {
+     "status": "pong", 
+     "upstreams": 
+       {
+         "service_name": "pong", 
+         "service_name": "pong", 
+         ...
+       }
+    }
+
+**Response Codes**
+
+.. list-table::
+   :widths: 200 300
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - All communications are OK. 
+   * - ``500``
+     - One (or more) services are down. For example:
+
+       .. code-block:: javascript
+
+          {
+            "status":"fail",
+            "upstreams":
+              {
+                "service_name": "fail",
+                "service_name": "pong",
+                ...
+              }
+          }
+
+.. end_tag
 
 DRBD
 =====================================================
@@ -76,19 +127,89 @@ DRBD is a supported high availability configuration option for the Chef server. 
 
 Split Brains
 -----------------------------------------------------
-.. include:: ../../includes_server_ha/includes_server_ha_drbd_split_brain.rst
+.. tag server_ha_drbd_split_brain
+
+A ``split-brain`` event is a concept of clustered computing systems in which the cluster loses its heartbeat communication channel and becomes two unconnected pieces. Recovery from a ``split-brain`` event can be a complex issue and different clustering software packages use different methods.
+
+Failures happen, so completely preventing a ``split-brain`` event is not an absolute possibility. However, it is possible to alleviate some of the issues that crop up in any ``split-brain`` event scenarios by maxing out the heartbeat network bandwidth and optimizing transfer protocols.
+
+DRBD is a shared-nothing system. Data is replicated between hosts over a dedicated network link rather than stored on a central network-attached storage (NAS) or storage attached network (SAN) to which all hosts are connected. The most critical issue for storage in a high availability topology is loss of or corruption of data. Maximizing the amount of data that can be passed over the wire while all systems are up and running correctly minimizes the chance that something will be lost or unrecoverable if a host goes down.
+
+At any given time, only one DRBD host has ``userland`` access to data, This host is referred to as the primary node. The other host runs the DRBD daemon, but cannot mount the storage into the file system. The secondary node receives information from the primary node, and then replicates disk actions on its local storage copy (even if the partition looks like it doesn't have a file system to which a ``mount`` command can be sent).
+
+The approach that DRBD takes to ``split-brain`` event situations is to degrade all partners still alive to secondary status, and then wait for manual intervention. This is called auto-fencing, with a goal of minimizing the potential for damage to your data. When you lose one of the partners in a high availability topology, a bit of manual intervention is required to ensure that the disks aren't in a bad state and can be brought back up. These scenarios are discussed below, including suggestions for diagnosing and recovering from each scenario.
+
+.. end_tag
 
 Split-brain Handlers
 -----------------------------------------------------
-.. include:: ../../includes_server_ha/includes_server_ha_drbd_handlers.rst
+.. tag server_ha_drbd_handlers
+
+DRBD configuration allows for custom handlers when a ``split-brain`` event happens. The basic handler sends a notification email to a configurable email address so the issue can be investigated.
+
+The ``drbd.conf`` file that is used with the Chef server specifies other built-in actions that may be taken in certain fault scenarios:
+
+.. code-block:: none
+
+   after-sb-0pri discard-younger-primary;
+   after-sb-1pri discard-secondary;
+   after-sb-2pri call-pri-lost-after-sb;
+
+What this means:
+
+* after-sb-0pri: A ``split-brain`` event has been detected and neither node is the primary node. The ``discard-younger-primary`` action will roll back any changes made on the last host that was the primary node.
+* after-sb-1pri: A ``split-brain`` event has been detected and only one node believes that it was the primary node when the event happened. The ``discard-secondary`` action will continue operations on the primary node and will assume that the secondary node was lost.
+* after-sb-2pri: A ``split-brain`` event has been detected and both nodes believed they were primary nodes. The ``call-pri-lost-after-sb`` action will attempt to apply the ``discard-younger-primary`` from the ``0pri`` configuration to determine which host should be the primary node. Once determined, the other host takes action to become the secondary node.
+
+.. end_tag
 
 Assumptions
 -----------------------------------------------------
-.. include:: ../../includes_server_ha/includes_server_ha_drbd_assumptions.rst
+.. tag server_ha_drbd_assumptions
+
+The following assumptions exist when the Chef server is deployed in a high availability topology:
+
+* The back-end processes run on two hosts: ``BE1`` and ``BE2``. ``BE1`` is the DRBD primary and the master Chef server; ``BE2`` is the DRBD secondary and the Chef server backup
+* The back-end uses Keepalived and a dedicated network interface for heartbeat
+* The back-end uses DRBD for file redundancy
+
+On each host, its own status is reported first, and then the status of its remote partner.
+
+When both the primary and secondary nodes are running and behaving as expected, the contents of ``/proc/drbd`` on the primary node will look similar to the following:
+
+.. code-block:: none
+
+   version: 8.4.0 (api:1/proto:86-100)
+   GIT-hash: 28753f559ab51b549d16bcf487fe625d5919c49c build by root@localhost.localdomain, 2012-02-06 12:59:36
+ 0: cs:Connected ro:Primary/Secondary ds:UpToDate/UpToDate C r-----
+       ns:4091788 nr:64 dw:112 dr:4092817 al:3 bm:252 lo:0 pe:0 ua:0 ap:0 ep:1 wo:b oos:0
+
+On the secondary node, the status will look similar to the following:
+
+.. code-block:: none
+
+   version: 8.4.1 (api:1/proto:86-100)
+   GIT-hash: 91b4c048c1a0e06777b5f65d312b38d47abaea80 build by dag@Build64R6, 2011-12-21 06:08:50
+ 0: cs:Connected ro:Secondary/Primary ds:UpToDate/UpToDate C r-----
+       ns:0 nr:48 dw:48 dr:0 al:0 bm:2 lo:0 pe:0 ua:0 ap:0 ep:1 wo:b oos:0
+
+For information about the settings in this file, see the DRBD website: http://www.drbd.org/users-guide/ch-admin.html.
+
+.. end_tag
 
 Failure Scenarios
 =====================================================
-.. include:: ../../includes_server_ha/includes_server_ha_drbd_scenario.rst
+.. tag server_ha_drbd_scenario
+
+The following four common scenarios are discussed:
+
+#. Back-end server #2 fails gracefully (all data is synced)
+#. Back-end server #2 hard fails badly (unsynced data)
+#. Back-end server #1 fails gracefully (all data is synced)
+#. Back-end server #1 hard fails badly (unsynced data)
+#. Both hosts are up as secondary, and the Chef server is unhappy
+
+.. end_tag
 
 Scenarios 1 and 2
 -----------------------------------------------------

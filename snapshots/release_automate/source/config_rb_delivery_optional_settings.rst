@@ -1,5 +1,4 @@
-.. THIS PAGE IS IDENTICAL TO docs.chef.io/config_rb_delivery_optional_settings.html BY DESIGN
-.. THIS PAGE IS LOCATED AT THE /release/delivery/ PATH.
+
 
 =====================================================
 delivery.rb Optional Settings
@@ -220,7 +219,6 @@ This configuration file has the following settings for ``deliv_notify``:
 ``deliv_notify['config']``
    Default value: ``[]``.
 
-
 delivery
 -----------------------------------------------------
 This configuration file has the following settings for ``delivery``:
@@ -421,7 +419,6 @@ This configuration file has the following settings for ``delivery``:
 ``delivery['vip']``
    The virtual IP address. Default value: ``'127.0.0.1'``.
 
-
 delivery_web
 -----------------------------------------------------
 This configuration file has the following settings for ``delivery_web``:
@@ -450,7 +447,6 @@ This configuration file has the following settings for ``delivery_web``:
    .. code-block:: ruby
 
       "#{node['delivery']['install_path']}/embedded/service/delivery_web"
-
 
 elasticsearch
 -----------------------------------------------------
@@ -481,7 +477,6 @@ This configuration file has the following settings for ``elasticsearch``:
 
       "#{(node.memory.total.to_i * 0.4 ).floor / 1024}m"
 
-
 git
 -----------------------------------------------------
 This configuration file has the following settings for ``git``:
@@ -501,7 +496,6 @@ This configuration file has the following settings for ``git``:
 ``git['username']``
    Default value: ``"git"``.
 
-
 java
 -----------------------------------------------------
 This configuration file has the following settings for ``java``:
@@ -512,7 +506,6 @@ This configuration file has the following settings for ``java``:
    .. code-block:: ruby
 
       "#{node['delivery']['install_path']}/embedded/jre/bin"
-
 
 kibana
 -----------------------------------------------------
@@ -536,14 +529,12 @@ This configuration file has the following settings for ``kibana``:
 ``kibana['port']``
    The port on which the service is to listen. Default value: ``5601``.
 
-
 lb
 -----------------------------------------------------
 This configuration file has the following settings for ``lb``:
 
 ``lb['debug']``
    Default value: ``false``.
-
 
 logstash
 -----------------------------------------------------
@@ -566,7 +557,6 @@ This configuration file has the following settings for ``logstash``:
 
 ``logstash['port']``
    The port on which the service is to listen. Default value: ``8080``.
-
 
 lsyncd
 -----------------------------------------------------
@@ -596,7 +586,6 @@ This configuration file has the following settings for ``lsyncd``:
 
 ``lsyncd['user']``
    Default value: ``node['delivery']['user']['username']``.
-
 
 nginx
 -----------------------------------------------------
@@ -723,7 +712,6 @@ This configuration file has the following settings for ``nginx``:
 ``nginx['worker_processes']``
    The number of allowed worker processes. Use with ``nginx['worker_connections']`` to determine the maximum number of allowed clients. Default value: ``node['cpu']['total'].to_i``.
 
-
 postgresql
 -----------------------------------------------------
 This configuration file has the following settings for ``postgresql``:
@@ -844,7 +832,6 @@ This configuration file has the following settings for ``postgresql``:
 ``postgresql['vip']``
    The virtual IP address. Default value: ``"127.0.0.1"``.
 
-
 rabbitmq
 -----------------------------------------------------
 This configuration file has the following settings for ``rabbitmq``:
@@ -902,7 +889,6 @@ This configuration file has the following settings for ``rabbitmq``:
 ``rabbitmq['vip']``
    The virtual IP address. Default value: ``'127.0.0.1'``.
 
-
 ssh_git
 -----------------------------------------------------
 This configuration file has the following settings for ``ssh_git``:
@@ -919,7 +905,6 @@ This configuration file has the following settings for ``ssh_git``:
 
 ``ssh_git['port']``
    The port on which the service is to listen. Default value: ``8989``.
-
 
 user
 -----------------------------------------------------
