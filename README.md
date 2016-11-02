@@ -66,7 +66,7 @@ Viewing your content using the `http-server` node module allows you to navigate 
       npm install http-server -g
    ```
 2. Navigate to the `build` directory.
-3. Run `http-server`. After http-server starts up, you can connect to your docs through your loopback IP address (http://127.0.0.1:8080).
+3. Run `http-server`. After http-server starts up, connect to your docs through your loopback IP address (http://127.0.0.1:8080).
 
 If you need tips on the source language for the docs, check out the
 [instructions](https://docs.chef.io/style_guide.html). We use a subset
