@@ -311,7 +311,7 @@ Use ``<some_token>`` for the ``--admin-token`` parameter below.
       -I, --installer               The location of the ChefDK package for the build node
       -a, --admin-user              Workflow admin username
       -t, --admin-token             Workflow admin token
-      -e, --enterprise              Workflow enterprise to add the runner into
+      -e, --enterprise              Workflow enterprise to add the runner into. Legacy option, only required if you have more than 1 Enterprise configured
       -h, --help                    Show the usage message
 
 **Example**
