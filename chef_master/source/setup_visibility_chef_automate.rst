@@ -13,43 +13,6 @@ Configure Data Collection
 
 Before using the visibility capabilities of Chef Automate, you must perform some simple setup and configuration steps before the nodes in your cluster can send data to your Chef Automate server.
 
-Use an external Elasticsearch cluster
-=====================================================
-
-Chef Automate uses Elasticsearch to store its data, and the default Chef Automate install includes a single Elasticsearch service.
-This is sufficient to run production work loads; however for greater data retention, we recommend using a multi-node Elasticsearch
-cluster with replication and sharding to store and protect your data.
-
-Prerequisites
------------------------------------------------------
-
-* Chef Automate server with workflow and visibility installed
-* Elasticsearch (version 2.3.0 or greater)
-
-Elasticsearch configuration
------------------------------------------------------
-
-To utilize an external Elasticsearch installation, set the following configuration option in your
-``/etc/delivery/delivery.rb``:
-
-.. code-block:: ruby
-
-   elasticsearch['urls'] = ['https://my-elaticsearch-cluster.mycompany.com']
-
-The ``elasticsearch['urls']`` attribute should be an array of Elasticsearch nodes over
-which Chef Automate will round-robin requests. You can also supply a single entry which corresponds to
-a load-balancer or a third-party Elasticsearch-as-a-service offering.
-
-After saving the file, run ``sudo delivery-ctl reconfigure``.
-
-An additional Elasticsearch-related configuration properties is ``elasticsearch['host_header']``. This is the
-HTTP ``Host`` header to send with the request. When this attribute is unspecified, the default behavior is as follows:
-
-  * If the ``urls`` parameter contains a single entry, the host of the supplied URI will be sent as the Host header.
-  * If the ``urls`` parameter contains more than one entry, no Host header will be  sent.
-
-When this attribute *is* specified, the supplied string will be sent as the ``Host`` header on all requests. This may be required for some third-party Elasticsearch offerings.
-
 Add Chef Automate certificate to `trusted_certs` directory
 ==============================================================
 
@@ -234,6 +197,43 @@ Create an authentication token (as described in the previous section) and then r
 Now that you have a token value selected, you are ready to configure your Chef server and any Chef client
 nodes to start streaming data to Chef Automate.
 
+Use an external Elasticsearch cluster (optional)
+=====================================================
+
+Chef Automate uses Elasticsearch to store its data, and the default Chef Automate install includes a single Elasticsearch service.
+This is sufficient to run production work loads; however for greater data retention, we recommend using a multi-node Elasticsearch
+cluster with replication and sharding to store and protect your data.
+
+Prerequisites
+-----------------------------------------------------
+
+* Chef Automate server with workflow and visibility installed
+* Elasticsearch (version 2.3.0 or greater)
+
+Elasticsearch configuration
+-----------------------------------------------------
+
+To utilize an external Elasticsearch installation, set the following configuration option in your
+``/etc/delivery/delivery.rb``:
+
+.. code-block:: ruby
+
+   elasticsearch['urls'] = ['https://my-elaticsearch-cluster.mycompany.com']
+
+The ``elasticsearch['urls']`` attribute should be an array of Elasticsearch nodes over
+which Chef Automate will round-robin requests. You can also supply a single entry which corresponds to
+a load-balancer or a third-party Elasticsearch-as-a-service offering.
+
+After saving the file, run ``sudo delivery-ctl reconfigure``.
+
+An additional Elasticsearch-related configuration properties is ``elasticsearch['host_header']``. This is the
+HTTP ``Host`` header to send with the request. When this attribute is unspecified, the default behavior is as follows:
+
+  * If the ``urls`` parameter contains a single entry, the host of the supplied URI will be sent as the Host header.
+  * If the ``urls`` parameter contains more than one entry, no Host header will be  sent.
+
+When this attribute *is* specified, the supplied string will be sent as the ``Host`` header on all requests. This may be required for some third-party Elasticsearch offerings.
+
 Troubleshooting: My data does not show up in the UI
 =====================================================
 
@@ -245,4 +245,3 @@ that have a node associated with them will appear in the UI. Chef Automate has a
 not highlight them in the UI. This is designed to keep the UI focused on the nodes in your cluster.
 
 .. end_tag
-
