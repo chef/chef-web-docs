@@ -235,7 +235,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife data bag from file DATA_BAG_NAME_or_PATH
+   $ knife data bag from file DATA_BAG_NAME_or_PATH JSON_FILE
 
 Options
 -----------------------------------------------------
