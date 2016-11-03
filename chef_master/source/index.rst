@@ -304,7 +304,6 @@ Managing the Server
 `delete-enterprise <http://docs.chef.io/ctl_delivery_server.html#delete-enterprise>`_ |
 `delete-project <http://docs.chef.io/ctl_delivery_server.html#delete-project>`_ |
 `delete-user <http://docs.chef.io/ctl_delivery_server.html#delete-user>`_ |
-`install-runner <http://docs.chef.io/ctl_delivery_server.html#install-runner>`_ |
 `list-applications <http://docs.chef.io/ctl_delivery_server.html#list-applications>`_ |
 `list-enterprises <http://docs.chef.io/ctl_delivery_server.html#list-enterprises>`_ |
 `list-users <http://docs.chef.io/ctl_delivery_server.html#list-users>`_ |

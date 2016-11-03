@@ -221,9 +221,9 @@ This subcommand has the following syntax:
 
 install-runner
 =====================================================
-The ```install-runner``` subcommand configures a remote node as a job runner. These are used by the V2 job dispatch system to run jobs.
+The ``install-runner`` subcommand configures a remote node as a job runner. These are used by the new job dispatch system to run jobs.
 
-You can obtain a delivery token by performing the following command on a workstation with the ChefDK installed:
+You can obtain an API token by performing the following command on a workstation with the ChefDK installed:
 
 .. code-block:: bash
 
@@ -250,7 +250,7 @@ Use ``<some_token>`` for the ``--admin-token`` parameter below.
       -I, --installer               The location of the ChefDK package for the build node
       -a, --admin-user              Workflow admin username
       -t, --admin-token             Workflow admin token
-      -e, --enterprise              Workflow enterprise to add the runner into. Legacy option, only required if you have more than 1 Enterprise configured
+      -e, --enterprise              Workflow enterprise to add the runner into. Legacy option, only required if you have more than one enterprise configured
       -h, --help                    Show the usage message
 
 **Example**
