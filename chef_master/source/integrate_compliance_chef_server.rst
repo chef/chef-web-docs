@@ -190,7 +190,7 @@ The ``default`` recipe requires a ``node['audit']['profiles']`` attribute to be 
 
 .. note:: The ``audit`` cookbook requires a time synchronization policy to be in place, such as Network Time Protocol (NTP).
 
-The example above is using audit cookbook version 2.0. Further information is available at [Reporting to Chef Compliance via Chef Server](https://github.com/chef-cookbooks/audit#reporting-to-chef-compliance-via-chef-server).
+The example above is using audit cookbook version 2.0. Further information is available at `Reporting to Chef Compliance via Chef Server <https://github.com/chef-cookbooks/audit#reporting-to-chef-compliance-via-chef-server>`__.
 
 
 Run the chef-client
