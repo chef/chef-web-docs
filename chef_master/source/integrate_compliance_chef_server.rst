@@ -175,13 +175,23 @@ The ``default`` recipe requires a ``node['audit']['profiles']`` attribute to be 
 .. code-block:: bash
 
    "audit": {
-     "profiles": {
-       "base/ssh": true,
-       "base/linux": true
-     }
+     "profiles": [
+       {
+         "name": "ssh",
+         "compliance": "base/ssh"
+       },
+       {
+         "name": "linux",
+         "compliance": "base/linux"
+       }
+     ],
+     "collector": "chef-server"
    }
 
 .. note:: The ``audit`` cookbook requires a time synchronization policy to be in place, such as Network Time Protocol (NTP).
+
+The example above is using audit cookbook version 2.0. Further information is available at [Reporting to Chef Compliance via Chef Server](https://github.com/chef-cookbooks/audit#reporting-to-chef-compliance-via-chef-server).
+
 
 Run the chef-client
 -----------------------------------------------------
