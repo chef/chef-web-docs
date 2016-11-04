@@ -257,7 +257,7 @@ Upgrading chef-server on the frontend machines
 Configuring front end and backend members on different networks
 ----------------------------------------------------------------
 
-By default, PostgreSQL only allows systems on its local network to connect to the database server that runs it and the ``pg_hba.conf`` used by PostgreSQL controls network access to the server. The default ``pg_nba.conf`` has the following four entries:
+By default, PostgreSQL only allows systems on its local network to connect to the database server that runs it and the ``pg_hba.conf`` used by PostgreSQL controls network access to the server. The default ``pg_hba.conf`` has the following four entries:
 
 .. code-block:: none
 
@@ -393,6 +393,150 @@ The backend HA cluster uses the omnibus installer (https://github.com/chef/omnib
 necessary to run the services included in the backend cluster. For a full list of the software packages included (and their versions), see the file located at ``/opt/chef-backend/version-manifest.json``.
 
 Do not attempt to upgrade individual components of the omnibus package. Due to the way omnibus packages are built, modifying any of the individual components in the package will lead to cluster instability. If the latest version of the backend cluster is providing an out-of-date package, please bring it to the attention of Chef by filling out a ticket with support@chef.io.
+
+chef-backend.rb options
+=====================================================
+
+This file is generated using ``chef-backend-ctl gen-sample-backend-config`` and controls most of the various feature and configuration flags going into a Chef HA backend node.  A number of these options control the reliability, stability and uptime of the backend PostgreSQL databases, the elastic search index and the leader election system - please refrain from changing them unless you have been advised to do so.
+
+* ``fqdn``  Host name of this node.
+* ``hide_sensitive``  Set to false if you wish to print deltas of sensitive files and templates during ``chef-backend-ctl reconfigure`` runs.  true by default.
+* ``ip_version``  Set to either ``'ipv4'`` or ``'ipv6'``. ``'ipv4'`` by default.
+* ``publish_address``  Externally resolvable IP address of this back-end node.
+
+Common 'Runit' flags for any backend service
+-----------------------------------------------------
+See https://github.com/chef-cookbooks/runit for details.  Many of the flags are repeated across the various backend services - they are only documented once at the top here.  The same defaults are used unless specified below.
+
+* ``postgresql.enable`` Sets up and runs this service.  true by default.
+* ``postgresql.environment``  A hash of environment variables with their values as content used in the service's env directory.
+* ``postgresql.log_directory``  The directory where the svlogd log service will run. ``'/var/log/chef-backend/postgresql/<version>'`` by default.
+* ``postgresql.log_rotation.file_maxbytes``  The maximum size a log file can grow to before it is automatically rotated.  ``104857600`` by default (100MB).
+* ``postgresql.log_rotation.num_to_keep``  The maximum number of log files that will be retained after rotation.  ``10`` by default.
+
+* ``etcd.enable``
+* ``etcd.log_directory``  ``'/var/log/chef-backend/etcd'`` by default
+* ``etcd.log_rotation.file_maxbytes``
+* ``etcd.log_rotation.num_to_keep``
+
+* ``elasticsearch.enable``
+* ``elasticsearch.log_directory``  ``'/var/log/chef-backend/elasticsearch'`` by default.  Also affects ``path.logs`` in the elastic search configuration yml.
+* ``elasticsearch.log_rotation.file_maxbytes``
+* ``elasticsearch.log_rotation.num_to_keep``
+
+* ``leaderl.enable``
+* ``leaderl.log_directory``  ``'/var/log/chef-backend/leaderl'`` by default.
+* ``leaderl.start_down``  Set the default state of the runit service to 'down' by creating <sv_dir>/down file.  ``true`` by default.
+* ``leaderl.log_rotation.file_maxbytes``
+* ``leaderl.log_rotation.num_to_keep``
+
+PostgreSQL settings
+-----------------------------------------------------
+* ``postgresql.db_superuser``  Super user account to create.  Password is in chef-backend-secrets.json.  ``'chef_pgsql'`` by default.
+* ``postgresql.md5_auth_cidr_addresses``  A list of authorized addresses from which other backend nodes can connect to perform streaming replication. ``samehost`` and ``samenet`` are special symbols to allow connections from the this node's IP address and its subnet.  You may also use ``all`` to match any IP address.  You may specify a hostname or IP address in CIDR format (``172.20.143.89/32`` for a single host, or ``172.20.143.0/24`` for a small network.  See https://www.postgresql.org/docs/9.5/static/auth-pg-hba-conf.html for alternative formats.  ``["samehost", "samenet"]`` by default.
+* ``postgresql.replication_user``  Username used by postgres streaming replicator when accessing this node.  ``'replicator'`` by default.
+* ``postgresql.username``  ``'chef_pgsql'`` by default.
+
+PostgreSQL settings given to ``postgresql.conf``
+-----------------------------------------------------
+See https://www.postgresql.org/docs/9.5/static/runtime-config.html for details.  Some defaults are provided:
+
+* ``postgresql.archive_command ''``
+* ``postgresql.archive_mode 'off'``
+* ``postgresql.archive_timeout 0``
+* ``postgresql.checkpoint_completion_target 0.5``
+* ``postgresql.checkpoint_timeout '5min'``
+* ``postgresql.checkpoint_warning '30s'``
+* ``postgresql.effective_cache_size``  Automatically calculated based on available memory.
+* ``postgresql.hot_standby 'on'``
+* ``postgresql.keepalives_count 2``  Sets ``tcp_keepalives_count``
+* ``postgresql.keepalives_idle 60``  Sets ``tcp_keepalives_idle``
+* ``postgresql.keepalives_interval 15``  Sets ``tcp_keepalives_interval``
+* ``postgresql.log_checkpoints true``
+* ``postgresql.log_min_duration_statement -1``
+* ``postgresql.max_connections 350``
+* ``postgresql.max_replication_slots 12``
+* ``postgresql.max_wal_senders 12``
+* ``postgresql.max_wal_size 64``
+* ``postgresql.min_wal_size 5``
+* ``postgresql.port 5432``
+* ``postgresql.shared_buffers``  Automatically calculated based on available memory.
+* ``postgresql.wal_keep_segments 32``
+* ``postgresql.wal_level 'hot_standby'``
+* ``postgresql.wal_log_hints on``
+* ``postgresql.work_mem '8MB'``
+
+etcd settings
+-----------------------------------------------------
+See https://coreos.com/etcd/docs/latest/tuning.html#time-parameters for more details.
+
+* ``etcd.client_port 2379``   Port to use for ETCD_LISTEN_CLIENT_URLS and ETCD_ADVERTISE_CLIENT_URLS.
+* ``etcd.election_timeout 1000``  ETCD_ELECTION_TIMEOUT in milliseconds.
+* ``etcd.heartbeat_interval 100``  ETCD_HEARTBEAT_INTERVAL in milliseconds.
+* ``etcd.peer_port 2380``   Port to use for ETCD_LISTEN_PEER_URLS and ETCD_ADVERTISE_PEER_URLS.
+* ``etcd.snapshot_count 10000``  ETCD_SNAPSHOT_COUNT which is the number of committed transactions to trigger a snapshot to disk.
+
+Elastic Search JVM settings
+-----------------------------------------------------
+* ``elasticsearch.heap_size``  Automatically computed by elastic search based on available memory. Specify in MB if you wish to override.
+* ``elasticsearch.java_opts``  Flags to directly pass to the JVM when launching elastic search.  If you override a heap flag here, the setting here takes precedence.
+* ``elasticsearch.new_size``  Java heap's new generation size.
+
+Elastic Search configuration
+-----------------------------------------------------
+See https://www.elastic.co/guide/en/elasticsearch/reference/current/setup-configuration.html for details.
+
+* ``elasticsearch.plugins_directory '/var/opt/chef-backend/elasticsearch/plugins'``  Sets ``path.plugins``.
+* ``elasticsearch.port 9200``  Sets ``http.port``.
+* ``elasticsearch.scripts_directory '/var/opt/chef-backend/elasticsearch/scripts'``  Sets ``path.scripts``.
+
+Chef HA backend leader management service settings
+-----------------------------------------------------
+* ``leaderl.db_timeout``  Socket timeout when connecting to PostgreSQL in milliseconds.  ``2000`` by default.
+* ``leaderl.http_acceptors``  Http threads that responds to monitorng and leadership status requests from HAProxy.  ``10`` by default.
+* ``leaderl.http_address``  The addess that leaderl listens on. This address should not be ``127.0.0.1``.  It should be reachable from any front-end node.  ``'0.0.0.0'`` by default.
+* ``leaderl.http_port``  ``7331`` by default.
+* ``leaderl.leader_ttl_seconds``  The number of seconds it takes the leader key to expire.  Increasing this value will increase the amount of time the cluster will take to recognize a failed leader.  Lowering this value may leade to frequent leadership changes and thrashing.  ``10`` by default.
+* ``leaderl.required_active_followers``  The number of followers that must be syncing via a PostgreSQL replication slot before a new leader will return 200 to /leader HTTP requests.  If an existing leader fails to maintain this quorum of followers, the /leader endpoint will return 503 but active connections will still be able to complete their writes to the database.  0  by default.
+* ``leaderl.runsv_group``  The group that sensitive password files will belong to.  This is used internally for test purposes and should never be modified otherwise.  ``'chef_pgsql'`` by default.
+* ``leaderl.status_internal_update_interval_seconds``  How often we check for a change in the leader service's status.  5 seconds by default.
+* ``leaderl.status_post_update_interval_seconds`` How often etcd is updated with the leader service's current status.  10 seconds by default.
+* ``leaderl.username`` ``'chef_pgsql'``
+* ``leaderl.log_rotation.max_messages_per_second``  Rate limit for the number of messanges that the Erlang error_logger will output.  ``1000`` by default.
+* ``leaderl.etcd_pool.ibrowse_options``  Internal options to affect how requests to etcd are made (see https://github.com/cmullaparthi/ibrowse/blob/master/doc/ibrowse.html).
+
+Chef HA backend leader health status settings
+-----------------------------------------------------
+* ``leaderl.health_check.interval_seconds``  How frequently, in seconds, to poll the service for health status.  2 by default.
+* ``leaderl.health_check.max_bytes_behind_leader``  Limit on maximum different between elected leader and current node in bytes.  ``52428800`` (50MB) by default.
+* ``leaderl.health_check.max_elasticsearch_failures``  Number of Elastic Search API failures allowed before health check fails.  5 by default.
+* ``leaderl.health_check.max_etcd_failures``  Number of etcd failures allowed before health check fails.  5 by default.
+* ``leaderl.health_check.max_pgsql_failures``  Number of PostgreSQL connection failures allowed before health check fails.  5 by default.
+
+Chef HA backend leader connection pool settings
+-----------------------------------------------------
+See https://github.com/seth/pooler/blob/master/README.org for details.  These are internal settings that affect the responsivity, uptime and reliability of the backend cluster.  They should not be modified unless you are advised to do so by Support.
+
+* ``leaderl.etcd_pool.cull_interval_seconds 60``
+* ``leaderl.etcd_pool.http_timeout_ms 5000``
+* ``leaderl.etcd_pool.init_count 10``
+* ``leaderl.etcd_pool.max_age_seconds 60``
+* ``leaderl.etcd_pool.max_connection_duration_seconds 300``
+* ``leaderl.etcd_pool.max_count 10``
+
+SSL settings
+-----------------------------------------------------
+If ``certificate`` and ``certificate_key`` are nil, the SSL Certificate will be auto-generated using the other parameters provided.  Otherwise, they are on-disk locations to user-provided certificate.
+
+* ``ssl.certificate``  Provide this path if you have a pre-generated SSL cert.
+* ``ssl.certificate_key``  Provide this path if you have a pre-generated SSL cert.
+* ``ssl.ciphers``  Ordered list of allowed SSL ciphers.  This will be updated based on security considerations and the version of OpenSSL being shipped.
+* ``ssl.company_name``
+* ``ssl.country_name``
+* ``ssl.data_dir``  Where certificates will be stored.  ``'/var/opt/chef-backend/ssl/'`` by default
+* ``ssl.duration``  3650 days by default (10 years).
+* ``ssl.key_length``  2048 by default.
+* ``ssl.organizational_unit_name``
 
 chef-backend-ctl
 =====================================================
