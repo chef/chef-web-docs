@@ -397,10 +397,10 @@ Do not attempt to upgrade individual components of the omnibus package. Due to t
 chef-backend.rb options
 =====================================================
 
-This file is generated using ``chef-backend-ctl gen-sample-backend-config`` and controls most of the various feature and configuration flags going into a Chef HA backend node.  A number of these options control the reliability, stability and uptime of the backend PostgreSQL databases, the elastic search index and the leader election system - please refrain from changing them unless you have been advised to do so.
+The ``chef-backend.rb`` file is generated using ``chef-backend-ctl gen-sample-backend-config`` and controls most of the various feature and configuration flags going into a Chef HA backend node.  A number of these options control the reliability, stability and uptime of the backend PostgreSQL databases, the elastic search index, and the leader election system. Please refrain from changing them unless you have been advised to do so.
 
 * ``fqdn``  Host name of this node.
-* ``hide_sensitive``  Set to false if you wish to print deltas of sensitive files and templates during ``chef-backend-ctl reconfigure`` runs.  true by default.
+* ``hide_sensitive``  Set to ``false`` if you wish to print deltas of sensitive files and templates during ``chef-backend-ctl reconfigure`` runs.  ``true`` by default.
 * ``ip_version``  Set to either ``'ipv4'`` or ``'ipv6'``. ``'ipv4'`` by default.
 * ``publish_address``  Externally resolvable IP address of this back-end node.
 
@@ -408,7 +408,7 @@ Common 'Runit' flags for any backend service
 -----------------------------------------------------
 See https://github.com/chef-cookbooks/runit for details.  Many of the flags are repeated across the various backend services - they are only documented once at the top here.  The same defaults are used unless specified below.
 
-* ``postgresql.enable`` Sets up and runs this service.  true by default.
+* ``postgresql.enable`` Sets up and runs this service.  ``true`` by default.
 * ``postgresql.environment``  A hash of environment variables with their values as content used in the service's env directory.
 * ``postgresql.log_directory``  The directory where the svlogd log service will run. ``'/var/log/chef-backend/postgresql/<version>'`` by default.
 * ``postgresql.log_rotation.file_maxbytes``  The maximum size a log file can grow to before it is automatically rotated.  ``104857600`` by default (100MB).
