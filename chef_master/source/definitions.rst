@@ -15,7 +15,7 @@ Though a definition looks like a resource, and at first glance seems like it cou
 * Is defined from within the ``/definitions`` directory of a cookbook
 * Does not support why-run mode
 
-Syntax (pre-12.5)
+Syntax
 =====================================================
 A definition has four components:
 
@@ -217,4 +217,3 @@ Unlike definitions, custom resources are able to use :doc:`common resource prope
    end
 
 .. end_tag
-
