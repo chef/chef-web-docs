@@ -59,12 +59,11 @@ Getting Started
 Tutorials
 -----------------------------------------------------
 
- `Learn the Basics <https://learn.chef.io/tutorials/#learn-the-basics>`_ |
- `Manage a Node <https://learn.chef.io/tutorials/#manage-a-node>`_ |
- `Local Development <https://learn.chef.io/tutorials/#local-development>`_ |
- `Manage a Web App <https://learn.chef.io/tutorials/#manage-a-web-app>`_ |
- `Test Your Infrastructure <https://learn.chef.io/tutorials/#test-your-infrastructure-code>`_ |
- `Install Chef Server <https://learn.chef.io/tutorials/#install-and-manage-your-own-chef-server>`_
+ `Learn the Basics <https://learn.chef.io/tutorials/learn-the-basics/>`_ |
+ `Manage a Node <https://learn.chef.io/tutorials/manage-a-node/>`_ |
+ `Develop Locally <https://learn.chef.io/tutorials/local-development/>`_ |
+ `Manage a Web App <https://learn.chef.io/manage-a-web-app/>`_ |
+ `Test Locally <https://learn.chef.io/tutorials/test-your-infrastructure-code/>`_ |
 
 Concepts
 -----------------------------------------------------
