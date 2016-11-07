@@ -41,7 +41,7 @@ The types of nodes that can be managed by Chef include, but are not limited to, 
           :width: 100px
           :align: center
 
-     - A physical node is typically a server or a virtual machine, but it can be any active device attached to a network that is capable of sending, receiving, and forwarding information over a communications channel. In other words, a physical node is any active device attached to a network that can run a chef-client and also allow that chef-client to communicate with a Chef server.
+     - This physical node is typically a server or a virtual machine, but it can be any active device attached to a network that is capable of sending, receiving, and forwarding information over a communications channel. In other words, a physical node is any active device attached to a network that can run a chef-client and also allow that chef-client to communicate with a Chef server.
    * - .. image:: ../../images/icon_node_type_cloud_public.svg
           :width: 100px
           :align: center
