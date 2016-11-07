@@ -9,10 +9,10 @@ Custom Resources
 
 A custom resource:
 
-* Is a simple extension of Chef
-* Is implemented as part of a cookbook
+* Is a simple extension of Chef that adds your own resources
+* Is implemented and shipped as part of a cookbook
 * Follows easy, repeatable syntax patterns
-* Effectively leverages resources that are built into Chef
+* Effectively leverages resources that are built into Chef and/or custom Ruby code
 * Is reusable in the same way as resources that are built into Chef
 
 For example, Chef includes built-in resources to manage files, packages, templates, and services, but it does not include a resource that manages websites.
