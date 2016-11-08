@@ -738,7 +738,7 @@ delivery token
 =====================================================
 Use the ``token`` subcommand to manage a Chef Automate API token.
 
-.. note:: If you're running this command on Windows in Git Bash with MintTTY you must include ``winpty`` before ``delivery token`` to avoid errors.
+.. note:: If you're running this command on Windows in Git Bash with MinTTY you must include ``winpty`` before ``delivery token`` to avoid errors.
 
 Syntax
 -----------------------------------------------------
