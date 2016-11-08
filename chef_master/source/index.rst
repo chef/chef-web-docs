@@ -289,6 +289,7 @@ Managing the Server
 :doc:`delivery.rb </config_rb_delivery>` |
 :doc:`Delivery API </api_delivery>` |
 :doc:`Disaster Recovery </delivery_server_disaster_recovery>` |
+:doc:`Elasticsearch and Kibana Authentication </elasticsearch_and_kibana_auth>` |
 :doc:`Secrets </delivery_manage_secrets>` |
 :doc:`Manage Elasticsearch Indices </manage_indices_chef_automate>` |
 :doc:`Node Search Reference </search_query_chef_automate>` |
@@ -467,6 +468,7 @@ Addenda
    dsl_delivery
    dsl_handler
    dsl_recipe
+   elasticsearch_and_kibana_auth
    environment_variables
    environments
    errors

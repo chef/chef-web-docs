@@ -336,6 +336,12 @@ To install Chef Automate:
    to interact with an internal Supermarket. The setup command can be re-run
    as often as necessary.
 
+   .. tag automate_supermarket
+
+   .. note:: To enable Chef Automate to upload cookbooks to a private Supermarket, you have to manually log into the Supermarket server with the ``delivery`` user, and when it prompts you to enable the user for Supermarket, enter ``yes``.
+
+   .. end_tag
+
 Once setup of your Chef Automate server completes, you will be prompted to apply the configuration.
 This will apply the configuration changes and bring service online, or restart them if you've previously
 run setup and applied configuration at that time. You can bypass this prompt by passing in the argument

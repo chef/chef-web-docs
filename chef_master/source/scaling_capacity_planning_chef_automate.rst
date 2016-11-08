@@ -45,7 +45,7 @@ For a chef-solo node
    $ chef-shell -a
    chef (12.13.37)> "#{node.to_json.size/1024} KB"
 
-Message Thoroughput
+Message Throughput
 ==================================================
 On a machine provisioned with 4 CPUs and 16GB RAM (the recommended compute resources for a Chef Automate Server),
 Chef Automate is able to reliably process 9000 concurrent converge messages.

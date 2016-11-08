@@ -259,6 +259,12 @@ see `Handling Secrets <https://github.com/chef-cookbooks/delivery-sugar#handling
 
 .. end_tag
 
+.. tag automate_supermarket
+
+.. note:: To enable Chef Automate to upload cookbooks to a private Supermarket, you have to manually log into the Supermarket server with the ``delivery`` user, and when it prompts you to enable the user for Supermarket, enter ``yes``.
+
+.. end_tag
+
 Multiple Locations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 If the ``config.json`` file may specify some or all of the publish options together as a single block:
