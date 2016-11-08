@@ -87,7 +87,7 @@ This resource has the following properties:
 ``ignore_failure``
    **Ruby Types:** TrueClass, FalseClass
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason. Default value: ``true``.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
