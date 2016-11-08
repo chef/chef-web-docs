@@ -2696,14 +2696,14 @@ Custom resources are designed to use core resources that are built into Chef. In
 
    resource_name :node_execute
 
-   property :command, kind_of: String, name_property: true
-   property :version, kind_of: String
+   property :command, String, name_property: true
+   property :version, String
 
    # Useful properties from the `execute` resource
-   property :cwd, kind_of: String
-   property :environment, kind_of: Hash, default: {}
-   property :user, kind_of: [String, Integer]
-   property :sensitive, kind_of: [TrueClass, FalseClass], default: false
+   property :cwd, String
+   property :environment, Hash, default: {}
+   property :user, [String, Integer]
+   property :sensitive, [TrueClass, FalseClass], default: false
 
    prefix = '/opt/languages/node'
 
@@ -2739,14 +2739,14 @@ To prevent this behavior, use ``new_resource.`` to tell the chef-client to proce
 
    resource_name :node_execute
 
-   property :command, kind_of: String, name_property: true
-   property :version, kind_of: String
+   property :command, String, name_property: true
+   property :version, String
 
    # Useful properties from the `execute` resource
-   property :cwd, kind_of: String
-   property :environment, kind_of: Hash, default: {}
-   property :user, kind_of: [String, Integer]
-   property :sensitive, kind_of: [TrueClass, FalseClass], default: false
+   property :cwd, String
+   property :environment, Hash, default: {}
+   property :user, [String, Integer]
+   property :sensitive, [TrueClass, FalseClass], default: false
 
    prefix = '/opt/languages/node'
 
