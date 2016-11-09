@@ -76,13 +76,13 @@ An Ohai plugin can be run independently of a chef-client run. First, ensure that
      collect_data(:default) do
        sl Mash.new
 
-       if ::File.exists?("/usr/games/sl")
+       if ::File.exist?("/usr/games/sl")
          sl[:installed] = true
        else
          sl[:installed] = false
        end
 
-       # sl[:installed] = ::File.exists?("/usr/games/sl")
+       # sl[:installed] = ::File.exist?("/usr/games/sl")
 
      end
    end

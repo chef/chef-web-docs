@@ -247,7 +247,7 @@ The following example shows how to use ``not_if`` to guard against running the `
    execute "apt-get-update" do
      command "apt-get update"
      ignore_failure true
-     not_if do ::File.exists?('/var/lib/apt/periodic/update-success-stamp') end
+     not_if do ::File.exist?('/var/lib/apt/periodic/update-success-stamp') end
    end
 
 .. end_tag
@@ -359,14 +359,14 @@ The following example shows how to use ``only_if`` to ensure that the chef-clien
    aspnet_regiis = "#{ENV['WinDir']}\\Microsoft.NET\\Framework\\v4.0.30319\\aspnet_regiis.exe"
    execute 'Register ASP.NET v4' do
      command "#{aspnet_regiis} -i"
-     only_if { File.exists?(aspnet_regiis) }
+     only_if { File.exist?(aspnet_regiis) }
      action :nothing
    end
 
    aspnet_regiis64 = "#{ENV['WinDir']}\\Microsoft.NET\\Framework64\\v4.0.30319\\aspnet_regiis.exe"
    execute 'Register ASP.NET v4 (x64)' do
      command "#{aspnet_regiis64} -i"
-     only_if { File.exists?(aspnet_regiis64) }
+     only_if { File.exist?(aspnet_regiis64) }
      action :nothing
    end
 

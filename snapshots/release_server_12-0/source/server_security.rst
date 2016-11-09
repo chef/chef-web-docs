@@ -126,7 +126,7 @@ The following example shows how the Chef server sets up and configures SSL certi
    ssl_crtfile = File.join(nginx_ca_dir, "#{node['private_chef']['nginx']['server_name']}.crt")
    ssl_signing_conf = File.join(nginx_ca_dir, "#{node['private_chef']['nginx']['server_name']}-ssl.conf")
 
-   unless File.exists?(ssl_keyfile) && File.exists?(ssl_crtfile) && File.exists?(ssl_signing_conf)
+   unless File.exist?(ssl_keyfile) && File.exist?(ssl_crtfile) && File.exist?(ssl_signing_conf)
      file ssl_keyfile do
        owner 'root'
        group 'root'
