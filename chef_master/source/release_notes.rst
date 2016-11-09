@@ -18,6 +18,12 @@ This diagram shows how you develop, test, and deploy your Chef code.
 What's New in 12.16
 =====================================================
 
+The following items are new for chef-client 12.16 and/or are changes from previous versions. The short version:
+
+* **Added new attribute_changed event hook**
+* **Automatic connection to Chef Automate's data collector through Chef server**
+* **Added new --field-separator flag to knife show commands**
+
 ``attribute_changed`` event hook
 -----------------------------------------------------
 
@@ -41,16 +47,16 @@ If you want to setup a policy that override attributes should never be used:
      end
    end
 
-Automatic connection to Chef Automate's Data Collector with supported Chef Server
------------------------------------------------------
-Chef Client will automatically attempt to connect to the Chef Server authenticated data collector proxy. If you have a supported version of Chef
-Server and have enabled this feature on the Chef Server, Chef Client run data will automatically be forwarded to Automate without additional Chef
-Client configuration. If you do not have Automate or the feature is disabled on the Chef Server, Chef Client will detect this and disable data collection.
+Automatic connection to Chef Automate's data collector with supported Chef server
+----------------------------------------------------------------------------------
+Chef client will automatically attempt to connect to the Chef server authenticated data collector proxy. If you have a supported version of Chef
+server with this feature enabled, Chef client run data will automatically be forwarded to Chef Automate without additional Chef
+client configuration. If you do not have Chef Automate, or the feature is disabled on the Chef server, Chef client will detect this and disable data collection.
 
-Note that Chef Server 12.11.0+ is required for this feature.
+.. note:: Chef Server 12.11.0 or newer is required for this feature.
 
-RFC018 Partially Implemented: Specify `--field-separator` for attribute filtering
------------------------------------------------------
+RFC018 Partially Implemented: Specify ``--field-separator`` for attribute filtering
+------------------------------------------------------------------------------------
 
 If you have periods (``.``) in your Chef Node attribute keys, you can now pass the ``--field-separator`` (or ``-S``) flag along with your ``--attribute`` (or ``-a``)
 flag to specify a custom nesting character other than ``.``.
