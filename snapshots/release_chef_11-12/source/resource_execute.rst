@@ -655,7 +655,7 @@ The following is an example of using the ``platform_family?`` method in the Reci
      command <<-EOF
        # command for installing Python goes here
        EOF
-     not_if { File.exists?(pip_binary) }
+     not_if { File.exist?(pip_binary) }
    end
 
 where a command for installing Python might look something like:

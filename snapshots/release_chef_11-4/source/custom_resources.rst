@@ -986,7 +986,7 @@ For example:
 .. code-block:: ruby
 
    action :delete do
-     if ::File.exists?(new_resource.path)
+     if ::File.exist?(new_resource.path)
        converge_by("deleting #{new_resource.path}) do
          if ::File.writable?(new_resource.path)
            Chef::Log.info("Deleting #{new_resource} at #{new_resource.path}")
@@ -1480,7 +1480,7 @@ The ``ssh_known_hosts_entry`` custom provider (found in the `ssh_known_hosts <ht
        backup        false
        content       
        only_if do
-         !::File.exists?(node['ssh_known_hosts']['file']) || ::File.new(node['ssh_known_hosts']['file']).readlines.length == 0
+         !::File.exist?(node['ssh_known_hosts']['file']) || ::File.new(node['ssh_known_hosts']['file']).readlines.length == 0
        end
      end
 
@@ -1771,7 +1771,7 @@ For example:
 .. code-block:: ruby
 
    action :delete do
-     if ::File.exists?(new_resource.path)
+     if ::File.exist?(new_resource.path)
        converge_by("deleting #{new_resource.path}) do
          if ::File.writable?(new_resource.path)
            Chef::Log.info("Deleting #{new_resource} at #{new_resource.path}")

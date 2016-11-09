@@ -379,7 +379,7 @@ The following is an example of how to install the ``foo123`` module for Nginx. T
        tar xzf #{src_filename} -C #{extract_path}
        mv #{extract_path}/*/* #{extract_path}/
        EOH
-     not_if { ::File.exists?(extract_path) }
+     not_if { ::File.exist?(extract_path) }
    end
 
 .. end_tag

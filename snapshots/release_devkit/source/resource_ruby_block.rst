@@ -376,7 +376,7 @@ The following example shows how the ``platform?`` method and an if statement can
            jdk_home = Dir.glob("#{java_home_parent}/java*#{version}*openjdk{,[-\.]#{arch}}")[0]
            Chef::Log.debug("jdk_home is #{jdk_home}")
 
-           if File.exists? java_home
+           if File.exist? java_home
              FileUtils.rm_f java_home
            end
            FileUtils.ln_sf jdk_home, java_home

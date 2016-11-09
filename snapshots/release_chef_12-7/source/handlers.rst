@@ -688,7 +688,7 @@ The `json_file <https://github.com/chef/chef/blob/master/lib/chef/handler/json_f
            end
          end
          def build_report_dir
-           unless File.exists?(config[:path])
+           unless File.exist?(config[:path])
              FileUtils.mkdir_p(config[:path])
              File.chmod(00700, config[:path])
            end

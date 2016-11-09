@@ -27,7 +27,7 @@ A **ruby** resource block executes scripts using Ruby:
        tar xzf #{src_filename} -C #{extract_path}
        mv #{extract_path}/*/* #{extract_path}/
        EOH
-     not_if { ::File.exists?(extract_path) }
+     not_if { ::File.exist?(extract_path) }
    end
 
 where
