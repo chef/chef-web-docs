@@ -14,7 +14,7 @@ This is the documentation for
 This page has links to each topic in this doc set. You can also use
 the navigation tool or the search box to find what you're looking for.
 
-If you need documenation for previous versions, you can use the dropdown
+If you need documentation for previous versions, you can use the dropdown
 box labeled "Filter by product and version" to select the particular
 component and version you want.
 
@@ -129,8 +129,6 @@ Cookbook Reference
 :doc:`metadata.rb </config_rb_metadata>` |
 :doc:`Cookbook Versions </cookbook_versions>` |
 :doc:`Ruby </ruby>`
-
-**Chef Cookbooks**: :doc:`Chef-maintained </chef_cookbooks>` | `chef-handler (cookbook) <http://docs.chef.io/handlers.html#handlers-and-cookbooks>`_
 
 **Chef Automate Cookbooks**: :doc:`build-cookbook (cookbook) </delivery_build_cookbook>` | :doc:`delivery-truck (cookbook) </delivery_truck>`
 
@@ -392,7 +390,6 @@ Addenda
    chef_automate
    chef_client
    chef_client_security
-   chef_cookbooks
    chef_license
    chef_overview
    chef_private_keys
