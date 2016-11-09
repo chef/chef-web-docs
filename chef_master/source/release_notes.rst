@@ -96,6 +96,20 @@ However, by specifying a field separator other than ``.`` we are now able to sho
    webapp:
      alpha:beta: omega
 
+Package locking for Apt, Yum, and Zypper
+-----------------------------------------------------
+
+To allow for more fine grain control of package installation the ``apt_package``, ``yum_package``, and ``zypper_package`` resources now support the ``:lock`` and ``:unlock`` actions.
+
+.. code-block:: ruby
+
+   package "httpd" do
+     action :lock
+   end
+
+   package "httpd" do
+     action :unlock
+   end
 
 What's New in 12.15
 =====================================================
