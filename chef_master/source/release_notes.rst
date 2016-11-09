@@ -1,5 +1,5 @@
 =====================================================
-Release Notes: chef-client 12.0 - 12.15
+Release Notes: chef-client 12.0 - 12.16
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes.rst>`__
 
@@ -14,6 +14,82 @@ This diagram shows how you develop, test, and deploy your Chef code.
    :align: center
 
 .. end_tag
+
+What's New in 12.16
+=====================================================
+
+``attribute_changed`` event hook
+-----------------------------------------------------
+
+In a cookbook library file, you can add this in order to print out all attribute changes in cookbooks:
+
+.. code-block:: ruby
+
+   Chef.event_handler do
+     on :attribute_changed do |precedence, key, value|
+       puts "setting attribute #{precedence}#{key.map {|n| "[\"#{n}\"]" }.join} = #{value}"
+     end
+   end
+
+If you want to setup a policy that override attributes should never be used:
+
+.. code-block:: ruby
+
+   Chef.event_handler do
+     on :attribute_changed do |precedence, key, value|
+       raise "override policy violation" if precedence == :override
+     end
+   end
+
+Automatic connection to Chef Automate's Data Collector with supported Chef Server
+-----------------------------------------------------
+Chef Client will automatically attempt to connect to the Chef Server authenticated data collector proxy. If you have a supported version of Chef
+Server and have enabled this feature on the Chef Server, Chef Client run data will automatically be forwarded to Automate without additional Chef
+Client configuration. If you do not have Automate or the feature is disabled on the Chef Server, Chef Client will detect this and disable data collection.
+
+Note that Chef Server 12.11.0+ is required for this feature.
+
+RFC018 Partially Implemented: Specify `--field-separator` for attribute filtering
+-----------------------------------------------------
+
+If you have periods (``.``) in your Chef Node attribute keys, you can now pass the ``--field-separator`` (or ``-S``) flag along with your ``--attribute`` (or ``-a``)
+flag to specify a custom nesting character other than ``.``.
+
+In a situation where the *webapp* node has the following node data:
+
+.. code-block:: javascript
+
+   {
+     "foo.bar": "baz",
+     "alpha": {
+       "beta": "omega"
+     }
+   }
+
+Running ``knife node show`` with the default field separator (``.``) won't show us the data we're expecting for the ``foo.bar`` attribute because of the period:
+
+.. code-block:: bash
+
+   $ knife node show webapp -a foo.bar
+   webapp:
+     foo.bar:
+
+   $ knife node show webapp -a alpha.beta
+   webapp:
+     alpha.beta: omega
+
+However, by specifying a field separator other than ``.`` we are now able to show the data.
+
+.. code-block:: bash
+
+   $ knife node show webapp -S: -a foo.bar
+   webapp:
+     foo.bar: baz
+
+   $ knife node show webapp -S: -a alpha:beta
+   webapp:
+     alpha:beta: omega
+
 
 What's New in 12.15
 =====================================================
