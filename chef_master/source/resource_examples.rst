@@ -191,7 +191,7 @@ The following is an example of how to install the ``foo123`` module for Nginx. T
        tar xzf #{src_filename} -C #{extract_path}
        mv #{extract_path}/*/* #{extract_path}/
        EOH
-     not_if { ::File.exists?(extract_path) }
+     not_if { ::File.exist?(extract_path) }
    end
 
 .. end_tag
@@ -713,7 +713,7 @@ The following is an example of how to install the ``foo123`` module for Nginx. T
        tar xzf #{src_filename} -C #{extract_path}
        mv #{extract_path}/*/* #{extract_path}/
        EOH
-     not_if { ::File.exists?(extract_path) }
+     not_if { ::File.exist?(extract_path) }
    end
 
 .. end_tag
@@ -785,7 +785,7 @@ and then the methods in the recipe may refer to these values. A recipe that is u
      source "#{node['python']['url']}/#{version}/Python-#{version}.tar.bz2"
      checksum node['python']['checksum']
      mode '0755'
-     not_if { ::File.exists?(install_path) }
+     not_if { ::File.exist?(install_path) }
    end
 
    bash 'build-and-install-python' do
@@ -795,7 +795,7 @@ and then the methods in the recipe may refer to these values. A recipe that is u
        (cd Python-#{version} && ./configure #{configure_options})
        (cd Python-#{version} && make && make install)
      EOF
-     not_if { ::File.exists?(install_path) }
+     not_if { ::File.exist?(install_path) }
    end
 
 .. end_tag
@@ -2711,7 +2711,7 @@ The following is an example of using the ``platform_family?`` method in the Reci
      command <<-EOF
        # command for installing Python goes here
        EOF
-     not_if { File.exists?(pip_binary) }
+     not_if { File.exist?(pip_binary) }
    end
 
 where a command for installing Python might look something like:
@@ -5308,7 +5308,7 @@ The following is an example of how to install the ``foo123`` module for Nginx. T
        tar xzf #{src_filename} -C #{extract_path}
        mv #{extract_path}/*/* #{extract_path}/
        EOH
-     not_if { ::File.exists?(extract_path) }
+     not_if { ::File.exist?(extract_path) }
    end
 
 .. end_tag
@@ -5352,7 +5352,7 @@ and then the methods in the recipe may refer to these values. A recipe that is u
      source "#{node['python']['url']}/#{version}/Python-#{version}.tar.bz2"
      checksum node['python']['checksum']
      mode '0755'
-     not_if { ::File.exists?(install_path) }
+     not_if { ::File.exist?(install_path) }
    end
 
    bash 'build-and-install-python' do
@@ -5362,7 +5362,7 @@ and then the methods in the recipe may refer to these values. A recipe that is u
        (cd Python-#{version} && ./configure #{configure_options})
        (cd Python-#{version} && make && make install)
      EOF
-     not_if { ::File.exists?(install_path) }
+     not_if { ::File.exist?(install_path) }
    end
 
 .. end_tag
@@ -5392,7 +5392,7 @@ The following is an example of using the ``platform_family?`` method in the Reci
      command <<-EOF
        # command for installing Python goes here
        EOF
-     not_if { File.exists?(pip_binary) }
+     not_if { File.exist?(pip_binary) }
    end
 
 where a command for installing Python might look something like:
@@ -5809,7 +5809,7 @@ The following is an example of how to install the ``foo123`` module for Nginx. T
        tar xzf #{src_filename} -C #{extract_path}
        mv #{extract_path}/*/* #{extract_path}/
        EOH
-     not_if { ::File.exists?(extract_path) }
+     not_if { ::File.exist?(extract_path) }
    end
 
 .. end_tag
@@ -5881,7 +5881,7 @@ and then the methods in the recipe may refer to these values. A recipe that is u
      source "#{node['python']['url']}/#{version}/Python-#{version}.tar.bz2"
      checksum node['python']['checksum']
      mode '0755'
-     not_if { ::File.exists?(install_path) }
+     not_if { ::File.exist?(install_path) }
    end
 
    bash 'build-and-install-python' do
@@ -5891,7 +5891,7 @@ and then the methods in the recipe may refer to these values. A recipe that is u
        (cd Python-#{version} && ./configure #{configure_options})
        (cd Python-#{version} && make && make install)
      EOF
-     not_if { ::File.exists?(install_path) }
+     not_if { ::File.exist?(install_path) }
    end
 
 .. end_tag

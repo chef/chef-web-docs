@@ -3,7 +3,7 @@ Custom Resources
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/custom_resources.rst>`__
 
-.. warning:: This approach to building custom resources was introduced in chef-client, version 12.5. It is the recommended approach for all custom resources starting with that version of the chef-client. Refer to the `notes about custom resources <https://docs.chef.io/custom_resources_notes.html>`_ if you're curious about other approaches that use the older styles. If you are using an older version of the chef-client, please use the version picker (in the top left of the navigation) to select your version, and then choose the same topic from the navigation tree ("Extend Chef > Custom Resources"). See also https://github.com/chef-cookbooks/compat_resource for using this features with previous versions of the chef-client.
+.. warning:: This approach to building custom resources was introduced in chef-client, version 12.5. It is the recommended approach for all custom resources starting with that version of the chef-client. If you are using an older version of the chef-client, please use the version picker (in the top left of the navigation) to select your version, and then choose the same topic from the navigation tree ("Extend Chef > Custom Resources"). See also https://github.com/chef-cookbooks/compat_resource for using custom resources with chef-client 12.1 - 12.4.
 
 .. tag custom_resources_summary
 
@@ -673,14 +673,14 @@ Custom resources are designed to use core resources that are built into Chef. In
 
    resource_name :node_execute
 
-   property :command, kind_of: String, name_property: true
-   property :version, kind_of: String
+   property :command, String, name_property: true
+   property :version, String
 
    # Useful properties from the `execute` resource
-   property :cwd, kind_of: String
-   property :environment, kind_of: Hash, default: {}
-   property :user, kind_of: [String, Integer]
-   property :sensitive, kind_of: [TrueClass, FalseClass], default: false
+   property :cwd, String
+   property :environment, Hash, default: {}
+   property :user, [String, Integer]
+   property :sensitive, [TrueClass, FalseClass], default: false
 
    prefix = '/opt/languages/node'
 
@@ -716,14 +716,14 @@ To prevent this behavior, use ``new_resource.`` to tell the chef-client to proce
 
    resource_name :node_execute
 
-   property :command, kind_of: String, name_property: true
-   property :version, kind_of: String
+   property :command, String, name_property: true
+   property :version, String
 
    # Useful properties from the `execute` resource
-   property :cwd, kind_of: String
-   property :environment, kind_of: Hash, default: {}
-   property :user, kind_of: [String, Integer]
-   property :sensitive, kind_of: [TrueClass, FalseClass], default: false
+   property :cwd, String
+   property :environment, Hash, default: {}
+   property :user, [String, Integer]
+   property :sensitive, [TrueClass, FalseClass], default: false
 
    prefix = '/opt/languages/node'
 

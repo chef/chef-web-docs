@@ -124,7 +124,7 @@ A definition file can be used to create an object that the chef-client can then 
            ::File.symlink?('#{node[:apache][:dir]}/sites-enabled/#{params[:name]}') or
            ::File.symlink?('#{node[:apache][:dir]}/sites-enabled/000-#{params[:name]}')
          end
-         only_if do ::File.exists?('#{node[:apache][:dir]}/sites-available/#{params[:name]}') end
+         only_if do ::File.exist?('#{node[:apache][:dir]}/sites-available/#{params[:name]}') end
        end
      else
        execute 'a2dissite #{params[:name]}' do
