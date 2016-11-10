@@ -1,5 +1,5 @@
 =====================================================
-Release Notes: Chef Server 12.0 - 12.9
+Release Notes: Chef Server 12.0 - 12.11
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_server.rst>`__
 
@@ -10,6 +10,76 @@ Release Notes: Chef Server 12.0 - 12.9
 Chef is a systems and cloud infrastructure automation framework that makes it easy to deploy servers and applications to any physical, virtual, or cloud location, no matter the size of the infrastructure. Each organization is comprised of one (or more) workstations, a single server, and every node that will be configured and maintained by the chef-client. Cookbooks (and recipes) are used to tell the chef-client how each node in your organization should be configured. The chef-client (which is installed on every node) does the actual configuration.
 
 .. end_tag
+
+What's New in 12.11
+=====================================================
+The following items are new for Chef server 12.11:
+
+New Endpoints
+=====================================================
+* **/organizations/ORGNAME/validate/PATH** accepts a signed request and validates it as if it had been sent to `PATH`. It returns 200 if the request is authentic and 401 if it is not.
+* **/organizations/ORGNAME/data-collector** forwards requests for a data-collector service after authenticating the request using Chef Server's standard authentication headers.  To use this endpoint, users must set both of the following options in /etc/opscode/chef-server.rb:
+
+.. code-block:: ruby
+
+   data_collector['token']
+   data_collector['root_url']
+
+* **/organizations/ORGNAME/owners/OWNER/compliance[/PROFILE]** forwards requests for compliance profiles to a user-configurable Chef Automate server after authenticating the request using Chef Server's standard authentication headers. To use this endpoint, users must set both of the following options in `/etc/opscode/chef-server.rb`:
+
+.. code-block:: ruby
+
+   profiles['root_url']
+   data_collector['token']
+
+Security Updates
+=====================================================
+
+* The default allowed SSL ciphers now include AES256-GCM-SHA384 to ensure compatibility with AWS's Classic ELB health check tool.
+* **chef-server-ctl psql** previously revealed the postgresql password via `ps`.
+
+What's New in 12.10
+=====================================================
+The following items are new for Chef server 12.10:
+
+* Smaller download - the download size has been reduced by around 35% via removal of redundant, cached, and unused components. The installed size has been similarly reduced.
+* add retry support to opscode-expander
+* chef-server-ctl reindex will now continue even if some objects are not indexable, and will show which objects failed at the conclusion of the run.
+* Data Collector support for Policyfiles.
+* chef-server-ctl install add-on installation now pulls from the correct source.
+* Regression fix: that caused errors on reconfigure when LDAP bind password is nil has been fixed.
+
+Security Updates
+=====================================================
+* Upgrade to OpenSSL 1.0.2j. The prior release (1.0.1u) is approaching EOL.
+* Updated TLS ciphers. See compatibility notes, below.
+
+Compatibility Notes
+=====================================================
+
+* The change of TLS ciphers can cause older tooling to fail to negotiate SSL sessions with the Chef Server. The changes to the cipher list are captured here. Upgrading any custom clients of the Chef Server API to use a current SSL release will resolve this.
+
+  * Alternatively, you can set ``nginx['ssl_protocols']`` in ``/etc/opscode/chef-server.rb`` to a set of ciphers that are compatible with your tooling, then running chef-server-ctl reconfigure to pick up the changes.
+
+* With this TLS cipher suite change, the Reporting add-on will report errors when opscode-reporting-ctl test is run. A fix for this is available in the current channel for reporting, and will be released to stable in November. This issue does not otherwise affect the Reporting add-on, but you can resolve this locally by modifying /etc/opscode-reporting/pedant_config.rb and adding the following line: ssl_version :TLSv1_2
+
+What's New in 12.9.1
+=====================================================
+The following items are new for Chef server 12.9.1:
+
+The update of OpenSSL 1.0.1u addresses the following CVEs:
+
+* CVE-2016-6304
+* CVE-2016-2183
+* CVE-2016-6303
+* CVE-2016-6302
+* CVE-2016-2182
+* CVE-2016-2180
+* CVE-2016-2177
+* CVE-2016-2178
+* CVE-2016-2179
+* CVE-2016-2181
+* CVE-2016-6306
 
 What's New in 12.9
 =====================================================
