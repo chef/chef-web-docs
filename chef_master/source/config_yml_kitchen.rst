@@ -567,10 +567,9 @@ where ``audit_mode`` may be ``:enabled``, ``:disabled`` (default), or ``:audit_o
 
 mysql Cookbook
 --------------------------------------------------------------------------
-The most impressive (and thorough) .kitchen.yml files are part of the ``mysql`` cookbook. They are too big to paste into this topic, so please see them at the following links:
+The most impressive (and thorough) .kitchen.yml file is part of the ``mysql`` cookbook. It is too big to paste into this topic, so please see it at the following links:
 
 * `.kitchen.yml <https://github.com/chef-cookbooks/mysql/blob/master/.kitchen.yml>`__
-* `.kitchen.cloud.yml <https://github.com/chef-cookbooks/mysql/blob/master/.kitchen.dokken.yml>`__
 
 chef-client Cookbook
 --------------------------------------------------------------------------
