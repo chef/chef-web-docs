@@ -56,6 +56,11 @@ This resource has the following actions:
 ``:install``
    Default. Install a package. If a version is specified, install the specified version of the package.
 
+``:lock``
+   Locks the apt package to a specific version.
+
+   New in Chef client 12.16
+
 ``:nothing``
    .. tag resources_common_actions_nothing
 
@@ -71,6 +76,11 @@ This resource has the following actions:
 
 ``:remove``
    Remove a package.
+
+``:unlock``
+   Unlocks the apt package so that it can be upgraded to a newer version.
+
+   New in Chef client 12.16
 
 ``:upgrade``
    Install a package and/or ensure that a package is the latest version.

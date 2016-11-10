@@ -1,5 +1,5 @@
 =====================================================
-Release Notes: chef-client 12.0 - 12.15
+Release Notes: chef-client 12.0 - 12.16
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes.rst>`__
 
@@ -14,6 +14,102 @@ This diagram shows how you develop, test, and deploy your Chef code.
    :align: center
 
 .. end_tag
+
+What's New in 12.16
+=====================================================
+
+The following items are new for chef-client 12.16 and/or are changes from previous versions. The short version:
+
+* **Added new attribute_changed event hook**
+* **Automatic connection to Chef Automate's data collector through Chef server**
+* **Added new --field-separator flag to knife show commands**
+
+``attribute_changed`` event hook
+-----------------------------------------------------
+
+In a cookbook library file, you can add this in order to print out all attribute changes in cookbooks:
+
+.. code-block:: ruby
+
+   Chef.event_handler do
+     on :attribute_changed do |precedence, key, value|
+       puts "setting attribute #{precedence}#{key.map {|n| "[\"#{n}\"]" }.join} = #{value}"
+     end
+   end
+
+If you want to setup a policy that override attributes should never be used:
+
+.. code-block:: ruby
+
+   Chef.event_handler do
+     on :attribute_changed do |precedence, key, value|
+       raise "override policy violation" if precedence == :override
+     end
+   end
+
+Automatic connection to Chef Automate's data collector with supported Chef server
+----------------------------------------------------------------------------------
+Chef client will automatically attempt to connect to the Chef server authenticated data collector proxy. If you have a supported version of Chef
+server with this feature enabled, Chef client run data will automatically be forwarded to Chef Automate without additional Chef
+client configuration. If you do not have Chef Automate, or the feature is disabled on the Chef server, Chef client will detect this and disable data collection.
+
+.. note:: Chef Server 12.11.0 or newer is required for this feature.
+
+RFC018 Partially Implemented: Specify ``--field-separator`` for attribute filtering
+------------------------------------------------------------------------------------
+
+If you have periods (``.``) in your Chef Node attribute keys, you can now pass the ``--field-separator`` (or ``-S``) flag along with your ``--attribute`` (or ``-a``)
+flag to specify a custom nesting character other than ``.``.
+
+In a situation where the *webapp* node has the following node data:
+
+.. code-block:: javascript
+
+   {
+     "foo.bar": "baz",
+     "alpha": {
+       "beta": "omega"
+     }
+   }
+
+Running ``knife node show`` with the default field separator (``.``) won't show us the data we're expecting for the ``foo.bar`` attribute because of the period:
+
+.. code-block:: bash
+
+   $ knife node show webapp -a foo.bar
+   webapp:
+     foo.bar:
+
+   $ knife node show webapp -a alpha.beta
+   webapp:
+     alpha.beta: omega
+
+However, by specifying a field separator other than ``.`` we are now able to show the data.
+
+.. code-block:: bash
+
+   $ knife node show webapp -S: -a foo.bar
+   webapp:
+     foo.bar: baz
+
+   $ knife node show webapp -S: -a alpha:beta
+   webapp:
+     alpha:beta: omega
+
+Package locking for Apt, Yum, and Zypper
+-----------------------------------------------------
+
+To allow for more fine grain control of package installation the ``apt_package``, ``yum_package``, and ``zypper_package`` resources now support the ``:lock`` and ``:unlock`` actions.
+
+.. code-block:: ruby
+
+   package "httpd" do
+     action :lock
+   end
+
+   package "httpd" do
+     action :unlock
+   end
 
 What's New in 12.15
 =====================================================
