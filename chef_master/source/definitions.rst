@@ -63,7 +63,7 @@ An example showing the use of parameters, with a parameter named ``port`` that d
      end
    end
 
-Or the following definition, which looks like a resource when used in a recipe, but also contains resources---**directory** and **file**---that are repeated, but with slightly different parameters:
+Or the following definition, which looks like a resource when used in a recipe, but also contains **directory** and **file** resources that are repeated, but with slightly different parameters:
 
 .. code-block:: ruby
 
