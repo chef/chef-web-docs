@@ -256,7 +256,7 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-      source 'ftp://path/to/img/sketch.png'
+      source 'ftp://remote_host/path/to/img/sketch.png'
 
    By using SFTP:
 
