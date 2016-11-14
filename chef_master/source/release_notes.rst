@@ -3,7 +3,7 @@ Release Notes: chef-client 12.0 - 12.16
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes.rst>`__
 
-Chef Client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `[Chef CHANGELOG.md] <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
+Chef client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `[Chef CHANGELOG.md] <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
 
 What's New in 12.16
 =====================================================
