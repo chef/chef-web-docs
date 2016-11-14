@@ -10,10 +10,10 @@ Glossary
    Event tracking during the chef-client run that generates data made visible to Chef Automate.
 
 **Berkshelf**
-   `Manage cookbook dependencies <http://berkshelf.com/>`__.
+   Manage cookbook dependencies.
 
 **Build**
-   A Chef Automate stage. The purpose of the Build stage is to assemble one or more potentially releasable artifacts and make them available to the remaining stages of the pipeline. Using Berkshelf can help to `manage cookbook dependencies <http://berkshelf.com/>`__.
+   A Chef Automate stage. The purpose of the Build stage is to assemble one or more potentially releasable artifacts and make them available to the remaining stages of the pipeline. Using Berkshelf can help to manage cookbook dependencies.
 
 **chef-apply**
    A command-line tool that allows a single recipe to be run from the command line.
