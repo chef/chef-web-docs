@@ -84,9 +84,9 @@ Concepts
 :doc:`Reporting </reporting>` |
 :doc:`Run-lists </run_lists>`
 
-**Security**:`Authentication <http://docs.chef.io/auth.html#authentication>`_ | `Authorization <http://docs.chef.io/auth.html#authorization>`_ | :doc:`Private Keys </chef_private_keys>` | `FIPS-mode <http://docs.chef.io/ctl_chef_client.html#run-in-fips-mode>`_
+**Security**:`Authentication <https://docs.chef.io/auth.html#authentication>`_ | `Authorization <https://docs.chef.io/auth.html#authorization>`_ | :doc:`Private Keys </chef_private_keys>` | `FIPS-mode <https://docs.chef.io/ctl_chef_client.html#run-in-fips-mode>`_
 
-**Supermarket**: `Public Supermarket (overview) <http://docs.chef.io/supermarket.html#public-supermarket>`_ | `Private Supermarket (overview) <http://docs.chef.io/supermarket.html#private-supermarket>`_
+**Supermarket**: `Public Supermarket (overview) <https://docs.chef.io/supermarket.html#public-supermarket>`_ | `Private Supermarket (overview) <https://docs.chef.io/supermarket.html#private-supermarket>`_
 
 :doc:`Microsoft Windows </windows>`
 
@@ -99,11 +99,11 @@ Setup
 
 **Nodes**::doc:`Install via Bootstrap </install_bootstrap>` | :doc:`Install via URL </install_omnibus>` | :doc:`Install on Windows </install_windows>` | :doc:`Install on Junos OS </junos>` | :doc:`chef-client (executable) </ctl_chef_client>` | :doc:`client.rb </config_rb_client>` | :doc:`Upgrades </upgrade_client>` | :doc:`Security </chef_client_security>`
 
-**Server**: `Hosted Chef Server <https://manage.chef.io/signup>`_ | `Install Standalone <http://docs.chef.io/install_server.html#standalone>`_ | :doc:`Install High Availability </install_server_ha>` | :doc:`AWS Marketplace </aws_marketplace>` | :doc:`Microsoft Azure </azure_portal>` | :doc:`Openstack </openstack>`
+**Server**: `Hosted Chef Server <https://manage.chef.io/signup>`_ | `Install Standalone <https://docs.chef.io/install_server.html#standalone>`_ | :doc:`Install High Availability </install_server_ha>` | :doc:`AWS Marketplace </aws_marketplace>` | :doc:`Microsoft Azure </azure_portal>` | :doc:`Openstack </openstack>`
 
-**Supermarket**: `Public Supermarket <https://supermarket.chef.io>`_ | :doc:`Install Private Supermarket </install_supermarket>` | `Customize Supermarket <http://docs.chef.io/install_supermarket.html#customize-supermarket>`_ | `Run in Kitchen <http://docs.chef.io/install_supermarket.html#run-supermarket-in-kitchen>`_
+**Supermarket**: `Public Supermarket <https://supermarket.chef.io>`_ | :doc:`Install Private Supermarket </install_supermarket>` | `Customize Supermarket <https://docs.chef.io/install_supermarket.html#customize-supermarket>`_ | `Run in Kitchen <https://docs.chef.io/install_supermarket.html#run-supermarket-in-kitchen>`_
 
-`Management Console <http://docs.chef.io/ctl_chef_server.html#install>`_ |
+`Management Console <https://docs.chef.io/ctl_chef_server.html#install>`_ |
 :doc:`Push Jobs </install_push_jobs>` |
 :doc:`Reporting </install_reporting>`
 
@@ -138,16 +138,16 @@ Chef DK
 :doc:`chef-apply (executable) </ctl_chef_apply>`
 :doc:`chef-shell (executable) </chef_shell>`
 
-**chef (executable)**:`chef env <http://docs.chef.io/ctl_chef.html#chef-env>`_ | `chef exec <http://docs.chef.io/ctl_chef.html#chef-exec>`_ | `chef gem <http://docs.chef.io/ctl_chef.html#chef-gem>`_ | `chef generate app <http://docs.chef.io/ctl_chef.html#chef-generate-app>`_ | `chef generate attribute <http://docs.chef.io/ctl_chef.html#chef-generate-attribute>`_ | `chef generate cookbook <http://docs.chef.io/ctl_chef.html#chef-generate-cookbook>`_ | `chef generate file <http://docs.chef.io/ctl_chef.html#chef-generate-file>`_ | `chef generate lwrp <http://docs.chef.io/ctl_chef.html#chef-generate-lwrp>`_ | `chef generate recipe <http://docs.chef.io/ctl_chef.html#chef-generate-recipe>`_ | `chef generate repo <http://docs.chef.io/ctl_chef.html#chef-generate-repo>`_ | `chef generate template <http://docs.chef.io/ctl_chef.html#chef-generate-template>`_ | `chef provision <http://docs.chef.io/ctl_chef.html#chef-provision>`_ | `chef shell-init <http://docs.chef.io/ctl_chef.html#chef-shell-init>`_ | `chef verify <http://docs.chef.io/ctl_chef.html#chef-verify>`_
+**chef (executable)**:`chef env <https://docs.chef.io/ctl_chef.html#chef-env>`_ | `chef exec <https://docs.chef.io/ctl_chef.html#chef-exec>`_ | `chef gem <https://docs.chef.io/ctl_chef.html#chef-gem>`_ | `chef generate app <https://docs.chef.io/ctl_chef.html#chef-generate-app>`_ | `chef generate attribute <https://docs.chef.io/ctl_chef.html#chef-generate-attribute>`_ | `chef generate cookbook <https://docs.chef.io/ctl_chef.html#chef-generate-cookbook>`_ | `chef generate file <https://docs.chef.io/ctl_chef.html#chef-generate-file>`_ | `chef generate lwrp <https://docs.chef.io/ctl_chef.html#chef-generate-lwrp>`_ | `chef generate recipe <https://docs.chef.io/ctl_chef.html#chef-generate-recipe>`_ | `chef generate repo <https://docs.chef.io/ctl_chef.html#chef-generate-repo>`_ | `chef generate template <https://docs.chef.io/ctl_chef.html#chef-generate-template>`_ | `chef provision <https://docs.chef.io/ctl_chef.html#chef-provision>`_ | `chef shell-init <https://docs.chef.io/ctl_chef.html#chef-shell-init>`_ | `chef verify <https://docs.chef.io/ctl_chef.html#chef-verify>`_
 
 **Chef Solo**: :doc:`About Chef Solo </chef_solo>` | :doc:`chef-solo (executable) </ctl_chef_solo>` | :doc:`solo.rb </config_rb_solo>`
 
 :doc:`chef-shell (executable) </ctl_chef_shell>` |
-`chef-zero (local mode) <http://docs.chef.io/ctl_chef_client.html#run-in-local-mode>`_ |
+`chef-zero (local mode) <https://docs.chef.io/ctl_chef_client.html#run-in-local-mode>`_ |
 :doc:`chef-vault </chef_vault>` |
 :doc:`ChefSpec </chefspec>`
 
-**Configuration**: :doc:`config.rb </config_rb>` | `Multiple Config Files <http://docs.chef.io/config_rb_client.html#d-directories>`_
+**Configuration**: :doc:`config.rb </config_rb>` | `Multiple Config Files <https://docs.chef.io/config_rb_client.html#d-directories>`_
 
 :doc:`cookstyle </cookstyle>` |
 :doc:`Delivery CLI </ctl_delivery>` |
@@ -159,7 +159,7 @@ Chef DK
 
 :doc:`knife spork </plugin_knife_spork>` |
 
-**knife supermarket**: `supermarket download <http://docs.chef.io/plugin_knife_supermarket.html#download>`_ | `supermarket install <http://docs.chef.io/plugin_knife_supermarket.html#install>`_ | `supermarket list <http://docs.chef.io/plugin_knife_supermarket.html#list>`_ | `supermarket search <http://docs.chef.io/plugin_knife_supermarket.html#search>`_ | `supermarket share <http://docs.chef.io/plugin_knife_supermarket.html#share>`_ | `supermarket show <http://docs.chef.io/plugin_knife_supermarket.html#show>`_ | `supermarket unshare <http://docs.chef.io/plugin_knife_supermarket.html#unshare>`_
+**knife supermarket**: `supermarket download <https://docs.chef.io/plugin_knife_supermarket.html#download>`_ | `supermarket install <https://docs.chef.io/plugin_knife_supermarket.html#install>`_ | `supermarket list <https://docs.chef.io/plugin_knife_supermarket.html#list>`_ | `supermarket search <https://docs.chef.io/plugin_knife_supermarket.html#search>`_ | `supermarket share <https://docs.chef.io/plugin_knife_supermarket.html#share>`_ | `supermarket show <https://docs.chef.io/plugin_knife_supermarket.html#show>`_ | `supermarket unshare <https://docs.chef.io/plugin_knife_supermarket.html#unshare>`_
 
 **Ohai**: :doc:`About Ohai </ohai>` | :doc:`ohai (executable) </ctl_ohai>`
 
@@ -200,7 +200,7 @@ Managing the Server
 
 **Supermarket**::doc:`Log Files </supermarket_logs>` | :doc:`Monitoring </supermarket_monitor>` | :doc:`supermarket.rb </config_rb_supermarket>` | :doc:`knife supermarket </plugin_knife_supermarket>` | :doc:`supermarket-ctl </ctl_supermarket>` | :doc:`Cookbooks Site API </api_cookbooks_site>`
 
-**Management Console**: :doc:`Configure SAML </server_configure_saml>` | :doc:`Clients </server_manage_clients>` | :doc:`Cookbooks </server_manage_cookbooks>` | :doc:`Data Bags </server_manage_data_bags>` | :doc:`Environments </server_manage_environments>` | :doc:`Nodes </server_manage_nodes>` | :doc:`Roles </server_manage_roles>` | `Users <http://docs.chef.io/server_users.html#chef-manage>`_ | :doc:`manage.rb </config_rb_manage>` | :doc:`chef-manage-ctl </ctl_manage>`
+**Management Console**: :doc:`Configure SAML </server_configure_saml>` | :doc:`Clients </server_manage_clients>` | :doc:`Cookbooks </server_manage_cookbooks>` | :doc:`Data Bags </server_manage_data_bags>` | :doc:`Environments </server_manage_environments>` | :doc:`Nodes </server_manage_nodes>` | :doc:`Roles </server_manage_roles>` | `Users <https://docs.chef.io/server_users.html#chef-manage>`_ | :doc:`manage.rb </config_rb_manage>` | :doc:`chef-manage-ctl </ctl_manage>`
 
 Habitat
 =====================================================
@@ -295,24 +295,24 @@ Managing the Server
 :doc:`Tuning </delivery_server_tuning>` |
 :doc:`Upgrades </upgrade_chef_automate>` |
 :doc:`Users and Roles </delivery_users_and_roles>` |
-`cleanse <http://docs.chef.io/ctl_delivery_server.html#cleanse>`_ |
-`create-enterprise <http://docs.chef.io/ctl_delivery_server.html#create-enterprise>`_ |
-`create-user <http://docs.chef.io/ctl_delivery_server.html#create-user>`_ |
-`delete-application <http://docs.chef.io/ctl_delivery_server.html#delete-application>`_ |
-`delete-enterprise <http://docs.chef.io/ctl_delivery_server.html#delete-enterprise>`_ |
-`delete-project <http://docs.chef.io/ctl_delivery_server.html#delete-project>`_ |
-`delete-user <http://docs.chef.io/ctl_delivery_server.html#delete-user>`_ |
-`list-applications <http://docs.chef.io/ctl_delivery_server.html#list-applications>`_ |
-`list-enterprises <http://docs.chef.io/ctl_delivery_server.html#list-enterprises>`_ |
-`list-users <http://docs.chef.io/ctl_delivery_server.html#list-users>`_ |
-`migrate-change-description <http://docs.chef.io/ctl_delivery_server.html#migrate-change-description>`_ |
-`migrate-patchset-diffs <http://docs.chef.io/ctl_delivery_server.html#migrate-patchset-diffs>`_ |
-`reconfigure <http://docs.chef.io/ctl_delivery_server.html#reconfigure>`_ |
-`rename-enterprise <http://docs.chef.io/ctl_delivery_server.html#rename-enterprise>`_ |
-`revoke-token <http://docs.chef.io/ctl_delivery_server.html#revoke-token>`_ |
-`show-config <http://docs.chef.io/ctl_delivery_server.html#show-config>`_ |
-`uninstall <http://docs.chef.io/ctl_delivery_server.html#uninstall>`_ |
-`update-project-hooks <http://docs.chef.io/ctl_delivery_server.html#update-project-hooks>`_
+`cleanse <https://docs.chef.io/ctl_delivery_server.html#cleanse>`_ |
+`create-enterprise <https://docs.chef.io/ctl_delivery_server.html#create-enterprise>`_ |
+`create-user <https://docs.chef.io/ctl_delivery_server.html#create-user>`_ |
+`delete-application <https://docs.chef.io/ctl_delivery_server.html#delete-application>`_ |
+`delete-enterprise <https://docs.chef.io/ctl_delivery_server.html#delete-enterprise>`_ |
+`delete-project <https://docs.chef.io/ctl_delivery_server.html#delete-project>`_ |
+`delete-user <https://docs.chef.io/ctl_delivery_server.html#delete-user>`_ |
+`list-applications <https://docs.chef.io/ctl_delivery_server.html#list-applications>`_ |
+`list-enterprises <https://docs.chef.io/ctl_delivery_server.html#list-enterprises>`_ |
+`list-users <https://docs.chef.io/ctl_delivery_server.html#list-users>`_ |
+`migrate-change-description <https://docs.chef.io/ctl_delivery_server.html#migrate-change-description>`_ |
+`migrate-patchset-diffs <https://docs.chef.io/ctl_delivery_server.html#migrate-patchset-diffs>`_ |
+`reconfigure <https://docs.chef.io/ctl_delivery_server.html#reconfigure>`_ |
+`rename-enterprise <https://docs.chef.io/ctl_delivery_server.html#rename-enterprise>`_ |
+`revoke-token <https://docs.chef.io/ctl_delivery_server.html#revoke-token>`_ |
+`show-config <https://docs.chef.io/ctl_delivery_server.html#show-config>`_ |
+`uninstall <https://docs.chef.io/ctl_delivery_server.html#uninstall>`_ |
+`update-project-hooks <https://docs.chef.io/ctl_delivery_server.html#update-project-hooks>`_
 
 Compliance scanner
 -----------------------------------------------------
@@ -335,31 +335,31 @@ Extension APIs
 Resources
 -----------------------------------------------------
 
-**Recipe DSL**: `attribute? <http://docs.chef.io/dsl_recipe.html#attribute>`_ | `control <http://docs.chef.io/dsl_recipe.html#control>`_ | `control_group <http://docs.chef.io/dsl_recipe.html#control-group>`_ | `cookbook_name <http://docs.chef.io/dsl_recipe.html#cookbook-name>`_ | `data_bag <http://docs.chef.io/dsl_recipe.html#data-bag>`_ | `data_bag_item <http://docs.chef.io/dsl_recipe.html#data-bag-item>`_ | `platform? <http://docs.chef.io/dsl_recipe.html#platform>`_ | `platform_family? <http://docs.chef.io/dsl_recipe.html#platform-family>`_ | `reboot_pending? <http://docs.chef.io/dsl_recipe.html#reboot-pending>`_ | `recipe_name <http://docs.chef.io/dsl_recipe.html#recipe-name>`_ | `registry_data_exists? <http://docs.chef.io/dsl_recipe.html#registry-data-exists>`_ | `registry_get_subkeys <http://docs.chef.io/dsl_recipe.html#registry-get-subkeys>`_ | `registry_get_values <http://docs.chef.io/dsl_recipe.html#registry-get-values>`_ | `registry_has_subkeys? <http://docs.chef.io/dsl_recipe.html#registry-has-subkeys>`_ | `registry_key_exists? <http://docs.chef.io/dsl_recipe.html#registry-key-exists>`_ | `registry_value_exists? <http://docs.chef.io/dsl_recipe.html#registry-value-exists>`_ | `resources <http://docs.chef.io/dsl_recipe.html#resources>`_ | `search <http://docs.chef.io/dsl_recipe.html#search>`_ | `shell_out <http://docs.chef.io/dsl_recipe.html#shell-out>`_ | `shell_out! <http://docs.chef.io/dsl_recipe.html#shell-out-bang>`_ | `shell_out_with_systems_locale <http://docs.chef.io/dsl_recipe.html#shell-out-with-systems-locale>`_ | `tag <http://docs.chef.io/dsl_recipe.html#tag-tagged-untag>`_ | `tagged? <http://docs.chef.io/dsl_recipe.html#tag-tagged-untag>`_ | `untag <http://docs.chef.io/dsl_recipe.html#tag-tagged-untag>`_ | `value_for_platform <http://docs.chef.io/dsl_recipe.html#value-for-platform>`_ | `value_for_platform_family <http://docs.chef.io/dsl_recipe.html#value-for-platform-family>`_ | `Windows Platform Helpers <http://docs.chef.io/dsl_recipe.html#helpers>`_
+**Recipe DSL**: `attribute? <https://docs.chef.io/dsl_recipe.html#attribute>`_ | `control <https://docs.chef.io/dsl_recipe.html#control>`_ | `control_group <https://docs.chef.io/dsl_recipe.html#control-group>`_ | `cookbook_name <https://docs.chef.io/dsl_recipe.html#cookbook-name>`_ | `data_bag <https://docs.chef.io/dsl_recipe.html#data-bag>`_ | `data_bag_item <https://docs.chef.io/dsl_recipe.html#data-bag-item>`_ | `platform? <https://docs.chef.io/dsl_recipe.html#platform>`_ | `platform_family? <https://docs.chef.io/dsl_recipe.html#platform-family>`_ | `reboot_pending? <https://docs.chef.io/dsl_recipe.html#reboot-pending>`_ | `recipe_name <https://docs.chef.io/dsl_recipe.html#recipe-name>`_ | `registry_data_exists? <https://docs.chef.io/dsl_recipe.html#registry-data-exists>`_ | `registry_get_subkeys <https://docs.chef.io/dsl_recipe.html#registry-get-subkeys>`_ | `registry_get_values <https://docs.chef.io/dsl_recipe.html#registry-get-values>`_ | `registry_has_subkeys? <https://docs.chef.io/dsl_recipe.html#registry-has-subkeys>`_ | `registry_key_exists? <https://docs.chef.io/dsl_recipe.html#registry-key-exists>`_ | `registry_value_exists? <https://docs.chef.io/dsl_recipe.html#registry-value-exists>`_ | `resources <https://docs.chef.io/dsl_recipe.html#resources>`_ | `search <https://docs.chef.io/dsl_recipe.html#search>`_ | `shell_out <https://docs.chef.io/dsl_recipe.html#shell-out>`_ | `shell_out! <https://docs.chef.io/dsl_recipe.html#shell-out-bang>`_ | `shell_out_with_systems_locale <https://docs.chef.io/dsl_recipe.html#shell-out-with-systems-locale>`_ | `tag <https://docs.chef.io/dsl_recipe.html#tag-tagged-untag>`_ | `tagged? <https://docs.chef.io/dsl_recipe.html#tag-tagged-untag>`_ | `untag <https://docs.chef.io/dsl_recipe.html#tag-tagged-untag>`_ | `value_for_platform <https://docs.chef.io/dsl_recipe.html#value-for-platform>`_ | `value_for_platform_family <https://docs.chef.io/dsl_recipe.html#value-for-platform-family>`_ | `Windows Platform Helpers <https://docs.chef.io/dsl_recipe.html#helpers>`_
 
  `Community Resources <https://supermarket.chef.io>`_
 
 Handlers
 -----------------------------------------------------
-`Custom Handlers <http://docs.chef.io/handlers.html#custom-handlers>`_ |
+`Custom Handlers <https://docs.chef.io/handlers.html#custom-handlers>`_ |
 :doc:`Handler DSL </dsl_handler>` |
-`Community Handlers <http://docs.chef.io/plugin_community.html#handlers>`_
+`Community Handlers <https://docs.chef.io/plugin_community.html#handlers>`_
 
 Knife Plugins
 -----------------------------------------------------
 
 :doc:`About Cloud Plugins </plugin_knife>` |
 :doc:`Custom Plugins </plugin_knife_custom>` |
-`Community Plugins (knife) <http://docs.chef.io/plugin_community.html#knife>`_
+`Community Plugins (knife) <https://docs.chef.io/plugin_community.html#knife>`_
 
 Ohai Plugins
 -----------------------------------------------------
-:doc:`Custom Plugins </ohai_custom>` | `Community Plugins <http://docs.chef.io/plugin_community.html#ohai>`_
+:doc:`Custom Plugins </ohai_custom>` | `Community Plugins <https://docs.chef.io/plugin_community.html#ohai>`_
 
 Chef Client Plugins
 -----------------------------------------------------
 
-`Chef Client Plugins <http://docs.chef.io/plugin_community.html#chef-client>`_
+`Chef Client Plugins <https://docs.chef.io/plugin_community.html#chef-client>`_
 
 Addenda
 =====================================================
