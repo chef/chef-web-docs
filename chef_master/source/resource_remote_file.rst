@@ -244,7 +244,7 @@ This resource has the following properties:
 ``source``
    **Ruby Types:** String, Array
 
-   Required. The location of the source file. The location of the source file may be HTTP (``http://``), FTP (``ftp://``), local (``file:///``), or UNC (``\\host\share\file.tar.gz``).
+   Required. The location of the source file. The location of the source file may be HTTP (``http://``), FTP (``ftp://``), SFTP (``sftp://``), local (``file:///``), or UNC (``\\host\share\file.tar.gz``).
 
    There are many ways to define the location of a source file. By using a path:
 
@@ -257,6 +257,12 @@ This resource has the following properties:
    .. code-block:: ruby
 
       source 'ftp://path/to/img/sketch.png'
+
+   By using SFTP:
+
+   .. code-block:: ruby
+
+      source 'sftp://username:password@remote_host:22/path/to/img/sketch.png'
 
    By using a local path:
 
