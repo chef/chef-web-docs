@@ -435,7 +435,7 @@ Guidelines for Chef for OpenStack:
 * Roles do not provide attributes
 * Search may be short-circuited by attributes that provide a value, such as the IP addresses of services
 * Data bags are used for passwords and the like
-* `Berkshelf <http://berkshelf.com/>`__ is used to manage cookbook versions in the OpenStack chef-repo
+* Berkshelf is used to manage cookbook versions in the OpenStack chef-repo
 * `Foodcritic <http://acrmp.github.io/foodcritic/>`__ is used for lint-checking the cookbooks
 * `ChefSpec <https://github.com/acrmp/chefspec>`__ is used for basic unit acceptance tests
 
@@ -891,7 +891,7 @@ The `users <https://supermarket.chef.io/cookbooks/users>`_ cookbook uses a ``use
 
 Cookbooks
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-All of the cookbook dependencies are managed by a `Berkshelf Berksfile <http://berkshelf.com>`_, usually kept quite up-to-date for the latest cookbook releases.
+All of the cookbook dependencies are managed by a Berkshelf Berksfile, usually kept quite up-to-date for the latest cookbook releases.
 
 Network
 -----------------------------------------------------
@@ -952,4 +952,3 @@ We are a community of developers, deployers and integrators who make working wit
      - `@chefopenstack <http://twitter.com/chefopenstack>`_
 
 If you have questions or concerns outside the mailing list, please email jj@chef.io or reach out to ``j^2`` on the IRC channel.
-
