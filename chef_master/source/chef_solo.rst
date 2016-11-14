@@ -5,7 +5,7 @@ chef-solo
 
 .. tag chef_solo_summary
 
-chef-solo is an open source version of the chef-client that allows using cookbooks with nodes without requiring access to a Chef server. chef-solo uses `Chef local mode <https://docs.chef.io/ctl_chef_client.html#run-in-local-mode>`_, and **does not support** the following:
+chef-solo is a command that executes chef-client in a way that does not require the Chef server in order to converge cookbooks. chef-solo uses chef-client's `Chef local mode <https://docs.chef.io/ctl_chef_client.html#run-in-local-mode>`_, and **does not support** the following functionality present in chef-client / server configurations:
 
 * Centralized distribution of cookbooks
 * A centralized API that interacts with and integrates infrastructure components
@@ -47,7 +47,7 @@ When the tar.gz archive contains all of the cookbooks required by chef-solo, upl
 
 Nodes
 =====================================================
-Unlike chef-client, where the node object is stored on the Chef server, chef-solo stores its node objects as JSON files on disk. By default, chef-solo stores these files in a ``nodes`` folder in the same directory as your ``cookbooks`` directory. You can control the location of this directory via the ``node_path`` value in your configuration file.
+Unlike chef-client, where the node object is stored on the Chef server, chef-solo stores its node objects as JSON files on local disk. By default, chef-solo stores these files in a ``nodes`` folder in the same directory as your ``cookbooks`` directory. You can control the location of this directory via the ``node_path`` value in your configuration file.
 
 Attributes
 =====================================================
@@ -398,4 +398,3 @@ chef-solo will look in the solo.rb file to determine the directory in which cook
 where ``-r`` corresponds to ``recipe_url`` and ``-j`` corresponds to ``json_attribs``, both of which are configuration options in solo.rb.
 
 .. end_tag
-
