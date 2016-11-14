@@ -890,7 +890,7 @@ chef-solo
 -----------------------------------------------------
 .. tag chef_solo_summary
 
-chef-solo is an open source version of the chef-client that allows using cookbooks with nodes without requiring access to a Chef server. chef-solo uses `Chef local mode <https://docs.chef.io/ctl_chef_client.html#run-in-local-mode>`_, and **does not support** the following:
+chef-solo is a command that executes chef-client in a way that does not require the Chef server in order to converge cookbooks. chef-solo uses chef-client's `Chef local mode <https://docs.chef.io/ctl_chef_client.html#run-in-local-mode>`_, and **does not support** the following functionality present in chef-client / server configurations:
 
 * Centralized distribution of cookbooks
 * A centralized API that interacts with and integrates infrastructure components
@@ -1221,4 +1221,3 @@ To get a list of nodes using a recipe named ``postfix`` use ``search(:node,"reci
 .. note:: Single (' ') vs. double (" ") is important. This is because a backslash (\) needs to be included in the string, instead of having Ruby interpret it as an escape.
 
 .. end_tag
-
