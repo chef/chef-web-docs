@@ -1406,7 +1406,7 @@ and a resource block:
 
 .. code-block:: ruby
 
-   edit_resource(template: '/etc/aliases') do
+   edit_resource(:template, '/etc/aliases') do
      source 'aliases.erb'
      cookbook 'aliases'
      variables({:aliases => {} })
@@ -1476,7 +1476,7 @@ and a resource block:
 
 .. code-block:: ruby
 
-   find_resource(template: '/etc/seapower') do
+   find_resource(:template, '/etc/seapower') do
      source 'seapower.erb'
      cookbook 'seapower'
      variables({:seapower => {} })
