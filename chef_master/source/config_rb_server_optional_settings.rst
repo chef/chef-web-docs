@@ -148,6 +148,13 @@ This configuration file has the following settings for ``bootstrap``:
 ``bootstrap['enable']``
    Indicates whether an attempt to bootstrap the Chef server is made. Generally only enabled on systems that have bootstrap enabled via a ``server`` entry. Default value: ``true``.
 
+compliance forwarding
+-----------------------------------------------------
+The configuration file has the following settings for forwarding ``compliance`` requests using the chef server authentication system.
+
+``profiles['root_url']``
+   If set, any properly signed requests arriving at ``/organizations/ORGNAME/owners/OWNER/compliance`` will be forwarded to this URL. This is expected to be a fully qualified resource, e.g. ``http://compliance.example.org/owners/OWNER/compliance``.
+
 dark_launch
 -----------------------------------------------------
 This configuration file has the following settings for ``dark_launch``:
@@ -178,7 +185,9 @@ data_collector
 This configuration file has the following settings for ``data_collector``:
 
 ``data_collector['root_url']``
-   The fully qualified URL to the data collector server API. When present, it will enable the data collector **opscode-erchef** application.
+   The fully qualified URL to the data collector server API. When present, it will enable the data collector in **opscode-erchef**. This also enables chef-server authenticated forwarding Any properly signed requests arriving at /organizations/ORGNAME/data-collector will be forwarded to this URL. This is also target for requests authenticated and forwarded by the ``/organizations/ORGNAME/data-collector`` endpoint.
+   For example, if the data collector in Chef Automate is being used, the URI would look like:
+   ``http://my_automate_server.example.org/data-collector/v0/``
 ``data_collector['token']``
    The shared data collector security token. When configured, the token will be passed as an HTTP header named ``x-data-collector-token`` which the server can choose to accept or reject.
 ``data_collector['timeout']``
