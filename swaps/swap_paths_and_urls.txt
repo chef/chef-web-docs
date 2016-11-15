@@ -26,8 +26,6 @@
 .. |url chef_install| replace:: https://downloads.chef.io/
 .. |url chef_install_oec| replace:: https://www.chef.io/chef/
 .. |url chef_repo| replace:: https://github.com/chef/chef-repo
-.. |url community| replace:: https://supermarket.chef.io
-.. |url community_cookbooks| replace:: https://supermarket.chef.io/cookbooks
 .. |url community_lists| replace:: https://discourse.chef.io/
 .. |url download_delivery| replace:: https://s3.amazonaws.com/delivery-packages/cli/delivery-cli-latest.dmg
 .. |url download_delivery_windows| replace:: https://s3.amazonaws.com/delivery-packages/cli/delivery-cli-latest.msi
@@ -38,7 +36,7 @@
 .. |url docs_knife_png| replace:: https://github.com/chef/quick-reference/blob/master/qr_knife_web.png
 .. |url docs_repo| replace:: https://github.com/chef/quick-reference
 .. |url docs_repo_qr| replace:: https://github.com/chef/quick-reference
-.. |url exit codes| raw:: html 
+.. |url exit codes| raw:: html
 
     <a href="https://github.com/chef/chef-rfc/blob/master/rfc062-exit-status.#exit-codes-in-use" target="_blank">stardardized exit codes</a>
 
@@ -53,6 +51,7 @@
 .. |url ruby_power_of_chef| replace:: http://blog.loftninjas.org/2011/02/16/the-power-of-chef-and-ruby/
 .. |url rabbitmqssl| replace:: https://www.rabbitmq.com/ssl.html
 .. |url supermarket| replace:: https://supermarket.chef.io
+.. |url supermarket_cookbooks| replace:: https://supermarket.chef.io/cookbooks
 
 .. URLs that exist in slide decks ONLY.
 ..
