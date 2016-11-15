@@ -20,17 +20,17 @@ New Endpoints
 * **/organizations/ORGNAME/validate/PATH** accepts a signed request and validates it as if it had been sent to `PATH`. It returns 200 if the request is authentic and 401 if it is not.
 * **/organizations/ORGNAME/data-collector** forwards requests for a data-collector service after authenticating the request using Chef Server's standard authentication headers.  To use this endpoint, users must set both of the following options in /etc/opscode/chef-server.rb:
 
-.. code-block:: ruby
+  .. code-block:: ruby
 
-   data_collector['token']
-   data_collector['root_url']
+     data_collector['token']
+     data_collector['root_url']
 
 * **/organizations/ORGNAME/owners/OWNER/compliance[/PROFILE]** forwards requests for compliance profiles to a user-configurable Chef Automate server after authenticating the request using Chef Server's standard authentication headers. To use this endpoint, users must set both of the following options in `/etc/opscode/chef-server.rb`:
 
-.. code-block:: ruby
+  .. code-block:: ruby
 
-   profiles['root_url']
-   data_collector['token']
+     profiles['root_url']
+     data_collector['token']
 
 Security Updates
 =====================================================
@@ -59,7 +59,7 @@ Compatibility Notes
 
 * The change of TLS ciphers can cause older tooling to fail to negotiate SSL sessions with the Chef Server. The changes to the cipher list are captured here. Upgrading any custom clients of the Chef Server API to use a current SSL release will resolve this.
 
-  * Alternatively, you can set ``nginx['ssl_protocols']`` in ``/etc/opscode/chef-server.rb`` to a set of ciphers that are compatible with your tooling, then running chef-server-ctl reconfigure to pick up the changes.
+  Alternatively, you can set ``nginx['ssl_protocols']`` in ``/etc/opscode/chef-server.rb`` to a set of ciphers that are compatible with your tooling, then running chef-server-ctl reconfigure to pick up the changes.
 
 * With this TLS cipher suite change, the Reporting add-on will report errors when opscode-reporting-ctl test is run. A fix for this is available in the current channel for reporting, and will be released to stable in November. This issue does not otherwise affect the Reporting add-on, but you can resolve this locally by modifying /etc/opscode-reporting/pedant_config.rb and adding the following line: ssl_version :TLSv1_2
 
