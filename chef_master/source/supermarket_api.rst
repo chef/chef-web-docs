@@ -5,7 +5,7 @@ Supermarket API
 
 .. tag supermarket_api_summary
 
-The Supermarket API is used to provide access to community cookbooks on the Supermarket at |url supermarket_cookbooks|. All of the cookbooks on the Supermarket are accessible through a RESTful API located at |url api_cookbooks| by using any of the supported endpoints. In most cases, using knife is the best way to interact with these cookbooks; in some cases, using the Supermarket API directly is necessary.
+The Supermarket API is used to provide access to community cookbooks on the Supermarket at |url supermarket_cookbooks|. All of the cookbooks on the Supermarket are accessible through a RESTful API located at |url supermarket_api| by using any of the supported endpoints. In most cases, using knife is the best way to interact with these cookbooks; in some cases, using the Supermarket API directly is necessary.
 
 .. end_tag
 .. note:: In general, using knife (and the ``knife cookbook site`` subcommand) to manage cookbooks that are located on the Cookbooks site is more efficient than using the Supermarket API and is the recommended approach for managing cookbooks on that site. This document provides information about the Supermarket API in the event that using the API is necessary.

@@ -16,7 +16,6 @@
 ..
 
 .. |url api_chef_server| replace:: https://api.opscode.com
-.. |url api_cookbooks| replace:: https://supermarket.chef.io/api/v1/cookbooks
 .. |url azure_preview| replace:: https://portal.azure.com
 .. |url azure_production| replace:: https://portal.azure.com/
 .. |url azure_marketplace| replace:: https://azure.microsoft.com/en-us/marketplace/partners/chef-software/chef-server/
@@ -51,6 +50,7 @@
 .. |url ruby_power_of_chef| replace:: http://blog.loftninjas.org/2011/02/16/the-power-of-chef-and-ruby/
 .. |url rabbitmqssl| replace:: https://www.rabbitmq.com/ssl.html
 .. |url supermarket| replace:: https://supermarket.chef.io
+.. |url supermarket_api| replace:: https://supermarket.chef.io/api/v1
 .. |url supermarket_cookbooks| replace:: https://supermarket.chef.io/cookbooks
 
 .. URLs that exist in slide decks ONLY.
