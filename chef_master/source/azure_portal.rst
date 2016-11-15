@@ -7,7 +7,7 @@ Microsoft Azure Portal
 
 Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual machines. The Azure production portal (|url azure_production|) can boostrap Microsoft Windows-based virtual machines that are already provisioned with the chef-client running as a background service. Once provisioned, these virtual machines are ready to be managed by Chef.
 
-To use the Chef integration with the Azure portal, all you need is a Chef server and the Azure portal. `Choose a Chef version <http://www.chef.io/chef/choose-your-version/>`_ or deploy a Chef server via the Azure Marketplace (|url azure_marketplace|).
+To use the Chef integration with the Azure portal, all you need is a Chef server and the Azure portal. `Choose a Chef version <https://www.chef.io/chef/get-chef/>`_ or deploy a Chef server via the Azure Marketplace (|url azure_marketplace|).
 
 .. end_tag
 
@@ -793,7 +793,7 @@ For more information ...
 =====================================================
 For more information about Microsoft Azure and how to use it with Chef:
 
-* `Microsoft Azure Documentation <http://www.windowsazure.com/en-us/documentation/services/virtual-machines/>`_
+* `Microsoft Azure Documentation <https://azure.microsoft.com/en-us/documentation/services/virtual-machines/>`_
 * `Chef Documentation <https://docs.chef.io>`_
-* `knife azure Plugin <https://docs.chef.io/plugin_knife_azure.html>`_
+* `knife azure Plugin <https://github.com/chef/knife-azure>`_
 * `azure-cookbook <https://github.com/chef-partners/azure-cookbook>`_
