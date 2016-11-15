@@ -157,6 +157,8 @@ Chef DK
 
 **Knife**: :doc:`About Knife </knife>` | :doc:`Common Options </knife_common_options>` | :doc:`Using Knife </knife_using>` | :doc:`knife.rb </config_rb_knife>` | :doc:`knife bootstrap </knife_bootstrap>` | :doc:`knife client </knife_client>` | :doc:`knife configure </knife_configure>` | :doc:`knife cookbook </knife_cookbook>` | :doc:`knife cookbook site </knife_cookbook_site>` | :doc:`knife data bag </knife_data_bag>` | :doc:`knife delete </knife_delete>` | :doc:`knife deps </knife_deps>` | :doc:`knife diff </knife_diff>` | :doc:`knife download </knife_download>` | :doc:`knife edit </knife_edit>` | :doc:`knife environment </knife_environment>` | :doc:`knife exec </knife_exec>` | :doc:`knife list </knife_list>` | :doc:`knife node </knife_node>` | :doc:`knife raw </knife_raw>` | :doc:`knife recipe list </knife_recipe_list>` | :doc:`knife role </knife_role>` | :doc:`knife search </knife_search>` | :doc:`knife serve </knife_serve>` | :doc:`knife show </knife_show>` | :doc:`knife ssh </knife_ssh>` | :doc:`knife ssl_check </knife_ssl_check>` | :doc:`knife ssl_fetch </knife_ssl_fetch>` | :doc:`knife status </knife_status>` | :doc:`knife tag </knife_tag>` | :doc:`knife upload </knife_upload>` | :doc:`knife user </knife_user>` | :doc:`knife xargs </knife_xargs>`
 
+**knife opc**: :doc:`About knife opc </plugin_knife_opc>` | :ref:`plugin_knife_opc-knife-rb-configuration` | :ref:`plugin_knife_opc-opc-user-list` | :ref:`plugin_knife_opc-opc-user-show` | :ref:`plugin_knife_opc-opc-user-create` | :ref:`plugin_knife_opc-opc-user-delete` | :ref:`plugin_knife_opc-opc-user-edit` | :ref:`plugin_knife_opc-opc-user-password` | :ref:`plugin_knife_opc-opc-org-list` | :ref:`plugin_knife_opc-opc-org-show` | :ref:`plugin_knife_opc-opc-org-create` | :ref:`plugin_knife_opc-opc-org-delete` | :ref:`plugin_knife_opc-opc-org-user-add` | :ref:`plugin_knife_opc-opc-org-user-remove`
+
 :doc:`knife spork </plugin_knife_spork>` |
 
 **knife supermarket**: `supermarket download <https://docs.chef.io/plugin_knife_supermarket.html#download>`_ | `supermarket install <https://docs.chef.io/plugin_knife_supermarket.html#install>`_ | `supermarket list <https://docs.chef.io/plugin_knife_supermarket.html#list>`_ | `supermarket search <https://docs.chef.io/plugin_knife_supermarket.html#search>`_ | `supermarket share <https://docs.chef.io/plugin_knife_supermarket.html#share>`_ | `supermarket show <https://docs.chef.io/plugin_knife_supermarket.html#show>`_ | `supermarket unshare <https://docs.chef.io/plugin_knife_supermarket.html#unshare>`_
@@ -557,6 +559,7 @@ Addenda
    plugin_kitchen_vagrant
    plugin_knife
    plugin_knife_custom
+   plugin_knife_opc
    plugin_knife_push_jobs
    plugin_knife_reporting
    plugin_knife_spork
