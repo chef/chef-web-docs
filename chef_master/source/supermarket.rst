@@ -290,15 +290,15 @@ The supermarket.rb file contains all of the non-default configuration settings u
 
 For more information about the supermarket.rb file, see :doc:`supermarket.rb </config_rb_supermarket>`.
 
-Cookbooks Site API
+Supermarket API
 -----------------------------------------------------
-.. tag api_cookbooks_site_summary
+.. tag supermarket_api_summary
 
-The Cookbooks Site API is used to provide access to the cookbooks community hosted at |url community_cookbooks|. All of the cookbooks in the community are accessible through a RESTful API located at |url api_cookbooks| by using any of the supported endpoints. In most cases, using knife is the best way to interact with these cookbooks; in some cases, using the Cookbooks Site API directly is necessary.
+The Supermarket API is used to provide access to community cookbooks on the Supermarket at |url supermarket_cookbooks|. All of the cookbooks on the Supermarket are accessible through a RESTful API located at |url api_cookbooks| by using any of the supported endpoints. In most cases, using knife is the best way to interact with these cookbooks; in some cases, using the Supermarket API directly is necessary.
 
 .. end_tag
 
-For more information about the Cookbooks Site API, see :doc:`Cookbooks Site API </api_cookbooks_site>`.
+For more information about the Supermarket API, see :doc:`Supermarket API </supermarket_api>`.
 
 fieri
 -----------------------------------------------------
@@ -329,4 +329,3 @@ If you are using a private Chef Supermarket, you can activate the Fieri service 
       (your-supermarket-node) $ sudo supermarket-ctl restart
 
 After doing these steps, you should see a "Quality" tab when viewing a cookbook through the Supermarket UI.  Click on this tab and you will see the results of the metrics run by Fieri.
-
