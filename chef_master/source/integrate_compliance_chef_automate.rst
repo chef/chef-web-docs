@@ -35,11 +35,13 @@ The profiles execution result will be sent to Chef Compliance. Attributes to spe
 Collector: ``chef-server-visibility``
 =====================================================
 
-This method is compatible with nodes managed by a Chef Server integrated with Chef Automate.
+This method is compatible with nodes managed by a Chef server integrated with Chef Automate and requires the following:
 
-Requires ``audit`` cookbook version 2.2.0 or newer.
-Requires Chef Server version 12.11.0 or newer.
-Requires Chef Automate 0.6.0 or newer.
+* Requires ``audit`` cookbook version 2.2.0 or newer.
+
+* Requires Chef server version 12.11.0 or newer.
+
+* Requires Chef Automate 0.6.0 or newer.
 
 Using the above versions allows:
 
@@ -54,10 +56,10 @@ To enable this use-case, add the following settings to ``/etc/opscode/chef-serve
    data_collector['root_url'] = 'https://my-automate-server.mycompany.com/data-collector/v0/'
    data_collector['token'] = 'TOKEN'
    profiles['root_url'] = 'https://my-automate-server.mycompany.com'
-```
+
 and run ``sudo chef-server-ctl reconfigure``
 
-The profiles store service also needs to be enabled in Chef Automate. This is documented `here <https://docs.chef.io/install_chef_automate.html#profiles>`_.
+The profiles store service also needs to be enabled in Chef Automate. This is documented in :ref:`profiles`.
 
 When using the ``audit`` cookbook, set the ``node['audit]['collector']`` attribute to ``chef-server-visibility``, and retrieve profiles from the following sources: ``Chef Automate``(via ``Chef Server``), ``Chef Supermarket``, ``local filesystem`` and ``git repository``.
 
@@ -69,10 +71,9 @@ The ``audit`` cookbook does not require Chef Automate url or token attributes as
 Collector: ``chef-server``
 =====================================================
 
-This method is compatible with nodes managed by a Chef server integrated with `Chef Compliance <https://docs.chef.io/compliance.html>`_.
+This method is compatible with nodes managed by a Chef server integrated with :doc:`Chef Compliance </compliance>`.
 
-Integration instructions can be found `here
-<https://docs.chef.io/integrate_compliance_chef_server.html>`_.
+Integration instructions can be found :doc:`here </integrate_compliance_chef_server>`.
 
 Integrating Chef Compliance with Chef server allows:
 

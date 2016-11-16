@@ -428,6 +428,8 @@ For more details on the proxy setup, please see `About Proxies <https://docs.che
 Compliance
 ===================================================================
 
+.. _profiles:
+
 Profiles
 ------------------------------------------------------------
 
