@@ -1,19 +1,18 @@
 =====================================================
-Cookbooks Site API
+Supermarket API
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/api_cookbooks_site.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/supermarket_api.rst>`__
 
-.. tag api_cookbooks_site_summary
+.. tag supermarket_api_summary
 
-The Cookbooks Site API is used to provide access to the cookbooks community hosted at |url community_cookbooks|. All of the cookbooks in the community are accessible through a RESTful API located at |url api_cookbooks| by using any of the supported endpoints. In most cases, using knife is the best way to interact with these cookbooks; in some cases, using the Cookbooks Site API directly is necessary.
+The Supermarket API is used to provide access to cookbooks, tools, and users on the Chef Supermarket at |url supermarket_cookbooks|. All of the cookbooks, tools, and users on the Supermarket are accessible through a RESTful API located at |url supermarket_api| by using any of the supported endpoints. In most cases, using knife is the best way to interact with the Supermarket; in some cases, using the Supermarket API directly is necessary.
 
 .. end_tag
-
-.. note:: In general, using knife (and the ``knife cookbook site`` subcommand) to manage cookbooks that are located on the Cookbooks site is more efficient than using the Cookbooks Site API and is the recommended approach for managing cookbooks on that site. This document provides information about the Cookbooks Site API in the event that using the API is necessary.
+.. note:: In general, using knife (and the ``knife cookbook site`` subcommand) to manage cookbooks that are located on the Cookbooks site is more efficient than using the Supermarket API and is the recommended approach for managing cookbooks on that site. This document provides information about the Supermarket API in the event that using the API is necessary.
 
 Endpoints
 =====================================================
-The Cookbooks Site API has the following endpoints.
+The Supermarket API has the following endpoints.
 
 /cookbooks
 -----------------------------------------------------
@@ -68,9 +67,9 @@ The response is similar to:
    * - Response Code
      - Description
    * - ``200``
-     - OK. The request was successful. The cookbook was posted to the Cookbooks Site API.
+     - OK. The request was successful. The cookbook was posted to the Supermarket API.
    * - ``400``
-     - The request was unsuccessful. The cookbook was not posted to the Cookbooks Site API. For example:
+     - The request was unsuccessful. The cookbook was not posted to the Supermarket API. For example:
 
        .. code-block:: javascript
 
@@ -113,7 +112,7 @@ or:
 
 **Response**
 
-The response will return the name of the cookbook, a description, URI, the name of the individual who maintains the cookbook. In addition, the total number of cookbooks on Cookbooks Site API is shown, as well (if ``start`` is specified) the point at which the list of returned cookbooks began:
+The response will return the name of the cookbook, a description, URI, the name of the individual who maintains the cookbook. In addition, the total number of cookbooks on Supermarket API is shown, as well (if ``start`` is specified) the point at which the list of returned cookbooks began:
 
 .. code-block:: javascript
 
@@ -456,7 +455,7 @@ or:
 
 **Response**
 
-The response will return a list of cookbooks by name and description and will return a list of cookbooks that match the search query. Each returned data set will include the name of the cookbook, a description, the URI, and the name of the individual who maintains the cookbook. In addition, the total number of cookbooks on Cookbooks Site API is shown, as well (if ``start`` is specified) the point at which the list of returned cookbooks began:
+The response will return a list of cookbooks by name and description and will return a list of cookbooks that match the search query. Each returned data set will include the name of the cookbook, a description, the URI, and the name of the individual who maintains the cookbook. In addition, the total number of cookbooks on Supermarket API is shown, as well (if ``start`` is specified) the point at which the list of returned cookbooks began:
 
 .. code-block:: javascript
 
@@ -523,7 +522,7 @@ or:
 
 **Response**
 
-The response will return the name of the tool, a type, description, owner, source URL and URI. In addition, the total number of tools on Cookbooks Site API is shown, as well (if ``start`` is specified) the point at which the list of returned tools began:
+The response will return the name of the tool, a type, description, owner, source URL and URI. In addition, the total number of tools on Supermarket API is shown, as well (if ``start`` is specified) the point at which the list of returned tools began:
 
 .. code-block:: javascript
 
@@ -610,7 +609,7 @@ or:
 
 **Response**
 
-The response will return a list of tools that match the search query. Each returned data set will include the name of the tool, a type, description, owner, source URL and URI. In addition, the total number of tools that match the query on Cookbooks Site API is shown, as well (if ``start`` is specified) the point at which the list of returned tools began:
+The response will return a list of tools that match the search query. Each returned data set will include the name of the tool, a type, description, owner, source URL and URI. In addition, the total number of tools that match the query on Supermarket API is shown, as well (if ``start`` is specified) the point at which the list of returned tools began:
 
 .. code-block:: javascript
 

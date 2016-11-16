@@ -68,6 +68,8 @@ The behavior of pipeline phases can be customized using the project's ``config.j
 
    The ``build_nodes`` setting specifies which build nodes to use for specific phases in the Chef Automate pipeline. The build node may be defined as well as queried via wildcard search.
 
+   .. note:: This setting should only be used with build nodes that use the previous job dispatch system. Use the ``job-dispatch`` setting when using the new job dispatch system.
+
    .. end_tag
 
 ``delivery-truck``
@@ -110,6 +112,114 @@ The behavior of pipeline phases can be customized using the project's ``config.j
    If only a project name is provided, the master pipeline for that project is the dependency.
 
    .. end_tag
+
+.. _job-dispatch-config-settings:
+
+``job-dispatch``
+   **Optional**
+
+   The ``job-dispatch`` setting is needed to use the :doc:`improved SSH job dispatch system </job_dispatch>`.
+
+   * ``"version"``
+     Set the value to "v2" if you wish to use runners and the new job dispatch system:
+
+     .. code-block:: javascript
+
+        {
+           ...
+           "job-dispatch": {
+              "version": "v2"
+           ...
+        }
+
+     .. note:: If you omit this setting or set it to "v1", the previous job dispatch system using push jobs 1.x will be used instead. 
+
+   * ``"filters"``
+     Similar to the former Chef push jobs-based dispatch system, you can set a variety of filters. Filters control which runners can run a job for a Chef Automate project. You can set filters for the entire project as well as specific filters per phase. You can also specify a matrix of filters to a run phase job repeatedly on multiple platform configurations.
+
+     The values you can filter on are ``os``, ``platform``, ``platform_family``, and ``platform_version``. If you omit a value, job dispatch will not filter on it.
+
+     **Using a default filter**
+
+     If you wish to use a default filter for the entire project, you need to set the
+     "default" tag. For example, if you wanted your project phase jobs to be executed on
+     only ubuntu and centos platforms, you could write:
+
+     .. code-block:: javascript
+
+       {
+          ...
+          "job-dispatch": {
+             "version": "v2",
+             "filters" : {
+                "default" : {
+                  "os" : ["linux"],
+                  "platform" : ["ubuntu", "centos"]
+                }
+             }
+          ...
+       }
+
+     **Using a phase filter**
+
+     Phase filters are filters that can be set per phase. They override a default filter
+     for that phase if a default is set. You can specify a phase filter without setting a
+     default. For example, to run the project's deploy phase specifically on Fedora 6 based
+     systems that overrides a default of Windows, you could write:
+
+     .. code-block:: javascript
+
+       {
+          ...
+          "job-dispatch": {
+             "version": "v2",
+             "filters" : {
+                "default" : {
+                  "os" : ["windows"]
+                }
+                "unit" : {
+                  "platform_family" : ["fedora"],
+                  "platform_version" : ["6"]                      
+                }
+             }
+          ...
+       }
+
+     **Using a matrix phase filter**
+
+     You can set up a matrix of sub-jobs to run a phase on multiple platform configurations.
+     This is itself a phase filter, overriding the default filter but running
+     the phase job repeatedly on multiple runners. Matrix filters are only for phase filters
+     and not the default filter.
+
+     For example, if you want to unit test your project across multiple versions of Ubuntu,
+     you could write something like:
+
+     .. code-block:: javascript
+
+       {
+          ...
+          "job-dispatch": {
+             "version": "v2",
+             "filters" : {
+                "unit" :
+                [
+                   {
+                     "platform_family" : ["ubuntu"],
+                     "platform_version" : ["12.04"]                      
+                   },
+                   {
+                     "platform_family" : ["ubuntu"],
+                     "platform_version" : ["14.04"]
+                   },
+                   {
+                     "platform_family" : ["ubuntu"],
+                     "platform_version" : ["16.04"]
+                   }  
+                ]
+             }
+          ...
+       }
 
 ``skip_phases``
    **Optional**

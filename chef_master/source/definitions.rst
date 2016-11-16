@@ -113,7 +113,7 @@ A definition that reopens resources would look something like:
        action :nothing
      end
 
-     t = find_resource(template: '/etc/aliases') do
+     t = find_resource(:template, '/etc/aliases') do
        source 'aliases.erb'
        cookbook 'aliases'
        variables({:aliases => {} })

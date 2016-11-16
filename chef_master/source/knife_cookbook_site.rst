@@ -3,15 +3,15 @@ knife cookbook site
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_cookbook_site.rst>`__
 
-.. tag api_cookbooks_site_summary
+.. tag supermarket_api_summary
 
-The Cookbooks Site API is used to provide access to the cookbooks community hosted at |url community_cookbooks|. All of the cookbooks in the community are accessible through a RESTful API located at |url api_cookbooks| by using any of the supported endpoints. In most cases, using knife is the best way to interact with these cookbooks; in some cases, using the Cookbooks Site API directly is necessary.
+The Supermarket API is used to provide access to cookbooks, tools, and users on the Chef Supermarket at |url supermarket_cookbooks|. All of the cookbooks, tools, and users on the Supermarket are accessible through a RESTful API located at |url supermarket_api| by using any of the supported endpoints. In most cases, using knife is the best way to interact with the Supermarket; in some cases, using the Supermarket API directly is necessary.
 
 .. end_tag
 
 .. tag knife_site_cookbook
 
-The ``knife cookbook site`` subcommand is used to interact with cookbooks that are located at |url community|. A user account is required for any community actions that write data to this site. The following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
+The ``knife cookbook site`` subcommand is used to interact with cookbooks that are located at |url supermarket|. A user account is required for any community actions that write data to this site. The following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
 
 .. end_tag
 
@@ -80,11 +80,11 @@ to return something like:
 
 install
 =====================================================
-Use the ``install`` argument to install a cookbook that has been downloaded from the community site to a local git repository . This action uses the git version control system in conjunction with the |url community_cookbooks| site to install community-contributed cookbooks to the local chef-repo. Using this argument does the following:
+Use the ``install`` argument to install a cookbook that has been downloaded from the community site to a local git repository . This action uses the git version control system in conjunction with the |url supermarket_cookbooks| site to install community-contributed cookbooks to the local chef-repo. Using this argument does the following:
 
   #. A new "pristine copy" branch is created in git for tracking the upstream.
   #. All existing versions of a cookbook are removed from the branch.
-  #. The cookbook is downloaded from |url community_cookbooks| in the tar.gz format.
+  #. The cookbook is downloaded from |url supermarket_cookbooks| in the tar.gz format.
   #. The downloaded cookbook is untarred and its contents are committed to git and a tag is created.
   #. The "pristine copy" branch is merged into the master branch.
 
@@ -170,7 +170,7 @@ to return something like:
 
 list
 =====================================================
-Use the ``list`` argument to view a list of cookbooks that are currently available at |url community_cookbooks|.
+Use the ``list`` argument to view a list of cookbooks that are currently available at |url supermarket_cookbooks|.
 
 Syntax
 -----------------------------------------------------
@@ -193,7 +193,7 @@ The following examples show how to use this knife subcommand:
 
 **View a list of cookbooks**
 
-To view a list of cookbooks at |url community_cookbooks| server, enter:
+To view a list of cookbooks at |url supermarket_cookbooks| server, enter:
 
 .. code-block:: bash
 
@@ -217,7 +217,7 @@ to return a list similar to:
 
 search
 =====================================================
-Use the ``search`` argument to search for a cookbook at |url community_cookbooks|. A search query is used to return a list of cookbooks at |url community_cookbooks| and uses the same syntax as the ``knife search`` subcommand.
+Use the ``search`` argument to search for a cookbook at |url supermarket_cookbooks|. A search query is used to return a list of cookbooks at |url supermarket_cookbooks| and uses the same syntax as the ``knife search`` subcommand.
 
 Syntax
 -----------------------------------------------------
@@ -268,7 +268,7 @@ to return something like:
 
 share
 =====================================================
-Use the ``share`` argument to add a cookbook to |url community_cookbooks|. This action will require a user account and a certificate for |url community|. By default, knife will use the user name and API key that is identified in the configuration file used during the upload; otherwise these values must be specified on the command line or in an alternate configuration file. If a cookbook already exists on |url community_cookbooks|, then only an owner or maintainer of that cookbook can make updates.
+Use the ``share`` argument to add a cookbook to |url supermarket_cookbooks|. This action will require a user account and a certificate for |url supermarket|. By default, knife will use the user name and API key that is identified in the configuration file used during the upload; otherwise these values must be specified on the command line or in an alternate configuration file. If a cookbook already exists on |url supermarket_cookbooks|, then only an owner or maintainer of that cookbook can make updates.
 
 Syntax
 -----------------------------------------------------
@@ -311,7 +311,7 @@ To share a cookbook named ``apache2``:
 
 show
 =====================================================
-Use the ``show`` argument to view information about a cookbook on |url community_cookbooks|.
+Use the ``show`` argument to view information about a cookbook on |url supermarket_cookbooks|.
 
 Syntax
 -----------------------------------------------------
@@ -374,7 +374,7 @@ Other formats available include ``text``, ``yaml``, and ``pp``.
 
 unshare
 =====================================================
-Use the ``unshare`` argument to stop the sharing of a cookbook at |url community_cookbooks|. Only the maintainer of a cookbook may perform this action.
+Use the ``unshare`` argument to stop the sharing of a cookbook at |url supermarket_cookbooks|. Only the maintainer of a cookbook may perform this action.
 
 .. note:: Unsharing a cookbook will break a cookbook that has set a dependency on that cookbook or cookbook version.
 

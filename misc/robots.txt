@@ -83,7 +83,6 @@ Disallow: /ctl_chef_sync.html
 Disallow: /custom_resources_notes.html
 Disallow: /dsc_mof.html
 Disallow: /dsl_recipe_method_search.html
-Disallow: /elasticsearch_and_kibana_auth.html
 Disallow: /error_messages.html
 Disallow: /essentials_*
 Disallow: /essentials_chef_client.html

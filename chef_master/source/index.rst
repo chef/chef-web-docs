@@ -198,7 +198,7 @@ Managing the Server
 
 **Reporting**::doc:`View Reports </server_manage_reports>` | :doc:`knife reporting </plugin_knife_reporting>` | :doc:`opscode-reporting-ctl </ctl_reporting>` | :doc:`Reporting API </api_reporting>`
 
-**Supermarket**::doc:`Log Files </supermarket_logs>` | :doc:`Monitoring </supermarket_monitor>` | :doc:`supermarket.rb </config_rb_supermarket>` | :doc:`knife supermarket </plugin_knife_supermarket>` | :doc:`supermarket-ctl </ctl_supermarket>` | :doc:`Cookbooks Site API </api_cookbooks_site>`
+**Supermarket**::doc:`Log Files </supermarket_logs>` | :doc:`Monitoring </supermarket_monitor>` | :doc:`supermarket.rb </config_rb_supermarket>` | :doc:`knife supermarket </plugin_knife_supermarket>` | :doc:`supermarket-ctl </ctl_supermarket>` | :doc:`Supermarket API </supermarket_api>`
 
 **Management Console**: :doc:`Configure SAML </server_configure_saml>` | :doc:`Clients </server_manage_clients>` | :doc:`Cookbooks </server_manage_cookbooks>` | :doc:`Data Bags </server_manage_data_bags>` | :doc:`Environments </server_manage_environments>` | :doc:`Nodes </server_manage_nodes>` | :doc:`Roles </server_manage_roles>` | `Users <https://docs.chef.io/server_users.html#chef-manage>`_ | :doc:`manage.rb </config_rb_manage>` | :doc:`chef-manage-ctl </ctl_manage>`
 
@@ -279,6 +279,11 @@ Workflow DSL
 
 :doc:`Workflow DSL </dsl_delivery>`
 
+Job Dispatch
+-----------------------------------------------------
+
+:doc:`Job Dispatch </job_dispatch>`
+
 Managing the Server
 -----------------------------------------------------
 
@@ -295,24 +300,25 @@ Managing the Server
 :doc:`Tuning </delivery_server_tuning>` |
 :doc:`Upgrades </upgrade_chef_automate>` |
 :doc:`Users and Roles </delivery_users_and_roles>` |
-`cleanse <https://docs.chef.io/ctl_delivery_server.html#cleanse>`_ |
-`create-enterprise <https://docs.chef.io/ctl_delivery_server.html#create-enterprise>`_ |
-`create-user <https://docs.chef.io/ctl_delivery_server.html#create-user>`_ |
-`delete-application <https://docs.chef.io/ctl_delivery_server.html#delete-application>`_ |
-`delete-enterprise <https://docs.chef.io/ctl_delivery_server.html#delete-enterprise>`_ |
-`delete-project <https://docs.chef.io/ctl_delivery_server.html#delete-project>`_ |
-`delete-user <https://docs.chef.io/ctl_delivery_server.html#delete-user>`_ |
-`list-applications <https://docs.chef.io/ctl_delivery_server.html#list-applications>`_ |
-`list-enterprises <https://docs.chef.io/ctl_delivery_server.html#list-enterprises>`_ |
-`list-users <https://docs.chef.io/ctl_delivery_server.html#list-users>`_ |
-`migrate-change-description <https://docs.chef.io/ctl_delivery_server.html#migrate-change-description>`_ |
-`migrate-patchset-diffs <https://docs.chef.io/ctl_delivery_server.html#migrate-patchset-diffs>`_ |
-`reconfigure <https://docs.chef.io/ctl_delivery_server.html#reconfigure>`_ |
-`rename-enterprise <https://docs.chef.io/ctl_delivery_server.html#rename-enterprise>`_ |
-`revoke-token <https://docs.chef.io/ctl_delivery_server.html#revoke-token>`_ |
-`show-config <https://docs.chef.io/ctl_delivery_server.html#show-config>`_ |
-`uninstall <https://docs.chef.io/ctl_delivery_server.html#uninstall>`_ |
-`update-project-hooks <https://docs.chef.io/ctl_delivery_server.html#update-project-hooks>`_
+`cleanse <http://docs.chef.io/ctl_delivery_server.html#cleanse>`_ |
+`create-enterprise <http://docs.chef.io/ctl_delivery_server.html#create-enterprise>`_ |
+`create-user <http://docs.chef.io/ctl_delivery_server.html#create-user>`_ |
+`delete-application <http://docs.chef.io/ctl_delivery_server.html#delete-application>`_ |
+`delete-enterprise <http://docs.chef.io/ctl_delivery_server.html#delete-enterprise>`_ |
+`delete-project <http://docs.chef.io/ctl_delivery_server.html#delete-project>`_ |
+`delete-user <http://docs.chef.io/ctl_delivery_server.html#delete-user>`_ |
+`install-runner <http://docs.chef.io/ctl_delivery_server.html#install-runner>`_ |
+`list-applications <http://docs.chef.io/ctl_delivery_server.html#list-applications>`_ |
+`list-enterprises <http://docs.chef.io/ctl_delivery_server.html#list-enterprises>`_ |
+`list-users <http://docs.chef.io/ctl_delivery_server.html#list-users>`_ |
+`migrate-change-description <http://docs.chef.io/ctl_delivery_server.html#migrate-change-description>`_ |
+`migrate-patchset-diffs <http://docs.chef.io/ctl_delivery_server.html#migrate-patchset-diffs>`_ |
+`reconfigure <http://docs.chef.io/ctl_delivery_server.html#reconfigure>`_ |
+`rename-enterprise <http://docs.chef.io/ctl_delivery_server.html#rename-enterprise>`_ |
+`revoke-token <http://docs.chef.io/ctl_delivery_server.html#revoke-token>`_ |
+`show-config <http://docs.chef.io/ctl_delivery_server.html#show-config>`_ |
+`uninstall <http://docs.chef.io/ctl_delivery_server.html#uninstall>`_ |
+`update-project-hooks <http://docs.chef.io/ctl_delivery_server.html#update-project-hooks>`_
 
 Compliance scanner
 -----------------------------------------------------
@@ -377,7 +383,6 @@ Addenda
 
    api_chef_server
    api_compliance
-   api_cookbooks_site
    api_delivery
    api_omnitruck
    api_push_jobs
@@ -463,6 +468,7 @@ Addenda
    delivery_users_and_roles
    dsl_custom_resource
    dsl_delivery
+   job_dispatch
    dsl_handler
    dsl_recipe
    elasticsearch_and_kibana_auth
@@ -692,9 +698,11 @@ Addenda
    server_services
    server_tuning
    server_users
+   setup_build_node
    setup_visibility_chef_automate
    style_guide
    supermarket
+   supermarket_api
    supermarket_logs
    supermarket_monitor
    templates

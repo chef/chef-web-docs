@@ -209,6 +209,76 @@ This subcommand has the following syntax:
 
    $ delivery-ctl delete-user ENT_NAME john_smith
 
+delete-visibility-node
+=====================================================
+The ``delete-visibility-node`` subcommand is used to delete a node from the **Node State** dashboard in the Chef Automate UI.
+
+The node (and, if provided, the organization and/or Chef server) must match a single node. If multiple nodes match, a table of nodes that match the provided criteria will be displayed.
+
+**Syntax**
+
+.. code-block:: bash
+
+  $ delivery-ctl delete-visibility-node NODE_NAME [options]
+          --org ORG                    Organization the node belongs to
+          --chef_server CHEF_SERVER    Chef server the node belongs to
+      -h, --help                       Show this message
+
+**Examples**
+
+.. code-block:: bash
+
+   $ delivery-ctl delete-visibility-node tester1
+   Node tester1 (UUID: f470b942-31b6-4665-81df-03013a0b6ef6) has been deleted.
+
+.. code-block:: bash
+
+   $ delivery-ctl delete-visibility-node tester2
+   Multiple nodes were found matching your request. Please delete by ID using: delivery-ctl delete-visibility-node-by-id NODE_UUID
+
+   Node UUID                            Node Name Org Name Chef Server
+   ==================================== ========= ======== ===========
+   6bbe462c-670e-4ca4-b9f3-e45ed4c78f7c tester2   org1     localhost
+   2380c127-7e54-46b3-b4c2-28ae7f2afe10 tester2   org2     localhost
+
+   ERROR: Unable to delete node with name tester2
+
+.. code-block:: bash
+
+   $ delivery-ctl delete-visibility-node tester2 --org org2
+   Node tester2 (UUID: 2380c127-7e54-46b3-b4c2-28ae7f2afe10) has been deleted.
+
+delete-visibility-node-by-id
+=====================================================
+The ``delete-visibility-node-by-id`` subcommand is used to delete a node from the **Node State** dashboard in the Chef Automate UI using the node's unique ID.
+
+This is helpful if ``delete-visibility-node`` is unable to delete a node by its node name, org, and/or Chef server.
+
+**Syntax**
+
+.. code-block:: bash
+
+   $ delivery-ctl delete-visibility-node-by-id NODE_UUID
+
+**Example**
+
+.. code-block:: bash
+
+   $ delivery-ctl delete-visibility-node-by-id e05d6c79-15ab-417e-a54e-4fe28a84c04c
+   Node tester3 (UUID: e05d6c79-15ab-417e-a54e-4fe28a84c04c) has been deleted
+
+gather-logs
+=====================================================
+The ``gather-logs`` command is used to collect the logs from Chef Automate into a compressed file archive. Once it runs it will create a tbz2 file in the current working directory with the timestamp as the file name.
+
+**Syntax**
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ delivery-ctl gather-logs
+
 help
 =====================================================
 The ``help`` subcommand is used to print a list of all available ``delivery-ctl`` commands.
@@ -218,6 +288,69 @@ This subcommand has the following syntax:
 .. code-block:: bash
 
    $ delivery-ctl help
+
+.. _install-runner:
+
+install-runner
+=====================================================
+The ``install-runner`` subcommand configures a remote node as a job runner, which are used by Chef Automate to run phase jobs. For more information on runners, please see :doc:`job_dispatch`.
+
+**Syntax**
+
+.. code-block:: none
+
+   $ delivery-ctl install-runner FQDN USERNAME [options]
+
+     Arguments:
+       FQDN       Fully qualified domain name of the remote host that will be configured into a runner
+       USERNAME   The username used for authentication to the remote host that will be configured into a runner
+
+     Options:
+      -h, --help                    Show the usage message
+      -i, --ssh-identity-file FILE  SSH identity file used for authentication to the remote host
+      -I, --installer FILE          The location of the ChefDK package for the runner.
+                                    This option cannot be passed with --chefdk-version as that option specifies remote download.
+                                    If neither are passed, the latest ChefDK will be downloaded remotely
+
+      -p, --port PORT               SSH port to connect to on the remote host (Default: 22)
+      -P, --password [PASSWORD]     Pass if you need to set a password for ssh and / or sudo access.
+                                    You can pass the password in directly or you will be prompted if you simply pass --password.
+                                    If --ssh-identify-file is also passed, will only be used for sudo access
+
+      -v, --chefdk-version VERSION  Custom version of the ChefDK you wish to download and install.
+                                    This option cannot be passed with --installer as that option specifies using a package local to this server.
+                                    If neither are passed, the latest ChefDK will be downloaded remotely
+
+      -y, --yes                     Skip configuration confirmation and overwrite any existing Chef Server nodes of the same name as FQDN
+      -e, --enterprise              Legacy option, only required if you have more than one enterprise configured. Workflow enterprise to add the runner into
+
+
+.. note:: The username provided must be a user who has sudo access on the remote node.
+.. note:: At least one of ``--password [PASSWORD]`` or ``--ssh-identity-file FILE`` are necessary for ssh access.
+
+**Example**
+
+.. code-block:: bash
+
+   $ delivery-ctl install-runner
+
+Installing the latest ChefDK via download and CLI prompt for SSH / Sudo password.
+
+.. code-block:: bash
+
+   $ delivery-ctl install-runner runner-hostname.mydomain.co ubuntu --password
+
+Installing with a ChefDK file local to your Workflow server, an SSH Key, and passwordless sudo.
+
+.. code-block:: bash
+
+   $ delivery-ctl install-runner runner-hostname.mydomain.co ubuntu -i ~/.ssh/id_rsa -I ./chefdk.deb
+
+Installing a custom version of ChefDK via download, a identity file for ssh access, and a Sudo password.
+
+.. code-block:: bash
+
+   $ delivery-ctl install-runner runner-hostname.mydomain.co ubuntu -v 0.18.30 -p my_password -i ~/.ssh/id_rsa
 
 list-applications
 =====================================================
@@ -358,6 +491,19 @@ This subcommand has the following syntax:
 .. code-block:: bash
 
    $ delivery-ctl rename-enterprise CURRENT_ENT_NAME NEW_ENT_NAME
+
+reset-password
+=====================================================
+The ``reset-password`` command is used to reset the password for an existing Chef Automate user.
+
+**Syntax**
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ delivery-ctl reset-password ENTERPRISE_NAME USER_NAME NEW_PASSWORD
+
 
 restore-backup
 =====================================================
@@ -692,4 +838,3 @@ The ``usr1`` subcommand is used to send the services a USR1.
 usr2
 -----------------------------------------------------
 The ``usr2`` subcommand is used to send the services a USR2.
-
