@@ -56,17 +56,12 @@ The docs build in a minute or two. To
 view the local version you built, you have two options:
 
 * Open the file `build/<filename>` in your browser 
-* Use a local web server like the `http-server` node module
+* Use a local web server like the `SimpleHTTPServer` python module
 
-Viewing your content using the `http-server` node module allows you to navigate through the documentation as if you were browsing it on https://docs.chef.io. To install and use the `http-server` module, do the following:
+Viewing your content using the `SimpleHTTPServer` module allows you to navigate through the documentation as if you were browsing it on https://docs.chef.io. To use the `SimpleHTTPServer` module:
 
-1. Install it through npm. Setting the `-g` flag allows you to use `http-server` from the command-line.
-
-   ```bash
-      npm install http-server -g
-   ```
-2. Navigate to the `build` directory.
-3. Run `http-server`. After http-server starts up, connect to your docs through your loopback IP address (http://127.0.0.1:8080).
+1. Navigate to the `build` directory.
+2. Run `python -m SimpleHTTPServer`. After the server starts up, connect to your docs through your loopback IP address (http://127.0.0.1:8000).
 
 If you need tips on the source language for the docs, check out the
 [instructions](https://docs.chef.io/style_guide.html). We use a subset
