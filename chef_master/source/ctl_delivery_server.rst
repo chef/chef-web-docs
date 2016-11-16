@@ -211,9 +211,9 @@ This subcommand has the following syntax:
 
 delete-visibility-node
 =====================================================
-The ``delete-visibility-node`` subcommand is used to delete a node from Visibility.
+The ``delete-visibility-node`` subcommand is used to delete a node from the **Node State** dashboard in the Chef Automate UI.
 
-The node (and, if provided, the organization and/or Chef Server) must match a single node. If multiple nodes match, a table of nodes that match the provided criteria will be displayed.
+The node (and, if provided, the organization and/or Chef server) must match a single node. If multiple nodes match, a table of nodes that match the provided criteria will be displayed.
 
 **Syntax**
 
@@ -228,40 +228,44 @@ The node (and, if provided, the organization and/or Chef Server) must match a si
 
 .. code-block:: bash
 
-  $ delivery-ctl delete-visibility-node tester1
-  Node tester1 (UUID: f470b942-31b6-4665-81df-03013a0b6ef6) has been deleted.
+   $ delivery-ctl delete-visibility-node tester1
+   Node tester1 (UUID: f470b942-31b6-4665-81df-03013a0b6ef6) has been deleted.
 
-  $ delivery-ctl delete-visibility-node tester2
-  Multiple nodes were found matching your request. Please delete by ID using: delivery-ctl delete-visibility-node-by-id NODE_UUID
+.. code-block:: bash
 
-  Node UUID                            Node Name Org Name Chef Server
-  ==================================== ========= ======== ===========
-  6bbe462c-670e-4ca4-b9f3-e45ed4c78f7c tester2   org1     localhost
-  2380c127-7e54-46b3-b4c2-28ae7f2afe10 tester2   org2     localhost
+   $ delivery-ctl delete-visibility-node tester2
+   Multiple nodes were found matching your request. Please delete by ID using: delivery-ctl delete-visibility-node-by-id NODE_UUID
 
-  ERROR: Unable to delete node with name tester2
+   Node UUID                            Node Name Org Name Chef Server
+   ==================================== ========= ======== ===========
+   6bbe462c-670e-4ca4-b9f3-e45ed4c78f7c tester2   org1     localhost
+   2380c127-7e54-46b3-b4c2-28ae7f2afe10 tester2   org2     localhost
 
-  $ delivery-ctl delete-visibility-node tester2 --org org2
-  Node tester2 (UUID: 2380c127-7e54-46b3-b4c2-28ae7f2afe10) has been deleted.
+   ERROR: Unable to delete node with name tester2
+
+.. code-block:: bash
+
+   $ delivery-ctl delete-visibility-node tester2 --org org2
+   Node tester2 (UUID: 2380c127-7e54-46b3-b4c2-28ae7f2afe10) has been deleted.
 
 delete-visibility-node-by-id
 =====================================================
-The ``delete-visibility-node-by-id`` subcommand is used to delete a node from Visibility using the node's unique ID.
+The ``delete-visibility-node-by-id`` subcommand is used to delete a node from the **Node State** dashboard in the Chef Automate UI using the node's unique ID.
 
-This is helpful if ``delete-visibility-node`` is unable to delete a node by its node name, org, and/or chef server.
+This is helpful if ``delete-visibility-node`` is unable to delete a node by its node name, org, and/or Chef server.
 
 **Syntax**
 
 .. code-block:: bash
 
-  $ delivery-ctl delete-visibility-node-by-id NODE_UUID
+   $ delivery-ctl delete-visibility-node-by-id NODE_UUID
 
 **Example**
 
 .. code-block:: bash
 
-  $ delivery-ctl delete-visibility-node-by-id e05d6c79-15ab-417e-a54e-4fe28a84c04c
-  Node tester3 (UUID: e05d6c79-15ab-417e-a54e-4fe28a84c04c) has been deleted
+   $ delivery-ctl delete-visibility-node-by-id e05d6c79-15ab-417e-a54e-4fe28a84c04c
+   Node tester3 (UUID: e05d6c79-15ab-417e-a54e-4fe28a84c04c) has been deleted
 
 gather-logs
 =====================================================
