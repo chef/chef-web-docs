@@ -239,9 +239,9 @@ To install Chef server 12:
 Push Jobs Server Installation
 ------------------------------------------------------
 
-Chef Automate can use push jobs to coordinate build jobs across build nodes when using the push jobs-based job dispatch system. This is the default job dispatch system unless you create runners and update your config.json file to use the new job dispatch system. 
+Chef Automate can use push jobs to coordinate build jobs across build nodes when using the push jobs-based job dispatch system. This is the default job dispatch system unless you create runners and update your config.json file to use the new job dispatch system.
 
-Push jobs is available as an add-on to Chef server. You can also use runners and the new job dispatch system instead of the previous push jobs-based system. 
+Push jobs is available as an add-on to Chef server. You can also use runners and the new job dispatch system instead of the previous push jobs-based system.
 
 .. note:: Chef Automate requires Push Jobs Server 1.x and is not compatible with Push Jobs Server 2.x.  If you are installing Chef Automate on Red Hat Enterprise Linux/CentOS 7, use the Red Hat Enterprise Linux/CentOS 6 package for Push Jobs Server 1.x (available at `<https://downloads.chef.io/push-jobs-server/redhat/>`_) and manually install it.  For other platforms, you can use the automated installation method for Push Jobs Server 1.x as described below.
 
@@ -379,18 +379,18 @@ If you plan on using the workflow capabilities of Automate, proceed to the next 
 Set up a build node/runner (Optional)
 ------------------------------------------------------------
 
-Chef Automate's workflow engine automatically creates phase jobs as project code is promoted through the phases of a workflow pipeline. These phase jobs are dispatched to special nodes, called runners and build nodes, that automatically execute each job as it is created. The previous job dispatch system using push jobs is still supported; however the new SSH-based system should be used for any new deployment. 
+Chef Automate's workflow engine automatically creates phase jobs as project code is promoted through the phases of a workflow pipeline. These phase jobs are dispatched to special nodes, called runners and build nodes, that automatically execute each job as it is created. The previous job dispatch system using push jobs is still supported; however the new SSH-based system should be used for any new deployment.
 
-The following steps show how to setup a runner from a Chef Automate server. For instructions on how to setup a push jobs-based build node, see :doc:`setup_build_node`. 
+The following steps show how to setup a runner from a Chef Automate server. For instructions on how to setup a push jobs-based build node, see :doc:`setup_build_node`.
 
 #. If you have an on-premises Supermarket installation, copy the Supermarket certificate file to ``/etc/delivery/supermarket.crt``.
 
 #. Run the ``install-runner`` subcommand.
 
-   .. note:: You can optionally download the latest ChefDK from `<https://downloads.chef.io/chef-dk/>`_ to specify a local package via ``--installer``. Doing so is useful if you are in an air-gapped environment. Version 0.15.16 or greater of the ChefDK is required. The download location is referred to below as ``$OPTIONAL_CHEF_DK_PACKAGE_PATH``. 
+   .. note:: You can optionally download the latest ChefDK from `<https://downloads.chef.io/chef-dk/>`_ to specify a local package via ``--installer``. Doing so is useful if you are in an air-gapped environment. Version 0.15.16 or greater of the ChefDK is required. The download location is referred to below as ``$OPTIONAL_CHEF_DK_PACKAGE_PATH``.
 
    .. code-block:: bash
- 
+
       delivery-ctl install-runner $BUILD_NODE_FQDN \
                                   $SSH_USERNAME \
                                   --password [$OPTIONAL_SSH_OR_SUDO_PASSWORD] \
@@ -398,7 +398,7 @@ The following steps show how to setup a runner from a Chef Automate server. For 
                                   --ssh-identity-file $SSH_IDENTITY_FILE \
                                   --port $SSH_PORT
 
-   For more ``install-runner`` usage examples, see :ref:`install-runner`, and for more information on the SSH-based job dispatch system, see :doc:`job_dispatch`. 
+   For more ``install-runner`` usage examples, see :ref:`install-runner`, and for more information on the SSH-based job dispatch system, see :doc:`job_dispatch`.
 
    .. tag chef_automate_build_nodes
 
@@ -425,8 +425,27 @@ Any host that needs to make outgoing http or https connections will require thes
 
 For more details on the proxy setup, please see `About Proxies <https://docs.chef.io/proxies.html>`__.
 
-Compliance scanning
+Compliance
 ===================================================================
+
+Profiles
+------------------------------------------------------------
+
+Starting with Chef Automate version 0.6, the Automate server contains a compliance profiles asset store. Enable the service by adding this line:
+
+.. code-block:: bash
+
+   compliance_profiles['enable'] = true
+```
+
+into ``/etc/delivery/delivery.rb`` and running ``automate-ctl reconfigure``.
+
+``sudo automate-ctl status`` should now list the status of the ``compliance_profiles`` service.
+
+Manage the profiles in this asset store using the :doc:`Automate API </api_delivery>`.
+
+Scanning
+------------------------------------------------------------
 
 Allows nodes to execute infrastructure tests or compliance profiles as part of the chef-client runs. For more details, see :doc:`Compliance scanning w/ Chef Automate guide </integrate_compliance_chef_automate>`.
 

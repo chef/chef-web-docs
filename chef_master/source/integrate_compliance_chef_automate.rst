@@ -32,6 +32,40 @@ When setting the ``node['audit]['collector']`` attribute to ``chef-compliance``,
 
 The profiles execution result will be sent to Chef Compliance. Attributes to specify the Chef Compliance API sever and authentication token are required. For more details, see the README file of the `audit <https://github.com/chef-cookbooks/audit>` cookbook.
 
+Collector: ``chef-server-visibility``
+=====================================================
+
+This method is compatible with nodes managed by a Chef Server integrated with Chef Automate.
+
+Requires ``audit`` cookbook version 2.2.0 or newer.
+Requires Chef Server version 12.11.0 or newer.
+Requires Chef Automate 0.6.0 or newer.
+
+Using the above versions allows:
+
+* Nodes under management by Chef to download compliance profiles from the Chef Automate asset store via Chef Server.
+
+* Nodes under management by Chef to report converge and compliance scan results to Chef Automate(Visibility) via Chef Server.
+
+To enable this use-case, add the following settings to ``/etc/opscode/chef-server.rb`` on the Chef server:
+
+.. code-block:: bash
+
+   data_collector['root_url'] = 'https://my-automate-server.mycompany.com/data-collector/v0/'
+   data_collector['token'] = 'TOKEN'
+   profiles['root_url'] = 'https://my-automate-server.mycompany.com'
+```
+and run ``sudo chef-server-ctl reconfigure``
+
+The profiles store service also needs to be enabled in Chef Automate. This is documented `here <https://docs.chef.io/install_chef_automate.html#profiles>`_.
+
+When using the ``audit`` cookbook, set the ``node['audit]['collector']`` attribute to ``chef-server-visibility``, and retrieve profiles from the following sources: ``Chef Automate``(via ``Chef Server``), ``Chef Supermarket``, ``local filesystem`` and ``git repository``.
+
+The profiles execution result will be sent to Chef Visibility. For more details, see the README file of the `audit <https://github.com/chef-cookbooks/audit>` cookbook.
+
+The ``audit`` cookbook does not require Chef Automate url or token attributes as Chef Server is acting as a proxy in this setup.
+
+
 Collector: ``chef-server``
 =====================================================
 
