@@ -211,7 +211,7 @@ This subcommand has the following syntax:
 
 gather-logs
 =====================================================
-The ``gather-logs`` command is used to collect the logs from Chef Automate into a compressed file archive. Once run it will create a tbz2 file in the current working directory with the timestamp as the file name.
+The ``gather-logs`` command is used to collect the logs from Chef Automate into a compressed file archive. Once it runs it will create a tbz2 file in the current working directory with the timestamp as the file name.
 
 **Syntax**
 
@@ -219,7 +219,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-$ delivery-ctl gather-logs
+   $ delivery-ctl gather-logs
 
 help
 =====================================================
