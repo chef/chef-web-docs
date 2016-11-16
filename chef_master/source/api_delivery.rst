@@ -15,20 +15,19 @@ The Chef Automate API is a REST API.
 
 Authentication Methods
 =====================================================
-.. tag api_chef_automate_auth_methods
 
 Authentication to the Chef Automate server occurs via a specific set of HTTP headers and two types of tokens:
 
-* ``user token`` is short-lived (7 days) and can be obtained from the Automate dashboard by loading this URL in your browser:
-  ```
-  https://YOUR_AUTOMATE_HOST/e/YOUR_AUTOMATE_ENTERPRISE/#/dashboard?token
-  ```
+* ``user token`` is a short-lived (seven days) token and can be obtained from the Chef Automate dashboard by entering this URL in your browser:
+  
+  .. code-block:: none
+
+     https://YOUR_AUTOMATE_HOST/e/YOUR_AUTOMATE_ENTERPRISE/#/dashboard?token
 
 * ``data_collector token`` is a long-lived token that can be set for your Chef Automate instance in ``/etc/delivery/delivery.rb``. Add ``data_collector['token'] = 'sometokenvalue'``, save your changes and then run ``sudo automate-ctl reconfigure``.
 
 Required Headers
 -----------------------------------------------------
-.. tag api_chef_automate_required_headers
 
 The following authentication headers are required:
 
@@ -78,7 +77,6 @@ The Chef Automate API is located at ``https://hostname`` and has the following e
 
 API Endpoints
 =====================================================
-.. tag api_chef_automate_endpoints
 
 
 /api/_status
