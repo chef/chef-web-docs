@@ -83,7 +83,7 @@ API Endpoints
 
 /api/_status
 -----------------------------------------------------
-The ``/api/_status`` endpoint can be used to check the health of the Chef Automate server. A Chef Automate instance may be configured as a standalone server or as a disaster recovery pair with primary and standby servers. The response from this endpoint depends on the type of configuration. This endpoint is located at ``/api/_status``.
+The ``/api/_status`` endpoint can be used to check the health of the Chef Automate server without authentication. A Chef Automate instance may be configured as a standalone server or as a disaster recovery pair with primary and standby servers. The response from this endpoint depends on the type of configuration. This endpoint is located at ``/api/_status``.
 
 **Request**
 
@@ -92,6 +92,12 @@ The ``/api/_status`` endpoint can be used to check the health of the Chef Automa
    GET /api/_status
 
 This method has no request body.
+
+For example:
+
+.. code-block:: bash
+
+   curl -X GET "https://my-auto-server.test/api/_status"
 
 **Response**
 
