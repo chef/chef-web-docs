@@ -431,18 +431,15 @@ Compliance
 Profiles
 ------------------------------------------------------------
 
-Starting with Chef Automate version 0.6, the Automate server contains a compliance profiles asset store. Enable the service by adding this line:
+Starting with Chef Automate version 0.6, the Chef Automate server contains a compliance profiles asset store. Enable the service by adding this line:
 
 .. code-block:: bash
 
    compliance_profiles['enable'] = true
-```
 
-into ``/etc/delivery/delivery.rb`` and running ``automate-ctl reconfigure``.
+into ``/etc/delivery/delivery.rb`` and running ``automate-ctl reconfigure``. The ``automate-ctl status`` subcommand should now list the status of the ``compliance_profiles`` service.
 
-``sudo automate-ctl status`` should now list the status of the ``compliance_profiles`` service.
-
-Manage the profiles in this asset store using the :doc:`Automate API </api_delivery>`.
+Manage the profiles in this asset store using the :doc:`api_delivery`.
 
 Scanning
 ------------------------------------------------------------
