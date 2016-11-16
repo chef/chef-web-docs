@@ -11,19 +11,85 @@ Chef Automate API
 
 .. end_tag
 
-The Chef Automate API is a REST API that provides access to the ``_status`` object on the Chef Automate server.
+The Chef Automate API is a REST API.
 
-The Chef Automate API is located at https://hostname/api/.
-
-_status
+Authentication Methods
 =====================================================
-The ``/_status`` endpoint can be used to check the health of the Chef Automate server. A Chef Automate instance may be configured as a standalone server or as a disaster recovery pair with primary and standby servers. The response from this endpoint depends on the type of configuration. This endpoint is located at ``/_status``.
+.. tag api_chef_automate_auth_methods
+
+Authentication to the Chef Automate server occurs via a specific set of HTTP headers and two types of tokens:
+
+* ``user token`` is short-lived (7 days) and can be obtained from the Automate dashboard by loading this URL in your browser:
+  ```
+  https://YOUR_AUTOMATE_HOST/e/YOUR_AUTOMATE_ENTERPRISE/#/dashboard?token
+  ```
+
+* ``data_collector token`` is a long-lived token that can be set for your Chef Automate instance in ``/etc/delivery/delivery.rb``. Add ``data_collector['token'] = 'sometokenvalue'``, save your changes and then run ``sudo automate-ctl reconfigure``.
+
+Required Headers
+-----------------------------------------------------
+.. tag api_chef_automate_required_headers
+
+The following authentication headers are required:
+
+.. list-table::
+   :widths: 200 300
+   :header-rows: 1
+
+   * - Feature
+     - Description
+   * - ``chef-delivery-enterprise``
+     - .. tag api_chef_automate_headers_enterprise
+
+       The name of the Chef Automate enterprise to use.
+
+       .. end_tag
+
+   * - ``chef-delivery-user``
+     - .. tag api_chef_automate_headers_delivery_user
+
+       The Chef Automate user to use for the API calls.
+
+       .. end_tag
+
+   * - ``chef-delivery-token``
+     - .. tag api_chef_automate_headers_delivery_token
+
+       The Chef Automate user token used in conjunction with ``chef-delivery-user``.
+
+       .. end_tag
+
+   * - ``x-data-collector-auth``
+     - .. tag api_chef_automate_headers_data_collector_auth
+
+       Set this to ``version=1.0`` in order to use the long-lived ``data_collector`` authentication instead of authenticating via ``chef-delivery-user`` and ``chef-delivery-token``.
+
+       .. end_tag
+
+   * - ``x-data-collector-token``
+     - .. tag api_chef_automate_headers_data_collector_token
+
+       The value of the ``data_collector`` token as set in ``/etc/delivery/delivery.rb`` if ``x-data-collector-auth`` is used.
+
+       .. end_tag
+
+
+The Chef Automate API is located at ``https://hostname`` and has the following endpoints:
+
+API Endpoints
+=====================================================
+.. tag api_chef_automate_endpoints
+
+
+/api/_status
+-----------------------------------------------------
+The ``/api/_status`` endpoint can be used to check the health of the Chef Automate server. A Chef Automate instance may be configured as a standalone server or as a disaster recovery pair with primary and standby servers. The response from this endpoint depends on the type of configuration. This endpoint is located at ``/api/_status``.
 
 **Request**
 
 .. code-block:: xml
 
-   GET /_status
+   GET /api/_status
 
 This method has no request body.
 
@@ -103,7 +169,7 @@ In this configuration, ``lsyncd`` should not be running; any other value would i
 **Response Codes**
 
 .. list-table::
-   :widths: 200 300
+   :widths: 100 400
    :header-rows: 1
 
    * - Response Code
@@ -169,3 +235,247 @@ In this configuration, ``lsyncd`` should not be running; any other value would i
               }
             ]
           }
+
+
+/compliance/profiles/OWNER
+-----------------------------------------------------
+The Chef Automate server may store multiple compliance profiles, namespaced by owners.
+
+The endpoint has the following methods: ``GET`` and ``POST``.
+
+GET
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+The ``GET`` method is used to get a list of compliance profiles namespaced by OWNER on the Chef Automate server.
+
+This method has no parameters.
+
+**Request**
+
+.. code-block:: none
+
+   GET /compliance/profiles/OWNER
+
+For example:
+
+.. code-block:: bash
+
+   curl -X GET "https://my-auto-server.test/compliance/profiles/john" \
+   -H "chef-delivery-enterprise: acme" \
+   -H "chef-delivery-user: john" \
+   -H "chef-delivery-token: 7djW35..."
+
+**Response**
+
+The response is similar to:
+
+.. code-block:: none
+
+   {
+     "linux": {
+       "id": "linux",
+       "name": "linux",
+       "title": "Basic Linux",
+   ...
+   }
+
+**Response Codes**
+
+.. list-table::
+   :widths: 100 400
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``401``
+     - Unauthorized. The user who made the request is not authorized to perform the action.
+   * - ``404``
+     - Not Found. The OWNER specified in the request was not found.
+
+
+POST
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+The ``POST`` method is used to upload a compliance profile(as a tarball) namespaced by OWNER.
+
+This method has no parameters.
+
+**Request**
+
+.. code-block:: none
+
+   POST /compliance/profiles/OWNER
+
+For example:
+
+.. code-block:: bash
+
+   tar -cvzf /tmp/newprofile.tar.gz /home/user/newprofile
+   curl -X POST "https://my-auto-server.test/compliance/profiles/john" \
+   -H "chef-delivery-enterprise: acme" \
+   -H "chef-delivery-user: john" \
+   -H "chef-delivery-token: 7djW35..." \
+   --form "file=@/tmp/newprofile.tar.gz"
+
+**Response**
+
+No Content
+
+**Response Codes**
+
+.. list-table::
+   :widths: 100 400
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``401``
+     - Unauthorized. The user who made the request is not authorized to perform the action.
+   * - ``500``
+     - Internal Error. Profile check failed.
+
+
+/compliance/profiles/OWNER/PROFILE
+-----------------------------------------------------
+Endpoint targeting specific compliance profile.
+
+The following methods are available: ``GET`` and ``DELETE``.
+
+GET
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+The ``GET`` method is used to return details of a particular profile.
+
+This method has no parameters.
+
+**Request**
+
+.. code-block:: none
+
+   GET /compliance/profiles/OWNER/PROFILE
+
+For example:
+
+.. code-block:: bash
+
+   curl -X GET "https://my-auto-server.test/compliance/profiles/john/linux" \
+   -H "chef-delivery-enterprise: acme" \
+   -H "chef-delivery-user: john" \
+   -H "chef-delivery-token: 7djW35..."
+
+**Response**
+
+The response is similar to:
+
+.. code-block:: none
+
+   {
+     "id": "linux",
+     "owner": "john",
+     "name": "linux",
+     "title": "Basic Linux",
+       "controls": {
+        "basic-1": {
+   ...
+   }
+
+**Response Codes**
+
+.. list-table::
+   :widths: 100 400
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``401``
+     - Unauthorized. The user who made the request is not authorized to perform the action.
+   * - ``404``
+     - Not Found. The OWNER specified in the request was not found.
+
+
+DELETE
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+The ``DELETE`` method is used to remove a particular profile.
+
+This method has no parameters.
+
+**Request**
+
+.. code-block:: none
+
+   DELETE /compliance/profiles/OWNER/PROFILE
+
+For example:
+
+.. code-block:: bash
+
+   curl -X DELETE "https://my-auto-server.test/compliance/profiles/john/linux" \
+   -H "chef-delivery-enterprise: acme" \
+   -H "chef-delivery-user: john" \
+   -H "chef-delivery-token: 7djW35..."
+
+**Response**
+
+No Content
+
+**Response Codes**
+
+.. list-table::
+   :widths: 100 400
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``401``
+     - Unauthorized. The user who made the request is not authorized to perform the action.
+   * - ``404``
+     - Not Found. The OWNER or PROFILE specified in the request was not found.
+
+
+/compliance/profiles/OWNER/PROFILE/tar
+-----------------------------------------------------
+
+GET
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+The ``GET`` is used to download a profile as a tarball.
+
+This method has no parameters.
+
+**Request**
+
+.. code-block:: none
+
+   GET /compliance/profiles/OWNER/PROFILE/tar
+
+For example:
+
+.. code-block:: bash
+
+   curl -X GET "https://my-auto-server.test/compliance/profiles/john/linux" \
+   -H "chef-delivery-enterprise: acme" \
+   -H "chef-delivery-user: john" \
+   -H "chef-delivery-token: 7djW35..." > /tmp/profile.tar.gz
+
+**Response**
+
+TAR STREAM
+
+**Response Codes**
+
+.. list-table::
+   :widths: 100 400
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``401``
+     - Unauthorized. The user who made the request is not authorized to perform the action.
+   * - ``404``
+     - Not Found. The OWNER or PROFILE specified in the request was not found.
