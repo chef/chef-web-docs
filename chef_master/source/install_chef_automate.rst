@@ -17,7 +17,7 @@ A Chef Automate installation consists of a minimum of two nodes:
 
   * Contains the cookbooks and data used to build, test, and deploy your components within Chef Automate and your infrastructure.
 
-  * Runs push jobs, which is used in conjunction with a push jobs client on build nodes to coordinate builds across those build nodes.
+  * Runs push jobs, which is used in conjunction with a push jobs client on build nodes to coordinate builds across those nodes.
 
    .. note:: if you have an existing Chef server installation, it's best to
     have a separate Chef organization for managing Chef Automate.
@@ -28,7 +28,7 @@ A Chef Automate installation consists of a minimum of two nodes:
 
   * Coordinates the process of moving a change through the workflow pipeline as well as providing insights and visualizations about your Chef Automate cluster.
 
-* (Optional) Build nodes are optional components that perform the work of running builds, tests, and deployments out of Chef Automate and are only required when using the workflow capabilities of Chef Automate.
+* (Optional) Build nodes used in the push jobs-based job dispatch system and runners which are used in the new job dispatch system are optional components that perform the work of running builds, tests, and deployments out of Chef Automate and are only required when using the workflow capabilities of Chef Automate.
 
 * (Optional) Chef Compliance server for use in conjunction with the ``audit cookbook``.
 
@@ -72,15 +72,15 @@ Chef Automate has the following infrastructure requirements:
        - vCPU
        - RAM
        - Free disk space (in /var)
-     * - Chef Automate Server
+     * - Chef Automate server
        - 4
        - 16GB\*
        - 80GB
-     * - Chef Server (must be v12). See additional information in note, below.
+     * - Chef server (must be v12). See additional information in note, below.
        - 4
        - 8GB
        - 80GB
-     * - Build Nodes (Optional, but required if you use workflow)
+     * - Build nodes/Runners (Optional, but required if you use workflow)
        - 2
        - 4GB
        - 60GB
@@ -88,7 +88,7 @@ Chef Automate has the following infrastructure requirements:
 \*If you use your own Elasticsearch cluster instead of the single Elasticsearch instance provided with Chef Automate,
 then the Chef Automate server only requires 8 GB of RAM.
 
-.. note:: If you already have a Chef server installation, you can update it with push jobs as detailed in `Push Jobs Server installation <#push_job_installation>`_. If you have both already configured, skip to `Completing Setup <#completing-setup>`_. Also, any build nodes must be accessible from the Chef Automate server over SSH and they must have a user account configured that has sudo privileges.
+.. note:: If you already have a Chef server installation, you can update it with push jobs as detailed in `Push Jobs Server installation <#push_job_installation>`_. If you have both already configured, skip to `Completing Setup <#completing-setup>`_. Also, any build nodes/runners must be accessible from the Chef Automate server over SSH and they must have a user account configured that has sudo privileges.
 
 Node Hostnames and Network Access
 -----------------------------------------------------
@@ -110,8 +110,8 @@ name used in the URL does not match the one it is configured with.
 Chef Automate has the following network and port requirements. At a minimum the following machines must be able to reach each other:
 
 * Chef Automate server -> Chef server
-* Build node -> Chef Automate server
-* Build node -> Chef server
+* Build node/Runner -> Chef Automate server
+* Build node/Runner -> Chef server
 
 .. list-table::
    :widths: 100 250 100 100
@@ -239,8 +239,9 @@ To install Chef server 12:
 Push Jobs Server Installation
 ------------------------------------------------------
 
-Chef Automate uses push jobs to coordinate builds jobs across build nodes.
-This is available as an add-on to Chef server.
+Chef Automate can use push jobs to coordinate build jobs across build nodes when using the push jobs-based job dispatch system. This is the default job dispatch system unless you create runners and update your config.json file to use the new job dispatch system. 
+
+Push jobs is available as an add-on to Chef server. You can also use runners and the new job dispatch system instead of the previous push jobs-based system. 
 
 .. note:: Chef Automate requires Push Jobs Server 1.x and is not compatible with Push Jobs Server 2.x.  If you are installing Chef Automate on Red Hat Enterprise Linux/CentOS 7, use the Red Hat Enterprise Linux/CentOS 6 package for Push Jobs Server 1.x (available at `<https://downloads.chef.io/push-jobs-server/redhat/>`_) and manually install it.  For other platforms, you can use the automated installation method for Push Jobs Server 1.x as described below.
 
@@ -352,11 +353,11 @@ set up a Chef Automate build node.  You can bypass this prompt by passing
 in the argument ``--build-node`` to agree to add the build node, or
 ``--no-build-node`` to skip it.
 
-When opting to install a build node, you will be prompted for additional
-required information.  If you choose not to install a build node at this time
-you can use the command ``sudo delivery-ctl install-build-node`` to install a Chef Automate build node
+When opting to install a build node/runner, you will be prompted for additional
+required information.  If you choose not to install a build node/runner at this time
+you can use the command ``sudo delivery-ctl install-build-node`` to install a build node or ``sudo delivery-ctl install-runner`` to install a Chef Automate runner
 at a later time. This command can be run each time you want to install a
-new Chef Automate build node. See the next section for build node installation instructions.
+new build node or runner. See the next section for installation instructions.
 
 .. note:: Your Chef Automate server will not be available for use until you either agree to apply the configuration, or manually run ``sudo delivery-ctl reconfigure``.
 
@@ -373,47 +374,43 @@ Copy the credentials somewhere safe. And in the ``$AUTOMATE\_SERVER``, if you do
       $CHEF_SERVER_IP         $CHEF_SERVER_FQDN
       $AUTOMATE_SERVER_IP     $AUTOMATE_SERVER_FQDN
 
-If you plan on using the workflow capabilities of Automate, proceed to the next section to setup your build nodes. After they are setup, you can attempt to run an initial application or cookbook change through your Chef Automate server.
+If you plan on using the workflow capabilities of Automate, proceed to the next section to setup your build nodes/runners. After they are setup, you can attempt to run an initial application or cookbook change through your Chef Automate server.
 
-Set up a Build node (Optional)
+Set up a build node/runner (Optional)
 ------------------------------------------------------------
 
-The following steps are performed on the Chef Automate server:
+Chef Automate's workflow engine automatically creates phase jobs as project code is promoted through the phases of a workflow pipeline. These phase jobs are dispatched to special nodes, called runners and build nodes, that automatically execute each job as it is created. The previous job dispatch system using push jobs is still supported; however the new SSH-based system should be used for any new deployment. 
 
-#. Download the latest ChefDK from either `<https://downloads.chef.io/chef-dk/>`_. Version 0.15.16 or greater is required. The download location is referred to below as ``$CHEF_DK_PACKAGE_PATH``.
+The following steps show how to setup a runner from a Chef Automate server. For instructions on how to setup a push jobs-based build node, see :doc:`setup_build_node`. 
 
 #. If you have an on-premises Supermarket installation, copy the Supermarket certificate file to ``/etc/delivery/supermarket.crt``.
 
-#. Run the following commands. Note that the username provided must be a user who has
-   sudo access on the target node.
+#. Run the ``install-runner`` subcommand.
+
+   .. note:: You can optionally download the latest ChefDK from `<https://downloads.chef.io/chef-dk/>`_ to specify a local package via ``--installer``. Doing so is useful if you are in an air-gapped environment. Version 0.15.16 or greater of the ChefDK is required. The download location is referred to below as ``$OPTIONAL_CHEF_DK_PACKAGE_PATH``. 
 
    .. code-block:: bash
+ 
+      delivery-ctl install-runner $BUILD_NODE_FQDN \
+                                  $SSH_USERNAME \
+                                  --password [$OPTIONAL_SSH_OR_SUDO_PASSWORD] \
+                                  --installer $OPTIONAL_CHEF_DK_PACKAGE_PATH \
+                                  --ssh-identity-file $SSH_IDENTITY_FILE \
+                                  --port $SSH_PORT
 
-      sudo delivery-ctl install-build-node
+   For more ``install-runner`` usage examples, see :ref:`install-runner`, and for more information on the SSH-based job dispatch system, see :doc:`job_dispatch`. 
 
    .. tag chef_automate_build_nodes
 
-   .. note:: Legacy build nodes created by ``delivery-cluster`` can be used with a Chef Automate server.  Some visibility features are designed to only work with new build nodes installed through the command line process, but the workflow feature in Chef Automate can use legacy, new, or mixed build node pools; however, you cannot upgrade a legacy build node to the new build node model.  If you would like new build nodes, please use fresh hosts or completely wipe your legacy build nodes before attempting to run ``delivery-ctl install-build-node``.
+   .. note:: Legacy build nodes created by ``delivery-cluster`` can be used with a Chef Automate server.  Some visibility features are designed to only work with new build nodes and runners installed through the command line process, but the workflow feature in Chef Automate can use legacy, new, or mixed node pools; however, you cannot upgrade a legacy build node to the new build node or runner models.  If you would like to use new build nodes/runners, please use fresh hosts or completely wipe your legacy build nodes before attempting to run ``delivery-ctl install-build-node`` or ``delivery-ctl install-runner``.
 
    .. end_tag
 
-   You will be prompted for the information required to continue.  Alternatively, you can provide some or all
-   of the information as arguments to the command:
-
-   .. code-block:: bash
-
-      delivery-ctl install-build-node --fqdn $BUILD_NODE_FQDN \
-                                   --username $SSH_USERNAME \
-                                   --password $SSH_PASSWORD \
-                                   --installer $CHEF_DK_PACKAGE_PATH \
-                                   --ssh-identity-file $SSH_IDENTITY_FILE \
-                                   --port $SSH_PORT
-
    You can view the logs at ``/var/log/delivery-ctl/build-node-install_$BUILD_NODE_FDQN.log``.
 
-   You maybe be asked about overwriting your build node's registration in Chef Server.  This will remove any previous run lists or Chef Server configuration on this node.  This is done in case this hostname was previously being used for something else.  Setting the ``--[no]-overwrite-registration`` flag will allow you to avoid that prompt.
+   Any existing nodes with the same name as your runner's FQDN will be overwritten on the Chef server. This will remove any previous run lists or Chef Server configuration on this node. This is done in case the hostname was previously being used for something else. When calling ``install-runner``, it will give you a warning if you will overwrite a node before installation begins, which you can bypass by passing ``--yes``.
 
-.. note:: Certain sensitive files are copied over to a temporary directory on the build node. In the event of failure after these files have been copied, the installer will attempt to remove them. If it is unable to do so, it will provide you with instructions for doing so manually.
+.. note:: Certain sensitive files are copied over to a temporary directory on the build node/runner. In the event of failure after these files have been copied, the installer will attempt to remove them. If it is unable to do so, it will provide you with instructions for doing so manually.
 
 About Proxies
 --------------------------------------------------

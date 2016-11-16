@@ -328,7 +328,7 @@ Use attributes from the ``node['delivery']['config']`` namespace to get :doc:`co
 
 Workspace
 -----------------------------------------------------
-Use attributes from the ``node['delivery']['workspace']`` namespace to get paths to workspace directories on a build node.
+Use attributes from the ``node['delivery']['workspace']`` namespace to get paths to workspace directories on a build node/runner.
 
 ``cache``
    Use ``node['delivery']['workspace']['cache']`` for the ``/cache`` directory.
