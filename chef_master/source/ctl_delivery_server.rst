@@ -289,6 +289,69 @@ This subcommand has the following syntax:
 
    $ delivery-ctl help
 
+.. _install-runner:
+
+install-runner
+=====================================================
+The ``install-runner`` subcommand configures a remote node as a job runner, which are used by Chef Automate to run phase jobs. For more information on runners, please see :doc:`job_dispatch`.
+
+**Syntax**
+
+.. code-block:: none
+
+   $ delivery-ctl install-runner FQDN USERNAME [options]
+
+     Arguments:
+       FQDN       Fully qualified domain name of the remote host that will be configured into a runner
+       USERNAME   The username used for authentication to the remote host that will be configured into a runner
+
+     Options:
+      -h, --help                    Show the usage message
+      -i, --ssh-identity-file FILE  SSH identity file used for authentication to the remote host
+      -I, --installer FILE          The location of the ChefDK package for the runner.
+                                    This option cannot be passed with --chefdk-version as that option specifies remote download.
+                                    If neither are passed, the latest ChefDK will be downloaded remotely
+
+      -p, --port PORT               SSH port to connect to on the remote host (Default: 22)
+      -P, --password [PASSWORD]     Pass if you need to set a password for ssh and / or sudo access.
+                                    You can pass the password in directly or you will be prompted if you simply pass --password.
+                                    If --ssh-identify-file is also passed, will only be used for sudo access
+
+      -v, --chefdk-version VERSION  Custom version of the ChefDK you wish to download and install.
+                                    This option cannot be passed with --installer as that option specifies using a package local to this server.
+                                    If neither are passed, the latest ChefDK will be downloaded remotely
+
+      -y, --yes                     Skip configuration confirmation and overwrite any existing Chef Server nodes of the same name as FQDN
+      -e, --enterprise              Legacy option, only required if you have more than one enterprise configured. Workflow enterprise to add the runner into
+
+
+.. note:: The username provided must be a user who has sudo access on the remote node.
+.. note:: At least one of ``--password [PASSWORD]`` or ``--ssh-identity-file FILE`` are necessary for ssh access.
+
+**Example**
+
+.. code-block:: bash
+
+   $ delivery-ctl install-runner
+
+Installing the latest ChefDK via download and CLI prompt for SSH / Sudo password.
+
+.. code-block:: bash
+
+   $ delivery-ctl install-runner runner-hostname.mydomain.co ubuntu --password
+
+Installing with a ChefDK file local to your Workflow server, an SSH Key, and passwordless sudo.
+
+.. code-block:: bash
+
+   $ delivery-ctl install-runner runner-hostname.mydomain.co ubuntu -i ~/.ssh/id_rsa -I ./chefdk.deb
+
+Installing a custom version of ChefDK via download, a identity file for ssh access, and a Sudo password.
+
+.. code-block:: bash
+
+   $ delivery-ctl install-runner runner-hostname.mydomain.co ubuntu -v 0.18.30 -p my_password -i ~/.ssh/id_rsa
+
 list-applications
 =====================================================
 The ``list-applications`` subcommand lists all applications with OAuth credentials.

@@ -48,7 +48,7 @@ To upgrade to the latest version of Chef Automate, do the following:
 Upgrading from a ``delivery-cluster`` setup
 --------------------------------------------------------
 
-Chef Delivery clusters configured using the ``delivery-cluster`` setup process specify a search method to identify build nodes that is not compatible with the new build node installation mechanism used by Chef Automate. In order to ensure that both your existing build nodes and those added with ``delivery-ctl install-build-node`` can be seen by an Chef Automate server, you will need to edit ``/etc/delivery/delivery.rb`` and modify the value present for ``delivery['default_search']``.
+Chef Delivery clusters configured using the ``delivery-cluster`` setup process specify a search method to identify build nodes that is not compatible with the previous build node or new runner installation mechanisms used by Chef Automate. In order to ensure that both your existing build nodes and those added with ``delivery-ctl install-build-node`` or ``delivery-ctl install-runner`` can be seen by an Chef Automate server, you will need to edit ``/etc/delivery/delivery.rb`` and modify the value present for ``delivery['default_search']``.
 
 In the ``delivery.rb`` configured by ``delivery-cluster``, you will find a line that looks like this:
 
@@ -66,7 +66,7 @@ Save your changes and then run ``sudo delivery-ctl reconfigure`` to complete the
 
 .. tag chef_automate_build_nodes
 
-.. note:: Legacy build nodes created by ``delivery-cluster`` can be used with a Chef Automate server.  Some visibility features are designed to only work with new build nodes installed through the command line process, but the workflow feature in Chef Automate can use legacy, new, or mixed build node pools; however, you cannot upgrade a legacy build node to the new build node model.  If you would like new build nodes, please use fresh hosts or completely wipe your legacy build nodes before attempting to run ``delivery-ctl install-build-node``.
+.. note:: Legacy build nodes created by ``delivery-cluster`` can be used with a Chef Automate server.  Some visibility features are designed to only work with new build nodes and runners installed through the command line process, but the workflow feature in Chef Automate can use legacy, new, or mixed node pools; however, you cannot upgrade a legacy build node to the new build node or runner models.  If you would like to use new build nodes/runners, please use fresh hosts or completely wipe your legacy build nodes before attempting to run ``delivery-ctl install-build-node`` or ``delivery-ctl install-runner``.
 
 .. end_tag
 

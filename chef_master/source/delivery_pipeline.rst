@@ -13,7 +13,7 @@ About Chef Automate Pipelines
 
 Each project contains a configuration file in its source repository, located at ``.delivery/config.json``, that specifies the build cookbook to use for the project, and in turn, the build cookbook contains recipes that control what happens in the pipeline phases. The config file also allows customization of the behavior of Chef Automate and the build cookbook.  You can create a config file (as well as a build cookbook) using the Chef Automate CLI tool and the init subcommand: `delivery init` or `delivery init --local`.
 
-When Chef Automate executes a phase, it selects a build node to run the job. On the build node, the project's source is fetched and synchronized to the revision matching the head of the feature branch for the change. The build node reads the project's ``config.json`` file and uses this information to fetch the appropriate build cookbook. Finally, the build node runs a local chef-zero run to execute the appropriate phase.
+When Chef Automate executes a phase, it selects a build node or runner to run the job. On the build node/runner, the project's source is fetched and synchronized to the revision matching the head of the feature branch for the change. The build node/runner reads the project's ``config.json`` file and uses this information to fetch the appropriate build cookbook. Finally, the build node/runner runs a local chef-zero run to execute the appropriate phase.
 
 If you are using Chef Automate to manage changes in Chef cookbooks, you can wrap, or use directly, ``delivery-truck``, a build cookbook for building and testing cookbooks. The ``delivery-truck`` and ``delivery-sugar`` cookbooks contain helpers that can be used for non-cookbook workflows as well.  You can wrap or modify the ``delivery-truck`` cookbook to suit your own needs.
 
@@ -104,6 +104,8 @@ The behavior of pipeline phases can be customized using the project's ``config.j
    .. tag delivery_config_json_setting_build_nodes
 
    The ``build_nodes`` setting specifies which build nodes to use for specific phases in the Chef Automate pipeline. The build node may be defined as well as queried via wildcard search.
+
+   .. note:: This setting should only be used with build nodes that use the previous job dispatch system. Use the ``job-dispatch`` setting when using the new job dispatch system.
 
    .. end_tag
 
