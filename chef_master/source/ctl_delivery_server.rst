@@ -209,6 +209,18 @@ This subcommand has the following syntax:
 
    $ delivery-ctl delete-user ENT_NAME john_smith
 
+gather-logs
+=====================================================
+The ``gather-logs`` command is used to collect the logs from Chef Automate into a compressed file archive. Once it runs it will create a tbz2 file in the current working directory with the timestamp as the file name.
+
+**Syntax**
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ delivery-ctl gather-logs
+
 help
 =====================================================
 The ``help`` subcommand is used to print a list of all available ``delivery-ctl`` commands.
@@ -358,6 +370,19 @@ This subcommand has the following syntax:
 .. code-block:: bash
 
    $ delivery-ctl rename-enterprise CURRENT_ENT_NAME NEW_ENT_NAME
+
+reset-password
+=====================================================
+The ``reset-password`` command is used to reset the password for an existing Chef Automate user.
+
+**Syntax**
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ delivery-ctl reset-password ENTERPRISE_NAME USER_NAME NEW_PASSWORD
+
 
 restore-backup
 =====================================================
@@ -692,4 +717,3 @@ The ``usr1`` subcommand is used to send the services a USR1.
 usr2
 -----------------------------------------------------
 The ``usr2`` subcommand is used to send the services a USR2.
-
