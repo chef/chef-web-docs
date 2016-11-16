@@ -185,7 +185,7 @@ data_collector
 This configuration file has the following settings for ``data_collector``:
 
 ``data_collector['root_url']``
-   The fully qualified URL to the data collector server API. When present, it will enable the data collector in **opscode-erchef**. This also enables chef-server authenticated forwarding Any properly signed requests arriving at /organizations/ORGNAME/data-collector will be forwarded to this URL with the data collector token appended. This is also target for requests authenticated and forwarded by the ``/organizations/ORGNAME/data-collector`` endpoint. For the forwarding to work correctly the ``data_collector['token']`` field must also be set.
+   The fully qualified URL to the data collector server API. When present, it will enable the data collector in **opscode-erchef**. This also enables chef-server authenticated forwarding any properly signed requests arriving at ``/organizations/ORGNAME/data-collector`` to this URL with the data collector token appended. This is also target for requests authenticated and forwarded by the ``/organizations/ORGNAME/data-collector`` endpoint. For the forwarding to work correctly the ``data_collector['token']`` field must also be set.
    For example, if the data collector in Chef Automate is being used, the URI would look like:
    ``http://my_automate_server.example.org/data-collector/v0/``. 
    
