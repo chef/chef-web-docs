@@ -53,7 +53,7 @@ as long as the same value is used between Chef Automate and your Chef server and
 default value for the token is ``'93a49a4f2482c64126f7b6015e6b0f30284287ee4054ff8807fb63d9cbd1c506'``. You may use this value when configuring your nodes.
 
 If you choose to create your own token, add ``data_collector['token'] = 'sometokenvalue'`` to your ``/etc/delivery/delivery.rb`` file on your Chef Automate server. Save your changes
-and then run ``sudo delivery-ctl reconfigure``.
+and then run ``sudo automate-ctl reconfigure``.
 
 Configure Chef client to send node and converge data
 -------------------------------------------------------
@@ -192,7 +192,7 @@ on your Chef Delivery server and add the following settings:
     insights['enable'] = true
     data_collector['token'] = 'TOKEN'
 
-Create an authentication token (as described in the previous section) and then run ``sudo delivery-ctl reconfigure`` to complete the process.
+Create an authentication token (as described in the previous section) and then run ``sudo automate-ctl reconfigure`` to complete the process.
 
 Now that you have a token value selected, you are ready to configure your Chef server and any Chef client
 nodes to start streaming data to Chef Automate.
@@ -224,7 +224,7 @@ The ``elasticsearch['urls']`` attribute should be an array of Elasticsearch node
 which Chef Automate will round-robin requests. You can also supply a single entry which corresponds to
 a load-balancer or a third-party Elasticsearch-as-a-service offering.
 
-After saving the file, run ``sudo delivery-ctl reconfigure``.
+After saving the file, run ``sudo automate-ctl reconfigure``.
 
 An additional Elasticsearch-related configuration properties is ``elasticsearch['host_header']``. This is the
 HTTP ``Host`` header to send with the request. When this attribute is unspecified, the default behavior is as follows:

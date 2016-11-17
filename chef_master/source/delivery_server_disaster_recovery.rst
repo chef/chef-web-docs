@@ -162,13 +162,13 @@ The following steps describe how to manually install a Chef Automate server for 
 
    .. code-block:: bash
 
-      $ sudo delivery-ctl reconfigure
+      $ sudo automate-ctl reconfigure
 
 #. Run the following command on the standby Chef Automate server:
 
    .. code-block:: bash
 
-      $ sudo delivery-ctl reconfigure
+      $ sudo automate-ctl reconfigure
 
 Disaster Recovery
 =====================================================
@@ -182,7 +182,7 @@ To promote a standby Chef Automate server to primary, do the following:
 
    .. code-block:: bash
 
-      $ sudo delivery-ctl backup-data
+      $ sudo automate-ctl backup-data
 
    Move this data to a location that is not on the standby Chef Automate server.
 
@@ -190,7 +190,7 @@ To promote a standby Chef Automate server to primary, do the following:
 
    .. code-block:: bash
 
-      $ delivery-ctl stop
+      $ automate-ctl stop
 
 #. Convert the standby server to a standalone Chef Automate server. Update the ``delivery["primary"]``, ``delivery["primary_ip"]``, and ``postgresql["listen_address"]`` settings in the ``/etc/delivery/delivery.rb`` file to be similar to:
 
@@ -204,7 +204,7 @@ To promote a standby Chef Automate server to primary, do the following:
 
    .. code-block:: bash
 
-      $ delivery-ctl reconfigure
+      $ automate-ctl reconfigure
 
    This will reconfigure the server to become a standalone Chef Automate server, after which a new standby server can be installed and configured to be the new standby.
 

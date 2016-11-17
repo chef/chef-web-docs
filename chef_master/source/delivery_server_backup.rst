@@ -4,13 +4,13 @@ Chef Automate Backups
 
 Chef Automate provides tools for creating, managing and restoring backup archives and Elasticsearch snapshots of your Chef Automate data.
 
-``delivery-ctl create-backup`` will create a compressed backup archives of the PostgreSQL database, configuration files, user keys, license file, git repository data, Chef Compliance profiles and RabbitMQ queues. It also utilizes the snapshot capability of Elasticsearch to create incremental snapshots of your Chef Automate Elasticsearch indexes. Paired together, backup archives and Elasticsearch snapshots make it possible to take complete backups of a Chef Automate cluster without disrupting service.
+``automate-ctl create-backup`` will create a compressed backup archives of the PostgreSQL database, configuration files, user keys, license file, git repository data, Chef Compliance profiles and RabbitMQ queues. It also utilizes the snapshot capability of Elasticsearch to create incremental snapshots of your Chef Automate Elasticsearch indexes. Paired together, backup archives and Elasticsearch snapshots make it possible to take complete backups of a Chef Automate cluster without disrupting service.
 
-``delivery-ctl list-backups`` will list existing backup archives and snapshots in human or machine readable formats.
+``automate-ctl list-backups`` will list existing backup archives and snapshots in either human or machine readable format.
 
-``delivery-ctl delete-backups`` will delete specific backups or snapshots. It's also capable of taking backup and snapshot limit parameters to prune the backups to specified limits.
+``automate-ctl delete-backups`` will delete specific backups or snapshots. It's also capable of taking backup and snapshot limit parameters to prune the backups to specified limits.
 
-``delivery-ctl restore-backup`` will perform full or partial restorations of a backup archive or Elasticsearch snapshot.
+``automate-ctl restore-backup`` will perform full or partial restorations of a backup archive or elasticsearch snapshot.
 
 Configuration
 =====================================================
@@ -86,7 +86,7 @@ Next, configure Chef Automate to use S3 for both the backups and snapshots. For 
    backup['elasticsearch']['region']   = 'us-west-2'
    backup['elasticsearch']['type']     = 's3'
 
-``$ delivery-ctl reconfigure``
+``$ automate-ctl reconfigure``
 
 .. note:: Using the same bucket for backup archives and snapshots is supported but both must be configured independently.
 
@@ -148,7 +148,7 @@ Restore Backups
 
 The `restore-backup </ctl_delivery_server.html#restore-backup>`__ command is used to fully or partially restore a Chef Automate cluster from backup archives and/or Elasticsearch snapshots.
 
-.. note:: Backups created with the older ``delivery-ctl backup-data`` command are not supported with this command. If you wish to restore an older backup please install the version of Chef Automate that took the backup and use ``delivery-ctl restore-data``
+.. note:: Backups created with the older ``automate-ctl backup-data`` command are not supported with this command. If you wish to restore an older backup please install the version of Chef Automate that took the backup and use ``automate-ctl restore-data``
 
 Local Backups
 -----------------------------------------------------
@@ -162,7 +162,7 @@ Follow the process below for an example of restoring a Chef Automate cluster fro
   3. Mount the Elasticsearch shared filesystem to the same mount point.
        ``mount backup-server:/export/chef-automate/elasticsearch_backups /var/opt/delivery/elasticsearch_backups``
   4. Restore the backup archive and snapshot:
-       ``$ delivery-ctl restore-backup /mnt/ephemeral/2016-10-14-08-38-55-chef-automate-backup.zst 2016-10-14-08-38-55-chef-automate-backup --staging-dir /mnt/ephemeral/restore``
+       ``$ automate-ctl restore-backup /mnt/ephemeral/2016-10-14-08-38-55-chef-automate-backup.zst 2016-10-14-08-38-55-chef-automate-backup --staging-dir /mnt/ephemeral/restore``
 
 .. note:: Specifying a staging directory is not mandatatory but when given it will clear **all** existing data from it.
 
@@ -174,7 +174,7 @@ Follow the process below for an example of restoring a Chef Automate cluster fro
   1. Install the same version of Chef Automate that was used to take the backup. If the versions do not match you can still proceed with the restore but we cannot guarantee compatibility.
        ``dpkg -i delivery.rpm``
   2. Restore the backup archive and snapshot by specifying the region, bucket, backup artifact name and snapshot name:
-       ``$ delivery-ctl restore-backup us-east-1:your-s3-bucket:2016-10-14-08-38-55-chef-automate-backup.zst 2016-10-14-08-38-55-chef-automate-backup``
+       ``$ automate-ctl restore-backup us-east-1:your-s3-bucket:2016-10-14-08-38-55-chef-automate-backup.zst 2016-10-14-08-38-55-chef-automate-backup``
 
 Partial Restoration
 -----------------------------------------------------
@@ -182,13 +182,13 @@ Partial Restoration
 It is possible to restore only specific data from a Chef Automate backup artifact. Below is an example of restoring only the PostgreSQL database and git repositories from a backup archive in S3:
 
   1. Determine the archive you want to restore
-       ``delivery-ctl list-backups --automate``
+       ``automate-ctl list-backups --automate``
   2. Restore it
-       ``$ delivery-ctl restore-backup us-east-1:your-s3-bucket:2016-10-14-08-38-55-chef-automate-backup.zst --no-census --no-license --no-config``
+       ``$ automate-ctl restore-backup us-east-1:your-s3-bucket:2016-10-14-08-38-55-chef-automate-backup.zst --no-census --no-license --no-config``
 
 It is also possible to restore a functional Chef Automate cluster to a specific Elasticsearch snapshot. Below is an example of restoring only an Elasticsearch snapshot:
 
   1. Determine the snapshot you want to restore
-       ``delivery-ctl list-backups --elasticsearch``
+       ``automate-ctl list-backups --elasticsearch``
   2. Restore it
-       ``delivery-ctl restore-backup 2016-10-14-08-38-55-chef-automate-backup``
+       ``automate-ctl restore-backup 2016-10-14-08-38-55-chef-automate-backup``

@@ -290,7 +290,7 @@ Managing the Server
 :doc:`Backups </delivery_server_backup>` |
 :doc:`Capacity Planning </scaling_capacity_planning_chef_automate>` |
 :doc:`delivery.rb </config_rb_delivery>` |
-:doc:`Delivery API </api_delivery>` |
+:doc:`Chef Automate API </api_delivery>` |
 :doc:`Disaster Recovery </delivery_server_disaster_recovery>` |
 :doc:`Elasticsearch and Kibana Authentication </elasticsearch_and_kibana_auth>` |
 :doc:`Secrets </delivery_manage_secrets>` |
