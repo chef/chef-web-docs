@@ -146,7 +146,7 @@ This subcommand has the following options:
 ``-N NAME``, ``--node-name NAME``
    The name of the node.
 
-   .. note:: This option is required for a validatorless bootstrap (as of chef-client version 12.4).
+   .. note:: This option is required for a validatorless bootstrap (as of Chef client 12.4).
 
 ``--[no-]fips``
   Allows OpenSSL to enforce FIPS-validated security during the chef-client run.
@@ -212,7 +212,7 @@ Validatorless Bootstrap
 -----------------------------------------------------
 .. tag knife_bootstrap_no_validator
 
-The ORGANIZATION-validator.pem is typically added to the .chef directory on the workstation. When a node is bootstrapped from that workstation, the ORGANIZATION-validator.pem is used to authenticate the newly-created node to the Chef server during the initial chef-client run. Starting with chef-client version 12.1, it is possible to bootstrap a node using the USER.pem file instead of the ORGANIZATION-validator.pem file. This is known as a "validatorless bootstrap".
+The ORGANIZATION-validator.pem is typically added to the .chef directory on the workstation. When a node is bootstrapped from that workstation, the ORGANIZATION-validator.pem is used to authenticate the newly-created node to the Chef server during the initial chef-client run. Starting with Chef client 12.1, it is possible to bootstrap a node using the USER.pem file instead of the ORGANIZATION-validator.pem file. This is known as a "validatorless bootstrap".
 
 To create a node via the USER.pem file, simply delete the ORGANIZATION-validator.pem file on the workstation. For example:
 
@@ -270,6 +270,8 @@ Use the following options with a validatorless bootstrap to specify items that a
    .. end_tag
 
 .. end_tag
+
+.. note:: The ``--node-name`` option is required for a validatorless bootstrap (as of Chef client 12.4).
 
 FIPS Mode
 -----------------------------------------------------
