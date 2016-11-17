@@ -28,7 +28,7 @@ Local storage mode is the default configuration for both backup archives and sna
 
 When using local backups it is advised to mount a remote backup storage device to the aforementioned locations.
 
-The staging directory is a local directory that will be used for temporarily storing the backup archive, database dump, and configuration data during the backup procedure. When left unconfigured the Ruby temporary directory will be used. The Ruby temporary directory is usually nested in ``/tmp`` on Linux systems will also honor the value of the ``TMPDIR`` environment variable. You can configure the staging directory by using the ``backup['staging_dir']`` setting in ``delivery.rb``.
+The staging directory is a local directory that will be used for temporarily storing the backup archive, database dump, and configuration data during the backup procedure. When left unconfigured, the Ruby temporary directory will be used. The Ruby temporary directory is usually nested in ``/tmp`` on Linux systems, but the value of the ``TMPDIR`` environment variable will also be honored. You can configure the staging directory by using the ``backup['staging_dir']`` setting in ``delivery.rb``.
 
 .. note:: The backup create will clear any existing files in the staging directory at the beginning of the backup procedure. Only use a directory that does not contain any other system data.
 
@@ -117,7 +117,7 @@ See below for valid examples of ``delivery.rb`` configurations for server side e
 Backup Cron
 -----------------------------------------------------
 
-To enable a backup cron job that will create new backups and prune older backups and snapshots, configure the the following settings in ``delivery.rb``:
+To enable a backup cron job that will create new backups and prune older backups and snapshots, configure the following settings in ``delivery.rb``:
 
 .. code-block:: ruby
 
@@ -126,7 +126,7 @@ To enable a backup cron job that will create new backups and prune older backups
    backup['cron']['max_snapshots'] = 7
    backup['cron']['notation']      = "0 0 0/1 1/1 * ? * "
 
-If omitted, the default ``max_archives``, ``max_snapshots``, and ``notation`` settings will create daily backups and keep the latest 7. Any standard cron notation is supported. If you wish to keep all backups or snapshots you can set both ``max_snapshots`` and/or ``max_archives`` options to ``nil``.
+If omitted, the default ``max_archives``, ``max_snapshots``, and ``notation`` settings will create daily backups and keep the most recent seven. Any standard cron notation is supported. If you wish to keep all backups or snapshots you can set both ``max_snapshots`` and/or ``max_archives`` options to ``nil``.
 
 Create Backups
 =====================================================

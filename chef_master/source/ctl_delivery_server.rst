@@ -41,7 +41,7 @@ The ``create-backup`` subcommand is used to create Chef Automate backup archives
 
 **Syntax**
 
-.. code-block:: bash
+.. code-block:: none
 
    $ delivery-ctl create-backup [NAME] [options]
         --chef-server-config         Backup up the Chef Server config if present
@@ -387,7 +387,7 @@ The ``list-backups`` subcommand is used to list Chef Automate backup archives an
 
 **Syntax**
 
-.. code-block:: bash
+.. code-block:: none
 
    $ delivery-ctl list-backups [options]
         --all                        List all backups and snapshots (default)
