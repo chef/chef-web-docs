@@ -64,18 +64,6 @@ backup
 -----------------------------------------------------
 This configuration file has the following settings for ``backup``:
 
-``backup['cron']['enabled']``
-   Create a cron job that manages backups. Default value: ``false``.
-
-``backup['cron']['max_archives']``
-   Maximum number of backup archives to be kept. Default value: ``7``.
-
-``backup['cron']['max_snapshots']``
-   Maximum number of backup snapshots to be kept. Default value: ``7``.
-
-``backup['cron']['notation']``
-   Time notation for backup cron job. Default value: ``'0 0 * * *'``.
-
 ``backup['access_key_id']``
    Amazon Web Services (AWS) Access Key ID for uploading Chef Automate backup archives to S3.
    Only use this if you cannot configure the machine with an instance profile,
@@ -96,8 +84,23 @@ This configuration file has the following settings for ``backup``:
    when Chef Automate and Chef server are installed on a single node. Default
    value: ``false``.
 
+``backup['compliance_profiles']['enabled']``
+   Back up the Chef Automate compliance profiles. Default value: ``true``.
+
 ``backup['config']['enabled']``
    Back up the Chef Automate configuration directory. Default value: ``true``.
+
+``backup['cron']['enabled']``
+   Create a cron job that manages backups. Default value: ``false``.
+
+``backup['cron']['max_archives']``
+   Maximum number of backup archives to be kept. Default value: ``7``.
+
+``backup['cron']['max_snapshots']``
+   Maximum number of backup snapshots to be kept. Default value: ``7``.
+
+``backup['cron']['notation']``
+   Time notation for backup cron job. Default value: ``'0 0 * * *'``.
 
 ``backup['db']['enabled']``
    Back up the Chef Automate PostgreSQL database. Default value: ``true``.
@@ -112,6 +115,14 @@ This configuration file has the following settings for ``backup``:
 ``backup['delete']['max_snapshots']``
    The maximum number of Elasticsearch snapshots to keep. Default value:
    ``nil``.
+
+``backup['digest']['enabled']``
+   Output the SHA digest of the backup archive to STDOUT. Default value:
+   ``true``.
+
+``backup['digest']['legth']``
+   The SHA digest length to use. Valid options are ``256``, ``384``, and
+   ``512``.  Default value: ``256``.
 
 ``backup['elasticsearch']['access_key_id']``
    Amazon Web Services (AWS) Access Key ID for uploading Chef Automate Elasticsearch snapshots
@@ -151,6 +162,10 @@ This configuration file has the following settings for ``backup``:
    Amazon Web Services (AWS) Secret Key for uploading Chef Automate Elasticsearch snapshots in
    S3. Only use this if you cannot configure the machine with an instance
    profile, shared credentials, or environment variables. Default value: ``nil``.
+
+``backup['elasticsearch']['server_side_encryption']``
+   Enable Amazon Web Services (AWS) SSE-S3 AES256 Server Side Encryption for
+   Elasticsearch snapshots in S3. Default value: ``true``.
 
 ``backup['elasticsearch']['type']``
    Which backup type to use for Chef Automate Elasticsearch snapshots. Shared
@@ -198,16 +213,20 @@ This configuration file has the following settings for ``backup``:
    Amazon Web Services (AWS) region to use when storing Chef Automate backup archives in S3.
    Default value ``nil``.
 
-``backup['type']``
-   Which backup type to use for Chef Automate backup archives. Local filesystem and
-   S3 backups are currently supported by using the ``fs`` and ``s3`` types.
-   Default value: ``fs``.
-
 ``backup['secret_access_key']``
    Amazon Web Services (AWS) Secret Key for uploading Chef Automate backup archives to S3.
    Only use this if you cannot configure the machine with an instance profile,
    shared credentials, or environment variables.
    Default value: ``nil``.
+
+``backup['server_side_encryption']``
+   Enable Amazon Web Services (AWS) SSE-S3 AES256 Server Side Encryption for
+   backup archives in S3. To use SSE-KMS set the value to ``aws:kms``.
+   Default value: ``AES256``.
+
+.. note:: While the backup utility currently supports encrypting backups with
+   with SSE-S3, SSE-KMS, and SSE-C, only SSE-S3 is currently supported for
+   restoration.
 
 ``backup['staging_dir']``
    A local directory to use for temporary files when creating a backup archive.
@@ -216,6 +235,31 @@ This configuration file has the following settings for ``backup``:
    use a default Ruby temporary directory which is usually nested in ``/tmp`` on
    linux but will also honor the value of the ``TMPDIR`` environment variable.
    Default value: ``nil``.
+
+``backup['sse_customer_algorithm']``
+   The SSE-C algorithm to use for customer Server Side Encryption. Default
+   value: ``nil``.
+
+``backup['sse_customer_key']``
+   The SSE-C key to use for customer Server Side Encryption. Default value
+   ``nil``.
+
+``backup['sse_customer_key_md5']``
+   The MD5 hash of the customer key for customer Server Side Encryption. Default
+   value: ``nil``.
+
+``backup['ssekms_key_id']``
+   The SSE-KMS key id to use for customer Server Side Encryption. Default value:
+   ``nil``
+
+``backup['type']``
+   Which backup type to use for Chef Automate backup archives. Local filesystem and
+   S3 backups are currently supported by using the ``fs`` and ``s3`` types.
+   Default value: ``fs``.
+
+``backup['retry_limit']``
+   The maximum of times to retry when uploading backup archives to a remote
+   repository like Amazon Web Services (AWS) S3. Default value: ``5``.
 
 ``backup['wait']``
    Wait for non-blocking steps during the backup procedure. Useful if you'd like

@@ -45,9 +45,11 @@ The ``create-backup`` subcommand is used to create Chef Automate backup archives
 
    $ delivery-ctl create-backup [NAME] [options]
         --chef-server-config         Backup up the Chef Server config if present
+        --digest [int]               The SHA digest length to output. 256, 384, and 512 are valid
         --force                      Agree to all warnings and prompts
         --name [string]              The output name of the backup
         --no-census                  Do not back up Chef Automate's census data
+        --no-compliance-profiles     Do not back up Chef Automate's compliance profiles
         --no-config                  Do not back up Chef Automate's configuration directory
         --no-db                      Do not back up Chef Automate's database
         --no-elasticsearch           Do not snapshot Chef Automate's Elasticsearch
@@ -56,6 +58,7 @@ The ``create-backup`` subcommand is used to create Chef Automate backup archives
         --no-wait                    Do not wait for non-blocking backup operations
         --quiet                      Do not output non-error information
         --rabbit                     Back up Chef Automate's RabbitMQ queues
+        --retry-limit                Maximum number of times to retry archive uploads to S3
         --staging-dir [string]       The path to use for temporary files during backup
     -h, --help                       Show the usage message
 
@@ -520,17 +523,20 @@ The command is intended to restore an Automate instance completely from backup, 
    $ delivery-ctl restore-backup /path/to/chef-automate-backup.zst [ELASTICSEARCH_SNAPSHOT] [options]
    $ delivery-ctl restore-backup us-east-1:s3_bucket:chef-automate-backup.zst [ELASTICSEARCH_SNAPSHOT] [options]
    $ delivery-ctl restore-backup ELASTICSEARCH_SNAPSHOT [options]
+        --digest [int]               The SHA digest of the backup archive
         --force                      Agree to all warnings and prompts
         --no-chef-server-config      Do not restore the Chef Server config if present
         --no-census                  Do not restore Chef Automate's census data
+        --no-compliance-profiles     Do not restore Chef Automate's compliance profiles
         --no-config                  Do not restore Chef Automate's configuration directory
         --no-db                      Do not restore Chef Automate's database
         --no-git                     Do not restore Chef Automate's git repositories
         --no-license                 Do not restore Chef Automate's license file
-        --quiet                      Do not output non-error information
         --no-rabbit                  Do not restore Chef Automate's RabbitMQ data
-        --staging-dir [string]       The path to use for temporary files during restore
         --no-wait                    Do not wait for non-blocking restore operations
+        --quiet                      Do not output non-error information
+        --retry-limit                Maximum number of times to retry archive downloads from S3
+        --staging-dir [string]       The path to use for temporary files during restore
     -h, --help                       Show the usage message
 
 .. note:: The ``ELASTICSEARCH_SNAPSHOT`` value is optional when given a backup archive path.
