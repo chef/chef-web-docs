@@ -141,6 +141,8 @@ This subcommand has the following options:
 ``--json-attribute-file FILE``
    A JSON file to be added to the first run of chef-client.
 
+   New in Chef client 12.6.
+
 ``-N NAME``, ``--node-name NAME``
    The name of the node.
 
