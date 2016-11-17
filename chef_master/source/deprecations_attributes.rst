@@ -41,7 +41,7 @@ Convert method syntax to bracket syntax by using brackets to denote attribute na
 Set and Set_Unless
 =====================
 
-Setting node attributes with ``set`` or ``set_unless`` has been deprecated in favour of explicitly setting the precendence level. These methods will be removed in Chef 14.
+Setting node attributes with ``set`` or ``set_unless`` has been deprecated in favor of explicitly setting the precendence level. These methods will be removed in Chef 14.
 
 Removal: Chef 14
 

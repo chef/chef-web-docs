@@ -14,4 +14,4 @@ The ``easy_install`` resource was deprecated in 12.10, and will be removed in Ch
 Remediation
 ===============
 
-There is no built in replacement for ``easy_install`` in Chef. The `poise-python <https://supermarket.chef.io/cookbooks/poise-python>` cookbook provides a set of resources for managing python installations.
+There is no built in replacement for ``easy_install`` in Chef. The `poise-python <https://supermarket.chef.io/cookbooks/poise-python>`__ cookbook provides a set of resources for managing Python installations.
