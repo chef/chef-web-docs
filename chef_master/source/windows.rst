@@ -916,7 +916,7 @@ This subcommand has the following options:
 ``-N NAME``, ``--node-name NAME``
    The name of the node.
 
-   .. note:: This option is required for a validatorless bootstrap (as of chef-client version 12.4).
+   .. note:: This option is required for a validatorless bootstrap (as of Chef client 12.4).
 
 ``--[no-]fips``
   Allows OpenSSL to enforce FIPS-validated security during the chef-client run.
