@@ -14,7 +14,7 @@ The following steps should be performed on a Chef Automate server:
 
    .. code-block:: bash
 
-      delivery-ctl install-build-node $BUILD_NODE_FQDN \
+      automate-ctl install-build-node $BUILD_NODE_FQDN \
                                       $SSH_USERNAME \
                                       --password [$OPTIONAL_SSH_OR_SUDO_PASSWORD] \
                                       --installer $CHEF_DK_PACKAGE_PATH \
@@ -22,11 +22,17 @@ The following steps should be performed on a Chef Automate server:
                                       --port $SSH_PORT            
    .. tag chef_automate_build_nodes
 
-   .. note:: Legacy build nodes created by ``delivery-cluster`` can be used with a Chef Automate server.  Some visibility features are designed to only work with new build nodes and runners installed through the command line process, but the workflow feature in Chef Automate can use legacy, new, or mixed node pools; however, you cannot upgrade a legacy build node to the new build node or runner models.  If you would like to use new build nodes/runners, please use fresh hosts or completely wipe your legacy build nodes before attempting to run ``delivery-ctl install-build-node`` or ``delivery-ctl install-runner``.
+   .. note:: Legacy build nodes created by ``delivery-cluster`` can be used with a Chef Automate server.  Some visibility features are designed to only work with new build nodes and runners installed through the command line process, but the workflow feature in Chef Automate can use legacy, new, or mixed node pools; however, you cannot upgrade a legacy build node to the new build node or runner models.  If you would like to use new build nodes/runners, please use fresh hosts or completely wipe your legacy build nodes before attempting to run ``automate-ctl install-build-node`` or ``automate-ctl install-runner``.
 
    .. end_tag
 
-   You can view the logs at ``/var/log/delivery-ctl/build-node-install_$BUILD_NODE_FDQN.log``.
+   .. tag delivery_ctl_note
+
+   .. note:: Prior to Chef Automate 0.6.0, this tool was named `delivery-ctl`. To support backwards compatibility, you can continue to call `delivery-ctl` in Chef Automate 0.6.0.
+
+   .. end_tag
+
+   You can view the logs at ``/var/log/automate-ctl/build-node-install_$BUILD_NODE_FDQN.log``.
 
    Any existing nodes with the same name as your build node's FQDN will be overwritten on the Chef server. This will remove any previous run lists or Chef Server configuration on this node. This is done in case this hostname was previously being used for something else. Setting the ``--[no]-overwrite-registration`` flag when calling ``install-build-node`` will allow you to avoid that prompt.
 

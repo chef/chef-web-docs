@@ -1,5 +1,5 @@
 =====================================================
-delivery-ctl (executable)
+automate-ctl (executable)
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ctl_delivery_server.rst>`__
 
@@ -11,7 +11,7 @@ delivery-ctl (executable)
 
 .. end_tag
 
-The Chef Automate server includes a command-line utility named delivery-ctl. Use this command-line tool to:
+The Chef Automate server includes a command-line utility named `automate-ctl`. Use this command-line tool to:
 
 * Manage enterprises, users, and projects
 * Reconfigure the Chef Automate server
@@ -20,6 +20,12 @@ The Chef Automate server includes a command-line utility named delivery-ctl. Use
 
 .. note:: All commands must be run as ``sudo``.
 
+.. tag delivery_ctl_note
+
+.. note:: Prior to Chef Automate 0.6.0, this tool was named `delivery-ctl`. To support backwards compatibility, you can continue to call `delivery-ctl` in Chef Automate 0.6.0.
+
+.. end_tag
+
 cleanse
 =====================================================
 The ``cleanse`` subcommand is used to re-set the Chef Automate server to the state it was in prior to the first time the ``reconfigure`` subcommand is run. This command will:
@@ -27,13 +33,13 @@ The ``cleanse`` subcommand is used to re-set the Chef Automate server to the sta
 * Destroy all data and logs
 * Create a backup of the system config files and place them in a directory in root, such as ``/root/delivery-cleanse-2015-12-15T15:51``
 
-The software that was put on-disk by the package installation will remain. Re-run ``delivery-ctl reconfigure`` to recreate the default data and configuration files.
+The software that was put on-disk by the package installation will remain. Re-run ``automate-ctl reconfigure`` to recreate the default data and configuration files.
 
 This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl cleanse
+   $ automate-ctl cleanse
 
 create-backup
 =====================================================
@@ -41,13 +47,15 @@ The ``create-backup`` subcommand is used to create Chef Automate backup archives
 
 **Syntax**
 
-.. code-block:: bash
+.. code-block:: none
 
-   $ delivery-ctl create-backup [NAME] [options]
+   $ automate-ctl create-backup [NAME] [options]
         --chef-server-config         Backup up the Chef Server config if present
+        --digest [int]               The SHA digest length to output. 256, 384, and 512 are valid
         --force                      Agree to all warnings and prompts
         --name [string]              The output name of the backup
         --no-census                  Do not back up Chef Automate's census data
+        --no-compliance-profiles     Do not back up Chef Automate's compliance profiles
         --no-config                  Do not back up Chef Automate's configuration directory
         --no-db                      Do not back up Chef Automate's database
         --no-elasticsearch           Do not snapshot Chef Automate's Elasticsearch
@@ -56,6 +64,7 @@ The ``create-backup`` subcommand is used to create Chef Automate backup archives
         --no-wait                    Do not wait for non-blocking backup operations
         --quiet                      Do not output non-error information
         --rabbit                     Back up Chef Automate's RabbitMQ queues
+        --retry-limit                Maximum number of times to retry archive uploads to S3
         --staging-dir [string]       The path to use for temporary files during backup
     -h, --help                       Show the usage message
 
@@ -64,13 +73,13 @@ The ``create-backup`` subcommand is used to create Chef Automate backup archives
 **Examples**
 
 Complete backup:
-  ``$ delivery-ctl create-backup``
+  ``$ automate-ctl create-backup``
 
 Elasticsearch snapshot only:
-  ``$ delivery-ctl create-backup --no-census --no-config --no-db --no-license --no-git``
+  ``$ automate-ctl create-backup --no-census --no-config --no-db --no-license --no-git``
 
 Automate archive only
-  ``$ delivery-ctl create-backup --no-elasticsearch``
+  ``$ automate-ctl create-backup --no-elasticsearch``
 
 create-enterprise
 =====================================================
@@ -82,7 +91,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl create-enterprise ENT_NAME --ssh-pub-key-file=FILE_NAME
+   $ automate-ctl create-enterprise ENT_NAME --ssh-pub-key-file=FILE_NAME
 
 .. note:: The ``ENT_NAME`` value must be alphanumeric.
 
@@ -96,13 +105,13 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl create-user ENT_NAME USER_NAME FIRST_NAME [MIDDLE_NAME] LAST_NAME EMAIL PASSWORD SSH_PUBLIC_KEY
+   $ automate-ctl create-user ENT_NAME USER_NAME FIRST_NAME [MIDDLE_NAME] LAST_NAME EMAIL PASSWORD SSH_PUBLIC_KEY
 
 **Example**
 
 .. code-block:: bash
 
-   $ delivery-ctl create-user ENT_NAME john_smith
+   $ automate-ctl create-user ENT_NAME john_smith
 
 delete-application
 =====================================================
@@ -114,13 +123,13 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl delete-application APP_NAME
+   $ automate-ctl delete-application APP_NAME
 
 **Example**
 
 .. code-block:: bash
 
-   $ delivery-ctl delete-application github
+   $ automate-ctl delete-application github
 
 returns something similar to:
 
@@ -130,7 +139,7 @@ returns something similar to:
 
 .. code-block:: bash
 
-   $ delivery-ctl delete-application bamboo
+   $ automate-ctl delete-application bamboo
 
 returns something similar to:
 
@@ -146,20 +155,20 @@ The ``delete-backups`` subcommand is used to delete Chef Automate backup archive
 
 .. code-block:: bash
 
-   $ delivery-ctl delete-backups REGEX [options]
+   $ automate-ctl delete-backups REGEX [options]
         --force                      Agree to all warnings and prompts
     -h, --help                       Show the usage message
 
 **Examples**
 
 Deleting a single Automate backup archive:
-  ``$ delivery-ctl delete-backups 2016-10-14-08-38-55-chef-automate-backup.zst``
+  ``$ automate-ctl delete-backups 2016-10-14-08-38-55-chef-automate-backup.zst``
 
 Deleting a single Elasticsearch snapshot:
-  ``$ delivery-ctl delete-backups 2016-10-14-08-38-55-chef-automate-backup$``
+  ``$ automate-ctl delete-backups 2016-10-14-08-38-55-chef-automate-backup$``
 
 Deleting all backup archives and snapshots from October, 2016:
-  ``$ delivery-ctl delete-backups 2016-10-.+-chef-automate-backup --force``
+  ``$ automate-ctl delete-backups 2016-10-.+-chef-automate-backup --force``
 
 delete-enterprise
 =====================================================
@@ -171,13 +180,13 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl delete-enterprise ENT_NAME
+   $ automate-ctl delete-enterprise ENT_NAME
 
 **Example**
 
 .. code-block:: bash
 
-   $ delivery-ctl delete-enterprise pedant-testing-org
+   $ automate-ctl delete-enterprise pedant-testing-org
 
 delete-project
 =====================================================
@@ -189,7 +198,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl delete-project ENT_NAME ORG_NAME PROJECT_NAME
+   $ automate-ctl delete-project ENT_NAME ORG_NAME PROJECT_NAME
 
 delete-user
 =====================================================
@@ -201,13 +210,13 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl delete-user ENT_NAME USER_NAME
+   $ automate-ctl delete-user ENT_NAME USER_NAME
 
 **Example**
 
 .. code-block:: bash
 
-   $ delivery-ctl delete-user ENT_NAME john_smith
+   $ automate-ctl delete-user ENT_NAME john_smith
 
 delete-visibility-node
 =====================================================
@@ -281,13 +290,13 @@ This subcommand has the following syntax:
 
 help
 =====================================================
-The ``help`` subcommand is used to print a list of all available ``delivery-ctl`` commands.
+The ``help`` subcommand is used to print a list of all available ``automate-ctl`` commands.
 
 This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl help
+   $ automate-ctl help
 
 .. _install-runner:
 
@@ -299,7 +308,7 @@ The ``install-runner`` subcommand configures a remote node as a job runner, whic
 
 .. code-block:: none
 
-   $ delivery-ctl install-runner FQDN USERNAME [options]
+   $ automate-ctl install-runner FQDN USERNAME [options]
 
      Arguments:
        FQDN       Fully qualified domain name of the remote host that will be configured into a runner
@@ -332,25 +341,25 @@ The ``install-runner`` subcommand configures a remote node as a job runner, whic
 
 .. code-block:: bash
 
-   $ delivery-ctl install-runner
+   $ automate-ctl install-runner
 
 Installing the latest ChefDK via download and CLI prompt for SSH / Sudo password.
 
 .. code-block:: bash
 
-   $ delivery-ctl install-runner runner-hostname.mydomain.co ubuntu --password
+   $ automate-ctl install-runner runner-hostname.mydomain.co ubuntu --password
 
 Installing with a ChefDK file local to your Workflow server, an SSH Key, and passwordless sudo.
 
 .. code-block:: bash
 
-   $ delivery-ctl install-runner runner-hostname.mydomain.co ubuntu -i ~/.ssh/id_rsa -I ./chefdk.deb
+   $ automate-ctl install-runner runner-hostname.mydomain.co ubuntu -i ~/.ssh/id_rsa -I ./chefdk.deb
 
 Installing a custom version of ChefDK via download, a identity file for ssh access, and a Sudo password.
 
 .. code-block:: bash
 
-   $ delivery-ctl install-runner runner-hostname.mydomain.co ubuntu -v 0.18.30 -p my_password -i ~/.ssh/id_rsa
+   $ automate-ctl install-runner runner-hostname.mydomain.co ubuntu -v 0.18.30 -p my_password -i ~/.ssh/id_rsa
 
 list-applications
 =====================================================
@@ -362,13 +371,13 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl list-applications
+   $ automate-ctl list-applications
 
 **Example**
 
 .. code-block:: bash
 
-   $ delivery-ctl list-applications
+   $ automate-ctl list-applications
 
 returns something similar to:
 
@@ -384,9 +393,9 @@ The ``list-backups`` subcommand is used to list Chef Automate backup archives an
 
 **Syntax**
 
-.. code-block:: bash
+.. code-block:: none
 
-   $ delivery-ctl list-backups [options]
+   $ automate-ctl list-backups [options]
         --all                        List all backups and snapshots (default)
         --automate                   Only list Chef Automate's backup archives
         --elasticsearch              Only list Chef Automate's Elasticsearch snapshots
@@ -396,7 +405,7 @@ The ``list-backups`` subcommand is used to list Chef Automate backup archives an
 **Examples**
 
 Return a list all backups as JSON:
-  ``$ delivery-ctl list-backups --format json``
+  ``$ automate-ctl list-backups --format json``
 
 list-enterprises
 =====================================================
@@ -408,7 +417,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl list-enterprises
+   $ automate-ctl list-enterprises
 
 list-users
 =====================================================
@@ -420,7 +429,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl list-users ENT_NAME
+   $ automate-ctl list-users ENT_NAME
 
 migrate-change-description
 =====================================================
@@ -432,7 +441,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl migrate-change-description ENT_NAME ORG_NAME PROJECT_NAME CHANGE
+   $ automate-ctl migrate-change-description ENT_NAME ORG_NAME PROJECT_NAME CHANGE
 
 migrate-change-description-dry-run
 =====================================================
@@ -444,7 +453,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl migrate-change-description-dry-run ENT_NAME ORG_NAME PROJECT_NAME CHANGE
+   $ automate-ctl migrate-change-description-dry-run ENT_NAME ORG_NAME PROJECT_NAME CHANGE
 
 migrate-patchset-diffs
 =====================================================
@@ -456,7 +465,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl migrate-patchset-diffs ENT_NAME ORG_NAME PROJECT_NAME PATCHSET_DIFF
+   $ automate-ctl migrate-patchset-diffs ENT_NAME ORG_NAME PROJECT_NAME PATCHSET_DIFF
 
 migrate-patchset-diffs-dry-run
 =====================================================
@@ -468,7 +477,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl migrate-patchset-diffs-dry-run ENT_NAME ORG_NAME PROJECT_NAME PATCHSET_DIFF
+   $ automate-ctl migrate-patchset-diffs-dry-run ENT_NAME ORG_NAME PROJECT_NAME PATCHSET_DIFF
 
 reconfigure
 =====================================================
@@ -478,7 +487,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl reconfigure
+   $ automate-ctl reconfigure
 
 rename-enterprise
 =====================================================
@@ -490,7 +499,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl rename-enterprise CURRENT_ENT_NAME NEW_ENT_NAME
+   $ automate-ctl rename-enterprise CURRENT_ENT_NAME NEW_ENT_NAME
 
 reset-password
 =====================================================
@@ -511,34 +520,37 @@ The ``restore-backup`` subcommand is used to restore Chef Automate backup archiv
 
 The command is intended to restore an Automate instance completely from backup, however, it does support restoring only specific data types when given compatible backup archives and snapshots.
 
-.. note:: Backups created with the older ``delivery-ctl backup-data`` command are not supported with this command. If you wish to restore an older backup please install the version of Chef Automate that took the backup and use ``delivery-ctl restore-data``
+.. note:: Backups created with the older ``automate-ctl backup-data`` command are not supported with this command. If you wish to restore an older backup please install the version of Chef Automate that took the backup and use ``automate-ctl restore-data``
 
 **Syntax**
 
 .. code-block:: bash
 
-   $ delivery-ctl restore-backup /path/to/chef-automate-backup.zst [ELASTICSEARCH_SNAPSHOT] [options]
-   $ delivery-ctl restore-backup us-east-1:s3_bucket:chef-automate-backup.zst [ELASTICSEARCH_SNAPSHOT] [options]
-   $ delivery-ctl restore-backup ELASTICSEARCH_SNAPSHOT [options]
+   $ automate-ctl restore-backup /path/to/chef-automate-backup.zst [ELASTICSEARCH_SNAPSHOT] [options]
+   $ automate-ctl restore-backup us-east-1:s3_bucket:chef-automate-backup.zst [ELASTICSEARCH_SNAPSHOT] [options]
+   $ automate-ctl restore-backup ELASTICSEARCH_SNAPSHOT [options]
+        --digest [int]               The SHA digest of the backup archive
         --force                      Agree to all warnings and prompts
         --no-chef-server-config      Do not restore the Chef Server config if present
         --no-census                  Do not restore Chef Automate's census data
+        --no-compliance-profiles     Do not restore Chef Automate's compliance profiles
         --no-config                  Do not restore Chef Automate's configuration directory
         --no-db                      Do not restore Chef Automate's database
         --no-git                     Do not restore Chef Automate's git repositories
         --no-license                 Do not restore Chef Automate's license file
-        --quiet                      Do not output non-error information
         --no-rabbit                  Do not restore Chef Automate's RabbitMQ data
-        --staging-dir [string]       The path to use for temporary files during restore
         --no-wait                    Do not wait for non-blocking restore operations
+        --quiet                      Do not output non-error information
+        --retry-limit                Maximum number of times to retry archive downloads from S3
+        --staging-dir [string]       The path to use for temporary files during restore
     -h, --help                       Show the usage message
 
 .. note:: The ``ELASTICSEARCH_SNAPSHOT`` value is optional when given a backup archive path.
 
 **Examples**
- ``$ delivery-ctl restore-backup us-east-1:your-s3-bucket:2016-10-14-08-38-55-chef-automate-backup.zst 2016-10-14-08-38-55-chef-automate-backup``
- ``delivery-ctl restore-backup 2016-10-14-08-38-55-chef-automate-backup``
- ``$ delivery-ctl restore-backup us-east-1:your-s3-bucket:2016-10-14-08-38-55-chef-automate-backup.zst --no-census --no-license --no-config``
+ ``$ automate-ctl restore-backup us-east-1:your-s3-bucket:2016-10-14-08-38-55-chef-automate-backup.zst 2016-10-14-08-38-55-chef-automate-backup``
+ ``$ automate-ctl restore-backup 2016-10-14-08-38-55-chef-automate-backup``
+ ``$ automate-ctl restore-backup us-east-1:your-s3-bucket:2016-10-14-08-38-55-chef-automate-backup.zst --no-census --no-license --no-config``
 
 revoke-token
 =====================================================
@@ -550,7 +562,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl revoke-token ENT_NAME USER_NAME
+   $ automate-ctl revoke-token ENT_NAME USER_NAME
 
 show-config
 =====================================================
@@ -560,7 +572,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl show-config
+   $ automate-ctl show-config
 
 uninstall
 =====================================================
@@ -570,7 +582,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl uninstall
+   $ automate-ctl uninstall
 
 .. note:: To revert the ``uninstall`` subcommand, run the ``reconfigure`` subcommand (because the ``start`` subcommand is disabled by the ``uninstall`` command).
 
@@ -584,7 +596,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl update-project-hooks ENT_NAME ORG_NAME PROJECT_NAME
+   $ automate-ctl update-project-hooks ENT_NAME ORG_NAME PROJECT_NAME
 
 Service Subcommands
 =====================================================
@@ -602,7 +614,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl kill name_of_service
+   $ automate-ctl kill name_of_service
 
 where ``name_of_service`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
@@ -614,7 +626,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl hup name_of_service
+   $ automate-ctl hup name_of_service
 
 where ``name_of_service`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
@@ -626,7 +638,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl int name_of_service
+   $ automate-ctl int name_of_service
 
 where ``name_of_service`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
@@ -638,7 +650,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl kill name_of_service
+   $ automate-ctl kill name_of_service
 
 where ``name_of_service`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
@@ -652,7 +664,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl once name_of_service
+   $ automate-ctl once name_of_service
 
 where ``name_of_service`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
@@ -664,7 +676,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl restart name_of_service
+   $ automate-ctl restart name_of_service
 
 where ``name_of_service`` represents the name of any service that is listed after running the ``service-list`` subcommand. When a service is successfully restarted the output should be similar to:
 
@@ -680,7 +692,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl service-list
+   $ automate-ctl service-list
 
 start
 -----------------------------------------------------
@@ -690,7 +702,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl start name_of_service
+   $ automate-ctl start name_of_service
 
 where ``name_of_service`` represents the name of any service that is listed after running the ``service-list`` subcommand. When a service is successfully started the output should be similar to:
 
@@ -706,13 +718,13 @@ The ``status`` subcommand is used to show the status of all services available t
 
 .. code-block:: bash
 
-   $ delivery-ctl status
+   $ automate-ctl status
 
 and will return the status for all services. Status can be returned for individual services by specifying the name of the service as part of the command:
 
 .. code-block:: bash
 
-   $ delivery-ctl status name_of_service
+   $ automate-ctl status name_of_service
 
 where ``name_of_service`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
@@ -779,7 +791,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl stop name_of_service
+   $ automate-ctl stop name_of_service
 
 where ``name_of_service`` represents the name of any service that is listed after running the ``service-list`` subcommand. When a service is successfully stopped the output should be similar to:
 
@@ -791,7 +803,7 @@ For example:
 
 .. code-block:: bash
 
-   $ delivery-ctl stop
+   $ automate-ctl stop
 
 will return something similar to:
 
@@ -815,7 +827,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl tail name_of_service
+   $ automate-ctl tail name_of_service
 
 where ``name_of_service`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
@@ -827,7 +839,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl term name_of_service
+   $ automate-ctl term name_of_service
 
 where ``name_of_service`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
