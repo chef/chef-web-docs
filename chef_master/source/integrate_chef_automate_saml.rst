@@ -254,7 +254,7 @@ An alternate location can be configured in ``/etc/delivery/delivery.rb``:
 
    auth['oidc_signing_private_key'] = '/etc/delivery/oidc_signing_private_key.pem' # this is the default
 
-If the file does not exist, a 2048-bit RSA key will be generated using OpenSSL (when running ``delivery-ctl reconfigure``). You can also provide that RSA private key in PEM format yourself:
+If the file does not exist, a 2048-bit RSA key will be generated using OpenSSL (when running ``automate-ctl reconfigure``). You can also provide that RSA private key in PEM format yourself:
 
 .. code-block:: none
 

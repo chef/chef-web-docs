@@ -183,12 +183,12 @@ This configuration file has the following settings for ``backup``:
    Back up the Chef Automate license file. Default value: ``true``.
 
 ``backup['list']['types']``
-   Types to list when running the ``delivery-ctl list-backups`` command.
+   Types to list when running the ``automate-ctl list-backups`` command.
    Options are ``all``, ``automate``, and ``elasticsearch``. Default value:
    ``all``.
 
 ``backup['list']['format']``
-   Format to return when running the ``delivery-ctl list-backups`` command.
+   Format to return when running the ``automate-ctl list-backups`` command.
    Options are ``text`` and ``json``.  Default value: ``text``.
 
 ``backup['location']``

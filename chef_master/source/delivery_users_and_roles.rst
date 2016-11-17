@@ -102,7 +102,7 @@ To configure LDAP for Chef Automate:
 
    .. code-block:: bash
 
-      $ sudo delivery-ctl reconfigure
+      $ sudo automate-ctl reconfigure
 
 Once Chef Automate is set up, you will have a usable **LDAP** option in the Chef Automate **Users** page that allows you to find users through your LDAP database.
 
@@ -206,7 +206,7 @@ To onboard a user for an integrated GitHub Enterprise project or one that is hos
 #. Add or edit any users who are managed by the LDAP integration.
 #. From a local checkout of a Chef Automate project, run the appropriate Chef Automate command that associates a GitHub user with a Chef Automate user.
 
-   .. note:: The Delivery CLI commands are for a user to link their own account to GitHub, or others if the user has the **Admin** role; ``api`` is an argument to the Delivery CLI command. The ``delivery-ctl`` command can only be run by an administrator from the Chef Automate server and can affect any user.
+   .. note:: The Delivery CLI commands are for a user to link their own account to GitHub, or others if the user has the **Admin** role; ``api`` is an argument to the Delivery CLI command. The ``automate-ctl`` command can only be run by an administrator from the Chef Automate server and can affect any user.
 
    For GitHub Enterprise:
 
@@ -220,19 +220,19 @@ To onboard a user for an integrated GitHub Enterprise project or one that is hos
 
       $ delivery api put users/$AUTOMATE_USERNAME/set-oauth-alias --data='{"app_name":"github","alias":"$GITHUB_USERNAME"}'
 
-   *Or*, as an administrator, run the command line tool ``delivery-ctl``. The command uses the enterprise name you set when configuring Chef Automate. The username can be an LDAP username (if LDAP integration has been completed), or an internal username:
+   *Or*, as an administrator, run the command line tool ``automate-ctl``. The command uses the enterprise name you set when configuring Chef Automate. The username can be an LDAP username (if LDAP integration has been completed), or an internal username:
 
     For GitHub Enterprise:
 
     .. code-block:: bash
 
-       $ delivery-ctl link-github-enterprise-user $AUTOMATE_ENTERPRISE_NAME $AUTOMATE_USERNAME $GITHUB_USERNAME
+       $ automate-ctl link-github-enterprise-user $AUTOMATE_ENTERPRISE_NAME $AUTOMATE_USERNAME $GITHUB_USERNAME
 
     For GitHub:
 
    .. code-block:: bash
 
-      $ delivery-ctl link-github-user $AUTOMATE_ENTERPRISE_NAME $AUTOMATE_USERNAME $GITHUB_USERNAME
+      $ automate-ctl link-github-user $AUTOMATE_ENTERPRISE_NAME $AUTOMATE_USERNAME $GITHUB_USERNAME
 
 The associated user can now checkout the repository, make changes on a feature branch and submit the changes for review.
 
