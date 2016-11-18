@@ -92,7 +92,7 @@ This configuration file has the following settings:
 
    .. code-block:: ruby
 
-      no_proxy 'localhost, 10.*, *.example.com, *.dev.example.com'
+      no_proxy 'localhost, 10.0.1.35, *.example.com, *.dev.example.com'
 
 ``ssl_verify_mode``
    Set the verify mode for HTTPS requests.
