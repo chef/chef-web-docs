@@ -107,7 +107,7 @@ This configuration file has the following settings:
 
    .. code-block:: ruby
 
-      no_proxy 'localhost, 10.*, *.example.com, *.dev.example.com'
+      no_proxy 'localhost, 10.0.1.35, *.example.com, *.dev.example.com'
 
 ``ssh_timeout``
    The amount of time (in seconds) to wait for an SSH connection time out.
