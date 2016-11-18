@@ -68,12 +68,12 @@ At the bare minimum, you must set the version to v2:
 
    {
       ...
-      "job-dispatch": {
+      "job_dispatch": {
          "version": "v2"
       ...
    }
 
-You can also set which runners you want jobs to run on for your project. You can set default, per phase, and matrix per phase filters to customize exactly which runners are targeted at various points of your pipeline. Refer to :ref:`job-dispatch config setting <job-dispatch-config-settings>` for more details and examples.
+You can also set which runners you want jobs to run on for your project. You can set default, per phase, and matrix per phase filters to customize exactly which runners are targeted at various points of your pipeline. Refer to :ref:`job_dispatch config setting <job-dispatch-config-settings>` for more details and examples.
 
 Cancelling Jobs
 =====================================================
