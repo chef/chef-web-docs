@@ -313,9 +313,9 @@ To install Chef Automate:
    .. code-block:: bash
 
       sudo automate-ctl setup --license $AUTOMATE_LICENSE \
-                             --key $AUTOMATE_CHEF_USER_KEY \
-                             --server-url https://$CHEF_SERVER_FQDN/organizations/$AUTOMATE_CHEF_ORG \
-                             --fqdn $AUTOMATE_SERVER_FQDN
+                              --key $AUTOMATE_CHEF_USER_KEY \
+                              --server-url https://$CHEF_SERVER_FQDN/organizations/$AUTOMATE_CHEF_ORG \
+                              --fqdn $AUTOMATE_SERVER_FQDN
 
    All paths called for here should be supplied as the absolute path to a file, including the filename.
 
