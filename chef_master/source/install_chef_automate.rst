@@ -390,7 +390,7 @@ The following steps show how to setup a runner from a Chef Automate server. For 
    .. note:: You can optionally download the latest ChefDK from `<https://downloads.chef.io/chef-dk/>`_ to specify a local package via ``--installer``. Doing so is useful if you are in an air-gapped environment. Version 0.15.16 or greater of the ChefDK is required. The download location is referred to below as ``$OPTIONAL_CHEF_DK_PACKAGE_PATH``.
 
    .. code-block:: bash
- 
+
       automate-ctl install-runner $BUILD_NODE_FQDN \
                                   $SSH_USERNAME \
                                   --password [$OPTIONAL_SSH_OR_SUDO_PASSWORD] \
@@ -411,6 +411,22 @@ The following steps show how to setup a runner from a Chef Automate server. For 
    Any existing nodes with the same name as your runner's FQDN will be overwritten on the Chef server. This will remove any previous run lists or Chef Server configuration on this node. This is done in case the hostname was previously being used for something else. When calling ``install-runner``, it will give you a warning if you will overwrite a node before installation begins, which you can bypass by passing ``--yes``.
 
 .. note:: Certain sensitive files are copied over to a temporary directory on the build node/runner. In the event of failure after these files have been copied, the installer will attempt to remove them. If it is unable to do so, it will provide you with instructions for doing so manually.
+
+.. note:: Setting up a build node or a runner involves a Chef client run on the target node. This requires the target node to be able to reach your installation's Chef server. Especially in setups that involve proxies, connectivity issues abound and lead to hard-to-spot errors. One indicator of not having interacted with the Chef server is this output in your Chef client run (note the "Server Response" section):
+
+   .. code-block:: none
+
+      ================================================================================
+      Chef encountered an error attempting to load the node data for "bldr-1.example"
+      ================================================================================
+
+      Authorization Error
+      -------------------
+      Your client is not authorized to load the node data (HTTP 403).
+
+      Server Response:
+      ----------------
+      Cannot fetch the contents of the response.
 
 About Proxies
 --------------------------------------------------
