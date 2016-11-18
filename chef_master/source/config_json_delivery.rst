@@ -68,7 +68,7 @@ The behavior of pipeline phases can be customized using the project's ``config.j
 
    The ``build_nodes`` setting specifies which build nodes to use for specific phases in the Chef Automate pipeline. The build node may be defined as well as queried via wildcard search.
 
-   .. note:: This setting should only be used with build nodes that use the previous job dispatch system. Use the ``job-dispatch`` setting when using the new job dispatch system.
+   .. note:: This setting should only be used with build nodes that use the previous job dispatch system. Use the ``job_dispatch`` setting when using the new job dispatch system.
 
    .. end_tag
 
@@ -115,10 +115,10 @@ The behavior of pipeline phases can be customized using the project's ``config.j
 
 .. _job-dispatch-config-settings:
 
-``job-dispatch``
+``job_dispatch``
    **Optional**
 
-   The ``job-dispatch`` setting is needed to use the :doc:`improved SSH job dispatch system </job_dispatch>`.
+   The ``job_dispatch`` setting is needed to use the :doc:`improved SSH job dispatch system </job_dispatch>`.
 
    * ``"version"``
      Set the value to "v2" if you wish to use runners and the new job dispatch system:
@@ -127,12 +127,12 @@ The behavior of pipeline phases can be customized using the project's ``config.j
 
         {
            ...
-           "job-dispatch": {
+           "job_dispatch": {
               "version": "v2"
            ...
         }
 
-     .. note:: If you omit this setting or set it to "v1", the previous job dispatch system using push jobs 1.x will be used instead. 
+     .. note:: If you omit this setting or set it to "v1", the previous job dispatch system using push jobs 1.x will be used instead.
 
    * ``"filters"``
      Similar to the former Chef push jobs-based dispatch system, you can set a variety of filters. Filters control which runners can run a job for a Chef Automate project. You can set filters for the entire project as well as specific filters per phase. You can also specify a matrix of filters to a run phase job repeatedly on multiple platform configurations.
@@ -149,7 +149,7 @@ The behavior of pipeline phases can be customized using the project's ``config.j
 
        {
           ...
-          "job-dispatch": {
+          "job_dispatch": {
              "version": "v2",
              "filters" : {
                 "default" : {
@@ -171,7 +171,7 @@ The behavior of pipeline phases can be customized using the project's ``config.j
 
        {
           ...
-          "job-dispatch": {
+          "job_dispatch": {
              "version": "v2",
              "filters" : {
                 "default" : {
@@ -179,7 +179,7 @@ The behavior of pipeline phases can be customized using the project's ``config.j
                 }
                 "unit" : {
                   "platform_family" : ["fedora"],
-                  "platform_version" : ["6"]                      
+                  "platform_version" : ["6"]
                 }
              }
           ...
@@ -199,14 +199,14 @@ The behavior of pipeline phases can be customized using the project's ``config.j
 
        {
           ...
-          "job-dispatch": {
+          "job_dispatch": {
              "version": "v2",
              "filters" : {
                 "unit" :
                 [
                    {
                      "platform_family" : ["ubuntu"],
-                     "platform_version" : ["12.04"]                      
+                     "platform_version" : ["12.04"]
                    },
                    {
                      "platform_family" : ["ubuntu"],
@@ -215,7 +215,7 @@ The behavior of pipeline phases can be customized using the project's ``config.j
                    {
                      "platform_family" : ["ubuntu"],
                      "platform_version" : ["16.04"]
-                   }  
+                   }
                 ]
              }
           ...
@@ -667,4 +667,3 @@ If the ``config.json`` file specifies:
 then only the ``FC002`` Foodcritic rules is run.
 
 .. end_tag
-
