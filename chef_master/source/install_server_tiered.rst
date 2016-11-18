@@ -77,7 +77,7 @@ Backend
 =====================================================
 Use the following steps to set up the backend Chef server:
 
-#. Download the packages from http://downloads.chef.io/chef-server/. For Red Hat and CentOS 6:
+#. Download the packages from https://downloads.chef.io/chef-server/. For Red Hat and CentOS 6:
 
    .. code-block:: bash
 

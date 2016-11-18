@@ -27,7 +27,7 @@ The standalone installation of Chef server creates a working installation on a s
 
 To install Chef server 12:
 
-#. Download the package from http://downloads.chef.io/chef-server/.
+#. Download the package from https://downloads.chef.io/chef-server/.
 #. Upload the package to the machine that will run the Chef server, and then record its location on the file system. The rest of these steps assume this location is in the ``/tmp`` directory.
 
 #. .. tag install_chef_server_install_package

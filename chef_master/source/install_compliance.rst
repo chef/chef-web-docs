@@ -65,7 +65,7 @@ The standalone installation of Chef Compliance server creates a working installa
 
 To install the Chef Compliance server:
 
-#. Download the package from http://downloads.chef.io/compliance/.
+#. Download the package from https://downloads.chef.io/compliance/.
 #. Upload the package to the machine that will run the Chef Compliance server, and then record its location on the file system. The rest of these steps assume this location is in the ``/tmp`` directory
 #. Install the Chef Compliance package on the server, using the name of the package provided by Chef. These commands require ``root`` privileges.
 

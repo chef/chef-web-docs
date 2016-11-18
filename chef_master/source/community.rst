@@ -29,15 +29,15 @@ More books about Chef:
 
 Meet
 =====================================================
-* `Chef events <http://chef.io/events>`_
-* `Chef meetups <http://opscode.meetup.com>`_
-* `Continuous delivery meetups <http://continuous-delivery.meetup.com>`_
-* `DevOps meetups <http://devops.meetup.com>`_
+* `Chef events <https://chef.io/events>`_
+* `Chef meetups <https://www.meetup.com/topics/opscode/>`_
+* `Continuous delivery meetups <https://www.meetup.com/topics/continuous-delivery/>`_
+* `DevOps meetups <https://www.meetup.com/topics/devops/>`_
 
 Learn
 =====================================================
-* `Chef training <https://www.chef.io/training>`_
-* `Self-guided learning <https://learn.chef.io>`_
+* `Chef training <https://training.chef.io/>`_
+* `Self-guided learning <https://learn.chef.io/>`_
 
 Listen
 =====================================================
