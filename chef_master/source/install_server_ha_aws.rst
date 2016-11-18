@@ -34,7 +34,7 @@ Primary Backend
 Use the following steps to set up the primary backend Chef server:
 
 #. Create an Amazon Elastic Block Store (EBS) volume and attach it to the primary backend.
-#. Download the packages from http://downloads.chef.io/chef-server/ and http://downloads.chef.io/chef-ha/.
+#. Download the packages from https://downloads.chef.io/chef-server/ and https://downloads.chef.io/chef-ha/.
 #. Install the ``chef-server-core`` package. For Red Hat and CentOS 6:
 
    .. code-block:: bash

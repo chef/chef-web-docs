@@ -5,7 +5,7 @@ Quick Start
 
 For the quickest way to get started using Chef:
 
-#. Download the Chef development kit: http://downloads.chef.io/chef-dk/.
+#. Download the Chef development kit: https://downloads.chef.io/chef-dk/.
 #. Set your system Ruby to this path:
 
    .. code-block:: bash
