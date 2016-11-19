@@ -228,7 +228,7 @@ The node (and, if provided, the organization and/or Chef server) must match a si
 
 .. code-block:: bash
 
-  $ delivery-ctl delete-visibility-node NODE_NAME [options]
+  $ automate-ctl delete-visibility-node NODE_NAME [options]
           --org ORG                    Organization the node belongs to
           --chef_server CHEF_SERVER    Chef server the node belongs to
       -h, --help                       Show this message
@@ -237,13 +237,13 @@ The node (and, if provided, the organization and/or Chef server) must match a si
 
 .. code-block:: bash
 
-   $ delivery-ctl delete-visibility-node tester1
+   $ automate-ctl delete-visibility-node tester1
    Node tester1 (UUID: f470b942-31b6-4665-81df-03013a0b6ef6) has been deleted.
 
 .. code-block:: bash
 
-   $ delivery-ctl delete-visibility-node tester2
-   Multiple nodes were found matching your request. Please delete by ID using: delivery-ctl delete-visibility-node-by-id NODE_UUID
+   $ automate-ctl delete-visibility-node tester2
+   Multiple nodes were found matching your request. Please delete by ID using: automate-ctl delete-visibility-node-by-id NODE_UUID
 
    Node UUID                            Node Name Org Name Chef Server
    ==================================== ========= ======== ===========
@@ -254,7 +254,7 @@ The node (and, if provided, the organization and/or Chef server) must match a si
 
 .. code-block:: bash
 
-   $ delivery-ctl delete-visibility-node tester2 --org org2
+   $ automate-ctl delete-visibility-node tester2 --org org2
    Node tester2 (UUID: 2380c127-7e54-46b3-b4c2-28ae7f2afe10) has been deleted.
 
 delete-visibility-node-by-id
@@ -267,13 +267,13 @@ This is helpful if ``delete-visibility-node`` is unable to delete a node by its 
 
 .. code-block:: bash
 
-   $ delivery-ctl delete-visibility-node-by-id NODE_UUID
+   $ automate-ctl delete-visibility-node-by-id NODE_UUID
 
 **Example**
 
 .. code-block:: bash
 
-   $ delivery-ctl delete-visibility-node-by-id e05d6c79-15ab-417e-a54e-4fe28a84c04c
+   $ automate-ctl delete-visibility-node-by-id e05d6c79-15ab-417e-a54e-4fe28a84c04c
    Node tester3 (UUID: e05d6c79-15ab-417e-a54e-4fe28a84c04c) has been deleted
 
 gather-logs
@@ -286,7 +286,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl gather-logs
+   $ automate-ctl gather-logs
 
 help
 =====================================================
@@ -511,7 +511,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery-ctl reset-password ENTERPRISE_NAME USER_NAME NEW_PASSWORD
+   $ automate-ctl reset-password ENTERPRISE_NAME USER_NAME NEW_PASSWORD
 
 
 restore-backup
