@@ -21,7 +21,7 @@ This method is compatible with Chef Server managed nodes or Chef Solo (commonly 
 
 When setting the ``node['audit]['collector']`` attribute to ``chef-visibility``, the ``audit`` cookbook can retrieve profiles from the following sources: ``Chef Supermarket``, ``local filesystem`` and ``git repository``.
 
-The profiles execution result will be sent to Chef Automate using the ``data_collector`` url and ``token``. For more details, see the README file of the `audit <https://github.com/chef-cookbooks/audit>` cookbook.
+The profiles execution result will be sent to Chef Automate using the ``data_collector`` url and ``token``. For more details, see the README file of the `audit <https://github.com/chef-cookbooks/audit>`_ cookbook.
 
 Collector: ``chef-compliance``
 =====================================================
@@ -30,7 +30,7 @@ This method is compatible with Chef Server managed nodes or Chef Solo.
 
 When setting the ``node['audit]['collector']`` attribute to ``chef-compliance``, the ``audit`` cookbook can retrieve profiles from the following sources: ``Chef Compliance server``, ``Chef Supermarket``, ``local filesystem`` and ``git repository``.
 
-The profiles execution result will be sent to Chef Compliance. Attributes to specify the Chef Compliance API sever and authentication token are required. For more details, see the README file of the `audit <https://github.com/chef-cookbooks/audit>` cookbook.
+The profiles execution result will be sent to Chef Compliance. Attributes to specify the Chef Compliance API sever and authentication token are required. For more details, see the README file of the `audit <https://github.com/chef-cookbooks/audit>`_ cookbook.
 
 Collector: ``chef-server-visibility``
 =====================================================
@@ -39,9 +39,9 @@ This method is compatible with nodes managed by a Chef server integrated with Ch
 
 * Requires ``audit`` cookbook version 2.2.0 or newer.
 
-* Requires Chef server version 12.11.0 or newer.
+* Requires Chef server version 12.11.1 or newer.
 
-* Requires Chef Automate 0.6.0 or newer.
+* Requires Chef Automate 0.6.6 or newer.
 
 Using the above versions allows:
 
@@ -60,10 +60,11 @@ To enable this use-case, add the following settings to ``/etc/opscode/chef-serve
 and run ``sudo chef-server-ctl reconfigure``
 
 The profiles store service also needs to be enabled in Chef Automate. This is documented in :ref:`profiles`.
+Manage the profiles in profiles asset store using the :doc:`api_delivery`.
 
-When using the ``audit`` cookbook, set the ``node['audit]['collector']`` attribute to ``chef-server-visibility``, and retrieve profiles from the following sources: ``Chef Automate``(via ``Chef Server``), ``Chef Supermarket``, ``local filesystem`` and ``git repository``.
+When using the ``audit`` cookbook, set the ``node['audit]['collector']`` attribute to ``chef-server-visibility``, and retrieve profiles from the following sources: ``Chef Automate`` ( via ``Chef Server`` ), ``Chef Supermarket``, ``local filesystem`` and ``git repository``.
 
-The profiles execution result will be sent to Chef Visibility. For more details, see the README file of the `audit <https://github.com/chef-cookbooks/audit>` cookbook.
+The profiles execution result will be sent to Chef Visibility. For more details, see the README file of the `audit <https://github.com/chef-cookbooks/audit>`_ cookbook.
 
 The ``audit`` cookbook does not require Chef Automate url or token attributes as Chef Server is acting as a proxy in this setup.
 
@@ -83,6 +84,6 @@ Integrating Chef Compliance with Chef server allows:
 
 When setting the ``node['audit]['collector']`` attribute to ``chef-server``, the ``audit`` cookbook can retrieve profiles from the following sources: ``Chef Compliance server``, ``Chef Supermarket``, ``local filesystem`` and ``git repository``.
 
-The profiles execution result will be sent to Chef Compliance. For more details, see the README file of the `audit <https://github.com/chef-cookbooks/audit>` cookbook.
+The profiles execution result will be sent to Chef Compliance. For more details, see the README file of the `audit <https://github.com/chef-cookbooks/audit>`_ cookbook.
 
 No Chef Compliance url or token attributes are required by this setup as Chef Server is acting as a proxy.
