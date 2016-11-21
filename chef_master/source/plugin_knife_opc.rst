@@ -9,7 +9,7 @@ The ``knife opc`` subcommand is used to manage organizations and users in Chef s
 
 .. note:: The ``knife-opc`` plugin has been imported into ChefDK with version 1.0. If you use an older version, please upgrade, or install ``knife-opc`` from RubyGems manually.
 
-.. note:: Administator permissions are required to add, remove, or edit users. To manage organizations, or change a user's assignment to an organization, the pivotal key is required. To grant a user administrator permissions, use ``chef-server-ctl grant-server-admin-permissions USER_NAME`` on the Chef server. :doc:`See chef-server-ctl for details </ctl_chef_server>`.
+.. note:: Administrator permissions are required to add, remove, or edit users. To manage organizations, or change a user's assignment to an organization, the pivotal key is required. To grant a user administrator permissions, use ``chef-server-ctl grant-server-admin-permissions USER_NAME`` on the Chef server. :doc:`See chef-server-ctl for details </ctl_chef_server>`.
 
 .. note:: Review the list of :doc:`common options </knife_common_options>` available to this (and all) knife subcommands and plugins.
 
@@ -19,7 +19,7 @@ The ``knife opc`` subcommand is used to manage organizations and users in Chef s
 
 knife.rb Configuration
 =====================================================
-Unlike other knife subcommands the subcommands in the knife-opc plugin make API calls against the root of your Chef server installations API endpoint.
+Unlike other knife subcommands the subcommands in the knife-opc plugin make API calls against the root of your Chef server installation's API endpoint.
 
 Typically the ``chef_server_url`` for your Chef server installation may look like this:
 
