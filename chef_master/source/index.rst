@@ -129,7 +129,7 @@ Cookbook Reference
 :doc:`Cookbook Versions </cookbook_versions>` |
 :doc:`Ruby </ruby>`
 
-**Chef Automate Cookbooks**: :doc:`build-cookbook (cookbook) </delivery_build_cookbook>` | :doc:`delivery-truck (cookbook) </delivery_truck>`
+**Chef Automate Cookbooks**: :doc:`build-cookbook (cookbook) </delivery_build_cookbook>` | :doc:`delivery-truck (cookbook) </delivery_truck>` | :doc:`Publish Cookbooks to Multiple Chef Servers </publish_cookbooks_multiple_servers>`
 
 Chef DK
 -----------------------------------------------------
@@ -572,6 +572,7 @@ Addenda
    provisioning_aws
    provisioning_fog
    provisioning_vagrant
+   publish_cookbooks_multiple_servers
    push_jobs
    quick_start
    recipes
