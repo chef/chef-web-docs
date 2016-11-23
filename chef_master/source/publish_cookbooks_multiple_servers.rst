@@ -19,7 +19,7 @@ Prerequisites
 
 Before you begin, you must copy the ``knife.rb`` file 
 and the client key .pem file (referenced as ``client_key`` in ``knife.rb``) to the build nodes/runners that you will use in the build-cookbook. This can 
-be done manually by logging in to the build nodes/runners and copying the files.
+be done manually by logging in to the build nodes/runners and copying the files or automated through the use of a secure copy tool like ``scp``. 
 
 The following is an example of a ``knife.rb`` file for a ``test`` user that points to the Chef server 
 ``chef-test-server.example.com`` and the organization ``your_org``. The ``test.pem`` file is the value specified in the ``client_key`` setting.
@@ -42,13 +42,14 @@ This example shows how to publish a cookbook called ``rally`` to a single Chef s
 
 .. code-block:: ruby
 
-   knife_rb = 'path/to/the/knife_rb/file/in/the/build-node/knife.rb'
+   knife_rb = '/path/to/the/knife_rb/file/in/the/build-node/knife.rb'
 
    delivery_chef_cookbook 'rally' do
-     path 'path/to/the/cookbook/in/the/build-node/rally'
+     path '/path/to/the/cookbook/in/the/build-node/rally'
      chef_server DeliverySugar::ChefServer.new(knife_rb) 
    end
 
+.. note:: The default action for ``delivery_chef_cookbook`` is ``:upload``, so you do not need to explicitly include that in your ``delivery_chef_cookbook`` implementation.
 
 Publish Cookbook to Multiple Chef servers
 ===============================================================
