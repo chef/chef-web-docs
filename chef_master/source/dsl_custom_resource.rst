@@ -19,9 +19,9 @@ action_class
 =====================================================
 .. tag dsl_custom_resource_block_action_class
 
-Use the action_class block to make methods available to the actions in the custom resource.  Modules with helper methods created as files in the cookbook library directory may be included. New action methods may also be defined directly in the action_class block.  Code in the action_class block has access to the new_resource properties.
+Use the ``action_class`` block to make methods available to the actions in the custom resource.  Modules with helper methods created as files in the cookbook library directory may be included. New action methods may also be defined directly in the ``action_class`` block.  Code in the ``action_class`` block has access to the new_resource properties.
 
-Assume a helper module has been created in the cookbook libraries/helper.rb file.
+Assume a helper module has been created in the cookbook ``libraries/helper.rb`` file.
 
 .. code-block:: ruby
 
@@ -33,7 +33,7 @@ Assume a helper module has been created in the cookbook libraries/helper.rb file
      end
    end
 
-Methods may be made available to the custom resource actions by using an action_class block.
+Methods may be made available to the custom resource actions by using an ``action_class`` block.
 
 .. code-block:: ruby
 
