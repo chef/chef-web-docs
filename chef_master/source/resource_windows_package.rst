@@ -79,6 +79,8 @@ This resource has the following properties:
    **Ruby Type:** String
 
    The SHA-256 checksum of the file. Use to prevent a file from being re-downloaded. When the local file matches the checksum, the chef-client does not download it. Use when a URL is specified by the ``source`` property.
+   
+   New in Chef client 12.6.
 
 ``ignore_failure``
    **Ruby Types:** TrueClass, FalseClass
