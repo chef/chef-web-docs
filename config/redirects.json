@@ -344,7 +344,6 @@
   "api_analytics.html": "/release/analytics/api_analytics.html",
   "config_rb_analytics.html": "/release/analytics/config_rb_analytics.html",
   "ctl_analytics.html": "/release/analytics/ctl_analytics.html",
-  "dsl_recipe.html": "/release/analytics/dsl_recipe.html",
   "install_analytics.html": "/release/analytics/install_analytics.html",
   "plugin_knife_analytics.html": "/release/analytics/plugin_knife_analytics.html",
   "upgrade_analytics.html": "/release/analytics/upgrade_analytics.html",

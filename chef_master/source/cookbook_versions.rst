@@ -27,7 +27,7 @@ A version constraint is a string that combines the cookbook version syntax with 
 
 .. tag cookbooks_version_constraints_operators
 
-The following operators may be used with cookbook versions:
+The following operators may be used:
 
 .. list-table::
    :widths: 200 300
