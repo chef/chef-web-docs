@@ -489,7 +489,7 @@ When finished adding the templates and building the custom resource, the cookboo
 
 Recipe
 -----------------------------------------------------
-The custom resource name is inferred from the name of the cookbook (``website``), the name of the recipe (``httpd``), and is separated by an underscore(``_``): ``website_httpd``.
+The custom resource name is inferred from the name of the cookbook (``website``), the name of the resource file (``httpd``), and is separated by an underscore(``_``): ``website_httpd``.  The custom resource may be used in a recipe.
 
 .. code-block:: ruby
 
@@ -509,6 +509,53 @@ which does the following:
 Custom Resource DSL
 =====================================================
 The following sections describe additional Custom Resource DSL methods that were not used in the preceding scenario:
+
+action_class
+-----------------------------------------------------
+.. tag dsl_custom_resource_block_action_class
+
+Use the ``action_class`` block to make methods available to the actions in the custom resource.  Modules with helper methods created as files in the cookbook library directory may be included. New action methods may also be defined directly in the ``action_class`` block.  Code in the ``action_class`` block has access to the new_resource properties.
+
+Assume a helper module has been created in the cookbook ``libraries/helper.rb`` file.
+
+.. code-block:: ruby
+
+   module Sample
+     module Helper
+       def helper_method
+         # code
+       end
+     end
+   end
+   
+Methods may be made available to the custom resource actions by using an ``action_class`` block.
+
+.. code-block:: ruby
+   
+   property file, String
+
+   action_class do
+
+     def file_exist
+       ::File.exist?(file)
+     end
+
+     def file_ex
+       ::File.exist?(new_resource.file)
+     end
+
+     require 'fileutils'
+    
+     include Sample::Helper
+
+   end
+
+   action :delete do
+     helper_method
+     FileUtils.rm(file) if file_ex
+   end 
+
+.. end_tag
 
 converge_if_changed
 -----------------------------------------------------
@@ -536,7 +583,7 @@ For example, a custom resource defines two properties (``content`` and ``path``)
    property :path, String, name_property: true
 
    load_current_value do
-     if File.exist?(path)
+     if ::File.exist?(path)
        content IO.read(path)
      end
    end
@@ -571,9 +618,9 @@ The ``converge_if_changed`` method may be used multiple times. The following exa
    property :mode, String
 
    load_current_value do
-     if File.exist?(path)
+     if ::File.exist?(path)
        content IO.read(path)
-       mode File.stat(path).mode
+       mode ::File.stat(path).mode
      end
    end
 
@@ -582,7 +629,7 @@ The ``converge_if_changed`` method may be used multiple times. The following exa
        IO.write(path, content)
      end
      converge_if_changed :mode do
-       File.chmod(mode, path)
+       ::File.chmod(mode, path)
      end
    end
 
@@ -649,10 +696,10 @@ Use the ``load_current_value`` method to guard against property values being rep
    action :some_action do
 
      load_current_value do
-       if File.exist?('/var/www/html/index.html')
+       if ::File.exist?('/var/www/html/index.html')
          homepage IO.read('/var/www/html/index.html')
        end
-       if File.exist?('/var/www/html/404.html')
+       if ::File.exist?('/var/www/html/404.html')
          page_not_found IO.read('/var/www/html/404.html')
        end
      end
