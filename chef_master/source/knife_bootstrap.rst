@@ -18,7 +18,7 @@ Use the ``knife bootstrap`` subcommand to run a bootstrap operation that install
 
 .. end_tag
 
-.. note:: Starting with chef-client 12.0, use the `knife ssl_fetch <https://docs.chef.io/knife_ssl_fetch.html>`_ command to pull down the SSL certificates from the on-premises Chef server and add them to the ``/trusted_certs_dir`` on the workstation. This certificates is used during a knife bootstrap operation.
+.. note:: Starting with chef-client 12.0, use the `knife ssl_fetch <https://docs.chef.io/knife_ssl_fetch.html>`_ command to pull down the SSL certificates from the on-premises Chef server and add them to the ``/trusted_certs_dir`` on the workstation. These certificates are used during a ``knife bootstrap`` operation.
 
 .. note:: To bootstrap the chef-client on Microsoft Windows machines, the `knife-windows <https://docs.chef.io/plugin_knife_windows.html>`_ plugins is required, which includes the necessary bootstrap scripts that are used to do the actual installation.
 
