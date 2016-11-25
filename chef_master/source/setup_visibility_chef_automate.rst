@@ -20,9 +20,7 @@ The visibilty features of Chef Automate require that any self-signed Chef Automa
 in the ``/etc/chef/trusted_certs`` directory on any node that wants to send data to Chef Automate. This directory is the location into
 which SSL certificates are placed when a node has been bootstrapped with chef-client.
 
-To ensure the certificate is in the ``trusted_certs`` directory, you can use utilities such as `scp` or `rsync` to copy
-``/var/opt/delivery/nginx/ca/HOSTNAME.crt`` from the Chef Automate server to the ``/etc/chef/trusted_certs`` directory on the
-node in your Chef Automate cluster, or use ``knife ssl fetch`` and pass in the URL of the Chef Automate server when calling the ``fetch`` subcommand.
+To ensure the certificate is in the ``trusted_certs`` directory, use ``knife ssl fetch`` and pass in the URL of the Chef Automate server. You can use utilities such as `scp` or `rsync` to copy the downloaded cert files from your ``.chef/trusted_certs`` directory to the ``/etc/chef/trusted_certs`` directory on the node in your Chef Automate cluster.
 
 .. note:: This only applies to self-signed SSL certificates. Any certificate signed by certificate authority should work without any additional configuration required.
 
