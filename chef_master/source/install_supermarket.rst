@@ -10,7 +10,7 @@ Chef Supermarket is the site for community cookbooks. It provides an easily sear
 There are two ways to use Chef Supermarket:
 
 * The public Chef Supermarket is hosted by Chef and is located at |url supermarket|.
-* A private Chef Supermarket may be installed on-premise behind the firewall on the internal network. Cookbook retrieval from a private Chef Supermarket is often faster than from the public Chef Supermarket because of closer proximity and fewer cookbooks to resolve. A private cookbook can also help formalize internal cookbook release management processes (e.g. "a cookbook is not released until it's published on Chef Supermarket").
+* A private Chef Supermarket may be installed on-premise behind the firewall on the internal network. Cookbook retrieval from a private Chef Supermarket is often faster than from the public Chef Supermarket because of closer proximity and fewer cookbooks to resolve. A private Chef Supermarket can also help formalize internal cookbook release management processes (e.g. "a cookbook is not released until it's published on the private Chef Supermarket").
 
 .. end_tag
 
@@ -242,8 +242,8 @@ Bootstrap the node on which Chef Supermarket is to be installed. For example, to
 
 where
 
-* ``-N`` defines the name of the Chef Supermarket node
-* ``-x`` defines the user name: ``supermarket-node``
+* ``-N`` defines the name of the Chef Supermarket node: ``supermarket-node``
+* ``-x`` defines the (ssh) user name: ``ubuntu``
 * ``--sudo`` ensures that sudo is used while running commands on the node during the bootstrap operation
 
 When the bootstrap operation is finished, do the following:
