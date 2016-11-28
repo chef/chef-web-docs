@@ -946,7 +946,7 @@ where
 
 * ``launchd`` is the resource
 * ``name`` is the name of the resource block
-* ``:action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
 * ``abandon_process_group``, ``backup``, ``cookbook``, ``debug``, ``disabled``, ``enable_globbing``, ``enable_transactions``, ``environment_variables``, ``exit_timeout``, ``group``, ``hard_resource_limits``, ``hash``, ``inetd_compatibility``, ``init_groups``, ``keep_alive``, ``label``, ``launch_only_once``, ``limit_load_from_hosts``, ``limit_load_to_hosts``, ``limit_load_to_session_type``, ``low_priority_io``, ``mach_services``, ``mode``, ``nice``, ``on_demand``, ``owner``, ``path``, ``process_type``, ``program``, ``program_arguments``, ``queue_directories``, ``retries``, ``retry_delay``, ``root_directory``, ``run_at_load``, ``sockets``, ``soft_resource_limits``, ``standard_error_path``, ``standard_in_path``, ``standard_out_path``, ``start_calendar_interval``, ``start_interval``, ``start_on_mount``, ``throttle_interval``, ``time_out``, ``type``, ``umask``, ``username``, ``wait_for_debugger``, ``watch_paths``, and ``working_directory`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -1462,7 +1462,7 @@ where
 
 * ``chocolatey_package`` tells the chef-client to manage a package
 * ``'name'`` is the name of the package
-* ``:action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
 * ``options``, ``package_name``, ``provider``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -1674,7 +1674,7 @@ where
 
 * ``osx_profile`` is the resource
 * ``name`` is the name of the resource block
-* ``:action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
 * ``profile``, ``profile_name``, and ``identifier`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -1941,7 +1941,7 @@ where
 
 * ``apt_update`` is the resource
 * ``name`` is the name of the resource block
-* ``:action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
 * ``frequency`` is a property of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -2194,7 +2194,7 @@ where
 
 * ``ksh`` is the resource
 * ``name`` is the name of the resource block
-* ``:action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
 * ``code``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``path``, ``provider``, ``returns``, ``timeout``, ``user``, and ``umask`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -5771,7 +5771,7 @@ where
 
 * ``paludis_package`` tells the chef-client to manage a package
 * ``'name'`` is the name of the package
-* ``:action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
 * ``options``, ``package_name``, ``provider``, ``source``, ``recursive``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -5970,7 +5970,7 @@ where
 
 * ``openbsd_package`` tells the chef-client to manage a package
 * ``'name'`` is the name of the package
-* ``:action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
 * ``options``, ``package_name``, ``provider``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -6960,7 +6960,7 @@ where
 
 * ``bff_package`` tells the chef-client to manage a package
 * ``'name'`` is the name of the package
-* ``:action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
 * ``options``, ``package_name``, ``provider``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -7186,7 +7186,7 @@ where
 
 * ``homebrew_package`` tells the chef-client to manage a package
 * ``'name'`` is the name of the package
-* ``:action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
 * ``homebrew_user``, ``options``, ``package_name``, ``provider``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -7437,7 +7437,7 @@ where
 
 * ``reboot`` is the resource
 * ``name`` is the name of the resource block
-* ``:action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
 * ``delay_mins`` and ``reason`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -7642,7 +7642,7 @@ where
 
 * ``windows_service`` is the resource
 * ``name`` is the name of the resource block
-* ``:action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
 * ``init_command``, ``pattern``, ``provider``, ``reload_command``, ``restart_command``, ``run_as_password``, ``run_as_user``, ``service_name``, ``start_command``, ``startup_type``, ``status_command``, ``stop_command``, ``supports``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag

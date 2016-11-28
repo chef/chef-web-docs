@@ -87,7 +87,7 @@ where
 * ``script`` is the resource
 * ``name`` is the name of the resource block
 * ``cwd`` is the location from which the command is run
-* ``:action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
 * ``code``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``interpreter``, ``path``, ``provider``, ``returns``, ``timeout``, ``user``, and ``umask`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
