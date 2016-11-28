@@ -1,5 +1,6 @@
 =====================================================
 Monitor Supermarket
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/supermarket_monitor.rst>`__
 
-.. include:: ../../includes_supermarket/includes_supermarket_private_manage_server_monitoring.rst
+A private Chef Supermarket includes a URL for status monitoring: https://your_private_supermarket/status.

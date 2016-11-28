@@ -1,12 +1,23 @@
 =====================================================
 High Availability: Backend Cluster
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/upgrade_server_ha_v2.rst>`__
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+.. tag chef_automate_mark
 
-This topic describes the process of upgrading a highly available |chef server| cluster.
+.. image:: ../../images/chef_automate_full.png
+   :width: 40px
+   :height: 17px
 
-.. note:: .. include:: ../../includes_chef/includes_chef_subscriptions.rst
+.. end_tag
+
+This topic describes the process of upgrading a highly available Chef server cluster.
+
+.. note:: .. tag chef_subscriptions
+
+          This feature is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
+
+          .. end_tag
 
 Overview
 =====================================================
@@ -41,7 +52,7 @@ downloading and installing the latest package.
 
 #. Run the upgrade command
 
-   .. code-block:: shell
+   .. code-block:: bash
 
       % chef-backend-ctl upgrade
 
@@ -54,7 +65,7 @@ Step 3: Upgrade the leader
 
 #. Unblock failover, trigger failover, block it again.
 
-   .. code-block :: shell
+   .. code-block:: bash
 
       % chef-backend-ctl set-cluster-failover on
       % chef-backend-ctl upgrade --failover
@@ -65,16 +76,15 @@ Step 4: Re-enable failover
 
 Allow failover again:
 
-   .. code-block :: shell
+   .. code-block:: bash
 
       % chef-backend-ctl set-cluster-failover on
-
 
 Step 5: Verify the cluster is stable
 -----------------------------------------------------
 
 Check the status of the cluster:
 
-  .. code-block :: shell
+  .. code-block:: bash
 
      % chef-backend-ctl status

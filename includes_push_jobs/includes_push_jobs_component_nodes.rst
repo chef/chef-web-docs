@@ -1,5 +1,0 @@
-.. The contents of this file may be included in multiple topics (using the includes directive).
-.. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
-
-
-The |push jobs| client is used to receive job messages from the |push jobs| server and to verify the heartbeat status. The |push jobs| client uses the same authorization / authentication model as the |chef client|. The |push jobs| client listens for heartbeat messages from the |push jobs| server. If there is no heartbeat from the |push jobs| server, the |push jobs| client will finish its current job, but then stop accepting any new jobs until the heartbeat from the |push jobs| server resumes.

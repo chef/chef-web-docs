@@ -1,14 +1,15 @@
 =====================================================
 Push Jobs Server Sent Events Feed
 =====================================================
-The Push Jobs server provides feeds of events associated with actions, via the `Server-Sent-Events (SSE)
-protocol <http://www.w3.org/TR/eventsource/>`_. There are two SSE feeds available:
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_sent_events.rst>`__
+
+The Push Jobs server provides feeds of events associated with actions, via the `Server-Sent-Events (SSE) protocol <http://www.w3.org/TR/eventsource/>`_. There are two SSE feeds available:
 
 1. Job Feed: Stream of events for a particular job
 2. Organization Feed: Stream of events for all jobs across an organization
 
 Event Types
------------------------------------------------------
+=====================================================
 As mandated by the SSE protocol, each event has:
 
 * a type-specifier (``event``)
@@ -30,9 +31,8 @@ The structure of an individual event appears as follows:
 In addition, SSE allows comments in the stream, indicated by a starting colon. Push Jobs Server uses comments to send "no-op" events every 15 (configurable) seconds,
 as a form of keepalive for the socket.
 
-
 start
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 This event is issued when a job is requested.
 
 **Example Event**
@@ -53,7 +53,7 @@ where:
   * ``node_count`` is the number of nodes in the request
 
 quorum_vote
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 This event is issued as each node responds to the quorum request. (Not available in Organization Feed)
 
 **Example Event**
@@ -71,7 +71,7 @@ where:
     ``lost_availability`` (node become unavailable during voting), ``success`` (node accepted the job), ``unexpected_commit`` (node attempted to vote twice)
 
 quorum_succeeded
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 This event is issued when the vote is complete, and the nodes are told to run the command. (Not available in Organization Feed)
 
 Please note: there is no corresponding ``quorum_failed`` event. If the quorum fails, then the ``job_complete`` event will include a "quorum_failed" status.
@@ -85,7 +85,7 @@ Please note: there is no corresponding ``quorum_failed`` event. If the quorum fa
    data: {"timestamp": "2014-07-10 05:17:44.995958Z"}
 
 run_start
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 This event is issued as each node acknowledges that it is running the command. (Not available in Organization Feed)
 
 **Example Event**
@@ -101,7 +101,7 @@ where:
   * ``node`` is the name of the node
 
 run_complete
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 This event is issued as each node completes the command. (Not available in Organization Feed)
 
 **Example Event**
@@ -118,7 +118,7 @@ where:
   * ``status`` is one of the following: ``client_died_while_running`` (node went offline before finishing the run), ``crashed`` (node terminated run without returning status), ``failure`` (run failed), ``run_nacked`` (node rejected the run after quorum was reached), ``run_nacked_while_running`` (node rejected the run after starting it), or ``success`` (the run completed successfully),
 
 job_complete
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 This event is issued when the job completes.
 
 **Example Event**
@@ -135,7 +135,7 @@ where:
   * ``status`` is one of the following: ``aborted`` (the job was aborted), ``complete`` (the job completed), ``quorum_failed`` (the command was not run on any nodes), or ``timed_out`` (the command timed out)
 
 start_of_history
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 This synthetic event is issued when the ``Last-Event-ID`` header is not recognized. (Not available in Job Feed)
 
 **Example Event**
@@ -147,7 +147,7 @@ This synthetic event is issued when the ``Last-Event-ID`` header is not recogniz
    data: {"timestamp":"2014-07-10 05:17:44.995958Z"}
 
 rehab
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 This event is issued when the server detects an abnormality with a node and attempts to repair it. (Not available in Organization Feed)
 
 .. code-block:: xml
@@ -157,7 +157,7 @@ This event is issued when the server detects an abnormality with a node and atte
    data: {"timestamp":"2014-07-10 05:17:44.995958Z","node":"NODE1"}
 
 summary
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 This event is issued when a request for the Job Feed comes in after the job has completed. (Not available in Organization Feed)
 
 .. code-block:: xml
@@ -171,11 +171,11 @@ where:
   * ``data`` is the same Job Summary you would get from the ``job/ID`` endpoint
 
 Event Stream Examples
------------------------------------------------------
+=====================================================
 An event stream should follow a standard structure:
 
 Job Feed (Normal Run Execution)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 
 1. ``start``
 2. 0 or more ``quorum_vote``
@@ -236,7 +236,7 @@ The response will return something similar to:
    data": {"timestamp":"2014-07-10 05:17:48.995958Z","status":"complete"}
 
 Job Feed (Failed Quorum)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 
 1. ``start``
 2. 1+ ``quorum_failed``
@@ -272,7 +272,7 @@ The response will return something similar to:
    data": {"timestamp":"2014-07-10 05:17:48.995958","status":"quorum_failed"}
 
 Organization Feed
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 
 1. ``start`` (job=B)
 2. ``job_complete`` (job=A)

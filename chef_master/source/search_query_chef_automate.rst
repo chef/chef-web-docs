@@ -1,10 +1,17 @@
 =====================================================
 Node Search Query Reference
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/search_query_chef_automate.rst>`__
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+.. tag chef_automate_mark
 
-The visibility dashboard in **Nodes** exposes a search bar that allows you to search for nodes based off a 
+.. image:: ../../images/chef_automate_full.png
+   :width: 40px
+   :height: 17px
+
+.. end_tag
+
+The visibility dashboard in **Nodes** exposes a search bar that allows you to search for nodes based off a
 defined query language. This language will allow you to search on the following terms:
 
   * attribute

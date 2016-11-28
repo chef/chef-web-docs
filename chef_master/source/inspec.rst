@@ -1,30 +1,19 @@
 =====================================================
 InSpec
 =====================================================
-.. include:: ../../includes_inspec/includes_inspec.rst
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/inspec.rst>`_
 
-.. note:: See every |inspec resource| in a single topic: https://docs.chef.io/inspec_reference.html.
+.. tag inspec_summary
 
-.. include:: ../../includes_inspec/includes_inspec_resources_list.rst
+InSpec is an open-source run-time framework and rule language used to specify compliance, security, and policy requirements for testing any node in your infrastructure.
 
-Examples
------------------------------------------------------
-The following examples show how to use the |dsl compliance| to build tests.
+* The project name refers to "infrastructure specification"
+* InSpec includes a collection of resources to help you write auditing rules quickly and easily using the Compliance DSL
+* Use InSpec to examine any node in your infrastructure; run the tests locally or remotely
+* Any detected security, compliance, or policy issues are flagged in a log
+* The InSpec audit resource framework is fully compatible with Chef Compliance
 
-**Only accept requests on secure ports**
+To learn more about InSpec, see the `InSpec website <http://inspec.io/>`__. The site contains tutorials and reference documentation on how to use the various audit resources, profiles, InSpec CLI, and more.
 
-This code uses the ``port`` resource to ensure that a web server is only listening on well-secured ports.
+.. end_tag
 
-.. include:: ../../step_inspec/step_inspec_port_listen_on_secure_ports.rst
-
-**Use approved strong ciphers**
-
-This code uses the ``sshd_config`` resource to ensure that only enterprise-compliant ciphers are used for |ssh| servers.
-
-.. include:: ../../step_inspec/step_inspec_sshd_conf_use_strong_ciphers.rst
-
-**Test a kitchen.yml file driver**
-
-This code uses the ``yaml`` resource to ensure that the |kitchen| driver is |vagrant|.
-
-.. include:: ../../step_inspec/step_inspec_yaml_kitchen_driver.rst
