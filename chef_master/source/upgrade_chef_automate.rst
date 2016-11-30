@@ -21,7 +21,36 @@ This section describes the prereqs for the upgrade.
 #. Previously installed version of Chef Automate.
 #. ``sudo`` or ``root`` access to the machine.
 
-Upgrade
+Update license
+====================================================
+
+If you need to update a license on a Chef Automate server, perform the following steps:
+
+#. Securely copy your new license to your Chef Automate server. You must overwrite the current ``delivery.license`` file located at ``/var/opt/delivery/license/delivery.license``. The `scp` utility is used below to log into an Ubuntu machine; however, you can use other utilities such as `rsync` to securely copy the new license onto your Chef Automate server.
+
+   .. code-block:: bash
+
+      scp -i SSH_KEY /path/to/automate.license ubuntu@IP_ADDRESS:/home/ubuntu/automate.license
+
+#. Log into the Chef Automate server via SSH.
+
+   .. code-block:: bash
+
+      ssh -i SSH_KEY ubuntu@IP_ADDRESS
+
+#. After a successful login, copy the license file to the ``/var/opt/delivery/license`` directory.
+
+   .. code-block:: bash
+
+      sudo mv ~/automate.license /var/opt/delivery/license/delivery.license
+
+#. Reconfigure and restart your Chef Automate server.
+
+   .. code-block:: bash
+
+      sudo automate-ctl reconfigure && sudo automate-ctl restart
+
+Upgrade 
 =====================================================
 
 To upgrade to the latest version of Chef Automate, do the following:
@@ -79,4 +108,4 @@ Save your changes and then run ``sudo automate-ctl reconfigure`` to complete the
 Upgrading and the ``automate-ctl setup`` command
 -------------------------------------------------------------------
 
-The ``automate-ctl setup`` command used during the Chef Automate installation process is intended to simplify the initial configuration of your Chef Automate cluster. If your cluster is up and running, you don't need to run this command; however to set up additional build nodes with the ``automate-ctl install-build-node`` command, running ``automate-ctl setup`` is recomended to ensure all required files are in the correct place.
+The ``automate-ctl setup`` command used during the Chef Automate installation process is intended to simplify the initial configuration of your Chef Automate cluster. If your cluster is up and running, you don't need to run this command; however to set up additional runners with the ``automate-ctl install-runner`` command, running ``automate-ctl setup`` is recomended to ensure all required files are in the correct place.
