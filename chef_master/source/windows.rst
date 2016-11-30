@@ -2349,7 +2349,7 @@ where
 * ``batch`` is the resource
 * ``name`` is the name of the resource block
 * ``command`` is the command to be run and ``cwd`` is the location from which the command is run
-* ``:action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
 * ``architecture``, ``code``, ``command``, ``creates``, ``cwd``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``provider``, ``returns``, ``timeout``, and ``user`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -3018,7 +3018,7 @@ where
 
 * ``dsc_script`` is the resource
 * ``name`` is the name of the resource block
-* ``:action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
 * ``code``, ``command``, ``configuration_data``, ``configuration_data_script``, ``configuration_name``, ``cwd``, ``environment``, ``flags``, ``imports``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -3451,7 +3451,7 @@ where
 
 * ``env`` is the resource
 * ``name`` is the name of the resource block
-* ``:action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
 * ``delim``, ``key_name``, ``provider``, and ``value`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -3664,7 +3664,7 @@ where
 * ``powershell_script`` is the resource
 * ``name`` is the name of the resource block
 * ``command`` is the command to be run and ``cwd`` is the location from which the command is run
-* ``:action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
 * ``architecture``, ``code``, ``command``, ``convert_boolean_return``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``provider``, ``returns``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -4008,7 +4008,7 @@ where
 * ``:type`` represents the values available for registry keys in Microsoft Windows. Use ``:binary`` for REG_BINARY, ``:string`` for REG_SZ, ``:multi_string`` for REG_MULTI_SZ, ``:expand_string`` for REG_EXPAND_SZ, ``:dword`` for REG_DWORD, ``:dword_big_endian`` for REG_DWORD_BIG_ENDIAN, or ``:qword`` for REG_QWORD.
 
   .. warning:: ``:multi_string`` must be an array, even if there is only a single string.
-* ``:action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
 * ``architecture``, ``key``, ``provider``, ``recursive`` and ``values`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -4564,7 +4564,7 @@ where
 
 * ``windows_package`` tells the chef-client to manage a package
 * ``'name'`` is the name of the package
-* ``:action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
 * ``checksum``, ``installer_type``, ``options``, ``package_name``, ``provider``, ``remote_file_attributes``, ``returns``, ``source``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -4895,7 +4895,7 @@ where
 
 * ``windows_service`` is the resource
 * ``name`` is the name of the resource block
-* ``:action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
 * ``init_command``, ``pattern``, ``provider``, ``reload_command``, ``restart_command``, ``run_as_password``, ``run_as_user``, ``service_name``, ``start_command``, ``startup_type``, ``status_command``, ``stop_command``, ``supports``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag

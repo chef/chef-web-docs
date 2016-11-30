@@ -305,6 +305,8 @@ An environment attribute can only be set to be a default attribute or an overrid
 
 .. end_tag
 
+.. _attribute-precedence:
+
 Attribute Precedence
 =====================================================
 .. tag node_attribute_precedence

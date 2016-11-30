@@ -1097,7 +1097,7 @@ where
 
 * ``ohai`` is the resource
 * ``name`` is the name of the resource block
-* ``:action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
 * ``name``, ``plugin``,  and ``provider`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -1395,15 +1395,15 @@ Ohai configuration settings can be added to the client.rb file.
 
 .. tag config_rb_ohai_settings
 
-``Ohai.directory``
+``ohai.directory``
    The directory in which Ohai plugins are located.
 
-``Ohai.disabled_plugins``
+``ohai.disabled_plugins``
    An array of Ohai plugins to be disabled on a node. The list of plugins included in Ohai can be found in the ``ohai/lib/ohai/plugins`` directory. For example, disabling a single plugin:
 
    .. code-block:: ruby
 
-      Ohai.disabled_plugins = [
+      ohai.disabled_plugins = [
         :MyPlugin
       ]
 
@@ -1411,7 +1411,7 @@ Ohai configuration settings can be added to the client.rb file.
 
    .. code-block:: ruby
 
-      Ohai.disabled_plugins = [
+      ohai.disabled_plugins = [
         :MyPlugin,
         :MyPlugin,
         :MyPlugin
@@ -1421,7 +1421,7 @@ Ohai configuration settings can be added to the client.rb file.
 
    .. code-block:: ruby
 
-      Ohai.disabled_plugins = [
+      ohai.disabled_plugins = [
 		:MyPlugin,
         :MyPlugin,
         'my_ohai_6_plugin'
@@ -1433,32 +1433,32 @@ Ohai configuration settings can be added to the client.rb file.
 
       [2014-06-13T23:49:12+00:00] DEBUG: Skipping disabled plugin MyPlugin
 
-``Ohai.hints_path``
+``ohai.hints_path``
    The path to the file that contains hints for Ohai.
 
-``Ohai.log_level``
+``ohai.log_level``
    The level of logging to be stored in a log file.
 
-``Ohai.log_location``
+``ohai.log_location``
    The location of the log file.
 
-``Ohai.plugin_path``
+``ohai.plugin_path``
    An array of paths at which Ohai plugins are located. Default value: ``[<CHEF_GEM_PATH>/ohai-9.9.9/lib/ohai/plugins]``. When custom Ohai plugins are added, the paths must be added to the array. For example, a single plugin:
 
    .. code-block:: ruby
 
-      Ohai.plugin_path << '/etc/chef/ohai_plugins'
+      ohai.plugin_path << '/etc/chef/ohai_plugins'
 
    and for multiple plugins:
 
    .. code-block:: ruby
 
-      Ohai.plugin_path += [
+      ohai.plugin_path += [
         '/etc/chef/ohai_plugins',
         '/path/to/other/plugins'
         ]
 
-``Ohai.version``
+``ohai.version``
    The version of Ohai.
 
 .. note:: The Ohai executable ignores settings in the client.rb file when Ohai is run independently of the chef-client.

@@ -43,7 +43,7 @@ where
 
 * ``windows_package`` tells the chef-client to manage a package
 * ``'name'`` is the name of the package
-* ``:action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
 * ``checksum``, ``installer_type``, ``options``, ``package_name``, ``provider``, ``remote_file_attributes``, ``returns``, ``source``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
