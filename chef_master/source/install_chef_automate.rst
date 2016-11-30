@@ -365,7 +365,9 @@ new build node or runner. See the next section for installation instructions.
 
 .. note:: Your Chef Automate server will not be available for use until you either agree to apply the configuration, or manually run ``sudo automate-ctl reconfigure``.
 
-After setup successfullyl completes, copy the ``admin`` credentials and ``builder`` password to somewhere safe. And if you don't have DNS, define it in ``/etc/hosts``:
+After setup successfully completes, the ``admin`` credentials and ``builder`` password are reported in the completion output; however, they are also saved to ``/etc/delivery/$ENTERPRISE_NAME-admin-credentials``. 
+
+And if you don't have DNS, define it in ``/etc/hosts``:
 
    .. code-block:: none
 

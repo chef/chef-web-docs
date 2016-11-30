@@ -48,7 +48,7 @@ If you need to update a license on a Chef Automate server, perform the following
 
    .. code-block:: bash
 
-      automate-ctl reconfigure && sudo automate-ctl restart
+      sudo automate-ctl reconfigure && sudo automate-ctl restart
 
 Upgrade 
 =====================================================
