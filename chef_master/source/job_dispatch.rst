@@ -19,6 +19,18 @@ Chef Automate release 0.6.0 includes a new SSH-based job execution layer. Under 
 - View the queue of jobs in the Chef Automate UI
 - View and test runner status via the Chef Automate UI
 
+Known Issues
+--------------
+
+.. warning:: Job Dispatch/Runners cannot be used to execute commands on infrastructure nodes. Infrastructure nodes are usually used as part of testing, but may not be present in your environment. Infrastructure nodes are not build nodes. Currently, as of Automate 0.6.7, job dispatch/runners can only be used against build nodes.
+
+     * One typical environment would be an Acceptance environment on which both automated and manual testing of new code might happen against a production-like environment. The automated testing will be triggered by a Push Jobs client activating a chef-client run on the infrastructure node.
+     
+     * Another issue is that the delivery-truck cookbook's delivery-sugar dependency currently assumes that Push Jobs be available on infrastructure nodes for the deploy phase. This behavior is the default, but can be customized.
+     
+     Until these issues are fixed, either Push Jobs alone should be used across the Automate installation, or a combination of job dispatch/runners should be used against builder nodes, and Push Jobs against infrastructure nodes respectively.
+
+
 Terms
 =====================================================
 
