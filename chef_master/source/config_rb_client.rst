@@ -84,16 +84,16 @@ This configuration file has the following settings:
 ``data_bag_path``
    The location from which a data bag is loaded. Default value: ``/var/chef/data_bags``.
 
-``data_collector_server_url``
+``data_collector.server_url``
    The fully qualified URL to the data collector server API.
 
-``data_collector_token``
+``data_collector.token``
    The shared data collector security token. When configured, the token will be passed as an HTTP header named ``x-data-collector-token`` which the server can choose to accept or reject.
 
-``data_collector_mode``
+``data_collector.mode``
    The chef-client mode in which the Data Collector will be enabled. Possible values: ``:solo``, ``:client``, or ``:both``. The ``:solo`` value is used for Chef operating in Chef Solo Mode or Chef Solo Legacy Mode. Default value: ``both``.
 
-``data_collector_raise_on_failure``
+``data_collector.raise_on_failure``
    When enabled the chef-client will raise an error if it is unable to successfully POST to the data collector server. Default value: ``false``.
 
 ``default_attribute_whitelist``
