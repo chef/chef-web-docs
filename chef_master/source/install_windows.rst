@@ -15,7 +15,7 @@ To run the chef-client at periodic intervals (so that it can check in with the C
 
 .. end_tag
 
-Use knife windows
+Use knife windows 
 =====================================================
 .. tag plugin_knife_windows_summary
 

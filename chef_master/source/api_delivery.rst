@@ -240,6 +240,7 @@ In this configuration, ``lsyncd`` should not be running; any other value would i
             ]
           }
 
+.. _compliance-profile-api:
 
 /compliance/profiles/OWNER
 -----------------------------------------------------

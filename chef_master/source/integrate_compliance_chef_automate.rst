@@ -17,11 +17,11 @@ To make it easy to retrieve profiles, execute and report results via chef conver
 Collector: ``chef-visibility``
 =====================================================
 
-This method is compatible with Chef Server managed nodes or Chef Solo (commonly referred to as "Chef client local mode")
+This method is compatible with Chef Server managed nodes or Chef Solo (commonly referred to as "Chef client local mode").
 
 When setting the ``node['audit]['collector']`` attribute to ``chef-visibility``, the ``audit`` cookbook can retrieve profiles from the following sources: ``Chef Supermarket``, ``local filesystem`` and ``git repository``.
 
-The profiles execution result will be sent to Chef Automate using the ``data_collector`` url and ``token``. For more details, see the README file of the `audit <https://github.com/chef-cookbooks/audit>`_ cookbook.
+The profiles execution result will be sent to Chef Automate using the ``data_collector`` URL and ``token``. For more details, see the README file of the `audit <https://github.com/chef-cookbooks/audit>`_ cookbook.
 
 Collector: ``chef-compliance``
 =====================================================
@@ -57,7 +57,7 @@ To enable this use-case, add the following settings to ``/etc/opscode/chef-serve
    data_collector['token'] = 'TOKEN'
    profiles['root_url'] = 'https://my-automate-server.mycompany.com'
 
-and run ``sudo chef-server-ctl reconfigure``
+and run ``sudo chef-server-ctl reconfigure``.
 
 The profiles store service also needs to be enabled in Chef Automate. This is documented in :ref:`profiles`.
 Manage the profiles in profiles asset store using the :doc:`api_delivery`.
@@ -67,7 +67,6 @@ When using the ``audit`` cookbook, set the ``node['audit]['collector']`` attribu
 The profiles execution result will be sent to Chef Visibility. For more details, see the README file of the `audit <https://github.com/chef-cookbooks/audit>`_ cookbook.
 
 The ``audit`` cookbook does not require Chef Automate url or token attributes as Chef Server is acting as a proxy in this setup.
-
 
 Collector: ``chef-server``
 =====================================================
@@ -86,4 +85,4 @@ When setting the ``node['audit]['collector']`` attribute to ``chef-server``, the
 
 The profiles execution result will be sent to Chef Compliance. For more details, see the README file of the `audit <https://github.com/chef-cookbooks/audit>`_ cookbook.
 
-No Chef Compliance url or token attributes are required by this setup as Chef Server is acting as a proxy.
+No Chef Compliance URL or token attributes are required by this setup as Chef Server is acting as a proxy.
