@@ -3,9 +3,15 @@ AWS OpsWorks for Chef Automate
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/aws_opsworks_chef_automate.rst>`__
 
-`AWS OpsWorks for Chef Automate <https://aws.amazon.com/opsworks/chefautomate/>`__ is an AWS service which you can use to create a Chef Automate instance. For documentation on how to setup and create a new instance, please see the `AWS OpsWorks User Guide <http://docs.aws.amazon.com/opsworks/latest/userguide/welcome_opscm.html>`_. For a tutorial on how to use your new Chef Automate instance, see the OpsWorks for Chef Automate version of `Manage a Node <https://learn.chef.io/tutorials/manage-a-node/opsworks/>`_. Finally, the general Chef Automate documentation on this site applies to the instances you create via OpsWorks for Chef Automate, so feel free to refer to them as needed.
+`AWS OpsWorks for Chef Automate <https://aws.amazon.com/opsworks/chefautomate/>`__ is an AWS service which you can use to create a Chef Automate instance.
 
-The following sections are specific to any instances created with AWS OpsWorks for Chef Automate.
+For documentation on how to setup and create a new instance, please see the `AWS OpsWorks User Guide <http://docs.aws.amazon.com/opsworks/latest/userguide/welcome_opscm.html>`_.
+
+For a tutorial on how to use your new Chef Automate instance, see the OpsWorks for Chef Automate version of `Manage a Node <https://learn.chef.io/tutorials/manage-a-node/opsworks/>`_.
+
+Finally, the general Chef Automate documentation on this site applies to the instances you create via OpsWorks for Chef Automate, so feel free to refer to it as needed.
+
+The following is applicable to any instances created with AWS OpsWorks for Chef Automate.
 
 .. _find-opsworks-instance:
 
@@ -57,7 +63,7 @@ Enabling the compliance profile storage service in AWS OpsWorks for Chef Automat
 
    to ``chef-server.rb`` and run ``sudo chef-server-ctl reconfigure``.
 
-#. :doc:`Upload compliance profiles </api_delivery.html#compliance-profiles-owner>` to your Chef Automate instance.
+#. :ref:`Upload compliance profiles <compliance-profile-api>` to your Chef Automate instance.
 
 #. `Configure the audit cookbook <https://github.com/chef-cookbooks/audit#reporting-to-chef-visibility-via-chef-server>`_ to scan your nodes.
 
