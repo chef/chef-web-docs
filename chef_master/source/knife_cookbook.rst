@@ -11,7 +11,7 @@ A cookbook is the fundamental unit of configuration and policy distribution. A c
 * Attribute values
 * File distributions
 * Templates
-* Extensions to Chef, such as libraries, definitions, and custom resources
+* Extensions to Chef, such as custom resources and libraries
 
 .. end_tag
 

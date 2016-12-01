@@ -131,8 +131,7 @@ Some important components of workstations include:
        * chef
        * Ohai
        * chef-zero
-       * Testing tools like Kitchen, ChefSpec, and Foodcritic
-       * Policy, including policy files
+       * Testing tools like Kitchen, ChefSpec, Cookstyle, and Foodcritic
        * Chef provisioning
        * Everything else needed to author cookbooks and upload them to the Chef server
 
@@ -195,7 +194,6 @@ Some important components of workstations include:
        Use ChefSpec to simulate the convergence of resources on a node:
 
        * Runs the chef-client on a local machine
-       * Uses chef-zero or chef-solo
        * Is an extension of RSpec, a behavior-driven development (BDD) framework for Ruby
        * Is the fastest way to test resources and recipes
 
@@ -211,7 +209,7 @@ A cookbook is the fundamental unit of configuration and policy distribution. A c
 * Attribute values
 * File distributions
 * Templates
-* Extensions to Chef, such as libraries, definitions, and custom resources
+* Extensions to Chef, such as custom resources and libraries
 
 .. end_tag
 
@@ -604,4 +602,3 @@ Conclusion
 Chef is a thin DSL (domain-specific language) built on top of Ruby. This approach allows Chef to provide just enough abstraction to make reasoning about your infrastructure easy. Chef includes a built-in taxonomy of all the basic resources one might configure on a system, plus a defined mechanism to extend that taxonomy using the full power of the Ruby language. Ruby was chosen because it provides the flexibility to use both the simple built-in taxonomy, as well as being able to handle any customization path your organization requires.
 
 .. end_tag
-
