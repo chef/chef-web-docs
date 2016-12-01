@@ -215,9 +215,9 @@ The Chef server requires an x86_64 compatible systems architecture. When the Che
 
 IP Addresses
 -----------------------------------------------------
-Unless you intend to operate the Chef Server in IPv6 mode, you should disable ipv6 in the system's /etc/hosts file by commenting out or removing all references to IPv6 addresses like "::1" or "fe80:db8:85a3:8d3:1319:8a2e:370:7348".
+Unless you intend to operate the Chef server in IPv6 mode, you should disable ipv6 in the system's ``/etc/hosts`` file by commenting out or removing all references to IPv6 addresses like "::1" or "fe80:db8:85a3:8d3:1319:8a2e:370:7348".
 
-Without these changes, a Chef Server install intended to run in ipv4 mode will mistakenly only start the postgres service on the ipv6 loopback address of "::1" rather than the ipv4 loopback address of 127.0.0.1 . This will make further progress through an initial reconfiguration impossible.
+Without these changes, a Chef server install intended to run in ipv4 mode will mistakenly only start the postgres service on the ipv6 loopback address of "::1" rather than the ipv4 loopback address of 127.0.0.1. This will make further progress through an initial reconfiguration impossible.
 
 Hostnames
 -----------------------------------------------------
