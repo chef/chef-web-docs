@@ -334,6 +334,11 @@ Compliance scanner
 :doc:`chef-compliance.rb </config_rb_compliance>` |
 :doc:`Chef Compliance API </api_compliance>`
 
+AWS OpsWorks for Chef Automate
+-----------------------------------------------------
+
+:doc:`AWS OpsWorks for Chef Automate </aws_opsworks_chef_automate>`
+
 Troubleshooting
 -----------------------------------------------------
 
@@ -394,6 +399,7 @@ Addenda
    attributes
    auth
    aws_marketplace
+   aws_opsworks_chef_automate
    azure_portal
    berkshelf
    chef_automate
