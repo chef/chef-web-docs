@@ -37,13 +37,13 @@ Workstations
 =====================================================
 .. tag workstation_summary
 
-A workstation is a computer that is configured to run various Chef command-line tools that synchronize with a chef-repo, author cookbooks, interact with the Chef server, and interact with nodes.
+A workstation is a computer running the Chef Development Kit (ChefDK) that is used to author cookbooks, interact with the Chef server, and interact with nodes.
 
 The workstation is the location from which most users do most of their work, including:
 
 * Developing cookbooks and recipes
+* Testing Chef code
 * Keeping the chef-repo synchronized with version source control
-* Using command-line tools
 * Configuring organizational policy, including defining roles and environments and ensuring that critical data is stored in data bags
 * Interacting with nodes, as (or when) required, such as performing a bootstrap operation
 
@@ -118,4 +118,3 @@ Conclusion
 Chef is a thin DSL (domain-specific language) built on top of Ruby. This approach allows Chef to provide just enough abstraction to make reasoning about your infrastructure easy. Chef includes a built-in taxonomy of all the basic resources one might configure on a system, plus a defined mechanism to extend that taxonomy using the full power of the Ruby language. Ruby was chosen because it provides the flexibility to use both the simple built-in taxonomy, as well as being able to handle any customization path your organization requires.
 
 .. end_tag
-

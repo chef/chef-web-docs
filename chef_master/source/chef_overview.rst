@@ -95,13 +95,13 @@ Workstations
 =====================================================
 .. tag workstation_summary
 
-A workstation is a computer that is configured to run various Chef command-line tools that synchronize with a chef-repo, author cookbooks, interact with the Chef server, and interact with nodes.
+A workstation is a computer running the Chef Development Kit (ChefDK) that is used to author cookbooks, interact with the Chef server, and interact with nodes.
 
 The workstation is the location from which most users do most of their work, including:
 
 * Developing cookbooks and recipes
+* Testing Chef code
 * Keeping the chef-repo synchronized with version source control
-* Using command-line tools
 * Configuring organizational policy, including defining roles and environments and ensuring that critical data is stored in data bags
 * Interacting with nodes, as (or when) required, such as performing a bootstrap operation
 
