@@ -313,6 +313,4 @@ For more information about test-driven development and Kitchen:
 
 * `kitchen.ci <http://kitchen.ci>`_
 * `Getting Started with Kitchen <http://kitchen.ci/docs/getting-started/>`_
-* `Test-Driven Infrastructure with Chef, 2nd Edition <http://shop.oreilly.com/product/0636920030973.do>`_, by Stephen Nelson-Smith (O'Reilly Media)
 * `How Can I Combine Berks and Local Cookbooks? <https://coderwall.com/p/j72egw/organise-your-site-cookbooks-with-berkshelf-and-this-trick>`_
-

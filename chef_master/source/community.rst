@@ -11,10 +11,9 @@ Read
 =====================================================
 Recommended reading:
 
-* `Effective DevOps (Building a Culture of Collaboration, Affinity, and Tooling at Scale) -- Early Release <http://shop.oreilly.com/product/0636920039846.do>`_
+* `Effective DevOps (Building a Culture of Collaboration, Affinity, and Tooling at Scale) <http://shop.oreilly.com/product/0636920039846.do>`_
 * `Learning Chef (A Guide to Configuration Management and Automation) <http://shop.oreilly.com/product/0636920032397.do>`_
 * `Customizing Chef (Getting the Most Out of Your Infrastructure Automation) <http://shop.oreilly.com/product/0636920032984.do>`_
-* `Test-Driven Infrastructure with Chef, 2nd Edition <http://shop.oreilly.com/product/0636920030973.do>`_
 
 More books about Chef:
 
@@ -26,6 +25,7 @@ More books about Chef:
 * `Mastering Chef [Packt Publishing] <https://www.packtpub.com/networking-and-servers/mastering-chef/?utm_source=GC-chef.io&utm_medium=pod&utm_campaign=1783981563>`_
 * `Mastering Chef Provisioning [Packt Publishing] <https://www.packtpub.com/networking-and-servers/mastering-chef-provisioning>`_
 * `Managing Windows Servers with Chef <https://www.packtpub.com/networking-and-servers/managing-windows-servers-chef>`_
+* `Test-Driven Infrastructure with Chef, 2nd Edition <http://shop.oreilly.com/product/0636920030973.do>`_
 
 Meet
 =====================================================
