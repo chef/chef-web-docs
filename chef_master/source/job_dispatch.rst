@@ -22,13 +22,13 @@ Chef Automate release 0.6.0 includes a new SSH-based job execution layer. Under 
 Known Issues
 --------------
 
-.. warning:: Job Dispatch/Runners cannot be used to execute commands on infrastructure nodes. Infrastructure nodes are usually used as part of testing, but may not be present in your environment. Infrastructure nodes are not build nodes. Currently, as of Automate 0.6.7, job dispatch/runners can only be used against build nodes.
+.. warning:: If you need to run windows build and infrastructure nodes, stop now. Job Dispatch is currently incompatible with Windows. If you are running only linux build/infrastructure nodes, please continue.
 
-     * One typical environment would be an Acceptance environment on which both automated and manual testing of new code might happen against a production-like environment. The automated testing will be triggered by a Push Jobs client activating a chef-client run on the infrastructure node.
+By default, Job Dispatch nodes cannot be used to deploy builds on infrastructure nodes. Infrastructure nodes are usually used as part of testing, but may not be present in your environment. Infrastructure nodes are not build nodes. Currently, as of Automate 0.6.7, job dispatch/runners can only be used directly against build nodes.
+
+     * One typical environment would be an Acceptance environment on which both automated and manual testing of new code might happen against a production-like environment. The deploy previous to automated testing will be triggered by a build node triggering a Push Jobs client on the infrastructure node. This will cause the infrastructure node's chef-client to run on the infrastructure node, thus deploying the build. The delivery-truck cookbook's deploy recipe in https://github.com/chef-cookbooks/delivery-truck/blob/master/recipes/deploy.rb#L34 currently assumes that a Push Jobs client will be available on infrastructure nodes for the deploy phase. This behavior is the default, but can be customized to potentially trigger the chef-client run through means other than a Push Jobs job, such as Job Dispatch.
      
-     * Another issue is that the delivery-truck cookbook's delivery-sugar dependency currently assumes that Push Jobs be available on infrastructure nodes for the deploy phase. This behavior is the default, but can be customized.
-     
-     Until these issues are fixed, either Push Jobs alone should be used across the Automate installation, or a combination of job dispatch/runners should be used against builder nodes, and Push Jobs against infrastructure nodes respectively.
+Until this issue is fixed, either Push Jobs alone should be used across the Automate installation, or a combination of Job Dispatch should be used against builder nodes, and Push Jobs against infrastructure nodes respectively.
 
 
 Terms
