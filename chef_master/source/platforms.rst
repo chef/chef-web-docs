@@ -254,7 +254,7 @@ The Chef Automate server may be run on the following platforms. Do not mix platf
      - ``6.5``, ``6.6``, ``7``
    * - Ubuntu
      - ``x86_64``
-     - ``12.04``, ``14.04``
+     - ``12.04``, ``14.04``, ``16.04``
 
 .. note:: The Delivery CLI may be run on the following platforms:
 
