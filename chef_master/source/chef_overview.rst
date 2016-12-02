@@ -99,7 +99,7 @@ A workstation is a computer that is configured to run various Chef command-line 
 
 The workstation is the location from which most users do most of their work, including:
 
-* Developing cookbooks and recipes (and authoring them using Ruby syntax and patterns)
+* Developing cookbooks and recipes
 * Keeping the chef-repo synchronized with version source control
 * Using command-line tools
 * Configuring organizational policy, including defining roles and environments and ensuring that critical data is stored in data bags
