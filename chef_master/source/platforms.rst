@@ -219,7 +219,7 @@ The following table lists the Foundational platforms for the Chef server:
      - ``5.x``, ``6.x``, ``7.x``
    * - Ubuntu
      -
-     - ``12.04 LTS``, ``14.04 LTS``, ``16.04 LTS``
+     - ``12.04``, ``14.04``, ``16.04``
 
 .. end_tag
 
