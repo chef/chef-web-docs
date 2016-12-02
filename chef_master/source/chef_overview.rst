@@ -130,7 +130,6 @@ Some important components of workstations include:
        * chef-client
        * chef
        * Ohai
-       * chef-zero
        * Testing tools like Kitchen, ChefSpec, Cookstyle, and Foodcritic
        * Chef provisioning
        * Everything else needed to author cookbooks and upload them to the Chef server
