@@ -22,6 +22,35 @@ A metadata.rb file is:
 
 .. note:: A metadata.json file can be edited directly, should temporary changes be required. Any subsequent upload or action that generates metadata will cause the existing metadata.json file to be overwritten with the newly generated metadata. Therefore, any permanent changes to cookbook metadata should be done in the metadata.rb file, and then re-uploaded to the Chef server.
 
+Version Constraints
+====================
+
+.. _cookbook_version_constraints:
+
+Many fields in a cookbook's metadata allow the user to constrain versions. There are a set of operators common to all fields:
+
+.. list-table::
+  :widths: 350 50
+  :header-rows: 1
+
+  * - Specification
+    - Operator
+  * - Pessimistic (see note below)
+    - ``~>``
+  * - Equal to
+    - ``=``
+  * - Greater than or equal to
+    - ``>=``
+  * - Greater than
+    - ``>``
+  * - Less than
+    - ``<`` 
+  * - Less than or equal to
+    - ``<=``
+
+.. note:: Pessimistic locking is enabled by proper `semantic versioning <https://semver.org>`__ of cookbooks. If we're on version 2.2.3 of a cookbook, we know that the API will be stable until the 3.0.0 release. Using traditional operators, we'd write this as ``>= 2.2.0, < 3.0``. This is exactly the same as writing ``~> 2.2`` (notice we drop the patch version).
+
+
 Settings
 ==========================================================================
 .. tag config_rb_metadata_settings
@@ -49,7 +78,7 @@ This configuration file has the following settings:
         :default => 'kitty kitty'
 
 ``chef_version``
-   A range of chef-client versions that are supported by this cookbook.
+   A range of chef-client versions that are supported by this cookbook. All :ref:`version constraint operators <cookbook_version_constraints>` are applicable to this field.
 
    .. tag config_rb_metadata_settings_example_chef_version
 
@@ -59,31 +88,12 @@ This configuration file has the following settings:
 
       chef_version "~> 12"
 
-   Or matches any 12.x (or higher) version of the chef-client:
-
-   .. code-block:: ruby
-
-      chef_version ">= 12"
-
-   Or matches any version of the chef-client greater than 12.5.1, any 13.x version, but no 14.x versions:
-
-   .. code-block:: ruby
-
-      chef_version ">= 12.5.1", "< 14.0"
-
-   Or matches any version of the chef-client greater than or equal to 11.18.4 and less than 12.0 and also any version of the chef-client greater than or equal to 12.5.1, but less than 13.0:
-
-   .. code-block:: ruby
-
-      chef_version ">= 11.18.12", "< 12.0"
-      chef_version ">= 12.5.1", "< 13.0"
-
    .. end_tag
 
    .. note:: This setting is not visible in Chef Supermarket.
 
 ``depends``
-   Show that a cookbook has a dependency on another cookbook. Use a version constraint to define dependencies for cookbook versions: ``<`` (less than), ``<=`` (less than or equal to), ``=`` (equal to), ``>=`` (greater than or equal to; also known as "optimistically greater than", or "optimistic"), ``~>`` (approximately greater than; also known as "pessimistically greater than", or "pessimistic"), or ``>`` (greater than). This field requires that a cookbook with a matching name and version exists on the Chef server. When the match exists, the Chef server includes the dependency as part of the set of cookbooks that are sent to the node when the chef-client runs. It is very important that the ``depends`` field contain accurate data. If a dependency statement is inaccurate, the chef-client may not be able to complete the configuration of the system.
+   This field requires that a cookbook with a matching name and version exists on the Chef server. When the match exists, the Chef server includes the dependency as part of the set of cookbooks that are sent to the node when the chef-client runs. It is very important that the ``depends`` field contain accurate data. If a dependency statement is inaccurate, the chef-client may not be able to complete the configuration of the system. All :ref:`version constraint operators <cookbook_version_constraints>` are applicable to this field.
 
    For example, to set a dependency a cookbook named ``cats``:
 
@@ -224,7 +234,7 @@ This configuration file has the following settings:
       name 'cats'
 
 ``ohai_version``
-   A range of chef-client versions that are supported by this cookbook.
+   A range of Ohai versions that are supported by this cookbook. All :ref:`version constraint operators <cookbook_version_constraints>` are applicable to this field.
 
    .. tag config_rb_metadata_settings_example_ohai_version
 
@@ -233,12 +243,6 @@ This configuration file has the following settings:
    .. code-block:: ruby
 
       ohai_version "~> 8"
-
-   Or matches any 8.x (or higher) version of Ohai:
-
-   .. code-block:: ruby
-
-      ohai_version ">= 8"
 
    .. end_tag
 

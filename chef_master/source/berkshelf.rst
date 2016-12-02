@@ -3,7 +3,181 @@ About Berkshelf
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/berkshelf.rst>`__
 
-Berkshelf is a dependency manager for certain cookbook workflows that is included in the Chef development kit. Berkshelf stores every version of a cookbook that has ever been installed. By default, the local disk repository for Berkshelf is located at ``~/.berkshelf``, but this may be modified by setting the ``BERKSHELF_PATH`` environment variable.
+.. tag berkshelf_summary
+
+Berkshelf is a dependency manager for certain cookbook workflows that is included in the Chef Development kit.
+
+.. note:: For new users, we strongly recommend using :doc:`Policyfiles </policyfile>` rather than Berkshelf.
+
+.. end_tag
+
+The Berksfile
+==============
+
+.. tag berksfile_summary
+
+A Berksfile describes the set of sources and dependencies needed to use a cookbook. It is used in conjunction with the ``berks`` command.
+
+.. end_tag
+
+Syntax
+-------
+A Berksfile is a Ruby file, in which sources, dependencies, and options may be specified. Berksfiles are modelled closely on Bundler's Gemfile. The syntax is as follows:
+
+.. code-block:: ruby
+
+  source "https://supermarket.chef.io"
+  metadata
+  cookbook "NAME" [, "VERSION_CONSTRAINT"] [, SOURCE_OPTIONS]
+
+
+Source Keyword
++++++++++++++++
+
+A source defines where Berkshelf should look for cookbooks. Sources are processed in the order that they are defined in, and processing stops as soon as a suitable cookbook is found. A location can either be a :doc:`Supermarket <supermarket>` system, or a Chef Server.
+By default, a Berksfile has a source for Chef's public supermarket:
+
+.. code-block:: ruby
+
+  source "https://supermarket.chef.io"
+
+To add a private supermarket, which will be preferred:
+
+.. code-block:: ruby
+
+  source "https://supermarket.example.com"
+  source "https://supermarket.chef.io"
+
+To add a Chef Server:
+
+.. code-block:: ruby
+
+  source "https://supermarket.chef.io"
+  source :chef_server
+
+The location and authentication details for the Chef Server will be taken from the user's ``knife.rb``.
+
+Metadata Keyword
++++++++++++++++++
+
+The ``metadata`` keyword causes Berkshelf to process the local cookbook metadata.
+This ensures that the dependencies of the cookbook are resolved by Berkshelf. Using the ``metadata`` keyword requires that the Berksfile be placed in the root of the cookbook, next to ``metadata.rb``.
+
+Cookbook Keyword
+++++++++++++++++++
+
+The ``cookbook`` keyword allows the user to define where a cookbook is installed from, or to set additional version constraints. It can also be used to install additonal cookbooks, for example to use during testing.
+
+The format of a ``cookbook`` stanza is as follows:
+
+.. code-block
+
+  cookbook "NAME" [, "VERSION_CONSTRAINT"] [, SOURCE_OPTIONS]
+
+The simplest form is:
+
+.. code-block:: ruby
+
+  cookbook "library-cookbook"
+
+This ensures that a cookbook named ``my-cookbook`` is installed by berkshelf.
+
+Version constraints are the second parameter:
+
+.. code-block:: ruby
+
+  cookbook "library-cookbook", "~> 0.1.1"
+
+These are identical to the version constraints in a :ref:`cookbook metadata file <cookbook_version_constraints>`.
+
+Source options are used to specify the location to acquire a cookbook from, or to place a cookbook in a group. By default, cookbooks are acquired from the default sources, but it's possible to override this on a case by case basis. Often this is used to get a development cookbok from Git, or to use another cookbook in a monolithic cookbook repository.
+
+**Path Location**
+
+The path location enables Berkshelf to use a cookbook located on the same system. It does not cache the target cookbook, ensuring that the latest version is always used. The target must be a single cookbook with a ``metadata.rb``.
+
+.. code-block:: ruby
+
+  cookbook "library-cookbook", "~> 0.1.1", path: "../library-cookbook"
+
+**Git Location**
+
+The git location enables Berkshelf to use acquire a cookbook from a git repository.
+
+.. code-block:: ruby
+
+  cookbook "library-cookbook", "~> 0.1.1", git: "https://github.com/example/library-cookbook.git"
+
+The user can specify a git branch or a tag (the options are synonymous) using an optional argument:
+
+.. code-block:: ruby
+
+  cookbook "library-cookbook", "~> 0.1.1", git: "https://github.com/example/library-cookbook.git", branch: "smartos-dev"
+  cookbook "library-cookbook", "~> 0.1.1", git: "https://github.com/example/library-cookbook.git", tag: "1.2.3"
+
+The user can also specify a revision:
+
+.. code-block:: ruby
+
+  cookbook "library-cookbook", "~> 0.1.1", git: "https://github.com/example/library-cookbook.git", ref: "eef7e65806e7ff3bdbe148e27c447ef4a8bc3881"
+
+If a git repository contains many cookbooks, the user can specify the path to the desired cookbook using the ``rel`` option:
+
+.. code-block:: ruby
+
+  cookbook "library-cookbook", "~> 0.1.1", git: "https://github.com/example/cookbook-repo.git", rel: "library-cookbook"
+
+**GitHub Location**
+
+If a cookbook is in GitHub, you can use the ``github:`` shorthand to refer to it:
+
+.. code-block:: ruby
+
+  cookbook "library-cookbook", "~> 0.1.1", github: "example/library-cookbook"
+
+Any other git options are valid for a GitHub location.
+
+Groups
++++++++
+
+Adding cookbooks to a group is useful should you wish to exclude certain cookbooks from upload or vendoring.
+
+Groups can be defined via blocks:
+
+.. code-block:: ruby
+
+  group :test do
+    cookbook "test-cookbook", path: "test/fixtures/test"
+  end
+
+Groups can also be specified inline:
+
+.. code-block:: ruby
+  
+  cookbook "test-cookbook", path: "test/fixtures/test", group: :test
+
+To exclude a group when using ``berks``, use the ``--except`` flag:
+
+.. code-block:: ruby
+  
+  $ berks install --except test
+
+Solver Keyword
++++++++++++++++
+
+It is possible to configure which engine to use for the `solve <https://github.com/berkshelf/solve>`__ dependency resolution system. 
+
+The default ``gecode`` solver matches the engine used by the Chef Server, so will more closely reflect the behaviour of the Chef Server in selecting cookbooks:
+
+.. code-block:: ruby
+  
+  solver :gecode
+
+The optional ``ruby`` solver can give better results in some situations, notably when Berkshelf times out when trying to build a dependency set.
+
+.. code-block:: ruby
+  
+  solver :ruby
 
 Berkshelf CLI
 =====================================================
@@ -382,8 +556,3 @@ This command has the following options:
 ``-o NAME``, ``--outfile NAME``
    The name of the file to which output is saved. Default value: ``graph.png``.
 
-For more information ...
-=====================================================
-For more information about Berkshelf:
-
-* `How Can I Combine Berks and Local Cookbooks? <https://coderwall.com/p/j72egw/organise-your-site-cookbooks-with-berkshelf-and-this-trick>`_
