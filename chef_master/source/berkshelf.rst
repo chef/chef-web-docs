@@ -26,9 +26,9 @@ A Berksfile is a Ruby file, in which sources, dependencies, and options may be s
 
 .. code-block:: ruby
 
-  source "https://supermarket.chef.io"
-  metadata
-  cookbook "NAME" [, "VERSION_CONSTRAINT"] [, SOURCE_OPTIONS]
+   source "https://supermarket.chef.io"
+   metadata
+   cookbook "NAME" [, "VERSION_CONSTRAINT"] [, SOURCE_OPTIONS]
 
 
 Source Keyword
@@ -39,21 +39,21 @@ By default, a Berksfile has a source for Chef's public supermarket:
 
 .. code-block:: ruby
 
-  source "https://supermarket.chef.io"
+   source "https://supermarket.chef.io"
 
 To add a private supermarket, which will be preferred:
 
 .. code-block:: ruby
 
-  source "https://supermarket.example.com"
-  source "https://supermarket.chef.io"
+   source "https://supermarket.example.com"
+   source "https://supermarket.chef.io"
 
 To add a Chef Server:
 
 .. code-block:: ruby
 
-  source "https://supermarket.chef.io"
-  source :chef_server
+   source "https://supermarket.chef.io"
+   source :chef_server
 
 The location and authentication details for the Chef Server will be taken from the user's ``knife.rb``.
 
@@ -70,15 +70,15 @@ The ``cookbook`` keyword allows the user to define where a cookbook is installed
 
 The format of a ``cookbook`` stanza is as follows:
 
-.. code-block
+.. code-block:: ruby
 
-  cookbook "NAME" [, "VERSION_CONSTRAINT"] [, SOURCE_OPTIONS]
+   cookbook "NAME" [, "VERSION_CONSTRAINT"] [, SOURCE_OPTIONS]
 
 The simplest form is:
 
 .. code-block:: ruby
 
-  cookbook "library-cookbook"
+   cookbook "library-cookbook"
 
 This ensures that a cookbook named ``my-cookbook`` is installed by berkshelf.
 
@@ -86,7 +86,7 @@ Version constraints are the second parameter:
 
 .. code-block:: ruby
 
-  cookbook "library-cookbook", "~> 0.1.1"
+   cookbook "library-cookbook", "~> 0.1.1"
 
 These are identical to the version constraints in a :ref:`cookbook metadata file <cookbook_version_constraints>`.
 
@@ -98,7 +98,7 @@ The path location enables Berkshelf to use a cookbook located on the same system
 
 .. code-block:: ruby
 
-  cookbook "library-cookbook", "~> 0.1.1", path: "../library-cookbook"
+   cookbook "library-cookbook", "~> 0.1.1", path: "../library-cookbook"
 
 **Git Location**
 
@@ -106,26 +106,26 @@ The git location enables Berkshelf to use acquire a cookbook from a git reposito
 
 .. code-block:: ruby
 
-  cookbook "library-cookbook", "~> 0.1.1", git: "https://github.com/example/library-cookbook.git"
+   cookbook "library-cookbook", "~> 0.1.1", git: "https://github.com/example/library-cookbook.git"
 
 The user can specify a git branch or a tag (the options are synonymous) using an optional argument:
 
 .. code-block:: ruby
 
-  cookbook "library-cookbook", "~> 0.1.1", git: "https://github.com/example/library-cookbook.git", branch: "smartos-dev"
-  cookbook "library-cookbook", "~> 0.1.1", git: "https://github.com/example/library-cookbook.git", tag: "1.2.3"
+   cookbook "library-cookbook", "~> 0.1.1", git: "https://github.com/example/library-cookbook.git", branch: "smartos-dev"
+   cookbook "library-cookbook", "~> 0.1.1", git: "https://github.com/example/library-cookbook.git", tag: "1.2.3"
 
 The user can also specify a revision:
 
 .. code-block:: ruby
 
-  cookbook "library-cookbook", "~> 0.1.1", git: "https://github.com/example/library-cookbook.git", ref: "eef7e65806e7ff3bdbe148e27c447ef4a8bc3881"
+   cookbook "library-cookbook", "~> 0.1.1", git: "https://github.com/example/library-cookbook.git", ref: "eef7e65806e7ff3bdbe148e27c447ef4a8bc3881"
 
 If a git repository contains many cookbooks, the user can specify the path to the desired cookbook using the ``rel`` option:
 
 .. code-block:: ruby
 
-  cookbook "library-cookbook", "~> 0.1.1", git: "https://github.com/example/cookbook-repo.git", rel: "library-cookbook"
+   cookbook "library-cookbook", "~> 0.1.1", git: "https://github.com/example/cookbook-repo.git", rel: "library-cookbook"
 
 **GitHub Location**
 
@@ -133,7 +133,7 @@ If a cookbook is in GitHub, you can use the ``github:`` shorthand to refer to it
 
 .. code-block:: ruby
 
-  cookbook "library-cookbook", "~> 0.1.1", github: "example/library-cookbook"
+   cookbook "library-cookbook", "~> 0.1.1", github: "example/library-cookbook"
 
 Any other git options are valid for a GitHub location.
 
@@ -146,21 +146,21 @@ Groups can be defined via blocks:
 
 .. code-block:: ruby
 
-  group :test do
-    cookbook "test-cookbook", path: "test/fixtures/test"
-  end
+   group :test do
+     cookbook "test-cookbook", path: "test/fixtures/test"
+   end
 
 Groups can also be specified inline:
 
 .. code-block:: ruby
   
-  cookbook "test-cookbook", path: "test/fixtures/test", group: :test
+   cookbook "test-cookbook", path: "test/fixtures/test", group: :test
 
 To exclude a group when using ``berks``, use the ``--except`` flag:
 
-.. code-block:: ruby
+.. code-block:: bash
   
-  $ berks install --except test
+   $ berks install --except test
 
 Solver Keyword
 +++++++++++++++
@@ -171,13 +171,13 @@ The default ``gecode`` solver matches the engine used by the Chef Server, so wil
 
 .. code-block:: ruby
   
-  solver :gecode
+   solver :gecode
 
 The optional ``ruby`` solver can give better results in some situations, notably when Berkshelf times out when trying to build a dependency set.
 
 .. code-block:: ruby
   
-  solver :ruby
+   solver :ruby
 
 Berkshelf CLI
 =====================================================
@@ -246,7 +246,7 @@ berks cookbook
 -----------------------------------------------------
 Use ``berks cookbook`` to create a skeleton for a new cookbook.
 
-.. warning:: This command is deprecated in favor of ``chef generate cookbook``.
+.. warning:: This command is deprecated. Please use ``chef generate cookbook`` instead.
 
 berks info
 -----------------------------------------------------
@@ -271,7 +271,7 @@ berks init
 -----------------------------------------------------
 Use ``berks init`` to initialize Berkshelf to the specified directory.
 
-.. warning:: This command is deprecated in favor of ``chef generate cookbook``.
+.. warning:: This command is deprecated. Please use ``chef generate cookbook`` instead.
 
 berks install
 -----------------------------------------------------
