@@ -172,7 +172,7 @@ The following table lists the Foundational platforms for the Chef DK:
      - ``6.x``, ``7.x``
    * - Ubuntu
      -
-     - ``12.04``, ``14.04``
+     - ``12.04``, ``14.04``, ``16.04``
    * - Microsoft Windows
      -
      - ``7``, ``8``, ``8.1``, ``2008 R2``, ``2012``, ``2012 R2``
