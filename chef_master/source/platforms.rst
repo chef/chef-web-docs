@@ -17,7 +17,7 @@ The sections below list the platforms that Chef have adopted for the chef-client
 .. note:: Other platforms are those that are supported in code, but Chef
           does not provide packages for.
 
-chef-client, Foundational Platforms
+chef-client/ohai, Foundational Platforms
 =====================================================
 The following table lists the Foundational platforms for the chef-client and ohai:
 
