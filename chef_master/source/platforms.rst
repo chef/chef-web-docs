@@ -19,7 +19,7 @@ The sections below list the platforms that Chef have adopted for the chef-client
 
 chef-client, Foundational Platforms
 =====================================================
-The following table lists the Foundational platforms for the chef-client:
+The following table lists the Foundational platforms for the chef-client and ohai:
 
 .. list-table::
    :widths: 280 100 120
@@ -149,10 +149,6 @@ The following platforms are not tested by Chef Software:
    * - Microsoft Windows
      -
      - ``2000``, ``2003``, ``2003 R2``, ``2008``
-
-Ohai
-=====================================================
-Ohai is provided on the same platforms as the chef-client.
 
 Chef DK
 =====================================================
