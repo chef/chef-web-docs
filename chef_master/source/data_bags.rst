@@ -549,7 +549,7 @@ To load the secret from a file:
 
    data_bag_item('bag', 'item', IO.read('secret_file'))
 
-To load a single data bag item named ``justin``:
+To load a single data bag item named ``admins``:
 
 .. code-block:: ruby
 
