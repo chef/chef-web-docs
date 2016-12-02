@@ -1,6 +1,6 @@
-=======================================================
-Deprecation: DNF Package allow_downgrade Property (CHEF-11)
-=======================================================
+===========================================================
+Deprecation: DNF Package allow_downgrade Property (CHEF-10)
+===========================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_dnf_package_allow_downgrade.rst>`__
 
 .. tag deprecations_dnf_package_allow_downgrade
