@@ -66,7 +66,7 @@ To install Chef server 12:
 
       $ chef-server-ctl user-create USER_NAME FIRST_NAME LAST_NAME EMAIL 'PASSWORD' --filename FILE_NAME
 
-   An RSA private key is generated automatically. This is the user's private key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to a specified path.
+   An RSA private key is generated automatically. This is the user's private key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to the specified absolute path.
 
    For example:
 
@@ -90,7 +90,7 @@ To install Chef server 12:
 
    The ``--association_user`` option will associate the ``user_name`` with the ``admins`` security group on the Chef server.
 
-   An RSA private key is generated automatically. This is the chef-validator key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to a specified path.
+   An RSA private key is generated automatically. This is the chef-validator key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to the specified absolute path.
 
    For example:
 

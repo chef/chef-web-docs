@@ -17,9 +17,9 @@ The sections below list the platforms that Chef have adopted for the chef-client
 .. note:: Other platforms are those that are supported in code, but Chef
           does not provide packages for.
 
-chef-client, Foundational Platforms
+chef-client/ohai, Foundational Platforms
 =====================================================
-The following table lists the Foundational platforms for the chef-client:
+The following table lists the Foundational platforms for the chef-client and ohai:
 
 .. list-table::
    :widths: 280 100 120
@@ -150,10 +150,6 @@ The following platforms are not tested by Chef Software:
      -
      - ``2000``, ``2003``, ``2003 R2``, ``2008``
 
-Ohai
-=====================================================
-Ohai is provided on the same platforms as the chef-client.
-
 Chef DK
 =====================================================
 The following table lists the Foundational platforms for the Chef DK:
@@ -176,7 +172,7 @@ The following table lists the Foundational platforms for the Chef DK:
      - ``6.x``, ``7.x``
    * - Ubuntu
      -
-     - ``12.04``, ``14.04``
+     - ``12.04``, ``14.04``, ``16.04``
    * - Microsoft Windows
      -
      - ``7``, ``8``, ``8.1``, ``2008 R2``, ``2012``, ``2012 R2``
@@ -223,7 +219,7 @@ The following table lists the Foundational platforms for the Chef server:
      - ``5.x``, ``6.x``, ``7.x``
    * - Ubuntu
      -
-     - ``12.04 LTS``, ``14.04 LTS``, ``16.04 LTS``
+     - ``12.04``, ``14.04``, ``16.04``
 
 .. end_tag
 
@@ -258,7 +254,7 @@ The Chef Automate server may be run on the following platforms. Do not mix platf
      - ``6.5``, ``6.6``, ``7``
    * - Ubuntu
      - ``x86_64``
-     - ``12.04``, ``14.04``
+     - ``12.04``, ``14.04``, ``16.04``
 
 .. note:: The Delivery CLI may be run on the following platforms:
 
