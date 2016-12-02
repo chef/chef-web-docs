@@ -19,10 +19,10 @@ A Chef Automate installation consists of a minimum of two nodes:
 
   * Runs push jobs, which is used in conjunction with a push jobs client on build nodes to coordinate builds across those nodes.
 
-   .. note:: if you have an existing Chef server installation, it's best to
+   .. note:: If you have an existing Chef server installation, it's best to
     have a separate Chef organization for managing Chef Automate.
-    Instructions for this can be found below under the heading "Creating a
-    User and Organization".
+    Instructions for this can be found below under the heading "Create a User and Organization to Manage Your Cluster".
+    If you don't, you can install a minimal one for use with Chef Automate. See "Chef Server Installation and Configuration" below for details.
 
 * Chef Automate server
 
@@ -57,7 +57,7 @@ The Chef Automate server may be run on the following platforms. Do not mix platf
      - ``6.5``, ``6.6``, ``7``
    * - Ubuntu
      - ``x86_64``
-     - ``12.04``, ``14.04``
+     - ``12.04``, ``14.04``, ``16.04``
 
 Infrastructure
 ------------------------------------------
@@ -202,7 +202,7 @@ To install Chef server 12:
 
       $ chef-server-ctl user-create USER_NAME FIRST_NAME LAST_NAME EMAIL 'PASSWORD' --filename FILE_NAME
 
-   An RSA private key is generated automatically. This is the user's private key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to a specified path.
+   An RSA private key is generated automatically. This is the user's private key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to the specified absolute path.
 
    For example:
 
@@ -226,7 +226,7 @@ To install Chef server 12:
 
    The ``--association_user`` option will associate the ``user_name`` with the ``admins`` security group on the Chef server.
 
-   An RSA private key is generated automatically. This is the chef-validator key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to a specified path.
+   An RSA private key is generated automatically. This is the chef-validator key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to the specified absolute path.
 
    For example:
 
@@ -245,13 +245,13 @@ Push jobs is available as an add-on to Chef server. You can also use runners and
 
 .. note:: Chef Automate requires Push Jobs Server 1.x and is not compatible with Push Jobs Server 2.x.  If you are installing Chef Automate on Red Hat Enterprise Linux/CentOS 7, use the Red Hat Enterprise Linux/CentOS 6 package for Push Jobs Server 1.x (available at `<https://downloads.chef.io/push-jobs-server/redhat/>`_) and manually install it.  For other platforms, you can use the automated installation method for Push Jobs Server 1.x as described below.
 
-Download the appropriate package for your platform from `<https://downloads.chef.io/push-jobs-server/>`_  and copy it to the Chef server.  The location that it's been saved to is referred to as `$PATH_TO_DOWNLOADED_PACKAGE`.
+Download the appropriate package for your platform from `<https://downloads.chef.io/push-jobs-server/>`_  and copy it to the Chef server.  The location that it's been saved to is referred to as `PATH_TO_DOWNLOADED_PACKAGE`.
 
 Run the command below on the Chef server:
 
 .. code-block:: bash
 
-   sudo chef-server-ctl install opscode-push-jobs-server --path $PATH_TO_DOWNLOADED_PACKAGE
+   sudo chef-server-ctl install opscode-push-jobs-server --path PATH_TO_DOWNLOADED_PACKAGE
 
 Completing Setup
 -----------------------------------------------------
@@ -273,17 +273,17 @@ Create a User and Organization to Manage Your Cluster
 
 As part of the setup process, you must create a user and organization that will be used internally by Chef Automate to manage your Chef Automate cluster.
 
-#. From the Chef server, create a ``delivery`` user specifying first name, last name, email address, and password. Also, as done in the step 5 of the `Chef Server Installation <#chef-server-installation>`_, a private key will be generated for you, so specify where to save the user key using the ``--filename`` option. The key will be referenced this later as ``$AUTOMATE_CHEF_USER_KEY``:
+#. From the Chef server, create a user named ``delivery`` specifying first name, last name, email address, and password. Also, as done in the step 5 of the `Chef Server Installation <#chef-server-installation>`_, a private key will be generated for you, so specify where to save that key using the ``--filename`` option with an absolute path to its intended location. The path to the key is referenced below as ``AUTOMATE_CHEF_USER_KEY``:
 
     .. code-block:: bash
 
-        sudo chef-server-ctl user-create delivery $FIRST_NAME $LAST_NAME $EMAIL_ADDRESS '$PASSWORD' --filename $AUTOMATE_CHEF_USER_KEY
+        sudo chef-server-ctl user-create delivery FIRST_NAME LAST_NAME EMAIL_ADDRESS 'PASSWORD' --filename AUTOMATE_CHEF_USER_KEY
 
-#. Create the ``$AUTOMATE_CHEF_ORG`` organization and associate the Chef Automate user:
+#. Create the ``AUTOMATE_CHEF_ORG`` organization and associate the Chef Automate user:
 
     .. code-block:: bash
 
-        sudo chef-server-ctl org-create $AUTOMATE_CHEF_ORG 'org description'  --filename ~/$AUTOMATE_CHEF_ORG-validator.pem -a delivery
+        sudo chef-server-ctl org-create AUTOMATE_CHEF_ORG 'org description' --filename ~/AUTOMATE_CHEF_ORG-validator.pem -a delivery
 
   .. note:: The ``--filename`` option is used so that the validator key for your organization will not be shown on-screen. The key is not required for this process.
 
@@ -298,13 +298,13 @@ To install Chef Automate:
 
    .. code-block:: bash
 
-      dpkg -i $PATH_TO_AUTOMATE_SERVER_PACKAGE
+      dpkg -i PATH_TO_AUTOMATE_SERVER_PACKAGE
 
    For Red Hat or Centos:
 
    .. code-block:: bash
 
-      rpm -Uvh $PATH_TO_AUTOMATE_SERVER_PACKAGE
+      rpm -Uvh PATH_TO_AUTOMATE_SERVER_PACKAGE
 
 #. Ensure that the Chef Automate license file and the user key you created earlier in the Chef Server setup are located on the Chef Automate server.
 
@@ -312,23 +312,23 @@ To install Chef Automate:
 
    .. code-block:: bash
 
-      sudo automate-ctl setup --license $AUTOMATE_LICENSE \
-                              --key $AUTOMATE_CHEF_USER_KEY \
-                              --server-url https://$CHEF_SERVER_FQDN/organizations/$AUTOMATE_CHEF_ORG \
-                              --fqdn $AUTOMATE_SERVER_FQDN
-                              --enterprise $ENTERPRISE_NAME
+      sudo automate-ctl setup --license AUTOMATE_LICENSE \
+                              --key AUTOMATE_CHEF_USER_KEY \
+                              --server-url https://CHEF_SERVER_FQDN/organizations/AUTOMATE_CHEF_ORG \
+                              --fqdn AUTOMATE_SERVER_FQDN \
+                              --enterprise ENTERPRISE_NAME
 
    All paths called for here should be supplied as the absolute path to a file, including the filename.
 
-   ``$AUTOMATE_LICENSE`` is the full path and file name of your Chef Automate license file. For example: ``/root/automate.license``.
+   ``AUTOMATE_LICENSE`` is the full path and file name of your Chef Automate license file. For example: ``/root/automate.license``.
 
    .. note:: After your Chef Automate server is successfully setup, this file will be copied into the ``/var/opt/delivery/license`` directory as ``delivery.license``.
 
-   ``$AUTOMATE_CHEF_USER_KEY`` is the key that was created in the previous section on your Chef server. For example: ``/root/john_doe.pem``.
+   ``AUTOMATE_CHEF_USER_KEY`` is the key that was created in the previous section on your Chef server. For example: ``/root/john_doe.pem``.
 
-   ``$AUTOMATE_SERVER_FQDN`` is the external fully-qualified domain name of the Chef Automate server. This is just the name of the system, not a URL.
+   ``AUTOMATE_SERVER_FQDN`` is the external fully-qualified domain name of the Chef Automate server. This is just the name of the system, not a URL. For example: ``host.4thcoffee.co``.
 
-   ``$ENTERPRISE_NAME`` is the name of your enterprise.
+   ``ENTERPRISE_NAME`` is the name of your enterprise. For example: ``4thcoffee_inc``.
 
 #. (Optional) If you are using an internal Supermarket, tell the setup command about it by supplying the ``--supermarket-fqdn`` command line argument:
 
@@ -365,38 +365,42 @@ new build node or runner. See the next section for installation instructions.
 
 .. note:: Your Chef Automate server will not be available for use until you either agree to apply the configuration, or manually run ``sudo automate-ctl reconfigure``.
 
-After setup successfully completes, the ``admin`` credentials and ``builder`` password are reported in the completion output; however, they are also saved to ``/etc/delivery/$ENTERPRISE_NAME-admin-credentials``. 
+After setup successfully completes, the ``admin`` credentials and ``builder`` password are reported in the completion output; however, they are also saved to ``/etc/delivery/ENTERPRISE_NAME-admin-credentials``.
 
 And if you don't have DNS, define it in ``/etc/hosts``:
 
    .. code-block:: none
 
-      $CHEF_SERVER_IP         $CHEF_SERVER_FQDN
-      $AUTOMATE_SERVER_IP     $AUTOMATE_SERVER_FQDN
+      CHEF_SERVER_IP         CHEF_SERVER_FQDN
+      AUTOMATE_SERVER_IP     AUTOMATE_SERVER_FQDN
 
-If you plan on using the workflow capabilities of Automate, proceed to the next section to setup your build nodes/runners. After they are setup, you can attempt to run an initial application or cookbook change through your Chef Automate server.
+For more information about ``automate-ctl`` and how to use it, see :doc:`ctl_delivery_server`.
+
+If you plan on using the workflow capabilities of Automate, proceed to the next section to setup your build nodes/runners. After they are set up, you can attempt to run an initial application or cookbook change through your Chef Automate server.
 
 Set up a build node/runner (Optional)
 ------------------------------------------------------------
 
 Chef Automate's workflow engine automatically creates phase jobs as project code is promoted through the phases of a workflow pipeline. These phase jobs are dispatched to special nodes, called runners and build nodes, that automatically execute each job as it is created. The previous job dispatch system using push jobs is still supported; however the new SSH-based system should be used for any new deployment.
 
-The following steps show how to setup a runner from a Chef Automate server. For instructions on how to setup a push jobs-based build node, see :doc:`setup_build_node`.
+The following steps show how to set up a runner from a Chef Automate server. For instructions on how to set up a push jobs-based build node, see :doc:`setup_build_node`.
 
 #. If you have an on-premises Supermarket installation, copy the Supermarket certificate file to ``/etc/delivery/supermarket.crt``.
 
 #. Run the ``install-runner`` subcommand.
 
-   .. note:: You can optionally download the latest ChefDK from `<https://downloads.chef.io/chef-dk/>`_ to specify a local package via ``--installer``. Doing so is useful if you are in an air-gapped environment. Version 0.15.16 or greater of the ChefDK is required. The download location is referred to below as ``$OPTIONAL_CHEF_DK_PACKAGE_PATH``.
+   .. note:: You can optionally download the latest ChefDK from `<https://downloads.chef.io/chef-dk/>`_ to specify a local package via ``--installer``. Doing so is useful if you are in an air-gapped environment. Version 0.15.16 or greater of the ChefDK is required. The download location is referred to below as ``OPTIONAL_CHEF_DK_PACKAGE_PATH``.
 
    .. code-block:: bash
 
-      automate-ctl install-runner $BUILD_NODE_FQDN \
-                                  $SSH_USERNAME \
-                                  --password [$OPTIONAL_SSH_OR_SUDO_PASSWORD] \
-                                  --installer $OPTIONAL_CHEF_DK_PACKAGE_PATH \
-                                  --ssh-identity-file $SSH_IDENTITY_FILE \
-                                  --port $SSH_PORT
+      automate-ctl install-runner BUILD_NODE_FQDN \
+                                  SSH_USERNAME \
+                                  [--password OPTIONAL_SSH_OR_SUDO_PASSWORD] \
+                                  [--installer OPTIONAL_CHEF_DK_PACKAGE_PATH] \
+                                  [--ssh-identity-file OPTIONAL_SSH_IDENTITY_FILE] \
+                                  [--port SSH_PORT]
+
+   The ``SSH_USERNAME`` provided must have ``sudo`` access on the intended runner, and at least one of ``--password PASSWORD`` or ``--ssh-identity-file FILE`` is required by Chef Automate in order to communicate with it.
 
    For more ``install-runner`` usage examples, see :ref:`install-runner`, and for more information on the SSH-based job dispatch system, see :doc:`job_dispatch`.
 
