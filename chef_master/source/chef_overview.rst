@@ -144,7 +144,7 @@ Some important components of workstations include:
           :width: 100px
           :align: center
 
-     - Chef includes two important command-line tools:
+     - ChefDK includes two important command-line tools:
 
        * Use the chef command-line tool to work with items in a chef-repo, which is the primary location in which cookbooks are authored, tested, and maintained, and from which policy is uploaded to the Chef server
        * Use the knife command-line tool to interact with nodes or work with objects on the Chef server
