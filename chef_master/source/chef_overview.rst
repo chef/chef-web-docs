@@ -83,7 +83,7 @@ Chef has the following major components:
           :width: 100px
           :align: center
 
-     - Chef Supermarket is the location in which community cookbooks are stored and managed. Cookbooks that are part of the Chef Supermarket may be used by any Chef user. How community cookbooks are used varies from organization to organization.
+     - Chef Supermarket is the location in which community cookbooks are shared and managed. Cookbooks that are part of the Chef Supermarket may be used by any Chef user. How community cookbooks are used varies from organization to organization.
 
 Chef management console, chef-client run reporting, high availability configurations, and Chef server replication are available as part of Chef Automate.
 
@@ -143,8 +143,8 @@ Some important tools and components of Chef workstations include:
 
      - ChefDK includes two important command-line tools:
 
-       * Use the chef command-line tool to work with items in a chef-repo, which is the primary location in which cookbooks are authored, tested, and maintained, and from which policy is uploaded to the Chef server
-       * Use the knife command-line tool to interact with nodes or work with objects on the Chef server
+       * Chef: Use the chef command-line tool to work with items in a chef-repo, which is the primary location in which cookbooks are authored, tested, and maintained, and from which policy is uploaded to the Chef server
+       * Knife: Use the knife command-line tool to interact with nodes or work with objects on the Chef server
 
    * - .. image:: ../../images/icon_repository.svg
           :width: 100px
