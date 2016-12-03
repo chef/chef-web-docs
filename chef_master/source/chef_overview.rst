@@ -76,7 +76,7 @@ Chef has the following major components:
 
      - The Chef server acts as a hub of information. Cookbooks and policy settings are uploaded to the Chef server by users from workstations. (Policy settings may also be maintained from the Chef server itself, via the Chef management console web user interface.)
 
-       The chef-client accesses the Chef server from the node on which it's installed to get configuration data, perform searches of historical chef-client run data, and then pull down the necessary configuration data. After the chef-client run is finished, the chef-client uploads updated run data to the Chef server as the updated node object.
+       The chef-client accesses the Chef server from the node on which it's installed to get configuration data, performs searches of historical chef-client run data, and then pulls down the necessary configuration data. After the chef-client run is finished, the chef-client uploads updated run data to the Chef server.
 
        Chef management console is the user interface for the Chef server. It is used to manage data bags, attributes, run-lists, roles, environments, and cookbooks, and also to configure role-based access for users and groups.
    * - .. image:: ../../images/icon_chef_supermarket.svg
