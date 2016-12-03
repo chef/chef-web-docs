@@ -83,7 +83,7 @@ Chef has the following major components:
           :width: 100px
           :align: center
 
-     - Chef Supermarket is the location in which community cookbooks are authored and maintained. Cookbooks that are part of the Chef Supermarket may be used by any Chef user. How community cookbooks are used varies from organization to organization.
+     - Chef Supermarket is the location in which community cookbooks are stored and managed. Cookbooks that are part of the Chef Supermarket may be used by any Chef user. How community cookbooks are used varies from organization to organization.
 
 Chef management console, chef-client run reporting, high availability configurations, and Chef server replication are available as part of Chef Automate.
 
