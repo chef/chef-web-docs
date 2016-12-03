@@ -15,7 +15,7 @@ This diagram shows how you develop, test, and deploy your Chef code.
 
 .. end_tag
 
-* The workstation is the location from which all of Chef is managed, including :doc:`installing the Chef DK </install_dk>`, :doc:`authoring cookbooks </cookbooks>`, and using tools like :doc:`Kitchen </kitchen>`, `chef-zero (a command-line tool that runs locally as if it were connected to a real Chef server) <https://docs.chef.io/ctl_chef_client.html#run-in-local-mode>`__, command-line tools like :doc:`Knife (for interacting with the Chef server) </knife>` and :doc:`chef (for interacting with your local chef-repo) </ctl_chef>`, and resources like :doc:`core Chef resources (for building recipes) </resources>` and `InSpec (for building security and compliance checks into your workflow) <http://inspec.io>`__.
+* The workstation is the location from which all of Chef is managed, including :doc:`installing the Chef DK </install_dk>`, :doc:`authoring cookbooks </cookbooks>`, and using tools like :doc:`Test Kitchen </kitchen>`, `chef-zero (a command-line tool that runs locally as if it were connected to a real Chef server) <https://docs.chef.io/ctl_chef_client.html#run-in-local-mode>`__, command-line tools like :doc:`Knife (for interacting with the Chef server) </knife>` and :doc:`chef (for interacting with your local chef-repo) </ctl_chef>`, and resources like :doc:`core Chef resources (for building recipes) </resources>` and `InSpec (for building security and compliance checks into your workflow) <http://inspec.io>`__.
 * Nodes are the machines---physical, virtual, cloud, and so on---that are under management by Chef. The chef-client is installed on each node and is what `performs the automation on that machine <https://docs.chef.io/chef_client.html#the-chef-client-run>`__.
 * Use the Chef server as your foundation to create and manage flexible, dynamic infrastructure whether you manage 50 or 500,000 nodes, across multiple datacenters, public and private clouds, and in heterogeneous environments.
 
@@ -130,7 +130,7 @@ Some important components of workstations include:
        * chef-client
        * chef
        * Ohai
-       * Testing tools like Kitchen, ChefSpec, Cookstyle, and Foodcritic
+       * Testing tools like Test Kitchen, ChefSpec, Cookstyle, and Foodcritic
        * Chef provisioning
        * Everything else needed to author cookbooks and upload them to the Chef server
 
@@ -174,7 +174,7 @@ Some important components of workstations include:
 
      - .. tag test_kitchen
 
-       Use `Kitchen <http://kitchen.ci>`_  to automatically test cookbook data across any combination of platforms and test suites:
+       Use `Test Kitchen <http://kitchen.ci>`_  to automatically test cookbook data across any combination of platforms and test suites:
 
        * Defined in a .kitchen.yml file
        * Uses a driver plugin architecture
@@ -357,7 +357,7 @@ Cookbooks are comprised of the following components:
           :width: 100px
           :align: center
 
-     - Testing cookbooks improves the quality of those cookbooks by ensuring they are doing what they are supposed to do and that they are authored in a consistent manner. Unit and integration testing validates the recipes in cookbooks. Syntax testing---often called linting---validates the quality of the code itself. The following tools are popular tools used for testing Chef recipes: Kitchen, ChefSpec, and Foodcritic.
+     - Testing cookbooks improves the quality of those cookbooks by ensuring they are doing what they are supposed to do and that they are authored in a consistent manner. Unit and integration testing validates the recipes in cookbooks. Syntax testing---often called linting---validates the quality of the code itself. The following tools are popular tools used for testing Chef recipes: Test Kitchen, ChefSpec, and Foodcritic.
 
 Nodes
 =====================================================
