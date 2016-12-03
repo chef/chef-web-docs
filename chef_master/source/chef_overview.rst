@@ -87,8 +87,6 @@ Chef has the following major components:
 
 Chef management console, chef-client run reporting, high availability configurations, and Chef server replication are available as part of Chef Automate.
 
-.. note:: The capabilities of Chef replication can be reproduced using the features of Chef Automate workflow and we encourage customers to adopt Chef Automate going forward.
-
 The following sections discuss these elements (and their various components) in more detail.
 
 Workstations
