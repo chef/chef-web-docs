@@ -100,12 +100,12 @@ The workstation is the location from which most users do most of their work, inc
 * Developing cookbooks and recipes
 * Testing Chef code
 * Keeping the chef-repo synchronized with version source control
-* Configuring organizational policy, including defining roles and environments and ensuring that critical data is stored in data bags
+* Configuring organizational policy, including defining roles and environments, and ensuring that critical data is stored in data bags
 * Interacting with nodes, as (or when) required, such as performing a bootstrap operation
 
 .. end_tag
 
-ChefDK tooling encourages integration and unit testing, and defines workflow around cookbook authoring and policy, but it's important to note that you know best about how your infrastructure should be put together. Therefore, Chef makes as few decisions on its own as possible. When a decision must be made, the chef-client uses a reasonable default setting that can be easily changed. While Chef encourages the use of the tooling packaged in the Chef Development Kit, none of these tools should be seen as a requirement or pre-requisite for being successful using Chef.
+Chef Development Kit tooling encourages integration and unit testing, and defines workflow around cookbook authoring and policy, but it's important to note that you know best about how your infrastructure should be put together. Therefore, Chef makes as few decisions on its own as possible. When a decision must be made tools uses a reasonable default setting that can be easily changed. While Chef encourages the use of the tooling packaged in the Chef DK, none of these tools should be seen as a requirement or pre-requisite for being successful using Chef.
 
 Tools
 -----------------------------------------------------
