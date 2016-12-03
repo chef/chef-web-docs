@@ -107,9 +107,9 @@ The workstation is the location from which most users do most of their work, inc
 
 Chef Development Kit tooling encourages integration and unit testing, and defines workflow around cookbook authoring and policy, but it's important to note that you know best about how your infrastructure should be put together. Therefore, Chef makes as few decisions on its own as possible. When a decision must be made tools uses a reasonable default setting that can be easily changed. While Chef encourages the use of the tooling packaged in the Chef DK, none of these tools should be seen as a requirement or pre-requisite for being successful using Chef.
 
-Tools
+Workstation Components and Tools
 -----------------------------------------------------
-Some important components of workstations include:
+Some important tools and components of Chef workstations include:
 
 .. list-table::
    :widths: 100 420
