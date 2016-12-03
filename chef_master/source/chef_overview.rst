@@ -53,7 +53,7 @@ Chef has the following major components:
 
        Ruby is the programming language that is the authoring syntax for cookbooks. Most recipes are simple patterns (blocks that define properties and values that map to specific configuration items like packages, files, services, templates, and users). The full power of Ruby is available for when you need a programming language.
 
-       Often, a workstation is configured to use the Chef development kit as the development toolkit. The Chef development kit is a package from Chef that provides an optional (but recommended) set of tooling, including Chef itself, the chef command line tool, Kitchen, ChefSpec, Berkshelf, and more.
+       Often, a workstation is configured to use the Chef Development Kit as the development toolkit. The Chef Development Kit is a package from Chef that provides an optional (but recommended) set of tooling, including Chef itself, the chef command line tool, Kitchen, ChefSpec, Berkshelf, and more.
 
    * - .. image:: ../../images/icon_node.svg
           :width: 100px
@@ -107,7 +107,7 @@ The workstation is the location from which most users do most of their work, inc
 
 .. end_tag
 
-ChefDK tooling encourages integration and unit testing, and defines workflow around cookbook authoring and policy, but it's important to note that you know best about how your infrastructure should be put together. Therefore, Chef makes as few decisions on its own as possible. When a decision must be made, the chef-client uses a reasonable default setting that can be easily changed. While Chef encourages the use of the tooling packaged in the Chef development kit, none of these tools should be seen as a requirement or pre-requisite for being successful using Chef.
+ChefDK tooling encourages integration and unit testing, and defines workflow around cookbook authoring and policy, but it's important to note that you know best about how your infrastructure should be put together. Therefore, Chef makes as few decisions on its own as possible. When a decision must be made, the chef-client uses a reasonable default setting that can be easily changed. While Chef encourages the use of the tooling packaged in the Chef Development Kit, none of these tools should be seen as a requirement or pre-requisite for being successful using Chef.
 
 Tools
 -----------------------------------------------------
@@ -125,7 +125,7 @@ Some important components of workstations include:
 
      - .. tag chef_dk
 
-       The Chef development kit is a package that contains everything that is needed to start using Chef:
+       The Chef Development Kit is a package that contains everything that is needed to start using Chef:
 
        * chef-client
        * chef
