@@ -198,19 +198,19 @@ To upload a cookbook to Chef Supermarket, do the following:
 
    .. code-block:: ruby
 
-      knife[:supermarket_site] = 'https://default-centos-66'
+      knife[:supermarket_site] = 'https://your-private-supermarket'
 
 #. Resolve SSL errors by fetching, and then verifying the SSL certificate for Chef Supermarket:
 
    .. code-block:: bash
 
-      $ knife ssl fetch https://default-centos-66
+      $ knife ssl fetch https://your-private-supermarket
 
    and then:
 
    .. code-block:: bash
 
-      $ knife ssl check https://default-centos-66
+      $ knife ssl check https://your-private-supermarket
 
 #. Upload the cookbook to Chef Supermarket:
 
