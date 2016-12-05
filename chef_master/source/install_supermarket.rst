@@ -155,13 +155,13 @@ Define the attributes for the Chef Supermarket installation and how it connects 
 The following attribute values must be defined:
 
 * ``chef_server_url``
-* ``chef_oauth2_app``
+* ``chef_oauth2_app_id``
 * ``chef_oauth2_secret``
 
-You can get the chef_oauth2_app and chef_oauth2_secret values from your Chef server (which you configured earlier in this process) in ``/etc/opscode/oc-id-applications/supermarket.json``:
+You can get the chef_oauth2_app_id and chef_oauth2_secret values from your Chef server (which you configured earlier in this process) in ``/etc/opscode/oc-id-applications/supermarket.json``:
 
 For ``chef_server_url``, enter in the url for your chef server.
-For ``chef_oauth2_app``, enter in the uid from ``/etc/opscode/oc-id-applications/supermarket.json``
+For ``chef_oauth2_app_id``, enter in the uid from ``/etc/opscode/oc-id-applications/supermarket.json``
 For ``chef_oauth2_secret``, enter in the secret from ``/etc/opscode/oc-id-applications/supermarket.json``
 
 To define these attributes, do the following:
@@ -177,7 +177,7 @@ To define these attributes, do the following:
    .. code-block:: ruby
 
       node.set['supermarket_omnibus']['chef_server_url'] = app['chef_server_url']
-      node.set['supermarket_omnibus']['chef_oauth2_app'] = app['chef_oauth2_app']
+      node.set['supermarket_omnibus']['chef_oauth2_app_id'] = app['chef_oauth2_app_id']
       node.set['supermarket_omnibus']['chef_oauth2_secret'] = app['chef_oauth2_secret']
 
    When finished, the ``/recipes/default.rb`` file should have code similar to:
@@ -187,7 +187,7 @@ To define these attributes, do the following:
       app = data_bag_item('apps', 'supermarket')
 
       node.set['supermarket_omnibus']['chef_server_url'] = app['chef_server_url']
-      node.set['supermarket_omnibus']['chef_oauth2_app'] = app['chef_oauth2_app']
+      node.set['supermarket_omnibus']['chef_oauth2_app_id'] = app['chef_oauth2_app_id']
       node.set['supermarket_omnibus']['chef_oauth2_secret'] = app['chef_oauth2_secret']
 
       include_recipe 'supermarket-omnibus-cookbook'
