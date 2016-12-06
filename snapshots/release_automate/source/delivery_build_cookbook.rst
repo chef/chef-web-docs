@@ -284,7 +284,7 @@ The pipeline cookbook---``pcb``---is available on GitHub at https://github.com/c
 
 Generate the build-cookbook
 -------------------------------------------------------
-The following commands clone the ``pcb`` cookbook from GitHub, and then uses the ``chef generate`` command to generate a ``build-cookbook`` using the ``pck`` cookbook as a template:
+The following commands clone the ``pcb`` cookbook from GitHub, and then uses the ``chef generate`` command to generate a ``build-cookbook`` using the ``pcb`` cookbook as a template:
 
 .. code-block:: bash
 
