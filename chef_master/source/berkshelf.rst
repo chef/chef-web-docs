@@ -1,13 +1,13 @@
 =====================================================
 About Berkshelf
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/berkshelf.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-youb-docs/blob/master/chef_master/source/berkshelf.rst>`__
 
 .. tag berkshelf_summary
 
-Berkshelf is a dependency manager for Chef cookbooks. With it, we can easily depend on community cookbooks and have them safely included in our workflow. We can also ensure that our CI systems reproducibly select the same cookbook versions, and can upload and bundle cookbook dependencies without needing a locally maintained copy. Berkshelf is included in the Chef Development Kit.
+Berkshelf is a dependency manager for Chef cookbooks. With it, you can easily depend on community cookbooks and have them safely included in your workflow. You can also ensure that your CI systems reproducibly select the same cookbook versions, and can upload and bundle cookbook dependencies without needing a locally maintained copy. Berkshelf is included in the Chef Development Kit.
 
-.. note:: For new users, we strongly recommend using :doc:`Policyfiles </policyfile>` rather than Berkshelf. Policyfiles provide more predictability, since dependencies are only resolved once, and a much improved way of promoting cookbooks from dev, to testing and then to production.
+.. note:: For new users, we strongly recommend using :doc:`Policyfiles </policyfile>` rather than Berkshelf. Policyfiles provide more predictability, since dependencies are only resolved once, and a much improved way of promoting cookbooks from dev to testing, and then to production.
 
 .. end_tag
 
@@ -18,38 +18,39 @@ Running ``chef generate cookbook`` will, by default, create a ``Berksfile`` in t
 
 .. code-block:: ruby
 
-  name 'my_first_cookbook'
-  version '0.1.0'
-  depends 'apt', '~> 5.0'
+   name 'my_first_cookbook'
+   version '0.1.0'
+   depends 'apt', '~> 5.0'
 
 The default ``Berksfile`` will contain the following:
 
 .. code-block:: ruby
 
-  source 'https://supermarket.chef.io'
-  metadata
+   source 'https://supermarket.chef.io'
+   metadata
 
-Now, when we run ``berks install``, the apt cookbook will be downloaded from Supermarket into the cache:
-
-.. code-block:: shell
-
-  $ berks install
-  Resolving cookbook dependencies...
-  Fetching 'my_first_cookbook' from source at .
-  Fetching cookbook index from https://supermarket.chef.io...
-  Installing apt (5.0.0)
-  Using my_first_cookbook (0.1.0) from source at .
-  Installing compat_resource (12.16.2)
-
-The ``compat_resource`` cookbook is also installed since it's a dependency of the ``apt`` cookbook. Running the install command also creates a ``Berksfile.lock``, which represents exactly which cookbook versions Berkshelf installed. This file ensures that someone else can check the cookbook out of git and get exactly the same dependencies as you.
-We can now upload all cookbooks to our Chef server with ``berks upload``:
+Now, when you run ``berks install``, the apt cookbook will be downloaded from Supermarket into the cache:
 
 .. code-block:: shell
 
-  $ berks upload
-  Uploaded apt (5.0.0) to: 'https://api.chef.io:443/organizations/example'
-  Uploaded compat_resource (12.16.2) to: 'https://api.chef.io:443/organizations/example'
-  Uploaded my_first_cookbook (0.1.0) to: 'https://api.chef.io:443/organizations/example'
+   $ berks install
+   Resolving cookbook dependencies...
+   Fetching 'my_first_cookbook' from source at .
+   Fetching cookbook index from https://supermarket.chef.io...
+   Installing apt (5.0.0)
+   Using my_first_cookbook (0.1.0) from source at .
+   Installing compat_resource (12.16.2)
+
+In this example, the ``compat_resource`` cookbook is also installed since it's a dependency of the ``apt`` cookbook. Running the install command also creates a ``Berksfile.lock``, which represents exactly which cookbook versions Berkshelf installed. This file ensures that someone else can check the cookbook out of git and get exactly the same dependencies as you.
+
+You can now upload all cookbooks to your Chef server with ``berks upload``:
+
+.. code-block:: shell
+
+   $ berks upload
+   Uploaded apt (5.0.0) to: 'https://api.chef.io:443/organizations/example'
+   Uploaded compat_resource (12.16.2) to: 'https://api.chef.io:443/organizations/example'
+   Uploaded my_first_cookbook (0.1.0) to: 'https://api.chef.io:443/organizations/example'
 
 
 The Berksfile
