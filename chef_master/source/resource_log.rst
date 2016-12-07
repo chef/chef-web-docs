@@ -215,8 +215,7 @@ The following example shows a series of fatal ``Chef::Log`` entries:
 
    service 'splunk_stop' do
      service_name 'splunk'
-     supports :status => true
-     provider Chef::Provider::Service::Init
+     supports status: true
      action :stop
    end
 
