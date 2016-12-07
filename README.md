@@ -40,13 +40,15 @@ forked repo. After you fork `chef/chef-web-docs` using the GitHub web
 interface, clone the forked repo to your workstation, following these [instructions](https://docs.chef.io/community_contributions.html#use-git).
 
 After making your changes but before submitting a PR, run the shell
-command `make master` to check for errors and build a local version of
-the doc set in HTML for testing. Before running `make master` for the first time, you'll need to
+command `make` at the root of your local `chef-web-docs` repo to check for errors and build a local version of
+the doc set in HTML for testing. Before running `make` for the first time, you'll need to
 install Sphinx, the documentation generator, possibly using `sudo`:
 
 ```bash
   pip install sphinx==1.2.3
 ```
+
+> Note: The default `make` target is `master`. This is the target that creates the appropriate `build` directory on your local machine and references in the source files in the `chef_master/source` directory of your local repo.
 
 We currently require version 1.2.3 of
 [Sphinx](http://sphinx-doc.org/). You may also need to install Python,
