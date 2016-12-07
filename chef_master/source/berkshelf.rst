@@ -317,9 +317,28 @@ Use ``berks init`` to initialize Berkshelf to the specified directory.
 
 berks install
 -----------------------------------------------------
-Use ``berks install`` to install cookbooks to the named Berksfile.
+Use ``berks install`` to install cookbooks into the cache. This command generates the Berkshelf lock file that ensures constitency.
 
-.. warning:: This command is deprecated. Run ``berks vendor`` instead.
+Syntax
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ berks install (options)
+
+Options
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+This command has the following options:
+
+``-b PATH``, ``--berksfile PATH``
+   The path to the Berksfile in which the cookbook is located.
+
+``-e [GROUP, GROUP, ...]``, ``--except [GROUP, GROUP, ...]``
+   An array of cookbook groups that will not be listed.
+
+``-o [GROUP, GROUP, ...]``, ``--only [GROUP, GROUP, ...]``
+   An array of cookbook groups to be listed. When this option is used, cookbooks that exist in groups not listed will not be listed.
 
 berks list
 -----------------------------------------------------
