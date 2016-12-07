@@ -317,7 +317,7 @@ Use ``berks init`` to initialize Berkshelf to the specified directory.
 
 berks install
 -----------------------------------------------------
-Use ``berks install`` to install cookbooks into the cache. This command generates the Berkshelf lock file that ensures constitency.
+Use ``berks install`` to install cookbooks into the cache. This command generates the Berkshelf lock file that ensures consistency.
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
