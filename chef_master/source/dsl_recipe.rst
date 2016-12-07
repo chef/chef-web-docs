@@ -83,7 +83,7 @@ The ``include?`` method can be used to ensure that a specific parameter is inclu
 
 .. code-block:: ruby
 
-   if ['debian', 'ubuntu'].include?(node['platform'])
+   if %w(debian ubuntu).include?(node['platform'])
      # do debian/ubuntu things
    end
 
@@ -107,8 +107,8 @@ For example:
 
 .. code-block:: ruby
 
-   if %w{debian ubuntu}.include?(node['platform'])
-     # do debian/ubuntu things with the Ruby array %w{} shortcut
+   if %w(debian ubuntu).include?(node['platform'])
+     # do debian/ubuntu things with the Ruby array %w() shortcut
    end
 
 .. end_tag

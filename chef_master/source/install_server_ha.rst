@@ -468,13 +468,41 @@ See https://www.postgresql.org/docs/9.5/static/runtime-config.html for details. 
 
 etcd settings
 -----------------------------------------------------
-See https://coreos.com/etcd/docs/latest/tuning.html#time-parameters for more details.
 
-* ``etcd.client_port 2379``   Port to use for ETCD_LISTEN_CLIENT_URLS and ETCD_ADVERTISE_CLIENT_URLS.
-* ``etcd.election_timeout 1000``  ETCD_ELECTION_TIMEOUT in milliseconds.
-* ``etcd.heartbeat_interval 100``  ETCD_HEARTBEAT_INTERVAL in milliseconds.
-* ``etcd.peer_port 2380``   Port to use for ETCD_LISTEN_PEER_URLS and ETCD_ADVERTISE_PEER_URLS.
-* ``etcd.snapshot_count 10000``  ETCD_SNAPSHOT_COUNT which is the number of committed transactions to trigger a snapshot to disk.
+* ``etcd.client_port 2379`` Port to use for ETCD_LISTEN_CLIENT_URLS
+  and ETCD_ADVERTISE_CLIENT_URLS.
+
+* ``etcd.peer_port 2380`` Port to use for ETCD_LISTEN_PEER_URLS and
+  ETCD_ADVERTISE_PEER_URLS.
+
+The following settings relate to etcd's consensus protocol. Chef
+Backend builds its own leader election on top of etcd's consensus
+protocol. Updating these settings may be advisable if you are seeing
+frequent failover events as a result of spurious etcd connection
+timeouts. The current defaults assume a high-latency environment, such
+those you might find if deploying Chef Backend to various cloud
+providers.
+
+* ``etcd.heartbeat_interval 500`` ETCD_HEARTBEAT_INTERVAL in
+  milliseconds. This is the frequency at which the leader will send
+  heartbeats to followers. Etcd's documentation recommends that this
+  is set roughly to the round-trip times between members. (The default
+  before 1.2 was 100)
+
+* ``etcd.election_timeout 5000`` ETCD_ELECTION_TIMEOUT in
+  milliseconds. This controls how long an etcd node will wait for
+  heartbeat before triggering an election. Per Etcd's documentation,
+  this should be 5 to 10 times larger than the
+  ``etcd.heartbeat_interval``. Increasing ``etcd.election_timeout``
+  increases the time it will take for ``etcd`` to detect a
+  failure. (The default value before 1.2 was 1000)
+
+
+* ``etcd.snapshot_count 5000`` ETCD_SNAPSHOT_COUNT which is the number
+  of committed transactions to trigger a snapshot to disk.
+
+For all of these settings see
+https://coreos.com/etcd/docs/latest/tuning.html for more details
 
 Elastic Search JVM settings
 -----------------------------------------------------
@@ -492,22 +520,49 @@ See https://www.elastic.co/guide/en/elasticsearch/reference/current/setup-config
 
 Chef HA backend leader management service settings
 -----------------------------------------------------
-* ``leaderl.db_timeout``  Socket timeout when connecting to PostgreSQL in milliseconds.  ``2000`` by default.
-* ``leaderl.http_acceptors``  Http threads that responds to monitorng and leadership status requests from HAProxy.  ``10`` by default.
-* ``leaderl.http_address``  The addess that leaderl listens on. This address should not be ``127.0.0.1``.  It should be reachable from any front-end node.  ``'0.0.0.0'`` by default.
+* ``leaderl.db_timeout`` Socket timeout when connecting to PostgreSQL
+  in milliseconds.  ``2000`` by default.
+* ``leaderl.http_acceptors`` Http threads that responds to monitorng
+  and leadership status requests from HAProxy.  ``10`` by default.
+* ``leaderl.http_address`` The addess that leaderl listens on. This
+  address should not be ``127.0.0.1``.  It should be reachable from
+  any front-end node.  ``'0.0.0.0'`` by default.
 * ``leaderl.http_port``  ``7331`` by default.
-* ``leaderl.leader_ttl_seconds``  The number of seconds it takes the leader key to expire.  Increasing this value will increase the amount of time the cluster will take to recognize a failed leader.  Lowering this value may leade to frequent leadership changes and thrashing.  ``10`` by default.
-* ``leaderl.required_active_followers``  The number of followers that must be syncing via a PostgreSQL replication slot before a new leader will return 200 to /leader HTTP requests.  If an existing leader fails to maintain this quorum of followers, the /leader endpoint will return 503 but active connections will still be able to complete their writes to the database.  0  by default.
-* ``leaderl.runsv_group``  The group that sensitive password files will belong to.  This is used internally for test purposes and should never be modified otherwise.  ``'chef_pgsql'`` by default.
-* ``leaderl.status_internal_update_interval_seconds``  How often we check for a change in the leader service's status.  5 seconds by default.
-* ``leaderl.status_post_update_interval_seconds`` How often etcd is updated with the leader service's current status.  10 seconds by default.
-* ``leaderl.username`` ``'chef_pgsql'``
-* ``leaderl.log_rotation.max_messages_per_second``  Rate limit for the number of messanges that the Erlang error_logger will output.  ``1000`` by default.
-* ``leaderl.etcd_pool.ibrowse_options``  Internal options to affect how requests to etcd are made (see https://github.com/cmullaparthi/ibrowse/blob/master/doc/ibrowse.html).
+* ``leaderl.leader_ttl_seconds``  The number of seconds it takes the
+  leader key to expire.  Increasing this value will increase the
+  amount of time the cluster will take to recognize a failed leader.
+  Lowering this value may leade to frequent leadership changes and
+  thrashing. ``30`` by default (``10`` by default before 1.2).
+* ``leaderl.required_active_followers`` The number of followers that
+  must be syncing via a PostgreSQL replication slot before a new
+  leader will return 200 to /leader HTTP requests.  If an existing
+  leader fails to maintain this quorum of followers, the /leader
+  endpoint will return 503 but active connections will still be able
+  to complete their writes to the database.  0 by default.
+* ``leaderl.runsv_group`` The group that sensitive password files will
+  belong to.  This is used internally for test purposes and should
+  never be modified otherwise.  ``'chef_pgsql'`` by default.
+* ``leaderl.status_internal_update_interval_seconds`` How often we
+  check for a change in the leader service's status.  5 seconds by
+  default.
+* ``leaderl.status_post_update_interval_seconds`` How often etcd is
+  updated with the leader service's current status.  10 seconds by
+  default.
+* ``leaderl.username 'chef_pgsql'``
+* ``leaderl.log_rotation.max_messages_per_second`` Rate limit for the
+  number of messanges that the Erlang error_logger will output.
+  ``1000`` by default.
+* ``leaderl.etcd_pool.ibrowse_options`` Internal options to affect how
+  requests to etcd are made (see
+  https://github.com/cmullaparthi/ibrowse/blob/master/doc/ibrowse.html).
 
 Chef HA backend leader health status settings
 -----------------------------------------------------
-* ``leaderl.health_check.interval_seconds``  How frequently, in seconds, to poll the service for health status.  2 by default.
+* ``leaderl.health_check.interval_seconds`` How frequently, in
+  seconds, to poll the service for health status.  We recommend
+  setting this to at least 5 times the value of
+  ``leaderl.leader_ttl_seconds``. 5 by default (2 by default before
+  version 1.2)
 * ``leaderl.health_check.max_bytes_behind_leader``  Limit on maximum different between elected leader and current node in bytes.  ``52428800`` (50MB) by default.
 * ``leaderl.health_check.max_elasticsearch_failures``  Number of Elastic Search API failures allowed before health check fails.  5 by default.
 * ``leaderl.health_check.max_etcd_failures``  Number of etcd failures allowed before health check fails.  5 by default.
@@ -1515,4 +1570,3 @@ This subcommand has the following syntax:
 where ``SERVICE_NAME`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
 .. end_tag
-

@@ -193,8 +193,8 @@ For example:
 
 .. code-block:: ruby
 
-   if %w{debian ubuntu}.include?(node['platform'])
-     # do debian/ubuntu things with the Ruby array %w{} shortcut
+   if %w(debian ubuntu).include?(node['platform'])
+     # do debian/ubuntu things with the Ruby array %w() shortcut
    end
 
 .. end_tag
@@ -207,7 +207,7 @@ Right:
 
 .. code-block:: ruby
 
-   %w{openssl.cnf pkitool vars Rakefile}.each do |foo|
+   %w(openssl.cnf pkitool vars Rakefile).each do |foo|
      template "/etc/openvpn/easy-rsa/#{foo}" do
        source "#{foo}.erb"
        ...
@@ -218,7 +218,7 @@ Wrong:
 
 .. code-block:: ruby
 
-   %w{openssl.cnf pkitool vars Rakefile}.each do |foo|
+   %w(openssl.cnf pkitool vars Rakefile).each do |foo|
      template '/etc/openvpn/easy-rsa/#{foo}' do
        source '#{foo}.erb'
        ...
@@ -250,8 +250,8 @@ A Hash is a list with keys and values. Sometimes they don't have a set order:
 .. code-block:: ruby
 
    h = {
-     'first_name' => "Bob",
-     'last_name'  => "Jones"
+     'first_name' => 'Bob',
+     'last_name'  => 'Jones'
    }
 
 And sometimes they do. For example, first name then last name:
@@ -422,7 +422,7 @@ The ``include?`` method can be used to ensure that a specific parameter is inclu
 
 .. code-block:: ruby
 
-   if ['debian', 'ubuntu'].include?(node['platform'])
+   if %w(debian ubuntu).include?(node['platform'])
      # do debian/ubuntu things
    end
 
@@ -482,8 +482,7 @@ The following example shows a series of fatal ``Chef::Log`` entries:
 
    service 'splunk_stop' do
      service_name 'splunk'
-     supports :status => true
-     provider Chef::Provider::Service::Init
+     supports status: true
      action :stop
    end
 
@@ -571,10 +570,10 @@ Cookbook Patterns
 -----------------------------------------------------
 Good cookbook examples:
 
-* https://github.com/chef-cookbooks/yum
+* https://github.com/chef-cookbooks/tomcat
+* https://github.com/chef-cookbooks/apparmor
 * https://github.com/chef-cookbooks/mysql
 * https://github.com/chef-cookbooks/httpd
-* https://github.com/chef-cookbooks/php
 
 Naming
 -----------------------------------------------------
@@ -608,7 +607,7 @@ For example:
      group  'somegroup'
      mode   '0644'
      variables(
-       :foo => 'bar'
+       foo: 'bar'
      )
      notifies :reload, 'service[whatever]'
      action :create
@@ -626,9 +625,11 @@ Always specify the file mode with a quoted 3-5 character string that defines the
 
    mode '0755'
 
+Wrong:
+
 .. code-block:: ruby
 
-   mode 00755
+   mode 755
 
 Specify Resource Action?
 -----------------------------------------------------
@@ -678,7 +679,7 @@ Right:
 
 .. code-block:: ruby
 
-   %w{openssl.cnf pkitool vars Rakefile}.each do |foo|
+   %w(openssl.cnf pkitool vars Rakefile).each do |foo|
      template "/etc/openvpn/easy-rsa/#{foo}" do
        source "#{foo}.erb"
        ...
@@ -689,7 +690,7 @@ Wrong:
 
 .. code-block:: ruby
 
-   %w{openssl.cnf pkitool vars Rakefile}.each do |foo|
+   %w(openssl.cnf pkitool vars Rakefile).each do |foo|
      template '/etc/openvpn/easy-rsa/#{foo}' do
        source '#{foo}.erb'
        ...
@@ -773,10 +774,6 @@ A recipe should be clean and well-commented. For example:
    ###############
    # Php resources
    ###############
-
-   # php_runtime 'default' do
-   #   action :install
-   # end
 
    package 'php-gd' do
      action :install
@@ -870,9 +867,9 @@ Default and override attributes are cleared at the start of the chef-client run,
 
 ``node.set`` (and ``node.normal``) should only be used to do something like generate a password for a database on the first chef-client run, after which it's remembered (instead of persisted). Even this case should be avoided, as using a data bag is the recommended way to store this type of data.
 
-Use the Chef DK
+Cookbook Linting with ChefDK Tools
 =====================================================
-This section covers best practices for cookbook and recipe authoring.
+ChefDK includes Foodcritic for linting the Chef specific portion of your cookbook code, and Cookstyle for linting the Ruby specific portion of your code.
 
 Foodcritic Linting
 -----------------------------------------------------
@@ -880,9 +877,19 @@ All cookbooks should pass Foodcritic rules before being uploaded.
 
 .. code-block:: bash
 
-   $ foodcritic -f all your-cookbook
+   $ foodcritic -P -f all your-cookbook
 
 should return nothing.
+
+Cookstyle Linting
+-----------------------------------------------------
+All cookbooks should pass Cookstyle rules before being uploaded.
+
+.. code-block:: bash
+
+   $ cookstyle your-cookbook
+
+should return ``no offenses detected``
 
 More about Ruby
 =====================================================
@@ -892,4 +899,3 @@ To learn more about Ruby, see the following:
 * |url ruby_power_of_chef|
 * |url codeacademy|
 * |url ruby_doc_org|
-
