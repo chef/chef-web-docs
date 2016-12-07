@@ -44,9 +44,6 @@ BUILD_COMMAND_AND_ARGS = $(BUILD_COMMAND) $(PARALLEL_BUILD)
 # make master PARALLEL_BUILD="-j 6"
 #
 
-clean:
-	@rm -rf $(BUILDDIR)
-
 master:
 	mkdir -p $(BUILDDIR)
 	cp -r misc/robots.txt build/
@@ -54,6 +51,9 @@ master:
 	cp -r misc/google69a8711569b2fcce.html build/
 	$(BUILD_COMMAND_AND_ARGS) chef_master/source $(BUILDDIR)
 	bash doctools/rundtags.sh
+
+clean:
+	@rm -rf $(BUILDDIR)
 
 decks:
 	mkdir -p $(BUILDDIR)/decks/
