@@ -4553,7 +4553,7 @@ The full syntax for all of the properties that are available to the **windows_pa
      options                    String
      provider                   Chef::Provider::Package::Windows
      remote_file_attributes     Hash
-     returns                    String, Integer, Array
+     returns                    Integer, Array of integers
      source                     String # defaults to 'name' if not specified
      subscribes                 # see description
      timeout                    String, Integer
@@ -4673,7 +4673,7 @@ This resource has the following properties:
    The retry delay (in seconds). Default value: ``2``.
 
 ``returns``
-   **Ruby Types:** String, Integer, Array
+   **Ruby Types:** Integer, Array of integers
 
    A comma-delimited list of return codes that indicate the success or failure of the command that was run remotely. This code signals a successful ``:install`` action. Default value: ``0``.
 
