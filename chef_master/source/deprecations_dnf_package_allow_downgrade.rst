@@ -5,7 +5,7 @@ Deprecation: DNF Package allow_downgrade Property (CHEF-10)
 
 .. tag deprecations_dnf_package_allow_downgrade
 
-The DNF package provider in the O/S does not require ``--allow-downgrade`` like yum did, and neither does the Chef dnf_package resource.  This property has no effect on the
+The DNF package provider in the O/S does not require ``--allow-downgrade`` like yum did, and neither does the Chef ``dnf_package`` resource.  This property has no effect on the
 ``dnf_resource`` property.
 
 .. end_tag
