@@ -71,7 +71,7 @@ All Deprecations
     - 12.7.2
     - 13.0
   * - :doc:`CHEF-13 </deprecations_chef_platform_methods>`
-    - Deprecated Chef::Platform methods
+    - Deprecated ``Chef::Platform`` methods
     - 12.17
     - 13.0
   * - :doc:`CHEF-3694 </deprecations_resource_cloning>`
