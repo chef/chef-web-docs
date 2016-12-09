@@ -67,7 +67,7 @@ supported back to Chef 12.0, although some more advanced forms of the ``provides
 Also you may have found this web page due to deprecation of library-based resources and providers that do not declare provides in
 which case your chef-client run is likely full of a compliation of warnings and deprecations:
 
-.. code-block::
+.. code-block:: none
 
   * foo[it] action doit[2016-12-07T14:28:59-08:00] WARN: Class Chef::Provider::Foo does not declare 'provides :foo'.
     [2016-12-07T14:28:59-08:00] WARN: This will no longer work in Chef 13: you must use 'provides' to use the resource's DSL.
