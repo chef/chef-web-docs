@@ -70,6 +70,7 @@ At the bare minimum, you must set the version to v2:
       ...
       "job_dispatch": {
          "version": "v2"
+      },
       ...
    }
 
