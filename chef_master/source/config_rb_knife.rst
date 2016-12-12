@@ -150,6 +150,20 @@ This configuration file has the following settings:
 
       versioned_cookbooks true
 
+``config_log_level``
+   Sets the default value of ``log_level`` in the client.rb file of the node being bootstrapped. Possible values are ``:debug``, ``:info``, ``:warn``, ``:error`` and ``:fatal``. For example:
+
+   .. code-block:: ruby
+
+      config_log_level :debug
+
+``config_log_location``
+   Sets the default value of ``log_location`` in the client.rb file of the node being bootstrapped. Possible values are ``/path/to/log_location``, ``STDOUT``, ``STDERR``, ``:win_evt`` and ``:syslog``. For example:
+
+   .. code-block:: ruby
+
+      config_log_location "/path/to/log_location"   # Please make sure that the path exists
+
 Proxy Settings
 -----------------------------------------------------
 .. tag config_rb_knife_settings_proxy
