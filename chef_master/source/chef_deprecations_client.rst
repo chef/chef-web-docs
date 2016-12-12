@@ -70,6 +70,10 @@ All Deprecations
     - The ``Chef::REST`` API will be removed.
     - 12.7.2
     - 13.0
+  * - :doc:`CHEF-13 </deprecations_chef_platform_methods>`
+    - Deprecated ``Chef::Platform`` methods
+    - 12.18.x
+    - 13.0
   * - :doc:`CHEF-3694 </deprecations_resource_cloning>`
     - Resource Cloning will no longer work.
     - 10.18.0
