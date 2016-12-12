@@ -44,7 +44,7 @@ The workstation is the location from which most users do most of their work, inc
 * Developing cookbooks and recipes
 * Testing Chef code
 * Keeping the chef-repo synchronized with version source control
-* Configuring organizational policy, including defining roles and environments and ensuring that critical data is stored in data bags
+* Configuring organizational policy, including defining roles and environments, and ensuring that critical data is stored in data bags
 * Interacting with nodes, as (or when) required, such as performing a bootstrap operation
 
 .. end_tag

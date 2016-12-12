@@ -5,7 +5,7 @@ Kitchen
 
 .. tag test_kitchen
 
-Use `Kitchen <http://kitchen.ci>`_  to automatically test cookbook data across any combination of platforms and test suites:
+Use `Test Kitchen <http://kitchen.ci>`_  to automatically test cookbook data across any combination of platforms and test suites:
 
 * Defined in a .kitchen.yml file
 * Uses a driver plugin architecture

@@ -12,7 +12,7 @@ The workstation is the location from which most users do most of their work, inc
 * Developing cookbooks and recipes
 * Testing Chef code
 * Keeping the chef-repo synchronized with version source control
-* Configuring organizational policy, including defining roles and environments and ensuring that critical data is stored in data bags
+* Configuring organizational policy, including defining roles and environments, and ensuring that critical data is stored in data bags
 * Interacting with nodes, as (or when) required, such as performing a bootstrap operation
 
 .. end_tag
@@ -77,13 +77,11 @@ Chef is a systems and cloud infrastructure automation framework that makes it ea
 
 .. tag chef_dk
 
-The Chef development kit is a package that contains everything that is needed to start using Chef:
+The Chef Development Kit is a package that contains everything that is needed to start using Chef:
 
-* chef-client
-* chef
-* Ohai
-* chef-zero
-* Testing tools like Kitchen, ChefSpec, Cookstyle, and Foodcritic
+* chef-client and ohai
+* chef command line tool
+* Testing tools such as Test Kitchen, ChefSpec, Cookstyle, and Foodcritic
 * Chef provisioning
 * Everything else needed to author cookbooks and upload them to the Chef server
 
