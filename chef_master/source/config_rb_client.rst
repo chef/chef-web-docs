@@ -354,7 +354,6 @@ The chef-client supports reading multiple configuration files by putting them in
 * ``/etc/chef/client.d``
 * ``/etc/chef/config.d``
 * ``~/chef/solo.d``
-* ``c:/chef/config.d``
 
 (There is no support for a ``knife.d`` directory; use ``config.d`` instead.)
 
@@ -460,7 +459,7 @@ A sample client.rb file that contains the most simple way to connect to https://
 
    log_level        :info
    log_location     STDOUT
-   chef_server_url  'https://api.opscode.com/organizations/<orgname>'
+   chef_server_url  'https://api.chef.io/organizations/<orgname>'
    validation_client_name '<orgname>-validator'
    validation_key '/etc/chef/validator.pem'
    client_key '/etc/chef/client.pem'
