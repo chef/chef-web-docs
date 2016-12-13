@@ -1,9 +1,69 @@
 =====================================================
-Release Notes: chef-client 12.0 - 12.16
+Release Notes: chef-client 12.0 - 12.17
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes.rst>`__
 
-Chef client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `[Chef CHANGELOG.md] <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
+Chef client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef CHANGELOG.md <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
+
+What's New in 12.17
+=====================================================
+
+The following items are new for chef-client 12.17 and/or are changes from previous versions. The short version:
+
+* **Added msu_package resource and provider** Supports the installation of Microsoft Update(MSU) packages on Windows.
+* **Added alias unmount to umount action for mount resource** 
+
+msu_package
+-----------------------------------------------------
+
+The **msu_package** resource installs or removes Microsoft Update(MSU) packages on Microsoft Windows machines. Here are some examples:
+
+.. tag msu_package_examples
+
+**Using local path in source**
+
+.. code-block:: ruby 
+
+   msu_package 'Install Windows 2012R2 Update KB2959977' do
+     source 'C:\Users\xyz\AppData\Local\Temp\Windows8.1-KB2959977-x64.msu'
+     action :install
+   end
+
+.. code-block:: ruby
+
+   msu_package 'Remove Windows 2012R2 Update KB2959977' do
+     source 'C:\Users\xyz\AppData\Local\Temp\Windows8.1-KB2959977-x64.msu'
+     action :remove
+   end
+
+**Using URL in source**
+
+.. code-block:: ruby
+
+   msu_package 'Install Windows 2012R2 Update KB2959977' do
+     source 'https://s3.amazonaws.com/my_bucket/Windows8.1-KB2959977-x64.msu'
+     action :install
+   end
+
+.. code-block:: ruby
+
+   msu_package 'Remove Windows 2012R2 Update KB2959977' do
+     source 'https://s3.amazonaws.com/my_bucket/Windows8.1-KB2959977-x64.msu'
+     action :remove
+   end
+
+.. end_tag
+
+``unmount`` alias for ``umount`` action
+-----------------------------------------------------
+
+Now you can use ``action :unmount`` to unmout a mount point through the mount resource. For example:
+
+.. code-block:: ruby
+
+   mount '/mount/tmp' do
+     action :unmount
+   end
 
 What's New in 12.16
 =====================================================
