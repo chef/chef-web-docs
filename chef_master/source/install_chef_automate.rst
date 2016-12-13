@@ -393,7 +393,7 @@ The following steps show how to set up a runner from a Chef Automate server. For
 
    .. code-block:: bash
 
-      automate-ctl install-runner BUILD_NODE_FQDN \
+      automate-ctl install-runner RUNNER_FQDN \
                                   SSH_USERNAME \
                                   [--password OPTIONAL_SSH_OR_SUDO_PASSWORD] \
                                   [--installer OPTIONAL_CHEF_DK_PACKAGE_PATH] \
