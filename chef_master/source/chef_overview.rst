@@ -15,7 +15,7 @@ This diagram shows how you develop, test, and deploy your Chef code.
 
 .. end_tag
 
-* The workstation is the location from which all of Chef is managed, including :doc:`installing the Chef DK </install_dk>`, :doc:`authoring cookbooks </cookbooks>`, and using tools like :doc:`Test Kitchen </kitchen>`, `chef-zero (a command-line tool that runs locally as if it were connected to a real Chef server) <https://docs.chef.io/ctl_chef_client.html#run-in-local-mode>`__, command-line tools like :doc:`Knife (for interacting with the Chef server) </knife>` and :doc:`chef (for interacting with your local chef-repo) </ctl_chef>`, and resources like :doc:`core Chef resources (for building recipes) </resources>` and `InSpec (for building security and compliance checks into your workflow) <http://inspec.io>`__.
+* The workstation is the location from which users interact with Chef. On the workstation users author and test :doc:`cookbooks </cookbooks>` using tools such as :doc:`Test Kitchen </kitchen>` and interact with the Chef server using the :doc:`knife</knife>` and :doc:`chef </ctl_chef>` command line tools.
 * Nodes are the machines---physical, virtual, cloud, and so on---that are under management by Chef. The chef-client is installed on each node and is what `performs the automation on that machine <https://docs.chef.io/chef_client.html#the-chef-client-run>`__.
 * Use the Chef server as your foundation to create and manage flexible, dynamic infrastructure whether you manage 50 or 500,000 nodes, across multiple datacenters, public and private clouds, and in heterogeneous environments.
 
@@ -53,7 +53,7 @@ Chef has the following major components:
 
        Ruby is the programming language that is the authoring syntax for cookbooks. Most recipes are simple patterns (blocks that define properties and values that map to specific configuration items like packages, files, services, templates, and users). The full power of Ruby is available for when you need a programming language.
 
-       Often, a workstation is configured to use the Chef Development Kit as the development toolkit. The Chef Development Kit is a package from Chef that provides an optional (but recommended) set of tooling, including Chef itself, the chef command line tool, Kitchen, ChefSpec, Berkshelf, and more.
+       Often, a workstation is configured to use the Chef Development Kit as the development toolkit. The Chef Development Kit is a package from Chef that provides a recommended set of tooling, including Chef itself, the chef command line tool, Kitchen, ChefSpec, Berkshelf, and more.
 
    * - .. image:: ../../images/icon_node.svg
           :width: 100px
@@ -97,7 +97,7 @@ A workstation is a computer running the Chef Development Kit (ChefDK) that is us
 
 The workstation is the location from which most users do most of their work, including:
 
-* Developing cookbooks and recipes
+* Developing and testing cookbooks and recipes
 * Testing Chef code
 * Keeping the chef-repo synchronized with version source control
 * Configuring organizational policy, including defining roles and environments, and ensuring that critical data is stored in data bags
@@ -105,7 +105,7 @@ The workstation is the location from which most users do most of their work, inc
 
 .. end_tag
 
-Chef Development Kit tooling encourages integration and unit testing, and defines workflow around cookbook authoring and policy, but it's important to note that you know best about how your infrastructure should be put together. Therefore, Chef makes as few decisions on its own as possible. When a decision must be made tools uses a reasonable default setting that can be easily changed. While Chef encourages the use of the tooling packaged in the Chef DK, none of these tools should be seen as a requirement or pre-requisite for being successful using Chef.
+The Chef Development Kit tooling encourages integration and unit testing, and defines workflow around cookbook authoring and policy, but it's important to note that you know best about how your infrastructure should be put together. Therefore, Chef makes as few decisions on its own as possible. When a decision must be made tools uses a reasonable default setting that can be easily changed. While Chef encourages the use of the tooling packaged in the Chef DK, none of these tools should be seen as a requirement or pre-requisite for being successful using Chef.
 
 Workstation Components and Tools
 -----------------------------------------------------
