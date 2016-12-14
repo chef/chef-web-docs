@@ -436,7 +436,7 @@ This command has the following options:
 
 berks test
 -----------------------------------------------------
-Use ``berks test`` to run Kitchen from within Berkshelf.
+Use ``berks test`` to run Test Kitchen from within Berkshelf.
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -458,7 +458,7 @@ This command may run any Kitchen CLI command, such as:
 * `kitchen test <https://docs.chef.io/ctl_kitchen.html#kitchen-test>`__
 * `kitchen verify <https://docs.chef.io/ctl_kitchen.html#kitchen-verify>`__
 
-See :doc:`kitchen (executable) </ctl_kitchen>` for descriptions of every Kitchen subcommand.
+See :doc:`kitchen (executable) </ctl_kitchen>` for descriptions of every Test Kitchen subcommand.
 
 berks show
 -----------------------------------------------------

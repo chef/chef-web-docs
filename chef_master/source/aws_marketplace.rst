@@ -39,7 +39,7 @@ To get a fully-functional Amazon Machine Images (AMI) for Chef server, do the fo
 
 Install the Chef DK
 -----------------------------------------------------
-While the Amazon Machine Images (AMI) for Chef server is being provisioned, download and install the `Chef Developer Kit <https://docs.chef.io/install_dk.html>`__.  The Chef management console has many features and is useful for viewing and creating policy to be applied to nodes, the Chef development kit installs a collection of tools---Kitchen, ChefSpec, chef, chef-vault, Foodcritic, and more---and libraries that are all packaged together, which makes it easier to manage the dependencies these tools may have on each other and the dependencies that Chef has on Ruby.
+While the Amazon Machine Images (AMI) for Chef server is being provisioned, download and install the `Chef Development Kit <https://docs.chef.io/install_dk.html>`__.  The Chef management console has many features and is useful for viewing and creating policy to be applied to nodes, the Chef development kit installs a collection of tools---Test Kitchen, ChefSpec, chef, chef-vault, Foodcritic, and more---and libraries that are all packaged together, which makes it easier to manage the dependencies these tools may have on each other and the dependencies that Chef has on Ruby.
 
 Configure the Chef Server
 -----------------------------------------------------
