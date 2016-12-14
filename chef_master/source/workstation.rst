@@ -5,14 +5,14 @@ Workstations
 
 .. tag workstation_summary
 
-A workstation is a computer that is configured to run various Chef command-line tools that synchronize with a chef-repo, author cookbooks, interact with the Chef server, and interact with nodes.
+A workstation is a computer running the Chef Development Kit (ChefDK) that is used to author cookbooks, interact with the Chef server, and interact with nodes.
 
 The workstation is the location from which most users do most of their work, including:
 
-* Developing cookbooks and recipes (and authoring them using Ruby syntax and patterns)
+* Developing and testing cookbooks and recipes
+* Testing Chef code
 * Keeping the chef-repo synchronized with version source control
-* Using command-line tools
-* Configuring organizational policy, including defining roles and environments and ensuring that critical data is stored in data bags
+* Configuring organizational policy, including defining roles and environments, and ensuring that critical data is stored in data bags
 * Interacting with nodes, as (or when) required, such as performing a bootstrap operation
 
 .. end_tag
@@ -46,7 +46,7 @@ Some important components of workstations include:
 
        The chef-repo is the repository structure in which cookbooks are authored, tested, and maintained:
 
-       * Cookbooks contain recipes, attributes, custom resources, libraries, definitions, files, templates, tests, and metadata
+       * Cookbooks contain recipes, attributes, custom resources, libraries, files, templates, tests, and metadata
        * The chef-repo should be synchronized with a version control system (such as git), and then managed as if it were source code
 
        .. end_tag
@@ -77,13 +77,11 @@ Chef is a systems and cloud infrastructure automation framework that makes it ea
 
 .. tag chef_dk
 
-The Chef development kit is a package that contains everything that is needed to start using Chef:
+The Chef Development Kit is a package that contains everything that is needed to start using Chef:
 
-* chef-client
-* chef
-* Ohai
-* chef-zero
-* Testing tools like Kitchen, ChefSpec, Cookstyle, and Foodcritic
+* chef-client and ohai
+* chef command line tool
+* Testing tools such as Test Kitchen, ChefSpec, Cookstyle, and Foodcritic
 * Chef provisioning
 * Everything else needed to author cookbooks and upload them to the Chef server
 
