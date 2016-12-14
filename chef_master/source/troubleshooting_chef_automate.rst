@@ -11,10 +11,42 @@ Troubleshooting Chef Automate
 
 .. end_tag
 
-Build nodes
+The following are issues that you may encounter during the setup and usage of Chef Automate.
+
+Preflight Check
 =====================================================
 
-The following are possible issues you might run into when using build nodes.
+Here is a list of possible error codes and remediation steps you might see when running the ``preflight-check`` command before setting up your Chef Automate server:
+
+*   PF01: The system does not have this given directory or is not writable.
+    
+    *   Please create the directory or make sure it is writable.
+
+*   PF02: The system umask is not 0022.
+
+    *   Please change it to 0022.
+
+*   PF03: System has less than 4 CPU cores.
+
+    *   Please increase CPU cores to at least 4.
+
+*   PF04: System has less than 80GB disk space at `/var`.
+
+    *   Please increase free disk space at `/var` to at least 80GB.
+
+*   PF05: System has less than 16GB of free memory.
+
+    *   Please increase free memory to at least 16GB.
+
+*   PF06: Another process is using this port on the system.
+
+    *   Please free this port on the system.
+
+
+Build nodes/Runners
+=====================================================
+
+The following are possible issues you might run into when using build nodes and/or runners.
 
 Issue: Waiting for builder
 -----------------------------------------------------
@@ -37,7 +69,7 @@ as ``delivery-build-node``. If your delivery.rb contains a custom search query
 If you are trying to debug a particular build node and want to ensure that one is available for your projects,
 then modify the build-nodes default search for your project as described in :doc:`Configure a Project </config_json_delivery>`.
 
-SAML
+SAML Authentication
 =======================================================
 
 When setting up SAML authentication, you might run into the following issues where you cannot sign in with SAML.
