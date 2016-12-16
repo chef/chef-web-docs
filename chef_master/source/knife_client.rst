@@ -110,7 +110,7 @@ When running the ``create`` argument, be sure to omit the ``-a`` option:
 
 delete
 =====================================================
-Use the ``delete`` argument to delete a registered API client.
+Use the ``delete`` argument to delete a registered API client. If using Chef client 12.17 or later, you can delete multiple clients using this subcommand.
 
 Syntax
 -----------------------------------------------------

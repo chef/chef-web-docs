@@ -10,10 +10,12 @@ What's New in 12.17
 
 The following items are new for chef-client 12.17 and/or are changes from previous versions. The short version:
 
-* **Added msu_package resource and provider** Supports the installation of Microsoft Update(MSU) packages on Windows.
-* **Added alias unmount to umount action for mount resource** 
+* **Added msu_package resource and provider**
+* **Added alias unmount to umount action for mount resource**
+* **Can now delete multiple nodes/clients in knife**
+* **Haskell language plugin added to Ohai**
 
-msu_package
+msu_package resource
 -----------------------------------------------------
 
 The **msu_package** resource installs or removes Microsoft Update(MSU) packages on Microsoft Windows machines. Here are some examples:
@@ -22,7 +24,7 @@ The **msu_package** resource installs or removes Microsoft Update(MSU) packages 
 
 **Using local path in source**
 
-.. code-block:: ruby 
+.. code-block:: ruby
 
    msu_package 'Install Windows 2012R2 Update KB2959977' do
      source 'C:\Users\xyz\AppData\Local\Temp\Windows8.1-KB2959977-x64.msu'
@@ -64,6 +66,39 @@ Now you can use ``action :unmount`` to unmout a mount point through the mount re
    mount '/mount/tmp' do
      action :unmount
    end
+
+Multiple client/node deletion in knife
+-----------------------------------------------------
+
+You can now pass multiple nodes/clients to ``knife node delete`` or ``knife client delete`` subcommands.
+
+.. code-block:: bash
+
+    $ knife client delete client1,client2,client3
+
+Ohai Enhancements
+-----------------------------------------------------
+
+**Haskell Language plugin**
+
+Haskell is now detected in a new haskell language plugin:
+
+.. code-block:: javascript
+
+  "languages": {
+    "haskell": {
+      "stack": {
+        "version": "1.2.0",
+        "description": "Version 1.2.0 x86_64 hpack-0.14.0"
+      }
+    }
+  }
+
+
+**LSB Release Detection**
+
+The lsb_release command line tool is now preferred to the contents of ``/etc/lsb-release`` for release detection. This resolves an issue where a distro can be upgraded, but ``/etc/lsb-release`` is not upgraded to reflect the change.
+
 
 What's New in 12.16
 =====================================================
@@ -900,7 +935,6 @@ The chef-client supports reading multiple configuration files by putting them in
 * ``/etc/chef/client.d``
 * ``/etc/chef/config.d``
 * ``~/chef/solo.d``
-* ``c:/chef/config.d``
 
 (There is no support for a ``knife.d`` directory; use ``config.d`` instead.)
 

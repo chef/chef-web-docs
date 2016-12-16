@@ -148,7 +148,7 @@ This code uses the ``sshd_config`` resource to ensure that only enterprise-compl
 
 **Test a kitchen.yml file driver**
 
-This code uses the ``yaml`` resource to ensure that the Kitchen driver is Vagrant.
+This code uses the ``yaml`` resource to ensure that the Test Kitchen driver is Vagrant.
 
 .. tag inspec_yaml_kitchen_driver
 

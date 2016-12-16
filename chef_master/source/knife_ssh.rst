@@ -46,7 +46,7 @@ This subcommand has the following options:
    The SSH identity file used for authentication. Key-based authentication is recommended.
 
 ``-m``, ``--manual-list``
-   Define a search query as a space-separated list of servers. If there is more than one item in the list, put quotes around the entire list. For example: ``--manual-list "server01 server 02 server 03"``
+   Define a search query as a space-separated list of servers. If there is more than one item in the list, put quotes around the entire list. For example: ``--manual-list "server01 server02 server03"``
 
 ``--[no-]host-key-verify``
    Use ``--no-host-key-verify`` to disable host key verification. Default setting: ``--host-key-verify``.
