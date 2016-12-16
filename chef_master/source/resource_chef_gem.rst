@@ -11,7 +11,7 @@ chef_gem
 
 .. tag resource_package_chef_gem
 
-Use the **chef_gem** resource to install a gem only for the instance of Ruby that is dedicated to the chef-client. When a package is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources.
+Use the **chef_gem** resource to install a gem only for the instance of Ruby that is dedicated to the chef-client. When a gem is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources.
 
 The **chef_gem** resource works with all of the same properties and options as the **gem_package** resource, but does not accept the ``gem_binary`` property because it always uses the ``CurrentGemEnvironment`` under which the chef-client is running. In addition to performing actions similar to the **gem_package** resource, the **chef_gem** resource does the following:
 
@@ -28,7 +28,7 @@ A **chef_gem** resource block manages a package on a node, typically by installi
 
    chef_gem 'package_name'
 
-which will install the named package using all of the default options and the default action (``:install``).
+which will install the named gem using all of the default options and the default action (``:install``).
 
 The full syntax for all of the properties that are available to the **chef_gem** resource is:
 
@@ -50,8 +50,8 @@ The full syntax for all of the properties that are available to the **chef_gem**
 
 where
 
-* ``chef_gem`` tells the chef-client to manage a package
-* ``'name'`` is the name of the package
+* ``chef_gem`` tells the chef-client to manage a gem
+* ``'name'`` is the name of the gem
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state
 * ``clear_sources``, ``compile_time``, ``options``, ``package_name``, ``provider``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
@@ -60,7 +60,7 @@ Actions
 This resource has the following actions:
 
 ``:install``
-   Default. Install a package. If a version is specified, install the specified version of the package.
+   Default. Install a gem. If a version is specified, install the specified version of the gem.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -70,16 +70,16 @@ This resource has the following actions:
    .. end_tag
 
 ``:purge``
-   Purge a package. This action typically removes the configuration files as well as the package.
+   Purge a gem. This action typically removes the configuration files as well as the gem.
 
 ``:reconfig``
-   Reconfigure a package. This action requires a response file.
+   Reconfigure a gem. This action requires a response file.
 
 ``:remove``
-   Remove a package.
+   Remove a gem.
 
 ``:upgrade``
-   Install a package and/or ensure that a package is the latest version.
+   Install a gem and/or ensure that a gem is the latest version.
 
 Properties
 =====================================================
@@ -94,7 +94,7 @@ This resource has the following properties:
 
              .. code-block:: ruby
 
-                gem_package 'package' do
+                gem_package 'gem_name' do
                   gem_binary Chef::Util::PathHelper.join(Chef::Config.embedded_dir,'bin','gem')
                   action :install
                 end
@@ -175,7 +175,7 @@ This resource has the following properties:
 ``package_name``
    **Ruby Types:** String, Array
 
-   The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the gem. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
 
 ``provider``
    **Ruby Type:** Chef Class
@@ -195,7 +195,7 @@ This resource has the following properties:
 ``source``
    **Ruby Type:** String
 
-   Optional. The path to a package in the local file system.
+   Optional. The path to a gem in the local file system.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -239,7 +239,7 @@ This resource has the following properties:
 ``version``
    **Ruby Types:** String, Array
 
-   The version of a package to be installed or upgraded.
+   The version of a gem to be installed or upgraded.
 
 Providers
 =====================================================
