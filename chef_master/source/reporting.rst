@@ -44,7 +44,7 @@ The Reporting client is built into the chef-client and can run on all platforms 
 
 .. end_tag
 
-Reporting is configured as :doc:`a premium feature </install_reporting>` of the Chef server and requires acceptance of the `Chef MLSA <https://docs.chef.io/chef_license.html>`__ as part of the installation process, starting with version 1.6.0.
+Reporting is configured as :doc:`a premium feature </install_reporting>` of the Chef server and requires acceptance of the :doc:`Chef MLSA </chef_license>` as part of the installation process, starting with version 1.6.0.
 
 The Reporting Run
 =====================================================
