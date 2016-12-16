@@ -34,6 +34,7 @@ Disallow: /release/12-9/
 Disallow: /release/12-10/
 Disallow: /release/12-11/
 Disallow: /release/12-12/
+Disallow: /release/12-13/
 Disallow: /release/push_jobs_1-0/
 Disallow: /release/push_jobs_2-1/
 Disallow: /enterprise/
@@ -177,14 +178,11 @@ Disallow: /server_deploy_be.html
 Disallow: /server_deploy_fe.html
 Disallow: /server_deploy_febe.html
 Disallow: /server_deploy_standalone.html
-Disallow: /server_replication.html
 Disallow: /server_types.html
-Disallow: /platforms.html
 Disallow: /upgrade_server_ha_notes.html
 Disallow: /upgrade_server_ha.html
 Disallow: /upgrade_server_open_source.html
 Disallow: /upgrade_server_standalone_notes.html
 Disallow: /upgrade_server_standalone.html
 Disallow: /verify_packages.html
-Disallow: /ctl_analytics.html
-Disallow: /upgrade_analytics.html
+
