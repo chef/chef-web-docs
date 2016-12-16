@@ -1,6 +1,7 @@
 =====================================================
 Chef Automate Backups
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/delivery_server_backup.rst>`__
 
 Chef Automate provides tools for creating, managing and restoring backup archives and Elasticsearch snapshots of your Chef Automate data.
 
