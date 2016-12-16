@@ -900,7 +900,6 @@ The chef-client supports reading multiple configuration files by putting them in
 * ``/etc/chef/client.d``
 * ``/etc/chef/config.d``
 * ``~/chef/solo.d``
-* ``c:/chef/config.d``
 
 (There is no support for a ``knife.d`` directory; use ``config.d`` instead.)
 
