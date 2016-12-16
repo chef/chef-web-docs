@@ -1,6 +1,7 @@
 ===========================================================
 Set up a build node
 ===========================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/setup_build_node.rst>`__
 
 Push job-based build nodes can be used by Chef Automate to build, test, and deploy your components within Chef Automate and your infrastructure; however, if you are creating new nodes for this purpose, then you should use the SSH-based job dispatch system that uses runners to perform these tasks. The instructions below are for customers who have a hard requirement to use the previous push jobs-based system.
 
