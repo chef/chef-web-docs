@@ -39,12 +39,12 @@ The full syntax for all of the properties that are available to the **chef_gem**
      compile_time               TrueClass, FalseClass
      notifies                   # see description
      options                    String
-     package_name               String, Array # defaults to 'name' if not specified
+     package_name               String # defaults to 'name' if not specified
      provider                   Chef::Provider::Package::Rubygems
      source                     String
      subscribes                 # see description
      timeout                    String, Integer
-     version                    String, Array
+     version                    String
      action                     Symbol # defaults to :install if not specified
    end
 
@@ -173,7 +173,7 @@ This resource has the following properties:
    One (or more) additional options that are passed to the command.
 
 ``package_name``
-   **Ruby Types:** String, Array
+   **Ruby Types:** String
 
    The name of the gem. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
 
@@ -237,7 +237,7 @@ This resource has the following properties:
    The amount of time (in seconds) to wait before timing out.
 
 ``version``
-   **Ruby Types:** String, Array
+   **Ruby Types:** String
 
    The version of a gem to be installed or upgraded.
 
@@ -322,4 +322,3 @@ To install a gem while the resource collection is being built (the “compile ph
    chef_gem 'mysql'
 
 .. end_tag
-
