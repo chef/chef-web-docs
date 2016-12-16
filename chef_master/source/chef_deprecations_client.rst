@@ -11,7 +11,7 @@ When we wish to remove a feature or an API in Chef, we try to first mark it with
      JSON auto inflation is not supported (CHEF-1) at (irb):7:in `irb_binding'.
      Please see https://docs.chef.io/chef-client/deprecations/json_auto_inflate.html for further details and information on how to correct this problem.
 
-Fixing Deprecations
+Testing for Deprecations
 =====================================================
 
 To test your code for deprecations, you can put Test Kitchen in a mode where any deprecations cause the chef run to fail. Ensure your ``.kitchen.yml`` includes:
@@ -21,7 +21,7 @@ To test your code for deprecations, you can put Test Kitchen in a mode where any
    provisioner:
      deprecations_as_errors: true
 
-and then run Test Kitchen as usual. Test Kitchen will fail if any deprecation errors are issued. This feature was added in Test Kitchen 1.13.
+and then run Test Kitchen as usual. Test Kitchen will fail if any deprecation errors are issued. This feature was added in Test Kitchen 1.13, which shipped in ChefDK 1.0.
 
 All Deprecations
 =====================================================
@@ -34,10 +34,14 @@ All Deprecations
     - Description
     - Deprecated
     - Expected Removal
+    * - :doc:`CHEF-0 </deprecations_internal_api>`
+      - Many internal APIs have been improved.
+      - various
+      - varies
   * - :doc:`CHEF-1 </deprecations_json_auto_inflate>`
     - Consumers of JSON are now required to be explicit in how it is turned in to a Chef object.
     - 12.7.2
-    - 13.0  
+    - 13.0
   * - :doc:`CHEF-2 </deprecations_exit_code>`
     - Chef's exit codes are now defined so that it's easy to understand why Chef exited.
     - 12.11.4
@@ -78,7 +82,3 @@ All Deprecations
     - Resource Cloning will no longer work.
     - 10.18.0
     - 13.0
-  * - :doc:`CHEF-0 </deprecations_internal_api>`
-    - Many internal APIs have been improved.
-    - various
-    - varies
