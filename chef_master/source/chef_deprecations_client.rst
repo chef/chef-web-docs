@@ -34,10 +34,10 @@ All Deprecations
     - Description
     - Deprecated
     - Expected Removal
-    * - :doc:`CHEF-0 </deprecations_internal_api>`
-      - Many internal APIs have been improved.
-      - various
-      - varies
+  * - :doc:`CHEF-0 </deprecations_internal_api>`
+    - Many internal APIs have been improved.
+    - various
+    - varies
   * - :doc:`CHEF-1 </deprecations_json_auto_inflate>`
     - Consumers of JSON are now required to be explicit in how it is turned in to a Chef object.
     - 12.7.2
