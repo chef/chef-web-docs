@@ -10,8 +10,10 @@ What's New in 12.17
 
 The following items are new for chef-client 12.17 and/or are changes from previous versions. The short version:
 
-* **Added msu_package resource and provider** Supports the installation of Microsoft Update(MSU) packages on Windows.
+* **Added msu_package resource and provider**
 * **Added alias unmount to umount action for mount resource**
+* **Can now delete multiple nodes/clients in knife**
+* **Haskell language plugin added to Ohai**
 
 msu_package resource
 -----------------------------------------------------
@@ -65,10 +67,10 @@ Now you can use ``action :unmount`` to unmout a mount point through the mount re
      action :unmount
    end
 
-Multiple client / node deletion in knife
+Multiple client/node deletion in knife
 -----------------------------------------------------
 
-You can now pass multiple nodes/clients to knife node delete or knife client delete operations.
+You can now pass multiple nodes/clients to ``knife node delete`` or ``knife client delete`` subcommands.
 
 .. code-block:: bash
 
@@ -95,7 +97,7 @@ Haskell is now detected in a new haskell language plugin:
 
 **LSB Release Detection**
 
-The lsb_release command line tool is now preferred to the contents of /etc/lsb-release. This resolves an issue where a distro can be upgraded, but /etc/lsb-release is not upgraded to reflect the change
+The lsb_release command line tool is now preferred to the contents of ``/etc/lsb-release`` for release detection. This resolves an issue where a distro can be upgraded, but ``/etc/lsb-release`` is not upgraded to reflect the change.
 
 
 What's New in 12.16
