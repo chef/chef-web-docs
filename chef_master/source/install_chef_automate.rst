@@ -306,7 +306,7 @@ To install Chef Automate:
 
       rpm -Uvh PATH_TO_AUTOMATE_SERVER_PACKAGE
 
-#. (Optional) In Chef Automate 0.6.8, you have the option of running the ``preflight-check`` command. This command is optional, but you are encouraged to use it, as it can uncover common environmental problems prior to the actual setup process. For example, there may be required ports that are unavailable, which would have to be rectified prior to setup.
+#. (Optional) In Chef Automate 0.6.64, you have the option of running the ``preflight-check`` command. This command is optional, but you are encouraged to use it, as it can uncover common environmental problems prior to the actual setup process. For example, there may be required ports that are unavailable, which would have to be rectified prior to setup.
 
    .. code-block:: bash
 
