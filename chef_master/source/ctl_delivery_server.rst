@@ -479,6 +479,19 @@ This subcommand has the following syntax:
 
    $ automate-ctl migrate-patchset-diffs-dry-run ENT_NAME ORG_NAME PROJECT_NAME PATCHSET_DIFF
 
+preflight-check
+=====================================================
+ 
+ The ``preflight-check`` subcommand is used to check for common problems in your infrastructure environment before setup and configuration of Chef Automate begins.
+
+ New in Chef Automate 0.6.8.
+
+ This subcommand has the following syntax:
+
+ .. code-block:: bash
+
+    $ automate-ctl preflight-check
+
 reconfigure
 =====================================================
 The ``reconfigure`` subcommand is used to reconfigure the Chef Automate server after changes are made to the delivery configuration file, located at ``/etc/delivery/delivery.rb``. When changes are made to the delivery configuration file, they are not applied to the Chef Automate configuration until after this command is run. This subcommand also restarts any services for which the ``service_name['enabled']`` setting is set to ``true``.
@@ -512,7 +525,6 @@ This subcommand has the following syntax:
 .. code-block:: bash
 
    $ automate-ctl reset-password ENTERPRISE_NAME USER_NAME NEW_PASSWORD
-
 
 restore-backup
 =====================================================

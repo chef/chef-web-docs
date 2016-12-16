@@ -28,7 +28,7 @@ A Chef Automate installation consists of a minimum of two nodes:
 
   * Coordinates the process of moving a change through the workflow pipeline as well as providing insights and visualizations about your Chef Automate cluster.
 
-* (Optional) Build nodes used in the push jobs-based job dispatch system and runners which are used in the new job dispatch system are optional components that perform the work of running builds, tests, and deployments out of Chef Automate and are only required when using the workflow capabilities of Chef Automate.
+* (Optional) Build nodes used in the push jobs-based job dispatch system, and runners which are used in the new job dispatch system, are optional components that perform the work of running builds, tests, and deployments out of Chef Automate and are only required when using the workflow capabilities of Chef Automate.
 
 * (Optional) Chef Compliance server for use in conjunction with the ``audit cookbook``.
 
@@ -306,6 +306,21 @@ To install Chef Automate:
 
       rpm -Uvh PATH_TO_AUTOMATE_SERVER_PACKAGE
 
+#. (Optional) In Chef Automate 0.6.8, you have the option of running the ``preflight-check`` command. This command is optional, but you are encouraged to use it, as it can uncover common environmental problems prior to the actual setup process. For example, there may be required ports that are unavailable, which would have to be rectified prior to setup.
+
+   .. code-block:: bash
+
+      sudo automate-ctl preflight-check
+
+   This triggers a series of validation steps on your system that will be sent to stdout as
+   they are run, along with whether they are passing or failing. The end of the
+   check will include a report of all failures and remediation steps that you can
+   take to fix them.
+
+   .. note:: As shown in the example above, this command requires root user privileges.
+
+   Please refer to the troubleshooting section for more information about the error codes and remediation steps.
+
 #. Ensure that the Chef Automate license file and the user key you created earlier in the Chef Server setup are located on the Chef Automate server.
 
 #. Run the ``setup`` command. This command requires root user privileges. Any unsupplied arguments will be prompted for.
@@ -471,8 +486,7 @@ Allows nodes to execute infrastructure tests or compliance profiles as part of t
 Troubleshooting
 ===================================================================
 
-Once you have setup completed, you should be able to submit a change request for review through the workflow pipeline
-and Chef Automate will run it through the complete process. If there are problems, see :doc:`Troubleshooting Chef Automate Deployments </troubleshooting_chef_automate>` for debugging tips.
+If you run into issues during during setup or in the use of Chef Automate, see :doc:`Troubleshooting Chef Automate </troubleshooting_chef_automate>` for debugging tips and remediations.
 
 Delivery-truck setup
 ====================================================================
