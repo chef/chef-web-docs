@@ -105,7 +105,7 @@ When finished, save it.
 
 delete
 =====================================================
-Use the ``delete`` argument to delete a node from the Chef server.
+Use the ``delete`` argument to delete a node from the Chef server. If using Chef client 12.17 or later, you can delete multiple nodes using this subcommand.
 
 .. note:: Deleting a node will not delete any corresponding API clients.
 
