@@ -1,127 +1,3 @@
-{% set active_product = active_product|default('Chef') -%}
-{% set active_version = active_version|default('Latest') -%}
-{% set defaultNavItems = [
-  {
-    "title": "Chef Client 12.13",
-    "iconClass": "fa-home",
-    "subItems": [
-      {
-        "title": "Getting Started",
-        "hasSubItems": false,
-        "url": "/release/12-13/index.html"
-      },
-      {
-        "title": "Overview",
-        "hasSubItems": false,
-        "url": "/release/12-13/chef_overview.html"
-      },
-      {
-        "title": "Community",
-        "hasSubItems": false,
-        "url": "/community.html"
-      },
-      {
-        "title": "Tutorials",
-        "hasSubItems": false,
-        "url": "https://learn.chef.io"
-      },
-      {
-        "title": "Release Notes",
-        "hasSubItems": false,
-        "url": "/release/12-13/release_notes.html"
-      }
-    ]
-  },
-  {
-    "title": "Theory &amp; Concepts",
-    "iconClass": "fa-star",
-    "subItems": [
-      {
-        "title": "Workstations",
-        "hasSubItems": false,
-        "url": "/release/12-13/workstation.html"
-      },
-      {
-        "title": "Nodes",
-        "hasSubItems": false,
-        "url": "/release/12-13/nodes.html"
-      },
-      {
-        "title": "Chef Server",
-        "hasSubItems": false,
-        "url": "/release/12-13/chef_server.html"
-      },
-      {
-        "title": "Cookbooks",
-        "hasSubItems": false,
-        "url": "/release/12-13/cookbooks.html"
-      },
-      {
-        "title": "Cookbook Components",
-        "hasSubItems": true,
-        "subItems": [
-          {
-            "title": "Attributes",
-            "url": "/release/12-13/attributes.html"
-          },
-          {
-            "title": "Definitions",
-            "url": "/release/12-13/definitions.html"
-          },
-          {
-            "title": "Files",
-            "url": "/release/12-13/files.html"
-          },
-          {
-            "title": "Libraries",
-            "url": "/release/12-13/libraries.html"
-          },
-          {
-            "title": "Recipes",
-            "url": "/release/12-13/recipes.html"
-          },
-          {
-            "title": "Templates",
-            "url": "/release/12-13/templates.html"
-          }
-        ]
-      },
-      {
-        "title": "Cookbook Versions",
-        "hasSubItems": false,
-        "url": "/release/12-13/cookbook_versions.html"
-      },
-      {
-        "title": "Policy",
-        "hasSubItems": true,
-        "subItems": [
-          {
-            "title": "Data Bags",
-            "url": "/release/12-13/data_bags.html"
-          },
-          {
-            "title": "Environments",
-            "url": "/release/12-13/environments.html"
-          },
-          {
-            "title": "Roles",
-            "url": "/release/12-13/roles.html"
-          },
-          {
-            "title": "Policy Files",
-            "url": "#"
-          }
-        ]
-      },
-      {
-        "title": "Search",
-        "hasSubItems": false,
-        "url": "/release/12-13/chef_search.html"
-      }
-    ]
-  }
-] -%}
-{% set navItems = navItems|default(defaultNavItems) -%}
 <nav class="nav-docs">
   <ul class="nav-docs-items" id="nav-docs-list">
     <li class="main-item dark-item docs-search">
@@ -132,10 +8,6 @@
       </form>
    
 
-    </li>
-    <li class="version-picker">
-      Filter by product and version
-      {% include 'version-picker.html' with context %}
     </li>
     {% block leftnav %}
     {%- for item in navItems %}
@@ -250,6 +122,12 @@
       <a href="https://docs.chef.io/index.html">
         <i class="fa fa-map-o icon-left"></i>
         Site Map
+      </a>
+    </li>
+    <li class="main-item dark-item">
+      <a href="https://docs-archive.chef.io/">
+        <i class="fa fa-archive icon-left"></i>
+        Archive
       </a>
     </li>
   </ul>
