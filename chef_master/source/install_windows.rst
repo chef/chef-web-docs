@@ -80,7 +80,7 @@ A Microsoft Installer Package (MSI) is available for installing the chef-client 
 
 To install the chef-client on Microsoft Windows, do the following:
 
-#. Go to http://www.chef.io/chef/install.
+#. Go to https://downloads.chef.io/chef.
 
 #. Click the **Chef Client** tab.
 
