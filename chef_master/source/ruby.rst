@@ -245,7 +245,7 @@ WiX includes serveral tools -- such as ``candle`` (preprocesses and compiles sou
 
 Hash
 -----------------------------------------------------
-A Hash is a list with keys and values. Sometimes they don't have a set order:
+A Hash is a list with keys and values. Sometimes hashes don't have a set order:
 
 .. code-block:: ruby
 
