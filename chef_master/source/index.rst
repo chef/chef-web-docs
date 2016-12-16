@@ -64,7 +64,7 @@ Tutorials
  `Learn the Basics <https://learn.chef.io/tutorials/learn-the-basics/>`_ |
  `Manage a Node <https://learn.chef.io/tutorials/manage-a-node/>`_ |
  `Get started with Test Kitchen <https://learn.chef.io/tutorials/local-development/>`_ |
- `Develop a web app cookbook <https://learn.chef.io/tutorials/manage-a-web-app/>`_ |
+ `Develop a web app cookbook <https://learn.chef.io/manage-a-web-app/>`_ |
  `Verify with InSpec <https://learn.chef.io/tutorials/inspec/>`_ |
  `Unit test with ChefSpec <https://learn.chef.io/tutorials/chefspec/>`_ |
  `Verify code style <https://learn.chef.io/tutorials/verify-style/>`_ |
