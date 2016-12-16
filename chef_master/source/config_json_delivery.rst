@@ -68,7 +68,7 @@ The behavior of pipeline phases can be customized using the project's ``config.j
 
    The ``build_nodes`` setting specifies which build nodes to use for specific phases in the Chef Automate pipeline. The build node may be defined as well as queried via wildcard search.
 
-   .. note:: This setting should only be used with build nodes that use the previous job dispatch system. Use the ``job_dispatch`` setting when using the new job dispatch system.
+   .. note:: This setting should only be used with build nodes that use the previous push job-based dispatch system. Use the ``job_dispatch`` setting when using the new ssh-based job dispatch system.
 
    .. end_tag
 
@@ -118,7 +118,7 @@ The behavior of pipeline phases can be customized using the project's ``config.j
 ``job_dispatch``
    **Optional**
 
-   The ``job_dispatch`` setting is needed to use the :doc:`improved SSH job dispatch system </job_dispatch>`.
+   The ``job_dispatch`` setting is needed to use the :doc:`improved SSH job dispatch system </job_dispatch>`. If you use this setting, you must remove any ``build_nodes`` settings from your configuration file.
 
    * ``"version"``
      Set the value to "v2" if you wish to use runners and the new job dispatch system:

@@ -74,6 +74,14 @@ At the bare minimum, you must set the version to v2:
       ...
    }
 
+and remove the ``build_nodes`` setting from ``config.json``.
+
+.. code-block:: none
+
+   "build_nodes": {
+     "default"    : ["name:name_of_builder"]
+   },
+
 You can also set which runners you want jobs to run on for your project. You can set default, per phase, and matrix per phase filters to customize exactly which runners are targeted at various points of your pipeline. Refer to :ref:`job_dispatch config setting <job-dispatch-config-settings>` for more details and examples.
 
 Cancelling Jobs
