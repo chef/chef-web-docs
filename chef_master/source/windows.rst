@@ -11,7 +11,7 @@ The chef-client has specific components that are designed to support unique aspe
 * Six resources dedicated to the Microsoft Windows platform are built into the chef-client: **batch**, **dsc_script**, **env**, **powershell_script**, **registry_key**, and **windows_package**
 * Use the **dsc_resource** to use Powershell DSC resources in Chef!
 * Two knife plugins dedicated to the Microsoft Windows platform are available: ``knife azure`` is used to manage virtual instances in Microsoft Azure; ``knife windows`` is used to interact with and manage physical nodes that are running Microsoft Windows, such as desktops and servers
-* Many community cookbooks on Supermarket provide Windows specific support. Chef maintains `PowerShell <https://github.com/chef-cookbooks/powershell>`_, `IIS <https://github.com/chef-cookbooks/iis>`_, `SQL Server <https://github.com/chef-cookbooks/database>`_, and `Windows <https://github.com/chef-cookbooks/windows>`_ cookbooks.
+* Many community cookbooks on Supermarket provide Windows specific support. Chef maintains cookbooks for `PowerShell <https://github.com/chef-cookbooks/powershell>`_, `IIS <https://github.com/chef-cookbooks/iis>`_, `SQL Server <https://github.com/chef-cookbooks/database>`_, and `Windows <https://github.com/chef-cookbooks/windows>`_.
 * The following Microsoft Windows platform-specific helpers can be used in recipes:
 
   .. list-table::
