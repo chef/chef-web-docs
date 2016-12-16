@@ -48,7 +48,7 @@ install Sphinx, the documentation generator, possibly using `sudo`:
   pip install -r requirements.txt
 ```
 
-> Note: The default `make` target is `master`. This is the target that creates the appropriate `build` directory on your local machine and references in the source files in the `chef_master/source` directory of your local repo.
+> Note: The default `make` target is `docs`. This is the target that creates the appropriate `build` directory on your local machine and references in the source files in the `source` directory of your local repo.
 
 We currently require version 1.2.3 of
 [Sphinx](http://sphinx-doc.org/). The requirements.txt file referenced above pins Sphinx and its dependencies to versions that are compatible with each other. You may also need to install Python, depending on your system.
@@ -103,6 +103,13 @@ We love getting feedback. You can use:
 ## License
 
 [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/)
+
+## Documentation snapshots
+
+The previous scoped doc sets that were found off of https://docs.chef.io/release/ are no longer available in this repo. Instead, 
+those doc sets are located at https://docs-archive.chef.io/. The index page on that site provides links to them. They retain their unique
+left nav and can be used to view content at a particular point in time for a given release. In the future, snapshots 
+will be added for major releases of products/projects or for products/projects/components that are no longer supported.
 
 ## Archive of pre-2016 commit history
 

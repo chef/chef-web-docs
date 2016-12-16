@@ -67,56 +67,7 @@ execute "pip install -r requirements.txt" do
 end
 
 build_targets = <<END
-master
-decks
-automate
-analytics
-11-0
-11-2
-11-4
-11-6
-11-8
-11-10
-11-12
-11-14
-11-16
-11-18
-12-0
-12-1
-12-2
-12-3
-12-4
-12-5
-12-6
-12-7
-12-8
-12-9
-12-10
-12-11
-12-12
-12-13
-compliance
-devkit
-oec_11-0
-oec_11-1
-oec_11-2
-ohai-8
-ohai-7
-ohai-6
-osc_11-0
-osc_11-1
-push_1-0
-push_2-1
-server_12-0
-server_12-1
-server_12-2
-server_12-3
-server_12-4
-server_12-5
-server_12-6
-server_12-7
-server_12-8
-supermarket
+docs
 END
 
 file '/srv/chef-web-docs/targets.txt' do
