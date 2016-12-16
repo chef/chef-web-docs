@@ -206,7 +206,7 @@ Prerequisites
 -----------------------------------------------------
 
 * Chef Automate server with workflow and visibility installed
-* Elasticsearch (version 2.3.0 or greater)
+* Elasticsearch (version 2.4.1 or greater; however, v5.x is not yet supported)
 
 Elasticsearch configuration
 -----------------------------------------------------

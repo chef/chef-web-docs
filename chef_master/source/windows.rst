@@ -11,8 +11,7 @@ The chef-client has specific components that are designed to support unique aspe
 * Six resources dedicated to the Microsoft Windows platform are built into the chef-client: **batch**, **dsc_script**, **env**, **powershell_script**, **registry_key**, and **windows_package**
 * Use the **dsc_resource** to use Powershell DSC resources in Chef!
 * Two knife plugins dedicated to the Microsoft Windows platform are available: ``knife azure`` is used to manage virtual instances in Microsoft Azure; ``knife windows`` is used to interact with and manage physical nodes that are running Microsoft Windows, such as desktops and servers
-* Four cookbooks provide application-specific support. For `PowerShell 4.0 <https://github.com/chef-cookbooks/powershell>`_. For `IIS 7.0/7.5/8.0 <https://github.com/chef-cookbooks/iis>`_. For `SQL Server <https://github.com/chef-cookbooks/database>`_. And for configuring various settings and behaviors on a machine that is running `Windows <https://github.com/chef-cookbooks/windows>`_
-* Support for both :i386 and :x86_64 architectures
+* Many community cookbooks on Supermarket provide Windows specific support. Chef maintains cookbooks for `PowerShell <https://github.com/chef-cookbooks/powershell>`_, `IIS <https://github.com/chef-cookbooks/iis>`_, `SQL Server <https://github.com/chef-cookbooks/database>`_, and `Windows <https://github.com/chef-cookbooks/windows>`_.
 * The following Microsoft Windows platform-specific helpers can be used in recipes:
 
   .. list-table::
@@ -55,7 +54,7 @@ The chef-client has specific components that are designed to support unique aspe
        - Use to test for Windows Vista.
      * - ``windows_xp?``
        - Use to test for Windows XP.
-* Two community provisioners for Kitchen: `kitchen-dsc <https://github.com/smurawski/kitchen-dsc>`_ and `kitchen-pester <https://github.com/smurawski/kitchen-pester>`_
+* Two community provisioners for Kitchen: `kitchen-dsc <https://github.com/test-kitchen/kitchen-dsc>`_ and `kitchen-pester <https://github.com/test-kitchen/kitchen-pester>`_
 
 The most popular core resources in the chef-client---:doc:`cookbook_file </resource_cookbook_file>`, :doc:`directory </resource_directory>`, :doc:`env </resource_env>`, :doc:`execute </resource_execute>`, :doc:`file </resource_file>`, :doc:`group </resource_group>`, :doc:`http_request </resource_http_request>`, :doc:`link </resource_link>`, :doc:`mount </resource_mount>`, :doc:`package </resource_package>`, :doc:`remote_directory </resource_remote_directory>`, :doc:`remote_file </resource_remote_file>`, :doc:`ruby_block </resource_ruby_block>`, :doc:`service </resource_service>`, :doc:`template </resource_template>`, and :doc:`user </resource_user>`---work the same way in Microsoft Windows as they do on any UNIX- or Linux-based platform.
 
@@ -89,10 +88,7 @@ The chef-client can be used to manage machines that run on the following version
      - Version
      - Architecture
    * - Windows
-     - 2003 R2, 2008
-     - i686, x86_64
-   * -
-     - 2008 R2, 2012
+     - 2008 R2, 2012, 2012 R2
      - x86_64
 
 (The recommended amount of RAM available to the chef-client during a chef-client run is 512MB. Each node and workstation must have access to the Chef server via HTTPS. Ruby version 1.9.1 or Ruby version 1.9.2 with SSL bindings is required.)
@@ -198,7 +194,7 @@ A Microsoft Installer Package (MSI) is available for installing the chef-client 
 
 To install the chef-client on Microsoft Windows, do the following:
 
-#. Go to http://www.chef.io/chef/install.
+#. Go to https://downloads.chef.io/chef.
 
 #. Click the **Chef Client** tab.
 
@@ -2272,7 +2268,7 @@ This resource has the following attributes:
 
        Microsoft Windows: A quoted 3-5 character string that defines the octal mode that is translated into rights for Microsoft Windows security. For example: ``'755'``, ``'0755'``, or ``00755``. Values up to ``'0777'`` are allowed (no sticky bits) and mean the same in Microsoft Windows as they do in UNIX, where ``4`` equals ``GENERIC_READ``, ``2`` equals ``GENERIC_WRITE``, and ``1`` equals ``GENERIC_EXECUTE``. This property cannot be used to set ``:full_control``. This property has no effect if not specified, but when it and ``rights`` are both specified, the effects are cumulative.
    * - ``owner``
-     - A string or ID that identifies the group owner by user name, including fully qualified user names such as ``domain\user`` or ``user@domain``. If this value is not specified, existing owners remain unchanged and new owner assignments use the current user (when necessary).	
+     - A string or ID that identifies the group owner by user name, including fully qualified user names such as ``domain\user`` or ``user@domain``. If this value is not specified, existing owners remain unchanged and new owner assignments use the current user (when necessary).
    * - ``path``
      - The full path to the file, including the file name and its extension.
 
