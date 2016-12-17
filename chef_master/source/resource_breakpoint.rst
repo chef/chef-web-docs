@@ -349,20 +349,19 @@ chef-shell can be used to debug existing recipes. The recipe first needs to be a
 
 .. code-block:: bash
 
-   Loading....[Fri, 18 May 2012 11:30:08 -0700] INFO: Run List is [recipe[getting-started]]
-   [Fri, 18 May 2012 11:30:08 -0700] INFO: Run List expands to [getting-started]
-   [Fri, 18 May 2012 11:30:09 -0700] INFO: Loading cookbooks [getting-started]
-   done.
+    loading configuration: none (standalone session)
+    Session type: standalone
+    Loading..............done.
 
-   This is chef-shell, the Chef shell.
-    Chef Version: 0.10.10
-    http://www.opscode.com/chef
-    docs.opscode.com
+    This is the chef-shell.
+     Chef Version: 12.17.44
+     https://www.chef.io/
+     https://docs.chef.io/
 
-   run `help' for help, `exit' or ^D to quit.
+    run `help' for help, `exit' or ^D to quit.
 
-   Ohai2u NODENAME!
-   chef >
+    Ohai2u YOURNAME@!
+    chef (12.17.44)>
 
 To just load one recipe from the run-list, go into the recipe and use the ``include_recipe`` command. For example:
 
@@ -437,20 +436,20 @@ When the chef-client is installed using RubyGems or a package manager, chef-shel
 
 .. code-block:: bash
 
-   $ bin/shef
-     ./bin/../lib/chef.rb:30: warning: already initialized constant VERSION
-     loading configuration: none (standalone shef session)
-     Loading.......done.
+   $ bin/chef-shell
+     loading configuration: none (standalone session)
+     Session type: standalone
+     Loading..............done.
 
-     This is shef, the Chef shell.
-      Chef Version: 0.10.4
-      http://www.opscode.com/chef
-      http://wiki.opscode.com/display/chef/Home
+     This is the chef-shell.
+      Chef Version: 12.17.44
+      https://www.chef.io/
+      https://docs.chef.io/
 
-   run `help' for help, `exit' or ^D to quit.
+     run `help' for help, `exit' or ^D to quit.
 
-   Ohai2u danielsdeleo@eigenstate.local!
-   chef >
+     Ohai2u YOURNAME@!
+     chef (12.17.44)>
 
 (Use the help command to print a list of supported commands.) Use the recipe_mode command to switch to recipe context:
 
