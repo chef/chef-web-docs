@@ -13,32 +13,32 @@ The following items are new for chef-dk 1.1 and/or are changes from previous ver
 New InSpec Test Location
 -----------------------------------------------------
 
-To address bugs and confusion with the previous `test/recipes` location, all newly generated
-cookbooks and recipes will place their InSpec tests in `test/smoke/default`. This
-placement creates the association of the `smoke` Workflow phase and the `default` Kitchen suite
+To address bugs and confusion with the previous ``test/recipes`` location, all newly generated
+cookbooks and recipes will place their InSpec tests in ``test/smoke/default``. This
+placement creates the association of the `smoke` phase in Chef Automate and the `default` Test Kitchen suite
 where the tests are run.
 
 Default Docker image in kitchen-dokken is now official Chef image
 ------------------------------------------------------------------
 
-`chef/chef <https://hub.docker.com/r/chef/chef>`_ is now the default Docker image used in `kitchen-dokken <https://github.com/someara/kitchen-dokken>`_
+`chef/chef <https://hub.docker.com/r/chef/chef>`_ is now the default Docker image used in `kitchen-dokken <https://github.com/someara/kitchen-dokken>`_.
 
-New Kitchen driver caching mechanisms
+New Test Kitchen driver caching mechanisms
 -----------------------------------------------------
 
-Kitchen will automatically cache downloaded chef-client packages for use between provisions.
-For people who use the `kitchen-vagrant` driver to run Chef, it will automatically consume the
+Test Kitchen will automatically cache downloaded chef-client packages for use between provisions.
+For people who use the ``kitchen-vagrant`` driver to run Chef, it will automatically consume the
 new caching mechanism to share the client packages to the guest VM, meaning that you no longer
 have to wait for the client to download on every guest provision.
 
 In addition, if the chef-client packages are already cached, then it is now possible to use
-Kitchen completely off-line.
+Test Kitchen completely off-line.
 
 Cookstyle 1.1.0 with new code linting Cops
 -----------------------------------------------------
 
-Cookstyle has been updated from `0.0.1` to `1.1.0`, which upgrades the RuboCop engine from `0.39`
-to `0.46` and enables several new cops. This will most likely result in Cookstyle warning on
+Cookstyle has been updated from ``0.0.1`` to ``1.1.0``, which upgrades the RuboCop engine from ``0.39``
+to ``0.46``, and enables several new cops. This will most likely result in Cookstyle warnings on
 cookbooks that previously passed.
 
 **Newly Disabled Cops:**
@@ -68,10 +68,10 @@ cookbooks that previously passed.
 - Style/TrailingCommaInLiteral
 - Lint/ShadowedException
 
-New DCO Tool Included
+New DCO tool included
 -----------------------------------------------------
 
-We have included a new dco command line tool that makes it easier to contribute to projects like
+We have included a new DCO command-line tool that makes it easier to contribute to projects like
 Chef that use the Developer Certificate of Origin. The tool allows you to enable/disable DCO
 sign-offs on a per repository basis and also allows you to retroactively sign off all commits on
 a branch. See https://github.com/coderanger/dco for details.
@@ -79,15 +79,15 @@ a branch. See https://github.com/coderanger/dco for details.
 Notable Upgraded Gems
 -----------------------------------------------------
 
-- chef `12.16.42` -> `12.17.44`
-- ohai `8.21.0` -> `8.22.0`
-- inspec `1.4.1` -> `1.7.2`
-- train `0.21.1` -> `0.22.0`
-- test-kitchen `1.13.2` -> `1.14.2`
-- kitchen-vagrant `0.20.0` -> `0.21.1`
-- winrm-elevated `1.0.1` -> `1.1.0`
-- winrm-fs `1.0.0` -> `1.0.1`
-- cookstyle `0.0.1` -> `1.1.0`
+- chef ``12.16.42`` -> ``12.17.44``
+- ohai ``8.21.0`` -> ``8.22.0``
+- inspec ``1.4.1`` -> ``1.7.2``
+- train ``0.21.1`` -> ``0.22.0``
+- test-kitchen ``1.13.2`` -> ``1.14.2``
+- kitchen-vagrant ``0.20.0`` -> ``0.21.1``
+- winrm-elevated ``1.0.1`` -> ``1.1.0``
+- winrm-fs ``1.0.0`` -> ``1.0.1``
+- cookstyle ``0.0.1`` -> ``1.1.0``
 
 What's New in 1.0
 =====================================================
@@ -104,13 +104,13 @@ Foodcritic
 -----------------------------------------------------
 
 * Foodcritic constraint updated to require v8.0 or greater.
-* Supermarket Foodcritic rules are now disabled by default when you run `chef generate cookbook`.
+* Supermarket Foodcritic rules are now disabled by default when you run ``chef generate cookbook``.
 
 Inspec
 -----------------------------------------------------
 
-The `inspec` command is now included in the PATH managed by ChefDK. Just run
-`chef shell-init` to update your PATH!
+The ``inspec`` command is now included in the PATH managed by ChefDK. Just run
+``chef shell-init`` to update your PATH.
 
 What's New in 0.19
 =====================================================
@@ -122,17 +122,17 @@ InSpec Updated to v1.2.0. See the `InSpec CHANGELOG <https://github.com/chef/ins
 Mixlib::Install
 -----------------------------------------------------
 
-New `mixlib-install` command allows you to quickly download Chef binaries. Run `mixlib-install help` for command usage.
+New ``mixlib-install`` command allows you to quickly download Chef binaries. Run ``mixlib-install help`` for command usage.
 
 Delivery CLI
 -----------------------------------------------------
 * Deprecation of Github V1 backed project initialization.
-* Initialization of Github V2 backed projects (`delivery init --github`). Requires Chef Automate server version `0.5.432` or above.
-* Project name verification with repository name for projects with SCM Integration.
-* Increased clarity of the command structure by introducing the `--pipeline` alias for the `--for` option.
-* Honor custom config on project initialization (`delivery init -c /my/config.json`).
-* Build cookbook is now generated using the more appropriate `chef generate build-cookbook` on project initialization.
-* Support providing your password non-interactively to `delivery token` via the `AUTOMATE_PASSWORD` environment variable (`AUTOMATE_PASSWORD=password delivery token`).
+* Initialization of Github V2 backed projects (``delivery init --github``). Requires Chef Automate server version ``0.5.432`` or above.
+* Project name verification with repository name for projects with Source Control Management (SCM) integration.
+* Increased clarity of the command structure by introducing the ``--pipeline`` alias for the ``--for`` option.
+* Honor custom config on project initialization (``delivery init -c /my/config.json``).
+* Build cookbook is now generated using the more appropriate ``chef generate build-cookbook`` on project initialization.
+* Support providing your password non-interactively to ``delivery token`` via the ``AUTOMATE_PASSWORD`` environment variable (``AUTOMATE_PASSWORD=password delivery token``).
 
 Changelog
 =====================================================
