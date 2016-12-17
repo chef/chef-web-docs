@@ -54,6 +54,7 @@ Getting Started
 
 **Release Notes**:
 :doc:`Chef Client </release_notes>` |
+:doc:`Chef Development Kit </release_notes_chefdk>` |
 :doc:`Chef Server </release_notes_server>`
 
 :doc:`Deprecations </chef_deprecations_client>`
@@ -602,6 +603,7 @@ Addenda
    recipes
    reporting
    release_notes
+   release_notes_chefdk
    release_notes_server
    resource
    resource_apt_package
