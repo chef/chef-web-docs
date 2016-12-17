@@ -36,7 +36,7 @@ This configuration file has the following settings:
    Changes the log level of Chef Compliance from the default value of ``'debug'``, which is the most verbose. These are all the supported levels, sorted by verbosity: ``'debug'``, ``'info'``, ``'notice'``, ``'warning'``, ``'error'`` and ``'critical'``. Requires Chef Compliance version ``1.5.13`` or newer.
 
 ``fqdn``
-  Sets the FQDN of the Chef Compliance server. By default, this is derived from your system's hostname. Do **not** use the ``=`` to set the option. For example: ``fqdn 'chef-compliance.example.com'``.
+   Sets the FQDN of the Chef Compliance server. By default, this is derived from your system's hostname. Do **not** use the ``=`` to set the option. For example: ``fqdn 'chef-compliance.example.com'``.
 
 ``ssl.certificate``
    Full path to the SSL certificate file that is used by the Chef Compliance web UI. Default value: ``/var/opt/chef-compliance/ssl/ca/HOSTNAME.crt``.

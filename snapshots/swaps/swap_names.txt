@@ -1,2 +1,0 @@
-.. Templates for use elsewhere (if helpful)
-..
