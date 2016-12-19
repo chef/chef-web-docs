@@ -19,16 +19,12 @@ Chef Automate release 0.6.0 includes a new SSH-based job execution layer. Under 
 - View the queue of jobs in the Chef Automate UI
 - View and test runner status via the Chef Automate UI
 
-Known Issues
---------------
+Job Dispatch and Push Jobs
+-----------------------------------------------------
 
-.. warning:: If you need to run windows build and infrastructure nodes, stop now. Job Dispatch is currently incompatible with Windows. If you are running only linux build/infrastructure nodes, please continue.
+Any project configured to use Job Dispatch will not use Push Jobs as the transport mechanism for managing the phase builds (unit, lint, provision, etc.) on runner nodes. Push Jobs is still required to execute the `delivery_push_job` resource that the delivery-sugar cookbook exposes. This means that if you use the default `deploy.rb  <https://github.com/chef-cookbooks/delivery-truck/blob/b9e386e720376f7f3173ca03311cba667eb7ef4b/recipes/deploy.rb>`__ recipe from delivery-truck then Push Jobs is still used within the deploy phase.
 
-   By default, Job Dispatch nodes cannot be used to deploy builds on infrastructure nodes. Infrastructure nodes are usually used as part of testing, but may not be present in your environment. Infrastructure nodes are not build nodes. Currently, as of Automate 0.6.7, Job Dispatch can only be used directly against build nodes.
-
-   * One typical environment would be an Acceptance environment on which both automated and manual testing of new code might happen against a production-like environment. The deploy previous to automated testing will be triggered by a build node triggering a Push Jobs client on the infrastructure node. This will cause the infrastructure node's chef-client to run on the infrastructure node, thus deploying the build. The delivery-truck cookbook's deploy recipe in https://github.com/chef-cookbooks/delivery-truck/blob/master/recipes/deploy.rb#L34 currently assumes that a Push Jobs client will be available on infrastructure nodes for the deploy phase. This behavior is the default, but can be customized to potentially trigger the chef-client run through means other than a Push Jobs job, such as Job Dispatch.
-     
-   Until this issue is fixed, either Push Jobs alone should be used across the Automate installation, or a combination of Job Dispatch should be used against builder nodes, and Push Jobs against infrastructure nodes respectively.
+Job Dispatch is not a replacement for Push Jobs. We wrote Job Dispatch because using Push Jobs to manage the phase builds is not what Push Jobs was designed to do. Job Dispatch uses SSH connections instead and allowed us to add additional features like canceling jobs. Job Dispatch is a targeted solution to managing phase builds, and Push Jobs allows users to perform remote tasks on pools of nodes.
 
 
 Terms
@@ -49,6 +45,8 @@ Adding a Runner
 You can add a new runner via automate-ctl from your Chef Automate server. Log in to your Chef Automate server and run the :ref:`install-runner` command.
 
 After the :ref:`install-runner` command succeeds, the new runner should show up in the UI under ``Workflow -> Runners -> Manage Runners``. If you see it there, click the ``Test`` button. That will test an ssh connection to your runner to verify that jobs can be dispatched to it. If there are any issues, you should get an error in the UI.
+
+Currently the only supported runner platforms are Ubuntu and Centos.
 
 Remove a Runner
 -----------------------------------------------------
