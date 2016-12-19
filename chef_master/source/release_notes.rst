@@ -2583,7 +2583,7 @@ For example, Chef includes built-in resources to manage files, packages, templat
 
 .. end_tag
 
-.. note:: See https://docs.chef.io/custom_resources.html for more information about custom resources, including a scenario that shows how to build a ``website`` resource. Read this scenario as an HTML presentation at https://docs.chef.io/decks/custom_resources.html.
+.. note:: See https://docs.chef.io/custom_resources.html for more information about custom resources, including a scenario that shows how to build a ``website`` resource.
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -3459,7 +3459,7 @@ Use the ``on`` method to create an event handler that sends email when the chef-
 
 .. end_tag
 
-.. note:: See https://docs.chef.io/dsl_handler.html for more information about using event handlers in recipes. Read the scenario for sending email if the chef-client run fails as an HTML presentation at https://docs.chef.io/decks/event_handlers.html.
+.. note:: See https://docs.chef.io/dsl_handler.html for more information about using event handlers in recipes.
 
 **Define How Email is Sent**
 

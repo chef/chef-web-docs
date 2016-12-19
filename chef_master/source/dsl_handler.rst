@@ -226,8 +226,6 @@ Use the ``on`` method to create an event handler that sends email when the chef-
 
 .. end_tag
 
-.. note:: Read this scenario as an HTML presentation at https://docs.chef.io/decks/event_handlers.html.
-
 Define How Email is Sent
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag dsl_handler_slide_send_email_library

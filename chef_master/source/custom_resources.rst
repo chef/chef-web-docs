@@ -190,8 +190,6 @@ This scenario covers the following:
 #. Creating two templates that support the custom resource
 #. Adding the resource to a recipe
 
-.. note:: Read this scenario as an HTML presentation at https://docs.chef.io/decks/custom_resources.html.
-
 Create a Cookbook
 -----------------------------------------------------
 This article assumes that a cookbook directory named ``website`` exists in a chef-repo with (at least) the following directories:
@@ -271,7 +269,7 @@ For example, the ``action`` appears as a property when this custom resource is u
 
 Define Resource
 -----------------------------------------------------
-Use the **package**, **template** (two times), **directory**, and **service** resources to define the ``website`` resource. Remember: `order matters <https://docs.chef.io/decks/recipe_order_matters.html>`_!
+Use the **package**, **template** (two times), **directory**, and **service** resources to define the ``website`` resource. Remember: order matters!
 
 package
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
