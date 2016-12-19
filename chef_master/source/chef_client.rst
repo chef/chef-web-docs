@@ -115,9 +115,11 @@ The key components of nodes that are under management by Chef include:
        * Kernel data
        * Host names
        * Fully qualified domain names
+       * Virtualization data
+       * Cloud provider metadata
        * Other configuration details
 
-       Attributes that are collected by Ohai are automatic attributes, in that these attributes are used by the chef-client to ensure that these attributes remain unchanged after the chef-client is done configuring the node.
+       Attributes that are collected by Ohai are automatic level attributes, in that these attributes are used by the chef-client to ensure that these attributes remain unchanged after the chef-client is done configuring the node.
 
        .. end_tag
 
@@ -536,4 +538,3 @@ During a ``knife bootstrap`` bootstrap operation, the following happens:
        The first chef-client run, by default, contains an empty run-list. A `run-list can be specified <https://docs.chef.io/knife_bootstrap.html>`_ as part of the initial bootstrap operation using the ``--run-list`` option as part of the ``knife bootstrap`` subcommand.
 
 .. end_tag
-
