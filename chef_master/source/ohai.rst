@@ -16,13 +16,15 @@ The types of attributes Ohai collects include (but are not limited to):
 * Kernel data
 * Host names
 * Fully qualified domain names
+* Virtualization data
+* Cloud provider metadata
 * Other configuration details
 
-Attributes that are collected by Ohai are automatic attributes, in that these attributes are used by the chef-client to ensure that these attributes remain unchanged after the chef-client is done configuring the node.
+Attributes that are collected by Ohai are automatic level attributes, in that these attributes are used by the chef-client to ensure that these attributes remain unchanged after the chef-client is done configuring the node.
 
 .. end_tag
 
-Ohai collects data for many platforms, including AIX, Darwin, HP-UX, Linux, FreeBSD, OpenBSD, NetBSD, Solaris, and any Microsoft Windows operating system based off the ``Windows_NT`` kernel and has access to ``win32`` or ``win64`` sub-systems.
+Ohai collects data for many platforms, including AIX, Darwin, Linux, FreeBSD, OpenBSD, NetBSD, Solaris, and any Microsoft Windows operating system based off the ``Windows_NT`` kernel and has access to ``win32`` or ``win64`` sub-systems.
 
 View the :doc:`release notes </release_notes_ohai>` for the latest information on Ohai.
 
@@ -207,11 +209,15 @@ The following list shows the type of plugins that are included with Ohai. See th
      network.rb
      platform.rb
      uptime.rb
+     virtualization.rb
    azure.rb
+   bsd
+    filesystem.rb
+    virtualization.rb
    c.rb
    chef.rb
-   cloud_v2.rb
    cloud.rb
+   cloud_v2.rb
    command.rb
    darwin
      cpu.rb
@@ -220,19 +226,26 @@ The following list shows the type of plugins that are included with Ohai. See th
      network.rb
      platform.rb
      system_profiler.rb
+   digital_ocean.rb
    dmi.rb
+   dragonflybsd
+    cpu.rb
+    memory.rb
+    network.rb
+    os.rb
+    platform.rb
    ec2.rb
+   elixir.rb
    erlang.rb
    eucalyptus.rb
    freebsd
      cpu.rb
-     filesystem.rb
      memory.rb
      network.rb
      os.rb
      platform.rb
-     virtualization.rb
    gce.rb
+   go.rb
    groovy.rb
    hostname.rb
    init_package.rb
@@ -247,44 +260,51 @@ The following list shows the type of plugins that are included with Ohai. See th
      block_device.rb
      cpu.rb
      filesystem.rb
+     filesystem2.rb
+     fips.rb
+     hostnamectl.rb
      lsb.rb
+     machineid.rb
      mdadm.rb
      memory.rb
      network.rb
      platform.rb
+     sessons.rb
      virtualization.rb
    lua.rb
    mono.rb
    netbsd
      cpu.rb
-     filesystem.rb
      memory.rb
      network.rb
      platform.rb
-     virtualization.rb
+   network.rb
    network_listeners.rb
-   network.rb
    nodejs.rb
-   ohai_time.rb
    ohai.rb
+   ohai_time.rb
    openbsd
-   cpu.rb
-   filesystem.rb
-   memory.rb
-   network.rb
-   platform.rb
-   virtualization.rb
+     cpu.rb
+     memory.rb
+     network.rb
+     platform.rb
    openstack.rb
    os.rb
+   packages.rb
    passwd.rb
    perl.rb
    php.rb
    platform.rb
+   powershell.rb
    ps.rb
    python.rb
    rackspace.rb
    root_group.rb
    ruby.rb
+   rust.rb
+   scala.rb
+   shard.rb
+   shells.rb
    sigar
      cpu.rb
      filesystem.rb
@@ -292,6 +312,7 @@ The following list shows the type of plugins that are included with Ohai. See th
      network_route.rb
      network.rb
      platform.rb
+   softlayer.rb
    solaris2
      cpu.rb
      dmi.rb
@@ -302,13 +323,20 @@ The following list shows the type of plugins that are included with Ohai. See th
      virtualization.rb
      zpools.rb
    ssh_host_key.rb
+   sysconf.rb
+   timezone.rb
    uptime.rb
+   virtualbox.rb
    virtualization.rb
    windows
      cpu.rb
+     drivers.rb
      filesystem.rb
+     fips.rb
+     memory.rb
      network.rb
      platform.rb
+     virtualization.rb
 
 Custom Plugins
 =====================================================

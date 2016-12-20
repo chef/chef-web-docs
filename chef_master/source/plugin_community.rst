@@ -156,9 +156,11 @@ The types of attributes Ohai collects include (but are not limited to):
 * Kernel data
 * Host names
 * Fully qualified domain names
+* Virtualization data
+* Cloud provider metadata
 * Other configuration details
 
-Attributes that are collected by Ohai are automatic attributes, in that these attributes are used by the chef-client to ensure that these attributes remain unchanged after the chef-client is done configuring the node.
+Attributes that are collected by Ohai are automatic level attributes, in that these attributes are used by the chef-client to ensure that these attributes remain unchanged after the chef-client is done configuring the node.
 
 .. end_tag
 
@@ -290,16 +292,12 @@ The following plugins are available for the chef-client:
      - Adds the ability to use Jenkins to drive continuous deployment and synchronization of environments from a git repository.
    * - `chef-rundeck <http://rubygems.org/gems/chef-rundeck>`_
      - Adds a resource endpoint for Rundeck.
-   * - `chef-solo-search <https://github.com/edelight/chef-solo-search>`_
-     - Adds a cookbook library that enables searching of data bags when using chef-solo.
    * - `chef-trac-hacks <http://trac-hacks.org/wiki/CloudPlugin>`_
      - Adds the ability to fill a coordination gap between Amazon Web Services (AWS) and the chef-client.
    * - `chef-vim <https://github.com/t9md/vim-chef>`_
      - Adds a plugin that makes cookbook navigation quick and easy.
    * - `chef-vpc-toolkit <https://github.com/rackerlabs/chef_vpc_toolkit>`_
      - Adds a set of Rake tasks that provide a framework that helps automate the creation and configuration of identical virtual server groups in the cloud.
-   * - `ironfan <https://github.com/infochimps-labs/ironfan>`_
-     - Adds the ability to orchestrate complete clusters of machines using an expressive toolset that helps construct scalable and resilient architectures.
    * - `jclouds-chef <https://github.com/jclouds/jclouds-chef>`_
      - Adds Java and Clojure components to the Chef server API REST API.
    * - `kitchenplan <https://github.com/kitchenplan/kitchenplan>`_

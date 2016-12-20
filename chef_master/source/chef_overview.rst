@@ -456,9 +456,11 @@ The key components of nodes that are under management by Chef include:
        * Kernel data
        * Host names
        * Fully qualified domain names
+       * Virtualization data
+       * Cloud provider metadata
        * Other configuration details
 
-       Attributes that are collected by Ohai are automatic attributes, in that these attributes are used by the chef-client to ensure that these attributes remain unchanged after the chef-client is done configuring the node.
+       Attributes that are collected by Ohai are automatic level attributes, in that these attributes are used by the chef-client to ensure that these attributes remain unchanged after the chef-client is done configuring the node.
 
        .. end_tag
 
