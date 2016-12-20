@@ -173,16 +173,10 @@ Things that would still require signing a CLA before submitting would likely inc
 
 Use git
 =====================================================
-.. tag chef_repo_git
-
 Chef is maintained on GitHub. To contribute to Chef, such as submitting a pull request, requires using GitHub and git. The sections below describe how to use git to set up the Chef repository, keep it current and synchronized, and how to use branches to submit pull requests.
-
-.. end_tag
 
 Set Up Repo
 -----------------------------------------------------
-.. tag chef_repo_git_master_setup
-
 Use the following steps to set up a development repository for Chef:
 
 #. Set up a GitHub account.
@@ -237,12 +231,8 @@ Use the following steps to set up a development repository for Chef:
 
       $ git config branch.master.remote chef
 
-.. end_tag
-
 Keep Master Current
 -----------------------------------------------------
-.. tag chef_repo_git_master_keep_current
-
 Use the following steps to keep the master branch up to date.
 
 #. Run:
@@ -274,12 +264,8 @@ The following ``rakefile`` can be used to update Chef, Ohai, and cookbooks. Edit
      end
    end
 
-.. end_tag
-
 Sync Master
 -----------------------------------------------------
-.. tag chef_repo_git_master_sync
-
 Use the following steps to synchronize the master branch.
 
 #. Run:
@@ -296,12 +282,8 @@ Use the following steps to synchronize the master branch.
 
    .. note:: Use ``rebase`` instead of ``merge`` to ensure that a linear history is maintained that does not include unnecessary merge commits. ``rebase`` will also rewind, apply, and then reapply commits to the ``master`` branch.
 
-.. end_tag
-
 Use Branch
 -----------------------------------------------------
-.. tag chef_repo_git_branch
-
 Commits to the Chef repositories should never be made against the master branch. Use a topic branch instead. A topic branch solves a single and unique problem and often maps closely to an issue being tracked in the repository. For example, a topic branch to add support for a new init system or a topic branch to resolve a bug that occurs in a specific version of CentOS. Ideally, a topic branch is named in a way that associates it closely with the issue it is attempting to resolve. This helps ensure that others may easily find it.
 
 Use the following steps to create a topic branch:
@@ -362,12 +344,8 @@ Use the following steps to create a topic branch:
 
 #. Send a GitHub pull request for the changes, and then update the Chef ticket with the appropriate information.
 
-.. end_tag
-
 Delete Branch
 -----------------------------------------------------
-.. tag chef_repo_git_branch_delete
-
 After work has been merged by the branch maintainer, the topic branch is no longer necessary and should be removed.
 
 #. Synchronize the local master:
@@ -403,5 +381,4 @@ After work has been merged by the branch maintainer, the topic branch is no long
 
       $ git push origin :CHEF-XX
 
-.. end_tag
 
