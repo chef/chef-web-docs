@@ -14,11 +14,9 @@ This is the documentation for
 This page has links to each topic in this doc set. You can also use
 the navigation tool or the search box to find what you're looking for.
 
-If you need documentation for previous versions, you can use the dropdown
-box labeled "Filter by product and version" to select the particular
-component and version you want.
-
 If this is your first visit, we recommend reading `how to learn Chef <https://learn.chef.io/skills/how-to-learn-chef>`_.
+
+If you need documentation for previous versions, see the `Docs Archive <https://docs-archive.chef.io>`_.
 
 Overview
 =====================================================
@@ -112,8 +110,7 @@ Setup
 **Supermarket**: `Public Supermarket <https://supermarket.chef.io>`_ | :doc:`Install Private Supermarket </install_supermarket>` | `Customize Supermarket <https://docs.chef.io/install_supermarket.html#customize-supermarket>`_ | `Run in Kitchen <https://docs.chef.io/install_supermarket.html#run-supermarket-in-kitchen>`_
 
 `Management Console <https://docs.chef.io/ctl_chef_server.html#install>`_ |
-:doc:`Push Jobs </install_push_jobs>` |
-:doc:`Reporting </install_reporting>`
+:doc:`Push Jobs </install_push_jobs>` 
 
 **Integrations**: :doc:`w/Chef Compliance </integrate_compliance_chef_server>`
 
