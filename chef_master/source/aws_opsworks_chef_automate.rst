@@ -102,8 +102,8 @@ Once Automate instance is configured you can create a node that will run as a bu
   .. code-block:: bash
 
     scp -i /home/ec2-user/id_rsa -r /opt/delivery/embedded/service/omnibus-ctl/installer centos@52.23.235.94:installer/
-    scp -i /home/ec2-user/id_rsa /etc/delivery/builder_key centos@52.23.235.94:installer/
-    scp -i /home/ec2-user/id_rsa /etc/delivery/delivery.pem centos@52.23.235.94:installer/
+    scp -i /home/ec2-user/id_rsa /etc/delivery/builder_key centos@52.23.235.94:installer/installer/
+    scp -i /home/ec2-user/id_rsa /etc/delivery/delivery.pem centos@52.23.235.94:installer/installer/
 
 #. Fetch the required certificates on the builder node:
 
@@ -115,6 +115,7 @@ Once Automate instance is configured you can create a node that will run as a bu
 
   .. code-block:: bash
 
+    /opt/delivery/embedded/bin/knife ssl fetch https://serdar-push-2rvkaivrwpgsipoa.us-west-2.opsworks-cm.io/
     /opt/delivery/embedded/bin/knife bootstrap 52.23.235.94 \
       --node-name acceptance-node \
       --ssh-user centos \
@@ -128,8 +129,8 @@ Once Automate instance is configured you can create a node that will run as a bu
 
   .. code-block:: bash
 
-    cd /home/centos/installer && sudo ./install-build-node.sh
-    cd /home/centos/installer && sudo ./gen_push_config.sh
+    cd /home/centos/installer/installer && sudo ./install-build-node.sh
+    cd /home/centos/installer/installer && sudo ./gen_push_config.sh
 
 #. Open the required ports for Push Jobs Server on the security group of the Automate instance by adding the following inbound rule:
 
