@@ -70,7 +70,7 @@ Enabling the compliance profile storage service in AWS OpsWorks for Chef Automat
 .. note:: These instructions only detail what has to be added to the existing configuration as found in AWS OpsWorks for Chef Automate. For general instructions, see :doc:`integrate_compliance_chef_automate` (collector ``chef-server-visibility``) and :doc:`install_chef_automate`.
 
 Adding Push Jobs Server based build nodes to AWS OpsWorks for Chef Automate
-========================================================================
+============================================================================
 
 Adding Push Jobs Server based build nodes to AWS OpsWorks for Chef Automate requires changes to the Chef Automate instance as well as the node that will run as a builder.
 
