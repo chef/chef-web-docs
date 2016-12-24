@@ -61,18 +61,16 @@ The most important tools included in the Chef development kit are:
      - A dependency manager for cookbooks.
    * - chef
      - A workflow tool for Chef.
-   * - Chef DK
-     - The Chef development kit omnibus package.
    * - chef-client
      - The agent that runs Chef.
    * - chef-vault
      - Use to encrypt data bag items using the public keys of a list of nodes. This allows only those nodes to decrypt the encrypted values.
    * - ChefSpec
      - A unit testing framework that tests resources locally.
-   * - Delivery CLI 
+   * - Delivery CLI
      - A command-line tool for continuous delivery workflow. Is used to setup and execute phase jobs on an Chef Automate server.
    * - Fauxhai
-     - A gem for mocking Ohai data.
+     - A gem for mocking Ohai data in ChefSpec tests.
    * - Foodcritic
      - A lint tool for static analysis of recipe code.
    * - Test Kitchen
@@ -135,4 +133,4 @@ The following tools have been developed by members of the Chef community. These 
 :doc:`ctl_kitchen`
 :doc:`config_yml_kitchen`
 :doc:`plugin_kitchen_vagrant`
-:doc:`rubocop`
+:doc:`cookstyle`
