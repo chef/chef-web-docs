@@ -19,6 +19,15 @@ Chef Automate release 0.6.0 includes a new SSH-based job execution layer. Under 
 - View the queue of jobs in the Chef Automate UI
 - View and test runner status via the Chef Automate UI
 
+Job Dispatch and Push Jobs
+-----------------------------------------------------
+
+Any project configured to use Job Dispatch will not use Push Jobs as the transport mechanism for managing the phase builds (unit, lint, provision, etc.) on runner nodes. Push Jobs is still required to execute the `delivery_push_job` resource that the delivery-sugar cookbook exposes. This means that if you use the default `deploy.rb  <https://github.com/chef-cookbooks/delivery-truck/blob/b9e386e720376f7f3173ca03311cba667eb7ef4b/recipes/deploy.rb>`__ recipe from delivery-truck then Push Jobs is still used within the deploy phase.
+
+Job Dispatch is not a replacement for Push Jobs. Job Dispatch is a targeted solution for managing phase builds and Push Jobs allows users to perform remote tasks on pools of nodes. Job Dispatch uses SSH connections and allows additional features, such as cancelling jobs. 
+
+
+
 Terms
 =====================================================
 
@@ -37,6 +46,8 @@ Adding a Runner
 You can add a new runner via automate-ctl from your Chef Automate server. Log in to your Chef Automate server and run the :ref:`install-runner` command.
 
 After the :ref:`install-runner` command succeeds, the new runner should show up in the UI under ``Workflow -> Runners -> Manage Runners``. If you see it there, click the ``Test`` button. That will test an ssh connection to your runner to verify that jobs can be dispatched to it. If there are any issues, you should get an error in the UI.
+
+Currently the only supported runner platforms are Ubuntu and Centos.
 
 Remove a Runner
 -----------------------------------------------------
