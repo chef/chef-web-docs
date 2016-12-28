@@ -38,6 +38,7 @@ A private Chef Supermarket has the following requirements:
 * A user account on the Chef server with ``admins`` priviliges
 * A key for the user account on the Chef server
 * An x86_64 compatible Linux host with at least 1 GB memory
+* System clocks synchronized on the Chef Server and Supermarket hosts
 * Sufficient disk space to meet project cookbook storage capacity or credentials to store cookbooks in an Amazon Simple Storage Service (S3) bucket
 
 Chef Identify
