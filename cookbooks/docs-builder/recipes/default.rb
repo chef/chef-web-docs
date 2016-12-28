@@ -20,7 +20,7 @@ end
 
 execute 'install awscli' do
   command 'pip install awscli'
-  not_if { File::exists?('/usr/local/bin/aws') }
+  not_if { File.exist?('/usr/local/bin/aws') }
 end
 
 directory '/root/.ssh' do
