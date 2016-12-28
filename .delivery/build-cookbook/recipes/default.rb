@@ -38,7 +38,7 @@ package 'libxml2-dev'
 # We need the linkchecker in functional in order to check the links
 execute 'install linkchecker' do
   command 'pip install linkchecker'
-  not_if { File::exists?('/usr/local/bin/linkchecker') }
+  not_if { File.exist?('/usr/local/bin/linkchecker') }
 end
 
 load_delivery_chef_config
@@ -53,7 +53,7 @@ chef_aws_creds = encrypted_data_bag_item_for_environment('cia-creds', 'chef-aws'
 # TODO Move the python recipe back into the build cookbook
 execute 'install awscli' do
   command 'pip install awscli'
-  not_if { File::exists?('/usr/local/bin/aws') }
+  not_if { File.exist?('/usr/local/bin/aws') }
 end
 
 # chef-provisioning requires an aws config file. This generates the content for
