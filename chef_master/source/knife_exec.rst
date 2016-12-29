@@ -92,7 +92,7 @@ Options
 This subcommand has the following options:
 
 ``-E CODE``, ``--exec CODE``
-   A string of code that to be executed.
+   A string of code to be executed.
 
 ``-p PATH:PATH``, ``--script-path PATH:PATH``
    A colon-separated path at which Ruby scripts are located. Use to override the default location for scripts. When this option is not specified, knife will look for scripts located in ``chef-repo/.chef/scripts`` directory.
