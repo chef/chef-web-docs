@@ -11,106 +11,36 @@ Configure Data Collection
 
 .. end_tag
 
-Before using the visibility capabilities of Chef Automate, you must perform some simple setup and configuration steps before the nodes in your cluster can send data to your Chef Automate server.
+Automatic Node Run Data Collection via Chef Server
+==================================================
 
-Add Chef Automate certificate to `trusted_certs` directory
-==============================================================
+.. note:: Chef 12.16.42 or greater and Chef Server 12.11.0 or greater are required.
 
-The visibilty features of Chef Automate require that any self-signed Chef Automate SSL certificate (``HOSTNAME.crt``) is located
-in the ``/etc/chef/trusted_certs`` directory on any node that wants to send data to Chef Automate. This directory is the location into
-which SSL certificates are placed when a node has been bootstrapped with chef-client.
+Nodes can send their run data to Chef Automate through the Chef server automatically. To enable this functionality, you must perform the following steps:
 
-To ensure the certificate is in the ``trusted_certs`` directory, use ``knife ssl fetch`` and pass in the URL of the Chef Automate server. You can use utilities such as `scp` or `rsync` to copy the downloaded cert files from your ``.chef/trusted_certs`` directory to the ``/etc/chef/trusted_certs`` directory on the node in your Chef Automate cluster.
+ * Configure a Data Collector token in Chef Automate
+ * Configure your Chef server to point to Chef Automate
 
-.. note:: This only applies to self-signed SSL certificates. Any certificate signed by certificate authority should work without any additional configuration required.
+Configure a Data Collector token in Chef Automate
+-------------------------------------------------
 
-Configure Nodes
-=====================================================
+All messages sent to Chef Automate are performed over HTTP and are authenticated with a pre-shared key called a "token." A default token is configured for every Chef Automate installation, but it is recommended that you create your own.
 
-To view data in the **Node State** dashboard of Chef Automate, it must be ingested from
-Chef clients and/or servers through HTTP POST requests to a data collector endpoint on the Chef Automate server.
-Node data, resource convergence status, error messages, and other information is collected during chef-client runs and
-used to populate the dashboard.
-
-At a minimum, nodes must be configured to send their data to Chef Automate by specifying the data collector endpoint and a token value. You can further configure the data collector functionality
-depending on the needs and requirements of your business.
-
-Prerequisites
--------------------------------------------------------
-
-* Chef client (version 12.12.15 or greater)
-* Chef server (version 12.8 or greater)
-
-Understand and (optionally) create data collector tokens
------------------------------------------------------------------
-
-When streaming data to Chef Automate, POST requests are sent to the data collector endpoint on the Chef Automate server. Those requests must be authenticated,
-and a token is used in the authentication process. The token is a SHA-256 checksum of a shared secret that Chef Automate's
-data collector uses to authenticate POST requests made to the data collector endpoint on the Chef Automate server. You may use any SHA-256 value for the token
-as long as the same value is used between Chef Automate and your Chef server and/or Chef clients. If unspecified in the Chef Automate server's ``delivery.rb`` file, the
-default value for the token is ``'93a49a4f2482c64126f7b6015e6b0f30284287ee4054ff8807fb63d9cbd1c506'``. You may use this value when configuring your nodes.
-
-If you choose to create your own token, add ``data_collector['token'] = 'sometokenvalue'`` to your ``/etc/delivery/delivery.rb`` file on your Chef Automate server. Save your changes
-and then run ``sudo automate-ctl reconfigure``.
-
-Configure Chef client to send node and converge data
--------------------------------------------------------
-
-The data collector functionality is used by the Chef client to send node and converge data to Chef Automate. This
-feature works for the following: Chef client, Chef solo (formerly "Chef client local mode"), and Chef solo legacy mode
-(formerly "Chef solo").
-
-To send node and converge data to Chef Automate, modify your Chef config (that is
-`client.rb`, `solo.rb`, or add an additional config file in an appropriate directory, such as
-`client.d`) to contain the following configuration:
+To set your own token, add the following to your ``/etc/delivery/delivery.rb`` file:
 
 .. code-block:: ruby
 
-   data_collector.server_url "https://my-automate-server.mycompany.com/data-collector/v0/"
-   data_collector.token "TOKEN"
+   data_collector['token'] = 'sometokenvalue'
 
-where ``my-automate-server.mycompany.com`` is the fully-qualified domain name of your Chef Automate server and
-``TOKEN`` is the token value you are using for the authentication process.
+... and then run ``automate-ctl reconfigure``
 
-Additional configuration options include:
+If you do not configure a token, the default token value is: ``93a49a4f2482c64126f7b6015e6b0f30284287ee4054ff8807fb63d9cbd1c506``
 
-  * ``data_collector.mode``: The mode in which the data collector is allowed to operate. This
-    can be used to run data collector only when running as Chef Solo but not when using Chef client.
-    Options: ``:solo`` (for both Solo Legacy Mode and Solo Mode), ``:client``, or ``:both``.  Default:
-    ``:both``.
-  * ``data_collector.raise_on_failure``: When the data collector cannot send the "starting a run"
-    message to the data collector server, the data collector will be disabled for that run. In some
-    situations, such as highly-regulated environments, it may be more reasonable to prevent Chef
-    from performing the actual run. In these situations, setting this value to ``true`` will cause the
-    Chef run to raise an exception before starting any converge activities. Default: ``false``.
-  * ``data_collector.organization``: A user-supplied organization string that can be sent in
-    payloads generated by the data collector when Chef is run in Solo mode. This allows users to
-    associate their Solo nodes with faux organizations without the nodes being connected to an
-    actual Chef server.
 
-Configure Chef client to send InSpec data
--------------------------------------------------------
+Configure your Chef server to point to Chef Automate
+----------------------------------------------------
 
-To send InSpec data as part of a Chef client run, you will need to use the `audit cookbook <https://github.com/chef-cookbooks/audit>`_. All profiles, which are configured to run during the audit cookbook execution, will send their results back to the Chef Automate server.
-
-To configure the audit cookbook, you will first need to configure the Chef client to send node converge data, as previously described. The ``data_collector.server_url`` and ``data_collector.token`` values will be used as the reporting targets. Once you have done that, configure the the audit cookbook's collector by setting the ``audit.collector`` attribute to ``chef-visibility``.
-
-A complete audit cookbook attribute configuration would look something like this:
-
-.. code-block:: javascript
-
-    audit: {
-      collector: 'chef-visibility',
-      profiles: {
-        'cis/cis-centos6-level1' => true
-      }
-    }
-
-Configure Chef server to send server object data
--------------------------------------------------------
-
-Chef server can be configured to send messages to Chef Automate whenever an action is taken on a Chef server object, such as when a cookbook is uploaded to
-the Chef server or when a user edits a role.
+In addition to forwarding Chef run data to Automate, Chef server will send messages to Chef Automate whenever an action is taken on a Chef server object, such as when a cookbook is uploaded to the Chef server or when a user edits a role.
 
 To enable this feature, add the following settings to ``/etc/opscode/chef-server.rb`` on the Chef server:
 
@@ -120,7 +50,7 @@ To enable this feature, add the following settings to ``/etc/opscode/chef-server
    data_collector['token'] = 'TOKEN'
 
 where ``my-automate-server.mycompany.com`` is the fully-qualified domain name of your Chef Automate server, and
-``TOKEN`` is the token value you are using for the authentication process.
+``TOKEN`` is the token value you configured in the `prior section <#configure-a-data-collector-token-in-chef-automate>`__.
 
 Save the file and run ``chef-server-ctl reconfigure`` to complete the process.
 
@@ -152,48 +82,110 @@ The following example sets the ``fqdn`` field to ``"my-chef-server.mycompany.com
 
 .. code-block:: ruby
 
-   # This file generated by chef-backend-ctl gen-server-config
-   # Modify with extreme caution.
-   fqdn "my-chef-server.mycompany.com"
-   use_chef_backend true
-   data_collector['root_url'] = 'https://my-automate-server.mycompany.com/data-collector/v0/'
-   data_collector['token'] = 'TOKEN'
+  # This file generated by chef-backend-ctl gen-server-config
+  # Modify with extreme caution.
+  fqdn "my-chef-server.mycompany.com"
+  use_chef_backend true
+  data_collector['root_url'] = 'https://my-automate-server.mycompany.com/data-collector/v0/'
+  data_collector['token'] = 'TOKEN'
 
 **chef-server.rb.FE2**
 
 .. code-block:: ruby
 
-   # This file generated by chef-backend-ctl gen-server-config
-   # Modify with extreme caution.
-   fqdn "my-chef-server.mycompany.com"
-   use_chef_backend true
-   data_collector['root_url'] = 'https://my-automate-server.mycompany.com/data-collector/v0/'
-   data_collector['token'] = 'TOKEN'
+  # This file generated by chef-backend-ctl gen-server-config
+  # Modify with extreme caution.
+  fqdn "my-chef-server.mycompany.com"
+  use_chef_backend true
+  data_collector['root_url'] = 'https://my-automate-server.mycompany.com/data-collector/v0/'
+  data_collector['token'] = 'TOKEN'
 
 .. warning:: Failure to set the ``fqdn`` field to the same value will result in Chef Automate treating data from each of these front-end servers as separate Chef servers.
 
-Send Habitat data to Visibility
--------------------------------------------------------
 
-The visibility capabilities of Chef Automate can also be used to collect and report on Habitat ring data. The Prism Habitat package collects this data and sends it to an Chef Automate server's REST API endpoint. You can configure settings like the data collector URL, token, the Habitat supervisor used to get the ring information, and so on. For more information on the Prism package, see `Habitat Prism <https://docs.chef.io/habitat_prism.html>`__. For more information on Habitat, see the `Habitat site <https://habitat.sh/>`__.
+Sending Node Run Data to Chef Automate Directly
+===============================================
 
-Set up visibility with previous Chef Delivery installation
-===============================================================
+If you do not use a Chef server in your environment (if you only use `chef-solo`, for example) or you do not wish to use the automatic forwarding of run data to Automate, you can configure your Chef clients to send their run data to Automate directly.
 
-.. note:: Visibility is automatically installed as part of the Chef Automate installation. The following instructions **only** apply to customers who have previously installed Chef Delivery as a stand alone implementation. If you are using visibility in Chef Automate, you can skip this section.
+To enable this functionality, you must perform the following steps:
 
-To get started with the visibility capabilities in Chef Automate, modify ``/etc/delivery/delivery.rb``
-on your Chef Delivery server and add the following settings:
+ * Configure a Data Collector token in Chef Automate (see `prior section <#configure-a-data-collector-token-in-chef-automate>`__)
+ * Add Chef Automate SSL certificate to `trusted_certs` directory
+ * Configure Chef Client to use the Data Collector endpoint in Chef Automate
+
+
+Add Chef Automate certificate to `trusted_certs` directory
+----------------------------------------------------------
+
+.. note:: This step only applies to self-signed SSL certificates. If you are using an SSL certificate signed by a valid certificate authority, you may skip this step.
+
+Chef requires that the self-signed Chef Automate SSL certificate (``HOSTNAME.crt``) is located in the ``/etc/chef/trusted_certs`` directory on any node that wants to send data to Chef Automate. This directory is the location into which SSL certificates are placed when a node has been bootstrapped with chef-client.
+
+To fetch the certificate onto your workstation, use ``knife ssl fetch`` and pass in the URL of the Chef Automate server. You can then use utilities such as `scp` or `rsync` to copy the downloaded cert files from your ``.chef/trusted_certs`` directory to the ``/etc/chef/trusted_certs`` directory on the nodes in your infrastructure that will be sending data directly to the Chef Automate server.
+
+Configure Chef Client to use the Data Collector endpoint in Chef Automate
+-------------------------------------------------------------------------
+
+.. note:: Chef version 12.12.15 or greater is required.
+
+The data collector functionality is used by the Chef client to send node and converge data to Chef Automate. This
+feature works for the following: Chef client, Chef solo (formerly "Chef client local mode"), and Chef solo legacy mode
+(formerly "Chef solo").
+
+To send node and converge data to Chef Automate, modify your Chef config (that is
+`client.rb`, `solo.rb`, or add an additional config file in an appropriate directory, such as
+`client.d`) to contain the following configuration:
 
 .. code-block:: ruby
 
-    insights['enable'] = true
-    data_collector['token'] = 'TOKEN'
+   data_collector.server_url "https://my-automate-server.mycompany.com/data-collector/v0/"
+   data_collector.token "TOKEN"
 
-Create an authentication token (as described in the previous section) and then run ``sudo automate-ctl reconfigure`` to complete the process.
+where ``my-automate-server.mycompany.com`` is the fully-qualified domain name of your Chef Automate server and
+``TOKEN`` is the token value you configured in the earlier step.
 
-Now that you have a token value selected, you are ready to configure your Chef server and any Chef client
-nodes to start streaming data to Chef Automate.
+Additional configuration options include:
+
+  * ``data_collector.mode``: The mode in which the data collector is allowed to operate. This
+    can be used to run data collector only when running as Chef Solo but not when using Chef client.
+    Options: ``:solo`` (for both Solo Legacy Mode and Solo Mode), ``:client``, or ``:both``.  Default:
+    ``:both``.
+  * ``data_collector.raise_on_failure``: When the data collector cannot send the "starting a run"
+    message to the data collector server, the data collector will be disabled for that run. In some
+    situations, such as highly-regulated environments, it may be more reasonable to prevent Chef
+    from performing the actual run. In these situations, setting this value to ``true`` will cause the
+    Chef run to raise an exception before starting any converge activities. Default: ``false``.
+  * ``data_collector.organization``: A user-supplied organization string that can be sent in
+    payloads generated by the data collector when Chef is run in Solo mode. This allows users to
+    associate their Solo nodes with faux organizations without the nodes being connected to an
+    actual Chef server.
+
+
+Sending Compliance Data to Chef Automate
+========================================
+
+To send compliance data gathered by InSpec as part of a Chef client run, you will need to use the `audit cookbook <https://github.com/chef-cookbooks/audit>`_. All profiles, which are configured to run during the audit cookbook execution, will send their results back to the Chef Automate server.
+
+To configure the audit cookbook, you will first need to configure the Chef client to send node converge data, as previously described. The ``data_collector.server_url`` and ``data_collector.token`` values will be used as the reporting targets. Once you have done that, configure the the audit cookbook's collector by setting the ``audit.collector`` attribute to ``chef-visibility``.
+
+A complete audit cookbook attribute configuration would look something like this:
+
+.. code-block:: javascript
+
+    audit: {
+      collector: 'chef-visibility',
+      profiles: {
+        'cis/cis-centos6-level1' => true
+      }
+    }
+
+
+Sending Habitat Data to Chef Automate
+=====================================
+
+The visibility capabilities of Chef Automate can also be used to collect and report on Habitat ring data. The Prism Habitat package collects this data and sends it to an Chef Automate server's REST API endpoint. You can configure settings like the data collector URL, token, the Habitat supervisor used to get the ring information, and so on. For more information on the Prism package, see `Habitat Prism <https://docs.chef.io/habitat_prism.html>`__. For more information on Habitat, see the `Habitat site <https://habitat.sh/>`__.
+
 
 Use an external Elasticsearch cluster (optional)
 =====================================================
@@ -205,7 +197,7 @@ cluster with replication and sharding to store and protect your data.
 Prerequisites
 -----------------------------------------------------
 
-* Chef Automate server with workflow and visibility installed
+* Chef Automate server
 * Elasticsearch (version 2.4.1 or greater; however, v5.x is not yet supported)
 
 Elasticsearch configuration
