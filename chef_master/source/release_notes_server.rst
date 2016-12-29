@@ -1214,7 +1214,7 @@ The following items are new for Chef server 12.1:
 * **chef-server-ctl key commands use the chef-client Chef::Key object** The key rotation commands (``chef-server-ctl key``) for ``create``, ``delete``, ``edit``, ``list``, and ``show`` keys for users and clients. These were a preview in the Chef server 12.0.3 release, and are now fully integrated.
 * **New version headers for Chef Server API** The Chef server API uses the ``X-Ops-Server-API-Version`` header to specify the version of the API that is used as part of a request to the Chef server API.
 * **New endpoints for policy and policy files** The Chef server API adds the following endpoints: ``/policies``, ``/policy_groups``, and ``/POLICY_GROUP/policies/POLICY_NAME``.
-* **New endpoints for client key management** The Chef server API adds the following endpoints: ``/client/CLIENT/keys`` and ``/client/CLIENT/keys/KEY``.
+* **New endpoints for client key management** The Chef server API adds the following endpoints: ``/clients/CLIENT/keys`` and ``/clients/CLIENT/keys/KEY``.
 * **New endpoints for user key management** The Chef server API adds the following endpoints: ``/user/USER/keys`` and ``/user/USER/keys/KEY``.
 * **New configuration setting** Use the ``estatsd['protocol']`` setting to send application statistics with StatsD protocol formatting.
 
@@ -1230,11 +1230,11 @@ Use ``X-Ops-Server-API-Version`` to specify the version of the Chef server API. 
 
 .. end_tag
 
-/client/CLIENT/keys/
+/clients/CLIENT/keys/
 -----------------------------------------------------
 .. tag api_chef_server_endpoint_keys_clients
 
-The ``/client/CLIENT/keys`` endpoint has the following methods: ``GET`` and ``POST``.
+The ``/clients/CLIENT/keys`` endpoint has the following methods: ``GET`` and ``POST``.
 
 .. end_tag
 
@@ -1339,7 +1339,7 @@ The response is similar to:
 
 .. end_tag
 
-/client/CLIENT/keys/KEY
+/clients/CLIENT/keys/KEY
 -----------------------------------------------------
 .. tag api_chef_server_endpoint_key_client
 
