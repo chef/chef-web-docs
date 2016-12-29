@@ -44,11 +44,11 @@ Many fields in a cookbook's metadata allow the user to constrain versions. There
   * - Greater than
     - ``>``
   * - Less than
-    - ``<`` 
+    - ``<``
   * - Less than or equal to
     - ``<=``
 
-.. note:: Pessimistic locking is enabled by proper `semantic versioning <https://semver.org>`__ of cookbooks. If we're on version 2.2.3 of a cookbook, we know that the API will be stable until the 3.0.0 release. Using traditional operators, we'd write this as ``>= 2.2.0, < 3.0``. This is exactly the same as writing ``~> 2.2`` (notice we drop the patch version).
+.. note:: Pessimistic locking is enabled by proper `semantic versioning <https://semver.org>`__ of cookbooks. If we're on version 2.2.3 of a cookbook, we know that the API will be stable until the 3.0.0 release. Using traditional operators, we'd write this as ``>= 2.2.0, < 3.0``. Instead, we can write this by combining a tilde "~" and right angle bracket ">"--often called a tilde-rocket or "twiddle-wakka"--followed by the major and minor version numbers.  For example: ``~> 2.2`` 
 
 
 Settings
@@ -328,4 +328,3 @@ This configuration file has the following settings:
       version '2.0.0'
 
 .. end_tag
-
