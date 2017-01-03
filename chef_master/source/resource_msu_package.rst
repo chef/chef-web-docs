@@ -1,6 +1,7 @@
 ==========================================
 msu_package
 ==========================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_msu_package.rst>`__
 
 Use the **msu_package** resource to install Microsoft Update(MSU) packages on Microsoft Windows machines.
 
