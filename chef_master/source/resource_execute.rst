@@ -53,7 +53,7 @@ The full syntax for all of the properties that are available to the **execute** 
      command                    String, Array # defaults to 'name' if not specified
      creates                    String
      cwd                        String
-     environment                Hash
+     environment                Hash # env is an alias for environment
      group                      String, Integer
      live_stream                TrueClass, FalseClass
      notifies                   # see description
