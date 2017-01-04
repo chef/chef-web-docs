@@ -596,7 +596,7 @@ which will return output similar to:
 
 delivery local
 =====================================================
-Use the ``local`` subcommand to run a phase of Chef Automate locally, based on settings in the ``project.toml`` file.
+Use the ``local`` subcommand to run a phase of Chef Automate locally, based on settings in the ``project.toml`` file located in the project's ``.delivery`` directory.
 
 Syntax
 -----------------------------------------------------
@@ -604,7 +604,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery init PHASE
+   $ delivery local PHASE
 
 where ``PHASE`` is one of the following:
 
@@ -614,7 +614,45 @@ where ``PHASE`` is one of the following:
 * provision
 * deploy
 * smoke
+* functional
 * cleanup
+
+Configuration
+-----------------------------------------------------
+
+**Phases**
+
+Phases are defined in the ``project.toml`` file in the following format:
+
+.. code-block:: ruby
+
+   [local_phases]
+   name_of_phase = "command to execute locally"
+
+Example configuration for commands to run locally:
+
+.. code-block:: ruby
+
+   [local_phases]
+   unit = "rspec spec/"
+   lint = "cookstyle"
+   syntax = "foodcritic . --exclude spec -f any -t \"~FC064\" -t \"~FC065\""
+
+**Remote project.toml**
+
+You can use a ``project.toml`` file located in a remote location by specifying a URI in the following format:
+
+.. code-block:: ruby
+
+   remote_file = "https://url-for-my-project.toml"
+
+This is useful for teams that wish to centrally manage the behavior of the ``delivery local`` command across many different projects. Alternatively, you can provide the URI via the ``-r`` flag:
+
+.. code-block:: bash
+
+   $ delivery local syntax -r https://url-for-my-project.toml
+
+Providing the URI through this manner will take precedence over anything configured in the local ``project.toml``.
 
 Examples
 -----------------------------------------------------
