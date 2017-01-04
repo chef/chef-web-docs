@@ -3,6 +3,14 @@ Reporting API
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/api_reporting.rst>`__
 
+.. tag reporting_legacy
+
+.. note:: This documentation is meant to support existing Chef customers using Reporting.
+
+          Are you a new Chef customer, or looking to gain better insight into your fleet? Take advantage of `Chef Automate </chef_automate.html>`__. You'll get a graphical interface and query language that gives you insight into operational, compliance, and workflow events. You can `download Chef Automate here <https://downloads.chef.io/automate/>`__.
+
+.. end_tag
+
 .. tag api_reporting_summary
 
 The Reporting API is a REST API that provides access to Reporting data that is collected during a chef-client run. Reporting data is collected only for nodes that have permission to publish Reporting data to the Chef server and only for organizations that have Reporting enabled.
