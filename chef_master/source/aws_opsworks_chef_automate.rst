@@ -74,7 +74,7 @@ Adding push jobs server based build nodes to AWS OpsWorks for Chef Automate
 
 Build nodes enable you to push infrastructure or application changes through a pipeline. Pipelines are part of Chef Automate's :doc:`workflow <workflow>` feature. Build nodes run jobs, called *phases*, which define how your change is built, tested, and deployed to your infrastructure.
 
-:doc:`Push jobs <push_jobs>` is the recommended way to trigger jobs to run on your build nodes. Configuring push jobs on AWS OpsWorks for Chef Automate requires changes to the Chef Automate instance as well as the node that will run as a builder.
+:doc:`Push jobs <push_jobs>` are one way to trigger jobs to run on your build nodes. Configuring push jobs on AWS OpsWorks for Chef Automate requires changes to the Chef Automate instance as well as the node that will run as a builder.
 
 If you don't already have a system set up to run as your build node, refer to the :doc:`installation guide <install_chef_automate>` to learn about the supported platforms and network requirements. Then, bring up an instance to serve as your build node. The examples that follow use CentOS 7.3 running on Amazon Web Services with ports 22 (SSH) and 443 (HTTPS) open to inbound network traffic.
 
