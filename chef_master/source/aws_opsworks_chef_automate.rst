@@ -69,95 +69,198 @@ Enabling the compliance profile storage service in AWS OpsWorks for Chef Automat
 
 .. note:: These instructions only detail what has to be added to the existing configuration as found in AWS OpsWorks for Chef Automate. For general instructions, see :doc:`integrate_compliance_chef_automate` (collector ``chef-server-visibility``) and :doc:`install_chef_automate`.
 
-Adding Push Jobs Server based build nodes to AWS OpsWorks for Chef Automate
+Adding push jobs server based build nodes to AWS OpsWorks for Chef Automate
 ============================================================================
 
-Adding Push Jobs Server based build nodes to AWS OpsWorks for Chef Automate requires changes to the Chef Automate instance as well as the node that will run as a builder.
+Build nodes enable you to push infrastructure or application changes through a pipeline. Pipelines are part of Chef Automate's :doc:`workflow <workflow>` feature. Build nodes run jobs, called *phases*, which define how your change is built, tested, and deployed to your infrastructure.
 
-#. Install Push Jobs Server on the Chef Automate instance by downloading the Push Jobs Server from https://downloads.chef.io/push-jobs-server and running:
+:doc:`Push jobs <push_jobs>` is the recommended way to trigger jobs to run on your build nodes. Configuring push jobs on AWS OpsWorks for Chef Automate requires changes to the Chef Automate instance as well as the node that will run as a builder.
 
-  .. code-block:: bash
+If you don't already have a system set up to run as your build node, refer to the :doc:`installation guide <install_chef_automate>` to learn about the supported platforms and network requirements. Then, bring up an instance to serve as your build node. The examples that follow use CentOS 7.3 running on Amazon Web Services with ports 22 (SSH) and 443 (HTTPS) open to inbound network traffic.
 
-    chef-server-ctl install opscode-push-jobs-server --path /path/to/push-jobs-server-package/opscode-push-jobs-server-2.1.1-1.el6.x86_64.rpm
-    opscode-push-jobs-server-ctl reconfigure
+To prepare for the steps that follow, create an SSH connection to both your Chef Automate server and your build node. Here's an example for connecting to your Chef Automate instance.
 
-Once the Chef Automate instance is configured, you can create a node that will run as a builder and configure it with these steps:
+.. code-block:: bash
 
-#. Install Chef DK on the build node and create the required directories:
+   $ ssh -i ~/.ssh/id_rsa ec2-user@test-ntex3ai8ej1yhnqu.us-east-1.opsworks-cm.io
 
-  .. code-block:: bash
+To simplify the process, you can run ``sudo -s`` from each of your SSH connections to run commands using ``root`` privileges.
 
-    curl -L https://omnitruck.chef.io/chef/install.sh | sudo bash -s -- -c stable -P chefdk
-    mkdir ~/installer
-    mkdir -p /etc/chef/trusted_certs && sudo chown centos /etc/chef/trusted_certs
+From your Chef Automate server, export the path to the ``knife`` executable to make these commands easier to run.
 
-#. Copy the required ssh key to login to the build node over to the Chef Automate instance:
+.. code-block:: bash
 
-  .. code-block:: bash
+   $ export PATH=/opt/opscode/embedded/bin:$PATH
 
-    scp ~/.ssh/id_rsa ec2-user@serdar-push-2rvkaivrwpgsipoa.us-west-2.opsworks-cm.io:
+In the steps that follow, you'll need to replace placeholder values with yours. Gather the following information about your environment. The **Placeholder** column lists the placeholder text you'll replace in the steps that follow.
 
-#. Copy the required keys from the Chef Automate instance to the build node:
++----------------------------------+----------------------------------------------------+---------------------------+
+| Description                      | Example                                            | Placeholder               |
++==================================+====================================================+===========================+
+| Your Chef Automate server's FQDN | ``test-ntex3ai8ej1yhnqu.us-east-1.opsworks-cm.io`` | ``CHEF_AUTOMATE_FQDN``    |
++----------------------------------+----------------------------------------------------+---------------------------+
+| The SSH key you use to connect   | ``id_rsa``                                         | ``CHEF_AUTOMATE_SSH_KEY`` |
+| to your Chef Automate server     |                                                    |                           |
++----------------------------------+----------------------------------------------------+---------------------------+
+| Your build node's IP address     | ``52.23.235.94``                                   | ``BUILD_NODE_IP_ADDRESS`` |
++----------------------------------+----------------------------------------------------+---------------------------+
+| Your build node's user name      | ``ec2-user``                                       | ``BUILD_NODE_USERNAME``   |
++----------------------------------+----------------------------------------------------+---------------------------+
+| The SSH key you use to connect   | ``id_rsa``                                         | ``BUILD_NODE_SSH_KEY``    |
+| to your build node               |                                                    |                           |
++----------------------------------+----------------------------------------------------+---------------------------+
 
-  .. code-block:: bash
+You'll also need to specify the name of an SSL certificate file that matches a special format. This format takes your Chef Automate server's FQDN, replaces the dot ``.`` character with an underscore ``_`` and ends with ``_crt``. For example, if your Chef Automate server's FQDN is:
 
-    scp -i /home/ec2-user/id_rsa -r /opt/delivery/embedded/service/omnibus-ctl/installer centos@52.23.235.94:installer/
-    scp -i /home/ec2-user/id_rsa /etc/delivery/builder_key centos@52.23.235.94:installer/installer/
-    scp -i /home/ec2-user/id_rsa /etc/delivery/delivery.pem centos@52.23.235.94:installer/installer/
+.. code-block:: bash
 
-#. Fetch the required certificates on the build node:
+   test-ntex3ai8ej1yhnqu.us-east-1.opsworks-cm.io
 
-  .. code-block:: bash
+Then your SSL certificate file name would be:
 
-    sh -c 'openssl s_client -showcerts -connect serdar-push-2rvkaivrwpgsipoa.us-west-2.opsworks-cm.io:443 </dev/null 2> /dev/null | openssl x509 -outform PEM > /etc/chef/trusted_certs/serdar-push-2rvkaivrwpgsipoa_us-west-2_opsworks-cm_io_crt'
+.. code-block:: bash
 
-#. Provision the build node from Chef Automate instance:
+   test-ntex3ai8ej1yhnqu_us-east-1_opsworks-cm_io_crt
 
-  .. code-block:: bash
+This certificate file name appears as ``CHEF_AUTOMATE_SSL_CERT`` in the steps that follow.
 
-    /opt/delivery/embedded/bin/knife ssl fetch https://serdar-push-2rvkaivrwpgsipoa.us-west-2.opsworks-cm.io/
-    /opt/delivery/embedded/bin/knife bootstrap 52.23.235.94 \
-      --node-name acceptance-node \
-      --ssh-user centos \
-      --sudo \
-      --ssh-identity-file /home/ec2-user/id_rsa \
-      -u delivery \
-      -k /etc/delivery/delivery.pem \
-      --server-url https://serdar-push-2rvkaivrwpgsipoa.us-west-2.opsworks-cm.io/organizations/default
+#. **From your Chef Automate server**, install push jobs server. Here's an example. You can get the URL for the latest package from https://downloads.chef.io/push-jobs-server.
 
-#. Configure the build node and connect it to the Push Jobs Server:
+   .. code-block:: bash
 
-  .. code-block:: bash
+      $ wget https://packages.chef.io/files/stable/opscode-push-jobs-server/2.1.1/el/7/opscode-push-jobs-server-2.1.1-1.el7.x86_64.rpm
+      $ chef-server-ctl install opscode-push-jobs-server --path /home/ec2-user/opscode-push-jobs-server-2.1.1-1.el7.x86_64.rpm
+      $ opscode-push-jobs-server-ctl reconfigure
 
-    cd /home/centos/installer/installer && sudo ./install-build-node.sh
-    cd /home/centos/installer/installer && sudo ./gen_push_config.sh
+#. **From your build node**, install the Chef DK and create the required directories.
 
-#. Open the required ports for Push Jobs Server on the security group of the Chef Automate instance by adding the following inbound rule:
+   .. code-block:: bash
 
-  .. code-block:: text
+      $ curl -L https://omnitruck.chef.io/chef/install.sh | bash -s -- -c stable -P chefdk
+      $ mkdir ~/installer
+      $ mkdir -p /etc/chef/trusted_certs && chown BUILD_NODE_USERNAME /etc/chef/trusted_certs
 
-     Protocol: TCP
-     Port Range: 10000-10003
-     Source: 0.0.0.0/0
+#. **From your workstation**, copy the SSH key you use to connect to your build node instance to the Chef Automate instance. Here's an example.
 
-There are a few other required configuration steps if you would like to use Push Jobs Server directly.
+   .. code-block:: bash
 
-#. Make sure that the user who is submitting push jobs is associated with the correct organization. OpsWorks starter kit is built for the ``pivotal`` user. So to make the default configuration work, we will need to associate the pivotal user with the default organization by running the following command from the OpsWorks starter kit directory:
+      $ scp -i ~/.ssh/CHEF_AUTOMATE_SSH_KEY ~/.ssh/BUILD_NODE_SSH_KEY ec2-user@CHEF_AUTOMATE_FQDN:
 
-  .. code-block:: bash
+#. **From your Chef Automate server**, run these commands to copy the required keys to the build node.
 
-    knife opc org user add default pivotal
+   .. code-block:: bash
 
-#. ``knife job`` commands will attempt to communicate directly with the Chef server inside the Chef Automate instance. In order to use these commands, we will need to open the Chef server's port for inbound communication by adding the following inbound rule to the security group of the Chef Automate instance:
+      $ scp -i /home/ec2-user/BUILD_NODE_SSH_KEY -r /opt/delivery/embedded/service/omnibus-ctl/installer BUILD_NODE_USERNAME@BUILD_NODE_IP_ADDRESS:installer/
+      $ scp -i /home/ec2-user/BUILD_NODE_SSH_KEY /etc/delivery/builder_key BUILD_NODE_USERNAME@BUILD_NODE_IP_ADDRESS:installer/
+      $ scp -i /home/ec2-user/BUILD_NODE_SSH_KEY /etc/delivery/delivery.pem BUILD_NODE_USERNAME@BUILD_NODE_IP_ADDRESS:installer/
 
-  .. code-block:: text
+#. **From your build node**, fetch the required SSL certificates from your Chef Automate server.
+
+   .. code-block:: bash
+
+      $ sh -c 'openssl s_client -showcerts -connect CHEF_AUTOMATE_FQDN:443 </dev/null 2> /dev/null | openssl x509 -outform PEM > /etc/chef/trusted_certs/CHEF_AUTOMATE_SSL_CERT'
+
+#. **From your Chef Automate server**, run these commands to bootstrap your build node to the Chef server. You can replace ``build-node-1`` if you want to give your build node a different name.
+
+   .. code-block:: bash
+
+      $ chmod 0644 /etc/delivery/delivery.pem
+      $ /opt/delivery/embedded/bin/knife ssl fetch https://CHEF_AUTOMATE_FQDN/
+      $ /opt/delivery/embedded/bin/knife bootstrap BUILD_NODE_IP_ADDRESS \
+       --node-name build-node-1 \
+       --ssh-user BUILD_NODE_USERNAME \
+       --sudo \
+       --ssh-identity-file /home/ec2-user/BUILD_NODE_SSH_KEY \
+       -u delivery \
+       -k /etc/delivery/delivery.pem \
+       --server-url https://CHEF_AUTOMATE_FQDN/organizations/default
+
+#. **From your Chef Automate server**, run these commands to enable the ``delivery`` user to submit push jobs.
+
+   .. code-block:: bash
+
+      $ gem install knife-acl
+      $ knife group add user delivery admins -c /etc/opscode/pivotal.rb --server-url https://localhost/organizations/default
+
+#. **From your build node**, run these commands to configure the build node and connect it to the push jobs server.
+
+   .. code-block:: bash
+
+      $ cd /home/BUILD_NODE_USERNAME/installer
+      $ ./install-build-node.sh
+      $ ./gen_push_config.sh
+
+#. Open the required ports for push jobs server on the security group of the Chef Automate instance by adding the following inbound rule. See http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html#adding-security-group-rule to learn how to modify an EC2 security group.
+
+   .. code-block:: text
+
+      Protocol: TCP
+      Port Range: 10000-10003
+      Source: 0.0.0.0/0
+
+#. **From your workstation**, `cd` to the directory where you extracted the starter kit. Then add a tag named ``delivery-build-node`` to your build node. Replace ``build-node-1`` with the node name you used earlier.
+
+   .. code-block:: bash
+
+      $ knife tag create build-node-1 delivery-build-node
+
+#. **From your workstation**, associate the ``pivotal`` user with your Chef server's default organization.
+
+   .. code-block:: bash
+
+      $ knife opc org user add default pivotal
+
+#. **From your workstation**, run these commands to verify that your build node is configured to accept push jobs. Replace ``build-node-1`` with your build node's name.
+
+   .. code-block:: bash
+
+      $ knife node show build-node-1
+
+      Node Name:   build-node-1
+      Environment: _default
+      FQDN:        ip-172-31-25-243.ec2.internal
+      IP:          52.90.62.112
+      Run List:
+      Roles:
+      Recipes:
+      Platform:    redhat 7.3
+      Tags:        delivery-build-node
+
+      $ knife node status
+
+      build-node-1	available
+
+Because Chef server and Chef Automate exist on the same system, Chef Automate can communicate directly with the Chef server to dispatch push jobs to build nodes. Although not typically required, you can perform the following steps if you would like to use :doc:`knife job <plugin_knife_push_jobs>` to submit push jobs to your build nodes directly.
+
+#. Add the following inbound rule to the security group of the Chef Automate instance.
+
+   .. code-block:: text
 
      Protocol: TCP
      Port Range: 8443
      Source: 0.0.0.0/0
 
-#. And finally, we will need to refresh the certificates for the ``knife job`` commands to work correctly.
+#. Fetch the SSL certificate for your Chef Automate server from port 8443.
 
-  .. code-block:: bash
+   .. code-block:: bash
 
-    knife ssl fetch https://serdar-push-2rvkaivrwpgsipoa.us-west-2.opsworks-cm.io:8443/
+      $ knife ssl fetch https://CHEF_AUTOMATE_FQDN:8443/
+
+#. To verify the configuration, run the following to submit a push job that runs ``chef-client`` on your build node. This command resembles the one that Chef Automate uses to submit jobs to build nodes as a change moves through the pipeline.
+
+   .. code-block:: bash
+
+      $ knife job start 'chef-client' --search 'name:build-node-1 AND tags:delivery-build-node'
+
+      Started.  Job ID: 5d3afde1afff96a1fed6ab2b4099f2a3
+      .Running (1/1 in progress) ...
+      ..Complete.
+      command:     chef-client
+      created_at:  Wed, 04 Jan 2017 03:24:50 GMT
+      env:
+      id:          5d3afde1afff96a1fed6ab2b4099f2a3
+      nodes:
+        succeeded: build-node-1
+      run_timeout: 3600
+      status:      complete
+      updated_at:  Wed, 04 Jan 2017 03:24:53 GMT
