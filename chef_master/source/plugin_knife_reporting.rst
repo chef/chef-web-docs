@@ -3,6 +3,14 @@ knife reporting
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/plugin_knife_reporting.rst>`__
 
+.. tag reporting_legacy
+
+.. note:: This documentation is meant to support existing Chef customers using Reporting.
+
+          Are you a new Chef customer, or looking to gain better insight into your fleet? Take advantage of `Chef Automate </chef_automate.html>`__. You'll get a graphical interface and query language that gives you insight into operational, compliance, and workflow events. You can `download Chef Automate here <https://downloads.chef.io/automate/>`__.
+
+.. end_tag
+
 .. tag reporting_summary
 
 Use Reporting to keep track of what happens during the execution of chef-client runs across all of the machines that are under management by Chef. Reports can be generated for the entire organization and they can be generated for specific nodes.
