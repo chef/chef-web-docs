@@ -182,6 +182,12 @@ This certificate file name appears as ``CHEF_AUTOMATE_SSL_CERT`` in the steps th
       $ gem install knife-acl
       $ knife group add user delivery admins -c /etc/opscode/pivotal.rb --server-url https://localhost/organizations/default
 
+#. **From your Chef Automate server**, restart the services to apply the changes.
+
+   .. code-block:: bash
+
+      $ delivery-ctl restart
+
 #. **From your build node**, run these commands to configure the build node and connect it to the push jobs server.
 
    .. code-block:: bash
