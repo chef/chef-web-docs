@@ -763,11 +763,9 @@ PUT
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The ``PUT`` method is used to update a specific user. If values are not specified for the ``PUT`` method, the Chef server will use the existing values rather than assign default values.
 
-``PUT`` accepts a boolean: ``{ "private_key": "true" }``. If this is specified, a new private key is generated.
-
-If values are missing, they will not be overwritten. If ``public_key`` is null, the public key will not be overwritten.
-
 .. note:: ``PUT`` supports renames. If ``PUT /users/foo`` is requested with ``{ "name: "bar""}``, then it will rename ``foo`` to ``bar`` and all of the content previously associated with ``foo`` will be associated with ``bar``.
+
+.. note:: As of 12.1.0, the ``"public_key"``, ``"private_key"``, and ``"create_key"`` parameters in PUT requests to clients/users will cause a 400 response.
 
 This method has no parameters.
 
@@ -1582,6 +1580,8 @@ POST
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The ``POST`` method is used to create a new API client.
 
+.. note:: As of 12.1.0, the ``"admin"`` parameter is no longer supported in client/user creation and support.  If used in the ``POST`` or ``PUT`` of a client or user, then it is ignored.
+
 This method has no parameters.
 
 **Request**
@@ -1596,7 +1596,6 @@ with a request body similar to:
 
    {
      "name": "name_of_API_client",
-     "admin": false,
      "create_key": true
    }
 
@@ -1731,7 +1730,9 @@ The ``PUT`` method is used to update a specific API client. If values are not sp
 
 .. note:: ``PUT`` supports renames. If ``PUT /user/foo`` is requested with ``{ "name: "bar""}``, then it will rename ``foo`` to ``bar`` and all of the content previously associated with ``foo`` will be associated with ``bar``.
 
-This method has no parameters.
+.. note:: As of 12.1.0, the ``"admin"`` parameter is no longer supported in client/user creation and support.  If used in the ``POST`` or ``PUT`` of a client or user, then it is ignored.
+
+.. note:: As of 12.1.0, including ''"public_key"``, ``"private_key"``, or ``"create_key"`` in PUT requests requests to clients/users will cause a 400 response.
 
 **Request**
 
@@ -1745,11 +1746,7 @@ with a request body similar to:
 
    {
      "name": "monkeypants",
-     "private_key": true,
-     "admin": false
    }
-
-where ``private_key`` (when ``true``) will generate a new RSA private key for the API client. If ``admin`` is set to ``true`` the API client will be promoted to an admin API client.
 
 **Response**
 
