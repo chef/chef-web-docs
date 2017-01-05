@@ -48,7 +48,7 @@ where
 
 * ``chocolatey_package`` tells the chef-client to manage a package
 * ``'name'`` is the name of the package
-* ``returns`` specifies the exit code(s) returned by chocolatey package that indicate success. Default is 0.
+* ``returns`` specifies the exit code(s) returned by chocolatey package that indicate success. Default is 0. 
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state
 * ``options``, ``package_name``, ``provider``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
@@ -207,9 +207,11 @@ This resource has the following properties:
    The version of a package to be installed or upgraded.
 
 ``returns``
-   **Ruby Types:** Integer, Array of Integer
+   **Ruby Types:** Integer, Array of Integers
 
-   It specifies the exit code(s) returned by chocolatey package that indicate success. Default is 0.
+   New in Chef client 12.18.
+
+   The exit code(s) returned a chocolatey package that indicate success. Default is 0.
 
    The syntax for ``returns`` is:
 
