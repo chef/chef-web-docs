@@ -433,7 +433,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 aws_cache_replication_group
 =====================================================
-The ``aws_cache_replication_group`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_cache_replication_group`` resource to `replication groups for cache clusters <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/WhatIs.html>`__ in Amazon ElastiCache. A replication group is a collection of nodes, with a primary read/write cluster and up to five secondary, read-only clusters.
+The ``aws_cache_replication_group`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_cache_replication_group`` resource to manage `replication groups for cache clusters <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/WhatIs.html>`__ in Amazon ElastiCache. A replication group is a collection of nodes, with a primary read/write cluster and up to five secondary, read-only clusters.
 
 Syntax
 -----------------------------------------------------
