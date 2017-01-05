@@ -113,40 +113,6 @@ This subcommand has the following syntax:
 
    $ automate-ctl create-user ENT_NAME john_smith
 
-delete-application
-=====================================================
-The ``delete-application`` subcommand is used to delete OAuth credentials for the named application.
-
-**Syntax**
-
-This subcommand has the following syntax:
-
-.. code-block:: bash
-
-   $ automate-ctl delete-application APP_NAME
-
-**Example**
-
-.. code-block:: bash
-
-   $ automate-ctl delete-application github
-
-returns something similar to:
-
-.. code-block:: bash
-
-   You have successfully deleted the OAuth Application: github
-
-.. code-block:: bash
-
-   $ automate-ctl delete-application bamboo
-
-returns something similar to:
-
-.. code-block:: bash
-
-   Error: OAuth Application bamboo not found.
-
 delete-backups
 =====================================================
 The ``delete-backups`` subcommand is used to delete Chef Automate backup archives and Elasticseach snapshots. The command matches a given regular expression and prompts the user to confirm deletion of each matched backup or snapshot.
@@ -360,32 +326,6 @@ Installing a custom version of ChefDK via download, a identity file for ssh acce
 .. code-block:: bash
 
    $ automate-ctl install-runner runner-hostname.mydomain.co ubuntu -v 0.18.30 -p my_password -i ~/.ssh/id_rsa
-
-list-applications
-=====================================================
-The ``list-applications`` subcommand lists all applications with OAuth credentials.
-
-**Syntax**
-
-This subcommand has the following syntax:
-
-.. code-block:: bash
-
-   $ automate-ctl list-applications
-
-**Example**
-
-.. code-block:: bash
-
-   $ automate-ctl list-applications
-
-returns something similar to:
-
-.. code-block:: bash
-
-   OAuth Applications:
-    github
-    github-enterprise
 
 list-backups
 =====================================================
