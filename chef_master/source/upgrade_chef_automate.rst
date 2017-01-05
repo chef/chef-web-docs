@@ -50,7 +50,7 @@ If you need to update a license on a Chef Automate server, perform the following
 
       sudo automate-ctl reconfigure && sudo automate-ctl restart
 
-Upgrade 
+Upgrade
 =====================================================
 
 To upgrade to the latest version of Chef Automate, do the following:
@@ -109,3 +109,8 @@ Upgrading and the ``automate-ctl setup`` command
 -------------------------------------------------------------------
 
 The ``automate-ctl setup`` command used during the Chef Automate installation process is intended to simplify the initial configuration of your Chef Automate cluster. If your cluster is up and running, you don't need to run this command; however to set up additional runners with the ``automate-ctl install-runner`` command, running ``automate-ctl setup`` is recomended to ensure all required files are in the correct place.
+
+Upgrading to Push Jobs Server 2.1 and Later
+-------------------------------------------------------------------
+
+If you are using Push Server to orchestrate your build nodes, 2.1.0 and later are now fully supported for use with Automate. Instructions for this upgrade can be found here: `<https://docs-archive.chef.io/release/push_jobs_2-1/release_notes.html#upgrading-automate-installation>`_.
