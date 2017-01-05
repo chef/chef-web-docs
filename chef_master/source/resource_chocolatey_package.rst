@@ -40,6 +40,7 @@ The full syntax for all of the properties that are available to the **chocolatey
      subscribes                 # see description
      timeout                    String, Integer
      version                    String, Array
+     returns                    Integer, Array of Integers
      action                     Symbol # defaults to :install if not specified
    end
 
@@ -47,6 +48,7 @@ where
 
 * ``chocolatey_package`` tells the chef-client to manage a package
 * ``'name'`` is the name of the package
+* ``returns`` specifies the exit code(s) returned by chocolatey package that indicate success. Default is 0.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state
 * ``options``, ``package_name``, ``provider``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
@@ -203,6 +205,17 @@ This resource has the following properties:
    **Ruby Types:** String, Array
 
    The version of a package to be installed or upgraded.
+
+``returns``
+   **Ruby Types:** Integer, Array of Integer
+
+   It specifies the exit code(s) returned by chocolatey package that indicate success. Default is 0.
+
+   The syntax for ``returns`` is:
+
+   .. code-block:: ruby
+
+      returns [0, 1605, 1614, 1641]
 
 .. end_tag
 
