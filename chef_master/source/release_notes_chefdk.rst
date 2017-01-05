@@ -8,8 +8,6 @@ Chef Development Kit is released on a monthly schedule with new releases the thi
 What's New in 1.1
 =====================================================
 
-The following items are new for chef-dk 1.1 and/or are changes from previous versions.
-
 New InSpec Test Location
 -----------------------------------------------------
 
@@ -112,6 +110,23 @@ Inspec
 The ``inspec`` command is now included in the PATH managed by ChefDK. Just run
 ``chef shell-init`` to update your PATH.
 
+knife-opc
+-----------------------------------------------------
+
+`Knife OPC <https://github.com/chef/knife-opc>`_ is now bundled with ChefDK adding chef server organization and user commands to knife
+
+Notable Upgraded Gems
+-----------------------------------------------------
+
+- chef ``12.15.19`` -> ``12.16.42``
+- inspec ``1.2.0`` -> ``1.4.1``
+- train ``0.20.1`` -> ``0.21.1``
+- kitchen-dokken ``1.0.3`` -> ``1.0.4``
+- kitchen-inspec ``0.15.2`` -> ``0.16.1``
+- berkshelf ``5.1.0`` -> ``5.2.0``
+- fauxhai ``3.9.0`` -> ``3.10.0``
+- foodcritic ``7.1.0`` -> ``8.1.0``
+
 What's New in 0.19
 =====================================================
 
@@ -133,6 +148,17 @@ Delivery CLI
 * Honor custom config on project initialization (``delivery init -c /my/config.json``).
 * Build cookbook is now generated using the more appropriate ``chef generate build-cookbook`` on project initialization.
 * Support providing your password non-interactively to ``delivery token`` via the ``AUTOMATE_PASSWORD`` environment variable (``AUTOMATE_PASSWORD=password delivery token``).
+
+Notable Upgraded Gems
+-----------------------------------------------------
+
+- chef ``12.14.89`` -> ``12.15.19``
+- inspec ``1.0.0`` -> ``1.2.0``
+- kitchen-dokken ``1.0.0`` -> ``1.0.3``
+- knife-windows ``1.6.0`` -> ``1.7.0``
+- mixlib-install ``2.0.1`` -> ``2.1.1``
+- winrm ``2.0.3`` -> ``2.1.0``
+
 
 Changelog
 =====================================================
