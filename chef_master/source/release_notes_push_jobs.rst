@@ -16,30 +16,33 @@ The following items are new for Chef push jobs:
 * STDOUT/STDERR can now optionally be captured from job execution and return it to the server. Users can retrieve the output via the ``knife job output`` command.
 * We now provide two SSE feed endpoints; one provides fine grained per-job events, while the other provides a per-org feed of jobs starting and completing.
 * Command communication now uses libsodium based encryption via zeromq4's CurveZMQ. This replaces the signing protocol used in 1.x. All zeromq packets are fully encrypted and signed, except for the server heartbeat broadcast, which is signed, but in the clear.
-* Push Server 2.1 is now certified for use with Chef Automate.
+* Push Jobs Server 2.1 is now certified for use with Chef Automate.
 
 Important Notes
 -----------------------------------------------------
 * **Push Jobs Server 2.1 is now fully supported for use with Chef Automate**.
-* **Push Jobs Server 2.0 is not compatible with Push Jobs Client 1.X**. Ensure that sll Push Jobs Clients are upgraded to 2.X before performing an upgrade of your Push Jobs Server.
+* **Push Jobs Server 2.0 is not compatible with Push Jobs Client 1.X**. Ensure that all Push Jobs Clients are upgraded to 2.X before performing an upgrade of your Push Jobs Server.
 
-Upgrading Automate Installation
------------------------------------------------------
-If your Automate installation uses Push Server to manage build nodes, upgrading to Push Server 2.1 is now fully supported.  To upgrade:
+Upgrading Chef Automate Installation to use Push Jobs Server 2.1
+-----------------------------------------------------------------
+If your Chef Automate installation uses Push Jobs Server to manage build nodes, upgrading to Push Jobs Server 2.1 is now fully supported.  To upgrade:
+
+* On each build node, upgrade to the latest Push Jobs Client 2.x release by `downloading it <https://downloads.chef.io/push-jobs-client/2.1.4>`_ and following the `instructions on how to install it </install_push_jobs.html#install-the-client>`_ on each build node. If the build node was set up using ``automate-ctl install-build-node``, then no upgrade needs to be performed.
+  
+  .. warning:: Do not restart the Push Jobs Client until after the Push Jobs Server upgrade is completed in the steps below.
+
+* On the Push Jobs Server node:
+
+  * Install the `Push Jobs Server 2.1 package <https://downloads.chef.io/push-jobs-server/2.1.1>`_. 
+  * Run ``sudo opscode-push-jobs-server-ctl upgrade``.
+  * Run ``sudo opscode-push-jobs-server-ctl reconfigure``.
+
+    .. note:: Once the ``upgrade`` command above is issued, build nodes and other push clients will not be in communication with the server until they are restarted.
 
 * On each build node:
-    * upgrade to the latest 2.x Push Jobs Client release. If the build node was set up using ``automate-ctl install-build-node`` then no upgrade needs to be performed.
-    * **Important**: Do not restart the Push Jobs Client until after the Push Server upgrade is completed in the steps below.
-* On the Push Server node:
-    * Install the Push Server 2.1 package.
-    * Run ``sudo opscode-push-jobs-server-ctl upgrade``
-    * Run ``sudo opscode-push-jobs-server-ctl reconfigure``
-    * **Note**: once the ``upgrade`` command above is issued, build nodes and other push clients will not be in communication with the server until they are restarted.
-* On each build node:
-    * Remove the ``allow_unencrypted`` entry from ``/etc/chef/push-jobs-client.rb`` if it is present.
-    * Restart push jobs client as appropriate for the system:
-    * ``sudo systemctl restart push-jobs-client`` OR
-    * ``sudo service restart push-jobs-client``
+
+  * Remove the ``allow_unencrypted`` entry from ``/etc/chef/push-jobs-client.rb``, if present.
+  * Restart Push Jobs Client as appropriate for the system: ``sudo systemctl restart push-jobs-client`` OR ``sudo service restart push-jobs-client``
 
 Encryption
 =====================================================
