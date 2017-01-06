@@ -113,4 +113,4 @@ The ``automate-ctl setup`` command used during the Chef Automate installation pr
 Upgrading to Push Jobs Server 2.1 and Later
 -------------------------------------------------------------------
 
-If you are using Push Server to orchestrate your build nodes, 2.1.0 and later are now fully supported for use with Automate. Instructions for this upgrade can be found here: `<https://docs-archive.chef.io/release/push_jobs_2-1/release_notes.html#upgrading-automate-installation>`_.
+If you are using Push Jobs Server to orchestrate your build nodes, 2.1.0 and later are now fully supported for use with Chef Automate. Instructions for this upgrade can be found `here </release_notes_push_jobs.html#upgrading-chef-automate-installation-to-use-push-jobs-server-2-1>`_.

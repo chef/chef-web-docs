@@ -243,7 +243,7 @@ Chef Automate can use push jobs to coordinate build jobs across build nodes when
 
 Push jobs is available as an add-on to Chef server. You can also use runners and the new job dispatch system instead of the previous push jobs-based system.
 
-.. note:: Chef Automate is fully compatible with Push Jobs Server 1.x and 2.x. Please use 2.x for new installations.  Information about upgrading from Push Jobs Server 1 to 2 can be be found at `<https://docs.chef.iorelease_notes_push_jobs.html#upgrading-automate-installation>`_.
+.. note:: Chef Automate is fully compatible with Push Jobs Server 1.x and 2.x. Please use 2.x for new installations. Information about upgrading from Push Jobs Server version 1.x to 2.x can be be found `here </release_notes_push_jobs.html#upgrading-chef-automate-installation-to-use-push-jobs-server-2-1>`_.
 
 Download the appropriate package for your platform from `<https://downloads.chef.io/push-jobs-server/>`_  and copy it to the Chef server.  The location that it's been saved to is referred to as `PATH_TO_DOWNLOADED_PACKAGE`.
 
