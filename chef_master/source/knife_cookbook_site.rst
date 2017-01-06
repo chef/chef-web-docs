@@ -52,6 +52,9 @@ This argument has the following options:
 ``--force``
    Overwrite an existing directory.
 
+``-m SUPERMARKET_SITE``, ``--supermarket-site SUPERMARKET_SITE``
+   The URL at which the Chef Supermarket is located. Default value: https://supermarket.chef.io.
+
 .. note:: .. tag knife_common_see_all_config_options
 
           See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
@@ -113,6 +116,9 @@ This argument has the following options:
 
 ``-D``, ``--skip-dependencies``
    Ensure that all cookbooks to which the installed cookbook has a dependency are not installed.
+
+``-m SUPERMARKET_SITE``, ``--supermarket-site SUPERMARKET_SITE``
+   The URL at which the Chef Supermarket is located. Default value: https://supermarket.chef.io.
 
 ``-o PATH:PATH``, ``--cookbook-path PATH:PATH``
    The directory in which cookbooks are created. This can be a colon-separated path.
@@ -184,6 +190,9 @@ Options
 -----------------------------------------------------
 This argument has the following options:
 
+``-m SUPERMARKET_SITE``, ``--supermarket-site SUPERMARKET_SITE``
+   The URL at which the Chef Supermarket is located. Default value: https://supermarket.chef.io.
+
 ``-w``, ``--with-uri``
    Show the corresponding URIs.
 
@@ -229,7 +238,10 @@ This argument has the following syntax:
 
 Options
 -----------------------------------------------------
-This command does not have any specific options.
+This argument has the following options:
+
+``-m SUPERMARKET_SITE``, ``--supermarket-site SUPERMARKET_SITE``
+   The URL at which the Chef Supermarket is located. Default value: https://supermarket.chef.io.
 
 Examples
 -----------------------------------------------------
@@ -285,6 +297,9 @@ This argument has the following options:
 ``CATEGORY``
    The cookbook category: ``"Databases"``, ``"Web Servers"``, ``"Process Management"``, ``"Monitoring & Trending"``, ``"Programming Languages"``, ``"Package Management"``, ``"Applications"``, ``"Networking"``, ``"Operating Systems & Virtualization"``, ``"Utilities"``, or ``"Other"``.
 
+``-m SUPERMARKET_SITE``, ``--supermarket-site SUPERMARKET_SITE``
+   The URL at which the Chef Supermarket is located. Default value: https://supermarket.chef.io.
+
 ``-n``, ``--dry-run``
    Take no action and only print out results. Default: ``false``.
 
@@ -327,6 +342,9 @@ This argument has the following options:
 
 ``COOKBOOK_VERSION``
    The version of a cookbook to be shown. If a cookbook has only one version, this option does not need to be specified. If a cookbook has more than one version and this option is not specified, a list of cookbook versions is returned.
+
+``-m SUPERMARKET_SITE``, ``--supermarket-site SUPERMARKET_SITE``
+   The URL at which the Chef Supermarket is located. Default value: https://supermarket.chef.io.
 
 Examples
 -----------------------------------------------------
@@ -388,7 +406,10 @@ This argument has the following syntax:
 
 Options
 -----------------------------------------------------
-This command does not have any specific options.
+This argument has the following options:
+
+``-m SUPERMARKET_SITE``, ``--supermarket-site SUPERMARKET_SITE``
+   The URL at which the Chef Supermarket is located. Default value: https://supermarket.chef.io.
 
 Examples
 -----------------------------------------------------
