@@ -14,3 +14,9 @@ if [ $RESULT -ne 0 ]; then
   (>&2 echo '  information about tagged regions. ' )
   exit 1
 fi
+
+echo 'checking for edit links'
+
+../../doctools/lint_edit_check
+
+echo 'Done.'
