@@ -340,9 +340,6 @@ The following list describes all of the optional settings that can be added to t
 
 ``knife[:start]``
 
-``knife[:supermarket_site]``
-   The URL at which the Chef Supermarket is located. Default value: https://supermarket.chef.io.
-
 ``knife[:template_file]``
 
 ``knife[:trailing_slashes]``
@@ -585,9 +582,6 @@ The following ``knife cookbook site download`` settings can be added to the knif
 ``knife[:force]``
    Adds the the ``--force`` option.
 
-``knife[:supermarket_site]``
-   The URL at which the Chef Supermarket is located. Default value: https://supermarket.chef.io.
-
 cookbook site install
 -----------------------------------------------------
 The following ``knife cookbook site install`` settings can be added to the knife.rb file:
@@ -604,18 +598,12 @@ The following ``knife cookbook site install`` settings can be added to the knife
 ``knife[:use_current_branch]``
    Adds the the ``--use-current-branch`` option.
 
-``knife[:supermarket_site]``
-   The URL at which the Chef Supermarket is located. Default value: https://supermarket.chef.io.
-
 cookbook site share
 -----------------------------------------------------
 The following ``knife cookbook site share`` settings can be added to the knife.rb file:
 
 ``knife[:cookbook_path]``
    Adds the the ``--cookbook-path`` option.
-
-``knife[:supermarket_site]``
-   The URL at which the Chef Supermarket is located. Default value: https://supermarket.chef.io.
 
 data bag create
 -----------------------------------------------------
