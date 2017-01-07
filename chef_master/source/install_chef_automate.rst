@@ -243,7 +243,7 @@ Chef Automate can use push jobs to coordinate build jobs across build nodes when
 
 Push jobs is available as an add-on to Chef server. You can also use runners and the new job dispatch system instead of the previous push jobs-based system.
 
-.. note:: Chef Automate requires Push Jobs Server 1.x and is not compatible with Push Jobs Server 2.x.  If you are installing Chef Automate on Red Hat Enterprise Linux/CentOS 7, use the Red Hat Enterprise Linux/CentOS 6 package for Push Jobs Server 1.x (available at `<https://downloads.chef.io/push-jobs-server/stable/1.1.6>`_) and manually install it.  For other platforms, you can use the automated installation method for Push Jobs Server 1.x as described below.
+.. note:: Chef Automate is fully compatible with Push Jobs Server 1.x and 2.x. Please use 2.x for new installations. Information about upgrading from Push Jobs Server version 1.x to 2.x can be be found `here </release_notes_push_jobs.html#upgrading-chef-automate-installation-to-use-push-jobs-server-2-1>`_.
 
 Download the appropriate package for your platform from `<https://downloads.chef.io/push-jobs-server/>`_  and copy it to the Chef server.  The location that it's been saved to is referred to as `PATH_TO_DOWNLOADED_PACKAGE`.
 
@@ -265,7 +265,7 @@ configuration of Chef server and push jobs server.
    sudo opscode-push-jobs-server-ctl reconfigure
 
 Running this reconfigure may trigger a brief restart of Chef
-Server.  This will typically fall in the standard retry window for Chef
+Server.  This will typically fall within the standard retry window for Chef
 Clients, so no significant interruption of service is expected.
 
 Create a User and Organization to Manage Your Cluster
