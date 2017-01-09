@@ -730,21 +730,6 @@ The following .kitchen.yml file is part of the ``yum`` cookbook:
          - recipe[yum_test::test_dnf_compat]
        includes: fedora-22
 
-Multiple Cookbooks
---------------------------------------------------------------------------
-The following example shows how to use the ``chef_solo`` provisioner without Berkshelf in a way that allows multiple cookbooks:
-
-.. code-block:: yaml
-
-   provisioner:
-     name: chef_solo
-     roles_path: '../../roles'
-     data_bags_path: '../../data_bags'
-     environments_path: '../../environments'
-     cookbooks_path:
-       - ../cookbooks
-       - ../../site-cookbooks
-
 Platform Attributes
 --------------------------------------------------------------------------
 The following .kitchen.yml file sets up a simple tiered configuration of the Chef server, including two front-end servers, a single back-end server, and all three add-ons (Chef push jobs, Reporting, and Chef management console). The ``platforms`` block uses an ``attributes`` section to define Chef server-specific attributes that are used by all three test suites:
