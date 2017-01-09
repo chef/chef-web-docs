@@ -2,7 +2,8 @@
 
 # This script checks if the 'edit on GitHub' link is present at the top of the source file.
 
-GHLINKREGEX = /(`\[.*`_)/
+GHLINKREGEX = /(`\[edit on GitHub\] <.*>`_)/
+@errors = []
 
 # Do regex for `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/filename.rst>`__
 def check_gh_link(file)
@@ -12,8 +13,11 @@ def check_gh_link(file)
     # If the link is present, return nil so the next file can be parsed.
     return nil if line.match(GHLINKREGEX)
 
-    # Return an error message if a file is missing the 'edit on GitHub' link.
-    $stderr.puts("No edit link found in #{file}") if line_num == 7
+    # Return an error message if the 'edit on GitHub' link is not present by line number 7.
+    if line_num == 7
+      @errors << "No edit link found in #{file}"
+      break
+    end
   end
 end
 
@@ -21,3 +25,6 @@ end
 Dir.glob("*.rst") do |result|
   check_gh_link(result)
 end
+
+@errors.each { |error| $stderr.puts(error) }
+exit(!@errors.empty? ? 1 : 0)
