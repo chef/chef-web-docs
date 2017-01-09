@@ -519,7 +519,6 @@ Addenda
    delivery_users_and_roles
    deprecations_attributes
    deprecations_chef_gem_compile_time
-   deprecations_chef_platform_methods
    deprecations_chef_rest
    deprecations_custom_resource_cleanups
    deprecations_easy_install
