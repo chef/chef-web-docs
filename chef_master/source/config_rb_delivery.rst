@@ -92,14 +92,16 @@ If you wish to operate your Chef Automate server from behind a proxy, you may sp
 
 ``delivery['proxy']['host']``
     The hostname to your proxy server such as ``foo.bar.com`` or ``192.168.1.10``.
-    
+
 ``delivery['proxy']['port']``
     The port to connect on. This will be used for all connections (http and https).
-    
+
 ``delivery['proxy']['user']``
+  Optional authentication user name when contacting the proxy server.
+  
 ``delivery['proxy']['password']``
-    Optional authentication options when contacting the proxy server.
-    
+    Optional authentication password when contacting the proxy server.
+
 ``delivery['proxy']['no_proxy']``
     A list of hostnames that are blacklisted from using the proxy. Chef Automate will attempt to connect directly to these hosts. By default, this is set to ``["localhost", "127.0.0.1"]``.
 
