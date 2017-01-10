@@ -118,11 +118,11 @@ When restoring Chef server data, the previously backed-up files will be required
 
       $ chef-server-ctl start
 
-#. Reconfigure the Chef management console:
+#. Reconfigure the Chef management console if ``chef-manage`` is installed:
 
    .. code-block:: bash
 
-      $ opscode-manage-ctl reconfigure
+      $ chef-manage-ctl reconfigure
 
 chef-server-ctl
 =====================================================
