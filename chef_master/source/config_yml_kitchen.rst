@@ -463,26 +463,23 @@ The ``kitchen-vagrant`` driver can predict the box name for Vagrant and the down
 .. code-block:: ruby
 
    platforms:
-   - name: ubuntu-12.04
-   - name: ubuntu-12.10
-   - name: ubuntu-13.04
-   - name: centos-5.9
-   - name: centos-6.4
-   - name: debian-7.1.0
+   - name: ubuntu-14.04
+   - name: ubuntu-16.04
+   - name: centos-6.8
+   - name: centos-7.3
+   - name: debian-8.6
 
 which will generate a configuration file similar to:
 
 .. code-block:: ruby
 
    platforms:
-   - name: ubuntu-12.04
+   - name: ubuntu-14.04
      driver:
-       box: opscode-ubuntu-12.04
-       box_url: https://opscode-vm-bento.s3.amazonaws.com/vagrant/opscode_ubuntu-12.04_provisionerless.box
-   - name: ubuntu-12.10
+       box: bento/ubuntu-14.04
+   - name: ubuntu-16.04
      driver:
-       box: opscode-ubuntu-12.10
-       box_url: ...
+       box: bento/ubuntu-16.04
    # ...
 
 .. end_tag
