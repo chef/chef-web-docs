@@ -126,6 +126,8 @@ This resource has the following properties:
 
    The version number of the module to use. Powershell 5.0.10018.0 (or higher) supports having multiple versions of a module installed. This should be specified along with the ``module_name``.
 
+   New in Chef client 12.x.
+
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
