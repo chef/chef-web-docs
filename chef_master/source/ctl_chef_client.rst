@@ -153,7 +153,7 @@ This command has the following options:
 
    .. tag node_ctl_attribute
 
-   Any other attribute type that is contained in this JSON file will be treated as a ``normal`` attribute. Settings attributes at other precedence levels is not possible.  For example, attempting to update ``override`` attributes using the ``-j`` option:
+   Any other attribute type that is contained in this JSON file will be treated as a ``normal`` attribute. Setting attributes at other precedence levels is not possible. For example, attempting to update ``override`` attributes using the ``-j`` option:
 
    .. code-block:: javascript
 
@@ -188,7 +188,7 @@ This command has the following options:
 
    .. end_tag
    
-   Note that this has set the ``normal`` attribute ``node['override_attributes']['apptastic']``.
+   .. note:: This has set the ``normal`` attribute ``node['override_attributes']['apptastic']``.
 
    **Specify a policy**
 
