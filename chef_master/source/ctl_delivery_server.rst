@@ -300,7 +300,7 @@ The ``install-runner`` subcommand configures a remote node as a job runner, whic
       -e, --enterprise              Legacy option, only required if you have more than one enterprise configured. Workflow enterprise to add the runner into
 
 
-.. note:: The username provided must be a user who has sudo access on the remote node.
+.. note:: The username provided must be a user who has sudo access on the remote node. If the user is a member of a domain, then the username value should be entered as ``user@domain``.
 .. note:: At least one of ``--password [PASSWORD]`` or ``--ssh-identity-file FILE`` are necessary for ssh access.
 
 **Example**
