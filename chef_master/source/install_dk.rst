@@ -476,6 +476,12 @@ The Chef development kit can be uninstalled using the steps below that are appro
 
 .. end_tag
 
+In Chef development kit versions prior to 1.0.3, you may need to complete uninstalling the program with the additional step of removing the directory ``~/.chefdk``.  
+
+.. code-block:: bash
+
+   $ rm -fr ~/.chefdk
+
 Debian
 -----------------------------------------------------
 .. tag uninstall_chef_dk_ubuntu
