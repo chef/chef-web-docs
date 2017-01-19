@@ -130,8 +130,7 @@ Configure Chef Client to use the Data Collector endpoint in Chef Automate
 .. note:: Chef version 12.12.15 or greater is required.
 
 The data collector functionality is used by the Chef client to send node and converge data to Chef Automate. This
-feature works for the following: Chef client, Chef solo (formerly "Chef client local mode"), and Chef solo legacy mode
-(formerly "Chef solo").
+feature works for the following: Chef client, and both the default and legacy modes of Chef solo.
 
 To send node and converge data to Chef Automate, modify your Chef config (that is
 `client.rb`, `solo.rb`, or add an additional config file in an appropriate directory, such as
@@ -148,8 +147,8 @@ where ``my-automate-server.mycompany.com`` is the fully-qualified domain name of
 Additional configuration options include:
 
   * ``data_collector.mode``: The mode in which the data collector is allowed to operate. This
-    can be used to run data collector only when running as Chef Solo but not when using Chef client.
-    Options: ``:solo`` (for both Solo Legacy Mode and Solo Mode), ``:client``, or ``:both``.  Default:
+    can be used to run data collector only when running as Chef solo but not when using Chef client.
+    Options: ``:solo``, ``:client``, or ``:both``.  Default:
     ``:both``.
   * ``data_collector.raise_on_failure``: When the data collector cannot send the "starting a run"
     message to the data collector server, the data collector will be disabled for that run. In some
