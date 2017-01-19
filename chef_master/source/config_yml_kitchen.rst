@@ -170,6 +170,8 @@ Kitchen can configure the chef-zero provisioner with the following Chef-specific
      - The proxy server for HTTP connections.
    * - ``https_proxy``
      - The proxy server for HTTPS connections.
+   * - ``no_proxy``
+     - The comma-separated exception list of host patterns to exclude from proxying.
    * - ``install_msi_url``
      - An alternate URL for a Windows MSI package that will install chef-client on the machine under test.
    * - ``json_attributes``
