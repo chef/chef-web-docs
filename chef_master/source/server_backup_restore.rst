@@ -128,6 +128,8 @@ chef-server-ctl
 =====================================================
 Use the following commands to manage backups of Chef server data, and then to restore those backups.
 
+.. note :: As of Chef Version 12.10 backups created with the ``chef-server-ctl backup`` command cannot be restored.
+
 backup
 -----------------------------------------------------
 .. tag ctl_chef_server_backup
@@ -166,6 +168,7 @@ This subcommand has the following syntax:
 
 restore
 -----------------------------------------------------
+
 .. tag ctl_chef_server_restore
 
 The ``restore`` subcommand is used to restore Chef server data from a backup that was created by the ``backup`` subcommand. This subcommand may also be used to add Chef server data to a newly-installed server. This subcommand:
@@ -208,4 +211,3 @@ This subcommand has the following syntax:
 .. code-block:: bash
 
    $ chef-server-ctl restore /path/to/tar/archive.tar.gz
-
