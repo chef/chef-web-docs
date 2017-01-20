@@ -15,7 +15,7 @@ This topic describes how and why to use secrets in a ``build-cookbook``:
 
 * This code is used in the ``build-cookbook``
 * Secrets are managed at a project, organization and/or enterprise level
-* There are two mechanism to manage secrets in Chef Automate:
+* There are two mechanisms to manage secrets in Chef Automate:
   - Using encrypted data bag
   - Using chef vaults 
 
@@ -25,7 +25,7 @@ For more information on security, see `How to be a Secure Chef <https://learn.ch
 Using encrypted data bag
 =====================================================
 
-This section describes how to use encrypted data bag items in Chef Automate
+This section describes how to use encrypted data bag items in Chef Automate.
 
 Create an Encrypted Data Bag
 =====================================================
@@ -43,7 +43,7 @@ If the project is in the ``chef`` enterprise and is in the ``CIA`` organization 
 
 This should use the same encrypted data bag secret key that is distributed with the build nodes.
 
-If the project item does not exist, ``delivery-sugar`` will try to load the secretsi from the organization that your project lives in. It will look for an item called:
+If the project item does not exist, ``delivery-sugar`` will try to load the secrets from the organization that your project lives in. It will look for an item called:
 
 .. code-block:: javascript
 
@@ -85,7 +85,7 @@ which is part of the ``publish.rb`` recipe in the ``delivery-truck`` cookbook: h
 Using a Chef Vault
 =====================================================
 
-This section describes how to use Chef Vault in Chef Automate
+This section describes how to use Chef Vault in Chef Automate.
 
 Create a Chef Vault
 =====================================================
