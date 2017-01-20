@@ -25,7 +25,7 @@ For more information on security, see `How to be a Secure Chef <https://learn.ch
 Using Encrypted Data Bags
 =====================================================
 
-This section describes how to use encrypted data bag items in Chef Automate
+This section describes how to use encrypted data bag items in Chef Automate.
 
 Create an Encrypted Data Bag
 =====================================================
@@ -85,7 +85,7 @@ This example is part of the ``publish.rb`` recipe in the ``delivery-truck`` cook
 Using a Chef Vault
 =====================================================
 
-This section describes how to use Chef vault in Chef Automate
+This section describes how to use Chef vault in Chef Automate.
 
 Create a Chef Vault
 =====================================================
