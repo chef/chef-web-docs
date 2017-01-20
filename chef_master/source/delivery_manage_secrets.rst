@@ -97,7 +97,7 @@ In order to use Chef vaults you must follow hierarchical naming standard for you
    <ENT>-<ORG>
    <ENT>-<ORG>-<PROJECT>
 
-For example, if the ``chef`` enterprise has an organization named ``cookbooks`` with a project named ``mysql`` it would have the naming schema:
+For example, if the ``chef`` enterprise has a ``cookbooks`` organization with a ``mysql`` project, it would have the naming schema:
 
 .. code-block:: javascript
 
