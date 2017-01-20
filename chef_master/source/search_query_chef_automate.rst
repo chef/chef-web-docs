@@ -18,7 +18,6 @@ defined query language. This language will allow you to search on the following 
   * cookbook
   * recipe
   * resource_name
-  * tag
   * node_name
 
 The key for each of these terms is the name of the item you are searching
@@ -45,10 +44,6 @@ Examples
 **Resource Name**
 
    All nodes that manage a resource named '/tmp': ``resource_name: /tmp``
-
-**Tag**
-
-   All nodes with the 'web' tag: ``tag: web``
 
 **Node Name**
 
