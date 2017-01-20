@@ -15,8 +15,8 @@ This topic describes how and why to use secrets in a ``build-cookbook``:
 
 * This code is used in the ``build-cookbook``
 * Secrets are managed at the project, organization and/or enterprise level
-* There are two mechanism to manage secrets in Chef Automate:
-  - Using encrypted data bags
+* There are two mechanisms to manage secrets in Chef Automate:
+  - Using an encrypted data bag
   - Using chef vaults
 
 For more information on security, see `How to be a Secure Chef <https://learn.chef.io/skills/be-a-secure-chef/>`_.
