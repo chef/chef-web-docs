@@ -14,12 +14,20 @@ Manage Secrets in a build-cookbook
 This topic describes how and why to use secrets in a ``build-cookbook``:
 
 * This code is used in the ``build-cookbook``
-* Secrets are managed at a project level
-* All of the secrets for a given project will live in the same encrypted data bag item
+* Secrets are managed at a project, organization and/or enterprise level
+* There are two mechanism to manage secrets in Chef Automate:
+  - Using encrypted data bag
+  - Using chef vaults 
 
 For more information on security, see `How to be a Secure Chef <https://learn.chef.io/skills/be-a-secure-chef/>`_.
 
-Create a Data Bag
+
+Using encrypted data bag
+=====================================================
+
+This section describes how to use encrypted data bag items in Chef Automate
+
+Create an Encrypted Data Bag
 =====================================================
 Create an encrypted data bag item that lives inside the ``delivery-secrets`` data bag. Give the encrypted data bag item the name:
 
@@ -33,9 +41,17 @@ If the project is in the ``chef`` enterprise and is in the ``CIA`` organization 
 
    chef-CIA-chef-web-www
 
-This should use the same encrypted data bag item that is distributed with the build nodes.
+This should use the same encrypted data bag secret key that is distributed with the build nodes.
 
-Use a Data Bag
+If the project item does not exist, ``delivery-sugar`` will try to load the secretsi from the organization that your project lives in. It will look for an item called:
+
+.. code-block:: javascript
+
+   chef-CIA
+
+This is useful if you would like to share secrets across projects within the same organization.
+
+Use an Encrypted Data Bag
 =====================================================
 To use the encrypted data bag item, do the following:
 
@@ -65,3 +81,44 @@ From there, begin using the secrets by calling the ``get_project_secrets`` metho
   end
 
 which is part of the ``publish.rb`` recipe in the ``delivery-truck`` cookbook: https://github.com/chef-cookbooks/delivery-truck/blob/master/recipes/publish.rb#L91-L103.
+
+Using a Chef Vault
+=====================================================
+
+This section describes how to use Chef Vault in Chef Automate
+
+Create a Chef Vault
+=====================================================
+In order to use this functionality you must use the following naming standard for your Chef Vaults under the `workflow-vaults` data bag:
+
+.. code-block:: javascript
+
+   <ENT>
+   <ENT>-<ORG>
+   <ENT>-<ORG>-<PROJECT>
+
+The data in these vaults will be merged into a single Ruby hash. Any duplicate key names will be merged as follows:
+  - ``<ENT>-<ORG>-<PROJECT>`` will overwrite ``<ENT>-<ORG>`` and ``<ENT>``.
+  - ``<ENT>-<ORG>`` will overwrite ``<ENT>``.
+
+Here is an example of the name of the vaults if a project is in the ``chef`` enterprise and is in the ``cookbooks`` organization with a name of ``mysql``:
+
+.. code-block:: javascript
+
+   chef
+   chef-cookbook
+   chef-cookbook-mysql
+
+Use an Encrypted Data Bag
+=====================================================
+To access your secret data from the vault items, do the following:
+
+#. Ensure that ``metadata.rb`` for the ``build-cookbook`` shows that it depends on the ``delivery-sugar`` cookbook (https://github.com/chef-cookbooks/delivery-sugar)
+
+From there, begin using the secrets by calling the ``get_chef_vault_data`` method. For example:
+
+.. code-block:: ruby
+
+      vault = get_workflow_vault_data
+      puts vault['my_key']
+
