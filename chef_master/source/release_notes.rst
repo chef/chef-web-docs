@@ -1526,7 +1526,7 @@ Use the **chocolatey_package** resource to manage packages using Chocolatey for 
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_package_chocolatey_syntax
+.. tag resource_package_chocolatey_syntax_12_7
 
 A **chocolatey_package** resource block manages packages using Chocolatey for the Microsoft Windows platform. The simplest use of the **chocolatey_package** resource is:
 
@@ -1596,7 +1596,7 @@ This resource has the following actions:
 
 Properties
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_package_chocolatey_attributes
+.. tag resource_package_chocolatey_attributes_12_7
 
 This resource has the following properties:
 
