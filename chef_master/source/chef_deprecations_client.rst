@@ -78,7 +78,7 @@ All Deprecations
     - Deprecated ``Chef::Platform`` methods
     - 12.18.31
     - 13.0
-  * - :doc:`CHEF-14 </deprecations_chef_platform_methods>`
+  * - :doc:`CHEF-14 </deprecations_run_command>`
     - Deprecation of run_command
     - 12.18.31
     - 13.0
