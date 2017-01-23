@@ -1,9 +1,17 @@
 =====================================================
-Release Notes: chef-client 12.0 - 12.17
+Release Notes: chef-client 12.0 - 12.18
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes.rst>`__
 
 Chef client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef CHANGELOG.md <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
+
+What's New in 12.18
+=====================================================
+
+The following items are new for chef-client 12.18 and/or are changes from previous versions. The short version:
+
+* **Can now specify the acceptable return codes from the chocolatey_package resource using the returns property**
+* **Can now enable chef-client to run as a scheduled task directly from the client MSI on Windows hosts**
 
 What's New in 12.17
 =====================================================
