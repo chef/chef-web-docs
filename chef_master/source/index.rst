@@ -528,6 +528,7 @@ Addenda
    deprecations_internal_api
    deprecations_json_auto_inflate
    deprecations_resource_cloning
+   deprecations_run_command
    deprecations_supports_property
    deprecations_verify_file
    dsl_custom_resource
