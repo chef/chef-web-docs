@@ -109,7 +109,7 @@ During the creation of a Chef vault, the data in these vaults are merged into a 
    - ``<ENT>-<ORG>-<PROJECT>`` will overwrite ``<ENT>-<ORG>`` and ``<ENT>``.
    - ``<ENT>-<ORG>`` will overwrite ``<ENT>``.
 
-Using an Encrypted Data Bag
+Using Secrets in a Chef Vault
 =====================================================
 To access your secret data from the vault items, do the following:
 

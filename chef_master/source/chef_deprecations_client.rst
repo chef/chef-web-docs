@@ -8,7 +8,7 @@ When we wish to remove a feature or an API in Chef, we try to first mark it with
 .. code-block:: ruby
 
    Deprecated features used!
-     JSON auto inflation is not supported (CHEF-1) at (irb):7:in `irb_binding'.
+     JSON auto inflation is not supported (CHEF-1) at (irb):7:in `irb_binding`.
      Please see https://docs.chef.io/chef-client/deprecations/json_auto_inflate.html for further details and information on how to correct this problem.
 
 Testing for Deprecations
@@ -74,9 +74,17 @@ All Deprecations
     - The ``Chef::REST`` API will be removed.
     - 12.7.2
     - 13.0
+  * - :doc:`CHEF-10 </deprecations_dnf_package_allow_downgrade>`
+    - DNF package provider and resource do not require ``--allow-downgrade`` anymore.
+    - 12.18.31
+    - 
   * - :doc:`CHEF-13 </deprecations_chef_platform_methods>`
     - Deprecated ``Chef::Platform`` methods
-    - 12.18.x
+    - 12.18.31
+    - 13.0
+  * - :doc:`CHEF-14 </deprecations_run_command>`
+    - Deprecation of run_command
+    - 12.18.31
     - 13.0
   * - :doc:`CHEF-3694 </deprecations_resource_cloning>`
     - Resource Cloning will no longer work.

@@ -522,11 +522,13 @@ Addenda
    deprecations_chef_platform_methods
    deprecations_chef_rest
    deprecations_custom_resource_cleanups
+   deprecations_dnf_package_allow_downgrade
    deprecations_easy_install
    deprecations_exit_code
    deprecations_internal_api
    deprecations_json_auto_inflate
    deprecations_resource_cloning
+   deprecations_run_command
    deprecations_supports_property
    deprecations_verify_file
    dsl_custom_resource
