@@ -74,6 +74,10 @@ All Deprecations
     - The ``Chef::REST`` API will be removed.
     - 12.7.2
     - 13.0
+  * - :doc:`CHEF-10 </deprecations_dnf_package_allow_downgrade>`
+    - DNF package provider and resource do not require ``--allow-downgrade`` anymore.
+    - 12.18.31
+    - 
   * - :doc:`CHEF-13 </deprecations_chef_platform_methods>`
     - Deprecated ``Chef::Platform`` methods
     - 12.18.x
