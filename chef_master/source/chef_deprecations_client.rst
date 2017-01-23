@@ -76,7 +76,11 @@ All Deprecations
     - 13.0
   * - :doc:`CHEF-13 </deprecations_chef_platform_methods>`
     - Deprecated ``Chef::Platform`` methods
-    - 12.18.x
+    - 12.18.31
+    - 13.0
+  * - :doc:`CHEF-14 </deprecations_chef_platform_methods>`
+    - Deprecation of run_command
+    - 12.18.31
     - 13.0
   * - :doc:`CHEF-3694 </deprecations_resource_cloning>`
     - Resource Cloning will no longer work.
