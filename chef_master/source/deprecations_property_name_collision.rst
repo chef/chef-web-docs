@@ -5,7 +5,7 @@ Deprecation: Resource Property Name Collision (CHEF-11)
 
 .. tag deprecation_property_name_collision
 
-A resource property, defined with the `property` method, conflicts with an already-existing property or method. This could indicate an error that could lead to unintended behavior.
+A resource property, defined with the ``property`` method, conflicts with an already-existing property or method. This could indicate an error that could lead to unintended behavior.
 
 .. end_tag
 
