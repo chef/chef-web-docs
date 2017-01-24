@@ -34,7 +34,7 @@ The full syntax for all of the properties that are available to the **yum_reposi
 .. code-block:: ruby
 
    yum_repository 'name' do
-      baseurl                 String
+      baseurl                 String, Array
       cost                    String
       clean_headers           TrueClass, FalseClass
       clean_metadata          TrueClass, FalseClass
@@ -115,9 +115,9 @@ This resource has the following properties:
 .. Refer to http://linux.die.net/man/5/yum.conf as the source for these descriptions.
 
 baseurl
-   **Ruby Type:** String
+   **Ruby Type:** String, Array
 
-   URL to the directory where the Yum repository's 'repodata' directory lives. Can be an http://, https:// or ftp:// URL. You can specify multiple URLs in one baseurl statement.
+   URL to the directory where the Yum repository's 'repodata' directory lives. Can be an http://, https:// or ftp:// URL. You can specify multiple URLs in one baseurl statement. Arrays are supported in Chef client 12.18 or later.
 
 cost
    **Ruby Type:** String

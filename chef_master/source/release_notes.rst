@@ -12,6 +12,14 @@ The following items are new for chef-client 12.18 and/or are changes from previo
 
 * **Can now specify the acceptable return codes from the chocolatey_package resource using the returns property**
 * **Can now enable chef-client to run as a scheduled task directly from the client MSI on Windows hosts**
+* **Package provider now supports DNF packages for Fedora and upcoming RHEL releases**
+
+New deprecations included in this release
+-----------------------------------------------------
+* :doc:`Chef::Platform helper methods </deprecations_chef_platform_methods>`
+* :doc:`run_command helper method </deprecations_run_command>`
+* :doc:`DNF package allow_downgrade property </deprecations_dnf_package_allow_downgrade>`
+
 
 What's New in 12.17
 =====================================================
