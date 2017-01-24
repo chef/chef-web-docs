@@ -196,7 +196,7 @@ to join nodes in parallel the cluster may fail to become available):
       leaderl        running (pid 6788)  1d 5h 59m 35s  leader: 1; waiting: 0; follower: 2; total: 3
       postgresql     running (pid 6640)  1d 5h 59m 43s  leader: 1; offline: 0; syncing: 0; synced: 2
 
-Step 4: Generate Chef Server Configuration
+Step 4: Generate Chef server Configuration
 --------------------------------------------
 
 Log into the node from Step 1, and we will generate our chef-server frontend node configuration:
