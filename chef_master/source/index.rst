@@ -527,6 +527,8 @@ Addenda
    deprecations_exit_code
    deprecations_internal_api
    deprecations_json_auto_inflate
+   deprecations_launchd_hash_property
+   deprecations_property_name_collision
    deprecations_resource_cloning
    deprecations_run_command
    deprecations_supports_property

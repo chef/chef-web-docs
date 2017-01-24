@@ -77,6 +77,14 @@ All Deprecations
   * - :doc:`CHEF-10 </deprecations_dnf_package_allow_downgrade>`
     - DNF package provider and resource do not require ``--allow-downgrade`` anymore.
     - 12.18.31
+    -
+  * - :doc:`CHEF-11 </deprecations_property_name_collision>`
+    - An exception will be raised if a resource property conflicts with an already-existing property or method. 
+    - 12.19.x
+    - 
+  * - :doc:`CHEF-12 </deprecations_launchd_hash_property>`
+    - An exception will be raised whenever the ``hash`` property in the launchd resource is used.
+    - 12.19.x
     - 
   * - :doc:`CHEF-13 </deprecations_chef_platform_methods>`
     - Deprecated ``Chef::Platform`` methods
