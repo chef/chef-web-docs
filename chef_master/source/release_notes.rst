@@ -1,9 +1,25 @@
 =====================================================
-Release Notes: chef-client 12.0 - 12.17
+Release Notes: chef-client 12.0 - 12.18
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes.rst>`__
 
 Chef client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef CHANGELOG.md <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
+
+What's New in 12.18
+=====================================================
+
+The following items are new for chef-client 12.18 and/or are changes from previous versions. The short version:
+
+* **Can now specify the acceptable return codes from the chocolatey_package resource using the returns property**
+* **Can now enable chef-client to run as a scheduled task directly from the client MSI on Windows hosts**
+* **Package provider now supports DNF packages for Fedora and upcoming RHEL releases**
+
+New deprecations included in this release
+-----------------------------------------------------
+* :doc:`Chef::Platform helper methods </deprecations_chef_platform_methods>`
+* :doc:`run_command helper method </deprecations_run_command>`
+* :doc:`DNF package allow_downgrade property </deprecations_dnf_package_allow_downgrade>`
+
 
 What's New in 12.17
 =====================================================
@@ -1526,7 +1542,7 @@ Use the **chocolatey_package** resource to manage packages using Chocolatey for 
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_package_chocolatey_syntax
+.. tag resource_package_chocolatey_syntax_12_7
 
 A **chocolatey_package** resource block manages packages using Chocolatey for the Microsoft Windows platform. The simplest use of the **chocolatey_package** resource is:
 
@@ -1596,7 +1612,7 @@ This resource has the following actions:
 
 Properties
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_package_chocolatey_attributes
+.. tag resource_package_chocolatey_attributes_12_7
 
 This resource has the following properties:
 
