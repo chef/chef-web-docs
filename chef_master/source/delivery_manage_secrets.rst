@@ -16,8 +16,9 @@ This topic describes how and why to use secrets in a ``build-cookbook``:
 * This code is used in the ``build-cookbook``
 * Secrets are managed at the project, organization and/or enterprise level
 * There are two mechanisms to manage secrets in Chef Automate:
-  #. Using an encrypted data bag.
-  #. Using chef vaults.
+
+  * Using an encrypted data bag.
+  * Using chef vaults.
 
 For more information on security, see `How to be a Secure Chef <https://learn.chef.io/skills/be-a-secure-chef/>`_.
 
@@ -111,11 +112,9 @@ During the creation of a Chef vault, the data in these vaults are merged into a 
 
 Using Secrets in a Chef Vault
 =====================================================
-To access your secret data from the vault items, do the following:
+To access your secret data from the vault items, ensure that ``metadata.rb`` for the ``build-cookbook`` shows that it depends on the ``delivery-sugar`` cookbook (https://github.com/chef-cookbooks/delivery-sugar). From there, begin using the secrets by calling the ``get_chef_vault_data`` method. 
 
-#. Ensure that ``metadata.rb`` for the ``build-cookbook`` shows that it depends on the ``delivery-sugar`` cookbook (https://github.com/chef-cookbooks/delivery-sugar)
-
-From there, begin using the secrets by calling the ``get_chef_vault_data`` method. For example:
+For example:
 
 .. code-block:: ruby
 
