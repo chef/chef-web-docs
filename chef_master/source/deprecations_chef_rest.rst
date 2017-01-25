@@ -9,7 +9,7 @@ The ``Chef::REST`` class will be removed.
 
 .. end_tag
 
-``Chef::REST`` was deprecated in 12.7.2, and will be removed in Chef 13
+``Chef::REST`` was deprecated in 12.7.2, and will be removed in Chef 13.
 
 Remediation
 =============
