@@ -162,7 +162,7 @@ where ``/qn`` is used to set the user interface level to "No UI", ``/i`` is used
 ADDLOCAL Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag windows_msiexec_addlocal
-.. note:: ``ChefSchTaskFeature`` is new in chef-client 12.18.
+.. note:: ``ChefSchTaskFeature`` is new in Chef client 12.18.
 
 The ``ADDLOCAL`` parameter adds two setup options that are specific to the chef-client. These options can be passed along with an Msiexec.exe command:
 
