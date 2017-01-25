@@ -596,7 +596,7 @@ which will return output similar to:
 
 delivery local
 =====================================================
-Use the ``local`` subcommand to run a phase of Chef Automate locally, based on settings in the ``project.toml`` file located in the project's ``.delivery`` directory.
+Use the ``local`` subcommand to run a phase or stage of Chef Automate locally, based on settings in the ``project.toml`` file located in the project's ``.delivery`` directory.
 
 Syntax
 -----------------------------------------------------
@@ -604,7 +604,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ delivery local PHASE
+   $ delivery local PHASE|STAGE
 
 where ``PHASE`` is one of the following:
 
@@ -616,6 +616,11 @@ where ``PHASE`` is one of the following:
 * smoke
 * functional
 * cleanup
+
+and ``STAGE`` will execute a series of phases in the following order:
+* verify: [lint, syntax, unit]
+* acceptance: [provision, deploy, smoke, functional, cleanup]
+* all: [lint, syntax, unit, provision, deploy, smoke, functional, cleanup]
 
 Configuration
 -----------------------------------------------------
@@ -682,6 +687,46 @@ will run Foodcritic and execute the following command locally:
 .. code-block:: bash
 
    $ foodcritic . --exclude spec -f any -t \"~FC064\" -t \"~FC065\"
+
+
+**Run Verify Stage**
+
+If the ``project.toml`` file contains:
+
+.. code-block:: ruby
+
+   unit = "rspec spec/"
+   lint = "cookstyle"
+   syntax = "foodcritic . --exclude spec -f any -t \"~FC064\" -t \"~FC065\""
+   provision = "chef exec kitchen create"
+   deploy = "chef exec kitchen converge"
+   smoke = "chef exec kitchen verify"
+   cleanup = "chef exec kitchen destroy"
+
+the command
+
+.. code-block:: bash
+
+   $ delivery local verify
+
+will run lint, syntax and unit phases in that order:
+
+.. code-block:: bash
+
+   Chef Delivery
+   Running Verify Stage
+   Running Lint Phase
+   Inspecting 7 files
+   .......
+
+   7 files inspected, no offenses detected
+   Running Syntax Phase
+
+   Running Unit Phase
+   .........
+
+   Finished in 0.35973 seconds (files took 3.96 seconds to load)
+   9 example, 0 failures
 
 delivery review
 =====================================================
