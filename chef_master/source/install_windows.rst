@@ -15,7 +15,7 @@ To run the chef-client at periodic intervals (so that it can check in with the C
 
 .. end_tag
 
-Use knife windows 
+Use knife windows
 =====================================================
 .. tag plugin_knife_windows_summary
 
@@ -48,6 +48,7 @@ where ``/qn`` is used to set the user interface level to "No UI", ``/i`` is used
 ADDLOCAL Options
 -----------------------------------------------------
 .. tag windows_msiexec_addlocal
+.. note:: ``ChefSchTaskFeature`` is new in Chef client 12.18.
 
 The ``ADDLOCAL`` parameter adds two setup options that are specific to the chef-client. These options can be passed along with an Msiexec.exe command:
 
@@ -59,12 +60,20 @@ The ``ADDLOCAL`` parameter adds two setup options that are specific to the chef-
      - Description
    * - ``ChefClientFeature``
      - Use to install the chef-client.
+   * - ``ChefSchTaskFeature``
+     - Use to configure the chef-client as a scheduled task in Microsoft Windows.
    * - ``ChefServiceFeature``
      - Use to configure the chef-client as a service in Microsoft Windows.
    * - ``ChefPSModuleFeature``
      - Used to install the chef PowerShell module. This will enable chef command line utilities within PowerShell.
 
-First install the chef-client, and then enable it to run as a service. For example:
+First install the chef-client, and then enable it to run as a scheduled task (recommended) or as a service. For example:
+
+.. code-block:: bash
+
+   $ msiexec /qn /i C:\inst\chef-client-12.4.3-1.windows.msi ADDLOCAL="ChefClientFeature,ChefSchTaskFeature,ChefPSModuleFeature"
+
+OR
 
 .. code-block:: bash
 
@@ -102,7 +111,7 @@ then:
 
    .. image:: ../../images/step_install_windows_03.png
 
-   .. note:: The chef-client must be run as a service for it to be able to regularly check in with the Chef server. Select the **Chef Client Service** option to have the MSI configure the chef-client as a service.
+   .. note:: The MSI can either configure the chef-client to run as a scheduled task or as a service for it to be able to regularly check in with the Chef server. Using a scheduled task is a recommended approach. Select the **Chef Unattended Execution Options** option to have the MSI configure the chef-client as a scheduled task or as a service.
 
 then:
 
@@ -116,13 +125,17 @@ then:
 
    .. image:: ../../images/step_install_windows_06.png
 
+then:
+
+   .. image:: ../../images/step_install_windows_07.png
+
 .. end_tag
 
 Run as a Service
 -----------------------------------------------------
 .. tag install_chef_client_windows_as_service
 
-To run the chef-client at periodic intervals (so that it can check in with the Chef server automatically), configure the chef-client to run as a service or as a scheduled task. This can be done via the MSI, by selecting the **Chef Client Service** option on the **Custom Setup** page or by running the following command after the chef-client is installed:
+To run the chef-client at periodic intervals (so that it can check in with the Chef server automatically), configure the chef-client to run as a service. This can be done via the MSI, by selecting the **Chef Unattended Execution Options** --> **Chef Client Service** option on the **Custom Setup** page or by running the following command after the chef-client is installed:
 
 .. code-block:: bash
 
@@ -198,4 +211,3 @@ This value can be set from a recipe. For example, from the ``php`` cookbook:
    ...
 
 .. end_tag
-
