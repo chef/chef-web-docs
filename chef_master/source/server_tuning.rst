@@ -192,7 +192,7 @@ The maximum field length setting for Apache Solr should be greater than any expe
 
 and
 
-``opscode-erchef']['max_request_size']``
+``opscode_erchef['max_request_size']``
    Default value: ``1000000``.
 
 to ensure that those settings are not part of the reasons for incomplete indexing, and then update the following setting so that its value is greater than the expected node file sizes:
