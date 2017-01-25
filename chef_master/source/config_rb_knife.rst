@@ -151,6 +151,7 @@ This configuration file has the following settings:
       versioned_cookbooks true
 
 ``config_log_level``
+   New in Chef DK 1.2.12.
    Sets the default value of ``log_level`` in the client.rb file of the node being bootstrapped. Possible values are ``:debug``, ``:info``, ``:warn``, ``:error`` and ``:fatal``. For example:
 
    .. code-block:: ruby
@@ -158,6 +159,7 @@ This configuration file has the following settings:
       config_log_level :debug
 
 ``config_log_location``
+   New in Chef DK 1.2.12.
    Sets the default value of ``log_location`` in the client.rb file of the node being bootstrapped. Possible values are ``/path/to/log_location``, ``STDOUT``, ``STDERR``, ``:win_evt`` and ``:syslog``. For example:
 
    .. code-block:: ruby
@@ -330,4 +332,3 @@ It is possible for multiple users to access the Chef server using the same knife
      knife[:rackspace_api_key] = ENV['RACKSPACE_API_KEY']
 
 .. end_tag
-
