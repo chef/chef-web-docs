@@ -15,7 +15,7 @@ To run the chef-client at periodic intervals (so that it can check in with the C
 
 .. end_tag
 
-Use knife windows 
+Use knife windows
 =====================================================
 .. tag plugin_knife_windows_summary
 
@@ -48,6 +48,7 @@ where ``/qn`` is used to set the user interface level to "No UI", ``/i`` is used
 ADDLOCAL Options
 -----------------------------------------------------
 .. tag windows_msiexec_addlocal
+.. note:: ``ChefSchTaskFeature`` is new in chef-client 12.18.
 
 The ``ADDLOCAL`` parameter adds two setup options that are specific to the chef-client. These options can be passed along with an Msiexec.exe command:
 
@@ -210,4 +211,3 @@ This value can be set from a recipe. For example, from the ``php`` cookbook:
    ...
 
 .. end_tag
-
