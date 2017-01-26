@@ -49,11 +49,13 @@ A Policyfile.rb file may contain the following settings:
    Required. The run-list the chef-client will use to apply the policy to one (or more) nodes.
 
 ``default_source :SOURCE_TYPE, *args``
-   The location in which any cookbooks not specified by ``cookbook`` are located. Possible values: ``chef_repo``, ``:community``, and ``:supermarket``. Use more than one ``default_source`` to specify more than one location for cookbooks.
+   The location in which any cookbooks not specified by ``cookbook`` are located. Possible values: ``chef_repo``, ``chef_server``, ``:community``, and ``:supermarket``. Use more than one ``default_source`` to specify more than one location for cookbooks.
 
    ``default_source :supermarket`` pulls cookbooks from the public Chef Supermarket.
 
    ``default_source :supermarket, "https://mysupermarket.example"`` pulls cookbooks from a named private Chef Supermarket.
+
+   ``default_source :chef_server, "https://chef-server.example/organizations/example"`` pulls cookbooks from the Chef Server.
 
    ``default_source :community`` is an alias for ``:supermarket``.
 
