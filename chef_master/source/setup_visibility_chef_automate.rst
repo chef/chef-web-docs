@@ -50,7 +50,7 @@ To enable this feature, add the following settings to ``/etc/opscode/chef-server
    data_collector['token'] = 'TOKEN'
 
 where ``my-automate-server.mycompany.com`` is the fully-qualified domain name of your Chef Automate server, and
-``TOKEN`` is the token value you configured in the `prior section <#configure-a-data-collector-token-in-chef-automate>`__.
+``TOKEN`` is either the default value or the token value you configured in the `prior section <#configure-a-data-collector-token-in-chef-automate>`__.
 
 Save the file and run ``chef-server-ctl reconfigure`` to complete the process.
 
