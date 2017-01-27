@@ -828,7 +828,7 @@ This configuration file has the following settings for ``oc-id``:
 
       { 'file_maxbytes' => 104857600, 'num_to_keep' => 10 }
 
-``oc_id['origin']
+``oc_id['origin']``
    New in Chef server 12.12.
  
    The FQDN for the server that is sending outbound email. Defaults to the ``'api_fqdn'`` value, which is the FQDN for the Chef server.
@@ -1162,6 +1162,11 @@ This configuration file has the following settings for ``opscode-solr4``:
    .. code-block:: ruby
 
       /var/log/opscode/opscode-solr4
+
+``opscode_solr4['log_gc']``
+   New in Chef server 12.12.
+
+   Enable or disable GC logging. Default is ``true``.
 
 ``opscode_solr4['log_rotation']``
    The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value:

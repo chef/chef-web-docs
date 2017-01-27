@@ -34,7 +34,7 @@ To suppress the GC log completely, set the following option in ``/etc/opscode/ch
 
    # true (default) to enable gc logging,
    # false to disable gc logging
-   opscode-solr4['log_gc'] = false
+   opscode_solr4['log_gc'] = false
 
 oc_id Email Configuration Options
 =====================================================
