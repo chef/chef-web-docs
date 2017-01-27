@@ -1,5 +1,5 @@
 =====================================================
-Release Notes: Chef Server 12.0 - 12.11
+Release Notes: Chef Server 12.0 - 12.12
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_server.rst>`__
 
@@ -10,6 +10,45 @@ Release Notes: Chef Server 12.0 - 12.11
 Chef is a systems and cloud infrastructure automation framework that makes it easy to deploy servers and applications to any physical, virtual, or cloud location, no matter the size of the infrastructure. Each organization is comprised of one (or more) workstations, a single server, and every node that will be configured and maintained by the chef-client. Cookbooks (and recipes) are used to tell the chef-client how each node in your organization should be configured. The chef-client (which is installed on every node) does the actual configuration.
 
 .. end_tag
+
+What's New in 12.12
+=====================================================
+The following items are new for Chef server 12.12:
+
+* **chef-server-ctl backup correctly backs up configuration data** Starting in version 12.10.0, a bug in the ``backup`` command produced backups that did not include the configuration data in the resulting tarball. This bug is now resolved. We recommend taking a new backup after upgrading to 12.12.0.
+* **Correct number of rows are returned when searching with ElasticSearch** When configured to use ElasticSearch, Chef server now correctly respects the ``rows`` parameter in search requests rather than returning all rows. 
+* **Solr 4 GC logging is now used by Chef server** Java's native rotation is used for the gclog.
+* **New oc_id email configuration options** Outbound email address can now be configured.
+
+Solr 4 GC Logging
+=====================================================
+Chef server now uses Java's native rotation for the gclog. This prevents situations where logrotate creates large sparse files on disk, which may be problematic to manage with tools that can't handle sparse files.
+
+The Solr 4 GC log can now be found at ``/var/log/opscode/opscode-solr4/gclog.log.N.current`` where *N* is an integer. The ``.current`` extension denotes the log currently being written to.
+
+To remove the older GC logs, run ``sudo chef-server-ctl cleanup`` after upgrading to Chef server 12.12.
+
+To suppress the GC log completely, set the following option in ``/etc/opscode/chef-server.rb``:
+
+.. code-block:: ruby
+
+   # true (default) to enable gc logging,
+   # false to disable gc logging
+   opscode-solr4['log_gc'] = false
+
+oc_id Email Configuration Options
+=====================================================
+The ``oc_id`` service now includes configuration for outbound email to ensure password reset emails can be sent correctly. 
+
+You can now set the following options in ``/etc/opscode/chef-server.rb``:
+
+.. code-block:: ruby
+
+   # defaults to the value of the from_email configuration option
+   oc_id['email_from_address'] = "oc_id@example.com"
+   # defaults to the api_fqdn
+   oc_id['origin'] = "mail.yourco.io"
+
 
 What's New in 12.11
 =====================================================
