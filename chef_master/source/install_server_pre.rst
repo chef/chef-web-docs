@@ -51,7 +51,7 @@ Read the `guidance around capacity planning <https://docs.chef.io/server_compone
 
 Software Requirements
 =====================================================
-.. tag system_requirements_server_etc
+.. tag system_requirements_server_software
 
 Before installing the Chef server, ensure that each machine has the following installed and configured properly:
 
@@ -71,6 +71,51 @@ In addition:
 
 * **Browser** --- Firefox, Google Chrome, Safari, or Internet Explorer (versions 9 or better)
 * **chef-client communication with the Chef server** Every node that will be configured by the chef-client and every workstation that will upload data to the Chef server must be able to communicate with the Chef server
+
+.. end_tag
+
+Hardware Requirements
+=====================================================
+.. tag system_requirements_server_hardware
+
+All machines in a Chef server deployment (including a standalone Chef Analytics machine) have the following hardware requirements.
+
+For all deployments:
+
+* 64-bit architecture
+
+For a standalone deployment:
+
+* 4 total cores, 2.0 GHz AMD 41xx/61xx or Intel Xeon 5000/E5 CPUs
+* 4 GB of RAM; 8 GB of RAM for Chef Analytics
+* 5 GB of free disk space in ``/opt``
+* 5 GB of free disk space in ``/var``
+
+For a tiered deployment:
+
+* 8 total cores 2.0 GHz AMD 41xx/61xx or Intel Xeon 5000/E5 CPUs or faster
+* 16GB RAM
+* 2 x 300GB SAS RAID1 drives
+* Hardware RAID card
+* 1 GigE NIC interface
+* 20 GB of free disk space in ``/opt``
+* 40 GB of free disk space in ``/var``
+* A back-end server; all other systems will be front-end servers.
+
+For a high availability deployment:
+
+* 8 total cores 2.0 GHz AMD 41xx/61xx or Intel Xeon 5000/E5 CPUs or faster
+* 16GB RAM
+* 2 x 300GB SAS RAID1 drives
+* Hardware RAID card
+* 1 x GigE NIC interface
+* 20 GB of free disk space in ``/opt``
+* 40 GB of free disk space in ``/var``
+* Two back-end servers; as many front-end servers as required.
+
+.. note:: Front end machines, when load balanced, may have fewer than 4 cores and 4 GB of RAM.
+
+.. warning:: The Chef server MUST NOT use a network file system of any type---virtual or physical---for backend storage. The Chef server database operates quickly. The behavior of operations, such as the writing of log files, will be unpredictable when run over a network file system.
 
 .. end_tag
 
