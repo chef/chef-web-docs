@@ -105,13 +105,13 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ automate-ctl create-user ENT_NAME USER_NAME FIRST_NAME [MIDDLE_NAME] LAST_NAME EMAIL PASSWORD SSH_PUBLIC_KEY
+   $ automate-ctl create-user ENT-NAME USER-NAME [--password PASSWORD] [--password-file FILE] [--roles "COMMA-SEPARATED-LIST"] [--ssh-pub-key-file=PATH-TO-PULIC-KEY-FILE]
 
 **Example**
 
 .. code-block:: bash
 
-   $ automate-ctl create-user ENT_NAME john_smith
+   $ automate-ctl create-user enterprise john_smith --password my_password --roles reviewer,committer
 
 delete-backups
 =====================================================
