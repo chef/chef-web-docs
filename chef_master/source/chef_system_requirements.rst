@@ -35,7 +35,10 @@ The hosted Chef server has the following requirements:
 
 Chef Server, On-premises
 -----------------------------------------------------
-All machines in a Chef server deployment (including a standalone Chef Analytics machine) have the following requirements.
+
+.. tag system_requirements_server_hardware
+
+All machines in a Chef server deployment (including a standalone Chef Analytics machine) have the following hardware requirements.
 
 For all deployments:
 
@@ -74,7 +77,8 @@ For a high availability deployment:
 
 .. warning:: The Chef server MUST NOT use a network file system of any type---virtual or physical---for backend storage. The Chef server database operates quickly. The behavior of operations, such as the writing of log files, will be unpredictable when run over a network file system.
 
-.. tag system_requirements_server_etc
+.. end_tag
+.. tag system_requirements_server_software
 
 Before installing the Chef server, ensure that each machine has the following installed and configured properly:
 
