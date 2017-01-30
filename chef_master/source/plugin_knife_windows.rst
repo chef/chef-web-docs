@@ -471,7 +471,7 @@ This argument has the following options:
    Optional. The certificate authority (CA) trust file used for SSL transport.
 
 ``-C NUM``, ``--concurrency NUM``
-   Changed in knife-windows 1.9.0; included in Chef DK 1.2.20.
+   Changed in knife-windows 1.9.0.
    The number of allowed concurrent connections. Defaults to 1.
 
 ``-i IDENTITY_FILE``, ``--identity-file IDENTITY_FILE``
