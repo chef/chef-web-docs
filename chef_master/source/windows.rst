@@ -1991,6 +1991,10 @@ This argument has the following options:
 ``-f CA_TRUST_FILE``, ``--ca-trust-file CA_TRUST_FILE``
    Optional. The certificate authority (CA) trust file used for SSL transport.
 
+``-C NUM``, ``--concurrency NUM``
+   Changed in knife-windows 1.9.0; included in Chef DK 1.2.20.
+   The number of allowed concurrent connections. Defaults to 1.
+
 ``-i IDENTITY_FILE``, ``--identity-file IDENTITY_FILE``
    The keytab file that contains the encryption key required by Kerberos-based authentication.
 
