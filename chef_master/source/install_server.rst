@@ -11,7 +11,7 @@ There are three configuration scenarios for the Chef server:
 
 Prerequisites
 =====================================================
-The Chef server has the :doc:`following prerequisites </install_server_pre>`:
+The Chef server has the following prerequisites:
 
 * An x86_64 compatible system architecture; Red Hat Enterprise Linux and CentOS may require updates prior to installation
 * A resolvable hostname that is specified using a FQDN or an IP address
@@ -20,6 +20,8 @@ The Chef server has the :doc:`following prerequisites </install_server_pre>`:
 * Using cron and the ``/etc/cron.d`` directory for periodic maintenance tasks
 * Disabling the Apache Qpid daemon on CentOS and Red Hat systems
 * Optional. A local user account under which services will run, a local user account for PostgreSQL, and a group account under which services will run. See https://docs.chef.io/install_server_pre.html#uids-and-gids for more information.
+
+See the :doc:`expanded list of prerequisites </install_server_pre>` for a more detailed list of software and hardware requirements.
 
 Standalone
 =====================================================
