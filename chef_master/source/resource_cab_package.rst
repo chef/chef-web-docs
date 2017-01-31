@@ -21,7 +21,7 @@ where
 
 * ``cab_package`` is the resource
 * ``name`` is the name of the resource block
-* ``source`` is the location of the cabinet package
+* ``source`` is the local path or URL for the cabinet package
 
 Actions
 =====================================================
@@ -40,7 +40,9 @@ This resource has the following properties:
 source
    **Ruby Type:** String
 
-   File path where the cabinet file is located. URLs are not supported.
+   The local file path or URL for the CAB package.
+
+   Changed in Chef Client 12.19 to allow URLs as valid source values.
 
 Providers
 =====================================================
@@ -52,7 +54,7 @@ This resource has the following provider:
 Examples
 =====================================================
 
-**Installing a cabinet package**
+**Using local path in source**
 
 .. code-block:: ruby
 
@@ -61,11 +63,26 @@ Examples
      action :install
    end
 
-**Removing a cabinet package**
-
 .. code-block:: ruby
 
    cab_package 'Remove .NET 3.5 sp1 via KB958488' do
      source 'C:\Users\xyz\AppData\Local\Temp\Windows6.1-KB958488-x64.cab'
      action :remove
    end
+
+**Using URL in source**
+
+.. code-block:: ruby
+
+   cab_package 'Install .NET 3.5 sp1 via KB958488' do
+     source 'https://s3.amazonaws.com/my_bucket/Windows6.1-KB958488-x64.cab'
+     action :install
+   end
+
+.. code-block:: ruby
+
+   cab_package 'Remove .NET 3.5 sp1 via KB958488' do
+     source 'https://s3.amazonaws.com/my_bucket/Temp\Windows6.1-KB958488-x64.cab'
+     action :remove
+   end
+
