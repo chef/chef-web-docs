@@ -86,8 +86,6 @@ A GitHub user name must be associated with Chef Automate in order for changes pi
 
 .. note:: You must have previously setup GitHub integration in order for this command to work.
 
-..note :: As of Chef DK 1.2, project git remotes will update automatically, based on the values in the ``cli.toml`` file or command-line options.
-
 **Link a GitHub enterprise user name**
 
 .. To link a GitHub.com user name:
