@@ -805,7 +805,7 @@ and then try to ping something like google.com
 
 Test Cookbooks
 -----------------------------------------------------
-Cookbook testing uses `foodcritic <http://foodcritic.io/>`_, `rubocop <https://github.com/bbatsov/rubocop>`_, and `Rake <https://github.com/ruby/rake>`_, all wrapped up in the `ChefDK <https://downloads.chef.io/chef-dk/>`_ to run tests. Tests are defined using a Rakefile with Jenkins gates.
+Cookbook testing uses `foodcritic <http://foodcritic.io/>`_, `rubocop <https://github.com/bbatsov/rubocop>`_, and `Rake <https://github.com/ruby/rake>`_, all wrapped up in the `ChefDK <https://downloads.chef.io/chefdk/>`_ to run tests. Tests are defined using a Rakefile with Jenkins gates.
 
 To run tests from the cookbook directory:
 

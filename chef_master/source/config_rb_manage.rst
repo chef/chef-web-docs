@@ -151,7 +151,7 @@ The following example shows how the settings look when added to the configuratio
 
 .. code-block:: ruby
 
-   chef_documentation_url 'https://docs.chef.io'
+   chef_documentation_url ''
    disable_sign_up false
    events.port 11001
    logging.chef_log_level 'info'

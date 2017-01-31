@@ -94,7 +94,7 @@ What's New in 12.8
 =====================================================
 The following items are new for Chef server 12.8:
 
-* **Initial support for sending updates to a data collector service** See `Configuring Chef Server to send Chef Client data <https://docs.chef.io/ingest_data_chef_automate.html#configuring-chef-server-to-send-chef-client-data>`_ for more information on how to set up and send data from Chef server to an Chef Automate server.
+* **Initial support for sending updates to a data collector service** 
 * **Minor bug fixes in postgresql setup**
 
 What's New in 12.7
@@ -111,11 +111,11 @@ Service credential rotation support
 
 Five new commands have been created to support credential rotation:
 
-* `require-credential-rotation <https://docs.chef.io/ctl_chef_server.html#require-credential-rotation>`_
-* `rotate-all-credentials <https://docs.chef.io/ctl_chef_server.html#rotate-all-credentials>`_
-* `rotate-credentials <https://docs.chef.io/ctl_chef_server.html#rotate-credentials>`_
-* `rotate-shared-secrets <https://docs.chef.io/ctl_chef_server.html#rotate-shared-secrets>`_
-* `show-service-credentials <https://docs.chef.io/ctl_chef_server.html#show-service-credentials>`_
+* `require-credential-rotation </ctl_chef_server.html#require-credential-rotation>`_
+* `rotate-all-credentials </ctl_chef_server.html#rotate-all-credentials>`_
+* `rotate-credentials </ctl_chef_server.html#rotate-credentials>`_
+* `rotate-shared-secrets </ctl_chef_server.html#rotate-shared-secrets>`_
+* `show-service-credentials </ctl_chef_server.html#show-service-credentials>`_
 
 Your secrets file is located at ``/etc/opscode/private-chef-secrets.json``, so whenever you rotate your service credentials, or update your shared secrets, this file will contain the changes.
 
@@ -612,7 +612,7 @@ Solr => Solr 4 Changes
 
 Chef server version 12 is upgraded to Apache Solr 4. If Apache Solr options were added to the private-chef.rb file under ``opscode_solr`` for Enterprise Chef, those configuration options are now stored under ``opscode_solr4`` in the chef-server.rb file for Chef server version 12.
 
-Some ``opscode_solr`` settings are imported automatically, such as heap, new size, and Java options, but many settings are ignored. If your Enterprise Chef configuration is highly tuned for Apache Solr, review `these configuration settings <https://docs.chef.io/config_rb_server_optional_settings.html#opscode-solr4>`__ before re-tuning Apache Solr for Chef server version 12.
+Some ``opscode_solr`` settings are imported automatically, such as heap, new size, and Java options, but many settings are ignored. If your Enterprise Chef configuration is highly tuned for Apache Solr, review `these configuration settings </config_rb_server_optional_settings.html#opscode-solr4>`__ before re-tuning Apache Solr for Chef server version 12.
 
 .. end_tag
 
@@ -1220,7 +1220,7 @@ The following items are new for Chef server 12.1:
 
 Key Rotation
 -----------------------------------------------------
-The ``knife user`` and ``knife client`` subcommands support key rotation. Use the ``create``, ``delete``, ``edit``, ``list``, and ``show`` subcommands to manage keys for users and clients, such as creating multiple expiring keys for a single user and also for basic key management. See https://docs.chef.io/knife_user.html and https://docs.chef.io/knife_client.html for more information about these subcommands.
+The ``knife user`` and ``knife client`` subcommands support key rotation. Use the ``create``, ``delete``, ``edit``, ``list``, and ``show`` subcommands to manage keys for users and clients, such as creating multiple expiring keys for a single user and also for basic key management. See /knife_user.html and /knife_client.html for more information about these subcommands.
 
 X-Ops-Server-API-Version
 -----------------------------------------------------
@@ -2332,7 +2332,7 @@ The following items are new for Chef server 12:
 
 Upgrade to Chef server 12!
 -----------------------------------------------------
-Upgrades to Chef server 12 are supported for both Enterprise Chef and Open Source Chef users. See https://docs.chef.io/server/upgrade_server.html for more information about upgrades. If you are upgrading from Open Source Chef, please see https://docs.chef.io/server/upgrade_server_open_source_notes.html as well.
+Upgrades to Chef server 12 are supported for both Enterprise Chef and Open Source Chef users. See /server/upgrade_server.html for more information about upgrades. If you are upgrading from Open Source Chef, please see /server/upgrade_server_open_source_notes.html as well.
 
 HA using AWS
 -----------------------------------------------------

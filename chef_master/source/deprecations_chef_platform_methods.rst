@@ -80,13 +80,13 @@ which case your chef-client run is likely full of a compliation of warnings and 
    Deprecated features used!
    Class.find_provider_for_node is deprecated at 1 location:
    - /Users/lamont/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/forwardable.rb:189:in 'execute_each_resource'
-     See https://docs.chef.io/deprecations_chef_platform_methods.html for further details.
+     See /deprecations_chef_platform_methods.html for further details.
    Class.find_provider is deprecated at 1 location:
    - /Users/lamont/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/forwardable.rb:189:in 'execute_each_resource'
-     See https://docs.chef.io/deprecations_chef_platform_methods.html for further details.
+     See /deprecations_chef_platform_methods.html for further details.
    Class.find is deprecated at 1 location:
    - /Users/lamont/.rvm/rubies/ruby-2.3.1/lib/ruby/2.3.0/forwardable.rb:189:in 'execute_each_resource'
-     See https://docs.chef.io/deprecations_chef_platform_methods.html for further details.
+     See /deprecations_chef_platform_methods.html for further details.
 
 In this case, the initial warning that ``Class Chef::Provider::Foo does not declare 'provides :foo'`` is accurate and gives the remediation.
 

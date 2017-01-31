@@ -404,7 +404,7 @@ The following steps show how to set up a runner from a Chef Automate server. For
 
 #. Run the ``install-runner`` subcommand.
 
-   .. note:: You can optionally download the latest ChefDK from `<https://downloads.chef.io/chef-dk/>`_ to specify a local package via ``--installer``. Doing so is useful if you are in an air-gapped environment. Version 0.15.16 or greater of the ChefDK is required. The download location is referred to below as ``OPTIONAL_CHEF_DK_PACKAGE_PATH``.
+   .. note:: You can optionally download the latest ChefDK from `<https://downloads.chef.io/chefdk/>`_ to specify a local package via ``--installer``. Doing so is useful if you are in an air-gapped environment. Version 0.15.16 or greater of the ChefDK is required. The download location is referred to below as ``OPTIONAL_CHEF_DK_PACKAGE_PATH``.
 
    .. code-block:: bash
 
@@ -458,7 +458,7 @@ to complete successfully. These can be set in the environment directly, or added
 Any host that needs to make outgoing http or https connections will require these settings. For example, the Chef Automate Server
 (which makes knife calls to Chef Server) and Chef Server (for push jobs) should have these configured.
 
-For more details on the proxy setup, please see `About Proxies <https://docs.chef.io/proxies.html>`__.
+For more details on the proxy setup, please see :doc:`About Proxies </proxies>`.
 
 Compliance
 ===================================================================

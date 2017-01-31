@@ -3,7 +3,7 @@ High Availability: AWS (DEPRECATED)
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_server_ha_aws.rst>`__
 
-.. warning:: This topic is deprecated as of the 12.9 release of the Chef servver. For the latest information on high availability and how to set up a highly-available server cluster, see `High Availability: Backend Cluster <https://docs.chef.io/install_server_ha.html>`_.
+.. warning:: This topic is deprecated as of the 12.9 release of the Chef servver. For the latest information on high availability and how to set up a highly-available server cluster, see :doc:`High Availability: Backend Cluster </install_server_ha>`.
 
 This topic describes how to set up the Chef server for high availability in Amazon Web Services (AWS).
 
@@ -34,7 +34,7 @@ Primary Backend
 Use the following steps to set up the primary backend Chef server:
 
 #. Create an Amazon Elastic Block Store (EBS) volume and attach it to the primary backend.
-#. Download the packages from https://downloads.chef.io/chef-server/ and https://downloads.chef.io/chef-ha/.
+#. Download https://downloads.chef.io/chef-server/. You will also need the chef-ha package; however, that can no longer be downloaded from https://downloads.chef.io.
 #. Install the ``chef-server-core`` package. For Red Hat and CentOS 6:
 
    .. code-block:: bash

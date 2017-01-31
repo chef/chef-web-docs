@@ -31,7 +31,7 @@ The Chef Compliance server is a centralized location from which all aspects of t
    :width: 600px
    :align: center
 
-.. note:: To install the Chef Compliance server in a standalone configuration, `read this topic <https://docs.chef.io/install_compliance.html>`__.
+.. note:: To install the Chef Compliance server in a standalone configuration, :doc:`read this topic </install_compliance>`.
 
 Compliance Profiles
 -----------------------------------------------------
@@ -80,7 +80,7 @@ Integrate Chef Compliance with the Chef server to allow:
 
 .. end_tag
 
-.. note:: To learn more about how to integrate Chef Compliance with the Chef server, `read this topic <https://docs.chef.io/integrate_compliance_chef_server.html>`__.
+.. note:: To learn more about how to integrate Chef Compliance with the Chef server, :doc:`read this topic </integrate_compliance_chef_server>`.
 
 InSpec
 =====================================================
@@ -148,4 +148,4 @@ More information
 This is a list of great videos and materials, that provide more information on Chef Compliance:
 
 * Chef Compliance workshop led by Nathen Harvey: https://speakerdeck.com/nathenharvey/chef-compliance-workshop
-* Webinar on Chef Compliance and Security at Velocity: https://www.chef.io/blog/event/webinar-chef-compliance-security-at-velocity/
+* Webinar on Chef Compliance and Security at Velocity: https://www.brighttalk.com/webcast/11349/180023/chef-compliance-security-at-velocity

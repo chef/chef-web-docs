@@ -251,7 +251,7 @@ For each additional frontend node you wish to add to your cluster:
 Upgrading Chef Server on the Frontend Machines
 ----------------------------------------------------------------
 
-#. On any of the frontends follow documentation from: https://docs.chef.io/upgrade_server.html#standalone to upgrade
+#. On any of the frontends follow documentation from: /upgrade_server.html#standalone to upgrade
 
 #. On each of the remaining frontends, copy ``/var/opt/opscode/upgrades/migration-level`` from first upgraded frontend to ``/var/opt/opscode/upgrades/migration-level`` on current box.
 
@@ -513,7 +513,7 @@ Elastic Search JVM settings
 
 Elastic Search configuration
 ----------------------------------------------------------------
-See https://www.elastic.co/guide/en/elasticsearch/reference/current/setup-configuration.html for details.
+See https://www.elastic.co/guide/en/elasticsearch/reference/current/settings.html for details.
 
 * ``elasticsearch.plugins_directory '/var/opt/chef-backend/elasticsearch/plugins'`` Sets ``path.plugins``.
 * ``elasticsearch.port 9200`` Sets ``http.port``.

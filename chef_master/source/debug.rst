@@ -752,7 +752,7 @@ chef-shell can be used to debug existing recipes. The recipe first needs to be a
     This is the chef-shell.
      Chef Version: 12.17.44
      https://www.chef.io/
-     https://docs.chef.io/
+     /
 
     run `help' for help, `exit' or ^D to quit.
 
@@ -889,7 +889,7 @@ chef-solo
 -----------------------------------------------------
 .. tag chef_solo_summary
 
-chef-solo is a command that executes chef-client in a way that does not require the Chef server in order to converge cookbooks. chef-solo uses chef-client's `Chef local mode <https://docs.chef.io/ctl_chef_client.html#run-in-local-mode>`_, and **does not support** the following functionality present in chef-client / server configurations:
+chef-solo is a command that executes chef-client in a way that does not require the Chef server in order to converge cookbooks. chef-solo uses chef-client's `Chef local mode </ctl_chef_client.html#run-in-local-mode>`_, and **does not support** the following functionality present in chef-client / server configurations:
 
 * Centralized distribution of cookbooks
 * A centralized API that interacts with and integrates infrastructure components
@@ -1110,7 +1110,7 @@ When the chef-client is installed using RubyGems or a package manager, chef-shel
      This is the chef-shell.
       Chef Version: 12.17.44
       https://www.chef.io/
-      https://docs.chef.io/
+      /
 
      run `help' for help, `exit' or ^D to quit.
 

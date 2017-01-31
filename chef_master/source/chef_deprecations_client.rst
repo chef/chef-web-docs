@@ -9,7 +9,7 @@ When we wish to remove a feature or an API in Chef, we try to first mark it with
 
    Deprecated features used!
      JSON auto inflation is not supported (CHEF-1) at (irb):7:in `irb_binding`.
-     Please see https://docs.chef.io/chef-client/deprecations/json_auto_inflate.html for further details and information on how to correct this problem.
+     Please see /chef-client/deprecations/json_auto_inflate.html for further details and information on how to correct this problem.
 
 Testing for Deprecations
 =====================================================
