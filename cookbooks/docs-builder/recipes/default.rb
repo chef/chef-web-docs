@@ -2,21 +2,12 @@
 # Cookbook Name:: docs-builder
 # Recipe:: default
 #
-# Copyright (c) 2015 The Authors, All Rights Reserved.
+# Copyright:: 2015-2017, Chef Software Inc.
 #
 
 include_recipe 'aws'
 
-[
-  'git',
-  'python-pip',
-  'python-dev',
-  'parallel'
-].each do |pkg|
-  package pkg do
-    action :install
-  end
-end
+package %w( git python-pip python-dev parallel )
 
 execute 'install awscli' do
   command 'pip install awscli'
@@ -40,7 +31,7 @@ cookbook_file '/root/bin/git_ssh' do
   source 'git_ssh'
 end
 
-execute "ssh-keyscan -t rsa delivery.chef.co >> /root/.ssh/known_hosts" do
+execute 'ssh-keyscan -t rsa delivery.chef.co >> /root/.ssh/known_hosts' do
   not_if "grep -q delivery.chef.co '/root/.ssh/known_hosts'"
 end
 
@@ -62,7 +53,7 @@ git '/srv/chef-web-docs' do
   environment 'GIT_SSH' => '/root/bin/git_ssh'
 end
 
-execute "pip install -r requirements.txt" do
+execute 'pip install -r requirements.txt' do
   cwd '/srv/chef-web-docs'
 end
 
@@ -82,20 +73,20 @@ file File.join('/srv/chef-web-docs', 'build', 'version.txt') do
   content node['docs-builder']['build_name']
 end
 
-execute "create the tarball" do
+execute 'create the tarball' do
   command "tar cvzf /srv/#{node['docs-builder']['build_name']}.tar.gz --exclude .git --exclude .delivery --exclude .doctrees build"
   cwd '/srv/chef-web-docs'
   environment 'AWS_ACCESS_KEY_ID' => node['docs-builder']['prod_aws_access_key'],
-    'AWS_SECRET_ACCESS_KEY' => node['docs-builder']['prod_aws_secret_access_key'],
-    'AWS_DEFAULT_REGION' => 'us-east-1'
+              'AWS_SECRET_ACCESS_KEY' => node['docs-builder']['prod_aws_secret_access_key'],
+              'AWS_DEFAULT_REGION' => 'us-east-1'
 end
 
-execute "upload the tarball" do
+execute 'upload the tarball' do
   command "aws s3 cp /srv/#{node['docs-builder']['build_name']}.tar.gz s3://#{node['docs-builder']['bucket_name']}/"
   cwd '/srv/chef-web-docs'
   environment 'AWS_ACCESS_KEY_ID' => node['docs-builder']['prod_aws_access_key'],
-    'AWS_SECRET_ACCESS_KEY' => node['docs-builder']['prod_aws_secret_access_key'],
-    'AWS_DEFAULT_REGION' => 'us-east-1'
+              'AWS_SECRET_ACCESS_KEY' => node['docs-builder']['prod_aws_secret_access_key'],
+              'AWS_DEFAULT_REGION' => 'us-east-1'
 end
 
 checksum = ''
@@ -109,10 +100,10 @@ file "/srv/#{node['docs-builder']['build_name']}.tar.gz.checksum" do
   content lazy { checksum }
 end
 
-execute "upload the checksum" do
+execute 'upload the checksum' do
   command "aws s3 cp /srv/#{node['docs-builder']['build_name']}.tar.gz.checksum s3://#{node['docs-builder']['bucket_name']}/"
   cwd '/srv/chef-web-docs'
   environment 'AWS_ACCESS_KEY_ID' => node['docs-builder']['prod_aws_access_key'],
-    'AWS_SECRET_ACCESS_KEY' => node['docs-builder']['prod_aws_secret_access_key'],
-    'AWS_DEFAULT_REGION' => 'us-east-1'
+              'AWS_SECRET_ACCESS_KEY' => node['docs-builder']['prod_aws_secret_access_key'],
+              'AWS_DEFAULT_REGION' => 'us-east-1'
 end
