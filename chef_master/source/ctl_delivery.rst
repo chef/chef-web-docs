@@ -86,6 +86,8 @@ A GitHub user name must be associated with Chef Automate in order for changes pi
 
 .. note:: You must have previously setup GitHub integration in order for this command to work.
 
+..note :: As of Chef DK 1.2, project git remotes will update automatically, based on the values in the ``cli.toml`` file or command-line options.
+
 **Link a GitHub enterprise user name**
 
 .. To link a GitHub.com user name:
@@ -597,6 +599,8 @@ which will return output similar to:
 delivery local
 =====================================================
 Use the ``local`` subcommand to run a phase or stage of Chef Automate locally, based on settings in the ``project.toml`` file located in the project's ``.delivery`` directory.
+
+.. note:: As of Chef DK 1.2, delivery local now supports options for functional phases, running stages, and specifying a remote ``project.toml``.
 
 Syntax
 -----------------------------------------------------
