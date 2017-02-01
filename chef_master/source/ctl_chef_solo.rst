@@ -5,13 +5,13 @@ chef-solo (executable)
 
 .. warning:: .. tag notes_chef_solo_use_local_mode
 
-             The chef-client `includes an option called local mode <https://docs.chef.io/ctl_chef_client.html#run-in-local-mode>`_ (``--local-mode`` or ``-z``), which runs the chef-client against the chef-repo on the local machine as if it were running against a Chef server. Local mode was added to the chef-client in the 11.8 release. If you are running that version of the chef-client (or later), you should consider using local mode instead of using chef-solo.
+             The chef-client `includes an option called local mode </ctl_chef_client.html#run-in-local-mode>`_ (``--local-mode`` or ``-z``), which runs the chef-client against the chef-repo on the local machine as if it were running against a Chef server. Local mode was added to the chef-client in the 11.8 release. If you are running that version of the chef-client (or later), you should consider using local mode instead of using chef-solo.
 
              .. end_tag
 
 .. tag chef_solo_summary
 
-chef-solo is a command that executes chef-client in a way that does not require the Chef server in order to converge cookbooks. chef-solo uses chef-client's `Chef local mode <https://docs.chef.io/ctl_chef_client.html#run-in-local-mode>`_, and **does not support** the following functionality present in chef-client / server configurations:
+chef-solo is a command that executes chef-client in a way that does not require the Chef server in order to converge cookbooks. chef-solo uses chef-client's `Chef local mode </ctl_chef_client.html#run-in-local-mode>`_, and **does not support** the following functionality present in chef-client / server configurations:
 
 * Centralized distribution of cookbooks
 * A centralized API that interacts with and integrates infrastructure components

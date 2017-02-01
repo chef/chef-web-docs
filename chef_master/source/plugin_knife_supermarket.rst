@@ -3,7 +3,7 @@ knife supermarket
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/plugin_knife_supermarket.rst>`__
 
-.. warning:: Only use knife supermarket if you are using a Chef 12.12 or earlier. If you are using Chef 12.13 or later, you should use the `knife cookbook site <https://docs.chef.io/knife_cookbook_site.html>`_ commands.
+.. warning:: Only use knife supermarket if you are using a Chef 12.12 or earlier. If you are using Chef 12.13 or later, you should use the :doc:`knife cookbook site </knife_cookbook_site>` commands.
 
 .. tag supermarket_api_summary
 
@@ -20,7 +20,7 @@ The ``knife supermarket`` subcommand is used to interact with cookbooks that are
 
 .. note:: .. tag notes_knife_cookbook_site_use_devkit_berkshelf
 
-          Please consider managing community cookbooks using the version of Berkshelf that ships with the Chef development kit. For more information about the Chef development kit, see https://docs.chef.io/about_chefdk.html.
+          Please consider managing community cookbooks using the version of Berkshelf that ships with the Chef development kit. For more information about the Chef development kit, see /about_chefdk.html.
 
           .. end_tag
 

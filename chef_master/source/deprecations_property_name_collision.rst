@@ -1,7 +1,7 @@
 =======================================================
 Deprecation: Resource Property Name Collision (CHEF-11)
 =======================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_property_name_collection.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_property_name_collision.rst>`__
 
 .. tag deprecation_property_name_collision
 

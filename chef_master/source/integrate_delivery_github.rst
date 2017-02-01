@@ -28,7 +28,7 @@ Chef Automate's GitHub integration is designed for use with GitHub.com and GitHu
 Enterprise 2.x, and supports connecting a Chef Automate enterprise with a single
 GitHub server URL.
 
-.. note:: The Delivery CLI from the latest `ChefDK <https://downloads.chef.io/chef-dk/>`__ (version 0.19 or higher) must be installed on any workstations that setup and initialize GitHub-integrated projects.
+.. note:: The Delivery CLI from the latest `ChefDK <https://downloads.chef.io/chefdk/>`__ (version 0.19 or higher) must be installed on any workstations that setup and initialize GitHub-integrated projects.
 
 Setting up integration with GitHub
 =====================================================

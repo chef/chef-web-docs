@@ -70,7 +70,7 @@ Install the chef-client on Windows
 
 The chef-client can be installed on machines running Microsoft Windows in the following ways:
 
-* By using the `knife windows <https://docs.chef.io/plugin_knife_windows.html>`_ plugin to bootstrap the chef-client; this process requires the target node be available via SSH (port 22) or by using the HTTP or HTTPS ports that are required by WinRM
+* By using the :doc:`knife windows </plugin_knife_windows>` plugin to bootstrap the chef-client; this process requires the target node be available via SSH (port 22) or by using the HTTP or HTTPS ports that are required by WinRM
 * By downloading the chef-client to the target node, and then running the Microsoft Installer Package (MSI) locally
 * By using an existing process already in place for managing Microsoft Windows machines, such as System Center
 
@@ -101,7 +101,7 @@ Set the System Ruby
 -----------------------------------------------------
 .. tag windows_set_system_ruby
 
-To set the system Ruby for the Microsoft Windows platform `the steps described for all platforms are true <https://docs.chef.io/install_dk.html#set-system-ruby>`_, but then require the following manual edits to the ``chef shell-init bash`` output for the Microsoft Windows platform:
+To set the system Ruby for the Microsoft Windows platform `the steps described for all platforms are true </install_dk.html#set-system-ruby>`_, but then require the following manual edits to the ``chef shell-init bash`` output for the Microsoft Windows platform:
 
 #. Add quotes around the variable assignment strings.
 #. Convert ``C:/`` to ``/c/``.
@@ -385,7 +385,7 @@ Azure Marketplace
 
 Chef provides a fully functional Chef server that can be launched from the Azure Marketplace. This server is preconfigured with Chef server, the Chef management console, Reporting, and Chef Analytics. This configuration is free to use for deployments under 25 nodes, and can be licensed for deployments beyond 25 nodes. (See |url pricing| for more information about licensing more than 25 nodes.)
 
-Before getting started, you will need a functioning workstation. Install the `Chef development kit <https://docs.chef.io/install_dk.html>`_ on that workstation.
+Before getting started, you will need a functioning workstation. Install the :doc:`Chef development kit </install_dk>` on that workstation.
 
    .. note:: The following steps assume that Chef is installed on the workstation and that the ``knife ssl fetch`` subcommand is available. The ``knife ssl fetch`` subcommand was added to Chef in the 11.16 release of the chef-client, and then packaged as part of the Chef development kit starting with the 0.3 release.)
 
@@ -473,9 +473,9 @@ chef-client Settings
 
 Before virtual machines are created using the Azure portal, some chef-client-specific settings will need to be identified so they may be provided to the Azure portal during the virtual machine creation workflow. These settings are available from the chef-client configuration settings:
 
-#. The ``chef_server_url`` and ``validaton_client_name``. These are settings in the `client.rb file <https://docs.chef.io/config_rb_client.html>`_.
+#. The ``chef_server_url`` and ``validaton_client_name``. These are settings in the :doc:`client.rb file </config_rb_client>`.
 
-#. The file for the `validator key <https://docs.chef.io/chef_private_keys.html>`_.
+#. The file for the :doc:`validator key </chef_private_keys>`.
 
 .. end_tag
 
@@ -511,7 +511,7 @@ Once this information has been identified, launch the Azure portal, start the vi
 
 #. Use the **From Local** button next to the validation key text box to locate a local copy of the validation key.
 
-#. Optional. `Use a run-list <https://docs.chef.io/run_lists.html>`_ to specify what should be run when the virtual machine is provisioned, such as using the run-list to provision a virtual machine with Internet Information Services (IIS). Use the ``iis`` cookbook and the default recipe to build a run-list. For example:
+#. Optional. :doc:`Use a run-list </run_lists>` to specify what should be run when the virtual machine is provisioned, such as using the run-list to provision a virtual machine with Internet Information Services (IIS). Use the ``iis`` cookbook and the default recipe to build a run-list. For example:
 
    .. code-block:: ruby
 
@@ -823,7 +823,7 @@ Use the ``knife bootstrap`` subcommand to run a bootstrap operation that install
 
 .. end_tag
 
-.. note:: To bootstrap the chef-client on Microsoft Windows machines, the `knife-windows <https://docs.chef.io/plugin_knife_windows.html>`_ plugins is required, which includes the necessary bootstrap scripts that are used to do the actual installation.
+.. note:: To bootstrap the chef-client on Microsoft Windows machines, the :doc:`knife-windows </plugin_knife_windows>` plugins is required, which includes the necessary bootstrap scripts that are used to do the actual installation.
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -839,7 +839,7 @@ This subcommand has the following syntax:
 
 Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. note:: Review the list of `common options <https://docs.chef.io/knife_common_options.html>`__ available to this (and all) knife subcommands and plugins.
+.. note:: Review the list of :doc:`common options </knife_common_options>` available to this (and all) knife subcommands and plugins.
 
 .. tag knife_bootstrap_options
 
@@ -1112,7 +1112,7 @@ Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual
 
 .. end_tag
 
-.. note:: Review the list of `common options <https://docs.chef.io/knife_common_options.html>`__ available to this (and all) knife subcommands and plugins.
+.. note:: Review the list of :doc:`common options </knife_common_options>` available to this (and all) knife subcommands and plugins.
 
 Install this plugin
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1722,7 +1722,7 @@ The ``knife windows`` subcommand is used to configure and interact with nodes th
 
 .. end_tag
 
-.. note:: Review the list of `common options <https://docs.chef.io/knife_common_options.html>`__ available to this (and all) knife subcommands and plugins.
+.. note:: Review the list of :doc:`common options </knife_common_options>` available to this (and all) knife subcommands and plugins.
 
 Install this plugin
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2611,7 +2611,7 @@ dsc_resource
 
 .. tag resources_common_generic
 
-A `resource <https://docs.chef.io/resource.html>`_ defines the desired state for a single configuration item present on a node that is under management by Chef. A resource collection---one (or more) individual resources---defines the desired state for the entire node. During a `chef-client run <https://docs.chef.io/chef_client.html#the-chef-client-run>`_, the current state of each resource is tested, after which the chef-client will take any steps that are necessary to repair the node and bring it back into the desired state.
+A :doc:`resource </resource>` defines the desired state for a single configuration item present on a node that is under management by Chef. A resource collection---one (or more) individual resources---defines the desired state for the entire node. During a `chef-client run </chef_client.html#the-chef-client-run>`_, the current state of each resource is tested, after which the chef-client will take any steps that are necessary to repair the node and bring it back into the desired state.
 
 .. end_tag
 
@@ -2974,7 +2974,7 @@ dsc_script
 
 .. tag resources_common_generic
 
-A `resource <https://docs.chef.io/resource.html>`_ defines the desired state for a single configuration item present on a node that is under management by Chef. A resource collection---one (or more) individual resources---defines the desired state for the entire node. During a `chef-client run <https://docs.chef.io/chef_client.html#the-chef-client-run>`_, the current state of each resource is tested, after which the chef-client will take any steps that are necessary to repair the node and bring it back into the desired state.
+A :doc:`resource </resource>` defines the desired state for a single configuration item present on a node that is under management by Chef. A resource collection---one (or more) individual resources---defines the desired state for the entire node. During a `chef-client run </chef_client.html#the-chef-client-run>`_, the current state of each resource is tested, after which the chef-client will take any steps that are necessary to repair the node and bring it back into the desired state.
 
 .. end_tag
 
@@ -4828,7 +4828,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. tag resource_package_windows_source_remote_file_attributes
 
-The **windows_package** resource may specify a package at a remote location using the ``remote_file_attributes`` property. This uses the **remote_file** resource to download the contents at the specified URL and passes in a Hash that modifes the properties of the `remote_file resource <https://docs.chef.io/resource_remote_file.html>`__.
+The **windows_package** resource may specify a package at a remote location using the ``remote_file_attributes`` property. This uses the **remote_file** resource to download the contents at the specified URL and passes in a Hash that modifes the properties of the `remote_file resource </resource_remote_file>`_.
 
 For example:
 

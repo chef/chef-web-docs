@@ -71,7 +71,7 @@ Contribute
 
 Supermarket
 =====================================================
-* `About Supermarket <https://docs.chef.io/supermarket.html>`_
+* :doc:`About Supermarket </supermarket>`
 * `Visit Supermarket <https://supermarket.chef.io>`_
 * `Cookbooks available on Supermarket <https://supermarket.chef.io/cookbooks-directory>`_
 

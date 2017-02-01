@@ -1,7 +1,7 @@
 =====================================================
 About Berkshelf
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-youb-docs/blob/master/chef_master/source/berkshelf.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/berkshelf.rst>`__
 
 .. tag berkshelf_summary
 
@@ -450,13 +450,13 @@ Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 This command may run any Kitchen CLI command, such as:
 
-* `kitchen create <https://docs.chef.io/ctl_kitchen.html#kitchen-create>`__
-* `kitchen converge <https://docs.chef.io/ctl_kitchen.html#kitchen-converge>`__
-* `kitchen destroy <https://docs.chef.io/ctl_kitchen.html#kitchen-destroy>`__
-* `kitchen exec <https://docs.chef.io/ctl_kitchen.html#kitchen-exec>`__
-* `kitchen list <https://docs.chef.io/ctl_kitchen.html#kitchen-list>`__
-* `kitchen test <https://docs.chef.io/ctl_kitchen.html#kitchen-test>`__
-* `kitchen verify <https://docs.chef.io/ctl_kitchen.html#kitchen-verify>`__
+* `kitchen create </ctl_kitchen.html#kitchen-create>`__
+* `kitchen converge </ctl_kitchen.html#kitchen-converge>`__
+* `kitchen destroy </ctl_kitchen.html#kitchen-destroy>`__
+* `kitchen exec </ctl_kitchen.html#kitchen-exec>`__
+* `kitchen list </ctl_kitchen.html#kitchen-list>`__
+* `kitchen test </ctl_kitchen.html#kitchen-test>`__
+* `kitchen verify </ctl_kitchen.html#kitchen-verify>`__
 
 See :doc:`kitchen (executable) </ctl_kitchen>` for descriptions of every Test Kitchen subcommand.
 

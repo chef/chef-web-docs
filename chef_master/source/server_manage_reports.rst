@@ -7,7 +7,7 @@ Manage Reports
 
 .. note:: This documentation is meant to support existing Chef customers using Reporting.
 
-          Are you a new Chef customer, or looking to gain better insight into your fleet? Take advantage of `Chef Automate </chef_automate.html>`__. You'll get a graphical interface and query language that gives you insight into operational, compliance, and workflow events. You can `download Chef Automate here <https://downloads.chef.io/automate/>`__.
+          Are you a new Chef customer, or looking to gain better insight into your fleet? Take advantage of :doc:`Chef Automate </chef_automate>`. You'll get a graphical interface and query language that gives you insight into operational, compliance, and workflow events. You can `download Chef Automate here <https://downloads.chef.io/automate/>`__.
 
 .. end_tag
 
@@ -139,7 +139,7 @@ To view chef-client details:
       * - ``Step``
         - The order in which resources were executed during the chef-client run.
       * - ``Type``
-        - The type of resource. https://docs.chef.io/resource.html#resources
+        - The type of resource. /resource.html#resources
       * - ``Name``
         - A string that describes the action taken. For example, a log entry or the name of the service that is enabled.
       * - ``Action``

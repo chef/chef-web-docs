@@ -22,7 +22,7 @@ Glossary
    A command-line tool that that runs Chef. Also, the name of Chef as it is installed on a node.
 
 **Chef DK**
-   A collection of tools to help development of Chef and Chef resources. It uses the full stack installer to give you everything you need to get going in one package.  You can download it at `Chef Development Kit <https://downloads.chef.io/chef-dk/>`__.
+   A collection of tools to help development of Chef and Chef resources. It uses the full stack installer to give you everything you need to get going in one package.  You can download it at `Chef Development Kit <https://downloads.chef.io/chefdk/>`__.
 
 **chef-repo**
    The repository structure in which cookbooks are authored, tested, and maintained. View `an example of the <https://github.com/chef/chef-repo>`__ chef-repo.
@@ -118,4 +118,4 @@ Glossary
    A feature of Chef Automate that provides real-time visibility into what is happening on the Chef server, including what's changing, who made those changes, and when they occurred.
 
 **workflow**
-   A feature of Chef Automate that manages changes to both infrastructure and application code, giving your operations and development teams a common platform for developing, building, testing, and deploying cookbooks, applications, and more. For more information see the `Chef Automate Overview <https://docs.chef.io/automate.html>`__.
+   A feature of Chef Automate that manages changes to both infrastructure and application code, giving your operations and development teams a common platform for developing, building, testing, and deploying cookbooks, applications, and more. For more information see the :doc:`Chef Automate Overview </chef_automate>`.

@@ -18,7 +18,7 @@ Public Supermarket
 =====================================================
 The public Chef Supermarket hosted by Chef is located at |url supermarket|.
 
-To interact with the public Chef Supermarket, use `knife cookbook site <https://docs.chef.io/knife_cookbook_site.html>`_ commands.
+To interact with the public Chef Supermarket, use :doc:`knife cookbook site </knife_cookbook_site>` commands.
 
 .. image:: ../../images/public_supermarket.svg
    :width: 700px
@@ -38,7 +38,7 @@ The private Chef Supermarket is installed behind the firewall on the internal ne
 
           * The application itself: https://github.com/chef/supermarket. Report issues to: https://github.com/chef/supermarket/issues.
           * The code that builds Chef Supermarket as an omnibus package: https://github.com/chef/omnibus-supermarket. Use a Kitchen-based environment to build your own omnibus packages.
-          * The cookbook that is run by the ``supermarket-ctl reconfigure`` command: https://github.com/chef/omnibus-supermarket/tree/master/cookbooks/omnibus-supermarket
+          * The cookbook that is run by the ``supermarket-ctl reconfigure`` command: https://github.com/chef/supermarket/tree/master/omnibus/cookbooks/omnibus-supermarket
 
           .. end_tag
 
@@ -67,11 +67,11 @@ Stove is a utility for packaging and releasing Chef cookbooks: https://github.co
 Installing Private Supermarket
 -----------------------------------------------------
 
-To install a Private Supermarket, see the instructions `here <https://docs.chef.io/install_supermarket.html>`__.
+To install a Private Supermarket, see the instructions :doc:`here </install_supermarket>`.
 
 Set up Workstation
 -----------------------------------------------------
-If you are using Chef 12.13 or higher, use the `knife cookbook site <https://docs.chef.io/knife_cookbook_site.html>`_ commands to work with cookbooks in both Public Chef Supermarket and a Private Chef Supermarket.
+If you are using Chef 12.13 or higher, use the :doc:`knife cookbook site </knife_cookbook_site>` commands to work with cookbooks in both Public Chef Supermarket and a Private Chef Supermarket.
 
 If you are using Chef 12.12 or lower, use the ``knife supermarket`` plugin to work with cookbooks in a Private Chef Supermarket.
 
@@ -80,7 +80,7 @@ knife
 Chef 12.13 and higher
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you are using Chef 12.13 or higher, use the `knife cookbook site <https://docs.chef.io/knife_cookbook_site.html>`_ commands with BOTH Public Supermarket and Private Supermarket.
+If you are using Chef 12.13 or higher, use the :doc:`knife cookbook site </knife_cookbook_site>` commands with BOTH Public Supermarket and Private Supermarket.
 
 Chef 12.12 and lower
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

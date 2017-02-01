@@ -5,7 +5,7 @@ chef-client Upgrades
 
 The following sections describe the upgrade process for chef-client 12.
 
-Please `view the notes <https://docs.chef.io/upgrade_client_notes.html>`__ for more background on the upgrade process.
+Please :doc:`view the notes </upgrade_client_notes>` for more background on the upgrade process.
 
 Upgrade via Command Line
 =====================================================

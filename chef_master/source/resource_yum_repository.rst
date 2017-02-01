@@ -117,7 +117,7 @@ This resource has the following properties:
 baseurl
    **Ruby Type:** String, Array
 
-   URL to the directory where the Yum repository's 'repodata' directory lives. Can be an http://, https:// or ftp:// URL. You can specify multiple URLs in one baseurl statement. Arrays are supported in Chef client 12.18 or later.
+   URL to the directory where the Yum repository's 'repodata' directory lives. Can be an http://, https:// or a ftp:// URL. You can specify multiple URLs in one baseurl statement. Arrays are supported in Chef client 12.18 or later.
 
 cost
    **Ruby Type:** String
