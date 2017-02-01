@@ -22,7 +22,7 @@ knife is a command-line tool that provides an interface between a local chef-rep
 
 .. end_tag
 
-knife plugins for cloud hosting platforms--- `knife azure <https://docs.chef.io/plugin_knife_azure.html>`_, `knife bluebox <https://docs.chef.io/plugin_knife_bluebox.html>`_, `knife ec2 <https://docs.chef.io/plugin_knife_ec2.html>`_, `knife eucalyptus <https://docs.chef.io/plugin_knife_eucalyptus.html>`_, `knife google <https://docs.chef.io/plugin_knife_google.html>`_, `knife linode <https://docs.chef.io/plugin_knife_linode.html>`_, `knife openstack <https://docs.chef.io/plugin_knife_openstack.html>`_, `knife rackspace <https://docs.chef.io/plugin_knife_rackspace.html>`_, and `knife terremark <https://docs.chef.io/plugin_knife_terremark.html>`_ ---are built and maintained by Chef.
+knife plugins for cloud hosting platforms--- `knife azure <https://github.com/chef/knife-azure>`_, `knife bluebox <https://github.com/chef-boneyard/knife-bluebox>`_, `knife ec2 <https://github.com/chef/knife-ec2>`_, `knife eucalyptus <https://github.com/chef-boneyard/knife-eucalyptus>`_, `knife google <https://github.com/chef/knife-google>`_, `knife linode <https://github.com/chef/knife-linode>`_, `knife openstack <https://github.com/chef/knife-openstack>`_, and `knife rackspace <https://github.com/chef/knife-rackspace>`_, ---are built and maintained by Chef.
 
 The following table lists knife plugins built by the Chef community.
 

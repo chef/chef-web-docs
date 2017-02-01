@@ -31,7 +31,7 @@ Chef Server
 
 Chef provides a fully functional Chef server that can be launched from the Azure Marketplace. This server is preconfigured with Chef server, the Chef management console, Reporting, and Chef Analytics. This configuration is free to use for deployments under 25 nodes, and can be licensed for deployments beyond 25 nodes. (See |url pricing| for more information about licensing more than 25 nodes.)
 
-Before getting started, you will need a functioning workstation. Install the `Chef development kit <https://docs.chef.io/install_dk.html>`_ on that workstation.
+Before getting started, you will need a functioning workstation. Install the :doc:`Chef development kit </install_dk>` on that workstation.
 
    .. note:: The following steps assume that Chef is installed on the workstation and that the ``knife ssl fetch`` subcommand is available. The ``knife ssl fetch`` subcommand was added to Chef in the 11.16 release of the chef-client, and then packaged as part of the Chef development kit starting with the 0.3 release.)
 
@@ -168,9 +168,9 @@ chef-client Settings
 
 Before virtual machines are created using the Azure portal, some chef-client-specific settings will need to be identified so they may be provided to the Azure portal during the virtual machine creation workflow. These settings are available from the chef-client configuration settings:
 
-#. The ``chef_server_url`` and ``validaton_client_name``. These are settings in the `client.rb file <https://docs.chef.io/config_rb_client.html>`_.
+#. The ``chef_server_url`` and ``validaton_client_name``. These are settings in the :doc:`client.rb file </config_rb_client>`.
 
-#. The file for the `validator key <https://docs.chef.io/chef_private_keys.html>`_.
+#. The file for the :doc:`validator key </chef_private_keys>`.
 
 .. end_tag
 
@@ -206,7 +206,7 @@ Once this information has been identified, launch the Azure portal, start the vi
 
 #. Use the **From Local** button next to the validation key text box to locate a local copy of the validation key.
 
-#. Optional. `Use a run-list <https://docs.chef.io/run_lists.html>`_ to specify what should be run when the virtual machine is provisioned, such as using the run-list to provision a virtual machine with Internet Information Services (IIS). Use the ``iis`` cookbook and the default recipe to build a run-list. For example:
+#. Optional. :doc:`Use a run-list </run_lists>` to specify what should be run when the virtual machine is provisioned, such as using the run-list to provision a virtual machine with Internet Information Services (IIS). Use the ``iis`` cookbook and the default recipe to build a run-list. For example:
 
    .. code-block:: ruby
 
@@ -794,6 +794,5 @@ For more information ...
 For more information about Microsoft Azure and how to use it with Chef:
 
 * `Microsoft Azure Documentation <https://azure.microsoft.com/en-us/documentation/services/virtual-machines/>`_
-* `Chef Documentation <https://docs.chef.io>`_
 * `knife azure Plugin <https://github.com/chef/knife-azure>`_
 * `azure-cookbook <https://github.com/chef-partners/azure-cookbook>`_

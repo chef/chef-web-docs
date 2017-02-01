@@ -26,7 +26,7 @@ To configure the Chef server management console, add the following code to ``/et
    saml.client_secret '<CLIENT SECRET>'
    saml.verify_tls false
 
-The ``issuer_url`` property should be set to something like 'https://<yourChefAutomateDomain>/api/v0'. Also, the ``client_id`` must be known to the Chef Automate server. For development purposes only, you may also need to turn off the TLS verification for the OIDC client as shown in the settings above.
+The ``issuer_url`` property should be set to something like ``'https://<yourChefAutomateDomain>/api/v0'``. Also, the ``client_id`` must be known to the Chef Automate server. For development purposes only, you may also need to turn off the TLS verification for the OIDC client as shown in the settings above.
 
 Run ``chef-manage-ctl reconfigure`` to apply these settings.
 

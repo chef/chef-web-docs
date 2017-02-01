@@ -304,7 +304,7 @@ chef-shell can be used to debug existing recipes. The recipe first needs to be a
     This is the chef-shell.
      Chef Version: 12.17.44
      https://www.chef.io/
-     https://docs.chef.io/
+     /
 
     run `help' for help, `exit' or ^D to quit.
 
@@ -392,7 +392,7 @@ When the chef-client is installed using RubyGems or a package manager, chef-shel
      This is the chef-shell.
       Chef Version: 12.17.44
       https://www.chef.io/
-      https://docs.chef.io/
+      /
 
      run `help' for help, `exit' or ^D to quit.
 

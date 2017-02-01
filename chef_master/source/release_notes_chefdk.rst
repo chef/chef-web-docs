@@ -11,7 +11,7 @@ What's New in 1.2
 Delivery CLI
 -----------------------------------------------------
 
-- The ``project.toml`` file, which can be used to execute `local phases <https://docs.chef.io/ctl_delivery.html#delivery-local>`_, now supports:
+- The ``project.toml`` file, which can be used to execute `local phases </ctl_delivery.html#delivery-local>`_, now supports:
 
   - An optional ``functional`` phase.
   - New ``remote_file`` option to specify a remote ``project.toml``.
@@ -23,7 +23,7 @@ Delivery CLI
 Policyfiles
 -----------------------------------------------------
 
-- Added a ``chef_server`` default source option to `Policyfiles <https://docs.chef.io/config_rb_policyfile.html#settings>`_.
+- Added a ``chef_server`` default source option to `Policyfiles </config_rb_policyfile.html#settings>`_.
 
 Automate Workflow Adopts SSH for Cookbook Generation
 -----------------------------------------------------

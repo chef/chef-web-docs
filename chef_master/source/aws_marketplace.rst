@@ -39,7 +39,7 @@ To get a fully-functional Amazon Machine Images (AMI) for Chef server, do the fo
 
 Install the Chef DK
 -----------------------------------------------------
-While the Amazon Machine Images (AMI) for Chef server is being provisioned, download and install the `Chef Development Kit <https://docs.chef.io/install_dk.html>`__.  The Chef management console has many features and is useful for viewing and creating policy to be applied to nodes, the Chef development kit installs a collection of tools---Test Kitchen, ChefSpec, chef, chef-vault, Foodcritic, and more---and libraries that are all packaged together, which makes it easier to manage the dependencies these tools may have on each other and the dependencies that Chef has on Ruby.
+While the Amazon Machine Images (AMI) for Chef server is being provisioned, download and install the :doc:`Chef Development Kit </install_dk>`.  The Chef management console has many features and is useful for viewing and creating policy to be applied to nodes, the Chef development kit installs a collection of tools---Test Kitchen, ChefSpec, chef, chef-vault, Foodcritic, and more---and libraries that are all packaged together, which makes it easier to manage the dependencies these tools may have on each other and the dependencies that Chef has on Ruby.
 
 Configure the Chef Server
 -----------------------------------------------------
@@ -277,9 +277,9 @@ Migrate to AWS
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The process of migrating from an existing Chef server installation to the Amazon Machine Images (AMI) differs depending on which software version being used and the location in which it is deployed. In all scenarios, data is first migrated to the latest Chef server schema, after which it is migrated to the Amazon Machine Images (AMI).
 
-* Verify that the latest version of the Chef server is installed by using the platform package manager: ``rpm -qa | grep chef-server-core`` and compare the result to the latest version available on the `downloads site <https://downloads.chef.io/>`__. If this is not the latest version, download the package, and then `upgrade <https://docs.chef.io/upgrade_server.html#from-chef-server-12>`__ to the latest version.
-* Upgrade an Enterprise Chef node to the latest version of the Chef server by following the `upgrade instructions <https://docs.chef.io/upgrade_server.html#from-chef-server-oec>`__.
-* Upgrade an Open Source Chef node to the latest version of the Chef server by following the `upgrade instructions <https://docs.chef.io/upgrade_server.html#from-chef-server-osc>`__.
+* Verify that the latest version of the Chef server is installed by using the platform package manager: ``rpm -qa | grep chef-server-core`` and compare the result to the latest version available on the `downloads site <https://downloads.chef.io/>`__. If this is not the latest version, download the package, and then `upgrade </upgrade_server.html#from-chef-server-12>`__ to the latest version.
+* Upgrade an Enterprise Chef node to the latest version of the Chef server by following the `upgrade instructions </upgrade_server.html#from-chef-server-oec>`__.
+* Upgrade an Open Source Chef node to the latest version of the Chef server by following the `upgrade instructions </upgrade_server.html#from-chef-server-osc>`__.
 
 After verifying that your existing Chef server installation is up to date, do the following to migrate to the Amazon Machine Images (AMI) instance:
 
@@ -367,7 +367,7 @@ Migrate to the latest AMI
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 To migrate from an older Amazon Machine Images (AMI) to the latest Amazon Machine Images (AMI), do the following:
 
-#. `Launch <https://docs.chef.io/aws_marketplace.html#launch-the-ami>`__ the latest Chef server Amazon Machine Images (AMI).
+#. `Launch </aws_marketplace.html#launch-the-ami>`__ the latest Chef server Amazon Machine Images (AMI).
 
 #. Login to the old Amazon Machine Images (AMI) and ensure that it is running the latest version of the Chef server:
 
@@ -608,8 +608,8 @@ Migrate to AWS
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 To migrate an existing Chef Compliance installation to the Amazon Machine Images (AMI), do the following:
 
-#. `Launch <https://docs.chef.io/aws_marketplace.html#chef-compliance-ami>`__ the latest Chef Compliance Amazon Machine Images (AMI).
-#. Verify that the latest version of the Chef Compliance is installed by using the platform package manager: ``rpm -qa | grep chef-compliance`` and compare the result to the latest version available on the `downloads site <https://downloads.chef.io/>`__. If this is not the latest you can download and install the latest package from the downloads site or add the `chef repo <https://docs.chef.io/packages.html#package-repositories>`__ to your package manager. Follow the `upgrade instructions <https://docs.chef.io/upgrade_compliance.html>`__ for Chef Compliance to complete the upgrade.
+#. `Launch </aws_marketplace.html#chef-compliance-ami>`__ the latest Chef Compliance Amazon Machine Images (AMI).
+#. Verify that the latest version of the Chef Compliance is installed by using the platform package manager: ``rpm -qa | grep chef-compliance`` and compare the result to the latest version available on the `downloads site <https://downloads.chef.io/>`__. If this is not the latest you can download and install the latest package from the downloads site or add the `chef repo </packages.html#package-repositories>`__ to your package manager. Follow the :doc:`upgrade instructions </upgrade_compliance>` for Chef Compliance to complete the upgrade.
 
 #. Login using SSH to access the Chef Compliance instance. Use the SSH key pair and the IP address or public hostname that was automatically assigned when the Amazon Machine Images (AMI) was launched. The default user is ``ec2-user``. For example:
 
@@ -638,7 +638,7 @@ Migrate to the latest AMI
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 To migrate from an older Amazon Machine Images (AMI) to the latest Amazon Machine Images (AMI), do the following:
 
-#. `Launch <https://docs.chef.io/aws_marketplace.html#chef-compliance-ami>`__ the latest Chef Compliance Amazon Machine Images (AMI).
+#. `Launch </aws_marketplace.html#chef-compliance-ami>`__ the latest Chef Compliance Amazon Machine Images (AMI).
 
 #. Login using SSH to access the Chef Compliance instance and update the software. Use the SSH key pair and the IP address or public hostname that was automatically assigned when the Amazon Machine Images (AMI) was launched. The default user is ``ec2-user``. For example:
 

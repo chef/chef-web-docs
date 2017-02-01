@@ -66,7 +66,7 @@ Use a regular expression to define the pattern used to bulk delete cookbooks:
 
 create
 =====================================================
-.. note:: This command was deprecated in Chef client 12.12 and will be removed in a future release. Use the `chef generate cookbook <https://docs.chef.io/ctl_chef.html#chef-generate-cookbook>`_ command instead.
+.. note:: This command was deprecated in Chef client 12.12 and will be removed in a future release. Use the `chef generate cookbook </ctl_chef.html#chef-generate-cookbook>`_ command instead.
 
 .. note:: .. tag ruby_style_patterns_hyphens
 

@@ -33,7 +33,7 @@ During a chef-client Run
 -----------------------------------------------------
 .. tag chef_auth_authentication_chef_run
 
-As part of `every chef-client run <https://docs.chef.io/chef_client.html#the-chef-client-run>`_, the chef-client authenticates to the Chef server using an RSA private key and the Chef server API.
+As part of `every chef-client run </chef_client.html#the-chef-client-run>`_, the chef-client authenticates to the Chef server using an RSA private key and the Chef server API.
 
 .. end_tag
 
@@ -80,7 +80,7 @@ The following changes were made during certain chef-client release prior to the 
   These new settings and tools enabled users who wanted to use stronger SSL settings to generate the private/public key pair from the chef-client, verify HTTPS requests, verify SSL certificates, and pull the SSL certificate from the Chef server down to the ``/.chef/trusted_certs`` directory.
 * In the chef-client 12 release, the default value for ``local_key_generation`` was changed to ``true`` and the default value for ``ssl_verify_mode`` was changed to ``:verify_peer``.
 
-Starting with chef-client 12, SSL certificate validation is enabled by default and the ``knife ssl fetch`` is a necessary `part of the setup process <https://docs.chef.io/install_dk.html#get-ssl-certificates>`__ for every workstation.
+Starting with chef-client 12, SSL certificate validation is enabled by default and the ``knife ssl fetch`` is a necessary `part of the setup process </install_dk.html#get-ssl-certificates>`__ for every workstation.
 
 .. end_tag
 
@@ -148,8 +148,8 @@ Knife Subcommands
 -----------------------------------------------------
 The chef-client includes two knife commands for managing SSL certificates:
 
-* Use `knife ssl check <https://docs.chef.io/knife_ssl_check.html>`__ to troubleshoot SSL certificate issues
-* Use `knife ssl fetch <https://docs.chef.io/knife_ssl_fetch.html>`__ to pull down a certificate from the Chef server to the ``/.chef/trusted_certs`` directory on the workstation.
+* Use :doc:`knife ssl check </knife_ssl_check>` to troubleshoot SSL certificate issues
+* Use :doc:`knife ssl fetch </knife_ssl_fetch>` to pull down a certificate from the Chef server to the ``/.chef/trusted_certs`` directory on the workstation.
 
 After the workstation has the correct SSL certificate, bootstrap operations from that workstation will use the certificate in the ``/.chef/trusted_certs`` directory during the bootstrap operation.
 

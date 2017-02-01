@@ -38,7 +38,7 @@ The ``knife bootstrap`` subcommand is used to run a bootstrap operation that ins
 
       $ knife bootstrap 123.45.6.789 -x username -P password --sudo
 
-   where ``123.45.6.789`` is the IP address or the FQDN for the node. Use the ``--distro`` option to specify a non-default distribution. For more information about the options available to the ``knife bootstrap`` command for Ubuntu- and Linux-based platforms, see `knife bootstrap <https://docs.chef.io/knife_bootstrap.html>`_. For Microsoft Windows, the ``knife windows`` plugin is required, see `knife windows <https://docs.chef.io/plugin_knife_windows.html>`_.
+   where ``123.45.6.789`` is the IP address or the FQDN for the node. Use the ``--distro`` option to specify a non-default distribution. For more information about the options available to the ``knife bootstrap`` command for Ubuntu- and Linux-based platforms, see :doc:`knife bootstrap </knife_bootstrap>`. For Microsoft Windows, the ``knife windows`` plugin is required, see :doc:`knife windows </plugin_knife_windows>`.
 
    And then while the bootstrap operation is running, the command window will show something like the following:
 
@@ -383,7 +383,7 @@ When the chef-client is installed using an unattended bootstrap, remember that t
 
 When the chef-client is installed using an unattended bootstrap, it is typically built into an image that starts the chef-client on boot. The type of image used depends on the platform on which the unattended bootstrap will take place.
 
-Use settings in the `client.rb file <https://docs.chef.io/config_rb_client.html>`_---``chef_server_url``, ``http_proxy``, and so on---to ensure that configuration details are built into the unattended bootstrap process.
+Use settings in the :doc:`client.rb file </config_rb_client>`---``chef_server_url``, ``http_proxy``, and so on---to ensure that configuration details are built into the unattended bootstrap process.
 
 **Setting the initial run-list**
 

@@ -73,7 +73,7 @@ In addition to attributes and recipes, the following items are also part of cook
    * - :doc:`Metadata </cookbook_repo>`
      - A metadata file is used to ensure that each cookbook is correctly deployed to each node.\
    * - :doc:`Resources </resource>`
-     - A resource instructs the chef-client to complete various tasks like installing packages, running Ruby code, or accessing directories and file systems. The chef-client includes built-in resources that cover many common scenarios. For the full list of resources that are built-in to the chef-client, see https://docs.chef.io/resources.html.
+     - A resource instructs the chef-client to complete various tasks like installing packages, running Ruby code, or accessing directories and file systems. The chef-client includes built-in resources that cover many common scenarios. For the full list of resources that are built-in to the chef-client, see /resources.html.
    * - :doc:`Templates </templates>`
      - A template is a file written in markup language that uses Ruby statements to solve complex configuration scenarios.
    * - :doc:`Cookbook Versions </cookbook_versions>`

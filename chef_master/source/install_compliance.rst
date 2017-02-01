@@ -26,7 +26,7 @@ The Chef Compliance server has the following prerequisites:
 * An x86_64 compatible system architecture; Red Hat Enterprise Linux and CentOS may require updates prior to installation
 * A resolvable hostname that is specified using a FQDN or an IP address
 * A connection to Network Time Protocol (NTP) to prevent clock drift
-* Optional. A local user account under which services will run, a local user account for PostgreSQL, and a group account under which services will run. See https://docs.chef.io/install_server_pre.html#uids-and-gids for more information
+* Optional. A local user account under which services will run, a local user account for PostgreSQL, and a group account under which services will run. See /install_server_pre.html#uids-and-gids for more information
 
 The following prerequisites apply to every installation of the Chef Compliance server.
 
@@ -101,7 +101,7 @@ To install the Chef Compliance server:
 
 AWS Marketplace
 =====================================================
-See https://docs.chef.io/aws_marketplace.html for more information.
+See /aws_marketplace.html for more information.
 
 Configure SSL
 =====================================================

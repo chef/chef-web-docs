@@ -3,7 +3,7 @@ Resource Code Examples
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_examples.rst>`__
 
-This reference contains code examples for many of the core resources that are built in to the chef-client, sorted by resource. This topic is a subset of the topic that contains a `complete description of all resources <https://docs.chef.io/chef/resources.html>`_, including actions, properties, and providers (in addition to these examples).
+This reference contains code examples for many of the core resources that are built in to the chef-client, sorted by resource. This topic is a subset of the topic that contains a :doc:`complete description of all resources </resources>`, including actions, properties, and providers (in addition to these examples).
 
 Common Examples
 =====================================================
@@ -1218,7 +1218,7 @@ By adding the following lines of Ruby code to either the client.rb file or the s
    report_handlers << Chef::Handler::ErrorReport.new()
    exception_handlers << Chef::Handler::ErrorReport.new()
 
-By using the `chef_handler <https://docs.chef.io/resource_chef_handler.html>`_ resource in a recipe, similar to the following:
+By using the :doc:`chef_handler </resource_chef_handler>` resource in a recipe, similar to the following:
 
 .. code-block:: ruby
 
@@ -6923,7 +6923,7 @@ user
 
 Use the **user** resource to add users, update existing users, remove users, and to lock/unlock user passwords.
 
-.. note:: System attributes are collected by Ohai at the start of every chef-client run. By design, the actions available to the **user** resource are processed **after** the start of the chef-client run. This means that system attributes added or modified by the **user** resource during the chef-client run must be reloaded before they can be available to the chef-client. These system attributes can be reloaded in two ways: by picking up the values at the start of the (next) chef-client run or by using the `ohai resource <https://docs.chef.io/resource_ohai.html>`_ to reload the system attributes during the current chef-client run.
+.. note:: System attributes are collected by Ohai at the start of every chef-client run. By design, the actions available to the **user** resource are processed **after** the start of the chef-client run. This means that system attributes added or modified by the **user** resource during the chef-client run must be reloaded before they can be available to the chef-client. These system attributes can be reloaded in two ways: by picking up the values at the start of the (next) chef-client run or by using the :doc:`ohai resource </resource_ohai>` to reload the system attributes during the current chef-client run.
 
 .. end_tag
 
@@ -7095,7 +7095,7 @@ Use the **windows_package** resource to manage Microsoft Installer Package (MSI)
 
 .. tag resource_package_windows_source_remote_file_attributes
 
-The **windows_package** resource may specify a package at a remote location using the ``remote_file_attributes`` property. This uses the **remote_file** resource to download the contents at the specified URL and passes in a Hash that modifes the properties of the `remote_file resource <https://docs.chef.io/resource_remote_file.html>`__.
+The **windows_package** resource may specify a package at a remote location using the ``remote_file_attributes`` property. This uses the **remote_file** resource to download the contents at the specified URL and passes in a Hash that modifes the properties of the `remote_file resource </resource_remote_file>`_.
 
 For example:
 

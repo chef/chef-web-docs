@@ -46,7 +46,7 @@ If your Chef Automate installation uses Push Jobs Server to manage build nodes, 
 
 Encryption
 =====================================================
-All command channel communication is encrypted via SSL or `CurveZMQ <http://rfc.zeromq.org/spec:26a>`_. CurveZMQ is based on the `CurveCP protocol <http://curvecp.org/security.html>`_. The one exception to this is the server heartbeat, which is broadcast in the clear (but is still signed with the server key for integrity).
+All command channel communication is encrypted via SSL or `CurveZMQ <https://rfc.zeromq.org/spec:26/CURVEZMQ>`_. CurveZMQ is based on the `CurveCP protocol <http://curvecp.org/security.html>`_. The one exception to this is the server heartbeat, which is broadcast in the clear (but is still signed with the server key for integrity).
 
 Command Output Capture
 =====================================================

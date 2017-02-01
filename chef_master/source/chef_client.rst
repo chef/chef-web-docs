@@ -218,7 +218,7 @@ During a chef-client Run
 -----------------------------------------------------
 .. tag chef_auth_authentication_chef_run
 
-As part of `every chef-client run <https://docs.chef.io/chef_client.html#the-chef-client-run>`_, the chef-client authenticates to the Chef server using an RSA private key and the Chef server API.
+As part of `every chef-client run </chef_client.html#the-chef-client-run>`_, the chef-client authenticates to the Chef server using an RSA private key and the Chef server API.
 
 .. end_tag
 
@@ -265,7 +265,7 @@ The following changes were made during certain chef-client release prior to the 
   These new settings and tools enabled users who wanted to use stronger SSL settings to generate the private/public key pair from the chef-client, verify HTTPS requests, verify SSL certificates, and pull the SSL certificate from the Chef server down to the ``/.chef/trusted_certs`` directory.
 * In the chef-client 12 release, the default value for ``local_key_generation`` was changed to ``true`` and the default value for ``ssl_verify_mode`` was changed to ``:verify_peer``.
 
-Starting with chef-client 12, SSL certificate validation is enabled by default and the ``knife ssl fetch`` is a necessary `part of the setup process <https://docs.chef.io/install_dk.html#get-ssl-certificates>`__ for every workstation.
+Starting with chef-client 12, SSL certificate validation is enabled by default and the ``knife ssl fetch`` is a necessary `part of the setup process </install_dk.html#get-ssl-certificates>`__ for every workstation.
 
 .. end_tag
 
@@ -519,7 +519,7 @@ During a ``knife bootstrap`` bootstrap operation, the following happens:
    * - **$ knife bootstrap**
      - On UNIX- and Linux-based machines: The ``knife bootstrap`` subcommand is issued from a workstation. The hostname, IP address, or FQDN of the target node is issued as part of this command. An SSH connection is established with the target node using port 22. A shell script is assembled using the chef-full.erb (the default bootstrap template), and is then executed on the target node.
 
-       On Microsoft Windows machines: The ``knife bootstrap windows winrm`` subcommand is issued from a workstation. (This command is part of the `knife windows plugin <https://docs.chef.io/plugin_knife_windows.html>`_.) The hostname, IP address, or FQDN of the target node is issued as part of this command. A connection is established with the target node using WinRM over port 5985. (WinRM must be enabled with the corresponding firewall rules in place.)
+       On Microsoft Windows machines: The ``knife bootstrap windows winrm`` subcommand is issued from a workstation. (This command is part of the :doc:`knife windows plugin </plugin_knife_windows>`.) The hostname, IP address, or FQDN of the target node is issued as part of this command. A connection is established with the target node using WinRM over port 5985. (WinRM must be enabled with the corresponding firewall rules in place.)
    * - **Get the install script from Chef**
      - On UNIX- and Linux-based machines: The shell script that is derived from the chef-full.erb bootstrap template will make a request to the Chef website to get the most recent version of a second shell script (``install.sh``).
 
@@ -535,6 +535,6 @@ During a ``knife bootstrap`` bootstrap operation, the following happens:
    * - **Complete the chef-client run**
      - The chef-client run proceeds, using HTTPS (port 443), and registers the node with the Chef server.
 
-       The first chef-client run, by default, contains an empty run-list. A `run-list can be specified <https://docs.chef.io/knife_bootstrap.html>`_ as part of the initial bootstrap operation using the ``--run-list`` option as part of the ``knife bootstrap`` subcommand.
+       The first chef-client run, by default, contains an empty run-list. A :doc:`run-list can be specified </knife_bootstrap>` as part of the initial bootstrap operation using the ``--run-list`` option as part of the ``knife bootstrap`` subcommand.
 
 .. end_tag

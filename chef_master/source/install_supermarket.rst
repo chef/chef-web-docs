@@ -26,7 +26,7 @@ The private Chef Supermarket is installed behind the firewall on the internal ne
 
           * The application itself: https://github.com/chef/supermarket. Report issues to: https://github.com/chef/supermarket/issues.
           * The code that builds Chef Supermarket as an omnibus package: https://github.com/chef/omnibus-supermarket. Use a Kitchen-based environment to build your own omnibus packages.
-          * The cookbook that is run by the ``supermarket-ctl reconfigure`` command: https://github.com/chef/omnibus-supermarket/tree/master/cookbooks/omnibus-supermarket
+          * The cookbook that is run by the ``supermarket-ctl reconfigure`` command: https://github.com/chef/supermarket/tree/master/omnibus/cookbooks/omnibus-supermarket
 
           .. end_tag
 
@@ -110,7 +110,7 @@ A wrapper cookbook is used to define project- and/or organization-specific requi
 
 In the case of installing a private Chef Supermarket, Chef recommends the use of a wrapper cookbook to specify certain attributes that are unique to your organization, while enabling the use of the generic installer cookbook which, in turn, installs the Chef Supermarket package behind your firewall.
 
-All of the keys under ``node['supermarket_omnibus']`` are written out as ``/etc/supermarket/supermarket.json``. Add other keys as needed to override the default attributes specified in the Chef Supermarket `omnibus package <https://github.com/chef/omnibus-supermarket/blob/master/cookbooks/omnibus-supermarket/attributes/default.rb>`__. For example:
+All of the keys under ``node['supermarket_omnibus']`` are written out as ``/etc/supermarket/supermarket.json``. Add other keys as needed to override the default attributes specified in the Chef Supermarket `omnibus package <https://github.com/chef/supermarket/blob/master/omnibus/cookbooks/omnibus-supermarket/attributes/default.rb>`__. For example:
 
 .. code-block:: ruby
 
