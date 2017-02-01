@@ -109,8 +109,7 @@ Setup
 
 **Supermarket**: `Public Supermarket <https://supermarket.chef.io>`_ | :doc:`Install Private Supermarket </install_supermarket>` | `Customize Supermarket </install_supermarket.html#customize-supermarket>`_ | `Run in Kitchen </install_supermarket.html#run-supermarket-in-kitchen>`_
 
-`Management Console </ctl_chef_server.html#install>`_ |
-:doc:`Push Jobs </install_push_jobs>` 
+`Management Console <https://docs.chef.io/ctl_chef_server.html#install>`_ | :doc:`Push Jobs </install_push_jobs>`
 
 **Integrations**: :doc:`w/Chef Compliance </integrate_compliance_chef_server>`
 
@@ -242,11 +241,10 @@ Getting Started
 Tutorials
 -----------------------------------------------------
 
-`Install Chef Automate <https://learn.chef.io/automate/install>`_ |
-`Visibility into Infrastructure <https://learn.chef.io/automate/visibility>`_ |
-`Deploy with Chef Automate <https://learn.chef.io/automate/deploy-cookbook>`_ |
-`Assess for Compliance <https://learn.chef.io/tutorials/#compliance-assess>`_ |
-`Remediate Compliance Failures <https://learn.chef.io/tutorials/#compliance-remediate>`_
+`Get started with Chef Automate <https://learn.chef.io/skills/get-started-with-chef-automate/>`_ |
+`Deploy infrastructure changes <https://learn.chef.io/tutorials/deploy-infrastructure/>`_ |
+`Scan for compliance <https://learn.chef.io/tutorials/compliance-assess/>`_ |
+`Remediate compliance failures <https://learn.chef.io/tutorials/compliance-remediate/>`_
 
 Setup
 -----------------------------------------------------
