@@ -1,7 +1,7 @@
 =====================================================
 About Berkshelf
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-youb-docs/blob/master/chef_master/source/berkshelf.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/berkshelf.rst>`__
 
 .. tag berkshelf_summary
 
