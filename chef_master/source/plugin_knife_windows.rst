@@ -328,6 +328,9 @@ This argument has the following options:
 
    .. end_tag
 
+``--install-as-service``
+   Indicates the client should be installed as a Windows Service. 
+
 ``-j JSON_ATTRIBS``, ``--json-attributes JSON_ATTRIBS``
    A JSON string that is added to the first run of a chef-client.
 
