@@ -4878,16 +4878,16 @@ This method has the following parameters:
 
 .. code-block:: none
 
-   GET /organizations/NAME/search
+   POST /organizations/NAME/search
 
 with a request body similar to:
 
 .. code-block:: none
 
    {
-     'name' => [ 'name' ],
-     'ip'   => [ 'ipaddress' ],
-     'kernel_version' => [ 'kernel', 'version' ]
+     "name": [ "name" ],
+     "ip": [ "ipaddress" ],
+     "kernel_version": [ "kernel", "version" ]
    }
 
 **Response**
