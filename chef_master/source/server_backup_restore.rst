@@ -3,7 +3,10 @@ Backup and Restore
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_backup_restore.rst>`__
 
-Periodic backups of Chef server data are an essential part of managing and maintaining a healthy configuration and to help ensure that important data can be restored, if required.
+Periodic backups of Chef server data are an essential part of managing
+and maintaining a healthy configuration and to help ensure that
+important data can be restored, if required.
+
 
 High Availability
 =====================================================
@@ -123,6 +126,75 @@ When restoring Chef server data, the previously backed-up files will be required
    .. code-block:: bash
 
       $ chef-manage-ctl reconfigure
+
+
+Using Chef Backend
+=====================================================
+
+The backup and restore process allows you to restore a data backup
+into a newly built cluster in a disaster recovery scenario. It is not
+currently intended for the recovery of an individual machine in the
+chef-backend cluster or for point-in-time rollback of an existing
+cluster.
+
+Backup
+------
+
+To be able restore your data in the case of an emergency, you need
+backups of
+
+- the data in your Chef backend cluster
+- the configuration from your Chef server
+
+1. On a follower chef-backend node, run ``chef-backend-ctl backup``
+2. On a chef-server node run: ``chef-server-ctl backup --config-only``
+3. Move the tar archives created in steps (1) and (2) to a long-term
+   storage location.
+
+Restore
+-------
+
+To restore a Chef Backend-based Chef server cluster:
+
+1. On the first machine that you want to use in your new Chef Backend
+   cluster. The argument to the ``--publish_address`` option should be
+   an IP address that can be used to reach the node you are restoring.
+
+.. code-block:: bash
+
+   chef-backend-ctl restore --publish_address X.Y.Z.W /path/to/backup.tar.gz
+
+2. Join additional nodes to your Chef Backend cluster (note: if you
+   are simply trying to test and verify your restore process, you can
+   skip the additional backend nodes)
+
+.. code-block:: bash
+
+   chef-backend-ctl join-cluster IP_OF_FIRST_NODE --publish_address IP_OF_THIS_NODE
+
+3. Restore a chef-server from your backed up chef-server configuration
+   (See step 2 in the backup instructions above). Alternatively, you can
+   generate new configuration for this node and reconfigure it using
+   the steps found in `the installation instructions. </install_server_ha.html#step-5-install-and-configure-first-frontend>`_.
+
+.. code-block:: bash
+
+   chef-server-ctl restore /path/to/chef-server-backup.tar.gz
+
+4. Run the reindex command to re-populate your search index
+
+.. code-block:: bash
+
+   chef-server-ctl reindex --all
+
+Verify
+------
+
+We recommend periodically verifying your backup by restoring a single
+Chef Backend node, a single Chef server node and ensuring that various
+knife commands and chef-client runs can successfully complete against
+your backup.
+
 
 chef-server-ctl
 =====================================================
