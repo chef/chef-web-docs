@@ -3,9 +3,7 @@ Backup and Restore
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_backup_restore.rst>`__
 
-Periodic backups of Chef server data are an essential part of managing
-and maintaining a healthy configuration and to help ensure that
-important data can be restored, if required.
+Periodic backups of Chef server data are an essential part of managing and maintaining a healthy configuration and ensuring that important data can be restored, if required.
 
 
 High Availability
@@ -13,7 +11,7 @@ High Availability
 
 .. note:: This section only applies to the Enterprise Chef server, version 11.x.
 
-To configure backups on the backend servers in a high availability configuration, set a cron job in ``/etc/cron.d/opc_snapshot`` similar to the following:
+To configure backups on backend servers in a high availability configuration, set a cron job in ``/etc/cron.d/opc_snapshot`` similar to the following:
 
 .. code-block:: bash
 
@@ -46,8 +44,7 @@ This data is also essential when any type of backup and restore operation is don
 
 Backup
 -----------------------------------------------------
-When backing up Chef server data, be sure that the system is shut down (or otherwise quiet) at the time of the backup.
-Perform all activities as root unless otherwise directed.
+When backing up Chef server data, be sure that the system is shut down (or otherwise quiet) at the time of the backup. Perform all activities as root unless otherwise directed.
 
 #. Make a postgres export using the following commands:
 
@@ -72,7 +69,7 @@ Perform all activities as root unless otherwise directed.
 
 Restore
 -----------------------------------------------------
-When restoring Chef server data, the previously backed-up files will be required, along with the Chef server running only the **postgresql** service. Perform all activities as root unless otherwise directed.
+When restoring Chef server data, previously backed-up files are required, along with the Chef server running only the **postgresql** service. Perform all activities as root unless otherwise directed.
 
 #. Stop the Chef server:
 
@@ -131,51 +128,42 @@ When restoring Chef server data, the previously backed-up files will be required
 Using Chef Backend
 =====================================================
 
-The backup and restore process allows you to restore a data backup
-into a newly built cluster in a disaster recovery scenario. It is not
-currently intended for the recovery of an individual machine in the
-chef-backend cluster or for point-in-time rollback of an existing
-cluster.
+In a disaster recovery scenario, the backup and restore processes allow you to restore a data backup
+into a newly built cluster. It is not intended for the recovery of an individual machine in the
+chef-backend cluster or for a point-in-time rollback of an existing cluster.
 
 Backup
-------
+-----------------------------------------------------
 
-To be able restore your data in the case of an emergency, you need
-backups of
+Restoring your data in the case of an emergency depends on having previously made backups of:
 
 - the data in your Chef backend cluster
 - the configuration from your Chef server
 
+To make backups for future use in disaster scenarios:
+
 1. On a follower chef-backend node, run ``chef-backend-ctl backup``
 2. On a chef-server node run: ``chef-server-ctl backup --config-only``
-3. Move the tar archives created in steps (1) and (2) to a long-term
-   storage location.
+3. Move the tar archives created in steps (1) and (2) to a long-term storage location.
 
 Restore
--------
+-----------------------------------------------------
 
-To restore a Chef Backend-based Chef server cluster:
+To restore a Chef backend-based Chef server cluster:
 
-1. On the first machine that you want to use in your new Chef Backend
-   cluster. The argument to the ``--publish_address`` option should be
-   an IP address that can be used to reach the node you are restoring.
+1. Restore the node and an IP address that can be used to reach the node on the first machine that you want to use in your new Chef backend cluster. The argument to the ``--publish_address`` option should be the IP address for reaching the node you are restoring.
 
 .. code-block:: bash
 
    chef-backend-ctl restore --publish_address X.Y.Z.W /path/to/backup.tar.gz
 
-2. Join additional nodes to your Chef Backend cluster (note: if you
-   are simply trying to test and verify your restore process, you can
-   skip the additional backend nodes)
+2. Join additional nodes to your Chef backend cluster. (If you are only testing and verifying your restore process you can test against a single Chef backend node and a single Chef server node.)
 
 .. code-block:: bash
 
    chef-backend-ctl join-cluster IP_OF_FIRST_NODE --publish_address IP_OF_THIS_NODE
 
-3. Restore a chef-server from your backed up chef-server configuration
-   (See step 2 in the backup instructions above). Alternatively, you can
-   generate new configuration for this node and reconfigure it using
-   the steps found in `the installation instructions. </install_server_ha.html#step-5-install-and-configure-first-frontend>`_.
+3. Restore a chef-server from your backed up chef-server configuration (See step 2 in the backup instructions above). Alternatively, you can generate new configuration for this node and reconfigure it using the steps found in `the installation instructions. </install_server_ha.html#step-5-install-and-configure-first-frontend>`_.
 
 .. code-block:: bash
 
@@ -188,17 +176,14 @@ To restore a Chef Backend-based Chef server cluster:
    chef-server-ctl reindex --all
 
 Verify
-------
+-----------------------------------------------------
 
-We recommend periodically verifying your backup by restoring a single
-Chef Backend node, a single Chef server node and ensuring that various
-knife commands and chef-client runs can successfully complete against
-your backup.
+We recommend periodically verifying your backup by restoring a single Chef backend node, a single Chef server node, and ensuring that various knife commands and chef-client runs can successfully complete against your backup.
 
 
 chef-server-ctl
 =====================================================
-Use the following commands to manage backups of Chef server data, and then to restore those backups.
+Use the following commands for managing backups of Chef server data and for restoring those backups.
 
 .. note :: As of Chef Version 12.10 backups created with the ``chef-server-ctl backup`` command cannot be restored.
 
