@@ -164,7 +164,7 @@ As a rule of thumb, changes are obvious fixes if they do not introduce any new f
 * Changes to words or phrases isolated from their context;
 * Changes to typeface.
 
-Things that would still require signing a CLA before submitting would likely include stuff like the following:
+Things that would still require a DCO sign-off before submitting would likely include stuff like the following:
 
 * Any of the above actions that result in a change in functionality;
 * A new feature;
