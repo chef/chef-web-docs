@@ -153,27 +153,27 @@ To restore a Chef backend-based Chef server cluster:
 
 1. Restore the node and an IP address that can be used to reach the node on the first machine that you want to use in your new Chef backend cluster. The argument to the ``--publish_address`` option should be the IP address for reaching the node you are restoring.
 
-.. code-block:: bash
+   .. code-block:: bash
 
-   chef-backend-ctl restore --publish_address X.Y.Z.W /path/to/backup.tar.gz
+      chef-backend-ctl restore --publish_address X.Y.Z.W /path/to/backup.tar.gz
 
 2. Join additional nodes to your Chef backend cluster. (If you are only testing and verifying your restore process you can test against a single Chef backend node and a single Chef server node.)
 
-.. code-block:: bash
+   .. code-block:: bash
 
-   chef-backend-ctl join-cluster IP_OF_FIRST_NODE --publish_address IP_OF_THIS_NODE
+      chef-backend-ctl join-cluster IP_OF_FIRST_NODE --publish_address IP_OF_THIS_NODE
 
 3. Restore a chef-server from your backed up chef-server configuration (See step 2 in the backup instructions above). Alternatively, you can generate new configuration for this node and reconfigure it using the steps found in `the installation instructions. </install_server_ha.html#step-5-install-and-configure-first-frontend>`_.
 
-.. code-block:: bash
+   .. code-block:: bash
 
-   chef-server-ctl restore /path/to/chef-server-backup.tar.gz
+      chef-server-ctl restore /path/to/chef-server-backup.tar.gz
 
 4. Run the reindex command to re-populate your search index
 
-.. code-block:: bash
+   .. code-block:: bash
 
-   chef-server-ctl reindex --all
+      chef-server-ctl reindex --all
 
 Verify
 -----------------------------------------------------
