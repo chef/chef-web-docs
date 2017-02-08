@@ -85,7 +85,7 @@ To make a good faith effort to ensure the criteria of the Apache License are met
 
 The DCO is an attestation attached to every contribution made by every developer. In the commit message of the contribution, the developer simply adds a Signed-off-by statement and thereby agrees to the DCO, which you can find below or at http://developercertificate.org/.
 
-.. code-block:: bash
+.. code-block:: console
 
     Developer's Certificate of Origin 1.1
 
