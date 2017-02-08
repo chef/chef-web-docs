@@ -203,9 +203,9 @@ Managing the Server
 
 **Push Jobs**::doc:`knife push jobs </plugin_knife_push_jobs>` | :doc:`push-jobs-client </ctl_push_jobs_client>` | :doc:`push-jobs-client.rb </config_rb_push_jobs_client>` | :doc:`push-jobs-server.rb </config_rb_push_jobs_server>` | :doc:`Push Jobs API </api_push_jobs>` | :doc:`Server Sent Events </server_sent_events>`
 
-**Supermarket**::doc:`Log Files </supermarket_logs>` |:doc:`Backup and Restore </supermarket_backup_restore>` |:doc:`Monitoring </supermarket_monitor>` | :doc:`supermarket.rb </config_rb_supermarket>` | :doc:`knife supermarket </plugin_knife_supermarket>` | :doc:`supermarket-ctl </ctl_supermarket>` | :doc:`Supermarket API </supermarket_api>`
+**Supermarket**::doc:`Log Files </supermarket_logs>` | :doc:`Backup and Restore </supermarket_backup_restore>` | :doc:`Monitoring </supermarket_monitor>` | :doc:`supermarket.rb </config_rb_supermarket>` | :doc:`knife supermarket </plugin_knife_supermarket>` | :doc:`supermarket-ctl </ctl_supermarket>` | :doc:`Supermarket API </supermarket_api>`
 
-**Management Console**: :doc:`Configure SAML </server_configure_saml>` | :doc:`Clients </server_manage_clients>` | :doc:`Cookbooks </server_manage_cookbooks>` | :doc:`Data Bags </server_manage_data_bags>` | :doc:`Environments </server_manage_environments>` | :doc:`Nodes </server_manage_nodes>` | :doc:`Roles </server_manage_roles>` | `Users </server_users.html#chef-manage>`_ | :doc:`manage.rb </config_rb_manage>` | :doc:`chef-manage-ctl </ctl_manage>`
+**Management Console**::doc:`Configure SAML </server_configure_saml>` | :doc:`Clients </server_manage_clients>` | :doc:`Cookbooks </server_manage_cookbooks>` | :doc:`Data Bags </server_manage_data_bags>` | :doc:`Environments </server_manage_environments>` | :doc:`Nodes </server_manage_nodes>` | :doc:`Roles </server_manage_roles>` | `Users </server_users.html#chef-manage>`_ | :doc:`manage.rb </config_rb_manage>` | :doc:`chef-manage-ctl </ctl_manage>`
 
 Habitat
 =====================================================
