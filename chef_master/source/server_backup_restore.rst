@@ -185,7 +185,7 @@ chef-server-ctl
 =====================================================
 Use the following commands for managing backups of Chef server data and for restoring those backups.
 
-.. note :: As of Chef Version 12.10 backups created with the ``chef-server-ctl backup`` command cannot be restored.
+.. note :: Starting in Chef server 12.10.0, a bug in the ``backup`` command produced backups that did not include the configuration data in the resulting tarball. This bug is now resolved. We recommend taking a new backup after upgrading to 12.12.0.
 
 backup
 -----------------------------------------------------
