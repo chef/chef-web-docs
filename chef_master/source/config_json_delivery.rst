@@ -52,12 +52,13 @@ The behavior of pipeline phases can be customized using the project's ``config.j
 
    .. tag delivery_config_json_setting_build_cookbook
 
-   The ``build_cookbook`` setting specifies the location of the ``build-cookbook`` used by this project. A ``build-cookbook`` may be fetched from four locations:
+   The ``build_cookbook`` setting specifies the location of the ``build-cookbook`` used by this project. A ``build-cookbook`` may be fetched from five locations:
 
    * A local directory within the project
    * A git repository
    * A Chef Supermarket instance (public or private)
    * A Chef server
+   * A Chef Automate server
 
    .. end_tag
 
@@ -487,17 +488,18 @@ The following examples show how to specify the location of the ``build-cookbook`
 
 .. end_tag
 
-**Multiple locations**
+**A Chef Automate server**
 
-.. tag delivery_config_example_build_cookbook_server
+.. tag delivery_config_example_build_cookbook_automate_server
 
-.. To specify a build-cookbook located on a Chef server:
+.. To specify a build-cookbook located on a Chef Automate server:
 
 .. code-block:: javascript
 
    "build_cookbook": {
       "name": "delivery-truck",
-      "server": "true"
+      "enterprise": "chef",
+      "organization": "chef-cookbooks"
    }
 
 .. end_tag

@@ -61,6 +61,9 @@ This configuration file has the following general settings:
 ``flavor``
    Default value: ``'cs'``.
 
+``from_email``
+   Default value: ``'"Opscode" <donotreply@chef.io>"'``.
+
 ``install_path``
    The directory in which the Chef server is installed. Default value: ``'/opt/opscode'``.
 
@@ -807,6 +810,11 @@ This configuration file has the following settings for ``oc-id``:
 ``oc_id['enable']``
    Enable a service. Default value: ``true``.
 
+``oc_id['email_from_address']``
+   New in Chef server 12.12.
+   
+   Outbound email address. Defaults to the ``'from_email'`` value.
+
 ``oc_id['ha']``
    Run the Chef server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
 
@@ -819,6 +827,11 @@ This configuration file has the following settings for ``oc-id``:
    .. code-block:: ruby
 
       { 'file_maxbytes' => 104857600, 'num_to_keep' => 10 }
+
+``oc_id['origin']``
+   New in Chef server 12.12.
+ 
+   The FQDN for the server that is sending outbound email. Defaults to the ``'api_fqdn'`` value, which is the FQDN for the Chef server.
 
 ``oc_id['num_to_keep']``
    The number of log files to keep. Default value: ``10``.
@@ -1149,6 +1162,11 @@ This configuration file has the following settings for ``opscode-solr4``:
    .. code-block:: ruby
 
       /var/log/opscode/opscode-solr4
+
+``opscode_solr4['log_gc']``
+   New in Chef server 12.12.
+
+   Enable or disable GC logging. Default is ``true``.
 
 ``opscode_solr4['log_rotation']``
    The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value:
