@@ -476,7 +476,7 @@ The command is intended to restore an Automate instance completely from backup, 
 
 **Syntax**
 
-.. code-block:: bash
+.. code-block:: console
 
    $ automate-ctl restore-backup /path/to/chef-automate-backup.zst [ELASTICSEARCH_SNAPSHOT] [options]
    $ automate-ctl restore-backup us-east-1:s3_bucket:chef-automate-backup.zst [ELASTICSEARCH_SNAPSHOT] [options]
