@@ -20,12 +20,12 @@ To get a fully-functional Amazon Machine Image (AMI) for Chef Automate, do the f
 #. Login to the `AWS Marketplace <https://aws.amazon.com/marketplace>`__ using your Amazon Web Services (AWS) account credentials.
 #. Navigate to the Chef Automate `product page <https://aws.amazon.com/marketplace/pp/B01AMIH01Q>`__ and accept the software terms.
 #. Navigate to the `IAM Role section in the AWS console <https://console.aws.amazon.com/iam/home#roles>`__.
-#. Create a new role for your marketplace instance with the 'Amazon Ec2' service type and attach the 'AWSMarketplaceFullAccess' policy.
+#. Create a new role for your marketplace instance with the 'Amazon EC2' service type and attach the 'AWSMarketplaceFullAccess' policy.
 
    .. note:: If you wish to use Chef Automate's built-in S3 backup support you'll also want to create an S3 bucket policy and attach it to your role. See the `S3 Backups section <delivery_server_backup.html#s3-backups>`__ for an example policy.
 
 #. Navigate back to the Chef Automate `product page <https://aws.amazon.com/marketplace/pp/B01AMIH01Q>`__ and continue to the launch wizard.
-#. Click the 'Launch with Ec2 Console' button next to the desired region.
+#. Click the 'Launch with EC2 Console' button next to the desired region.
 #. Configure the Amazon EC2 instance type, Amazon Virtual Private Cloud (VPC) settings, SSH key pair, IAM Role and assign `a public IP address <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses>`__.
 
    .. note:: You must assign the previously created IAM role or another role with full marketplace access.
@@ -46,7 +46,7 @@ After the instance has been provisioned and initial configuration has completed 
 
    .. note:: .. tag notes_chef_aws_ssl
 
-             In order to use TLS/SSL for the Web UI and API the Amazon Machine Images (AMI) will automatically create and use a self-signed certificate. Modern web browsers typically warn about self-signed certificates during login. In this situation, ignore the warning and accept the certificate.
+             In order to use TLS/SSL for the Web UI and API, the Amazon Machine Images (AMI) will automatically create and use a self-signed certificate. Modern web browsers typically warn about self-signed certificates during login; however, in this case, you can ignore the warning and accept the certificate.
 
              .. end_tag
 
@@ -58,7 +58,7 @@ Configure the workstation
 -----------------------------------------------------
 #. .. tag install_aws_chef_automate_starter_kit
 
-   Extract the ``starter_kit.zip`` file to a directory on the workstation. Open a command prompt and change into the ``chef-repo`` directory extracted from the starter kit. For example:
+   Download and extract the ``starter_kit.zip`` file to a directory on the workstation. Open a command prompt and change into the ``chef-repo`` directory extracted from the starter kit. For example:
 
    .. code-block:: bash
 
@@ -170,7 +170,7 @@ To edit the Amazon Machine Images (AMI) instance size, do the following:
 
    .. note:: .. tag notes_chef_aws_ssl
 
-             In order to use TLS/SSL for the Web UI and API the Amazon Machine Images (AMI) will automatically create and use a self-signed certificate. Modern web browsers typically warn about self-signed certificates during login. In this situation, ignore the warning and accept the certificate.
+             In order to use TLS/SSL for the Web UI and API, the Amazon Machine Images (AMI) will automatically create and use a self-signed certificate. Modern web browsers typically warn about self-signed certificates during login; however, in this case, you can ignore the warning and accept the certificate.
 
              .. end_tag
 
@@ -276,7 +276,7 @@ To upgrade, do one of the following:
 
 Migrate to Chef Automate on AWS
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The process of migrating from an existing Chef server installation to the Amazon Machine Images (AMI) differs depending on which software version being used and the location in which it is deployed. In all scenarios, data is first migrated to the latest Chef server schema, after which it is migrated to the Amazon Machine Images (AMI).
+The process of migrating from an existing Chef server installation to the Amazon Machine Images (AMI) differs depending on which software version is being used and the location in which it is deployed. In all scenarios, data is first migrated to the latest Chef server schema, after which it is migrated to the Amazon Machine Images (AMI).
 
 * Verify that the latest version of the Chef server is installed by using the platform package manager: ``rpm -qa | grep chef-server-core`` and compare the result to the latest version available on the `downloads site <https://downloads.chef.io/>`__. If this is not the latest version, download the package, and then `upgrade </upgrade_server.html#from-chef-server-12>`_ to the latest version.
 * Upgrade an Enterprise Chef node to the latest version of the Chef server by following the `enterprise upgrade instructions </upgrade_server.html#from-chef-server-oec>`_.
@@ -532,8 +532,8 @@ Migrate to AWS
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 To migrate an existing Chef Compliance installation to the Amazon Machine Images (AMI), do the following:
 
-#. `Launch <https://docs.chef.io/aws_marketplace.html#chef-compliance-ami>`__ the latest Chef Compliance Amazon Machine Images (AMI).
-#. Verify that the latest version of the Chef Compliance is installed by using the platform package manager: ``rpm -qa | grep chef-compliance`` and compare the result to the latest version available on the `downloads site <https://downloads.chef.io/>`__. If this is not the latest you can download and install the latest package from the downloads site or add the `chef repo <https://docs.chef.io/packages.html#package-repositories>`__ to your package manager. Follow the `upgrade instructions <https://docs.chef.io/upgrade_compliance.html>`__ for Chef Compliance to complete the upgrade.
+#. `Launch </aws_marketplace.html#chef-compliance-ami>`__ the latest Chef Compliance Amazon Machine Images (AMI).
+#. Verify that the latest version of the Chef Compliance is installed by using the platform package manager: ``rpm -qa | grep chef-compliance`` and compare the result to the latest version available on the `downloads site <https://downloads.chef.io/>`__. If this is not the latest you can download and install the latest package from the downloads site or add the `chef repo </packages.html#package-repositories>`__ to your package manager. Follow the `upgrade instructions </upgrade_compliance.html>`__ for Chef Compliance to complete the upgrade.
 
 #. Login using SSH to access the Chef Compliance instance. Use the SSH key pair and the IP address or public hostname that was automatically assigned when the Amazon Machine Images (AMI) was launched. The default user is ``ec2-user``. For example:
 
@@ -562,7 +562,7 @@ Migrate to the latest AMI
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 To migrate from an older Amazon Machine Images (AMI) to the latest Amazon Machine Images (AMI), do the following:
 
-#. `Launch <https://docs.chef.io/aws_marketplace.html#chef-compliance-ami>`__ the latest Chef Compliance Amazon Machine Images (AMI).
+#. `Launch </aws_marketplace.html#chef-compliance-ami>`__ the latest Chef Compliance Amazon Machine Images (AMI).
 
 #. Login using SSH to access the Chef Compliance instance and update the software. Use the SSH key pair and the IP address or public hostname that was automatically assigned when the Amazon Machine Images (AMI) was launched. The default user is ``ec2-user``. For example:
 
@@ -620,7 +620,7 @@ To get a fully-functional Amazon Machine Images (AMI) for Chef server, do the fo
 
 Install the Chef DK
 -----------------------------------------------------
-While the Amazon Machine Images (AMI) for Chef server is being provisioned, download and install the `Chef Developer Kit <https://docs.chef.io/install_dk.html>`__.  The Chef management console has many features and is useful for viewing and creating policy to be applied to nodes, the Chef development kit installs a collection of tools---Kitchen, ChefSpec, chef, chef-vault, Foodcritic, and more---and libraries that are all packaged together, which makes it easier to manage the dependencies these tools may have on each other and the dependencies that Chef has on Ruby.
+While the Amazon Machine Images (AMI) for Chef server is being provisioned, download and install the `Chef Developer Kit </install_dk.html>`__.  The Chef management console has many features and is useful for viewing and creating policy to be applied to nodes, the Chef development kit installs a collection of tools---Kitchen, ChefSpec, chef, chef-vault, Foodcritic, and more---and libraries that are all packaged together, which makes it easier to manage the dependencies these tools may have on each other and the dependencies that Chef has on Ruby.
 
 Configure the Chef Server
 -----------------------------------------------------
@@ -630,7 +630,7 @@ After the instance has been provisioned and initial configuration has completed 
 
    .. note:: .. tag notes_chef_aws_ssl
 
-             In order to use TLS/SSL for the Web UI and API the Amazon Machine Images (AMI) will automatically create and use a self-signed certificate. Modern web browsers typically warn about self-signed certificates during login. In this situation, ignore the warning and accept the certificate.
+             In order to use TLS/SSL for the Web UI and API, the Amazon Machine Images (AMI) will automatically create and use a self-signed certificate. Modern web browsers typically warn about self-signed certificates during login; however, in this case, you can ignore the warning and accept the certificate.
 
              .. end_tag
 
@@ -773,7 +773,7 @@ To edit the Amazon Machine Images (AMI) instance size, do the following:
 
    .. note:: .. tag notes_chef_aws_ssl
 
-             In order to use TLS/SSL for the Web UI and API the Amazon Machine Images (AMI) will automatically create and use a self-signed certificate. Modern web browsers typically warn about self-signed certificates during login. In this situation, ignore the warning and accept the certificate.
+             In order to use TLS/SSL for the Web UI and API, the Amazon Machine Images (AMI) will automatically create and use a self-signed certificate. Modern web browsers typically warn about self-signed certificates during login; however, in this case, you can ignore the warning and accept the certificate.
 
              .. end_tag
 
@@ -858,9 +858,9 @@ Migrate to AWS
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The process of migrating from an existing Chef server installation to the Amazon Machine Images (AMI) differs depending on which software version being used and the location in which it is deployed. In all scenarios, data is first migrated to the latest Chef server schema, after which it is migrated to the Amazon Machine Images (AMI).
 
-* Verify that the latest version of the Chef server is installed by using the platform package manager: ``rpm -qa | grep chef-server-core`` and compare the result to the latest version available on the `downloads site <https://downloads.chef.io/>`__. If this is not the latest version, download the package, and then `upgrade <https://docs.chef.io/upgrade_server.html#from-chef-server-12>`__ to the latest version.
-* Upgrade an Enterprise Chef node to the latest version of the Chef server by following the `upgrade instructions <https://docs.chef.io/upgrade_server.html#from-chef-server-oec>`__.
-* Upgrade an Open Source Chef node to the latest version of the Chef server by following the `upgrade instructions <https://docs.chef.io/upgrade_server.html#from-chef-server-osc>`__.
+* Verify that the latest version of the Chef server is installed by using the platform package manager: ``rpm -qa | grep chef-server-core`` and compare the result to the latest version available on the `downloads site <https://downloads.chef.io/>`__. If this is not the latest version, download the package, and then `upgrade </upgrade_server.html#from-chef-server-12>`__ to the latest version.
+* Upgrade an Enterprise Chef node to the latest version of the Chef server by following the `upgrade instructions </upgrade_server.html#from-chef-server-oec>`__.
+* Upgrade an Open Source Chef node to the latest version of the Chef server by following the `upgrade instructions </upgrade_server.html#from-chef-server-osc>`__.
 
 After verifying that your existing Chef server installation is up to date, do the following to migrate to the Amazon Machine Images (AMI) instance:
 
@@ -948,7 +948,7 @@ Migrate to the latest AMI
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 To migrate from an older Amazon Machine Images (AMI) to the latest Amazon Machine Images (AMI), do the following:
 
-#. `Launch <https://docs.chef.io/aws_marketplace.html#launch-the-ami>`__ the latest Chef server Amazon Machine Images (AMI).
+#. `Launch </aws_marketplace.html#launch-the-ami>`__ the latest Chef server Amazon Machine Images (AMI).
 
 #. Login to the old Amazon Machine Images (AMI) and ensure that it is running the latest version of the Chef server:
 
