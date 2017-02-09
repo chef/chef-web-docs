@@ -9,6 +9,8 @@ Use the **windows_service** resource to manage a service on the Microsoft Window
 
 .. end_tag
 
+*New in Chef client 12.0*
+
 Syntax
 =====================================================
 .. tag resource_service_windows_syntax
@@ -266,4 +268,3 @@ The following examples demonstrate various approaches for using resources in rec
    end
 
 .. end_tag
-

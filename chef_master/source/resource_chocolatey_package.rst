@@ -9,6 +9,8 @@ Use the **chocolatey_package** resource to manage packages using Chocolatey for 
 
 .. end_tag
 
+*New in Chef Client 12.7.*
+
 .. warning:: .. tag notes_resource_chocolatey_package
 
              The **chocolatey_package** resource must be specified as ``chocolatey_package`` and cannot be shortened to ``package`` in a recipe.
@@ -48,7 +50,7 @@ where
 
 * ``chocolatey_package`` tells the chef-client to manage a package
 * ``'name'`` is the name of the package
-* ``returns`` specifies the exit code(s) returned by chocolatey package that indicate success. Default is 0. 
+* ``returns`` specifies the exit code(s) returned by chocolatey package that indicate success. Default is 0.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state
 * ``options``, ``package_name``, ``provider``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
@@ -265,4 +267,3 @@ The following examples demonstrate various approaches for using resources in rec
    end
 
 .. end_tag
-

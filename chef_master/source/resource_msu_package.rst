@@ -5,7 +5,7 @@ msu_package
 
 Use the **msu_package** resource to install Microsoft Update(MSU) packages on Microsoft Windows machines.
 
-New in Chef client 12.17.
+*New in Chef client 12.17.*
 
 Syntax
 ==========================================
@@ -18,7 +18,7 @@ A **msu_package** resource installs or removes Microsoft Update packages.
      action                     Symbol
    end
 
-where 
+where
 
 * ``msu_package`` is the resource
 * ``'name'`` is the name of the resource block
@@ -31,7 +31,7 @@ The full syntax for all of the properties that are available to the **msu_packag
    msu_package 'name' do
       source                    String
       checksum                  String
-      action                    Symbol 
+      action                    Symbol
    end
 
 Actions
@@ -47,7 +47,7 @@ This resource has the following actions:
 Properties
 =====================================================
 This resource has the following properties:
-   
+
 source
    **Ruby Type:** String
 
@@ -89,7 +89,7 @@ Examples
 
 **Using local path in source**
 
-.. code-block:: ruby 
+.. code-block:: ruby
 
    msu_package 'Install Windows 2012R2 Update KB2959977' do
      source 'C:\Users\xyz\AppData\Local\Temp\Windows8.1-KB2959977-x64.msu'
