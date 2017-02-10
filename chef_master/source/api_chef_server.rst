@@ -590,6 +590,28 @@ This method has no parameters.
 
    POST /users
 
+with a request body similar to:
+
+.. code-block:: javascript
+
+   {
+     "name": "robert-forster",
+     "display_name": "robert",
+     "email": "robert@noreply.com",
+     "first_name": "robert",
+     "last_name": "robert",
+     "middle_name": "",
+     "password": "yeahpass",
+     "public_key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoYyN0AIhUh7Fw1+gQtR+ \n0/HY3625IUlVheoUeUz3WnsTrUGSSS4fHvxUiCJlNni1sQvcJ0xC9Bw3iMz7YVFO\nWz5SeKmajqKEnNywN8/NByZhhlLdBxBX/UN04/7aHZMoZxrrjXGLcyjvXN3uxyCO\nyPY989pa68LJ9jXWyyfKjCYdztSFcRuwF7tWgqnlsc8pve/UaWamNOTXQnyrQ6Dp\ndn+1jiNbEJIdxiza7DJMH/9/i/mLIDEFCLRPQ3RqW4T8QrSbkyzPO/iwaHl9U196\n06Ajv1RNnfyHnBXIM+I5mxJRyJCyDFo/MACc5AgO6M0a7sJ/sdX+WccgcHEVbPAl\n1wIDAQAB \n-----END PUBLIC KEY-----\n\n"
+   }
+
+
+where:
+
+* ``name`` must begin with a lower-case letter or digit, may only contain lower-case letters, digits, hyphens, and underscores. For example: ``chef``.
+* ``email``, ``name``, and ``password`` are all required to be present and have a value.
+* During the POST, the ``public_key`` value will be broken out and resubmitted to the keys portion of the API in the latest Chef Server versions.
+
 **Response**
 
 The response is similar to:
