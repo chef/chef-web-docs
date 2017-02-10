@@ -64,7 +64,9 @@ The full syntax for all of the properties that are available to the **execute** 
      subscribes                 # see description
      timeout                    Integer, Float
      umask                      String, Integer
-     user                       String, Integer
+     user                       String
+     password                   String
+     domain                     String
      action                     Symbol # defaults to :run if not specified
    end
 
@@ -74,7 +76,7 @@ where
 * ``name`` is the name of the resource block
 * ``command`` is the command to be run
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``command``, ``creates``, ``cwd``, ``environment``, ``group``, ``live_stream``, ``path``, ``provider``, ``returns``, ``sensitive``, ``timeout``, ``user``, and ``umask`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``command``, ``creates``, ``cwd``, ``environment``, ``group``, ``live_stream``, ``path``, ``provider``, ``returns``, ``sensitive``, ``timeout``, ``user``, ``password``, ``domain`` and ``umask`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -245,9 +247,21 @@ This resource has the following properties:
    The amount of time (in seconds) a command is to wait before timing out. Default value: ``3600``.
 
 ``user``
-   **Ruby Types:** String, Integer
+   **Ruby Types:** String
 
-   The user name or user ID that should be changed before running a command.
+   The user name of the user identity with which to launch the new process. Default value: `nil`. The user name may optionally be specifed with a domain, i.e. `domain\user` or `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can also be specified without a domain simply as user if the domain is instead specified using the `domain` attribute. On Windows only, if this property is specified, the `password` property must be specified.
+
+``password``
+   **Ruby Types:** String
+
+   *Windows only*: The password of the user specified by the `user` property.
+   Default value: `nil`. This property is mandatory if `user` is specified on Windows and may only be specified if `user` is specified. The `sensitive` property for this resource will automatically be set to true if password is specified.
+
+``domain``
+   **Ruby Types:** String
+
+   *Windows only*: The domain of the user user specified by the `user` property.
+   Default value: `nil`. If not specified, the user name and password specified by the `user` and `password` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the `user` property.
 
 ``umask``
    **Ruby Types:** String, Integer
@@ -844,3 +858,53 @@ The following example shows how to run ``bundle install`` from a chef-client run
 
 .. end_tag
 
+**Run a command as an alternate user**
+
+.. tag resource_execute_alternate_user
+
+*Note*: When Chef is running as a service, this feature requires that the user that Chef runs as has 'SeAssignPrimaryTokenPrivilege' (aka 'SE_ASSIGNPRIMARYTOKEN_NAME') user right. By default only LocalSystem and NetworkService have this right when running as a service. This is necessary even if the user is an Administrator.
+
+This right can be added and checked in a recipe using this example:
+
+.. code-block:: ruby
+
+    # Add 'SeAssignPrimaryTokenPrivilege' for the user
+    Chef::ReservedNames::Win32::Security.add_account_right('<user>', 'SeAssignPrimaryTokenPrivilege')
+
+    # Check if the user has 'SeAssignPrimaryTokenPrivilege' rights
+    Chef::ReservedNames::Win32::Security.get_account_right('<user>').include?('SeAssignPrimaryTokenPrivilege')
+
+The following example shows how to run ``mkdir test_dir`` from a chef-client run as an alternate user.
+
+.. code-block:: ruby
+
+   # Passing only username and password
+   execute 'mkdir test_dir' do
+    cwd Chef::Config[:file_cache_path]
+    user "username"
+    password "password"
+   end
+
+   # Passing username and domain
+   execute 'mkdir test_dir' do
+    cwd Chef::Config[:file_cache_path]
+    domain "domain-name"
+    user "user"
+    password "password"
+   end
+
+   # Passing username = 'domain-name\\username'. No domain is passed
+   execute 'mkdir test_dir' do
+    cwd Chef::Config[:file_cache_path]
+    user "domain-name\\username"
+    password "password"
+   end
+
+   # Passing username = 'username@domain-name'. No domain is passed
+   execute 'mkdir test_dir' do
+    cwd Chef::Config[:file_cache_path]
+    user "username@domain-name"
+    password "password"
+   end
+
+.. end_tag
