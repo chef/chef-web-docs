@@ -2369,7 +2369,9 @@ The full syntax for all of the properties that are available to the **batch** re
      returns                    Integer, Array
      subscribes                 # see description
      timeout                    Integer, Float
-     user                       String, Integer
+     user                       String
+     password                   String
+     domain                     String
      action                     Symbol # defaults to :run if not specified
    end
 
@@ -2379,7 +2381,7 @@ where
 * ``name`` is the name of the resource block
 * ``command`` is the command to be run and ``cwd`` is the location from which the command is run
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``architecture``, ``code``, ``command``, ``creates``, ``cwd``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``provider``, ``returns``, ``timeout``, and ``user`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``architecture``, ``code``, ``command``, ``creates``, ``cwd``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``provider``, ``returns``, ``timeout``, `user``, `password`` and `domain`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -2551,9 +2553,21 @@ This resource has the following properties:
    The amount of time (in seconds) a command is to wait before timing out. Default value: ``3600``.
 
 ``user``
-   **Ruby Types:** String, Integer
+   **Ruby Types:** String
 
-   A user name or identifier that must be changed before running a command.
+   The user name of the user identity with which to launch the new process. Default value: `nil`. The user name may optionally be specifed with a domain, i.e. `domain\user` or `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can also be specified without a domain simply as user if the domain is instead specified using the `domain` attribute. On Windows only, if this property is specified, the `password` property must be specified.
+
+``password``
+   **Ruby Types:** String
+
+   *Windows only*: The password of the user specified by the `user` property.
+   Default value: `nil`. This property is mandatory if `user` is specified on Windows and may only be specified if `user` is specified. The `sensitive` property for this resource will automatically be set to true if password is specified.
+
+``domain``
+   **Ruby Types:** String
+
+   *Windows only*: The domain of the user user specified by the `user` property.
+   Default value: `nil`. If not specified, the user name and password specified by the `user` and `password` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the `user` property.
 
 .. note:: See http://technet.microsoft.com/en-us/library/bb490880.aspx for more information about the cmd.exe interpreter.
 
@@ -3685,6 +3699,9 @@ The full syntax for all of the properties that are available to the **powershell
      returns                    Integer, Array
      subscribes                 # see description
      timeout                    Integer, Float
+     user                       String
+     password                   String
+     domain                     String
      action                     Symbol # defaults to :run if not specified
    end
 
@@ -3694,7 +3711,7 @@ where
 * ``name`` is the name of the resource block
 * ``command`` is the command to be run and ``cwd`` is the location from which the command is run
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``architecture``, ``code``, ``command``, ``convert_boolean_return``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``provider``, ``returns``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``architecture``, ``code``, ``command``, ``convert_boolean_return``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``provider``, ``returns``,``timeout``, ``user``, ``password`` and ``domain`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -3889,6 +3906,23 @@ This resource has the following properties:
    **Ruby Types:** Integer, Float
 
    Inherited from **execute** resource. The amount of time (in seconds) a command is to wait before timing out. Default value: ``3600``.
+
+``user``
+   **Ruby Types:** String
+
+   The user name of the user identity with which to launch the new process. Default value: `nil`. The user name may optionally be specifed with a domain, i.e. `domain\user` or `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can also be specified without a domain simply as user if the domain is instead specified using the `domain` attribute. On Windows only, if this property is specified, the `password` property must be specified.
+
+``password``
+   **Ruby Types:** String
+
+   *Windows only*: The password of the user specified by the `user` property.
+   Default value: `nil`. This property is mandatory if `user` is specified on Windows and may only be specified if `user` is specified. The `sensitive` property for this resource will automatically be set to true if password is specified.
+
+``domain``
+   **Ruby Types:** String
+
+   *Windows only*: The domain of the user user specified by the `user` property.
+   Default value: `nil`. If not specified, the user name and password specified by the `user` and `password` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the `user` property.
 
 .. end_tag
 

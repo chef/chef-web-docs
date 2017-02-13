@@ -534,53 +534,41 @@ This right can be added and checked in a recipe using this example:
     # Check if the user has 'SeAssignPrimaryTokenPrivilege' rights
     Chef::ReservedNames::Win32::Security.get_account_right('<user>').include?('SeAssignPrimaryTokenPrivilege')
 
-The following example shows how to create a file from a chef-client run as an alternate user.
+The following example shows how to run ``mkdir test_dir`` from a chef-client run as an alternate user.
 
 .. code-block:: ruby
 
    # Passing only username and password
-   powershell_script 'create powershell-test file' do
-    code <<-EOH
-    $stream = [System.IO.StreamWriter] "#{Chef::Config[:file_cache_path]}/powershell-test.txt"
-    $stream.WriteLine("In #{Chef::Config[:file_cache_path]}...word.")
-    $stream.close()
-    EOH
-    user 'username'
-    password 'password'
+   batch 'mkdir test_dir' do
+    code "mkdir test_dir"
+    cwd Chef::Config[:file_cache_path]
+    user "username"
+    password "password"
    end
 
    # Passing username and domain
-   powershell_script 'create powershell-test file' do
-    code <<-EOH
-    $stream = [System.IO.StreamWriter] "#{Chef::Config[:file_cache_path]}/powershell-test.txt"
-    $stream.WriteLine("In #{Chef::Config[:file_cache_path]}...word.")
-    $stream.close()
-    EOH
-    domain 'domain'
-    user 'username'
-    password 'password'
+   batch 'mkdir test_dir' do
+    code "mkdir test_dir"
+    cwd Chef::Config[:file_cache_path]
+    domain "domain"
+    user "username"
+    password "password"
    end
 
    # Passing username = 'domain-name\\username'. No domain is passed
-   powershell_script 'create powershell-test file' do
-    code <<-EOH
-    $stream = [System.IO.StreamWriter] "#{Chef::Config[:file_cache_path]}/powershell-test.txt"
-    $stream.WriteLine("In #{Chef::Config[:file_cache_path]}...word.")
-    $stream.close()
-    EOH
-    user 'domain-name\\username'
-    password 'password'
+   batch 'mkdir test_dir' do
+    code "mkdir test_dir"
+    cwd Chef::Config[:file_cache_path]
+    user "domain-name\\username"
+    password "password"
    end
 
    # Passing username = 'username@domain-name'. No domain is passed
-   powershell_script 'create powershell-test file' do
-    code <<-EOH
-    $stream = [System.IO.StreamWriter] "#{Chef::Config[:file_cache_path]}/powershell-test.txt"
-    $stream.WriteLine("In #{Chef::Config[:file_cache_path]}...word.")
-    $stream.close()
-    EOH
-    user 'username@domain-name'
-    password 'password'
+   batch 'mkdir test_dir' do
+    code "mkdir test_dir"
+    cwd Chef::Config[:file_cache_path]
+    user "username@domain-name"
+    password "password"
    end
 
 .. end_tag
