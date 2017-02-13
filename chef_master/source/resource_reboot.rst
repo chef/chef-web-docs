@@ -9,6 +9,8 @@ Use the **reboot** resource to reboot a node, a necessary step with some install
 
 .. end_tag
 
+*New in Chef client 12.0*
+
 Syntax
 =====================================================
 .. tag resource_service_reboot_syntax
@@ -221,4 +223,3 @@ where:
 * The ``notifies`` statement tells the **reboot** resource block to run if the **powershell_script** block was executed during the chef-client run
 
 .. end_tag
-

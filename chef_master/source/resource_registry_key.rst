@@ -721,4 +721,3 @@ or a single-quoted string:
 where ``:name => ''`` contains an empty string, which will set the name of the registry key to ``(Default)``.
 
 .. end_tag
-

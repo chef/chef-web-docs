@@ -9,6 +9,8 @@ Use the **breakpoint** resource to add breakpoints to recipes. Run the chef-shel
 
 .. end_tag
 
+*New in Chef Client 12.0.*
+
 Syntax
 =====================================================
 .. tag resource_breakpoint_syntax
@@ -622,4 +624,3 @@ The following examples demonstrate various approaches for using resources in rec
 where the name of each breakpoint is an arbitrary string. In the previous examples, the names are used to indicate if the breakpoint is before or after a resource, and then also to specify which resource.
 
 .. end_tag
-
