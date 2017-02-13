@@ -816,6 +816,7 @@ What's New in 12.9
 =====================================================
 The following items are new for chef-client 12.9 and/or are changes from previous versions. The short version:
 
+* **New apt_repository resource**
 * **64-bit chef-client for Microsoft Windows** Starting with chef-client 12.9, 64-bit
 * **New property for the mdadm resource** Use the ``mdadm_defaults`` property to set the default values for ``chunk`` and ``metadata`` to ``nil``, which allows mdadm to apply its own default values.
 * **File redirection in Windows for 32-bit applications** Files on Microsoft Windows that are managed by the **file** and **directory** resources are subject to file redirection, depending if the chef-client is 64-bit or 32-bit.
@@ -823,6 +824,11 @@ The following items are new for chef-client 12.9 and/or are changes from previou
 * **New values for log_location** Use ``:win_evt`` to write log output to the (Windows Event Logger and ``:syslog`` to write log output to the syslog daemon facility with the originator set as ``chef-client``.
 * **New timeout setting for knife ssh** Set the ``--ssh-timeout`` setting to an integer (in seconds) as part of a ``knife ssh`` command. The ``ssh_timeout`` setting may also be configured (as seconds) in the knife.rb file.
 * **New "seconds to wait before first chef-client run" setting** The ``-daemonized`` option for the chef-client now allows the seconds to wait before starting the chef-client run to be specified. For example, if ``--daemonize 10`` is specified, the chef-client will wait ten seconds.
+
+apt_repository resource
+-----------------------------------------------------
+
+The apt_repository resource, previously available in the apt cookbook, is now included in chef-client. With this change you will no longer need to depend on the apt cookbook to use the apt_repository resource.
 
 64-bit chef-client
 -----------------------------------------------------
@@ -2254,6 +2260,8 @@ ksh
 .. tag resource_script_ksh
 
 Use the **ksh** resource to execute scripts using the Korn shell (ksh) interpreter. This resource may also use any of the actions and properties that are available to the **execute** resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
+
+*New in Chef Client 12.6.*
 
 .. note:: The **ksh** script resource (which is based on the **script** resource) is different from the **ruby_block** resource because Ruby code that is run with this resource is created as a temporary file and executed like other script resources, rather than run inline.
 

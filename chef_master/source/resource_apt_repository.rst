@@ -3,9 +3,9 @@ apt_repository
 ==========================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_apt_repository.rst>`__
 
-Use the **apt_repository** resource to additional APT repositories. Adding a new repository will notify running the ``execute[apt-get-update]`` resource immediately.
+Use the **apt_repository** resource to additional APT repositories. Adding a new repository will update apt package cache immediately.
 
-New in Chef Client 12.9.
+*New in Chef Client 12.9.*
 
 Syntax
 ==========================================
@@ -203,4 +203,3 @@ Examples
    apt_repository 'zenoss' do
      action :remove
    end
-

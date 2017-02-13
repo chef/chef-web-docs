@@ -5,7 +5,7 @@ cab_package
 
 Use the **cab_package** resource to install or remove Microsoft Windows cabinet (.cab) packages.
 
-New in Chef Client 12.15.
+*New in Chef Client 12.15.*
 
 Syntax
 ==========================================
@@ -69,4 +69,3 @@ Examples
      source 'C:\Users\xyz\AppData\Local\Temp\Windows6.1-KB958488-x64.cab'
      action :remove
    end
-

@@ -9,6 +9,8 @@ Use the **apt_update** resource to manage Apt repository updates on Debian and U
 
 .. end_tag
 
+*New in Chef Client 12.7.*
+
 Syntax
 =====================================================
 .. tag resource_apt_update_syntax
@@ -189,4 +191,3 @@ The following examples demonstrate various approaches for using resources in rec
    end
 
 .. end_tag
-
