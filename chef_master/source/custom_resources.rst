@@ -9,6 +9,8 @@ As of Chef client version 12.5, "resource attributes" are now known as "resource
 
 As of Chef client 12.14, individual properties can be marked as `sensitive: true`, which suppresses the value of that property when exporting the resource's state.
 
+As of 12.14, individual properties can be marked as `sensitive: true`, which suppresses the value of that property when exporting the resource's state.
+
 .. tag custom_resources_summary
 
 A custom resource:

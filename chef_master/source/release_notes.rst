@@ -712,6 +712,8 @@ is equivalent to:
      action :delete
    end
 
+New in Chef client 12.10.
+
 .. end_tag
 
 delete_resource
@@ -737,6 +739,8 @@ For example:
 
    delete_resource(:template, '/x/y.erb')
 
+New in Chef client 12.10.
+
 .. end_tag
 
 delete_resource!
@@ -749,7 +753,7 @@ The syntax for the ``delete_resource!`` method is as follows:
 
 .. code-block:: ruby
 
-   delete_resource!(:resource_type, 'resource_name')
+delete_resource!(:resource_type, 'resource_name')
 
 where:
 
@@ -761,6 +765,8 @@ For example:
 .. code-block:: ruby
 
    delete_resource!(:file, '/x/file.txt')
+
+New in Chef client 12.10.
 
 .. end_tag
 
@@ -804,6 +810,8 @@ and a resource block:
      notifies :run, 'execute[newaliases]'
    end
 
+New in Chef client 12.10.
+
 .. end_tag
 
 edit_resource!
@@ -834,6 +842,8 @@ For example:
 .. code-block:: ruby
 
    edit_resource!(:file, '/x/y.rst')
+
+New in Chef client 12.10.
 
 .. end_tag
 
@@ -874,6 +884,8 @@ and a resource block:
      notifies :run, 'execute[newseapower]'
    end
 
+New in Chef client 12.10.
+
 .. end_tag
 
 find_resource!
@@ -898,6 +910,8 @@ For example:
 .. code-block:: ruby
 
    find_resource!(:template, '/x/y.erb')
+
+New in Chef client 12.10.
 
 .. end_tag
 
@@ -991,6 +1005,8 @@ Notes about FIPS:
 * Should only be enabled for environments that require FIPS 140-2 compliance
 * May not be enabled for any version of the chef-client earlier than 12.8
 
+New in Chef client 12.8, support for OpenSSL validation of FIPS.
+
 .. end_tag
 
 Enable FIPS Mode
@@ -1060,6 +1076,8 @@ The ``old_settings.rb.bak`` file is ignored because it's not a configuration fil
 
 .. note:: If multiple configuration files exists in a ``.d`` directory, ensure that the same setting has the same value in all files.
 
+New in Chef client 12.8.
+
 .. end_tag
 
 launchd
@@ -1067,6 +1085,8 @@ launchd
 .. tag resource_launchd_summary
 
 Use the **launchd** resource to manage system-wide services (daemons) and per-user services (agents) on the Mac OS X platform.
+
+*New in Chef Client 12.8.*
 
 .. end_tag
 
@@ -1602,6 +1622,8 @@ Specifies a gem dependency to be installed via the **chef_gem** resource after a
    gem "poise"
    gem "chef-sugar"
    gem "chef-provisioning"
+
+New in Chef client 12.8.
 
 .. end_tag
 

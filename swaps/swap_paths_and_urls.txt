@@ -37,7 +37,7 @@
 .. |url docs_repo_qr| replace:: https://github.com/chef/quick-reference
 .. |url exit codes| raw:: html
 
-    <a href="https://github.com/chef/chef-rfc/blob/master/rfc062-exit-status.#exit-codes-in-use" target="_blank">stardardized exit codes</a>
+    <a href="https://github.com/chef/chef-rfc/blob/master/rfc062-exit-status.md#exit-codes-in-use" target="_blank">stardardized exit codes</a>
 
 .. |url get_chef| replace:: https://www.chef.io/chef/choose-your-version/
 .. |url msdn_registry_key| replace:: http://msdn.microsoft.com/en-us/library/windows/desktop/aa384235(v=vs.85).aspx

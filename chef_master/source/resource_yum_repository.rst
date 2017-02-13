@@ -167,7 +167,7 @@ fastestmirror_enabled
 gpgcheck
    **Ruby Type:** TrueClass, FalseClass
 
-   Specifies whether or not Yum should perform a GPG signature check on the packages received from a repository. Default is ``true`` in Chef client 12.15.
+   Specifies whether or not Yum should perform a GPG signature check on the packages received from a repository. As of Chef client 12.15, the default is set to ``true``.
 
 gpgkey
    **Ruby Type:** String, Array

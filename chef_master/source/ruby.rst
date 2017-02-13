@@ -17,6 +17,8 @@ Ruby is also a powerful and complete programming language:
 
 .. end_tag
 
+As of Chef client 12.14, Ruby 2.3.1 is recommended; Chef client 12.13 recommended Ruby 2.1.9.
+
 Ruby Basics
 =====================================================
 This section covers the basics of Ruby.

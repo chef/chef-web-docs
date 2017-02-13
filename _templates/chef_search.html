@@ -4,7 +4,8 @@
 
 {% set title = _('Search') %}
 
-{% block extrahead %}
+{% block extra
+    %}
 {{ super() }}
 <!-- Put the following javascript before the closing </head> tag. -->
 <script>
@@ -19,7 +20,7 @@
    s.parentNode.insertBefore(gcse, s);
  })();
 
-  setTimeout( function(){ 
+  setTimeout( function(){
     $(".gsc-input").attr("placeholder", "Search");
     $("input.gsc-search-button").attr("src", "");
   }

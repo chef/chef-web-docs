@@ -7,6 +7,8 @@ Authentication, Authorization
 
 All communication with the Chef server must be authenticated using the Chef server API, which is a REST API that allows requests to be made to the Chef server. Only authenticated requests will be authorized. Most of the time, and especially when using knife, the chef-client, or the Chef server web interface, the use of the Chef server API is transparent. In some cases, the use of the Chef server API requires more detail, such as when making the request in Ruby code, with a knife plugin, or when using cURL.
 
+As of Chef client 12.8, Chef uses OpenSSL version 1.0.1.
+
 .. end_tag
 
 Authentication
@@ -758,4 +760,3 @@ where ``ORG_NAME`` is the name of the organization.
 .. end_tag
 
 For more information about the Chef server API endpoints see :doc:`api_chef_server`.
-

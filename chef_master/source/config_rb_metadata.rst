@@ -1,3 +1,44 @@
+.. tag dsl_recipe_method_edit_resource
+
+Use the ``edit_resource`` method to:
+
+* Find a resource in the resource collection, and then edit it.
+* Define a resource block. If a resource block with the same name exists in the resource collection, it will be updated with the contents of the resource block defined by the ``edit_resource`` method. If a resource block does not exist in the resource collection, it will be created.
+
+The syntax for the ``edit_resource`` method is as follows:
+
+.. code-block:: ruby
+
+   edit_resource(:resource_type, 'resource_name', resource_attrs_block)
+
+where:
+
+* ``:resource_type`` is the resource type, such as ``:file ``(for the **file** resource), ``:template`` (for the **template** resource), and so on. Any resource available to Chef may be declared.
+* ``resource_name`` the property that is the default name of the resource, typically the string that appears in the ``resource 'name' do`` block of a resource (but not always); see the Syntax section for the resource to be declared to verify the default name property.
+* ``resource_attrs_block`` is a block in which properties of the instantiated resource are declared.
+
+For example:
+
+.. code-block:: ruby
+
+   edit_resource(:template, '/x/y.txy') do
+     cookbook_name: cookbook_name
+   end
+
+and a resource block:
+
+.. code-block:: ruby
+
+   edit_resource(:template, '/etc/aliases') do
+     source 'aliases.erb'
+     cookbook 'aliases'
+     variables({:aliases => {} })
+     notifies :run, 'execute[newaliases]'
+   end
+
+New in Chef client 12.10.
+
+.. end_tag
 =====================================================
 metadata.rb
 =====================================================
@@ -48,7 +89,7 @@ Many fields in a cookbook's metadata allow the user to constrain versions. There
   * - Less than or equal to
     - ``<=``
 
-.. note:: Pessimistic locking is enabled by proper `semantic versioning <https://semver.org>`__ of cookbooks. If we're on version 2.2.3 of a cookbook, we know that the API will be stable until the 3.0.0 release. Using traditional operators, we'd write this as ``>= 2.2.0, < 3.0``. Instead, we can write this by combining a tilde "~" and right angle bracket ">"--often called a tilde-rocket or "twiddle-wakka"--followed by the major and minor version numbers.  For example: ``~> 2.2`` 
+.. note:: Pessimistic locking is enabled by proper `semantic versioning <https://semver.org>`__ of cookbooks. If we're on version 2.2.3 of a cookbook, we know that the API will be stable until the 3.0.0 release. Using traditional operators, we'd write this as ``>= 2.2.0, < 3.0``. Instead, we can write this by combining a tilde "~" and right angle bracket ">"--often called a tilde-rocket or "twiddle-wakka"--followed by the major and minor version numbers.  For example: ``~> 2.2``
 
 
 Settings
@@ -126,6 +167,8 @@ This configuration file has the following settings:
       gem "poise"
       gem "chef-sugar"
       gem "chef-provisioning"
+
+   New in Chef client 12.8.
 
    .. end_tag
 

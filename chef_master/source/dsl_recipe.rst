@@ -1321,6 +1321,8 @@ is equivalent to:
      action :delete
    end
 
+New in Chef client 12.10.
+
 .. end_tag
 
 delete_resource
@@ -1346,6 +1348,8 @@ For example:
 
    delete_resource(:template, '/x/y.erb')
 
+New in Chef client 12.10.
+
 .. end_tag
 
 delete_resource!
@@ -1358,7 +1362,7 @@ The syntax for the ``delete_resource!`` method is as follows:
 
 .. code-block:: ruby
 
-   delete_resource!(:resource_type, 'resource_name')
+delete_resource!(:resource_type, 'resource_name')
 
 where:
 
@@ -1370,6 +1374,8 @@ For example:
 .. code-block:: ruby
 
    delete_resource!(:file, '/x/file.txt')
+
+New in Chef client 12.10.
 
 .. end_tag
 
@@ -1413,6 +1419,8 @@ and a resource block:
      notifies :run, 'execute[newaliases]'
    end
 
+New in Chef client 12.10.
+
 .. end_tag
 
 edit_resource!
@@ -1443,6 +1451,8 @@ For example:
 .. code-block:: ruby
 
    edit_resource!(:file, '/x/y.rst')
+
+New in Chef client 12.10.
 
 .. end_tag
 
@@ -1483,6 +1493,8 @@ and a resource block:
      notifies :run, 'execute[newseapower]'
    end
 
+New in Chef client 12.10.
+
 .. end_tag
 
 find_resource!
@@ -1507,6 +1519,8 @@ For example:
 .. code-block:: ruby
 
    find_resource!(:template, '/x/y.erb')
+
+New in Chef client 12.10.
 
 .. end_tag
 
@@ -3140,4 +3154,3 @@ The following example installs Windows PowerShell 2.0 on systems that do not alr
 The previous example is from the `ms_dotnet2 cookbook <https://github.com/juliandunn/ms_dotnet2>`_, created by community member ``juliandunn``.
 
 .. end_tag
-

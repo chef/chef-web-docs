@@ -102,6 +102,8 @@ This resource has the following properties:
 
    The RAID5 parity algorithm. Possible values: ``left-asymmetric`` (or ``la``), ``left-symmetric`` (or ``ls``), ``right-asymmetric`` (or ``ra``), or ``right-symmetric`` (or ``rs``).
 
+   New in Chef client 12.10
+
 ``level``
    **Ruby Type:** Integer
 
@@ -111,6 +113,8 @@ This resource has the following properties:
    **Ruby Types:** TrueClass, FalseClass
 
    When ``true`` this property sets the default values for ``chunk`` and ``metadata`` to ``nil`` allowing mdadm to use its own default values. Default value: ``false``.
+
+   New in Chef client 12.9.
 
 ``metadata``
    **Ruby Type:** String
@@ -266,4 +270,3 @@ The mdadm command can be used to create RAID arrays. For example, a RAID 5 array
    end
 
 .. end_tag
-

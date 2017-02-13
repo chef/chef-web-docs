@@ -50,6 +50,13 @@ This command has the following options:
 ``-c CONFIG``, ``--config CONFIG``
    The configuration file to use.
 
+``--config-option OPTION``
+   Overrides a single configuration option.  Can be used to override multiple configuration options by adding another ``--config-option OPTION``.
+
+   .. code-block:: ruby
+
+      property :db_password, String, sensitive: true
+
 ``--chef-zero-host HOST``
    The host on which chef-zero is started.
 
@@ -60,6 +67,8 @@ This command has the following options:
    Run the executable as a daemon. Use ``SECONDS`` to specify the number of seconds to wait before the first daemonized chef-client run. ``SECONDS`` is set to ``0`` by default.
 
    This option is only available on machines that run in UNIX or Linux environments. For machines that are running Microsoft Windows that require similar functionality, use the ``chef-client::service`` recipe in the ``chef-client`` cookbook: https://supermarket.chef.io/cookbooks/chef-client. This will install a chef-client service under Microsoft Windows using the Windows Service Wrapper.
+
+   New in Chef client 12.9.
 
 ``--disable-config``
    Use to run the chef-client using default settings. This will prevent the normally-associated configuration file from being used. This setting should only be used for testing purposes and should never be used in a production setting.
@@ -324,6 +333,8 @@ About chef-zero
 -----------------------------------------------------
 chef-zero is a very lightweight Chef server that runs in-memory on the local machine. This allows the chef-client to be run against the chef-repo as if it were running against the Chef server. chef-zero was `originally a standalone tool <https://github.com/chef/chef-zero>`_; it is enabled from within the chef-client by using the ``--local-mode`` option. chef-zero is very useful for quickly testing and validating the behavior of the chef-client, cookbooks, recipes, and run-lists before uploading that data to the actual Chef server.
 
+As of Chef client 12.8, chef-zero supports all Chef server API version 12 endpoints, except ``/universe``.
+
 Use Encrypted Data Bags
 -----------------------------------------------------
 .. tag data_bag
@@ -381,6 +392,8 @@ Notes about FIPS:
 * May be enabled for nodes running on Microsoft Windows and Enterprise Linux platforms
 * Should only be enabled for environments that require FIPS 140-2 compliance
 * May not be enabled for any version of the chef-client earlier than 12.8
+
+New in Chef client 12.8, support for OpenSSL validation of FIPS.
 
 .. end_tag
 
