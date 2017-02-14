@@ -711,12 +711,6 @@ This configuration file has the following settings for ``nginx``:
 ``nginx['server_name']``
    The FQDN for the server. Default value: ``node['delivery']['fqdn']``.
 
-``nginx['ssl_certificate']``
-   The SSL certificate used to verify communication over HTTPS. Default value: created automatically during setup.
-
-``nginx['ssl_certificate_key']``
-   The certificate key used for SSL communication. Default value: created automatically during setup.
-
 ``nginx['ssl_ciphers']``
    The list of supported cipher suites that are used to establish a secure connection. To favor AES256 with ECDHE forward security, drop the ``RC4-SHA:RC4-MD5:RC4:RSA`` prefix. See `this link <https://wiki.mozilla.org/Security/Server_Side_TLS>`__ for more information. Default value:
 
