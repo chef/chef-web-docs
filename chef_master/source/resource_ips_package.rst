@@ -235,4 +235,3 @@ The following examples demonstrate various approaches for using resources in rec
    end
 
 .. end_tag
-

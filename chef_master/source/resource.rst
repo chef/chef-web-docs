@@ -552,4 +552,3 @@ The following resources are platform resources (i.e. "are available from the che
        .. end_tag
 
 In addition, the :doc:`chef_handler </resource_chef_handler>` resource is configured and run using the **chef_handler** cookbook, which is the location in which custom handlers are defined and maintained. Despite being defined in a cookbook (and as a "lightweight resource"), the **chef_handler** resource should otherwise be considered a "platform resource".
-

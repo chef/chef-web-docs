@@ -46,7 +46,7 @@ where:
 
 Platforms
 -----------------------------------------------------
-The following table lists the Foundational platforms for the chef-client:
+Omnitruck accepts the following platforms:
 
 .. list-table::
    :widths: 280 60 60 100
@@ -107,7 +107,7 @@ The following table lists the Foundational platforms for the chef-client:
    * - Ubuntu
      - ``ubuntu``
      - ``x86_64``
-     - ``10.04``, ``10.10``, ``11.04``, ``11.10``, ``12.04``, ``12.10``, ``13.04``, ``13.10``, ``14.04``,``14.10`, ``16.04``, ``16.10``
+     - ``10.04``, ``10.10``, ``11.04``, ``11.10``, ``12.04``, ``12.10``, ``13.04``, ``13.10``, ``14.04``,``14.10``, ``16.04``, ``16.10``
    * -
      -
      - ``i386``
