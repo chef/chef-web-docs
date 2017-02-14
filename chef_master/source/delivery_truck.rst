@@ -399,12 +399,6 @@ This example shows how to use project applications to deploy a package into a ``
 
    When the publish phase is run, an application is created, versioned by timestamp, and including all of the information needed to install that version of the application. The provisioning code in ``delivery-truck`` will automatically pin based on this version.
 
-#. Configure the ``build-cookbook`` to know about the application. Add the following to ``.delivery/build-cookbook/attributes/default.rb``:
-
-   .. code-block:: ruby
-
-      default['delivery']['project_apps'] = ["<APPLICATION_NAME>"]
-
 #. Configure the ``build-cookbook`` to know how to install the application. Add the following to ``.delivery/build-cookbook/deploy.rb``:
 
    .. code-block:: ruby
