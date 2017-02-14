@@ -68,7 +68,12 @@ This command has the following options:
 
    This option is only available on machines that run in UNIX or Linux environments. For machines that are running Microsoft Windows that require similar functionality, use the ``chef-client::service`` recipe in the ``chef-client`` cookbook: https://supermarket.chef.io/cookbooks/chef-client. This will install a chef-client service under Microsoft Windows using the Windows Service Wrapper.
 
-   New in Chef client 12.9.
+   *New in Chef client 12.9.*
+
+``--delete-entire-chef-repo``
+   This option deletes an entire repository.  This option may only be used when running the chef-client in local mode (``--local-mode``).  This option requires ``--recipe-url` to be specified.
+
+   *New in Chef client 12.7*
 
 ``--disable-config``
    Use to run the chef-client using default settings. This will prevent the normally-associated configuration file from being used. This setting should only be used for testing purposes and should never be used in a production setting.
@@ -274,10 +279,12 @@ This command has the following options:
 
    Use the ``--profile-ruby`` option to dump a (large) profiling graph into ``/var/chef/cache/graph_profile.out``. Use the graph output to help identify, and then resolve performance bottlenecks in a chef-client run. This option:
 
-   * Generates a large amount of data about the chef-client run
-   * Has a dependency on the ``ruby-prof`` gem, which is packaged as part of Chef and the Chef development kit
-   * Increases the amount of time required to complete the chef-client run
-   * Should not be used in a production environment
+   * Generates a large amount of data about the chef-client run.
+   * Has a dependency on the ``ruby-prof`` gem, which is packaged as part of Chef and the Chef development kit.
+   * Increases the amount of time required to complete the chef-client run.
+   * Should not be used in a production environment.
+
+   New in Chef client 12.6.
 
    .. end_tag
 
@@ -393,7 +400,7 @@ Notes about FIPS:
 * Should only be enabled for environments that require FIPS 140-2 compliance
 * May not be enabled for any version of the chef-client earlier than 12.8
 
-New in Chef client 12.8, support for OpenSSL validation of FIPS.
+*New in Chef client 12.8, support for OpenSSL validation of FIPS.*
 
 .. end_tag
 

@@ -82,10 +82,10 @@ Every cookbook requires a small amount of metadata. A file named metadata.rb is 
 
 A metadata.rb file is:
 
-* Located at the top level of a cookbook's directory structure
-* Compiled whenever a cookbook is uploaded to the Chef server or when the ``knife cookbook metadata`` subcommand is run, and then stored as JSON data
-* Created automatically by knife whenever the ``knife cookbook create`` subcommand is run
-* Edited using a text editor, and then re-uploaded to the Chef server as part of a cookbook upload
+* Located at the top level of a cookbook's directory structure.
+* Compiled whenever a cookbook is uploaded to the Chef server or when the ``knife cookbook metadata`` subcommand is run, and then stored as JSON data.
+* Created automatically by knife whenever the ``knife cookbook create`` subcommand is run.
+* Edited using a text editor, and then re-uploaded to the Chef server as part of a cookbook upload.
 
 .. end_tag
 
@@ -129,6 +129,8 @@ This configuration file has the following settings:
    .. end_tag
 
    .. note:: This setting is not visible in Chef Supermarket.
+
+   New in Chef client 12.6.
 
 ``depends``
    This field requires that a cookbook with a matching name and version exists on the Chef server. When the match exists, the Chef server includes the dependency as part of the set of cookbooks that are sent to the node when the chef-client runs. It is very important that the ``depends`` field contain accurate data. If a dependency statement is inaccurate, the chef-client may not be able to complete the configuration of the system. All :ref:`version constraint operators <cookbook_version_constraints>` are applicable to this field.
@@ -287,6 +289,8 @@ This configuration file has the following settings:
    .. end_tag
 
    .. note:: This setting is not visible in Chef Supermarket.
+
+   New in Chef client 12.6.
 
 ``privacy``
    Specify that a cookbook is private.

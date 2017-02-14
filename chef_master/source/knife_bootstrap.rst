@@ -135,6 +135,8 @@ This subcommand has the following options:
 ``-i IDENTITY_FILE``, ``--ssh-identity-file IDENTITY_FILE``
    The SSH identity file used for authentication. Key-based authentication is recommended.
 
+   New in Chef client 12.6.
+
 ``-j JSON_ATTRIBS``, ``--json-attributes JSON_ATTRIBS``
    A JSON string that is added to the first run of a chef-client.
 
@@ -187,6 +189,8 @@ This subcommand has the following options:
 
 ``--sudo-preserve-home``
    Use to preserve the non-root user's ``HOME`` environment.
+
+   New in Chef client 12.6.
 
 ``-t TEMPLATE``, ``--bootstrap-template TEMPLATE``
    The bootstrap template to use. This may be the name of a bootstrap template---``chef-full``, for example---or it may be the full path to an Embedded Ruby (ERB) template that defines a custom bootstrap. Default value: ``chef-full``, which installs the chef-client using the omnibus installer on all supported platforms.
@@ -287,7 +291,7 @@ Notes about FIPS:
 * Should only be enabled for environments that require FIPS 140-2 compliance
 * May not be enabled for any version of the chef-client earlier than 12.8
 
-New in Chef client 12.8, support for OpenSSL validation of FIPS.
+*New in Chef client 12.8, support for OpenSSL validation of FIPS.*
 
 .. end_tag
 

@@ -131,6 +131,8 @@ This resource has the following properties:
 
    Send the output of the command run by this **execute** resource block to the chef-client event stream. Default value: ``false``.
 
+   New in Chef client 12.6.
+
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 

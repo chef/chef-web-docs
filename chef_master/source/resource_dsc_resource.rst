@@ -105,6 +105,8 @@ This resource has the following actions:
 ``:reboot_action``
    Use to request an immediate reboot or to queue a reboot using the ``:reboot_now`` (immediate reboot) or ``:request_reboot`` (queued reboot) actions built into the **reboot** resource.
 
+   New in Chef client 12.6.
+
 Properties
 =====================================================
 .. tag resource_dsc_resource_attributes

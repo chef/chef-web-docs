@@ -936,6 +936,8 @@ This subcommand has the following options:
 ``-i IDENTITY_FILE``, ``--ssh-identity-file IDENTITY_FILE``
    The SSH identity file used for authentication. Key-based authentication is recommended.
 
+   New in Chef client 12.6.
+
 ``-j JSON_ATTRIBS``, ``--json-attributes JSON_ATTRIBS``
    A JSON string that is added to the first run of a chef-client.
 
@@ -988,6 +990,8 @@ This subcommand has the following options:
 
 ``--sudo-preserve-home``
    Use to preserve the non-root user's ``HOME`` environment.
+
+   New in Chef client 12.6.
 
 ``-t TEMPLATE``, ``--bootstrap-template TEMPLATE``
    The bootstrap template to use. This may be the name of a bootstrap template---``chef-full``, for example---or it may be the full path to an Embedded Ruby (ERB) template that defines a custom bootstrap. Default value: ``chef-full``, which installs the chef-client using the omnibus installer on all supported platforms.
@@ -4708,6 +4712,8 @@ This resource has the following properties:
    **Ruby Type:** Symbol
 
    A symbol that specifies the type of package. Possible values: ``:custom`` (such as installing a non-.msi file that embeds an .msi-based installer), ``:inno`` (Inno Setup), ``:installshield`` (InstallShield), ``:msi`` (Microsoft Installer Package (MSI)), ``:nsis`` (Nullsoft Scriptable Install System (NSIS)), ``:wise`` (Wise).
+
+   New in Chef client 12.6.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'

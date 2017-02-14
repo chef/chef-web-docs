@@ -1005,7 +1005,7 @@ Notes about FIPS:
 * Should only be enabled for environments that require FIPS 140-2 compliance
 * May not be enabled for any version of the chef-client earlier than 12.8
 
-New in Chef client 12.8, support for OpenSSL validation of FIPS.
+*New in Chef client 12.8, support for OpenSSL validation of FIPS.*
 
 .. end_tag
 
@@ -2681,10 +2681,12 @@ The ``--identify-file`` option is now ``--ssh-identify-file``.
 
 Use the ``--profile-ruby`` option to dump a (large) profiling graph into ``/var/chef/cache/graph_profile.out``. Use the graph output to help identify, and then resolve performance bottlenecks in a chef-client run. This option:
 
-* Generates a large amount of data about the chef-client run
-* Has a dependency on the ``ruby-prof`` gem, which is packaged as part of Chef and the Chef development kit
-* Increases the amount of time required to complete the chef-client run
-* Should not be used in a production environment
+* Generates a large amount of data about the chef-client run.
+* Has a dependency on the ``ruby-prof`` gem, which is packaged as part of Chef and the Chef development kit.
+* Increases the amount of time required to complete the chef-client run.
+* Should not be used in a production environment.
+
+New in Chef client 12.6.
 
 .. end_tag
 

@@ -549,6 +549,8 @@ The syntax for ``notifies`` is:
 
 .. end_tag
 
+Changed in Chef client 12.6 to use ``:before`` timer with the ``notifies`` and ``subscribes`` properties to specify that the action on a notified resource should be run before processing the resource block in which the notification is located.
+
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The following examples show how to use the ``notifies`` notification in a recipe.
@@ -1113,4 +1115,3 @@ but then not use the ``inherits`` property to deny those rights on a child direc
 Because the ``inherits`` property is not specified, the chef-client will default it to ``true``, which will ensure that security settings for existing files remain unchanged.
 
 .. end_tag
-
