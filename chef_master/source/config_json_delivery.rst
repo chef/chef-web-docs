@@ -47,7 +47,7 @@ The behavior of pipeline phases can be customized using the project's ``config.j
 
 .. end_tag
 
-``build-cookbook``
+``build_cookbook``
    **Required**
 
    .. tag delivery_config_json_setting_build_cookbook
