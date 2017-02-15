@@ -295,6 +295,8 @@ For example, assuming the ``CertificateID`` is configured in the local configura
 
 .. end_tag
 
+New in Chef client 12.5.
+
 Examples
 =====================================================
 The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
@@ -498,4 +500,3 @@ The **dsc_script** resource can be used with other resources. The following exam
    end
 
 .. end_tag
-

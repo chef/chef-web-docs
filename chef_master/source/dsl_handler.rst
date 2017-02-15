@@ -15,6 +15,8 @@ Use the Handler DSL to attach a callback to an event. If the event occurs during
 
 .. end_tag
 
+New in Chef client 12.5
+
 on Method
 =====================================================
 .. tag dsl_handler_method_on
@@ -207,8 +209,12 @@ The following table describes the events that may occur during a chef-client run
      - The chef-client run has completed.
    * - ``:run_failed``
      - The chef-client run has failed.
+   * - ``:attribute_changed``
+     - Prints out all the attribute changes in cookbooks or sets a policy that override attributes should never be used.
 
 .. end_tag
+
+   New in Chef client 12.16, ``:attribute_changed``
 
 Examples
 =====================================================
@@ -346,3 +352,25 @@ or send an alert on a configuration change:
 
 .. end_tag
 
+``attribute_changed`` event hook
+-----------------------------------------------------
+
+In a cookbook library file, you can add this in order to print out all attribute changes in cookbooks:
+
+.. code-block:: ruby
+
+   Chef.event_handler do
+     on :attribute_changed do |precedence, key, value|
+       puts "setting attribute #{precedence}#{key.map {|n| "[\"#{n}\"]" }.join} = #{value}"
+     end
+   end
+
+If you want to setup a policy that override attributes should never be used:
+
+.. code-block:: ruby
+
+   Chef.event_handler do
+     on :attribute_changed do |precedence, key, value|
+       raise "override policy violation" if precedence == :override
+     end
+   end
