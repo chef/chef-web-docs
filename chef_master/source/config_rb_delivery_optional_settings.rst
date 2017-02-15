@@ -403,6 +403,15 @@ This configuration file has the following settings for ``delivery``:
 ``delivery['log_rotation']['num_to_keep']``
    The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value: ``10``.
 
+``delivery['no_ssl_verification']``
+   A list of hostnames that Automate communicates with via HTTPS whose certificates should **not** be verified.
+   Please note that this setting should only be used if you are unable to add their certificates (or the used CA's certificate) to your set of trusted certificates; for example when the certificate sent by the host is **broken**. Default value: ``[]``.
+
+   .. code-block:: ruby
+
+      delivery['no_ssl_verification'] = [ "stash.trusted.corp",
+                                          "enterprise.github.internal" ]
+
 ``delivery['phase_job_confirmation_timeout']``
    Timeout for waiting for phase job to confirm completion. Default value: ``'5m'``.
 
