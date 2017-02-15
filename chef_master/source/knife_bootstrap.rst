@@ -348,7 +348,7 @@ The following example shows how to modify the default script for Ubuntu 14.04. F
 
 .. code-block:: bash
 
-   $ gem contents chef | grep ubuntu12.04-gems
+   $ gem contents chef | grep ubuntu14.04-gems
    /Users/grantmc/.rvm/gems/ruby-2.0/gems/chef-12.0.2/lib/chef/knife/bootstrap/ubuntu14.04-gems.erb
 
 Copy the template to the chef-repo in the ``.chef/bootstrap`` directory:
