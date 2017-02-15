@@ -248,7 +248,7 @@ The following example shows how to use ``not_if`` to guard against running the `
    execute "apt-get-update" do
      command "apt-get update"
      ignore_failure true
-     not_if do ::File.exist?('/var/lib/apt/periodic/update-success-stamp') end
+     not_if { ::File.exist?('/var/lib/apt/periodic/update-success-stamp') }
    end
 
 **Ensure a node can resolve a host**
