@@ -2633,6 +2633,8 @@ The following table describes the events that may occur during a chef-client run
      - The chef-client run has completed.
    * - ``:run_failed``
      - The chef-client run has failed.
+   * - ``:attribute_changed``
+     - Prints out all the attribute changes in cookbooks or sets a policy that override attributes should never be used.
 
 .. end_tag
 
