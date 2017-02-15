@@ -19,7 +19,7 @@ In addition:
 * The chef-client binaries are stored in the ``/opt/chef`` directory, which requires a minimum of 200MB of disk space
 * The chef-client caches to ``/var/chef/cache`` during the chef-client run. This is the location in which downloaded cookbooks, packages required by those cookbooks, and other large files are stored. This directory requires enough space to save all of this data and should be generously sized. 5GB is a safe number, as a starting point, but tune the size of ``/var/chef/cache`` as necessary
 * Each node and workstation must have access to the Chef server via HTTPS. If you have a proxy, :doc:`read about how to configure </proxies>` the chef-client for that proxy.
-* Ruby 2.2.2 (or higher). In general, using the version of Ruby that is installed by the omnibus installer is recommended.  As of Chef client 12.14, Ruby 2.3.1 is recommended; Chef client 12.13 updated to Ruby 2.1.9.
+* Ruby 2.2.2 (or higher). In general, using the version of Ruby that is installed by the omnibus installer is recommended. As of Chef client 12.14, Ruby 2.3.1 is recommended; Chef client 12.13 updated to Ruby 2.1.9.
 * The hosted Chef server is compatible with chef-client version 0.10.0 and greater; older clients must be upgraded before they can connect to Hosted Chef
 
 The Chef Server
