@@ -7307,4 +7307,3 @@ When a **cookbook_file** resource and a **yum_package** resource are both called
    end
 
 .. end_tag
-

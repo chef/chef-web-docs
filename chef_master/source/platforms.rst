@@ -48,7 +48,7 @@ The following table lists the Foundational platforms for the chef-client and oha
      - ``5``, ``6``, ``7``
    * - Solaris
      - ``sparc``, ``x86``
-     - ``10``, ``11``
+     - ``10``, ``10 1\13`` (``"U11"``), ``11.2``, ``11.3`` 
    * - Ubuntu
      - ``x86``, ``x86_64``
      - ``12.04``, ``14.04``, ``16.04``
