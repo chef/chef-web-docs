@@ -254,6 +254,30 @@ This subcommand has the following syntax:
 
    $ automate-ctl gather-logs
 
+generate-password-reset-token
+=====================================================
+The ``generate-password-reset-token`` command is used to unset the password for an existing Chef Automate user, and generate a token that allows them to set a new password. The command returns a URL pointing to the Chef Automate UI, allowing the user to enter a new password.
+
+The token is embedded in that URL and has an expiry of two hours. This command may be issued again to get a new token. After the command has been run, the previously stored password will no longer work. Issued API tokens (e.g. in existing UI sessions or for use with :doc:`ctl_delivery`) will not be revoked.
+
+When a token is consumed (through the web UI), all issued password reset tokens for this user will be revoked.
+
+**Syntax**
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ automate-ctl generate-password-reset-token ENTERPRISE_NAME USER_NAME
+
+**Example**
+
+.. code-block:: bash
+
+   $ automate-ctl generate-password-reset-token Chef admin
+   Password reset with token successful. Go to this URL to set a new password:
+   URL: https://automate.fqdn/e/Chef/#/reset-password/admin/nzfcEPQULoY0NR-xg7OxxBl5Q3htausWXY92GskR3ZE
+
 help
 =====================================================
 The ``help`` subcommand is used to print a list of all available ``automate-ctl`` commands.
