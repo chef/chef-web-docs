@@ -109,7 +109,7 @@ Setup
 
 **Supermarket**: `Public Supermarket <https://supermarket.chef.io>`_ | :doc:`Install Private Supermarket </install_supermarket>` | `Customize Supermarket </install_supermarket.html#customize-supermarket>`_ | `Run in Kitchen </install_supermarket.html#run-supermarket-in-kitchen>`_
 
-`Management Console <https://docs.chef.io/ctl_chef_server.html#install>`_ | :doc:`Push Jobs </install_push_jobs>`
+`Management Console </ctl_chef_server.html#install>`_ | :doc:`Push Jobs </install_push_jobs>`
 
 **Integrations**: :doc:`w/Chef Compliance </integrate_compliance_chef_server>`
 
@@ -304,25 +304,25 @@ Managing the Server
 :doc:`Tuning </delivery_server_tuning>` |
 :doc:`Upgrades </upgrade_chef_automate>` |
 :doc:`Users and Roles </delivery_users_and_roles>` |
-`cleanse <http://docs.chef.io/ctl_delivery_server.html#cleanse>`_ |
-`create-enterprise <http://docs.chef.io/ctl_delivery_server.html#create-enterprise>`_ |
-`create-user <http://docs.chef.io/ctl_delivery_server.html#create-user>`_ |
-`delete-application <http://docs.chef.io/ctl_delivery_server.html#delete-application>`_ |
-`delete-enterprise <http://docs.chef.io/ctl_delivery_server.html#delete-enterprise>`_ |
-`delete-project <http://docs.chef.io/ctl_delivery_server.html#delete-project>`_ |
-`delete-user <http://docs.chef.io/ctl_delivery_server.html#delete-user>`_ |
-`install-runner <http://docs.chef.io/ctl_delivery_server.html#install-runner>`_ |
-`list-applications <http://docs.chef.io/ctl_delivery_server.html#list-applications>`_ |
-`list-enterprises <http://docs.chef.io/ctl_delivery_server.html#list-enterprises>`_ |
-`list-users <http://docs.chef.io/ctl_delivery_server.html#list-users>`_ |
-`migrate-change-description <http://docs.chef.io/ctl_delivery_server.html#migrate-change-description>`_ |
-`migrate-patchset-diffs <http://docs.chef.io/ctl_delivery_server.html#migrate-patchset-diffs>`_ |
-`reconfigure <http://docs.chef.io/ctl_delivery_server.html#reconfigure>`_ |
-`rename-enterprise <http://docs.chef.io/ctl_delivery_server.html#rename-enterprise>`_ |
-`revoke-token <http://docs.chef.io/ctl_delivery_server.html#revoke-token>`_ |
-`show-config <http://docs.chef.io/ctl_delivery_server.html#show-config>`_ |
-`uninstall <http://docs.chef.io/ctl_delivery_server.html#uninstall>`_ |
-`update-project-hooks <http://docs.chef.io/ctl_delivery_server.html#update-project-hooks>`_
+`cleanse </ctl_delivery_server.html#cleanse>`_ |
+`create-enterprise </ctl_delivery_server.html#create-enterprise>`_ |
+`create-user </ctl_delivery_server.html#create-user>`_ |
+`delete-application </ctl_delivery_server.html#delete-application>`_ |
+`delete-enterprise </ctl_delivery_server.html#delete-enterprise>`_ |
+`delete-project </ctl_delivery_server.html#delete-project>`_ |
+`delete-user </ctl_delivery_server.html#delete-user>`_ | `generate-password-reset-token </ctl_delivery_server.html#generate-password-reset-token>`_ | 
+`install-runner </ctl_delivery_server.html#install-runner>`_ |
+`list-applications </ctl_delivery_server.html#list-applications>`_ |
+`list-enterprises </ctl_delivery_server.html#list-enterprises>`_ |
+`list-users </ctl_delivery_server.html#list-users>`_ |
+`migrate-change-description </ctl_delivery_server.html#migrate-change-description>`_ |
+`migrate-patchset-diffs </ctl_delivery_server.html#migrate-patchset-diffs>`_ |
+`reconfigure </ctl_delivery_server.html#reconfigure>`_ |
+`rename-enterprise </ctl_delivery_server.html#rename-enterprise>`_ |
+`revoke-token </ctl_delivery_server.html#revoke-token>`_ |
+`show-config </ctl_delivery_server.html#show-config>`_ |
+`uninstall </ctl_delivery_server.html#uninstall>`_ |
+`update-project-hooks </ctl_delivery_server.html#update-project-hooks>`_
 
 Compliance scanner
 -----------------------------------------------------
