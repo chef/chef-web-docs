@@ -116,6 +116,8 @@ This command has the following options:
 ``-j PATH``, ``--json-attributes PATH``
    The path to a file that contains JSON data. Used to setup the first client run. For all the future runs with option -i the attributes are expected to be persisted in the chef-server.
 
+   Changed in Chef client 12.5 to support policy revisions and environments,.
+
    **Run-lists**
 
    .. tag node_ctl_run_list
@@ -261,6 +263,8 @@ This command has the following options:
 
 ``-n NAME``, ``--named-run-list NAME``
    The run-list associated with a policy file.
+
+   New in Chef client 12.5.
 
 ``-N NODE_NAME``, ``--node-name NODE_NAME``
    The name of the node.

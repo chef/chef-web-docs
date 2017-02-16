@@ -499,6 +499,8 @@ The following properties are for use with git only:
 
    The depth of a git repository, truncated to the specified number of revisions. See ``shallow_clone``.
 
+   New in Chef client 12.5.
+
 ``enable_submodules``
    **Ruby Types:** TrueClass, FalseClass
 
@@ -904,4 +906,3 @@ To clear the default values for a layout modifier:
 In general, use this approach carefully and only after it is determined that nil or empty values won't provide the expected result.
 
 .. end_tag
-

@@ -15,6 +15,8 @@ Use the Custom Resource DSL to define property behaviors within custom resources
 
 .. end_tag
 
+New in Chef client 12.5.
+
 action_class
 =====================================================
 .. tag dsl_custom_resource_block_action_class
@@ -672,4 +674,3 @@ and is then usable in a recipe like this:
    end
 
 .. end_tag
-
