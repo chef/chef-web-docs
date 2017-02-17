@@ -11,7 +11,7 @@ A resource is a statement of configuration policy that:
 * Declares the steps needed to bring that item to the desired state
 * Specifies a resource type---such as ``package``, ``template``, or ``service``
 * Lists additional details (also known as resource properties), as necessary
-* Are grouped into recipes, which describe working configurations
+* Are grouped into recipes, which describe working configurationst
 
 .. end_tag
 
@@ -1408,4 +1408,3 @@ See below for more information about each of these resources, their related acti
 .. include:: resource_yum.rst
 
 .. include:: resource_yum_repository.rst
-

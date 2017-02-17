@@ -3,7 +3,11 @@ Custom Resources
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/custom_resources.rst>`__
 
-.. warning:: This approach to building custom resources was introduced in chef-client, version 12.5. It is the recommended approach for all custom resources starting with that version of the chef-client. If you are using an older version of the chef-client, please use the version picker (in the top left of the navigation) to select your version, and then choose the same topic from the navigation tree ("Extend Chef > Custom Resources"). See also https://github.com/chef-cookbooks/compat_resource for using custom resources with chef-client 12.1 - 12.4.
+As of Chef client version 12.5, this recommended approach for all custom resources. If you are using an older version of the chef-client, please use the version picker (in the top left of the navigation) to select your version, and then choose the same topic from the navigation tree ("Extend Chef > Custom Resources"). See also https://github.com/chef-cookbooks/compat_resource for using custom resources with chef-client 12.1 - 12.4.
+
+As of Chef client version 12.5, "resource attributes" are now known as "resource properties".
+
+As of Chef client 12.14, individual properties can be marked as `sensitive: true`, which suppresses the value of that property when exporting the resource's state.
 
 .. tag custom_resources_summary
 
@@ -525,11 +529,11 @@ Assume a helper module has been created in the cookbook ``libraries/helper.rb`` 
        end
      end
    end
-   
+
 Methods may be made available to the custom resource actions by using an ``action_class`` block.
 
 .. code-block:: ruby
-   
+
    property file, String
 
    action_class do
@@ -543,7 +547,7 @@ Methods may be made available to the custom resource actions by using an ``actio
      end
 
      require 'fileutils'
-    
+
      include Sample::Helper
 
    end
@@ -551,7 +555,7 @@ Methods may be made available to the custom resource actions by using an ``actio
    action :delete do
      helper_method
      FileUtils.rm(file) if file_ex
-   end 
+   end
 
 .. end_tag
 
@@ -872,7 +876,7 @@ A validation parameter is used to add zero (or more) validation parameters to a 
      - Use to define a collection of unique keys and values (a ruby hash) for which the key is the error message and the value is a lambda to validate the parameter. For example:
 
        .. code-block:: ruby
-  
+
           callbacks: {
                        'should be a valid non-system port' => lambda {
                          |p| p > 1024 && p < 65535
@@ -883,23 +887,23 @@ A validation parameter is used to add zero (or more) validation parameters to a 
      - Use to specify the default value for a property. For example:
 
        .. code-block:: ruby
-       
+
           default: 'a_string_value'
-       
+
        .. code-block:: ruby
-       
+
           default: 123456789
-       
+
        .. code-block:: ruby
-       
+
           default: []
-       
+
        .. code-block:: ruby
-       
+
           default: ()
-       
+
        .. code-block:: ruby
-       
+
           default: {}
    * - ``:equal_to``
      - Use to match a value with ``==``. Use an array of values to match any of those values with ``==``. For example:
@@ -909,25 +913,25 @@ A validation parameter is used to add zero (or more) validation parameters to a 
           equal_to: [true, false]
 
        .. code-block:: ruby
-          
+
           equal_to: ['php', 'perl']
    * - ``:regex``
      - Use to match a value to a regular expression. For example:
 
        .. code-block:: ruby
-       
+
           regex: [ /^([a-z]|[A-Z]|[0-9]|_|-)+$/, /^\d+$/ ]
    * - ``:required``
      - Indicates that a property is required. For example:
 
        .. code-block:: ruby
-       
+
           required: true
    * - ``:respond_to``
      - Use to ensure that a value has a given method. This can be a single method name or an array of method names. For example:
 
        .. code-block:: ruby
-       
+
           respond_to: valid_encoding?
 
 Some examples of combining validation parameters:
@@ -1100,4 +1104,3 @@ Use the ``reset_property`` method to clear the value for a property as if it had
    reset_property(:password)
 
 .. end_tag
-

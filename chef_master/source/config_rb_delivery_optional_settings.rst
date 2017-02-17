@@ -65,23 +65,20 @@ backup
 This configuration file has the following settings for ``backup``:
 
 ``backup['access_key_id']``
-   Amazon Web Services (AWS) Access Key ID for uploading Chef Automate backup archives to S3.
-   Only use this if you cannot configure the machine with an instance profile,
+   Amazon Web Services (AWS) Access Key ID for uploading Chef Automate backup archives to S3. Only use this if you cannot configure the machine with an instance profile,
    shared credentials, or environment variables. Default value: ``nil``.
 
 ``backup['bucket']``
    S3 bucket for storing Chef Automate backup archives. Default value: ``nil``.
 
 ``backup['base_path']``
-   Optional S3 base path prefix. This is used if you wish to store Chef Automate
-   backup archives in a nested path in the S3 bucket. Default value: ``nil``.
+   Optional S3 base path prefix. This is used if you wish to store Chef Automate backup archives in a nested path in the S3 bucket. Default value: ``nil``.
 
 ``backup['census']['enabled']``
    Back up Chef Automate Census data. Default value: ``true``.
 
 ``backup['chef_server_config']``
-   Back up the Chef server configuration directory.  Usefull for instances
-   when Chef Automate and Chef server are installed on a single node. Default
+   Back up the Chef server configuration directory.  Useful for instances when Chef Automate and Chef server are installed on a single node. Default
    value: ``false``.
 
 ``backup['compliance_profiles']['enabled']``
@@ -106,75 +103,58 @@ This configuration file has the following settings for ``backup``:
    Back up the Chef Automate PostgreSQL database. Default value: ``true``.
 
 ``backup['delete']['pattern']``
-   The pattern to match when deleting backup archives and Elasticsearch
-   snapshots. Default value: ``nil``.
+   The pattern to match when deleting backup archives and Elasticsearch snapshots. Default value: ``nil``.
 
 ``backup['delete']['max_archives']``
    The maximum number of backup archives to keep. Default value: ``nil``.
 
 ``backup['delete']['max_snapshots']``
-   The maximum number of Elasticsearch snapshots to keep. Default value:
-   ``nil``.
+   The maximum number of Elasticsearch snapshots to keep. Default value: ``nil``.
 
 ``backup['digest']['enabled']``
-   Output the SHA digest of the backup archive to STDOUT. Default value:
-   ``true``.
+   Output the SHA digest of the backup archive to STDOUT. Default value: ``true``.
 
 ``backup['digest']['legth']``
-   The SHA digest length to use. Valid options are ``256``, ``384``, and
-   ``512``.  Default value: ``256``.
+   The SHA digest length to use. Valid options are ``256``, ``384``, and ``512``. Default value: ``256``.
 
 ``backup['elasticsearch']['access_key_id']``
-   Amazon Web Services (AWS) Access Key ID for uploading Chef Automate Elasticsearch snapshots
-   to S3. Only use this if you cannot configure the machine with an instance
+   Amazon Web Services (AWS) Access Key ID for uploading Chef Automate Elasticsearch snapshots to S3. Only use this if you cannot configure the machine with an instance
    profile, shared credentials, or environment variables. Default value: ``nil``.
 
 ``backup['elasticsearch']['bucket']``
-   S3 bucket for storing Chef Automate Elasticsearch snapshots. Default value:
-   ``nil``.
+   S3 bucket for storing Chef Automate Elasticsearch snapshots. Default value: ``nil``.
 
 ``backup['elasticsearch']['base_path']``
-   Optional S3 base path prefix. This is used if you wish to store Chef Automate
-   Elasticsearch snapshots in a nested path in the S3 bucket. Default value:
+   Optional S3 base path prefix. This is used if you wish to store Chef Automate Elasticsearch snapshots in a nested path in the S3 bucket. Default value:
    ``nil``.
 
 ``backup['elasticsearch']['enabled']``
-   Create Chef Automate Elasticsearch snapshots. Default value:
-   ``true``.
+   Create Chef Automate Elasticsearch snapshots. Default value: ``true``.
 
 ``backup['elasticsearch']['location']``
-   Shared filesystem repository location for Elasticsearch snapshots. Default
-   value: ``/var/opt/delivery/elasticsearch_backups``.
+   Shared filesystem repository location for Elasticsearch snapshots. Default value: ``/var/opt/delivery/elasticsearch_backups``.
 
 ``backup['elasticsearch']['max_restore_bytes_per_sec']``
-   Maximum snapshot speed when restoring shared filesystem Elasticsearch
-   snaphots. Default value: ``40mb``.
+   Maximum snapshot speed when restoring shared filesystem Elasticsearch snaphots. Default value: ``40mb``.
 
 ``backup['elasticsearch']['max_snapshot_bytes_per_sec']``
-   Maximum snapshot speed when creating shared filesystem Elasticsearch
-   snaphots. Default value: ``40mb``.
+   Maximum snapshot speed when creating shared filesystem Elasticsearch snaphots. Default value: ``40mb``.
 
 ``backup['elasticsearch']['region']``
-   Amazon Web Services (AWS) region to use for Chef Automate S3 Elasticsearch snapshots.
-   Default value ``nil``.
+   Amazon Web Services (AWS) region to use for Chef Automate S3 Elasticsearch snapshots. Default value:``nil``.
 
 ``backup['elasticsearch']['secret_access_key']``
-   Amazon Web Services (AWS) Secret Key for uploading Chef Automate Elasticsearch snapshots in
-   S3. Only use this if you cannot configure the machine with an instance
-   profile, shared credentials, or environment variables. Default value: ``nil``.
+   Amazon Web Services (AWS) Secret Key for uploading Chef Automate Elasticsearch snapshots in S3. Only use this if you cannot configure the machine with an instance profile, shared credentials, or environment variables. Default value: ``nil``.
 
 ``backup['elasticsearch']['server_side_encryption']``
-   Enable Amazon Web Services (AWS) SSE-S3 AES256 Server Side Encryption for
-   Elasticsearch snapshots in S3. Default value: ``true``.
+   Enable Amazon Web Services (AWS) SSE-S3 AES256 Server Side Encryption for Elasticsearch snapshots in S3. Default value: ``true``.
 
 ``backup['elasticsearch']['type']``
-   Which backup type to use for Chef Automate Elasticsearch snapshots. Shared
-   filesystem and S3 backups are currently supported by using the ``fs`` and
+   Which backup type to use for Chef Automate Elasticsearch snapshots. Shared filesystem and S3 backups are currently supported by using the ``fs`` and
    ``s3`` types. Default value: ``fs``.
 
 ``backup['force']``
-   Agree to any prompts or warnings during the Chef Automate backup precedure.
-   Default value: ``false``.
+   Agree to any prompts or warnings during the Chef Automate backup procedure. Default value: ``false``.
 
 ``backup['git']['enabled']``
    Back up the Chef Automate git repositories. Default value: ``true``.
@@ -183,88 +163,57 @@ This configuration file has the following settings for ``backup``:
    Back up the Chef Automate license file. Default value: ``true``.
 
 ``backup['list']['types']``
-   Types to list when running the ``automate-ctl list-backups`` command.
-   Options are ``all``, ``automate``, and ``elasticsearch``. Default value:
-   ``all``.
+   Types to list when running the ``automate-ctl list-backups`` command. Options are ``all``, ``automate``, and ``elasticsearch``. Default value: ``all``.
 
 ``backup['list']['format']``
-   Format to return when running the ``automate-ctl list-backups`` command.
-   Options are ``text`` and ``json``.  Default value: ``text``.
+   Format to return when running the ``automate-ctl list-backups`` command. Options are ``text`` and ``json``. Default value: ``text``.
 
 ``backup['location']``
-   Location on disk to store Chef Automate backup archives. Default value:
-   ``/var/opt/delivery/backups``.
+   Location on disk to store Chef Automate backup archives. Default value: ``/var/opt/delivery/backups``.
 
 ``backup['name']``
-   Name to use for Chef Automate backup archives and snapshots. When omitted
-   a default will used automatically. Default value: ``nil``.
+   Name to use for Chef Automate backup archives and snapshots. Default value used automatically if omitted. Default value: ``nil``.
 
 ``backup['quiet']``
-   Silence non-error information during the Chef Automate backup procedure.
-   Default value: ``false``.
+   Silence non-error information during the Chef Automate backup procedure. Default value: ``false``.
 
 ``backup['rabbit']['enabled']``
-   Back up the Chef Automate RabbitMQ queues. It is disabled by default because
-   it's rare to have a lengthy RabbitMQ queue and the backup procedure requires
-   temporarily shutting down Chef Automate services when backing up the queues.
-   Default value: ``false``.
+   Back up the Chef Automate RabbitMQ queues. This setting is disabled by default because it is rare to have a lengthy RabbitMQ queue and the backup procedure requires temporarily shutting down Chef Automate services when backing up the queues. Default value: ``false``.
 
 ``backup['region']``
-   Amazon Web Services (AWS) region to use when storing Chef Automate backup archives in S3.
-   Default value ``nil``.
+   Amazon Web Services (AWS) region to use when storing Chef Automate backup archives in S3. Default value:``nil``.
 
 ``backup['secret_access_key']``
-   Amazon Web Services (AWS) Secret Key for uploading Chef Automate backup archives to S3.
-   Only use this if you cannot configure the machine with an instance profile,
-   shared credentials, or environment variables.
-   Default value: ``nil``.
+   Amazon Web Services (AWS) Secret Key for uploading Chef Automate backup archives to S3. Only use this if you cannot configure the machine with an instance profile, shared credentials, or environment variables. Default value: ``nil``.
 
 ``backup['server_side_encryption']``
-   Enable Amazon Web Services (AWS) SSE-S3 AES256 Server Side Encryption for
-   backup archives in S3. To use SSE-KMS set the value to ``aws:kms``.
-   Default value: ``AES256``.
+   Enable Amazon Web Services (AWS) SSE-S3 AES256 Server Side Encryption for backup archives in S3. To use SSE-KMS set the value to ``aws:kms``. Default value: ``AES256``.
 
-.. note:: While the backup utility currently supports encrypting backups with
-   with SSE-S3, SSE-KMS, and SSE-C, only SSE-S3 is currently supported for
-   restoration.
+.. note:: While the backup utility currently supports encrypting backups with with SSE-S3, SSE-KMS, and SSE-C, only SSE-S3 is currently supported for restoration.
 
 ``backup['staging_dir']``
-   A local directory to use for temporary files when creating a backup archive.
-   The directory will be cleared during backup and used for storing the backup
-   archive, database dump, and configuration file. When not configured it will
-   use a default Ruby temporary directory which is usually nested in ``/tmp`` on
-   linux but will also honor the value of the ``TMPDIR`` environment variable.
-   Default value: ``nil``.
+   A local directory to use for temporary files when creating a backup archive. The directory will be cleared during backup and used for storing the backup archive, database dump, and configuration file. When not configured it will use a default Ruby temporary directory which is usually nested in ``/tmp`` on linux but will also honor the value of the ``TMPDIR`` environment variable. Default value: ``nil``.
 
 ``backup['sse_customer_algorithm']``
-   The SSE-C algorithm to use for customer Server Side Encryption. Default
-   value: ``nil``.
+   The SSE-C algorithm to use for customer Server Side Encryption. Default value: ``nil``.
 
 ``backup['sse_customer_key']``
-   The SSE-C key to use for customer Server Side Encryption. Default value
-   ``nil``.
+   The SSE-C key to use for customer Server Side Encryption. Default value: ``nil``.
 
 ``backup['sse_customer_key_md5']``
-   The MD5 hash of the customer key for customer Server Side Encryption. Default
-   value: ``nil``.
+   The MD5 hash of the customer key for customer Server Side Encryption. Default value: ``nil``.
 
 ``backup['ssekms_key_id']``
-   The SSE-KMS key id to use for customer Server Side Encryption. Default value:
-   ``nil``
+   The SSE-KMS key id to use for customer Server Side Encryption. Default value: ``nil``
 
 ``backup['type']``
-   Which backup type to use for Chef Automate backup archives. Local filesystem and
-   S3 backups are currently supported by using the ``fs`` and ``s3`` types.
-   Default value: ``fs``.
+   Which backup type to use for Chef Automate backup archives. Local filesystem and S3 backups are currently supported by using the ``fs`` and ``s3`` types. Default value: ``fs``.
 
 ``backup['retry_limit']``
-   The maximum of times to retry when uploading backup archives to a remote
-   repository like Amazon Web Services (AWS) S3. Default value: ``5``.
+   The maximum of times to retry when uploading backup archives to a remote repository like Amazon Web Services (AWS) S3. Default value: ``5``.
 
 ``backup['wait']``
-   Wait for non-blocking steps during the backup procedure. Useful if you'd like
-   the backup to to return early without waiting for the Elasticsearch snapshot
-   to complete. Default setting: ``true``.
+   Wait for non-blocking steps during the backup procedure. Useful if you'd like the backup to to return early without waiting for the Elasticsearch snapshot to complete. Default setting: ``true``.
 
 deliv_notify
 -----------------------------------------------------
@@ -402,6 +351,14 @@ This configuration file has the following settings for ``delivery``:
 
 ``delivery['log_rotation']['num_to_keep']``
    The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value: ``10``.
+
+``delivery['no_ssl_verification']``
+   A list of hostnames that Automate communicates with via HTTPS whose certificates should **not** be verified. Please note that this setting should only be used if you are unable to add their certificates (or the used CA's certificate) to your set of trusted certificates; for example when the certificate sent by the host is **broken**. Default value: ``[]``.
+
+   .. code-block:: ruby
+
+      delivery['no_ssl_verification'] = [ "stash.trusted.corp",
+                                          "enterprise.github.internal" ]
 
 ``delivery['phase_job_confirmation_timeout']``
    Timeout for waiting for phase job to confirm completion. Default value: ``'5m'``.
