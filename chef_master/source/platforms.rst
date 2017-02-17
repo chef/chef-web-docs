@@ -55,12 +55,6 @@ The following table lists the Foundational platforms for the chef-client and oha
    * - Microsoft Windows
      - ``x86``, ``x86_64``
      - ``2008r2``, ``2012``, ``2012r2``, ``7``, ``8``, ``8.1``, ``10``
-   * - Cisco NX-OS
-     - ``x86_64``
-     - ``7``
-   * - Cisco IOS XR
-     - ``x86_64``
-     - ``6``
 
 Secondary Platforms
 -----------------------------------------------------
