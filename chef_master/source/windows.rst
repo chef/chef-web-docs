@@ -4701,7 +4701,7 @@ This resource has the following properties:
 
    The SHA-256 checksum of the file. Use to prevent a file from being re-downloaded. When the local file matches the checksum, the chef-client does not download it. Use when a URL is specified by the ``source`` property.
 
-   New in Chef client 12.6.
+   New in Chef client 12.4, changed in 12.6.
 
 ``ignore_failure``
    **Ruby Types:** TrueClass, FalseClass
@@ -4764,6 +4764,8 @@ This resource has the following properties:
 
    A package at a remote location define as a Hash of properties that modifes the properties of the **remote_file** resource.
 
+   New in Chef client 12.4.
+
 ``retries``
    **Ruby Type:** Integer
 
@@ -4793,6 +4795,8 @@ This resource has the following properties:
       HKEY_LOCAL_MACHINE\Software\Wow6464Node\Microsoft\Windows\CurrentVersion\Uninstall
 
    .. note:: If there are multiple versions of a package installed with the same display name, all of those packages will be removed unless a version is provided in the ``version`` property or unless it can be discovered in the installer file specified by the ``source`` property.
+
+   Changed in Chef client 12.4 to support URL locations.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'

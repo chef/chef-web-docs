@@ -14,6 +14,8 @@ A client.rb file is used to specify the configuration details for the chef-clien
 
 .. end_tag
 
+Changed in Chef client 12.11 to support ``exit-status`` setting. Changed in 12.9 to support new ``:win_evt`` and ``:syslog`` output locations. Changed in 12.8 to support ``.d`` setting. Changed in 12.4 to support the Windows Event Logger and the daemon facility, see ``log_location``; stable audit-mode introduced.
+
 Settings
 =====================================================
 This configuration file has the following settings:
@@ -23,6 +25,8 @@ This configuration file has the following settings:
 
 ``audit_mode``
    Enable audit-mode. Set to ``audit-only`` to skip the converge phase of the chef-client run and only perform audits. Possible values: ``audit-only``, ``disabled``, and ``enabled``. Default value: ``disabled``.
+
+   New in Chef client 12.4.
 
 ``automatic_attribute_whitelist``
    A Hash that whitelists ``automatic`` attributes, preventing non-whitelisted attributes from being saved.
@@ -130,11 +134,11 @@ This configuration file has the following settings:
    The path to the environment. Default value: ``/var/chef/environments``.
 
 ``exit_status``
-   When set to ``:enabled``, chef-client will use |url exit codes| for Chef client run status, and any non-standard exit codes will be converted to ``1`` or ``GENERIC_FAILURE``. This setting can also be set to ``:disabled`` which preserves the old behavior of using non-standardized exit codes and skips the deprecation warnings. Default value: ``nil``.
+   When set to ``:enabled``, chef-client will use |url exit codes| for Chef client run status, and any non-standard exit codes will be converted to ``1`` or ``GENERIC_FAILURE``. This setting can also be set to ``:disabled`` which preserves the old behavior of using non-standardized exit codes and skips the Cecation warnings. Default value: ``nil``.
 
    .. note:: The behavior with the default value consists of a warning on the use of deprecated and non-standard exit codes. In a future release of Chef client, using standardized exit codes will be the default behavior.
 
-   *New in Chef Client 12.11.*
+   New in Chef Client 12.11.
 
 ``file_atomic_update``
    Apply atomic file updates to all resources. Set to ``true`` for global atomic file updates. Set to ``false`` for global non-atomic file updates. (Use the ``atomic_update`` setting on a per-resource basis to override this setting.) Default value: ``true``.
@@ -215,7 +219,7 @@ This configuration file has the following settings:
 ``log_location``
    The location of the log file. Possible values: ``/path/to/log_location``, ``STDOUT``, ``STDERR``, ``:win_evt`` (Windows Event Logger), or ``:syslog`` (writes to the syslog daemon facility with the originator set as ``chef-client``). The application log will specify the source as ``Chef``. Default value: ``STDOUT``.
 
-   Changed in Chef client 12.9 to support new ``:win_evt`` and ``:syslog`` output locations.
+   Changed in Chef client 12.9 to support new ``:win_evt`` and ``:syslog`` output locations.  Changed in Chef client 12.4 to support the Windows Event Logger and configuration with the daemon facility.
 
 ``minimal_ohai``
    Run the Ohai plugins for name detection and resource/provider selection and no other Ohai plugins. Set to ``true`` during integration testing to speed up test cycles.
