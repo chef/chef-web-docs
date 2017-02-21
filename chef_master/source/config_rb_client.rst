@@ -330,6 +330,8 @@ This configuration file has the following settings:
 ``windows_service.watchdog_timeout``
    The maximum amount of time (in seconds) available to the chef-client run when the chef-client is run as a service on the Microsoft Windows platform. If the chef-client run does not complete within the specified timeframe, the chef-client run is terminated. Default value: ``2 * (60 * 60)``.
 
+   New in Chef Client 12.1.
+
 ``yum_lock_timeout``
    The amount of time (in seconds) after which a Yum lock request is to time out. Default value: ``30``.
 

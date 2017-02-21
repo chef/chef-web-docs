@@ -59,6 +59,8 @@ The following diagram shows the relationships between the various elements of Ch
 
        .. end_tag
 
+       New in Chef client 12.1.
+
    * - **Chef Actions**
      - .. tag actions_summary
 

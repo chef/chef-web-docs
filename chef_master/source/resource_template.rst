@@ -381,6 +381,8 @@ This resource has the following properties:
 
    .. end_tag
 
+   New in Chef Client 12.1.
+
 Atomic File Updates
 -----------------------------------------------------
 .. tag resources_common_atomic_update
@@ -1417,4 +1419,3 @@ The recipe then uses the ``variables`` attribute to find the values for ``splunk
 This example can be found in the ``client.rb`` recipe and the ``outputs.conf.erb`` template files that are located in the `chef-splunk cookbook <https://github.com/chef-cookbooks/chef-splunk/>`_  that is maintained by Chef.
 
 .. end_tag
-

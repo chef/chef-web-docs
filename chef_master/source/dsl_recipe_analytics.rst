@@ -750,6 +750,8 @@ where:
 
 .. end_tag
 
+New in Chef Client 12.1.
+
 Examples
 -----------------------------------------------------
 
@@ -971,4 +973,3 @@ Because the two ``control_group`` block names are identical, the chef-client wil
    Running handlers complete
 
 .. end_tag
-

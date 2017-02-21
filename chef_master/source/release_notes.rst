@@ -5779,6 +5779,8 @@ When running a validatorless ``knife bootstrap`` operation, the output is simila
 
 .. end_tag
 
+New in Chef Client 12.1.
+
 knife bootstrap Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 Use the following options to specify items that are stored in chef-vault:
@@ -7965,10 +7967,14 @@ This resource has the following properties:
 
    The password for the user specified by ``run_as_user``.
 
+   New in Chef Client 12.1.
+
 ``run_as_user``
    **Ruby Type:** String
 
    The user under which a Microsoft Windows service runs.
+
+   New in Chef Client 12.1.
 
 ``service_name``
    **Ruby Type:** String

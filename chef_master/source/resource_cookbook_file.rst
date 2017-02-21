@@ -306,6 +306,8 @@ This resource has the following properties:
 
    If a string or a block return ``false``, the chef-client run will stop and an error is returned.
 
+   New in Chef Client 12.1.
+
 .. note:: Use the ``owner`` and ``right`` properties and avoid the ``group`` and ``mode`` properties whenever possible. The ``group`` and ``mode`` properties are not true Microsoft Windows concepts and are provided more for backward compatibility than for best practice.
 
 .. warning:: .. tag notes_selinux_file_based_resources
@@ -677,4 +679,3 @@ and then the following resources manage the dotfiles:
    end
 
 .. end_tag
-

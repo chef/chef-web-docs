@@ -56,6 +56,8 @@ where
 
 .. end_tag
 
+Changed in Chef Client 12.1 to support specifying multiple packages and/or versions.
+
 Actions
 =====================================================
 .. tag resource_package_chocolatey_actions

@@ -182,6 +182,8 @@ This resource has the following properties:
 
       imports 'cRDPEnabled', 'PSHOrg_cRDPEnabled'
 
+   New in Chef Client 12.1.
+
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 

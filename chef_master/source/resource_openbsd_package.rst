@@ -15,6 +15,8 @@ Use the **openbsd_package** resource to manage packages for the OpenBSD platform
 
           .. end_tag
 
+New in Chef Client 12.1.
+
 Syntax
 =====================================================
 .. tag resource_package_openbsd_syntax
@@ -234,4 +236,3 @@ The following examples demonstrate various approaches for using resources in rec
    end
 
 .. end_tag
-

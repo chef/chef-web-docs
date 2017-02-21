@@ -416,6 +416,8 @@ This resource has the following properties:
 
    If a string or a block return ``false``, the chef-client run will stop and an error is returned.
 
+   New in Chef Client 12.1.
+
 Atomic File Updates
 -----------------------------------------------------
 .. tag resources_common_atomic_update

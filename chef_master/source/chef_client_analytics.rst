@@ -34,6 +34,8 @@ Use following option to run the chef-client in audit-mode mode:
 ``--audit-mode MODE``
    Enable audit-mode. Set to ``audit-only`` to skip the converge phase of the chef-client run and only perform audits. Possible values: ``audit-only``, ``disabled``, and ``enabled``. Default value: ``disabled``.
 
+New in Chef client 12.1.
+
 The Audit Run
 -----------------------------------------------------
 .. tag chef_client_audit_mode_run
@@ -62,4 +64,3 @@ When the chef-client is run in audit-mode, the following happens:
      - Most of this data is passed to the Chef Analytics platform for further analysis, such as rules processing (for notification events triggered by expected or unexpected audit outcomes) and visibility from the actions web user interface.
 
 .. end_tag
-

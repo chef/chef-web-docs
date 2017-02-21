@@ -1000,6 +1000,8 @@ To install a gem while the resource collection is being built (the “compile ph
 
 .. end_tag
 
+New in Chef Client 12.1.
+
 **Install MySQL for Chef**
 
 .. tag resource_chef_gem_install_mysql
@@ -4053,6 +4055,8 @@ Use the **openbsd_package** resource to manage packages for the OpenBSD platform
 
 .. end_tag
 
+New in Chef Client 12.1.
+
 osx_profile
 =====================================================
 .. tag resource_osx_profile_summary
@@ -4640,6 +4644,8 @@ Use the **paludis_package** resource to manage packages for the Paludis platform
    end
 
 .. end_tag
+
+New in Chef Client 12.1.
 
 perl
 =====================================================

@@ -248,6 +248,8 @@ When running a validatorless ``knife bootstrap`` operation, the output is simila
 
 .. end_tag
 
+New in Chef Client 12.1.
+
 ``knife bootstrap`` Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag chef_vault_knife_bootstrap_options
