@@ -15,7 +15,7 @@ What's New in 12.13
 =====================================================
 The following items are new for Chef server 12.13:
 
-* **Now supports Red Hat Enterprise Linux t on s390x (RHEL6/s390x).**
+* **Supports Red Hat Enterprise Linux 6 on s390x (RHEL6/s390x).**
 * **Disables the Solr4 Admin API/UI by default.**
 * **FIPS runtime flag exposed on RHEL systems.** Setting ``fips true`` and reconfiguring will start the server in FIPS mode.  Packages for other systems will not have the required OpenSSL FIPS module and will fail to start if reconfigured with ``fips true``.
 
