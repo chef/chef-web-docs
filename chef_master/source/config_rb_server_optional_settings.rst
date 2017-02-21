@@ -190,8 +190,8 @@ This configuration file has the following settings for ``data_collector``:
 ``data_collector['root_url']``
    The fully qualified URL to the data collector server API. When present, it will enable the data collector in **opscode-erchef**. This also enables chef-server authenticated forwarding any properly signed requests arriving at ``/organizations/ORGNAME/data-collector`` to this URL with the data collector token appended. This is also target for requests authenticated and forwarded by the ``/organizations/ORGNAME/data-collector`` endpoint. For the forwarding to work correctly the ``data_collector['token']`` field must also be set.
    For example, if the data collector in Chef Automate is being used, the URI would look like:
-   ``http://my_automate_server.example.org/data-collector/v0/``. 
-   
+   ``http://my_automate_server.example.org/data-collector/v0/``.
+
 ``data_collector['token']``
    The shared data collector security token. When configured, the token will be passed as an HTTP header named ``x-data-collector-token`` which the server can choose to accept or reject.
 ``data_collector['timeout']``
@@ -812,7 +812,7 @@ This configuration file has the following settings for ``oc-id``:
 
 ``oc_id['email_from_address']``
    New in Chef server 12.12.
-   
+
    Outbound email address. Defaults to the ``'from_email'`` value.
 
 ``oc_id['ha']``
@@ -830,7 +830,7 @@ This configuration file has the following settings for ``oc-id``:
 
 ``oc_id['origin']``
    New in Chef server 12.12.
- 
+
    The FQDN for the server that is sending outbound email. Defaults to the ``'api_fqdn'`` value, which is the FQDN for the Chef server.
 
 ``oc_id['num_to_keep']``
@@ -1021,6 +1021,18 @@ This configuration file has the following settings for ``opscode-erchef``:
 
 ``opscode_erchef['port']``
    The port on which the service is to listen. Default value: ``8000``.
+
+``opscode_erchef['reindex_batch_size']``
+  The number of items to fetch from the database and send to the search index at a time. Default value: ``10``.
+
+``opscode_erchef['reindex_sleep_min_ms']``
+  The minimum number of milliseconds to sleep before retrying a failed attempt to index an item. Retries are delayed a random number of miliseconds between ``reindex_sleep_min_ms`` and ``reindex_sleep_max_ms``. Set both this and ``reindex_sleep_max_ms`` to 0 to retry without delay. Default value: ``500``
+
+``opscode_erchef['reindex_sleep_max_ms']``
+  The maximum number of milliseconds to sleep before retrying a failed attempt to index an item. Retries are delayed a random number of miliseconds between ``reindex_sleep_min_ms`` and ``reindex_sleep_max_ms``. Set both this and ``reindex_sleep_min_ms`` to 0 to retry without delay. Default value: ``2000``
+
+``opscode_erchef['reindex_item_retries']``
+  The number of times to retry sending an object for indexing in the case of failure. Default value: ``3``
 
 ``opscode_erchef['root_metric_key']``
    Default value: ``chefAPI``.
