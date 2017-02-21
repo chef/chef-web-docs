@@ -3047,6 +3047,8 @@ Many DSC resources are comparable to built-in Chef resources. For example, both 
 
 .. end_tag
 
+New in Chef client 12.2.  Changed in Chef client 12.6.
+
 .. note:: Windows PowerShell 4.0 is required for using the **dsc_script** resource with Chef.
 
 .. note:: The WinRM service must be enabled. (Use ``winrm quickconfig`` to enable the service.)

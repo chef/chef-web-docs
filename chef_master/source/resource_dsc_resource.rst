@@ -9,7 +9,7 @@ Windows PowerShell is a task-based command-line shell and scripting language dev
 
 .. end_tag
 
-*New in Chef Client 12.6.*
+New in Chef client 12.2.  Changed in Chef client 12.6.
 
 .. tag resources_common_powershell_dsc
 
