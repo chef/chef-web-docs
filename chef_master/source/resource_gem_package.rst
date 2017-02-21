@@ -210,6 +210,8 @@ This resource has the following properties:
 
    Set to ``true`` to download a gem from the path specified by the ``source`` property (and not from RubyGems). Default value: ``false``.
 
+   New in Chef client 12.3.
+
 ``gem_binary``
    **Ruby Type:** String
 
@@ -388,4 +390,3 @@ The following examples demonstrate various approaches for using resources in rec
    end
 
 .. end_tag
-

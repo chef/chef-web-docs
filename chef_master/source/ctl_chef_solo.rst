@@ -153,6 +153,8 @@ This command has the following options:
 ``--minimal-ohai``
    Run the Ohai plugins for name detection and resource/provider selection and no other Ohai plugins. Set to ``true`` during integration testing to speed up test cycles.
 
+   New in Chef client 12.3.
+
 ``--[no-]color``
    View colored output. Default setting: ``--color``.
 
