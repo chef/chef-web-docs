@@ -1,5 +1,5 @@
 =====================================================
-Release Notes: Chef Server 12.0 - 12.12
+Release Notes: Chef Server 12.0 - 12.13
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_server.rst>`__
 
