@@ -11,6 +11,8 @@ The **powershell_script** resource creates and executes a temporary file (simila
 
 .. end_tag
 
+Changed in 12.19 to support windows alternate user identity in execute resources
+
 Syntax
 =====================================================
 .. tag resource_powershell_script_syntax
@@ -572,3 +574,5 @@ The following example shows how to run ``mkdir test_dir`` from a chef-client run
    end
 
 .. end_tag
+
+New in Chef Client 12.19.

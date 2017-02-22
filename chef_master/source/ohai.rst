@@ -63,6 +63,8 @@ An automatic attribute is a specific detail about a node, such as an IP address,
 
 .. end_tag
 
+Changed in 8.23 (in Chef Client 12.19) to correctly detect Cumulus Linux, to improve virtualization detection, add a new sysconf plugin, improve the AWS EC2 plugin, and improve GCC detection. 
+
 **Get a list of automatic attributes for a node**
 
 .. tag ohai_attribute_list
@@ -1494,4 +1496,3 @@ Ohai configuration settings can be added to the client.rb file.
 .. note:: The Ohai executable ignores settings in the client.rb file when Ohai is run independently of the chef-client.
 
 .. end_tag
-

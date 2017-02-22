@@ -11,6 +11,8 @@ Use the **execute** resource to execute a single command. Commands that are exec
 
 .. note:: Use the **script** resource to execute a script using a specific interpreter (Ruby, Python, Perl, csh, or Bash).
 
+Changed in 12.19 to support windows alternate user identity in execute resources.
+
 Syntax
 =====================================================
 A **execute** resource block typically executes a single command that is unique to the environment in which a recipe will run. Some **execute** resource commands are run by themselves, but often they are run in combination with other Chef resources. For example, a single command that is run by itself:
@@ -908,3 +910,5 @@ The following example shows how to run ``mkdir test_dir`` from a chef-client run
    end
 
 .. end_tag
+
+New in Chef Client 12.19.

@@ -1,5 +1,5 @@
 =====================================================
-Release Notes: chef-client 12.0 - 12.18
+Release Notes: chef-client 12.0 - 12.19
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes.rst>`__
 
@@ -21,7 +21,7 @@ The ``execute`` resource and similar resources such as ``script``, ``batch``, an
 
 **Note**: When Chef is running as a service, this feature requires that the user that Chef runs as has 'SeAssignPrimaryTokenPrivilege' (aka 'SE_ASSIGNPRIMARYTOKEN_NAME') user right. By default only LocalSystem and NetworkService have this right when running as a service. This is necessary even if the user is an Administrator.
 
-This right bacn be added and checked in a recipe using this example:
+This right can be added and checked in a recipe using this example:
 
 .. code-block:: ruby
 

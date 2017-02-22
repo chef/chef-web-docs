@@ -9,6 +9,8 @@ Use the ``knife ssh`` subcommand to invoke SSH commands (in parallel) on a subse
 
 .. end_tag
 
+Changed in Chef Client 12.19 to support ed25519 keys for ssh connections. 
+
 Syntax
 =====================================================
 This subcommand has the following syntax:
@@ -180,4 +182,3 @@ where ``screen`` is one of the following values: ``cssh``, ``interactive``, ``ma
    you need the rb-appscript gem to use knife ssh macterm.
    `(sudo) gem    install rb-appscript` to install
    ERROR: LoadError: cannot load such file -- appscript
-
