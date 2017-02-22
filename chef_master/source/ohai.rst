@@ -340,7 +340,7 @@ The following list shows the type of plugins that are included with Ohai. See th
      platform.rb
      virtualization.rb
 
-New in 8.23, the sysconf plugin parses the output of the sysconf command. Changed in 8.23 to detect Windows / Linux / BSD guests running on the Veertu hypervisors and Windows guests running on Xen and Hyper-V hypervisors; the EC2 plugin retrieves the AWS Account ID in addition to previous metadata;
+New in 8.23, the sysconf plugin parses the output of the sysconf command. Changed in 8.23 to detect Windows/Linux/BSD guests running on the Veertu hypervisors, Windows guests running on Xen and Hyper-V hypervisors, and the EC2 plugin retrieves the AWS Account ID in addition to previous metadata.
 
 Custom Plugins
 =====================================================

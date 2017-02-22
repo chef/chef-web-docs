@@ -1,5 +1,5 @@
 =====================================================
-Release Notes: Ohai 7 - 8
+Release Notes: Ohai 7 - 8.23
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_ohai.rst>`__
 
