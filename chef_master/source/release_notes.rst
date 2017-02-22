@@ -712,8 +712,6 @@ is equivalent to:
      action :delete
    end
 
-New in Chef client 12.10.
-
 .. end_tag
 
 delete_resource
@@ -739,8 +737,6 @@ For example:
 
    delete_resource(:template, '/x/y.erb')
 
-New in Chef client 12.10.
-
 .. end_tag
 
 delete_resource!
@@ -753,7 +749,7 @@ The syntax for the ``delete_resource!`` method is as follows:
 
 .. code-block:: ruby
 
-delete_resource!(:resource_type, 'resource_name')
+   delete_resource!(:resource_type, 'resource_name')
 
 where:
 
@@ -765,8 +761,6 @@ For example:
 .. code-block:: ruby
 
    delete_resource!(:file, '/x/file.txt')
-
-New in Chef client 12.10.
 
 .. end_tag
 
@@ -810,8 +804,6 @@ and a resource block:
      notifies :run, 'execute[newaliases]'
    end
 
-New in Chef client 12.10.
-
 .. end_tag
 
 edit_resource!
@@ -842,8 +834,6 @@ For example:
 .. code-block:: ruby
 
    edit_resource!(:file, '/x/y.rst')
-
-New in Chef client 12.10.
 
 .. end_tag
 
@@ -884,8 +874,6 @@ and a resource block:
      notifies :run, 'execute[newseapower]'
    end
 
-New in Chef client 12.10.
-
 .. end_tag
 
 find_resource!
@@ -910,8 +898,6 @@ For example:
 .. code-block:: ruby
 
    find_resource!(:template, '/x/y.erb')
-
-New in Chef client 12.10.
 
 .. end_tag
 
@@ -1005,8 +991,6 @@ Notes about FIPS:
 * Should only be enabled for environments that require FIPS 140-2 compliance
 * May not be enabled for any version of the chef-client earlier than 12.8
 
-*New in Chef client 12.8, support for OpenSSL validation of FIPS.*
-
 .. end_tag
 
 Enable FIPS Mode
@@ -1076,8 +1060,6 @@ The ``old_settings.rb.bak`` file is ignored because it's not a configuration fil
 
 .. note:: If multiple configuration files exists in a ``.d`` directory, ensure that the same setting has the same value in all files.
 
-New in Chef client 12.8.
-
 .. end_tag
 
 launchd
@@ -1085,8 +1067,6 @@ launchd
 .. tag resource_launchd_summary
 
 Use the **launchd** resource to manage system-wide services (daemons) and per-user services (agents) on the Mac OS X platform.
-
-*New in Chef Client 12.8.*
 
 .. end_tag
 
@@ -1622,8 +1602,6 @@ Specifies a gem dependency to be installed via the **chef_gem** resource after a
    gem "poise"
    gem "chef-sugar"
    gem "chef-provisioning"
-
-New in Chef client 12.8.
 
 .. end_tag
 
@@ -2681,12 +2659,10 @@ The ``--identify-file`` option is now ``--ssh-identify-file``.
 
 Use the ``--profile-ruby`` option to dump a (large) profiling graph into ``/var/chef/cache/graph_profile.out``. Use the graph output to help identify, and then resolve performance bottlenecks in a chef-client run. This option:
 
-* Generates a large amount of data about the chef-client run.
-* Has a dependency on the ``ruby-prof`` gem, which is packaged as part of Chef and the Chef development kit.
-* Increases the amount of time required to complete the chef-client run.
-* Should not be used in a production environment.
-
-New in Chef client 12.6.
+* Generates a large amount of data about the chef-client run
+* Has a dependency on the ``ruby-prof`` gem, which is packaged as part of Chef and the Chef development kit
+* Increases the amount of time required to complete the chef-client run
+* Should not be used in a production environment
 
 .. end_tag
 
@@ -5779,8 +5755,6 @@ When running a validatorless ``knife bootstrap`` operation, the output is simila
 
 .. end_tag
 
-New in Chef Client 12.1.
-
 knife bootstrap Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 Use the following options to specify items that are stored in chef-vault:
@@ -7967,14 +7941,10 @@ This resource has the following properties:
 
    The password for the user specified by ``run_as_user``.
 
-   New in Chef Client 12.1.
-
 ``run_as_user``
    **Ruby Type:** String
 
    The user under which a Microsoft Windows service runs.
-
-   New in Chef Client 12.1.
 
 ``service_name``
    **Ruby Type:** String

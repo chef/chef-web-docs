@@ -213,6 +213,8 @@ This command has the following options:
 ``-f``, ``--[no-]fork``
    Contain the chef-client run in a secondary process with dedicated RAM. When the chef-client run is complete, the RAM is returned to the master process. This option helps ensure that a chef-client uses a steady amount of RAM over time because the master process does not run recipes. This option also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Use ``--no-fork`` to disable running the chef-client in fork node. Default value: ``--fork``. This option may not be used in the same command with the ``--daemonize`` and ``--interval`` options.
 
+   Changed in Chef Client 12.0.
+
 ``-F FORMAT``, ``--format FORMAT``
    .. tag ctl_chef_client_options_format
 
@@ -241,6 +243,8 @@ This command has the following options:
 
 ``-i SECONDS``, ``--interval SECONDS``
    The frequency (in seconds) at which the chef-client runs. When the chef-client is run at intervals, ``--splay`` and ``--interval`` values are applied before the chef-client run. This option may not be used in the same command with the ``--[no-]fork`` option.
+
+   Changed in Chef Client 12.0 to be applied before the chef-client run.
 
 ``-j PATH``, ``--json-attributes PATH``
    The path to a file that contains JSON data.
@@ -323,6 +327,8 @@ This command has the following options:
 
 ``-o RUN_LIST_ITEM``, ``--override-runlist RUN_LIST_ITEM``
    Replace the current run-list with the specified items.
+
+   New in Chef Client 12.0.
 
 ``-r RECIPE_URL``, ``--recipe-url RECIPE_URL``
    The URL location from which a remote cookbook tar.gz is to be downloaded.

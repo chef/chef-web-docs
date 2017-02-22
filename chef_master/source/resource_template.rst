@@ -672,6 +672,8 @@ This resource would be matched in the same order as the ``/templates`` directory
 
 .. end_tag
 
+Changed in Chef Client 12.0.
+
 Helpers
 -----------------------------------------------------
 A helper is a method or a module that can be used to extend a template. There are three approaches:

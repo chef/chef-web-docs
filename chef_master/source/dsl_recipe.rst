@@ -1215,6 +1215,8 @@ The ``id`` for each data bag item will be returned as a string.
 
 .. end_tag
 
+New in Chef Client 12.0.
+
 data_bag_item
 -----------------------------------------------------
 .. tag data_bag
@@ -1288,6 +1290,8 @@ The following example shows how to use the ``data_bag`` and ``data_bag_item`` me
    end
 
 For a more complete version of the previous example, see the default recipe in the https://github.com/hw-cookbooks/apt-mirror community cookbook.
+
+New in Chef Client 12.0.
 
 declare_resource
 -----------------------------------------------------
@@ -1856,6 +1860,8 @@ For example:
 
 .. end_tag
 
+New in Chef Client 12.0.
+
 Query Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag search_query_syntax
@@ -2175,6 +2181,8 @@ where ``command_args`` is the command that is run against the node.
 
 .. end_tag
 
+New in Chef Client 12.0.
+
 shell_out!
 -----------------------------------------------------
 .. tag dsl_recipe_method_shell_out_bang
@@ -2191,6 +2199,8 @@ where ``command_args`` is the command that is run against the node. This method 
 
 .. end_tag
 
+New in Chef Client 12.0.
+
 shell_out_with_systems_locale
 -----------------------------------------------------
 .. tag dsl_recipe_method_shell_out_with_systems_locale
@@ -2206,6 +2216,8 @@ The syntax for the ``shell_out_with_systems_locale`` method is as follows:
 where ``command_args`` is the command that is run against the node.
 
 .. end_tag
+
+New in Chef Client 12.0.
 
 tag, tagged?, untag
 -----------------------------------------------------
@@ -2298,6 +2310,8 @@ When each value has more than one platform, the syntax changes to:
        'version' => 'value'
      },
    )
+
+Changed in Chef Client 12.0 to support version constraints.
 
 Operators
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

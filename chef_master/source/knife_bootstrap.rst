@@ -159,12 +159,16 @@ This subcommand has the following options:
 ``--[no-]node-verify-api-cert``
    Verify the SSL certificate on the Chef server. When ``true``, the chef-client always verifies the SSL certificate. When ``false``, the chef-client uses the value of ``ssl_verify_mode`` to determine if the SSL certificate requires verification. If this option is not specified, the setting for ``verify_api_cert`` in the configuration file is applied.
 
+   New in Chef Client 12.0.
+
 ``--node-ssl-verify-mode PEER_OR_NONE``
    Set the verify mode for HTTPS requests.
 
    Use ``none`` to do no validation of SSL certificates.
 
    Use ``peer`` to do validation of all SSL certificates, including the Chef server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in the chef-client run. This is the recommended setting.
+
+   New in Chef Client 12.0.
 
 ``-p PORT``, ``--ssh-port PORT``
    The SSH port.
@@ -194,6 +198,8 @@ This subcommand has the following options:
 
 ``-t TEMPLATE``, ``--bootstrap-template TEMPLATE``
    The bootstrap template to use. This may be the name of a bootstrap template---``chef-full``, for example---or it may be the full path to an Embedded Ruby (ERB) template that defines a custom bootstrap. Default value: ``chef-full``, which installs the chef-client using the omnibus installer on all supported platforms.
+
+   New in Chef Client 12.0.
 
 ``--use-sudo-password``
    Perform a bootstrap operation with sudo; specify the password with the ``-P`` (or ``--ssh-password``) option.

@@ -51,8 +51,12 @@ This resource has the following actions:
 ``:get``
    Default. Send a ``GET`` request.
 
+   Changed in Chef Client 12.0 to deprecate the hard-coded query string from earlier versions. Cookbooks that rely on this string need to be updated to manually add it to the URL as it is passed to the resource.
+
 ``:head``
    Send a ``HEAD`` request.
+
+   Changed in Chef Client 12.0 to deprecate the hard-coded query string from earlier versions. Cookbooks that rely on this string need to be updated to manually add it to the URL as it is passed to the resource.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -243,4 +247,3 @@ To send a ``POST`` request as JSON data, convert the message to JSON and include
    end
 
 .. end_tag
-

@@ -48,6 +48,8 @@ Many fields in a cookbook's metadata allow the user to constrain versions. There
   * - Less than or equal to
     - ``<=``
 
+Changed in Chef Client 12.0 to support version constraints.
+
 .. note:: Pessimistic locking is enabled by proper `semantic versioning <https://semver.org>`__ of cookbooks. If we're on version 2.2.3 of a cookbook, we know that the API will be stable until the 3.0.0 release. Using traditional operators, we'd write this as ``>= 2.2.0, < 3.0``. Instead, we can write this by combining a tilde "~" and right angle bracket ">"--often called a tilde-rocket or "twiddle-wakka"--followed by the major and minor version numbers.  For example: ``~> 2.2``
 
 
@@ -141,6 +143,8 @@ This configuration file has the following settings:
    .. code-block:: ruby
 
       issues_url 'https://github.com/chef-cookbooks/chef-client/issues'
+
+   New in Chef Client 12.0.
 
 ``license``
    The type of license under which a cookbook is distributed: ``Apache v2.0``, ``GPL v2``, ``GPL v3``, ``MIT``, or ``license 'Proprietary - All Rights Reserved`` (default). Please be aware of the licenses for files inside of a cookbook and be sure to follow any restrictions they describe.
@@ -279,6 +283,8 @@ This configuration file has the following settings:
 
       provides 'service[snuggle]'
 
+   New in Chef Client 12.0.
+
 ``recipe``
    A description for a recipe, mostly for cosmetic value within the Chef server user interface.
 
@@ -302,6 +308,8 @@ This configuration file has the following settings:
    .. code-block:: ruby
 
       source_url 'https://github.com/chef-cookbooks/chef-client'
+
+   New in Chef Client 12.0.
 
 ``supports``
    Show that a cookbook has a supported platform. Use a version constraint to define dependencies for platform versions: ``<`` (less than), ``<=`` (less than or equal to), ``=`` (equal to), ``>=`` (greater than or equal to), ``~>`` (approximately greater than), or ``>`` (greater than). To specify more than one platform, use more than one ``supports`` field, once for each platform.

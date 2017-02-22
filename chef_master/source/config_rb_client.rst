@@ -115,6 +115,8 @@ This configuration file has the following settings:
 ``disable_event_logger``
    Enable or disable sending events to the Microsoft Windows "Application" event log. When ``false``, events are sent to the Microsoft Windows "Application" event log at the start and end of a chef-client run, and also if a chef-client run fails. Set to ``true`` to disable event logging. Default value: ``true``.
 
+   Changed in Chef Client 12.0.
+
 ``enable_reporting``
    Cause the chef-client to send data to the Chef server for use with Reporting.
 
@@ -153,6 +155,8 @@ This configuration file has the following settings:
 
 ``file_staging_uses_destdir``
    How file staging (via temporary files) is done. When ``true``, temporary files are created in the directory in which files will reside. When ``false``, temporary files are created under ``ENV['TMP']``. Default value: ``true``.
+
+   Changed in Chef Client 12.0.
 
 ``fips``
   Allows OpenSSL to enforce FIPS-validated security during the chef-client run. Set to ``true`` to enable FIPS-validated security.
@@ -198,6 +202,8 @@ This configuration file has the following settings:
 ``interval``
    The frequency (in seconds) at which the chef-client runs. Default value: ``1800``.
 
+   Changed in Chef Client 12.0.
+
 ``json_attribs``
    The path to a file that contains JSON data.
 
@@ -208,6 +214,8 @@ This configuration file has the following settings:
 
 ``local_key_generation``
    Whether the Chef server or chef-client generates the private/public key pair. When ``true``, the chef-client generates the key pair, and then sends the public key to the Chef server. Default value: ``true``.
+
+   Changed in Chef Client 12.0.
 
 ``local_mode``
    Run the chef-client in local mode. This allows all commands that work against the Chef server to also work against the local chef-repo.
@@ -231,6 +239,8 @@ This configuration file has the following settings:
 
 ``no_lazy_load``
    Download all cookbook files and templates at the beginning of the chef-client run. Default value: ``true``.
+
+   Changed in Chef Client 12.0.
 
 ``no_proxy``
    A comma-separated list of URLs that do not need a proxy. Default value: ``nil``.
@@ -267,6 +277,8 @@ This configuration file has the following settings:
 
 ``splay``
    A random number between zero and ``splay`` that is added to ``interval``. Use splay to help balance the load on the Chef server by ensuring that many chef-client runs are not occuring at the same interval. Default value: ``nil``.
+
+   Changed in Chef Client 12.0.
 
 ``ssl_ca_file``
    The file in which the OpenSSL key is saved. This setting is generated automatically by the chef-client and most users do not need to modify it.

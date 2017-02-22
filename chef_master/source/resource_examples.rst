@@ -861,6 +861,8 @@ Use the **bff_package** resource to manage packages for the AIX platform using t
 
 .. end_tag
 
+New in Chef Client 12.0.
+
 **Install a package**
 
 .. tag resource_bff_package_install
@@ -3323,6 +3325,8 @@ Use the **homebrew_package** resource to manage packages for the Mac OS X platfo
 
 .. end_tag
 
+New in Chef Client 12.0.
+
 **Install a package**
 
 .. tag resource_homebrew_package_install
@@ -3388,6 +3392,8 @@ Use the **http_request** resource to send an HTTP request (``GET``, ``PUT``, ``P
 The message is sent as ``http://example.com/check_in?message=some_message``.
 
 .. end_tag
+
+Changed in Chef Client 12.0 to deprecate the hard-coded query string from earlier versions. Cookbooks that rely on this string need to be updated to manually add it to the URL as it is passed to the resource.
 
 **Send a POST request**
 
@@ -7016,6 +7022,8 @@ Use the calculated password shadow hash with the **user** resource:
 
 .. end_tag
 
+New in Chef Client 12.0.
+
 **Use SALTED-SHA512-PBKDF2 passwords**
 
 .. tag resource_user_password_shadow_hash_salted_sha512_pbkdf2
@@ -7048,6 +7056,8 @@ Use the calculated password shadow hash with the **user** resource:
    end
 
 .. end_tag
+
+New in Chef Client 12.0.
 
 windows_package
 =====================================================

@@ -365,6 +365,8 @@ in case the executable is not at the defined location:
 
 .. end_tag
 
+New in Chef Client 12.0.
+
 **Create a test message queue**
 
 .. tag resource_dsc_resource_manage_msmq

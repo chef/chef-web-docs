@@ -657,8 +657,12 @@ This argument has the following options:
 ``-l``, ``--long``
    Display all attributes in the output and show the output as JSON.
 
+   New in Chef Client 12.0.
+
 ``-m``, ``--medium``
    Display normal attributes in the output and to show the output as JSON.
+
+   New in Chef Client 12.0.
 
 ``-r``, ``--run-list``
    Show only the run-list.

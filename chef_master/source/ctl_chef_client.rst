@@ -63,6 +63,8 @@ This command has the following options:
 ``--chef-zero-port PORT``
    The port on which chef-zero listens. If a port is not specified---individually, as range of ports, or from the ``chef_zero.port`` setting in the client.rb file---the chef-client will scan for ports between 8889-9999 and will pick the first port that is available.
 
+   New in Chef Client 12.0.
+
 ``-d SECONDS``, ``--daemonize SECONDS``
    Run the executable as a daemon. Use ``SECONDS`` to specify the number of seconds to wait before the first daemonized chef-client run. ``SECONDS`` is set to ``0`` by default.
 
@@ -83,6 +85,8 @@ This command has the following options:
 
 ``-f``, ``--[no-]fork``
    Contain the chef-client run in a secondary process with dedicated RAM. When the chef-client run is complete, the RAM is returned to the master process. This option helps ensure that a chef-client uses a steady amount of RAM over time because the master process does not run recipes. This option also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Use ``--no-fork`` to disable running the chef-client in fork node. Default value: ``--fork``.
+
+   Changed in Chef Client 12.0.
 
 ``-F FORMAT``, ``--format FORMAT``
    .. tag ctl_chef_client_options_format
@@ -276,6 +280,8 @@ This command has the following options:
 ``-o RUN_LIST_ITEM``, ``--override-runlist RUN_LIST_ITEM``
    Replace the current run-list with the specified items. This option will not clear the list of cookbooks (and related files) that is cached on the node. This option will not persist node data at the end of the client run.
 
+   New in Chef Client 12.0.
+
 ``--once``
    Run the chef-client only once and cancel ``interval`` and ``splay`` options.
 
@@ -313,6 +319,8 @@ This command has the following options:
 
 ``-s SECONDS``, ``--splay SECONDS``
    A random number between zero and ``splay`` that is added to ``interval``. Use splay to help balance the load on the Chef server by ensuring that many chef-client runs are not occuring at the same interval. When the chef-client is run at intervals, ``--splay`` and ``--interval`` values are applied before the chef-client run.
+
+   Changed in Chef Client 12.0 to be applied before the chef-client run.
 
 ``-S CHEF_SERVER_URL``, ``--server CHEF_SERVER_URL``
    The URL for the Chef server.

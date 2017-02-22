@@ -120,6 +120,8 @@ This resource has the following properties:
 
    The fsck device on the Solaris platform. Default value: ``-``.
 
+   New in Chef Client 12.0. 
+
 ``fstype``
    **Ruby Type:** String
 
@@ -448,4 +450,3 @@ where
 * the **mount** resource is used to mount the node and enable MySQL
 
 .. end_tag
-

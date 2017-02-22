@@ -980,6 +980,8 @@ The following ``knife delete`` settings can be added to the knife.rb file:
 ``knife[:dry_run]``
    Adds the the ``--dry-run`` option.
 
+   New in Chef Client 12.0.
+
 ``knife[:force]``
    Adds the the ``--force`` option.
 

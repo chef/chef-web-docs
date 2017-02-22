@@ -36,6 +36,8 @@ This subcommand has the following options:
 ``--chef-zero-port PORT``
    The port on which chef-zero listens. The default behavior will bind to the first available port between ``8889`` and ``9999``.
 
+   New in Chef Client 12.0.
+
 ``--repo-mode MODE``
    Use to specify the local chef-repo layout. Possible values: ``static`` (for environments, roles, data bags, and cookbooks), ``everything`` (same as static, plus nodes, clients, and users), ``hosted_everything`` (for ACLs, groups). Default value: ``everything/hosted_everything``.
 

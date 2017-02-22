@@ -17,6 +17,8 @@ Use the **bff_package** resource to manage packages for the AIX platform using t
 
           .. end_tag
 
+New in Chef Client 12.0.
+
 Syntax
 =====================================================
 .. tag resource_package_bff_syntax
@@ -257,4 +259,3 @@ Using the **bff_package** resource:
    end
 
 .. end_tag
-
