@@ -28,26 +28,11 @@ What's New in 8.23
 =====================================================
 Ohai 8.23 introduces the following changes:
 
-Cumulus Linux Platform
------------------------------------------------------
-Cumulus Linux will now be detected as platform ``cumulus`` instead of ``debian`` and the ``platform_version`` will be properly set to the Cumulus Linux release.
-
-Virtualization Detection
------------------------------------------------------
-Windows / Linux / BSD guests running on the Veertu hypervisors will now be detected.
-Windows guests running on Xen and Hyper-V hypervisors will now be detected.
-
-New Sysconf Plugin
------------------------------------------------------
-A new plugin parses the output of the sysconf command to provide information on the underlying system.
-
-AWS Account ID
------------------------------------------------------
-The EC2 plugin now fetches the AWS Account ID in addition to previous instance metadata.
-
-GCC Detection
------------------------------------------------------
-GCC detection has been improved to collect additional information, and to not prompt for the installation of Xcode on macOS systems.
+* **Cumulus Linux Platform** Cumulus Linux will now be detected as platform ``cumulus`` instead of ``debian`` and the ``platform_version`` will be properly set to the Cumulus Linux release.
+* **Virtualization Detection** Windows / Linux / BSD guests running on the Veertu hypervisors will now be detected. Windows guests running on Xen and Hyper-V hypervisors will now be detected.
+* **New Sysconf Plugin** A new plugin parses the output of the sysconf command to provide information on the underlying system.
+* **AWS Account ID** The EC2 plugin now fetches the AWS Account ID in addition to previous instance metadata.
+* **GCC Detection** GCC detection has been improved to collect additional information, and to not prompt for the installation of Xcode on macOS systems.
 
 New deprecations introduced in this release:
 -----------------------------------------------------
@@ -87,7 +72,6 @@ DigitalOcean plugin attribute changes
 * **Deprecation ID**: OHAI-6
 * **Remediation Docs**: <https://docs.chef.io/deprecations_ohai_digitalocean.html>
 * **Expected Removal**: Ohai 13 (April 2017)
-
 
 What's New in 8
 =====================================================
