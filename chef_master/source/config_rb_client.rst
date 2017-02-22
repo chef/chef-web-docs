@@ -153,6 +153,8 @@ This configuration file has the following settings:
 ``fips``
   Allows OpenSSL to enforce FIPS-validated security during the chef-client run. Set to ``true`` to enable FIPS-validated security.
 
+  Changed in Chef server 12.13 to expose FIPS runtime flag exposed on RHEL.
+
 ``ftp_proxy``
    The proxy server for FTP connections.
 

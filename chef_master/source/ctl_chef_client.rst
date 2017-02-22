@@ -187,7 +187,7 @@ This command has the following options:
       }
 
    .. end_tag
-   
+
    .. note:: This has set the ``normal`` attribute ``node['override_attributes']['apptastic']``.
 
    **Specify a policy**
@@ -383,6 +383,8 @@ Notes about FIPS:
 * May not be enabled for any version of the chef-client earlier than 12.8
 
 .. end_tag
+
+Changed in Chef server 12.13 to expose FIPS runtime flag exposed on RHEL.
 
 **Bootstrap a node using FIPS**
 
@@ -780,4 +782,3 @@ and where ``_default`` is the name of the environment that is assigned to the no
 .. warning:: This approach may be used to update ``normal`` attributes, but should never be used to update any other attribute type, as all attributes updated using this option are treated as ``normal`` attributes.
 
 .. end_tag
-

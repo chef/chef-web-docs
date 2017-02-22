@@ -38,6 +38,8 @@ The following options can be run with all knife subcommands and plug-ins:
 ``--[no-]fips``
   Allows OpenSSL to enforce FIPS-validated security during the chef-client run.
 
+  Changed in Chef server 12.13 to expose FIPS runtime flag exposed on RHEL.
+
 ``--print-after``
    Show data after a destructive operation.
 
@@ -58,4 +60,3 @@ The following options can be run with all knife subcommands and plug-ins:
 
 ``-z``, ``--local-mode``
    Run the chef-client in local mode. This allows all commands that work against the Chef server to also work against the local chef-repo.
-
