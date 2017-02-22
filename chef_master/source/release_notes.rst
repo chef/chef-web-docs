@@ -983,7 +983,7 @@ Use the **launchd** resource to manage system-wide services (daemons) and per-us
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_launchd_syntax
+.. tag resource_launchd_syntax_12_8
 
 A **launchd** resource manages system-wide services (daemons) and per-user services (agents) on the Mac OS X platform:
 
@@ -991,7 +991,7 @@ A **launchd** resource manages system-wide services (daemons) and per-user servi
 
    launchd 'call.mom.weekly' do
      program '/Library/scripts/call_mom.sh'
-     start_calendar_interval 'weekday' => 7, 'hourly' => 10
+     start_calendar_interval 'Weekday' => 7, 'Hourly' => 10
      time_out 300
    end
 
@@ -1092,7 +1092,7 @@ This resource has the following actions:
 
 Properties
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_launchd_attributes
+.. tag resource_launchd_attributes_12_8
 
 This resource has the following properties:
 
@@ -1406,7 +1406,7 @@ The following resource properties may be used to define keys in the XML property
 ``start_calendar_interval``
    **Ruby Type:** Hash
 
-   A Hash (similar to ``crontab``) that defines the calendar frequency at which a job is started. For example: ``{ minute => "0", hour => "20", day => "*", weekday => "1-5", month => "*" }`` will run a job at 8:00 PM every day, Monday through Friday, every month of the year.
+   A Hash (similar to ``crontab``) that defines the calendar frequency at which a job is started. For example: ``{ Minute => "0", Hour => "20", Day => "*", Weekday => "1-5", Month => "*" }`` will run a job at 8:00 PM every day, Monday through Friday, every month of the year.
 
 ``start_interval``
    **Ruby Type:** Integer
@@ -1482,7 +1482,7 @@ Examples
 
    launchd 'call.mom.weekly' do
      program '/Library/scripts/call_mom.sh'
-     start_calendar_interval 'weekday' => 7, 'hourly' => 10
+     start_calendar_interval 'Weekday' => 7, 'Hourly' => 10
      time_out 300
    end
 
@@ -4340,7 +4340,7 @@ The **dsc_resource** resource allows any DSC resource to be used in a Chef recip
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_dsc_resource_syntax
+.. tag resource_dsc_resource_syntax_12_2
 
 A **dsc_resource** resource block allows DSC resourcs to be used in a Chef recipe. For example, the DSC ``Archive`` resource:
 
