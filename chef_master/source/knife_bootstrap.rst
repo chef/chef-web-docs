@@ -289,6 +289,8 @@ Notes about FIPS:
 
 .. end_tag
 
+Changed in Chef server 12.13 to expose FIPS runtime flag on RHEL.
+
 **Bootstrap a node using FIPS**
 
 .. tag knife_bootstrap_node_fips
