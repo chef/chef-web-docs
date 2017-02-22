@@ -4340,7 +4340,7 @@ The **dsc_resource** resource allows any DSC resource to be used in a Chef recip
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_dsc_resource_syntax
+.. tag resource_dsc_resource_syntax_12_2
 
 A **dsc_resource** resource block allows DSC resourcs to be used in a Chef recipe. For example, the DSC ``Archive`` resource:
 
