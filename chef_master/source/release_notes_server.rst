@@ -1,5 +1,5 @@
 =====================================================
-Release Notes: Chef Server 12.0 - 12.12
+Release Notes: Chef Server 12.0 - 12.13
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_server.rst>`__
 
@@ -11,12 +11,48 @@ Chef is a systems and cloud infrastructure automation framework that makes it ea
 
 .. end_tag
 
+What's New in 12.13
+=====================================================
+The following items are new for Chef server 12.13:
+
+* **Supports Red Hat Enterprise Linux 6 on s390x (RHEL6/s390x).**
+* **Disables the Solr4 Admin API/UI by default.**
+* **FIPS runtime flag exposed on RHEL systems.** Setting ``fips true`` and reconfiguring will start the server in FIPS mode.  Packages for other systems will not have the required OpenSSL FIPS module and will fail to start if reconfigured with ``fips true``.
+
+New platform: RHEL6/s390x
+=====================================================
+Support for a new platform was added: Red Hat Enterprise Linux 6 on s390x.
+
+Solr4 Admin API/UI disabled by default
+=====================================================
+With this release, the admin UI of Solr4 has been removed. The underlying API
+has also been disabled. Users that depend on the admin API endpoints can enable
+them via adding:
+
+.. code-block:: ruby
+
+    opscode_solr4['enable_full_admin_api'] = true
+
+to ``chef-server.rb``.
+
+FIPS runtime flag exposed
+=====================================================
+The Chef Server package now exposes a ``fips`` configuration flag in
+``chef-server.rb``. Setting ``fips true`` and reconfiguring will start the
+server in FIPS mode. The default value of this flag is ``false`` except
+on systems where FIPS is enabled at the Kernel where it defaults to ``true``.
+
+The only supported systems at this time for FIPS mode are RHEL. Packages for
+other systems will be missing the required OpenSSL FIPS module and will fail
+to start if reconfigured with ``fips true``.
+
+
 What's New in 12.12
 =====================================================
 The following items are new for Chef server 12.12:
 
 * **chef-server-ctl backup correctly backs up configuration data** Starting in version 12.10.0, a bug in the ``backup`` command produced backups that did not include the configuration data in the resulting tarball. This bug is now resolved. We recommend taking a new backup after upgrading to 12.12.0.
-* **Correct number of rows are returned when searching with ElasticSearch** When configured to use ElasticSearch, Chef server now correctly respects the ``rows`` parameter in search requests rather than returning all rows. 
+* **Correct number of rows are returned when searching with ElasticSearch** When configured to use ElasticSearch, Chef server now correctly respects the ``rows`` parameter in search requests rather than returning all rows.
 * **Solr 4 GC logging is now used by Chef server** Java's native rotation is used for the gclog.
 * **New oc_id email configuration options** Outbound email address can now be configured.
 
@@ -38,7 +74,7 @@ To suppress the GC log completely, set the following option in ``/etc/opscode/ch
 
 oc_id Email Configuration Options
 =====================================================
-The ``oc_id`` service now includes configuration for outbound email to ensure password reset emails can be sent correctly. 
+The ``oc_id`` service now includes configuration for outbound email to ensure password reset emails can be sent correctly.
 
 You can now set the following options in ``/etc/opscode/chef-server.rb``:
 
@@ -133,7 +169,7 @@ What's New in 12.8
 =====================================================
 The following items are new for Chef server 12.8:
 
-* **Initial support for sending updates to a data collector service** 
+* **Initial support for sending updates to a data collector service**
 * **Minor bug fixes in postgresql setup**
 
 What's New in 12.7
