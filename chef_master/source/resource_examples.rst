@@ -7097,7 +7097,7 @@ Use the **windows_package** resource to manage Microsoft Installer Package (MSI)
 
 .. tag resource_package_windows_source_remote_file_attributes
 
-The **windows_package** resource may specify a package at a remote location using the ``remote_file_attributes`` property. This uses the **remote_file** resource to download the contents at the specified URL and passes in a Hash that modifes the properties of the `remote_file resource </resource_remote_file>`_.
+The **windows_package** resource may specify a package at a remote location using the ``remote_file_attributes`` property. This uses the **remote_file** resource to download the contents at the specified URL and passes in a Hash that modifes the properties of the :doc:`remote_file resource </resource_remote_file>`.
 
 For example:
 
