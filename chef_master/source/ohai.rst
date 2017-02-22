@@ -63,7 +63,7 @@ An automatic attribute is a specific detail about a node, such as an IP address,
 
 .. end_tag
 
-Changed in 8.23 to correctly detect Cumulus Linux platform and the GCC tool on Unix systemscd .
+Changed in 8.23 to correctly detect Cumulus Linux platform and the GCC tool on Unix systems.
 
 **Get a list of automatic attributes for a node**
 
