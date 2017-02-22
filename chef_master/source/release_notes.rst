@@ -983,7 +983,7 @@ Use the **launchd** resource to manage system-wide services (daemons) and per-us
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_launchd_syntax
+.. tag resource_launchd_syntax_12_8
 
 A **launchd** resource manages system-wide services (daemons) and per-user services (agents) on the Mac OS X platform:
 
@@ -1011,6 +1011,7 @@ The full syntax for all of the properties that are available to the **launchd** 
      exit_timeout               Integer
      group                      String, Integer
      hard_resource_limits       Hash
+     hash                       Hash
      ignore_failure             TrueClass, FalseClass
      inetd_compatibility        Hash
      init_groups                TrueClass, FalseClass
@@ -1028,7 +1029,6 @@ The full syntax for all of the properties that are available to the **launchd** 
      on_demand                  TrueClass, FalseClass
      owner                      Integer, String
      path                       String
-     plist_hash                 Hash
      process_type               String
      program                    String
      program_arguments          Array
@@ -1063,7 +1063,7 @@ where
 * ``launchd`` is the resource
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``abandon_process_group``, ``backup``, ``cookbook``, ``debug``, ``disabled``, ``enable_globbing``, ``enable_transactions``, ``environment_variables``, ``exit_timeout``, ``group``, ``hard_resource_limits``, ``inetd_compatibility``, ``init_groups``, ``keep_alive``, ``label``, ``launch_only_once``, ``limit_load_from_hosts``, ``limit_load_to_hosts``, ``limit_load_to_session_type``, ``low_priority_io``, ``mach_services``, ``mode``, ``nice``, ``on_demand``, ``owner``, ``path``, ``plist_hash``, ``process_type``, ``program``, ``program_arguments``, ``queue_directories``, ``retries``, ``retry_delay``, ``root_directory``, ``run_at_load``, ``sockets``, ``soft_resource_limits``, ``standard_error_path``, ``standard_in_path``, ``standard_out_path``, ``start_calendar_interval``, ``start_interval``, ``start_on_mount``, ``throttle_interval``, ``time_out``, ``type``, ``umask``, ``username``, ``wait_for_debugger``, ``watch_paths``, and ``working_directory`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``abandon_process_group``, ``backup``, ``cookbook``, ``debug``, ``disabled``, ``enable_globbing``, ``enable_transactions``, ``environment_variables``, ``exit_timeout``, ``group``, ``hard_resource_limits``, ``hash``, ``inetd_compatibility``, ``init_groups``, ``keep_alive``, ``label``, ``launch_only_once``, ``limit_load_from_hosts``, ``limit_load_to_hosts``, ``limit_load_to_session_type``, ``low_priority_io``, ``mach_services``, ``mode``, ``nice``, ``on_demand``, ``owner``, ``path``, ``process_type``, ``program``, ``program_arguments``, ``queue_directories``, ``retries``, ``retry_delay``, ``root_directory``, ``run_at_load``, ``sockets``, ``soft_resource_limits``, ``standard_error_path``, ``standard_in_path``, ``standard_out_path``, ``start_calendar_interval``, ``start_interval``, ``start_on_mount``, ``throttle_interval``, ``time_out``, ``type``, ``umask``, ``username``, ``wait_for_debugger``, ``watch_paths``, and ``working_directory`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -1092,7 +1092,7 @@ This resource has the following actions:
 
 Properties
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_launchd_attributes
+.. tag resource_launchd_attributes_12_8
 
 This resource has the following properties:
 
@@ -1110,6 +1110,11 @@ This resource has the following properties:
    **Ruby Types:** String, Integer
 
    When launchd is run as the root user, the group to run the job as. If the ``username`` property is specified and this property is not, this value is set to the default group for the user.
+
+``hash``
+   **Ruby Type:** Hash
+
+   A Hash of key value pairs used to create the launchd property list.
 
 ``ignore_failure``
    **Ruby Types:** TrueClass, FalseClass
@@ -1175,11 +1180,6 @@ This resource has the following properties:
    **Ruby Type:** String
 
    The path to the directory. Using a fully qualified path is recommended, but is not always required. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
-
-``plist_hash``
-   **Ruby Type:** Hash
-
-   A Hash of key value pairs used to create the launchd property list.
 
 ``provider``
    **Ruby Type:** Chef::Provider::Launchd

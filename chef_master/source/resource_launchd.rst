@@ -141,6 +141,13 @@ This resource has the following properties:
 
    When launchd is run as the root user, the group to run the job as. If the ``username`` property is specified and this property is not, this value is set to the default group for the user.
 
+``hash``
+   **Ruby Type:** Hash
+
+   A Hash of key value pairs used to create the launchd property list.
+
+   Renamed to ``plist_hash`` in Chef Client 12.19.  
+
 ``ignore_failure``
    **Ruby Types:** TrueClass, FalseClass
 
@@ -210,6 +217,8 @@ This resource has the following properties:
    **Ruby Type:** Hash
 
    A Hash of key value pairs used to create the launchd property list.
+
+   New in Chef Client 12.19. Was previously named ``hash`` in earlier versions.
 
 ``provider``
    **Ruby Type:** Chef::Provider::Launchd
