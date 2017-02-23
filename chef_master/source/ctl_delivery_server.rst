@@ -518,13 +518,13 @@ platform
 status
    "success" if the last Chef Client run succeeded on the node
    "failure" if the last Chef Client run failed on the node
-   "missing" if Chef Client did not run in the expected checking duration configured in Chef Automate (default is 12 hours).
+   "missing" if Chef Client did not run in the expected check-in duration configured in Chef Automate (default is 12 hours).
 chef_server_status
    This field is only populated in Opsworks for Chef Automate instances.
    "present": Node is still present on the Chef Server.
    "missing": Node is still present on the Chef Server.
 ec2
-   Returns information for Automate instances running on EC2.
+   EC2 information discovered by ohai on the node. This field is only populated in Chef Automate instances that are running on EC2
 
 
 
