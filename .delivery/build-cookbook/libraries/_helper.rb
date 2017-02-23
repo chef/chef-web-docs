@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: build-cookbook
+# Cookbook:: build-cookbook
 # Library:: _helper
 #
-# Copyright (C) Chef Software, Inc. 2015
+# Copyright:: 2015-2017 Chef Software, Inc.
 #
 
 Chef::Resource.send(:include, Chef::Mixin::ShellOut)
