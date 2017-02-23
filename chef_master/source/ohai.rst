@@ -1494,4 +1494,3 @@ Ohai configuration settings can be added to the client.rb file.
 .. note:: The Ohai executable ignores settings in the client.rb file when Ohai is run independently of the chef-client.
 
 .. end_tag
-

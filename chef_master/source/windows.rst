@@ -1991,6 +1991,10 @@ This argument has the following options:
 ``-f CA_TRUST_FILE``, ``--ca-trust-file CA_TRUST_FILE``
    Optional. The certificate authority (CA) trust file used for SSL transport.
 
+``-C NUM``, ``--concurrency NUM``
+   Changed in knife-windows 1.9.0.
+   The number of allowed concurrent connections. Defaults to 1.
+
 ``-i IDENTITY_FILE``, ``--identity-file IDENTITY_FILE``
    The keytab file that contains the encryption key required by Kerberos-based authentication.
 
@@ -4889,7 +4893,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. tag resource_package_windows_source_remote_file_attributes
 
-The **windows_package** resource may specify a package at a remote location using the ``remote_file_attributes`` property. This uses the **remote_file** resource to download the contents at the specified URL and passes in a Hash that modifes the properties of the `remote_file resource </resource_remote_file>`_.
+The **windows_package** resource may specify a package at a remote location using the ``remote_file_attributes`` property. This uses the **remote_file** resource to download the contents at the specified URL and passes in a Hash that modifes the properties of the :doc:`remote_file resource </resource_remote_file>`.
 
 For example:
 

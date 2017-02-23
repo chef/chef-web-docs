@@ -9,6 +9,8 @@ Use the **batch** resource to execute a batch script using the cmd.exe interpret
 
 .. end_tag
 
+Changed in 12.19 to support windows alternate user identity in execute resources.
+
 Syntax
 =====================================================
 .. tag resource_batch_syntax
@@ -422,3 +424,5 @@ The following example shows how to run ``mkdir test_dir`` from a chef-client run
    end
 
 .. end_tag
+
+New in Chef Client 12.19.
