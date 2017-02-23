@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: build-cookbook
+# Cookbook:: build-cookbook
 # Spec:: default
 #
-# Copyright (c) 2015 The Authors, All Rights Reserved.
+# Copyright:: 2015-2017 Chef Software, Inc.
 
 require 'spec_helper'
 
