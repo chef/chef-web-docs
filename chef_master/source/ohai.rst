@@ -338,7 +338,6 @@ The following list shows the type of plugins that are included with Ohai. See th
      platform.rb
      virtualization.rb
 
-
 Custom Plugins
 =====================================================
 .. tag ohai_custom_plugin
