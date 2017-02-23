@@ -15,7 +15,7 @@ Use the Custom Resource DSL to define property behaviors within custom resources
 
 .. end_tag
 
-New in Chef client 12.5.
+New in Chef Client 12.5.
 
 action_class
 =====================================================

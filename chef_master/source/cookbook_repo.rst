@@ -130,7 +130,7 @@ This configuration file has the following settings:
 
    .. note:: This setting is not visible in Chef Supermarket.
 
-   New in Chef client 12.6.
+   New in Chef Client 12.6.
 
 ``depends``
    This field requires that a cookbook with a matching name and version exists on the Chef server. When the match exists, the Chef server includes the dependency as part of the set of cookbooks that are sent to the node when the chef-client runs. It is very important that the ``depends`` field contain accurate data. If a dependency statement is inaccurate, the chef-client may not be able to complete the configuration of the system. All :ref:`version constraint operators <cookbook_version_constraints>` are applicable to this field.
@@ -167,7 +167,7 @@ This configuration file has the following settings:
       gem "chef-sugar"
       gem "chef-provisioning"
 
-   New in Chef client 12.8.
+   New in Chef Client 12.8.
 
    .. end_tag
 
@@ -292,7 +292,7 @@ This configuration file has the following settings:
 
    .. note:: This setting is not visible in Chef Supermarket.
 
-   New in Chef client 12.6.
+   New in Chef Client 12.6.
 
 ``privacy``
    Specify that a cookbook is private.

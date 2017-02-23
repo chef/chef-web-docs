@@ -82,7 +82,7 @@ This resource has the following actions:
 ``:unmount``
    Alias for ``:umount`` action.
 
-   New in Chef client 12.17.
+   New in Chef Client 12.17.
 
 .. note:: Order matters when passing multiple actions. For example: ``action [:mount, :enable]`` ensures that the file system is mounted before it is enabled.
 

@@ -99,7 +99,7 @@ This resource has the following properties:
                   action :install
                 end
 
-   New in Chef client 12.3.
+   New in Chef Client 12.3.
 
 ``compile_time``
    **Ruby Types:** TrueClass, FalseClass

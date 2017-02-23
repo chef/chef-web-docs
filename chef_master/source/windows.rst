@@ -5,7 +5,7 @@ Chef for Microsoft Windows
 
 .. note:: This page collects information about Chef that is specific to using Chef with Microsoft Windows.
 
-.. note:: New in Chef client 12.9, Chef client now runs on 64-bit versions of Microsoft Windows.
+.. note:: New in Chef Client 12.9, Chef client now runs on 64-bit versions of Microsoft Windows.
 
 The chef-client has specific components that are designed to support unique aspects of the Microsoft Windows platform, including Windows PowerShell, Internet Information Services (IIS), and SQL Server.
 
@@ -936,7 +936,7 @@ This subcommand has the following options:
 ``-i IDENTITY_FILE``, ``--ssh-identity-file IDENTITY_FILE``
    The SSH identity file used for authentication. Key-based authentication is recommended.
 
-   New in Chef client 12.6.
+   New in Chef Client 12.6.
 
 ``-j JSON_ATTRIBS``, ``--json-attributes JSON_ATTRIBS``
    A JSON string that is added to the first run of a chef-client.
@@ -944,7 +944,7 @@ This subcommand has the following options:
 ``--json-attribute-file FILE``
    A JSON file to be added to the first run of chef-client.
 
-   New in Chef client 12.6.
+   New in Chef Client 12.6.
 
 ``-N NAME``, ``--node-name NAME``
    The name of the node.
@@ -3061,7 +3061,7 @@ Many DSC resources are comparable to built-in Chef resources. For example, both 
 
 .. end_tag
 
-New in Chef client 12.2.  Changed in Chef client 12.6.
+New in Chef Client 12.2.  Changed in Chef Client 12.6.
 
 .. note:: Windows PowerShell 4.0 is required for using the **dsc_script** resource with Chef.
 
@@ -4719,7 +4719,7 @@ This resource has the following properties:
 
    The SHA-256 checksum of the file. Use to prevent a file from being re-downloaded. When the local file matches the checksum, the chef-client does not download it. Use when a URL is specified by the ``source`` property.
 
-   New in Chef client 12.4, changed in 12.6.
+   New in Chef Client 12.4, changed in 12.6.
 
 ``ignore_failure``
    **Ruby Types:** TrueClass, FalseClass
@@ -4731,7 +4731,7 @@ This resource has the following properties:
 
    A symbol that specifies the type of package. Possible values: ``:custom`` (such as installing a non-.msi file that embeds an .msi-based installer), ``:inno`` (Inno Setup), ``:installshield`` (InstallShield), ``:msi`` (Microsoft Installer Package (MSI)), ``:nsis`` (Nullsoft Scriptable Install System (NSIS)), ``:wise`` (Wise).
 
-   New in Chef client 12.6.
+   New in Chef Client 12.6.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -4782,7 +4782,7 @@ This resource has the following properties:
 
    A package at a remote location define as a Hash of properties that modifes the properties of the **remote_file** resource.
 
-   New in Chef client 12.4.
+   New in Chef Client 12.4.
 
 ``retries``
    **Ruby Type:** Integer
@@ -4814,7 +4814,7 @@ This resource has the following properties:
 
    .. note:: If there are multiple versions of a package installed with the same display name, all of those packages will be removed unless a version is provided in the ``version`` property or unless it can be discovered in the installer file specified by the ``source`` property.
 
-   Changed in Chef client 12.4 to support URL locations.
+   Changed in Chef Client 12.4 to support URL locations.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'

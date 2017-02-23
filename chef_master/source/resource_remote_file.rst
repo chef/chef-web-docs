@@ -278,7 +278,7 @@ This resource has the following properties:
 
       source '\\\\path\\to\\img\\sketch.png'
 
-      New in Chef client 12.4.
+      New in Chef Client 12.4.
 
    By using a node attribute:
 

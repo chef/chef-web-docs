@@ -549,7 +549,7 @@ The syntax for ``notifies`` is:
 
 .. end_tag
 
-Changed in Chef client 12.6 to use ``:before`` timer with the ``notifies`` and ``subscribes`` properties to specify that the action on a notified resource should be run before processing the resource block in which the notification is located.
+Changed in Chef Client 12.6 to use ``:before`` timer with the ``notifies`` and ``subscribes`` properties to specify that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

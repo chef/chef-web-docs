@@ -82,7 +82,7 @@ This resource has the following properties:
 
    The SHA-256 checksum of the file. Use to prevent a file from being re-downloaded. When the local file matches the checksum, the chef-client does not download it. Use when a URL is specified by the ``source`` property.
 
-   New in Chef client 12.4, changed in 12.6.
+   New in Chef Client 12.4, changed in 12.6.
 
 ``ignore_failure``
    **Ruby Types:** TrueClass, FalseClass
@@ -94,7 +94,7 @@ This resource has the following properties:
 
    A symbol that specifies the type of package. Possible values: ``:custom`` (such as installing a non-.msi file that embeds an .msi-based installer), ``:inno`` (Inno Setup), ``:installshield`` (InstallShield), ``:msi`` (Microsoft Installer Package (MSI)), ``:nsis`` (Nullsoft Scriptable Install System (NSIS)), ``:wise`` (Wise).
 
-   New in Chef client 12.6.
+   New in Chef Client 12.6.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -145,7 +145,7 @@ This resource has the following properties:
 
    A package at a remote location define as a Hash of properties that modifes the properties of the **remote_file** resource.
 
-   New in Chef client 12.4.
+   New in Chef Client 12.4.
 
 ``retries``
    **Ruby Type:** Integer
@@ -177,7 +177,7 @@ This resource has the following properties:
 
    .. note:: If there are multiple versions of a package installed with the same display name, all of those packages will be removed unless a version is provided in the ``version`` property or unless it can be discovered in the installer file specified by the ``source`` property.
 
-   Changed in Chef client 12.4 to support URL locations.
+   Changed in Chef Client 12.4 to support URL locations.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'

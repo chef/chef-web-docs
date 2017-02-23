@@ -15,7 +15,7 @@ The ``knife client`` subcommand is used to manage an API client list and their a
 
           .. end_tag
 
-Changed in Chef client 12.4 to support public key management for users and clients.
+Changed in Chef Client 12.4 to support public key management for users and clients.
 
 bulk delete
 =====================================================

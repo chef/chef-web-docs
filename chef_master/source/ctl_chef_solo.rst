@@ -84,6 +84,8 @@ This command has the following options:
 ``-i SECONDS``, ``--interval SECONDS``
    The frequency (in seconds) at which the chef-client runs. When the chef-client is run at intervals, ``--splay`` and ``--interval`` values are applied before the chef-client run. This option may not be used in the same command with the ``--[no-]fork`` option.
 
+   Changed in Chef Client 12.0 to be applied before the chef-client run.
+
 ``-j PATH``, ``--json-attributes PATH``
    The path to a file that contains JSON data.
 
@@ -155,7 +157,7 @@ This command has the following options:
 ``--minimal-ohai``
    Run the Ohai plugins for name detection and resource/provider selection and no other Ohai plugins. Set to ``true`` during integration testing to speed up test cycles.
 
-   New in Chef client 12.3.
+   New in Chef Client 12.3.
 
 ``--[no-]color``
    View colored output. Default setting: ``--color``.
@@ -176,8 +178,6 @@ This command has the following options:
 
 ``-s SECONDS``, ``--splay SECONDS``
    A random number between zero and ``splay`` that is added to ``interval``. Use splay to help balance the load on the Chef server by ensuring that many chef-client runs are not occuring at the same interval. When the chef-client is run at intervals, ``--splay`` and ``--interval`` values are applied before the chef-client run.
-
-   Changed in Chef Client 12.0 to be applied before the chef-client run.
 
 ``-u USER``, ``--user USER``
    The user that owns a process. This is required when starting any executable as a daemon.

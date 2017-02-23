@@ -9,7 +9,7 @@ Use the **yum_repository** resource to manage a Yum repository configuration fil
 
 .. end_tag
 
-*New in Chef client 12.14.*
+*New in Chef Client 12.14.*
 
 Syntax
 ==========================================

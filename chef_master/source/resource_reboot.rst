@@ -9,7 +9,7 @@ Use the **reboot** resource to reboot a node, a necessary step with some install
 
 .. end_tag
 
-New in Chef client 12.0
+New in Chef Client 12.0
 
 Syntax
 =====================================================

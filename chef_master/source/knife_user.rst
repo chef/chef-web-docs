@@ -29,7 +29,7 @@ The ``knife user`` subcommand is used to manage the list of users and their asso
 
           .. end_tag
 
-Changed in Chef client 12.4 to support public key management for users and clients.
+Changed in Chef Client 12.4 to support public key management for users and clients.
 
 create
 =====================================================
