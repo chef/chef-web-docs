@@ -167,8 +167,6 @@ This configuration file has the following settings:
       gem "chef-sugar"
       gem "chef-provisioning"
 
-   New in Chef Client 12.8.
-
    .. end_tag
 
 ``issues_url``
