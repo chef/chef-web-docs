@@ -63,8 +63,6 @@ An automatic attribute is a specific detail about a node, such as an IP address,
 
 .. end_tag
 
-Changed in 8.23 to correctly detect Cumulus Linux platform and the GCC tool on Unix systems.
-
 **Get a list of automatic attributes for a node**
 
 .. tag ohai_attribute_list
@@ -340,7 +338,6 @@ The following list shows the type of plugins that are included with Ohai. See th
      platform.rb
      virtualization.rb
 
-New in 8.23, the sysconf plugin parses the output of the sysconf command. Changed in 8.23 to detect Windows/Linux/BSD guests running on the Veertu hypervisors, Windows guests running on Xen and Hyper-V hypervisors, and the EC2 plugin retrieves the AWS Account ID in addition to previous metadata.
 
 Custom Plugins
 =====================================================
