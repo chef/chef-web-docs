@@ -20,6 +20,8 @@ This resource is the base resource for several other resources used for scriptin
 * :doc:`python </resource_python>`
 * :doc:`ruby </resource_ruby>`
 
+Changed in 12.19 to support windows alternate user identity in execute resources
+
 Syntax
 =====================================================
 A **script** resource block typically executes scripts using a specified interpreter, such as Bash, csh, Perl, Python, or Ruby:
@@ -751,3 +753,6 @@ The following example shows how to run ``mkdir test_dir`` from a chef-client run
    end
 
 .. end_tag
+
+
+New in Chef Client 12.19.
