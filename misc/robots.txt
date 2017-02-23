@@ -77,7 +77,6 @@ Disallow: /config_rb_chef_server_enterprise.html
 Disallow: /config_rb_chef_server_optional_settings.html
 Disallow: /config_rb_chef_sync.html
 Disallow: /ctl_chef_backend.html
-Disallow: /config_rb_delivery_optional_settings.html
 Disallow: /ctl_chef_backend.html
 Disallow: /ctl_chef_init.html
 Disallow: /ctl_chef_sync.html
@@ -132,7 +131,6 @@ Disallow: /install_server_scenario_vm.html
 Disallow: /install_server_standalone.html
 Disallow: /install_server_users.html
 Disallow: /install_workstation.html
-Disallow: /integrate_delivery_bitbucket.html
 Disallow: /list_resources.html
 Disallow: /lwrp_common_inline_compile.html
 Disallow: /lwrp_apt.html
