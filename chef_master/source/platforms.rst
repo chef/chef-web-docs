@@ -97,6 +97,9 @@ The following table lists the Secondary platforms for the chef-client:
    * - SUSE Enterprise Linux Server
      -
      - ``10``, ``11``
+   * - Microsoft Windows
+     -
+     - ``2016``
 
 Other Platforms
 -----------------------------------------------------
