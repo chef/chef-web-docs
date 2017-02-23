@@ -40,37 +40,37 @@ New deprecations introduced in this release:
 Ohai::Config removed
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 * **Deprecation ID**: OHAI*1
-* **Remediation Docs**: <https://docs.chef.io/deprecations_ohai_legacy_config.html>
+* **Remediation Docs**: <Coming Soon!>
 * **Expected Removal**: Ohai 13 (April 2017)
 
 sigar gem based plugins removed
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 * **Deprecation ID**: OHAI-2
-* **Remediation Docs**: <https://docs.chef.io/deprecations_ohai_sigar_plugins.html>
+* **Remediation Docs**: <Coming Soon!>
 * **Expected Removal**: Ohai 13 (April 2017)
 
 run_command and popen4 helper methods removed
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 * **Deprecation ID**: OHAI-3
-* **Remediation Docs**: <https://docs.chef.io/deprecations_ohai_run_command_helpers.html>
+* **Remediation Docs**: <Coming Soon!>
 * **Expected Removal**: Ohai 13 (April 2017)
 
 libvirt plugin attributes moved
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 * **Deprecation ID**: OHAI-4
-* **Remediation Docs**: <https://docs.chef.io/deprecations_ohai_libvirt_plugin.html>
+* **Remediation Docs**: <Coming Soon!>
 * **Expected Removal**: Ohai 13 (April 2017)
 
 Windows CPU plugin attribute changes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 * **Deprecation ID**: OHAI-5
-* **Remediation Docs**: <https://docs.chef.io/deprecations_ohai_windows_cpu.html>
+* **Remediation Docs**: <Coming Soon!>
 * **Expected Removal**: Ohai 13 (April 2017)
 
 DigitalOcean plugin attribute changes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 * **Deprecation ID**: OHAI-6
-* **Remediation Docs**: <https://docs.chef.io/deprecations_ohai_digitalocean.html>
+* **Remediation Docs**: <Coming Soon!>
 * **Expected Removal**: Ohai 13 (April 2017)
 
 What's New in 8
