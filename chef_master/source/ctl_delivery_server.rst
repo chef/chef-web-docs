@@ -446,20 +446,49 @@ This subcommand has the following syntax:
 node-summary
 =====================================================
 
-The ``node-summary`` subcommand is used to get a summary of the nodes that are known by Chef Automate.
+The ``node-summary`` subcommand produces a summary of the nodes that are known to Chef Automate.
 
 New in Chef Automate 0.5.328.
 
-By default this subcommand displays the name, status and the last checking time of the nodes:
+The default setting for ``node-summary`` is to display the name, status, and the last time the nodes were checked.
 
-.. code-block:: bash
+**Syntax**
+
+.. code-block:: none
+
+   $ automate-ctl node-summary [options]
+
+     Options:
+          --checkin                 The last time Chef Client ran on the node.
+          --chef_server_status      This field is only populated in Opsworks for Chef Automate instances.
+                                    "present": Node is still present on the Chef Server.
+                                    "missing": Node is still present on the Chef Server.
+          --chef_version            The version of the Chef Client that ran on the node.
+          --ec2                     Returns information for Automate instances running on EC2.
+          --fqdn                    Fully qualified domain name of the node.
+          --json                    Produce a detailed report in JSON format.
+          --name                    Name of the node in Chef Server.
+          --organization_name       The name of the Chef Server organization the node belongs to.
+          --platform                Platform information discovered by ohai on the node.
+          --platform_version        Platform version information discovered by ohai on the node.
+          --platform_family         Platform family information discovered by ohai on the node.
+          --status                  "success" if the last Chef Client run succeeded on the node
+                                    "failure" if the last Chef Client run failed on the node
+                                    "missing" if Chef Client did not run in the expected checking duration configured in Chef Automate (default is 12 hours).
+          --@timestamp              The time when the node's information was received by Chef Automate.
+
+**Examples**
+
+Producing a summary of nodes known to Automate using the ``node-summary`` default behavior.
+
+.. code-block:: none
 
   $ automate-ctl node-summary
   name, status, last_checkin
   builder-1-acceptance, missing, 2017-02-22T19:41:14.000Z
   builder-1-delivered, success, 2017-02-25T19:54:08.000Z
 
-You can optionally specify ``-json`` argument to get a more detailed report formatted in json format.
+Producing a summary of nodes known to Automate in JSON.
 
 .. code-block:: bash
 
@@ -480,24 +509,6 @@ You can optionally specify ``-json`` argument to get a more detailed report form
     },
     ...
   ]
-
-Here is the fields available in this subcommand and their descriptions:
-
-chef_version: The version of the Chef Client that ran on the node.
-checkin: The last time Chef Client ran on the node.
-@timestamp: The time when the node's information was received by Chef Automate.
-platform, platform_version, platform_family: Platform information discovered by ohai on the node.
-name: Name of the node in Chef Server.
-organization_name: The name of the Chef Server organization the node belongs to.
-fqdn: Fully qualified domain name of the node.
-status:
-  "success" if the last Chef Client run succeeded on the node
-  "failure" if the last Chef Client run failed on the node
-  "missing" if Chef Client did not run in the expected checking duration configued in Chef Automate (default is 12 hours).
-chef_server_status: This field is only populated in Opsworks for Chef Automate instances.
-  "present": Node is still present on the Chef Server.
-  "missing": Node is still present on the Chef Server.
-ec2: EC2 related information. This field is only populated in Chef Automate instances that are running on EC2.
 
 preflight-check
 =====================================================
