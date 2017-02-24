@@ -105,7 +105,7 @@ If you wish to operate your Chef Automate server from behind a proxy, you may sp
 ``delivery['proxy']['no_proxy']``
     A list of hostnames that are blacklisted from using the proxy. Chef Automate will attempt to connect directly to these hosts. By default, this is set to ``["localhost", "127.0.0.1"]``.
 
-Notifer Settings
+Notifier Settings
 =====================================================
 If we wish to enable the notification feature in Chef Automate, please set one or more of these following flags.  This will let you receive notifications or JSON messages from Automate whenever it detects a Chef client run failure on a node.
 
@@ -113,10 +113,10 @@ If we wish to enable the notification feature in Chef Automate, please set one o
     Set this to ``true`` if you want to use the notification feature in Chef Automate.  None of the flags below will take effect unless this is set.
 
 ``notification['slack_webhook_url']``
-    A webhook URL that you can acquire from slack which will be used to post Chef client run failure notifications. The default slack channel included in the url is used.
+    A Slack webhook URL which will be used to post Chef client run failure notifications. The default Slack channel included in the url is used.  See _`this link <https://api.slack.com/incoming-webhooks>`_ for details.
     
 ``notification['user_webhook_url']``
-    A URL that will receive a JSON POST any time a Chef client run failure is detected.  The POST will have its ``Content-Type`` set to ``application/json``.  Here is an sample notification message body:
+    A custom webhook URL that will receive a JSON POST any time a Chef client run failure is detected.  The POST will have its ``Content-Type`` set to ``application/json``.  Here is an sample notification message body:
 
     .. code-block:: json
 
