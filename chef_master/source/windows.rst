@@ -2473,6 +2473,8 @@ This resource has the following properties:
 
    Default value: ``:batch``. When this property is set to ``:batch``, the 64-bit version of the cmd.exe shell will be used to evaluate strings values for the ``not_if`` and ``only_if`` properties. Set this value to ``:default`` to use the 32-bit version of the cmd.exe shell.
 
+   Changed in Chef Client 12.0 to default to the specified property.
+
 ``ignore_failure``
    **Ruby Types:** TrueClass, FalseClass
 
@@ -3859,6 +3861,8 @@ This resource has the following properties:
 
    Default value: ``:powershell_script``. When this property is set to ``:powershell_script``, the 64-bit version of the Windows PowerShell shell will be used to evaluate strings values for the ``not_if`` and ``only_if`` properties. Set this value to ``:default`` to use the 32-bit version of the cmd.exe shell.
 
+   Changed in Chef Client 12.0 to default to the specified property.
+
 ``ignore_failure``
    **Ruby Types:** TrueClass, FalseClass
 
@@ -4648,6 +4652,8 @@ Use the **windows_package** resource to manage Microsoft Installer Package (MSI)
 
 .. end_tag
 
+Changed in 12.4 to include ``checksum`` and ``remote_file_attributes`` and URL locations on the ``source`` properties. Changed in Chef Client 12.6 to support a greater variety of ``installer_type``; Changed in 12.0 for ``installer_type`` to require a symbol. 
+
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_package_windows_syntax
@@ -4731,7 +4737,7 @@ This resource has the following properties:
 
    A symbol that specifies the type of package. Possible values: ``:custom`` (such as installing a non-.msi file that embeds an .msi-based installer), ``:inno`` (Inno Setup), ``:installshield`` (InstallShield), ``:msi`` (Microsoft Installer Package (MSI)), ``:nsis`` (Nullsoft Scriptable Install System (NSIS)), ``:wise`` (Wise).
 
-   New in Chef Client 12.6.
+   Changed in Chef Client 12.6 to support diverse installer types; Changed in 12.0 to require a symbol.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'

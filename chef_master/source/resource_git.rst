@@ -121,6 +121,8 @@ This resource has the following properties:
 
    .. note:: The **git** provider automatically sets the ``ENV['HOME']`` and ``ENV['GIT_SSH']`` environment variables. To override this behavior and provide different values, add ``ENV['HOME']`` and/or ``ENV['GIT_SSH']`` to the ``environment`` Hash.
 
+   New in Chef Client 12.0.
+
 ``group``
    **Ruby Types:** String, Integer
 
@@ -376,4 +378,3 @@ The following example uses the **git** resource to upgrade packages:
    end
 
 .. end_tag
-

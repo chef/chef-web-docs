@@ -14,7 +14,7 @@ A client.rb file is used to specify the configuration details for the chef-clien
 
 .. end_tag
 
-Changed in Chef Client 12.11 to support ``exit-status`` setting. Changed in 12.9 to support new ``:win_evt`` and ``:syslog`` output locations. Changed in 12.8 to support ``.d`` setting. Changed in 12.4 to support the Windows Event Logger and the daemon facility, see ``log_location``; stable audit-mode introduced.
+Changed in Chef Client 12.11 to support ``exit-status`` setting. Changed in 12.9 to support new ``:win_evt`` and ``:syslog`` output locations. Changed in 12.8 to support ``.d`` setting. Changed in 12.4 to support the Windows Event Logger and the daemon facility, see ``log_location``; stable audit-mode introduced. Changed in 12.0 to set the ``disable_event_logger`` to send events to the Microsoft Windows "Application" event log by default.
 
 Settings
 =====================================================
@@ -113,9 +113,9 @@ This configuration file has the following settings:
    The maximum size (in bytes) of a diff file created by the chef-client. Default value: ``1000000``.
 
 ``disable_event_logger``
-   Enable or disable sending events to the Microsoft Windows "Application" event log. When ``false``, events are sent to the Microsoft Windows "Application" event log at the start and end of a chef-client run, and also if a chef-client run fails. Set to ``true`` to disable event logging. Default value: ``true``.
+   Enable or disable sending events to the Microsoft Windows "Application" event log. When ``false``, events are sent to the Microsoft Windows "Application" event log at the start and end of a chef-client run, and also if a chef-client run fails. Set to ``true`` to disable event logging. Default value: ``false``.
 
-   Changed in Chef Client 12.0.
+   Changed in Chef Client 12.0 to send events to the Microsoft Windows "Application" event log by default.
 
 ``enable_reporting``
    Cause the chef-client to send data to the Chef server for use with Reporting.
