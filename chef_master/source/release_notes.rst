@@ -1635,7 +1635,7 @@ The following items are new for chef-client 12.7 and/or are changes from previou
 * **New apt_update resource** Use the **apt_update** resource to manage Apt repository updates on Debian and Ubuntu platforms.
 * **Improved support for UTF-8** The chef-client 12.7 release fixes a UTF-8 handling bug present in chef-client versions 12.4, 12.5, and 12.6.
 * **New options for the chef-client** The chef-client has a new option: ``--delete-entire-chef-repo``.
-* **Multi-package support for Chocolatey and Zypper** A resource may specify multiple packages and/or versions for platforms that use Zypper or Chocolatey package managers (in addition to the existing support for specifying multiple packages for Yum and Apt packages).
+* **Multi-package support for Chocolatey and Zypper** A resource may specify multiple packages and/or versions for platforms that use Zypper or Chocolatey package managers (in addition to the edtaxisting support for specifying multiple packages for Yum and Apt packages).
 
 Chef::REST => require 'chef/rest'
 -----------------------------------------------------

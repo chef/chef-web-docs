@@ -164,7 +164,7 @@ where ``/qn`` is used to set the user interface level to "No UI", ``/i`` is used
 ADDLOCAL Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag windows_msiexec_addlocal
-.. note:: ``ChefSchTaskFeature`` is new in Chef client 12.18.
+.. note:: ``ChefSchTaskFeature`` is New in Chef Client 12.18.
 
 The ``ADDLOCAL`` parameter adds two setup options that are specific to the chef-client. These options can be passed along with an Msiexec.exe command:
 
@@ -949,7 +949,7 @@ This subcommand has the following options:
 ``-N NAME``, ``--node-name NAME``
    The name of the node.
 
-   .. note:: This option is required for a validatorless bootstrap (as of Chef client 12.4).
+   .. note:: This option is required for a validatorless bootstrap (Changed in Chef Client 12.4).
 
 ``--[no-]fips``
   Allows OpenSSL to enforce FIPS-validated security during the chef-client run.
@@ -2760,7 +2760,7 @@ This resource has the following properties:
 
    The version number of the module to use. Powershell 5.0.10018.0 (or higher) supports having multiple versions of a module installed. This should be specified along with the ``module_name``.
 
-   New in Chef client 12.19.
+   New in Chef Client 12.19.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'

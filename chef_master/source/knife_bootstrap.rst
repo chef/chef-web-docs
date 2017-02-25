@@ -148,7 +148,7 @@ This subcommand has the following options:
 ``-N NAME``, ``--node-name NAME``
    The name of the node.
 
-   .. note:: This option is required for a validatorless bootstrap (as of Chef client 12.4).
+   .. note:: This option is required for a validatorless bootstrap (Changed in Chef Client 12.4).
 
 ``--[no-]fips``
   Allows OpenSSL to enforce FIPS-validated security during the chef-client run.
@@ -283,7 +283,7 @@ Use the following options with a validatorless bootstrap to specify items that a
 
 .. end_tag
 
-.. note:: The ``--node-name`` option is required for a validatorless bootstrap (as of Chef client 12.4).
+.. note:: The ``--node-name`` option is required for a validatorless bootstrap (Changed in Chef Client 12.4).
 
 FIPS Mode
 -----------------------------------------------------
