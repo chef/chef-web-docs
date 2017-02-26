@@ -163,11 +163,11 @@ Components
 =====================================================
 The following diagram shows the servers that are involved in a Chef Automate installation.
 
-.. image:: ../../images/delivery_architecture.svg
+.. image:: ../../images/automate_architecture_workflow.svg
    :width: 600px
    :align: center
 
-The build cookbook, hosted on the Chef server, determines what happens during each phase job. Build nodes, under control of the Chef server, run the phase jobs. It's a good idea to have at least three build nodes so that the lint, syntax and unit phases can run in parallel.
+The build cookbook, hosted on the Chef server, determines what happens during each phase job. Runners, under control of the Chef server, run the phase jobs. It's a good idea to have at least three runners so that the lint, syntax and unit phases can run in parallel.
 
 Environments
 =====================================================
@@ -175,7 +175,7 @@ As changes flow through the Chef Automate pipeline, they are tested in a series 
 
 Chef Automate allows you to define the infrastructure that participates in each stage.  How you map infrastructure environments to pipeline phases is controlled by the build cookbook. In other words, whether a given phase job distributes work to other infrastructure is up to you. There are many ways to map infrastructure environments to pipeline phases, but here are some possible approaches.
 
-Because they test source code, the Verify and Build stages ordinarily run exclusively on the build nodes and don't involve other infrastructure. The necessary runtime environments are created and destroyed during the execution of the stage. For example, they can be established using virtual machines created by testing frameworks such as Kitchen.
+Because they test source code, the Verify and Build stages ordinarily run exclusively on the runners and don't involve other infrastructure. The necessary runtime environments are created and destroyed during the execution of the stage. For example, they can be established using virtual machines created by testing frameworks such as Kitchen.
 
 The stages that test artifacts---Acceptance, Union, Rehearsal and Delivered---almost always need access to additional infrastructure to perform their tests.
 
