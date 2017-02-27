@@ -774,6 +774,12 @@ nav.nav-main {
     .nav-docs .sub-items.level-4 a {
       padding-left: 61px; }
 
+.sphinxsidebar > a.sphinxsidebar-ad {
+  padding: 0; }
+  .sphinxsidebar > a.sphinxsidebar-ad > img {
+    width: 100%;
+    margin: 8px 0 1px; }
+
 .left {
   float: left; }
 
