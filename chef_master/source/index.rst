@@ -310,7 +310,7 @@ Managing the Server
 `delete-application </ctl_delivery_server.html#delete-application>`_ |
 `delete-enterprise </ctl_delivery_server.html#delete-enterprise>`_ |
 `delete-project </ctl_delivery_server.html#delete-project>`_ |
-`delete-user </ctl_delivery_server.html#delete-user>`_ | `generate-password-reset-token </ctl_delivery_server.html#generate-password-reset-token>`_ | 
+`delete-user </ctl_delivery_server.html#delete-user>`_ | `generate-password-reset-token </ctl_delivery_server.html#generate-password-reset-token>`_ |
 `install-runner </ctl_delivery_server.html#install-runner>`_ |
 `list-applications </ctl_delivery_server.html#list-applications>`_ |
 `list-enterprises </ctl_delivery_server.html#list-enterprises>`_ |
@@ -526,6 +526,12 @@ Addenda
    deprecations_internal_api
    deprecations_json_auto_inflate
    deprecations_launchd_hash_property
+   deprecations_ohai_digitalocean
+   deprecations_ohai_legacy_config
+   deprecations_ohai_libvirt_plugin
+   deprecations_ohai_run_command_helpers
+   deprecations_ohai_sigar_plugins
+   deprecations_ohai_windows_cpu
    deprecations_property_name_collision
    deprecations_resource_cloning
    deprecations_run_command
