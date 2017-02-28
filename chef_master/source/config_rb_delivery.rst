@@ -97,13 +97,38 @@ If you wish to operate your Chef Automate server from behind a proxy, you may sp
     The port to connect on. This will be used for all connections (http and https).
 
 ``delivery['proxy']['user']``
-  Optional authentication user name when contacting the proxy server.
+   Optional authentication user name when contacting the proxy server.
   
 ``delivery['proxy']['password']``
     Optional authentication password when contacting the proxy server.
 
 ``delivery['proxy']['no_proxy']``
     A list of hostnames that are blacklisted from using the proxy. Chef Automate will attempt to connect directly to these hosts. By default, this is set to ``["localhost", "127.0.0.1"]``.
+
+Notifier Settings
+=====================================================
+If we wish to enable the notification feature in Chef Automate, please set one or more of these following flags.  This will let you receive notifications or JSON messages from Automate whenever it detects a Chef client run failure on a node.
+
+``notification['enable']``
+    Set this to ``true`` if you want to use the notification feature in Chef Automate.  None of the flags below will take effect unless this is set.
+
+``notification['slack_webhook_url']``
+    A Slack webhook URL which will be used to post Chef client run failure notifications. The default Slack channel included in the url is used.  See http://api.slack.com/incoming-webhooks for details.
+
+``notification['user_webhook_url']``
+    A custom webhook URL that will receive a JSON POST any time a Chef client run failure is detected.  The POST will have its ``Content-Type`` set to ``application/json``.  Here is an sample notification message body:
+
+    .. code-block:: json
+
+      {
+        "automate_fqdn":"automate.test",
+        "failure_snippet":"Chef client run failure on [chef-server.test] centos-runner-1.test : https://failure_url \n Failure Reason\n",
+        "exception_backtrace":"A long string with the backtrace that contains \n",
+        "exception_title":"Error Resolving Cookbooks for Run List:",
+        "exception_message":"412 \"Precondition Failed\"",
+        "automate_failure_url":"automate.test/long/url/that-takes-you-to-run-failure-page",
+        "node_name":"centos-runner-1.test"
+      }
 
 Optional Settings
 =====================================================
