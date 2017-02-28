@@ -113,7 +113,7 @@ If we wish to enable the notification feature in Chef Automate, please set one o
     Set this to ``true`` if you want to use the notification feature in Chef Automate.  None of the flags below will take effect unless this is set.
 
 ``notification['slack_webhook_url']``
-    A Slack webhook URL which will be used to post Chef client run failure notifications. The default Slack channel included in the url is used.  See `this link https://api.slack.com/incoming-webhooks`_ for details.
+    A Slack webhook URL which will be used to post Chef client run failure notifications. The default Slack channel included in the url is used.  See http://api.slack.com/incoming-webhooks for details.
 
 ``notification['user_webhook_url']``
     A custom webhook URL that will receive a JSON POST any time a Chef client run failure is detected.  The POST will have its ``Content-Type`` set to ``application/json``.  Here is an sample notification message body:
