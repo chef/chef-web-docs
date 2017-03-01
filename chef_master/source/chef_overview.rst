@@ -329,7 +329,7 @@ Cookbooks are comprised of the following components:
        * Declares the steps needed to bring that item to the desired state
        * Specifies a resource type---such as ``package``, ``template``, or ``service``
        * Lists additional details (also known as resource properties), as necessary
-       * Are grouped into recipes, which describe working configurationst
+       * Are grouped into recipes, which describe working configurations
 
        .. end_tag
 

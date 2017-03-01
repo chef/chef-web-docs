@@ -77,15 +77,15 @@ All Deprecations
   * - :doc:`CHEF-10 </deprecations_dnf_package_allow_downgrade>`
     - DNF package provider and resource do not require ``--allow-downgrade`` anymore.
     - 12.18.31
-    -
+    - 13.0
   * - :doc:`CHEF-11 </deprecations_property_name_collision>`
-    - An exception will be raised if a resource property conflicts with an already-existing property or method. 
+    - An exception will be raised if a resource property conflicts with an already-existing property or method.
     - 12.19.x
-    - 
+    - 13.0
   * - :doc:`CHEF-12 </deprecations_launchd_hash_property>`
     - An exception will be raised whenever the ``hash`` property in the launchd resource is used.
     - 12.19.x
-    - 
+    - 13.0
   * - :doc:`CHEF-13 </deprecations_chef_platform_methods>`
     - Deprecated ``Chef::Platform`` methods
     - 12.18.31
@@ -97,4 +97,28 @@ All Deprecations
   * - :doc:`CHEF-3694 </deprecations_resource_cloning>`
     - Resource Cloning will no longer work.
     - 10.18.0
+    - 13.0
+  * - :doc:`OHAI-1 </deprecations_ohai_legacy_config>`
+    - Ohai::Config removal.
+    - 12.6.0
+    - 13.0
+  * - :doc:`OHAI-2 </deprecations_ohai_sigar_plugins>`
+    - Sigar gem based plugins removal.
+    - 12.19.33
+    - 13.0
+  * - :doc:`OHAI-3 </deprecations_ohai_run_command_helpers>`
+    - run_command and popen4 helper method removal.
+    - 12.8.1
+    - 13.0
+  * - :doc:`OHAI-4 </deprecations_ohai_libvirt_plugin>`
+    - Libvirt plugin attributes changes.
+    - 12.19.33
+    - 13.0
+  * - :doc:`OHAI-5 </deprecations_ohai_windows_cpu>`
+    - Windows CPU plugin attribute changes.
+    - 12.19.33
+    - 13.0
+  * - :doc:`OHAI-6 </deprecations_ohai_digitalocean>`
+    - DigitalOcean plugin attribute changes.
+    - 12.19.33
     - 13.0
