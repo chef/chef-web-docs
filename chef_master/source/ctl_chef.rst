@@ -654,11 +654,11 @@ Use the ``chef provision`` subcommand to invoke an embedded chef-client run to p
 
 The ``chef provision`` subcommand is intended to:
 
-* Provide a provisioning mechamism that supports using Policyfile.rb files
-* Supporting naming conventions within Chef provisioning
-* Integreate Chef provisioning steps with the command-line tools that are packaged with the Chef development kit
+* Provide a provisioning mechanism that supports using Policyfile.rb files
+* Support naming conventions within Chef provisioning
+* Integrate Chef provisioning steps with the command-line tools that are packaged with the Chef development kit
 * Separate the configuration of provisioned machines from running Chef provisioning
-* Allow provisioing to be managed as code and versioned (via Policyfile.rb files), as opposed to the legacy ``knife bootstrap`` behavior, which is primarily driven by command-line options
+* Allow provisioning to be managed as code and versioned (via Policyfile.rb files), as opposed to the legacy ``knife bootstrap`` behavior, which is primarily driven by command-line options
 
 .. end_tag
 
@@ -1491,11 +1491,11 @@ Use the ``chef provision`` subcommand to invoke an embedded chef-client run to p
 
 The ``chef provision`` subcommand is intended to:
 
-* Provide a provisioning mechamism that supports using Policyfile.rb files
-* Supporting naming conventions within Chef provisioning
-* Integreate Chef provisioning steps with the command-line tools that are packaged with the Chef development kit
+* Provide a provisioning mechanism that supports using Policyfile.rb files
+* Support naming conventions within Chef provisioning
+* Integrate Chef provisioning steps with the command-line tools that are packaged with the Chef development kit
 * Separate the configuration of provisioned machines from running Chef provisioning
-* Allow provisioing to be managed as code and versioned (via Policyfile.rb files), as opposed to the legacy ``knife bootstrap`` behavior, which is primarily driven by command-line options
+* Allow provisioning to be managed as code and versioned (via Policyfile.rb files), as opposed to the legacy ``knife bootstrap`` behavior, which is primarily driven by command-line options
 
 .. end_tag
 
