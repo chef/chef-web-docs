@@ -27,6 +27,8 @@ The chef-solo executable is run as a command-line tool.
 
 .. end_tag
 
+New in Chef Client 12.3, ``--minimal-ohai``. New in 12.0, ``-o RUN_LIST_ITEM``. Changed in 12.0 ``-f`` no longer allows unforked intervals, ``-i SECONDS`` is applied before the chef-client run.
+
 Options
 =====================================================
 .. tag ctl_chef_solo_options
@@ -53,7 +55,7 @@ This command has the following options:
 ``-f``, ``--[no-]fork``
    Contain the chef-client run in a secondary process with dedicated RAM. When the chef-client run is complete, the RAM is returned to the master process. This option helps ensure that a chef-client uses a steady amount of RAM over time because the master process does not run recipes. This option also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Use ``--no-fork`` to disable running the chef-client in fork node. Default value: ``--fork``. This option may not be used in the same command with the ``--daemonize`` and ``--interval`` options.
 
-   Changed in Chef Client 12.0, unforked interval runs are no longer allowed. 
+   Changed in Chef Client 12.0, unforked interval runs are no longer allowed.
 
 ``-F FORMAT``, ``--format FORMAT``
    .. tag ctl_chef_client_options_format

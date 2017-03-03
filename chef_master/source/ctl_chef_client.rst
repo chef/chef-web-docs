@@ -31,6 +31,8 @@ The chef-client executable is run as a command-line tool.
 
           .. end_tag
 
+New in Chef client 12.13, FIPS runtime flag exposed on RHEL. New in 12.9, ``--d SECONDS``.  New in 12.8, support for OpenSSL validation of FIPS. Changed in 12.8, chef-zero supports all Chef server API 12 endpoints, except ``/universe``. New in 12.7, ``--delete-entire-chef-repo``. New in 12.6, ``--profile-ruby``. New in 12.5, ``--n NAME``. Changed in 12.5, ``-j PATH`` supports policy revisions and environments. New in 12.3, ``--minimal-ohai``, ``--[no-]listen``. New in 12.0, ``-o RUN_LIST_ITEM``. New in 12.1 ``--audit-mode MODE``. Changed in 12.0, ``chef-zero-port`` supports specifying a range of ports, ``-f`` ``--[no]fork`` unforked interval runs are no longer involved, ``-s SECONDS`` is applied before the chef-client run.
+
 Options
 =====================================================
 This command has the following syntax:
@@ -120,7 +122,7 @@ This command has the following options:
 ``-j PATH``, ``--json-attributes PATH``
    The path to a file that contains JSON data. Used to setup the first client run. For all the future runs with option -i the attributes are expected to be persisted in the chef-server.
 
-   Changed in Chef Client 12.5 to support policy revisions and environments,.
+   Changed in Chef Client 12.5 to support policy revisions and environments.
 
    **Run-lists**
 

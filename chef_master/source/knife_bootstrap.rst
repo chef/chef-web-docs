@@ -22,6 +22,8 @@ Use the ``knife bootstrap`` subcommand to run a bootstrap operation that install
 
 .. note:: To bootstrap the chef-client on Microsoft Windows machines, the :doc:`knife-windows </plugin_knife_windows>` plugins is required, which includes the necessary bootstrap scripts that are used to do the actual installation.
 
+New in 12.6, ``-i IDENTITY_FILE``, ``--json-attribute-file FILE``, ``--sudo-preserve-home``.  Changed in 12.4, validatorless bootstrap requires ``-N node_name``. Changed in 12.1, ``knife-bootstrap`` has the options --bootstrap-vault-file, --bootstrap-vault-item, and --bootstrap-vault-json options to specifiy item stored in chef-vault. New in 12.0, ``--[no-]node-verify-api-cert``, ``--node-ssl-verify-mode PEER_OR_NONE``, ``-t TEMPLATE``, 
+
 Syntax
 =====================================================
 .. tag knife_bootstrap_syntax
