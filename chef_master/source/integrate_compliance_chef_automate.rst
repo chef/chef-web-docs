@@ -20,7 +20,7 @@ Collector: ``chef-visibility``
 
 This method is compatible with Chef Server managed nodes or Chef Solo (commonly referred to as "Chef client local mode").
 
-When setting the ``node['audit]['collector']`` attribute to ``chef-visibility``, the ``audit`` cookbook can retrieve profiles from the following sources: ``Chef Supermarket``, ``local filesystem`` and ``git repository``.
+When setting the ``node['audit']['collector']`` attribute to ``chef-visibility``, the ``audit`` cookbook can retrieve profiles from the following sources: ``Chef Supermarket``, ``local filesystem`` and ``git repository``.
 
 The profiles execution result will be sent to Chef Automate using the ``data_collector`` URL and ``token``. For more details, see the README file of the `audit <https://github.com/chef-cookbooks/audit>`_ cookbook.
 
@@ -29,7 +29,7 @@ Collector: ``chef-compliance``
 
 This method is compatible with Chef Server managed nodes or Chef Solo.
 
-When setting the ``node['audit]['collector']`` attribute to ``chef-compliance``, the ``audit`` cookbook can retrieve profiles from the following sources: ``Chef Compliance server``, ``Chef Supermarket``, ``local filesystem`` and ``git repository``.
+When setting the ``node['audit']['collector']`` attribute to ``chef-compliance``, the ``audit`` cookbook can retrieve profiles from the following sources: ``Chef Compliance server``, ``Chef Supermarket``, ``local filesystem`` and ``git repository``.
 
 The profiles execution result will be sent to Chef Compliance. Attributes to specify the Chef Compliance API sever and authentication token are required. For more details, see the README file of the `audit <https://github.com/chef-cookbooks/audit>`_ cookbook.
 
@@ -63,7 +63,7 @@ and run ``sudo chef-server-ctl reconfigure``.
 The profiles store service also needs to be enabled in Chef Automate. This is documented in :ref:`profiles`.
 Manage the profiles in profiles asset store using the :doc:`api_delivery`.
 
-When using the ``audit`` cookbook, set the ``node['audit]['collector']`` attribute to ``chef-server-visibility``, and retrieve profiles from the following sources: ``Chef Automate`` ( via ``Chef Server`` ), ``Chef Supermarket``, ``local filesystem`` and ``git repository``.
+When using the ``audit`` cookbook, set the ``node['audit']['collector']`` attribute to ``chef-server-visibility``, and retrieve profiles from the following sources: ``Chef Automate`` ( via ``Chef Server`` ), ``Chef Supermarket``, ``local filesystem`` and ``git repository``.
 
 The profiles execution result will be sent to Chef Visibility. For more details, see the README file of the `audit <https://github.com/chef-cookbooks/audit>`_ cookbook.
 
@@ -82,7 +82,7 @@ Integrating Chef Compliance with Chef server allows:
 
 * Nodes under management by Chef to download Chef Compliance profiles, run them on nodes, and then send the results back to Chef Compliance
 
-When setting the ``node['audit]['collector']`` attribute to ``chef-server``, the ``audit`` cookbook can retrieve profiles from the following sources: ``Chef Compliance server``, ``Chef Supermarket``, ``local filesystem`` and ``git repository``.
+When setting the ``node['audit']['collector']`` attribute to ``chef-server``, the ``audit`` cookbook can retrieve profiles from the following sources: ``Chef Compliance server``, ``Chef Supermarket``, ``local filesystem`` and ``git repository``.
 
 The profiles execution result will be sent to Chef Compliance. For more details, see the README file of the `audit <https://github.com/chef-cookbooks/audit>`_ cookbook.
 
