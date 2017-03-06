@@ -189,7 +189,7 @@ This resource has the following attributes:
 
    .. warning:: .. tag resources_common_resource_execute_attribute_path
 
-                The ``path`` property is not implemented by any provider in any version of the chef-client. Starting with chef-client 12, using the ``path`` property will return a warning. Starting with chef-client 13, the ``path`` property is deprecated and using it will return an exception. Cookbooks that currently use the ``path`` property should be updated to use the ``environment`` property instead.
+                The ``path`` property has been deprecated and will throw an exception in Chef Client 13. We recommend you use the ``environment`` property instead.
 
                 .. end_tag
 
@@ -361,6 +361,8 @@ Guard Interpreter
 Any resource that passes a string command may also specify the interpreter that will be used to evaluate that string command. This is done by using the ``guard_interpreter`` property to specify a **script**-based resource.
 
 .. end_tag
+
+Changed in Chef Client 12.0 to default to the specified property.
 
 **Attributes**
 

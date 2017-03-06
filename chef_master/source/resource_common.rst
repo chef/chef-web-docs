@@ -357,6 +357,8 @@ Any resource that passes a string command may also specify the interpreter that 
 
 .. end_tag
 
+Changed in Chef Client 12.0 to default to the specified property.
+
 Attributes
 -----------------------------------------------------
 .. tag resources_common_guard_interpreter_attributes
@@ -548,6 +550,8 @@ The syntax for ``notifies`` is:
    notifies :action, 'resource[name]', :timer
 
 .. end_tag
+
+Changed in Chef Client 12.6 to use ``:before`` timer with the ``notifies`` and ``subscribes`` properties to specify that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1113,4 +1117,3 @@ but then not use the ``inherits`` property to deny those rights on a child direc
 Because the ``inherits`` property is not specified, the chef-client will default it to ``true``, which will ensure that security settings for existing files remain unchanged.
 
 .. end_tag
-

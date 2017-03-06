@@ -14,6 +14,8 @@ Use the **paludis_package** resource to manage packages for the Paludis platform
           In many cases, it is better to use the **package** resource instead of this one. This is because when the **package** resource is used in a recipe, the chef-client will use details that are collected by Ohai at the start of the chef-client run to determine the correct package application. Using the **package** resource allows a recipe to be authored in a way that allows it to be used across many platforms.
 
           .. end_tag
+          
+New in Chef Client 12.1.
 
 Syntax
 =====================================================
@@ -237,4 +239,3 @@ The following examples demonstrate various approaches for using resources in rec
    end
 
 .. end_tag
-

@@ -99,6 +99,8 @@ This resource has the following properties:
                   action :install
                 end
 
+   New in Chef Client 12.3.
+
 ``compile_time``
    **Ruby Types:** TrueClass, FalseClass
 
@@ -127,6 +129,8 @@ This resource has the following properties:
                    end
 
                 See this `blog post <http://jtimberman.housepub.org/blog/2015/03/20/chef-gem-compile-time-compatibility/>`__ for more background on this behavior.
+
+   New in Chef Client 12.1.
 
 ``ignore_failure``
    **Ruby Types:** TrueClass, FalseClass

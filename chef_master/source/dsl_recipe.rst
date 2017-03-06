@@ -11,6 +11,8 @@ The Recipe DSL is a Ruby DSL that is primarily used to declare resources from wi
 
 Because the Recipe DSL is a Ruby DSL, then anything that can be done using Ruby can also be done in a recipe, including ``if`` and ``case`` statements, using the ``include?`` Ruby method, including recipes in recipes, and checking for dependencies.
 
+New in Chef Client 12.10 ``declare_resource``, ``delete_resource``, ``edit_resource``, ``find_resource``, ``delete_resource!``, ``edit_resource!`` and ``find_resource!``. New in 12.1, ``control_group`` method added. New in 12.0, ``data_bag``, ``data_bag_item``, ``:filter_result``, ``platform?``, ``shell_out!``, ``shell_out_with_systems_locale``, ``tag``, ``tagged?``, ``untag``.
+
 Use Ruby
 =====================================================
 Common Ruby techniques can be used with the Recipe DSL methods.
@@ -903,6 +905,8 @@ where:
 
 .. end_tag
 
+New in Chef Client 12.1.
+
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -1213,6 +1217,8 @@ The ``id`` for each data bag item will be returned as a string.
 
 .. end_tag
 
+New in Chef Client 12.0.
+
 data_bag_item
 -----------------------------------------------------
 .. tag data_bag
@@ -1287,6 +1293,8 @@ The following example shows how to use the ``data_bag`` and ``data_bag_item`` me
 
 For a more complete version of the previous example, see the default recipe in the https://github.com/hw-cookbooks/apt-mirror community cookbook.
 
+New in Chef Client 12.0.
+
 declare_resource
 -----------------------------------------------------
 .. tag dsl_recipe_method_declare_resource
@@ -1321,6 +1329,8 @@ is equivalent to:
      action :delete
    end
 
+New in Chef Client 12.10.
+
 .. end_tag
 
 delete_resource
@@ -1346,6 +1356,8 @@ For example:
 
    delete_resource(:template, '/x/y.erb')
 
+New in Chef Client 12.10.
+
 .. end_tag
 
 delete_resource!
@@ -1358,7 +1370,7 @@ The syntax for the ``delete_resource!`` method is as follows:
 
 .. code-block:: ruby
 
-   delete_resource!(:resource_type, 'resource_name')
+delete_resource!(:resource_type, 'resource_name')
 
 where:
 
@@ -1370,6 +1382,8 @@ For example:
 .. code-block:: ruby
 
    delete_resource!(:file, '/x/file.txt')
+
+New in Chef Client 12.10.
 
 .. end_tag
 
@@ -1413,6 +1427,8 @@ and a resource block:
      notifies :run, 'execute[newaliases]'
    end
 
+New in Chef Client 12.10.
+
 .. end_tag
 
 edit_resource!
@@ -1443,6 +1459,8 @@ For example:
 .. code-block:: ruby
 
    edit_resource!(:file, '/x/y.rst')
+
+New in Chef Client 12.10.
 
 .. end_tag
 
@@ -1483,6 +1501,8 @@ and a resource block:
      notifies :run, 'execute[newseapower]'
    end
 
+New in Chef Client 12.10.
+
 .. end_tag
 
 find_resource!
@@ -1507,6 +1527,8 @@ For example:
 .. code-block:: ruby
 
    find_resource!(:template, '/x/y.erb')
+
+New in Chef Client 12.10.
 
 .. end_tag
 
@@ -1840,6 +1862,8 @@ For example:
 
 .. end_tag
 
+New in Chef Client 12.0.
+
 Query Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag search_query_syntax
@@ -2159,6 +2183,8 @@ where ``command_args`` is the command that is run against the node.
 
 .. end_tag
 
+New in Chef Client 12.0.
+
 shell_out!
 -----------------------------------------------------
 .. tag dsl_recipe_method_shell_out_bang
@@ -2175,6 +2201,8 @@ where ``command_args`` is the command that is run against the node. This method 
 
 .. end_tag
 
+New in Chef Client 12.0.
+
 shell_out_with_systems_locale
 -----------------------------------------------------
 .. tag dsl_recipe_method_shell_out_with_systems_locale
@@ -2190,6 +2218,8 @@ The syntax for the ``shell_out_with_systems_locale`` method is as follows:
 where ``command_args`` is the command that is run against the node.
 
 .. end_tag
+
+New in Chef Client 12.0.
 
 tag, tagged?, untag
 -----------------------------------------------------
@@ -2282,6 +2312,8 @@ When each value has more than one platform, the syntax changes to:
        'version' => 'value'
      },
    )
+
+Changed in Chef Client 12.0 to support version constraints.
 
 Operators
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -3140,4 +3172,3 @@ The following example installs Windows PowerShell 2.0 on systems that do not alr
 The previous example is from the `ms_dotnet2 cookbook <https://github.com/juliandunn/ms_dotnet2>`_, created by community member ``juliandunn``.
 
 .. end_tag
-

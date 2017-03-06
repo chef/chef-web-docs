@@ -855,11 +855,13 @@ bff_package
 =====================================================
 .. tag resource_package_bff
 
-Use the **bff_package** resource to manage packages for the AIX platform using the installp utility. When a package is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources.
+Use the **bff_package** resource to manage packages for the AIX platform using the installp utility. When a package is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources. New in Chef Client 12.0.
 
 .. note:: A Backup File Format (BFF) package may not have a ``.bff`` file extension. The chef-client will still identify the correct provider to use based on the platform, regardless of the file extension.
 
 .. end_tag
+
+New in Chef Client 12.0.
 
 **Install a package**
 
@@ -999,6 +1001,8 @@ To install a gem while the resource collection is being built (the “compile ph
    end
 
 .. end_tag
+
+New in Chef Client 12.1.
 
 **Install MySQL for Chef**
 
@@ -2149,6 +2153,8 @@ dsc_script
 Many DSC resources are comparable to built-in Chef resources. For example, both DSC and Chef have **file**, **package**, and **service** resources. The **dsc_script** resource is most useful for those DSC resources that do not have a direct comparison to a resource in Chef, such as the ``Archive`` resource, a custom DSC resource, an existing DSC script that performs an important task, and so on. Use the **dsc_script** resource to embed the code that defines a DSC configuration directly within a Chef recipe.
 
 .. end_tag
+
+New in Chef Client 12.2.  Changed in Chef Client 12.6.
 
 **Specify DSC code directly**
 
@@ -3319,6 +3325,8 @@ Use the **homebrew_package** resource to manage packages for the Mac OS X platfo
 
 .. end_tag
 
+New in Chef Client 12.0.
+
 **Install a package**
 
 .. tag resource_homebrew_package_install
@@ -3384,6 +3392,8 @@ Use the **http_request** resource to send an HTTP request (``GET``, ``PUT``, ``P
 The message is sent as ``http://example.com/check_in?message=some_message``.
 
 .. end_tag
+
+Changed in Chef Client 12.0 to deprecate the hard-coded query string from earlier versions. Cookbooks that rely on this string need to be updated to manually add it to the URL as it is passed to the resource.
 
 **Send a POST request**
 
@@ -3545,9 +3555,7 @@ ksh
 =====================================================
 .. tag resource_script_ksh
 
-Use the **ksh** resource to execute scripts using the Korn shell (ksh) interpreter. This resource may also use any of the actions and properties that are available to the **execute** resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
-
-*New in Chef Client 12.6.*
+Use the **ksh** resource to execute scripts using the Korn shell (ksh) interpreter. This resource may also use any of the actions and properties that are available to the **execute** resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence. New in Chef Client 12.6.
 
 .. note:: The **ksh** script resource (which is based on the **script** resource) is different from the **ruby_block** resource because Ruby code that is run with this resource is created as a temporary file and executed like other script resources, rather than run inline.
 
@@ -4050,6 +4058,8 @@ Use the **openbsd_package** resource to manage packages for the OpenBSD platform
    end
 
 .. end_tag
+
+New in Chef Client 12.1.
 
 osx_profile
 =====================================================
@@ -4639,6 +4649,8 @@ Use the **paludis_package** resource to manage packages for the Paludis platform
 
 .. end_tag
 
+New in Chef Client 12.1.
+
 perl
 =====================================================
 .. tag resource_script_perl
@@ -4866,7 +4878,7 @@ reboot
 =====================================================
 .. tag resource_service_reboot
 
-Use the **reboot** resource to reboot a node, a necessary step with some installations on certain platforms. This resource is supported for use on the Microsoft Windows, Mac OS X, and Linux platforms.
+Use the **reboot** resource to reboot a node, a necessary step with some installations on certain platforms. This resource is supported for use on the Microsoft Windows, Mac OS X, and Linux platforms.  New in Chef Client 12.0.
 
 .. end_tag
 
@@ -7008,6 +7020,8 @@ Use the calculated password shadow hash with the **user** resource:
 
 .. end_tag
 
+New in Chef Client 12.0.
+
 **Use SALTED-SHA512-PBKDF2 passwords**
 
 .. tag resource_user_password_shadow_hash_salted_sha512_pbkdf2
@@ -7040,6 +7054,8 @@ Use the calculated password shadow hash with the **user** resource:
    end
 
 .. end_tag
+
+New in Chef Client 12.0.
 
 windows_package
 =====================================================
@@ -7148,7 +7164,7 @@ windows_service
 =====================================================
 .. tag resource_service_windows
 
-Use the **windows_service** resource to manage a service on the Microsoft Windows platform.
+Use the **windows_service** resource to manage a service on the Microsoft Windows platform. New in Chef Client 12.0.
 
 .. end_tag
 

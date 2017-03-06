@@ -9,7 +9,7 @@ Use the **homebrew_package** resource to manage packages for the Mac OS X platfo
 
 .. end_tag
 
-*New in Chef Client 12.0.*
+New in Chef Client 12.0.
 
 .. note:: .. tag notes_resource_based_on_package
 

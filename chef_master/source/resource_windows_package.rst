@@ -9,6 +9,8 @@ Use the **windows_package** resource to manage Microsoft Installer Package (MSI)
 
 .. end_tag
 
+Changed in 12.4 to include ``checksum`` and ``remote_file_attributes`` and URL locations on the ``source`` properties. Changed in Chef Client 12.6 to support a greater variety of ``installer_type``; Changed in 12.0 for ``installer_type`` to require a symbol. 
+
 Syntax
 =====================================================
 .. tag resource_package_windows_syntax
@@ -79,8 +81,8 @@ This resource has the following properties:
    **Ruby Type:** String
 
    The SHA-256 checksum of the file. Use to prevent a file from being re-downloaded. When the local file matches the checksum, the chef-client does not download it. Use when a URL is specified by the ``source`` property.
-   
-   New in Chef client 12.6.
+
+   New in Chef Client 12.4, changed in 12.6.
 
 ``ignore_failure``
    **Ruby Types:** TrueClass, FalseClass
@@ -91,6 +93,8 @@ This resource has the following properties:
    **Ruby Type:** Symbol
 
    A symbol that specifies the type of package. Possible values: ``:custom`` (such as installing a non-.msi file that embeds an .msi-based installer), ``:inno`` (Inno Setup), ``:installshield`` (InstallShield), ``:msi`` (Microsoft Installer Package (MSI)), ``:nsis`` (Nullsoft Scriptable Install System (NSIS)), ``:wise`` (Wise).
+
+   Changed in Chef Client 12.6 to support diverse installer types; Changed in 12.0 to require a symbol.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -141,6 +145,8 @@ This resource has the following properties:
 
    A package at a remote location define as a Hash of properties that modifes the properties of the **remote_file** resource.
 
+   New in Chef Client 12.4.
+
 ``retries``
    **Ruby Type:** Integer
 
@@ -170,6 +176,8 @@ This resource has the following properties:
       HKEY_LOCAL_MACHINE\Software\Wow6464Node\Microsoft\Windows\CurrentVersion\Uninstall
 
    .. note:: If there are multiple versions of a package installed with the same display name, all of those packages will be removed unless a version is provided in the ``version`` property or unless it can be discovered in the installer file specified by the ``source`` property.
+
+   Changed in Chef Client 12.4 to support URL locations.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -341,4 +349,3 @@ For example:
    end
 
 .. end_tag
-

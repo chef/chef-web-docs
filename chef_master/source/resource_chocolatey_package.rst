@@ -56,6 +56,8 @@ where
 
 .. end_tag
 
+Changed in Chef Client 12.1 to support specifying multiple packages and/or versions.
+
 Actions
 =====================================================
 .. tag resource_package_chocolatey_actions
@@ -211,7 +213,7 @@ This resource has the following properties:
 ``returns``
    **Ruby Types:** Integer, Array of Integers
 
-   New in Chef client 12.18.
+   New in Chef Client 12.18.
 
    The exit code(s) returned a chocolatey package that indicate success. Default is 0.
 

@@ -39,6 +39,8 @@ This subcommand has the following options:
 ``-n``, ``--dry-run``
    Take no action and only print out results. Default: ``false``.
 
+   New in Chef Client 12.0.
+
 ``--[no-]diff``
    Download only new and modified files. Set to ``false`` to download all files. Default: ``--diff``.
 
@@ -135,4 +137,3 @@ To download all cookbooks that start with "apache" and belong to the "webserver"
 .. code-block:: bash
 
    $  knife download cookbooks/apache\* roles/webserver.json
-

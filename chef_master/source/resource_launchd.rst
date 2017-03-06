@@ -9,8 +9,6 @@ Use the **launchd** resource to manage system-wide services (daemons) and per-us
 
 .. end_tag
 
-*New in Chef Client 12.8.*
-
 Syntax
 =====================================================
 .. tag resource_launchd_syntax

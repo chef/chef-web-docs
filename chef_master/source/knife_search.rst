@@ -704,8 +704,12 @@ This subcommand has the following options:
 ``-l``, ``--long``
    Display all attributes in the output and show the output as JSON.
 
+   New in Chef Client 12.0.
+
 ``-m``, ``--medium``
    Display normal attributes in the output and to show the output as JSON.
+
+   New in Chef Client 12.0.
 
 ``-o SORT``, ``--sort SORT``
    The order in which search results are to be sorted.
@@ -885,4 +889,3 @@ To test a search query that will be used in a ``knife ssh`` subcommand:
 where the query in the previous example will search all servers that have the ``web`` role, but not on the server named ``web03``.
 
 .. end_tag
-

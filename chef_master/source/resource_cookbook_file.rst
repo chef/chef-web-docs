@@ -306,6 +306,8 @@ This resource has the following properties:
 
    If a string or a block return ``false``, the chef-client run will stop and an error is returned.
 
+   New in Chef Client 12.1.
+
 .. note:: Use the ``owner`` and ``right`` properties and avoid the ``group`` and ``mode`` properties whenever possible. The ``group`` and ``mode`` properties are not true Microsoft Windows concepts and are provided more for backward compatibility than for best practice.
 
 .. warning:: .. tag notes_selinux_file_based_resources
@@ -537,6 +539,8 @@ If the ``apache2_module_conf_generate.pl`` file was located in the cookbook dire
 
 The naming of folders within cookbook directories must literally match the host notation used for file specificity matching. For example, if a host is named ``foo.example.com``, the folder must be named ``host-foo.example.com``.
 
+Changed in Chef Client 12.0.
+
 Examples
 =====================================================
 The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
@@ -677,4 +681,3 @@ and then the following resources manage the dotfiles:
    end
 
 .. end_tag
-

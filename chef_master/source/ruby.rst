@@ -17,6 +17,10 @@ Ruby is also a powerful and complete programming language:
 
 .. end_tag
 
+Changed in Chef Client 12.14 to recommend Ruby 2.3.1; 12.13 recommended Ruby 2.1.9; 12.0 recommended Ruby 2.0.
+
+As of Chef Client 12.0, Chef does not support Ruby versions prior to 2.0.
+
 Ruby Basics
 =====================================================
 This section covers the basics of Ruby.
@@ -705,7 +709,7 @@ Always use ``mixlib-shellout`` to shell out. Never use backticks, Process.spawn,
 
 The `mixlib-shellout module <https://github.com/chef/mixlib-shellout/blob/master/README.md>`__ provides a simplified interface to shelling out while still collecting both standard out and standard error and providing full control over environment, working directory, uid, gid, etc.
 
-Starting with chef-client version 12.0 you can use the ``shell_out``, ``shell_out!`` and ``shell_out_with_system_locale`` :doc:`Recipe DSL methods </dsl_recipe>` to interface directly with ``mixlib-shellout``.
+New in Chef Client 12.0 you can use the ``shell_out``, ``shell_out!`` and ``shell_out_with_system_locale`` :doc:`Recipe DSL methods </dsl_recipe>` to interface directly with ``mixlib-shellout``.
 
 Constructs to Avoid
 -----------------------------------------------------

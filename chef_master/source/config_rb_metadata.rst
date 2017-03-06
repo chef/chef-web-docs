@@ -13,14 +13,16 @@ Every cookbook requires a small amount of metadata. A file named metadata.rb is 
 
 A metadata.rb file is:
 
-* Located at the top level of a cookbook's directory structure
-* Compiled whenever a cookbook is uploaded to the Chef server or when the ``knife cookbook metadata`` subcommand is run, and then stored as JSON data
-* Created automatically by knife whenever the ``knife cookbook create`` subcommand is run
-* Edited using a text editor, and then re-uploaded to the Chef server as part of a cookbook upload
+* Located at the top level of a cookbook's directory structure.
+* Compiled whenever a cookbook is uploaded to the Chef server or when the ``knife cookbook metadata`` subcommand is run, and then stored as JSON data.
+* Created automatically by knife whenever the ``knife cookbook create`` subcommand is run.
+* Edited using a text editor, and then re-uploaded to the Chef server as part of a cookbook upload.
 
 .. end_tag
 
 .. note:: A metadata.json file can be edited directly, should temporary changes be required. Any subsequent upload or action that generates metadata will cause the existing metadata.json file to be overwritten with the newly generated metadata. Therefore, any permanent changes to cookbook metadata should be done in the metadata.rb file, and then re-uploaded to the Chef server.
+
+ New in 12.8, ``gem`` allows the specification of gem dependency installation via ``chef_gem``. New in 12.6, ``chef_version`` for supporting a range of chef-client versions in a cookbooks, ``ohai_version`` for supporting a range of Ohai versions in a cookbook.  Changed in Chef Client 12.0 to support version constraints, requires ``name``.  New in 12.0, ``issues_url`` to capture issues tracking, ``provides`` method for mapping a custom resource or provider to an existing resource or provider, and ``source_url`` to capture source capture. 
 
 Version Constraints
 ====================
@@ -48,7 +50,9 @@ Many fields in a cookbook's metadata allow the user to constrain versions. There
   * - Less than or equal to
     - ``<=``
 
-.. note:: Pessimistic locking is enabled by proper `semantic versioning <https://semver.org>`__ of cookbooks. If we're on version 2.2.3 of a cookbook, we know that the API will be stable until the 3.0.0 release. Using traditional operators, we'd write this as ``>= 2.2.0, < 3.0``. Instead, we can write this by combining a tilde "~" and right angle bracket ">"--often called a tilde-rocket or "twiddle-wakka"--followed by the major and minor version numbers.  For example: ``~> 2.2`` 
+Changed in Chef Client 12.0 to support version constraints.
+
+.. note:: Pessimistic locking is enabled by proper `semantic versioning <https://semver.org>`__ of cookbooks. If we're on version 2.2.3 of a cookbook, we know that the API will be stable until the 3.0.0 release. Using traditional operators, we'd write this as ``>= 2.2.0, < 3.0``. Instead, we can write this by combining a tilde "~" and right angle bracket ">"--often called a tilde-rocket or "twiddle-wakka"--followed by the major and minor version numbers.  For example: ``~> 2.2``
 
 
 Settings
@@ -92,6 +96,8 @@ This configuration file has the following settings:
 
    .. note:: This setting is not visible in Chef Supermarket.
 
+   New in Chef Client 12.6.
+
 ``depends``
    This field requires that a cookbook with a matching name and version exists on the Chef server. When the match exists, the Chef server includes the dependency as part of the set of cookbooks that are sent to the node when the chef-client runs. It is very important that the ``depends`` field contain accurate data. If a dependency statement is inaccurate, the chef-client may not be able to complete the configuration of the system. All :ref:`version constraint operators <cookbook_version_constraints>` are applicable to this field.
 
@@ -127,6 +133,8 @@ This configuration file has the following settings:
       gem "chef-sugar"
       gem "chef-provisioning"
 
+   New in Chef Client 12.8.
+
    .. end_tag
 
 ``issues_url``
@@ -137,6 +145,8 @@ This configuration file has the following settings:
    .. code-block:: ruby
 
       issues_url 'https://github.com/chef-cookbooks/chef-client/issues'
+
+   New in Chef Client 12.0.
 
 ``license``
    The type of license under which a cookbook is distributed: ``Apache v2.0``, ``GPL v2``, ``GPL v3``, ``MIT``, or ``license 'Proprietary - All Rights Reserved`` (default). Please be aware of the licenses for files inside of a cookbook and be sure to follow any restrictions they describe.
@@ -233,6 +243,8 @@ This configuration file has the following settings:
 
       name 'cats'
 
+   Changed in Chef Client 12.0 to required.
+
 ``ohai_version``
    A range of Ohai versions that are supported by this cookbook. All :ref:`version constraint operators <cookbook_version_constraints>` are applicable to this field.
 
@@ -247,6 +259,8 @@ This configuration file has the following settings:
    .. end_tag
 
    .. note:: This setting is not visible in Chef Supermarket.
+
+   New in Chef Client 12.6.
 
 ``privacy``
    Specify that a cookbook is private.
@@ -273,6 +287,8 @@ This configuration file has the following settings:
 
       provides 'service[snuggle]'
 
+   New in Chef Client 12.0.
+
 ``recipe``
    A description for a recipe, mostly for cosmetic value within the Chef server user interface.
 
@@ -296,6 +312,8 @@ This configuration file has the following settings:
    .. code-block:: ruby
 
       source_url 'https://github.com/chef-cookbooks/chef-client'
+
+   New in Chef Client 12.0.
 
 ``supports``
    Show that a cookbook has a supported platform. Use a version constraint to define dependencies for platform versions: ``<`` (less than), ``<=`` (less than or equal to), ``=`` (equal to), ``>=`` (greater than or equal to), ``~>`` (approximately greater than), or ``>`` (greater than). To specify more than one platform, use more than one ``supports`` field, once for each platform.

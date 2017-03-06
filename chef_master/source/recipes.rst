@@ -124,6 +124,8 @@ Attribute precedence, when viewed as a table:
 
 .. end_tag
 
+Changed in Chef Client 12.0, so that attributes may be modified for named precedence levels, all precedence levels, and be fully assigned.
+
 Whitelist Attributes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag node_attribute_whitelist
@@ -759,4 +761,3 @@ When this recipe runs, the chef-client will print something like the following:
 
    * package[scripting_language] action install
     - install version 5.3.3-27.el6_5 of package php
-
