@@ -127,6 +127,8 @@ This resource has the following properties:
 
    Mac OS X platform only, 10.8 (or higher). The number of iterations for a password with a SALTED-SHA512-PBKDF2 shadow hash.
 
+   New in Chef Client 12.0.
+
 ``manage_home``
    **Ruby Types:** TrueClass, FalseClass
 
@@ -199,6 +201,8 @@ This resource has the following properties:
    **Ruby Type:** String
 
    Mac OS X platform only, 10.7 or higher. The salt value for a password shadow hash. Mac OS X version 10.7 uses SALTED-SHA512 and version 10.8 (and higher) uses SALTED-SHA512-PBKDF2 to calculate password shadow hashes.
+
+   New in Chef Client 12.0.
 
 ``shell``
    **Ruby Type:** String
@@ -421,4 +425,3 @@ Use the calculated password shadow hash with the **user** resource:
    end
 
 .. end_tag
-

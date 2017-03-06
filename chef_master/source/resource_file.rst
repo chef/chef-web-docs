@@ -317,6 +317,8 @@ This resource has the following properties:
 
    If a string or a block return ``false``, the chef-client run will stop and an error is returned.
 
+   New in Chef Client 12.1.
+
 Atomic File Updates
 -----------------------------------------------------
 .. tag resources_common_atomic_update
@@ -627,4 +629,3 @@ The following example shows how to copy a file from one directory to another, lo
 where the ``content`` attribute uses the Ruby ``IO.read`` method to get the contents of the ``/tmp/1.txt`` file.
 
 .. end_tag
-

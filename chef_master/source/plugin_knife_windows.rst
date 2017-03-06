@@ -217,6 +217,8 @@ This argument has the following options:
 
    .. end_tag
 
+   Deprecated in Chef Client 12.0.
+
 ``-G GATEWAY``, ``--ssh-gateway GATEWAY``
    The SSH tunnel or gateway that is used to run a bootstrap action on a machine that is not accessible from the workstation.
 
@@ -252,6 +254,8 @@ This argument has the following options:
 
 ``--template-file TEMPLATE``
    The path to a template file to be used during a bootstrap operation.
+
+   Deprecated in Chef Client 12.0.
 
 ``-x USER_NAME``, ``--ssh-user USER_NAME``
    The SSH user name.
@@ -328,8 +332,10 @@ This argument has the following options:
 
    .. end_tag
 
+   Deprecated in Chef Client 12.0
+
 ``--install-as-service``
-   Indicates the client should be installed as a Windows Service. 
+   Indicates the client should be installed as a Windows Service.
 
 ``-j JSON_ATTRIBS``, ``--json-attributes JSON_ATTRIBS``
    A JSON string that is added to the first run of a chef-client.

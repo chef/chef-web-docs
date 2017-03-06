@@ -9,7 +9,7 @@ Use the **yum_repository** resource to manage a Yum repository configuration fil
 
 .. end_tag
 
-*New in Chef client 12.14.*
+*New in Chef Client 12.14.*
 
 Syntax
 ==========================================
@@ -167,7 +167,7 @@ fastestmirror_enabled
 gpgcheck
    **Ruby Type:** TrueClass, FalseClass
 
-   Specifies whether or not Yum should perform a GPG signature check on the packages received from a repository. Default is ``true`` in Chef client 12.15.
+   Specifies whether or not Yum should perform a GPG signature check on the packages received from a repository. As of Chef client 12.15, the default is set to ``true``.
 
 gpgkey
    **Ruby Type:** String, Array

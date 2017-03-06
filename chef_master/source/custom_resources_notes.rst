@@ -231,4 +231,3 @@ You may see a lot of ``converge_by`` and ``updated_by_last_action`` in the core 
 compat_resources Cookbook
 =====================================================
 Use the ``compat_resources`` cookbook (https://github.com/chef-cookbooks/compat_resource) to assist in converting cookbooks that use the pre-12.5 custom resource model to the new one. Please see the readme in that cookbook for the steps needed.
-

@@ -14,6 +14,8 @@ A client.rb file is used to specify the configuration details for the chef-clien
 
 .. end_tag
 
+Changed in Chef Client 12.11 to support standard ``exit-status``codes. Changed in 12.9 to support new ``:win_evt`` and ``:syslog`` output locations. Changed in 12.8 to support ``.d`` setting. Changed in 12.4 to support the Windows Event Logger and the daemon facility, see ``log_location``; stable audit-mode introduced. Changed in 12.3, ``listen`` can be used in socketless mode. Changed in 12.1 to run chef-client in audit_mode. Changed in 12.1, ``windows_service.watchdog_timeout`` defaults to ``2 * (60 * 60)``. Changed in 12.0 to set the ``disable_event_logger`` to send events to the Microsoft Windows "Application" event log by default, file_staging_uses_destdir creates temporary files in the directory in which the files will reside by default, ``local_key_generation`` is enabled by default``, ``no_lazy_load`` defaults to ``true``, ``interval`` and ``splay`` are applied before the chef-client run, unforked interval runs are no longer allowed.
+
 Settings
 =====================================================
 This configuration file has the following settings:
@@ -23,6 +25,8 @@ This configuration file has the following settings:
 
 ``audit_mode``
    Enable audit-mode. Set to ``audit-only`` to skip the converge phase of the chef-client run and only perform audits. Possible values: ``audit-only``, ``disabled``, and ``enabled``. Default value: ``disabled``.
+
+   Changed in Chef Client 12.4 to "stable", changed in 12.1 to run chef-client in audit_mode.
 
 ``automatic_attribute_whitelist``
    A Hash that whitelists ``automatic`` attributes, preventing non-whitelisted attributes from being saved.
@@ -109,7 +113,9 @@ This configuration file has the following settings:
    The maximum size (in bytes) of a diff file created by the chef-client. Default value: ``1000000``.
 
 ``disable_event_logger``
-   Enable or disable sending events to the Microsoft Windows "Application" event log. When ``false``, events are sent to the Microsoft Windows "Application" event log at the start and end of a chef-client run, and also if a chef-client run fails. Set to ``true`` to disable event logging. Default value: ``true``.
+   Enable or disable sending events to the Microsoft Windows "Application" event log. When ``false``, events are sent to the Microsoft Windows "Application" event log at the start and end of a chef-client run, and also if a chef-client run fails. Set to ``true`` to disable event logging. Default value: ``false``.
+
+   Changed in Chef Client 12.0 to send events to the Microsoft Windows "Application" event log by default.
 
 ``enable_reporting``
    Cause the chef-client to send data to the Chef server for use with Reporting.
@@ -134,7 +140,7 @@ This configuration file has the following settings:
 
    .. note:: The behavior with the default value consists of a warning on the use of deprecated and non-standard exit codes. In a future release of Chef client, using standardized exit codes will be the default behavior.
 
-   *New in Chef Client 12.11.*
+   Changed in Chef Client 12.11 to support standard exit codes.
 
 ``file_atomic_update``
    Apply atomic file updates to all resources. Set to ``true`` for global atomic file updates. Set to ``false`` for global non-atomic file updates. (Use the ``atomic_update`` setting on a per-resource basis to override this setting.) Default value: ``true``.
@@ -149,6 +155,8 @@ This configuration file has the following settings:
 
 ``file_staging_uses_destdir``
    How file staging (via temporary files) is done. When ``true``, temporary files are created in the directory in which files will reside. When ``false``, temporary files are created under ``ENV['TMP']``. Default value: ``true``.
+
+   Changed in Chef Client 12.0.
 
 ``fips``
   Allows OpenSSL to enforce FIPS-validated security during the chef-client run. Set to ``true`` to enable FIPS-validated security.
@@ -194,14 +202,20 @@ This configuration file has the following settings:
 ``interval``
    The frequency (in seconds) at which the chef-client runs. Default value: ``1800``.
 
+   Changed in Chef Client 12.0, unforked intervals are no longer allowed.
+
 ``json_attribs``
    The path to a file that contains JSON data.
 
 ``listen``
    Run chef-zero in socketless mode. Set to ``false`` to disable port binding and HTTP requests on localhost.
 
+   Changed in Chef Client 12.3.
+
 ``local_key_generation``
    Whether the Chef server or chef-client generates the private/public key pair. When ``true``, the chef-client generates the key pair, and then sends the public key to the Chef server. Default value: ``true``.
+
+   Changed in Chef Client 12.0.
 
 ``local_mode``
    Run the chef-client in local mode. This allows all commands that work against the Chef server to also work against the local chef-repo.
@@ -215,6 +229,8 @@ This configuration file has the following settings:
 ``log_location``
    The location of the log file. Possible values: ``/path/to/log_location``, ``STDOUT``, ``STDERR``, ``:win_evt`` (Windows Event Logger), or ``:syslog`` (writes to the syslog daemon facility with the originator set as ``chef-client``). The application log will specify the source as ``Chef``. Default value: ``STDOUT``.
 
+   Changed in Chef Client 12.9 to support new ``:win_evt`` and ``:syslog`` output locations.  Changed in 12.4 to support the Windows Event Logger and configuration with the daemon facility.
+
 ``minimal_ohai``
    Run the Ohai plugins for name detection and resource/provider selection and no other Ohai plugins. Set to ``true`` during integration testing to speed up test cycles.
 
@@ -223,6 +239,8 @@ This configuration file has the following settings:
 
 ``no_lazy_load``
    Download all cookbook files and templates at the beginning of the chef-client run. Default value: ``true``.
+
+   Changed in Chef Client 12.0.
 
 ``no_proxy``
    A comma-separated list of URLs that do not need a proxy. Default value: ``nil``.
@@ -259,6 +277,8 @@ This configuration file has the following settings:
 
 ``splay``
    A random number between zero and ``splay`` that is added to ``interval``. Use splay to help balance the load on the Chef server by ensuring that many chef-client runs are not occuring at the same interval. Default value: ``nil``.
+
+   Changed in Chef Client 12.0.
 
 ``ssl_ca_file``
    The file in which the OpenSSL key is saved. This setting is generated automatically by the chef-client and most users do not need to modify it.
@@ -322,6 +342,8 @@ This configuration file has the following settings:
 ``windows_service.watchdog_timeout``
    The maximum amount of time (in seconds) available to the chef-client run when the chef-client is run as a service on the Microsoft Windows platform. If the chef-client run does not complete within the specified timeframe, the chef-client run is terminated. Default value: ``2 * (60 * 60)``.
 
+   New in Chef Client 12.1.
+
 ``yum_lock_timeout``
    The amount of time (in seconds) after which a Yum lock request is to time out. Default value: ``30``.
 
@@ -369,6 +391,8 @@ For example, when using knife, the following configuration files would be loaded
 The ``old_settings.rb.bak`` file is ignored because it's not a configuration file. The ``config.rb``, ``company_settings.rb``, and ``ec2_configuration`` files are merged together as if they are a single configuration file.
 
 .. note:: If multiple configuration files exists in a ``.d`` directory, ensure that the same setting has the same value in all files.
+
+New in Chef Client 12.8.
 
 .. end_tag
 

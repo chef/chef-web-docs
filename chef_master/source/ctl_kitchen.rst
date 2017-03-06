@@ -1168,9 +1168,6 @@ or:
 
    2 tests, 1 failures
    ... exit code was 1
-   >>>>>> description of failure
-   ...
-   >>>>>> ----------------------
    $ echo $?
    10
 

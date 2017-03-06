@@ -5,7 +5,7 @@ bff_package
 
 .. tag resource_package_bff
 
-Use the **bff_package** resource to manage packages for the AIX platform using the installp utility. When a package is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources.
+Use the **bff_package** resource to manage packages for the AIX platform using the installp utility. When a package is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources. New in Chef Client 12.0.
 
 .. note:: A Backup File Format (BFF) package may not have a ``.bff`` file extension. The chef-client will still identify the correct provider to use based on the platform, regardless of the file extension.
 
@@ -16,6 +16,8 @@ Use the **bff_package** resource to manage packages for the AIX platform using t
           In many cases, it is better to use the **package** resource instead of this one. This is because when the **package** resource is used in a recipe, the chef-client will use details that are collected by Ohai at the start of the chef-client run to determine the correct package application. Using the **package** resource allows a recipe to be authored in a way that allows it to be used across many platforms.
 
           .. end_tag
+
+New in Chef Client 12.0.
 
 Syntax
 =====================================================
@@ -257,4 +259,3 @@ Using the **bff_package** resource:
    end
 
 .. end_tag
-

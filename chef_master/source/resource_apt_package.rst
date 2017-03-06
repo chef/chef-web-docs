@@ -49,6 +49,8 @@ where
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state
 * ``default_release``, ``options``, ``package_name``, ``provider``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
+Changed in Chef Client 12.1 to support specifying multiple packages and/or versions.
+
 Actions
 =====================================================
 This resource has the following actions:
@@ -59,7 +61,7 @@ This resource has the following actions:
 ``:lock``
    Locks the apt package to a specific version.
 
-   New in Chef client 12.16.
+   New in Chef Client 12.16.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -80,7 +82,7 @@ This resource has the following actions:
 ``:unlock``
    Unlocks the apt package so that it can be upgraded to a newer version.
 
-   New in Chef client 12.16.
+   New in Chef Client 12.16.
 
 ``:upgrade``
    Install a package and/or ensure that a package is the latest version.
@@ -339,4 +341,3 @@ The following examples demonstrate various approaches for using resources in rec
    end
 
 .. end_tag
-

@@ -31,6 +31,8 @@ The chef-client executable is run as a command-line tool.
 
           .. end_tag
 
+New in Chef client 12.13, FIPS runtime flag exposed on RHEL. New in 12.9, ``--d SECONDS``.  New in 12.8, support for OpenSSL validation of FIPS. Changed in 12.8, chef-zero supports all Chef server API 12 endpoints, except ``/universe``. New in 12.7, ``--delete-entire-chef-repo``. New in 12.6, ``--profile-ruby``. New in 12.5, ``--n NAME``. Changed in 12.5, ``-j PATH`` supports policy revisions and environments. New in 12.3, ``--minimal-ohai``, ``--[no-]listen``. New in 12.0, ``-o RUN_LIST_ITEM``. New in 12.1 ``--audit-mode MODE``. Changed in 12.0, ``chef-zero-port`` supports specifying a range of ports, ``-f`` ``--[no]fork`` unforked interval runs are no longer involved, ``-s SECONDS`` is applied before the chef-client run.
+
 Options
 =====================================================
 This command has the following syntax:
@@ -50,16 +52,32 @@ This command has the following options:
 ``-c CONFIG``, ``--config CONFIG``
    The configuration file to use.
 
+``--config-option OPTION``
+   Overrides a single configuration option.  Can be used to override multiple configuration options by adding another ``--config-option OPTION``.
+
+   .. code-block:: ruby
+
+      property :db_password, String, sensitive: true
+
 ``--chef-zero-host HOST``
    The host on which chef-zero is started.
 
 ``--chef-zero-port PORT``
    The port on which chef-zero listens. If a port is not specified---individually, as range of ports, or from the ``chef_zero.port`` setting in the client.rb file---the chef-client will scan for ports between 8889-9999 and will pick the first port that is available.
 
+   Changed in Chef Client 12.0 to support specifying a range of ports.
+
 ``-d SECONDS``, ``--daemonize SECONDS``
    Run the executable as a daemon. Use ``SECONDS`` to specify the number of seconds to wait before the first daemonized chef-client run. ``SECONDS`` is set to ``0`` by default.
 
    This option is only available on machines that run in UNIX or Linux environments. For machines that are running Microsoft Windows that require similar functionality, use the ``chef-client::service`` recipe in the ``chef-client`` cookbook: https://supermarket.chef.io/cookbooks/chef-client. This will install a chef-client service under Microsoft Windows using the Windows Service Wrapper.
+
+   New in Chef Client 12.9.
+
+``--delete-entire-chef-repo``
+   This option deletes an entire repository.  This option may only be used when running the chef-client in local mode, (``--local-mode``).  This option requires ``--recipe-url`` to be specified.
+
+   New in Chef Client 12.7
 
 ``--disable-config``
    Use to run the chef-client using default settings. This will prevent the normally-associated configuration file from being used. This setting should only be used for testing purposes and should never be used in a production setting.
@@ -69,6 +87,8 @@ This command has the following options:
 
 ``-f``, ``--[no-]fork``
    Contain the chef-client run in a secondary process with dedicated RAM. When the chef-client run is complete, the RAM is returned to the master process. This option helps ensure that a chef-client uses a steady amount of RAM over time because the master process does not run recipes. This option also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Use ``--no-fork`` to disable running the chef-client in fork node. Default value: ``--fork``.
+
+   Changed in Chef Client 12.0, unforked interval runs are no longer allowed.
 
 ``-F FORMAT``, ``--format FORMAT``
    .. tag ctl_chef_client_options_format
@@ -101,6 +121,8 @@ This command has the following options:
 
 ``-j PATH``, ``--json-attributes PATH``
    The path to a file that contains JSON data. Used to setup the first client run. For all the future runs with option -i the attributes are expected to be persisted in the chef-server.
+
+   Changed in Chef Client 12.5 to support policy revisions and environments.
 
    **Run-lists**
 
@@ -236,6 +258,8 @@ This command has the following options:
 ``--minimal-ohai``
    Run the Ohai plugins for name detection and resource/provider selection and no other Ohai plugins. Set to ``true`` during integration testing to speed up test cycles.
 
+   New in Chef Client 12.3.
+
 ``--[no-]color``
    View colored output. Default setting: ``--color``.
 
@@ -245,14 +269,20 @@ This command has the following options:
 ``--[no-]listen``
    Run chef-zero in socketless mode.
 
+   New in Chef Client 12.3.
+
 ``-n NAME``, ``--named-run-list NAME``
    The run-list associated with a policy file.
+
+   New in Chef Client 12.5.
 
 ``-N NODE_NAME``, ``--node-name NODE_NAME``
    The name of the node.
 
 ``-o RUN_LIST_ITEM``, ``--override-runlist RUN_LIST_ITEM``
    Replace the current run-list with the specified items. This option will not clear the list of cookbooks (and related files) that is cached on the node. This option will not persist node data at the end of the client run.
+
+   New in Chef Client 12.0.
 
 ``--once``
    Run the chef-client only once and cancel ``interval`` and ``splay`` options.
@@ -265,10 +295,12 @@ This command has the following options:
 
    Use the ``--profile-ruby`` option to dump a (large) profiling graph into ``/var/chef/cache/graph_profile.out``. Use the graph output to help identify, and then resolve performance bottlenecks in a chef-client run. This option:
 
-   * Generates a large amount of data about the chef-client run
-   * Has a dependency on the ``ruby-prof`` gem, which is packaged as part of Chef and the Chef development kit
-   * Increases the amount of time required to complete the chef-client run
-   * Should not be used in a production environment
+   * Generates a large amount of data about the chef-client run.
+   * Has a dependency on the ``ruby-prof`` gem, which is packaged as part of Chef and the Chef development kit.
+   * Increases the amount of time required to complete the chef-client run.
+   * Should not be used in a production environment.
+
+   New in Chef Client 12.6.
 
    .. end_tag
 
@@ -289,6 +321,8 @@ This command has the following options:
 
 ``-s SECONDS``, ``--splay SECONDS``
    A random number between zero and ``splay`` that is added to ``interval``. Use splay to help balance the load on the Chef server by ensuring that many chef-client runs are not occuring at the same interval. When the chef-client is run at intervals, ``--splay`` and ``--interval`` values are applied before the chef-client run.
+
+   Changed in Chef Client 12.0 to be applied before the chef-client run.
 
 ``-S CHEF_SERVER_URL``, ``--server CHEF_SERVER_URL``
    The URL for the Chef server.
@@ -323,6 +357,8 @@ Local mode will store temporary and cache files under the ``<chef_repo_path>/.ca
 About chef-zero
 -----------------------------------------------------
 chef-zero is a very lightweight Chef server that runs in-memory on the local machine. This allows the chef-client to be run against the chef-repo as if it were running against the Chef server. chef-zero was `originally a standalone tool <https://github.com/chef/chef-zero>`_; it is enabled from within the chef-client by using the ``--local-mode`` option. chef-zero is very useful for quickly testing and validating the behavior of the chef-client, cookbooks, recipes, and run-lists before uploading that data to the actual Chef server.
+
+Changed in Chef Client 12.8, now chef-zero supports all Chef server API version 12 endpoints, except ``/universe``.
 
 Use Encrypted Data Bags
 -----------------------------------------------------
@@ -368,6 +404,8 @@ Use following option to run the chef-client in audit-mode mode:
 ``--audit-mode MODE``
    Enable audit-mode. Set to ``audit-only`` to skip the converge phase of the chef-client run and only perform audits. Possible values: ``audit-only``, ``disabled``, and ``enabled``. Default value: ``disabled``.
 
+New in Chef Client 12.1.
+
 Run in FIPS Mode
 =====================================================
 .. tag chef_client_fips_mode
@@ -382,9 +420,9 @@ Notes about FIPS:
 * Should only be enabled for environments that require FIPS 140-2 compliance
 * May not be enabled for any version of the chef-client earlier than 12.8
 
-.. end_tag
+Changed in Chef server 12.13 to expose FIPS runtime flag on RHEL. New in Chef Client 12.8, support for OpenSSL validation of FIPS.
 
-Changed in Chef server 12.13 to expose FIPS runtime flag on RHEL.
+.. end_tag
 
 **Bootstrap a node using FIPS**
 

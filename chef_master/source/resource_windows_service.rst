@@ -5,11 +5,11 @@ windows_service
 
 .. tag resource_service_windows
 
-Use the **windows_service** resource to manage a service on the Microsoft Windows platform.
+Use the **windows_service** resource to manage a service on the Microsoft Windows platform. New in Chef Client 12.0.
 
 .. end_tag
 
-*New in Chef client 12.0*
+New in Chef Client 12.0.
 
 Syntax
 =====================================================
@@ -174,10 +174,14 @@ This resource has the following properties:
 
    The password for the user specified by ``run_as_user``.
 
+   New in Chef Client 12.1.
+
 ``run_as_user``
    **Ruby Type:** String
 
    The user under which a Microsoft Windows service runs.
+
+   New in Chef Client 12.1.
 
 ``service_name``
    **Ruby Type:** String

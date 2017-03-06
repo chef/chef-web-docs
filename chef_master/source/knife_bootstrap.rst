@@ -22,6 +22,8 @@ Use the ``knife bootstrap`` subcommand to run a bootstrap operation that install
 
 .. note:: To bootstrap the chef-client on Microsoft Windows machines, the :doc:`knife-windows </plugin_knife_windows>` plugins is required, which includes the necessary bootstrap scripts that are used to do the actual installation.
 
+New in 12.6, ``-i IDENTITY_FILE``, ``--json-attribute-file FILE``, ``--sudo-preserve-home``.  Changed in 12.4, validatorless bootstrap requires ``-N node_name``. Changed in 12.1, ``knife-bootstrap`` has the options --bootstrap-vault-file, --bootstrap-vault-item, and --bootstrap-vault-json options to specifiy item stored in chef-vault. New in 12.0, ``--[no-]node-verify-api-cert``, ``--node-ssl-verify-mode PEER_OR_NONE``, ``-t TEMPLATE``, 
+
 Syntax
 =====================================================
 .. tag knife_bootstrap_syntax
@@ -135,18 +137,20 @@ This subcommand has the following options:
 ``-i IDENTITY_FILE``, ``--ssh-identity-file IDENTITY_FILE``
    The SSH identity file used for authentication. Key-based authentication is recommended.
 
+   New in Chef Client 12.6.
+
 ``-j JSON_ATTRIBS``, ``--json-attributes JSON_ATTRIBS``
    A JSON string that is added to the first run of a chef-client.
 
 ``--json-attribute-file FILE``
    A JSON file to be added to the first run of chef-client.
 
-   New in Chef client 12.6.
+   New in Chef Client 12.6.
 
 ``-N NAME``, ``--node-name NAME``
    The name of the node.
 
-   .. note:: This option is required for a validatorless bootstrap (as of Chef client 12.4).
+   .. note:: This option is required for a validatorless bootstrap (Changed in Chef Client 12.4).
 
 ``--[no-]fips``
   Allows OpenSSL to enforce FIPS-validated security during the chef-client run.
@@ -157,12 +161,16 @@ This subcommand has the following options:
 ``--[no-]node-verify-api-cert``
    Verify the SSL certificate on the Chef server. When ``true``, the chef-client always verifies the SSL certificate. When ``false``, the chef-client uses the value of ``ssl_verify_mode`` to determine if the SSL certificate requires verification. If this option is not specified, the setting for ``verify_api_cert`` in the configuration file is applied.
 
+   New in Chef Client 12.0.
+
 ``--node-ssl-verify-mode PEER_OR_NONE``
    Set the verify mode for HTTPS requests.
 
    Use ``none`` to do no validation of SSL certificates.
 
    Use ``peer`` to do validation of all SSL certificates, including the Chef server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in the chef-client run. This is the recommended setting.
+
+   New in Chef Client 12.0.
 
 ``-p PORT``, ``--ssh-port PORT``
    The SSH port.
@@ -188,8 +196,12 @@ This subcommand has the following options:
 ``--sudo-preserve-home``
    Use to preserve the non-root user's ``HOME`` environment.
 
+   New in Chef Client 12.6.
+
 ``-t TEMPLATE``, ``--bootstrap-template TEMPLATE``
    The bootstrap template to use. This may be the name of a bootstrap template---``chef-full``, for example---or it may be the full path to an Embedded Ruby (ERB) template that defines a custom bootstrap. Default value: ``chef-full``, which installs the chef-client using the omnibus installer on all supported platforms.
+
+   New in Chef Client 12.0.
 
 ``--use-sudo-password``
    Perform a bootstrap operation with sudo; specify the password with the ``-P`` (or ``--ssh-password``) option.
@@ -244,6 +256,8 @@ When running a validatorless ``knife bootstrap`` operation, the output is simila
 
 .. end_tag
 
+New in Chef Client 12.1.
+
 ``knife bootstrap`` Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag chef_vault_knife_bootstrap_options
@@ -271,7 +285,7 @@ Use the following options with a validatorless bootstrap to specify items that a
 
 .. end_tag
 
-.. note:: The ``--node-name`` option is required for a validatorless bootstrap (as of Chef client 12.4).
+.. note:: The ``--node-name`` option is required for a validatorless bootstrap (Changed in Chef Client 12.4).
 
 FIPS Mode
 -----------------------------------------------------
@@ -287,9 +301,9 @@ Notes about FIPS:
 * Should only be enabled for environments that require FIPS 140-2 compliance
 * May not be enabled for any version of the chef-client earlier than 12.8
 
-.. end_tag
+Changed in Chef server 12.13 to expose FIPS runtime flag on RHEL. New in Chef Client 12.8, support for OpenSSL validation of FIPS.
 
-Changed in Chef server 12.13 to expose FIPS runtime flag on RHEL.
+.. end_tag
 
 **Bootstrap a node using FIPS**
 

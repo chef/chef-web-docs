@@ -36,8 +36,12 @@ This subcommand has the following options:
 ``-l``, ``--long``
    Display all attributes in the output and show the output as JSON.
 
+   New in Chef Client 12.0.
+
 ``-m``, ``--medium``
    Display normal attributes in the output and to show the output as JSON.
+
+   New in Chef Client 12.0.
 
 ``-r RUN_LIST``, ``--run-list RUN_LIST``
    A comma-separated list of roles and/or recipes to be applied.
@@ -133,4 +137,3 @@ to return something like:
    3 hours ago, i-5272a43f, ubuntu 10.04, ec2-184-73-9-250.compute-1.amazonaws.com, 184.73.9.250
    3 hours ago, i-226ca64f, ubuntu 10.04, ec2-75-101-240-230.compute-1.amazonaws.com, 75.101.240.230
    3 hours ago, i-f65c969b, ubuntu 10.04, ec2-184-73-60-141.compute-1.amazonaws.com, 184.73.60.141
-

@@ -97,6 +97,8 @@ Attribute precedence, when viewed as a table:
 
 .. end_tag
 
+Changed in Chef Client 12.0, so that attributes may be modified for named precedence levels, all precedence levels, and be fully assigned.
+
 Whitelist Attributes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag node_attribute_whitelist
@@ -519,4 +521,3 @@ Or, to include the same search in a recipe, use a code block similar to:
    end
 
 .. end_tag
-

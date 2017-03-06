@@ -712,6 +712,8 @@ is equivalent to:
      action :delete
    end
 
+New in Chef Client 12.10.
+
 .. end_tag
 
 delete_resource
@@ -737,6 +739,8 @@ For example:
 
    delete_resource(:template, '/x/y.erb')
 
+New in Chef Client 12.10.
+
 .. end_tag
 
 delete_resource!
@@ -749,7 +753,7 @@ The syntax for the ``delete_resource!`` method is as follows:
 
 .. code-block:: ruby
 
-   delete_resource!(:resource_type, 'resource_name')
+delete_resource!(:resource_type, 'resource_name')
 
 where:
 
@@ -761,6 +765,8 @@ For example:
 .. code-block:: ruby
 
    delete_resource!(:file, '/x/file.txt')
+
+New in Chef Client 12.10.
 
 .. end_tag
 
@@ -804,6 +810,8 @@ and a resource block:
      notifies :run, 'execute[newaliases]'
    end
 
+New in Chef Client 12.10.
+
 .. end_tag
 
 edit_resource!
@@ -834,6 +842,8 @@ For example:
 .. code-block:: ruby
 
    edit_resource!(:file, '/x/y.rst')
+
+New in Chef Client 12.10.
 
 .. end_tag
 
@@ -874,6 +884,8 @@ and a resource block:
      notifies :run, 'execute[newseapower]'
    end
 
+New in Chef Client 12.10.
+
 .. end_tag
 
 find_resource!
@@ -898,6 +910,8 @@ For example:
 .. code-block:: ruby
 
    find_resource!(:template, '/x/y.erb')
+
+New in Chef Client 12.10.
 
 .. end_tag
 
@@ -991,6 +1005,8 @@ Notes about FIPS:
 * Should only be enabled for environments that require FIPS 140-2 compliance
 * May not be enabled for any version of the chef-client earlier than 12.8
 
+Changed in Chef server 12.13 to expose FIPS runtime flag on RHEL. New in Chef Client 12.8, support for OpenSSL validation of FIPS.
+
 .. end_tag
 
 Enable FIPS Mode
@@ -1059,6 +1075,8 @@ For example, when using knife, the following configuration files would be loaded
 The ``old_settings.rb.bak`` file is ignored because it's not a configuration file. The ``config.rb``, ``company_settings.rb``, and ``ec2_configuration`` files are merged together as if they are a single configuration file.
 
 .. note:: If multiple configuration files exists in a ``.d`` directory, ensure that the same setting has the same value in all files.
+
+New in Chef Client 12.8.
 
 .. end_tag
 
@@ -1603,6 +1621,8 @@ Specifies a gem dependency to be installed via the **chef_gem** resource after a
    gem "chef-sugar"
    gem "chef-provisioning"
 
+New in Chef Client 12.8.
+
 .. end_tag
 
 What's New in 12.7
@@ -1615,7 +1635,7 @@ The following items are new for chef-client 12.7 and/or are changes from previou
 * **New apt_update resource** Use the **apt_update** resource to manage Apt repository updates on Debian and Ubuntu platforms.
 * **Improved support for UTF-8** The chef-client 12.7 release fixes a UTF-8 handling bug present in chef-client versions 12.4, 12.5, and 12.6.
 * **New options for the chef-client** The chef-client has a new option: ``--delete-entire-chef-repo``.
-* **Multi-package support for Chocolatey and Zypper** A resource may specify multiple packages and/or versions for platforms that use Zypper or Chocolatey package managers (in addition to the existing support for specifying multiple packages for Yum and Apt packages).
+* **Multi-package support for Chocolatey and Zypper** A resource may specify multiple packages and/or versions for platforms that use Zypper or Chocolatey package managers (in addition to the edtaxisting support for specifying multiple packages for Yum and Apt packages).
 
 Chef::REST => require 'chef/rest'
 -----------------------------------------------------
@@ -2348,9 +2368,7 @@ ksh
 -----------------------------------------------------
 .. tag resource_script_ksh
 
-Use the **ksh** resource to execute scripts using the Korn shell (ksh) interpreter. This resource may also use any of the actions and properties that are available to the **execute** resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
-
-*New in Chef Client 12.6.*
+Use the **ksh** resource to execute scripts using the Korn shell (ksh) interpreter. This resource may also use any of the actions and properties that are available to the **execute** resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence. New in Chef Client 12.6.
 
 .. note:: The **ksh** script resource (which is based on the **script** resource) is different from the **ruby_block** resource because Ruby code that is run with this resource is created as a temporary file and executed like other script resources, rather than run inline.
 
@@ -2502,7 +2520,7 @@ This resource has the following properties:
 
    .. warning:: .. tag resources_common_resource_execute_attribute_path
 
-                The ``path`` property is not implemented by any provider in any version of the chef-client. Starting with chef-client 12, using the ``path`` property will return a warning. Starting with chef-client 13, the ``path`` property is deprecated and using it will return an exception. Cookbooks that currently use the ``path`` property should be updated to use the ``environment`` property instead.
+                The ``path`` property has been deprecated and will throw an exception in Chef Client 13. We recommend you use the ``environment`` property instead.
 
                 .. end_tag
 
@@ -2659,10 +2677,12 @@ The ``--identify-file`` option is now ``--ssh-identify-file``.
 
 Use the ``--profile-ruby`` option to dump a (large) profiling graph into ``/var/chef/cache/graph_profile.out``. Use the graph output to help identify, and then resolve performance bottlenecks in a chef-client run. This option:
 
-* Generates a large amount of data about the chef-client run
-* Has a dependency on the ``ruby-prof`` gem, which is packaged as part of Chef and the Chef development kit
-* Increases the amount of time required to complete the chef-client run
-* Should not be used in a production environment
+* Generates a large amount of data about the chef-client run.
+* Has a dependency on the ``ruby-prof`` gem, which is packaged as part of Chef and the Chef development kit.
+* Increases the amount of time required to complete the chef-client run.
+* Should not be used in a production environment.
+
+New in Chef Client 12.6.
 
 .. end_tag
 
@@ -7104,7 +7124,7 @@ bff_package
 -----------------------------------------------------
 .. tag resource_package_bff
 
-Use the **bff_package** resource to manage packages for the AIX platform using the installp utility. When a package is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources.
+Use the **bff_package** resource to manage packages for the AIX platform using the installp utility. When a package is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources. New in Chef Client 12.0.
 
 .. note:: A Backup File Format (BFF) package may not have a ``.bff`` file extension. The chef-client will still identify the correct provider to use based on the platform, regardless of the file extension.
 
@@ -7585,7 +7605,7 @@ reboot
 -----------------------------------------------------
 .. tag resource_service_reboot
 
-Use the **reboot** resource to reboot a node, a necessary step with some installations on certain platforms. This resource is supported for use on the Microsoft Windows, Mac OS X, and Linux platforms.
+Use the **reboot** resource to reboot a node, a necessary step with some installations on certain platforms. This resource is supported for use on the Microsoft Windows, Mac OS X, and Linux platforms.  New in Chef Client 12.0.
 
 .. end_tag
 
@@ -7779,7 +7799,7 @@ windows_service
 -----------------------------------------------------
 .. tag resource_service_windows
 
-Use the **windows_service** resource to manage a service on the Microsoft Windows platform.
+Use the **windows_service** resource to manage a service on the Microsoft Windows platform. New in Chef Client 12.0.
 
 .. end_tag
 
@@ -8363,7 +8383,7 @@ The ``knife search`` subcommand allows filtering search results with a new optio
 -----------------------------------------------------
 .. tag resources_common_resource_execute_attribute_path
 
-The ``path`` property is not implemented by any provider in any version of the chef-client. Starting with chef-client 12, using the ``path`` property will return a warning. Starting with chef-client 13, the ``path`` property is deprecated and using it will return an exception. Cookbooks that currently use the ``path`` property should be updated to use the ``environment`` property instead.
+The ``path`` property has been deprecated and will throw an exception in Chef Client 13. We recommend you use the ``environment`` property instead.
 
 .. end_tag
 

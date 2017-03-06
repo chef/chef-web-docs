@@ -11,6 +11,8 @@ Use the **remote_file** resource to transfer a file from a remote location using
 
 .. note:: Fetching files from the ``files/`` directory in a cookbook should be done with the **cookbook_file** resource.
 
+Changed in 12.4 to support Microsoft Windows UNC.
+
 Syntax
 =====================================================
 A **remote_file** resource block manages files by using files that exist remotely. For example, to write the home page for an Apache website:
@@ -276,6 +278,8 @@ This resource has the following properties:
 
       source '\\\\path\\to\\img\\sketch.png'
 
+      New in Chef Client 12.4.
+
    By using a node attribute:
 
    .. code-block:: ruby
@@ -411,6 +415,8 @@ This resource has the following properties:
       end
 
    If a string or a block return ``false``, the chef-client run will stop and an error is returned.
+
+   New in Chef Client 12.1.
 
 Atomic File Updates
 -----------------------------------------------------
@@ -794,4 +800,3 @@ When specifying a local Microsoft Windows file path as a valid file URI, an addi
    end
 
 .. end_tag
-

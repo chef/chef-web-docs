@@ -266,6 +266,8 @@ For example:
 
 .. end_tag
 
+New in Chef Client 12.0.
+
 Keys
 =====================================================
 .. tag search_key
@@ -1120,4 +1122,3 @@ And then the same recipe, modified to load administrators using a search query (
    end
 
 .. end_tag
-

@@ -93,6 +93,8 @@ Attribute precedence, when viewed as a table:
 
 .. end_tag
 
+Changed in Chef Client 12.0, so that attributes may be modified for named precedence levels, all precedence levels, and be fully assigned.
+
 Whitelist Attributes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag node_attribute_whitelist
@@ -392,4 +394,3 @@ where:
 Delete from Run-list
 -----------------------------------------------------
 When an environment is deleted, it will remain within a run-list for a role until it is removed from that run-list. If a new environment is created that has an identical name to an environment that was deleted, a run-list that contains an old environment name will use the new one.
-
