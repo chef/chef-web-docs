@@ -106,7 +106,7 @@ The following example sets the ``fqdn`` field to ``"my-chef-server.mycompany.com
 Sending Node Run Data to Chef Automate Directly
 ===============================================
 
-If you do not use a Chef server in your environment (if you only use `chef-solo`, for example) or you do not wish to use the automatic forwarding of run data to Automate, you can configure your Chef clients to send their run data to Automate directly.
+If you do not use a Chef server in your environment (if you only use `chef-solo`, for example), you can configure your Chef clients to send their run data to Automate directly.
 
 To enable this functionality, you must perform the following steps:
 
