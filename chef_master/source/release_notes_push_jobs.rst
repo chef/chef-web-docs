@@ -34,10 +34,9 @@ If your Chef Automate installation uses Push Jobs Server to manage build nodes, 
 * On the Push Jobs Server node:
 
   * Install the `Push Jobs Server 2.1 package <https://downloads.chef.io/push-jobs-server/2.1.1>`_. 
-  * Run ``sudo opscode-push-jobs-server-ctl upgrade``.
   * Run ``sudo opscode-push-jobs-server-ctl reconfigure``.
 
-    .. note:: Once the ``upgrade`` command above is issued, build nodes and other push clients will not be in communication with the server until they are restarted.
+    .. note:: Once the ``reconfigure`` command above is issued, build nodes and other push clients will not be in communication with the server until they are restarted.
 
 * On each build node:
 
