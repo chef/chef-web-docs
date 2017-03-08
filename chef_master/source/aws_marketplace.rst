@@ -15,10 +15,8 @@ Launch the AMI
 -----------------------------------------------------
 To get a fully-functional Amazon Machine Image (AMI) for Chef Automate, do the following:
 
-.. TODO: Update the marketplace product listing URLs with the correct product ID when they're published
-
 #. Login to the `AWS Marketplace <https://aws.amazon.com/marketplace>`__ using your Amazon Web Services (AWS) account credentials.
-#. Navigate to the Chef Automate `product page <https://aws.amazon.com/marketplace/pp/B01AMIH01Q>`__ and accept the software terms.
+#. Navigate to the Chef Automate `product page <https://aws.amazon.com/marketplace/pp/B01N813OWL>`__ and accept the software terms.
 #. Navigate to the `IAM Role section in the AWS console <https://console.aws.amazon.com/iam/home#roles>`__.
 #. Create a new role for your marketplace instance with the 'Amazon EC2' service type and attach the 'AWSMarketplaceFullAccess' policy.
 
