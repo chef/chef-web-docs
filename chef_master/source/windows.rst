@@ -486,27 +486,31 @@ Once this information has been identified, launch the Azure portal, start the vi
 
 #. Choose **Virtual Machines** in the left pane of the portal.
 
-#. Click the **New** option at the bottom of the portal.
+#. Click the **Add** option at the top of the blade.
 
-#. Choose **Virtual Machine**, and then **From Gallery**.
+#. Choose **Windows Server** in the **Recommended** category.
 
-#. Choose one of the following **Featured Images** (currently only Microsoft Windows images are supported): ``Windows Server 2012 R2 Datacenter`` or ``Windows Server 2012 Datacenter``.
+#. In the **Windows Server** blade, select either ``Windows Server 2012 R2 Datacenter`` or ``Windows Server 2012 Datacenter``. Select the ``Resource Manager`` deployment model and click **Create**.
 
-#. Fill in the virtual machine configuration information, such as machine name, user name, and so on. When finished, click to the next page.
+#. Fill in the virtual machine configuration information, such as machine name, credentials, VM size, and so on.
 
    .. note:: It's best to use a new computer name each time through this workflow. This will help to avoid conflicts with virtual machine names that may have been previously registered on the Chef server.
 
-#. Make the desired changes, if any, to the cloud service name, storage account, endpoints, etc., and then click to the next page.
+#. In Step 3, open the **Extensions** blade and click ``Add extension``.
 
-#. Install Chef. Click the checkbox next to **Chef** to configure virtual machines using with Chef:
+#. Select **Windows Chef Extension** and then **Create**.
 
-   .. image:: ../../images/azure_portal.png
+#. Using the ``chef-repo/.chef/knife.rb`` file you downloaded during your Chef server setup, enter values for the Chef server URL and the validation client name. You can also use this file to help you find the location of your validation key.
 
-#. Click the **From Local** button next to the client.rb text box, and then browse to upload the client.rb file.
+#. Browse on your local machine and create a copy of the validation key (named ``<orgname>-validator.pem``).
 
-   .. note:: The client.rb must be correctly configured to communicate to the Chef server. Specifically, it must have valid values for the following two settings: ``chef_server_url`` and ``validaton_client_name``.
+#. Rename the copy to ``<orgname>-validator.crt`` then upload it through your web browser.
 
-#. Use the **From Local** button next to the validation key text box to locate a local copy of the validation key.
+   .. note:: This is required because the ``.pem`` file extension is not recognized in the open file dialog box as a valid x.509 certificate file extension.
+
+#. For Client Configuration File browse to the ``.chef/knife.rb`` file and upload it through your web browser.
+
+   .. note:: The knife.rb must be correctly configured to communicate to the Chef server. Specifically, it must have valid values for the following two settings: ``chef_server_url`` and ``validaton_client_name``.
 
 #. Optional. :doc:`Use a run-list </run_lists>` to specify what should be run when the virtual machine is provisioned, such as using the run-list to provision a virtual machine with Internet Information Services (IIS). Use the ``iis`` cookbook and the default recipe to build a run-list. For example:
 
@@ -536,17 +540,7 @@ Once this information has been identified, launch the Azure portal, start the vi
 
    .. note:: A run-list may only refer to roles and/or recipes that have already been uploaded to the Chef server.
 
-#. Click the checkmark button to complete the page. Provisioning will begin and the application will return to the **Virtual Machines** page showing the list of available virtual machines.
-
-   When the virtual machine has reached the status **starting**, click the virtual machine name to go to a page that contains more detail. Click **dashboard** to see more detailed status, and scroll down to the area that says **extensions**.
-
-   Once the virtual machine has gone far enough in the ``running(provisioning)`` state, some entries should appear under status, like this:
-
-   .. image:: ../../images/azure_portal_1.png
-
-#. Once finished, something like the following will be shown:
-
-   .. image:: ../../images/azure_portal_2.png
+#. Click **OK** to complete the page. Click **OK** in the Extensions blade and the rest of the setup blades. Provisioning will begin and the portal will the blade for your new VM.
 
 After the process is complete, the virtual machine will be registered with the Chef server and it will have been provisioned with the configuration (applications, services, etc.) from the specified run-list. The Chef server can now be used to perform all ongoing management of the virtual machine node.
 
