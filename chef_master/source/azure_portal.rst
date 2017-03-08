@@ -41,7 +41,7 @@ Chef provides a fully functional Chef Automate Solution Template that can be lau
 
 #. While the Chef Automate VM is being provisioned, download and install the `Chef Developer Kit </install_dk.html>`__.  The Chef development kit is a collection of tools ---Test Kitchen, ChefSpec, knife, delivery-cli, chef, chef-vault, Foodcritic, and more--- and libraries that are all packaged together to get your started with the Chef Automate workflow. You'll need this to interact with Chef Automate and Chef server from the command line.
 
-#. After the VM has been provisioned and the Resource Manager has completed (usually 10 to 13 minutes) finish configuring Chef Automate and Chef server. Access the intial configuration page by loading the ``/biscotti/setup`` route. Build the URL by prepending ``https://`` and appending ``/biscotti/setup`` to the DNS label that you chose when VM was launched. For example, ``https://<dns_label>.<location>.cloudapp.azure.com/biscotti/setup`` or ``https://chef-automate-01.eastus.cloudapp.azure.com/biscotti/setup``.
+#. After the VM has been provisioned and the Resource Manager has completed (usually 10 to 13 minutes), finish configuring Chef Automate and Chef server. Access the intial configuration page by loading the ``/biscotti/setup`` route. Build the URL by prepending ``https://`` and appending ``/biscotti/setup`` to the DNS label that you chose when VM was launched. For example, ``https://<dns_label>.<location>.cloudapp.azure.com/biscotti/setup`` or ``https://chef-automate-01.eastus.cloudapp.azure.com/biscotti/setup``.
 
    .. note:: .. tag notes_chef_azure_ssl
 
@@ -74,13 +74,9 @@ Chef Compliance VM
 -----------------------------------------------------
 Chef provides a fully functional Chef Compliance VM image that can be launched from the Azure Marketplace.
 
-#. Sign in to the Azure portal (|url azure_preview|). (The Azure Marketplace offering is only available via the preview portal.) Authenticate using your Microsoft Azure account credentials.
+#. Sign in to the Azure portal (|url azure_preview|). Authenticate using your Microsoft Azure account credentials.
 
-#. Click the **New** icon in the lower left corner of the portal.
-
-#. Click **Compute**, then click **Azure Marketplace**.
-
-#. In the search box enter **Chef Compliance**.
+#. Click the large **+** icon in the upper left corner of the portal and search the Azure Marketplace for **Chef Compliance**.
 
 #. Select the **Chef Compliance** offering that is appropriate for your size.
 
