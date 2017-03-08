@@ -186,7 +186,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. code-block:: ruby
 
-   apt_update if node['platform_family'] == 'debian' do
+   apt_update 'update' do
      action :update
    end
 

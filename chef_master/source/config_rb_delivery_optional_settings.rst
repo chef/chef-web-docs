@@ -473,35 +473,6 @@ This configuration file has the following settings for ``delivery``:
 ``delivery['vip']``
    The virtual IP address. Default value: ``'127.0.0.1'``.
 
-delivery_web
------------------------------------------------------
-This configuration file has the following settings for ``delivery_web``:
-
-``delivery_web['api_version']``
-   Default value: ``"v0"``.
-
-``delivery_web['build_version']``
-   Default value: ``"0.0.1"``.
-
-``delivery_web['embedly_api_key']``
-   Default value: ``"e0435c6ccfd74dfaacf7dfc987c9a7fa"``.
-
-``delivery_web['etc_dir']``
-   The working directory. The default value is the recommended value. Default value: ``"/var/opt/delivery/delivery_web/etc"``.
-
-``delivery_web['external_auth']``
-   Default value: ``false``.
-
-``delivery_web['password_recovery_url']``
-   Default value: ``"http://google.com"``.
-
-``delivery_web['root']``
-   A hook to re-home the web ui for development and testing. Default value:
-
-   .. code-block:: ruby
-
-      "#{node['delivery']['install_path']}/embedded/service/delivery_web"
-
 elasticsearch
 -----------------------------------------------------
 This configuration file has the following settings for ``elasticsearch``:

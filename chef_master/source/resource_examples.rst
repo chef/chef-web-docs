@@ -633,7 +633,7 @@ Use the **apt_update** resource to manage Apt repository updates on Debian and U
 
 .. code-block:: ruby
 
-   apt_update if node['platform_family'] == 'debian' do
+   apt_update 'update' do
      action :update
    end
 
