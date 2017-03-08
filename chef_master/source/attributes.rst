@@ -963,7 +963,7 @@ and then a role named ``web.rb``:
      }
    )
 
-Both of these files are similar. They share the same structure. When an attribute is of the same type of data, such as a hash or an array, that data is merged when the attribute precedence levels are the same and is replaced when the attribute precedence levels are different.
+Both of these files are similar. They share the same structure. When an attribute value is a hash, that data is merged. When an attribute value is an array, that data is merged when the attribute precedence levels are the same and is replaced when the attribute precedence levels are different. For all other value types (such as strings, integers, etc.), that data is replaced.
 
 For example, the ``web.rb`` references the ``baseline.rb`` role. The ``web.rb`` file only provides a value for one attribute: ``:startservers``. When the chef-client compares these attributes, the deep merge feature will ensure that ``:startservers`` (and its value of ``30``) will be applied to any node for which the ``web.rb`` attribute structure should be applied.
 
