@@ -4,7 +4,7 @@ execute 'make clean' do
   cwd node['delivery']['workspace']['repo']
 end
 
-execute 'make all' do
+execute 'make docs' do
   cwd node['delivery']['workspace']['repo']
 end
 
