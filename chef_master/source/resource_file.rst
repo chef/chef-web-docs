@@ -261,9 +261,9 @@ This resource has the following properties:
 
    Allows verification of a file's contents before it is created. Creates a temporary file and then allows execution of commands or Ruby code. If this code evalutes to true, the file is created. If the code evaluates to false, an error is raised.
 
-   A block or a string. When a block, it returns ``true`` or ``false``. When a string, it is executed as a system command and is evaluated as ``true`` if the command returns 0 as its exit status code and ``false`` if the command returns a non-zero exit status code.
+   The types for this property are a block or a string. When specified as a block, it returns ``true`` or ``false``. When specified as a string, it is executed as a system command. It evaluates to ``true`` if the command returns 0 as its exit status code and ``false`` if the command returns a non-zero exit status code.
 
-   A block is arbitrary Ruby defined within the resource block by using the ``verify`` property. When a block returns ``true``, the chef-client will continue to update the file as appropriate.
+   .. note:: A block is arbitrary Ruby defined within the resource block by using the ``verify`` property. When a block returns ``true``, the chef-client will continue to update the file as appropriate.
 
    For example, this should return ``true``:
 
@@ -273,7 +273,7 @@ This resource has the following properties:
         verify { 1 == 1 }
       end
 
-   This should return ``true``:
+   This should also return ``true``:
 
    .. code-block:: ruby
 
@@ -281,9 +281,9 @@ This resource has the following properties:
         verify 'nginx -t -c %{path}'
       end
 
-   in this example, the ``%{path}`` portion of this command is expanded to the temporary location where a copy of the file to be created exists. This will use Nginx's syntax checking feature to ensure the file is a valid Nginx configuration file before writing the file. An error will be raised if the command executed returns a non-zero exit status code.
+   In this example, the ``%{path}`` portion of this command is expanded to the temporary location where a copy of the file to be created exists. This will use Nginx's syntax checking feature to ensure the file is a valid Nginx configuration file before writing the file. An error will be raised if the executed command returns a non-zero exit status code.
 
-   .. warning:: For releases of the chef-client prior to 12.5 (chef-client 12.4 and earlier) the correct syntax is:
+   .. warning:: For releases of the Chef Client prior to 12.5 (Chef Client 12.4 and earlier), the correct syntax is:
 
       .. code-block:: ruby
 
@@ -317,7 +317,7 @@ This resource has the following properties:
 
    If a string or a block return ``false``, the chef-client run will stop and an error is raised.
 
-   Originally proposed in `[RFC 27] <https://github.com/chef/chef-rfc/blob/master/rfc027-file-content-verification.md>`.
+   Originally proposed in `RFC 27 <https://github.com/chef/chef-rfc/blob/master/rfc027-file-content-verification.md>`_.
 
    New in Chef Client 12.1.
 
