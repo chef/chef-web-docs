@@ -2,6 +2,8 @@ source "https://supermarket.chef.io"
 
 metadata
 
-cookbook 'delivery-truck'
 cookbook 'delivery-sugar', github: 'chef-cookbooks/delivery-sugar'
 cookbook 'route53', git: 'https://github.com/cwebberOps/route53.git', branch: 'pdb/nononokogiri'
+cookbook 'cia_infra', git: 'git@github.com:chef-cookbooks/cia_infra.git'
+cookbook 'cia_delivery', git: 'git@github.com:chef-cookbooks/cia_delivery.git'
+cookbook 'oc-users', git: 'git@github.com:opscode-cookbooks/oc-users.git'
