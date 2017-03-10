@@ -41,6 +41,10 @@ This is a list of possible error codes and remediation steps you might see when 
 *   PF06: Another process is using this port on the system.
 
     *   Please free this port on the system.
+  
+*   PF07: System does not have this software installed.
+
+    *   Please install this software via the given command.
 
 
 Build nodes/Runners
