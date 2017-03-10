@@ -90,7 +90,7 @@ The following table lists the Secondary platforms for the chef-client:
      - stable and LTS releases
    * - openSUSE
      -
-     - ``13``
+     - ``42``
    * - Scientific Linux
      - ``i386``, ``x86-64``
      - ``5``, ``6``, ``7``
@@ -129,6 +129,9 @@ The following platforms are not tested by Chef Software:
      - ``10.8`` (and older)
    * - NetBSD
      -
+     -
+   * - openSUSE
+     - ``13.x`` (or older)
      -
    * - OpenBSD
      -
@@ -169,7 +172,7 @@ The following table lists the Foundational platforms for the Chef DK:
      - ``7.x``, ``8.x``
    * - Mac OS X
      -
-     - ``10.9``, ``10.10``, ``10.11``, ``10.12``
+     - ``10.10``, ``10.11``, ``10.12``
    * - Red Hat Enterprise Linux
      -
      - ``6.x``, ``7.x``
@@ -193,10 +196,10 @@ The following platforms are not tested by Chef Software:
      - Version
    * - Mac OS X
      -
-     - ``10.8`` (and earlier)
+     - ``10.9`` (and earlier)
    * - Microsoft Windows
      -
-     - ``Vista``, ``XP``, ``2000``, ``2003``, ``2003 R2``
+     - ``Vista``, ``XP``, ``2000``, ``2003``, ``2003 R2``, ``2008``
 
 Chef Server
 =====================================================
