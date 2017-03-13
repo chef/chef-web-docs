@@ -366,7 +366,7 @@ Microsoft Azure portal
 
 Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual machines. The Azure production portal (|url azure_production|) can boostrap Microsoft Windows-based virtual machines that are already provisioned with the chef-client running as a background service. Once provisioned, these virtual machines are ready to be managed by Chef.
 
-To use the Chef integration with the Azure portal, all you need is a Chef server and the Azure portal. `Choose a Chef version <https://www.chef.io/chef/get-chef/>`_ or deploy a Chef server via the Azure Marketplace (|url azure_marketplace|).
+To use the Chef integration with the Azure portal, all you need is a Chef server and the Azure portal. `Choose a Chef version <https://downloads.chef.io/chef-server>`_ or deploy a Chef server via the Azure Marketplace (|url azure_marketplace|).
 
 .. end_tag
 
@@ -385,17 +385,15 @@ Azure Marketplace
 -----------------------------------------------------
 .. tag cloud_azure_portal_server_marketplace
 
-Chef provides a fully functional Chef server that can be launched from the Azure Marketplace. This server is preconfigured with Chef server, the Chef management console, Reporting, and Chef Analytics. This configuration is free to use for deployments under 25 nodes, and can be licensed for deployments beyond 25 nodes. (See |url pricing| for more information about licensing more than 25 nodes.)
+Chef provides a fully functional Chef server that can be launched from the Azure Marketplace. This server is preconfigured with Chef server, the Chef management console, Reporting, and Chef Analytics.
 
 Before getting started, you will need a functioning workstation. Install the :doc:`Chef development kit </install_dk>` on that workstation.
 
-   .. note:: The following steps assume that Chef is installed on the workstation and that the ``knife ssl fetch`` subcommand is available. The ``knife ssl fetch`` subcommand was added to Chef in the 11.16 release of the chef-client, and then packaged as part of the Chef development kit starting with the 0.3 release.)
+   .. note:: The following steps assume that Chef is installed on the workstation and that the ``knife ssl fetch`` subcommand is available. The ``knife ssl fetch`` subcommand was added to Chef in the 11.16 release of the Chef Client, and then packaged as part of the Chef development kit starting with the 0.3 release.)
 
-#. Sign in to the Azure portal (|url azure_preview|). (The Azure Marketplace offering is only available via the preview portal.) Authenticate using your Microsoft Azure account credentials.
+#. Sign in to the Azure portal (|url azure_preview|). Authenticate using your Microsoft Azure account credentials.
 
-#. Click the **New** icon in the lower left corner of the portal.
-
-#. Click **Compute**, then click **Azure Marketplace**.
+#. Click the **New** icon in the upper-left corner of the portal.
 
 #. In the search box enter **Chef Server**.
 
@@ -403,25 +401,13 @@ Before getting started, you will need a functioning workstation. Install the :do
 
    .. note:: The Chef server is available on the Azure Marketplace in 25, 50, 100, 150, 200, and 250 licensed images, as well as a "Bring Your Own License" image.
 
-#. Click **Create** and follow the steps to launch the Chef server, providing a host name, user name, password or SSH key, and any additional information required. You will also select your deployment model here.
+#. Click **Create** and follow the steps to launch the Chef server, providing credentials, VM size, and any additional information required.
 
-#. Create a **DNS Name** label for the instance. <https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-create-fqdn-on-portal/>
+#. Once your VM has been created, create a **DNS name label** for the instance by following these instructions:  <https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-create-fqdn-on-portal/>
 
-#. Once the instance is launched you will need to create an account to use with the Chef management console. To do this, open an SSH connection to the host using the user name and password (or SSH key) provided when you launched the instance.
+#. In order to use the Chef Manage UI, you will need to create an account. To do this, open an SSH connection to the host using the user name and password (or SSH key) provided when you launched the instance.
 
-#. Wait for the Chef server to complete initial configuration.  You'll want to tail the ``cloud-init`` logfile until it has finished. For example:
-
-   .. code-block:: bash
-
-      $ tailf /var/log/cloud-init-output.log
-
-   will return something similar to:
-
-   .. code-block:: none
-
-	cloud-init v. 0.7.5 finished at Thu, 05 May 2016 21:41:21 +0000. Datasource DataSourceAzureNet [seed=/dev/sr0].  Up 740.33 seconds
-
-#. After ``cloud-init`` has completed, configure the Chef server with the DNS Name.
+#. Configure the Chef server with the DNS Name.
 
    .. note:: In the following steps substitute ``<fqdn>`` for the fully qualified domain **DNS NAME** that you created.
 
@@ -457,13 +443,22 @@ Before getting started, you will need a functioning workstation. Install the :do
 
 #. Now proceed to the web based setup wizard ``https://<fqdn>/signup``.
 
-#. Before you can run through the wizard you must provide the VM Name or DNS Label of the instance in order to ensure that only you are configuring the Chef server.
+   .. note:: Before you can run through the wizard you must provide the VM Name or DNS Label of the instance in order to ensure that only you are configuring the Chef server.
 
-#. Follow the links to sign up for a new account and download the starter kit.
+#. Enter credentials to sign up for a new account and download the starter kit.
 
-#. Extract the starter kit zip file downloaded. Open a command prompt and change into the ``chef-repo`` directory extracted from the starter kit.
+#. Extract the starter kit zip file. Open a command prompt and change into the ``chef-repo`` directory extracted from the starter kit.
 
-#. Run ``knife ssl fetch`` to retrieve the SSL keys for the Chef server.
+#. Open ``/path/to/chef-repo/.chef/knife.rb`` and replace the ``chef_server_url`` value with the following:
+
+   .. code-block:: bash
+
+      "https://<fqdn>/organizations/<orgname>"
+
+
+   .. note:: The organization value is the one you defined during setup.
+
+#. Run ``knife ssl fetch`` to retrieve the SSL keys for the Chef server. You should see a message informing you that a certificate for your Chef server VM was successfully added to your local ``chef-repo`` directory.
 
 #. Run ``knife client list`` to test the connection to the Chef server. The command should return ``<orgname>-validator``, where ``<orgname>`` is the name of the organization you previously created. You are now ready to add virtual machines to your Chef server.
 
@@ -491,27 +486,31 @@ Once this information has been identified, launch the Azure portal, start the vi
 
 #. Choose **Virtual Machines** in the left pane of the portal.
 
-#. Click the **New** option at the bottom of the portal.
+#. Click the **Add** option at the top of the blade.
 
-#. Choose **Virtual Machine**, and then **From Gallery**.
+#. Choose **Windows Server** in the **Recommended** category.
 
-#. Choose one of the following **Featured Images** (currently only Microsoft Windows images are supported): ``Windows Server 2012 R2 Datacenter`` or ``Windows Server 2012 Datacenter``.
+#. In the **Windows Server** blade, select either ``Windows Server 2012 R2 Datacenter`` or ``Windows Server 2012 Datacenter``. Select the ``Resource Manager`` deployment model and click **Create**.
 
-#. Fill in the virtual machine configuration information, such as machine name, user name, and so on. When finished, click to the next page.
+#. Fill in the virtual machine configuration information, such as machine name, credentials, VM size, and so on.
 
    .. note:: It's best to use a new computer name each time through this workflow. This will help to avoid conflicts with virtual machine names that may have been previously registered on the Chef server.
 
-#. Make the desired changes, if any, to the cloud service name, storage account, endpoints, etc., and then click to the next page.
+#. In Step 3, open the **Extensions** blade and click ``Add extension``.
 
-#. Install Chef. Click the checkbox next to **Chef** to configure virtual machines using with Chef:
+#. Select **Windows Chef Extension** and then **Create**.
 
-   .. image:: ../../images/azure_portal.png
+#. Using the ``chef-repo/.chef/knife.rb`` file you downloaded during your Chef server setup, enter values for the Chef server URL and the validation client name. You can also use this file to help you find the location of your validation key.
 
-#. Click the **From Local** button next to the client.rb text box, and then browse to upload the client.rb file.
+#. Browse on your local machine and create a copy of the validation key (named ``<orgname>-validator.pem``).
 
-   .. note:: The client.rb must be correctly configured to communicate to the Chef server. Specifically, it must have valid values for the following two settings: ``chef_server_url`` and ``validaton_client_name``.
+#. Rename the copy to ``<orgname>-validator.crt`` then upload it through your web browser.
 
-#. Use the **From Local** button next to the validation key text box to locate a local copy of the validation key.
+   .. note:: This is required because the ``.pem`` file extension is not recognized in the open file dialog box as a valid x.509 certificate file extension.
+
+#. For Client Configuration File browse to the ``.chef/knife.rb`` file and upload it through your web browser.
+
+   .. note:: The knife.rb must be correctly configured to communicate to the Chef server. Specifically, it must have valid values for the following two settings: ``chef_server_url`` and ``validaton_client_name``.
 
 #. Optional. :doc:`Use a run-list </run_lists>` to specify what should be run when the virtual machine is provisioned, such as using the run-list to provision a virtual machine with Internet Information Services (IIS). Use the ``iis`` cookbook and the default recipe to build a run-list. For example:
 
@@ -541,17 +540,7 @@ Once this information has been identified, launch the Azure portal, start the vi
 
    .. note:: A run-list may only refer to roles and/or recipes that have already been uploaded to the Chef server.
 
-#. Click the checkmark button to complete the page. Provisioning will begin and the application will return to the **Virtual Machines** page showing the list of available virtual machines.
-
-   When the virtual machine has reached the status **starting**, click the virtual machine name to go to a page that contains more detail. Click **dashboard** to see more detailed status, and scroll down to the area that says **extensions**.
-
-   Once the virtual machine has gone far enough in the ``running(provisioning)`` state, some entries should appear under status, like this:
-
-   .. image:: ../../images/azure_portal_1.png
-
-#. Once finished, something like the following will be shown:
-
-   .. image:: ../../images/azure_portal_2.png
+#. Click **OK** to complete the page. Click **OK** in the Extensions blade and the rest of the setup blades. Provisioning will begin and the portal will the blade for your new VM.
 
 After the process is complete, the virtual machine will be registered with the Chef server and it will have been provisioned with the configuration (applications, services, etc.) from the specified run-list. The Chef server can now be used to perform all ongoing management of the virtual machine node.
 
