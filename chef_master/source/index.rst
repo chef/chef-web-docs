@@ -549,6 +549,7 @@ Addenda
    error_messages
    feedback
    files
+   fips
    foodcritic
    glossary
    habitat

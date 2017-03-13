@@ -64,6 +64,9 @@ This configuration file has the following general settings:
 ``from_email``
    Default value: ``'"Opscode" <donotreply@chef.io>"'``.
 
+``fips``
+  Set to `true` to run the server in FIPS compliance mode. Set to `false` to force the server to run without FIPS compliance mode. Default value is whatever the kernel is configured to.
+
 ``install_path``
    The directory in which the Chef server is installed. Default value: ``'/opt/opscode'``.
 
