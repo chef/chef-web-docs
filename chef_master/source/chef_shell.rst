@@ -84,11 +84,18 @@ The syntax for managing objects on the Chef server is as follows:
 
 .. code-block:: bash
 
-   $ chef (named_configuration) > items.command
+   $ chef-shell -z named_configuration
 
 where:
 
-* ``named_configuration`` is a named configuration, such as ``production``, ``staging``, or ``test``
+* ``named_configuration`` is an existing configuration file in ~/.chef/named_configuration/chef_shell.rb, such as ``production``, ``staging``, or ``test``
+
+Once in chef-shell, commands can be run against objects as follows:
+
+.. code-block:: bash
+
+    chef (preprod) > items.command
+
 * ``items`` is the type of item to search for: ``cookbooks``, ``clients``, ``nodes``, ``roles``, ``environments`` or a data bag
 * ``command`` is the command: ``list``, ``show``, ``find``, or ``edit``
 
@@ -96,7 +103,7 @@ For example, to list all of the nodes in a configuration named "preprod":
 
 .. code-block:: bash
 
-   $ chef (preprod) > nodes.list
+   chef (preprod) > nodes.list
 
 to return something similar to:
 
@@ -117,7 +124,7 @@ The ``list`` command can take a code block, which will applied (but not saved) t
 
 .. code-block:: bash
 
-   $ chef (preprod) > nodes.list {|n| puts "#{n.name}: #{n.run_list}" }
+    chef (preprod) > nodes.list {|n| puts "#{n.name}: #{n.run_list}" }
 
 to return something similar to:
 
@@ -133,43 +140,43 @@ The ``show`` command can be used to display a specific node. For example:
 
 .. code-block:: bash
 
-   $ chef (preprod) > load_balancer = nodes.show('i-f09a939b')
+    chef (preprod) > load_balancer = nodes.show('i-f09a939b')
 
 to return something similar to:
 
 .. code-block:: bash
 
-   $ => node[i-f09a939b]
+    => node[i-f09a939b]
 
 or:
 
 .. code-block:: bash
 
-   $ chef (preprod) > load_balancer.ec2.public_hostname
+    chef (preprod) > load_balancer.ec2.public_hostname
 
 to return something similar to:
 
 .. code-block:: bash
 
-   $ => "ec2-111-22-333-44.compute-1.amazonaws.com"
+    => "ec2-111-22-333-44.compute-1.amazonaws.com"
 
 The ``find`` command can be used to search the Chef server from the chef-shell. For example:
 
 .. code-block:: bash
 
-   $ chef (preprod) > pp nodes.find(:ec2_public_hostname => 'ec2*')
+    chef (preprod) > pp nodes.find(:ec2_public_hostname => 'ec2*')
 
 A code block can be used to format the results. For example:
 
 .. code-block:: bash
 
-   $ chef (preprod) > pp nodes.find(:ec2_public_hostname => 'ec2*') {|n| n.ec2.ami_id } and nil
+    chef (preprod) > pp nodes.find(:ec2_public_hostname => 'ec2*') {|n| n.ec2.ami_id } and nil
 
 to return something similar to:
 
 .. code-block:: bash
 
-   $ => ["ami-f8927a91",
+    => ["ami-f8927a91",
          "ami-f8927a91",
          "ami-a89870c1",
          "ami-a89870c1",
@@ -189,7 +196,7 @@ to return something similar to:
 
 .. code-block:: bash
 
-   $ => ami-4b4ba522
+    => ami-4b4ba522
         ami-a89870c1
         ami-eef61587
         ami-f8927a91
