@@ -993,7 +993,7 @@ The following items are new for chef-client 12.8 and/or are changes from previou
 
 FIPS Mode
 -----------------------------------------------------
-.. tag chef_client_fips_mode
+.. tag fips_intro_client
 
 Federal Information Processing Standards (FIPS) is a United States government computer security standard that specifies security requirements for cryptography. The current version of the standard is FIPS 140-2. The chef-client can be configured to allow OpenSSL to enforce FIPS-validated security during a chef-client run. This will disable cryptography that is explicitly disallowed in FIPS-validated software, including certain ciphers and hashing algorithms. Any attempt to use any disallowed cryptography will cause the chef-client to throw an exception during a chef-client run.
 

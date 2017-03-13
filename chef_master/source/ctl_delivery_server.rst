@@ -305,23 +305,24 @@ The ``install-runner`` subcommand configures a remote node as a job runner, whic
        USERNAME   The username used for authentication to the remote host that will be configured into a runner
 
      Options:
-      -h, --help                    Show the usage message
-      -i, --ssh-identity-file FILE  SSH identity file used for authentication to the remote host
-      -I, --installer FILE          The location of the ChefDK package for the runner.
-                                    This option cannot be passed with --chefdk-version as that option specifies remote download.
-                                    If neither are passed, the latest ChefDK will be downloaded remotely
+      -h, --help                            Show the usage message
+      -i, --ssh-identity-file FILE          SSH identity file used for authentication to the remote host
+      -I, --installer FILE                  The location of the ChefDK package for the runner.
+                                            This option cannot be passed with --chefdk-version as that option specifies remote download.
+                                            If neither are passed, the latest ChefDK will be downloaded remotely
 
-      -p, --port PORT               SSH port to connect to on the remote host (Default: 22)
-      -P, --password [PASSWORD]     Pass if you need to set a password for ssh and / or sudo access.
-                                    You can pass the password in directly or you will be prompted if you simply pass --password.
-                                    If --ssh-identify-file is also passed, will only be used for sudo access
+      -p, --port PORT                       SSH port to connect to on the remote host (Default: 22)
+      -P, --password [PASSWORD]             Pass if you need to set a password for ssh and / or sudo access.
+                                            You can pass the password in directly or you will be prompted if you simply pass --password.
+                                            If --ssh-identify-file is also passed, will only be used for sudo access
 
-      -v, --chefdk-version VERSION  Custom version of the ChefDK you wish to download and install.
-                                    This option cannot be passed with --installer as that option specifies using a package local to this server.
-                                    If neither are passed, the latest ChefDK will be downloaded remotely
+      -v, --chefdk-version VERSION          Custom version of the ChefDK you wish to download and install.
+                                            This option cannot be passed with --installer as that option specifies using a package local to this server.
+                                            If neither are passed, the latest ChefDK will be downloaded remotely
 
-      -y, --yes                     Skip configuration confirmation and overwrite any existing Chef Server nodes of the same name as FQDN
-      -e, --enterprise              Legacy option, only required if you have more than one enterprise configured. Workflow enterprise to add the runner into
+      -y, --yes                             Skip configuration confirmation and overwrite any existing Chef Server nodes of the same name as FQDN
+      -e, --enterprise                      Legacy option, only required if you have more than one enterprise configured. Workflow enterprise to add the runner into
+      --fips-custom-cert-filename FILENAME  If you have a self-signed or self-owned Certificate Authority (CA) and wish to operate in FIPS mode, pass this flag the path to a file containing your custom certificate chain on your Automate server. This file will be copied to the runner and used when running jobs in FIPS mode. If you have purchased a certificate from a known CA for Automate server, you can ignore this flag. Please see the Automate FIPS docs for details.
 
 
 .. note:: The username provided must be a user who has sudo access on the remote node. If the user is a member of a domain, then the username value should be entered as ``user@domain``.

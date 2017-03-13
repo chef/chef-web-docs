@@ -32,6 +32,9 @@ This configuration file has the following general settings:
 ``dir``
    The working directory. The default value is the recommended value. Default value: ``"/opt/delivery"``.
 
+``fips['enable']``
+  Set to `true` to run the server in FIPS compliance mode. Set to `false` to force the server to run without FIPS compliance mode. Default value is whatever the kernel is configured to. TODO: link to explanation of kernel level settings.
+
 ``install_path``
    Default value: ``"/opt/delivery"``.
 

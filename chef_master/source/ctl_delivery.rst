@@ -16,7 +16,7 @@ The Delivery CLI is required for the workstation and for many Chef Automate func
 .. end_tag
 
 Configure Delivery CLI
------------------------------------------------------
+=====================================================
 .. tag delivery_cli_configure
 
 Before you use the Delivery CLI from a workstation, you need to provide it with details such as the URL of the Chef Automate server, and the names of the relevant enterprise, organization, and user. The ``delivery setup`` subcommand creates a configuration file named ``.delivery/cli.toml`` with the required information.
@@ -31,6 +31,85 @@ The following settings may be added to the ``.delivery/cli.toml`` file:
 
 ``auto_bump``
    Bumps the cookbook metadata version number automatically when ``delivery review`` is run. Default value: ``false``.
+
+.. end_tag
+
+Run Delivery CLI in FIPS Mode
+=====================================================
+.. tag fips_intro
+
+Federal Information Processing Standards (FIPS) are federal standards
+for computer systems used by contractors of government agencies and
+non-military government agencies.
+
+FIPS 140-2 is a specific federal government security standard used to approve
+cryptographic modules. Chef Automate uses the OpenSSL FIPS Object Module, which
+satisfies the requirements of software cryptographic modules under the FIPS
+140-2 standard. The OpenSSL Object Module provides an API for invoking FIPS
+approved cryptographic functions from calling applications.
+
+.. end_tag
+
+See the main :doc:`FIPS documentation </fips>` for more information on what FIPS is and how to enable it.
+
+.. tag delivery_cli_fips
+
+How to enable FIPS mode for the Automate server
+==================================================================
+
+Prerequisites
+------------------------------------------------------------------
+* Supported Systems - CentOS or Red Hat Enterprise Linux 6 or 7
+* Automate version ``0.7.61`` or greater
+
+Configuration
+------------------------------------------------------------------
+If you have FIPS compliance enabled in the operating system at the kernel level
+and install or reconfigure the Chef Automate server then it will default to
+running in FIPS mode.
+
+An Automate server running in FIPS mode can only communicate with workstations that are
+also running in FIPS mode.
+
+If you do need to use FIPS mode, there are a few steps to get it up and running in Delivery CLI on your workstation.
+
+Check if Automate Server has enabled FIPS mode
+-----------------------------------------------------
+
+You can see if your Automate server is in FIPS mode by running ``delivery status``. It will say ``FIPS mode: enabled`` if it is enabled as well as output some instructions on how to set up
+your ``cli.toml`` to enable FIPS mode locally. If ``delivery status`` reports either ``FIPS mode: disabled`` or FIPS is missing completely from the report, please see the :doc:`main FIPS documentation </fips>` on how to enable FIPS mode in your Automate server before proceeding.
+
+Enable FIPS mode in your cli.toml file
+-----------------------------------------------------
+
+Now that you have confirmed that the Automate server is in FIPS mode, you must enable FIPS mode locally on your workstation for Delivery CLI.
+This can be done by adding the following to your ``.delivery/cli.toml``:
+
+.. code-block:: none
+
+   fips = true
+   fips_git_port = "OPEN_PORT"
+   fips_custom_cert_filename = "/full/path/to/your/certificate-chain.pem" # optional
+
+Replace ``OPEN_PORT`` with any port that is free locally on localhost.
+
+If you are using a custom certificate authority or a self-signed certificate then you will need the third option. This file should contain to the entire certificate chain in `pem` format. See `FIPS Certificate Management </fips#certificate_management>`_ for an example on how to generate the file.
+
+How to enable FIPS mode for workstations
+==================================================================
+
+A workstation is a computer running the Chef Development Kit (ChefDK) that is used to author cookbooks, interact with the Chef server, and interact with nodes.
+
+Prerequisites
+------------------------------------------------------------------
+* Supported Systems - Windows, CentOS and Red Hat Enterprise Linux
+* ChefDK version ``12.13.x`` (TODO ????? > .18 at least) or greater
+
+Now that FIPS mode is enabled in your ``.delivery/cli.toml``, running any project-specific Delivery CLI command will automatically use FIPS-compliant encrypted git traffic between your
+workstation and the Automate server. As long as the Automate server is in FIPS mode, no other action is needed on your part to operate Delivery CLI in FIPS mode.
+If you ever stop using FIPS mode on the Automate server, simply delete the above two lines from your ``.delivery/cli.toml`` file and Delivery CLI will stop running in FIPS mode.
+
+.. note:: You could also pass ``--fips`` and ``--fips-git-port=OPEN_PORT`` into project specific commands if you do not wish to edit your ``.delivery/cli.toml``. See list of commands below for details..
 
 .. end_tag
 
@@ -130,6 +209,15 @@ Options
 -----------------------------------------------------
 This subcommand has the following options:
 
+``--fips``
+   Runs command in FIPS mode. This proxies all git traffic through Stunnel FIPS encryption.
+
+``--fips-git-port=PORT``
+   The port Stunnel listens locally on when proxying git traffic.
+
+``--fips-custom-cert-filename=PATH_TO_PEM``
+   The path to a pem file that contains a self-signed certificate or certificate chain. Use this setting only when you have a custom certificate authority or a self-signed certificate.
+
 ``-P=NUMBER``, ``--patchset=NUMBER``
    The patchset number. Default value: ``latest``.
 
@@ -164,6 +252,15 @@ This subcommand has the following options:
 
 ``-e=ENTERPRISE``, ``--ent=ENTERPRISE``
    A configured Chef Automate enterprise.
+
+``--fips``
+   Runs command in FIPS mode. This proxies all git traffic through Stunnel FIPS encryption.
+
+``--fips-git-port=PORT``
+   The port Stunnel listens locally on when proxying git traffic.
+
+``--fips-custom-cert-filename=PATH_TO_PEM``
+   The path to a pem file that contains a self-signed certificate or certificate chain. Use this setting only when you have a custom certificate authority or a self-signed certificate.
 
 ``-g=URL``, ``--git-url=URL``
    The raw git URL for the specified project. This URL is used as the remote target for the local git checkout. If this option is used, the ``--ent``, ``--org``, ``--server``, and ``--user`` options are ignored.
@@ -200,6 +297,15 @@ where:
 Options
 -----------------------------------------------------
 This subcommand has the following options:
+
+``--fips``
+   Runs command in FIPS mode. This proxies all git traffic through Stunnel FIPS encryption.
+
+``--fips-git-port=PORT``
+   The port Stunnel listens locally on when proxying git traffic.
+
+``--fips-custom-cert-filename=PATH_TO_PEM``
+   The path to a pem file that contains a self-signed certificate or certificate chain. Use this setting only when you have a custom certificate authority or a self-signed certificate.
 
 ``-l``, ``--local``
    Run a diff against the local branch ``HEAD``.
@@ -241,6 +347,15 @@ This subcommand has the following options:
 
 ``-e=ENTERPRISE``, ``--ent=ENTERPRISE``
    A configured Chef Automate enterprise.
+
+``--fips``
+   Runs command in FIPS mode. This proxies all git traffic through Stunnel FIPS encryption.
+
+``--fips-git-port=PORT``
+   The port Stunnel listens locally on when proxying git traffic.
+
+``--fips-custom-cert-filename=PATH_TO_PEM``
+   The path to a pem file that contains a self-signed certificate or certificate chain. Use this setting only when you have a custom certificate authority or a self-signed certificate.
 
 ``--generator=GENERATOR``
    The path to a local git repo or the URL to a custom ``build-cookbook`` generated by the Chef development kit. See https://github.com/chef-cookbooks/pcb for more information about using the ``chef generate`` commands in the Chef development kit to generate a ``build-cookbook``.
@@ -516,6 +631,15 @@ This subcommand has the following options:
 ``-e=ENTERPRISE``, ``--ent=ENTERPRISE``
    A configured Chef Automate enterprise.
 
+``--fips``
+   Runs command in FIPS mode. This proxies all git traffic through Stunnel FIPS encryption.
+
+``--fips-git-port=PORT``
+   The port Stunnel listens locally on when proxying git traffic.
+
+``--fips-custom-cert-filename=PATH_TO_PEM``
+   The path to a pem file that contains a self-signed certificate or certificate chain. Use this setting only when you have a custom certificate authority or a self-signed certificate.
+
 ``-g=URL``, ``--git-url=URL``
    The raw git URL for the specified project. This URL is used as the remote target for the local git checkout when the job is run. If this option is used, the ``--ent``, ``--org``, ``--server``, and ``--user`` options are ignored.
 
@@ -752,6 +876,15 @@ This subcommand has the following options:
 ``--edit``
    Edit the title and description for the change.
 
+``--fips``
+   Runs command in FIPS mode. This proxies all git traffic through Stunnel FIPS encryption.
+
+``--fips-git-port=PORT``
+   The port Stunnel listens locally on when proxying git traffic.
+
+``--fips-custom-cert-filename=PATH_TO_PEM``
+   The path to a pem file that contains a self-signed certificate or certificate chain. Use this setting only when you have a custom certificate authority or a self-signed certificate.
+
 ``--no-open``
    Prevent opening a browser that shows the pipeline in Chef Automate web UI.
 
@@ -820,6 +953,66 @@ This subcommand has the following options:
 Examples
 -----------------------------------------------------
 None.
+
+delivery status
+=====================================================
+Get status information about the Chef Automate server's ``_status`` endpoint, API response time, and additional information depending on the server's configuration.
+
+Syntax
+-----------------------------------------------------
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ delivery status (options)
+
+Options
+-----------------------------------------------------
+This subcommand has the following options:
+
+``--api-port=PORT``
+   The HTTP port on which the Chef Automate API is listening.
+
+``--json``
+   Output in JSON format instead of human readable.
+
+``--no-color``
+   Prevent color output.
+
+``-s=SERVER``, ``--server=SERVER``
+   The server on which Chef Automate is running.
+
+Examples
+-----------------------------------------------------
+
+.. code:: shell
+
+   $ delivery status
+
+   Status information for Automate server automate.example.com...
+
+   Status: up (request took 75 ms)
+   Configuration Mode: standalone
+   FIPS Mode: enabled
+   Upstreams:
+   Lsyncd:
+     status: not_running
+   PostgreSQL:
+     status: up
+   RabbitMQ:
+     status: up
+     node_health:
+       status: up
+     vhost_aliveness:
+       status: up
+
+   Your Automate Server is configured in FIPS mode.
+   Please add the following to your cli.toml to enable Automate FIPS mode on your machine:
+
+   fips = true
+   fips_git_port = "OPEN_PORT"
+
+   Replace OPEN_PORT with any port that is free on your machine.
 
 delivery token
 =====================================================
