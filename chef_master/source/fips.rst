@@ -80,7 +80,7 @@ How to enable FIPS mode for the Chef client
 Prerequisites
 ------------------------------------------------------------------
 * Supported Systems - CentOS or Red Hat Enterprise Linux 6 or 7
-* Chef Client ``12.8.1`` or greater
+* Chef Client ``12.19.36`` or greater
 
 Configuration
 ------------------------------------------------------------------
@@ -121,7 +121,7 @@ How to enable FIPS mode for the Automate server
 Prerequisites
 ------------------------------------------------------------------
 * Supported Systems - CentOS or Red Hat Enterprise Linux 6 or 7
-* Automate version ``0.7.61`` or greater
+* Automate version ``0.7.100`` or greater
 
 Configuration
 ------------------------------------------------------------------
@@ -164,7 +164,7 @@ A workstation is a computer running the Chef Development Kit (ChefDK) that is us
 Prerequisites
 ------------------------------------------------------------------
 * Supported Systems - Windows, CentOS and Red Hat Enterprise Linux
-* ChefDK version ``12.13.x`` (TODO ????? > .18 at least) or greater
+* ChefDK version ``1.3.23`` or greater
 
 Now that FIPS mode is enabled in your ``.delivery/cli.toml``, running any project-specific Delivery CLI command will automatically use FIPS-compliant encrypted git traffic between your
 workstation and the Automate server. As long as the Automate server is in FIPS mode, no other action is needed on your part to operate Delivery CLI in FIPS mode.
@@ -266,27 +266,42 @@ Running ``delivery status`` should return something like:
          Replace OPEN_PORT with any port that is free on your machine.
 
 
+Unable to run any delivery commands when FIPS is enabled
+------------------------------------------------------------------
+#. Confirm FIPS is enabled on Automate with ``delivery status``. You should see ``FIPS Mode: enabled``.
+#. Confirm your project's ``cli.toml`` is configured correctly. The following configuration items should be present:
 
-If FIPS is enabled at the kernel level in your operating system and you are
-having configuration issues, confirm that the ``cli.toml`` file in your ChefDK
-workstation has the following attributes:
+    .. code-block:: none
 
-   .. code-block:: none
+        fips_enabled = true
+        fips_git_port = "<some open port>"
 
-      fips_enabled = true
-      fips_git_port = "<some open port>"
+        # Below is only used with self-signed certificates or custom certificate
+        # authorities
 
-      # Below is only used with self-signed certificates or custom certificate
-      # authorities
+        fips_custom_cert_filename = "/path/to/file/with/certificate-chain.pem"
 
-      fips_custom_cert_filename = "/path/to/file/with/certificate-chain.pem"
+#. On Windows you will need to kill the tunnel whenever you make a fips configuration change to ``cli.toml``. To restart the tunnel:
 
+    .. code-block:: none
 
+        PS C:\Users\user> tasklist /fi "imagename eq stunnel.exe"
 
-If you have problems with certificate management and are using a self-signed certificate or a custom certificate authority, see the section on `Certificate Management </fips.html#certificate-management>`_.
+        Image Name                     PID Session Name        Session#    Mem Usage
+        ========================= ======== ================ =========== ============
+        stunnel.exe                   2520 Console                    1      9,040 K
 
+        PS C:\Users\user> taskkill 2520
+        PS C:\Users\user\example-project> delivery review # will restart the tunnel on the next execution
 
+Self-signed certificate or custom certificate authority
+------------------------------------------------------------------
+See the section on `Certificate Management </fips.html#certificate-management>`_.
+
+Nothing above has helped
+------------------------------------------------------------------
 If you continue to have issues you should include the following logs with your support request:
-   #. Stunnel client log ``~/.chefdk/log/stunnel.log`` on your workstation
-   #. Stunnel server log ``sudo automate-ctl log stunnel``
-   #. Stunnel configuration file on your workstation ``C:\\opscode\\chefdk\\embedded\\stunnel.conf`` or ``~/.chefdk/etc/stunnel.conf``
+
+#. Stunnel client log ``~/.chefdk/log/stunnel.log`` on your workstation
+#. Stunnel server log ``sudo automate-ctl log stunnel``
+#. Stunnel configuration file on your workstation ``C:\\opscode\\chefdk\\embedded\\stunnel.conf`` or ``~/.chefdk/etc/stunnel.conf``
