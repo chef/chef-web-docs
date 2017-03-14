@@ -41,7 +41,8 @@ The full syntax for all of the properties that are available to the **mount** re
      password                   String
      provider                   Chef::Provider::Mount
      subscribes                 # see description
-     supports                   Hash # defaults to { :remount => false }
+     supports                   Hash # defaults to { :remount => false } (preferred)
+                                Array # defaults to { :remount => true } (non-preferred)
      username                   String
      action                     Symbol # defaults to :mount if not specified
    end
