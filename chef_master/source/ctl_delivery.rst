@@ -60,7 +60,7 @@ How to enable FIPS mode for the Automate server
 Prerequisites
 ------------------------------------------------------------------
 * Supported Systems - CentOS or Red Hat Enterprise Linux 6 or 7
-* Automate version ``0.7.61`` or greater
+* Automate version ``0.7.100`` or greater
 
 Configuration
 ------------------------------------------------------------------
@@ -103,7 +103,7 @@ A workstation is a computer running the Chef Development Kit (ChefDK) that is us
 Prerequisites
 ------------------------------------------------------------------
 * Supported Systems - Windows, CentOS and Red Hat Enterprise Linux
-* ChefDK version ``12.13.x`` (TODO ????? > .18 at least) or greater
+* ChefDK version ``1.3.23`` or greater
 
 Now that FIPS mode is enabled in your ``.delivery/cli.toml``, running any project-specific Delivery CLI command will automatically use FIPS-compliant encrypted git traffic between your
 workstation and the Automate server. As long as the Automate server is in FIPS mode, no other action is needed on your part to operate Delivery CLI in FIPS mode.
