@@ -41,7 +41,7 @@ How to enable FIPS mode in the Operating System
 
 FIPS kernel settings
 ------------------------------------------------------------------
-Windows and Red Hat Enterprise Linux can both be configured for FIPS mode using
+Windows and Red Hat Enterprise Linux can both be configured for FIPS mode using a
 kernel level setting. After FIPS mode is enabled at the kernel level, the
 operating system will only use FIPS approved algorithms and keys during operation.
 
