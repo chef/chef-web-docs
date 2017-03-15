@@ -201,20 +201,37 @@ If you have a self-signed certificate or a customer certificate authority then y
 
 .. note:: Any time this certificate changes you must re-run this process.
 
-* Generate a pem file with your entire certificate chain of the Automate instance and save it to a file. A client machine may run the above openssl command to avoid having to copy/paste the certificate chain around as well. For Example:
+* Generate a pem file with your entire certificate chain of the Chef Automate instance and save it to a file. A client machine may run the above openssl command to avoid having to copy/paste the certificate chain around as well. For Example:
 
     .. code-block:: none
 
-        $ echo "q" | openssl s_client -showcerts -connect yourautomateserver.com:443 </dev/null 2> /dev/null | openssl x509 -outform PEM
+        $ echo "q" | openssl s_client -showcerts -connect yourautomateserver.com:443 </dev/null 2> /dev/null
+
+        CONNECTED(00000003)
+        ---
+        Certificate chain
+        0 s:/C=US/O=Acme/OU=Profit Center/CN=yourautomateserver.com
+        i:/C=US/O=Acme/OU=Profit Center/CN=Root CA
+        -----BEGIN CERTIFICATE-----
+        (server certificate)
+        -----END CERTIFICATE-----
+        1 s:/C=US/O=Acme/OU=Profit Center/CN=Root CA
+        i:/C=US/O=Acme/OU=Profit Center/CN=Root CA
+        -----BEGIN CERTIFICATE-----
+        (root certificate)
+        -----END CERTIFICATE-----
+        ---
+        ...
+
+    Create a new file ``yourautomateserver.com.pem`` and copy both of the certificate sections in order. In this example the file should look like:
+
+    .. code-block:: none
 
         -----BEGIN CERTIFICATE-----
-        (Your server certificate)
+        (server certificate)
         -----END CERTIFICATE-----
         -----BEGIN CERTIFICATE-----
-        (Your intermediate certificate)
-        -----END CERTIFICATE-----
-        -----BEGIN CERTIFICATE-----
-        (Your root certificate)
+        (root certificate)
         -----END CERTIFICATE-----
 
 * Every workstation will need a copy of this file and the cli.toml should be updated to include this configuration option.
