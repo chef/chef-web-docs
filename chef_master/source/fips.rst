@@ -26,7 +26,7 @@ How to enable FIPS mode in the Operating System
 
 FIPS kernel settings
 ------------------------------------------------------------------
-Windows and Red Hat Enterprise Linux can both be configured for FIPS mode using a kernel level setting. After FIPS mode is enabled at the kernel level, the operating system will only use FIPS approved algorithms and keys during operation.
+Windows and Red Hat Enterprise Linux can both be configured for FIPS mode using a kernel-level setting. After FIPS mode is enabled at the kernel level, the operating system will only use FIPS approved algorithms and keys during operation.
 
 All of the tools Chef produces that have FIPS support read this kernel setting and default their mode of operation to match it with the exception of the workstation, which requires designating a port in the ``fips_git_port`` setting of the ``cli.toml``.  For the other Chef tools, Chef Client, for example, if ``chef-client`` is run on an  operating system configured into FIPS mode and you run, that Chef run will automatically be in FIPS mode unless the user disables it.
 
