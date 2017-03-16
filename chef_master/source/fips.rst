@@ -7,49 +7,28 @@ What is FIPS?
 ==================================================================
 .. tag fips_intro
 
-Federal Information Processing Standards (FIPS) are federal standards
-for computer systems used by contractors of government agencies and
-non-military government agencies.
+Federal Information Processing Standards (FIPS) are federal standards for computer systems used by contractors of government agencies and non-military government agencies.
 
-FIPS 140-2 is a specific federal government security standard used to approve
-cryptographic modules. Chef Automate uses the OpenSSL FIPS Object Module, which
-satisfies the requirements of software cryptographic modules under the FIPS
-140-2 standard. The OpenSSL Object Module provides an API for invoking FIPS
-approved cryptographic functions from calling applications.
+FIPS 140-2 is a specific federal government security standard used to approve cryptographic modules. Chef Automate uses the OpenSSL FIPS Object Module, which satisfies the requirements of software cryptographic modules under the FIPS 140-2 standard. The OpenSSL Object Module provides an API for invoking FIPS approved cryptographic functions from calling applications.
 
 .. end_tag
 
 Why would you want to enable it?
 ------------------------------------------------------------------
-You may be legally required to enable FIPS if you are a United States
-non-military government agency, or are contracting with one. If you are not sure
-if you need to enable FIPS, please check with your compliance department.
+You may be legally required to enable FIPS if you are a United States non-military government agency, or are contracting with one. If you are not sure if you need to enable FIPS, please check with your compliance department.
 
 Why might you not need to enable it?
 ------------------------------------------------------------------
-You will only need to enable FIPS if you are a US non-military government agency,
-or contracting with one, and you are contractually obligated to meet federal
-government security standards.  If you are not a US non-military governmental
-agency, or you are not contracting with one, and you are not contractually
-obligated to meet federal government security standards, then do not enable FIPS.
-Chef products have robust security standards even without FIPS, and FIPS
-prevents the use of certain hashing algorithms you might want to use, so we
-only recommend enabling FIPS if it is contractually necessary.
+You will only need to enable FIPS if you are a US non-military government agency, or contracting with one, and you are contractually obligated to meet federal government security standards.  If you are not a US non-military governmental agency, or you are not contracting with one, and you are not contractually obligated to meet federal government security standards, then do not enable FIPS.  Chef products have robust security standards even without FIPS, and FIPS prevents the use of certain hashing algorithms you might want to use, so we only recommend enabling FIPS if it is contractually necessary.
 
 How to enable FIPS mode in the Operating System
 ==================================================================
 
 FIPS kernel settings
 ------------------------------------------------------------------
-Windows and Red Hat Enterprise Linux can both be configured for FIPS mode using
-kernel level setting. After FIPS mode is enabled at the kernel level, the
-operating system will only use FIPS approved algorithms and keys during operation.
+Windows and Red Hat Enterprise Linux can both be configured for FIPS mode using a kernel-level setting. After FIPS mode is enabled at the kernel level, the operating system will only use FIPS approved algorithms and keys during operation.
 
-All of the tools Chef produces that have FIPS support read this kernel setting
-and default their mode of operation to match it with the exception of the
-workstation, which requires designating a port in the ``fips_git_port`` setting
-of the ``cli.toml``.  For the other Chef tools, Chef Client, for example, if ``chef-client`` is run on an  operating system configured into FIPS mode and you run, that Chef run
-will automatically be in FIPS mode unless the user disables it.
+All of the tools Chef produces that have FIPS support read this kernel setting and default their mode of operation to match it with the exception of the workstation, which requires designating a port in the ``fips_git_port`` setting of the ``cli.toml``.  For the other Chef tools, Chef Client, for example, if ``chef-client`` is run on an  operating system configured into FIPS mode and you run, that Chef run will automatically be in FIPS mode unless the user disables it.
 
 To enable FIPS on your platform follow these instructions:
 
@@ -205,16 +184,33 @@ If you have a self-signed certificate or a customer certificate authority then y
 
     .. code-block:: none
 
-        $ echo "q" | openssl s_client -showcerts -connect yourautomateserver.com:443 </dev/null 2> /dev/null | openssl x509 -outform PEM
+        $ echo "q" | openssl s_client -showcerts -connect yourautomateserver.com:443 </dev/null 2> /dev/null
+
+        CONNECTED(00000003)
+        ---
+        Certificate chain
+        0 s:/C=US/O=Acme/OU=Profit Center/CN=yourautomateserver.com
+        i:/C=US/O=Acme/OU=Profit Center/CN=Root CA
+        -----BEGIN CERTIFICATE-----
+        (server certificate)
+        -----END CERTIFICATE-----
+        1 s:/C=US/O=Acme/OU=Profit Center/CN=Root CA
+        i:/C=US/O=Acme/OU=Profit Center/CN=Root CA
+        -----BEGIN CERTIFICATE-----
+        (root certificate)
+        -----END CERTIFICATE-----
+        ---
+        ...
+
+    Create a new file ``yourautomateserver.com.pem`` and copy both of the certificate sections in order. In this example the file should look like:
+
+    .. code-block:: none
 
         -----BEGIN CERTIFICATE-----
-        (Your server certificate)
+        (server certificate)
         -----END CERTIFICATE-----
         -----BEGIN CERTIFICATE-----
-        (Your intermediate certificate)
-        -----END CERTIFICATE-----
-        -----BEGIN CERTIFICATE-----
-        (Your root certificate)
+        (root certificate)
         -----END CERTIFICATE-----
 
 * Every workstation will need a copy of this file and the cli.toml should be updated to include this configuration option.
