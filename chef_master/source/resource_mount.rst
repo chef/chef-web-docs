@@ -41,7 +41,8 @@ The full syntax for all of the properties that are available to the **mount** re
      password                   String
      provider                   Chef::Provider::Mount
      subscribes                 # see description
-     supports                   Array
+     supports                   Hash # defaults to { :remount => false } (preferred)
+                                Array # defaults to { :remount => true } (non-preferred)
      username                   String
      action                     Symbol # defaults to :mount if not specified
    end
@@ -241,9 +242,9 @@ This resource has the following properties:
    .. end_tag
 
 ``supports``
-   **Ruby Type:** Array
+   **Ruby Type:** Hash
 
-   An array of options for supported mount features. Default value: ``:remount``.
+   Specify a Hash of supported mount features. Default value: ``remount: false``.
 
 ``username``
    **Ruby Type:** String
