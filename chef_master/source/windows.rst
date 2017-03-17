@@ -364,18 +364,13 @@ Microsoft Azure portal
 
 .. tag cloud_azure_portal
 
-Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual machines. The Azure production portal (|url azure_production|) can boostrap Microsoft Windows-based virtual machines that are already provisioned with the chef-client running as a background service. Once provisioned, these virtual machines are ready to be managed by Chef.
-
-To use the Chef integration with the Azure portal, all you need is a Chef server and the Azure portal. `Choose a Chef version <https://downloads.chef.io/chef-server>`_ or deploy a Chef server via the Azure Marketplace (|url azure_marketplace|).
+Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual machines and integrated services for you to use with your cloud and hybrid applications. And through the Azure Marketplace and Azure portal (|url azure_production|), virtual machines can be bootstrapped and ready to run Chef Automate, Chef server, Chef Compliance and Chef client.
 
 .. end_tag
 
 .. tag cloud_azure_portal_platforms
 
-The Chef extension on the Azure portal may be used on the following platforms:
-
-* Windows Server 2012, 2012r2
-* Ubuntu 12.04 LTS, 14.04 LTS
+Through the Azure portal, you can provision a virtual machine with chef-client running as a background service. Once provisioned, these virtual machines are ready to be managed by a Chef server.
 
 .. note:: Virtual machines running on Microsoft Azure can also be provisioned from the command-line using the ``knife azure`` plugin for knife. This approach is ideal for cases that require automation or for users who are more suited to command-line interfaces.
 
@@ -468,11 +463,11 @@ chef-client Settings
 -----------------------------------------------------
 .. tag cloud_azure_portal_settings_chef_client
 
-Before virtual machines are created using the Azure portal, some chef-client-specific settings will need to be identified so they may be provided to the Azure portal during the virtual machine creation workflow. These settings are available from the chef-client configuration settings:
+Before virtual machines can be created using the Azure portal, some chef-client-specific settings will need to be identified so they can be provided to the Azure portal during the virtual machine creation workflow. These settings are available from the chef-client configuration settings:
 
-#. The ``chef_server_url`` and ``validaton_client_name``. These are settings in the :doc:`client.rb file </config_rb_client>`.
+* The ``chef_server_url`` and ``validaton_client_name``. These are settings in the :doc:`client.rb file </config_rb_client>`.
 
-#. The file for the :doc:`validator key </chef_private_keys>`.
+* The file for the :doc:`validator key </chef_private_keys>`.
 
 .. end_tag
 
@@ -480,37 +475,45 @@ Set up Virtual Machines
 -----------------------------------------------------
 .. tag cloud_azure_portal_virtual_machines
 
-Once this information has been identified, launch the Azure portal, start the virtual machine creation workflow, and then bootstrap virtual machines with Chef:
+Once this information has been identified, launch the Azure portal, start the virtual machine creation workflow, and then bootstrap virtual machines with Chef using the following steps:
 
-#. Sign in to the Azure production portal (|url azure_production|). Authenticate using your Microsoft Azure account credentials.
+#. Sign in to the Azure portal (|url azure_production|). Authenticate using your Microsoft Azure account credentials.
 
 #. Choose **Virtual Machines** in the left pane of the portal.
 
 #. Click the **Add** option at the top of the blade.
 
-#. Choose **Windows Server** in the **Recommended** category.
+#. Select either **Windows Server** or **Ubuntu Server** in the **Recommended** category.
 
-#. In the **Windows Server** blade, select either ``Windows Server 2012 R2 Datacenter`` or ``Windows Server 2012 Datacenter``. Select the ``Resource Manager`` deployment model and click **Create**.
+   .. note:: The Chef extension on the Azure portal may be used on the following platforms:
+
+      * Windows Server 2008 R2 SP1, 2012, 2012 R2, 2016
+      * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS, 16.10
+      * CentOS 6.5+
+      * RHEL 6+
+      * Debian 7, 8
+
+#. In the next blade, select the sku/version of the OS that you would like to use on your VM and click **Create**.
 
 #. Fill in the virtual machine configuration information, such as machine name, credentials, VM size, and so on.
 
    .. note:: It's best to use a new computer name each time through this workflow. This will help to avoid conflicts with virtual machine names that may have been previously registered on the Chef server.
 
-#. In Step 3, open the **Extensions** blade and click ``Add extension``.
+#. In Step 3 on the portal UI, open the **Extensions** blade and click ``Add extension``.
 
-#. Select **Windows Chef Extension** and then **Create**.
+#. Depending on the OS you selected earlier, select either **Windows Chef Extension** or **Linux Chef Extension** and then **Create**.
 
 #. Using the ``chef-repo/.chef/knife.rb`` file you downloaded during your Chef server setup, enter values for the Chef server URL and the validation client name. You can also use this file to help you find the location of your validation key.
 
-#. Browse on your local machine and create a copy of the validation key (named ``<orgname>-validator.pem``).
+#. Browse on your local machine and find your validation key (``chef-repo/.chef/<orgname>-validator.pem``).
 
-#. Rename the copy to ``<orgname>-validator.crt`` then upload it through your web browser.
+#. Upload it through the portal in the **Validation Key** field.
 
-   .. note:: This is required because the ``.pem`` file extension is not recognized in the open file dialog box as a valid x.509 certificate file extension.
+   .. note:: Because the ``.chef`` directory is considered a hidden directory, you may have to copy this file out to a non-hidden directory on disk before you can upload it through the open file dialog box.
 
-#. For Client Configuration File browse to the ``.chef/knife.rb`` file and upload it through your web browser.
+#. For **Client Configuration File**, browse to the ``chef-repo/.chef/knife.rb`` file and upload it through your web browser.
 
-   .. note:: The knife.rb must be correctly configured to communicate to the Chef server. Specifically, it must have valid values for the following two settings: ``chef_server_url`` and ``validaton_client_name``.
+   .. note:: Same directory issue from previous step applies here as well. Also, the ``knife.rb`` file must be correctly configured to communicate to the Chef server. Specifically, it must have valid values for the following two settings: ``chef_server_url`` and ``validaton_client_name``.
 
 #. Optional. :doc:`Use a run-list </run_lists>` to specify what should be run when the virtual machine is provisioned, such as using the run-list to provision a virtual machine with Internet Information Services (IIS). Use the ``iis`` cookbook and the default recipe to build a run-list. For example:
 
