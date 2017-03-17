@@ -5,29 +5,13 @@ Microsoft Azure Portal
 
 .. tag cloud_azure_portal
 
-Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual machines. The Azure production portal (|url azure_production|) can boostrap Microsoft Windows-based virtual machines that are already provisioned with the chef-client running as a background service. Once provisioned, these virtual machines are ready to be managed by Chef.
-
-To use the Chef integration with the Azure portal, all you need is a Chef server and the Azure portal. `Choose a Chef version <https://downloads.chef.io/chef-server>`_ or deploy a Chef server via the Azure Marketplace (|url azure_marketplace|).
+Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual machines and integrated services for you to use with your cloud and hybrid applications. And through the Azure Marketplace and Azure portal (|url azure_production|), virtual machines can be bootstrapped and ready to run Chef Automate, Chef server, Chef Compliance and Chef client.
 
 .. end_tag
-
-.. tag cloud_azure_portal_platforms
-
-The Chef extension on the Azure portal may be used on the following platforms:
-
-* Windows Server 2012, 2012r2
-* Ubuntu 12.04 LTS, 14.04 LTS
-
-.. note:: Virtual machines running on Microsoft Azure can also be provisioned from the command-line using the ``knife azure`` plugin for knife. This approach is ideal for cases that require automation or for users who are more suited to command-line interfaces.
-
-.. end_tag
-
-Azure Marketplace
-=====================================================
 
 Chef Automate
------------------------------------------------------
-Chef provides a fully functional Chef Automate Solution Template that can be launched from the Azure Marketplace. The Solution Template will provision and configure Chef Automate and Chef server on a single VM. You can provide your own Chef Automate license at the time of launch or it will utilize a 30 day free trial. If you would like to continue using the image after 30 days please contact azuremktplcsales@chef.io to obtain a new license.
+=====================================================
+Chef provides a fully functional Chef Automate server that can be launched from the Azure Marketplace. A single VM running Chef Automate and Chef server will be provisioned and configured for you. The only requirement is that you provide your own Chef Automate license at the time of launch; otherwise, Chef Automate will run under a 30-day free trial. If you would like to continue using the image after 30 days, please contact azuremktplcsales@chef.io to obtain a new license.
 
 #. Sign in to the Azure portal (|url azure_preview|). Authenticate using your Microsoft Azure account credentials.
 
@@ -41,7 +25,7 @@ Chef provides a fully functional Chef Automate Solution Template that can be lau
 
 #. While the Chef Automate VM is being provisioned, download and install the `Chef Developer Kit </install_dk.html>`__.  The Chef development kit is a collection of tools ---Test Kitchen, ChefSpec, knife, delivery-cli, chef, chef-vault, Foodcritic, and more--- and libraries that are all packaged together to get your started with the Chef Automate workflow. You'll need this to interact with Chef Automate and Chef server from the command line.
 
-#. After the VM has been provisioned and the Resource Manager has completed (usually 10 to 13 minutes), finish configuring Chef Automate and Chef server. Access the intial configuration page by loading the ``/biscotti/setup`` route. Build the URL by prepending ``https://`` and appending ``/biscotti/setup`` to the DNS label that you chose when VM was launched. For example, ``https://<dns_label>.<location>.cloudapp.azure.com/biscotti/setup`` or ``https://chef-automate-01.eastus.cloudapp.azure.com/biscotti/setup``.
+#. After the VM has been provisioned and the Resource Manager has completed (usually 10 to 13 minutes), finish configuring Chef Automate and Chef server. Access the intial configuration page by loading the ``/biscotti/setup`` route. Build the URL by prepending ``https://`` and appending ``/biscotti/setup`` to the DNS label that you chose when the VM was launched. For example, ``https://<dns_label>.<location>.cloudapp.azure.com/biscotti/setup`` or ``https://chef-automate-01.eastus.cloudapp.azure.com/biscotti/setup``.
 
    .. note:: .. tag notes_chef_azure_ssl
 
@@ -70,8 +54,8 @@ Chef provides a fully functional Chef Automate Solution Template that can be lau
       $ cd ~/Downloads/starter_kit/chef-repo
       $ knife bootstrap chef-automate-01.eastus.cloudapp.azure.com --ssh-user azure --sudo
 
-Chef Compliance VM
------------------------------------------------------
+Chef Compliance
+=====================================================
 Chef provides a fully functional Chef Compliance VM image that can be launched from the Azure Marketplace.
 
 #. Sign in to the Azure portal (|url azure_preview|). Authenticate using your Microsoft Azure account credentials.
@@ -86,7 +70,7 @@ Chef provides a fully functional Chef Compliance VM image that can be launched f
 
 #. Click **Create** and follow the steps to launch the Chef Compliance image, providing credentials, VM size, and any additional information required.
    
-#. Once your VM has been created, create a **DNS name label** for the instance by following these instructions:  <https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-create-fqdn-on-portal/>
+#. Once your VM has been created, create a **DNS name label** for the instance by following these instructions:  https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-create-fqdn-on-portal/
 
 #. Once the virtual machine is launched you will need to create an account. To do this, open an SSH connection to the host using the user name and password (or SSH key) provided when you launch the virtual machine.
 
@@ -117,10 +101,10 @@ Chef provides a fully functional Chef Compliance VM image that can be launched f
 
 #. Follow the prompts to sign up for a new account.
 
-Chef Server VM
------------------------------------------------------
+Chef Server
+=====================================================
 
-.. attention:: This VM image has been deprecrated in favor of Chef Automate solution template.
+.. attention:: This VM image has been deprecrated in favor of the Chef Automate marketplace offering.
 
 .. tag cloud_azure_portal_server_marketplace
 
@@ -203,52 +187,68 @@ Before getting started, you will need a functioning workstation. Install the :do
 
 .. end_tag
 
-Set up Virtual Machines
+Virtual Machines running Chef client
 =====================================================
+
+.. tag cloud_azure_portal_platforms
+
+Through the Azure portal, you can provision a virtual machine with chef-client running as a background service. Once provisioned, these virtual machines are ready to be managed by a Chef server.
+
+.. note:: Virtual machines running on Microsoft Azure can also be provisioned from the command-line using the ``knife azure`` plugin for knife. This approach is ideal for cases that require automation or for users who are more suited to command-line interfaces.
+
+.. end_tag
 
 .. tag cloud_azure_portal_settings_chef_client
 
-Before virtual machines are created using the Azure portal, some chef-client-specific settings will need to be identified so they may be provided to the Azure portal during the virtual machine creation workflow. These settings are available from the chef-client configuration settings:
+Before virtual machines can be created using the Azure portal, some chef-client-specific settings will need to be identified so they can be provided to the Azure portal during the virtual machine creation workflow. These settings are available from the chef-client configuration settings:
 
-#. The ``chef_server_url`` and ``validaton_client_name``. These are settings in the :doc:`client.rb file </config_rb_client>`.
+* The ``chef_server_url`` and ``validaton_client_name``. These are settings in the :doc:`client.rb file </config_rb_client>`.
 
-#. The file for the :doc:`validator key </chef_private_keys>`.
+* The file for the :doc:`validator key </chef_private_keys>`.
 
 .. end_tag
 
 .. tag cloud_azure_portal_virtual_machines
 
-Once this information has been identified, launch the Azure portal, start the virtual machine creation workflow, and then bootstrap virtual machines with Chef:
+Once this information has been identified, launch the Azure portal, start the virtual machine creation workflow, and then bootstrap virtual machines with Chef using the following steps:
 
-#. Sign in to the Azure production portal (|url azure_production|). Authenticate using your Microsoft Azure account credentials.
+#. Sign in to the Azure portal (|url azure_production|). Authenticate using your Microsoft Azure account credentials.
 
 #. Choose **Virtual Machines** in the left pane of the portal.
 
 #. Click the **Add** option at the top of the blade.
 
-#. Choose **Windows Server** in the **Recommended** category.
+#. Select either **Windows Server** or **Ubuntu Server** in the **Recommended** category.
 
-#. In the **Windows Server** blade, select either ``Windows Server 2012 R2 Datacenter`` or ``Windows Server 2012 Datacenter``. Select the ``Resource Manager`` deployment model and click **Create**.
+   .. note:: The Chef extension on the Azure portal may be used on the following platforms:
+
+      * Windows Server 2008 R2 SP1, 2012, 2012 R2, 2016
+      * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS, 16.10
+      * CentOS 6.5+
+      * RHEL 6+
+      * Debian 7, 8
+
+#. In the next blade, select the sku/version of the OS that you would like to use on your VM and click **Create**.
 
 #. Fill in the virtual machine configuration information, such as machine name, credentials, VM size, and so on. 
 
    .. note:: It's best to use a new computer name each time through this workflow. This will help to avoid conflicts with virtual machine names that may have been previously registered on the Chef server.
 
-#. In Step 3, open the **Extensions** blade and click ``Add extension``.
+#. In Step 3 on the portal UI, open the **Extensions** blade and click ``Add extension``.
 
-#. Select **Windows Chef Extension** and then **Create**.
+#. Depending on the OS you selected earlier, select either **Windows Chef Extension** or **Linux Chef Extension** and then **Create**.
 
 #. Using the ``chef-repo/.chef/knife.rb`` file you downloaded during your Chef server setup, enter values for the Chef server URL and the validation client name. You can also use this file to help you find the location of your validation key.
 
-#. Browse on your local machine and create a copy of the validation key (named ``<orgname>-validator.pem``). 
+#. Browse on your local machine and find your validation key (``chef-repo/.chef/<orgname>-validator.pem``).  
 
-#. Rename the copy to ``<orgname>-validator.crt`` then upload it through your web browser. 
+#. Upload it through the portal in the **Validation Key** field. 
 
-   .. note:: This is required because the ``.pem`` file extension is not recognized in the open file dialog box as a valid x.509 certificate file extension.
+   .. note:: Because the ``.chef`` directory is considered a hidden directory, you may have to copy this file out to a non-hidden directory on disk before you can upload it through the open file dialog box.
 
-#. For Client Configuration File browse to the ``.chef/knife.rb`` file and upload it through your web browser.
+#. For **Client Configuration File**, browse to the ``chef-repo/.chef/knife.rb`` file and upload it through your web browser.
 
-   .. note:: The knife.rb must be correctly configured to communicate to the Chef server. Specifically, it must have valid values for the following two settings: ``chef_server_url`` and ``validaton_client_name``.
+   .. note:: Same directory issue from previous step applies here as well. Also, the ``knife.rb`` file must be correctly configured to communicate to the Chef server. Specifically, it must have valid values for the following two settings: ``chef_server_url`` and ``validaton_client_name``.
 
 #. Optional. :doc:`Use a run-list </run_lists>` to specify what should be run when the virtual machine is provisioned, such as using the run-list to provision a virtual machine with Internet Information Services (IIS). Use the ``iis`` cookbook and the default recipe to build a run-list. For example:
 
@@ -617,17 +617,17 @@ The extension has the following options that can be provided in the `settings` h
 ``validation_key_format``
    Tells the extension whether the supplied validation key is ``plaintext`` or ``base64encoded``.
 
-..note:: If using the Chef extension in an ARM template, it is recommended that you base64 encode your validation key and set this option to ``base64encoded``
+   .. note:: If using the Chef extension in an ARM template, it is recommended that you base64 encode your validation key and set this option to ``base64encoded``
 
 ``bootstrap_version``
    The version of chef-client that will be installed on the system. **linux only**
 
-..note:: Due to constraints in Azure, the ``bootstrap_version`` option is only available on the ``LinuxChefClient`` extension.
+   .. note:: Due to constraints in Azure, the ``bootstrap_version`` option is only available on the ``LinuxChefClient`` extension.
 
 ``bootstrap_options``
    A hash of the following options: ``chef_node_name``, ``chef_server_url``, ``environment``, ``secret``, and ``validation_client_name``.
 
-..note:: Options that are supplied in the bootstrap items will take presidence over any conflicts found in the client.rb
+   .. note:: Options that are supplied in the bootstrap items will take presidence over any conflicts found in the ``client.rb`` file.
 
 ``chef_node_name``
    Determines which configuration should be applied and sets the ``client_name``, which is the name used when authenticating to a Chef server. The default value is the FQDN of the chef-client, as detected by Ohai. In general, Chef recommends that you leave this setting blank and let Ohai assign the FQDN of the node as the ``node_name`` during each chef-client run.
@@ -651,8 +651,8 @@ The extension has the following options that can be provided in the `settings` h
    Verify the SSL certificate on the Chef server. When ``true``, the chef-client always verifies the SSL certificate. When ``false``, the chef-client uses the value of ``ssl_verify_mode`` to determine if the SSL certificate requires verification.
 
 **Protected Settings**
-[
-The following options can be provided to the extension through the ``protectedSettings`` hash.
+
+The following options can be provided to the extension through the ``protectedSettings`` hash:
 
 ``validation_key``
    The contents of your organization validator key, the format is dependent on ``validation_key_format``.
