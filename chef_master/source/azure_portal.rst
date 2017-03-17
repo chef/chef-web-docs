@@ -11,7 +11,7 @@ Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual
 
 Chef Automate
 =====================================================
-Chef provides a fully functional Chef Automate server that can be launched from the Azure Marketplace. A single VM running Chef Automate and Chef server will be provisioned and configured for you. The only requirement is that you provide your own Chef Automate license at the time of launch; otherwise, Chef Automate will run under a 30-day free trial. If you would like to continue using the image after 30 days, please contact azuremktplcsales@chef.io to obtain a new license.
+Chef provides a fully functional Chef Automate server that can be launched from the Azure Marketplace. A single VM running Chef Automate and Chef server will be provisioned and configured for you. The only requirement is that you provide your own Chef Automate license at the time of launch; otherwise, Chef Automate will run under a 30-day free trial. If you would like to continue using the image after 30 days, please contact amp@chef.io to obtain a new license.
 
 #. Sign in to the Azure portal (|url azure_preview|). Authenticate using your Microsoft Azure account credentials.
 
