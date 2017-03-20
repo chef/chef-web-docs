@@ -23,7 +23,7 @@ Chef provides a fully functional Chef Automate server that can be launched from 
 
    .. note:: Remember the DNS label of the Chef Automate VM. It will be required to access the Chef Automate UI and Chef server.
 
-#. While the Chef Automate VM is being provisioned, download and install the `Chef Developer Kit </install_dk.html>`__.  The Chef development kit is a collection of tools ---Test Kitchen, ChefSpec, knife, delivery-cli, chef, chef-vault, Foodcritic, and more--- and libraries that are all packaged together to get your started with the Chef Automate workflow. You'll need this to interact with Chef Automate and Chef server from the command line.
+#. While the Chef Automate VM is being provisioned, download and install the `Chef development kit </install_dk.html>`__.  The Chef development kit is a collection of tools ---Test Kitchen, ChefSpec, knife, delivery-cli, chef, chef-vault, Foodcritic, and more--- and libraries that are all packaged together to get your started with the Chef Automate workflow. You'll need this to interact with Chef Automate and Chef server from the command line.
 
 #. After the VM has been provisioned and the Resource Manager has completed (usually 10 to 13 minutes), finish configuring Chef Automate and Chef server. Access the intial configuration page by loading the ``/biscotti/setup`` route. Build the URL by prepending ``https://`` and appending ``/biscotti/setup`` to the DNS label that you chose when the VM was launched. For example, ``https://<dns_label>.<location>.cloudapp.azure.com/biscotti/setup`` or ``https://chef-automate-01.eastus.cloudapp.azure.com/biscotti/setup``.
 
@@ -69,7 +69,7 @@ Chef provides a fully functional Chef Compliance VM image that can be launched f
    .. note::  Chef Compliance is available on the Azure Marketplace in 5, 25, 50, 100, 150, 200, and 250 licensed images.
 
 #. Click **Create** and follow the steps to launch the Chef Compliance image, providing credentials, VM size, and any additional information required.
-   
+
 #. Once your VM has been created, create a **DNS name label** for the instance by following these instructions:  https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-create-fqdn-on-portal/
 
 #. Once the virtual machine is launched you will need to create an account. To do this, open an SSH connection to the host using the user name and password (or SSH key) provided when you launch the virtual machine.
@@ -108,7 +108,7 @@ Chef Server
 
 .. tag cloud_azure_portal_server_marketplace
 
-Chef provides a fully functional Chef server that can be launched from the Azure Marketplace. This server is preconfigured with Chef server, the Chef management console, Reporting, and Chef Analytics. 
+Chef provides a fully functional Chef server that can be launched from the Azure Marketplace. This server is preconfigured with Chef server, the Chef management console, Reporting, and Chef Analytics.
 
 Before getting started, you will need a functioning workstation. Install the :doc:`Chef development kit </install_dk>` on that workstation.
 
@@ -230,7 +230,7 @@ Once this information has been identified, launch the Azure portal, start the vi
 
 #. In the next blade, select the sku/version of the OS that you would like to use on your VM and click **Create**.
 
-#. Fill in the virtual machine configuration information, such as machine name, credentials, VM size, and so on. 
+#. Fill in the virtual machine configuration information, such as machine name, credentials, VM size, and so on.
 
    .. note:: It's best to use a new computer name each time through this workflow. This will help to avoid conflicts with virtual machine names that may have been previously registered on the Chef server.
 
@@ -240,9 +240,9 @@ Once this information has been identified, launch the Azure portal, start the vi
 
 #. Using the ``chef-repo/.chef/knife.rb`` file you downloaded during your Chef server setup, enter values for the Chef server URL and the validation client name. You can also use this file to help you find the location of your validation key.
 
-#. Browse on your local machine and find your validation key (``chef-repo/.chef/<orgname>-validator.pem``).  
+#. Browse on your local machine and find your validation key (``chef-repo/.chef/<orgname>-validator.pem``).
 
-#. Upload it through the portal in the **Validation Key** field. 
+#. Upload it through the portal in the **Validation Key** field.
 
    .. note:: Because the ``.chef`` directory is considered a hidden directory, you may have to copy this file out to a non-hidden directory on disk before you can upload it through the open file dialog box.
 

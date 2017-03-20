@@ -34,7 +34,7 @@ To get a fully-functional Amazon Machine Image (AMI) for Chef Automate, do the f
 
 Install the Chef DK
 -----------------------------------------------------
-While the Amazon Machine Images (AMI) for Chef Automate is being provisioned, download and install the `Chef Developer Kit </install_dk.html>`__.  The Chef development kit is a collection of tools ---Test Kitchen, ChefSpec, knife, delivery-cli, chef, chef-vault, Foodcritic, and more--- and libraries that are all packaged together to get your started with the Chef Automate workflow. You'll need this to interact with Chef Automate and Chef server from the command line.
+While the Amazon Machine Images (AMI) for Chef Automate is being provisioned, download and install the `Chef development kit </install_dk.html>`__.  The Chef development kit is a collection of tools ---Test Kitchen, ChefSpec, knife, delivery-cli, chef, chef-vault, Foodcritic, and more--- and libraries that are all packaged together to get your started with the Chef Automate workflow. You'll need this to interact with Chef Automate and Chef server from the command line.
 
 Configure Chef Automate
 -----------------------------------------------------
@@ -618,7 +618,7 @@ To get a fully-functional Amazon Machine Images (AMI) for Chef server, do the fo
 
 Install the Chef DK
 -----------------------------------------------------
-While the Amazon Machine Images (AMI) for Chef server is being provisioned, download and install the `Chef Developer Kit </install_dk.html>`__.  The Chef management console has many features and is useful for viewing and creating policy to be applied to nodes, the Chef development kit installs a collection of tools---Kitchen, ChefSpec, chef, chef-vault, Foodcritic, and more---and libraries that are all packaged together, which makes it easier to manage the dependencies these tools may have on each other and the dependencies that Chef has on Ruby.
+While the Amazon Machine Images (AMI) for Chef server is being provisioned, download and install the `Chef development kit </install_dk.html>`__.  The Chef management console has many features and is useful for viewing and creating policy to be applied to nodes, the Chef development kit installs a collection of tools---Kitchen, ChefSpec, chef, chef-vault, Foodcritic, and more---and libraries that are all packaged together, which makes it easier to manage the dependencies these tools may have on each other and the dependencies that Chef has on Ruby.
 
 Configure the Chef Server
 -----------------------------------------------------
