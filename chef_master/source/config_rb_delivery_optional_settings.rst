@@ -462,6 +462,13 @@ This configuration file has the following settings for ``delivery``:
         }
       }
 
+``delivery['no_ssl_verification']``
+   An array of hostnames that are whitelisted from requiring SSL verification. For example:
+
+   .. code-block:: ruby
+
+      delivery['no_ssl_verification'] = ['self-signed.badssl.com', 'untrusted-root.badssl.com']
+
 ``delivery['standby_ip']``
    The IP address for the cold standby Chef Automate server. Default value: ``nil``.
 
