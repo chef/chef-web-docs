@@ -59,9 +59,59 @@ Compliance profiles are built and maintained from the Chef Compliance server web
 * Basic MySQL
 * Basic PostgreSQL
 * Basic SSH
-* Windows Base Security
+* Windows Server 2012R2 Base Security
+* CIS AIX 5.3 and AIX 6.1 Benchmark Level 1
+* CIS AIX 5.3 and AIX 6.1 Benchmark Level 2
+* CIS IBM AIX 7.1 Benchmark Level 1
+* CIS IBM AIX 7.1 Benchmark Level 1
+* CIS Amazon Linux 2014.09-2015.03 Benchmark Level 1
+* CIS Amazon Linux 2014.09-2015.03 Benchmark Level 2
+* CIS Apple OSX 10.10 Benchmark Level 1
+* CIS Apple OSX 10.10 Benchmark Level 2
+* CIS Apple OSX 10.11 Benchmark Level 1
+* CIS Apple OSX 10.11 Benchmark Level 2
+* CIS Centos Linux 6 Benchmark Level 1
+* CIS Centos Linux 6 Benchmark Level 2
+* CIS Centos Linux 7 Benchmark Level 1
+* CIS Centos Linux 7 Benchmark Level 2
+* CIS HP-UX 11iv3 Update 2 Benchmark Level 1
+* CIS HP-UX 11iv3 Update 2 Benchmark Level 2
+* CIS Red Hat Enterprise Linux 6 Benchmark Level 1
+* CIS Red Hat Enterprise Linux 6 Benchmark Level 2
+* CIS Red Hat Enterprise Linux 7 Benchmark Level 1
+* CIS Red Hat Enterprise Linux 7 Benchmark Level 2
+* CIS SUSE Linux Enterprise Server 11 Benchmark Level 1
+* CIS SUSE Linux Enterprise Server 11 Benchmark Level 2
+* CIS SUSE Linux Enterprise Server 12 Benchmark Level 1
+* CIS SUSE Linux Enterprise Server 12 Benchmark Level 2
+* CIS Ubuntu 12.04 LTS Server Benchmark Level 1
+* CIS Ubuntu 12.04 LTS Server Benchmark Level 2
 * CIS Ubuntu 14.04 LTS Server Benchmark Level 1
 * CIS Ubuntu 14.04 LTS Server Benchmark Level 2
+* CIS Ubuntu 16.04 LTS Server Benchmark Level 1
+* CIS Ubuntu 16.04 LTS Server Benchmark Level 2
+* CIS Microsoft Windows 10 Enterprise (Release 1511) Benchmark Level 1
+* CIS Microsoft Windows 10 Enterprise (Release 1511) Benchmark Level 1 +BitLocker
+* CIS Microsoft Windows 10 Enterprise (Release 1511) Benchmark Level 2
+* CIS Microsoft Windows 10 Enterprise (Release 1511) Benchmark Level 2 +BitLocker
+* CIS Microsoft Windows Server 2012 Benchmark Level 1 - Domain Controller
+* CIS Microsoft Windows Server 2012 Benchmark Level 1 - Member Server
+* CIS Microsoft Windows Server 2012 Benchmark Level 2 - Domain Controller
+* CIS Microsoft Windows Server 2012 Benchmark Level 1 - Member Server
+* CIS Microsoft Windows Server 2012 R2 Benchmark Level 1 - Domain Controller
+* CIS Microsoft Windows Server 2012 R2 Benchmark Level 1 - Member Server
+* CIS Microsoft Windows Server 2012 R2 Benchmark Level 2 - Domain Controller
+* CIS Microsoft Windows Server 2012 R2 Benchmark Level 1 - Member Server
+* CIS Microsoft Windows 7 Benchmark Level 1
+* CIS Microsoft Windows 7 Benchmark Level 1 +BitLocker
+* CIS Microsoft Windows 7 Benchmark Level 2
+* CIS Microsoft Windows 7 Benchmark Level 2 +BitLocker
+* CIS Microsoft Windows 8 Benchmark Level 1
+* CIS Microsoft Windows 8 Benchmark Level 1 +BitLocker
+* CIS Microsoft Windows 8.1 Benchmark Level 1
+* CIS Microsoft Windows 8.1 Benchmark Level 1 +BitLocker
+* CIS Microsoft Windows 8.1 Benchmark Level 2
+* CIS Microsoft Windows 8.1 Benchmark Level 2 +BitLocker
 
 The results of running a profile against any number of nodes in your infrastructure is available as a report summary.
 
