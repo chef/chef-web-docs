@@ -95,9 +95,9 @@ Compliance profiles are built and maintained from the Chef Compliance server web
 * CIS Microsoft Windows 10 Enterprise (Release 1511) Benchmark Level 2
 * CIS Microsoft Windows 10 Enterprise (Release 1511) Benchmark Level 2 +BitLocker
 * CIS Microsoft Windows Server 2012 Benchmark Level 1 - Domain Controller
-* CIS Microsoft Windows Server 2012(non-R2) Benchmark Level 1 - Member Server
-* CIS Microsoft Windows Server 2012(non-R2) Benchmark Level 2 - Domain Controller
-* CIS Microsoft Windows Server 2012(non-R2) Benchmark Level 1 - Member Server
+* CIS Microsoft Windows Server 2012 Benchmark Level 1 - Member Server
+* CIS Microsoft Windows Server 2012 Benchmark Level 2 - Domain Controller
+* CIS Microsoft Windows Server 2012 Benchmark Level 1 - Member Server
 * CIS Microsoft Windows Server 2012 R2 Benchmark Level 1 - Domain Controller
 * CIS Microsoft Windows Server 2012 R2 Benchmark Level 1 - Member Server
 * CIS Microsoft Windows Server 2012 R2 Benchmark Level 2 - Domain Controller
