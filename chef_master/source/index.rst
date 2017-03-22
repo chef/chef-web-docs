@@ -298,7 +298,7 @@ Managing the Server
 :doc:`Disaster Recovery </delivery_server_disaster_recovery>` |
 :doc:`Elasticsearch and Kibana Authentication </elasticsearch_and_kibana_auth>` |
 :doc:`Secrets </delivery_manage_secrets>` |
-:doc:`Manage Elasticsearch Indices </manage_indices_chef_automate>` |
+:doc:`Data Retention Management in Chef Automate </data_retention_chef_automate>` |
 :doc:`Node Search Reference </search_query_chef_automate>` |
 :doc:`Stream Data </stream_data_chef_automate>` |
 :doc:`Tuning </delivery_server_tuning>` |
@@ -504,6 +504,7 @@ Addenda
    data_bags
    scaling_capacity_planning_chef_automate
    stream_data_chef_automate
+   data_retention_chef_automate
    debug
    definitions
    delivery_pipeline
@@ -616,7 +617,6 @@ Addenda
    knife_xargs
    libraries
    manage
-   manage_indices_chef_automate
    nodes
    ohai
    ohai_custom

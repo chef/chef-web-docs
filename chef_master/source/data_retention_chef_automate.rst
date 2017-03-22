@@ -1,5 +1,5 @@
 =====================================================
-Manage Elasticsearch indices used by Chef Automate
+Data Retention Management in Chef Automate
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/manage_indices_chef_automate.rst>`__
 
@@ -11,7 +11,7 @@ Manage Elasticsearch indices used by Chef Automate
 
 .. end_tag
 
-Chef Automate manages the Elasticsearch indices used by Visibility through a process called Reaper. Reaper will delete indices that fall outside of the requested retention period. Additionally, prior to deleting any indices, Reaper will optionally archive those indices to an alternate filesystem location or an S3 bucket if desired.
+Chef Automate manages data retention of Elasticsearch indices through a tool called Reaper. Reaper will delete indices that fall outside of the requested retention period. Additionally, prior to deleting any indices, Reaper will optionally archive those indices to an alternate filesystem location or an S3 bucket if desired.
 
 Reaper uses `Elasticsearch Curator <https://github.com/elastic/curator>`__ to perform the index archives and deletions and relies on Elasticsearch plugins to perform any necessary archive tasks.
 
