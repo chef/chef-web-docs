@@ -78,7 +78,7 @@ Compliance profiles are built and maintained from the Chef Compliance server web
 * CIS HP-UX 11iv3 Update 2 Benchmark Level 2
 * CIS Red Hat Enterprise Linux 6 Benchmark Level 1
 * CIS Red Hat Enterprise Linux 6 Benchmark Level 2
-* CIS Red Hat Enterprise Linux 6 Benchmark Level 1
+* CIS Red Hat Enterprise Linux 7 Benchmark Level 1
 * CIS Red Hat Enterprise Linux 7 Benchmark Level 2
 * CIS SUSE Linux Enterprise Server 11 Benchmark Level 1
 * CIS SUSE Linux Enterprise Server 11 Benchmark Level 2
@@ -90,11 +90,11 @@ Compliance profiles are built and maintained from the Chef Compliance server web
 * CIS Ubuntu 14.04 LTS Server Benchmark Level 2
 * CIS Ubuntu 16.04 LTS Server Benchmark Level 1
 * CIS Ubuntu 16.04 LTS Server Benchmark Level 2
-* CIS Microsoft Windows 10 Enterprise (Release 1511) Benchmark Level 1 
+* CIS Microsoft Windows 10 Enterprise (Release 1511) Benchmark Level 1
 * CIS Microsoft Windows 10 Enterprise (Release 1511) Benchmark Level 1 +BitLocker
 * CIS Microsoft Windows 10 Enterprise (Release 1511) Benchmark Level 2
 * CIS Microsoft Windows 10 Enterprise (Release 1511) Benchmark Level 2 +BitLocker
-* CIS Microsoft Windows Server 2012(non-R2) Benchmark Level 1 - Domain Controller
+* CIS Microsoft Windows Server 2012 Benchmark Level 1 - Domain Controller
 * CIS Microsoft Windows Server 2012(non-R2) Benchmark Level 1 - Member Server
 * CIS Microsoft Windows Server 2012(non-R2) Benchmark Level 2 - Domain Controller
 * CIS Microsoft Windows Server 2012(non-R2) Benchmark Level 1 - Member Server
@@ -106,11 +106,11 @@ Compliance profiles are built and maintained from the Chef Compliance server web
 * CIS Microsoft Windows 7 Benchmark Level 1 +BitLocker
 * CIS Microsoft Windows 7 Benchmark Level 2
 * CIS Microsoft Windows 7 Benchmark Level 2 +BitLocker
-* CIS Microsoft Windows 8 Benchmark Level 1 
+* CIS Microsoft Windows 8 Benchmark Level 1
 * CIS Microsoft Windows 8 Benchmark Level 1 +BitLocker
 * CIS Microsoft Windows 8.1 Benchmark Level 1
 * CIS Microsoft Windows 8.1 Benchmark Level 1 +BitLocker
-* CIS Microsoft Windows 8.1 Benchmark Level 2 
+* CIS Microsoft Windows 8.1 Benchmark Level 2
 * CIS Microsoft Windows 8.1 Benchmark Level 2 +BitLocker
 
 The results of running a profile against any number of nodes in your infrastructure is available as a report summary.
