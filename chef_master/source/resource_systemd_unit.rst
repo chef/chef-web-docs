@@ -5,7 +5,7 @@ systemd_unit
 
 Use the **systemd_unit** resource to create, manage, and run `systemd units <https://www.freedesktop.org/software/systemd/man/systemd.html#Concepts>`_.
 
-New in Chef Client 12.11. Changed in 12.19 to verify systemd files before installation.
+New in Chef Client 12.11. Changed in 12.19 to verify systemd files before installation (using the external ``systemd-analyze verify`` command).
 
 Syntax
 =====================================================
@@ -16,27 +16,38 @@ A **systemd_unit** resource describes the configuration behavior for systemd uni
 .. code-block:: ruby
 
    systemd_unit 'sysstat-collect.timer' do
+     content <<-EOU.gsub(/^\s+/, '')
+     [Unit]
+     Description=Run system activity accounting tool every 10 minutes
+
+     [Timer]
+     OnCalendar=*:00/10
+
+     [Install]
+     WantedBy=sysstat.service
+     EOU
+
      enabled true
-     content '[Unit]\nDescription=Run system activity accounting tool every 10 minutes\n\n[Timer]\nOnCalendar=*:00/10\n\n[Install]\nWantedBy=sysstat.service'
+     action :create
    end
 
 The full syntax for all of the properties that are available to the **systemd_unit** resource is:
 
 .. code-block:: ruby
 
-   systemd_unit 'name' do
+   systemd_unit 'name.service' do
+     content                String or Hash
      enabled                Boolean
      active                 Boolean
      masked                 Boolean
      static                 Boolean
      user                   String
-     content                String or Hash
      triggers_reload        Boolean
    end
 
 where
 
-* ``name`` is the name of the unit
+* ``name`` is the name of the unit. Must include the type/suffix (e.g. `name.socket` or `name.service`).
 * ``active`` specifies if the service unit type should be started
 * ``user`` is the user account that systemd units run under. If not specified, systemd units will run under the system account.
 * ``content`` describes the behavior of the unit
