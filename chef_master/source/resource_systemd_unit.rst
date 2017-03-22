@@ -5,7 +5,7 @@ systemd_unit
 
 Use the **systemd_unit** resource to create, manage, and run `systemd units <https://www.freedesktop.org/software/systemd/man/systemd.html#Concepts>`_.
 
-New in Chef Client 12.11. Changed in 12.19 to verify systemd files before installation (using the external `systemd-analyze verify` command).
+New in Chef Client 12.11. Changed in 12.19 to verify systemd files before installation (using the external ``systemd-analyze verify`` command).
 
 Syntax
 =====================================================

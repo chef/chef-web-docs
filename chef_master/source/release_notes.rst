@@ -505,7 +505,6 @@ Use the **systemd_unit** resource to create, manage, and run `systemd units <htt
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_systemd_unit_syntax
 
 A **systemd_unit** resource describes the configuration behavior for systemd units. For example:
 
@@ -537,7 +536,6 @@ where
 * ``user`` is the user account that systemd units run under. If not specified, systemd units will run under the system account.
 * ``content`` describes the behavior of the unit
 
-.. end_tag
 
 Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
