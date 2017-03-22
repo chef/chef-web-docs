@@ -4880,5 +4880,6 @@
   "release/supermarket/plugin_knife_supermarket.html": "/plugin_knife_supermarket.html",
   "release/supermarket/supermarket.html": "/supermarket.html",
   "release/supermarket/supermarket_logs.html": "/supermarket_logs.html",
-  "release/supermarket/supermarket_monitor.html": "/supermarket_monitor.html"
+  "release/supermarket/supermarket_monitor.html": "/supermarket_monitor.html",
+  "manage_indices_chef_automate.html": "/data_retention_chef_automate.html"
 }
