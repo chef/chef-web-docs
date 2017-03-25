@@ -245,11 +245,11 @@ In the custom resource, add the following custom properties:
 .. code-block:: ruby
 
    property :instance_name, String, name_property: true
-   property :port, Fixnum, required: true
+   property :port, Integer, required: true
 
 where
 
-* ``String`` and ``Fixnum`` are Ruby types (all custom properties must have an assigned Ruby type)
+* ``String`` and ``Integer`` are Ruby types (all custom properties must have an assigned Ruby type)
 * ``name_property: true`` allows the value for this property to be equal to the ``'name'`` of the resource block
 
 The ``instance_name`` property is then used within the custom resource in many locations, including defining paths to configuration files, services, and virtual hosts.
@@ -431,7 +431,7 @@ Final Resource
 .. code-block:: ruby
 
    property :instance_name, String, name_property: true
-   property :port, Fixnum, required: true
+   property :port, Integer, required: true
 
    action :create do
      package 'httpd' do
@@ -733,7 +733,7 @@ Custom resources are designed to use core resources that are built into Chef. In
    property :cwd, String
    property :environment, Hash, default: {}
    property :user, [String, Integer]
-   property :sensitive, [TrueClass, FalseClass], default: false
+   property :sensitive, [true, false], default: false
 
    prefix = '/opt/languages/node'
 
@@ -776,7 +776,7 @@ To prevent this behavior, use ``new_resource.`` to tell the chef-client to proce
    property :cwd, String
    property :environment, Hash, default: {}
    property :user, [String, Integer]
-   property :sensitive, [TrueClass, FalseClass], default: false
+   property :sensitive, [true, false], default: false
 
    prefix = '/opt/languages/node'
 
@@ -815,7 +815,7 @@ Use the ``property`` method to define properties for the custom resource. The sy
 where
 
 * ``:name`` is the name of the property
-* ``ruby_type`` is the optional Ruby type or array of types, such as ``String``, ``Integer``, ``TrueClass``, or ``FalseClass``
+* ``ruby_type`` is the optional Ruby type or array of types, such as ``String``, ``Integer``, ``true``, or ``false``
 * ``default: 'value'`` is the optional default value loaded into the resource
 * ``parameter: 'value'`` optional parameters
 
@@ -832,7 +832,7 @@ ruby_type
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag dsl_custom_resource_method_property_ruby_type
 
-The property ruby_type is a positional parameter. Use to ensure a property value is of a particular ruby class, such as ``TrueClass``, ``FalseClass``, ``NilClass``, ``String``, ``Array``, ``Hash``. Use an array of ruby classes to allow a value to be of more than one type. For example:
+The property ruby_type is a positional parameter. Use to ensure a property value is of a particular ruby class, such as ``true``, ``false``, ``nil``, ``String``, ``Array``, ``Hash``, ``Integer``, ``Symbol``. Use an array of ruby classes to allow a value to be of more than one type. For example:
 
        .. code-block:: ruby
 
@@ -840,7 +840,7 @@ The property ruby_type is a positional parameter. Use to ensure a property value
 
        .. code-block:: ruby
 
-          property :name, Fixnum
+          property :name, Integer
 
        .. code-block:: ruby
 
@@ -848,11 +848,11 @@ The property ruby_type is a positional parameter. Use to ensure a property value
 
        .. code-block:: ruby
 
-          property :name, [TrueClass, FalseClass]
+          property :name, [true, false]
 
        .. code-block:: ruby
 
-          property :name, [String, NilClass]
+          property :name, [String, nil]
 
        .. code-block:: ruby
 
