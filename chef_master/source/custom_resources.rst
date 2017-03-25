@@ -540,6 +540,11 @@ Methods may be made available to the custom resource actions by using an ``actio
 
    property file, String
 
+   action :delete do
+     helper_method
+     FileUtils.rm(file) if file_ex
+   end
+ 
    action_class do
 
      def file_exist
@@ -554,11 +559,6 @@ Methods may be made available to the custom resource actions by using an ``actio
 
      include Sample::Helper
 
-   end
-
-   action :delete do
-     helper_method
-     FileUtils.rm(file) if file_ex
    end
 
 .. end_tag
