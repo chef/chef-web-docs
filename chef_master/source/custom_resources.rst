@@ -298,7 +298,7 @@ Use the **template** resource to create an ``httpd.service`` on the node based o
    template "/lib/systemd/system/httpd-#{instance_name}.service" do
      source 'httpd.service.erb'
      variables(
-       :instance_name => instance_name
+       instance_name: instance_name
      )
      owner 'root'
      group 'root'
@@ -320,8 +320,8 @@ Use the **template** resource to configure httpd on the node based on the ``http
    template "/etc/httpd/conf/httpd-#{instance_name}.conf" do
      source 'httpd.conf.erb'
      variables(
-       :instance_name => instance_name,
-       :port => port
+       instance_name: instance_name,
+       port: port
      )
      owner 'root'
      group 'root'
@@ -441,7 +441,7 @@ Final Resource
      template "/lib/systemd/system/httpd-#{instance_name}.service" do
        source 'httpd.service.erb'
        variables(
-         :instance_name => instance_name
+         instance_name: instance_name
        )
        owner 'root'
        group 'root'
@@ -452,8 +452,8 @@ Final Resource
      template "/etc/httpd/conf/httpd-#{instance_name}.conf" do
        source 'httpd.conf.erb'
        variables(
-         :instance_name => instance_name,
-         :port => port
+         instance_name: instance_name,
+         port: port
        )
        owner 'root'
        group 'root'
