@@ -90,7 +90,7 @@ The following table lists the Secondary platforms for the chef-client:
      - ``5``, ``6``, ``7``
    * - SUSE Enterprise Linux Server
      -
-     - ``10``, ``11``
+     - ``11``, ``12``
    * - Microsoft Windows
      -
      - ``2016``
@@ -138,7 +138,7 @@ The following platforms are not tested by Chef Software:
      -
 
    * - SUSE Enterprise Linux Server
-     - ``ppc64``, ``System/z``
+     - ``ppc64``, ``System/z``, 10 (or older)
      -
    * - Solaris
      -
