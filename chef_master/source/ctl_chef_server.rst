@@ -630,10 +630,162 @@ Returns:
 
 .. end_tag
 
-Credential Rotation
+.. _ctl_chef_server_secrets_management:
+
+Secrets Management
 =====================================================
-Use the following commands to manage and rotate shared secrets and service credentials. The secrets file used for credential rotation is located
-at ``/etc/opscode/private-chef-secrets.json`` on your Chef server.
+Use the following commands to manage and rotate shared secrets and service credentials.
+The secrets file used for storing these is located at ``/etc/opscode/private-chef-secrets.json`` on your Chef server.
+It should be owned and readable only by ``root``.
+
+
+.. _ctl_chef_server_set_secret:
+
+set-secret
+-----------------------------------------------------
+The ``set-secret`` subcommand allows storing shared secrets and service credentials.
+Only secrets known to Chef server can be stored.
+
+*New in Chef server 12.14*
+
+**Syntax**
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ chef-server-ctl set-secret GROUP NAME
+
+There are various ways to pass the secret to this command:
+
+#. as a third argument:
+
+   .. code-block:: bash
+
+      $ chef-server-ctl set-secret ldap bind_password secretpassword
+
+#. via an environment variable:
+
+   .. code-block:: bash
+
+      $ export LDAP.BIND_PASSWORD="secretpassword"
+      $ chef-server-ctl set-secret ldap bind_password
+
+#. via an interactive prompt:
+
+   .. code-block:: bash
+
+      $ chef-server-ctl set-secret ldap bind_password
+      Enter ldap bind_password:    (no terminal output)
+      Re-enter ldap bind_password: (no terminal output)
+
+
+.. _ctl_chef_server_remove_secret:
+
+remove-secret
+-----------------------------------------------------
+The ``remove-secret`` subcommand allows removing a stored shared secrets and service credential.
+
+*New in Chef server 12.14*
+
+**Syntax**
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ chef-server-ctl remove-secret GROUP NAME
+
+
+**Example**
+
+.. code-block:: bash
+
+   $ chef-server-ctl remove-secret ldap bind_password
+
+
+.. _ctl_chef_server_show_secret:
+
+show-secret
+-----------------------------------------------------
+The ``show-secret`` subcommand allows viewing a stored shared secrets and service credential.
+
+*New in Chef server 12.14*
+
+**Syntax**
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ chef-server-ctl show-secret GROUP NAME
+
+
+.. _ctl_chef_server_set_db_superuser_password:
+
+set-db-superuser-password
+-----------------------------------------------------
+The ``set-db-superuser-password`` subcommand allows storing the database superuser password.
+
+*New in Chef server 12.14*
+
+**Syntax**
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ chef-server-ctl set-db-superuser-password
+
+Similar to ``set-secret``, the superuser password can also be provided via the environment variable ``DB_PASSWORD``.
+
+
+.. _ctl_chef_server_set_actions_password:
+
+set-actions-password
+-----------------------------------------------------
+The ``set-actions-password`` subcommand allows storing the RabbitMQ Actions password.
+
+*New in Chef server 12.14*
+
+**Syntax**
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ chef-server-ctl set-actions-password
+
+Similar to ``set-secret``, the action password can also be provided via the environment variable ``ACTIONS_PASSWORD``.
+
+.. _ctl_chef_server_oc_id_show_app:
+
+oc-id-show-app
+-----------------------------------------------------
+The ``oc-id-show-app`` subcommand allows for retrieving the client ID and client secret for applications known to **oc-id**.
+Note that with ``insecure_addon_compat`` _disabled_, this data will no longer be written to ``/etc/opscode/oc-id-applications/APP.json``.
+
+*New in Chef server 12.14*
+
+**Syntax**
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ chef-server-ctl oc-id-show-app APP
+
+**Example**
+
+.. code-block:: bash
+
+   $ chef-server-ctl oc-id-show-app supermarket
+   {
+     "name": "supermarket",
+     "uid": "0bad0f2eb04e935718e081fb71asdfec3681c81acb9968a8e1e32451d08b",
+     "secret": "17cf1141cc971a10ce307611beda7ffadstr4f1bc98d9f9ca76b9b127879",
+     "redirect_uri": "https://supermarket.mycompany.com/auth/chef_oauth2/callback"
+   }
 
 require-credential-rotation
 -----------------------------------------------------
@@ -686,7 +838,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl rotate-credentials $SERVICE_NAME
+   $ chef-server-ctl rotate-credentials SERVICE_NAME
 
 rotate-shared-secrets
 -----------------------------------------------------
@@ -1867,4 +2019,3 @@ This subcommand has the following syntax:
 where ``SERVICE_NAME`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
 .. end_tag
-

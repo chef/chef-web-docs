@@ -118,7 +118,9 @@ The following settings are typically added to the ``opscode-reporting.rb`` file:
    Default value: ``'runs'``.
 
 ``rabbitmq_password``
-   The password for the RabbitMQ user. Default value: ``'changeme'``.
+   The password for the RabbitMQ user. Default value: **generated**.
+
+   To override this, use the :ref:`ctl_chef_server_secrets_management` commands: ``chef-server-ctl set-secret opscode-reporting rabbitmq_password``.
 
 ``postgresql['enable']``
    Enable a service. Default value: ``true``.
@@ -130,13 +132,17 @@ The following settings are typically added to the ``opscode-reporting.rb`` file:
    Default value: ``'opscode_reporting'``.
 
 ``postgresql['sql_password']``
-   The password for the PostgreSQL user account. Default value: ``'snakepliskin'``.
+   The password for the PostgreSQL user account. Default value: **generated**.
+
+   To override this, use the :ref:`ctl_chef_server_secrets_management` commands: ``chef-server-ctl set-secret opscode-reporting sql_password``.
 
 ``postgresql['sql_ro_user']``
    Default value: ``'opscode_reporting_ro'``.
 
 ``postgresql['sql_ro_password']``
-   Default value: ``'shmunzeltazzen'``.
+   Default value: **generated**.
+
+   To override this, use the :ref:`ctl_chef_server_secrets_management` commands: ``chef-server-ctl set-secret opscode-reporting sql_ro_password``.
 
 ``postgresql['vip']``
    The virtual IP address. Default value: ``'127.0.0.1'``.
