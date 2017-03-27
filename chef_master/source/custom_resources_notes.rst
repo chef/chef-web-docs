@@ -26,13 +26,6 @@ in ``resources/whatever.rb``:
    property :foo, String, name_property: true
    extend MyResourceHelperFunctions  # probably only used for common properties which is why you extend with class methods
 
-   action_class do
-     include MyProviderHelperFunctions
-
-     def a_helper
-     end
-   end
-
    action :run do
      # helpers must be defined inside the action_class block
      a_helper()
@@ -40,6 +33,13 @@ in ``resources/whatever.rb``:
      # since the latter works most of the time, but will troll you with odd scoping problems, while the
      # former just works.
      puts new_resource.foo
+   end
+
+   action_class do
+     include MyProviderHelperFunctions
+
+     def a_helper
+     end
    end
 
 "Old school" LWRPS
