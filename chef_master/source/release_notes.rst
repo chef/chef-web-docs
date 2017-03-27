@@ -2843,6 +2843,11 @@ Methods may be made available to the custom resource actions by using an ``actio
 
    property file, String
 
+   action :delete do
+     helper_method
+     FileUtils.rm(file) if file_ex
+   end
+
    action_class do
 
      def file_exist
@@ -2857,11 +2862,6 @@ Methods may be made available to the custom resource actions by using an ``actio
 
      include Sample::Helper
 
-   end
-
-   action :delete do
-     helper_method
-     FileUtils.rm(file) if file_ex
    end
 
 .. end_tag
@@ -3036,7 +3036,7 @@ Custom resources are designed to use core resources that are built into Chef. In
    property :cwd, String
    property :environment, Hash, default: {}
    property :user, [String, Integer]
-   property :sensitive, [TrueClass, FalseClass], default: false
+   property :sensitive, [true, false], default: false
 
    prefix = '/opt/languages/node'
 
@@ -3079,7 +3079,7 @@ To prevent this behavior, use ``new_resource.`` to tell the chef-client to proce
    property :cwd, String
    property :environment, Hash, default: {}
    property :user, [String, Integer]
-   property :sensitive, [TrueClass, FalseClass], default: false
+   property :sensitive, [true, false], default: false
 
    prefix = '/opt/languages/node'
 
@@ -3118,7 +3118,7 @@ Use the ``property`` method to define properties for the custom resource. The sy
 where
 
 * ``:name`` is the name of the property
-* ``ruby_type`` is the optional Ruby type or array of types, such as ``String``, ``Integer``, ``TrueClass``, or ``FalseClass``
+* ``ruby_type`` is the optional Ruby type or array of types, such as ``String``, ``Integer``, ``true``, or ``false``
 * ``default: 'value'`` is the optional default value loaded into the resource
 * ``parameter: 'value'`` optional parameters
 
@@ -3135,7 +3135,7 @@ ruby_type
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. tag dsl_custom_resource_method_property_ruby_type
 
-The property ruby_type is a positional parameter. Use to ensure a property value is of a particular ruby class, such as ``TrueClass``, ``FalseClass``, ``NilClass``, ``String``, ``Array``, ``Hash``. Use an array of ruby classes to allow a value to be of more than one type. For example:
+The property ruby_type is a positional parameter. Use to ensure a property value is of a particular ruby class, such as ``true``, ``false``, ``nil``, ``String``, ``Array``, ``Hash``, ``Integer``, ``Symbol``. Use an array of ruby classes to allow a value to be of more than one type. For example:
 
        .. code-block:: ruby
 
@@ -3143,7 +3143,7 @@ The property ruby_type is a positional parameter. Use to ensure a property value
 
        .. code-block:: ruby
 
-          property :name, Fixnum
+          property :name, Integer
 
        .. code-block:: ruby
 
@@ -3151,11 +3151,11 @@ The property ruby_type is a positional parameter. Use to ensure a property value
 
        .. code-block:: ruby
 
-          property :name, [TrueClass, FalseClass]
+          property :name, [true, false]
 
        .. code-block:: ruby
 
-          property :name, [String, NilClass]
+          property :name, [String, nil]
 
        .. code-block:: ruby
 
