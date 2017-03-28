@@ -339,7 +339,7 @@ This configuration file has the following settings for ``keepalived``:
 ``keepalived['vrrp_instance_password']``
    Legacy configuration for the secret key of VRRP pairs. This value is generated randomly when the bootstrap server is installed and does not need to be set explicitly. Default value: **generated**.
 
-   To override this, use the :ref:`ctl_chef_server_secrets_management` commands: ``chef-server-ctl set-secret keepalived vrrp_instance_password``.
+   To override the default value, use the :ref:`ctl_chef_server_secrets_management` command: ``chef-server-ctl set-secret keepalived vrrp_instance_password``.
 
 ``keepalived['vrrp_instance_preempt_delay']``
    The ``prempt_delay`` value for the VRRP instance. Default value: ``'30'``.
@@ -736,12 +736,12 @@ This configuration file has the following settings for ``oc_bifrost``:
 ``oc_bifrost['sql_password']``
    The password for the ``sql_user``. Default value: **generated**.
 
-   To override this, use the :ref:`ctl_chef_server_secrets_management` commands: ``chef-server-ctl set-secret oc_bifrost sql_password``.
+   To override the default value, use the :ref:`ctl_chef_server_secrets_management` command: ``chef-server-ctl set-secret oc_bifrost sql_password``.
 
 ``oc_bifrost['sql_ro_password']``
    The password for the ``sql_ro_user``. Default value: **generated**.
 
-   To override this, use the :ref:`ctl_chef_server_secrets_management` commands: ``chef-server-ctl set-secret oc_bifrost sql_ro_password``.
+   To override the default value, use the :ref:`ctl_chef_server_secrets_management` command: ``chef-server-ctl set-secret oc_bifrost sql_ro_password``.
 
 ``oc_bifrost['sql_ro_user']``
    Default value: ``'bifrost_ro'``.
@@ -900,7 +900,7 @@ This configuration file has the following settings for ``oc-id``:
 ``oc_id['sql_password']``
    The password for the ``sql_user``. Default value: **generated**.
 
-   To override this, use the :ref:`ctl_chef_server_secrets_management` commands: ``chef-server-ctl set-secret oc_id sql_password``.
+   To override the default value, use the :ref:`ctl_chef_server_secrets_management` command: ``chef-server-ctl set-secret oc_id sql_password``.
 
 ``oc_id['sql_user']``
    The user with permission to write to ``sql_database``. Default value: ``oc_id``.
@@ -1305,7 +1305,7 @@ This configuration file has the following settings for ``postgresql``:
 ``postgresql['db_superuser_password']``
    Password for the DB superuser. Default value: **generated**.
 
-   To override this, use the :ref:`ctl_chef_server_secrets_management` commands: ``chef-server-ctl set-db-superuser-password``.
+   To override the default value, use the :ref:`ctl_chef_server_secrets_management` command: ``chef-server-ctl set-db-superuser-password``.
 
 ``postgresql['dir']``
    The working directory. The default value is the recommended value. Default value: ``/var/opt/opscode/postgresql/#{node['private_chef']['postgresql']['version']}``.
@@ -1398,7 +1398,7 @@ This configuration file has the following settings for ``rabbitmq``:
 ``rabbitmq['actions_password']``
    Legacy configuration setting for the password of the ``actions_user``. Default value: **generated**.
 
-   To override this, use ``chef-server-ctl set-actions-password`` from the :ref:`ctl_chef_server_secrets_management` commands/
+   To override the default value, use the :ref:`ctl_chef_server_secrets_management` command: ``chef-server-ctl set-actions-password``.
 
 ``rabbitmq['actions_user']``
    The user with permission to publish actions data. Default value: ``'actions'``.
@@ -1443,7 +1443,7 @@ This configuration file has the following settings for ``rabbitmq``:
 ``rabbitmq['management_password']``
    Legacy configuration setting for rabbitmq-management plugin password. Default value: **generated**.
 
-   To override this, use ``chef-server-ctl set-secret rabbitmq management_password`` from the :ref:`ctl_chef_server_secrets_management` commands.
+   To override the default value, use the :ref:`ctl_chef_server_secrets_management` command: ``chef-server-ctl set-secret rabbitmq management_password``.
 
 ``rabbitmq['management_port']``
    The rabbitmq-management plugin port. Default value: ``15672``.
@@ -1465,7 +1465,7 @@ This configuration file has the following settings for ``rabbitmq``:
 ``rabbitmq['password']``
    Legacy configuration setting for the password for the RabbitMQ user. Default value: **generated**.
 
-   To override this, use ``chef-server-ctl set-secret rabbitmq password`` fromthe :ref:`ctl_chef_server_secrets_management` commands.
+   To override the default value, use the  :ref:`ctl_chef_server_secrets_management` command: ``chef-server-ctl set-secret rabbitmq password``.
 
 ``rabbitmq['prevent_erchef_startup_on_full_capacity']``
    Specify if the Chef server will start when the monitored RabbitMQ queue is full. Default value: ``false``.
@@ -1612,7 +1612,7 @@ This configuration file has the following settings for ``redis_lb``:
 ``redis_lb['password']``
    Legacy configuration setting for the Redis password. Default value: **generated**.
 
-   To override this, use ``chef-server-ctl set-secret redis_lb password`` from the :ref:`ctl_chef_server_secrets_management`.
+   To override the default value, use the :ref:`ctl_chef_server_secrets_management` command: ``chef-server-ctl set-secret redis_lb password``.
 
 upgrades
 -----------------------------------------------------
