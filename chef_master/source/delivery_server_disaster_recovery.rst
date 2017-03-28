@@ -182,7 +182,7 @@ To promote a standby Chef Automate server to primary, do the following:
 
    .. code-block:: bash
 
-      $ sudo automate-ctl backup-data
+      $ sudo automate-ctl create-backup
 
    Move this data to a location that is not on the standby Chef Automate server.
 
