@@ -88,7 +88,7 @@ To configure Chef Supermarket to use Chef Identity, do the following:
 
    The ``uid`` and ``secret`` values will be needed later on during the setup process for Chef Supermarket.
 
-.. note:: Add as many Chef Identity applications to the ``chef-server.rb`` configuration file as necessary. A JSON file is generated for each application added, which contains the authentication tokens for that application. The secrets are added to the Chef identity database and are available to all nodes in the Chef server front end group. The generated JSON files do not need to be copied anywhere.
+.. note:: Add as many Chef Identity applications to the ``chef-server.rb`` configuration file as necessary. A JSON file is generated for each application added, which contains the authentication tokens for that application. The secrets are added to the Chef Identity database and are available to all nodes in the Chef server front end group. The generated JSON files do not need to be copied anywhere.
 
 .. note:: The redirect URL specified **MUST** match the FQDN of the Chef Supermarket server. The URI must also be correct: ``/auth/chef_oauth2/callback``. Otherwise, an error message similar to ``The redirect uri included is not valid.`` will be shown.
 
@@ -287,7 +287,7 @@ To reach the newly spun up private Chef Supermarket, the hostname must be resolv
 #. If an SSL notice is shown while connecting to Chef Supermarket via a web browser, accept the SSL certificate. A trusted SSL certificate should be used for  private Chef Supermarket that is used in production.
 #. After opening Chef Supermarket in a web browser, click the **Create Account** link. A prompt to log in to the Chef server is shown, but only if the user is not already logged in. Authorize the Chef Supermarket to use the Chef server account for authentication.
 
-.. note:: The redirect URL specified for Chef identity **MUST** match the fqdn hostname of the Chef Supermarket server. The URI must also be correct: ``/auth/chef_oauth2/callback``. Otherwise, an error message similar to ``The redirect uri included is not valid.`` will be shown.
+.. note:: The redirect URL specified for Chef Identity **MUST** match the fqdn hostname of the Chef Supermarket server. The URI must also be correct: ``/auth/chef_oauth2/callback``. Otherwise, an error message similar to ``The redirect uri included is not valid.`` will be shown.
 
 Customize Supermarket
 =====================================================
@@ -356,7 +356,7 @@ To run Chef Supermarket in Kitchen, do the following:
               chef_oauth2_secret: 17cf1141cc971a10ce307611beda7f4dc6633bb54f1bc98d9f9ca76b9b127879
               chef_oauth2_verify_ssl: false
 
-#. Install the ``vagrant-hostupdater`` plugin. This plugin enables automatically adding the names of machines to the ``/etc/hosts`` file. This is important when using OAuth 2.0, which cares about host names. The ``redirect_uri`` value in the Chef identity configuration reflects this name.
+#. Install the ``vagrant-hostupdater`` plugin. This plugin enables automatically adding the names of machines to the ``/etc/hosts`` file. This is important when using OAuth 2.0, which cares about host names. The ``redirect_uri`` value in the Chef Identity configuration reflects this name.
 
    .. code-block:: bash
 
@@ -447,7 +447,7 @@ If Kitchen has to download and install the chef-client omnibus package every tim
               chef_oauth2_secret: 17cf1141cc971a10ce307611beda7f4dc6633bb54f1bc98d9f9ca76b9b127879
               chef_oauth2_verify_ssl: false
 
-#. Install the ``vagrant-hostupdater`` plugin. This plugin enables automatically adding the names of machines to the ``/etc/hosts`` file. This is important when using OAuth 2.0, which cares about host names. The ``redirect_uri`` value in the Chef identity configuration reflects this name.
+#. Install the ``vagrant-hostupdater`` plugin. This plugin enables automatically adding the names of machines to the ``/etc/hosts`` file. This is important when using OAuth 2.0, which cares about host names. The ``redirect_uri`` value in the Chef Identity configuration reflects this name.
 
    .. code-block:: bash
 
