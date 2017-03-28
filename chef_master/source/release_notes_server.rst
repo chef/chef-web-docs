@@ -725,7 +725,6 @@ The following table describes the components in an external PostgreSQL configura
 
 Settings
 -----------------------------------------------------
-.. tag server_ha_external_postgresql_settings
 
 Use the following configuration settings in the chef-server.rb file to configure PostgreSQL for use with the Chef server:
 
@@ -745,8 +744,6 @@ Use the following configuration settings in the chef-server.rb file to configure
      - Optional when ``postgresql['external']`` is set to ``true``. The port on which the service is to listen. The port used by PostgreSQL if that port is **not** 5432. Default value: ``5432``.
    * - ``postgresql['vip']``
      - Required when ``postgresql['external']`` is set to ``true``. The virtual IP address. The host for this IP address must be online and reachable from the Chef server via the port specified by ``postgresql['port']``. Set this value to the IP address or hostname for the machine on which external PostgreSQL is located when ``postgresql['external']`` is set to ``true``.
-
-.. end_tag
 
 Backup / Restore
 =====================================================

@@ -236,11 +236,15 @@ For each additional frontend node you wish to add to your cluster:
    new frontend node:
 
    - /etc/opscode/private-chef-secrets.json
-   - /etc/opscode/webui_priv.pem
-   - /etc/opscode/webui_pub.pem
-   - /etc/opscode/pivotal.pem
 
-# On the new frontend node: ``mkdir -p /var/opt/opscode/upgrades/``
+   .. note::
+
+      For Chef server versions prior to 12.14, you will also need to copy the key files:
+
+        - /etc/opscode/webui_priv.pem
+        - /etc/opscode/webui_pub.pem
+        - /etc/opscode/pivotal.pem
+#. On the new frontend node: ``mkdir -p /var/opt/opscode/upgrades/``
 
 #. From the first frontend node, copy ``/var/opt/opscode/upgrades/migration-level`` to the same location on the new node.
 

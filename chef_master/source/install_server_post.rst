@@ -52,7 +52,21 @@ To configure the Chef server to use Active Directory or LDAP do the following:
       Default value: ``nil``.
 
    ``ldap['bind_password']``
-      The password for the binding user. The password for the user specified by ``ldap['bind_dn']``. Leave this value and ``ldap['bind_dn']`` unset if anonymous bind is sufficient. Default value: ``nil``.
+      Legacy configuration for the password of the binding user. The password for the user specified by ``ldap['bind_dn']``. Leave this value and ``ldap['bind_dn']`` unset if anonymous bind is sufficient. Default value: ``nil``. As of Chef server 12.14, this is no longer the preferred command.
+
+      Please use ``chef-server-ctl set-secret ldap bind_password`` from the :ref:`ctl_chef_server_secrets_management` commands.
+
+      .. code-block:: bash
+
+         $ chef-server-ctl set-secret ldap bind_password
+         Enter ldap bind_password:    (no terminal output)
+         Re-enter ldap bind_password: (no terminal output)
+
+      Remove a set password via
+
+      .. code-block:: bash
+
+         $ chef-server-ctl remove-secret ldap bind_password
 
    ``ldap['group_dn']``
       The distinguished name for a group. When set to the distinguished name of a group, only members of that group can log in. This feature filters based on the ``memberOf`` attribute and only works with LDAP servers that provide such an attribute. In OpenLDAP, the ``memberOf`` overlay provides this attribute. For example, if the value of the ``memberOf`` attribute is ``CN=abcxyz,OU=users,DC=company,DC=com``, then use:
@@ -199,4 +213,3 @@ Set the following in ``/etc/opscode/chef-server.rb``:
 And set the Keepalived unicast addresses to the GRE tunnel addresses.
 
 .. end_tag
-

@@ -41,15 +41,15 @@ A private Chef Supermarket has the following requirements:
 * System clocks synchronized on the Chef server and Supermarket hosts
 * Sufficient disk space to meet project cookbook storage capacity or credentials to store cookbooks in an Amazon Simple Storage Service (S3) bucket
 
-Chef Identify
+Chef Identity
 =====================================================
-Chef identify is an OAuth 2.0 authentication and authorization service packaged with the Chef server. Chef Supermarket uses Chef identify must be configured to run with a private Chef Supermarket, after which users may use their same credentials to access the Chef Supermarket as they do to access the Chef server.
+Chef Identity (also referred to as **oc-id**) is an OAuth 2.0 authentication and authorization service packaged with the Chef server. Chef Identity must be configured to run with a private Chef Supermarket, after which users may use the same credentials to access the Chef Supermarket as they do to access the Chef server.
 
 .. note:: The Chef Supermarket server must be able to reach (via HTTPS) the specified ``chef_server_url`` during OAuth 2.0 negotiation. This type of issue is typically with name resolution and firewall rules.
 
 Configure
 -----------------------------------------------------
-To configure Chef Supermarket to use Chef identify, do the following:
+To configure Chef Supermarket to use Chef Identity, do the following:
 
 #. Log on to the Chef server via SSH and elevate to an admin-level user. If running a multi-node Chef server cluster, log on to the node acting as the primary node in the cluster.
 #. Update the ``/etc/opscode/chef-server.rb`` configuration file.
@@ -73,7 +73,9 @@ To configure Chef Supermarket to use Chef identify, do the following:
 
       $ sudo chef-server-ctl reconfigure
 
-#. OAuth 2.0 data is located in ``/etc/opscode/oc-id-applications/supermarket.json``:
+#. Retrieve Supermarket's OAuth 2.0 client credentials:
+
+   Depending on your Chef server version and configuration (see :ref:`chef-server.rb <config_rb_server_insecure_addon_compat>`), this can be retrieved via :ref:`chef-server-ctl oc-id-show-app supermarket <ctl_chef_server_oc_id_show_app>` or is located in ``/etc/opscode/oc-id-applications/supermarket.json``:
 
    .. code-block:: javascript
 
@@ -86,9 +88,9 @@ To configure Chef Supermarket to use Chef identify, do the following:
 
    The ``uid`` and ``secret`` values will be needed later on during the setup process for Chef Supermarket.
 
-.. note:: Add as many Chef identify applications to the chef-server.rb configuration file as necessary. A JSON file is generated for each application added, which contains the authentication tokens for that application. The secrets are added to the Chef identify database and are available to all nodes in the Chef server front end group. The generated JSON files do not need to be copied anywhere.
+.. note:: Add as many Chef Identity applications to the ``chef-server.rb`` configuration file as necessary. A JSON file is generated for each application added, which contains the authentication tokens for that application. The secrets are added to the Chef Identity database and are available to all nodes in the Chef server front end group. The generated JSON files do not need to be copied anywhere.
 
-.. note:: The redirect URL specified for Chef identify **MUST** match the fqdn hostname of the Chef Supermarket server. The URI must also be correct: ``/auth/chef_oauth2/callback``. Otherwise, an error message similar to ``The redirect uri included is not valid.`` will be shown.
+.. note:: The redirect URL specified **MUST** match the FQDN of the Chef Supermarket server. The URI must also be correct: ``/auth/chef_oauth2/callback``. Otherwise, an error message similar to ``The redirect uri included is not valid.`` will be shown.
 
 Install Supermarket
 =====================================================
@@ -285,7 +287,7 @@ To reach the newly spun up private Chef Supermarket, the hostname must be resolv
 #. If an SSL notice is shown while connecting to Chef Supermarket via a web browser, accept the SSL certificate. A trusted SSL certificate should be used for  private Chef Supermarket that is used in production.
 #. After opening Chef Supermarket in a web browser, click the **Create Account** link. A prompt to log in to the Chef server is shown, but only if the user is not already logged in. Authorize the Chef Supermarket to use the Chef server account for authentication.
 
-.. note:: The redirect URL specified for Chef identify **MUST** match the fqdn hostname of the Chef Supermarket server. The URI must also be correct: ``/auth/chef_oauth2/callback``. Otherwise, an error message similar to ``The redirect uri included is not valid.`` will be shown.
+.. note:: The redirect URL specified for Chef Identity **MUST** match the fqdn hostname of the Chef Supermarket server. The URI must also be correct: ``/auth/chef_oauth2/callback``. Otherwise, an error message similar to ``The redirect uri included is not valid.`` will be shown.
 
 Customize Supermarket
 =====================================================
@@ -354,7 +356,7 @@ To run Chef Supermarket in Kitchen, do the following:
               chef_oauth2_secret: 17cf1141cc971a10ce307611beda7f4dc6633bb54f1bc98d9f9ca76b9b127879
               chef_oauth2_verify_ssl: false
 
-#. Install the ``vagrant-hostupdater`` plugin. This plugin enables automatically adding the names of machines to the ``/etc/hosts`` file. This is important when using OAuth 2.0, which cares about host names. The ``redirect_uri`` value in the Chef identify configuration reflects this name.
+#. Install the ``vagrant-hostupdater`` plugin. This plugin enables automatically adding the names of machines to the ``/etc/hosts`` file. This is important when using OAuth 2.0, which cares about host names. The ``redirect_uri`` value in the Chef Identity configuration reflects this name.
 
    .. code-block:: bash
 
@@ -445,7 +447,7 @@ If Kitchen has to download and install the chef-client omnibus package every tim
               chef_oauth2_secret: 17cf1141cc971a10ce307611beda7f4dc6633bb54f1bc98d9f9ca76b9b127879
               chef_oauth2_verify_ssl: false
 
-#. Install the ``vagrant-hostupdater`` plugin. This plugin enables automatically adding the names of machines to the ``/etc/hosts`` file. This is important when using OAuth 2.0, which cares about host names. The ``redirect_uri`` value in the Chef identify configuration reflects this name.
+#. Install the ``vagrant-hostupdater`` plugin. This plugin enables automatically adding the names of machines to the ``/etc/hosts`` file. This is important when using OAuth 2.0, which cares about host names. The ``redirect_uri`` value in the Chef Identity configuration reflects this name.
 
    .. code-block:: bash
 

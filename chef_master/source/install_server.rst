@@ -19,7 +19,7 @@ The Chef server has the following prerequisites:
 * A local mail transfer agent that allows the Chef server to send email notifications
 * Using cron and the ``/etc/cron.d`` directory for periodic maintenance tasks
 * Disabling the Apache Qpid daemon on CentOS and Red Hat systems
-* Optional. A local user account under which services will run, a local user account for PostgreSQL, and a group account under which services will run. See /install_server_pre.html#uids-and-gids for more information.
+* Optional. A local user account under which services will run, a local user account for PostgreSQL, and a group account under which services will run. See `UIDs and GIDs </install_server_pre.html#uids-and-gids>`__ for more information.
 
 .. note:: See the :doc:`expanded list of prerequisites </install_server_pre>` for a detailed list of software and hardware requirements.
 

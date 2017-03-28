@@ -30,7 +30,7 @@ Chef Analytics uses token-based authentication to the Automate API.
 
 User Access
 -----------------------------------------------------
-Users authenticate to the Automate API using an OAuth 2.0 token. Chef Analytics uses the **oc-id** service that is built into the Chef server as the identity source. When a user access Chef Analytics from a web browser, the web browser completes the OAuth negotiation with the **oc-id** service to ensure that the token is valid.
+Users authenticate to the Automate API using an OAuth 2.0 token. Chef Analytics uses the Chef Identity service (**oc-id**) that is built into the Chef server as the identity source. When a user accesses Chef Analytics from a web browser, the web browser completes the OAuth negotiation with the **oc-id** service to ensure that the token is valid.
 
 Service Access
 -----------------------------------------------------
@@ -203,11 +203,11 @@ The response is similar to:
      - OK. The request was successful.
 
 .. internal API used by webhooks
-.. 
+..
 .. /messages
 .. -----------------------------------------------------
 .. .. include:: ../includes_api_analytics/includes_api_analytics_endpoint_messages.rst
-.. 
+..
 .. POST
 .. +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. .. include:: ../includes_api_analytics/includes_api_analytics_endpoint_messages_post.rst
