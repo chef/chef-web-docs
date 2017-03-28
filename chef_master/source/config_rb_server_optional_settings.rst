@@ -70,7 +70,7 @@ This configuration file has the following general settings:
 .. _config_rb_server_insecure_addon_compat:
 
 ``insecure_addon_compat``
-   Set to ``true`` to keep Chef server compatible with older add-on versions by rendering secrets and credentials to ``/etc/opscode/chef-server-running.json`` and other files in ``/etc/opscode/`` (and ``/etc/opscode-analytics``). When set to ``false``, **no secrets** are written to any file but ``/etc/opscode/private-chef-secrets.json``. Default value: ``true``.
+   Set to ``true`` to keep Chef server compatible with older add-on versions by rendering secrets and credentials to ``/etc/opscode/chef-server-running.json`` and other files in ``/etc/opscode/`` (and ``/etc/opscode-analytics``). When set to ``false``, secrets are **only** written to ``/etc/opscode/private-chef-secrets.json`` and **not** to any other files. Default value: ``true``.
 
    See this table for the minimum add-on versions supporting ``insecure_addon_compat false``:
 
@@ -130,9 +130,9 @@ The **bookshelf** service is an Amazon Simple Storage Service (S3)-compatible se
 This configuration file has the following settings for ``bookshelf``:
 
 ``bookshelf['access_key_id']``
-  The access key identifier. This may point at an external storage location, such as Amazon EC2. See :ref:`external_bookshelf_settings` for more information on configuring external bookshelf. Default value: **generated**
+  The access key identifier. This may point at an external storage location, such as Amazon EC2. See :ref:`external_bookshelf_settings` for more information on configuring external bookshelf. Default value: **generated**. As of Chef server 12.14, this is no longer the preferred command.
 
-  Please use the :ref:`ctl_chef_server_secrets_management` commands instead: ``chef-server-ctl set-secret bookshelf access_key_id``.
+  Please use ``chef-server-ctl set-secret bookshelf access_key_id`` from the :ref:`ctl_chef_server_secrets_management` commands.
 
 ``bookshelf['data_dir']``
    The directory in which on-disk data is stored. The default value is the recommended value. Default value: ``/var/opt/opscode/bookshelf/data``.
@@ -166,9 +166,9 @@ This configuration file has the following settings for ``bookshelf``:
    The port on which the service is to listen. Default value: ``4321``.
 
 ``bookshelf['secret_access_key']``
-   The secret key. This may point at an external storage location, such as Amazon EC2. See :ref:`external_bookshelf_settings` for more information on configuring external bookshelf. Default value: **generated**
+   The secret key. This may point at an external storage location, such as Amazon EC2. See :ref:`external_bookshelf_settings` for more information on configuring external bookshelf. Default value: **generated**. As of Chef server 12.14, this is no longer the preferred command.
 
-   Please use the :ref:`ctl_chef_server_secrets_management` commands instead: ``chef-server-ctl set-secret bookshelf secret_access_key``.
+   Please use ``chef-server-ctl set-secret bookshelf secret_access_key`` from the :ref:`ctl_chef_server_secrets_management` commands.
 
 ``bookshelf['stream_download']``
    Enable stream downloading of cookbooks. This setting (when ``true``) typically results in improved cookbook download performance, especially with the memory usage of the **bookshelf** service and the behavior of load balancers and proxies in-between the chef-client and the Chef server. Default value: ``true``.
@@ -225,9 +225,9 @@ This configuration file has the following settings for ``data_collector``:
    ``http://my_automate_server.example.org/data-collector/v0/``.
 
 ``data_collector['token']``
-   Legacy configuration for shared data collector security token. When configured, the token will be passed as an HTTP header named ``x-data-collector-token`` which the server can choose to accept or reject.
+   Legacy configuration for shared data collector security token. When configured, the token will be passed as an HTTP header named ``x-data-collector-token`` which the server can choose to accept or reject. As of Chef server 12.14, this is no longer the preferred command.
 
-   Please use the :ref:`ctl_chef_server_secrets_management` commands instead: ``chef-server-ctl set-secret data_collector token``.
+   Please use ``chef-server-ctl set-secret data_collector token`` from the :ref:`ctl_chef_server_secrets_management` commands.
 
 ``data_collector['timeout']``
    The amount of time (in milliseconds) before a request to the data collector API times out. Default value: `30000`.
@@ -492,9 +492,9 @@ This configuration file has the following settings for ``ldap``:
    Default value: ``nil``.
 
 ``ldap['bind_password']``
-   Legacy configuration for the password of the binding user. The password for the user specified by ``ldap['bind_dn']``. Leave this value and ``ldap['bind_dn']`` unset if anonymous bind is sufficient. Default value: ``nil``.
+   Legacy configuration for the password of the binding user. The password for the user specified by ``ldap['bind_dn']``. Leave this value and ``ldap['bind_dn']`` unset if anonymous bind is sufficient. Default value: ``nil``. As of Chef server 12.14, this is no longer the preferred command.
 
-   Please use the :ref:`ctl_chef_server_secrets_management` commands instead:
+   Please use ``chef-server-ctl set-secret ldap bind_password`` from the :ref:`ctl_chef_server_secrets_management` commands.
 
    .. code-block:: bash
 
@@ -1398,7 +1398,7 @@ This configuration file has the following settings for ``rabbitmq``:
 ``rabbitmq['actions_password']``
    Legacy configuration setting for the password of the ``actions_user``. Default value: **generated**.
 
-   To override this, use the :ref:`ctl_chef_server_secrets_management` commands: ``chef-server-ctl set-actions-password``.
+   To override this, use ``chef-server-ctl set-actions-password`` from the :ref:`ctl_chef_server_secrets_management` commands/
 
 ``rabbitmq['actions_user']``
    The user with permission to publish actions data. Default value: ``'actions'``.
@@ -1443,7 +1443,7 @@ This configuration file has the following settings for ``rabbitmq``:
 ``rabbitmq['management_password']``
    Legacy configuration setting for rabbitmq-management plugin password. Default value: **generated**.
 
-   To override this, use the :ref:`ctl_chef_server_secrets_management` commands: ``chef-server-ctl set-secret rabbitmq management_password``.
+   To override this, use ``chef-server-ctl set-secret rabbitmq management_password`` from the :ref:`ctl_chef_server_secrets_management` commands.
 
 ``rabbitmq['management_port']``
    The rabbitmq-management plugin port. Default value: ``15672``.
@@ -1465,7 +1465,7 @@ This configuration file has the following settings for ``rabbitmq``:
 ``rabbitmq['password']``
    Legacy configuration setting for the password for the RabbitMQ user. Default value: **generated**.
 
-   To override this, use the :ref:`ctl_chef_server_secrets_management` commands: ``chef-server-ctl set-secret rabbitmq password``.
+   To override this, use ``chef-server-ctl set-secret rabbitmq password`` fromthe :ref:`ctl_chef_server_secrets_management` commands.
 
 ``rabbitmq['prevent_erchef_startup_on_full_capacity']``
    Specify if the Chef server will start when the monitored RabbitMQ queue is full. Default value: ``false``.
@@ -1612,7 +1612,7 @@ This configuration file has the following settings for ``redis_lb``:
 ``redis_lb['password']``
    Legacy configuration setting for the Redis password. Default value: **generated**.
 
-   To override this, use the :ref:`ctl_chef_server_secrets_management` commands: ``chef-server-ctl set-secret redis_lb password``.
+   To override this, use ``chef-server-ctl set-secret redis_lb password`` from the :ref:`ctl_chef_server_secrets_management`.
 
 upgrades
 -----------------------------------------------------

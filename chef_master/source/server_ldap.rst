@@ -52,9 +52,9 @@ To configure the Chef server to use Active Directory or LDAP do the following:
       Default value: ``nil``.
 
    ``ldap['bind_password']``
-      Legacy configuration for the password of the binding user. The password for the user specified by ``ldap['bind_dn']``. Leave this value and ``ldap['bind_dn']`` unset if anonymous bind is sufficient. Default value: ``nil``.
+      Legacy configuration for the password of the binding user. The password for the user specified by ``ldap['bind_dn']``. Leave this value and ``ldap['bind_dn']`` unset if anonymous bind is sufficient. Default value: ``nil``. As of Chef server 12.14, this is no longer the preferred command.
 
-      Please use the :ref:`ctl_chef_server_secrets_management` commands instead:
+      Please use ``chef-server-ctl set-secret ldap bind_password`` from the :ref:`ctl_chef_server_secrets_management` commands.
 
       .. code-block:: bash
 
@@ -181,4 +181,3 @@ Output similar to the following is returned:
 .. note:: The ``ldapsearch`` command may need to be installed on the platform. It is not included as part of the Chef server package.
 
 .. end_tag
-

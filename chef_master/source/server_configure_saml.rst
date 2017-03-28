@@ -38,7 +38,7 @@ The ``issuer_url`` property should be set to something like ``'https://<yourChef
 
 to your Chef Manage configuration.
 
-Run ``chef-manage-ctl reconfigure`` to apply these settings.
+Finally, run ``chef-manage-ctl reconfigure`` to apply these settings.
 
 .. warning:: You cannot have both LDAP and SAML authentication enabled at the same time. If you do, the reconfigure will fail with an appropriate error message.
 

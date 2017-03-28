@@ -684,7 +684,7 @@ There are various ways to pass the secret to this command:
 
 remove-secret
 -----------------------------------------------------
-The ``remove-secret`` subcommand allows removing a stored shared secrets and service credential.
+The ``remove-secret`` subcommand allows removing a stored shared secret and service credential.
 
 *New in Chef server 12.14*
 
@@ -708,7 +708,7 @@ This subcommand has the following syntax:
 
 show-secret
 -----------------------------------------------------
-The ``show-secret`` subcommand allows viewing a stored shared secrets and service credential.
+The ``show-secret`` subcommand allows viewing a stored shared secret and service credential.
 
 *New in Chef server 12.14*
 
@@ -790,7 +790,7 @@ This subcommand has the following syntax:
 require-credential-rotation
 -----------------------------------------------------
 The ``require-credential-rotation`` subcommand takes the Chef server offline and requires a complete service credential rotation before the Chef server(s) in your cluster can restart again.
-Run ``rotate-shared-secrets`` to create a new shared secret, salt, and generate the new service credentials. Then copy the secrets file to each Chef server and run ``sudo chef-server-ctl reconfigure`` on them to complete the rotation process.
+Run ``rotate-shared-secrets`` to create a new shared secret, salt, and generate the new service credentials. Then copy the secrets file to each Chef server and run ``sudo chef-server-ctl reconfigure`` on each server to complete the rotation process.
 
 .. note:: Credential rotation does not rotate the pivotal, user, or client keys, or remove any Chef server policy or cookbooks that have been uploaded.
 

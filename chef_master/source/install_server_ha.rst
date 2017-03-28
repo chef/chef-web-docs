@@ -239,7 +239,7 @@ For each additional frontend node you wish to add to your cluster:
 
    .. note::
 
-      For Chef server versions prior to 12.14, you also have to copy the key files:
+      For Chef server versions prior to 12.14, you will also need to copy the key files:
 
         - /etc/opscode/webui_priv.pem
         - /etc/opscode/webui_pub.pem
