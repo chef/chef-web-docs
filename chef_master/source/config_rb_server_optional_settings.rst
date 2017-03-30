@@ -206,6 +206,9 @@ This configuration file has the following settings for ``data_collector``:
    For example, if the data collector in Chef Automate is being used, the URI would look like:
    ``http://my_automate_server.example.org/data-collector/v0/``.
 
+``data_collector['proxy']``
+   If set to ``true``, Chef server will proxy all requests sent to ``/data-collector`` to the configured Chef Automate ``data_collector['root_url']``. Note that *this route* does not check the request signature and add the right data_collector token, but just proxies the Automate endpoint **as-is**. Default value: ``nil``.
+
 ``data_collector['token']``
    Legacy configuration for shared data collector security token. When configured, the token will be passed as an HTTP header named ``x-data-collector-token`` which the server can choose to accept or reject. As of Chef server 12.14, this is no longer the preferred command.
 

@@ -5,7 +5,7 @@ opscode-expander-ctl (executable)
 
 .. tag ctl_opscode_expander_summary
 
-The opscode-expander-ctl executable can be used to generate status information for the **opscode-expander** service. The opscode-expander-ctl executable is run as a command-line tool from the master backend machine.
+The ``opscode-expander-ctl`` executable can be used to generate status information for the **opscode-expander** service. The ``opscode-expander-ctl`` executable is run as a command-line tool from the master backend machine.
 
 .. end_tag
 
@@ -15,9 +15,9 @@ Options
 
 This tool has the following syntax::
 
-   opscode-expanderctl OPTION
+   opscode-expander-ctl COMMAND
 
-This tool has the following options:
+Where ``COMMAND`` can be any of the following:
 
 ``log-level``
    Use to show the log level for all nodes in the cluster.
@@ -42,8 +42,8 @@ For example, to view the aggregate queue backlog, enter the following:
 .. code-block:: bash
 
    $ cd /opt/opscode/embedded/service/opscode-expander/
-     export PATH=$PATH:/opt/opscode/bin:/opt/opscode/embedded/bin
-     bin/opscode-expanderctl queue-depth
+   $ export PATH=$PATH:/opt/opscode/bin:/opt/opscode/embedded/bin
+   $ bin/opscode-expander-ctl queue-depth
 
 to return something similar to:
 
