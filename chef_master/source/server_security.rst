@@ -268,6 +268,57 @@ To regenerate SSL certificates:
 
       $ chef-server-ctl start
 
+Chef Server Credentials Management
+=====================================================
+
+Credentials Security
+-----------------------------------------------------
+
+**New in Chef server 12.14**
+
+Chef server limits where it writes service passwords and keys to disk. In the default configuration, credentials are only written to files in ``/etc/opscode``.
+
+By default, Chef server still writes service credentials to multiple locations inside ``/etc/opscode``.  This is designed to maintain compatibility with add-ons, which are downloadable components that extended Chef server functionality. Chef server 12.14 introduces a new configuration option, ``insecure_addon_compat``, which allows you to further restrict where credentials are written.  ``insecure_addon_compat`` can be used if you are not using add-ons or if you are using the latest releases of your add-ons. However, ``insecure_addon_compat`` _cannot_ be used with Analytics. Setting ``insecure_addon_compat`` to ``false`` writes credentials to only one location,  ``/etc/opscode/private-chef-secrets.json``.
+
+User-provided secrets (such as the password for an external postgresql instance) can still be set in ``/etc/opscode/chef-server.rb`` or via the :ref:`ctl_chef_server_secrets_management` commands.  These commands allow you to provide external passwords without including them in your configuration file.
+
+Add-on Compatibility
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The following table lists which add-on versions support the more restrictive ``insecure_addon_compat false`` setting. These version also now **require** Chef server 12.14.0 or greater:
+
+.. list-table::
+   :widths: 1 1
+   :header-rows: 1
+
+   * - Add-on Name
+     - Minimum Version
+   * - Chef Backend
+     - *all*
+   * - Chef Manage
+     - 2.5.0
+   * - Push Jobs Server
+     - 2.2.0
+   * - Reporting
+     - 1.7.0
+   * - Analytics
+     - *none*
+
+These newer add-ons will also write all of their secrets to ``/etc/opscode/private-chef-secrets.json``. Older versions of the add-ons will still write their configuration to locations in ``/etc`` and ``/var/opt``.
+
+/etc/opscode/private-chef-secrets.json
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+``/etc/opscode/private-chef-secrets.json``'s default permissions allow only the root user to read or write the file. This file contains all of the secrets for access to the Chef server's underlying data stores and thus access to it should be restricted to trusted users.
+
+While the file does not contain passwords in plaintext, it is not safe to share with untrusted users. The format of the secrets file allows Chef server deployments to conform to regulations that forbid the appearance of sensitive data in plain text in configuration files; however, it does not make the file meaningfully more secure.
+
+DRBD and Keepalived
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+In the DRBD-based HA configuration, Chef server will render passwords for keepalived and DRBD to configuration files in ``/var/opt/opscode``.
+
+
 Key Rotation
 =====================================================
 Use the following commands to manage public and private key rotation for users and clients.
@@ -584,4 +635,3 @@ Use following client.rb settings to manage SSL certificate preferences:
      - Verify the SSL certificate on the Chef server. When ``true``, the chef-client always verifies the SSL certificate. When ``false``, the chef-client uses the value of ``ssl_verify_mode`` to determine if the SSL certificate requires verification. Default value: ``false``.
 
 .. end_tag
-
