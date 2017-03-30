@@ -5,7 +5,7 @@ systemd_unit
 
 Use the **systemd_unit** resource to create, manage, and run `systemd units <https://www.freedesktop.org/software/systemd/man/systemd.html#Concepts>`_.
 
-New in Chef Client 12.11. Changed in 12.19 to verify systemd files before installation (using the external ``systemd-analyze verify`` command).
+New in Chef Client 12.11. Changed in 12.19 to verify systemd unit-files before installation (using the external ``systemd-analyze verify`` command).
 
 Syntax
 =====================================================
@@ -27,8 +27,7 @@ A **systemd_unit** resource describes the configuration behavior for systemd uni
      WantedBy=sysstat.service
      EOU
 
-     enabled true
-     action :create
+     action [:create, :enable]
    end
 
 The full syntax for all of the properties that are available to the **systemd_unit** resource is:
@@ -37,10 +36,6 @@ The full syntax for all of the properties that are available to the **systemd_un
 
    systemd_unit 'name.service' do
      content                String or Hash
-     enabled                Boolean
-     active                 Boolean
-     masked                 Boolean
-     static                 Boolean
      user                   String
      triggers_reload        Boolean
    end
@@ -48,7 +43,6 @@ The full syntax for all of the properties that are available to the **systemd_un
 where
 
 * ``name`` is the name of the unit. Must include the type/suffix (e.g. `name.socket` or `name.service`).
-* ``active`` specifies if the service unit type should be started
 * ``user`` is the user account that systemd units run under. If not specified, systemd units will run under the system account.
 * ``content`` describes the behavior of the unit
 
@@ -109,26 +103,6 @@ Properties
 .. tag resource_systemd_unit_attributes
 
 This resource has the following properties:
-
-``enabled``
-   **Ruby Types:** TrueClass, FalseClass
-
-   Specifies whether the unit is enabled or disabled.
-
-``active``
-   **Ruby Type:** TrueClass, FalseClass
-
-   Specifies whether the unit is started or stopped.
-
-``masked``
-   **Ruby Type:** TrueClass, FalseClass
-
-   Specifies whether the unit is masked or not.
-
-``static``
-   **Ruby Type:** TrueClass, FalseClass
-
-   Specifies whether the unit is static or not. Static units cannot be enabled or disabled.
 
 ``user``
    **Ruby Type:** String
