@@ -593,26 +593,6 @@ Properties
 
 This resource has the following properties:
 
-``enabled``
-   **Ruby Types:** TrueClass, FalseClass
-
-   Specifies whether the unit is enabled or disabled.
-
-``active``
-   **Ruby Type:** TrueClass, FalseClass
-
-   Specifies whether the unit is started or stopped.
-
-``masked``
-   **Ruby Type:** TrueClass, FalseClass
-
-   Specifies whether the unit is masked or not.
-
-``static``
-   **Ruby Type:** TrueClass, FalseClass
-
-   Specifies whether the unit is static or not. Static units cannot be enabled or disabled.
-
 ``user``
    **Ruby Type:** String
 
