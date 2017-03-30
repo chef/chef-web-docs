@@ -72,25 +72,7 @@ This configuration file has the following general settings:
 ``insecure_addon_compat``
    Set to ``true`` to keep Chef server compatible with older add-on versions by rendering secrets and credentials to ``/etc/opscode/chef-server-running.json`` and other files in ``/etc/opscode/`` (and ``/etc/opscode-analytics``). When set to ``false``, secrets are **only** written to ``/etc/opscode/private-chef-secrets.json`` and **not** to any other files. Default value: ``true``.
 
-   See this table for the minimum add-on versions supporting ``insecure_addon_compat false``:
-
-   .. list-table::
-      :widths: 1 1
-      :header-rows: 1
-
-      * - Add-on Name
-        - Minimum Version
-      * - Chef Backend
-        - *all*
-      * - Chef Manage
-        - 2.5.0
-      * - Push Jobs Server
-        - 2.2.0
-      * - Reporting
-        - 1.7.0
-      * - Analytics
-        - *none*
-
+   See `Add-on Compatibility </server_security.html#add-on-compatibility>`_ for the minimum add-on versions supporting ``insecure_addon_compat false``.
 
 ``install_path``
    The directory in which the Chef server is installed. Default value: ``'/opt/opscode'``.
