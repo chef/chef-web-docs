@@ -2626,7 +2626,7 @@ The following settings are new for metadata.rb:
 
        .. code-block:: ruby
 
-          chef_version "~> 12"
+          chef_version '~> 12'
 
        .. end_tag
 
