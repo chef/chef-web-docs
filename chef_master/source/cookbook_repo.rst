@@ -126,7 +126,7 @@ This configuration file has the following settings:
 
    .. code-block:: ruby
 
-      chef_version "~> 12"
+      chef_version '~> 12'
 
    .. end_tag
 
