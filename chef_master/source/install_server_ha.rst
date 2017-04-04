@@ -41,7 +41,7 @@ and the frontend group.
   together, provides highly available data persistence for the
   frontend group.
 
-  .. note:: At this time, backend clusters can only have three nodes. 
+  .. note:: At this time, backend clusters can only have three nodes.
 
 .. image:: ../../images/chef_server_ha_cluster.svg
 
@@ -94,15 +94,14 @@ Inbound from frontend group to backend cluster
 * TCP 2379 (etcd)
 * TCP 5432 (PostgreSQL)
 * TCP 7331 (leaderl)
-* TCP 9200 (Elasticsearch)
+* TCP 9200-9300 (Elasticsearch)
 
 Peer communication, backend cluster
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 * 2379 (etcd)
 * 2380 (etcd)
 * 5432 (PostgreSQL)
-* 9200 (Elasticsearch)
-* 9300 (Elasticsearch)
+* 9200-9400 (Elasticsearch)
 
 Installation
 =====================================================
@@ -509,7 +508,7 @@ providers.
 * ``etcd.snapshot_count 5000`` ETCD_SNAPSHOT_COUNT which is the number
   of committed transactions to trigger a snapshot to disk.
 
-.. note:: Even though the defaults assume a high-latency environment, cloud deployments should be restricted to the same datacenter, or in AWS, in the same region. This means that geographically-dispersed cluster deployments are not supported. Multiple Availability Zones *are* supported as long as they are in the same region. 
+.. note:: Even though the defaults assume a high-latency environment, cloud deployments should be restricted to the same datacenter, or in AWS, in the same region. This means that geographically-dispersed cluster deployments are not supported. Multiple Availability Zones *are* supported as long as they are in the same region.
 
 For additional information on the etcd tunables, see
 https://coreos.com/etcd/docs/latest/tuning.html.
