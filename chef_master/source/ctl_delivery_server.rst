@@ -635,6 +635,28 @@ This subcommand has the following syntax:
 .. code-block:: bash
 
    $ automate-ctl show-config
+   
+telemetry
+=====================================================
+
+The ``telemetry`` subcommand is used in conjunction with additional subcommands to query the ``status`` of, ``enable`` or ``disable`` telemetry server wide. 
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+ $ automate-ctl telemetry status
+    
+**Examples**
+
+Query current status:
+``$ automate-ctl telemetry status``
+
+Enable telemetry:
+``$ automate-ctl telemetry enable``
+
+Disable telemetry:
+``$ automate-ctl telemetry disable``
 
 uninstall
 =====================================================
