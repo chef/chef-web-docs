@@ -47,7 +47,7 @@ You can add a new runner via automate-ctl from your Chef Automate server. Log in
 
 After the :ref:`install-runner` command succeeds, the new runner should show up in the UI under ``Workflow -> Runners -> Manage Runners``. If you see it there, click the ``Test`` button. That will test an ssh connection to your runner to verify that jobs can be dispatched to it. If there are any issues, you should get an error in the UI.
 
-Currently the only supported runner platforms are Ubuntu and Centos.
+Currently the only supported runner platforms are Ubuntu, Centos, and macOS 10.12.
 
 Remove a Runner
 -----------------------------------------------------
