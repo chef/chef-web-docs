@@ -1,5 +1,5 @@
 =====================================================
-Release Notes: Chef Push Jobs 1.0 - 2.X
+Release Notes: Chef Push Jobs 1.0 - 2.1
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_push_jobs.rst>`__
 
@@ -21,19 +21,19 @@ The following items are new for Chef push jobs:
 Important Notes
 -----------------------------------------------------
 * **Push Jobs Server 2.1 is now fully supported for use with Chef Automate**.
-* **Push Jobs Server 2.0 is not compatible with Push Jobs Client 1.X**. Ensure that all Push Jobs Clients are upgraded to 2.X before performing an upgrade of your Push Jobs Server.
+* **Push Jobs Server 2.0 is not compatible with Push Jobs Client 1.X**. Ensure that all Push Jobs Clients are upgraded to the current stable release before performing an upgrade of your Push Jobs Server.
 
 Upgrading Chef Automate Installation to use Push Jobs Server 2.1
 -----------------------------------------------------------------
 If your Chef Automate installation uses Push Jobs Server to manage build nodes, upgrading to Push Jobs Server 2.1 is now fully supported.  To upgrade:
 
-* On each build node, upgrade to the latest Push Jobs Client 2.X release by `downloading it <https://downloads.chef.io/push-jobs-client/stable/>`_ and following the `instructions on how to install it </install_push_jobs.html#install-the-client>`_ on each build node. If the build node was set up using ``automate-ctl install-build-node``, then no upgrade needs to be performed.
-  
+* On each build node, `download <https://downloads.chef.io/push-jobs-client/stable/>`_ the latest Push Jobs Client release and follow the `installation instructions </install_push_jobs.html#install-the-client>`_ on each build node. If the build node was set up using ``automate-ctl install-build-node``, then it will not need upgraded.
+
   .. warning:: Do not restart the Push Jobs Client until after the Push Jobs Server upgrade is completed in the steps below.
 
 * On the Push Jobs Server node:
 
-  * Install the latest `Push Jobs Server 2.X package <https://downloads.chef.io/push-jobs-server/stable/>`_. 
+  * Install the latest `Push Jobs Server package <https://downloads.chef.io/push-jobs-server/stable/>`_.
   * Run ``sudo opscode-push-jobs-server-ctl reconfigure``.
 
     .. note:: Once the ``reconfigure`` command above is issued, build nodes and other push clients will not be in communication with the server until they are restarted.
