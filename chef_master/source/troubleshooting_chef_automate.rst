@@ -55,7 +55,7 @@ The following are possible issues you might run into when using build nodes and/
 Issue: Waiting for builder.
 -----------------------------------------------------
 
-If you see "waiting for builder" in your log output on a new Chef Automate setup with no existing build nodes, then the Chef Automate server and Chef server are having trouble communicating.
+If you see "waiting for builder" in your log output on a new Chef Automate setup with no existing build nodes, then the Chef Automate server and Chef server are having trouble communicating. This issue can also be caused when a cache in Automate does not have the mapping correct between v1/v2 build job type and the available builder/runner resources. If your project's .delivery/config.json looks like it matches the presence of builders/runners but jobs are not kicking off, then the best thing to do is restart Automate's main service with ``automate-ctl restart delivery``. After this step, queued change jobs should start being processed by the available resources for that job type.
 
 Issue: No build nodes/runners available.
 -----------------------------------------------------
