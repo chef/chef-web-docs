@@ -37,7 +37,7 @@ Upgrading Chef Automate Installation to use Push Jobs Server 2.1
 -----------------------------------------------------------------
 If your Chef Automate installation uses Push Jobs Server to manage build nodes, upgrading to Push Jobs Server 2.1 is now fully supported.  To upgrade:
 
-* On each build node, `download <https://downloads.chef.io/push-jobs-client/stable/>`_ the latest Push Jobs Client release and follow the `installation instructions </install_push_jobs.html#install-the-client>`_ on each build node. If the build node was set up using ``automate-ctl install-build-node``, then it will not need upgraded.
+* On each build node, `download <https://downloads.chef.io/push-jobs-client/stable/>`_ the latest Push Jobs Client release and follow the `installation instructions </install_push_jobs.html#install-the-client>`_ on each build node. If the build node was set up using ``automate-ctl install-build-node``, then it runs on version 2.0 or greater and does not need upgraded.
 
   .. warning:: Do not restart the Push Jobs Client until after the Push Jobs Server upgrade is completed in the steps below.
 
