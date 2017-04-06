@@ -122,7 +122,7 @@ The simplest form is:
 
    cookbook "library-cookbook"
 
-This ensures that a cookbook named ``my-cookbook`` is installed by berkshelf.
+This ensures that a cookbook named ``library-cookbook`` is installed by berkshelf.
 
 Version constraints are the second parameter:
 
@@ -195,32 +195,32 @@ Groups can be defined via blocks:
 Groups can also be specified inline:
 
 .. code-block:: ruby
-  
+
    cookbook "test-cookbook", path: "test/fixtures/test", group: :test
 
 To exclude a group when using ``berks``, use the ``--except`` flag:
 
 .. code-block:: bash
-  
+
    $ berks install --except test
 
 Solver Keyword
 +++++++++++++++
 
-It is possible to configure which engine to use for the `solve <https://github.com/berkshelf/solve>`__ dependency resolution system. 
+It is possible to configure which engine to use for the `solve <https://github.com/berkshelf/solve>`__ dependency resolution system.
 
 By default, the solver selection depends on your environment. When the ``dep_selector`` gem is installed, as in the case of Chef DK, the ``gecode`` solver is used. Otherwise, the ``ruby`` solver is utilized by default.
 
 The ``gecode`` solver matches the engine used by the Chef Server, so will more closely reflect the behaviour of the Chef Server in selecting cookbooks:
 
 .. code-block:: ruby
-  
+
    solver :gecode
 
 The ``ruby`` solver can give better results in some situations, notably when Berkshelf times out when trying to build a dependency set.
 
 .. code-block:: ruby
-  
+
    solver :ruby
 
 Berkshelf CLI
@@ -618,4 +618,3 @@ This command has the following options:
 
 ``-o NAME``, ``--outfile NAME``
    The name of the file to which output is saved. Default value: ``graph.png``.
-
