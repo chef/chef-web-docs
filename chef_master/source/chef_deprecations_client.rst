@@ -113,7 +113,7 @@ All Deprecations
   * - :doc:`OHAI-4 </deprecations_ohai_libvirt_plugin>`
     - Libvirt plugin attributes changes.
     - 12.19.33
-    - 13.0
+    - 14.0
   * - :doc:`OHAI-5 </deprecations_ohai_windows_cpu>`
     - Windows CPU plugin attribute changes.
     - 12.19.33
