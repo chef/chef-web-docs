@@ -122,7 +122,7 @@ The simplest form is:
 
    cookbook "library-cookbook"
 
-This ensures that a cookbook named ``my-cookbook`` is installed by berkshelf.
+This ensures that a cookbook named ``Library-cookbook`` is installed by berkshelf.
 
 Version constraints are the second parameter:
 
