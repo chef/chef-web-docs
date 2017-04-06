@@ -41,7 +41,7 @@ This is a list of possible error codes and remediation steps you might see when 
 *   PF06: Another process is using this port on the system.
 
     *   Please free this port on the system.
-  
+
 *   PF07: System does not have this software installed.
 
     *   Please install this software via the given command.
@@ -54,8 +54,28 @@ The following are possible issues you might run into when using build nodes and/
 
 Issue: Waiting for builder.
 -----------------------------------------------------
+If "waiting for builder" occurs in the log output on a new Chef Automate setup with no existing build nodes, then the Chef Automate server and Chef server are not communicating. To establish communication, try restarting Chef Automate's main service with ``automate-ctl restart delivery``.
 
-If you see "waiting for builder" in your log output on a new Chef Automate setup with no existing build nodes, then the Chef Automate server and Chef server are having trouble communicating.
+If "waiting for builder" occurs in the log output on a Chef Automate setup with existing build nodes, then it indicates incorrect mapping between between v1/v2 build job type and the available builder/runner resources in a Chef Automate cache. Check your project's ``.delivery/config.json`` to confirm that it correctly represents the use of builders/runners, adjust this if necessary, and restart Automate's main service with ``automate-ctl restart delivery``.
+
+If your Chef Automate system has builders(push jobs), then your projects should have the following configuration in .delivery/config.json :
+
+   .. code-block:: none
+
+       "job_dispatch": {
+         "version": "v1"
+       },
+
+If your Chef Automate system has runners, then your projects should have the following configuration in .delivery/config.json
+
+   .. code-block:: none
+
+       "job_dispatch": {
+         "version": "v2"
+       },
+
+
+If the ``.delivery/config.json`` is correct, but jobs are not kicking off, then the best thing to do is restart Automate's main service with ``automate-ctl restart delivery``. After restarting the service, queued change jobs should start being processed by the available resources for that job type.
 
 Issue: No build nodes/runners available.
 -----------------------------------------------------
