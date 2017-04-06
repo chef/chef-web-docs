@@ -7,3 +7,5 @@ The Ohai libvirt plugin no longer places libvirt attributes under ``node['virtua
 
 Remediation
 =============
+
+Cookbooks utilizing attributes from the libvirt plugin under ``node['virtualization']`` will need to be updated to instead use those same attributes from ``node['libvirt']``.
