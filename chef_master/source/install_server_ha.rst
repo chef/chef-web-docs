@@ -177,7 +177,7 @@ to join nodes in parallel the cluster may fail to become available):
 
    .. code-block:: bash
 
-      $ chef-backend-ctl join-cluster <IP_BE1> -s ~/home/<USER>/chef-backend-secrets.json
+      $ chef-backend-ctl join-cluster <IP_BE1> -s /home/<USER>/chef-backend-secrets.json
 
 #. Answer the prompts regarding which public IP to use. As an alternative, you may specify them on the ``chef-backend join-cluster`` command line. See ``chef-backend-ctl join-cluster --help`` for more information.
 
