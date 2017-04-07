@@ -3,15 +3,12 @@ Release Notes: Chef Development Kit 0.19 - 1.3
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_chefdk.rst>`__
 
-Chef Development Kit is released on a monthly schedule with new releases the third Monday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef CHANGELOG.md <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__
+Chef Development Kit is released on a monthly schedule with new releases the third Monday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef DK on Github <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__
 
 What's New in 1.3
 =====================================================
 
-Note
------------------------------------------------------
-
-There is a known issue on the Windows platform that prevents FIPS usage. If this would affect you, please continue to use ChefDK 1.2.22 until we resolve this issue with a patch release.
+.. warning:: There is a known issue on the Windows platform that prevents FIPS usage. If this would affect you, please continue to use ChefDK 1.2.22 until we resolve this issue with a patch release.
 
 Chef Client 12.19
 -----------------------------------------------------
@@ -21,26 +18,26 @@ ChefDK now ships with Chef 12.19. Check out `Release Notes <https://docs.chef.io
 Workflow Build Cookbooks
 -----------------------------------------------------
 
-Build cookbooks generated via ``chef generate build-cookbook`` will no longer depend on the delivery_build or delivery-base cookbook. Instead, the Test Kitchen instance will use ChefDK as per the standard Workflow Runner setup.
+Build cookbooks generated via ``chef generate build-cookbook`` will no longer depend on the delivery_build or delivery-base cookbook. Instead, the Test Kitchen instance will use ChefDK as the standard workflow runner setup.
 
-Also the build cookbook generator will not overwrite your ``config.json`` or ``project.toml`` if they exist already on your project.
+The build cookbook generator will not overwrite your ``config.json`` or ``project.toml`` if they exist already on your project.
 
 ChefSpec 6.0
 -----------------------------------------------------
 
-ChefDK includes the new ChefSpec 6.0 release with improvements to the ServerRunner behavior. Rather than creating a ChefZero instance per ServerRunner test context, a single ChefZero instance is created that all ServerRunner test contexts will leverage. The ChefZero instance is reset between each test case, emulating the existing behavior without needing a monotonically increasing number of ChefZero instances.
+ChefDK includes the new ChefSpec 6.0 release with improvements to the ServerRunner behavior. Rather than creating a Chef Zero instance for eachServerRunner test context, a single Chef Zero instance is created that all ServerRunner test contexts will leverage. The Chef Zero instance is reset between each test case, emulating the existing behavior without needing a monotonically increasing number of Chef Zero instances.
 
 Additionally, if you are using ChefSpec to test a pre-defined set of Cookbooks, there is now an option to upload those cookbooks only once, rather than before every test case. To take advantage of this performance enhancer, simply set the ``server_runner_clear_cookbooks`` RSpec configuration value to ``false`` in your ``spec_helper.rb``.
 
-```
-RSpec.configure do |config|
-  config.server_runner_clear_cookbooks = false
-end
-```
+.. code-block:: ruby
 
-Setting this value to ``false`` has been shown to increase the ServerRunner performance by 75%, improve stability on Windows, and make the ServerRunner as fast as SoloRunner.
+   RSpec.configure do |config|
+     config.server_runner_clear_cookbooks = false
+   end
 
-This new release also includes three new matchers: ``dnf_package``, ``msu_package``, and ``cab_package`` and utilizes the new Fauxhai 4.0 release. This includes several new platforms and removes many older end of life platforms. See `PLATFORMS.md <https://github.com/customink/fauxhai/blob/master/PLATFORMS.md>`_ for a list of all supported platforms for use in ChefSpec.
+Setting ``server_runner_clear_cookbooks`` value to ``false`` has been shown to increase the ServerRunner performance by 75%, improve stability on Windows, and make the ServerRunner as fast as SoloRunner.
+
+This new release also includes three new matchers: ``dnf_package``, ``msu_package``, and ``cab_package`` and utilizes the new Fauxhai 4.0 release. This release adds several new platforms and removes many older end-of-life platforms. See `PLATFORMS.md <https://github.com/customink/fauxhai/blob/master/PLATFORMS.md>`_ for a list of all supported platforms for use in ChefSpec.
 
 InSpec
 -----------------------------------------------------
@@ -76,25 +73,25 @@ Cookbook generator improvements
 Notable Updated Gems
 -----------------------------------------------------
 
-- berkshelf 5.6.0 -> 5.6.4 `Changelog <https://github.com/berkshelf/berkshelf/blob/master/CHANGELOG.md>`_
-- chef-provisioning 2.1.0 -> 2.2.1 `Changelog <https://github.com/chef/chef-provisioning/blob/master/CHANGELOG.md>`_
-- chef-provisioning-aws 2.1.0 -> 2.2.0 `Changelog <https://github.com/chef/chef-provisioning-aws/blob/master/CHANGELOG.md>`_
-- chef-zero 5.2.0 -> 5.3.1 `Changelog <https://github.com/chef/chef-zero/blob/master/CHANGELOG.md>`_
-- chef 12.18.31 -> 12.19.36 `Changelog <https://github.com/chef/chef/blob/master/CHANGELOG.md>`_
-- cheffish 4.1.0 -> 5.0.1 `Changelog <https://github.com/chef/cheffish/blob/master/CHANGELOG.md>`_
-- chefspec 5.3.0 -> 6.2.0 `Changelog <https://github.com/sethvargo/chefspec/blob/master/CHANGELOG.md>`_
-- cookstyle 1.2.0 -> 1.3.0 `Changelog <https://github.com/chef/cookstyle/blob/master/CHANGELOG.md>`_
-- fauxhai 3.10.0 -> 4.1.0 `Changelog <https://github.com/customink/fauxhai/blob/master/CHANGELOG.md>`_
-- foodcritic 9.0.0 -> 10.2.2 `Changelog <https://github.com/acrmp/foodcritic/blob/master/CHANGELOG.md>`_
-- inspec 1.11.0 -> 1.19.1 `Changelog <https://github.com/chef/inspec/blob/master/CHANGELOG.md>`_
-- kitchen-dokken 1.1.0 -> 2.1.2 `Changelog <https://github.com/someara/kitchen-dokken/blob/master/CHANGELOG.md>`_
-- kitchen-ec2 1.2.0 -> 1.3.2 `Changelog <https://github.com/test-kitchen/kitchen-ec2/blob/master/CHANGELOG.md>`_
-- kitchen-vagrant 1.0.0 -> 1.0.2 `Changelog <https://github.com/test-kitchen/kitchen-vagrant/blob/master/CHANGELOG.md>`_
-- mixlib-install 2.1.11 -> 2.1.12 `Changelog <https://github.com/chef/mixlib-install/blob/master/CHANGELOG.md>`_
-- opscode-pushy-client 2.1.2 -> 2.2.0 `Changelog <https://github.com/chef/opscode-pushy-client/blob/master/CHANGELOG.md>`_
+- berkshelf 5.6.0 -> 5.6.4
+- chef-provisioning 2.1.0 -> 2.2.1
+- chef-provisioning-aws 2.1.0 -> 2.2.0
+- chef-zero 5.2.0 -> 5.3.1
+- chef 12.18.31 -> 12.19.36
+- cheffish 4.1.0 -> 5.0.1
+- chefspec 5.3.0 -> 6.2.0
+- cookstyle 1.2.0 -> 1.3.0
+- fauxhai 3.10.0 -> 4.1.0
+- foodcritic 9.0.0 -> 10.2.2
+- inspec 1.11.0 -> 1.19.1
+- kitchen-dokken 1.1.0 -> 2.1.2
+- kitchen-ec2 1.2.0 -> 1.3.2
+- kitchen-vagrant 1.0.0 -> 1.0.2
+- mixlib-install 2.1.11 -> 2.1.12
+- opscode-pushy-client 2.1.2 -> 2.2.0
 - specinfra 2.66.7 -> 2.67.7
-- test-kitchen 1.15.0 -> 1.16.0 `Changelog <https://github.com/test-kitchen/test-kitchen/blob/master/CHANGELOG.md>`_
-- train 0.22.1 -> 0.23.0 `Changelog <https://github.com/chef/train/blob/master/CHANGELOG.md>`_
+- test-kitchen 1.15.0 -> 1.16.0
+- train 0.22.1 -> 0.23.0
 
 What's New in 1.2
 =====================================================
@@ -213,7 +210,7 @@ New DCO tool included
 
 We have included a new DCO command-line tool that makes it easier to contribute to projects like
 Chef that use the Developer Certificate of Origin. The tool allows you to enable/disable DCO
-sign-offs on a per repository basis and also allows you to retroactively sign off all commits on
+sign-offs for each repository and also allows you to retroactively sign off all commits on
 a branch. See https://github.com/coderanger/dco for details.
 
 Notable Upgraded Gems

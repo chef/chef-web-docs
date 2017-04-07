@@ -3,6 +3,8 @@ FIPS (Federal Information Processing Standards)
 ==================================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/fips.rst>`__
 
+.. warning:: There is a known issue on the Windows platform that prevents FIPS usage. If this would affect you, please continue to use ChefDK 1.2.22 until we resolve this issue with a patch release.
+
 What is FIPS?
 ==================================================================
 .. tag fips_intro

@@ -281,6 +281,8 @@ will return something similar to:
 
 chef generate cookbook
 =====================================================
+Changed in Chef DK 1.3, ``chef generate cookbook`` requires Chef client 12.1+, includes the chef_version metadata, and uses SPDX standard license strings.
+
 Use the ``chef generate cookbook`` subcommand to generate a cookbook.
 
 .. note:: .. tag ruby_style_patterns_hyphens
