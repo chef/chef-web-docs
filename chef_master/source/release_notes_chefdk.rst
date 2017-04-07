@@ -1,9 +1,97 @@
 =====================================================
-Release Notes: Chef Development Kit 0.19 - 1.2
+Release Notes: Chef Development Kit 0.19 - 1.3
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_chefdk.rst>`__
 
-Chef Development Kit is released on a monthly schedule with new releases the third Monday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef CHANGELOG.md <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__
+Chef Development Kit is released on a monthly schedule with new releases the third Monday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef DK on Github <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__
+
+What's New in 1.3
+=====================================================
+
+.. warning:: There is a known issue on the Windows platform that prevents FIPS usage. If this would affect you, please continue to use ChefDK 1.2.22 until we resolve this issue with a patch release.
+
+Chef Client 12.19
+-----------------------------------------------------
+
+ChefDK now ships with Chef 12.19. Check out `Release Notes <https://docs.chef.io/release_notes.html>`_ for all the details of this new release.
+
+Workflow Build Cookbooks
+-----------------------------------------------------
+
+Build cookbooks generated via ``chef generate build-cookbook`` will no longer depend on the delivery_build or delivery-base cookbook. Instead, the Test Kitchen instance will use ChefDK as the standard workflow runner setup.
+
+The build cookbook generator will not overwrite your ``config.json`` or ``project.toml`` if they exist already on your project.
+
+ChefSpec 6.0
+-----------------------------------------------------
+
+ChefDK includes the new ChefSpec 6.0 release with improvements to the ServerRunner behavior. Rather than creating a Chef Zero instance for each ServerRunner test context, a single Chef Zero instance is created that all ServerRunner test contexts will leverage. The Chef Zero instance is reset between each test case, emulating the existing behavior without needing a monotonically increasing number of Chef Zero instances.
+
+Additionally, if you are using ChefSpec to test a pre-defined set of Cookbooks, there is now an option to upload those cookbooks only once, rather than before every test case. To take advantage of this performance enhancer, simply set the ``server_runner_clear_cookbooks`` RSpec configuration value to ``false`` in your ``spec_helper.rb``.
+
+.. code-block:: ruby
+
+   RSpec.configure do |config|
+     config.server_runner_clear_cookbooks = false
+   end
+
+Setting ``server_runner_clear_cookbooks`` value to ``false`` has been shown to increase the ServerRunner performance by 75%, improve stability on Windows, and make the ServerRunner as fast as SoloRunner.
+
+This new release also includes three new matchers: ``dnf_package``, ``msu_package``, and ``cab_package`` and utilizes the new Fauxhai 4.0 release. This release adds several new platforms and removes many older end-of-life platforms. See `PLATFORMS.md <https://github.com/customink/fauxhai/blob/master/PLATFORMS.md>`_ for a list of all supported platforms for use in ChefSpec.
+
+InSpec
+-----------------------------------------------------
+
+InSpec has been updated to 1.19.1 with the following new functionality:
+
+- Better filter support for the `processes resource <http://inspec.io/docs/reference/resources/processes/>`_.
+- New ``packages``, ``crontab``, ``x509_certificate``, and ``x509_private_key`` resources
+- New ``inspec habitat profile create`` command to create a Habitat artifact for a given InSpec profile.
+- Functional JUnit reporting
+- A new command for generating profiles has been added
+
+Foodcritic
+-----------------------------------------------------
+
+Foodcritic has been updated to 10.2.2. This release includes the following new functionality
+
+- FC003, which required gating certain code when running on Chef Solo has been removed
+- FC023, which preferred conditional (only_if / not_if) code within resources has been removed as many disagreed with this coding style
+- False positives in FC007 and FC016 have been resolved
+- New rules have been added requiring the license (FC068), supports (FC067), and chef_version (FC066) metadata properties in cookbooks
+
+Kitchen EC2 Driver
+-----------------------------------------------------
+
+Kitchen-ec2 has been updated to 1.3.2 with support for Windows 2016 instances
+
+Cookbook generator improvements
+-----------------------------------------------------
+
+``chef generate cookbook`` has been updated to better generate cookbooks for sharing with the Chef community. Generated cookbooks now require Chef client 12.1+, include the chef_version metadata, and use SPDX standard license strings.
+
+Notable Updated Gems
+-----------------------------------------------------
+
+- berkshelf 5.6.0 -> 5.6.4
+- chef-provisioning 2.1.0 -> 2.2.1
+- chef-provisioning-aws 2.1.0 -> 2.2.0
+- chef-zero 5.2.0 -> 5.3.1
+- chef 12.18.31 -> 12.19.36
+- cheffish 4.1.0 -> 5.0.1
+- chefspec 5.3.0 -> 6.2.0
+- cookstyle 1.2.0 -> 1.3.0
+- fauxhai 3.10.0 -> 4.1.0
+- foodcritic 9.0.0 -> 10.2.2
+- inspec 1.11.0 -> 1.19.1
+- kitchen-dokken 1.1.0 -> 2.1.2
+- kitchen-ec2 1.2.0 -> 1.3.2
+- kitchen-vagrant 1.0.0 -> 1.0.2
+- mixlib-install 2.1.11 -> 2.1.12
+- opscode-pushy-client 2.1.2 -> 2.2.0
+- specinfra 2.66.7 -> 2.67.7
+- test-kitchen 1.15.0 -> 1.16.0
+- train 0.22.1 -> 0.23.0
 
 What's New in 1.2
 =====================================================
@@ -122,7 +210,7 @@ New DCO tool included
 
 We have included a new DCO command-line tool that makes it easier to contribute to projects like
 Chef that use the Developer Certificate of Origin. The tool allows you to enable/disable DCO
-sign-offs on a per repository basis and also allows you to retroactively sign off all commits on
+sign-offs for each repository and also allows you to retroactively sign off all commits on
 a branch. See https://github.com/coderanger/dco for details.
 
 Notable Upgraded Gems
