@@ -299,11 +299,7 @@ which would result in the following two entries being added to the ``pg_hba.conf
    host    all         all         192.168.1.3/24         md5
    hostssl replication replicator  192.168.1.3/24         md5
 
-Running ``chef-server-ctl reconfigure`` on all the backends will allow that frontend to complete its connection.
-
-.. code-block:: none
-
-   chef-server-ctl reconfigure
+Running ``chef-backend-ctl reconfigure`` on all the backends will allow that frontend to complete its connection.
 
 Cluster Security Considerations
 ===============================
