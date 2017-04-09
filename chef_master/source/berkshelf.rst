@@ -7,7 +7,7 @@ About Berkshelf
 
 Berkshelf is a dependency manager for Chef cookbooks. With it, you can easily depend on community cookbooks and have them safely included in your workflow. You can also ensure that your CI systems reproducibly select the same cookbook versions, and can upload and bundle cookbook dependencies without needing a locally maintained copy. Berkshelf is included in the Chef Development Kit.
 
-.. note:: For new users, we strongly recommend using :doc:`Policyfiles </policyfile>` rather than Berkshelf. Policyfiles provide more predictability, since dependencies are only resolved once, and a much improved way of promoting cookbooks from dev to testing, and then to production.
+.. note:: For new users, we strongly recommend using :doc:`Policyfiles </policyfile>` rather than Berkshelf. Policyfiles provide more predictability, since dependencies are only resolved once, and a much improved way of promoting cookbooks from dev to testing, and then to production. This is unless you are using Chef Automate, which for now can only use Berkshelf.
 
 .. end_tag
 
