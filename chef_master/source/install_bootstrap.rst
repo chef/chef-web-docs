@@ -402,7 +402,7 @@ Powershell User Data
    $hosts | Add-Content $file
    
    ## Download the Chef client
-   $clientURL = "https://packages.chef.io/files/stable/chef/12.19.36/windows/2012/chef-client-12.19.36-1-x64.msi"
+   $clientURL = "https://packages.chef.io/files/stable/chef/12.19.36/windows/2012/chef-client-<version-here>.msi"
    $clientDestination = "C:\chef-client.msi"
    Invoke-WebRequest $clientURL -OutFile $clientDestination
    
@@ -429,11 +429,6 @@ Powershell User Data
    
    Set-Content -Path c:\chef\client.rb -Value $clientrb
    
-   ## Download key
-   $keyURL = "https://s3/validator.pem"
-   $keyDestination = "C:\chef\validator.pem"
-   Invoke-WebRequest $keyURL -OutFile $keyDestination
-   
    ## Run Chef
    C:\opscode\chef\bin\chef-client.bat -j C:\chef\first-boot.json
 
@@ -457,7 +452,6 @@ Bash User Data
    EOF
    
    cd /etc/chef/
-   wget https://my-key.location.com .
    
    # Install chef
    curl -L https://omnitruck.chef.io/install.sh | bash || error_exit 'could not install chef'
@@ -475,8 +469,6 @@ Bash User Data
    
    # Create Client.rb
    /bin/echo 'log_location     STDOUT' >> /etc/chef/client.rb
-   /bin/echo 'ssl_verify_mode     :verify_none' >> /etc/chef/client.rb
-   /bin/echo 'verify_api_cert     false' >> /etc/chef/client.rb
    /bin/echo -e "chef_server_url  \"https://aut-chef-server/organizations/my-org\"" >> /etc/chef/client.rb
    /bin/echo -e "validation_client_name \"my-org-validator\"" >> /etc/chef/client.rb
    /bin/echo -e "validation_key \"/etc/chef/my_org_validator.pem\"" >> /etc/chef/client.rb
