@@ -45,97 +45,83 @@ Actions
 =====================================================
 This resource has the following actions:
 
-:create
+``:create``
    creates a task (or updates existing if user or command has changed)
 
-:delete
+``:delete``
    deletes a task
 
-:run
+``:run``
    runs a task
 
-:end
+``:end``
    ends a task
 
-:enable
+``:enable``
    enables a task
 
-:disable
+``:disable``
    disables a task
 
 Properties
 =====================================================
 This resource has the following properties:
 
-task_name
+``task_name``
    **Ruby Type:** String
-
    Name attribute, The task name. ("Task Name" or "/Task Name")
 
-force
+``force``
    **Ruby Type:** TrueClass, FalseClass
-
    When used with create, will update the task.
 
-cwd
+``cwd``
    **Ruby Type:** String
-
    The directory the task will be run from.
 
-user
+``user``
    **Ruby Type:** String
-
    The user to run the task as. (defaults to 'SYSTEM')
 
-password
+``password``
    **Ruby Type:** String
-
    The user's password. (requires user)
 
-run_level
+``run_level``
    **Ruby Type:** Symbol
-
    Run with :limited or :highest privileges. Default is :limited.
 
-frequency
+``frequency``
    **Ruby Type:** Symbol
-
    Frequency with which to run the task (default is :hourly. Other valid values include :minute, :hourly, :daily, :weekly, :monthly, :once, :on_logon, :onstart, :on_idle).
    :once requires start_time.
 
-frequency_modifier
+``frequency_modifier``
    **Ruby Type:** Integer, String
-
    Multiple for frequency. (15 minutes, 2 days). Monthly tasks may also use these values": ('FIRST', 'SECOND', 'THIRD', 'FOURTH', 'LAST', 'LASTDAY')
 
-start_day
+``start_day``
    **Ruby Type:** String
-
    Specifies the first date on which the task runs. Optional string (MM/DD/YYYY)
 
-start_time
+``start_time``
    **Ruby Type:** String
-
    Specifies the start time to run the task. Optional string (HH:mm)
 
-interactive_enabled
+``interactive_enabled``
    **Ruby Type:** TrueClass, FalseClass
-
    Allow task to run interactively or non-interactively. Requires user and password.
 
-day
+``day``
    **Ruby Type:** String
+   For monthly or weekly tasks, the day(s) on which the task runs. (MON - SUN, \* ,1 - 31)
 
-   For monthly or weekly tasks, the day(s) on which the task runs. (MON - SUN, *, 1 - 31)
-
-months
+``months``
    **Ruby Type:** String
+   The Months of the year on which the task runs. (JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC, \*). Multiple months should be comma delimited.
 
-   The Months of the year on which the task runs. (JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC, *). Multiple months should be comma delimited.
-
-idle_time
+``idle_time``
    **Ruby Type:** Integer
-
    For :on_idle frequency, the time (in minutes) without user activity that must pass to trigger the task. (1 - 999)
 
 Examples
