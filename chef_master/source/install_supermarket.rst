@@ -237,7 +237,7 @@ To upload the cookbooks necessary to install Chef Supermarket, do the following:
 
 Bootstrap Supermarket
 -----------------------------------------------------
-Bootstrap the node on which Chef Supermarket is to be installed. For example, to bootstrap a node runnnig Ubuntu on Amazon Web Services (AWS), the command is similar to:
+Bootstrap the node on which Chef Supermarket is to be installed. For example, to bootstrap a node running Ubuntu on Amazon Web Services (AWS), the command is similar to:
 
 .. code-block:: bash
 
@@ -334,7 +334,7 @@ To run Chef Supermarket in Kitchen, do the following:
 
    .. code-block:: bash
 
-      $ git clone https://github.com/irvingpop/supermarket-omnibus-cookbook.git supermarket-omnibus-cookbook
+      $ git clone https://github.com/chef-cookbooks/supermarket-omnibus-cookbook.git supermarket-omnibus-cookbook
 
       and then:
 
