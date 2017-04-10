@@ -257,7 +257,7 @@ For example:
 
 .. code-block:: bash
 
-   $ SCHTASKS.EXE /CREATE /TN ChefClientSchTask /SC MINUTE /MO 30 /F /TR "cmd /c \"C:\opscode\chef\embedded\bin\ruby.exe C:\opscode\chef\bin\chef-client -L C:\chef\chef-client.log -c C:\chef\client.rb\" /RU "NT Authority\System" /RP /RL HIGHEST"
+   $ SCHTASKS.EXE /CREATE /TN ChefClientSchTask /SC MINUTE /MO 30 /F /RU "System" /RP /RL HIGHEST /TR "cmd /c \"C:\opscode\chef\embedded\bin\ruby.exe C:\opscode\chef\bin\chef-client -L C:\chef\chef-client.log -c C:\chef\client.rb\""
 
 Refer `Schedule a Task <https://technet.microsoft.com/en-us/library/cc748993%28v=ws.11%29.aspx>`_ for more details.
 
