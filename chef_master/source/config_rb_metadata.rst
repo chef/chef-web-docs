@@ -61,26 +61,6 @@ Settings
 
 This configuration file has the following settings:
 
-``attribute``
-   The list of attributes that are required to configure a cookbook. An attribute name is required, followed by any of these options: ``display_name`` (the name that appears in the user interface), ``description`` (a short description), ``choice`` (an array of choices that are presented to a user), ``calculated`` (the default value is calculated by the recipe), ``type`` (the type of value, either ``string``, ``array``, or ``hash``), ``required`` (the level of user input, either ``required``, ``recommended``, or ``optional``), ``recipes`` (an array of recipes), or ``default`` (the attribute's default value).
-
-   For example:
-
-   .. code-block:: ruby
-
-      attribute 'pets/cat/name',
-        :display_name => 'Cat Name',
-        :description => 'The name of your cat',
-        :choice => \[
-          'kitty kitty',
-          'peanut',
-          'einstein',
-          'honey' \],
-        :type => 'string',
-        :required => 'recommended',
-        :recipes => \[ 'cats::eat' \],
-        :default => 'kitty kitty'
-
 ``chef_version``
    A range of chef-client versions that are supported by this cookbook. All :ref:`version constraint operators <cookbook_version_constraints>` are applicable to this field.
 
