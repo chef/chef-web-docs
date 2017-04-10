@@ -537,7 +537,7 @@ This configuration file has the following settings for ``nginx``:
    The ``max_size`` parameter used by the Nginx cache manager, which is part of the ``proxy_cache_path`` directive. When the size of file storage exceeds this value, the Nginx cache manager removes the least recently used data. Default value: ``5000m``.
 
 ``nginx['client_max_body_size']``
-   The maximum accepted body size for a client request, as indicated by the ``Content-Length`` request header. When the maximum accepted body size is greater than this value, a ``413 Request Entity Too Large`` error is returned. Default value: ``250m``.
+   The maximum accepted body size for a client request, as indicated by the ``Content-Length`` request header. Default value: ``250m``.
 
 ``nginx['dir']``
    The working directory. The default value is the recommended value. Default value: ``/var/opt/opscode/nginx``.
@@ -1056,7 +1056,7 @@ This configuration file has the following settings for ``opscode-erchef``:
    Default value: ``10000``.
 
 ``opscode_erchef['max_request_size']``
-   Default value: ``1000000``.
+   When the request body size is greater than this value, a ``413 Request Entity Too Large`` error is returned. Default value: ``1000000``.  
 
 ``opscode_erchef['nginx_bookshelf_caching']``
    Whether Nginx is used to cache cookbooks. When ``:on``, Nginx serves up the cached content instead of forwarding the request. Default value: ``:off``.
