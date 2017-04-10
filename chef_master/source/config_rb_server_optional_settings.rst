@@ -537,7 +537,7 @@ This configuration file has the following settings for ``nginx``:
    The ``max_size`` parameter used by the Nginx cache manager, which is part of the ``proxy_cache_path`` directive. When the size of file storage exceeds this value, the Nginx cache manager removes the least recently used data. Default value: ``5000m``.
 
 ``nginx['client_max_body_size']``
-   The maximum accepted body size for a client request, as indicated by the ``Content-Length`` request header. When the maximum accepted body size is greater than this value, a ``413 Request Entity Too Large`` error is returned. Default value: ``250m``.
+   The maximum accepted body size for a client request, as indicated by the ``Content-Length`` request header. Default value: ``250m``.
 
 ``nginx['dir']``
    The working directory. The default value is the recommended value. Default value: ``/var/opt/opscode/nginx``.
