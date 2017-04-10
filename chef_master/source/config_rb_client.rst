@@ -14,7 +14,7 @@ A client.rb file is used to specify the configuration details for the chef-clien
 
 .. end_tag
 
-Changed in Chef Client 12.11 to support standard ``exit-status``codes. Changed in 12.9 to support new ``:win_evt`` and ``:syslog`` output locations. Changed in 12.8 to support ``.d`` setting. Changed in 12.4 to support the Windows Event Logger and the daemon facility, see ``log_location``; stable audit-mode introduced. Changed in 12.3, ``listen`` can be used in socketless mode. Changed in 12.1 to run chef-client in audit_mode. Changed in 12.1, ``windows_service.watchdog_timeout`` defaults to ``2 * (60 * 60)``. Changed in 12.0 to set the ``disable_event_logger`` to send events to the Microsoft Windows "Application" event log by default, file_staging_uses_destdir creates temporary files in the directory in which the files will reside by default, ``local_key_generation`` is enabled by default``, ``no_lazy_load`` defaults to ``true``, ``interval`` and ``splay`` are applied before the chef-client run, unforked interval runs are no longer allowed.
+New in Chef Client 13.0, attributes may be blacklisted or whitelisted. Changed in Chef Client 12.11 to support standard ``exit-status``codes. Changed in 12.9 to support new ``:win_evt`` and ``:syslog`` output locations. Changed in 12.8 to support ``.d`` setting. Changed in 12.4 to support the Windows Event Logger and the daemon facility, see ``log_location``; stable audit-mode introduced. Changed in 12.3, ``listen`` can be used in socketless mode. Changed in 12.1 to run chef-client in audit_mode. Changed in 12.1, ``windows_service.watchdog_timeout`` defaults to ``2 * (60 * 60)``. Changed in 12.0 to set the ``disable_event_logger`` to send events to the Microsoft Windows "Application" event log by default, file_staging_uses_destdir creates temporary files in the directory in which the files will reside by default, ``local_key_generation`` is enabled by default``, ``no_lazy_load`` defaults to ``true``, ``interval`` and ``splay`` are applied before the chef-client run, unforked interval runs are no longer allowed.
 
 Settings
 =====================================================
@@ -28,8 +28,15 @@ This configuration file has the following settings:
 
    Changed in Chef Client 12.4 to "stable", changed in 12.1 to run chef-client in audit_mode.
 
+``automatic_attribute_blacklist``
+   A hash  that blacklists ``automatic`` attributes, preventing blacklisted attributes from being saved.
+
+   New in Chef Client 13.0.
+
 ``automatic_attribute_whitelist``
-   A Hash that whitelists ``automatic`` attributes, preventing non-whitelisted attributes from being saved.
+   A hash  that whitelists ``automatic`` attributes, preventing non-whitelisted attributes from being saved.
+
+   New in Chef Client 13.0.
 
 ``cache_path``
    Optional. The home directory for the user that is running the chef-client as a non-root user.
@@ -100,8 +107,15 @@ This configuration file has the following settings:
 ``data_collector.raise_on_failure``
    When enabled the chef-client will raise an error if it is unable to successfully POST to the data collector server. Default value: ``false``.
 
+``default_attribute_blacklist``
+   A hash  that blacklists ``default`` attributes, preventing blacklisted attributes from being saved.
+
+   New in Chef Client 13.0.
+
 ``default_attribute_whitelist``
-   A Hash that whitelists ``default`` attributes, preventing non-whitelisted attributes from being saved.
+   A hash  that whitelists ``default`` attributes, preventing non-whitelisted attributes from being saved.
+
+   New in Chef Client 13.0.
 
 ``diff_disabled``
    Cause the chef-client to create a diff when changes are made to a file. Default value: ``false``.
@@ -251,11 +265,25 @@ This configuration file has the following settings:
 ``node_path``
    The location in which nodes are stored when the chef-client is run in local mode. Default value: ``/var/chef/node``.
 
+``normal_attribute_blacklist``
+   A hash  that blacklists ``normal`` attributes, preventing blacklisted attributes from being saved.
+
+   New in Chef Client 13.0.
+
+``override_attribute_blacklist``
+   A hash  that blacklists ``override`` attributes, preventing blacklisted attributes from being saved.
+
+   New in Chef Client 13.0.
+
 ``normal_attribute_whitelist``
-   A Hash that whitelists ``normal`` attributes, preventing non-whitelisted attributes from being saved.
+   A hash  that whitelists ``normal`` attributes, preventing non-whitelisted attributes from being saved.
+
+   New in Chef Client 13.0.
 
 ``override_attribute_whitelist``
-   A Hash that whitelists ``override`` attributes, preventing non-whitelisted attributes from being saved.
+   A hash  that whitelists ``override`` attributes, preventing non-whitelisted attributes from being saved.
+
+   New in Chef Client 13.0.
 
 ``pid_file``
    The location in which a process identification number (pid) is saved. An executable, when started as a daemon, writes the pid to the specified file. Default value: ``/tmp/name-of-executable.pid``.
@@ -325,7 +353,7 @@ This configuration file has the following settings:
    Verify the SSL certificate on the Chef server. When ``true``, the chef-client always verifies the SSL certificate. When ``false``, the chef-client uses the value of ``ssl_verify_mode`` to determine if the SSL certificate requires verification. Default value: ``false``.
 
 ``whitelist``
-   A Hash that contains the whitelist used by Chef push jobs. For example:
+   A hash that contains the whitelist used by Chef push jobs. For example:
 
    .. code-block:: ruby
 
@@ -338,6 +366,8 @@ This configuration file has the following settings:
    A job entry may also be ``'job-name' => {:lock => true}``, which will check the ``lockfile`` setting in the client.rb file before starting the job.
 
    .. warning:: The ``whitelist`` setting is available only when using Chef push jobs, a tool that runs jobs against nodes in an organization.
+
+New in Chef Client 13.0.
 
 ``windows_service.watchdog_timeout``
    The maximum amount of time (in seconds) available to the chef-client run when the chef-client is run as a service on the Microsoft Windows platform. If the chef-client run does not complete within the specified timeframe, the chef-client run is terminated. Default value: ``2 * (60 * 60)``.

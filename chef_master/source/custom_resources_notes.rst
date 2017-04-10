@@ -60,8 +60,6 @@ in ``providers/my_resource.rb``:
 
 .. code-block:: ruby
 
-   use_inline_resources  # you still have to do this, if you don't notifications off of this resource will be broken
-
    # you have to worry about this
    def whyrun_supported?
      true
@@ -107,8 +105,6 @@ in ``libraries/resource_my_resource.rb``:
    class MyBaseClass
      class Resource
        class MyProvider < Chef::Provider::LWRPBase  # it is very important to inherit from LWRPBase
-
-         use_inline_resources  # you still have to do this, if you don't notifications off of this resource will be broken
 
          # you have to worry about this
          def whyrun_supported?
@@ -156,8 +152,6 @@ THIS IS CORRECT:
 
 .. code-block:: ruby
 
-   use_inline_resources
-
    def whyrun_supported?
      true
    end
@@ -175,8 +169,6 @@ This also gets the why-run case correct. If all the work that you do in your res
 If you do need to write code which mutates the system through pure-Ruby then you should do so like this:
 
 .. code-block:: ruby
-
-   use_inline_resources
 
    def whyrun_supported?
      true

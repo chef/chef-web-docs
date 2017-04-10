@@ -18,7 +18,6 @@ For more information about specific resources for specific platforms, see the fo
 * :doc:`chef_gem </resource_chef_gem>`
 * :doc:`chocolatey_package </resource_chocolatey_package>`
 * :doc:`dpkg_package </resource_dpkg_package>`
-* :doc:`easy_install_package </resource_easy_install_package>`
 * :doc:`freebsd_package </resource_freebsd_package>`
 * :doc:`gem_package </resource_gem_package>`
 * :doc:`homebrew_package </resource_homebrew_package>`
@@ -33,6 +32,7 @@ For more information about specific resources for specific platforms, see the fo
 * :doc:`solaris_package </resource_solaris_package>`
 * :doc:`windows_package </resource_windows_package>`
 * :doc:`yum_package </resource_yum>`
+* :doc:`zypper_package </resource_zypper_package>`
 
 Syntax
 =====================================================
@@ -436,6 +436,14 @@ For example, installing multiple packages:
 
    package ['package1', 'package2']
 
+Installing multiple packages with versions:
+
+.. code-block:: ruby
+
+   package ['package1', 'package2'] do
+     version [ '1.3.4-2', '4.3.6-1']
+   end
+
 Upgrading multiple packages:
 
 .. code-block:: ruby
@@ -517,9 +525,6 @@ This resource has the following providers:
 
 ``Chef::Provider::Package::Dpkg``, ``dpkg_package``
    The provider for the dpkg platform. Can be used with the ``options`` attribute.
-
-``Chef::Provider::Package::EasyInstall``, ``easy_install_package``
-   The provider for Python.
 
 ``Chef::Provider::Package::Freebsd``, ``freebsd_package``
    The provider for the FreeBSD platform.

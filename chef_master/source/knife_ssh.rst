@@ -46,6 +46,11 @@ This subcommand has the following options:
 ``-G GATEWAY``, ``--ssh-gateway GATEWAY``
    The SSH tunnel or gateway that is used to run a bootstrap action on a machine that is not accessible from the workstation.
 
+``--ssh-gateway-identity SSH_GATEWAY_IDENTITY``
+   The SSH identity file used to connect to the SSH gateway.
+
+   New in Chef Client 13.0.
+
 ``-i IDENTITY_FILE``, ``--identity-file IDENTIFY_FILE``
    The SSH identity file used for authentication. Key-based authentication is recommended.
 
@@ -68,6 +73,17 @@ This subcommand has the following options:
 
 ``SEARCH_QUERY``
    The search query used to return a list of servers to be accessed using SSH and the specified ``SSH_COMMAND``. This option uses the same syntax as the search subcommand.
+   If the ``SEARCH_QUERY`` does not contain a colon character (``:``), then the default query pattern is ``tags:*#{@query}* OR roles:*#{@query}* OR fqdn:*#{@query}* OR addresses:*#{@query}*``, which means the following two search queries are effectively the same:
+
+.. code-block:: bash
+
+   $ knife search ubuntu
+
+or:
+
+.. code-block:: bash
+
+   $ knife search node "tags:*ubuntu* OR roles:*ubuntu* OR fqdn:*ubuntu* (etc.)"
 
 ``SSH_COMMAND``
    The command to be run against the results of a search query.

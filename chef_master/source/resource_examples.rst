@@ -2356,28 +2356,6 @@ The **dsc_script** resource can be used with other resources. The following exam
 
 .. end_tag
 
-easy_install_package
-=====================================================
-.. tag resource_package_easy_install
-
-Use the **easy_install_package** resource to manage packages for the Python platform.
-
-.. end_tag
-
-**Install a package**
-
-.. tag resource_easy_install_package_install
-
-.. To install a package:
-
-.. code-block:: ruby
-
-   easy_install_package 'name of package' do
-     action :install
-   end
-
-.. end_tag
-
 env
 =====================================================
 .. tag resource_env_summary

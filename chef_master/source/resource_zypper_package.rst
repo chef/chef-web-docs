@@ -1,11 +1,11 @@
 =====================================================
-easy_install_package
+zypper_package
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_easy_install_package.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_zypper_package.rst>`__
 
-.. tag resource_package_easy_install
+.. tag resource_package_zypper
 
-Use the **easy_install_package** resource to manage packages for the Python platform.
+Use the **zypper_package** resource to install, upgrade, and remove packages with Zypper for the SUSE Enterprise and OpenSUSE platforms.
 
 .. end_tag
 
@@ -17,26 +17,24 @@ Use the **easy_install_package** resource to manage packages for the Python plat
 
 Syntax
 =====================================================
-A **easy_install_package** resource block manages a package on a node, typically by installing it. The simplest use of the **easy_install_package** resource is:
+A **zypper_package** resource block manages a package on a node, typically by installing it. The simplest use of the **zypper_package** resource is:
 
 .. code-block:: ruby
 
-   easy_install_package 'package_name'
+   zypper_package 'package_name'
 
 which will install the named package using all of the default options and the default action (``:install``).
 
-The full syntax for all of the properties that are available to the **easy_install_package** resource is:
+The full syntax for all of the properties that are available to the **zypper_package** resource is:
 
 .. code-block:: ruby
 
-   easy_install_package 'name' do
-     easy_install_binary        String
-     module_name                String
+   zypper_package 'name' do
+     gpg_check                  TrueClass, FalseClass
      notifies                   # see description
      options                    String
      package_name               String, Array # defaults to 'name' if not specified
-     provider                   Chef::Provider::Package::EasyInstall
-     python_binary              String
+     provider                   Chef::Provider::Package::zypper
      source                     String
      subscribes                 # see description
      timeout                    String, Integer
@@ -46,10 +44,12 @@ The full syntax for all of the properties that are available to the **easy_insta
 
 where
 
-* ``easy_install_package`` tells the chef-client to manage a package
+* ``zypper_package`` tells the chef-client to manage a package
 * ``'name'`` is the name of the package
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state
-* ``easy_install_binary``, ``module_name``, ``options``, ``package_name``, ``provider``, ``python_binary``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``gpg_check``, ``options``, ``package_name``, ``provider``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+
+Changed in Chef Client 12.1 to support specifying multiple packages and/or versions.
 
 Actions
 =====================================================
@@ -57,6 +57,11 @@ This resource has the following actions:
 
 ``:install``
    Default. Install a package. If a version is specified, install the specified version of the package.
+
+``:lock``
+   Locks the zypper package to a specific version.
+
+   New in Chef Client 12.16.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -68,8 +73,16 @@ This resource has the following actions:
 ``:purge``
    Purge a package. This action typically removes the configuration files as well as the package.
 
+``:reconfig``
+   Reconfigure a package. This action requires a response file.
+
 ``:remove``
    Remove a package.
+
+``:unlock``
+   Unlocks the zypper package so that it can be upgraded to a newer version.
+
+   New in Chef Client 12.16.
 
 ``:upgrade``
    Install a package and/or ensure that a package is the latest version.
@@ -78,20 +91,15 @@ Properties
 =====================================================
 This resource has the following properties:
 
-``easy_install_binary``
-   **Ruby Type:** String
+``gpg_check``
+   **Ruby Types:** TrueClass, FalseClass
 
-   The location of the Easy Install binary.
+   Verify the package's GPG signature. Default value: ``true``. Can also be controlled site-wide using the ``zypper_check_gpg`` config option.
 
 ``ignore_failure``
    **Ruby Types:** TrueClass, FalseClass
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
-
-``module_name``
-   **Ruby Type:** String
-
-   The name of the module.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -130,7 +138,7 @@ This resource has the following properties:
 ``options``
    **Ruby Type:** String
 
-   One (or more) additional options that are passed to the command.
+   One (or more) additional command options that are passed to the command. For example, common zypper directives, such as ``--no-recommends``. See the `zypper man page <https://en.opensuse.org/SDB:Zypper_manual_(plain)>`_ for the full list.
 
 ``package_name``
    **Ruby Types:** String, Array
@@ -142,11 +150,6 @@ This resource has the following properties:
 
    Optional. Explicitly specifies a provider. See "Providers" section below for more information.
 
-``python_binary``
-   **Ruby Type:** String
-
-   The location of the Python binary.
-
 ``retries``
    **Ruby Type:** Integer
 
@@ -156,6 +159,11 @@ This resource has the following properties:
    **Ruby Type:** Integer
 
    The retry delay (in seconds). Default value: ``2``.
+
+``source``
+   **Ruby Type:** String
+
+   Optional. The direct path to a dpkg or deb package.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -191,11 +199,6 @@ This resource has the following properties:
 
    .. end_tag
 
-``source``
-   **Ruby Type:** String
-
-   Optional. The path to a package in the local file system.
-
 ``timeout``
    **Ruby Types:** String, Integer
 
@@ -205,6 +208,69 @@ This resource has the following properties:
    **Ruby Types:** String, Array
 
    The version of a package to be installed or upgraded.
+
+Multiple Packages
+-----------------------------------------------------
+.. tag resources_common_multiple_packages
+
+A resource may specify multiple packages and/or versions for platforms that use Yum, Apt, Zypper, or Chocolatey package managers. Specifing multiple packages and/or versions allows a single transaction to:
+
+* Download the specified packages and versions via a single HTTP transaction
+* Update or install multiple packages with a single resource during the chef-client run
+
+For example, installing multiple packages:
+
+.. code-block:: ruby
+
+   package ['package1', 'package2']
+
+Installing multiple packages with versions:
+
+.. code-block:: ruby
+
+   package ['package1', 'package2'] do
+     version [ '1.3.4-2', '4.3.6-1']
+   end
+
+Upgrading multiple packages:
+
+.. code-block:: ruby
+
+   package ['package1', 'package2']  do
+     action :upgrade
+   end
+
+Removing multiple packages:
+
+.. code-block:: ruby
+
+   package ['package1', 'package2']  do
+     action :remove
+   end
+
+Purging multiple packages:
+
+.. code-block:: ruby
+
+   package ['package1', 'package2']  do
+     action :purge
+   end
+
+Notifications, via an implicit name:
+
+.. code-block:: ruby
+
+   package ['package1', 'package2']  do
+     action :nothing
+   end
+
+   log 'call a notification' do
+     notifies :install, 'package[package1, package2]', :immediately
+   end
+
+.. note:: Notifications and subscriptions do not need to be updated when packages and versions are added or removed from the ``package_name`` or ``version`` properties.
+
+.. end_tag
 
 Providers
 =====================================================
@@ -230,24 +296,56 @@ This resource has the following providers:
 ``Chef::Provider::Package``, ``package``
    When this short name is used, the chef-client will attempt to determine the correct provider during the chef-client run.
 
-``Chef::Provider::Package::EasyInstall``, ``easy_install_package``
-   The provider for Python.
+``Chef::Provider::Package::Zypper``, ``zypper_package``
+   The provider for the SUSE Enterprise and OpenSUSE platforms.
 
 Examples
 =====================================================
+.. tag resources_common_examples_intro
+
 The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
 
-**Install a package**
+.. end_tag
 
-.. tag resource_easy_install_package_install
+**Install a package using package manager**
 
-.. To install a package:
+.. tag resource_zypper_package_install_package
+
+.. To install a package using package manager:
 
 .. code-block:: ruby
 
-   easy_install_package 'name of package' do
+   zypper_package 'name of package' do
      action :install
    end
 
 .. end_tag
 
+**Install a package using local file**
+
+.. tag resource_zypper_package_install_package_using_local_file
+
+.. To install a package using local file:
+
+.. code-block:: ruby
+
+   zypper_package 'jwhois' do
+     action :install
+     source '/path/to/jwhois.rpm'
+   end
+
+.. end_tag
+
+**Install without using recommend packages as a dependency**
+
+.. tag resource_zypper_package_install_without_recommends_suggests
+
+.. To install without using recommend packages as a dependency:
+
+.. code-block:: ruby
+
+   package 'apache2' do
+     options '--no-recommends'
+   end
+
+.. end_tag

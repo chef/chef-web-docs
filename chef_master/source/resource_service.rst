@@ -28,6 +28,7 @@ The full syntax for all of the properties that are available to the **service** 
    service 'name' do
      init_command               String
      notifies                   # see description
+     options                    Array, String
      pattern                    String
      priority                   Integer, String, Hash
      provider                   Chef::Provider::Service
@@ -48,7 +49,7 @@ where
 * ``service`` is the resource; depending on the platform, more specific providers are run: ``Chef::Provider::Service::Init``, ``Chef::Provider::Service::Init::Debian``, ``Chef::Provider::Service::Upstart``, ``Chef::Provider::Service::Init::Freebsd``, ``Chef::Provider::Service::Init::Gentoo``, ``Chef::Provider::Service::Init::Redhat``, ``Chef::Provider::Service::Solaris``, ``Chef::Provider::Service::Windows``, or ``Chef::Provider::Service::Macosx``
 * ``name`` is the name of the resource block; when the ``path`` property is not specified, ``name`` is also the path to the directory, from the root
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``init_command``, ``pattern``, ``priority``, ``provider``, ``reload_command``, ``restart_command``, ``service_name``, ``start_command``, ``status_command``, ``stop_command``, ``supports``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``init_command``, ``options``, ``pattern``, ``priority``, ``provider``, ``reload_command``, ``restart_command``, ``service_name``, ``start_command``, ``status_command``, ``stop_command``, ``supports``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -124,6 +125,11 @@ This resource has the following properties:
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
+
+``options``
+   **Ruby Type:** Array, String
+
+   Solaris platform only. Options to pass to the service command. See the ``svcadm`` manual for details of possible options.
 
 ``pattern``
    **Ruby Type:** String

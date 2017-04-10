@@ -36,12 +36,13 @@ The full syntax for all of the properties that are available to the **chef_gem**
 
    chef_gem 'name' do
      clear_sources              TrueClass, FalseClass
+     include_default_source     TrueClass, FalseClass
      compile_time               TrueClass, FalseClass
      notifies                   # see description
      options                    String
      package_name               String # defaults to 'name' if not specified
      provider                   Chef::Provider::Package::Rubygems
-     source                     String
+     source                     String, Array
      subscribes                 # see description
      timeout                    String, Integer
      version                    String
@@ -53,7 +54,7 @@ where
 * ``chef_gem`` tells the chef-client to manage a gem
 * ``'name'`` is the name of the gem
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state
-* ``clear_sources``, ``compile_time``, ``options``, ``package_name``, ``provider``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``clear_sources``, ``include_default_source``, ``gem_binary``, ``options``, ``package_name``, ``provider``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -132,6 +133,13 @@ This resource has the following properties:
 
    New in Chef Client 12.1.
 
+``include_default_source``
+   **Ruby Types:** TrueClass, FalseClass
+
+   Set to ``false`` to not include ``Chef::Config[:rubygems_url]`` in the sources. Default value: ``true``.
+
+   New in Chef Client 13.0
+
 ``ignore_failure``
    **Ruby Types:** TrueClass, FalseClass
 
@@ -197,9 +205,9 @@ This resource has the following properties:
    The retry delay (in seconds). Default value: ``2``.
 
 ``source``
-   **Ruby Type:** String
+   **Ruby Type:** String, Array
 
-   Optional. The path to a gem in the local file system.
+   Optional. The URL location of the gem package. May also be a list of URLs. This list is added to the source configured in ``Chef::Config[:rubygems_url]`` (see also ``include_default_source``) to construct the complete list of rubygems sources. Users in an "airgapped" environment should set ``Chef::Config[:rubygems_url]`` to their local RubyGems mirror.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'

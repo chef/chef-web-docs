@@ -120,6 +120,11 @@ This resource has the following properties:
 
    Specifies whether to trigger a daemon reload when creating or deleting a unit. Default is true.
 
+``verify``
+   **Ruby Type:** TrueClass, FalseClass
+
+   Specifies if the unit will be verified before installation. Systemd can be overly strict when verifying units, so in certain cases it is preferable not to verify the unit. Defaults to true.
+
 .. end_tag
 
 Providers
