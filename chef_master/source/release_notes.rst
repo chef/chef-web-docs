@@ -129,7 +129,8 @@ The new ``gateway_identity_file`` option allows the operator to specify the key 
 
 Windows Task resource added
 -----------------------------------------------------
-The ``windows_task`` resource has been ported from the windows cookbook, and many bugs have been fixed.
+The ``windows_task`` resource has been ported from the windows cookbook.
+Use the **windows_task** resource to create, delete or run a Windows scheduled task. Requires Windows Server 2008 due to API usage.
 
 Solaris SMF services can now be started recursively
 -----------------------------------------------------
