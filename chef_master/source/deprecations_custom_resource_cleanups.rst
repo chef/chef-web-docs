@@ -118,7 +118,7 @@ Remediation
 Don't use the dsl_name method
 =============================
 
-The ``dsl_name`` method is deprecated and will be removed from Chef 13. It has been replacesd by ``resource_name``.
+The ``dsl_name`` method is deprecated and will be removed from Chef 13. It has been replaced by ``resource_name``.
 
 Example
 --------
