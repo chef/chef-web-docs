@@ -614,6 +614,11 @@ This resource has the following properties:
 
    Specifies whether to trigger a daemon reload when creating or deleting a unit. Default is true.
 
+``verify``
+   **Ruby Type:** TrueClass, FalseClass
+
+   Specifies if the unit will be verified before installation. Systemd can be overly strict when verifying units, so in certain cases it is preferable not to verify the unit. Defaults to true.
+
 .. end_tag
 
 What's New in 12.10
@@ -1177,6 +1182,9 @@ This resource has the following actions:
 
 ``:enable``
    Create a launchd property list, and then ensure that it is enabled. If a launchd property list already exists, but does not match, updates the property list to match, and then restarts the daemon or agent.
+
+``:restart``
+   Restart a launchd managed daemon or agent.
 
 .. end_tag
 
@@ -6347,6 +6355,14 @@ For example, installing multiple packages:
 .. code-block:: ruby
 
    package ['package1', 'package2']
+
+Installing multiple packages with versions:
+
+.. code-block:: ruby
+
+   package ['package1', 'package2'] do
+     version [ '1.3.4-2', '4.3.6-1']
+   end
 
 Upgrading multiple packages:
 

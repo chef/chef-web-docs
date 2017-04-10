@@ -47,7 +47,7 @@ The full syntax for all of the properties that are available to the **launchd** 
      launch_only_once           TrueClass, FalseClass
      limit_load_from_hosts      Array
      limit_load_to_hosts        Array
-     limit_load_to_session_type String
+     limit_load_to_session_type Array, String
      low_priority_io            TrueClass, FalseClass
      mach_services              Hash
      mode                       Integer, String
@@ -116,6 +116,9 @@ This resource has the following actions:
 ``:enable``
    Create a launchd property list, and then ensure that it is enabled. If a launchd property list already exists, but does not match, updates the property list to match, and then restarts the daemon or agent.
 
+``:restart``
+   Restart a launchd managed daemon or agent.
+
 .. end_tag
 
 Properties
@@ -138,13 +141,6 @@ This resource has the following properties:
    **Ruby Types:** String, Integer
 
    When launchd is run as the root user, the group to run the job as. If the ``username`` property is specified and this property is not, this value is set to the default group for the user.
-
-``hash``
-   **Ruby Type:** Hash
-
-   A Hash of key value pairs used to create the launchd property list.
-
-   Renamed to ``plist_hash`` in Chef Client 12.19.  
 
 ``ignore_failure``
    **Ruby Types:** TrueClass, FalseClass
@@ -362,9 +358,9 @@ The following resource properties may be used to define keys in the XML property
    An array of hosts to which this configuration file applies.
 
 ``limit_load_to_session_type``
-   **Ruby Type:** String
+   **Ruby Type:** Array, String
 
-   The session type to which this configuration file applies.
+   The session type(s) to which this configuration file applies.
 
 ``low_priority_io``
    **Ruby Types:** TrueClass, FalseClass

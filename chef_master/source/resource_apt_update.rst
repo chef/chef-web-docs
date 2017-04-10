@@ -33,6 +33,21 @@ where
 
 .. end_tag
 
+Nameless
+=====================================================
+
+This resource can be **nameless**. Add the resource itself to your recipe to get the default behavior:
+
+.. code-block:: ruby
+
+   apt_update
+
+will behave the same as:
+
+.. code-block:: ruby
+
+   apt_update 'update'
+
 Actions
 =====================================================
 .. tag resource_apt_update_actions

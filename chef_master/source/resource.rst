@@ -225,13 +225,6 @@ The following resources are platform resources (i.e. "are available from the che
 
        .. end_tag
 
-   * - :doc:`easy_install_package </resource_easy_install_package>`
-     - .. tag resource_package_easy_install
-
-       Use the **easy_install_package** resource to manage packages for the Python platform.
-
-       .. end_tag
-
    * - :doc:`env </resource_env>`
      - .. tag resource_env_summary
 
@@ -546,6 +539,13 @@ The following resources are platform resources (i.e. "are available from the che
      - .. tag resource_package_yum
 
        Use the **yum_package** resource to install, upgrade, and remove packages with Yum for the Red Hat and CentOS platforms. The **yum_package** resource is able to resolve ``provides`` data for packages much like Yum can do when it is run from the command line. This allows a variety of options for installing packages, like minimum versions, virtual provides, and library names.
+
+       .. end_tag
+
+   * - :doc:`zypper_package </resource_zypper_package>`
+     - .. tag resource_package_zypper
+
+       Use the **zypper_package** resource to install, upgrade, and remove packages with Zypper for the SUSE Enterprise and OpenSUSE platforms.
 
        .. end_tag
 

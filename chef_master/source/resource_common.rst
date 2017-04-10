@@ -498,9 +498,7 @@ The following example shows how to use lazy evaluation with template variables:
    template '/tmp/canvey_island.txt' do
      source 'canvey_island.txt.erb'
      variables(
-       lazy {
-         { :canvey_island => node.run_state['sea_power'] }
-       }
+       { :canvey_island => lazy { node.run_state['sea_power'] } }
      )
    end
 
