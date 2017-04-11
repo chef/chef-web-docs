@@ -19,4 +19,4 @@ Using the ``knife ssh`` subcommand is one way to do this.
 
 Upgrade via Cookbook
 =====================================================
-The `chef_client_updater <https://supermarket.chef.io/cookbooks/chef_client_updater>`__ cookbook can be used to install or upgrade the chef-client package on a node, and then be used to update the chef-client.
+The `chef_client_updater <https://supermarket.chef.io/cookbooks/chef_client_updater>`__ cookbook can be used to install or upgrade the chef-client package on a node.
