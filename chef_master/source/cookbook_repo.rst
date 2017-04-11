@@ -98,27 +98,34 @@ Settings
 This configuration file has the following settings:
 
 ``attribute``
+   Deprecated in Chef Client 13.0, pending removal in 14.0.
+
+   .. warning:: ``attribute`` in cookbook configuration is deprecated and will be removed. ``attribute`` often requires frequent updating in the code, in the README.md file, and in the metadata, which may lead to extensive technical debt. When used, the current version of foodcritic will throw a warning.
+
    The list of attributes that are required to configure a cookbook. An attribute name is required, followed by any of these options: ``display_name`` (the name that appears in the user interface), ``description`` (a short description), ``choice`` (an array of choices that are presented to a user), ``calculated`` (the default value is calculated by the recipe), ``type`` (the type of value, either ``string``, ``array``, or ``hash``), ``required`` (the level of user input, either ``required``, ``recommended``, or ``optional``), ``recipes`` (an array of recipes), or ``default`` (the attribute's default value).
 
-   For example:
+    For example:
 
-   .. code-block:: ruby
+    .. code-block:: ruby
 
-      attribute 'pets/cat/name',
-        :display_name => 'Cat Name',
-        :description => 'The name of your cat',
-        :choice => \[
-          'kitty kitty',
-          'peanut',
-          'einstein',
-          'honey' \],
-        :type => 'string',
-        :required => 'recommended',
-        :recipes => \[ 'cats::eat' \],
-        :default => 'kitty kitty'
+       attribute 'pets/cat/name',
+         :display_name => 'Cat Name',
+         :description => 'The name of your cat',
+         :choice => \[
+           'kitty kitty',
+           'peanut',
+           'einstein',
+           'honey' \],
+         :type => 'string',
+         :required => 'recommended',
+         :recipes => \[ 'cats::eat' \],
+         :default => 'kitty kitty'
 
 ``chef_version``
+   New in Chef Client 12.6.
+   .. note:: This setting is not visible in Chef Supermarket.
    A range of chef-client versions that are supported by this cookbook. All :ref:`version constraint operators <cookbook_version_constraints>` are applicable to this field.
+
 
    .. tag config_rb_metadata_settings_example_chef_version
 
@@ -129,10 +136,6 @@ This configuration file has the following settings:
       chef_version '~> 12'
 
    .. end_tag
-
-   .. note:: This setting is not visible in Chef Supermarket.
-
-   New in Chef Client 12.6.
 
 ``depends``
    This field requires that a cookbook with a matching name and version exists on the Chef server. When the match exists, the Chef server includes the dependency as part of the set of cookbooks that are sent to the node when the chef-client runs. It is very important that the ``depends`` field contain accurate data. If a dependency statement is inaccurate, the chef-client may not be able to complete the configuration of the system. All :ref:`version constraint operators <cookbook_version_constraints>` are applicable to this field.
