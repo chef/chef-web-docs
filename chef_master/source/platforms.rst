@@ -256,6 +256,21 @@ The Chef Automate server may be run on the following platforms. Do not mix platf
      - ``x86_64``
      - ``12.04``, ``14.04``, ``16.04``
 
+Secondary Platforms
+-----------------------------------------------------
+The following table lists the Secondary platforms for the Chef Automate Server:
+
+.. list-table::
+ :widths: 280 100 120
+ :header-rows: 1
+
+ * - Platform
+   - Architecture
+   - Version
+ * - Oracle Linux
+   - ``x86_64``
+   - ``6``, ``7``
+
 .. note:: The Delivery CLI may be run on the following platforms:
 
           * Mac OS X
