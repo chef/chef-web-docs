@@ -258,7 +258,7 @@ The Chef Automate server may be run on the following platforms. Do not mix platf
 
 Secondary Platforms
 -----------------------------------------------------
-The following table lists the Secondary platforms for the Chef Automate Server:
+The following table lists the Secondary platforms for the Chef Automate server:
 
 .. list-table::
  :widths: 280 100 120
