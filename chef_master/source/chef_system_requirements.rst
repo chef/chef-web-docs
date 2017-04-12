@@ -32,12 +32,12 @@ The hosted Chef server has the following requirements:
 * **Browser** --- Firefox, Google Chrome, Safari, or Internet Explorer (versions 9 or better)
 * Every node that will be configured by the chef-client and every workstation that will upload data to the Chef server must be able to communicate with the hosted Chef server
 
-Chef Server, On-premises
+Chef Server, On-premises or in cloud environment
 -----------------------------------------------------
 
 .. tag system_requirements_server_hardware
 
-All machines in a Chef server deployment (including a standalone Chef Analytics machine) have the following hardware requirements.
+All machines in a Chef server deployment have the following hardware requirements.
 
 For all deployments:
 
@@ -45,8 +45,8 @@ For all deployments:
 
 For a standalone deployment:
 
-* 4 total cores, 2.0 GHz AMD 41xx/61xx or Intel Xeon 5000/E5 CPUs
-* 4 GB of RAM; 8 GB of RAM for Chef Analytics
+* 4 total cores (physical or virtual)
+* 4 GB of RAM required; 8 GB of RAM or more is preferred
 * 5 GB of free disk space in ``/opt``
 * 5 GB of free disk space in ``/var``
 
@@ -61,20 +61,28 @@ For a tiered deployment:
 * 40 GB of free disk space in ``/var``
 * A back-end server; all other systems will be front-end servers.
 
+.. note: Tiered deployments are deprecated as of Chef server 12.9. You are encouraged to set up a high availability server cluser instead. See see :doc:`High Availability: Backend Cluster </install_server_ha>` for more details.
+
 For a high availability deployment:
 
-* 8 total cores 2.0 GHz AMD 41xx/61xx or Intel Xeon 5000/E5 CPUs or faster
-* 16GB RAM
-* 2 x 300GB SAS RAID1 drives
-* Hardware RAID card
-* 1 x GigE NIC interface
-* 20 GB of free disk space in ``/opt``
-* 40 GB of free disk space in ``/var``
-* Two back-end servers; as many front-end servers as required.
+* Three backend servers; as many frontend servers as required
 
-.. note:: Front end machines, when load balanced, may have fewer than 4 cores and 4 GB of RAM.
+.. tag system_requirements_ha
+
+* 4 cores/frontend server, 2 cores/backend server (physical or virtual)
+* 4GB RAM/frontend server, 8GB RAM/backend server
+* Fast, redundant storage (SSD/RAID-based solution either on-prem or in a cloud environment)
+
+  * 20 GB/frontend server (SSD if on premises, Premium Storage in Microsoft Azure, EBS-Optimized GP2 in AWS)
+  * 50 GB/backend server (SSD if on premises, Premium Storage in Microsoft Azure, EBS-Optimized GP2 in AWS)
+
+* 1 x GigE NIC interface (if on premises)
+
+.. note:: Multiple front end servers, when load balanced, may have fewer than 4 cores and 4 GB of RAM.
 
 .. warning:: The Chef server MUST NOT use a network file system of any type---virtual or physical---for backend storage. The Chef server database operates quickly. The behavior of operations, such as the writing of log files, will be unpredictable when run over a network file system.
+
+.. end_tag
 
 .. end_tag
 .. tag system_requirements_server_software
