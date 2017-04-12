@@ -90,7 +90,7 @@ For all deployments:
 For a standalone deployment:
 
 * 4 total cores (physical or virtual)
-* 4 GB of RAM required; 8 GB of RAM or more is preferred
+* 8 GB of RAM or more
 * 5 GB of free disk space in ``/opt``
 * 5 GB of free disk space in ``/var``
 
