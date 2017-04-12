@@ -81,7 +81,7 @@ Hardware Requirements
 =====================================================
 .. tag system_requirements_server_hardware
 
-All machines in a Chef server deployment have the following hardware requirements.
+All machines in a Chef server deployment have the following hardware requirements. Disk space for standalone and backend servers should scale up with the number of nodes that the servers are managing. A good rule to follow is to allocate 2 MB per node. The disk values listed below should be a good default value that you will want to modify later if/when your node count grows.
 
 For all deployments:
 
@@ -93,19 +93,6 @@ For a standalone deployment:
 * 4 GB of RAM required; 8 GB of RAM or more is preferred
 * 5 GB of free disk space in ``/opt``
 * 5 GB of free disk space in ``/var``
-
-For a tiered deployment:
-
-* 8 total cores 2.0 GHz AMD 41xx/61xx or Intel Xeon 5000/E5 CPUs or faster
-* 16GB RAM
-* 2 x 300GB SAS RAID1 drives
-* Hardware RAID card
-* 1 GigE NIC interface
-* 20 GB of free disk space in ``/opt``
-* 40 GB of free disk space in ``/var``
-* A back-end server; all other systems will be front-end servers.
-
-.. note: Tiered deployments are deprecated as of Chef server 12.9. You are encouraged to set up a high availability server cluser instead. See see :doc:`High Availability: Backend Cluster </install_server_ha>` for more details.
 
 For a high availability deployment:
 
@@ -121,8 +108,6 @@ For a high availability deployment:
   * 50 GB/backend server (SSD if on premises, Premium Storage in Microsoft Azure, EBS-Optimized GP2 in AWS)
 
 * 1 x GigE NIC interface (if on premises)
-
-.. note:: Multiple front end servers, when load balanced, may have fewer than 4 cores and 4 GB of RAM.
 
 .. warning:: The Chef server MUST NOT use a network file system of any type---virtual or physical---for backend storage. The Chef server database operates quickly. The behavior of operations, such as the writing of log files, will be unpredictable when run over a network file system.
 

@@ -92,8 +92,6 @@ The following are a list of general hardware requirements for both frontend and 
 
 * 1 x GigE NIC interface (if on premises)
 
-.. note:: Multiple front end servers, when load balanced, may have fewer than 4 cores and 4 GB of RAM.
-
 .. warning:: The Chef server MUST NOT use a network file system of any type---virtual or physical---for backend storage. The Chef server database operates quickly. The behavior of operations, such as the writing of log files, will be unpredictable when run over a network file system.
 
 .. end_tag
