@@ -83,14 +83,17 @@ The following are a list of general hardware requirements for both frontend and 
 
 .. tag system_requirements_ha
 
-* 4 cores/frontend server, 2 cores/backend server (physical or virtual)
-* 4GB RAM/frontend server, 8GB RAM/backend server
-* Fast, redundant storage (SSD/RAID-based solution either on-prem or in a cloud environment)
+Frontend requirements
 
-  * 20 GB/frontend server (SSD if on premises, Premium Storage in Microsoft Azure, EBS-Optimized GP2 in AWS)
-  * 50 GB/backend server (SSD if on premises, Premium Storage in Microsoft Azure, EBS-Optimized GP2 in AWS)
+* 4 cores (physical or virtual)
+* 4GB RAM
+* 20 GB of free disk space (SSD if on premises, Premium Storage in Microsoft Azure, EBS-Optimized GP2 in AWS)
 
-* 1 x GigE NIC interface (if on premises)
+Backend requirements
+
+* 2 cores (physical or virtual)
+* 8GB RAM
+* 50 GB/backend server (SSD if on premises, Premium Storage in Microsoft Azure, EBS-Optimized GP2 in AWS)
 
 .. warning:: The Chef server MUST NOT use a network file system of any type---virtual or physical---for backend storage. The Chef server database operates quickly. The behavior of operations, such as the writing of log files, will be unpredictable when run over a network file system.
 

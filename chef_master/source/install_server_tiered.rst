@@ -27,25 +27,20 @@ For a tiered deployment, your backend server should support the following hardwa
 * 64-bit architecture
 * 8 total cores (physical or virtual)
 * 16GB RAM
-* 2 x 300GB SAS RAID1 drives
-* Hardware RAID card
+* Fast, redundant storage (SSD/RAID-based solution)
+ 
+  * 50 GB/backend server (SSD if on premises, Premium Storage in Microsoft Azure, EBS-Optimized GP2 in AWS)
+
 * 1 GigE NIC interface
-* 20 GB of free disk space in ``/opt``
-* 40 GB of free disk space in ``/var``
 * A back-end server; all other systems will be front-end servers.
 
 .. note: Tiered deployments are deprecated as of Chef server 12.9. You are encouraged to set up a high availability server cluser instead. See see :doc:`High Availability: Backend Cluster </install_server_ha>` for more details.
 
 Disk Configuration
 =====================================================
-Persistent data on the backend server of the Chef server is primarily composed of cookbook files and directories. Separate disks should be dedicated entirely to storing this data prior to installing the Chef server. These disks should:
+Persistent data on the backend server of the Chef server is primarily composed of cookbook files and directories. Separate disks should be dedicated entirely to storing this data prior to installing the Chef server. These disks should be part of a SSD or hardware RAID-based solution that ensure redundancy and high IOPS. This configuration guide assumes that:
 
-* Utilize hardware RAID
-* Be configured in either RAID1
-
-This assumes that:
-
-* ~300GB of raw, unpartitioned disk space is available
+* ~50GB of raw, unpartitioned disk space is available. Disk space should scale up with the number of nodes that the backend server is managing. A good rule to follow is to allocate 2 MB per node.
 * The disk space presents as a single device. For example: ``/dev/sdb``.
 * The storage is added to a volume group named ``opscode`` and is presented to the Chef server by mounting on ``/var/opt/opscode`` before a reconfiguration
 
