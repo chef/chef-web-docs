@@ -243,7 +243,7 @@ The following platforms are not tested by Chef Software:
 
 Chef Automate
 =====================================================
-The Chef Automate server may be run on the following platforms. Do not mix platforms or platform versions within the Chef Automate cluster.
+The following table lists the Foundational platforms for Chef Automate. Do not mix platforms or platform versions within the Chef Automate cluster.
 
 .. list-table::
    :widths: 280 100 120
@@ -287,6 +287,39 @@ The following table lists the Secondary platforms for the Chef Automate server:
           * Red Hat Enterprise Linux
           * Microsoft Windows
 
+Runners
+-----------------------------------------------------
+The following table lists the Foundational platforms for job runners:
+
+.. list-table::
+   :widths: 280 100 120
+   :header-rows: 1
+
+   * - Platform
+     - Architecture
+     - Version
+   * - SUSE Enterprise Linux Server
+     - ``x86_64``
+     - ``11.4``, ``12.1``
+   * - macOS
+     - ``x86_64``
+     - ``10.12``
+
+Secondary Platforms
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+The following table lists the Secondary platforms for job runners:
+
+.. list-table::
+ :widths: 280 100 120
+ :header-rows: 1
+
+ * - Platform
+   - Architecture
+   - Version
+ * - Oracle Linux
+   - ``x86_64``
+   - ``6``, ``7``
+   
 Chef Push Jobs
 =====================================================
 .. tag adopted_platforms_push_jobs
