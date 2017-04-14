@@ -32,12 +32,12 @@ The hosted Chef server has the following requirements:
 * **Browser** --- Firefox, Google Chrome, Safari, or Internet Explorer (versions 9 or better)
 * Every node that will be configured by the chef-client and every workstation that will upload data to the Chef server must be able to communicate with the hosted Chef server
 
-Chef Server, On-premises
+Chef Server, On-premises or in cloud environment
 -----------------------------------------------------
 
 .. tag system_requirements_server_hardware
 
-All machines in a Chef server deployment (including a standalone Chef Analytics machine) have the following hardware requirements.
+All machines in a Chef server deployment have the following hardware requirements. Disk space for standalone and backend servers should scale up with the number of nodes that the servers are managing. A good rule to follow is to allocate 2 MB per node. The disk values listed below should be a good default value that you will want to modify later if/when your node count grows. Fast, redundant storage (SSD/RAID-based solution either on-prem or in a cloud environment) is preferred.
 
 For all deployments:
 
@@ -45,36 +45,37 @@ For all deployments:
 
 For a standalone deployment:
 
-* 4 total cores, 2.0 GHz AMD 41xx/61xx or Intel Xeon 5000/E5 CPUs
-* 4 GB of RAM; 8 GB of RAM for Chef Analytics
+* 4 total cores (physical or virtual)
+* 8 GB of RAM or more
 * 5 GB of free disk space in ``/opt``
 * 5 GB of free disk space in ``/var``
 
-For a tiered deployment:
-
-* 8 total cores 2.0 GHz AMD 41xx/61xx or Intel Xeon 5000/E5 CPUs or faster
-* 16GB RAM
-* 2 x 300GB SAS RAID1 drives
-* Hardware RAID card
-* 1 GigE NIC interface
-* 20 GB of free disk space in ``/opt``
-* 40 GB of free disk space in ``/var``
-* A back-end server; all other systems will be front-end servers.
+.. note:: The RAM requirement can be lowered down to a minimum of 4 GB of RAM if the number of Chef client runs (CCRs) per minute are low (i.e. less than 33 CCRs/min). See `Capacity Planning </server_components.html#capacity-planning>`_ for more information on how this metric affects scalability.
 
 For a high availability deployment:
 
-* 8 total cores 2.0 GHz AMD 41xx/61xx or Intel Xeon 5000/E5 CPUs or faster
-* 16GB RAM
-* 2 x 300GB SAS RAID1 drives
-* Hardware RAID card
-* 1 x GigE NIC interface
-* 20 GB of free disk space in ``/opt``
-* 40 GB of free disk space in ``/var``
-* Two back-end servers; as many front-end servers as required.
+General requirements
 
-.. note:: Front end machines, when load balanced, may have fewer than 4 cores and 4 GB of RAM.
+* Three backend servers; as many frontend servers as required
+* 1 x GigE NIC interface (if on premises)
+
+.. tag system_requirements_ha
+
+Frontend requirements
+
+* 4 cores (physical or virtual)
+* 4GB RAM
+* 20 GB of free disk space (SSD if on premises, Premium Storage in Microsoft Azure, EBS-Optimized GP2 in AWS)
+
+Backend requirements
+
+* 2 cores (physical or virtual)
+* 8GB RAM
+* 50 GB/backend server (SSD if on premises, Premium Storage in Microsoft Azure, EBS-Optimized GP2 in AWS)
 
 .. warning:: The Chef server MUST NOT use a network file system of any type---virtual or physical---for backend storage. The Chef server database operates quickly. The behavior of operations, such as the writing of log files, will be unpredictable when run over a network file system.
+
+.. end_tag
 
 .. end_tag
 .. tag system_requirements_server_software

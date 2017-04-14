@@ -3,7 +3,7 @@ Tiered Installation (DEPRECATED)
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_server_tiered.rst>`__
 
-.. warning:: This topic is deprecated as of the 12.9 release of the Chef servver. For the latest information on high availability and how to set up a highly-available server cluster, see :doc:`High Availability: Backend Cluster </install_server_ha>`.
+.. warning:: This topic is deprecated as of the 12.9 release of the Chef server. For the latest information on high availability and how to set up a highly-available server cluster, see :doc:`High Availability: Backend Cluster </install_server_ha>`.
 
 This topic describes how to set up the Chef server with a single back end and multiple load-balanced frontend servers.
 
@@ -20,16 +20,27 @@ Before installing the Chef server software, perform the following steps:
 * The hostname for the Chef server must be an FQDN, including the domain suffix, and must be resolvable by the backend and frontend servers. See `Hostnames, FQDNs </install_server_pre.html#hostnames>`_ for more information.
 * ``chef-server-ctl reconfigure`` will not bind the ``backend_vip`` to the backend server. The easiest thing to do is just define ``backend_vip`` as the already configured main IP address of the backend system. If you need to use an additional address, it will need to be configured and bound on the system before ``chef-server-ctl reconfigure`` is run.
 
+Basic Hardware Requirements
+=====================================================
+For a tiered deployment, your backend server should support the following hardware requirements:
+
+* 64-bit architecture
+* 8 total cores (physical or virtual)
+* 16GB RAM
+* Fast, redundant storage (SSD/RAID-based solution)
+ 
+  * 50 GB/backend server (SSD if on premises, Premium Storage in Microsoft Azure, EBS-Optimized GP2 in AWS)
+
+* 1 GigE NIC interface
+* A back-end server; all other systems will be front-end servers.
+
+.. note: Tiered deployments are deprecated as of Chef server 12.9. You are encouraged to set up a high availability server cluser instead. See see :doc:`High Availability: Backend Cluster </install_server_ha>` for more details.
+
 Disk Configuration
 =====================================================
-Persistent data on the backend server of the Chef server is primarily composed of cookbook files and directories. Separate disks should be dedicated entirely to storing this data prior to installing the Chef server. These disks should:
+Persistent data on the backend server of the Chef server is primarily composed of cookbook files and directories. Separate disks should be dedicated entirely to storing this data prior to installing the Chef server. These disks should be part of a SSD or hardware RAID-based solution that ensure redundancy and high IOPS. This configuration guide assumes that:
 
-* Utilize hardware RAID
-* Be configured in either RAID1
-
-This assumes that:
-
-* ~300GB of raw, unpartitioned disk space is available
+* ~50GB of raw, unpartitioned disk space is available. Disk space should scale up with the number of nodes that the backend server is managing. A good rule to follow is to allocate 2 MB per node.
 * The disk space presents as a single device. For example: ``/dev/sdb``.
 * The storage is added to a volume group named ``opscode`` and is presented to the Chef server by mounting on ``/var/opt/opscode`` before a reconfiguration
 

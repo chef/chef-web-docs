@@ -74,6 +74,31 @@ Nodes
 * Three backend cluster nodes
 * One or more frontend group nodes
 
+Hardware Requirements
+++++++++++++++++++++++++++++++++++++++++++++++++
+
+The following are a list of general hardware requirements for both frontend and backend servers. The important guideline you should follow are that frontend servers tend to be more CPU bound and backend servers are more disk and memory bound. Also, disk space for backend servers should scale up with the number of nodes that the servers are managing. A good rule to follow is to allocate 2 MB per node. The disk values listed below should be a good default value that you will want to modify later if/when your node count grows.
+
+* 64-bit architecture
+
+.. tag system_requirements_ha
+
+Frontend requirements
+
+* 4 cores (physical or virtual)
+* 4GB RAM
+* 20 GB of free disk space (SSD if on premises, Premium Storage in Microsoft Azure, EBS-Optimized GP2 in AWS)
+
+Backend requirements
+
+* 2 cores (physical or virtual)
+* 8GB RAM
+* 50 GB/backend server (SSD if on premises, Premium Storage in Microsoft Azure, EBS-Optimized GP2 in AWS)
+
+.. warning:: The Chef server MUST NOT use a network file system of any type---virtual or physical---for backend storage. The Chef server database operates quickly. The behavior of operations, such as the writing of log files, will be unpredictable when run over a network file system.
+
+.. end_tag
+
 Network Services
 ----------------------------------------------------------------
 * A load balancer between the rest of the network, and the frontend
