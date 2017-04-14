@@ -40,32 +40,15 @@ Prerequisites
 
 Chef Automate requires a license from Chef to install. You will receive an email with a license key valid for 30 days after you complete the Chef Automate registration. If you would like to continue using Chef Automate after that period, please contact `awesome@chef.io` for a permanent key.
 
-Platforms
+Platform Support
 -----------------------------------------
+Please see the `platforms topic </platforms.html#chef-automate>`_ for details on supported platforms, architectures, and versions for both Chef Automate servers and runners.
 
-The Chef Automate server may be run on the following platforms. Do not mix platforms or platform versions within the Chef Automate cluster.
 
-.. list-table::
-   :widths: 280 100 120
-   :header-rows: 1
-
-   * - Platform
-     - Architecture
-     - Version
-   * - CentOS
-     - ``x86_64``
-     - ``6.5``, ``6.6``, ``7``
-   * - Red Hat Enterprise Linux
-     - ``x86_64``
-     - ``6.5``, ``6.6``, ``7``
-   * - Ubuntu
-     - ``x86_64``
-     - ``12.04``, ``14.04``, ``16.04``
-
-Infrastructure
+Hardware Requirements
 ------------------------------------------
 
-Chef Automate has the following infrastructure requirements:
+Chef Automate deployments have the following hardware requirements:
 
   .. list-table::
      :widths: 150 100 100 100
