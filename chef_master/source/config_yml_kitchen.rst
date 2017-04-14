@@ -181,7 +181,7 @@ Kitchen can configure the chef-zero provisioner with the following Chef-specific
    * - ``nodes_path``
      - The relative path to the directory in which node data is located. This data must be defined as JSON.
    * - ``require_chef_omnibus``
-     - Use to install the latest version of the chef-client in a node. Set to ``true`` to install the latest version, ``false`` to not install chef-client (assumes the box already has it installed), or a version specifier like ``11.8.0`` to install a particular version. When set to ``true`` or a version number, the ``chef_omnibus_url`` may be used to specify the URL of the ``install.sh`` that installs the specified version of chef-client. Default value: ``true``.
+     - Use to install the latest version of the chef-client in a node. Set to ``true`` to install the latest version, ``false`` to not install chef-client (assumes the box already has it installed), or a version specifier like ``12.19.36`` to install a particular version, or simply ``12`` to install the latest 12.x package. When set to ``true`` or a version number, the ``chef_omnibus_url`` may be used to specify the URL of the ``install.sh`` that installs the specified version of chef-client. Default value: ``true``.
    * - ``roles_path``
      - The relative path to the directory in which role data is located. This data must be defined as JSON.
    * - ``root_path``
