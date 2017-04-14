@@ -289,7 +289,7 @@ The following table lists the Secondary platforms for the Chef Automate server:
 
 Runners
 -----------------------------------------------------
-The following table lists the Foundational platforms for job runners:
+Runners are supported on the Foundational and Secondary platforms listed above as well as on the following platforms:
 
 .. list-table::
    :widths: 280 100 120
@@ -298,27 +298,9 @@ The following table lists the Foundational platforms for job runners:
    * - Platform
      - Architecture
      - Version
-   * - SUSE Enterprise Linux Server
-     - ``x86_64``
-     - ``11.4``, ``12.1``
    * - macOS
      - ``x86_64``
      - ``10.12``
-
-Secondary Platforms
-++++++++++++++++++++++++++++++++++++++++++++++++++++
-The following table lists the Secondary platforms for job runners:
-
-.. list-table::
- :widths: 280 100 120
- :header-rows: 1
-
- * - Platform
-   - Architecture
-   - Version
- * - Oracle Linux
-   - ``x86_64``
-   - ``6``, ``7``
    
 Chef Push Jobs
 =====================================================
