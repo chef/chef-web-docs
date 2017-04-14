@@ -132,6 +132,8 @@ Windows Task resource added
 The ``windows_task`` resource has been ported from the windows cookbook.
 Use the **windows_task** resource to create, delete or run a Windows scheduled task. Requires Windows Server 2008 due to API usage.
 
+**Note**: ``:change`` action has been removed from ``windows_task`` resource. ``:create`` action can be used to update an existing task.
+
 Solaris SMF services can now be started recursively
 -----------------------------------------------------
 It is now possible to load Solaris services recursively, by ensuring the new ``options`` property of the ``service`` resource contains ``-r``.

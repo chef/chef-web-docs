@@ -7,6 +7,8 @@ Use the **windows_task** resource to create, delete or run a Windows scheduled t
 
 *New in Chef Client 13.*
 
+.. note:: ``:change`` action has been removed from ``windows_task`` resource. ``:create`` action can be used to update an existing task.
+
 Syntax
 ==========================================
 A **windows_task** resource creates, deletes or runs a Windows scheduled task.
