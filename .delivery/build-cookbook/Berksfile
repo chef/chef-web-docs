@@ -7,3 +7,4 @@ cookbook 'route53', git: 'https://github.com/cwebberOps/route53.git', branch: 'p
 cookbook 'cia_infra', git: 'git@github.com:chef-cookbooks/cia_infra.git'
 cookbook 'cia_delivery', git: 'git@github.com:chef-cookbooks/cia_delivery.git'
 cookbook 'oc-users', git: 'git@github.com:opscode-cookbooks/oc-users.git'
+cookbook 'poise-python', '~> 1.6.0'
