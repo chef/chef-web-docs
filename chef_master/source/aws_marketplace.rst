@@ -308,7 +308,6 @@ After verifying that your existing Chef server installation is up to date, do th
 
 #. .. tag chef_automate_reconfigure_for_marketplace
 
-
    Reconfigure Chef Automate and the Chef server:
 
    .. code-block:: bash
@@ -375,8 +374,6 @@ After verifying that your existing Chef server installation is up to date, do th
       $ knife ssh name:* 'sudo sed -ie "s/chef_server_url.*/chef_server_url 'https://ec2-52-6-31-230.compute-1.amazonaws.com/organizations/your_org'/" /etc/chef/client.rb
 
    Replace ``ec2-52-6-31-230.compute-1.amazonaws.com`` with your new public DNS name and ``your_org`` with your organization name.
-
-ace ``ec2-52-6-31-230.compute-1.amazonaws.com`` with your new public DNS name and ``your_org`` with your organization name.
 
 Chef Compliance AMI
 =====================================================
