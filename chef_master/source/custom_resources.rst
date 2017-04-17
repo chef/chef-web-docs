@@ -3,9 +3,7 @@ Custom Resources
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/custom_resources.rst>`__
 
-As of Chef client version 12.5, this recommended approach for all custom resources. If you are using an older version of the chef-client, please use the version picker (in the top left of the navigation) to select your version, and then choose the same topic from the navigation tree ("Extend Chef > Custom Resources"). See also https://github.com/chef-cookbooks/compat_resource for using custom resources with chef-client 12.1 - 12.4.
-
-As of Chef client 12.5 "resource attributes" are now known as "resource properties".
+Chef 12.5 introduced custom resources, which are now the preferred method of writing your own resources in Chef. If you are using an older version of the chef-client, please use the version picker (in the top left of the navigation) to select your version, and then choose the same topic from the navigation tree ("Extend Chef > Custom Resources"). See also https://github.com/chef-cookbooks/compat_resource for using custom resources with chef-client 12.1 - 12.4.
 
 As of Chef client 12.14, individual resource properties can be marked as `sensitive: true`, which suppresses the value of that property when exporting the resource's state.
 
@@ -40,7 +38,7 @@ The syntax for a custom resource is. For example:
    property :name, RubyType, default: 'value'
 
    load_current_value do
-     # some Ruby
+     # some Ruby for loading the current state of the resource
    end
 
    action :name do
@@ -59,17 +57,11 @@ Example
 -----------------------------------------------------
 .. tag custom_resources_syntax_example
 
-For example, the ``site.rb`` file in the ``exampleco`` cookbook could be similar to:
+This example ``site`` utilizes Chef's built in ``file``, ``service`` and ``package`` resources, and includes ``:create`` and ``:delete`` actions. Since it uses built in Chef resources, besides defining the property and actions, the code is very similar to that of a recipe.
 
 .. code-block:: ruby
 
    property :homepage, String, default: '<h1>Hello world!</h1>'
-
-   load_current_value do
-     if ::File.exist?('/var/www/html/index.html')
-       homepage IO.read('/var/www/html/index.html')
-     end
-   end
 
    action :create do
      package 'httpd'
@@ -92,8 +84,6 @@ For example, the ``site.rb`` file in the ``exampleco`` cookbook could be similar
 where
 
 * ``homepage`` is a property that sets the default HTML for the ``index.html`` file with a default value of ``'<h1>Hello world!</h1>'``
-* the (optional) ``load_current_value`` block loads the current values for all specified properties, in this example there is just a single property: ``homepage``
-* the ``if`` statement checks to see if the ``index.html`` file is already present on the node. If that file is already present, its contents are loaded **instead** of the default value for ``homepage``
 * the ``action`` block uses the built-in collection of resources to tell the chef-client how to install Apache, start the service, and then create the contents of the file located at ``/var/www/html/index.html``
 * ``action :create`` is the default resource; ``action :delete`` must be called specifically (because it is not the default resource)
 
@@ -103,7 +93,6 @@ Once built, the custom resource may be used in a recipe just like the any of the
 
    exampleco_site 'httpd' do
      homepage '<h1>Welcome to the Example Co. website!</h1>'
-     action :create
    end
 
 and to delete the exampleco website, do the following:
