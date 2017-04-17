@@ -3123,7 +3123,7 @@ The syntax for a custom resource is. For example:
    property :name, RubyType, default: 'value'
 
    load_current_value do
-     # some Ruby
+     # some Ruby for loading the current state of the resource
    end
 
    action :name do
