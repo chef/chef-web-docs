@@ -11,8 +11,7 @@ Custom Resources 12.5-style
 =====================================================
 This is the recommended way of writing resources for all users. There are two gotchas which we're working through:
 
-#. For helper functions that you used to write in your provider code or used to mixin to your provider code, you have to use an ``action_class do ... end`` block.
-#. The 12.5 resources allow for a shorthand notation in provider code where you can refer to properties by their bare name ``my_property`` and it works most of the time.  Since it does not work all the time (because of the way Ruby scopes things), its recommended to stick to referring to properties by ``new_resource.my_property``.
+#. For helper functions that you used to write in your provider code or used to mixin to your provider code, you have to use an ``action_class.class_eval do ... end`` block.
 
 You cannot subclass, and must use mixins for code-sharing (which is really a best practice anyway -- e.g. see languages like rust which do not support subclassing).
 
@@ -35,7 +34,7 @@ in ``resources/whatever.rb``:
      puts new_resource.foo
    end
 
-   action_class do
+   action_class.class_eval do
      include MyProviderHelperFunctions
 
      def a_helper
