@@ -251,9 +251,7 @@ This configuration file has the following settings:
 
    .. code-block:: ruby
 
-      long_description IO.read(File.join
-        (File.dirname(__FILE__), 'README.rdoc')
-      )
+      long_description IO.read(File.join(File.dirname(__FILE__), 'README.rdoc'))
 
 ``maintainer``
    The name of the person responsible for maintaining a cookbook, either an individual or an organization.
