@@ -19,8 +19,8 @@ A **remote_file** resource block manages files by using files that exist remotel
 
 .. code-block:: ruby
 
-   remote_file '/var/www/customers/public_html/index.php' do
-     source 'http://somesite.com/index.php'
+   remote_file '/var/www/customers/public_html/index.html' do
+     source 'http://somesite.com/index.html'
      owner 'web_admin'
      group 'web_admin'
      mode '0755'
@@ -29,8 +29,8 @@ A **remote_file** resource block manages files by using files that exist remotel
 
 where
 
-* ``'/var/www/customers/public_html/index.php'`` is path to the file to be created
-* ``'http://somesite.com/index.php'`` specifies the location of the remote file
+* ``'/var/www/customers/public_html/index.html'`` is path to the file to be created
+* ``'http://somesite.com/index.html'`` specifies the location of the remote file, the file is downloaded from there
 * ``owner``, ``group``, and ``mode`` define the permissions
 
 The full syntax for all of the properties that are available to the **remote_file** resource is:
