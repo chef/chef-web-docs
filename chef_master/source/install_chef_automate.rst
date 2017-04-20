@@ -247,7 +247,9 @@ Running this ``reconfigure`` command may trigger a brief restart of your Chef se
 Chef Automate Server Installation and Configuration
 ========================================================
 
-Now that you have your Chef server set up, install and configure Chef Automate by doing the following:
+Now that you have your Chef server set up, install and configure Chef Automate by doing the following: 
+
+.. note:: If you plan to use a private Supermarket with your Chef Automate server, please make sure it is set up correctly by following the steps in :doc:`install_supermarket`.
 
 #. Download and install the latest stable Chef Automate package for your operating system from `<https://downloads.chef.io/automate/>`_ on the Chef Automate server machine.
 
@@ -288,7 +290,8 @@ Now that you have your Chef server set up, install and configure Chef Automate b
                               --key AUTOMATE_CHEF_USER_KEY \
                               --server-url https://CHEF_SERVER_FQDN/organizations/AUTOMATE_CHEF_ORG \
                               --fqdn AUTOMATE_SERVER_FQDN \
-                              --enterprise ENTERPRISE_NAME
+                              --enterprise ENTERPRISE_NAME \
+                              --supermarket-fqdn SUPERMARKET_FQDN (Optional)
 
    All paths called for here should be supplied as the absolute path to a file, including the filename.
 
