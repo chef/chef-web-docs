@@ -85,16 +85,25 @@ Amazon Simple Storage Service (S3)
 This configuration file has the following settings for uploading cookbooks to a specified Amazon Simple Storage Service (S3) bucket:
 
 ``default['supermarket']['cdn_url']``
-   The URL for the content delivery network.
+   The URL for the content delivery network. (optional)
 
 ``default['supermarket']['s3_access_key_id']``
-   The secret key.
+   The secret key. (required to use S3)
 
 ``default['supermarket']['s3_bucket']``
-   The bucket name.
+   The bucket name. (required to use S3)
+
+``default['supermarket']['s3_path']``
+   Directory structure to prepend to the standard path to the directory containing cookbooks. Set this if you must store cookbooks in a deeper directory structure within a shared bucket, however, dedicated S3 buckets are recommended for cookbook storage and distribution. (optional)
+
+``default['supermarket']['s3_private_objects']``
+   Whether cookbooks stored in S3 should be public or private. ``true/false`` Default: ``false``
+
+``default['supermarket']['s3_region']``
+   The region of the bucket. (required to use S3)
 
 ``default['supermarket']['s3_secret_access_key']``
-   The access key identifier.
+   The access key identifier. (required to use S3)
 
 CLA
 -----------------------------------------------------
