@@ -22,7 +22,7 @@ For the quickest way to get started using Chef:
 
 #. Change into the ``first_cookbook`` directory.
 
-#. Update the ``default.rb`` recipe in the generated cookbook to contain:
+#. Update the ``cookbooks/recipes/default.rb`` recipe in the generated cookbook to contain:
 
    .. code-block:: ruby
 
