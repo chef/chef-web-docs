@@ -14,6 +14,7 @@ Recommended reading:
 * `Effective DevOps (Building a Culture of Collaboration, Affinity, and Tooling at Scale) <http://shop.oreilly.com/product/0636920039846.do>`_
 * `Learning Chef (A Guide to Configuration Management and Automation) <http://shop.oreilly.com/product/0636920032397.do>`_
 * `Customizing Chef (Getting the Most Out of Your Infrastructure Automation) <http://shop.oreilly.com/product/0636920032984.do>`_
+* `Infrastructure as Code (IAC) Cookbook (Automate, Test and Manage your Infrastructure effectively) <https://www.packtpub.com/virtualization-and-cloud/infrastructure-code-iac-cookbook>`_
 
 More books about Chef:
 
