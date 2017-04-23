@@ -249,7 +249,7 @@ Chef Automate Server Installation and Configuration
 
 Now that you have your Chef server set up, install and configure Chef Automate by doing the following: 
 
-.. note:: If you plan to use a private Supermarket with your Chef Automate server, please make sure it is set up correctly by following the steps in :doc:`install_supermarket`.
+.. note:: If you plan to use a private Supermarket with your Chef Automate server, please make sure it is set up correctly by following the steps in :doc:`install_supermarket`. 
 
 #. Download and install the latest stable Chef Automate package for your operating system from `<https://downloads.chef.io/automate/>`_ on the Chef Automate server machine.
 
@@ -307,7 +307,7 @@ Now that you have your Chef server set up, install and configure Chef Automate b
 
    ``ENTERPRISE_NAME`` is the name of your enterprise. For example: ``4thcoffee_inc``.
 
-   If you are using an internal Supermarket, tell the setup command about it by supplying the ``--supermarket-fqdn`` command line argument:
+   If you are using a private Supermarket, tell the setup command about it by supplying the ``--supermarket-fqdn`` command line argument:
 
    .. code-block:: none
 
@@ -315,12 +315,12 @@ Now that you have your Chef server set up, install and configure Chef Automate b
 
    Because the Supermarket FQDN argument is optional, it will not be prompted for when
    not specified. You must include this option to set up the Chef Automate server
-   to interact with an internal Supermarket. The setup command can be re-run
+   to interact with a private Supermarket. The setup command can be re-run
    as often as necessary.
 
    .. tag automate_supermarket
 
-   .. note:: To enable Chef Automate to upload cookbooks to a private Supermarket, you have to manually log into the Supermarket server with the ``delivery`` user, and when it prompts you to enable the user for Supermarket, enter ``yes``.
+   .. note:: To enable Chef Automate to upload cookbooks to a private Supermarket, you have to manually log into the Supermarket server with the ``delivery`` user, and when it prompts you to enable the user for Supermarket, enter ``yes``. Also, you must copy the Supermarket certificate file to ``/etc/delivery/supermarket.crt`` on the Chef Automate server.
 
    .. end_tag
 
