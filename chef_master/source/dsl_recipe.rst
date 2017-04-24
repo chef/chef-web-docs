@@ -2394,11 +2394,11 @@ The syntax for the ``value_for_platform_family`` method is as follows:
 
 .. code-block:: ruby
 
-   value_for_platform_family( 'platform_family' => { 'version' => 'value' }, ... )
+   value_for_platform_family( 'platform_family' => 'value', ... )
 
 where:
 
-* ``'platform_family' => { 'version' => 'value' }, ...`` is a comma-separated list of platforms, such as Fedora, openSUSE, or Red Hat Enterprise Linux
+* ``'platform_family' => 'value', ...`` is a comma-separated list of platforms, such as Fedora, openSUSE, or Red Hat Enterprise Linux
 * ``value`` specifies the value that will be used if the node's platform family matches the ``value_for_platform_family`` method
 
 When each value only has a single platform, use the following syntax:
@@ -2406,8 +2406,8 @@ When each value only has a single platform, use the following syntax:
 .. code-block:: ruby
 
    value_for_platform_family(
-     'platform_family' => { 'version' => 'value' },
-     'platform_family' => { 'version' => 'value' },
+     'platform_family' => 'value',
+     'platform_family' => 'value',
      'platform_family' => 'value'
    )
 
