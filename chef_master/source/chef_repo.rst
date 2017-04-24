@@ -49,7 +49,7 @@ The sub-directories in the chef-repo are:
 -----------------------------------------------------
 .. tag all_directory_chef
 
-The .chef directory is a hidden directory that is used to store validation key files and the knife.rb file. These files are required for interaction with a Chef server.
+The .chef directory is a hidden directory that is used to store validation key files and the knife.rb file.
 
 .. end_tag
 
