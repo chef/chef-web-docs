@@ -768,7 +768,7 @@ What's New in 12.13
 =====================================================
 The following items are new for chef-client 12.13 and/or are changes from previous versions. The short version:
 
-* **Ohai 8.18 includes new plugin for gathering available user shells** Other additions include a new hardware plugin for OSX that gathers system information and detection of VMWare and VirtualBox installations.
+* **Ohai 8.18 includes new plugin for gathering available user shells** Other additions include a new hardware plugin for macOS that gathers system information and detection of VMWare and VirtualBox installations.
 * **New Chef client option to override any config key/value pair** Use ``chef-client --config-option`` to override any config setting from the command line.
 
 --config-option
