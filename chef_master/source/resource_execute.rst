@@ -742,11 +742,11 @@ where
 
 .. end_tag
 
-**Enable remote login for Mac OS X**
+**Enable remote login for macOS**
 
 .. tag resource_execute_enable_remote_login
 
-.. To enable remote login on Mac OS X:
+.. To enable remote login on macOS:
 
 .. code-block:: ruby
 

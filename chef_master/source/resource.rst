@@ -284,7 +284,7 @@ The following resources are platform resources (i.e. "are available from the che
    * - :doc:`homebrew_package </resource_homebrew_package>`
      - .. tag resource_package_homebrew
 
-       Use the **homebrew_package** resource to manage packages for the Mac OS X platform.
+       Use the **homebrew_package** resource to manage packages for the macOS platform.
 
        .. end_tag
 
@@ -337,7 +337,7 @@ The following resources are platform resources (i.e. "are available from the che
    * - :doc:`macports_package </resource_macports_package>`
      - .. tag resource_package_macports
 
-       Use the **macports_package** resource to manage packages for the Mac OS X platform.
+       Use the **macports_package** resource to manage packages for the macOS platform.
 
        .. end_tag
 
@@ -413,7 +413,7 @@ The following resources are platform resources (i.e. "are available from the che
    * - :doc:`reboot </resource_reboot>`
      - .. tag resource_service_reboot
 
-       Use the **reboot** resource to reboot a node, a necessary step with some installations on certain platforms. This resource is supported for use on the Microsoft Windows, Mac OS X, and Linux platforms.  New in Chef Client 12.0.
+       Use the **reboot** resource to reboot a node, a necessary step with some installations on certain platforms. This resource is supported for use on the Microsoft Windows, macOS, and Linux platforms.  New in Chef Client 12.0.
 
        .. end_tag
 

@@ -394,7 +394,7 @@ and which creates a directory structure similar to::
 
 **Create a cookbook using a custom skeleton cookbook**
 
-If a custom skeleton cookbook is located on a Mac OS X desktop (and in this example, the ``chef_generator`` cookbook is simply a copy of the same cookbook that ships in the Chef development kit), the following command will use the skeleton cookbook at the custom location to generate a cookbook into the repository from which the ``chef`` command is run:
+If a custom skeleton cookbook is located on a macOS desktop (and in this example, the ``chef_generator`` cookbook is simply a copy of the same cookbook that ships in the Chef development kit), the following command will use the skeleton cookbook at the custom location to generate a cookbook into the repository from which the ``chef`` command is run:
 
 .. code-block:: bash
 

@@ -33,8 +33,8 @@ Ensure that the workstation meets all of the software prerequisites and that it 
 
 The following items are prerequisites for installing the chef-client on a workstation:
 
-* A computer running UNIX, Linux, Mac OS X or Microsoft Windows
-* Apple XCode is installed on machines running Mac OS X; this application can be downloaded from Apple for free
+* A computer running UNIX, Linux, macOS or Microsoft Windows
+* Apple XCode is installed on machines running macOS; this application can be downloaded from Apple for free
 * A GitHub account; the chef-repo must be downloaded and/or cloned from GitHub
 * Access to a Chef server: a hosted Chef server account or an on-premises Chef server. If you have a proxy, information on configuring chef-client to work with it is :doc:`here </proxies>`
 * Access to a machine (physical or virtual) that can be used as the first node; the FQDN or IP address for a machine is required by the ``knife bootstrap`` subcommand during a bootstrap operation
@@ -43,8 +43,8 @@ Get Package, Run Installer
 -----------------------------------------------------
 To install the Chef development kit:
 
-#. Visit this page: https://downloads.chef.io/chefdk/. The Chef development kit supports Mac OS X, Red Hat Enterprise Linux, Ubuntu, and Microsoft Windows.
-#. Select a platform, and then a package. (chef-docs uses the Mac OS X setup within the documentation.)
+#. Visit this page: https://downloads.chef.io/chefdk/. The Chef development kit supports macOS, Red Hat Enterprise Linux, Ubuntu, and Microsoft Windows.
+#. Select a platform, and then a package. (chef-docs uses the macOS setup within the documentation.)
 #. Click the download button.
 #. Follow the steps in the installer and install the Chef development kit to your machine. The Chef development kit is installed to ``/opt/chefdk/`` on UNIX and Linux systems.
 #. When finished, open a command window and enter the following:
@@ -464,7 +464,7 @@ Top-level Directory Names
 -----------------------------------------------------
 .. tag windows_top_level_directory_names
 
-Paths can be longer in UNIX and Linux environments than they can be in Microsoft Windows. Microsoft Windows will throw errors when path name lengths are too long. For this reason, it's often helpful to use a very short top-level directory in Microsoft Windows, much like what is done in UNIX and Linux. For example, Chef uses ``/opt/`` to install the Chef development kit on Mac OS X. A similar approach can be done on Microsoft Windows, by creating a top-level directory with a short name. For example: ``c:\chef``.
+Paths can be longer in UNIX and Linux environments than they can be in Microsoft Windows. Microsoft Windows will throw errors when path name lengths are too long. For this reason, it's often helpful to use a very short top-level directory in Microsoft Windows, much like what is done in UNIX and Linux. For example, Chef uses ``/opt/`` to install the Chef development kit on macOS. A similar approach can be done on Microsoft Windows, by creating a top-level directory with a short name. For example: ``c:\chef``.
 
 .. end_tag
 
@@ -494,11 +494,11 @@ Use the following command to remove the Chef development kit on Debian-based pla
 
 .. end_tag
 
-Mac OS X
+macOS
 -----------------------------------------------------
 .. tag uninstall_chef_dk_mac
 
-Use the following commands to remove the Chef development kit on Mac OS X.
+Use the following commands to remove the Chef development kit on macOS.
 
 To remove installed files:
 

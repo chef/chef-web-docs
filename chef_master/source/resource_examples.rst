@@ -2790,11 +2790,11 @@ where
 
 .. end_tag
 
-**Enable remote login for Mac OS X**
+**Enable remote login for macOS**
 
 .. tag resource_execute_enable_remote_login
 
-.. To enable remote login on Mac OS X:
+.. To enable remote login on macOS:
 
 .. code-block:: ruby
 
@@ -3299,7 +3299,7 @@ homebrew_package
 =====================================================
 .. tag resource_package_homebrew
 
-Use the **homebrew_package** resource to manage packages for the Mac OS X platform.
+Use the **homebrew_package** resource to manage packages for the macOS platform.
 
 .. end_tag
 
@@ -3701,7 +3701,7 @@ macports_package
 =====================================================
 .. tag resource_package_macports
 
-Use the **macports_package** resource to manage packages for the Mac OS X platform.
+Use the **macports_package** resource to manage packages for the macOS platform.
 
 .. end_tag
 
@@ -4043,7 +4043,7 @@ osx_profile
 =====================================================
 .. tag resource_osx_profile_summary
 
-Use the **osx_profile** resource to manage configuration profiles (``.mobileconfig`` files) on the Mac OS X platform. The **osx_profile** resource installs profiles by using the ``uuidgen`` library to generate a unique ``ProfileUUID``, and then using the ``profiles`` command to install the profile on the system.
+Use the **osx_profile** resource to manage configuration profiles (``.mobileconfig`` files) on the macOS platform. The **osx_profile** resource installs profiles by using the ``uuidgen`` library to generate a unique ``ProfileUUID``, and then using the ``profiles`` command to install the profile on the system.
 
 .. end_tag
 
@@ -4856,7 +4856,7 @@ reboot
 =====================================================
 .. tag resource_service_reboot
 
-Use the **reboot** resource to reboot a node, a necessary step with some installations on certain platforms. This resource is supported for use on the Microsoft Windows, Mac OS X, and Linux platforms.  New in Chef Client 12.0.
+Use the **reboot** resource to reboot a node, a necessary step with some installations on certain platforms. This resource is supported for use on the Microsoft Windows, macOS, and Linux platforms.  New in Chef Client 12.0.
 
 .. end_tag
 
@@ -6979,7 +6979,7 @@ The following example shows how to create a system user. In this instance, the `
 
 .. tag resource_user_password_shadow_hash_salted_sha512
 
-Mac OS X 10.7 calculates the password shadow hash using SALTED-SHA512. The length of the shadow hash value is 68 bytes, the salt value is the first 4 bytes, with the remaining 64 being the shadow hash itself. The following code will calculate password shadow hashes for Mac OS X 10.7:
+macOS 10.7 calculates the password shadow hash using SALTED-SHA512. The length of the shadow hash value is 68 bytes, the salt value is the first 4 bytes, with the remaining 64 being the shadow hash itself. The following code will calculate password shadow hashes for macOS 10.7:
 
 .. code-block:: ruby
 
@@ -7004,7 +7004,7 @@ New in Chef Client 12.0.
 
 .. tag resource_user_password_shadow_hash_salted_sha512_pbkdf2
 
-Mac OS X 10.8 (and higher) calculates the password shadow hash using SALTED-SHA512-PBKDF2. The length of the shadow hash value is 128 bytes, the salt value is 32 bytes, and an integer specifies the number of iterations. The following code will calculate password shadow hashes for Mac OS X 10.8 (and higher):
+macOS 10.8 (and higher) calculates the password shadow hash using SALTED-SHA512-PBKDF2. The length of the shadow hash value is 128 bytes, the salt value is 32 bytes, and an integer specifies the number of iterations. The following code will calculate password shadow hashes for macOS 10.8 (and higher):
 
 .. code-block:: ruby
 

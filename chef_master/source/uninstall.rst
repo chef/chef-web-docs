@@ -101,11 +101,11 @@ Use the following command to remove the Chef development kit on Debian-based pla
 
 .. end_tag
 
-Mac OS X
+macOS
 -----------------------------------------------------
 .. tag uninstall_chef_dk_mac
 
-Use the following commands to remove the Chef development kit on Mac OS X.
+Use the following commands to remove the Chef development kit on macOS.
 
 To remove installed files:
 
