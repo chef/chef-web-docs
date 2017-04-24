@@ -5,6 +5,3 @@ license 'Apache-2.0'
 description 'Installs/Configures docs-builder'
 long_description 'Installs/Configures docs-builder'
 version '0.3.3'
-
-depends 'aws'
-depends 'fancy_execute'
