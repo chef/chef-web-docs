@@ -32,11 +32,9 @@ Some important components of workstations include:
 
        * Nodes
        * Cookbooks and recipes
-       * Roles
-       * Stores of JSON data (data bags), including encrypted data
-       * Environments
-       * Cloud resources, including provisioning
-       * The installation of the chef-client on management workstations
+       * Roles, Environments, and Data Bags
+       * Resources within various cloud environments
+       * The installation of the chef-client onto nodes
        * Searching of indexed data on the Chef server
 
        .. end_tag

@@ -632,11 +632,9 @@ knife is a command-line tool that provides an interface between a local chef-rep
 
 * Nodes
 * Cookbooks and recipes
-* Roles
-* Stores of JSON data (data bags), including encrypted data
-* Environments
-* Cloud resources, including provisioning
-* The installation of the chef-client on management workstations
+* Roles, Environments, and Data Bags
+* Resources within various cloud environments
+* The installation of the chef-client onto nodes
 * Searching of indexed data on the Chef server
 
 .. end_tag
@@ -4644,7 +4642,7 @@ Use the **windows_package** resource to manage Microsoft Installer Package (MSI)
 
 .. end_tag
 
-Changed in 12.4 to include ``checksum`` and ``remote_file_attributes`` and URL locations on the ``source`` properties. Changed in Chef Client 12.6 to support a greater variety of ``installer_type``; Changed in 12.0 for ``installer_type`` to require a symbol. 
+Changed in 12.4 to include ``checksum`` and ``remote_file_attributes`` and URL locations on the ``source`` properties. Changed in Chef Client 12.6 to support a greater variety of ``installer_type``; Changed in 12.0 for ``installer_type`` to require a symbol.
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
