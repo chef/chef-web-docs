@@ -5,8 +5,6 @@
 # Copyright:: 2015-2017, Chef Software Inc.
 #
 
-include_recipe 'aws'
-
 package %w( git python-pip python-dev parallel )
 
 execute 'install awscli' do
