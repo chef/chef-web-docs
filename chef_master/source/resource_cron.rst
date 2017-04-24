@@ -13,7 +13,7 @@ Use the **cron** resource to manage cron entries for time-based job scheduling. 
 
 Syntax
 =====================================================
-A **cron** resource block manage cron entries. For example, to get a weekly cookbook report from the Chef Supermarket:
+A **cron** resource block manages cron entries. For example, to get a weekly cookbook report from the Chef Supermarket:
 
 .. code-block:: ruby
 
