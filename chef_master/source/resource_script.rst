@@ -189,7 +189,7 @@ This resource has the following attributes:
 
    .. warning:: .. tag resources_common_resource_execute_attribute_path
 
-                The ``path`` property has been deprecated and will throw an exception in Chef Client 13. We recommend you use the ``environment`` property instead.
+                The ``path`` property has been deprecated and will throw an exception in Chef Client 12 or later. We recommend you use the ``environment`` property instead.
 
                 .. end_tag
 
