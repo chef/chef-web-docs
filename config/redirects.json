@@ -1,5 +1,5 @@
 {
-  "rubocop.html": "cookstyle.html",
+  "rubocop.html": "/cookstyle.html",
   "_images/chef_run_legacy.png": "/_images/chef_run.png",
   "_images/server_components_all.png": "/_images/server_components.png",
   "auth_authentication.html": "/auth.html",
