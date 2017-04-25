@@ -9,13 +9,13 @@ Most of the code that is authored when working with Chef is written as Ruby. Jus
 
 .. end_tag
 
-Cookstyle is a linting tool based on the RuboCop Ruby linting tool. Use Cookstyle to author better cookbook code:
+Cookstyle is a linting tool based on the RuboCop Ruby linting tool. Cookstyle helps you author better cookbook code in the following ways:
 
-* Enforce style conventions and best practices
-* Evaluate the code in a cookbook against metrics like "line length" and "function size"
-* Help every member of a team to author similary structured code
-* Estabilish uniformity of source code
-* Set expectations for fellow (and future) project contributors
+* Enforcing style conventions and best practices
+* Evaluating the code in a cookbook against metrics like "line length" and "function size"
+* Helping every member of a team to author similary structured code
+* Estabilishing uniformity of source code
+* Setting expectations for fellow (and future) project contributors
 
 Cookstyle vs. Rubocop
 =====================================================
