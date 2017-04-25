@@ -18,53 +18,6 @@ A chef-client is an agent that runs locally on every node that is under manageme
 
 .. note:: The chef-client executable can be run as a daemon.
 
-Node Types
-=====================================================
-
-.. tag node
-
-A node is any machine---physical, virtual, cloud, network device, etc.---that is under management by Chef.
-
-.. end_tag
-
-.. tag node_types
-
-The types of nodes that can be managed by Chef include, but are not limited to, the following:
-
-.. list-table::
-   :widths: 100 420
-   :header-rows: 1
-
-   * - Node Type
-     - Description
-   * - .. image:: ../../images/icon_node_type_server.svg
-          :width: 100px
-          :align: center
-
-     - A physical node is typically a server or a virtual machine, but it can be any active device attached to a network that is capable of sending, receiving, and forwarding information over a communications channel. In other words, a physical node is any active device attached to a network that can run a chef-client and also allow that chef-client to communicate with a Chef server.
-   * - .. image:: ../../images/icon_node_type_cloud_public.svg
-          :width: 100px
-          :align: center
-
-     - A cloud-based node is hosted in an external cloud-based service, such as Amazon Web Services (AWS), OpenStack, Rackspace, Google Compute Engine, or Microsoft Azure. Plugins are available for knife that provide support for external cloud-based services. knife can use these plugins to create instances on cloud-based services. Once created, the chef-client can be used to deploy, configure, and maintain those instances.
-   * - .. image:: ../../images/icon_node_virtual_machine.svg
-          :width: 100px
-          :align: center
-
-     - A virtual node is a machine that runs only as a software implementation, but otherwise behaves much like a physical machine.
-   * - .. image:: ../../images/icon_node_type_network_device.svg
-          :width: 100px
-          :align: center
-
-     - A network node is any networking device---a switch, a router---that is being managed by a chef-client, such as networking devices by Juniper Networks, Arista, Cisco, and F5. Use Chef to automate common network configurations, such as physical and logical Ethernet link properties and VLANs, on these devices.
-   * - .. image:: ../../images/icon_node_type_container.svg
-          :width: 100px
-          :align: center
-
-     - Containers are an approach to virtualization that allows a single operating system to host many working configurations, where each working configuration---a container---is assigned a single responsibility that is isolated from all other responsibilities. Containers are popular as a way to manage distributed and scalable applications and services.
-
-.. end_tag
-
 .. tag node_components
 
 The key components of nodes that are under management by Chef include:
@@ -169,6 +122,26 @@ During every chef-client run, the following happens:
      - When everything is configured and the chef-client run is complete, the chef-client stops and waits until the next time it is asked to run.
 
 .. end_tag
+
+About why-run Mode
+=====================================================
+
+why-run mode is a way to see what the chef-client would have configured, had an actual chef-client run occurred. This approach is similar to the concept of "no-operation" (or "no-op"): decide what should be done, but then don't actually do anything until it's done right. This approach to configuration management can help identify where complexity exists in the system, where inter-dependencies may be located, and to verify that everything will be configured in the desired manner.
+
+When why-run mode is enabled, a chef-client run will occur that does everything up to the point at which configuration would normally occur. This includes getting the configuration data, authenticating to the Chef server, rebuilding the node object, expanding the run-list, getting the necessary cookbook files, resetting node attributes, identifying the resources, and building the resource collection and does not include mapping each resource to a provider or configuring any part of the system.
+
+.. note:: why-run mode is not a replacement for running cookbooks in a test environment that mirrors the production environment. Chef uses why-run mode to learn more about what is going on, but also Kitchen on developer systems, along with an internal OpenStack cloud and external cloud providers to test more thoroughly.
+
+When the chef-client is run in why-run mode, certain assumptions are made:
+
+* If the **service** resource cannot find the appropriate command to verify the status of a service, why-run mode will assume that the command would have been installed by a previous resource and that the service would not be running
+* For ``not_if`` and ``only_if`` attribute, why-run mode will assume these are commands or blocks that are safe to run. These conditions are not designed to be used to change the state of the system, but rather to help facilitate idempotency for the resource itself. That said, it may be possible that these attributes are being used in a way that modifies the system state
+* The closer the current state of the system is to the desired state, the more useful why-run mode will be. For example, if a full run-list is run against a fresh system, that run-list may not be completely correct on the first try, but also that run-list will produce more output than a smaller run-list
+
+For example, the **service** resource can be used to start a service. If the action is ``:start`` and the service is not running, then start the service (if it is not running) and do nothing (if it is running). What about a service that is installed from a package? The chef-client cannot check to see if the service is running until after the package is installed. A simple question that why-run mode can answer is what the chef-client would say about the state of the service after installing the package because service actions often trigger notifications to other resources. So it can be important to know in advance that any notifications are being triggered correctly.
+
+For a detailed explanation of the dry-run concept and how it relates to the why-run mode, see `this blog post <http://blog.afistfulofservers.net/post/2012/12/21/promises-lies-and-dryrun-mode/>`_.
+
 
 Authentication
 -----------------------------------------------------
