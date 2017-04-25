@@ -1,5 +1,5 @@
 =====================================================
-Notes for chef-client Upgrades
+Notes for chef-client Upgrades to Chef 12
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/upgrade_client_notes.rst>`__
 
