@@ -175,7 +175,6 @@ Chef DK
 **Provisioning**: :doc:`About Provisioning </provisioning>` | :doc:`load_balancer resource </resource_load_balancer>` | :doc:`machine resource </resource_machine>` | :doc:`machine_batch resource </resource_machine_batch>` | :doc:`machine_execute resource </resource_machine_execute>` | :doc:`machine_file resource </resource_machine_file>` | :doc:`machine_image resource </resource_machine_image>` | :doc:`AWS Driver Resources </provisioning_aws>` | :doc:`Fog Driver Resources </provisioning_fog>` | :doc:`Vagrant Driver Resources </provisioning_vagrant>`
 
 :doc:`push-jobs-client (executable) </ctl_push_jobs_client>` |
-:doc:`Rubocop </rubocop>`
 
 Managing the Server
 -----------------------------------------------------
@@ -749,7 +748,6 @@ Addenda
    resource_zypper_package
    resources
    roles
-   rubocop
    ruby
    run_lists
    runbook
