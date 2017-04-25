@@ -27,7 +27,7 @@ Quality Metrics
 qm-flip-admin-only
 -----------------------------------------------------
 
-The ``qm-flip-admin-only`` command is make a single named quality metric visible
+The ``qm-flip-admin-only`` command is used to make a single named quality metric visible
 only to admins.
 
 This subcommand has the following syntax:
@@ -42,7 +42,7 @@ Names containing spaces must be surrounded by quotes.
 qm-flip-all-admin-only
 -----------------------------------------------------
 
-The ``qm-flip-all-admin-only`` command is make all quality metrics visible only
+The ``qm-flip-all-admin-only`` command is used to make all quality metrics visible only
 to admins.
 
 This subcommand has the following syntax:
@@ -54,7 +54,7 @@ This subcommand has the following syntax:
 qm-flip-all-public
 -----------------------------------------------------
 
-The ``qm-flip-all-public`` command is make all quality metrics visible to all
+The ``qm-flip-all-public`` command is used to make all quality metrics visible to all
 users.
 
 This subcommand has the following syntax:
@@ -66,7 +66,7 @@ This subcommand has the following syntax:
 qm-flip-public
 -----------------------------------------------------
 
-The ``qm-flip-public`` command is make a single named quality metric visible
+The ``qm-flip-public`` command is used to make a single named quality metric visible
 to all users.
 
 This subcommand has the following syntax:
