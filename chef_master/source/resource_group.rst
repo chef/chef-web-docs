@@ -224,7 +224,7 @@ This resource has the following providers:
    The provider for the AIX platform.
 
 ``Chef::Provider::Group::Dscl``, ``group``
-   The provider for the Mac OS X platform.
+   The provider for the macOS platform.
 
 ``Chef::Provider::Group::Gpasswd``, ``group``
    The provider for the gpasswd command.

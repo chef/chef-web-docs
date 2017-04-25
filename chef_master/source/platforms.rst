@@ -37,7 +37,7 @@ The following table lists the Foundational platforms for the chef-client and oha
    * - FreeBSD
      - ``i386``, ``amd64``
      - ``9``, ``10``
-   * - Mac OS X
+   * - macOS
      - ``x86_64``
      - ``10.9``, ``10.10``, ``10.11``, ``10.12``
    * - Oracle Linux
@@ -118,7 +118,7 @@ The following platforms are not tested by Chef Software:
    * - HP-UX
      -
      -
-   * - Mac OS X
+   * - macOS
      -
      - ``10.8`` (and older)
    * - NetBSD
@@ -164,7 +164,7 @@ The following table lists the Foundational platforms for the Chef DK:
    * - Debian
      -
      - ``7.x``, ``8.x``
-   * - Mac OS X
+   * - macOS
      -
      - ``10.10``, ``10.11``, ``10.12``
    * - Red Hat Enterprise Linux
@@ -191,7 +191,7 @@ The following platforms are not tested by Chef Software:
    * - Platform
      - Architecture
      - Version
-   * - Mac OS X
+   * - macOS
      -
      - ``10.9`` (and earlier)
    * - Microsoft Windows
@@ -282,7 +282,7 @@ The following table lists the Secondary platforms for the Chef Automate server:
 
 .. note:: The Delivery CLI may be run on the following platforms:
 
-          * Mac OS X
+          * macOS
           * Ubuntu
           * Red Hat Enterprise Linux
           * Microsoft Windows

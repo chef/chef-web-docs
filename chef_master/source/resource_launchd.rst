@@ -5,7 +5,7 @@ launchd
 
 .. tag resource_launchd_summary
 
-Use the **launchd** resource to manage system-wide services (daemons) and per-user services (agents) on the Mac OS X platform.
+Use the **launchd** resource to manage system-wide services (daemons) and per-user services (agents) on the macOS platform.
 
 .. end_tag
 
@@ -13,7 +13,7 @@ Syntax
 =====================================================
 .. tag resource_launchd_syntax
 
-A **launchd** resource manages system-wide services (daemons) and per-user services (agents) on the Mac OS X platform:
+A **launchd** resource manages system-wide services (daemons) and per-user services (agents) on the macOS platform:
 
 .. code-block:: ruby
 
@@ -333,7 +333,7 @@ The following resource properties may be used to define keys in the XML property
 ``init_groups``
    **Ruby Types:** TrueClass, FalseClass
 
-   Specify if ``initgroups`` is called before running a job. Default value: ``true`` (starting with Mac OS X 10.5).
+   Specify if ``initgroups`` is called before running a job. Default value: ``true`` (starting with macOS 10.5).
 
 ``keep_alive``
    **Ruby Types:** TrueClass, FalseClass, Hash
@@ -380,7 +380,7 @@ The following resource properties may be used to define keys in the XML property
 ``on_demand``
    **Ruby Types:** TrueClass, FalseClass
 
-   Keep a job alive. Only applies to Mac OS X version 10.4 (and earlier); use ``keep_alive`` instead for newer versions.
+   Keep a job alive. Only applies to macOS version 10.4 (and earlier); use ``keep_alive`` instead for newer versions.
 
 ``process_type``
    **Ruby Type:** String

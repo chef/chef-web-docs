@@ -125,7 +125,7 @@ This resource has the following properties:
 ``iterations``
    **Ruby Type:** Integer
 
-   Mac OS X platform only, 10.8 (or higher). The number of iterations for a password with a SALTED-SHA512-PBKDF2 shadow hash.
+   macOS platform only, 10.8 (or higher). The number of iterations for a password with a SALTED-SHA512-PBKDF2 shadow hash.
 
    New in Chef Client 12.0.
 
@@ -200,7 +200,7 @@ This resource has the following properties:
 ``salt``
    **Ruby Type:** String
 
-   Mac OS X platform only, 10.7 or higher. The salt value for a password shadow hash. Mac OS X version 10.7 uses SALTED-SHA512 and version 10.8 (and higher) uses SALTED-SHA512-PBKDF2 to calculate password shadow hashes.
+   macOS platform only, 10.7 or higher. The salt value for a password shadow hash. macOS version 10.7 uses SALTED-SHA512 and version 10.8 (and higher) uses SALTED-SHA512-PBKDF2 to calculate password shadow hashes.
 
    New in Chef Client 12.0.
 
@@ -305,7 +305,7 @@ This resource has the following providers:
    The provider for the FreeBSD platform.
 
 ``Chef::Provider::User::Dscl``, ``user``
-   The provider for the Mac OS X platform.
+   The provider for the macOS platform.
 
 ``Chef::Provider::User::Windows``, ``user``
    The provider for all Microsoft Windows platforms.
@@ -374,7 +374,7 @@ The following example shows how to create a system user. In this instance, the `
 
 .. tag resource_user_password_shadow_hash_salted_sha512
 
-Mac OS X 10.7 calculates the password shadow hash using SALTED-SHA512. The length of the shadow hash value is 68 bytes, the salt value is the first 4 bytes, with the remaining 64 being the shadow hash itself. The following code will calculate password shadow hashes for Mac OS X 10.7:
+macOS 10.7 calculates the password shadow hash using SALTED-SHA512. The length of the shadow hash value is 68 bytes, the salt value is the first 4 bytes, with the remaining 64 being the shadow hash itself. The following code will calculate password shadow hashes for macOS 10.7:
 
 .. code-block:: ruby
 
@@ -397,7 +397,7 @@ Use the calculated password shadow hash with the **user** resource:
 
 .. tag resource_user_password_shadow_hash_salted_sha512_pbkdf2
 
-Mac OS X 10.8 (and higher) calculates the password shadow hash using SALTED-SHA512-PBKDF2. The length of the shadow hash value is 128 bytes, the salt value is 32 bytes, and an integer specifies the number of iterations. The following code will calculate password shadow hashes for Mac OS X 10.8 (and higher):
+macOS 10.8 (and higher) calculates the password shadow hash using SALTED-SHA512-PBKDF2. The length of the shadow hash value is 128 bytes, the salt value is 32 bytes, and an integer specifies the number of iterations. The following code will calculate password shadow hashes for macOS 10.8 (and higher):
 
 .. code-block:: ruby
 

@@ -174,7 +174,7 @@ If you see this error and the logs show ``Invalid assertion {assertion,{error,ce
 
 To find the correct certificate, you can examine the assertions given by the IdP on successful login:
 
-#. Open Chrome's "Developer Tools" (Alt+Cmd+i on OSX) > Network (4th tab).
+#. Open Chrome's "Developer Tools" (Alt+Cmd+i on macOS) > Network (4th tab).
 #. Select `Preserve Log` (2nd row) and `All` (3rd row).
 #. Try logging in via SAML again.
 #. Find the request to `consume` (Name column).

@@ -5,7 +5,7 @@ osx_profile
 
 .. tag resource_osx_profile_summary
 
-Use the **osx_profile** resource to manage configuration profiles (``.mobileconfig`` files) on the Mac OS X platform. The **osx_profile** resource installs profiles by using the ``uuidgen`` library to generate a unique ``ProfileUUID``, and then using the ``profiles`` command to install the profile on the system.
+Use the **osx_profile** resource to manage configuration profiles (``.mobileconfig`` files) on the macOS platform. The **osx_profile** resource installs profiles by using the ``uuidgen`` library to generate a unique ``ProfileUUID``, and then using the ``profiles`` command to install the profile on the system.
 
 .. end_tag
 
@@ -15,7 +15,7 @@ Syntax
 =====================================================
 .. tag resource_osx_profile_syntax
 
-A **osx_profile** resource block manages configuration profiles on the Mac OS X platform:
+A **osx_profile** resource block manages configuration profiles on the macOS platform:
 
 .. code-block:: ruby
 

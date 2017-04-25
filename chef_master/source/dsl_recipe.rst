@@ -1583,7 +1583,7 @@ The following parameters can be used with this method:
    * - ``hpux``
      - HP-UX. All platform variants of HP-UX return ``hpux``.
    * - ``mac_os_x``
-     - Mac OS X
+     - macOS
    * - ``netbsd``
      - NetBSD. All platform variants of NetBSD return ``netbsd``.
    * - ``openbsd``

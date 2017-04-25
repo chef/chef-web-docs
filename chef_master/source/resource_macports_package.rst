@@ -5,7 +5,7 @@ macports_package
 
 .. tag resource_package_macports
 
-Use the **macports_package** resource to manage packages for the Mac OS X platform.
+Use the **macports_package** resource to manage packages for the macOS platform.
 
 .. end_tag
 
@@ -212,7 +212,7 @@ This resource has the following providers:
    When this short name is used, the chef-client will attempt to determine the correct provider during the chef-client run.
 
 ``Chef::Provider::Package::Macports``, ``macports_package``
-   The provider for the Mac OS X platform.
+   The provider for the macOS platform.
 
 Examples
 =====================================================

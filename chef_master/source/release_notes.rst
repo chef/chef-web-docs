@@ -768,7 +768,7 @@ What's New in 12.13
 =====================================================
 The following items are new for chef-client 12.13 and/or are changes from previous versions. The short version:
 
-* **Ohai 8.18 includes new plugin for gathering available user shells** Other additions include a new hardware plugin for OSX that gathers system information and detection of VMWare and VirtualBox installations.
+* **Ohai 8.18 includes new plugin for gathering available user shells** Other additions include a new hardware plugin for macOS that gathers system information and detection of VMWare and VirtualBox installations.
 * **New Chef client option to override any config key/value pair** Use ``chef-client --config-option`` to override any config setting from the command line.
 
 --config-option
@@ -1370,7 +1370,7 @@ The following items are new for chef-client 12.8 and/or are changes from previou
 
 * **Support for OpenSSL validation of FIPS** The chef-client can be configured to allow OpenSSL to enforce FIPS-validated security during a chef-client run.
 * **Support for multiple configuration files** The chef-client supports reading multiple configuration files by putting them inside a ``.d`` configuration directory.
-* **New launchd resource** Use the **launchd** resource to manage system-wide services (daemons) and per-user services (agents) on the Mac OS X platform.
+* **New launchd resource** Use the **launchd** resource to manage system-wide services (daemons) and per-user services (agents) on the macOS platform.
 * **chef-zero support for Chef Server API endpoints** chef-zero now supports using all Chef server API version 12 endpoints, with the exception of ``/universe``.
 * **Updated support for OpenSSL** OpenSSL is updated to version 1.0.1.
 * **Ohai auto-detects hosts for Azure instances** Ohai will auto-detect hosts for instances that are hosted by Microsoft Azure.
@@ -1469,7 +1469,7 @@ launchd
 -----------------------------------------------------
 .. tag resource_launchd_summary
 
-Use the **launchd** resource to manage system-wide services (daemons) and per-user services (agents) on the Mac OS X platform.
+Use the **launchd** resource to manage system-wide services (daemons) and per-user services (agents) on the macOS platform.
 
 .. end_tag
 
@@ -1477,7 +1477,7 @@ Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_launchd_syntax_12_8
 
-A **launchd** resource manages system-wide services (daemons) and per-user services (agents) on the Mac OS X platform:
+A **launchd** resource manages system-wide services (daemons) and per-user services (agents) on the macOS platform:
 
 .. code-block:: ruby
 
@@ -1795,7 +1795,7 @@ The following resource properties may be used to define keys in the XML property
 ``init_groups``
    **Ruby Types:** TrueClass, FalseClass
 
-   Specify if ``initgroups`` is called before running a job. Default value: ``true`` (starting with Mac OS X 10.5).
+   Specify if ``initgroups`` is called before running a job. Default value: ``true`` (starting with macOS 10.5).
 
 ``keep_alive``
    **Ruby Types:** TrueClass, FalseClass, Hash
@@ -1842,7 +1842,7 @@ The following resource properties may be used to define keys in the XML property
 ``on_demand``
    **Ruby Types:** TrueClass, FalseClass
 
-   Keep a job alive. Only applies to Mac OS X version 10.4 (and earlier); use ``keep_alive`` instead for newer versions.
+   Keep a job alive. Only applies to macOS version 10.4 (and earlier); use ``keep_alive`` instead for newer versions.
 
 ``process_type``
    **Ruby Type:** String
@@ -2019,7 +2019,7 @@ The following items are new for chef-client 12.7 and/or are changes from previou
 
 * **Chef::REST => require 'chef/rest'** Internal API calls are moved from ``Chef::REST`` to ``Chef::ServerAPI``. Any code that uses ``Chef::REST`` must use ``require 'chef/rest'``.
 * **New chocolatey_package resource** Use the **chocolatey_package** resource to manage packages using Chocolatey for the Microsoft Windows platform.
-* **New osx_profile resource** Use the **osx_profile** resource to manage configuration profiles (``.mobileconfig`` files) on the Mac OS X platform.
+* **New osx_profile resource** Use the **osx_profile** resource to manage configuration profiles (``.mobileconfig`` files) on the macOS platform.
 * **New apt_update resource** Use the **apt_update** resource to manage Apt repository updates on Debian and Ubuntu platforms.
 * **Improved support for UTF-8** The chef-client 12.7 release fixes a UTF-8 handling bug present in chef-client versions 12.4, 12.5, and 12.6.
 * **New options for the chef-client** The chef-client has a new option: ``--delete-entire-chef-repo``.
@@ -2255,7 +2255,7 @@ osx_profile
 -----------------------------------------------------
 .. tag resource_osx_profile_summary
 
-Use the **osx_profile** resource to manage configuration profiles (``.mobileconfig`` files) on the Mac OS X platform. The **osx_profile** resource installs profiles by using the ``uuidgen`` library to generate a unique ``ProfileUUID``, and then using the ``profiles`` command to install the profile on the system.
+Use the **osx_profile** resource to manage configuration profiles (``.mobileconfig`` files) on the macOS platform. The **osx_profile** resource installs profiles by using the ``uuidgen`` library to generate a unique ``ProfileUUID``, and then using the ``profiles`` command to install the profile on the system.
 
 .. end_tag
 
@@ -2263,7 +2263,7 @@ Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_osx_profile_syntax
 
-A **osx_profile** resource block manages configuration profiles on the Mac OS X platform:
+A **osx_profile** resource block manages configuration profiles on the macOS platform:
 
 .. code-block:: ruby
 
@@ -4755,7 +4755,7 @@ Dynamic Resolution
 -----------------------------------------------------
 .. tag libraries_dynamic_resolution
 
-Resources and providers are resolved dynamically and can handle multiple ``provides`` lines for a specific platform. When multiple ``provides`` lines exist, such as ``Homebrew`` and ``MacPorts`` packages for the Mac OS X platform, then one is selected based on resource priority mapping performed by the chef-client during the chef-client run.
+Resources and providers are resolved dynamically and can handle multiple ``provides`` lines for a specific platform. When multiple ``provides`` lines exist, such as ``Homebrew`` and ``MacPorts`` packages for the macOS platform, then one is selected based on resource priority mapping performed by the chef-client during the chef-client run.
 
 Use the following helpers in a library file to get and/or set resource and/or provider priority mapping before any recipes are compiled:
 
@@ -6802,7 +6802,7 @@ The following items are new for chef-client 12.0 and/or are changes from previou
 * **provides method for building custom resources** Use the ``provides`` method to associate a custom resource with a built-in chef-client resource and to specify platforms on which the custom resource may be used.
 * **The chef-client supports the AIX platform** The chef-client may now be used to configure nodes that are running on the AIX platform, versions 6.1 (TL6 or higher, recommended) and 7.1 (TL0 SP3 or higher, recommended). The **service** resource supports starting, stopping, and restarting services that are managed by System Resource Controller (SRC), as well as managing all service states with BSD-based init systems.
 * **New bff_package resource** Use the **bff_package** resource to install packages on the AIX platform.
-* **New homebrew_package resource** Use the **homebrew_package** resource to install packages on the Mac OS X platform. The **homebrew_package** resource also replaces the **macports_package** resource as the default package installer on the Mac OS X platform.
+* **New homebrew_package resource** Use the **homebrew_package** resource to install packages on the macOS platform. The **homebrew_package** resource also replaces the **macports_package** resource as the default package installer on the macOS platform.
 * **New reboot resource** Use the **reboot** resource to reboot a node during or at the end of a chef-client run.
 * **New windows_service resource** Use the **windows_service** resource to manage services on the Microsoft Windows platform.
 * **New --bootstrap-template option** Use the ``--bootstrap-template`` option to install the chef-client with a bootstrap template. Specify the name of a template, such as ``chef-full``, or specify the path to a custom bootstrap template. This option deprecates the ``--distro`` and ``--template-file`` options.
@@ -6813,7 +6813,7 @@ The following items are new for chef-client 12.0 and/or are changes from previou
 * **The http_request GET and HEAD requests drop the hard-coded query string** The ``:get`` and ``:head`` actions appended a hard-coded query string---``?message=resource_name``---that cannot be overridden. This hard-coded string is deprecated in the chef-client 12.0 release. Cookbooks that rely on this string need to be updated to manually add it to the URL as it is passed to the resource.
 * **New Recipe DSL methods** The Recipe DSL has three new methods: ``shell_out``, ``shell_out!``, and ``shell_out_with_systems_locale``.
 * **File specificity updates** File specificity for the **template** and **cookbook_file** resources now supports using the ``source`` attribute to define an explicit lookup path as an array.
-* **Improved user password security for the user resource, Mac OS X platform** The **user** resource now supports salted password hashes for Mac OS X 10.7 (and higher). Use the ``iterations`` and ``salt`` attributes to calculate SALTED-SHA512 password shadow hashes for Mac OS X version 10.7 and SALTED-SHA512-PBKDF2 password shadow hashes for version 10.8 (and higher).
+* **Improved user password security for the user resource, macOS platform** The **user** resource now supports salted password hashes for macOS 10.7 (and higher). Use the ``iterations`` and ``salt`` attributes to calculate SALTED-SHA512 password shadow hashes for macOS version 10.7 and SALTED-SHA512-PBKDF2 password shadow hashes for version 10.8 (and higher).
 * **data_bag_item method in the Recipe DSL supports encrypted data bag items** Use ``data_bag_item(bag_name, item, secret)`` to specify the secret to use for an encrypted data bag item. If ``secret`` is not specified, the chef-client looks for a secret at the path specified by the ``encrypted_data_bag_secret`` setting in the client.rb file.
 * **value_for_platform method in the Recipe DSL supports version constraints** Version constraints---``>``, ``<``, ``>=``, ``<=``, ``~>``---may be used when specifying a version. An exception is raised if two version constraints match. An exact match will always take precedence over a match made from a version constraint.
 * **knife cookbook site share supports --dry-run** Use the ``--dry-run`` option with the ``knife cookbook site`` to take no action and only print out results.
@@ -7738,7 +7738,7 @@ homebrew_package
 -----------------------------------------------------
 .. tag resource_package_homebrew
 
-Use the **homebrew_package** resource to manage packages for the Mac OS X platform.
+Use the **homebrew_package** resource to manage packages for the macOS platform.
 
 .. end_tag
 
@@ -7939,7 +7939,7 @@ This resource has the following providers:
    When this short name is used, the chef-client will attempt to determine the correct provider during the chef-client run.
 
 ``Chef::Provider::Package::Homebrew``, ``homebrew_package``
-   The provider for the Mac OS X platform.
+   The provider for the macOS platform.
 
 .. end_tag
 
@@ -7992,7 +7992,7 @@ reboot
 -----------------------------------------------------
 .. tag resource_service_reboot
 
-Use the **reboot** resource to reboot a node, a necessary step with some installations on certain platforms. This resource is supported for use on the Microsoft Windows, Mac OS X, and Linux platforms.  New in Chef Client 12.0.
+Use the **reboot** resource to reboot a node, a necessary step with some installations on certain platforms. This resource is supported for use on the Microsoft Windows, macOS, and Linux platforms.  New in Chef Client 12.0.
 
 .. end_tag
 
@@ -8611,7 +8611,7 @@ or:
      source ["#{node.chef_environment}.erb", 'default.erb']
    end
 
-Mac OS X, Passwords
+macOS, Passwords
 -----------------------------------------------------
 The following properties are new for the **user** resource:
 
@@ -8624,13 +8624,13 @@ The following properties are new for the **user** resource:
    * - ``iterations``
      - The number of iterations for a password with a SALTED-SHA512-PBKDF2 shadow hash.
    * - ``salt``
-     - The salt value for a password shadow hash. Mac OS X version 10.7 uses SALTED-SHA512 and version 10.8 (and higher) uses SALTED-SHA512-PBKDF2 to calculate password shadow hashes.
+     - The salt value for a password shadow hash. macOS version 10.7 uses SALTED-SHA512 and version 10.8 (and higher) uses SALTED-SHA512-PBKDF2 to calculate password shadow hashes.
 
 **Use SALTED-SHA512 passwords**
 
 .. tag resource_user_password_shadow_hash_salted_sha512
 
-Mac OS X 10.7 calculates the password shadow hash using SALTED-SHA512. The length of the shadow hash value is 68 bytes, the salt value is the first 4 bytes, with the remaining 64 being the shadow hash itself. The following code will calculate password shadow hashes for Mac OS X 10.7:
+macOS 10.7 calculates the password shadow hash using SALTED-SHA512. The length of the shadow hash value is 68 bytes, the salt value is the first 4 bytes, with the remaining 64 being the shadow hash itself. The following code will calculate password shadow hashes for macOS 10.7:
 
 .. code-block:: ruby
 
@@ -8653,7 +8653,7 @@ Use the calculated password shadow hash with the **user** resource:
 
 .. tag resource_user_password_shadow_hash_salted_sha512_pbkdf2
 
-Mac OS X 10.8 (and higher) calculates the password shadow hash using SALTED-SHA512-PBKDF2. The length of the shadow hash value is 128 bytes, the salt value is 32 bytes, and an integer specifies the number of iterations. The following code will calculate password shadow hashes for Mac OS X 10.8 (and higher):
+macOS 10.8 (and higher) calculates the password shadow hash using SALTED-SHA512-PBKDF2. The length of the shadow hash value is 128 bytes, the salt value is 32 bytes, and an integer specifies the number of iterations. The following code will calculate password shadow hashes for macOS 10.8 (and higher):
 
 .. code-block:: ruby
 

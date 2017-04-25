@@ -418,7 +418,7 @@ Use to upload a profile using a Zip file. A Zip file may be created with a comma
 
    $ zip -r /tmp/newprofile.zip profile_directory
 
-or it may be created from the context menus in the Microsoft Windows and/or Mac OS X graphical user interfaces.
+or it may be created from the context menus in the Microsoft Windows and/or macOS graphical user interfaces.
 
 **Request**
 

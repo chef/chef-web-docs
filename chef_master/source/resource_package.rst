@@ -530,13 +530,13 @@ This resource has the following providers:
    The provider for the FreeBSD platform.
 
 ``Chef::Provider::Package::Homebrew``, ``homebrew_package``
-   The provider for the Mac OS X platform.
+   The provider for the macOS platform.
 
 ``Chef::Provider::Package::Ips``, ``ips_package``
    The provider for the ips platform.
 
 ``Chef::Provider::Package::Macports``, ``macports_package``
-   The provider for the Mac OS X platform.
+   The provider for the macOS platform.
 
 ``Chef::Provider::Package::Openbsd``, ``openbsd_package``
    The provider for the OpenBSD platform.

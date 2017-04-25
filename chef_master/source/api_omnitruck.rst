@@ -40,8 +40,8 @@ where:
 * ``<CHANNEL>`` is the release channel to install from. See :doc:`Chef Software Inc Packages </packages>` for full details on the available channels.
 * ``<PRODUCT>`` is the Chef Software Inc product to install. A list of valid product keys can be found at https://omnitruck.chef.io/products
 * ``p`` is the platform. Possible values: ``debian``, ``el`` (for CentOS), ``freebsd``, ``mac_os_x``, ``solaris2``, ``sles``, ``suse``, ``ubuntu`` or ``windows``.
-* ``pv`` is the platform version. Possible values depend on the platform. For example, Ubuntu: ``10.10``, ``11.04``, ``11.10``, ``12.04``, or ``12.10`` or for Mac OS X: ``10.6`` or ``10.7``.
-* ``m`` is the machine architecture for the machine on which the product will be installed. Possible values depend on the platform. For example, for Ubuntu or Debian: ``i386`` or ``x86_64`` or for Mac OS X: ``x86_64``.
+* ``pv`` is the platform version. Possible values depend on the platform. For example, Ubuntu: ``10.10``, ``11.04``, ``11.10``, ``12.04``, or ``12.10`` or for macOS: ``10.6`` or ``10.7``.
+* ``m`` is the machine architecture for the machine on which the product will be installed. Possible values depend on the platform. For example, for Ubuntu or Debian: ``i386`` or ``x86_64`` or for macOS: ``x86_64``.
 * ``v`` is the version of the product to be installed. A version always takes the form x.y.z, where x, y, and z are decimal numbers that are used to represent major (x), minor (y), and patch (z) versions. One-part (x) and two-part (x.y) versions are allowed. For more information about application versioning, see http://semver.org/. Default value: ``latest``.
 
 Platforms
@@ -92,7 +92,7 @@ Omnitruck accepts the following platforms:
      - ``aix``
      - ``powerpc``
      - ``6.1``, ``7.1``
-   * - Mac OS X
+   * - macOS
      - ``mac_os_x``
      - ``x86_64``
      - ``10.6``, ``10.7``, ``10.8``, ``10.9``, ``10.10``, ``10.11``, ``10.12``

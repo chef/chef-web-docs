@@ -290,7 +290,7 @@ This resource has the following providers:
    The provider for the Microsoft Windows platform.
 
 ``Chef::Provider::Service::Macosx``, ``service``
-   The provider for the Mac OS X platform.
+   The provider for the macOS platform.
 
 Examples
 =====================================================

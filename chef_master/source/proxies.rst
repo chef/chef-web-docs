@@ -27,7 +27,7 @@ To configure proxy settings in Microsoft Windows:
 
 Linux
 =====================================================
-To determine the current proxy server on the Mac OS X and Linux platforms, check the environment variables. Run the following:
+To determine the current proxy server on the macOS and Linux platforms, check the environment variables. Run the following:
 
 .. code-block:: bash
 
