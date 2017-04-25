@@ -270,8 +270,6 @@ The following setting is often modified from the default as part of the tuning e
 rabbitmq
 -----------------------------------------------------
 
-.. note:: Chef Analytics has been replaced by Chef Automate.
-
 .. tag server_tuning_rabbitmq
 
 .. note:: Chef Analytics has been replaced by Chef Automate.
