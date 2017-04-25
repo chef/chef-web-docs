@@ -5,13 +5,11 @@
 # Copyright:: 2015-2017, Chef Software Inc.
 #
 
-include_recipe 'aws'
-
 package %w( git python-pip python-dev parallel )
 
 execute 'install awscli' do
   command 'pip install awscli'
-  not_if { File.exist?('/usr/local/bin/aws') }
+  not_if { ::File.exist?('/usr/local/bin/aws') }
 end
 
 directory '/root/.ssh' do
@@ -69,7 +67,7 @@ execute 'parallel -a targets.txt make' do
   cwd '/srv/chef-web-docs'
 end
 
-file File.join('/srv/chef-web-docs', 'build', 'version.txt') do
+file ::File.join('/srv/chef-web-docs', 'build', 'version.txt') do
   content node['docs-builder']['build_name']
 end
 
