@@ -67,6 +67,8 @@ The most important tools included in the Chef development kit are:
      - Use to encrypt data bag items using the public keys of a list of nodes. This allows only those nodes to decrypt the encrypted values.
    * - ChefSpec
      - A unit testing framework that tests resources locally.
+   * - Cookstyle
+     - A Rubocop-based style-checking tool for writing clean cookbooks.
    * - Delivery CLI
      - A command-line tool for continuous delivery workflow. Is used to setup and execute phase jobs on an Chef Automate server.
    * - Fauxhai
@@ -83,8 +85,6 @@ The most important tools included in the Chef development kit are:
      - A workflow plugin for knife that helps groups of people work together in the same chef-repo and Chef server.
    * - Ruby
      - The reference language for Chef.
-   * - cookstyle
-     - A Rubocop-based style-checking tool for writing clean cookbooks.
 
 Chef DK Tools
 -----------------------------------------------------
