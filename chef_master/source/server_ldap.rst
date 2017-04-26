@@ -27,7 +27,7 @@ The Chef server supports using Active Directory or LDAP for any user that has an
 To configure the Chef server to use Active Directory or LDAP do the following:
 
 #. Install the Chef management console (if it is not already).
-#. Add the following settings to the chef-server.rb file. These settings must be added to the chef-server.rb file on each machine in the Chef server frontend deployment of a High Availability installation as well as on Chef servers in a standalone installation.
+#. Add the following settings to the ``chef-server.rb`` file. These settings must be added to the ``chef-server.rb`` file on each machine in the Chef server frontend deployment of a High Availability installation as well as on Chef servers in a standalone installation.
 
    .. tag config_rb_server_settings_ldap
 
@@ -48,6 +48,12 @@ To configure the Chef server to use Active Directory or LDAP do the following:
       .. code-block:: ruby
 
          'CN=user,OU=Employees,OU=Domainuser,DC=example,DC=com'
+
+      .. note:: If you need to escape characters in a distinguished name, such as when using Active Directory, they must be `escaped with a backslash escape character <https://social.technet.microsoft.com/wiki/contents/articles/5312.active-directory-characters-to-escape.aspx>`_.
+
+         .. code-block:: ruby
+
+            'CN=example\\user,OU=Employees,OU=Domainuser,DC=example,DC=com'
 
       Default value: ``nil``.
 
@@ -86,6 +92,8 @@ To configure the Chef server to use Active Directory or LDAP do the following:
 
    ``ldap['ssl_enabled']``
       Cause the Chef server to connect to the LDAP server using SSL. Default value: ``false``. Must be ``false`` when ``ldap['tls_enabled']`` is ``true``.
+
+      .. note:: It's recommended that you enable SSL for Active Directory.
 
       .. note:: Previous versions of the Chef server used the ``ldap['ssl_enabled']`` setting to first enable SSL, and then the ``ldap['encryption']`` setting to specify the encryption type. These settings are deprecated.
 
