@@ -474,6 +474,12 @@ This configuration file has the following settings for ``ldap``:
 
       'CN=user,OU=Employees,OU=Domainuser,DC=example,DC=com'
 
+   .. note:: If you need to escape characters in a distinguished name, such as when using Active Directory, they must be `escaped with a backslash escape character <https://social.technet.microsoft.com/wiki/contents/articles/5312.active-directory-characters-to-escape.aspx>`_.
+
+      .. code-block:: ruby
+
+         'CN=example\\user,OU=Employees,OU=Domainuser,DC=example,DC=com'
+
    Default value: ``nil``.
 
 ``ldap['bind_password']``
@@ -511,6 +517,8 @@ This configuration file has the following settings for ``ldap``:
 
 ``ldap['ssl_enabled']``
    Cause the Chef server to connect to the LDAP server using SSL. Default value: ``false``. Must be ``false`` when ``ldap['tls_enabled']`` is ``true``.
+
+   .. note:: It's recommended that you enable SSL for Active Directory.
 
    .. note:: Previous versions of the Chef server used the ``ldap['ssl_enabled']`` setting to first enable SSL, and then the ``ldap['encryption']`` setting to specify the encryption type. These settings are deprecated.
 
