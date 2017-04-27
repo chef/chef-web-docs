@@ -20,7 +20,7 @@ This topic describes how and why to use secrets in a ``build-cookbook``:
   * Using an encrypted data bag.
   * Using chef vaults.
 
-For more information on security, see `How to be a Secure Chef <https://learn.chef.io/skills/be-a-secure-chef/>`_.
+For more information on security, see `How to be a Secure Chef <https://learn.chef.io/tracks/administering-chef-installation/>`_.
 
 
 Using Encrypted Data Bags

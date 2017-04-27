@@ -177,11 +177,6 @@ and so on for all of the recipes. This ensures that all of the default behavior 
 
 .. end_tag
 
-Read the Tutorial
-=====================================================
-
-To learn more about how to set up a project pipeline for a single cookbook and simple application, follow the steps outlined in the `Build a continuous deployment pipeline with Chef Automate <https://learn.chef.io/tutorials/#chef-automate>`__ tutorial on https://learn.chef.io/tutorials/.
-
 Project Cookbooks
 =====================================================
 A project cookbook is a cookbook that is located within a project and is used to deploy that project's software onto one (or more) nodes in the Chef Automate pipeline. These cookbooks are located in the ``/cookbooks`` directory, which should exist at the root of the project (similar to the ``.delivery`` directory).
