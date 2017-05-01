@@ -370,7 +370,7 @@ httpd.conf.erb
      TypesConfig /etc/mime.types
    </IfModule>
 
-Copy it as shown, add it under ``/templates/default``, and then name the file ``httpd.conf.erb``.
+Copy it as shown, add it under ``/templates``, and then name the file ``httpd.conf.erb``.
 
 Template Variables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -409,7 +409,7 @@ httpd.service.erb
    [Install]
    WantedBy=multi-user.target
 
-Copy it as shown, add it under ``/templates/default``, and then name it ``httpd.service.erb``.
+Copy it as shown, add it under ``/templates``, and then name it ``httpd.service.erb``.
 
 Final Resource
 -----------------------------------------------------
@@ -474,9 +474,8 @@ When finished adding the templates and building the custom resource, the cookboo
      /resources
        httpd.rb
      /templates
-       /default
-         httpd.conf.erb
-         httpd.service.erb
+       httpd.conf.erb
+       httpd.service.erb
 
 Recipe
 -----------------------------------------------------
