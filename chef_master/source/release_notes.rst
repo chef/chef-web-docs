@@ -247,7 +247,7 @@ Properties overriding methods now raise an error
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 Defining a property that overrides methods defined on the base ruby ``Object`` or on ``Chef::Resource`` itself can cause large amounts of confusion.  A simple example is ``property :hash`` which overrides the Object#hash method which will confuse ruby when the Custom Resource is placed into the Chef::ResourceCollection which uses a hash internally which expects to call Object#hash to get a unique id for the object.  Attempting to create ``property :action`` would also override the Chef::Resource#action method which is unlikely to end well for the user.  Overriding inherited properties is still supported.
 
-`chef-shell`` now supports solo and legacy solo modes
+``chef-shell`` now supports solo and legacy solo modes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Running ``chef-shell -s`` or ``chef-shell --solo`` will give you an experience consistent with ``chef-solo``. ``chef-shell --solo-legacy-mode` will give you an experience consistent with ``chef-solo --legacy-mode``.
 
@@ -271,7 +271,7 @@ Simplify Recipe DSL wiring
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 Support for actions with spaces and hyphens in the action name has been dropped.  Resources and property names with spaces and hyphens most likely never worked in Chef-12.  UTF-8 characters have always been supported and still are.
 
-`easy_install`` resource has been removed
+``easy_install`` resource has been removed
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 The Python ``easy_install`` package installer has been deprecated for many years, so we have removed support for it. No specific replacement for ``pip`` is being included with Chef at this time, but a ``pip`-based ``python_package`` resource is available in the [`poise-python`](https://github.com/poise/poise-python) cookbooks.
@@ -357,7 +357,7 @@ Chef has always recommended ``%{path}``, and ``%{file}`` has now been removed.
 
 The ``partial_search`` recipe method has been removed
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``partial_search`` method has been fully replaced by the `filter_result`` argument to ``search``, and has now been removed.
+The ``partial_search`` method has been fully replaced by the ``filter_result`` argument to ``search``, and has now been removed.
 
 The logger and formatter settings are more predictable
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -401,6 +401,20 @@ Chef Client exits the RFC062 defined exit codes
 Chef Client will only exit with exit codes defined in RFC 062.  This allows other tooling to respond to how a Chef run completes.  Attempting to exit Chef Client with an unsupported exit code (either via ``Chef::Application.fatal!`` or ``Chef::Application.exit!``) will result in an exit code of 1 (GENERIC_FAILURE) and a warning in the event log.
 
 When Chef Client is running as a forked process on unix systems, the standardized exit codes are used by the child process.  To actually have Chef Client return the standard exit code, ``client_fork false`` will need to be set in Chef Client's configuration file.
+
+What's New in 12.20
+=====================================================
+
+The following items are new for chef-client 12.20 and/or are changes from previous versions:
+
+Server Enforced Recipe
+-----------------------------------------------------
+This release adds support for Server Enforced Recipe, as described in `RFC 896 <https://github.com/chef/chef-rfc/blob/master/rfc089-server-enforced-recipe.md>`_ and implemented in Chef server 12.15. Full release documentation of this feature will be coming soon.
+
+Bugfixes
+-----------------------------------------------------
+Fixes issue where :doc:`resource_apt_repository` couldn't identify key fingerprints when gnupg 2.1.x was used.
+
 
 What's New in 12.19
 =====================================================
