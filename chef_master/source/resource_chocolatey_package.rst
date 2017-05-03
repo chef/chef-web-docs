@@ -164,7 +164,7 @@ This resource has the following properties:
 ``source``
    **Ruby Type:** String
 
-   Optional. The path to a package in the local file system.
+   Optional. The path to a package in the local file system or a reachable UNC path. Ensure that the path specified is to the **folder** containing the chocolatey package(s), not to the package itself.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
