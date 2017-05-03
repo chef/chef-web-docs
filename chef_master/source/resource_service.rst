@@ -76,7 +76,7 @@ This resource has the following actions:
 ``:stop``
    Stop a service.
 
-.. note:: To mange a Microsoft Windows service with a ``Manual`` startup type, the **windows_service** resource must be used.
+.. note:: To manage a Microsoft Windows service with a ``Manual`` startup type, the **windows_service** resource must be used.
 
 Properties
 =====================================================
