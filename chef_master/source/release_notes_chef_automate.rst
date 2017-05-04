@@ -208,7 +208,7 @@ Ensure passwords for runners are not logged in plaintext
 If a runner was configured to use password authentication, the password would be displayed in plaintext in debug log files. This has now been corrected.
 
 Improved presentation of debugging information in the “view error log” modal
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 This new view should make it much easier to quickly understand and correct problems with failed chef-client runs.
 
