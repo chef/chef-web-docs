@@ -237,6 +237,11 @@ Getting Started
 :doc:`Chef Automate Overview </chef_automate>` |
 :doc:`Installation Guide </install_chef_automate>`
 
+Release Notes
+-----------------------------------------------------
+
+:doc:`Release Notes </release_notes_chef_automate>`
+
 Tutorials
 -----------------------------------------------------
 
@@ -647,6 +652,7 @@ Addenda
    recipes
    reporting
    release_notes
+   release_notes_chef_automate
    release_notes_chefdk
    release_notes_compliance
    release_notes_server
