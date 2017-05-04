@@ -8,8 +8,6 @@ Chef Development Kit is released on a monthly schedule with new releases the thi
 What's New in 1.3
 =====================================================
 
-.. warning:: There is a known issue on the Windows platform that prevents FIPS usage. If this would affect you, please continue to use ChefDK 1.2.22 until we resolve this issue with a patch release.
-
 Chef Client 12.19
 -----------------------------------------------------
 
