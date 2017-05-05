@@ -1,5 +1,5 @@
 =====================================================
-Release Notes: Chef Server 12.0 - 12.13
+Release Notes: Chef Server 12.0 - 12.15
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_server.rst>`__
 
@@ -10,6 +10,86 @@ Release Notes: Chef Server 12.0 - 12.13
 Chef is a systems and cloud infrastructure automation framework that makes it easy to deploy servers and applications to any physical, virtual, or cloud location, no matter the size of the infrastructure. Each organization is comprised of one (or more) workstations, a single server, and every node that will be configured and maintained by the chef-client. Cookbooks (and recipes) are used to tell the chef-client how each node in your organization should be configured. The chef-client (which is installed on every node) does the actual configuration.
 
 .. end_tag
+
+What's New in 12.15
+=====================================================
+The following items are new for Chef server 12.15:
+
+* **Bug Fixes.**
+* **Supports SUSE Linux Enterprise on x86_64.**
+* **Add required_recipe endpoint.**
+* **ACLs and groups can refer to global groups.**
+* **User customization of field mapping.**
+
+Bug Fixes
+=====================================================
+Fixed regression in the nginx proxy that prevented Automate-based Compliance profiles from being reachable.
+
+Fixed regression in Bookshelf's preflight checks.
+
+Fixed regression that would cause Manage to be misconfigured to enable LDAP by default.
+
+PUT to  ``/users/USERNAME/_acl/PERM`` will no longer return a 400 when the request is valid.
+
+Supports SUSE Linux Enterprise Server on x86_64
+=====================================================
+Support for a new platform was added: SUSE Linux Enterprise Server 11 & 12 on x86_64
+
+Add required_recipe endpoint
+=====================================================
+See Chef RFC 89 for a fuller description
+
+Add the ability to serve a required recipe file to chef-clients.
+
+``/organizations/<orgname>/required_recipe`` returns 404 for all organizations by default.
+
+``/organizations/<orgname>/required_recipe`` returns 401 when the request is not made by a client from the requested org and the feature is enabled.
+
+``/organizations/<orgname>/required_recipe`` returns the required recipe and 200 when the endpoint is enabled and requested by an authorized client.
+
+``required_recipe["enable"]`` in chef-server.rb enables the required recipe feature.
+
+``required_recipe["path"]`` in chef-server.rb specifies the recipe file to serve.
+
+ACLs and groups can refer to global groups
+=====================================================
+The server-admins group is useful, but it breaks roundtripping when it appears in an organizations ACLs and groups. This was particularly painful when using the API for backups.
+
+We add a new syntax for referring to global objects from org local context. ORGNAME::name and for global objects ::name. This can, and is omitted whereever the context is clear. So if the server-admins appears in an organizations ACL, you will see the name ::server-admins
+
+User customization of field mapping
+=====================================================
+Attributes from a user's LDAP record are used during account-linking to populate the erchef user record when it is created. Previously, the mapping between LDAP attributes and chef user attributes were fixed. Now, they are configurable.
+
+For example, if the user's LDAP record stores their email address in a field named 'address' instead of 'mail', then you could set the following in private-chef.rb:
+
+ldap['email_attribute'] = "address"
+
+What's New in 12.14
+=====================================================
+The following items are new for Chef server 12.14:
+
+* **Reduce password proliferation.**
+
+Reduce password proliferation
+=====================================================
+We've substantially reduced the number of configuration files that contain plaintext passwords. Now, no passwords or credentials are rendered outside of /etc/opscode/ in Chef Server's default configuration.
+
+To ensure backwards compatibility, Chef Server still renders passwords and keys to multiple files in /etc/opscode. However, if you are not using any Chef Server add-ons or if you have updated to the latest releases of all add-ons, you can set:
+
+insecure_addon_compat false
+
+in chef-server.rb and remove these other occurrences of secrets as well.
+
+If you are using LDAP integration, external postgresql, or other Chef Server features that require providing passwords in /etc/opscode/chef-server.rb, we've also provided commands that allow you to set these passwords outside of the configuration file. For information about these commands see:
+
+https://docs.chef.io/ctl_chef_server.html#secrets-management
+
+Note: Users of the DRBD-based HA configuration may still see passwords related to keepalived and DRBD in /var/opt/opscode.
+
+For further information see:
+
+See Chef Server Secrets Management for more details.
 
 What's New in 12.13
 =====================================================
