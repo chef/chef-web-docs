@@ -92,19 +92,15 @@ The following steps describe how to manually install a Chef Automate server for 
 
    where ``PRIMARY_IP_ADDRESS``, ``STANDBY_IP_ADDRESS``, and ``AUTOMATE_URL``, ``CHEF_SERVER_URL`` should be replaced with the actual values for the Chef Automate configuration. The ``PRIMARY_IP_ADDRESS`` and ``STANDBY_IP_ADDRESS`` values should be from a private network between the two machines.
 
-#. On the existing (now primary) Chef Automate server create a directory for the SSH key:
+#. Create a directory for the SSH key--if one is not already present--on the primary Chef Automate server:
 
    .. code-block:: bash
 
       $ sudo mkdir -p /opt/delivery/embedded/.ssh
 
-#. Create a private key on the primary Chef Automate server. This key is used for file synchronization between the two servers. It may be created in any location with the exception of ``/opt/delivery/embedded/.ssh`` and must not contain a passphrase. The filename itself is arbitrary, but will be used again when editing the ``delivery.rb`` configuration file. First create the directory:
+#. Create a private key on the primary Chef Automate server. This key is used for file synchronization between the two servers. It will be created in ``/opt/delivery/embedded/.ssh`` and must not contain a passphrase.
 
-   .. code-block:: bash
-
-      $ sudo mkdir -p /opt/delivery/embedded/.ssh/
-
-   then move into the directory:
+   Move into the directory:
 
    .. code-block:: bash
 
@@ -116,13 +112,15 @@ The following steps describe how to manually install a Chef Automate server for 
 
       $ sudo ssh-keygen -t rsa -b 4096 -C "<EMAIL_ADDRESS>"
 
-   and then save the filename for later.
+   and then save to a file (don't overwrite anything) and note the filename for later.
 
-#. Add the public key to ``/opt/delivery/embedded/.ssh/authorized_keys`` on the standby server:
+#. On the standby server, create the directory ``/opt/delivery/embedded/.ssh/authorized_keys``:
 
    .. code-block:: bash
 
-      $ sudo mkdir -p /opt/delivery/embedded/.ssh
+      $ sudo mkdir -p /opt/delivery/embedded/.ssh/authorized_keys
+
+#. Copy the public key (from the key pair created above) to ``/opt/delivery/embedded/.ssh/authorized_keys`` on the standby server:
 
 #. On the primary Chef Automate server edit the ``/etc/delivery/delivery.rb`` file to add the following:
 
