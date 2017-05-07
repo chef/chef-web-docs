@@ -240,7 +240,7 @@ Resources validated includes: Memory, CPU, target directory structure, target di
 Additional details on the command can be found at: 
 `pre-flight check reference </ctl_delivery_server.html#preflight-check>`_
 `troubleshooting information on pre-flight check </troubleshooting_chef_automate.html#preflight-check>`_
-`Chef Automate Server Installation and Configuration </install_chef_automate.html#id2`_
+`Chef Automate Server Installation and Configuration </install_chef_automate.html#id2>`_
 
 Other Improvements and Fixes
 -----------------------------------------------------
