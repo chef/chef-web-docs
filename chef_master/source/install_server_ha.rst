@@ -326,7 +326,8 @@ which would result in the following two entries being added to the ``pg_hba.conf
 
 Running ``chef-backend-ctl reconfigure`` on all the backends will allow that frontend to complete its connection.
 
-.. important:: All members of both the frontends and backend clusters MUST contain identical sets of the ``postgresql.md5_auth_cidr_addresses`` subnet rules set for all systems, frontend and backend. This guarantees that when a cluster change of state occurs, all members can still speak with one another as needed. Any other configuration is at risk of having unsuccessful failovers where followers are unable to communicate with the new leader, or the frontend cluster is unable to communicate with the new leader.
+.. important:: The ``postgresql.md5_auth_cidr_addresses`` subnet settings must be identical for all members of the backend cluster. In the case where the subnet settings of the frontend cluster are different from the subnet settings of the backend cluster, the values set on the members of the backend cluster should contain the subnet of the frontend cluster. This guarantees that all members of a cluster can still communicate with each other after a cluster change of state occurs.  For example, if the frontend subnet setting is "192.168.1.0/24" and the backend subnet setting is "192.168.2.0/24", then the ``postgresql.md5_auth_cidr_addresses`` subnet settings must be ``postgresql.md5_auth_cidr_addresses = ["samehost", "samenet", "192.168.1.0/24", 192.168.2.0/24]``
+
 
 Cluster Security Considerations
 ===============================
