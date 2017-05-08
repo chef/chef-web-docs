@@ -300,7 +300,7 @@ This configuration file has the following settings:
 ``role_path``
    The location in which role files are located. Default value: ``/var/chef/roles``.
 
-``ruby_gem_url``
+``rubygems_url``
     The location to source rubygems. It can be set to a string or array of strings for URIs to set as rubygems sources. This allows individuals to setup an internal mirror of rubygems for "airgapped" environments. Default value: ``https://www.rubygems.org``.
 
    Changed in Chef Client 13.0.
