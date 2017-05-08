@@ -109,7 +109,7 @@ Notifier Settings
 =====================================================
 If we wish to enable the notification feature in Chef Automate, please set one or more of these following flags.  This will let you receive notifications or JSON messages from Automate whenever it detects a Chef client run failure on a node.
 
-``notification['enable']``
+``notifier['enable']``
     Set this to ``true`` if you want to use the notification feature in Chef Automate.  None of the flags below will take effect unless this is set.
 
 ``notifier['slack_webhook_url']``
