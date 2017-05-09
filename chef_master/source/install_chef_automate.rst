@@ -295,6 +295,8 @@ Now that you have your Chef server set up, install and configure Chef Automate b
 
    All paths called for here should be supplied as the absolute path to a file, including the filename.
 
+.. note:: Automate, as of 0.7.239, only supports a single enterprise. The one created above, in the ``automate-ctl setup`` command.
+
    ``AUTOMATE_LICENSE`` is the full path and file name of your Chef Automate license file. For example: ``/root/automate.license``.
 
    .. note:: After your Chef Automate server is successfully setup, this file will be copied into the ``/var/opt/delivery/license`` directory as ``delivery.license``.
