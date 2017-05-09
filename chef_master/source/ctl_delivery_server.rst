@@ -83,7 +83,7 @@ Automate archive only
 
 create-enterprise
 =====================================================
-The ``create-enterprise`` subcommand is used to create a Chef Automate enterprise. A public key is required.
+The ``create-enterprise`` subcommand is not supported at and before Automate 0.7.239
 
 **Syntax**
 
