@@ -146,7 +146,7 @@ The list of automatic attributes that are collected by Ohai at the start of each
 
 .. code-block:: bash
 
-   ohai$ grep -R "provides" -h lib/ohai/plugins|sed 's/^\s*//g'|sed "s/\\\"/\'/g"|sort|uniq|grep ^provides
+   find  /opt/chefdk/embedded/lib/ruby/gems/*/gems/ohai-*/lib -name "*.rb" -print | xargs grep -R "provides" -h |sed 's/^\s*//g'|sed "s/\\\"/\'/g"|sort|uniq|grep "\sprovides"
 
 .. end_tag
 
