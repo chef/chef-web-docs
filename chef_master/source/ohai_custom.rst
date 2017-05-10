@@ -3,34 +3,13 @@ Ohai Custom Plugins
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ohai_custom.rst>`__
 
-.. tag ohai_summary
-
-Ohai is a tool that is used to detect attributes on a node, and then provide these attributes to the chef-client at the start of every chef-client run. Ohai is required by the chef-client and must be present on a node. (Ohai is installed on a node as part of the chef-client install process.)
-
-The types of attributes Ohai collects include (but are not limited to):
-
-* Platform details
-* Network usage
-* Memory usage
-* CPU data
-* Kernel data
-* Host names
-* Fully qualified domain names
-* Virtualization data
-* Cloud provider metadata
-* Other configuration details
-
-Attributes that are collected by Ohai are automatic level attributes, in that these attributes are used by the chef-client to ensure that these attributes remain unchanged after the chef-client is done configuring the node.
-
-.. end_tag
-
 .. tag ohai_custom_plugin
 
-A custom Ohai plugin describes a set of attributes to be collected by Ohai, and then provided to the chef-client at the start of the chef-client run.
+Custom Ohai plugins describe additional configuration attributes to be collected by Ohai and provided to the chef-client during chef runs.
 
 .. end_tag
 
-.. note:: See https://github.com/rackerlabs/ohai-plugins/tree/master/plugins for some great examples of custom Ohai plugins.
+See :doc:`About Ohai</ohai>` for information on Ohai configuration and usage.
 
 Syntax
 =====================================================
@@ -67,9 +46,6 @@ where
 * Required. ``(:Name)`` is used to identify the plugin; when two plugins have the same ``(:Name)``, those plugins are joined together and run as if they were a single plugin. This value must be a valid Ruby class name, starting with a capital letter and containing only alphanumeric characters
 * ``include`` is a standard Ruby method that allows an Ohai plugin to include a class, such as ``Ohai::Mixin::ModuleName``
 * Required. ``provides`` is a comma-separated list of one (or more) attributes that are defined by this plugin. This attribute will become an automatic attribute (i.e. ``node[:attribute]``) after it is collected by Ohai at the start of the chef-client run. An attribute can also be defined using an ``attribute/subattribute`` pattern
-
-New in Chef Client 12.0.
-
 * ``depends`` is a comma-separated list of one (or more) attributes that are collected by another plugin; as long as the value is collected by another Ohai plugin, it can be used by any plugin
 * ``shared_method`` defines code that can be shared among one (or more) ``collect_data`` blocks; for example, instead of defining a mash for each ``collect_data`` block, the code can be defined as a shared method, and then called from any ``collect_data`` block
 * ``collect_data`` is a block of Ruby code that is called by Ohai when it runs; one (or more) ``collect_data`` blocks can be defined in a plugin, but only a single ``collect_data`` block is ever run.
@@ -496,6 +472,9 @@ Use the ``rescue`` clause to make sure that a log message is always provided. Fo
 
 Examples
 =====================================================
+
+.. note:: See https://github.com/rackerlabs/ohai-plugins/tree/master/plugins for some great examples of custom Ohai plugins.
+
 The following examples show different ways of building Ohai plugins.
 
 collect_data Blocks
