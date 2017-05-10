@@ -1,5 +1,5 @@
 =====================================================
-Release Notes: Chef Server 12.0 - 12.13
+Release Notes: Chef Server 12.0 - 12.15
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_server.rst>`__
 
@@ -11,13 +11,93 @@ Chef is a systems and cloud infrastructure automation framework that makes it ea
 
 .. end_tag
 
+What's New in 12.15
+=====================================================
+The following items are new for Chef server 12.15:
+
+* **Supports SUSE Linux Enterprise on x86_64**
+* **Add required_recipe endpoint**
+* **ACLs and groups can refer to global groups**
+* **User customization of field mapping**
+
+Supports SUSE Linux Enterprise Server on x86_64
+=====================================================
+Support for a new platform was added: SUSE Linux Enterprise Server 11 & 12 on x86_64.
+
+Add required_recipe endpoint
+=====================================================
+Added the ability to serve a required recipe file to chef-clients.
+
+The setting ``required_recipe["enable"]`` in chef-server.rb enables the required recipe feature.
+
+The setting ``required_recipe["path"]`` in chef-server.rb specifies the recipe file to serve.
+
+The ``/organizations/<orgname>/required_recipe`` endpoint returns 404 for all organizations by default. It returns 401 when the request is not made by a client from the requested org and the feature is enabled.
+
+The ``/organizations/<orgname>/required_recipe`` endpoint returns the required recipe and 200 only when the endpoint is enabled and requested by an authorized client.
+
+See `Chef RFC 89 <https://github.com/chef/chef-rfc/blob/master/rfc089-server-enforced-recipe.md>`_ for a complete description on the ``required_recipe`` endpoint.
+
+ACLs and groups can refer to global groups
+=====================================================
+The server-admins group is useful, but it breaks roundtripping when it appears in an organizations ACLs and groups. This makes it difficult when using the API for backups.
+
+A new syntax '::' was added to indicate scoping. ``::GROUPNAME`` without a prefix indicates a global (across multiple orgs) entity, while ``ORGNAME::GROUPNAME`` refers to a group in an another org.
+So if the server-admins appears in an organizations ACL, you will see the name ``::server-admins``.
+
+User customization of field mapping
+=====================================================
+Attributes from a user's LDAP record are used during account-linking to populate the erchef user record when it is created. Previously, the mapping between LDAP attributes and chef user attributes were fixed. Now, they are configurable. For example, if the user's LDAP record stores their email address in a field named 'address' instead of 'mail', then you could set the following in ``private-chef.rb``:
+
+.. code-block:: ruby
+
+   ldap['email_attribute'] = "address"
+
+Bug Fixes
+=====================================================
+Fixed regression in oc-id. The identity service was using the wrong Chef Server API version level.
+
+Fixed regression in the nginx proxy that prevented Automate-based Compliance profiles from being reachable.
+
+Fixed regression in Bookshelf's preflight checks.
+
+Fixed regression that would cause Manage to be misconfigured to enable LDAP by default.
+
+PUT to  ``/users/USERNAME/_acl/PERM`` will no longer return a 400 when the request is valid.
+
+What's New in 12.14
+=====================================================
+The following items are new for Chef server 12.14:
+
+* **Reduce password proliferation**
+
+Reduce password proliferation
+=====================================================
+We've substantially reduced the number of configuration files that contain plaintext passwords. Now, no passwords or credentials are rendered outside of ``/etc/opscode/`` in Chef server's default configuration.
+
+To ensure backwards compatibility, Chef server still renders passwords and keys to multiple files in ``/etc/opscode``. However, if you are not using any Chef Server add-ons, or if you have updated to the latest releases of all add-ons, you can set the following:
+
+.. code-block:: ruby
+
+   insecure_addon_compat false
+
+in ``/etc/opscode/chef-server.rb`` and remove these other occurrences of secrets as well.
+
+If you are using LDAP integration, external postgresql, or other Chef server features that require providing passwords in ``/etc/opscode/chef-server.rb``, we've also provided commands that allow you to set these passwords outside of the configuration file. For information about these commands see `Secrets Management </ctl_chef_server.html#secrets-management>`_.
+
+.. note:: Users of the DRBD-based HA configuration may still see passwords related to keepalived and DRBD in ``/var/opt/opscode``.
+
+For further information see:
+
+See `Chef Server Credentials Management </server_security.html#chef-server-credentials-management>`_ for more details.
+
 What's New in 12.13
 =====================================================
 The following items are new for Chef server 12.13:
 
-* **Supports Red Hat Enterprise Linux 6 on s390x (RHEL6/s390x).**
-* **Disables the Solr4 Admin API/UI by default.**
-* **FIPS runtime flag exposed on RHEL systems.** Setting ``fips true`` and reconfiguring will start the server in FIPS mode.  Packages for other systems will not have the required OpenSSL FIPS module and will fail to start if reconfigured with ``fips true``.
+* **Supports Red Hat Enterprise Linux 6 on s390x (RHEL6/s390x)**
+* **Disables the Solr4 Admin API/UI by default**
+* **FIPS runtime flag exposed on RHEL systems** Setting ``fips true`` and reconfiguring will start the server in FIPS mode.  Packages for other systems will not have the required OpenSSL FIPS module and will fail to start if reconfigured with ``fips true``.
 
 New platform: RHEL6/s390x
 =====================================================
