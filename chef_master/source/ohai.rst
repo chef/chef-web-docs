@@ -398,9 +398,15 @@ The default directory in which hint files are located is ``/etc/chef/ohai/hints/
 
 ohai Resource
 =====================================================
+.. tag resources_common_generic
+
+A :doc:`resource </resource>` defines the desired state for a single configuration item present on a node that is under management by Chef. A resource collection---one (or more) individual resources---defines the desired state for the entire node. During a `chef-client run </chef_client.html#the-chef-client-run>`_, the current state of each resource is tested, after which the chef-client will take any steps that are necessary to repair the node and bring it back into the desired state.
+
+.. end_tag
+
 .. tag resource_ohai_summary
 
-Use the **ohai** resource within a recipe to reload the Ohai configuration on a node. This allows recipes that change system attributes (like a recipe that adds a user) to refer to those attributes later on during the chef-client run.
+Use the **ohai** resource to reload the Ohai configuration on a node. This allows recipes that change system attributes (like a recipe that adds a user) to refer to those attributes later on during the chef-client run.
 
 .. end_tag
 
@@ -412,12 +418,8 @@ A **ohai** resource block reloads the Ohai configuration on a node:
 
 .. code-block:: ruby
 
-   user 'my_new_user' do
-     notifies :reload, 'ohai[reload]', :immediately
-   end
-
    ohai 'reload' do
-     action :nothing
+     action :reload
    end
 
 The full syntax for all of the properties that are available to the **ohai** resource is:
