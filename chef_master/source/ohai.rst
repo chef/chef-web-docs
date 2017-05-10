@@ -81,52 +81,6 @@ The list of automatic attributes that are collected by Ohai at the start of each
 
           .. end_tag
 
-Attribute Persistence
------------------------------------------------------
-.. tag node_attribute_persistence
-
-At the beginning of a chef-client run, all attributes are reset. The chef-client rebuilds them using automatic attributes collected by Ohai at the beginning of the chef-client run and then using default and override attributes that are specified in cookbooks or by roles and environments. Normal attributes are never reset. All attributes are then merged and applied to the node according to attribute precedence. At the conclusion of the chef-client run, the attributes that were applied to the node are saved to the Chef server as part of the node object.
-
-.. end_tag
-
-Attribute Precedence
------------------------------------------------------
-.. tag node_attribute_precedence
-
-Attributes are always applied by the chef-client in the following order:
-
-#. A ``default`` attribute located in a cookbook attribute file
-#. A ``default`` attribute located in a recipe
-#. A ``default`` attribute located in an environment
-#. A ``default`` attribute located in a role
-#. A ``force_default`` attribute located in a cookbook attribute file
-#. A ``force_default`` attribute located in a recipe
-#. A ``normal`` attribute located in a cookbook attribute file
-#. A ``normal`` attribute located in a recipe
-#. An ``override`` attribute located in a cookbook attribute file
-#. An ``override`` attribute located in a recipe
-#. An ``override`` attribute located in a role
-#. An ``override`` attribute located in an environment
-#. A ``force_override`` attribute located in a cookbook attribute file
-#. A ``force_override`` attribute located in a recipe
-#. An ``automatic`` attribute identified by Ohai at the start of the chef-client run
-
-where the last attribute in the list is the one that is applied to the node.
-
-.. note:: The attribute precedence order for roles and environments is reversed for ``default`` and ``override`` attributes. The precedence order for ``default`` attributes is environment, then role. The precedence order for ``override`` attributes is role, then environment. Applying environment ``override`` attributes after role ``override`` attributes allows the same role to be used across multiple environments, yet ensuring that values can be set that are specific to each environment (when required). For example, the role for an application server may exist in all environments, yet one environment may use a database server that is different from other environments.
-
-Attribute precedence, viewed from the same perspective as the overview diagram, where the numbers in the diagram match the order of attribute precedence:
-
-.. image:: ../../images/overview_chef_attributes_precedence.png
-
-Attribute precedence, when viewed as a table:
-
-.. image:: ../../images/overview_chef_attributes_table.png
-
-.. end_tag
-
-Changed in Chef Client 12.0, so that attributes may be modified for named precedence levels, all precedence levels, and be fully assigned.
-
 Blacklist Attributes
 -----------------------------------------------------
 .. tag node_attribute_blacklist
