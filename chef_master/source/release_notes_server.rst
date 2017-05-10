@@ -26,7 +26,7 @@ Support for a new platform was added: SUSE Linux Enterprise Server 11 & 12 on x8
 
 Add required_recipe endpoint
 =====================================================
-Added the ability to serve a required recipe file to chef-clients. 
+Added the ability to serve a required recipe file to chef-clients.
 
 The setting ``required_recipe["enable"]`` in chef-server.rb enables the required recipe feature.
 
@@ -42,7 +42,8 @@ ACLs and groups can refer to global groups
 =====================================================
 The server-admins group is useful, but it breaks roundtripping when it appears in an organizations ACLs and groups. This makes it difficult when using the API for backups.
 
-A new syntax was added for referring to global objects from org local context: ``ORGNAME::name and for global objects ::name``. This can, and is omitted wherever the context is clear. So, if the server-admins appears in an organizations ACL, you will see the name ``::server-admins``.
+A new syntax '::' was added to indicate scoping. ``::GROUPNAME`` without a prefix indicates a global (across multiple orgs) entity, while ``ORGNAME::GROUPNAME`` refers to a group in an another org.
+So if the server-admins appears in an organizations ACL, you will see the name ``::server-admins``.
 
 User customization of field mapping
 =====================================================
@@ -54,6 +55,8 @@ Attributes from a user's LDAP record are used during account-linking to populate
 
 Bug Fixes
 =====================================================
+Fixed regression in oc-id. The identity service was using the wrong Chef Server API version level.
+
 Fixed regression in the nginx proxy that prevented Automate-based Compliance profiles from being reachable.
 
 Fixed regression in Bookshelf's preflight checks.
