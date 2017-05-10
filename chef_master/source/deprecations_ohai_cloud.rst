@@ -15,23 +15,6 @@ Here are examples of the old and new format of the cloud data:
 .. code-block:: javascript
 
   {
-    "public_ipv4_addrs": [
-      "52.88.253.144"
-    ],
-    "local_ipv4_addrs": [
-      "172.31.37.209"
-    ],
-    "provider": "ec2",
-    "public_hostname": "ec2-52-88-253-144.us-west-2.compute.amazonaws.com",
-    "local_hostname": "ip-172-31-37-209.us-west-2.compute.internal",
-    "public_ipv4": "52.88.253.144",
-    "local_ipv4": "172.31.37.209"
-  }
-
-
-.. code-block:: javascript
-
-  {
     "public_ips": [
       "52.88.253.144"
     ],
@@ -44,3 +27,20 @@ Here are examples of the old and new format of the cloud data:
     "local_hostname": "ip-172-31-37-209.us-west-2.compute.internal",
     "provider": "ec2"
   }
+
+
+  .. code-block:: javascript
+
+    {
+      "public_ipv4_addrs": [
+        "52.88.253.144"
+      ],
+      "local_ipv4_addrs": [
+        "172.31.37.209"
+      ],
+      "public_hostname": "ec2-52-88-253-144.us-west-2.compute.amazonaws.com",
+      "local_hostname": "ip-172-31-37-209.us-west-2.compute.internal",
+      "public_ipv4": "52.88.253.144",
+      "local_ipv4": "172.31.37.209",
+      "provider": "ec2"
+    }
