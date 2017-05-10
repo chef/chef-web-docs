@@ -147,7 +147,7 @@ For attributes that contain slashes (``/``) within the attribute value, such as 
 .. end_tag
 
 Whitelist Attributes
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 .. tag node_attribute_whitelist
 
 .. warning:: When attribute whitelist settings are used, only the attributes defined in a whitelist will be saved and any attribute that is not defined in a whitelist will not be saved. Each attribute type is whitelisted independently of the other attribute types. For example, if ``automatic_attribute_whitelist`` defines attributes to be saved, but ``normal_attribute_whitelist``, ``default_attribute_whitelist``, and ``override_attribute_whitelist`` are not defined, then all normal attributes, default attributes, and override attributes are saved, as well as the automatic attributes that were specifically included through whitelisting.
@@ -365,7 +365,7 @@ Custom Plugins
 Custom Ohai plugins can be written to collect additional information from systems as necessary. See the :doc:`Ohai Custom Plugins</ohai_custom>` docs for more information.
 
 Hints
------------------------------------------------------
+=====================================================
 .. tag ohai_hints
 
 Ohai hints are used to tell Ohai something about the system that it is running on that it would not be able to discover itself. An Ohai hint exists if a JSON file exists in the hint directory with the same name as the hint. For example, calling ``hint?('antarctica')`` in an Ohai plugin would return an empty hash if the file ``antarctica.json`` existed in the hints directory, and return nil if the file does not exist.
