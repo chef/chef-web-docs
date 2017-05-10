@@ -24,7 +24,7 @@ Attributes that are collected by Ohai are automatic level attributes, in that th
 
 .. end_tag
 
-Ohai collects data for many platforms, including AIX, Darwin, Linux, FreeBSD, OpenBSD, NetBSD, Solaris, and any Microsoft Windows operating system based off the ``Windows_NT`` kernel and has access to ``win32`` or ``win64`` sub-systems.
+Ohai collects data for many platforms, including AIX, Darwin, Linux, FreeBSD, OpenBSD, NetBSD, Solaris, and any Microsoft Windows operating systems.
 
 View the :doc:`release notes </release_notes_ohai>` for the latest information on Ohai.
 
