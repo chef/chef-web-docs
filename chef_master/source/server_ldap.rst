@@ -31,6 +31,15 @@ To configure the Chef server to use Active Directory or LDAP do the following:
 
    .. tag config_rb_server_settings_ldap
 
+   .. warning:: The following settings **MUST** be in the config file for LDAP authentication to Active Directory to work:
+
+      - ``base_dn``
+      - ``bind_dn``
+      - ``group_dn``
+      - ``host``
+
+      If those settings are missing, you will get authentication errors and be unable to proceed.
+
    This configuration file has the following settings for ``ldap``:
 
    ``ldap['base_dn']``
