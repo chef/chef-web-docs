@@ -531,11 +531,17 @@ Addenda
    deprecations_internal_api
    deprecations_json_auto_inflate
    deprecations_launchd_hash_property
+   deprecations_ohai_amazon_linux
+   deprecations_ohai_cloud
+   deprecations_ohai_cloud_v2
    deprecations_ohai_digitalocean
+   deprecations_ohai_filesystem
+   deprecations_ohai_filesystem_v2
    deprecations_ohai_legacy_config
    deprecations_ohai_libvirt_plugin
    deprecations_ohai_run_command_helpers
    deprecations_ohai_sigar_plugins
+   deprecations_ohai_v6_plugins
    deprecations_ohai_windows_cpu
    deprecations_property_name_collision
    deprecations_resource_cloning
