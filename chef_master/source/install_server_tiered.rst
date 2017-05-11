@@ -28,7 +28,7 @@ For a tiered deployment, your backend server should support the following hardwa
 * 8 total cores (physical or virtual)
 * 16GB RAM
 * Fast, redundant storage (SSD/RAID-based solution)
- 
+
   * 50 GB/backend server (SSD if on premises, Premium Storage in Microsoft Azure, EBS-Optimized GP2 in AWS)
 
 * 1 GigE NIC interface
@@ -167,7 +167,6 @@ Add the following settings to the chef-server.rb file:
    .. code-block:: bash
 
       $ sudo chef-server-ctl reconfigure
-      $ sudo chef-manage-ctl reconfigure
 
    .. end_tag
 
@@ -201,7 +200,6 @@ For each frontend server, use the following steps to set up the Chef server:
    .. code-block:: bash
 
       $ sudo chef-server-ctl reconfigure
-      $ sudo chef-manage-ctl reconfigure
 
    .. end_tag
 
@@ -656,4 +654,3 @@ For front-end servers, ensure that ports marked as external (marked as ``yes`` i
      -
 
 .. end_tag
-
