@@ -28,7 +28,7 @@ For a tiered deployment, your backend server should support the following hardwa
 * 8 total cores (physical or virtual)
 * 16GB RAM
 * Fast, redundant storage (SSD/RAID-based solution)
- 
+
   * 50 GB/backend server (SSD if on premises, Premium Storage in Microsoft Azure, EBS-Optimized GP2 in AWS)
 
 * 1 GigE NIC interface
@@ -166,8 +166,7 @@ Add the following settings to the chef-server.rb file:
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl reconfigure
-      $ sudo chef-manage-ctl reconfigure
+      $ chef-server-ctl reconfigure
 
    .. end_tag
 
@@ -200,8 +199,7 @@ For each frontend server, use the following steps to set up the Chef server:
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl reconfigure
-      $ sudo chef-manage-ctl reconfigure
+      $ chef-server-ctl reconfigure
 
    .. end_tag
 
@@ -213,9 +211,11 @@ For each frontend server, use the following steps to set up the Chef server:
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl start
+      $ chef-server-ctl start
 
    .. end_tag
+
+On a single frontend server, create an administrator and an organization:
 
 #. .. tag ctl_chef_server_user_create_admin
 
@@ -256,20 +256,6 @@ For each frontend server, use the following steps to set up the Chef server:
    .. code-block:: bash
 
       $ chef-server-ctl org-create 4thcoffee 'Fourth Coffee, Inc.' --association_user stevedanno --filename /path/to/4thcoffee-validator.pem
-
-   .. end_tag
-
-#. .. tag install_chef_server_reconfigure
-
-   .. This topic is hooked in globally to install topics for Chef server applications.
-
-   Reconfigure the Chef server and the Chef management console (standalone and frontend group members
-     of a High Availabilty installation):
-
-   .. code-block:: bash
-
-      $ sudo chef-server-ctl reconfigure
-      $ sudo chef-manage-ctl reconfigure
 
    .. end_tag
 
@@ -656,4 +642,3 @@ For front-end servers, ensure that ports marked as external (marked as ``yes`` i
      -
 
 .. end_tag
-

@@ -751,8 +751,7 @@ To edit the Amazon Machine Images (AMI) instance size, do the following:
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl reconfigure
-      $ sudo chef-manage-ctl reconfigure
+      $ chef-server-ctl reconfigure
 
    .. end_tag
 
@@ -892,8 +891,7 @@ After verifying that your existing Chef server installation is up to date, do th
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl reconfigure
-      $ sudo chef-manage-ctl reconfigure
+      $ chef-server-ctl reconfigure
 
    .. end_tag
 
