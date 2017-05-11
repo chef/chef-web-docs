@@ -410,7 +410,7 @@ and so on, for each of the various cloud providers.
 
 .. end_tag
 
-Loggging
+Logging
 =====================================================
 .. tag ohai_custom_plugin_logs
 
