@@ -166,7 +166,7 @@ Add the following settings to the chef-server.rb file:
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl reconfigure
+      $ chef-server-ctl reconfigure
 
    .. end_tag
 
@@ -199,7 +199,7 @@ For each frontend server, use the following steps to set up the Chef server:
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl reconfigure
+      $ chef-server-ctl reconfigure
 
    .. end_tag
 
@@ -211,7 +211,7 @@ For each frontend server, use the following steps to set up the Chef server:
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl start
+      $ chef-server-ctl start
 
    .. end_tag
 
