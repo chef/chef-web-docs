@@ -215,6 +215,8 @@ For each frontend server, use the following steps to set up the Chef server:
 
    .. end_tag
 
+On a single frontend server, create an administrator and an organization:
+
 #. .. tag ctl_chef_server_user_create_admin
 
    Run the following command to create an administrator:
