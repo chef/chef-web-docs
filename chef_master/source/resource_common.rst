@@ -82,6 +82,8 @@ The following properties are common to every resource:
    **Ruby Type:** Hash
 
    A hash of options that contains hints about the capabilities of a resource. The chef-client may use these hints to help identify the correct provider. This property is only used by a small number of providers, including **user** and **service**.
+   
+   .. note:: This property was deprecated in Chef 12.14 and removed in Chef 13.0.
 
 .. end_tag
 
