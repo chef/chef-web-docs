@@ -123,8 +123,7 @@ To configure the Chef server to use Active Directory or LDAP do the following:
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl reconfigure
-      $ sudo chef-manage-ctl reconfigure
+      $ chef-server-ctl reconfigure
 
    .. end_tag
 
