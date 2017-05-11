@@ -965,8 +965,6 @@ The following open source handlers are available from the Chef community:
      - A handler that asynchronously pushes exception and report handler data to a STOMP queue, from which data can be processed into data storage.
    * - `Campfire <https://github.com/ampledata/chef-handler-campfire>`_
      - A handler that collects exception and report handler data and reports it to Campfire, a web-based group chat tool.
-   * - `Cloudkick <https://github.com/ampledata/chef-handler-campfire>`_
-     - A handler that collects exception and report handler data and sends it to Cloudkick, a set of cloud server monitoring and management tools.
    * - `Datadog <https://github.com/DataDog/chef-handler-datadog>`_
      - A handler that collects chef-client stats and sends them into a DATADOG newsfeed.
    * - `Flowdock <https://github.com/mmarschall/chef-handler-flowdock>`_
