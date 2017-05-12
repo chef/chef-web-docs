@@ -97,7 +97,23 @@ To add a Chef Server:
    source "https://supermarket.chef.io"
    source :chef_server
 
-The location and authentication details for the Chef Server will be taken from the user's ``knife.rb``.
+The location and authentication details for the Chef Server will be taken from the user's ``knife.rb`` by default.
+
+To add multiple Chef Servers:
+
+.. code-block:: ruby
+
+   source "https://supermarket.chef.io"
+   source chef_server: "https://mychefserver.example.com/organizations/one", client_name: "one-client", client_key: "/path/to/one-client.pem"
+   source chef_server: "https://mychefserver.example.com/organizations/two", client_name: "two-client", client_key: "/path/to/two-client.pem"
+
+To use an `Artifactory server <https://www.jfrog.com/confluence/display/RTF/Chef+Cookbook+Repositories>`_ as a source:
+
+.. code-block:: ruby
+
+   source artifactory: "https://artifactory.example.com/api/chef/nameofrepo", api_key: "XZg6tefUZYfiglmSbQ1s1e6habk"
+
+If the ``api_key`` option is not given, it will use the value of the ``$ARTIFACTORY_API_KEY`` environment variable by default.
 
 Metadata Keyword
 +++++++++++++++++
