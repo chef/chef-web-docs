@@ -143,20 +143,20 @@ Ohai
 =====================================================
 .. tag ohai_summary
 
-Ohai is a tool that is used to detect attributes on a node, and then provide these attributes to the chef-client at the start of every chef-client run. Ohai is required by the chef-client and must be present on a node. (Ohai is installed on a node as part of the chef-client install process.)
+Ohai is a tool that is used to collect system configuration data, which is provided to the chef-client for use within cookbooks. Ohai is run by the chef-client at the beginning of every Chef run to determine system state. Ohai includes many built-in plugins to detect common configuration details as well as a plugin model for writing custom plugins.
 
-The types of attributes Ohai collects include (but are not limited to):
+The types of attributes Ohai collects include but are not limited to:
 
-* Platform details
-* Network usage
-* Memory usage
-* CPU data
-* Kernel data
+* Operating System
+* Network
+* Memory
+* Disk
+* CPU
+* Kernel
 * Host names
 * Fully qualified domain names
-* Virtualization data
+* Virtualization
 * Cloud provider metadata
-* Other configuration details
 
 Attributes that are collected by Ohai are automatic level attributes, in that these attributes are used by the chef-client to ensure that these attributes remain unchanged after the chef-client is done configuring the node.
 
