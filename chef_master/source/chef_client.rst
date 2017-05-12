@@ -57,7 +57,7 @@ The key components of nodes that are under management by Chef include:
 
      - .. tag ohai_summary
 
-       Ohai is a tool that is used to collect system configuration data, which is provided to the chef-client for use within cookbooks. Ohai is run by the chef-client at the beginning of every Chef run to determine system state. It includes multiple built-in plugins for configuration detection and a plugin model for writing custom plugins.
+       Ohai is a tool that is used to collect system configuration data, which is provided to the chef-client for use within cookbooks. Ohai is run by the chef-client at the beginning of every Chef run to determine system state. Ohai includes many built-in plugins to detect common configuration details as well as a plugin model for writing custom plugins.
 
        The types of attributes Ohai collects include but are not limited to:
 
