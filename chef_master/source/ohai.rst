@@ -228,6 +228,7 @@ The following list shows the type of plugins that are included with Ohai. See th
      kernel.rb
      memory.rb
      network.rb
+     os.rb
      platform.rb
      uptime.rb
      virtualization.rb
@@ -238,15 +239,16 @@ The following list shows the type of plugins that are included with Ohai. See th
    c.rb
    chef.rb
    cloud.rb
-   cloud_v2.rb
    command.rb
    darwin
      cpu.rb
      filesystem.rb
+     hardware.rb
      memory.rb
      network.rb
      platform.rb
      system_profiler.rb
+     virtualization.rb
    digital_ocean.rb
    dmi.rb
    dragonflybsd
@@ -268,6 +270,7 @@ The following list shows the type of plugins that are included with Ohai. See th
    gce.rb
    go.rb
    groovy.rb
+   haskell.rb
    hostname.rb
    init_package.rb
    ip_scopes.rb
@@ -281,7 +284,6 @@ The following list shows the type of plugins that are included with Ohai. See th
      block_device.rb
      cpu.rb
      filesystem.rb
-     filesystem2.rb
      fips.rb
      hostnamectl.rb
      lsb.rb
@@ -300,7 +302,6 @@ The following list shows the type of plugins that are included with Ohai. See th
      network.rb
      platform.rb
    network.rb
-   network_listeners.rb
    nodejs.rb
    ohai.rb
    ohai_time.rb
@@ -326,13 +327,6 @@ The following list shows the type of plugins that are included with Ohai. See th
    scala.rb
    shard.rb
    shells.rb
-   sigar
-     cpu.rb
-     filesystem.rb
-     memory.rb
-     network_route.rb
-     network.rb
-     platform.rb
    softlayer.rb
    solaris2
      cpu.rb
@@ -349,6 +343,7 @@ The following list shows the type of plugins that are included with Ohai. See th
    uptime.rb
    virtualbox.rb
    virtualization.rb
+   vmware.rb
    windows
      cpu.rb
      drivers.rb
