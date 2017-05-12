@@ -61,7 +61,7 @@ The key components of nodes that are under management by Chef include:
 
        The types of attributes Ohai collects include but are not limited to:
 
-       * Platform
+       * Operating System
        * Network
        * Memory
        * Disk

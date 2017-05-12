@@ -147,7 +147,7 @@ Ohai is a tool that is used to collect system configuration data, which is provi
 
 The types of attributes Ohai collects include but are not limited to:
 
-* Platform
+* Operating System
 * Network
 * Memory
 * Disk
