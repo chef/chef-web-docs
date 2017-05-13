@@ -618,65 +618,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. end_tag
 
-ohai Cookbook
-=====================================================
-To download the ``ohai`` cookbook to the chef-repo run the following command:
-
-.. code-block:: bash
-
-   $ knife cookbook site install ohai
-
-knife will return something similar to:
-
-.. code-block:: bash
-
-   INFO: Downloading ohai from the cookbooks site at version 0.9.0
-   INFO: Cookbook saved: /Users/jtimberman/chef-repo/cookbooks/ohai.tar.gz
-   INFO: Checking out the master branch.
-   INFO: Checking the status of the vendor branch.
-   INFO: Creating vendor branch.
-   INFO: Removing pre-existing version.
-   INFO: Uncompressing ohai version 0.9.0.
-   INFO: Adding changes.
-   INFO: Committing changes.
-   INFO: Creating tag chef-vendor-ohai-0.9.0.
-   INFO: Checking out the master branch.
-   INFO: Merging changes from ohai version 0.9.0.
-   [ ... SNIP ... ]
-   INFO: Cookbook ohai version 0.9.0 successfully vendored!
-
-Default Location
------------------------------------------------------
-To change the directory in which plugins are located edit the attributes file in the ``ohai`` cookbook for the ``node[:ohai][:plugin_path]`` attribute. Change the value to the desired directory path. For example:
-
-.. code-block:: ruby
-
-   default[:ohai][:plugin_path] = "/etc/chef/ohai_plugins"
-
-Upload Custom Plugins
------------------------------------------------------
-To upload the ``ohai`` cookbook to the Chef server, use knife and run the following:
-
-.. code-block:: bash
-
-   knife cookbook upload ohai
-
-to return something similar to:
-
-.. code-block:: bash
-
-   INFO: Saving ohai
-   INFO: Validating ruby files
-   INFO: Validating templates
-   INFO: Syntax OK
-   INFO: Generating Metadata
-   INFO: Uploading files
-   [ ... SNIP ... ]
-
-Add Ohai to a Run-list
------------------------------------------------------
-The ``ohai`` recipe can be added to a run-list. First, ensure that any custom Ohai plugins are loaded and available to recipes. When the chef-client runs, the plugins will be copied into place and then loaded and merged with the node. This does cause Ohai to be run twice, which can increase the total run time for the chef-client.
-
 ohai Command Line Tool
 =====================================================
 .. tag ctl_ohai_summary
