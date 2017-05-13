@@ -105,61 +105,6 @@ If you wish to operate your Chef Automate server from behind a proxy, you may sp
 ``delivery['proxy']['no_proxy']``
     A list of hostnames that are blacklisted from using the proxy. Chef Automate will attempt to connect directly to these hosts. By default, this is set to ``["localhost", "127.0.0.1"]``.
 
-Notifier Settings
-=====================================================
-If we wish to enable the notification feature in Chef Automate, please set one or more of these following flags.  This will let you receive notifications or JSON messages from Automate whenever it detects a Chef client run failure on a node.
-
-``notifier['enable']``
-    Set this to ``true`` if you want to use the notification feature in Chef Automate.  None of the flags below will take effect unless this is set.
-
-``notifier['slack_webhook_url']``
-    A Slack webhook URL which will be used to post Chef client run failure notifications. The default Slack channel included in the url is used.  See http://api.slack.com/incoming-webhooks for details.
-
-``notifier['user_webhook_url']``
-    A custom webhook URL that will receive a JSON POST any time a Chef client run failure is detected.  The POST will have its ``Content-Type`` set to ``application/json``.  Here is an sample notification message body:
-
-    .. code-block:: json
-
-       {
-         "automate_fqdn":"automate.test",
-         "failure_snippet":"Chef client run failure on [chef-server.test] centos-runner-1.test : https://failure_url \n Failure Reason\n",
-         "exception_backtrace":"A long string with the backtrace that contains \n",
-         "exception_title":"Error Resolving Cookbooks for Run List:",
-         "exception_message":"412 \"Precondition Failed\"",
-         "automate_failure_url":"automate.test/long/url/that-takes-you-to-run-failure-page",
-         "node_name":"centos-runner-1.test"
-       }
-
-``notifier['compliance_slack_webhook_url']``
-    A Slack webhook URL which will be used to post Critical Inspec control failure notifications. The default Slack channel included in the url is used.  See http://api.slack.com/incoming-webhooks for details.
-
-
-``notifier['compliance_user_webhook_url']``
-    A custom webhook URL that will receive a JSON POST any time a Critical Inspec control failure is detected.  The POST will have its ``Content-Type`` set to ``application/json``.  Here is an sample notification message body:
-
-    .. code-block:: json
-    
-       {
-         "automate_fqdn":"automate.test",
-         "failure_snippet":"Chef Inspec found a critical control failure on [chef-client.solo](automate.test/viz/#/node;entity_uuid=aaaaaaaa-709a-475d-bef5-zzzzzzzzzzzz;run_id=50bf2cf9-7f36-40cf-bee8-110a7c824f73)",
-         "control_impact":"0.7",
-         "automate_failure_url":"automate.test/viz/#/node;entity_uuid=aaaaaaaa-709a-475d-bef5-zzzzzzzzzzzz;run_id=50bf2cf9-7f36-40cf-bee8-110a7c824f73",
-         "node_name":"chef-client.solo",
-         "control_title":"Check /etc/missing6.rb",
-         "control_id":"Checking /etc/missing6.rb existance",
-         "profile_title":"Mylinux Failure Success",
-         "type":"compliance_failure",
-         "tests": [
-               {
-                   "status": "failed",
-                   "code_desc": "File /etc/missing6.rb mode should eq 678",
-                   "run_time": 0.001233,
-                   "start_time": "2017-04-12 14:58:44 -0700",
-                   "message": "\nexpected: 678\n     got: nil\n\n(compared using ==)\n"
-               }
-         ]
-       }
-
 Optional Settings
 =====================================================
 Additional settings are available for performance tuning of the Chef Automate server.
