@@ -51,7 +51,7 @@ The following table lists the Foundational platforms for the chef-client and oha
      - ``10 1\13`` (``"10U11"``), ``11.2``, ``11.3`` 
    * - SUSE Enterprise Linux Server
      - ``x86_64``, ``s390x``
-     - ``11.4``, ``12.1``
+     - ``11 SP4``, ``12 SP1``
    * - Ubuntu
      - ``x86``, ``x86_64``
      - ``12.04``, ``14.04``, ``16.04``
@@ -172,7 +172,7 @@ The following table lists the Foundational platforms for the Chef DK:
      - ``6.x``, ``7.x``
    * - SUSE Enterprise Linux Server
      -
-     - ``11.4``, ``12.1``
+     - ``11 SP4``, ``12 SP1``
    * - Ubuntu
      -
      - ``12.04``, ``14.04``, ``16.04``
@@ -222,7 +222,7 @@ The following table lists the Foundational platforms for the Chef server:
      - ``5.x``, ``6.x``, ``7.x``
    * - SUSE Enterprise Linux Server
      - ``x86_64``, ``s390x``
-     - ``11.4``, ``12.1``
+     - ``11 SP4``, ``12 SP1``
    * - Ubuntu
      -
      - ``12.04``, ``14.04``, ``16.04``
@@ -260,7 +260,7 @@ The following table lists the Foundational platforms for Chef Automate. Do not m
      - ``6.5``, ``6.6``, ``7``
    * - SUSE Enterprise Linux Server
      - ``x86_64``
-     - ``11.4``, ``12.1``
+     - ``11 SP4``, ``12 SP2``
    * - Ubuntu
      - ``x86_64``
      - ``12.04``, ``14.04``, ``16.04``
