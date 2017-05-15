@@ -29,7 +29,7 @@ The following table lists the Foundational platforms for the Chef server:
      - ``5.x``, ``6.x``, ``7.x``
    * - SUSE Enterprise Linux Server
      - ``x86_64``, ``s390x``
-     - ``11.4``, ``12.1``
+     - ``11 SP4``, ``12 SP1``
    * - Ubuntu
      -
      - ``12.04``, ``14.04``, ``16.04``
