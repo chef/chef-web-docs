@@ -98,6 +98,43 @@ DigitalOcean plugin attribute changes
 * **Remediation Docs**: :doc:`OHAI-6 </deprecations_ohai_digitalocean>`
 * **Expected Removal**: Ohai 13 (April 2017)
 
+What's New in 8.22
+=====================================================
+Ohai 8.22 introduces the following changes:
+
+* **LSB Release Detection** The lsb_release command line tool is now preferred to the contents of /etc/lsb-release. This resolves an issue where a distro can be upgraded, but /etc/lsb-release is not upgraded to reflect the change
+* **Haskell Language plugin** Haskell is now detected in a new haskell language plugin
+
+What's New in 8.21
+=====================================================
+Ohai 8.21 introduces the following changes:
+
+* **Shard Plugin** Adds a new plugin to provide seed data for sharding. The seed is generated using fqdn, hostname, machine_id, and machinename data and is supported on MacOS and Linux systems.
+
+What's New in 8.20
+=====================================================
+Ohai 8.20 introduces the following changes:
+
+* **LXD Detect** The Virtualization plugin now detect LXD
+* **Windows Nano Networking** Network configuration on Windows Nano is now detected
+* **Hostnamectl plugin** Adds a new plugin to pool data from hostnamectl on systemd based systems
+
+What's New in 8.19
+=====================================================
+Ohai 8.19 introduces the following changes:
+
+* **Arista EOS** Added detection of Arista EOS
+
+What's New in 8.18
+=====================================================
+Ohai 8.18 introduces the following changes:
+
+* **Shells Plugin** Added a new plugin to detect installed shells
+* **PHP 7** Detect PHP version 7
+* **OS X Virtualization** Detect VirtualBox and VMware on OS X
+* **OS X Hardware Plugin** Added a Hardware plugin for OS X
+* **Linux Block Devices** Detect physical and logic block size
+
 What's New in 8
 =====================================================
 Ohai 8 introduces the following change:
