@@ -37,7 +37,7 @@ Ohai 13.0 introduces the following changes:
 Backwards Incompatible Changes:
 -----------------------------------------------------
 
-* **Amazon is now ``platform_family`` of amazon** As time has gone on Amazon Linux has become less like other RHEL derivatives. We're now detecting amazon as its own ``platform_family`` to make writing Amazon Linux compatible cookbooks easier
+* **Amazon is now 'platform_family' of amazon** As time has gone on Amazon Linux has become less like other RHEL derivatives. We're now detecting amazon as its own ``platform_family`` to make writing Amazon Linux compatible cookbooks easier
 * **Cloud plugin replaced with Cloud V2** The legacy cloud plugin that provided ``node['cloud']`` has been replaced with the Cloud V2 plugin. If you previously used data from the Cloud plugin you will see a new, more robust, data struct at ``node['cloud']``.
 * **Filesystems plugin replaced with Filesystem V2** The legacy filesystem plugin that provided ``node['fileystem']`` has been replaced with the Filesystem V2 plugin. If you previously used data from the Filesystem plugin you will see a new, more robust, data struct at ``node['filesystem']``.
 * **Freezing Ohai Strings** All Ohai strings are now frozen to prevent modification within cookbooks and to save memory
