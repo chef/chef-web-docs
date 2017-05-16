@@ -6,11 +6,6 @@ Quick Start
 For the quickest way to get started using Chef:
 
 #. Download the Chef development kit: https://downloads.chef.io/chefdk/.
-#. Set your Ruby path:
-
-   .. code-block:: bash
-
-      $ /opt/chefdk/embedded/bin/ruby
 
 #. Generate a cookbook:
 
