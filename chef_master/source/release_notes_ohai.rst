@@ -30,19 +30,19 @@ Ohai 13.0 introduces the following changes:
 
 * **New Secondary Plugin Path** By default Ohai will now look for additional plugins within ``/etc/chef/ohai/plugins`` or ```C:\\chef\\ohai\\plugins``. This makes it easy to drop off additional plugins during bootstrap or using the ohai cookbook without the need to edit client.rb or reload Ohai.
 * **Version Matching With Chef** Ohai has been bumped from version 8.23 to version 13.0 to match the chef-client. We'll be keeping versions in sync between ohai and chef-client so you always know what version of ohai shipped with chef-client.
-* **Lua and Scala Detection** Lua and Scala version detection has been improved to work in more situations
-* **AWS Metadata Detection** We now detect ``availability_zone`` and ``region`` information for EC2
+* **Lua and Scala Detection** Lua and Scala version detection has been improved to work in more situations.
+* **AWS Metadata Detection** We now detect ``availability_zone`` and ``region`` information for EC2.
 * **DMI Detection** We now detect DMI types 40-41: ``additional_information``, ``onboard_devices_extended_information``, and ``management_controller_host_interfaces``.
 
 Backwards Incompatible Changes:
 -----------------------------------------------------
 
-* **Amazon is now ``platform_family`` of amazon** As time has gone on Amazon Linux has become less like other RHEL derivatives. We're now detecting amazon as its own ``platform_family`` to make writing Amazon Linux compatible cookbooks easier
+* **Amazon Linux is now 'platform_family' of amazon** As time has gone on, Amazon Linux has become less like other RHEL derivatives. We're now detecting amazon as its own ``platform_family`` to make writing Amazon Linux compatible cookbooks easier.
 * **Cloud plugin replaced with Cloud V2** The legacy cloud plugin that provided ``node['cloud']`` has been replaced with the Cloud V2 plugin. If you previously used data from the Cloud plugin you will see a new, more robust, data struct at ``node['cloud']``.
 * **Filesystems plugin replaced with Filesystem V2** The legacy filesystem plugin that provided ``node['fileystem']`` has been replaced with the Filesystem V2 plugin. If you previously used data from the Filesystem plugin you will see a new, more robust, data struct at ``node['filesystem']``.
-* **Freezing Ohai Strings** All Ohai strings are now frozen to prevent modification within cookbooks and to save memory
-* **Removal of SBT Detection** The latest versions of ``sbt`` no longer include a ``sbt --version`` command. Other methods of version detection require setting up a project in the working directory. Until a better version detection method can be determine we're removed ``sbt`` detection.
-* **Ruby 2.3+** Ohai now requires Ruby 2.3 instead of 2.1\. This change aligns the Ruby requirements of Ohai with that of chef-client
+* **Freezing Ohai Strings** All Ohai strings are now frozen to prevent modification within cookbooks and to save memory.
+* **Removal of SBT Detection** The latest versions of ``sbt`` no longer include a ``sbt --version`` command. Other methods of version detection require setting up a project in the working directory. Until a better version detection method can be determined, we've removed ``sbt`` detection.
+* **Ruby 2.3+** Ohai now requires Ruby 2.3 instead of 2.1. This change aligns the Ruby requirements of Ohai with that of chef-client.
 * **Legacy Config Removal (OHAI-1)** The legacy Ohai config format used in the Chef ``client.rb`` config has been removed. See :doc:`OHAI-1 </deprecations_ohai_legacy_config>` for details.
 * **Sigar gem based plugins removal (OHAI-2)** Sigar gem based plugins have been removed from Ohai. See :doc:`OHAI-2 </deprecations_ohai_sigar_plugins>` for details.
 * **``run_command`` and ``popen4`` helper method removal (OHAI-3)** The legacy ``run_command`` and ``popen4`` helper methods have been removed. See :doc:`OHAI-3 </deprecations_ohai_run_command_helpers>` for details.
@@ -97,6 +97,43 @@ DigitalOcean plugin attribute changes
 * **Deprecation ID**: OHAI-6
 * **Remediation Docs**: :doc:`OHAI-6 </deprecations_ohai_digitalocean>`
 * **Expected Removal**: Ohai 13 (April 2017)
+
+What's New in 8.22
+=====================================================
+Ohai 8.22 introduces the following changes:
+
+* **LSB Release Detection** The ``lsb_release`` command line tool is now preferred to the contents of ``/etc/lsb-release``. This resolves an issue where a distro can be upgraded, but ``/etc/lsb-release`` is not upgraded to reflect the change.
+* **Haskell Language plugin** Haskell is now detected in a new haskell language plugin.
+
+What's New in 8.21
+=====================================================
+Ohai 8.21 introduces the following changes:
+
+* **Shard Plugin** Adds a new plugin to provide seed data for sharding. The seed is generated using fqdn, hostname, machine_id, and machinename data and is supported on macOS and Linux systems.
+
+What's New in 8.20
+=====================================================
+Ohai 8.20 introduces the following changes:
+
+* **LXD Detect** The Virtualization plugin now detect LXD.
+* **Windows Nano Networking** Network configuration on Windows Nano is now detected.
+* **Hostnamectl plugin** Adds a new plugin to pool data from hostnamectl on systemd based systems.
+
+What's New in 8.19
+=====================================================
+Ohai 8.19 introduces the following changes:
+
+* **Arista EOS** Added detection of Arista EOS.
+
+What's New in 8.18
+=====================================================
+Ohai 8.18 introduces the following changes:
+
+* **Shells Plugin** Added a new plugin to detect installed shells.
+* **PHP 7** Detect PHP version 7.
+* **OS X Virtualization** Detect VirtualBox and VMware on macOS.
+* **OS X Hardware Plugin** Added a Hardware plugin for macOS.
+* **Linux Block Devices** Detect physical and logic block size.
 
 What's New in 8
 =====================================================
