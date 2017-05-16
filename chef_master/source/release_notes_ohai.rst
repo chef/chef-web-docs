@@ -1,5 +1,5 @@
 =====================================================
-Release Notes: Ohai 7 - 8.23
+Release Notes: Ohai 7 - 13
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_ohai.rst>`__
 
@@ -23,6 +23,31 @@ The types of attributes Ohai collects include but are not limited to:
 Attributes that are collected by Ohai are automatic level attributes, in that these attributes are used by the chef-client to ensure that these attributes remain unchanged after the chef-client is done configuring the node.
 
 .. end_tag
+
+What's New in 13.0
+=====================================================
+Ohai 13.0 introduces the following changes:
+
+* **New Secondary Plugin Path** By default Ohai will now look for additional plugins within ``/etc/chef/ohai/plugins`` or ```C:\\chef\\ohai\\plugins``. This makes it easy to drop off additional plugins during bootstrap or using the ohai cookbook without the need to edit client.rb or reload Ohai.
+* **Version Matching With Chef** Ohai has been bumped from version 8.23 to version 13.0 to match the chef-client. We'll be keeping versions in sync between ohai and chef-client so you always know what version of ohai shipped with chef-client.
+* **Lua and Scala Detection** Lua and Scala version detection has been improved to work in more situations
+* **AWS Metadata Detection** We now detect ``availability_zone`` and ``region`` information for EC2
+* **DMI Detection** We now detect DMI types 40-41: ``additional_information``, ``onboard_devices_extended_information``, and ``management_controller_host_interfaces``.
+
+Backwards Incompatible Changes:
+-----------------------------------------------------
+
+* **Amazon is now ``platform_family`` of amazon** As time has gone on Amazon Linux has become less like other RHEL derivatives. We're now detecting amazon as its own ``platform_family`` to make writing Amazon Linux compatible cookbooks easier
+* **Cloud plugin replaced with Cloud V2** The legacy cloud plugin that provided ``node['cloud']`` has been replaced with the Cloud V2 plugin. If you previously used data from the Cloud plugin you will see a new, more robust, data struct at ``node['cloud']``.
+* **Filesystems plugin replaced with Filesystem V2** The legacy filesystem plugin that provided ``node['fileystem']`` has been replaced with the Filesystem V2 plugin. If you previously used data from the Filesystem plugin you will see a new, more robust, data struct at ``node['filesystem']``.
+* **Freezing Ohai Strings** All Ohai strings are now frozen to prevent modification within cookbooks and to save memory
+* **Removal of SBT Detection** The latest versions of ``sbt`` no longer include a ``sbt --version`` command. Other methods of version detection require setting up a project in the working directory. Until a better version detection method can be determine we're removed ``sbt`` detection.
+* **Ruby 2.3+** Ohai now requires Ruby 2.3 instead of 2.1\. This change aligns the Ruby requirements of Ohai with that of chef-client
+* **Legacy Config Removal (OHAI-1)** The legacy Ohai config format used in the Chef ``client.rb`` config has been removed. See :doc:`OHAI-1 </deprecations_ohai_legacy_config>` for details.
+* **Sigar gem based plugins removal (OHAI-2)** Sigar gem based plugins have been removed from Ohai. See :doc:`OHAI-2 </deprecations_ohai_sigar_plugins>` for details.
+* **``run_command`` and ``popen4`` helper method removal (OHAI-3)** The legacy ``run_command`` and ``popen4`` helper methods have been removed. See :doc:`OHAI-3 </deprecations_ohai_run_command_helpers>` for details.
+* **Windows CPU plugin attribute changes. (OHAI-5)** The windows cpu ``model_name`` attribute has been updated to return the correct value. See :doc:`OHAI-5 </deprecations_ohai_windows_cpu>` for details.
+* **DigitalOcean plugin attribute changes (OHAI-6)** The DigitalOcean plugin has been completely rewritten to pull data from the DigitalOcean metadata endpoint, giving us more detailed droplet information. This changed the format of the data returned by Ohai. See :doc:`OHAI-6 </deprecations_ohai_digitalocean>` for details.
 
 What's New in 8.23
 =====================================================
