@@ -160,6 +160,8 @@ Kitchen can configure the chef-zero provisioner with the following Chef-specific
      - Use to specify the path from which non-cookbook files are copied to a Kitchen instance.
    * - ``data_bags_path``
      - The relative path to a directory in which data bags and data bag items are defined. This data must be structured as if it were in the chef-repo.
+   * - ``deprecations_as_errors``
+     - Set to `true` to treat deprecation warning messages as error messages.
    * - ``driver``
      - Use to specify a driver for a platform. This will override the default driver.
    * - ``encrypted_data_bag_secret_key_path``
