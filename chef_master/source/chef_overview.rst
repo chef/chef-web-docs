@@ -230,26 +230,6 @@ Cookbooks are comprised of the following components:
 
        .. end_tag
 
-   * - .. image:: ../../images/icon_cookbook_definitions.svg
-          :width: 100px
-          :align: center
-
-     - .. tag 4
-
-       A definition is code that is reused across recipes, similar to a compile-time macro. A definition is created using arbitrary code wrapped around built-in chef-client resources---**file**, **execute**, **template**, and so on---by declaring those resources into the definition as if they were declared in a recipe. A definition is then used in one (or more) recipes as if it were a resource.
-
-       Though a definition behaves like a resource, some key differences exist. A definition:
-
-       * Is not a resource or a custom resource
-       * Is defined from within the ``/definitions`` directory of a cookbook
-       * Is loaded before resources during the chef-client run; this ensures the definition is available to all of the resources that may need it
-       * May not notify resources in the resource collection because a definition is loaded **before** the resource collection itself is created; however, a resource in a definition **may** notify a resource that exists within the same definition
-       * Automatically supports why-run mode, unlike custom resources
-
-       Use a defintion when repeating patterns exist across resources and/or when a simple, direct approach is desired. There is no limit to the number of resources that may be included in a definition: use as many built-in chef-client resources as necessary.
-
-       .. end_tag
-
    * - .. image:: ../../images/icon_cookbook_files.svg
           :width: 100px
           :align: center
@@ -317,10 +297,6 @@ Cookbooks are comprised of the following components:
           :width: 100px
           :align: center
 
-       .. image:: ../../images/icon_cookbook_providers.svg
-          :width: 100px
-          :align: center
-
      - .. tag resources_common
 
        A resource is a statement of configuration policy that:
@@ -330,12 +306,6 @@ Cookbooks are comprised of the following components:
        * Specifies a resource type---such as ``package``, ``template``, or ``service``
        * Lists additional details (also known as resource properties), as necessary
        * Are grouped into recipes, which describe working configurations
-
-       .. end_tag
-
-       .. tag resources_common_provider
-
-       Where a resource represents a piece of the system (and its desired state), a provider defines the steps that are needed to bring that piece of the system from its current state into the desired state.
 
        .. end_tag
 
