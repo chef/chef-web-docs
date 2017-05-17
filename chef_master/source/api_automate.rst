@@ -1,7 +1,8 @@
-=====================================================
+=================
 Chef Automate API
-=====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/api_automate.rst>`__
+=================
+
 
 .. tag chef_automate_mark
 
@@ -14,7 +15,7 @@ Chef Automate API
 The Chef Automate API is a REST API.
 
 Authentication Methods
-=====================================================
+======================
 
 Authentication to the Chef Automate server occurs via a specific set of HTTP headers and two types of tokens:
 
@@ -27,7 +28,7 @@ Authentication to the Chef Automate server occurs via a specific set of HTTP hea
 * ``data_collector token`` is a long-lived token that can be set for your Chef Automate instance in ``/etc/delivery/delivery.rb``. Add ``data_collector['token'] = 'sometokenvalue'``, save your changes and then run ``sudo automate-ctl reconfigure``.
 
 Required Headers
------------------------------------------------------
+----------------
 
 The following authentication headers are required:
 
@@ -76,11 +77,11 @@ The following authentication headers are required:
 The Chef Automate API is located at ``https://hostname`` and has the following endpoints:
 
 API Endpoints
-=====================================================
+=============
 
 
 /api/_status
------------------------------------------------------
+------------
 The ``/api/_status`` endpoint can be used to check the health of the Chef Automate server without authentication. A Chef Automate instance may be configured as a standalone server or as a disaster recovery pair with primary and standby servers. The response from this endpoint depends on the type of configuration. This endpoint is located at ``/api/_status``.
 
 **Request**
@@ -101,7 +102,7 @@ For example:
 
 For a standalone server, the response will be similar to:
 
-.. code-block:: javascript
+.. code-block:: json
 
    {
      "status": "pong",
@@ -124,7 +125,7 @@ The top-level ``status`` value refers to the state of the core Chef Automate ser
 
 For the primary server in a disaster recovery pair, the response will be similar to:
 
-.. code-block:: javascript
+.. code-block:: json
 
    {
      "status": "pong",
@@ -150,7 +151,7 @@ For ``lsyncd``, if the replication is up-to-date, ``latency`` should return 0; i
 
 For the standby server in a disaster recovery pair, the response will be similar to:
 
-.. code-block:: javascript
+.. code-block:: json
 
    {
      "status": "pong",
@@ -181,7 +182,7 @@ In this configuration, ``lsyncd`` should not be running; any other value would i
    * - ``200``
      - All services are OK. The response will show the service status as ``pong`` or ``not_running``. For example:
 
-       .. code-block:: javascript
+       .. code-block:: json
 
           {
             "status": "pong",
@@ -201,7 +202,7 @@ In this configuration, ``lsyncd`` should not be running; any other value would i
    * - ``500``
      - One (or more) services are down. The response will show the service status as ``fail`` or ``degraded``. For example:
 
-       .. code-block:: javascript
+       .. code-block:: json
 
           {
             "status": "pong",
@@ -209,18 +210,19 @@ In this configuration, ``lsyncd`` should not be running; any other value would i
             "upstreams": [
               {
                 "postgres": {
-                "status": "fail",
+                  "status": "fail",
                   "pg_last_xlog_receive_location": "0/3000D48"
-              },
-              "lsyncd": {
-                "status": "not_running",
+                },
+                "lsyncd": {
+                  "status": "not_running"
+                }
               }
             ]
           }
 
        For example, if replication is not running:
 
-       .. code-block:: javascript
+       .. code-block:: json
 
           {
             "status": "pong",
@@ -240,31 +242,63 @@ In this configuration, ``lsyncd`` should not be running; any other value would i
             ]
           }
 
-.. _compliance-profile-api:
+Compliance API
+==============
 
-/compliance/profiles/OWNER
------------------------------------------------------
-The Chef Automate server may store multiple compliance profiles, namespaced by owners.
+Filters
+-------
 
-The endpoint has the following methods: ``GET`` and ``POST``.
+As the name implies, filters serve to narrow the scope of a search. There are many endpoints in the Compliance API that
+support filters.  For each endpoint that supports filters, ``filter`` is listed as one of it's parameters.  In all cases
+When ``filter`` is included as a parameter, all filters listed below are allowed for inclusion.
 
-GET
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``GET`` method is used to get a list of compliance profiles namespaced by OWNER on the Chef Automate server.
++----------------+--------------------------------------------------+
+| Name           | Filters search results based on scans that have: |
++================+==================================================+
+|``start_time``  | end_times that are >= ``start_time``             |
++----------------+--------------------------------------------------+
+|``end_time``    | end_times that are <= ``end_time``               |
++----------------+--------------------------------------------------+
+|``environment`` | run in ``environment``                           |
++----------------+--------------------------------------------------+
+|``node_id``     | run on target with ``node_id``                   |
++----------------+--------------------------------------------------+
+|``platform``    | run on ``platform``                              |
++----------------+--------------------------------------------------+
+|``profile_id``  | run against this ``profile_id``                  |
++----------------+--------------------------------------------------+
 
-This method has no parameters.
+
+.. note:: |   Timestamps, are returned in *must* be written in RFC 3339 format.
+
+          |   The following are examples of acceptable ``start_time`` and ``end_time`` values for inclusion in a filter:
+
+               - ``2017-03-06T09:18:40Z``
+               - ``2017-03-06T09:18:40+00:00``
+
+.. _compliance-market-api:
+
+/compliance/market
+------------------
+The Chef Automate server may store multiple compliance profiles.
+
+The endpoint has the following methods: ``GET``.
+
+GET (profiles)
+++++++++++++++
+The ``GET`` method is used to get a list of compliance market profiles on the Chef Automate server.
 
 **Request**
 
 .. code-block:: none
 
-   GET /compliance/profiles/OWNER
+   GET /compliance/market/profiles
 
 For example:
 
 .. code-block:: bash
 
-   curl -X GET "https://my-auto-server.test/compliance/profiles/john" \
+   curl -X GET "https://my-auto-server.test/compliance/market/profiles" \
    -H "chef-delivery-enterprise: acme" \
    -H "chef-delivery-user: john" \
    -H "chef-delivery-token: 7djW35..."
@@ -273,15 +307,210 @@ For example:
 
 The response is similar to:
 
+.. code-block:: json
+
+    [
+      {
+        "name": "linux-baseline",
+        "title": "DevSec Linux Security Baseline",
+        "maintainer": "DevSec Hardening Framework Team",
+        "copyright": "DevSec Hardening Framework Team",
+        "copyright_email": "hello@dev-sec.io",
+        "license": "Apache 2 license",
+        "summary": "Test-suite for best-practice Linux OS hardening",
+        "version": "2.1.0",
+        "supports": [
+          {
+            "os-family": "linux"
+          }
+        ],
+        "depends": null
+      },
+      {
+        "name": "postgres-baseline",
+        "title": "Hardening Framework Postgres Hardening Test Suite",
+        "maintainer": "DevSec Hardening Framework Team",
+        "copyright": "DevSec Hardening Framework Team",
+        "copyright_email": "hello@dev-sec.io",
+        "license": "Apache 2 license",
+        "summary": "Test-suite for best-practice postgres hardening",
+        "version": "2.0.1",
+        "supports": [
+          {
+            "os-family": "unix"
+          }
+        ],
+        "depends": null
+      },
+      {
+        "name": "ssh-baseline",
+        "title": "DevSec SSH Baseline",
+        "maintainer": "DevSec Hardening Framework Team",
+        "copyright": "DevSec Hardening Framework Team",
+        "copyright_email": "hello@dev-sec.io",
+        "license": "Apache 2 license",
+        "summary": "Test-suite for best-practice SSH hardening",
+        "version": "2.2.0",
+        "supports": [
+          {
+            "os-family": "unix"
+          }
+        ],
+        "depends": null
+      }
+    ]
+
+**Response Codes**
+
+.. list-table::
+   :widths: 100 400
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``401``
+     - Unauthorized. The user who made the request is not authorized to perform the action.
+
+GET (profile by ``:name``)
+++++++++++++++++++++++++++
+The ``GET`` method is used to get the profile of a given ``:name``.
+
+**Request**
+
 .. code-block:: none
 
-   {
-     "linux": {
-       "id": "linux",
-       "name": "linux",
-       "title": "Basic Linux",
-   ...
-   }
+   GET /compliance/market/profiles/:name
+
+For example:
+
+.. code-block:: bash
+
+   curl -X GET "https://my-auto-server.test/compliance/market/profiles/linux-baseline" \
+   -H "chef-delivery-enterprise: acme" \
+   -H "chef-delivery-user: john" \
+   -H "chef-delivery-token: 7djW35..."
+
+**Response**
+
+The response is similar to:
+
+.. code-block:: json
+
+   [
+      {
+         "name": "linux-baseline",
+         "title": "DevSec Linux Security Baseline",
+         "maintainer": "DevSec Hardening Framework Team",
+         "copyright": "DevSec Hardening Framework Team",
+         "copyright_email": "hello@dev-sec.io",
+         "license": "Apache 2 license",
+         "summary": "Test-suite for best-practice Linux OS hardening",
+         "version": "2.1.0",
+         "supports": [
+            {
+               "os-family": "linux"
+            }
+         ],
+         "depends": null
+     }
+   ]
+
+**Response Codes**
+
+.. list-table::
+   :widths: 100 400
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``401``
+     - Unauthorized. The user who made the request is not authorized to perform the action.
+
+GET (profile by ``:name`` & ``:version``)
++++++++++++++++++++++++++++++++++++++++++
+The ``GET`` method is used to get one specific :version of a profile of a given ``:name``.
+
+**Request**
+
+.. code-block:: none
+
+   GET /compliance/market/profiles/:name/version/:version
+
+For example:
+
+.. code-block:: bash
+
+   curl -X GET "https://my-auto-server.test/compliance/market/profiles/linux-baseline/version/2.1.0" \
+   -H "chef-delivery-enterprise: acme" \
+   -H "chef-delivery-user: john" \
+   -H "chef-delivery-token: 7djW35..."
+
+**Response**
+
+The response is similar to:
+
+.. code-block:: json
+
+   [
+      {
+         "name": "linux-baseline",
+         "title": "DevSec Linux Security Baseline",
+         "maintainer": "DevSec Hardening Framework Team",
+         "copyright": "DevSec Hardening Framework Team",
+         "copyright_email": "hello@dev-sec.io",
+         "license": "Apache 2 license",
+         "summary": "Test-suite for best-practice Linux OS hardening",
+         "version": "2.1.0",
+         "supports": [
+            {
+               "os-family": "linux"
+            }
+         ],
+         "depends": null
+     }
+   ]
+
+**Response Codes**
+
+.. list-table::
+   :widths: 100 400
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``401``
+     - Unauthorized. The user who made the request is not authorized to perform the action.
+
+GET (profile tar by ``:name``)
+++++++++++++++++++++++++++++++
+The ``GET`` method is used to get the latest version of a market profile tarball as specified by the ``:name`` parameter.
+
+**Request**
+
+.. code-block:: none
+
+   GET /compliance/market/profiles/:name/tar
+
+For example:
+
+.. code-block:: bash
+
+   curl -o linux-baseline.tar \
+   "https://my-auto-server.test/compliance/market/profiles/linux-baseline/tar" \
+   -H "chef-delivery-enterprise: acme" \
+   -H "chef-delivery-user: john" \
+   -H "chef-delivery-token: 7djW35..."
+
+**Response**
+
+TAR STREAM - download of the file requested (if it exists)
+
 
 **Response Codes**
 
@@ -296,31 +525,377 @@ The response is similar to:
    * - ``401``
      - Unauthorized. The user who made the request is not authorized to perform the action.
    * - ``404``
-     - Not Found. The OWNER specified in the request was not found.
+     - Not found. The requested profile was not found.
 
-
-POST
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``POST`` method is used to upload a compliance profile(as a tarball) namespaced by OWNER.
-
-This method has no parameters.
+GET (profile tar by ``:name`` & ``:version``)
++++++++++++++++++++++++++++++++++++++++++++++
+The ``GET`` method is used to get the market profile tarball for the given ``:name`` and ``:version``.
 
 **Request**
 
 .. code-block:: none
 
-   POST /compliance/profiles/OWNER
+   GET /compliance/market/profiles/:name/version/:version/tar
 
 For example:
 
 .. code-block:: bash
 
-   tar -cvzf /tmp/newprofile.tar.gz /home/user/newprofile
+   curl -o linux-baseline.tar \
+   "https://my-auto-server.test/compliance/market/profiles/linux-baseline/version/2.1.0/tar" \
+   -H "chef-delivery-enterprise: acme" \
+   -H "chef-delivery-user: john" \
+   -H "chef-delivery-token: 7djW35..."
+
+**Response**
+
+TAR STREAM - download of the file requested (if it exists)
+
+
+**Response Codes**
+
+.. list-table::
+   :widths: 100 400
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``401``
+     - Unauthorized. The user who made the request is not authorized to perform the action.
+   * - ``404``
+     - Not found. The requested profile was not found.
+
+
+.. _compliance-nodes-api:
+
+/compliance/nodes
+-----------------
+Get the latest scan data for all nodes (or nodes that match `Filters`_), then aggregate the compliance results from the
+latest scans at the specified point in time.
+
+The endpoint has the following methods: ``GET``.
+
+GET (nodes)
++++++++++++
+The ``GET`` method returns aggregated compliance results across one or more nodes.
+
+**Parameters**
+
++-------------+------------+-------------------------------------------------+---------------------------+
+| Parameter   | Type       | Description                                     | Default                   |
++=============+============+=================================================+===========================+
+| ``filters`` | string     || The search keywords, as well as any qualifiers.|                           |
+|             |            || Any and all `Filters`_ may be used.            |                           |
++-------------+------------+-------------------------------------------------+---------------------------+
+| ``order``   | string     || The direction of the sort.                     | ``desc``                  |
+|             |            || Can be either ``asc`` or ``desc``.             |                           |
++-------------+------------+-------------------------------------------------+---------------------------+
+| ``page``    | integer    | Page number for paginated data.                  |  ``1``                   |
++-------------+------------+-------------------------------------------------+---------------------------+
+| ``per_page``| integer    | Items per page.                                 |  ``10``                   |
++-------------+------------+-------------------------------------------------+---------------------------+
+| ``sort``    | string     || What to sort results by.                       | ``latest_report.end_time``|
+|             |            || Can be any of the following:                   |                           |
+|             |            |                                                 |                           |
+|             |            | - ``environment``                               |                           |
+|             |            | - ``latest_report.controls.failed.critical``    |                           |
+|             |            | - ``latest_report.controls.failed.total``       |                           |
+|             |            | - ``latest_report.end_time``                    |                           |
+|             |            | - ``latest_report.status``                      |                           |
+|             |            | - ``name``                                      |                           |
+|             |            | - ``platform``                                  |                           |
+|             |            | - ``status``                                    |                           |
++-------------+------------+-------------------------------------------------+---------------------------+
+
+
+**Request**
+
+.. code-block:: none
+
+   GET /compliance/nodes
+
+For example:
+
+.. code-block:: bash
+
+   curl -X GET "https://my-auto-server.test/compliance/nodes" \
+   -H "chef-delivery-enterprise: acme" \
+   -H "chef-delivery-user: john" \
+   -H "chef-delivery-token: 7djW35..."
+
+**Response**
+
+The response is similar to:
+
+.. code-block:: json
+
+   [
+     {
+       "id": "74a54a28-c628-4f82-86df-61c43866db6a",
+       "name": "teal-spohn",
+       "platform": {
+         "name": "centos"
+       },
+       "environment": "DevSec Prod Alpha",
+       "latest_report": {
+         "id": "3ca95021-84c1-43a6-a2e7-be10edcb238d",
+         "end_time": "2017-04-04T10:18:41+01:00",
+         "status": "failed",
+         "controls": {
+           "total": 113,
+           "passed": {
+             "total": 22
+           },
+           "skipped": {
+             "total": 68
+           },
+           "failed": {
+             "total": 23,
+             "minor": 0,
+             "major": 0,
+             "critical": 23
+           }
+         }
+       }
+     },
+     {
+       "id": "99516108-8126-420e-b03e-a90a52f25751",
+       "name": "red-brentwood",
+       "platform": {
+         "name": "debian"
+       },
+       "environment": "DevSec Prod Zeta",
+       "latest_report": {
+         "id": "44024b50-2e0d-42fa-a57c-25e05e48a1b5",
+         "end_time": "2017-03-06T09:18:41Z",
+         "status": "failed",
+         "controls": {
+           "total": 59,
+           "passed": {
+             "total": 23
+           },
+           "skipped": {
+             "total": 14
+           },
+           "failed": {
+             "total": 22,
+             "minor": 0,
+             "major": 0,
+             "critical": 22
+           }
+         }
+       }
+     }
+   ]
+
+
+**Response Codes**
+
+.. list-table::
+   :widths: 100 420
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``400``
+     - Bad Request. Something is wrong with the request. Client should look closely at the request they're making.
+   * - ``401``
+     - Unauthorized. The user who made the request is not authorized to perform the action.
+   * - ``500``
+     - Internal Server Error. Problem on the backend.
+
+GET (node by ``:name``)
++++++++++++++++++++++++
+The ``GET`` method is used to get the profile of a given node ``:name``.
+
+**Request**
+
+.. code-block:: none
+
+   GET /compliance/nodes/:name
+
+For example:
+
+.. code-block:: bash
+
+   curl -X GET "https://my-auto-server.test/compliance/nodes/74a54a28-c628-4f82-86df-61c43866db6a" \
+   -H "chef-delivery-enterprise: acme" \
+   -H "chef-delivery-user: john" \
+   -H "chef-delivery-token: 7djW35..."
+
+**Response**
+
+The response is similar to:
+
+.. code-block:: json
+
+   {
+     "id": "74a54a28-c628-4f82-86df-61c43866db6a",
+     "name": "teal-spohn",
+     "platform": {
+       "name": "centos",
+       "release": "5.11"
+     },
+     "environment": "DevSec Prod Alpha",
+     "latest_report": {
+       "id": "3ca95021-84c1-43a6-a2e7-be10edcb238d",
+       "end_time": "0001-01-01T00:00:00Z",
+       "status": "failed",
+       "controls": {
+         "total": 113,
+         "passed": {
+           "total": 22
+         },
+         "skipped": {
+           "total": 68
+         },
+         "failed": {
+           "total": 23,
+           "minor": 0,
+           "major": 0,
+           "critical": 23
+         }
+       }
+     },
+     "profiles": [
+       {
+         "name": "linux-baseline",
+         "version": "2.0.1",
+         "id": "b53ca05fbfe17a36363a40f3ad5bd70aa20057eaf15a9a9a8124a84d4ef08015"
+       },
+       {
+         "name": "ssh-baseline",
+         "version": "2.1.1",
+         "id": "3984753145f0db693e2c6fc79f764e9aff78d892a874391fc5f5cc18f4675b68"
+       }
+     ]
+   }
+
+**Response Codes**
+
+.. list-table::
+   :widths: 100 400
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``400``
+     - Bad Request. Something is wrong with the request. Client should look closely at the request they're making.
+   * - ``404``
+     - Not Found. The resource was not found.
+   * - ``500``
+     - Internal Server Error. Problem on the backend.
+
+.. _compliance-profile-api:
+
+/compliance/profiles
+--------------------
+The Chef Automate server may store multiple compliance profiles, namespaced by owners.
+
+The endpoint has the following methods: ``GET`` and ``POST``.
+
+GET (by ``:owner``)
++++++++++++++++++++
+The ``GET`` method is used to get a list of compliance profiles namespaced by ``:owner`` on the Chef Automate server.
+
+**Request**
+
+.. code-block:: none
+
+   GET /compliance/profiles/:owner
+
+For example:
+
+.. code-block:: bash
+
+   curl -X GET "https://my-auto-server.test/compliance/profiles/john" \
+   -H "chef-delivery-enterprise: acme" \
+   -H "chef-delivery-user: john" \
+   -H "chef-delivery-token: 7djW35..."
+
+**Response**
+
+The response is similar to:
+
+.. code-block:: json
+
+   [
+     {
+       "name": "linux-baseline",
+       "title": "DevSec Linux Security Baseline",
+       "maintainer": "DevSec Hardening Framework Team",
+       "copyright": "DevSec Hardening Framework Team",
+       "copyright_email": "hello@dev-sec.io",
+       "license": "Apache 2 license",
+       "summary": "Test-suite for best-practice Linux OS hardening",
+       "version": "2.1.0",
+       "supports": [
+         {
+           "os-family": "linux"
+         }
+       ],
+       "depends": null
+     },
+     {
+       "name": "ssh-baseline",
+       "title": "DevSec SSH Baseline",
+       "maintainer": "DevSec Hardening Framework Team",
+       "copyright": "DevSec Hardening Framework Team",
+       "copyright_email": "hello@dev-sec.io",
+       "license": "Apache 2 license",
+       "summary": "Test-suite for best-practice SSH hardening",
+       "version": "2.2.0",
+       "supports": [
+         {
+           "os-family": "unix"
+         }
+       ],
+       "depends": null
+     }
+   ]
+
+**Response Codes**
+
+.. list-table::
+   :widths: 100 400
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``401``
+     - Unauthorized. The user who made the request is not authorized to perform the action.
+   * - ``404``
+     - Not Found. The :owner specified in the request was not found.
+
+
+POST
+++++
+The ``POST`` method is used to upload a compliance profile(as a tarball) namespaced by ``:owner``.
+
+**Request**
+
+.. code-block:: none
+
+   POST /compliance/profiles/:owner
+
+For example:
+
+.. code-block:: bash
+
+   tar -cvzf /tmp/new-profile.tar.gz /home/user/new-profile
    curl -X POST "https://my-auto-server.test/compliance/profiles/john" \
    -H "chef-delivery-enterprise: acme" \
    -H "chef-delivery-user: john" \
    -H "chef-delivery-token: 7djW35..." \
-   --form "file=@/tmp/newprofile.tar.gz"
+   --form "file=@/tmp/new-profile.tar.gz"
 
 **Response**
 
@@ -341,16 +916,14 @@ No Content
    * - ``500``
      - Internal Error. Profile check failed.
 
-
-/compliance/profiles/OWNER/PROFILE
------------------------------------------------------
 Endpoint targeting specific compliance profile.
 
 The following methods are available: ``GET`` and ``DELETE``.
 
-GET
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``GET`` method is used to return details of a particular profile.
+GET (by ``:owner`` & ``:name``)
++++++++++++++++++++++++++++++++
+
+The ``GET`` method is used to return details of a particular profile ``:name`` belonging to an ``:owner``.
 
 This method has no parameters.
 
@@ -358,13 +931,13 @@ This method has no parameters.
 
 .. code-block:: none
 
-   GET /compliance/profiles/OWNER/PROFILE
+   GET /compliance/profiles/:owner/:name
 
 For example:
 
 .. code-block:: bash
 
-   curl -X GET "https://my-auto-server.test/compliance/profiles/john/linux" \
+   curl -X GET "https://my-auto-server.test/compliance/profiles/john/linux-baseline" \
    -H "chef-delivery-enterprise: acme" \
    -H "chef-delivery-user: john" \
    -H "chef-delivery-token: 7djW35..."
@@ -373,17 +946,26 @@ For example:
 
 The response is similar to:
 
-.. code-block:: none
+.. code-block:: json
 
-   {
-     "id": "linux",
-     "owner": "john",
-     "name": "linux",
-     "title": "Basic Linux",
-       "controls": {
-        "basic-1": {
-   ...
-   }
+   [
+     {
+       "name": "linux-baseline",
+       "title": "DevSec Linux Security Baseline",
+       "maintainer": "DevSec Hardening Framework Team",
+       "copyright": "DevSec Hardening Framework Team",
+       "copyright_email": "hello@dev-sec.io",
+       "license": "Apache 2 license",
+       "summary": "Test-suite for best-practice Linux OS hardening",
+       "version": "2.1.0",
+       "supports": [
+         {
+           "os-family": "linux"
+         }
+       ],
+       "depends": null
+     }
+   ]
 
 **Response Codes**
 
@@ -398,12 +980,12 @@ The response is similar to:
    * - ``401``
      - Unauthorized. The user who made the request is not authorized to perform the action.
    * - ``404``
-     - Not Found. The OWNER specified in the request was not found.
+     - Not Found. The ``:profile`` specified in the request was not found.
 
+GET (by ``:owner`` & ``:name`` & ``:version``)
+++++++++++++++++++++++++++++++++++++++++++++++
 
-DELETE
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``DELETE`` method is used to remove a particular profile.
+The ``GET`` method is used to return details of a particular ``:version`` of a profile ``:name``, belonging to an ``:owner``.
 
 This method has no parameters.
 
@@ -411,13 +993,74 @@ This method has no parameters.
 
 .. code-block:: none
 
-   DELETE /compliance/profiles/OWNER/PROFILE
+   GET /compliance/profiles/:owner/:name/version/:version
 
 For example:
 
 .. code-block:: bash
 
-   curl -X DELETE "https://my-auto-server.test/compliance/profiles/john/linux" \
+   curl -X GET "https://my-auto-server.test/compliance/profiles/john/linux-baseline/version/2.1.0" \
+   -H "chef-delivery-enterprise: acme" \
+   -H "chef-delivery-user: john" \
+   -H "chef-delivery-token: 7djW35..."
+
+**Response**
+
+The response is similar to:
+
+.. code-block:: json
+
+   [
+     {
+       "name": "linux-baseline",
+       "title": "DevSec Linux Security Baseline",
+       "maintainer": "DevSec Hardening Framework Team",
+       "copyright": "DevSec Hardening Framework Team",
+       "copyright_email": "hello@dev-sec.io",
+       "license": "Apache 2 license",
+       "summary": "Test-suite for best-practice Linux OS hardening",
+       "version": "2.1.0",
+       "supports": [
+         {
+           "os-family": "linux"
+         }
+       ],
+       "depends": null
+     }
+   ]
+
+**Response Codes**
+
+.. list-table::
+   :widths: 100 400
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``401``
+     - Unauthorized. The user who made the request is not authorized to perform the action.
+   * - ``404``
+     - Not Found. The ``:profile`` specified in the request was not found.
+
+
+
+DELETE
+++++++
+The ``DELETE`` method is used to remove a particular ``:version`` of a profile ``:name``, belonging to an ``:owner``.
+
+**Request**
+
+.. code-block:: none
+
+   DELETE /compliance/profiles/:owner/:name/version/:version
+
+For example:
+
+.. code-block:: bash
+
+   curl -X DELETE "https://my-auto-server.test/compliance/profiles/john/linux-baseline/version/2.1.0" \
    -H "chef-delivery-enterprise: acme" \
    -H "chef-delivery-user: john" \
    -H "chef-delivery-token: 7djW35..."
@@ -439,29 +1082,24 @@ No Content
    * - ``401``
      - Unauthorized. The user who made the request is not authorized to perform the action.
    * - ``404``
-     - Not Found. The OWNER or PROFILE specified in the request was not found.
+     - Not Found. The ``:owner`` or ``:name`` specified in the request was not found.
 
+GET (profile tar by ``:owner`` and ``:name``)
++++++++++++++++++++++++++++++++++++++++++++++
 
-/compliance/profiles/OWNER/PROFILE/tar
------------------------------------------------------
-
-GET
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``GET`` is used to download a profile as a tarball.
-
-This method has no parameters.
+The ``GET`` is used to download tarball of a particular a profile ``:name``, belonging to an ``:owner``.
 
 **Request**
 
 .. code-block:: none
 
-   GET /compliance/profiles/OWNER/PROFILE/tar
+   GET /compliance/profiles/:owner/:name/tar
 
 For example:
 
 .. code-block:: bash
 
-   curl -X GET "https://my-auto-server.test/compliance/profiles/john/linux" \
+   curl -X GET "https://my-auto-server.test/compliance/profiles/john/linux-baseline/tar" \
    -H "chef-delivery-enterprise: acme" \
    -H "chef-delivery-user: john" \
    -H "chef-delivery-token: 7djW35..." > /tmp/profile.tar.gz
@@ -483,4 +1121,1296 @@ TAR STREAM
    * - ``401``
      - Unauthorized. The user who made the request is not authorized to perform the action.
    * - ``404``
-     - Not Found. The OWNER or PROFILE specified in the request was not found.
+     - Not Found. The ``:owner`` or ``:name`` specified in the request was not found.
+
+GET (profile tar by ``:owner`` ``:name`` ``:version``)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The ``GET`` is used to download tarball of a particular ``:version`` of a profile ``:name``, belonging to an ``:owner``.
+
+**Request**
+
+.. code-block:: none
+
+   GET /compliance/profiles/:owner/:name/version/:version/tar
+
+For example:
+
+.. code-block:: bash
+
+   curl -X GET "https://my-auto-server.test/compliance/profiles/john/linux-baseline/version/2.1.0/tar" \
+   -H "chef-delivery-enterprise: acme" \
+   -H "chef-delivery-user: john" \
+   -H "chef-delivery-token: 7djW35..." > /tmp/profile.tar.gz
+
+**Response**
+
+TAR STREAM
+
+**Response Codes**
+
+.. list-table::
+   :widths: 100 400
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``401``
+     - Unauthorized. The user who made the request is not authorized to perform the action.
+   * - ``404``
+     - Not Found. The ``:owner`` or ``:profile`` specified in the request was not found.
+
+
+.. _compliance-reports-api:
+
+/compliance/reports
+-------------------
+Get the latest scan data for all nodes (or nodes that match `Filters`_), from the latest scans at the specified point in time.
+
+The endpoint has the following methods: ``GET``.
+
+GET (reports)
++++++++++++++
+The ``GET`` method returns aggregated compliance results across one or more nodes.
+
+**Parameters**
+
++-------------+------------+-------------------------------------------------+---------------------------+
+| Parameter   | Type       | Description                                     | Default                   |
++=============+============+=================================================+===========================+
+| ``filters`` | string     || The search keywords, as well as any qualifiers.|                           |
+|             |            || Any and all `Filters`_ may be used.            |                           |
++-------------+------------+-------------------------------------------------+---------------------------+
+| ``order``   | string     || The direction of the sort.                     | ``desc``                  |
+|             |            || Can be either ``asc`` or ``desc``.             |                           |
++-------------+------------+-------------------------------------------------+---------------------------+
+| ``page``    | integer    | Page number for paginated data.                 |  ``1``                    |
++-------------+------------+-------------------------------------------------+---------------------------+
+| ``per_page``| integer    | Items per page.                                 |  ``10``                   |
++-------------+------------+-------------------------------------------------+---------------------------+
+| ``sort``    | string     || What to sort results by.                       | ``latest_report.end_time``|
+|             |            || Can be any of the following:                   |                           |
+|             |            |                                                 |                           |
+|             |            | - ``node_name``                                 |                           |
+|             |            | - ``latest_report.end_time``                    |                           |
+|             |            | - ``latest_report.status``                      |                           |
+|             |            | - ``latest_report.controls.failed.total``       |                           |
+|             |            | - ``latest_report.controls.failed.critical``    |                           |
++-------------+------------+-------------------------------------------------+---------------------------+
+
+
+**Request**
+
+.. code-block:: none
+
+   GET /compliance/reports
+
+For example:
+
+.. code-block:: bash
+
+   curl -X GET "https://my-auto-server.test/compliance/reports" \
+   -H "chef-delivery-enterprise: acme" \
+   -H "chef-delivery-user: john" \
+   -H "chef-delivery-token: 7djW35..."
+
+**Response**
+
+The response is similar to:
+
+.. code-block:: json
+
+   [
+     {
+       "id": "3ca95021-84c1-43a6-a2e7-be10edcb238d",
+       "node_id": "74a54a28-c628-4f82-86df-61c43866db6a",
+       "node_name": "teal-spohn",
+       "end_time": "2017-04-04T10:18:41+01:00",
+       "status": "failed",
+       "controls": {
+         "total": 113,
+         "passed": {
+           "total": 22
+         },
+         "skipped": {
+           "total": 68
+         },
+         "failed": {
+           "total": 23,
+           "minor": 0,
+           "major": 0,
+           "critical": 23
+         }
+       }
+     },
+     {
+       "id": "bb93e1b2-36d6-439e-ac70-a41504242605",
+       "node_id": "74a54a28-c628-4f82-86df-61c43866db6a",
+       "node_name": "teal-spohn",
+       "end_time": "2017-04-03T10:18:41+01:00",
+       "status": "failed",
+       "controls": {
+         "total": 113,
+         "passed": {
+           "total": 22
+         },
+         "skipped": {
+           "total": 68
+         },
+         "failed": {
+           "total": 23,
+           "minor": 0,
+           "major": 0,
+           "critical": 23
+         }
+       }
+     },
+     {
+       "id": "44024b50-2e0d-42fa-a57c-25e05e48a1b5",
+       "node_id": "99516108-8126-420e-b03e-a90a52f25751",
+       "node_name": "red-brentwood",
+       "end_time": "2017-03-06T09:18:41Z",
+       "status": "failed",
+       "controls": {
+         "total": 59,
+         "passed": {
+           "total": 23
+         },
+         "skipped": {
+           "total": 14
+         },
+         "failed": {
+           "total": 22,
+           "minor": 0,
+           "major": 0,
+           "critical": 22
+         }
+       }
+     }
+   ]
+
+
+**Response Codes**
+
+.. list-table::
+   :widths: 100 420
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``400``
+     - Bad Request. Something is wrong with the request. Client should look closely at the request they're making.
+   * - ``401``
+     - Unauthorized. The user who made the request is not authorized to perform the action.
+   * - ``500``
+     - Internal Server Error. Problem on the backend.
+
+GET (report by ``:id``)
++++++++++++++++++++++++
+The ``GET`` method is used to get the report of a given report ``:id``.
+
+**Request**
+
+.. code-block:: none
+
+   GET /compliance/reports/:id
+
+For example:
+
+.. code-block:: bash
+
+   curl -X GET "https://my-auto-server.test/compliance/reports/74a54a28-c628-4f82-86df-61c43866db6a" \
+   -H "chef-delivery-enterprise: acme" \
+   -H "chef-delivery-user: john" \
+   -H "chef-delivery-token: 7djW35..."
+
+**Response**
+
+The response is similar to:
+
+.. code-block:: json
+
+   {
+     "id": "3ca95021-84c1-43a6-a2e7-be10edcb238d",
+     "version": "1.17.0",
+     "profiles": [
+       {
+         "name": "linux-baseline",
+         "title": "DevSec Linux Security Baseline",
+         "version": "2.0.1",
+         "summary": "Test-suite for best-practice os hardening",
+         "license": "",
+         "copyright": "Hardening Framework Team",
+         "copyright_email": "hello@hardening.io",
+         "controls": [
+         .
+         .
+         .
+   }
+
+**Response Codes**
+
+.. list-table::
+   :widths: 100 400
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``400``
+     - Bad Request. Something is wrong with the request. Client should look closely at the request they're making.
+   * - ``401``
+     - Unauthorized. The user who made the request is not authorized to perform the action.
+   * - ``404``
+     - Not Found. The resource was not found.
+
+.. _compliance-search-api:
+
+/compliance/search/profiles
+---------------------------
+Get operates in two different scenarios for this endpoint.
+   1. searching for profiles by applying all filters and parameters listed in Parameters (below)
+   2. searching for just one profile by it's :profile_id
+
+
+The endpoint has the following methods: ``GET``.
+
+GET (scenario 1)
+++++++++++++++++
+The ``GET`` method returns a list of profile summary data filtered down using `Filters`_.
+
+**Parameters**
+
+The following Parameters are for scenario 1 (listed above).
+
++-------------+------------+-------------------------------------------------+---------------------------+
+| Parameter   | Type       | Description                                     | Default                   |
++=============+============+=================================================+===========================+
+| ``filters`` | string     || The search keywords, as well as any qualifiers.|                           |
+|             |            || Any and all `Filters`_ may be used.            |                           |
++-------------+------------+-------------------------------------------------+---------------------------+
+| ``order``   | string     || The direction of the sort.                     | ``desc``                  |
+|             |            || Can be either ``asc`` or ``desc``.             |                           |
++-------------+------------+-------------------------------------------------+---------------------------+
+| ``page``    | integer    | Page number for paginated data.                 |  ``1``                    |
++-------------+------------+-------------------------------------------------+---------------------------+
+| ``per_page``| integer    | Items per page.                                 |  ``10``                   |
++-------------+------------+-------------------------------------------------+---------------------------+
+| ``sort``    | string     || What to sort results by.                       | ``latest_report.end_time``|
+|             |            || Can be any of the following:                   |                           |
+|             |            |                                                 |                           |
+|             |            | - ``node_name``                                 |                           |
+|             |            | - ``latest_report.end_time``                    |                           |
+|             |            | - ``latest_report.status``                      |                           |
+|             |            | - ``latest_report.controls.failed.total``       |                           |
+|             |            | - ``latest_report.controls.failed.critical``    |                           |
++-------------+------------+-------------------------------------------------+---------------------------+
+
+If the ``q`` parameter is passed in and it contains :profile_id, then that is the only parameter that will be used.
+This is where scenario 2 takes effect.
+
+**Request**
+
+.. code-block:: none
+
+   GET /compliance/search
+
+For example:
+
+.. code-block:: bash
+
+   curl -X GET "https://my-auto-server.test/compliance/search" \
+   -H "chef-delivery-enterprise: acme" \
+   -H "chef-delivery-user: john" \
+   -H "chef-delivery-token: 7djW35..."
+
+**Response**
+
+The response is similar to:
+
+.. code-block:: json
+
+   [
+     {
+       "name": "apache-baseline",
+       "title": "DevSec Apache Baseline",
+       "id": "65707cb4299e5e821c687f6d5a704ffd3e21f6139a9ad0cc3b438c343b129d8c",
+       "version": "2.0.1"
+     },
+     {
+       "name": "linux-baseline",
+       "title": "DevSec Linux Security Baseline",
+       "id": "b53ca05fbfe17a36363a40f3ad5bd70aa20057eaf15a9a9a8124a84d4ef08015",
+       "version": "2.0.1"
+     },
+     {
+       "name": "linux-baseline",
+       "title": "DevSec Linux Security Baseline",
+       "id": "9f40334d8d485a70b7fd1c8387b0116a29512714c7bfb32a563ec3c97090ff59",
+       "version": "2.1.0"
+     },
+     {
+       "name": "ssh-baseline",
+       "title": "DevSec SSH Baseline",
+       "id": "f42d2f48c9acd48f52324d52ec575ca9028e405eb303f69cb34d79eb0e588b5c",
+       "version": "2.2.0"
+     },
+     {
+       "name": "ssh-baseline",
+       "title": "DevSec SSH Baseline",
+       "id": "3984753145f0db693e2c6fc79f764e9aff78d892a874391fc5f5cc18f4675b68",
+       "version": "2.1.1"
+     }
+   ]
+
+**Response Codes**
+
+.. list-table::
+   :widths: 100 420
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``401``
+     - Unauthorized. The user who made the request is not authorized to perform the action.
+   * - ``404``
+     - Not Found. The resource was not found.
+
+
+GET (scenario 2)
+++++++++++++++++
+The ``GET`` method is used to search for a profile given it's ``:profile_id``.
+
+**Request**
+
+.. code-block:: none
+
+   GET /compliance/search?q=profile_id:some-id
+
+For example:
+
+.. code-block:: bash
+
+   curl -X GET "https://my-auto-server.test/compliance/search? \
+   q=profile_id:65707cb4299e5e821c687f6d5a704ffd3e21f6139a9ad0cc3b438c343b129d8c" \
+   -H "chef-delivery-enterprise: acme" \
+   -H "chef-delivery-user: john" \
+   -H "chef-delivery-token: 7djW35..."
+
+**Response**
+
+The response is similar to:
+
+.. code-block:: json
+
+   {
+     "name": "apache-baseline",
+     "title": "DevSec Apache Baseline",
+     "version": "2.0.1",
+     "summary": "Test-suite for best-practice apache hardening",
+     "maintainer": "Hardening Framework Team",
+     "license": "Apache 2 license",
+     "copyright": "Hardening Framework Team",
+     "copyright_email": "hello@dev-sec.io",
+     "controls": [
+       {
+         "id": "apache-01",
+         .
+         .
+         .
+   }
+
+**Response Codes**
+
+.. list-table::
+   :widths: 100 400
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``400``
+     - Bad Request. Something is wrong with the request. Client should look closely at the request they're making.
+   * - ``401``
+     - Unauthorized. The user who made the request is not authorized to perform the action.
+   * - ``500``
+     - Internal Server Error. Problem on the backend.
+
+.. _compliance-stats-api:
+
+/compliance/stats/failures
+--------------------------
+Get the latest scan data for all nodes (or nodes that match `Filters`_), then aggregate the compliance results from the
+latest scans at the specified point in time.
+
+The endpoint has the following methods: ``GET``.
+
+GET (failures)
+++++++++++++++
+The ``GET`` method returns aggregated stats failure results across one or more nodes.
+
+**Parameters**
+
++-------------+------------+-------------------------------------------------+---------------------------+
+| Parameter   | Type       | Description                                     | Default                   |
++=============+============+=================================================+===========================+
+| ``filters`` | string     || The search keywords, as well as any qualifiers.|                           |
+|             |            || Any and all `Filters`_ may be used.            |                           |
++-------------+------------+-------------------------------------------------+---------------------------+
+| ``size``    | integer    || The top <size> records make up the aggregation.| ``10``                    |
++-------------+------------+-------------------------------------------------+---------------------------+
+| ``types``   | string     || Required to have at least one type set.        |                           |
+|             |            || '+' delimited list of the following:           |                           |
+|             |            |                                                 |                           |
+|             |            | - ``control``                                   |                           |
+|             |            | - ``environment``                               |                           |
+|             |            | - ``platform``                                  |                           |
+|             |            | - ``profile``                                   |                           |
++-------------+------------+-------------------------------------------------+---------------------------+
+
+
+**Request**
+
+.. code-block:: none
+
+   GET /compliance/stats/failures
+
+For example:
+
+.. code-block:: bash
+
+   curl -X GET "https://my-auto-server.test/compliance/stats/failures?types=profile+control&size=3" \
+   -H "chef-delivery-enterprise: acme" \
+   -H "chef-delivery-user: john" \
+   -H "chef-delivery-token: 7djW35..."
+
+**Response**
+
+The response is similar to:
+
+.. code-block:: json
+
+   {
+     "profiles": [
+       {
+         "name": "linux-baseline",
+         "id": "b53ca05fbfe17a36363a40f3ad5bd70aa20057eaf15a9a9a8124a84d4ef08015",
+         "failures": 2
+       }
+     ],
+     "controls": [
+       {
+         "name": "os-02",
+         "profile": "",
+         "failures": 2
+       },
+       {
+         "name": "os-05",
+         "profile": "",
+         "failures": 2
+       },
+       {
+         "name": "sysctl-01",
+         "profile": "",
+         "failures": 2
+       }
+     ]
+   }
+
+
+**Response Codes**
+
+.. list-table::
+   :widths: 100 420
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``400``
+     - Bad Request. Something is wrong with the request. Client should look closely at the request they're making.
+   * - ``401``
+     - Unauthorized. The user who made the request is not authorized to perform the action.
+
+/compliance/stats/profiles
+--------------------------
+Get the latest scan data for all nodes (or nodes that match `Filters`_), then for each profile, aggregate the compliance
+results from the latest scans at the specified point in time.
+
+The endpoint has the following methods: ``GET``.
+
+GET (profiles)
+++++++++++++++
+The ``GET`` method returns aggregated stats profile results across one or more nodes.
+
+**Parameters**
+
++-------------+------------+-------------------------------------------------+---------------------------+
+| Parameter   | Type       | Description                                     | Default                   |
++=============+============+=================================================+===========================+
+| ``filters`` | string     || The search keywords, as well as any qualifiers.|                           |
+|             |            || Any and all `Filters`_ may be used.            |                           |
++-------------+------------+-------------------------------------------------+---------------------------+
+| ``size``    | integer    || The number of profiles to consider in summary. | ``10000``                 |
++-------------+------------+-------------------------------------------------+---------------------------+
+
+**Request**
+
+.. code-block:: none
+
+   GET /compliance/stats/profiles
+
+For example:
+
+.. code-block:: bash
+
+   curl -X GET "https://my-auto-server.test/compliance/stats/profiles?size=4" \
+   -H "chef-delivery-enterprise: acme" \
+   -H "chef-delivery-user: john" \
+   -H "chef-delivery-token: 7djW35..."
+
+**Response**
+
+The response is similar to:
+
+.. code-block:: json
+
+   [
+     {
+       "name": "linux-baseline",
+       "id": "b53ca05fbfe17a36363a40f3ad5bd70aa20057eaf15a9a9a8124a84d4ef08015",
+       "failures": 45,
+       "majors": 0,
+       "minors": 0,
+       "criticals": 45,
+       "passed": 45,
+       "skipped": 0
+     },
+     {
+       "name": "apache-baseline",
+       "id": "65707cb4299e5e821c687f6d5a704ffd3e21f6139a9ad0cc3b438c343b129d8c",
+       "failures": 0,
+       "majors": 0,
+       "minors": 0,
+       "criticals": 0,
+       "passed": 0,
+       "skipped": 14
+     },
+     {
+       "name": "ssh-baseline",
+       "id": "3984753145f0db693e2c6fc79f764e9aff78d892a874391fc5f5cc18f4675b68",
+       "failures": 0,
+       "majors": 0,
+       "minors": 0,
+       "criticals": 0,
+       "passed": 0,
+       "skipped": 68
+     }
+   ]
+
+
+**Response Codes**
+
+.. list-table::
+   :widths: 100 420
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``400``
+     - Bad Request. Something is wrong with the request. Client should look closely at the request they're making.
+   * - ``401``
+     - Unauthorized. The user who made the request is not authorized to perform the action.
+   * - ``500``
+     - Internal Server Error. Problem on the backend.
+
+GET (profile summary by ``:profile_id``)
+++++++++++++++++++++++++++++++++++++++++
+The ``GET`` method returns aggregated stats profile summary results across one or more nodes, for one ``:profile_id``.
+
+**Parameters**
+
++-------------+------------+-------------------------------------------------+---------------------------+
+| Parameter   | Type       | Description                                     | Default                   |
++=============+============+=================================================+===========================+
+| ``filters`` | string     || The search keywords, as well as any qualifiers.|                           |
+|             |            || Any and all `Filters`_ may be used.            |                           |
++-------------+------------+-------------------------------------------------+---------------------------+
+
+**Request**
+
+.. code-block:: none
+
+   GET /compliance/stats/profiles/:profile_id/summary
+
+For example:
+
+.. code-block:: bash
+
+   curl -X GET \
+   "https://my-auto-server.test/compliance/stats/profiles/b53ca05fbfe17a36363a40f3ad5bd70aa20057eaf15a9a9a8124a84d4ef08015/summary?size=4" \
+   -H "chef-delivery-enterprise: acme" \
+   -H "chef-delivery-user: john" \
+   -H "chef-delivery-token: 7djW35..."
+
+**Response**
+
+The response is similar to:
+
+.. code-block:: json
+
+   {
+     "stats": {
+       "failed": 45,
+       "passed": 45,
+       "skipped": 0,
+       "failed_nodes": 2,
+       "total_nodes": 2
+     },
+     "name": "linux-baseline",
+     "title": "DevSec Linux Security Baseline",
+     "supports": [
+       {
+         "os-family": "linux"
+       }
+     ],
+     "version": "2.0.1",
+     "license": "Apache 2 license",
+     "maintainer": "Hardening Framework Team",
+     "copyright": "Hardening Framework Team",
+     "copyright_email": "hello@hardening.io",
+     "summary": "Test-suite for best-practice os hardening"
+   }
+
+
+**Response Codes**
+
+.. list-table::
+   :widths: 100 420
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``400``
+     - Bad Request. Something is wrong with the request. Client should look closely at the request they're making.
+   * - ``401``
+     - Unauthorized. The user who made the request is not authorized to perform the action.
+   * - ``500``
+     - Internal Server Error. Problem on the backend.
+
+GET (profile controls stats by ``:profile_id``)
++++++++++++++++++++++++++++++++++++++++++++++++
+The ``GET`` method returns aggregated controls stats for one ``:profile_id`` across latest scans on all or filtered nodes.
+
+**Parameters**
+
++-------------+------------+-------------------------------------------------+---------------------------+
+| Parameter   | Type       | Description                                     | Default                   |
++=============+============+=================================================+===========================+
+| ``filters`` | string     || The search keywords, as well as any qualifiers.|                           |
+|             |            || Any and all `Filters`_ may be used.            |                           |
++-------------+------------+-------------------------------------------------+---------------------------+
+
+**Request**
+
+.. code-block:: none
+
+   GET /compliance/stats/profiles/:profile_id/controls
+
+For example:
+
+.. code-block:: bash
+
+   curl -X GET \
+   "https://my-auto-server.test/compliance/stats/profiles/b53ca05fbfe17a36363a40f3ad5bd70aa20057eaf15a9a9a8124a84d4ef08015/controls" \
+   -H "chef-delivery-enterprise: acme" \
+   -H "chef-delivery-user: john" \
+   -H "chef-delivery-token: 7djW35..."
+
+**Response**
+
+The response is similar to:
+
+.. code-block:: json
+
+   [
+     {
+       "control": "os-01",
+       "title": "Trusted hosts login",
+       "passed": 2,
+       "failed": 0,
+       "skipped": 0,
+       "impact": 1
+     },
+     {
+       "control": "os-02",
+       "title": "Check owner and permissions for /etc/shadow",
+       "passed": 0,
+       "failed": 2,
+       "skipped": 0,
+       "impact": 1
+     },
+     {
+       "control": "os-03",
+       "title": "Check owner and permissions for /etc/passwd",
+       "passed": 2,
+       "failed": 0,
+       "skipped": 0,
+       "impact": 1
+     }
+   ]
+
+
+**Response Codes**
+
+.. list-table::
+   :widths: 100 420
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``400``
+     - Bad Request. Something is wrong with the request. Client should look closely at the request they're making.
+   * - ``401``
+     - Unauthorized. The user who made the request is not authorized to perform the action.
+   * - ``500``
+     - Internal Server Error. Problem on the backend.
+
+/compliance/stats/summary
+-------------------------
+Get the latest scan data for all nodes (or nodes that match `Filters`_), then give summary including number of
+nodes, environments, platforms and profiles, give a pass or failed status, the duration and earliest scan start_time
+
+The endpoint has the following methods: ``GET``.
+
+GET (summary)
++++++++++++++
+The ``GET`` method returns summary data across latest scans on all or filtered nodes.
+
+**Parameters**
+
++-------------+------------+-------------------------------------------------+---------------------------+
+| Parameter   | Type       | Description                                     | Default                   |
++=============+============+=================================================+===========================+
+| ``filters`` | string     || The search keywords, as well as any qualifiers.|                           |
+|             |            || Any and all `Filters`_ may be used.            |                           |
++-------------+------------+-------------------------------------------------+---------------------------+
+
+**Request**
+
+.. code-block:: none
+
+   GET /compliance/stats/summary
+
+For example:
+
+.. code-block:: bash
+
+   curl -X GET "https://my-auto-server.test/compliance/stats/summary" \
+   -H "chef-delivery-enterprise: acme" \
+   -H "chef-delivery-user: john" \
+   -H "chef-delivery-token: 7djW35..."
+
+**Response**
+
+The response is similar to:
+
+.. code-block:: json
+
+   {
+     "stats": {
+       "nodes": 2,
+       "platforms": 2,
+       "environments": 2,
+       "profiles": 3
+     },
+     "status": "failed",
+     "duration": 2505600.636833,
+     "start_date": "2017-03-06T09:18:40Z"
+   }
+
+**Response Codes**
+
+.. list-table::
+   :widths: 100 420
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``400``
+     - Bad Request. Something is wrong with the request. Client should look closely at the request they're making.
+   * - ``401``
+     - Unauthorized. The user who made the request is not authorized to perform the action.
+   * - ``500``
+     - Internal Server Error. Problem on the backend.
+
+/compliance/stats/summary/controls
+----------------------------------
+Get the latest scan data for all nodes (or nodes that match `Filters`_), then for each profile, aggregate the compliance
+results from the latest scans at the specified point in time.
+
+The endpoint has the following methods: ``GET``.
+
+GET (summary controls)
+++++++++++++++++++++++
+The ``GET`` method returns aggregated stats for all controls across latest scans on all or filtered nodes.
+
+**Parameters**
+
++-------------+------------+-------------------------------------------------+---------------------------+
+| Parameter   | Type       | Description                                     | Default                   |
++=============+============+=================================================+===========================+
+| ``filters`` | string     || The search keywords, as well as any qualifiers.|                           |
+|             |            || Any and all `Filters`_ may be used.            |                           |
++-------------+------------+-------------------------------------------------+---------------------------+
+
+**Request**
+
+.. code-block:: none
+
+   GET /compliance/stats/summary/controls
+
+For example:
+
+.. code-block:: bash
+
+   curl -X GET "https://my-auto-server.test/compliance/stats/summary/controls" \
+   -H "chef-delivery-enterprise: acme" \
+   -H "chef-delivery-user: john" \
+   -H "chef-delivery-token: 7djW35..."
+
+**Response**
+
+The response is similar to:
+
+.. code-block:: json
+
+   {
+     "failures": 45,
+     "majors": 0,
+     "minors": 0,
+     "criticals": 45,
+     "passed": 45,
+     "skipped": 82
+   }
+
+**Response Codes**
+
+.. list-table::
+   :widths: 100 420
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``400``
+     - Bad Request. Something is wrong with the request. Client should look closely at the request they're making.
+   * - ``401``
+     - Unauthorized. The user who made the request is not authorized to perform the action.
+   * - ``500``
+     - Internal Server Error. Problem on the backend.
+
+/compliance/stats/summary/nodes
+-------------------------------
+Get the latest scan data for all nodes (or nodes that match `Filters`_), then for each profile, aggregate the compliance
+results from the latest scans at the specified point in time.
+
+The endpoint has the following methods: ``GET``.
+
+GET (summary nodes)
++++++++++++++++++++
+The ``GET`` method returns aggregated stats for all nodes across latest scans on all or filtered nodes.
+
+**Parameters**
+
++-------------+------------+-------------------------------------------------+---------------------------+
+| Parameter   | Type       | Description                                     | Default                   |
++=============+============+=================================================+===========================+
+| ``filters`` | string     || The search keywords, as well as any qualifiers.|                           |
+|             |            || Any and all `Filters`_ may be used.            |                           |
++-------------+------------+-------------------------------------------------+---------------------------+
+
+**Request**
+
+.. code-block:: none
+
+   GET /compliance/stats/summary/nodes
+
+For example:
+
+.. code-block:: bash
+
+   curl -X GET "https://my-auto-server.test/compliance/stats/summary/nodes" \
+   -H "chef-delivery-enterprise: acme" \
+   -H "chef-delivery-user: john" \
+   -H "chef-delivery-token: 7djW35..."
+
+**Response**
+
+The response is similar to:
+
+.. code-block:: json
+
+   {
+     "compliant": 0,
+     "skipped": 0,
+     "noncompliant": 2,
+     "high_risk": 2,
+     "medium_risk": 0,
+     "low_risk": 0
+   }
+
+**Response Codes**
+
+.. list-table::
+   :widths: 100 420
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``400``
+     - Bad Request. Something is wrong with the request. Client should look closely at the request they're making.
+   * - ``401``
+     - Unauthorized. The user who made the request is not authorized to perform the action.
+   * - ``500``
+     - Internal Server Error. Problem on the backend.
+
+/compliance/stats/trend/controls
+--------------------------------
+Get the latest scan data for all nodes (or nodes that match `Filters`_), then for each control, aggregate the compliance
+results from the latest scans and build a date histogram and return it.
+
+The endpoint has the following methods: ``GET``.
+
+GET (controls trend)
+++++++++++++++++++++
+The ``GET`` method returns a date histogram of aggregated control oriented compliance data
+
+**Parameters**
+
++-------------+------------+-------------------------------------------------+---------------------------+
+| Parameter   | Type       | Description                                     | Default                   |
++=============+============+=================================================+===========================+
+| ``filters`` | string     || The search keywords, as well as any qualifiers.|                           |
+|             |            || Any and all `Filters`_ may be used.            |                           |
++-------------+------------+-------------------------------------------------+---------------------------+
+| ``interval``| integer    || The granularity in seconds of the trend data.  | ``86400`` (#secs in a day)|
++-------------+------------+-------------------------------------------------+---------------------------+
+
+**Request**
+
+.. code-block:: none
+
+   GET /compliance/stats/trend/controls
+
+For example:
+
+.. code-block:: bash
+
+   curl -X GET \
+   "https://my-auto-server.test/compliance/stats/trend/controls? \
+   filters=start_time:2017-02-01T00%3A00%3A00%2B00%3A00+end_time:2017-07-30T00%3A00%3A00%2B00%3A00&interval=3000000" \
+   -H "chef-delivery-enterprise: acme" \
+   -H "chef-delivery-user: john" \
+   -H "chef-delivery-token: 7djW35..."
+
+**Response**
+
+The response is similar to:
+
+.. code-block:: json
+
+   [
+     {
+       "time": "2017-01-21T12:00:00+0000",
+       "passed": 0,
+       "failed": 0,
+       "skipped": 0
+     },
+     {
+       "time": "2017-02-25T05:20:00+0000",
+       "passed": 23,
+       "failed": 22,
+       "skipped": 14
+     },
+     {
+       "time": "2017-03-31T22:40:00+0000",
+       "passed": 22,
+       "failed": 23,
+       "skipped": 68
+     },
+     {
+       "time": "2017-05-05T16:00:00+0000",
+       "passed": 0,
+       "failed": 0,
+       "skipped": 0
+     },
+     {
+       "time": "2017-06-09T09:20:00+0000",
+       "passed": 0,
+       "failed": 0,
+       "skipped": 0
+     }
+   ]
+
+**Response Codes**
+
+.. list-table::
+   :widths: 100 420
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``400``
+     - Bad Request. Something is wrong with the request. Client should look closely at the request they're making.
+   * - ``401``
+     - Unauthorized. The user who made the request is not authorized to perform the action.
+   * - ``500``
+     - Internal Server Error. Problem on the backend.
+
+/compliance/stats/trend/nodes
+-----------------------------
+Get the latest scan data for all nodes (or nodes that match `Filters`_), then for each profile, aggregate the compliance
+results from the latest scans and build a date histogram and return it.
+
+The endpoint has the following methods: ``GET``.
+
+GET (nodes trend)
++++++++++++++++++
+The ``GET`` method returns a date histogram  of aggregated node oriented compliance data
+
+**Parameters**
+
++-------------+------------+-------------------------------------------------+---------------------------+
+| Parameter   | Type       | Description                                     | Default                   |
++=============+============+=================================================+===========================+
+| ``filters`` | string     || The search keywords, as well as any qualifiers.|                           |
+|             |            || Any and all `Filters`_ may be used.            |                           |
++-------------+------------+-------------------------------------------------+---------------------------+
+| ``interval``| integer    || The granularity in seconds of the trend data.  | ``86400`` (#secs in a day)|
++-------------+------------+-------------------------------------------------+---------------------------+
+
+**Request**
+
+.. code-block:: none
+
+   GET /compliance/stats/trend/nodes
+
+For example:
+
+.. code-block:: bash
+
+   curl -X GET \
+   "https://my-auto-server.test/compliance/stats/trend/nodes? \
+   filters=start_time:2017-02-01T00%3A00%3A00%2B00%3A00+end_time:2017-07-30T00%3A00%3A00%2B00%3A00&interval=3000000" \
+   -H "chef-delivery-enterprise: acme" \
+   -H "chef-delivery-user: john" \
+   -H "chef-delivery-token: 7djW35..."
+
+**Response**
+
+The response is similar to:
+
+.. code-block:: json
+
+   [
+     {
+       "time": "2017-01-21T12:00:00+0000",
+       "compliant": 0,
+       "noncompliant": 0
+     },
+     {
+       "time": "2017-02-25T05:20:00+0000",
+       "compliant": 0,
+       "noncompliant": 1
+     },
+     {
+       "time": "2017-03-31T22:40:00+0000",
+       "compliant": 0,
+       "noncompliant": 1
+     },
+     {
+       "time": "2017-05-05T16:00:00+0000",
+       "compliant": 0,
+       "noncompliant": 0
+     },
+     {
+       "time": "2017-06-09T09:20:00+0000",
+       "compliant": 0,
+       "noncompliant": 0
+     }
+   ]
+
+**Response Codes**
+
+.. list-table::
+   :widths: 100 420
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``400``
+     - Bad Request. Something is wrong with the request. Client should look closely at the request they're making.
+   * - ``401``
+     - Unauthorized. The user who made the request is not authorized to perform the action.
+   * - ``500``
+     - Internal Server Error. Problem on the backend.
+
+.. _compliance-suggestions-api:
+
+/compliance/suggestions
+-----------------------
+Get the latest scan data for all nodes (or nodes that match `Filters`_), then for each profile, aggregate the compliance
+results from the latest scans and build a date histogram and return it.
+
+The endpoint has the following methods: ``GET``.
+
+GET (suggestions)
++++++++++++++++++
+The ``GET`` method returns a date histogram  of aggregated node oriented compliance data
+
+**Parameters**
+
++-------------+------------+---------------------------------------------+---------+
+| Parameter   | Type       | Description                                 | Default |
++=============+============+=============================================+=========+
+| ``type``    | string     || Required                                   |         |
+|             |            || The ``type`` for which we want suggestions.|         |
+|             |            || Can be any of the following:               |         |
+|             |            |                                             |         |
+|             |            | - ``environment``                           |         |
+|             |            | - ``node``                                  |         |
+|             |            | - ``platform``                              |         |
+|             |            | - ``profile``                               |         |
++-------------+------------+---------------------------------------------+---------+
+| ``text``    | string     || Required                                   |         |
+|             |            || The ``text`` we search for within our type.|         |
++-------------+------------+---------------------------------------------+---------+
+| ``size``    | integer    | The number of suggestions we want.          | 10      |
++-------------+------------+---------------------------------------------+---------+
+
+**Request**
+
+.. code-block:: none
+
+   GET /compliance/suggestions
+
+For example:
+
+.. code-block:: bash
+
+   curl -X GET \
+   "https://my-auto-server.test/compliance/suggestions?type=environment&text=Prod&size=5 \
+   -H "chef-delivery-enterprise: acme" \
+   -H "chef-delivery-user: john" \
+   -H "chef-delivery-token: 7djW35..."
+
+**Response**
+
+The response is similar to:
+
+.. code-block:: json
+
+   [
+     {
+       "text": "DevSec Prod Alpha",
+       "score": 4.4892697
+     },
+     {
+       "text": "DevSec Prod Zeta",
+       "score": 3.9768348
+     }
+   ]
+
+**Response Codes**
+
+.. list-table::
+   :widths: 100 420
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``400``
+     - Bad Request. Something is wrong with the request. Client should look closely at the request they're making.
+   * - ``401``
+     - Unauthorized. The user who made the request is not authorized to perform the action.
+
+.. _compliance-version-api:
+
+/compliance/version
+-------------------
+Get the version of Compliance API
+
+The endpoint has the following methods: ``GET``.
+
+GET (version)
++++++++++++++
+The ``GET`` method returns the version of the running Compliance API
+
+**Request**
+
+.. code-block:: none
+
+   GET /compliance/version
+
+For example:
+
+.. code-block:: bash
+
+   curl -X GET \
+   "https://my-auto-server.test/compliance/version \
+   -H "chef-delivery-enterprise: acme" \
+   -H "chef-delivery-user: john" \
+   -H "chef-delivery-token: 7djW35..."
+
+**Response**
+
+The response is similar to:
+
+.. code-block:: json
+
+   {
+     "api": "compliance",
+     "version": "1.9.65"
+   }
+
+**Response Codes**
+
+.. list-table::
+   :widths: 100 420
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``401``
+     - Unauthorized. The user who made the request is not authorized to perform the action.
+
+
