@@ -297,10 +297,6 @@ Cookbooks are comprised of the following components:
           :width: 100px
           :align: center
 
-       .. image:: ../../images/icon_cookbook_providers.svg
-          :width: 100px
-          :align: center
-
      - .. tag resources_common
 
        A resource is a statement of configuration policy that:
@@ -310,12 +306,6 @@ Cookbooks are comprised of the following components:
        * Specifies a resource type---such as ``package``, ``template``, or ``service``
        * Lists additional details (also known as resource properties), as necessary
        * Are grouped into recipes, which describe working configurations
-
-       .. end_tag
-
-       .. tag resources_common_provider
-
-       Where a resource represents a piece of the system (and its desired state), a provider defines the steps that are needed to bring that piece of the system from its current state into the desired state.
 
        .. end_tag
 
