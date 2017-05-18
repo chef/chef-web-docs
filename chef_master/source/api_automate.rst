@@ -743,7 +743,7 @@ The response is similar to:
      "environment": "DevSec Prod Alpha",
      "latest_report": {
        "id": "3ca95021-84c1-43a6-a2e7-be10edcb238d",
-       "end_time": "0001-01-01T00:00:00Z",
+       "end_time": "2017-04-04T10:18:41+01:00",
        "status": "failed",
        "controls": {
          "total": 113,
