@@ -916,9 +916,6 @@ No Content
    * - ``500``
      - Internal Error. Profile check failed.
 
-Endpoint targeting specific compliance profile.
-
-The following methods are available: ``GET`` and ``DELETE``.
 
 GET (by ``:owner`` & ``:name``)
 +++++++++++++++++++++++++++++++
