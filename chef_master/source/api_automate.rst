@@ -1415,13 +1415,13 @@ This is where scenario 2 takes effect.
 
 .. code-block:: none
 
-   GET /compliance/search
+   GET /compliance/search/profiles
 
 For example:
 
 .. code-block:: bash
 
-   curl -X GET "https://my-auto-server.test/compliance/search" \
+   curl -X GET "https://my-auto-server.test/compliance/search/profiles" \
    -H "chef-delivery-enterprise: acme" \
    -H "chef-delivery-user: john" \
    -H "chef-delivery-token: 7djW35..."
@@ -1489,13 +1489,13 @@ The ``GET`` method is used to search for a profile given it's ``:profile_id``.
 
 .. code-block:: none
 
-   GET /compliance/search?q=profile_id:some-id
+   GET /compliance/search/profiles?q=profile_id:some-id
 
 For example:
 
 .. code-block:: bash
 
-   curl -X GET "https://my-auto-server.test/compliance/search? \
+   curl -X GET "https://my-auto-server.test/compliance/search/profiles? \
    q=profile_id:65707cb4299e5e821c687f6d5a704ffd3e21f6139a9ad0cc3b438c343b129d8c" \
    -H "chef-delivery-enterprise: acme" \
    -H "chef-delivery-user: john" \
