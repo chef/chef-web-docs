@@ -269,9 +269,9 @@ When ``filter`` is included as a parameter, all filters listed below are allowed
 +----------------+--------------------------------------------------+
 
 
-.. note:: | Timestamps, are returned in and **must** be written in RFC 3339 format.
-
-          | The following are examples of acceptable ``start_time`` and ``end_time`` values for inclusion in a filter:
+.. note::
+            Timestamps, are returned in and **must** be written in RFC 3339 format.
+            The following are examples of acceptable ``start_time`` and ``end_time`` values for inclusion in a filter:
 
                - ``2017-03-06T09:18:40Z``
                - ``2017-03-06T09:18:40+00:00``
