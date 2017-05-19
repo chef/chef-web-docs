@@ -402,6 +402,8 @@ Some popular drivers:
      - A driver for Pester, a testing framework for Microsoft Windows.
    * - `kitchen-rackspace <https://github.com/test-kitchen/kitchen-rackspace>`__
      - A driver for Rackspace.
+   * - `kitchen-terraform <https://github.com/newcontext-oss/kitchen-terraform>`__
+     - A driver for Terraform.
    * - `kitchen-vagrant <https://github.com/test-kitchen/kitchen-vagrant>`__
      - A driver for Vagrant. The default driver packaged with the Chef development kit.
 
