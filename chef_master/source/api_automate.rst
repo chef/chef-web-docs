@@ -250,7 +250,7 @@ Filters
 
 As the name implies, filters serve to narrow the scope of a search. There are many endpoints in the Compliance API that
 support filters.  For each endpoint that supports filters, ``filter`` is listed as one of it's parameters.  In all cases
-When ``filter`` is included as a parameter, all filters listed below are allowed for inclusion.
+when ``filter`` is included as a parameter, all filters listed below are allowed for inclusion.
 
 +----------------+--------------------------------------------------+
 | Name           | Filters search results based on scans that have: |
@@ -270,11 +270,11 @@ When ``filter`` is included as a parameter, all filters listed below are allowed
 
 
 .. note::
-            Timestamps, are returned in and **must** be written in RFC 3339 format.
-            The following are examples of acceptable ``start_time`` and ``end_time`` values for inclusion in a filter:
+         Timestamps, are returned in and **must** be written in RFC 3339 format.
+         The following are examples of acceptable ``start_time`` and ``end_time`` values for inclusion in a filter:
 
-               - ``2017-03-06T09:18:40Z``
-               - ``2017-03-06T09:18:40+00:00``
+            - ``2017-03-06T09:18:40Z``
+            - ``2017-03-06T09:18:40+00:00``
 
 .. _compliance-market-api:
 
@@ -592,7 +592,7 @@ The ``GET`` method returns aggregated compliance results across one or more node
 | ``order``   | string     || The direction of the sort.                     | ``desc``                  |
 |             |            || Can be either ``asc`` or ``desc``.             |                           |
 +-------------+------------+-------------------------------------------------+---------------------------+
-| ``page``    | integer    | Page number for paginated data.                  |  ``1``                   |
+| ``page``    | integer    | Page number for paginated data.                 |  ``1``                    |
 +-------------+------------+-------------------------------------------------+---------------------------+
 | ``per_page``| integer    | Items per page.                                 |  ``10``                   |
 +-------------+------------+-------------------------------------------------+---------------------------+
@@ -878,7 +878,7 @@ The response is similar to:
 
 POST
 ++++
-The ``POST`` method is used to upload a compliance profile(as a tarball) namespaced by ``:owner``.
+The ``POST`` method is used to upload a compliance profile (as a tarball) namespaced by ``:owner``.
 
 **Request**
 
@@ -1347,6 +1347,7 @@ The response is similar to:
          .
          .
          .
+         ]
    }
 
 **Response Codes**
@@ -1370,9 +1371,9 @@ The response is similar to:
 
 /compliance/search/profiles
 ---------------------------
-Get operates in two different scenarios for this endpoint.
-   1. searching for profiles by applying all filters and parameters listed in Parameters (below)
-   2. searching for just one profile by it's :profile_id
+Get operates in two different scenarios for this endpoint:
+   1. Searching for profiles by applying all filters and parameters listed in the table below
+   2. Searching for just one profile by its ``:profile_id``
 
 
 The endpoint has the following methods: ``GET``.
@@ -1383,7 +1384,7 @@ The ``GET`` method returns a list of profile summary data filtered down using `F
 
 **Parameters**
 
-The following Parameters are for scenario 1 (listed above).
+The following parameters are for scenario 1 (listed above).
 
 +-------------+------------+-------------------------------------------------+---------------------------+
 | Parameter   | Type       | Description                                     | Default                   |
@@ -1408,7 +1409,7 @@ The following Parameters are for scenario 1 (listed above).
 |             |            | - ``latest_report.controls.failed.critical``    |                           |
 +-------------+------------+-------------------------------------------------+---------------------------+
 
-If the ``q`` parameter is passed in and it contains :profile_id, then that is the only parameter that will be used.
+If the ``q`` parameter is passed in and it contains ``:profile_id``, then that is the only parameter that will be used.
 This is where scenario 2 takes effect.
 
 **Request**
@@ -1483,7 +1484,7 @@ The response is similar to:
 
 GET (scenario 2)
 ++++++++++++++++
-The ``GET`` method is used to search for a profile given it's ``:profile_id``.
+The ``GET`` method is used to search for a profile given its ``:profile_id``.
 
 **Request**
 
@@ -1522,6 +1523,8 @@ The response is similar to:
          .
          .
          .
+       }
+     ]
    }
 
 **Response Codes**
@@ -1565,7 +1568,7 @@ The ``GET`` method returns aggregated stats failure results across one or more n
 | ``size``    | integer    || The top <size> records make up the aggregation.| ``10``                    |
 +-------------+------------+-------------------------------------------------+---------------------------+
 | ``types``   | string     || Required to have at least one type set.        |                           |
-|             |            || '+' delimited list of the following:           |                           |
+|             |            || A '+' delimited list of the following:         |                           |
 |             |            |                                                 |                           |
 |             |            | - ``control``                                   |                           |
 |             |            | - ``environment``                               |                           |
@@ -1734,7 +1737,7 @@ The response is similar to:
 
 GET (profile summary by ``:profile_id``)
 ++++++++++++++++++++++++++++++++++++++++
-The ``GET`` method returns aggregated stats profile summary results across one or more nodes, for one ``:profile_id``.
+The ``GET`` method returns aggregated stats profile summary results across one or more nodes per ``:profile_id``.
 
 **Parameters**
 
@@ -1810,7 +1813,7 @@ The response is similar to:
 
 GET (profile controls stats by ``:profile_id``)
 +++++++++++++++++++++++++++++++++++++++++++++++
-The ``GET`` method returns aggregated controls stats for one ``:profile_id`` across latest scans on all or filtered nodes.
+The ``GET`` method returns aggregated controls stats per ``:profile_id`` across latest scans on all or filtered nodes.
 
 **Parameters**
 
@@ -1890,8 +1893,8 @@ The response is similar to:
 
 /compliance/stats/summary
 -------------------------
-Get the latest scan data for all nodes (or nodes that match `Filters`_), then give summary including number of
-nodes, environments, platforms and profiles, give a pass or failed status, the duration and earliest scan start_time
+Get the latest scan data for all nodes (or nodes that match `Filters`_), then provide summary including number of
+nodes, environments, platforms and profiles, the pass or failed status, duration, and earliest scan start_time.
 
 The endpoint has the following methods: ``GET``.
 
@@ -2095,13 +2098,13 @@ The response is similar to:
 /compliance/stats/trend/controls
 --------------------------------
 Get the latest scan data for all nodes (or nodes that match `Filters`_), then for each control, aggregate the compliance
-results from the latest scans and build a date histogram and return it.
+results from the latest scans, build a date histogram, and return it.
 
 The endpoint has the following methods: ``GET``.
 
 GET (controls trend)
 ++++++++++++++++++++
-The ``GET`` method returns a date histogram of aggregated control oriented compliance data
+The ``GET`` method returns a date histogram of aggregated control-oriented compliance data.
 
 **Parameters**
 
@@ -2190,13 +2193,13 @@ The response is similar to:
 /compliance/stats/trend/nodes
 -----------------------------
 Get the latest scan data for all nodes (or nodes that match `Filters`_), then for each profile, aggregate the compliance
-results from the latest scans and build a date histogram and return it.
+results from the latest scans, build a date histogram, and return it.
 
 The endpoint has the following methods: ``GET``.
 
 GET (nodes trend)
 +++++++++++++++++
-The ``GET`` method returns a date histogram  of aggregated node oriented compliance data
+The ``GET`` method returns a date histogram  of aggregated node-oriented compliance data.
 
 **Parameters**
 
@@ -2288,24 +2291,24 @@ The endpoint has the following methods: ``GET``.
 
 GET (suggestions)
 +++++++++++++++++
-The ``GET`` method returns a date histogram  of aggregated node oriented compliance data
+The ``GET`` method returns a date histogram  of aggregated node-oriented compliance data.
 
 **Parameters**
 
 +-------------+------------+---------------------------------------------+---------+
 | Parameter   | Type       | Description                                 | Default |
 +=============+============+=============================================+=========+
-| ``type``    | string     || Required                                   |         |
-|             |            || The ``type`` for which we want suggestions.|         |
-|             |            || Can be any of the following:               |         |
+| ``type``    | string     || Required. The ``type`` for which           |         |
+|             |            || we want suggestions.                       |         |
+|             |            || The value can be any of the following:     |         |
 |             |            |                                             |         |
 |             |            | - ``environment``                           |         |
 |             |            | - ``node``                                  |         |
 |             |            | - ``platform``                              |         |
 |             |            | - ``profile``                               |         |
 +-------------+------------+---------------------------------------------+---------+
-| ``text``    | string     || Required                                   |         |
-|             |            || The ``text`` we search for within our type.|         |
+| ``text``    | string     || Required. The ``text`` we search for within|         |
+|             |            || our type.                                  |         |
 +-------------+------------+---------------------------------------------+---------+
 | ``size``    | integer    | The number of suggestions we want.          | 10      |
 +-------------+------------+---------------------------------------------+---------+
@@ -2362,13 +2365,13 @@ The response is similar to:
 
 /compliance/version
 -------------------
-Get the version of Compliance API
+Get the version of Compliance API.
 
 The endpoint has the following methods: ``GET``.
 
 GET (version)
 +++++++++++++
-The ``GET`` method returns the version of the running Compliance API
+The ``GET`` method returns the version of the running Compliance API.
 
 **Request**
 
