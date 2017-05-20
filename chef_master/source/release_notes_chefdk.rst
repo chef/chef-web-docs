@@ -8,7 +8,7 @@ Chef Development Kit is released on a monthly schedule with new releases the thi
 What's New in 1.4
 =====================================================
 
-inspec 1.25.1
+InSpec 1.25.1
 -------------
 * Consistent hashing for InSpec profiles
 * Add platform info to json formatter
@@ -17,7 +17,7 @@ inspec 1.25.1
 * Support new Chef Automate compliance backend
 * Add command-line completions for fish shell
 
-cookstyle 1.3.1
+Cookstyle 1.3.1
 ---------------
 * Disabled Style/DoubleNegation rule, which can be necessary in not_if / only_if blocks
 
