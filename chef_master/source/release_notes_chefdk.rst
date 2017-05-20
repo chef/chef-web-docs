@@ -1,9 +1,26 @@
 =====================================================
-Release Notes: Chef Development Kit 0.19 - 1.3
+Release Notes: Chef Development Kit 0.19 - 1.4
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_chefdk.rst>`__
 
 Chef Development Kit is released on a monthly schedule with new releases the third Monday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef DK on Github <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__
+
+What's New in 1.4
+=====================================================
+
+InSpec 1.25.1
+-------------
+* Consistent hashing for InSpec profiles
+* Add platform info to json formatter
+* Allow mysql_session to test databases on different hosts
+* Add an oracledb_session resource
+* Support new Chef Automate compliance backend
+* Add command-line completions for fish shell
+
+Cookstyle 1.3.1
+---------------
+* Disabled Style/DoubleNegation rule, which can be necessary in not_if / only_if blocks
+
 
 What's New in 1.3
 =====================================================
