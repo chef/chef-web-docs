@@ -13,7 +13,7 @@ Perform a Compliance Scan in Chef Automate
 
 .. tag compliance_beta
 
-.. important:: The new compliance functionality described in this topic is currently in Beta. To enable compliance reporting in the Chef Automate UI, make sure your cursor is not in any text box or field and type ``beta``. A new ``Compliance`` tab should appear in the top-level menu of the UI. 
+.. important:: The new compliance functionality described in this topic is currently in Beta. To enable compliance reporting in the Chef Automate UI, navigate to the **Nodes** tab, make sure your cursor is not in any text box or field, and type ``beta``. A new ``Compliance`` tab should appear in the top-level menu of the UI.
 
    While we encourage customers to try out this new functionality, the new compliance features are not recommended for production use until they are made generally available in an upcoming Chef Automate release.
 
