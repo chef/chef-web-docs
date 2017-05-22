@@ -1,8 +1,7 @@
 =================
 Chef Automate API
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/api_automate.rst>`__
 =================
-
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/api_automate.rst>`__
 
 .. tag chef_automate_mark
 
