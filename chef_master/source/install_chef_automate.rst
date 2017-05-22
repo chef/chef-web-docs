@@ -346,7 +346,7 @@ And if you don't have DNS, specify the fully-qualified domain names for your Che
 
 If you plan on using the workflow capabilities of Automate, proceed to the next section to setup your build nodes/runners. After they are set up, you can attempt to run an initial application or cookbook change through your Chef Automate server.
 
-For more information about ``automate-ctl`` and how to use it, see :doc:`ctl_delivery_server`.
+For more information about ``automate-ctl`` and how to use it, see :doc:`ctl_automate_server`.
 
 Set up a build node/runner (Optional)
 ------------------------------------------------------------
@@ -424,7 +424,11 @@ Compliance
 Profiles
 ------------------------------------------------------------
 
-Starting with Chef Automate version 0.6, the Chef Automate server contains a compliance profiles asset store. Enable the service by adding this line:
+Chef Automate contains a compliance profiles asset store that provides several built-in profiles covering baseline security checks through CIS benchmarks across multiple operating systems. 
+
+In Chef Automate 0.8.5, the compliance profiles asset store is enabled by default. You can manage your profiles through :doc:`api_automate` as well as through the Chef Automate UI. See :doc:`/chef_automate_compliance` for more information on the new integrated compliance functionality. 
+
+In Chef Automate version 0.6, the profiles asset store functionality is available; however, you must enable the service by adding this line:
 
 .. code-block:: bash
 
@@ -432,12 +436,13 @@ Starting with Chef Automate version 0.6, the Chef Automate server contains a com
 
 into ``/etc/delivery/delivery.rb`` and running ``automate-ctl reconfigure``. The ``automate-ctl status`` subcommand should now list the status of the ``compliance_profiles`` service.
 
-Manage the profiles in this asset store using the :doc:`api_delivery`.
+Also, the profiles in this asset store are managed using the :doc:`api_automate` and cannot be managed through the UI as with the 0.8.5 release.
+
 
 Scanning
 ------------------------------------------------------------
 
-Allows nodes to execute infrastructure tests or compliance profiles as part of the chef-client runs. For more details, see :doc:`Compliance scanning w/ Chef Automate guide </integrate_compliance_chef_automate>`.
+Allows nodes to execute infrastructure tests or compliance profiles as part of the chef-client runs. For more details, see :doc:`/perform_compliance_scan`.
 
 Troubleshooting
 ===================================================================

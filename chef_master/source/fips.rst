@@ -155,9 +155,9 @@ If you ever stop using FIPS mode on the Chef Automate server, simply delete the 
 
 .. end_tag
 
-For more information on configuring the Chef Automate server, see `Delivery CLI </ctl_delivery.html>`_.
+For more information on configuring the Chef Automate server, see `Delivery CLI </delivery_cli.html>`_.
 
-.. note:: If you set up any runners using an Chef Automate server version ``0.7.61`` or earlier, then you will need to re-run `automate-ctl install-runner </ctl_delivery_server.html#install-runner>`_ on every existing runner after upgrading your Chef Automate server. Your runners will not work with FIPS enabled without re-running the installer.
+.. note:: If you set up any runners using an Chef Automate server version ``0.7.61`` or earlier, then you will need to re-run `automate-ctl install-runner </ctl_automate_server.html#install-runner>`_ on every existing runner after upgrading your Chef Automate server. Your runners will not work with FIPS enabled without re-running the installer.
 
 
 
@@ -222,7 +222,7 @@ If you have a self-signed certificate or a customer certificate authority then y
         fips_custom_cert_filename = "/full/path/to/your/certificate-chain.pem"
 
 
-* When configuring runners you'll need to include the file generated above as an argument to the `install-runner` command. See `Install Runner </ctl_delivery_server.html#install-runner>`_.
+* When configuring runners you'll need to include the file generated above as an argument to the `install-runner` command. See `Install Runner </ctl_automate_server.html#install-runner>`_.
 
     .. code-block:: none
 
@@ -232,7 +232,7 @@ If you have a self-signed certificate or a customer certificate authority then y
 Troubleshooting
 ==================================================================
 
-If you experience configuration errors, check the Chef Automate configuration by running ``delivery status`` from any client machine. This command is further documented in `Check if Chef Automate has enabled FIPS mode </ctl_delivery.html#check-if-chef-automate-server-has-enabled-fips-mode>`_.
+If you experience configuration errors, check the Chef Automate configuration by running ``delivery status`` from any client machine. This command is further documented in `Check if Chef Automate has enabled FIPS mode </delivery_cli.html#check-if-chef-automate-server-has-enabled-fips-mode>`_.
 
 Running ``delivery status`` should return something like:
 

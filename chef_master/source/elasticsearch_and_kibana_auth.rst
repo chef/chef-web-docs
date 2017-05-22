@@ -40,7 +40,7 @@ If you wish to access Elasticsearch via your Chef Automate server via a CLI tool
 * ``chef-delivery-enterprise``: the Chef Automate enterprise name. This is the string after the ``/e/`` in your Chef Automate URLs.
     * Example: if your Workflow dashboard URL is ``https://my-automate-server.mycompany.biz/e/coolcompany/#/dashboard``, your enterprise is ``coolcompany``
 
-To generate a token, use the ``delivery token`` command of the :doc:`Delivery CLI </ctl_delivery>`.
+To generate a token, use the ``delivery token`` command of the :doc:`Delivery CLI </delivery_cli>`.
 
 For example, to pass the required headers using curl:
 

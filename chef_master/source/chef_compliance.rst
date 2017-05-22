@@ -1,5 +1,5 @@
 =====================================================
-An Overview of Compliance
+An Overview of Chef Compliance
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/compliance.rst>`__
 
@@ -11,11 +11,15 @@ An Overview of Compliance
 
 .. end_tag
 
-Chef Compliance allows you to assess your infrastructure's adherence to compliance requirements and to monitor that infrastructure on an ongoing basis. It includes:
+Chef Compliance is a standalone solution that allows you to assess your infrastructure's adherence to compliance requirements and to monitor that infrastructure on an ongoing basis. It includes:
 
 * The Chef Compliance server
 * Prebuilt compliance profiles to help you get started quickly
 * A language for writing audit controls, which includes audit resources that you can invoke
+
+.. note:: If you are running Chef Automate 0.8.5 or later, you can view, analyze, and manage your compliance reports across nodes in your Chef Automate cluster through built-in reporting capabilities without the need for a standalone Chef Compliance server. For more information on the integrated compliance reporting functionality within Chef Automate, see :doc:`/chef_automate_compliance`. 
+
+   Remote scanning is currently only available in Chef Compliance, but will be added to Chef Automate in the future. 
 
 The Chef Compliance Server
 =====================================================
@@ -31,7 +35,7 @@ The Chef Compliance server is a centralized location from which all aspects of t
    :width: 600px
    :align: center
 
-.. note:: To install the Chef Compliance server in a standalone configuration, :doc:`read this topic </install_compliance>`.
+.. note:: To install the Chef Compliance server in a standalone configuration, :doc:`read this topic </install_chef_compliance>`.
 
 Compliance Profiles
 -----------------------------------------------------
