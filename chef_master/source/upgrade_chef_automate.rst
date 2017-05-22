@@ -11,7 +11,7 @@ Upgrade Chef Automate
 
 .. end_tag
 
-The following sections describe the upgrade process between versions of Chef Automate and when upgrading from a ``delivery-cluster`` setup to Chef Automate.
+The following sections describe the upgrade process between versions of Chef Automate.
 
 Prerequisites
 =====================================================
