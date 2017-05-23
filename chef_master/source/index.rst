@@ -14,7 +14,7 @@ This is the documentation for
 This page has links to each topic in this doc set. You can also use
 the navigation tool or the search box to find what you're looking for.
 
-If this is your first visit, we recommend reading `how to learn Chef <https://learn.chef.io/tracks/getting-started/>`_.
+If this is your first visit, check out the `Getting Started <https://learn.chef.io/tracks/getting-started/>`_ track on Learn Chef.
 
 If you need documentation for previous versions, see the `Docs Archive <https://docs-archive.chef.io>`_.
 
