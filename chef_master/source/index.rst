@@ -14,7 +14,7 @@ This is the documentation for
 This page has links to each topic in this doc set. You can also use
 the navigation tool or the search box to find what you're looking for.
 
-If this is your first visit, we recommend reading `how to learn Chef <https://learn.chef.io/skills/how-to-learn-chef>`_.
+If this is your first visit, check out the `Getting Started <https://learn.chef.io/tracks/getting-started/>`_ track on Learn Chef.
 
 If you need documentation for previous versions, see the `Docs Archive <https://docs-archive.chef.io>`_.
 
@@ -58,18 +58,6 @@ Getting Started
 :doc:`Ohai </release_notes_ohai>`
 
 :doc:`Deprecations </chef_deprecations_client>`
-
-Tutorials
------------------------------------------------------
-
- `Learn the Basics <https://learn.chef.io/tutorials/learn-the-basics/>`_ |
- `Manage a Node <https://learn.chef.io/tutorials/manage-a-node/>`_ |
- `Get started with Test Kitchen <https://learn.chef.io/tutorials/local-development/>`_ |
- `Develop a web app cookbook <https://learn.chef.io/manage-a-web-app/>`_ |
- `Verify with InSpec <https://learn.chef.io/tutorials/inspec/>`_ |
- `Unit test with ChefSpec <https://learn.chef.io/tutorials/chefspec/>`_ |
- `Verify code style <https://learn.chef.io/tutorials/verify-style/>`_ |
- `Refactor the web app cookbook <https://learn.chef.io/tutorials/refactor-web-app-cookbook/>`_
 
 Concepts
 -----------------------------------------------------
@@ -218,7 +206,7 @@ Habitat Overview
 Tutorials
 -----------------------------------------------------
 
- `Getting started <https://www.habitat.sh/tutorials/getting-started-overview>`_
+ `Getting started with Habitat <https://www.habitat.sh/tutorials/getting-started-overview>`_
 
 InSpec
 =====================================================
@@ -241,14 +229,6 @@ Release Notes
 -----------------------------------------------------
 
 :doc:`Release Notes </release_notes_chef_automate>`
-
-Tutorials
------------------------------------------------------
-
-`Get started with Chef Automate <https://learn.chef.io/skills/get-started-with-chef-automate/>`_ |
-`Deploy infrastructure changes <https://learn.chef.io/tutorials/deploy-infrastructure/>`_ |
-`Scan for compliance <https://learn.chef.io/tutorials/compliance-assess/>`_ |
-`Remediate compliance failures <https://learn.chef.io/tutorials/compliance-remediate/>`_
 
 Setup
 -----------------------------------------------------

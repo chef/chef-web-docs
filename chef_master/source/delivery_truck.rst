@@ -180,7 +180,7 @@ and so on for all of the recipes. This ensures that all of the default behavior 
 Read the Tutorial
 =====================================================
 
-To learn more about how to set up a project pipeline for a single cookbook and simple application, follow the steps outlined in the `Build a continuous deployment pipeline with Chef Automate <https://learn.chef.io/tutorials/#chef-automate>`__ tutorial on https://learn.chef.io/tutorials/.
+To learn more about how to set up a project pipeline for a single cookbook and basic web application, follow the steps outlined in the `Deploy infrastructure changes with Chef Automate <https://learn.chef.io/modules/deploy-infrastructure#/>`__ module on Learn Chef.
 
 Project Cookbooks
 =====================================================

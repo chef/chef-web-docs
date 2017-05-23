@@ -22,7 +22,7 @@ Chef Automate handles many types of software systems. Use it to:
 * Release source code or build artifacts to a repository such as GitHub
 * Push build artifacts to production servers in real time
 
-.. note:: If you are new to Chef Automate, you can see it in action in the self-paced tutorial `Get started with Chef Automate on AWS <https://learn.chef.io/tutorials/#chef-automate>`__. In the tutorial, you'll set up your own Chef Automate cluster and a sample application to experiment with.
+.. note:: If you are new to Chef Automate, you can see it in action in the self-paced `Continuous Automation <https://learn.chef.io/tracks/continuous-automation#/>`__ track on Learn Chef. There, you'll set up your own Chef Automate installation and a sample application to experiment with.
 
 Pipelines
 =====================================================

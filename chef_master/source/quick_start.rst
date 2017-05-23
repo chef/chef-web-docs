@@ -39,6 +39,6 @@ This will create a file named ``test.txt`` at the home path on your machine. Ope
 
 There's a lot more that Chef can do, obviously, but that was super easy!
 
-* See https://learn.chef.io/tutorials/ for more detailed setup scenarios.
+* See https://learn.chef.io/ for more detailed setup scenarios.
 * Try :doc:`running Chef in the AWS Marketplace </aws_marketplace>`.
 * Keep reading  for more information about setting up a workstation, configuring Kitchen to run virtual environments, setting up a more detailed cookbook, resources, and more.
