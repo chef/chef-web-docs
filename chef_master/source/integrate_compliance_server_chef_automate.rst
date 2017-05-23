@@ -65,7 +65,7 @@ and run ``sudo chef-server-ctl reconfigure``.
 The profiles store service also needs to be enabled in Chef Automate. This is documented in :ref:`profiles`.
 Manage the profiles in profiles asset store using the :doc:`api_automate`.
 
-When using the ``audit`` cookbook, set the ``node['audit']['reporter']`` attribute to ``chef-server-automate``, and retrieve profiles from the following sources: ``Chef Automate`` ( via ``Chef Server`` ) [TODO: Can this just be "Chef Automate"?], ``Chef Supermarket``, ``local filesystem`` and ``git repository``.
+When using the ``audit`` cookbook, set the ``node['audit']['reporter']`` attribute to ``chef-server-automate``, and retrieve profiles from the following sources: ``Chef Automate`` ( via ``Chef Server`` ), ``Chef Supermarket``, ``local filesystem`` and ``git repository``.
 
 The profiles execution result will be sent to Chef Visibility. For more details, see the README file of the `audit <https://github.com/chef-cookbooks/audit>`_ cookbook.
 
