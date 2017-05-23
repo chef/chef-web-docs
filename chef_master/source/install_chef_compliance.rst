@@ -1,7 +1,7 @@
 =====================================================
 Install Chef Compliance Server
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_compliance.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_chef_compliance.rst>`__
 
 .. tag chef_automate_mark
 

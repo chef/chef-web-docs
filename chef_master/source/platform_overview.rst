@@ -106,7 +106,7 @@ Chef Automate includes a graphical user interface that shows you the entire proc
 Visibility
 -----------------------------------------------------
 
-Chef Automate gives you a data warehouse that accepts input from Chef, Habitat, and Chef Automate workflow and compliance. It provides views into operational, compliance, and workflow events. There is a query language available through the UI and customizable dashboards.
+Chef Automate gives you a data warehouse that accepts input from Chef, Habitat, and Chef Automate workflow and compliance. It provides views into operational and workflow events. There is a query language available through the UI and customizable dashboards.
 
 Here is an example of the Chef Automate dashboard.
 
@@ -117,24 +117,13 @@ Here is an example of the Chef Automate dashboard.
 Compliance
 -----------------------------------------------------
 
-Chef Automate creates customizable reports that identify compliance issues, security risks, and outdated software. You can write your own compliance rules in InSpec, or you can get started quickly by using built-in profiles. These are predefined rule sets for a variety of security frameworks, such as Center for Internet Security (CIS) benchmarks, included as part of Chef Automate.
+Chef Automate creates customizable reports that identify compliance issues, security risks, and outdated software. You can write your own compliance rules in InSpec, or you can get started quickly by using built-in profiles, which are predefined rule sets for a variety of security frameworks, such as Center for Internet Security (CIS) benchmarks, included as part of Chef Automate.
 
-.. image:: ../../images/start_compliance_audit.svg
-   :width: 700px
-   :align: center
+Compliance reporting is currently done through two mechanisms: The integrated compliance reporting in Chef Automate 0.8.5 or later, and the standalone Chef Compliance server. 
 
-* Use the Chef development kit to build security and compliance checks into your workflow
-* Use `InSpec  <http://inspec.io>`__ in your infrastructure.
-* Use pre-built certified profiles for CIA (Level 1 and Level 2), as well as best practice profiles for Microsoft Windows and Linux systems
+For information on the integrated reporting capabilities in Chef Automate, see :doc:`Compliance Overview </chef_automate_compliance>`.
 
-.. image:: ../../images/start_compliance_correct.svg
-   :width: 700px
-   :align: center
-
-* :doc:`Set up the Chef Compliance server </install_compliance>`
-* :doc:`Allow nodes to download compliance profiles </integrate_compliance_chef_server>` from the Chef server
-* Send the results of compliance scans to the Chef Compliance server via the Chef server
-* Use the Chef Automate workflow feature to :doc:`build remediation into your software deployment pipeline <workflow>`
+For information on how to use the standalone Chef Compliance server, see :doc:`Chef Compliance </chef_compliance>`.
 
 High availability
 -----------------------------------------------------

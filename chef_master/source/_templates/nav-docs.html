@@ -1321,7 +1321,7 @@
           {
             "title": "Delivery CLI",
             "hasSubItems": false,
-            "url": "/ctl_delivery.html"
+            "url": "/delivery_cli.html"
           },
           {
             "title": "Foodcritic",
@@ -2093,20 +2093,9 @@
         "hasSubItems": true,
         "subItems": [
           {
-            "title": "Workflow",
-            "hasSubItems": true,
-            "subItems": [
-              {
-                "title": "Workflow Overview",
-                "hasSubItems": false,
-                "url": "/workflow.html"
-              },
-              {
-                "title": "Manage Dependencies",
-                "hasSubItems": false,
-                "url": "/delivery_manage_dependencies.html"
-              }
-            ]
+            "title": "Workflow Overview",
+            "hasSubItems": false,
+            "url": "/workflow.html"
           },
           {
             "title": "Visibility Overview",
@@ -2116,14 +2105,9 @@
           {
             "title": "Compliance Overview",
             "hasSubItems": false,
-            "url": "/compliance.html"
+            "url": "/chef_automate_compliance.html"
           }
         ]
-      },
-      {
-        "title": "Delivery CLI",
-        "hasSubItems": false,
-        "url": "/ctl_delivery.html"
       },
       {
         "title": "Integrations",
@@ -2162,7 +2146,23 @@
         ]
       },
       {
-        "title": "Cookbooks",
+        "title": "Compliance",
+        "hasSubItems": true,
+        "subItems": [
+         {
+           "title": "Perform Compliance Scan",
+           "hasSubItems": false,
+           "url": "/perform_compliance_scan.html"
+         },
+         {
+           "title": "Filter Compliance Scans",
+           "hasSubItems": false,
+           "url": "/filter_compliance_scan.html"
+         }
+        ]
+      },
+      {
+        "title": "Workflow",
         "hasSubItems": true,
         "subItems": [
           {
@@ -2171,26 +2171,36 @@
             "url": "/delivery_build_cookbook.html"
           },
           {
+            "title": "Delivery CLI",
+            "hasSubItems": false,
+            "url": "/delivery_cli.html"
+          },
+          {
             "title": "delivery-truck (cookbook)",
             "hasSubItems": false,
             "url": "/delivery_truck.html"
           },
           {
+            "title": "Manage Dependencies",
+            "hasSubItems": false,
+            "url": "/delivery_manage_dependencies.html"
+          },
+          {
+            "title": "Manage Secrets",
+            "hasSubItems": false,
+            "url": "/delivery_manage_secrets.html"
+          },
+          {
             "title": "Publish to Multiple Chef Servers",
             "hasSubItems": false,
             "url": "/publish_cookbooks_multiple_servers.html"
+          },
+          {
+            "title": "Job Dispatch",
+            "hasSubItems": false,
+            "url": "/job_dispatch.html"
           }
         ]
-      },
-      {
-        "title": "Workflow DSL",
-        "hasSubItems": false,
-        "url": "/dsl_delivery.html"
-      },
-      {
-        "title": "Job Dispatch",
-        "hasSubItems": false,
-        "url": "/job_dispatch.html"
       },
       {
         "title": "Managing the Server",
@@ -2233,152 +2243,6 @@
             "url": "/scaling_capacity_planning_chef_automate.html"
           },
           {
-            "title": "Chef Automate API",
-            "hasSubItems": false,
-            "url": "/api_delivery.html"
-          },
-          {
-            "title": "automate-ctl",
-            "hasSubItems": true,
-            "subItems": [
-              {
-                "title": "cleanse",
-                "hasSubItems": false,
-                "url": "/ctl_delivery_server.html#cleanse"
-              },
-              {
-                "title": "create-enterprise",
-                "hasSubItems": false,
-                "url": "/ctl_delivery_server.html#create-enterprise"
-              },
-              {
-                "title": "create-user",
-                "hasSubItems": false,
-                "url": "/ctl_delivery_server.html#create-user"
-              },
-              {
-                "title": "delete-enterprise",
-                "hasSubItems": false,
-                "url": "/ctl_delivery_server.html#delete-enterprise"
-              },
-              {
-                "title": "delete-project",
-                "hasSubItems": false,
-                "url": "/ctl_delivery_server.html#delete-project"
-              },
-              {
-                "title": "delete-user",
-                "hasSubItems": false,
-                "url": "/ctl_delivery_server.html#delete-user"
-              },
-              {
-                "title": "delete-visibility-node",
-                "hasSubItems": false,
-                "url": "/ctl_delivery_server.html#delete-visibility-node"
-              },
-              {
-                "title": "delete-visibility-node-by-id",
-                "hasSubItems": false,
-                "url": "/ctl_delivery_server.html#delete-visibility-node-by-id"
-              },
-              {
-                "title": "gather-logs",
-                "hasSubItems": false,
-                "url": "/ctl_delivery_server.html#gather-logs"
-              },
-              {
-                "title": "generate-password-reset-token",
-                "hasSubItems": false,
-                "url": "/ctl_delivery_server.html#generate-password-reset-token"
-              },
-              {
-                "title": "help",
-                "hasSubItems": false,
-                "url": "/ctl_delivery_server.html#help"
-              },
-              {
-                "title": "install-runner",
-                "hasSubItems": false,
-                "url": "/ctl_delivery_server.html#install-runner"
-              },
-              {
-                "title": "list-enterprises",
-                "hasSubItems": false,
-                "url": "/ctl_delivery_server.html#list-enterprises"
-              },
-              {
-                "title": "list-users",
-                "hasSubItems": false,
-                "url": "/ctl_delivery_server.html#list-users"
-              },
-              {
-                "title": "migrate-change-description",
-                "hasSubItems": false,
-                "url": "/ctl_delivery_server.html#migrate-change-description"
-              },
-              {
-                "title": "migrate-patchset-diffs",
-                "hasSubItems": false,
-                "url": "/ctl_delivery_server.html#migrate-patchset-diffs"
-              },
-              {
-                "title": "node-summary",
-                "hasSubItems": false,
-                "url": "/ctl_delivery_server.html#node-summary"
-              },
-              {
-                "title": "preflight-check",
-                "hasSubItems": false,
-                "url": "/ctl_delivery_server.html#preflight-check"
-              },
-              {
-                "title": "reconfigure",
-                "hasSubItems": false,
-                "url": "/ctl_delivery_server.html#reconfigure"
-              },
-              {
-                "title": "rename-enterprise",
-                "hasSubItems": false,
-                "url": "/ctl_delivery_server.html#rename-enterprise"
-              },
-              {
-                "title": "reset-password",
-                "hasSubItems": false,
-                "url": "/ctl_delivery_server.html#reset-password"
-              },
-              {
-                "title": "restore-backup",
-                "hasSubItems": false,
-                "url": "/ctl_delivery_server.html#restore-backup"
-              },
-              {
-                "title": "revoke-token",
-                "hasSubItems": false,
-                "url": "/ctl_delivery_server.html#revoke-token"
-              },
-              {
-                "title": "show-config",
-                "hasSubItems": false,
-                "url": "/ctl_delivery_server.html#show-config"
-              },
-              {
-                "title": "uninstall",
-                "hasSubItems": false,
-                "url": "/ctl_delivery_server.html#uninstall"
-              },
-              {
-                "title": "update-project-hooks",
-                "hasSubItems": false,
-                "url": "/ctl_delivery_server.html#update-project-hooks"
-              }
-            ]
-          },
-          {
-            "title": "delivery.rb",
-            "hasSubItems": false,
-            "url": "/config_rb_delivery.html"
-          },
-          {
             "title": "Disaster Recovery",
             "hasSubItems": false,
             "url": "/delivery_server_disaster_recovery.html"
@@ -2392,16 +2256,6 @@
             "title": "Data Retention",
             "hasSubItems": false,
             "url": "/data_retention_chef_automate.html"
-          },
-          {
-            "title": "Node Search Reference",
-            "hasSubItems": false,
-            "url": "/search_query_chef_automate.html"
-          },
-          {
-            "title": "Secrets",
-            "hasSubItems": false,
-            "url": "/delivery_manage_secrets.html"
           },
           {
             "title": "Stream Data",
@@ -2426,13 +2280,175 @@
         ]
       },
       {
+        "title": "Reference",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "Chef Automate API",
+            "hasSubItems": false,
+            "url": "/api_automate.html"
+          },
+          {
+            "title": "automate-ctl",
+            "hasSubItems": true,
+            "subItems": [
+              {
+                "title": "cleanse",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#cleanse"
+              },
+              {
+                "title": "create-enterprise",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#create-enterprise"
+              },
+              {
+                "title": "create-user",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#create-user"
+              },
+              {
+                "title": "delete-enterprise",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#delete-enterprise"
+              },
+              {
+                "title": "delete-project",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#delete-project"
+              },
+              {
+                "title": "delete-user",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#delete-user"
+              },
+              {
+                "title": "delete-visibility-node",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#delete-visibility-node"
+              },
+              {
+                "title": "delete-visibility-node-by-id",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#delete-visibility-node-by-id"
+              },
+              {
+                "title": "gather-logs",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#gather-logs"
+              },
+              {
+                "title": "generate-password-reset-token",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#generate-password-reset-token"
+              },
+              {
+                "title": "help",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#help"
+              },
+              {
+                "title": "install-runner",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#install-runner"
+              },
+              {
+                "title": "list-enterprises",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#list-enterprises"
+              },
+              {
+                "title": "list-users",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#list-users"
+              },
+              {
+                "title": "migrate-change-description",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#migrate-change-description"
+              },
+              {
+                "title": "migrate-patchset-diffs",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#migrate-patchset-diffs"
+              },
+              {
+                "title": "node-summary",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#node-summary"
+              },
+              {
+                "title": "preflight-check",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#preflight-check"
+              },
+              {
+                "title": "reconfigure",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#reconfigure"
+              },
+              {
+                "title": "rename-enterprise",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#rename-enterprise"
+              },
+              {
+                "title": "reset-password",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#reset-password"
+              },
+              {
+                "title": "restore-backup",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#restore-backup"
+              },
+              {
+                "title": "revoke-token",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#revoke-token"
+              },
+              {
+                "title": "show-config",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#show-config"
+              },
+              {
+                "title": "uninstall",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#uninstall"
+              },
+              {
+                "title": "update-project-hooks",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#update-project-hooks"
+              }
+            ]
+          },
+          {
+            "title": "delivery.rb",
+            "hasSubItems": false,
+            "url": "/config_rb_delivery.html"
+          },
+          {
+            "title": "Node Search Reference",
+            "hasSubItems": false,
+            "url": "/search_query_chef_automate.html"
+          },
+          {
+            "title": "Workflow DSL",
+            "hasSubItems": false,
+            "url": "/dsl_delivery.html"
+          }
+        ]
+      },
+       {
         "title": "Compliance scanner",
         "hasSubItems": true,
         "subItems": [
           {
             "title": "Overview",
             "hasSubItems": false,
-            "url": "/compliance.html"
+            "url": "/chef_compliance.html"
           },
           {
             "title": "Release Notes",
@@ -2442,7 +2458,7 @@
           {
             "title": "Installation Guide",
             "hasSubItems": false,
-            "url": "/install_compliance.html"
+            "url": "/install_chef_compliance.html"
           },
           {
             "title": "Integrate w/Chef Server",
@@ -2452,7 +2468,7 @@
           {
             "title": "Integrate w/Chef Automate",
             "hasSubItems": false,
-            "url": "/integrate_compliance_chef_automate.html"
+            "url": "/integrate_compliance_server_chef_automate.html"
           },
           {
             "title": "Upgrade Compliance",

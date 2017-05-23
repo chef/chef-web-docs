@@ -155,7 +155,7 @@ Chef DK
 **Configuration**: :doc:`config.rb </config_rb>` | `Multiple Config Files </config_rb_client.html#d-directories>`_
 
 :doc:`cookstyle </cookstyle>` |
-:doc:`Delivery CLI </ctl_delivery>` |
+:doc:`Delivery CLI </delivery_cli>` |
 :doc:`Foodcritic </foodcritic>`
 
 **Kitchen**: :doc:`About Kitchen </kitchen>` | :doc:`kitchen (executable) </ctl_kitchen>` | :doc:`.kitchen.yml </config_yml_kitchen>` :doc:`kitchen-vagrant </plugin_kitchen_vagrant>`
@@ -262,11 +262,11 @@ Concepts
 **Workflow**: :doc:`Workflow Overview </workflow>` | :doc:`Manage Dependencies </delivery_manage_dependencies>`
 
 :doc:`Visibility Overview </visibility>` |
-:doc:`Compliance Overview </compliance>`
+:doc:`Compliance Overview </chef_automate_compliance>`
 
 Delivery CLI
 -----------------------------------------------------
-:doc:`Delivery CLI </ctl_delivery>`
+:doc:`Delivery CLI </delivery_cli>`
 
 Integrations
 -----------------------------------------------------
@@ -298,7 +298,7 @@ Managing the Server
 :doc:`Backups </delivery_server_backup>` |
 :doc:`Capacity Planning </scaling_capacity_planning_chef_automate>` |
 :doc:`delivery.rb </config_rb_delivery>` |
-:doc:`Chef Automate API </api_delivery>` |
+:doc:`Chef Automate API </api_automate>` |
 :doc:`Disaster Recovery </delivery_server_disaster_recovery>` |
 :doc:`Elasticsearch and Kibana Authentication </elasticsearch_and_kibana_auth>` |
 :doc:`Secrets </delivery_manage_secrets>` |
@@ -308,33 +308,33 @@ Managing the Server
 :doc:`Tuning </delivery_server_tuning>` |
 :doc:`Upgrades </upgrade_chef_automate>` |
 :doc:`Users and Roles </delivery_users_and_roles>` |
-`cleanse </ctl_delivery_server.html#cleanse>`_ |
-`create-enterprise </ctl_delivery_server.html#create-enterprise>`_ |
-`create-user </ctl_delivery_server.html#create-user>`_ |
-`delete-application </ctl_delivery_server.html#delete-application>`_ |
-`delete-enterprise </ctl_delivery_server.html#delete-enterprise>`_ |
-`delete-project </ctl_delivery_server.html#delete-project>`_ |
-`delete-user </ctl_delivery_server.html#delete-user>`_ | `generate-password-reset-token </ctl_delivery_server.html#generate-password-reset-token>`_ |
-`install-runner </ctl_delivery_server.html#install-runner>`_ |
-`list-applications </ctl_delivery_server.html#list-applications>`_ |
-`list-enterprises </ctl_delivery_server.html#list-enterprises>`_ |
-`list-users </ctl_delivery_server.html#list-users>`_ |
-`migrate-change-description </ctl_delivery_server.html#migrate-change-description>`_ |
-`migrate-patchset-diffs </ctl_delivery_server.html#migrate-patchset-diffs>`_ |
-`reconfigure </ctl_delivery_server.html#reconfigure>`_ |
-`rename-enterprise </ctl_delivery_server.html#rename-enterprise>`_ |
-`revoke-token </ctl_delivery_server.html#revoke-token>`_ |
-`show-config </ctl_delivery_server.html#show-config>`_ |
-`uninstall </ctl_delivery_server.html#uninstall>`_ |
-`update-project-hooks </ctl_delivery_server.html#update-project-hooks>`_
+`cleanse </ctl_automate_server.html#cleanse>`_ |
+`create-enterprise </ctl_automate_server.html#create-enterprise>`_ |
+`create-user </ctl_automate_server.html#create-user>`_ |
+`delete-application </ctl_automate_server.html#delete-application>`_ |
+`delete-enterprise </ctl_automate_server.html#delete-enterprise>`_ |
+`delete-project </ctl_automate_server.html#delete-project>`_ |
+`delete-user </ctl_automate_server.html#delete-user>`_ | `generate-password-reset-token </ctl_automate_server.html#generate-password-reset-token>`_ |
+`install-runner </ctl_automate_server.html#install-runner>`_ |
+`list-applications </ctl_automate_server.html#list-applications>`_ |
+`list-enterprises </ctl_automate_server.html#list-enterprises>`_ |
+`list-users </ctl_automate_server.html#list-users>`_ |
+`migrate-change-description </ctl_automate_server.html#migrate-change-description>`_ |
+`migrate-patchset-diffs </ctl_automate_server.html#migrate-patchset-diffs>`_ |
+`reconfigure </ctl_automate_server.html#reconfigure>`_ |
+`rename-enterprise </ctl_automate_server.html#rename-enterprise>`_ |
+`revoke-token </ctl_automate_server.html#revoke-token>`_ |
+`show-config </ctl_automate_server.html#show-config>`_ |
+`uninstall </ctl_automate_server.html#uninstall>`_ |
+`update-project-hooks </ctl_automate_server.html#update-project-hooks>`_
 
 Compliance scanner
 -----------------------------------------------------
-:doc:`Overview </compliance>` |
+:doc:`Overview </chef_compliance>` |
 :doc:`Release Notes </release_notes_compliance>` |
-:doc:`Installation Guide </install_compliance>` |
+:doc:`Installation Guide </install_chef_compliance>` |
 :doc:`Integrate w/Chef Server </integrate_compliance_chef_server>` |
-:doc:`Integrate w/Chef Automate </integrate_compliance_chef_automate>` |
+:doc:`Integrate w/Chef Automate </integrate_compliance_server_chef_automate>` |
 :doc:`Upgrade Compliance </upgrade_compliance>` |
 :doc:`chef-compliance.rb </config_rb_compliance>` |
 :doc:`Chef Compliance API </api_compliance>`
@@ -434,7 +434,7 @@ Addenda
    about_chefdk
    api_chef_server
    api_compliance
-   api_delivery
+   api_automate
    api_omnitruck
    api_push_jobs
    api_reporting
@@ -445,6 +445,7 @@ Addenda
    azure_portal
    berkshelf
    chef_automate
+   chef_automate_compliance
    chef_client
    chef_client_security
    chef_deprecations_client
@@ -462,7 +463,7 @@ Addenda
    community
    community_contributions
    community_guidelines
-   compliance
+   chef_compliance
    config_json_delivery
    config_rb
    config_rb_client
@@ -494,8 +495,8 @@ Addenda
    ctl_chef_server
    ctl_chef_shell
    ctl_chef_solo
-   ctl_delivery
-   ctl_delivery_server
+   delivery_cli
+   ctl_automate_server
    ctl_kitchen
    ctl_manage
    ctl_ohai
@@ -560,6 +561,7 @@ Addenda
    error_messages
    feedback
    files
+   filter_compliance_scan
    fips
    foodcritic
    glossary
@@ -569,7 +571,7 @@ Addenda
    inspec
    install_chef_automate
    install_bootstrap
-   install_compliance
+   install_chef_compliance
    install_dk
    install_omnibus
    install_push_jobs
@@ -585,7 +587,7 @@ Addenda
    install_windows
    integrate_chef_automate_saml
    integrate_compliance_chef_server
-   integrate_compliance_chef_automate
+   integrate_compliance_server_chef_automate
    integrate_delivery_bitbucket
    integrate_delivery_github
    integrate_delivery_ldap
@@ -633,6 +635,7 @@ Addenda
    openstack
    packages
    page_not_found
+   perform_compliance_scan
    platform_overview
    platforms
    plugin_community

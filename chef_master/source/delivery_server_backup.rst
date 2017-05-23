@@ -132,22 +132,22 @@ If omitted, the default ``max_archives``, ``max_snapshots``, and ``notation`` se
 Create Backups
 =====================================================
 
-The `create-backup </ctl_delivery_server.html#create-backup>`__ command is used to create Chef Automate backup archives and Elasticseach snapshots. When used with the default configuration it will create backup archives and Elasticseach snapshots
+The `create-backup </ctl_automate_server.html#create-backup>`__ command is used to create Chef Automate backup archives and Elasticseach snapshots. When used with the default configuration it will create backup archives and Elasticseach snapshots
 
 List Backups
 =====================================================
 
-The `list-backups </ctl_delivery_server.html#list-backups>`__ command is used to list Chef Automate backup archives and Elasticseach snapshots in either human or machine readable outputs.
+The `list-backups </ctl_automate_server.html#list-backups>`__ command is used to list Chef Automate backup archives and Elasticseach snapshots in either human or machine readable outputs.
 
 Delete Backups
 =====================================================
 
-The `delete-backups </ctl_delivery_server.html#delete-backups>`__ command is used to delete Chef Automate backup archives and Elasticseach snapshots. The command matches a given regular expression and prompts the user to confirm deletion of each matched backup or snapshot. It can also be passed maximum archive and snapshot limits and prune the backup repositories to conform to those limits.
+The `delete-backups </ctl_automate_server.html#delete-backups>`__ command is used to delete Chef Automate backup archives and Elasticseach snapshots. The command matches a given regular expression and prompts the user to confirm deletion of each matched backup or snapshot. It can also be passed maximum archive and snapshot limits and prune the backup repositories to conform to those limits.
 
 Restore Backups
 =====================================================
 
-The `restore-backup </ctl_delivery_server.html#restore-backup>`__ command is used to fully or partially restore a Chef Automate cluster from backup archives and/or Elasticsearch snapshots.
+The `restore-backup </ctl_automate_server.html#restore-backup>`__ command is used to fully or partially restore a Chef Automate cluster from backup archives and/or Elasticsearch snapshots.
 
 .. note:: Backups created with the older ``automate-ctl backup-data`` command are not supported with this command. If you wish to restore an older backup please install the version of Chef Automate that took the backup and use ``automate-ctl restore-data``
 

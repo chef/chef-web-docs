@@ -114,7 +114,7 @@ What's New in 1.2
 Delivery CLI
 -----------------------------------------------------
 
-- The ``project.toml`` file, which can be used to execute `local phases </ctl_delivery.html#delivery-local>`_, now supports:
+- The ``project.toml`` file, which can be used to execute `local phases </delivery_cli.html#delivery-local>`_, now supports:
 
   - An optional ``functional`` phase.
   - New ``remote_file`` option to specify a remote ``project.toml``.

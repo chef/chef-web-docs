@@ -28,7 +28,7 @@ New Features
 Password Reset Token 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-There is a new ``automate-ctl`` command that issues a temporary token and URL to allow users to reset their passwords via the GUI as an alternative to an admin typing in the password via the ``automate-ctl reset-password`` command. The new command is documented `here </ctl_delivery_server.html#generate-password-reset-token>`_.
+There is a new ``automate-ctl`` command that issues a temporary token and URL to allow users to reset their passwords via the GUI as an alternative to an admin typing in the password via the ``automate-ctl reset-password`` command. The new command is documented `here </ctl_automate_server.html#generate-password-reset-token>`_.
 
 Support for macOS Runners
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -40,7 +40,7 @@ Anonymized Usage Tracking
 
 As of this release, Chef Automate will be able to send anonymized product usage data back to Chef. Chef will use that data to improve Chef Automate.
 
-Server administrators are able to control data collection in Chef Automate on a per-server basis, via the `automate-ctl command-line application </ctl_delivery_server.html>`_. If per-server data collection has been disabled, Chef Automate will not share any usage data with Chef from this server, or from any users who log into this server (regardless of their individual settings).
+Server administrators are able to control data collection in Chef Automate on a per-server basis, via the `automate-ctl command-line application </ctl_automate_server.html>`_. If per-server data collection has been disabled, Chef Automate will not share any usage data with Chef from this server, or from any users who log into this server (regardless of their individual settings).
 
 If per-server data collection is enabled, every person who logs into Chef Automate will be asked to decide if they want to share anonymized product usage data with Chef. No usage data will be collected until people have expressed this preference, by leaving a checkbox filled and closing a modal. By default, the preference will be to allow usage data collection, but no usage data is collected or shared until after the modal is dismissed.
 
@@ -163,7 +163,7 @@ Error Message running preflight-check
 automate-ctl node-summary improvements
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The ``node-summary`` subcommand produces a summary of the nodes that are known to Chef Automate. The default setting for ``node-summary`` is to display the name, status, and the last time the nodes were checked. `Read the docs </ctl_delivery_server.html#node-summary>`_ for information.
+The ``node-summary`` subcommand produces a summary of the nodes that are known to Chef Automate. The default setting for ``node-summary`` is to display the name, status, and the last time the nodes were checked. `Read the docs </ctl_automate_server.html#node-summary>`_ for information.
 
 Skip SSL verification for certain hosts
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -238,7 +238,7 @@ As part of the enhancements to improve Chef automate installation experience, a 
 Resources validated includes: Memory, CPU, target directory structure, target directory disk space, umask, port access, and availability of SSH client.
 
 Additional details on the command can be found at: 
-`pre-flight check reference </ctl_delivery_server.html#preflight-check>`_
+`pre-flight check reference </ctl_automate_server.html#preflight-check>`_
 `troubleshooting information on pre-flight check </troubleshooting_chef_automate.html#preflight-check>`_
 `Chef Automate Server Installation and Configuration </install_chef_automate.html#id2>`_
 
