@@ -1,12 +1,12 @@
 =====================================================
-Release Notes: chef-client 12.0 - 13.0
+Release Notes: chef-client 12.0 - 13.1
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes.rst>`__
 
 Chef client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef CHANGELOG.md <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
 
 
-What's New in 13.0
+What's New in 13.0/13.1
 =====================================================
 
 * **Blacklist attributes**
@@ -149,6 +149,10 @@ Zypper now defaults to performing gpg checks of packages.
 The InSpec gem is now shipped by default
 -----------------------------------------------------
 The ``inspec`` and ``train`` gems are shipped by default in the chef omnibus package, making it easier for users in airgapped environments to use InSpec.
+
+Properly support managing Sys-V services on Debian systemd hosts
+----------------------------------------------------------------
+Chef now properly supports managing sys-v services on hosts running systemd. Previously Chef would incorrectly attempt to fallback to Upstart even if upstart was not installed.
 
 Backwards Compatibility Breaks
 -----------------------------------------------------
@@ -401,6 +405,10 @@ Chef Client exits the RFC062 defined exit codes
 Chef Client will only exit with exit codes defined in RFC 062.  This allows other tooling to respond to how a Chef run completes.  Attempting to exit Chef Client with an unsupported exit code (either via ``Chef::Application.fatal!`` or ``Chef::Application.exit!``) will result in an exit code of 1 (GENERIC_FAILURE) and a warning in the event log.
 
 When Chef Client is running as a forked process on unix systems, the standardized exit codes are used by the child process.  To actually have Chef Client return the standard exit code, ``client_fork false`` will need to be set in Chef Client's configuration file.
+
+New deprecations included in this release
+-----------------------------------------------------
+* :doc:`Removal of support for Ohai version 6 plugins</deprecations_ohai_v6_plugins>`
 
 What's New in 12.20
 =====================================================
