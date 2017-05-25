@@ -19,4 +19,5 @@ expose that out to clients via an SSH tunnel.
 Remediation
 ===============
 
-If you need to re-enable socket mode for now, you can run `chef-client --local-mode --listen`.
+If you need to re-enable socket mode for now, you can run `chef-client --local-mode --listen`
+or set `knife[:listen] = true` in your `.chef/knife.rb` or `.chef/config.rb`.
