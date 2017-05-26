@@ -83,6 +83,9 @@ This configuration file has the following settings:
 
              .. end_tag
 
+``client_d_dir``
+   A directory that contains additional configuration scripts to load for chef-client.
+
 ``cookbook_path``
    The sub-directory for cookbooks on the chef-client. This value can be a string or an array of file system locations, processed in the specified order. The last cookbook is considered to override local modifications.
 
