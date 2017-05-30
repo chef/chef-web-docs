@@ -154,6 +154,8 @@ Before creating the backend HA cluster and building at least one Chef server to 
   less than 1.5 seconds must exist across all nodes in the backend HA
   cluster.
 
+.. _step_1_create_cluster:
+
 Step 1: Create Cluster
 ----------------------------------------------------------------
 
@@ -169,7 +171,19 @@ different from any other back-end node.
 
    .. code-block:: ruby
 
-      publish_address 'external_IP_address_of_this_leader_box' # External ip address of this backend box
+      publish_address 'external_IP_address_of_this_box' # External ip address of this backend box
+
+#. If any of the backends or frontends are in different networks from each other then
+   add a ``postgresql.md5_auth_cidr_addresses`` line to ``/etc/chef-backend/chef-backend.rb`` with
+   the following content where ``, "<NET-1_IN_CIDR>", ..., "<NET-N_IN_CIDR>"`` is the list
+   of all of the networks that your backends and frontends are in.
+   See the `Configuring Frontend and Backend Members on Different Networks </install_server_ha.html#configuring-frontend-and-backend-members-on-different-networks>`_
+   section for more information:
+
+   .. code-block:: ruby
+
+      publish_address 'external_IP_address_of_this_box' # External ip address of this backend box
+      postgresql.md5_auth_cidr_addresses = ["samehost", "samenet", "<NET-1_IN_CIDR>", ..., "<NET-N_IN_CIDR>"]
 
 #. Run ``chef-backend-ctl create-cluster``.
 
@@ -198,13 +212,31 @@ to join nodes in parallel the cluster may fail to become available):
 
 #. Install backend package on the node.
 
+#. If you added a ``postgresql.md5_auth_cidr_addresses`` line to the leader's ``/etc/chef-backend/chef-backend.rb``
+   in :ref:`step_1_create_cluster` then update this node's ``/etc/chef-backend/chef-backend.rb`` with the following
+   content where ``postgresql.md5_auth_cidr_addresses`` is set to the
+   same value used in the leader's ``chef-backend.rb``.
+   If all of the backends and frontends are in the same network then you don't need to
+   modify this node's ``/etc/chef-backend/chef-backend.rb`` at all.
+
+   .. code-block:: ruby
+
+      publish_address 'external_IP_address_of_this_box' # External ip address of this backend box
+      postgresql.md5_auth_cidr_addresses = ["samehost", "samenet", "<NET-1_IN_CIDR>", ..., "<NET-N_IN_CIDR>"]
+
 #. As root or with sudo:
 
    .. code-block:: bash
 
       $ chef-backend-ctl join-cluster <IP_BE1> -s /home/<USER>/chef-backend-secrets.json
 
-#. Answer the prompts regarding which public IP to use. As an alternative, you may specify them on the ``chef-backend join-cluster`` command line. See ``chef-backend-ctl join-cluster --help`` for more information.
+#. Answer the prompts regarding which public IP to use. As an alternative, you may specify them on
+   the ``chef-backend join-cluster`` command line. See ``chef-backend-ctl join-cluster --help`` for
+   more information.
+   If you manually added the ``publish_address`` line to ``/etc/chef-backend/chef-backend.rb`` then
+   you will not be prompted for the public IP and you should not use the ``--publish-address`` option
+   to specify the the public IP on the ``chef-backend join-cluster`` command line.
+
 
 #. If you copied the shared ``chef-backend-secrets.json`` file to a user HOME directory on this host, remove it now.
 
