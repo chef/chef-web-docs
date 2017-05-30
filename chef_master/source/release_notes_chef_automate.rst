@@ -5,6 +5,53 @@ Release Notes: Chef Automate
 
 Chef Automate provides a full suite of enterprise capabilities for workflow, visibility and compliance that allow you to manage and monitor application and cookbook deployments across a cluster of nodes in your environment.
 
+What's New in 0.8.5
+=====================================================
+
+New Features
+-----------------------------------------------------
+
+Compliance in Chef Automate - Open Beta
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+With this release we have brought compliance capabilities into Chef Automate, without the need to install and operate a standalone compliance server. You can now manage InSpec compliance profiles in Chef Automate with features such as:
+
+* Compliance profile installation and updates, when new versions become available
+* 80 pre-shipped compliance profiles for all major operating systems
+* View profiles, their metadata and controls, as well as InSpec code
+* Search for profiles to view and install them
+* Add custom profiles
+* API endpoints to query profile contents
+
+Additionally, we have significantly improved the reporting capabilities of Chef Automate for compliance:
+
+* View data from a node-centric perspective to determine which components are out of compliance and what is needed to fix them
+* View data from a profile-centric perspective to quickly assess compliance of your entire fleet with a specific profile, without the need to evaluate every node separately
+* Investigate overall compliance control failures and determine which components are impacted
+* Filter compliance reports by node, environment, profile, operating system, or platform
+* View compliance reports with an overall summary and detailed information
+
+To get started using compliance, install or upgrade to this release. Navigate to the **Nodes** tab in Chef Automate and type ``beta`` anywhere in the UI (not in a form field). The beta feature flag menu will allow you to toggle on the new compliance views. You can revert to the original view with compliance data as a sub-tab on the **Nodes** view by deactivating the beta feature flag.
+
+.. note:: The beta views will display new data only. Historical data is displayed only in the existing sub-tab view under the **Nodes** page.
+
+As you explore the beta, we welcome your feedback and invite you to visit `Chef’s Community Slack <http://community-slack.chef.io/>`_ and join our public #automate-compliance channel. You can also find :doc:`documentation </chef_automate_compliance>` about the features, including version requirements for InSpec and the Audit cookbook. The new compliance features are not recommended for production use until they are made generally available in an upcoming Chef Automate release.
+
+SUSE Linux Enterprise Server Support
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Chef Automate can now be installed on SUSE Linux Enterprise Server (SLES) 11 SP4 and 12 SP2 or above.
+
+
+Resolved Issues
+-----------------------------------------------------
+
+* Corrected a bug with setting up cron jobs for creating backups on CentOS and Ubuntu.
+* Added retries to RabbitMQ service on startup to correct a problem reported in OpsWorks for Chef Automate.
+* Corrected a bug with failing to connect to Bitbucket when using a lengthy URL for the Bitbucket server.
+* Corrected an issue with pagination when several pages of run history are displayed.
+
+
 What's New in 0.7.239
 =====================================================
 
