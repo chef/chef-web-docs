@@ -24,6 +24,8 @@ Use the ``knife bootstrap`` subcommand to run a bootstrap operation that install
 
 New in 12.6, ``-i IDENTITY_FILE``, ``--json-attribute-file FILE``, ``--sudo-preserve-home``.  Changed in 12.4, validatorless bootstrap requires ``-N node_name``. Changed in 12.1, ``knife-bootstrap`` has the options --bootstrap-vault-file, --bootstrap-vault-item, and --bootstrap-vault-json options to specifiy item stored in chef-vault. New in 12.0, ``--[no-]node-verify-api-cert``, ``--node-ssl-verify-mode PEER_OR_NONE``, ``-t TEMPLATE``, 
 
+As of Chef 12.8 you can create a ``.chef/client.d`` directory on your workstation and the contents of that ``client.d`` directory will be copied to the system being bootstrapped by the ``knife bootstrap`` command. You can also set the ``client_d_dir`` option in ``knife.rb`` to point to an arbitrary directory instead of ``.chef/client.d`` and the contents of that directory will be copied to the system being bootstrapped. All config files inside ``client.d`` directory are loaded and get copied into ``/etc/chef/client.rb``.
+
 Syntax
 =====================================================
 .. tag knife_bootstrap_syntax
@@ -322,35 +324,6 @@ which shows something similar to:
    OpenSSL FIPS 140 mode enabled
    ...
    12.34.56.789 Chef Client finished, 12/12 resources updated in 78.942455583 seconds
-
-.. end_tag
-
-Client Configuration
-=====================================================
-.. tag config_rb_client_dot_d_directories
-
-The chef-client supports reading multiple configuration files by putting them inside a ``.d`` configuration directory. For example: ``/etc/chef/client.d``. All files that end in ``.rb`` in the ``.d`` directory are loaded; other non-``.rb`` files are ignored.
-
-``.d`` directories may exist in any location where the ``client.rb``, ``config.rb``, or ``solo.rb`` files are present, such as:
-
-* ``/etc/chef/client.d``
-* ``/etc/chef/config.d``
-* ``~/chef/solo.d``
-
-(There is no support for a ``knife.d`` directory; use ``config.d`` instead.)
-
-For example, when using knife, the following configuration files would be loaded:
-
-* ``~/.chef/config.rb``
-* ``~/.chef/config.d/company_settings.rb``
-* ``~/.chef/config.d/ec2_configuration.rb``
-* ``~/.chef/config.d/old_settings.rb.bak``
-
-The ``old_settings.rb.bak`` file is ignored because it's not a configuration file. The ``config.rb``, ``company_settings.rb``, and ``ec2_configuration`` files are merged together as if they are a single configuration file.
-
-.. note:: If multiple configuration files exists in a ``.d`` directory, ensure that the same setting has the same value in all files.
-
-New in Chef Client 12.8.
 
 .. end_tag
 

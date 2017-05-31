@@ -327,6 +327,7 @@ The ``install-runner`` subcommand configures a remote node as a job runner, whic
 
 .. note:: The username provided must be a user who has sudo access on the remote node. If the user is a member of a domain, then the username value should be entered as ``user@domain``.
 .. note:: At least one of ``--password [PASSWORD]`` or ``--ssh-identity-file FILE`` are necessary for ssh access.
+.. note:: ``knife bootstrap`` is used underneath so custom configurations can be installed on the runner by using the ``client.d`` copying feature. All config files inside ``client.d`` directory are loaded and get copied into ``/etc/chef/client.rb``.
 
 **Example**
 
