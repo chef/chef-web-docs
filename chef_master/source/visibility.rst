@@ -35,15 +35,13 @@ This will open the ``http://<yourAutomateServer>/viz`` page, which is the main D
 your Chef Automate server from the Chef server and Chef clients that have been configured to do so.
 
 .. image:: ../../images/visibility_dashboard.png
-   :width: 700px
-   :align: center
 
 The left nav bar provides filtering by Chef server and organization. The main search bar at the top provides multi-filtering capabilities by
 allowing you to filter on a combination of items such as node names, attributes, recipes, and so on. This is the main mechanism for quickly
 focusing on the convergence and node data you are interested in. The contextual help for the search bar provides a list and explanation of how you can
 filter your results and the :doc:`Node Search Query Reference </search_query_chef_automate>` provides more details and examples.
 
-Further filtering can also be provided by the **Environment** and **Roles** drop-down lists as well as the node status categories such as **TOTAL NODES**, **FAILED NODES**, and so on.
+Further filtering can also be provided by the **Environment** and **Roles** drop-down lists as well as the node status categories such as **Total Nodes**, **Failed Nodes**, and so on.
 
 If you wish to share your filtered search with others, you can do so with the share and save icons next to the search bar.
 
@@ -52,18 +50,14 @@ If you wish to share your filtered search with others, you can do so with the sh
 Compliance status
 ------------------------------------------------------
 
-In addition to converge data, the dashboard also provides information on the compliance state of your environments. Click on the **Compliance Status** field at the top of the page.
+In addition to converge data, Chef Automate also provides information on the compliance state of your nodes. By participating in the open Beta for the new compliance integration in Chef Automate, you can view compliance scan data in the **Compliance** tab at the top of the page. To enable the **Compliance** tab, follow the instructions at the top of :doc:`/chef_automate_compliance`. 
+
+.. image:: ../../images/compliance_node.png
+
+This tab provides a summary of the compliance status across all nodes of your cluster and allows you to pivot and search through that data from either a node perspective or a profile perspective. In addition, you can manage your compliance profiles and perform powerful filtering against your compliance data. See the link above for more information.
+
+Chef Automate also continues to support the reporting of compliance data through the **Nodes** tab. If you are either not participating in the compliance open beta, or have turned it off, your compliance data will be available by clicking **Compliance Status** under the **Nodes** tab.
 
 .. image:: ../../images/visibility_compliance_overview.png
-   :width: 700px
-   :align: center
 
 This view provides a summary of the compliance status across all nodes of your fleet at the top of the page. It also includes a detailed list of nodes and highlights critical, major, and minor control violations.
-
-More detailed information is available by selecting a node.
-
-.. image:: ../../images/visibility_compliance_node.png
-   :width: 700px
-   :align: center
-
-This node view contains the latest scan results for the selected node. The node and scan identifications are at the top of the page. The first section contains a summary of scan, with an overview of successful and failed controls. A detailed list of all controls is added below. Any of these can be selected to retrieve in-depth information on their purpose and test results.
