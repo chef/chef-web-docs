@@ -358,6 +358,8 @@ The following steps show how to set up a runner from a Chef Automate server. For
 #. If you have an on-premises Supermarket installation, copy the Supermarket certificate file to ``/etc/delivery/supermarket.crt``.
 
 #. Run the ``install-runner`` subcommand.
+ 
+   .. important:: The ``install-runner`` command will create a new file called ``job_runner`` in the ``/etc/sudoers.d`` directory to give the runner the appropriate ``sudo`` access. If your runner does not have the ``#includedir /etc/sudoers.d`` directive included in its ``/etc/sudoers`` file, you must put that directive in before you run the ``install-runner`` command.
 
    .. note:: You can optionally download the latest ChefDK from `<https://downloads.chef.io/chefdk/>`_ to specify a local package via ``--installer``. Doing so is useful if you are in an air-gapped environment. Version 0.15.16 or greater of the ChefDK is required. The download location is referred to below as ``OPTIONAL_CHEF_DK_PACKAGE_PATH``.
 
@@ -380,7 +382,7 @@ The following steps show how to set up a runner from a Chef Automate server. For
 
    .. end_tag
 
-   You can view the logs at ``/var/log/automate-ctl/build-node-install_$BUILD_NODE_FDQN.log``.
+   Depending on whether you created runners or build nodes, you can view the logs at either ``/var/log/delivery-ctl/runner-install_$RUNNER_FDQN.log`` or ``/var/log/delivery-ctl/build-node-install_$BUILD_NODE_FDQN.log``.
 
    Any existing nodes with the same name as your runner's FQDN will be overwritten on the Chef server. This will remove any previous run lists or Chef Server configuration on this node. This is done in case the hostname was previously being used for something else. When calling ``install-runner``, it will give you a warning if you will overwrite a node before installation begins, which you can bypass by passing ``--yes``.
 
