@@ -94,6 +94,10 @@ All Deprecations
     - Deprecation of run_command
     - 12.18
     - 13.0
+  * - :doc:`CHEF-18 </deprecations_local_listen>`
+    - Deprecation of local mode listening.
+    - 13.1
+    - 14.0
   * - :doc:`CHEF-3694 </deprecations_resource_cloning>`
     - Resource Cloning will no longer work.
     - 10.18
