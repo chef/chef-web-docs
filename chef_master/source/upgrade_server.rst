@@ -14,6 +14,10 @@ There are two upgrade scenarios for upgrades from earlier versions of Chef serve
 * `Standalone </upgrade_server.html#standalone>`__
 * `High availability </upgrade_server.html#high-availability>`__
 
+.. note:: As of version 12.14, Chef server will not render passwords outside of the ``/etc/opscode`` directory by default. If you are not using any Chef server add-ons, or you're using the latest add-on versions, you can set ``insecure_addon_compat`` to ``false`` in ``/etc/opscode/chef-server.rb``. With this option set to ``false``, Chef server writes all credentials to a single location. Note that this setting should only be applied after both the Chef server and its add-ons have been upgraded to compatible versions.
+
+        For additional information on this change, including a list of supported add-on versions, see `Chef Server Credentials Management </server_security.html#chef-server-credentials-management>`_.
+
 Standalone
 -----------------------------------------------------
 This section describes the upgrade process for a standalone configuration. The upgrade process will require downtime equal to the amount of time it takes to stop the server, run dpkg or RPM Package Manager, and then upgrade the server.
@@ -27,6 +31,8 @@ To upgrade to Chef server 12 from a standalone Chef server server, do the follow
    .. code-block:: bash
 
       $ chef-server-ctl reconfigure
+
+#. Download the desired Chef server version from the `Chef Server Downloads <https://downloads.chef.io/chef-server>`__ page.
 
 #. Stop the server:
 
@@ -188,6 +194,8 @@ To upgrade to Chef server 12 from a high availability Chef server server, do the
    .. code-block:: bash
 
       $ chef-server-ctl reconfigure
+
+#. Download the desired Chef server version from the `Chef Server Downloads <https://downloads.chef.io/chef-server>`__ page, then copy it to each server.
 
 #. Stop all of the front end servers:
 
