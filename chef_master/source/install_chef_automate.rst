@@ -307,6 +307,8 @@ Now that you have your Chef server set up, install and configure Chef Automate b
 
    ``ENTERPRISE_NAME`` is the name of your enterprise. For example: ``4thcoffee_inc``.
 
+   .. note:: Currently, only one enterprise is allowed in Chef Automate.
+
    If you are using a private Supermarket, tell the setup command about it by supplying the ``--supermarket-fqdn`` command line argument:
 
    .. code-block:: none
