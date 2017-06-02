@@ -70,6 +70,9 @@ The following table lists the Secondary platforms for the chef-client:
    * - Platform
      - Architecture
      - Version
+   * - Amazon Linux
+     -
+     - current version
    * - Arch Linux
      -
      - current version
@@ -301,7 +304,7 @@ Runners are supported on the Foundational and Secondary platforms listed above a
    * - macOS
      - ``x86_64``
      - ``10.12``
-   
+
 Chef Push Jobs
 =====================================================
 .. tag adopted_platforms_push_jobs
