@@ -295,8 +295,6 @@ Now that you have your Chef server set up, install and configure Chef Automate b
 
    All paths called for here should be supplied as the absolute path to a file, including the filename.
 
-.. note:: Automate, as of 0.7.239, only supports a single enterprise. The one created above, in the ``automate-ctl setup`` command.
-
    ``AUTOMATE_LICENSE`` is the full path and file name of your Chef Automate license file. For example: ``/root/automate.license``.
 
    .. note:: After your Chef Automate server is successfully setup, this file will be copied into the ``/var/opt/delivery/license`` directory as ``delivery.license``.
@@ -308,6 +306,8 @@ Now that you have your Chef server set up, install and configure Chef Automate b
    ``AUTOMATE_SERVER_FQDN`` is the external fully-qualified domain name of the Chef Automate server. This is just the name of the system, not a URL. For example: ``host.4thcoffee.co``.
 
    ``ENTERPRISE_NAME`` is the name of your enterprise. For example: ``4thcoffee_inc``.
+
+   .. note:: Currently, only one enterprise is allowed in Chef Automate.
 
    If you are using a private Supermarket, tell the setup command about it by supplying the ``--supermarket-fqdn`` command line argument:
 
