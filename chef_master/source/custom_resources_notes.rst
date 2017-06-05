@@ -181,9 +181,9 @@ If you do need to write code which mutates the system through pure-Ruby then you
      end
    end
 
-The ``converge_by`` block gets why-run correct and will just touch "/tmp/foo" instead of actually doing it. The ``converge_by`` block is also responsible for setting ``update_by_last_action``.
+The ``converge_by`` block gets why-run correct and will print to ``Chef::Log.info`` "touch /tmp/foo" and not run ``::FileUtils.touch "/tmp/foo"``. The ``converge_by`` block is also responsible for setting ``update_by_last_action``.
 
-In order to use ``converge_by`` correctly you must ensure that you wrap the ``converge_by`` with an idempotency check otherwise your resource will be updated every time it is used and will always fire notifications on every run.
+The ``converge_by`` block does not deal with idempotency and will set the ``update_by_last_action`` to ``true`` everytime the block executes.  By wrapping this block with an idempotency check like ``converge_if_changed`` or ``unless File.exist?("/tmp/foo")`` this will stop ``update_by_last_action`` from being set.
 
 .. code-block:: ruby
 
