@@ -1011,9 +1011,11 @@ For example, the following custom resource creates and/or updates user propertie
      end
 
      if property_is_set?(:password)
-       if system("rabbitmqctl authenticate_user #{username} #{password}") != 0 do
+       if system("rabbitmqctl authenticate_user #{username} #{password}") != 0
          converge_by "Updating password for user #{username} ..." do
-       system("rabbitmqctl update_user #{username} --password #{password}")
+           system("rabbitmqctl update_user #{username} --password #{password}")
+         end
+       end
      end
    end
 
