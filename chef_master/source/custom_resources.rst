@@ -497,7 +497,7 @@ action_class
 -----------------------------------------------------
 .. tag dsl_custom_resource_block_action_class
 
-Use the ``action_class.class_eval`` block to make methods available to the actions in the custom resource. Modules with helper methods created as files in the cookbook library directory may be included. New action methods may also be defined directly in the ``action_class.class_eval`` block. Code in the ``action_class.class_eval`` block has access to the new_resource properties.
+Use the ``action_class`` block to make methods available to the actions in the custom resource. Modules with helper methods created as files in the cookbook library directory may be included. New action methods may also be defined directly in the ``action_class`` block. Code in the ``action_class`` block has access to the new_resource properties.
 
 Assume a helper module has been created in the cookbook ``libraries/helper.rb`` file.
 
@@ -511,7 +511,7 @@ Assume a helper module has been created in the cookbook ``libraries/helper.rb`` 
      end
    end
 
-Methods may be made available to the custom resource actions by using an ``action_class.class_eval`` block.
+Methods may be made available to the custom resource actions by using an ``action_class`` block.
 
 .. code-block:: ruby
 
@@ -522,7 +522,7 @@ Methods may be made available to the custom resource actions by using an ``actio
      FileUtils.rm(file) if file_ex
    end
 
-   action_class.class_eval do
+   action_class do
 
      def file_exist
        ::File.exist?(file)
