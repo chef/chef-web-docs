@@ -181,9 +181,11 @@ If you do need to write code which mutates the system through pure-Ruby then you
      end
    end
 
-The ``converge_by`` block gets why-run correct and will just touch "/tmp/foo" instead of actually doing it. The ``converge_by`` block is also responsible for setting ``update_by_last_action``.
+When the ``converge_by`` block is run in why-run mode, it will only log ``touch "/tmp/foo"`` and will not run the code inside the block. 
 
-In order to use ``converge_by`` correctly you must ensure that you wrap the ``converge_by`` with an idempotency check otherwise your resource will be updated every time it is used and will always fire notifications on every run.
+A ``converge_by`` block that is not wrapped in an idempotency check will always cause the resource to be updated,
+and will always cause notifications to fire.  To prevent this, a properly written resource should wrap all
+``converge_by`` checks with an  idempotency check.  The [``converge_if_changed``](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/custom_resources.rst#converge_if_changed) block may be used instead  which will wrap a ``converge_by`` block with an idempotency check for you.
 
 .. code-block:: ruby
 
