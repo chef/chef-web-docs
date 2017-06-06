@@ -2,11 +2,6 @@
 Custom Resources
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/custom_resources.rst>`__
-
-Chef 12.5 introduced custom resources, which are now the preferred method of writing your own resources in Chef. If you are using an older version of the chef-client, please use the version picker (in the top left of the navigation) to select your version, and then choose the same topic from the navigation tree ("Extend Chef > Custom Resources"). See also https://github.com/chef-cookbooks/compat_resource for using custom resources with chef-client 12.1 - 12.4.
-
-As of Chef client 12.14, individual resource properties can be marked as `sensitive: true`, which suppresses the value of that property when exporting the resource's state.
-
 .. tag custom_resources_summary
 
 A custom resource:
@@ -20,6 +15,10 @@ A custom resource:
 For example, Chef includes built-in resources to manage files, packages, templates, and services, but it does not include a resource that manages websites.
 
 .. end_tag
+
+Custom resources were introduced in Chef version 12.5 and are now the preferred method of writing your own resources in Chef. If you are using an older version of the chef-client, please use the version picker (in the top left of the navigation) to select your version, and then choose the same topic from the navigation tree ("Extend Chef > Custom Resources"). See also https://github.com/chef-cookbooks/compat_resource for using custom resources with chef-client 12.1 - 12.4.
+
+As of Chef client 12.14, individual resource properties can be marked as `sensitive: true`, which suppresses the value of that property when exporting the resource's state.
 
 Syntax
 =====================================================
