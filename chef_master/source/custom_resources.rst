@@ -140,12 +140,6 @@ For example, the ``httpd.rb`` file in the ``website`` cookbook could be assigned
 
    property :homepage, String, default: '<h1>Hello world!</h1>'
 
-   load_current_value do
-     if ::File.exist?('/var/www/html/index.html')
-       homepage IO.read('/var/www/html/index.html')
-     end
-   end
-
    action :create do
      package 'httpd'
 
