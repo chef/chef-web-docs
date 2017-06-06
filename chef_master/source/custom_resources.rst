@@ -276,7 +276,7 @@ Use the **template** resource to create an ``httpd.service`` on the node based o
    template "/lib/systemd/system/httpd-#{instance_name}.service" do
      source 'httpd.service.erb'
      variables(
-       instance_name: instance_name
+       instance_name: new_resource.instance_name
      )
      owner 'root'
      group 'root'
@@ -295,11 +295,11 @@ Use the **template** resource to configure httpd on the node based on the ``http
 
 .. code-block:: ruby
 
-   template "/etc/httpd/conf/httpd-#{instance_name}.conf" do
+   template "/etc/httpd/conf/httpd-#{new_resource.instance_name}.conf" do
      source 'httpd.conf.erb'
      variables(
-       instance_name: instance_name,
-       port: port
+       instance_name: new_resource.instance_name,
+       port: new_resource.port
      )
      owner 'root'
      group 'root'
@@ -318,7 +318,7 @@ Use the **directory** resource to create the ``/var/www/vhosts`` directory on th
 
 .. code-block:: ruby
 
-   directory "/var/www/vhosts/#{instance_name}" do
+   directory "/var/www/vhosts/#{new_resource.instance_name}" do
      recursive true
      owner 'root'
      group 'root'
@@ -332,7 +332,7 @@ Use the **service** resource to enable, and then start the service:
 
 .. code-block:: ruby
 
-   service "httpd-#{instance_name}" do
+   service "httpd-#{new_resource.instance_name}" do
      action [:enable, :start]
    end
 
@@ -416,10 +416,10 @@ Final Resource
        action :install
      end
 
-     template "/lib/systemd/system/httpd-#{instance_name}.service" do
+     template "/lib/systemd/system/httpd-#{new_resource.instance_name}.service" do
        source 'httpd.service.erb'
        variables(
-         instance_name: instance_name
+         instance_name: new_resource.instance_name
        )
        owner 'root'
        group 'root'
@@ -427,11 +427,11 @@ Final Resource
        action :create
      end
 
-     template "/etc/httpd/conf/httpd-#{instance_name}.conf" do
+     template "/etc/httpd/conf/httpd-#{new_resource.instance_name}.conf" do
        source 'httpd.conf.erb'
        variables(
-         instance_name: instance_name,
-         port: port
+         instance_name: new_resource.instance_name,
+         port: new_resource.port
        )
        owner 'root'
        group 'root'
@@ -439,7 +439,7 @@ Final Resource
        action :create
      end
 
-     directory "/var/www/vhosts/#{instance_name}" do
+     directory "/var/www/vhosts/#{new_resource.instance_name}" do
        recursive true
        owner 'root'
        group 'root'
@@ -447,7 +447,7 @@ Final Resource
        action :create
      end
 
-     service "httpd-#{instance_name}" do
+     service "httpd-#{new_resource.instance_name}" do
        action [:enable, :start]
      end
 
@@ -519,13 +519,13 @@ Methods may be made available to the custom resource actions by using an ``actio
 
    action :delete do
      helper_method
-     FileUtils.rm(file) if file_ex
+     FileUtils.rm(new_resource.file) if file_ex
    end
 
    action_class do
 
      def file_exist
-       ::File.exist?(file)
+       ::File.exist?(new_resource.file)
      end
 
      def file_ex
@@ -566,14 +566,14 @@ For example, a custom resource defines two properties (``content`` and ``path``)
    property :path, String, name_property: true
 
    load_current_value do
-     if ::File.exist?(path)
-       content IO.read(path)
+     if ::File.exist?(new_resource.path)
+       content IO.read(new_resource.path)
      end
    end
 
    action :create do
      converge_if_changed do
-       IO.write(path, content)
+       IO.write(new_resource.path, new_resource.content)
      end
    end
 
@@ -601,18 +601,18 @@ The ``converge_if_changed`` method may be used multiple times. The following exa
    property :mode, String
 
    load_current_value do
-     if ::File.exist?(path)
-       content IO.read(path)
-       mode ::File.stat(path).mode
+     if ::File.exist?(new_resource.path)
+       content IO.read(new_resource.path)
+       mode ::File.stat(new_resource.path).mode
      end
    end
 
    action :create do
      converge_if_changed :content do
-       IO.write(path, content)
+       IO.write(new_resource.path, new_resource.content)
      end
      converge_if_changed :mode do
-       ::File.chmod(mode, path)
+       ::File.chmod(new_resource.mode, new_resource.path)
      end
    end
 
