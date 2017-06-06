@@ -27,7 +27,7 @@ Syntax
 A custom resource is defined as a Ruby file and is located in a cookbook's ``/resources`` directory. This file
 
 * Declares the properties of the custom resource
-* Loads current properties, if the resource already exists
+* Loads current state of properties, if the resource already exists
 * Defines each action the custom resource may take
 
 The syntax for a custom resource is. For example:
