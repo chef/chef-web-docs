@@ -5,6 +5,11 @@ Notes for Enterprise Chef Upgrades
 
 The following sections contain more information about the upgrade process from Enterprise Chef to Chef server version 12. Please consult with Chef support about any of these situations if needed.
 
+
+Considerations
+=====================================================
+As part of the Chef server upgrade, all of the data is extracted, converted to a new format and then uploaded. A large amount of data (cookbooks, nodes, etc..) can increase the upgrade process significantly and extend your downtime. Preparing your client-side system will improve your chef server upgrade experience.  Following this list of client-based tasks prior to upgrading will expedite the upgrade process and mitigate many of the common issues: :doc:`Upgrading chef-client. </upgrade_client>`
+
 chef-server.rb, Symlinks
 =====================================================
 The name of the configuration file used by the Chef server has been changed to chef-server.rb from private-chef.rb. A symlink from private-chef.rb to chef-server.rb is created during upgrades from older versions of the Chef server.
@@ -48,4 +53,3 @@ Chef server version 12 is upgraded to Apache Solr 4. If Apache Solr options were
 Some ``opscode_solr`` settings are imported automatically, such as heap, new size, and Java options, but many settings are ignored. If your Enterprise Chef configuration is highly tuned for Apache Solr, review `these configuration settings </config_rb_server_optional_settings.html#opscode-solr4>`__ before re-tuning Apache Solr for Chef server version 12.
 
 .. end_tag
-
