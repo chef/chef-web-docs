@@ -267,10 +267,10 @@ Workflow DSL
 
 :doc:`Workflow DSL </dsl_delivery>`
 
-Job Dispatch
+Runners
 -----------------------------------------------------
 
-:doc:`Job Dispatch </job_dispatch>`
+:doc:`Runners </runners>`
 
 Managing the Server
 -----------------------------------------------------
@@ -532,7 +532,6 @@ Addenda
    deprecations_verify_file
    dsl_custom_resource
    dsl_delivery
-   job_dispatch
    dsl_handler
    dsl_recipe
    elasticsearch_and_kibana_auth
@@ -746,6 +745,7 @@ Addenda
    roles
    ruby
    run_lists
+   runners
    runbook
    search_query_chef_automate
    secrets

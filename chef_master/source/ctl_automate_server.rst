@@ -292,7 +292,7 @@ This subcommand has the following syntax:
 
 install-runner
 =====================================================
-The ``install-runner`` subcommand configures a remote node as a job runner, which are used by Chef Automate to run phase jobs. For more information on runners, please see :doc:`job_dispatch`.
+The ``install-runner`` subcommand configures a remote node as a job runner, which are used by Chef Automate to run phase jobs. For more information on runners, please see :doc:`runners`.
 
 **Syntax**
 

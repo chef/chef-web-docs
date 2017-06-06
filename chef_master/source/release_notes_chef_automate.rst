@@ -80,7 +80,7 @@ There is a new ``automate-ctl`` command that issues a temporary token and URL to
 Support for macOS Runners
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Chef Automate can now support runners for workflow job dispatch on macOS 10.12. Installation follows the same `procedure </job_dispatch.html#adding-a-runner>`_ as Linux runners. Note that macOS is not a supported platform for the Chef Automate server.
+Chef Automate can now support runners for workflow job dispatch on macOS 10.12. Installation follows the same `procedure </runners.html#adding-a-runner>`_ as Linux runners. Note that macOS is not a supported platform for the Chef Automate server.
 
 Anonymized Usage Tracking
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
