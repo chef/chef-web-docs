@@ -23,9 +23,7 @@ Standalone
 -----------------------------------------------------
 This section describes the upgrade process for a standalone configuration. The upgrade process will require downtime equal to the amount of time it takes to stop the server, run dpkg or RPM Package Manager, and then upgrade the server.
 
-To upgrade to Chef server 12 from a standalone Chef server server, do the following:
-
-#. Verify that the ``make`` command is available on the Chef server server. If it is not available, install the ``make`` command.
+To upgrade to Chef server 12 from a standalone Chef server, do the following:
 
 #. Run the following command to make sure all services are in a sane state.
 
@@ -41,13 +39,13 @@ To upgrade to Chef server 12 from a standalone Chef server server, do the follow
 
       $ chef-server-ctl stop
 
-#. Run dpkg or RPM Package Manager. For dpkg:
+#. Run dpkg or RPM Package Manager. 
+
+   For dpkg:
 
    .. code-block:: bash
 
-      $ dpkg -D10 -i /path/to/chef-server-core-<version>.deb
-
-   where ``-D`` enables debugging and ``10`` creates output for each file that is processed during the upgrade. See the man pages for dpkg for more information about this option.
+      $ dpkg -i /path/to/chef-server-core-<version>.deb
 
    For RPM Package Manager:
 
@@ -79,9 +77,7 @@ High Availability
 -----------------------------------------------------
 This section describes the upgrade process from a high availability configuration. The upgrade process will require downtime equal to the amount of time it takes to stop the server, run dpkg or RPM Package Manager, and then upgrade the server.
 
-To upgrade to Chef server 12 from a high availability Chef server server, do the following:
-
-#. Verify that the ``make`` command is available on the primary backend Chef server server. If it is not available, install the ``make`` command.
+To upgrade to Chef server 12 from a high availability Chef server configuration, do the following:
 
 #. Run the following on all servers to make sure all services are in a sane state.
 
@@ -105,13 +101,13 @@ To upgrade to Chef server 12 from a high availability Chef server server, do the
 
       $ chef-server-ctl stop keepalived
 
-#. Run dpkg or RPM Package Manager on all servers. For dpkg:
+#. Run dpkg or RPM Package Manager on all servers. 
+
+   For dpkg:
 
    .. code-block:: bash
 
-      $ dpkg -D10 -i /path/to/chef-server-core-<version>.deb
-
-   where ``-D`` enables debugging and ``10`` creates output for each file that is processed during the upgrade. See the man pages for dpkg for more information about this option.
+      $ dpkg -i /path/to/chef-server-core-<version>.deb
 
    For RPM Package Manager:
 
@@ -186,9 +182,7 @@ This section describes the upgrade process from a tiered server configuration. T
 
 .. note:: These instructions are primarily intended for existing users of the ``tier`` Chef server topology. For the latest information on high availability and how to set up a highly-available server cluster, see :doc:`High Availability: Backend Cluster </install_server_ha>`
 
-To upgrade to Chef server 12 from a tiered Chef server, do the following:
-
-#. Verify that the ``make`` command is available on each Chef server. If it is not available, install the ``make`` command.
+To upgrade to Chef server 12 from a tiered Chef server configuration, do the following:
 
 #. Run the following on all servers to make sure all services are in a sane state.
 
@@ -204,13 +198,13 @@ To upgrade to Chef server 12 from a tiered Chef server, do the following:
 
       $ chef-server-ctl stop
 
-#. Run dpkg or RPM Package Manager on all servers. For dpkg:
+#. Run dpkg or RPM Package Manager on all servers. 
+
+   For dpkg:
 
    .. code-block:: bash
 
-      $ dpkg -D10 -i /path/to/chef-server-core-<version>.deb
-
-   where ``-D`` enables debugging and ``10`` creates output for each file that is processed during the upgrade. See the man pages for dpkg for more information about this option.
+      $ dpkg -i /path/to/chef-server-core-<version>.deb
 
    For RPM Package Manager:
 
@@ -272,8 +266,6 @@ This section describes the upgrade process from a standalone Enterprise Chef 11 
 
 To upgrade to Chef server 12 from a standalone Enterprise Chef server, do the following:
 
-#. Verify that the ``make`` command is available on the Enterprise Chef server. If it is not available, install the ``make`` command.
-
 #. Run the following command to make sure all services are in a sane state.
 
    .. code-block:: bash
@@ -286,13 +278,13 @@ To upgrade to Chef server 12 from a standalone Enterprise Chef server, do the fo
 
       $ private-chef-ctl stop
 
-#. Run dpkg or RPM Package Manager. For dpkg:
+#. Run dpkg or RPM Package Manager. 
+
+   For dpkg:
 
    .. code-block:: bash
 
-      $ dpkg -D10 -i /path/to/chef-server-core-<version>.deb
-
-   where ``-D`` enables debugging and ``10`` creates output for each file that is processed during the upgrade. See the man pages for dpkg for more information about this option.
+      $ dpkg -i /path/to/chef-server-core-<version>.deb
 
    For RPM Package Manager:
 
@@ -326,8 +318,6 @@ This section describes the upgrade process from a high availability Enterprise C
 
 To upgrade to Chef server 12 from a high availability Enterprise Chef server, do the following:
 
-#. Verify that the ``make`` command is available on the primary backend Enterprise Chef server. If it is not available, install the ``make`` command.
-
 #. Run the following on all servers to make sure all services are in a sane state.
 
    .. code-block:: bash
@@ -348,13 +338,13 @@ To upgrade to Chef server 12 from a high availability Enterprise Chef server, do
 
       $ private-chef-ctl stop keepalived
 
-#. Run dpkg or RPM Package Manager on all servers. For dpkg:
+#. Run dpkg or RPM Package Manager on all servers. 
+
+   For dpkg:
 
    .. code-block:: bash
 
-      $ dpkg -D10 -i /path/to/chef-server-core-<version>.deb
-
-   where ``-D`` enables debugging and ``10`` creates output for each file that is processed during the upgrade. See the man pages for dpkg for more information about this option.
+      $ dpkg -i /path/to/chef-server-core-<version>.deb
 
    For RPM Package Manager:
 
