@@ -11,6 +11,9 @@
     "security",
     "functional"
   ],
+  "job_dispatch": {
+    "version": "v2"
+  },
   "delivery-truck":{
     "publish": {
       "github": "chef/chef-web-docs"
