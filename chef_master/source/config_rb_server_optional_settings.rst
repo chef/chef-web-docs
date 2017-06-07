@@ -61,9 +61,6 @@ This configuration file has the following general settings:
 ``flavor``
    Default value: ``'cs'``.
 
-``from_email``
-   Default value: ``'"Opscode" <donotreply@chef.io>"'``.
-
 ``fips``
    Set to ``true`` to run the server in FIPS compliance mode. Set to ``false`` to force the server to run without FIPS compliance mode. Default value is whatever the kernel is configured to.
 
@@ -78,7 +75,7 @@ This configuration file has the following general settings:
    The directory in which the Chef server is installed. Default value: ``'/opt/opscode'``.
 
 ``from_email``
-   The email address from which invitations to the Chef management console are sent. Default value: ``'"Opscode" <donotreply@opscode.com>'``.
+   The email address from which invitations to the Chef management console are sent. Default value: ``'"Opscode" <donotreply@chef.io>'``.
 
 ``license['nodes']``
    The number of licensed nodes. Default value: ``25``.
