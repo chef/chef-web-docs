@@ -1,0 +1,224 @@
+$nav-docs-width: 260px;
+
+.document {
+  position: relative;
+}
+
+@media (min-width: $nav-breakpoint) {
+  .documentwrapper {
+    padding-left: $nav-docs-width;
+  }
+}
+
+// Grey Nav Bar on Left of Page
+.nav-docs {
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  width: 100%;
+  right: -100%;
+  background: lighten($chef-grey, 33%);
+  font-size: 15px;
+  color: darken($chef-grey, 10%);
+  font-family: $primary;
+  @media (min-width: $nav-breakpoint) {
+    display: block;
+    position: absolute;
+    width: $nav-docs-width;
+    left: 0;
+    right: auto;
+    bottom: 0;
+  }
+  ul, li {
+    list-style-type: none;
+    margin: 0;
+  }
+  ul {
+    padding: 0;
+  }
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: inherit;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+  }
+
+  // Overrides input defaults
+  $input-text-color: lighten($chef-grey, 10%);
+  input[type="text"] {
+    background: lighten($chef-grey, 60%);
+    padding: 0 38px 0 10px;
+    font: inherit;
+    font-style: italic;
+    line-height: 28px;
+    outline: none;
+    border: 2px solid lighten($chef-grey, 40%);
+    color: $input-text-color;
+    display: inline-block;
+    width: 100%;
+  }
+  ::-webkit-input-placeholder {
+    color: $input-text-color;
+  }
+  :-moz-placeholder {
+    color: $input-text-color;
+  }
+  ::-moz-placeholder {
+    color: $input-text-color;
+  }
+  :-ms-input-placeholder {
+    color: $input-text-color;
+  }
+  form {
+    position: relative;
+  }
+  .submit-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 38px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    -webkit-appearance: none;
+  }
+
+  .icon-search {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    font-size: 18px;
+    pointer-events: none;
+    color: $input-text-color;
+  }
+
+  // Class for icons to the left of Nav headings
+  .icon-left {
+    margin-right: 10px;
+    padding-right: 10px;
+    width: 26px;
+    height: inherit;
+    border-right: 1px solid $chef-grey;
+  }
+
+  
+  .nav-docs-items > li {
+    border-bottom: 1px solid darken($chef-grey, 20%);
+    &.search {
+      border: none;
+    }
+  }
+
+  // Applied to first level of nav
+  // (items with icons to the left)
+  .main-item {
+    line-height: 41px;
+  }
+
+  .dark-item {
+    position: relative;
+    padding: 0 17px;
+    background: $chef-grey;
+    color: $chef-white;
+    .icon-left {
+      border-color: $chef-white;
+    }
+  }
+
+  .docs-search {
+    padding: 10px 17px;
+  }
+
+  // .has-sub-items is added to .main-item if it has a sub-nav
+  .has-sub-items {
+    &.is-open {
+      & > .has-sub-items-content > .fa-chevron-down {
+        $rotate: rotate(180deg);
+        -ms-transform: $rotate;
+        -webkit-transform: $rotate;
+        transform: $rotate;
+      }
+      & > .sub-items {
+        display: block;
+        background: #eee;
+      }
+    }
+  }
+  // .has-sub-items is wrapper for .has-sub-items-content
+  // .has-sub-items-content is the clickable area that reveals 
+  // sub-navigation menus
+  .has-sub-items-content {
+    padding: 0 17px;
+    cursor: pointer;
+    position: relative;
+    -webkit-transition: color 0.2s ease;
+    transition: color 0.2s ease;
+    .fa-chevron-down {
+      position: absolute;
+      top: 12px;
+      right: 15px;
+      font-size: 13px;
+    }
+  }
+
+  .has-sub-items-content:hover, 
+  .sub-items a:hover {
+    color: darken($chef-grey, 30%)
+  }
+  
+  // Nested sub-nav
+  // 3 levels of sub-navigation are currently supported
+  .sub-items {
+    display: none;
+    li {
+      line-height: 36px;
+    }
+    a {
+      display: block;
+      height: 36px;
+      padding: 0 17px;
+      &.is-active {
+        background: $chef-light-blue;
+        color: $chef-white;
+      }
+    }
+    &.level-2 {
+      font-size: 14px;
+      li {
+        line-height: 32px;
+      }
+      a {
+        padding-left: 34px;
+      }
+      .has-sub-items-content {
+        padding-left: 34px;
+      }
+    }
+    &.level-3 {
+      font-size: 14px;
+      li {
+        line-height: 32px;
+      }
+      a {
+        padding-left: 51px;
+      }
+      .has-sub-items-content {
+        padding-left: 51px;
+      }
+    }
+    &.level-4 {
+      a {
+        padding-left: 61px;
+      }
+    }
+  }
+}

@@ -12,3 +12,11 @@ build/
 *.css_t.map
 
 /.delivery/cli.toml
+
+/.vscode
+
+/.venv
+
+*.*~
+*~
+TAGS

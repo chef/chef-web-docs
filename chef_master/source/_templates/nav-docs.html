@@ -3,1604 +3,2640 @@
 {% set active_version = "current" %}
 {% set navItems = [
   {
-    "title": "Getting Started",
+    "title": "Overview",
     "iconClass": "fa-home",
     "subItems": [
       {
-        "title": "Start Here",
+        "title": "Platform Overview",
         "hasSubItems": false,
-        "url": "/index.html"
-      },
-      {
-        "title": "Overview",
-        "hasSubItems": false,
-        "url": "/chef_overview.html"
-      },
-      {
-        "title": "Quick Start",
-        "hasSubItems": false,
-        "url": "/quick_start.html"
+        "url": "/platform_overview.html"
       },
       {
         "title": "Community",
-        "hasSubItems": false,
-        "url": "/community.html"
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "About the Community",
+            "hasSubItems": false,
+            "url": "/community.html"
+          },
+          {
+            "title": "Contributing",
+            "hasSubItems": false,
+            "url": "/community_contributions.html"
+          },
+          {
+            "title": "Guidelines",
+            "hasSubItems": false,
+            "url": "/community_guidelines.html"
+          },
+          {
+            "title": "Docs Style Guide",
+            "hasSubItems": false,
+            "url": "/style_guide.html"
+          }
+        ]
       },
       {
-        "title": "Tutorials",
-        "hasSubItems": false,
-        "url": "https://learn.chef.io/tutorials/"
-      },
-      {
-        "title": "Resources Reference",
-        "hasSubItems": false,
-        "url": "/resources.html"
-      },
-      {
-        "title": "Release Notes",
-        "hasSubItems": false,
-        "url": "/release_notes.html"
+        "title": "Packages &amp; Platforms",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "Packages",
+            "hasSubItems": false,
+            "url": "/packages.html"
+          },
+          {
+            "title": "Platforms",
+            "hasSubItems": false,
+            "url": "/platforms.html"
+          },
+          {
+            "title": "Omnitruck API",
+            "hasSubItems": false,
+            "url": "/api_omnitruck.html"
+          },
+          {
+            "title": "Licensing",
+            "hasSubItems": false,
+            "url": "/chef_license.html"
+          }
+        ]
       }
     ]
   },
   {
-    "title": "Theory &amp; Concepts",
-    "iconClass": "fa-cube",
+    "title": "Chef",
+    "iconClass": "fa-tasks",
     "subItems": [
       {
-        "title": "Workstations",
+        "title": "Getting Started",
         "hasSubItems": true,
         "subItems": [
           {
-            "title": "About Workstations",
+            "title": "Chef Overview",
+            "hasSubItems": false,
+            "url": "/chef_overview.html"
+          },
+          {
+            "title": "Quick Start",
+            "hasSubItems": false,
+            "url": "/quick_start.html"
+          },
+          {
+            "title": "System Requirements",
+            "hasSubItems": false,
+            "url": "/chef_system_requirements.html"
+          },
+          {
+            "title": "Release Notes",
+            "hasSubItems": true,
+            "subItems": [
+              {
+                "title": "Chef Client",
+                "hasSubItems": false,
+                "url": "/release_notes.html"
+              },
+              {
+                "title": "Chef Development Kit",
+                "hasSubItems": false,
+                "url": "/release_notes_chefdk.html"
+              },
+              {
+                "title": "Chef Server",
+                "hasSubItems": false,
+                "url": "/release_notes_server.html"
+              },
+              {
+                "title": "Chef Push Jobs",
+                "hasSubItems": false,
+                "url": "/release_notes_push_jobs.html"
+              },
+              {
+                "title": "Ohai",
+                "hasSubItems": false,
+                "url": "/release_notes_ohai.html"
+              }
+            ]
+          },
+          {
+            "title": "Deprecations",
+            "hasSubItems": false,
+            "url": "/chef_deprecations_client.html"
+          }
+        ]
+      },
+      {
+        "title": "Concepts",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "Workstation",
+            "hasSubItems": false,
             "url": "/workstation.html"
           },
           {
             "title": "chef-repo",
+            "hasSubItems": false,
             "url": "/chef_repo.html"
-          }
-        ]
-      },
-      {
-        "title": "Nodes",
-        "hasSubItems": false,
-        "url": "/nodes.html"
-      },
-      {
-        "title": "Chef Server",
-        "hasSubItems": false,
-        "url": "/server_components.html"
-      },
-      {
-        "title": "Chef Client",
-        "hasSubItems": false,
-        "url": "/chef_client.html"
-      },
-      {
-        "title": "Chef Compliance",
-        "hasSubItems": false,
-        "url": "/compliance.html"
-      },
-      {
-        "title": "Chef Analytics",
-        "hasSubItems": false,
-        "url": "/analytics.html"
-      },
-      {
-        "title": "Chef Delivery",
-        "hasSubItems": true,
-        "subItems": [
-          {
-            "title": "Overview",
-            "url": "/delivery.html"
           },
           {
-            "title": "Build Cookbooks",
-            "url": "/delivery_cookbooks.html"
+            "title": "Nodes",
+            "hasSubItems": false,
+            "url": "/nodes.html"
           },
           {
-            "title": "Users and Roles",
-            "url": "/delivery_users_and_roles.html"
+            "title": "chef-client",
+            "hasSubItems": false,
+            "url": "/chef_client.html"
           },
           {
-            "title": "Tutorial: Build a Pipeline",
-            "url": "https://learn.chef.io/tutorials/#build-a-delivery-pipeline"
+            "title": "Server",
+            "hasSubItems": false,
+            "url": "/server_components.html"
           },
           {
-            "title": "Manage Dependencies",
-            "url": "/delivery_manage_dependencies.html"
+            "title": "Search",
+            "hasSubItems": false,
+            "url": "/chef_search.html"
           },
           {
-            "title": "Manage Secrets",
-            "url": "/delivery_manage_secrets.html"
+            "title": "Secrets",
+            "hasSubItems": false,
+            "url": "/secrets.html"
           },
           {
-            "title": "Disaster Recovery",
-            "url": "/delivery_server_disaster_recovery.html"
-          }
-        ]
-      },
-      {
-        "title": "Components",
-        "hasSubItems": true,
-        "subItems": [
+            "title": "Cookbooks",
+            "hasSubItems": false,
+            "url": "/cookbooks.html"
+          },
           {
-            "title": "Ohai",
-            "url": "/ohai.html"
+            "title": "Handlers",
+            "hasSubItems": false,
+            "url": "/handlers.html"
+          },
+          {
+            "title": "Management Console",
+            "hasSubItems": false,
+            "url": "/manage.html"
+          },
+          {
+            "title": "Policy",
+            "hasSubItems": true,
+            "subItems": [
+              {
+                "title": "About Policy",
+                "hasSubItems": false,
+                "url": "/policy.html"
+              },
+              {
+                "title": "Data Bags",
+                "hasSubItems": false,
+                "url": "/data_bags.html"
+              },
+              {
+                "title": "Environments",
+                "hasSubItems": false,
+                "url": "/environments.html"
+              },
+              {
+                "title": "Roles",
+                "hasSubItems": false,
+                "url": "/roles.html"
+              }
+            ]
           },
           {
             "title": "Push Jobs",
+            "hasSubItems": false,
             "url": "/push_jobs.html"
           },
           {
-            "title": "Replication",
-            "url": "/server_replication.html"
+            "title": "Run-lists",
+            "hasSubItems": false,
+            "url": "/run_lists.html"
           },
           {
-            "title": "Reporting",
-            "url": "/reporting.html"
+            "title": "Security",
+            "hasSubItems": true,
+            "subItems": [
+              {
+                "title": "Authentication",
+                "hasSubItems": false,
+                "url": "/auth.html#authentication"
+              },
+              {
+                "title": "Authorization",
+                "hasSubItems": false,
+                "url": "/auth.html#authorization"
+              },
+              {
+                "title": "Private Keys",
+                "hasSubItems": false,
+                "url": "/chef_private_keys.html"
+              },
+              {
+                "title": "FIPS-mode",
+                "hasSubItems": false,
+                "url": "/ctl_chef_client.html#run-in-fips-mode"
+              }
+            ]
           },
           {
             "title": "Supermarket",
-            "url": "/supermarket.html"
-          }
-        ]
-      },
-    ]
-  },
-  {
-    "title": "Setup &amp; Config",
-    "iconClass": "fa-gears",
-    "subItems": [
-      {
-        "title": "System Requirements",
-        "hasSubItems": false,
-        "url": "/chef_system_requirements.html"
-      },
-      {
-        "title": "Packages",
-        "hasSubItems": false,
-        "url": "/packages.html"
-      },
-      {
-        "title": "Workstation",
-        "hasSubItems": false,
-        "url": "/install_dk.html"
-      },
-      {
-        "title": "Proxies",
-        "hasSubItems": false,
-        "url": "/proxies.html"
-      },
-      {
-        "title": "Chef Client",
-        "hasSubItems": true,
-        "subItems": [
-          {
-            "title": "Bootstrap",
-            "url": "/install_bootstrap.html"
+            "hasSubItems": true,
+            "subItems": [
+              {
+                "title": "Public Supermarket",
+                "hasSubItems": false,
+                "url": "/supermarket.html#public-supermarket"
+              },
+              {
+                "title": "Private Supermarket",
+                "hasSubItems": false,
+                "url": "/supermarket.html#private-supermarket"
+              }
+            ]
           },
           {
             "title": "Microsoft Windows",
-            "url": "/install_windows.html"
+            "hasSubItems": false,
+            "url": "/windows.html"
           },
           {
-            "title": "via URL",
-            "url": "/install_omnibus.html"
-          },
-          {
-            "title": "Junos OS",
-            "url": "/junos.html"
+            "title": "Appendix",
+            "hasSubItems": true,
+            "subItems": [
+              {
+                "title": "Env Variables",
+                "hasSubItems": false,
+                "url": "/environment_variables.html"
+              },
+              {
+                "title": "Troubleshooting",
+                "hasSubItems": false,
+                "url": "/errors.html"
+              },
+              {
+                "title": "Glossary",
+                "hasSubItems": false,
+                "url": "/glossary.html"
+              }
+            ]
           }
         ]
       },
       {
-        "title": "Chef Server",
+        "title": "Setup",
         "hasSubItems": true,
         "subItems": [
           {
-            "title": "Hosted",
-            "url": "https://manage.chef.io/signup"
+            "title": "Proxies",
+            "hasSubItems": false,
+            "url": "/proxies.html"
           },
           {
-            "title": "Standalone",
-            "url": "/install_server.html#standalone"
+            "title": "Workstation",
+            "hasSubItems": false,
+            "url": "/install_dk.html"
           },
           {
-            "title": "HA w/AWS",
-            "url": "/install_server_ha_aws.html"
+            "title": "Nodes",
+            "hasSubItems": true,
+            "subItems": [
+              {
+                "title": "Install via Bootstrap",
+                "hasSubItems": false,
+                "url": "/install_bootstrap.html"
+              },
+              {
+                "hasSubItems": false,
+                "title": "Install via URL",
+                "url": "/install_omnibus.html"
+              },
+              {
+                "hasSubItems": false,
+                "title": "Install on Windows",
+                "url": "/install_windows.html"
+              },
+              {
+                "title": "Install on Junos OS",
+                "hasSubItems": false,
+                "url": "/junos.html"
+              },
+              {
+                "title": "chef-client (executable)",
+                "hasSubItems": false,
+                "url": "/ctl_chef_client.html"
+              },
+              {
+                "title": "client.rb",
+                "hasSubItems": false,
+                "url": "/config_rb_client.html"
+              },
+              {
+                "title": "Upgrades",
+                "hasSubItems": false,
+                "url": "/upgrade_client.html"
+              },
+              {
+                "title": "Security",
+                "hasSubItems": false,
+                "url": "/chef_client_security.html"
+              }
+            ]
           },
           {
-            "title": "HA w/DRBD",
-            "url": "/install_server_ha_drbd.html"
+            "title": "Server",
+            "hasSubItems": true,
+            "subItems": [
+              {
+                "title": "Hosted Chef Server",
+                "hasSubItems": false,
+                "url": "https://manage.chef.io/signup"
+              },
+              {
+                "title": "Install Standalone",
+                "hasSubItems": false,
+                "url": "/install_server.html#standalone"
+              },
+              {
+                "title": "Install High Availability",
+                "hasSubItems": false,
+                "url": "/install_server_ha.html"
+              },
+              {
+                "title": "AWS Marketplace",
+                "hasSubItems": false,
+                "url": "/aws_marketplace.html"
+              },
+              {
+                "title": "Microsoft Azure",
+                "hasSubItems": false,
+                "url": "/azure_portal.html"
+              },
+              {
+                "title": "Openstack",
+                "hasSubItems": false,
+                "url": "/openstack.html"
+              }
+            ]
           },
           {
-            "title": "Tiered",
-            "url": "/install_server_tiered.html"
+            "title": "Supermarket",
+            "hasSubItems": true,
+            "subItems": [
+              {
+                "title": "Public Supermarket",
+                "hasSubItems": false,
+                "url": "https://supermarket.chef.io"
+              },
+              {
+                "title": "Install Private Supermarket",
+                "hasSubItems": false,
+                "url": "/install_supermarket.html"
+              },
+              {
+                "title": "Customize Supermarket",
+                "hasSubItems": false,
+                "url": "/install_supermarket.html#customize-supermarket"
+              },
+              {
+                "title": "Run in Test Kitchen",
+                "hasSubItems": false,
+                "url": "/install_supermarket.html#run-supermarket-in-kitchen"
+              }
+            ]
           },
           {
-            "title": "AWS Marketplace",
-            "url": "/aws_marketplace.html#chef-server-title-ami"
+            "title": "Management Console",
+            "hasSubItems": false,
+            "url": "/ctl_chef_server.html#install"
           },
           {
-            "title": "Microsoft Azure",
-            "url": "/azure_portal.html#azure-marketplace"
+            "title": "Push Jobs",
+            "hasSubItems": false,
+            "url": "/install_push_jobs.html"
           },
           {
-            "title": "OpenStack",
-            "url": "/openstack.html"
+            "title": "Integrations",
+            "hasSubItems": true,
+            "subItems": [
+              {
+                "title": "w/Chef Compliance",
+                "hasSubItems": false,
+                "url": "/integrate_compliance_chef_server.html"
+              }
+            ]
+          },
+          {
+            "title": "Enable FIPS",
+            "hasSubItems": false,
+            "url": "/fips.html"
+          },
+          {
+            "title": "Uninstall",
+            "hasSubItems": false,
+            "url": "/uninstall.html"
           }
         ]
       },
       {
-        "title": "Chef Analytics",
-        "hasSubItems": false,
-        "url": "/install_analytics.html"
-      },
-      {
-        "title": "Chef Compliance",
+        "title": "Cookbook Reference",
         "hasSubItems": true,
         "subItems": [
           {
-            "title": "Install",
-            "url": "/install_compliance.html"
+            "title": "About Cookbooks",
+            "hasSubItems": false,
+            "url": "/cookbooks.html"
           },
-          {
-            "title": "Integrate w/Chef Server",
-            "url": "/integrate_compliance_chef_server.html"
-          },
-          {
-            "title": "AWS Marketplace",
-            "url": "/aws_marketplace.html#chef-compliance-ami"
-          },
-          {
-            "title": "Microsoft Azure",
-            "url": "/azure_portal.html"
-          }
-        ]
-      },
-      {
-        "title": "Chef Delivery",
-        "hasSubItems": true,
-        "subItems": [
-          {
-            "title": "Install w/AWS",
-            "url": "/install_delivery_aws.html"
-          },
-          {
-            "title": "Install w/SSH",
-            "url": "/install_delivery_ssh.html"
-          },
-          {
-            "title": "Integrate w/Bitbucket",
-            "url": "/integrate_delivery_bitbucket.html"
-          },
-          {
-            "title": "Integrate w/GitHub",
-            "url": "/integrate_delivery_github.html"
-          },
-          {
-            "title": "Integrate w/LDAP",
-            "url": "/integrate_delivery_ldap.html"
-          },
-          {
-            "title": "Integrate w/Slack",
-            "url": "/integrate_delivery_slack.html"
-          },
-          {
-            "title": "Integrate w/Email",
-            "url": "/integrate_delivery_smtp.html"
-          },
-          {
-            "title": "Configure a Pipeline",
-            "url": "/delivery_configure_pipeline.html"
-          }
-        ]
-      },
-      {
-        "title": "Management Console",
-        "hasSubItems": false,
-        "url": "/manage.html"
-      },
-      {
-        "title": "Push Jobs",
-        "hasSubItems": false,
-        "url": "/install_push_jobs.html"
-      },
-      {
-        "title": "Reporting",
-        "hasSubItems": false,
-        "url": "/install_reporting.html"
-      },
-      {
-        "title": "Uninstall",
-        "hasSubItems": false,
-        "url": "/uninstall.html"
-      },
-    ]
-  },
-  {
-    "title": "Cookbooks",
-    "iconClass": "fa-book",
-    "subItems": [
-      {
-        "title": "About Cookbooks",
-        "hasSubItems": false,
-        "url": "/cookbooks.html"
-      },
-      {
-        "title": "Cookbook Components",
-        "hasSubItems": true,
-        "subItems": [
           {
             "title": "Attributes",
+            "hasSubItems": false,
             "url": "/attributes.html"
           },
           {
             "title": "Definitions",
+            "hasSubItems": false,
             "url": "/definitions.html"
           },
           {
             "title": "Files",
+            "hasSubItems": false,
             "url": "/files.html"
           },
           {
             "title": "Libraries",
+            "hasSubItems": false,
             "url": "/libraries.html"
           },
           {
             "title": "Recipes",
-            "url": "/recipes.html"
+            "hasSubItems": true,
+            "subItems": [
+              {
+                "title": "About Recipes",
+                "hasSubItems": false,
+                "url": "/recipes.html"
+              },
+              {
+                "title": "Debug Recipes, Client Runs",
+                "hasSubItems": false,
+                "url": "/debug.html"
+              }
+            ]
+          },
+          {
+            "title": "Recipe DSL",
+            "hasSubItems": true,
+            "subItems": [
+              {
+                "title": "attribute?",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#attribute"
+              },
+              {
+                "title": "control",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#control"
+              },
+              {
+                "title": "control_group",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#control-group"
+              },
+              {
+                "title": "cookbook_name",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#cookbook-name"
+              },
+              {
+                "title": "data_bag",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#data-bag"
+              },
+              {
+                "title": "data_bag_item",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#data-bag-item"
+              },
+              {
+                "title": "platform?",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#platform"
+              },
+              {
+                "title": "platform_family?",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#platform-family"
+              },
+              {
+                "title": "reboot_pending?",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#reboot-pending"
+              },
+              {
+                "title": "recipe_name",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#recipe-name"
+              },
+              {
+                "title": "registry_data_exists?",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#registry-data-exists"
+              },
+              {
+                "title": "registry_get_subkeys",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#registry-get-subkeys"
+              },
+              {
+                "title": "registry_get_values",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#registry-get-values"
+              },
+              {
+                "title": "registry_has_subkeys?",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#registry-has-subkeys"
+              },
+              {
+                "title": "registry_key_exists?",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#registry-key-exists"
+              },
+              {
+                "title": "registry_value_exists?",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#registry-value-exists"
+              },
+              {
+                "title": "resources",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#resources"
+              },
+              {
+                "title": "search",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#search"
+              },
+              {
+                "title": "shell_out",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#shell-out"
+              },
+              {
+                "title": "shell_out!",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#shell-out-bang"
+              },
+              {
+                "title": "shell_out_with_systems_locale",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#shell-out-with-systems-locale"
+              },
+              {
+                "title": "tag",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#tag-tagged-untag"
+              },
+              {
+                "title": "tagged?",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#tag-tagged-untag"
+              },
+              {
+                "title": "untag",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#tag-tagged-untag"
+              },
+              {
+                "title": "value_for_platform",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#value-for-platform"
+              },
+              {
+                "title": "value_for_platform_family",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#value-for-platform-family"
+              },
+              {
+                "title": "Windows Platform Helpers",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#helpers"
+              }
+            ]
           },
           {
             "title": "Resources",
-            "url": "/resource.html"
+            "hasSubItems": true,
+            "subItems": [
+              {
+                "title": "About Resources",
+                "hasSubItems": false,
+                "url": "/resource.html"
+              },
+              {
+                "title": "Common Functionality",
+                "hasSubItems": false,
+                "url": "/resource_common.html"
+              },
+              {
+                "title": "Custom Resources",
+                "hasSubItems": false,
+                "url": "/custom_resources.html"
+              },
+              {
+                "title": "All Resources (Single Page)",
+                "hasSubItems": false,
+                "url": "/resources.html"
+              },
+              {
+                "title": "apt_package",
+                "hasSubItems": false,
+                "url": "/resource_apt_package.html"
+              },
+              {
+                "title": "apt_repository",
+                "hasSubItems": false,
+                "url": "/resource_apt_repository.html"
+              },
+              {
+                "title": "apt_update",
+                "hasSubItems": false,
+                "url": "/resource_apt_update.html"
+              },
+              {
+                "title": "bash",
+                "hasSubItems": false,
+                "url": "/resource_bash.html"
+              },
+              {
+                "title": "batch",
+                "hasSubItems": false,
+                "url": "/resource_batch.html"
+              },
+              {
+                "title": "bff_package",
+                "hasSubItems": false,
+                "url": "/resource_bff_package.html"
+              },
+              {
+                "title": "breakpoint",
+                "hasSubItems": false,
+                "url": "/resource_breakpoint.html"
+              },
+              {
+                "title": "cab_package",
+                "hasSubItems": false,
+                "url": "/resource_cab_package.html"
+              },
+              {
+                "title": "chef_gem",
+                "hasSubItems": false,
+                "url": "/resource_chef_gem.html"
+              },
+              {
+                "title": "chef_acl",
+                "hasSubItems": false,
+                "url": "/resource_chef_acl.html"
+              },
+              {
+                "title": "chef_client",
+                "hasSubItems": false,
+                "url": "/resource_chef_client.html"
+              },
+              {
+                "title": "chef_container",
+                "hasSubItems": false,
+                "url": "/resource_chef_container.html"
+              },
+              {
+                "title": "chef_data_bag_item",
+                "hasSubItems": false,
+                "url": "/resource_chef_data_bag_item.html"
+              },
+              {
+                "title": "chef_data_bag",
+                "hasSubItems": false,
+                "url": "/resource_chef_data_bag.html"
+              },
+              {
+                "title": "chef_environment",
+                "hasSubItems": false,
+                "url": "/resource_chef_environment.html"
+              },
+              {
+                "title": "chef_group",
+                "hasSubItems": false,
+                "url": "/resource_chef_group.html"
+              },
+              {
+                "title": "chef_handler",
+                "hasSubItems": false,
+                "url": "/resource_chef_handler.html"
+              },
+              {
+                "title": "chef_mirror",
+                "hasSubItems": false,
+                "url": "/resource_chef_mirror.html"
+              },
+              {
+                "title": "chef_node",
+                "hasSubItems": false,
+                "url": "/resource_chef_node.html"
+              },
+              {
+                "title": "chef_organization",
+                "hasSubItems": false,
+                "url": "/resource_chef_organization.html"
+              },
+              {
+                "title": "chef_role",
+                "hasSubItems": false,
+                "url": "/resource_chef_role.html"
+              },
+              {
+                "title": "chef_user",
+                "hasSubItems": false,
+                "url": "/resource_chef_user.html"
+              },
+              {
+                "title": "chocolatey_package",
+                "hasSubItems": false,
+                "url": "/resource_chocolatey_package.html"
+              },
+              {
+                "title": "cookbook_file",
+                "hasSubItems": false,
+                "url": "/resource_cookbook_file.html"
+              },
+              {
+                "title": "cron",
+                "hasSubItems": false,
+                "url": "/resource_cron.html"
+              },
+              {
+                "title": "csh",
+                "hasSubItems": false,
+                "url": "/resource_csh.html"
+              },
+              {
+                "title": "deploy",
+                "hasSubItems": false,
+                "url": "/resource_deploy.html"
+              },
+              {
+                "title": "directory",
+                "hasSubItems": false,
+                "url": "/resource_directory.html"
+              },
+              {
+                "title": "dpkg_package",
+                "hasSubItems": false,
+                "url": "/resource_dpkg_package.html"
+              },
+              {
+                "title": "dsc_resource",
+                "hasSubItems": false,
+                "url": "/resource_dsc_resource.html"
+              },
+              {
+                "title": "dsc_script",
+                "hasSubItems": false,
+                "url": "/resource_dsc_script.html"
+              },
+              {
+                "title": "env",
+                "hasSubItems": false,
+                "url": "/resource_env.html"
+              },
+              {
+                "title": "erl_call",
+                "hasSubItems": false,
+                "url": "/resource_erlang_call.html"
+              },
+              {
+                "title": "execute",
+                "hasSubItems": false,
+                "url": "/resource_execute.html"
+              },
+              {
+                "title": "file",
+                "hasSubItems": false,
+                "url": "/resource_file.html"
+              },
+              {
+                "title": "freebsd_package",
+                "hasSubItems": false,
+                "url": "/resource_freebsd_package.html"
+              },
+              {
+                "title": "gem_package",
+                "hasSubItems": false,
+                "url": "/resource_gem_package.html"
+              },
+              {
+                "title": "git",
+                "hasSubItems": false,
+                "url": "/resource_git.html"
+              },
+              {
+                "title": "group",
+                "hasSubItems": false,
+                "url": "/resource_group.html"
+              },
+              {
+                "title": "homebrew_package",
+                "hasSubItems": false,
+                "url": "/resource_homebrew_package.html"
+              },
+              {
+                "title": "http_request",
+                "hasSubItems": false,
+                "url": "/resource_http_request.html"
+              },
+              {
+                "title": "ifconfig",
+                "hasSubItems": false,
+                "url": "/resource_ifconfig.html"
+              },
+              {
+                "title": "ips_package",
+                "hasSubItems": false,
+                "url": "/resource_ips_package.html"
+              },
+              {
+                "title": "ksh",
+                "hasSubItems": false,
+                "url": "/resource_ksh.html"
+              },
+              {
+                "title": "launchd",
+                "hasSubItems": false,
+                "url": "/resource_launchd.html"
+              },
+              {
+                "title": "link",
+                "hasSubItems": false,
+                "url": "/resource_link.html"
+              },
+              {
+                "title": "log",
+                "hasSubItems": false,
+                "url": "/resource_log.html"
+              },
+              {
+                "title": "macports_package",
+                "hasSubItems": false,
+                "url": "/resource_macports_package.html"
+              },
+              {
+                "title": "mdadm",
+                "hasSubItems": false,
+                "url": "/resource_mdadm.html"
+              },
+              {
+                "title": "mount",
+                "hasSubItems": false,
+                "url": "/resource_mount.html"
+              },
+              {
+                "title": "msu_package",
+                "hasSubItems": false,
+                "url": "/resource_msu_package.html"
+              },
+              {
+                "title": "ohai",
+                "hasSubItems": false,
+                "url": "/resource_ohai.html"
+              },
+              {
+                "title": "openbsd_package",
+                "hasSubItems": false,
+                "url": "/resource_openbsd_package.html"
+              },
+              {
+                "title": "osx_profile",
+                "hasSubItems": false,
+                "url": "/resource_osx_profile.html"
+              },
+              {
+                "title": "package",
+                "hasSubItems": false,
+                "url": "/resource_package.html"
+              },
+              {
+                "title": "pacman_package",
+                "hasSubItems": false,
+                "url": "/resource_pacman_package.html"
+              },
+              {
+                "title": "paludis_package",
+                "hasSubItems": false,
+                "url": "/resource_paludis_package.html"
+              },
+              {
+                "title": "perl",
+                "hasSubItems": false,
+                "url": "/resource_perl.html"
+              },
+              {
+                "title": "portage_package",
+                "hasSubItems": false,
+                "url": "/resource_portage_package.html"
+              },
+              {
+                "title": "powershell_script",
+                "hasSubItems": false,
+                "url": "/resource_powershell_script.html"
+              },
+              {
+                "title": "private_key",
+                "hasSubItems": false,
+                "url": "/resource_private_key.html"
+              },
+              {
+                "title": "public_key",
+                "hasSubItems": false,
+                "url": "/resource_public_key.html"
+              },
+              {
+                "title": "python",
+                "hasSubItems": false,
+                "url": "/resource_python.html"
+              },
+              {
+                "title": "reboot",
+                "hasSubItems": false,
+                "url": "/resource_reboot.html"
+              },
+              {
+                "title": "registry_key",
+                "hasSubItems": false,
+                "url": "/resource_registry_key.html"
+              },
+              {
+                "title": "remote_directory",
+                "hasSubItems": false,
+                "url": "/resource_remote_directory.html"
+              },
+              {
+                "title": "remote_file",
+                "hasSubItems": false,
+                "url": "/resource_remote_file.html"
+              },
+              {
+                "title": "route",
+                "hasSubItems": false,
+                "url": "/resource_route.html"
+              },
+              {
+                "title": "rpm_package",
+                "hasSubItems": false,
+                "url": "/resource_rpm_package.html"
+              },
+              {
+                "title": "ruby",
+                "hasSubItems": false,
+                "url": "/resource_ruby.html"
+              },
+              {
+                "title": "ruby_block",
+                "hasSubItems": false,
+                "url": "/resource_ruby_block.html"
+              },
+              {
+                "title": "script",
+                "hasSubItems": false,
+                "url": "/resource_script.html"
+              },
+              {
+                "title": "service",
+                "hasSubItems": false,
+                "url": "/resource_service.html"
+              },
+              {
+                "title": "smartos_package",
+                "hasSubItems": false,
+                "url": "/resource_smartos_package.html"
+              },
+              {
+                "title": "solaris_package",
+                "hasSubItems": false,
+                "url": "/resource_solaris_package.html"
+              },
+              {
+                "title": "subversion",
+                "hasSubItems": false,
+                "url": "/resource_subversion.html"
+              },
+              {
+                "title": "systemd_unit",
+                "hasSubItems": false,
+                "url": "/resource_systemd_unit.html"
+              },
+              {
+                "title": "template",
+                "hasSubItems": false,
+                "url": "/resource_template.html"
+              },
+              {
+                "title": "user",
+                "hasSubItems": false,
+                "url": "/resource_user.html"
+              },
+              {
+                "title": "windows_package",
+                "hasSubItems": false,
+                "url": "/resource_windows_package.html"
+              },
+              {
+                "title": "windows_service",
+                "hasSubItems": false,
+                "url": "/resource_windows_service.html"
+              },
+              {
+                "title": "windows_task",
+                "hasSubItems": false,
+                "url": "/resource_windows_task.html"
+              },
+              {
+                "title": "yum_package",
+                "hasSubItems": false,
+                "url": "/resource_yum.html"
+              },
+              {
+                "title": "yum_repository",
+                "hasSubItems": false,
+                "url": "/resource_yum_repository.html"
+              },
+              {
+                "title": "zypper_package",
+                "hasSubItems": false,
+                "url": "/resource_zypper_package.html"
+              },
+              {
+                "title": "Examples (by Resource)",
+                "hasSubItems": false,
+                "url": "/resource_examples.html"
+              }
+            ]
           },
           {
             "title": "Templates",
+            "hasSubItems": false,
             "url": "/templates.html"
-          }
-        ]
-      },
-      {
-        "title": "Cookbook Repo",
-        "hasSubItems": false,
-        "url": "/cookbook_repo.html"
-      },
-      {
-        "title": "Ruby",
-        "hasSubItems": false,
-        "url": "/ruby.html"
-      }
-    ]
-  },
-  {
-    "title": "Workflow",
-    "iconClass": "fa-wrench",
-    "subItems": [
-      {
-        "title": "Kitchen",
-        "hasSubItems": true,
-        "subItems": [
-          {
-            "title": "About Kitchen",
-            "url": "/kitchen.html"
-          },
-          {
-            "title": ".kitchen.yml",
-            "url": "/config_yml_kitchen.html"
-          },
-          {
-            "title": "kitchen-vagrant",
-            "url": "/plugin_kitchen_vagrant.html"
-          }
-        ]
-      },
-      {
-        "title": "ChefSpec",
-        "hasSubItems": false,
-        "url": "/chefspec.html"
-      },
-      {
-        "title": "Foodcritic",
-        "hasSubItems": false,
-        "url": "/foodcritic.html"
-      },
-      {
-        "title": "chef-vault",
-        "hasSubItems": false,
-        "url": "/chef_vault.html"
-      },
-      {
-        "title": "Rubocop",
-        "hasSubItems": false,
-        "url": "/rubocop.html"
-      },
-      {
-        "title": "Berkshelf",
-        "hasSubItems": false,
-        "url": "/berkshelf.html"
-      },
-      {
-        "title": "Knife",
-        "hasSubItems": false,
-        "url": "/knife.html"
-      },
-      {
-        "title": "Provisioning",
-        "hasSubItems": false,
-        "url": "/provisioning.html"
-      },
-      {
-        "title": "Policy",
-        "hasSubItems": true,
-        "subItems": [
-          {
-            "title": "Cookbook Versions",
-            "url": "/cookbook_versions.html"
-          },
-          {
-            "title": "Policyfile",
-            "url": "/policyfile.html"
-          },
-          {
-            "title": "Roles",
-            "url": "/roles.html"
-          },
-          {
-            "title": "Environments",
-            "url": "/environments.html"
-          },
-          {
-            "title": "Data Bags (Secrets)",
-            "url": "/data_bags.html"
-          }
-        ]
-      },
-      {
-        "title": "Compliance Controls",
-        "hasSubItems": false,
-        "url": "/dsl_compliance.html"
-      },
-      {
-        "title": "Chef Analytics Rules",
-        "hasSubItems": false,
-        "url": "/analytics_rules.html"
-      },
-      {
-        "title": "Debug Recipes",
-        "hasSubItems": false,
-        "url": "/debug.html"
-      },
-      {
-        "title": "Microsoft Windows",
-        "hasSubItems": false,
-        "url": "/windows.html"
-      }
-    ]
-  },
-  {
-    "title": "Manage the Server",
-    "iconClass": "fa-hdd-o",
-    "subItems": [
-      {
-        "title": "Backup &amp; Restore",
-        "hasSubItems": false,
-        "url": "/server_backup_restore.html"
-      },
-      {
-        "title": "Data Storage",
-        "hasSubItems": false,
-        "url": "/server_data.html"
-      },
-      {
-        "title": "Firewalls &amp; Ports",
-        "hasSubItems": false,
-        "url": "/server_firewalls_and_ports.html"
-      },
-      {
-        "title": "High Availability",
-        "hasSubItems": false,
-        "url": "/server_high_availability.html"
-      },
-      {
-        "title": "Active Directory &amp; LDAP",
-        "hasSubItems": false,
-        "url": "/server_ldap.html"
-      },
-      {
-        "title": "Log Files",
-        "hasSubItems": false,
-        "url": "/server_logs.html"
-      },
-      {
-        "title": "Monitor",
-        "hasSubItems": false,
-        "url": "/server_monitor.html"
-      },
-      {
-        "title": "Organizations &amp; Groups",
-        "hasSubItems": false,
-        "url": "/server_orgs.html"
-      },
-      {
-        "title": "Security",
-        "hasSubItems": false,
-        "url": "/server_security.html"
-      },
-      {
-        "title": "Services",
-        "hasSubItems": false,
-        "url": "/server_services.html"
-      },
-      {
-        "title": "Tuning",
-        "hasSubItems": false,
-        "url": "/server_tuning.html"
-      },
-      {
-        "title": "Upgrades",
-        "hasSubItems": true,
-        "subItems": [
-          {
-            "title": "Chef Analytics",
-            "url": "/upgrade_analytics.html"
-          },
-          {
-            "title": "Chef Compliance",
-            "url": "/upgrade_compliance.html"
-          },
-          {
-            "title": "Chef Client",
-            "url": "/upgrade_client.html"
-          },
-          {
-            "title": "Chef Server",
-            "url": "/upgrade_server.html"
-          }
-        ]
-      },
-      {
-        "title": "Users",
-        "hasSubItems": false,
-        "url": "/server_users.html"
-      },
-      {
-        "title": "Management Console",
-        "hasSubItems": true,
-        "subItems": [
-          {
-            "title": "Clients",
-            "url": "/server_manage_clients.html"
-          },
-          {
-            "title": "Cookbooks",
-            "url": "/server_manage_cookbooks.html"
-          },
-          {
-            "title": "Data Bags",
-            "url": "/server_manage_data_bags.html"
-          },
-          {
-            "title": "Environments",
-            "url": "/server_manage_environments.html"
-          },
-          {
-            "title": "Nodes",
-            "url": "/server_manage_nodes.html"
-          },
-          {
-            "title": "Reports",
-            "url": "/server_manage_reports.html"
-          },
-          {
-            "title": "Roles",
-            "url": "/server_manage_roles.html"
-          },
-          {
-            "title": "Users",
-            "url": "/server_users.html#chef-manage-title.html"
-          }
-        ]
-      },
-      {
-        "title": "Monitor Chef Analytics",
-        "hasSubItems": false,
-        "url": "/analytics_monitor.html"
-      },
-    ]
-  },
-  {
-    "title": "Extend Chef",
-    "iconClass": "fa-clone",
-    "subItems": [
-      {
-        "title": "Custom Resources",
-        "hasSubItems": false,
-        "url": "/custom_resources.html"
-      },
-      {
-        "title": "Recipe DSL",
-        "hasSubItems": false,
-        "url": "/dsl_recipe.html"
-      },
-      {
-        "title": "Handlers",
-        "hasSubItems": false,
-        "url": "/handlers.html"
-      },
-      {
-        "title": "Community Plugins",
-        "hasSubItems": true,
-        "subItems": [
-          {
-            "title": "Chef",
-            "url": "/plugin_community.html#chef-client-title"
-          },
-          {
-            "title": "Handlers",
-            "url": "/plugin_community.html#handlers"
-          },
-          {
-            "title": "Knife",
-            "url": "/plugin_community.html#knife-title"
-          },
-          {
-            "title": "Ohai",
-            "url": "/plugin_community.html#ohai"
-          },
-        ]
-      },
-    ]
-  },
-  {
-    "title": "Reference",
-    "iconClass": "fa-th",
-    "subItems": [
-      {
-        "title": "Chef Resources",
-        "hasSubItems": true,
-        "subItems": [
-          {
-            "title": "apt_package",
-            "url": "/resource_apt_package.html"
-          },
-          {
-            "title": "apt_update",
-            "url": "/resource_apt_update.html"
-          },
-          {
-            "title": "bash",
-            "url": "/resource_bash.html"
-          },
-          {
-            "title": "batch",
-            "url": "/resource_batch.html"
-          },
-          {
-            "title": "bff_package",
-            "url": "/resource_bff_package.html"
-          },
-          {
-            "title": "breakpoint",
-            "url": "/resource_breakpoint.html"
-          },
-          {
-            "title": "chef_gem",
-            "url": "/resource_chef_gem.html"
-          },
-          {
-            "title": "chef_handler",
-            "url": "/resource_chef_handler.html"
-          },
-          {
-            "title": "chocolatey_package",
-            "url": "/resource_chocolatey_package.html"
-          },
-          {
-            "title": "cookbook_file",
-            "url": "/resource_cookbook_file.html"
-          },
-          {
-            "title": "cron",
-            "url": "/resource_cron.html"
-          },
-          {
-            "title": "csh",
-            "url": "/resource_csh.html"
-          },
-          {
-            "title": "deploy",
-            "url": "/resource_deploy.html"
-          },
-          {
-            "title": "directory",
-            "url": "/resource_directory.html"
-          },
-          {
-            "title": "dpkg_package",
-            "url": "/resource_dpkg_package.html"
-          },
-          {
-            "title": "dsc_resource",
-            "url": "/resource_dsc_resource.html"
-          },
-          {
-            "title": "dsc_script",
-            "url": "/resource_dsc_script.html"
-          },
-          {
-            "title": "easy_install_package",
-            "url": "/resource_easy_install_package.html"
-          },
-          {
-            "title": "env",
-            "url": "/resource_env.html"
-          },
-          {
-            "title": "erl_call",
-            "url": "/resource_erlang_call.html"
-          },
-          {
-            "title": "execute",
-            "url": "/resource_execute.html"
-          },
-          {
-            "title": "file",
-            "url": "/resource_file.html"
-          },
-          {
-            "title": "freebsd_package",
-            "url": "/resource_freebsd_package.html"
-          },
-          {
-            "title": "gem_package",
-            "url": "/resource_gem_package.html"
-          },
-          {
-            "title": "git",
-            "url": "/resource_git.html"
-          },
-          {
-            "title": "group",
-            "url": "/resource_group.html"
-          },
-          {
-            "title": "homebrew_package",
-            "url": "/resource_homebrew_package.html"
-          },
-          {
-            "title": "http_request",
-            "url": "/resource_http_request.html"
-          },
-          {
-            "title": "ifconfig",
-            "url": "/resource_ifconfig.html"
-          },
-          {
-            "title": "ips_package",
-            "url": "/resource_ips_package.html"
-          },
-          {
-            "title": "ksh",
-            "url": "/resource_ksh.html"
-          },
-          {
-            "title": "launchd",
-            "url": "/resource_launchd.html"
-          },
-          {
-            "title": "link",
-            "url": "/resource_link.html"
-          },
-          {
-            "title": "log",
-            "url": "/resource_log.html"
-          },
-          {
-            "title": "macports_package",
-            "url": "/resource_macports_package.html"
-          },
-          {
-            "title": "mdadm",
-            "url": "/resource_mdadm.html"
-          },
-          {
-            "title": "mount",
-            "url": "/resource_mount.html"
-          },
-          {
-            "title": "ohai",
-            "url": "/resource_ohai.html"
-          },
-          {
-            "title": "openbsd_package",
-            "url": "/resource_openbsd_package.html"
-          },
-          {
-            "title": "osx_profile",
-            "url": "/resource_osx_profile.html"
-          },
-          {
-            "title": "package",
-            "url": "/resource_package.html"
-          },
-          {
-            "title": "pacman_package",
-            "url": "/resource_pacman_package.html"
-          },
-          {
-            "title": "paludis_package",
-            "url": "/resource_paludis_package.html"
-          },
-          {
-            "title": "perl",
-            "url": "/resource_perl.html"
-          },
-          {
-            "title": "portage_package",
-            "url": "/resource_portage_package.html"
-          },
-          {
-            "title": "powershell_script",
-            "url": "/resource_powershell_script.html"
-          },
-          {
-            "title": "python",
-            "url": "/resource_python.html"
-          },
-          {
-            "title": "reboot",
-            "url": "/resource_reboot.html"
-          },
-          {
-            "title": "registry_key",
-            "url": "/resource_registry_key.html"
-          },
-          {
-            "title": "remote_directory",
-            "url": "/resource_remote_directory.html"
-          },
-          {
-            "title": "remote_file",
-            "url": "/resource_remote_file.html"
-          },
-          {
-            "title": "route",
-            "url": "/resource_route.html"
-          },
-          {
-            "title": "rpm_package",
-            "url": "/resource_rpm_package.html"
-          },
-          {
-            "title": "ruby",
-            "url": "/resource_ruby.html"
-          },
-          {
-            "title": "ruby_block",
-            "url": "/resource_ruby_block.html"
-          },
-          {
-            "title": "script",
-            "url": "/resource_script.html"
-          },
-          {
-            "title": "service",
-            "url": "/resource_service.html"
-          },
-          {
-            "title": "smartos_package",
-            "url": "/resource_smartos_package.html"
-          },
-          {
-            "title": "solaris_package",
-            "url": "/resource_solaris_package.html"
-          },
-          {
-            "title": "subversion",
-            "url": "/resource_subversion.html"
-          },
-          {
-            "title": "template",
-            "url": "/resource_template.html"
-          },
-          {
-            "title": "user",
-            "url": "/resource_user.html"
-          },
-          {
-            "title": "windows_package",
-            "url": "/resource_windows_package.html"
-          },
-          {
-            "title": "windows_service",
-            "url": "/resource_windows_service.html"
-          },
-          {
-            "title": "yum_package",
-            "url": "/resource_yum.html"
-          },
-        ]
-      },
-      {
-        "title": "InSpec Resources",
-        "hasSubItems": true,
-        "subItems": [
-          {
-            "title": "apache_conf",
-            "url": "/inspec_apache_conf.html"
-          },
-          {
-            "title": "apt",
-            "url": "/inspec_apt.html"
-          },
-          {
-            "title": "audit_policy",
-            "url": "/inspec_audit_policy.html"
-          },
-          {
-            "title": "auditd_conf",
-            "url": "/inspec_auditd_conf.html"
-          },
-          {
-            "title": "auditd_rules",
-            "url": "/inspec_auditd_rules.html"
-          },
-          {
-            "title": "bond",
-            "url": "/inspec_bond.html"
-          },
-          {
-            "title": "bridge",
-            "url": "/inspec_bridge.html"
-          },
-          {
-            "title": "command",
-            "url": "/inspec_command.html"
-          },
-          {
-            "title": "csv",
-            "url": "/inspec_csv.html"
-          },
-          {
-            "title": "directory",
-            "url": "/inspec_directory.html"
-          },
-          {
-            "title": "etc_group",
-            "url": "/inspec_etc_group.html"
-          },
-          {
-            "title": "file",
-            "url": "/inspec_file.html"
-          },
-          {
-            "title": "gem",
-            "url": "/inspec_gem.html"
-          },
-          {
-            "title": "group",
-            "url": "/inspec_group.html"
-          },
-          {
-            "title": "host",
-            "url": "/inspec_host.html"
-          },
-          {
-            "title": "inetd_conf",
-            "url": "/inspec_inetd_conf.html"
-          },
-          {
-            "title": "interface",
-            "url": "/inspec_interface.html"
-          },
-          {
-            "title": "iptables",
-            "url": "/inspec_iptables.html"
-          },
-          {
-            "title": "json",
-            "url": "/inspec_json.html"
-          },
-          {
-            "title": "kernel_module",
-            "url": "/inspec_kernel_module.html"
-          },
-          {
-            "title": "kernel_parameter",
-            "url": "/inspec_kernel_parameter.html"
-          },
-          {
-            "title": "limits_conf",
-            "url": "/inspec_limits_conf.html"
-          },
-          {
-            "title": "login_defs",
-            "url": "/inspec_login_def.html"
-          },
-          {
-            "title": "mount",
-            "url": "/inspec_mount.html"
-          },
-          {
-            "title": "mysql_conf",
-            "url": "/inspec_mysql_conf.html"
-          },
-          {
-            "title": "mysql_session",
-            "url": "/inspec_mysql_session.html"
-          },
-          {
-            "title": "npm",
-            "url": "/inspec_npm.html"
-          },
-          {
-            "title": "ntp_conf",
-            "url": "/inspec_ntp_conf.html"
-          },
-          {
-            "title": "oneget",
-            "url": "/inspec_oneget.html"
-          },
-          {
-            "title": "os",
-            "url": "/inspec_os.html"
-          },
-          {
-            "title": "os_env",
-            "url": "/inspec_os_env.html"
-          },
-          {
-            "title": "package",
-            "url": "/inspec_package.html"
-          },
-          {
-            "title": "parse_config",
-            "url": "/inspec_parse_config.html"
-          },
-          {
-            "title": "parse_config_file",
-            "url": "/inspec_parse_config_file.html"
-          },
-          {
-            "title": "passwd",
-            "url": "/inspec_etc_passwd.html"
-          },
-          {
-            "title": "pip",
-            "url": "/inspec_pip.html"
-          },
-          {
-            "title": "port",
-            "url": "/inspec_port.html"
-          },
-          {
-            "title": "postgres_conf",
-            "url": "/inspec_postgres_conf.html"
-          },
-          {
-            "title": "postgres_session",
-            "url": "/inspec_postgres_session.html"
-          },
-          {
-            "title": "processes",
-            "url": "/inspec_process.html"
-          },
-          {
-            "title": "registry_key",
-            "url": "/inspec_registry_key.html"
-          },
-          {
-            "title": "script",
-            "url": "/inspec_script.html"
-          },
-          {
-            "title": "security_policy",
-            "url": "/inspec_security_policy.html"
-          },
-          {
-            "title": "service",
-            "url": "/inspec_service.html"
-          },
-          {
-            "title": "ssh_config",
-            "url": "/inspec_ssh_config.html"
-          },
-          {
-            "title": "sshd_config",
-            "url": "/inspec_sshd_config.html"
-          },
-          {
-            "title": "user",
-            "url": "/inspec_user.html"
-          },
-          {
-            "title": "windows_feature",
-            "url": "/inspec_windows_feature.html"
-          },
-          {
-            "title": "yaml",
-            "url": "/inspec_yaml.html"
-          },
-          {
-            "title": "yum",
-            "url": "/inspec_yum.html"
-          },
-        ]
-      },
-      {
-        "title": "Knife Commands",
-        "hasSubItems": true,
-        "subItems": [
-          {
-            "title": "bootstrap",
-            "url": "/knife_bootstrap.html"
-          },
-          {
-            "title": "client",
-            "url": "/knife_client.html"
-          },
-          {
-            "title": "configure",
-            "url": "/knife_configure.html"
-          },
-          {
-            "title": "cookbook",
-            "url": "/knife_cookbook.html"
-          },
-          {
-            "title": "cookbook site",
-            "url": "/knife_cookbook_site.html"
-          },
-          {
-            "title": "data bag",
-            "url": "/knife_data_bag.html"
-          },
-          {
-            "title": "delete",
-            "url": "/knife_delete.html"
-          },
-          {
-            "title": "deps",
-            "url": "/knife_deps.html"
-          },
-          {
-            "title": "diff",
-            "url": "/knife_diff.html"
-          },
-          {
-            "title": "download",
-            "url": "/knife_download.html"
-          },
-          {
-            "title": "edit",
-            "url": "/knife_edit.html"
-          },
-          {
-            "title": "environment",
-            "url": "/knife_environment.html"
-          },
-          {
-            "title": "exec",
-            "url": "/knife_exec.html"
-          },
-          {
-            "title": "list",
-            "url": "/knife_list.html"
-          },
-          {
-            "title": "node",
-            "url": "/knife_node.html"
-          },
-          {
-            "title": "raw",
-            "url": "/knife_raw.html"
-          },
-          {
-            "title": "recipe list",
-            "url": "/knife_recipe_list.html"
-          },
-          {
-            "title": "role",
-            "url": "/knife_role.html"
-          },
-          {
-            "title": "search",
-            "url": "/knife_search.html"
-          },
-          {
-            "title": "serve",
-            "url": "/knife_serve.html"
-          },
-          {
-            "title": "show",
-            "url": "/knife_show.html"
-          },
-          {
-            "title": "ssh",
-            "url": "/knife_ssh.html"
-          },
-          {
-            "title": "ssl check",
-            "url": "/knife_ssl_check.html"
-          },
-          {
-            "title": "ssl fetch",
-            "url": "/knife_ssl_fetch.html"
-          },
-          {
-            "title": "status",
-            "url": "/knife_status.html"
-          },
-          {
-            "title": "tag",
-            "url": "/knife_tag.html"
-          },
-          {
-            "title": "upload",
-            "url": "/knife_upload.html"
-          },
-          {
-            "title": "user",
-            "url": "/knife_user.html"
-          },
-          {
-            "title": "xargs",
-            "url": "/knife_xargs.html"
-          },
-          {
-            "title": "Cloud Plugins",
-            "url": "/plugin_knife.html"
-          },
-        ]
-      },
-      {
-        "title": "CLIs",
-        "hasSubItems": true,
-        "subItems": [
-          {
-            "title": "chef",
-            "url": "/ctl_chef.html"
-          },
-          {
-            "title": "chef-apply",
-            "url": "/ctl_chef_apply.html"
-          },
-          {
-            "title": "chef-client",
-            "url": "/ctl_chef_client.html"
-          },
-          {
-            "title": "chef-init",
-            "url": "/ctl_chef_init.html"
-          },
-          {
-            "title": "chef-server-ctl",
-            "url": "/ctl_chef_server.html"
-          },
-          {
-            "title": "chef-shell",
-            "url": "/ctl_chef_shell.html"
-          },
-          {
-            "title": "chef-sync-ctl",
-            "url": "/ctl_chef_sync.html"
-          },
-          {
-            "title": "Delivery CLI",
-            "url": "/ctl_delivery.html"
-          },
-          {
-            "title": "delivery-ctl",
-            "url": "/ctl_delivery_server.html"
-          },
-          {
-            "title": "inspec",
-            "url": "/ctl_inspec.html"
-          },
-          {
-            "title": "kitchen",
-            "url": "/ctl_kitchen.html"
-          },
-          {
-            "title": "ohai",
-            "url": "/ctl_ohai.html"
-          },
-          {
-            "title": "opscode-analytics-ctl",
-            "url": "/ctl_analytics.html"
-          },
-          {
-            "title": "opscode-expander-ctl",
-            "url": "/ctl_opscode_expander.html"
-          },
-          {
-            "title": "opscode-manage-ctl",
-            "url": "/ctl_manage.html"
-          },
-          {
-            "title": "opscode-reporting-ctl",
-            "url": "/ctl_reporting.html"
-          },
-          {
-            "title": "push-jobs-client",
-            "url": "/ctl_push_jobs_client.html"
-          },
-          {
-            "title": "supermarket-ctl",
-            "url": "/ctl_supermarket.html"
-          },
-        ]
-      },
-      {
-        "title": "Config Files",
-        "hasSubItems": true,
-        "subItems": [
-          {
-            "title": "chef-compliance.rb",
-            "url": "/config_rb_compliance.html"
-          },
-          {
-            "title": "chef-server.rb",
-            "url": "/config_rb_server.html"
-          },
-          {
-            "title": "chef-sync.rb",
-            "url": "/config_rb_chef_sync.html"
-          },
-          {
-            "title": "client.rb",
-            "url": "/config_rb_client.html"
-          },
-          {
-            "title": "config.rb",
-            "url": "/config_rb.html"
-          },
-          {
-            "title": "knife.rb",
-            "url": "/config_rb_knife.html"
           },
           {
-            "title": "manage.rb",
-            "url": "/config_rb_manage.html"
+            "title": "Cookbook Repo",
+            "hasSubItems": false,
+            "url": "/cookbook_repo.html"
           },
           {
             "title": "metadata.rb",
+            "hasSubItems": false,
             "url": "/config_rb_metadata.html"
           },
           {
-            "title": "opscode-analytics.rb",
-            "url": "/config_rb_analytics.html"
+            "title": "Cookbook Versions",
+            "hasSubItems": false,
+            "url": "/cookbook_versions.html"
           },
           {
-            "title": "Policyfile.rb",
-            "url": "/config_rb_policyfile.html"
-          },
-          {
-            "title": "push-jobs-server.rb",
-            "url": "/config_rb_push_jobs_server.html"
-          },
-          {
-            "title": "reporting.rb",
-            "url": "/config_rb_reporting.html"
-          },
-          {
-            "title": "supermarket.rb",
-            "url": "/config_rb_supermarket.html"
-          },
+            "title": "Ruby",
+            "hasSubItems": false,
+            "url": "/ruby.html"
+          }
         ]
       },
       {
-        "title": "Recipe DSL Methods",
+        "title": "Chef DK",
         "hasSubItems": true,
         "subItems": [
           {
-            "title": "attribute?",
-            "url": "/dsl_recipe.html#attribute"
+            "title": "About the ChefDK",
+            "hasSubItems": false,
+            "url": "/about_chefdk.html"
           },
           {
-            "title": "control",
-            "url": "/dsl_recipe.html#control"
+            "title": "Berkshelf",
+            "hasSubItems": false,
+            "url": "/berkshelf.html"
           },
           {
-            "title": "control_group",
-            "url": "/dsl_recipe.html#control-group"
+            "title": "chef-apply (executable)",
+            "hasSubItems": false,
+            "url": "/ctl_chef_apply.html"
           },
           {
-            "title": "cookbook_name",
-            "url": "/dsl_recipe.html#cookbook-name"
+            "title": "chef-shell (executable)",
+            "hasSubItems": false,
+            "url": "/chef_shell.html"
           },
           {
-            "title": "data_bag",
-            "url": "/dsl_recipe.html#data-bag"
+            "title": "chef (executable)",
+            "hasSubItems": true,
+            "subItems": [
+              {
+                "title": "chef env",
+                "hasSubItems": false,
+                "url": "/ctl_chef.html#chef-env"
+              },
+              {
+                "title": "chef exec",
+                "hasSubItems": false,
+                "url": "/ctl_chef.html#chef-exec"
+              },
+              {
+                "title": "chef gem",
+                "hasSubItems": false,
+                "url": "/ctl_chef.html#chef-gem"
+              },
+              {
+                "title": "chef generate app",
+                "hasSubItems": false,
+                "url": "/ctl_chef.html#chef-generate-app"
+              },
+              {
+                "title": "chef generate attribute",
+                "hasSubItems": false,
+                "url": "/ctl_chef.html#chef-generate-attribute"
+              },
+              {
+                "title": "chef generate cookbook",
+                "hasSubItems": false,
+                "url": "/ctl_chef.html#chef-generate-cookbook"
+              },
+              {
+                "title": "chef generate build-cookbook",
+                "hasSubItems": false,
+                "url": "/ctl_chef.html#chef-generate-build-cookbook"
+              },
+              {
+                "title": "chef generate file",
+                "hasSubItems": false,
+                "url": "/ctl_chef.html#chef-generate-file"
+              },
+              {
+                "title": "chef generate lwrp",
+                "hasSubItems": false,
+                "url": "/ctl_chef.html#chef-generate-lwrp"
+              },
+              {
+                "title": "chef generate recipe",
+                "hasSubItems": false,
+                "url": "/ctl_chef.html#chef-generate-recipe"
+              },
+              {
+                "title": "chef generate repo",
+                "hasSubItems": false,
+                "url": "/ctl_chef.html#chef-generate-repo"
+              },
+              {
+                "title": "chef generate template",
+                "hasSubItems": false,
+                "url": "/ctl_chef.html#chef-generate-template"
+              },
+              {
+                "title": "chef provision",
+                "hasSubItems": false,
+                "url": "/ctl_chef.html#chef-provision"
+              },
+              {
+                "title": "chef shell-init",
+                "hasSubItems": false,
+                "url": "/ctl_chef.html#chef-shell-init"
+              },
+              {
+                "title": "chef verify",
+                "hasSubItems": false,
+                "url": "/ctl_chef.html#chef-verify"
+              }
+            ]
           },
           {
-            "title": "data_bag_item",
-            "url": "/dsl_recipe.html#data-bag-item"
+            "title": "Chef Solo",
+            "hasSubItems": true,
+            "subItems": [
+              {
+                "title": "About Chef Solo",
+                "hasSubItems": false,
+                "url": "/chef_solo.html"
+              },
+              {
+                "title": "chef-solo (executable)",
+                "hasSubItems": false,
+                "url": "/ctl_chef_solo.html"
+              },
+              {
+                "title": "solo.rb",
+                "hasSubItems": false,
+                "url": "/config_rb_solo.html"
+              }
+            ]
           },
           {
-            "title": "platform?",
-            "url": "/dsl_recipe.html#platform"
+            "title": "chef-shell (executable)",
+            "hasSubItems": false,
+            "url": "/ctl_chef_shell.html"
           },
           {
-            "title": "platform_family?",
-            "url": "/dsl_recipe.html#platform-family"
+            "title": "chef-vault",
+            "hasSubItems": false,
+            "url": "/chef_vault.html"
           },
           {
-            "title": "reboot_pending?",
-            "url": "/dsl_recipe.html#reboot-pending"
+            "title": "ChefSpec",
+            "hasSubItems": false,
+            "url": "/chefspec.html"
           },
           {
-            "title": "recipe_name",
-            "url": "/dsl_recipe.html#recipe-name"
+            "title": "Configuration",
+            "hasSubItems": true,
+            "subItems": [
+              {
+                "title": "config.rb",
+                "hasSubItems": false,
+                "url": "/config_rb.html"
+              },
+              {
+                "title": "Multiple Config Files",
+                "hasSubItems": false,
+                "url": "/config_rb_client.html#d-directories"
+              }
+            ]
           },
           {
-            "title": "registry_data_exists?",
-            "url": "/dsl_recipe.html#registry-data-exists"
+            "title": "cookstyle",
+            "hasSubItems": false,
+            "url": "/cookstyle.html"
           },
           {
-            "title": "registry_get_subkeys",
-            "url": "/dsl_recipe.html#registry-get-subkeys"
+            "title": "Delivery CLI",
+            "hasSubItems": false,
+            "url": "/delivery_cli.html"
           },
           {
-            "title": "registry_get_values",
-            "url": "/dsl_recipe.html#registry-get-values"
+            "title": "Foodcritic",
+            "hasSubItems": false,
+            "url": "/foodcritic.html"
           },
           {
-            "title": "registry_has_subkeys?",
-            "url": "/dsl_recipe.html#registry-has-subkeys"
+            "title": "Test Kitchen",
+            "hasSubItems": true,
+            "subItems": [
+              {
+                "title": "About Test Kitchen",
+                "hasSubItems": false,
+                "url": "/kitchen.html"
+              },
+              {
+                "title": "kitchen (executable)",
+                "hasSubItems": true,
+                "url": "/ctl_kitchen.html"
+              },
+              {
+                "title": ".kitchen.yml",
+                "hasSubItems": false,
+                "url": "/config_yml_kitchen.html"
+              },
+              {
+                "title": "kitchen-vagrant",
+                "hasSubItems": false,
+                "url": "/plugin_kitchen_vagrant.html"
+              }
+            ]
           },
           {
-            "title": "registry_key_exists?",
-            "url": "/dsl_recipe.html#registry-key-exists"
+            "title": "Knife",
+            "hasSubItems": true,
+            "subItems": [
+              {
+                "title": "About Knife",
+                "hasSubItems": false,
+                "url": "/knife.html"
+              },
+              {
+                "title": "Common Options",
+                "hasSubItems": false,
+                "url": "/knife_common_options.html"
+              },
+              {
+                "title": "Using Knife",
+                "hasSubItems": false,
+                "url": "/knife_using.html"
+              },
+              {
+                "title": "knife.rb",
+                "hasSubItems": false,
+                "url": "/config_rb_knife.html"
+              },
+              {
+                "title": "knife bootstrap",
+                "hasSubItems": false,
+                "url": "/knife_bootstrap.html"
+              },
+              {
+                "title": "knife client",
+                "hasSubItems": false,
+                "url": "/knife_client.html"
+              },
+              {
+                "title": "knife configure",
+                "hasSubItems": false,
+                "url": "/knife_configure.html"
+              },
+              {
+                "title": "knife cookbook",
+                "hasSubItems": false,
+                "url": "/knife_cookbook.html"
+              },
+              {
+                "title": "knife cookbook site",
+                "hasSubItems": false,
+                "url": "/knife_cookbook_site.html"
+              },
+              {
+                "title": "knife data bag",
+                "hasSubItems": false,
+                "url": "/knife_data_bag.html"
+              },
+              {
+                "title": "knife delete",
+                "hasSubItems": false,
+                "url": "/knife_delete.html"
+              },
+              {
+                "title": "knife deps",
+                "hasSubItems": false,
+                "url": "/knife_deps.html"
+              },
+              {
+                "title": "knife diff",
+                "hasSubItems": false,
+                "url": "/knife_diff.html"
+              },
+              {
+                "title": "knife download",
+                "hasSubItems": false,
+                "url": "/knife_download.html"
+              },
+              {
+                "title": "knife edit",
+                "hasSubItems": false,
+                "url": "/knife_edit.html"
+              },
+              {
+                "title": "knife environment",
+                "hasSubItems": false,
+                "url": "/knife_environment.html"
+              },
+              {
+                "title": "knife exec",
+                "hasSubItems": false,
+                "url": "/knife_exec.html"
+              },
+              {
+                "title": "knife list",
+                "hasSubItems": false,
+                "url": "/knife_list.html"
+              },
+              {
+                "title": "knife node",
+                "hasSubItems": false,
+                "url": "/knife_node.html"
+              },
+              {
+                "title": "knife raw",
+                "hasSubItems": false,
+                "url": "/knife_raw.html"
+              },
+              {
+                "title": "knife recipe list",
+                "hasSubItems": false,
+                "url": "/knife_recipe_list.html"
+              },
+              {
+                "title": "knife role",
+                "hasSubItems": false,
+                "url": "/knife_role.html"
+              },
+              {
+                "title": "knife search",
+                "hasSubItems": false,
+                "url": "/knife_search.html"
+              },
+              {
+                "title": "knife serve",
+                "hasSubItems": false,
+                "url": "/knife_serve.html"
+              },
+              {
+                "title": "knife show",
+                "hasSubItems": false,
+                "url": "/knife_show.html"
+              },
+              {
+                "title": "knife ssh",
+                "hasSubItems": false,
+                "url": "/knife_ssh.html"
+              },
+              {
+                "title": "knife ssl_check",
+                "hasSubItems": false,
+                "url": "/knife_ssl_check.html"
+              },
+              {
+                "title": "knife ssl_fetch",
+                "hasSubItems": false,
+                "url": "/knife_ssl_fetch.html"
+              },
+              {
+                "title": "knife status",
+                "hasSubItems": false,
+                "url": "/knife_status.html"
+              },
+              {
+                "title": "knife tag",
+                "hasSubItems": false,
+                "url": "/knife_tag.html"
+              },
+              {
+                "title": "knife upload",
+                "hasSubItems": false,
+                "url": "/knife_upload.html"
+              },
+              {
+                "title": "knife user",
+                "hasSubItems": false,
+                "url": "/knife_user.html"
+              },
+              {
+                "title": "knife xargs",
+                "hasSubItems": false,
+                "url": "/knife_xargs.html"
+              }
+            ]
           },
           {
-            "title": "registry_value_exists?",
-            "url": "/dsl_recipe.html#registry-value-exists"
+            "title": "knife opc",
+            "hasSubItems": true,
+            "subItems": [
+              {
+                "title": "About knife opc",
+                "hasSubItems": false,
+                "url": "/plugin_knife_opc.html"
+              },
+              {
+                "title": "knife.rb Configuration",
+                "hasSubItems": false,
+                "url": "/plugin_knife_opc.html#knife-rb-configuration"
+              },
+              {
+                "title": "opc user list",
+                "hasSubItems": false,
+                "url": "/plugin_knife_opc.html#opc-user-list"
+              },
+              {
+                "title": "opc user show",
+                "hasSubItems": false,
+                "url": "/plugin_knife_opc.html#opc-user-show"
+              },
+              {
+                "title": "opc user create",
+                "hasSubItems": false,
+                "url": "/plugin_knife_opc.html#opc-user-create"
+              },
+              {
+                "title": "opc user delete",
+                "hasSubItems": false,
+                "url": "/plugin_knife_opc.html#opc-user-delete"
+              },
+              {
+                "title": "opc user edit",
+                "hasSubItems": false,
+                "url": "/plugin_knife_opc.html#opc-user-edit"
+              },
+              {
+                "title": "opc user password",
+                "hasSubItems": false,
+                "url": "/plugin_knife_opc.html#opc-user-password"
+              },
+              {
+                "title": "opc org list",
+                "hasSubItems": false,
+                "url": "/plugin_knife_opc.html#opc-org-list"
+              },
+              {
+                "title": "opc org show",
+                "hasSubItems": false,
+                "url": "/plugin_knife_opc.html#opc-org-show"
+              },
+              {
+                "title": "opc org create",
+                "hasSubItems": false,
+                "url": "/plugin_knife_opc.html#opc-org-create"
+              },
+              {
+                "title": "opc org delete",
+                "hasSubItems": false,
+                "url": "/plugin_knife_opc.html#opc-org-delete"
+              },
+              {
+                "title": "opc org user add",
+                "hasSubItems": false,
+                "url": "/plugin_knife_opc.html#opc-org-user-add"
+              },
+              {
+                "title": "opc org user remove",
+                "hasSubItems": false,
+                "url": "/plugin_knife_opc.html#opc-org-user-remove"
+              }
+            ]
           },
           {
-            "title": "resources",
-            "url": "/dsl_recipe.html#resources"
+            "title": "knife spork",
+            "hasSubItems": false,
+            "url": "/plugin_knife_spork.html"
           },
           {
-            "title": "search",
-            "url": "/dsl_recipe.html#search"
+            "title": "knife supermarket",
+            "hasSubItems": true,
+            "subItems": [
+              {
+                "title": "About knife supermarket",
+                "hasSubItems": false,
+                "url": "/plugin_knife_supermarket.html"
+              },
+              {
+                "title": "supermarket download",
+                "hasSubItems": false,
+                "url": "/plugin_knife_supermarket.html#download"
+              },
+              {
+                "title": "supermarket install",
+                "hasSubItems": false,
+                "url": "/plugin_knife_supermarket.html#install"
+              },
+              {
+                "title": "supermarket list",
+                "hasSubItems": false,
+                "url": "/plugin_knife_supermarket.html#list"
+              },
+              {
+                "title": "supermarket search",
+                "hasSubItems": false,
+                "url": "/plugin_knife_supermarket.html#search"
+              },
+              {
+                "title": "supermarket share",
+                "hasSubItems": false,
+                "url": "/plugin_knife_supermarket.html#share"
+              },
+              {
+                "title": "supermarket show",
+                "hasSubItems": false,
+                "url": "/plugin_knife_supermarket.html#show"
+              },
+              {
+                "title": "supermarket unshare",
+                "hasSubItems": false,
+                "url": "/plugin_knife_supermarket.html#unshare"
+              }
+            ]
           },
           {
-            "title": "shell_out",
-            "url": "/dsl_recipe.html#shell-out"
+            "title": "Ohai",
+            "hasSubItems": true,
+            "subItems": [
+              {
+                "title": "About Ohai",
+                "hasSubItems": false,
+                "url": "/ohai.html"
+              },
+              {
+                "title": "ohai (executable)",
+                "hasSubItems": false,
+                "url": "/ctl_ohai.html"
+              }
+            ]
           },
           {
-            "title": "shell_out!",
-            "url": "/dsl_recipe.html#id6"
+            "title": "Policyfile",
+            "hasSubItems": true,
+            "subItems": [
+              {
+                "title": "About Policyfile",
+                "hasSubItems": false,
+                "url": "/policyfile.html"
+              },
+              {
+                "title": "Policyfile.rb",
+                "hasSubItems": false,
+                "url": "/config_rb_policyfile.html"
+              }
+            ]
           },
           {
-            "title": "shell_out_with_systems_locale",
-            "url": "/dsl_recipe.html#shell-out-with-systems-locale"
+            "title": "Provisioning",
+            "hasSubItems": true,
+            "subItems": [
+              {
+                "title": "About Provisioning",
+                "hasSubItems": false,
+                "url": "/provisioning.html"
+              },
+              {
+                "title": "load_balancer resource",
+                "hasSubItems": false,
+                "url": "/resource_load_balancer.html"
+              },
+              {
+                "title": "machine resource",
+                "hasSubItems": false,
+                "url": "/resource_machine.html"
+              },
+              {
+                "title": "machine_batch resource",
+                "hasSubItems": false,
+                "url": "/resource_machine_batch.html"
+              },
+              {
+                "title": "machine_execute resource",
+                "hasSubItems": false,
+                "url": "/resource_machine_execute.html"
+              },
+              {
+                "title": "machine_file resource",
+                "hasSubItems": false,
+                "url": "/resource_machine_file.html"
+              },
+              {
+                "title": "machine_image resource",
+                "hasSubItems": false,
+                "url": "/resource_machine_image.html"
+              },
+              {
+                "title": "AWS Driver Resources",
+                "hasSubItems": false,
+                "url": "/provisioning_aws.html"
+              },
+              {
+                "title": "Fog Driver Resources",
+                "hasSubItems": false,
+                "url": "/provisioning_fog.html"
+              },
+              {
+                "title": "Vagrant Driver Resources",
+                "hasSubItems": false,
+                "url": "/provisioning_vagrant.html"
+              }
+            ]
           },
           {
-            "title": "tag",
-            "url": "/dsl_recipe.html#tag-tagged-untag"
-          },
-          {
-            "title": "tagged?",
-            "url": "/dsl_recipe.html#tag-tagged-untag"
-          },
-          {
-            "title": "untag",
-            "url": "/dsl_recipe.html#tag-tagged-untag"
-          },
-          {
-            "title": "value_for_platform",
-            "url": "/dsl_recipe.html#value-for-platform"
-          },
-          {
-            "title": "value_for_platform_family",
-            "url": "/dsl_recipe.html#value-for-platform-family"
-          },
-          {
-            "title": "Windows Platform Helpers",
-            "url": "/dsl_recipe.html#helpers"
-          },
+            "title": "push-jobs-client (executable)",
+            "hasSubItems": false,
+            "url": "/ctl_push_jobs_client.html"
+          }
         ]
       },
       {
-        "title": "Other DSLs",
+        "title": "Managing the Server",
         "hasSubItems": true,
         "subItems": [
           {
-            "title": "Custom Resource DSL",
-            "url": "/dsl_custom_resource.html"
+            "title": "Runbook (Single Page)",
+            "hasSubItems": false,
+            "url": "/runbook.html"
           },
           {
-            "title": "Handler DSL",
-            "url": "/dsl_handler.html"
+            "title": "Backup &amp; Restore",
+            "hasSubItems": false,
+            "url": "/server_backup_restore.html"
           },
           {
-            "title": "Compliance DSL",
-            "url": "/dsl_compliance.html"
+            "title": "Data Storage",
+            "hasSubItems": false,
+            "url": "/server_data.html"
           },
           {
-            "title": "Delivery DSL",
-            "url": "/dsl_delivery.html"
+            "title": "Firewalls &amp; Ports",
+            "hasSubItems": false,
+            "url": "/server_firewalls_and_ports.html"
           },
-        ]
-      },
-      {
-        "title": "APIs",
-        "hasSubItems": true,
-        "subItems": [
           {
-            "title": "Analytics API",
-            "url": "/api_analytics.html"
+            "title": "Active Directory &amp; LDAP",
+            "hasSubItems": false,
+            "url": "/server_ldap.html"
+          },
+          {
+            "title": "Log Files",
+            "hasSubItems": false,
+            "url": "/server_logs.html"
+          },
+          {
+            "title": "Monitor",
+            "hasSubItems": false,
+            "url": "/server_monitor.html"
+          },
+          {
+            "title": "Organizations &amp; Groups",
+            "hasSubItems": false,
+            "url": "/server_orgs.html"
+          },
+          {
+            "title": "Security",
+            "hasSubItems": false,
+            "url": "/server_security.html"
+          },
+          {
+            "title": "Services",
+            "hasSubItems": false,
+            "url": "/server_services.html"
+          },
+          {
+            "title": "Tuning",
+            "hasSubItems": false,
+            "url": "/server_tuning.html"
+          },
+          {
+            "title": "Upgrades",
+            "hasSubItems": false,
+            "url": "/upgrade_server.html"
+          },
+          {
+            "title": "Upgrade HA Cluster",
+            "hasSubItems": false,
+            "url": "/upgrade_server_ha_v2.html"
+          },
+          {
+            "title": "Users",
+            "hasSubItems": false,
+            "url": "/server_users.html"
+          },
+          {
+            "title": "chef-server-ctl",
+            "hasSubItems": false,
+            "url": "/ctl_chef_server.html"
+          },
+          {
+            "title": "chef-backend-ctl",
+            "hasSubItems": false,
+            "url": "/ctl_chef_backend.html"
+          },
+          {
+            "title": "chef-server.rb",
+            "hasSubItems": false,
+            "url": "/config_rb_server.html"
+          },
+          {
+            "title": "opscode-expander-ctl",
+            "hasSubItems": false,
+            "url": "/ctl_opscode_expander.html"
           },
           {
             "title": "Chef Server API",
+            "hasSubItems": false,
             "url": "/api_chef_server.html"
           },
           {
-            "title": "Compliance API",
-            "url": "/api_compliance.html"
+            "title": "Push Jobs",
+            "hasSubItems": true,
+            "subItems": [
+              {
+                "title": "knife push jobs",
+                "hasSubItems": false,
+                "url": "/plugin_knife_push_jobs.html"
+              },
+              {
+                "title": "push-jobs-client",
+                "hasSubItems": false,
+                "url": "/ctl_push_jobs_client.html"
+              },
+              {
+                "title": "push-jobs-client.rb",
+                "hasSubItems": false,
+                "url": "/config_rb_push_jobs_client.html"
+              },
+              {
+                "title": "push-jobs-server.rb",
+                "hasSubItems": false,
+                "url": "/config_rb_push_jobs_server.html"
+              },
+              {
+                "title": "Push Jobs API",
+                "hasSubItems": false,
+                "url": "/api_push_jobs.html"
+              },
+              {
+                "title": "Server Sent Events",
+                "hasSubItems": false,
+                "url": "/server_sent_events.html"
+              }
+            ]
           },
           {
-            "title": "Cookbooks Site API",
-            "url": "/api_cookbooks_site.html"
+            "title": "Supermarket",
+            "hasSubItems": true,
+            "subItems": [
+               {
+                 "title": "Backup and Restore",
+                 "hasSubItems": false,
+                 "url": "/supermarket_backup_restore.html"
+               },
+              {
+                "title": "Log Files",
+                "hasSubItems": false,
+                "url": "/supermarket_logs.html"
+              },
+              {
+                "title": "Monitoring",
+                "hasSubItems": false,
+                "url": "/supermarket_monitor.html"
+              },
+              {
+                "title": "supermarket.rb",
+                "hasSubItems": false,
+                "url": "/config_rb_supermarket.html"
+              },
+              {
+                "title": "knife supermarket",
+                "hasSubItems": false,
+                "url": "/plugin_knife_supermarket.html"
+              },
+              {
+                "title": "supermarket-ctl",
+                "hasSubItems": false,
+                "url": "/ctl_supermarket.html"
+              },
+              {
+                "title": "Supermarket API",
+                "hasSubItems": false,
+                "url": "/supermarket_api.html"
+              }
+            ]
           },
           {
-            "title": "Delivery API",
-            "url": "/api_delivery.html"
-          },
-          {
-            "title": "Omnitruck API",
-            "url": "/api_omnitruck.html"
-          },
-          {
-            "title": "Push Jobs API",
-            "url": "/api_push_jobs.html"
-          },
-          {
-            "title": "Reporting API",
-            "url": "/api_reporting.html"
-          },
+            "title": "Management Console",
+            "hasSubItems": true,
+            "subItems": [
+              {
+                "title": "Configure SAML",
+                "hasSubItems": false,
+                "url": "/server_configure_saml.html"
+              },
+              {
+                "title": "Clients",
+                "hasSubItems": false,
+                "url": "/server_manage_clients.html"
+              },
+              {
+                "title": "Cookbooks",
+                "hasSubItems": false,
+                "url": "/server_manage_cookbooks.html"
+              },
+              {
+                "title": "Data Bags",
+                "hasSubItems": false,
+                "url": "/server_manage_data_bags.html"
+              },
+              {
+                "title": "Environments",
+                "hasSubItems": false,
+                "url": "/server_manage_environments.html"
+              },
+              {
+                "title": "Nodes",
+                "hasSubItems": false,
+                "url": "/server_manage_nodes.html"
+              },
+              {
+                "title": "Roles",
+                "hasSubItems": false,
+                "url": "/server_manage_roles.html"
+              },
+              {
+                "title": "Users",
+                "hasSubItems": false,
+                "url": "/server_users.html#chef-manage"
+              },
+              {
+                "title": "manage.rb",
+                "hasSubItems": false,
+                "url": "/config_rb_manage.html"
+              },
+              {
+                "title": "chef-manage-ctl",
+                "hasSubItems": false,
+                "url": "/ctl_manage.html"
+              }
+            ]
+          }
         ]
+      }
+    ]
+  },
+  {
+    "title": "Habitat",
+    "image": "habitat-mark.png",
+    "subItems": [
+      {
+        "title": "Habitat Overview",
+        "url": "/habitat.html"
       },
       {
-        "title": "Webui Tasks",
+        "title": "Tutorials",
         "hasSubItems": true,
         "subItems": [
           {
-            "title": "Chef Analytics",
+            "title": "Getting started",
+            "hasSubItems": false,
+            "url": "https://www.habitat.sh/tutorials/getting-started-overview"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "InSpec",
+    "image": "inspec_logo.png",
+    "subItems": [
+      {
+        "title": "InSpec Overview",
+        "hasSubItems": false,
+        "url": "/inspec.html"
+      }
+    ]
+  },
+  {
+    "title": "Chef Automate",
+    "iconClass": "fa-cogs",
+    "subItems": [
+      {
+        "title": "Getting Started",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "Chef Automate Overview",
+            "url": "/chef_automate.html"
+          },
+          {
+            "title": "Installation Guide",
+            "url": "/install_chef_automate.html"
+          }
+        ]
+      },
+      {
+        "title": "Release Notes",
+        "hasSubItems": false,
+        "url": "/release_notes_chef_automate.html"
+      },
+      {
+        "title": "Setup",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "Configure a Pipeline",
+            "hasSubItems": false,
+            "url": "/delivery_pipeline.html"
+          },
+          {
+            "title": "Configure a Project",
+            "hasSubItems": false,
+            "url": "/config_json_delivery.html"
+          },
+          {
+            "title": "Configure Data Collection",
+            "url": "/setup_visibility_chef_automate.html"
+          },
+          {
+            "title": "Enable FIPS",
+            "url": "/fips.html"
+          }
+        ]
+      },
+      {
+        "title": "Concepts",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "Workflow Overview",
+            "hasSubItems": false,
+            "url": "/workflow.html"
+          },
+          {
+            "title": "Visibility Overview",
+            "hasSubItems": false,
+            "url": "/visibility.html"
+          },
+          {
+            "title": "Compliance Overview",
+            "hasSubItems": false,
+            "url": "/chef_automate_compliance.html"
+          }
+        ]
+      },
+      {
+        "title": "Integrations",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "w/Bitbucket",
+            "hasSubItems": false,
+            "url": "/integrate_delivery_bitbucket.html"
+          },
+          {
+            "title": "w/Email (SMTP)",
+            "hasSubItems": false,
+            "url": "/integrate_delivery_smtp.html"
+          },
+          {
+            "title": "w/GitHub",
+            "hasSubItems": false,
+            "url": "/integrate_delivery_github.html"
+          },
+          {
+            "title": "w/LDAP",
+            "hasSubItems": false,
+            "url": "/integrate_delivery_ldap.html"
+          },
+          {
+            "title": "w/SAML",
+            "hasSubItems": false,
+            "url": "/integrate_chef_automate_saml.html"
+          },
+          {
+            "title": "w/Slack",
+            "hasSubItems": false,
+            "url": "/integrate_delivery_slack.html"
+          }
+        ]
+      },
+      {
+        "title": "Compliance",
+        "hasSubItems": true,
+        "subItems": [
+         {
+           "title": "Perform Compliance Scan",
+           "hasSubItems": false,
+           "url": "/perform_compliance_scan.html"
+         },
+         {
+           "title": "Filter Compliance Scans",
+           "hasSubItems": false,
+           "url": "/filter_compliance_scan.html"
+         }
+        ]
+      },
+      {
+        "title": "Workflow",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "build-cookbook (cookbook)",
+            "hasSubItems": false,
+            "url": "/delivery_build_cookbook.html"
+          },
+          {
+            "title": "Delivery CLI",
+            "hasSubItems": false,
+            "url": "/delivery_cli.html"
+          },
+          {
+            "title": "delivery-truck (cookbook)",
+            "hasSubItems": false,
+            "url": "/delivery_truck.html"
+          },
+          {
+            "title": "Manage Dependencies",
+            "hasSubItems": false,
+            "url": "/delivery_manage_dependencies.html"
+          },
+          {
+            "title": "Manage Secrets",
+            "hasSubItems": false,
+            "url": "/delivery_manage_secrets.html"
+          },
+          {
+            "title": "Publish to Multiple Chef Servers",
+            "hasSubItems": false,
+            "url": "/publish_cookbooks_multiple_servers.html"
+          },
+          {
+            "title": "Job Dispatch",
+            "hasSubItems": false,
+            "url": "/job_dispatch.html"
+          }
+        ]
+      },
+      {
+        "title": "Managing the Server",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "Backups",
+            "hasSubItems": true,
+            "subItems": [
+              {
+                "title": "Configuration",
+                "hasSubItems": false,
+                "url": "/delivery_server_backup.html#configuration"
+              },
+              {
+                "title": "Create Backups",
+                "hasSubItems": false,
+                "url": "/delivery_server_backup.html#create-backups"
+              },
+              {
+                "title": "List Backups",
+                "hasSubItems": false,
+                "url": "/delivery_server_backup.html#list-backups"
+              },
+              {
+                "title": "Delete Backups",
+                "hasSubItems": false,
+                "url": "/delivery_server_backup.html#delete-backups"
+              },
+              {
+                "title": "Restore Backups",
+                "hasSubItems": false,
+                "url": "/delivery_server_backup.html#restore-backups"
+              }
+            ]
+          },
+          {
+            "title": "Capacity Planning",
+            "hasSubItems": false,
+            "url": "/scaling_capacity_planning_chef_automate.html"
+          },
+          {
+            "title": "Disaster Recovery",
+            "hasSubItems": false,
+            "url": "/delivery_server_disaster_recovery.html"
+          },
+          {
+            "title": "Elasticsearch &amp; Kibana Auth",
+            "hasSubItems": false,
+            "url": "/elasticsearch_and_kibana_auth.html"
+          },
+          {
+            "title": "Data Retention",
+            "hasSubItems": false,
+            "url": "/data_retention_chef_automate.html"
+          },
+          {
+            "title": "Stream Data",
+            "hasSubItems": false,
+            "url": "/stream_data_chef_automate.html"
+          },
+          {
+            "title": "Tuning",
+            "hasSubItems": false,
+            "url": "/delivery_server_tuning.html"
+          },
+          {
+            "title": "Upgrades",
+            "hasSubItems": false,
+            "url": "/upgrade_chef_automate.html"
+          },
+          {
+            "title": "Users &amp; Roles",
+            "hasSubItems": false,
+            "url": "/delivery_users_and_roles.html"
+          }
+        ]
+      },
+      {
+        "title": "Reference",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "Chef Automate API",
+            "hasSubItems": false,
+            "url": "/api_automate.html"
+          },
+          {
+            "title": "automate-ctl",
+            "hasSubItems": true,
+            "subItems": [
+              {
+                "title": "cleanse",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#cleanse"
+              },
+              {
+                "title": "create-enterprise",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#create-enterprise"
+              },
+              {
+                "title": "create-user",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#create-user"
+              },
+              {
+                "title": "delete-enterprise",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#delete-enterprise"
+              },
+              {
+                "title": "delete-project",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#delete-project"
+              },
+              {
+                "title": "delete-user",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#delete-user"
+              },
+              {
+                "title": "delete-visibility-node",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#delete-visibility-node"
+              },
+              {
+                "title": "delete-visibility-node-by-id",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#delete-visibility-node-by-id"
+              },
+              {
+                "title": "gather-logs",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#gather-logs"
+              },
+              {
+                "title": "generate-password-reset-token",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#generate-password-reset-token"
+              },
+              {
+                "title": "help",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#help"
+              },
+              {
+                "title": "install-runner",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#install-runner"
+              },
+              {
+                "title": "list-enterprises",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#list-enterprises"
+              },
+              {
+                "title": "list-users",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#list-users"
+              },
+              {
+                "title": "migrate-change-description",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#migrate-change-description"
+              },
+              {
+                "title": "migrate-patchset-diffs",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#migrate-patchset-diffs"
+              },
+              {
+                "title": "node-summary",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#node-summary"
+              },
+              {
+                "title": "preflight-check",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#preflight-check"
+              },
+              {
+                "title": "reconfigure",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#reconfigure"
+              },
+              {
+                "title": "rename-enterprise",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#rename-enterprise"
+              },
+              {
+                "title": "reset-password",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#reset-password"
+              },
+              {
+                "title": "restore-backup",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#restore-backup"
+              },
+              {
+                "title": "revoke-token",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#revoke-token"
+              },
+              {
+                "title": "show-config",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#show-config"
+              },
+              {
+                "title": "uninstall",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#uninstall"
+              },
+              {
+                "title": "update-project-hooks",
+                "hasSubItems": false,
+                "url": "/ctl_automate_server.html#update-project-hooks"
+              }
+            ]
+          },
+          {
+            "title": "delivery.rb",
+            "hasSubItems": false,
+            "url": "/config_rb_delivery.html"
+          },
+          {
+            "title": "Node Search Reference",
+            "hasSubItems": false,
+            "url": "/search_query_chef_automate.html"
+          },
+          {
+            "title": "Workflow DSL",
+            "hasSubItems": false,
+            "url": "/dsl_delivery.html"
+          }
+        ]
+      },
+       {
+        "title": "Compliance scanner",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "Overview",
+            "hasSubItems": false,
+            "url": "/chef_compliance.html"
+          },
+          {
+            "title": "Release Notes",
+            "hasSubItems": false,
+            "url": "/release_notes_compliance.html"
+          },
+          {
+            "title": "Installation Guide",
+            "hasSubItems": false,
+            "url": "/install_chef_compliance.html"
+          },
+          {
+            "title": "Integrate w/Chef Server",
+            "hasSubItems": false,
+            "url": "/integrate_compliance_chef_server.html"
+          },
+          {
+            "title": "Integrate w/Chef Automate",
+            "hasSubItems": false,
+            "url": "/integrate_compliance_server_chef_automate.html"
+          },
+          {
+            "title": "Upgrade Compliance",
+            "hasSubItems": false,
+            "url": "/upgrade_compliance.html"
+          },
+          {
+            "title": "chef-compliance.rb",
+            "hasSubItems": false,
+            "url": "/config_rb_compliance.html"
+          },
+          {
+            "title": "Chef Compliance API",
+            "hasSubItems": false,
+            "url": "/api_compliance.html"
+          }
+        ]
+      },
+      {
+        "title": "AWS OpsWorks for Chef Automate",
+        "hasSubItems": false,
+        "url": "/aws_opsworks_chef_automate.html"
+      },
+      {
+        "title": "Troubleshooting",
+        "hasSubItems": false,
+        "url": "/troubleshooting_chef_automate.html"
+      }
+    ]
+  },
+  {
+    "title": "Legacy",
+    "iconClass": "fa-hdd-o",
+    "subItems": [
+      {
+        "title": "Analytics",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "Overview",
+            "hasSubItems": false,
+            "url": "/analytics.html"
+          },
+          {
+            "title": "Release Notes",
+            "hasSubItems": false,
+            "url": "/release_notes_analytics.html"
+          },
+          {
+            "title": "Install Standalone",
+            "hasSubItems": false,
+            "url": "/install_analytics.html"
+          },
+          {
+            "title": "Web UI",
+            "hasSubItems": false,
+            "url": "/actions.html"
+          },
+          {
+            "title": "Management Console",
+            "hasSubItems": false,
             "url": "/analytics_webui_tasks.html"
           },
           {
-            "title": "Chef Manage",
-            "url": "/server_webui_tasks.html"
+            "title": "Nodes View",
+            "hasSubItems": false,
+            "url": "/analytics_nodes_view.html"
           },
           {
-            "title": "Chef Reporting",
-            "url": "/server_webui_tasks.html#reporting-title-tasks"
+            "title": "Integrations",
+            "hasSubItems": false,
+            "url": "/analytics.html#integrations"
           },
+          {
+            "title": "Splunk",
+            "hasSubItems": false,
+            "url": "/analytics_splunk.html"
+          },
+          {
+            "title": "Rules",
+            "hasSubItems": false,
+            "url": "/analytics_rules.html"
+          },
+          {
+            "title": "Monitor",
+            "hasSubItems": false,
+            "url": "/analytics_monitor.html"
+          },
+          {
+            "title": "Upgrades",
+            "hasSubItems": false,
+            "url": "/upgrade_analytics.html"
+          },
+          {
+            "title": "Chef Client for Analytics",
+            "hasSubItems": false,
+            "url": "/chef_client_analytics.html"
+          },
+          {
+            "title": "opscode-analytics-ctl",
+            "hasSubItems": false,
+            "url": "/ctl_analytics.html"
+          },
+          {
+            "title": "opscode-analytics.rb",
+            "hasSubItems": false,
+            "url": "/config_rb_analytics.html"
+          },
+          {
+            "title": "knife-analytics",
+            "hasSubItems": false,
+            "url": "/plugin_knife_analytics.html"
+          },
+          {
+            "title": "Analytics API",
+            "hasSubItems": false,
+            "url": "/api_analytics.html"
+          },
+          {
+            "title": "Recipe DSL for Analytics",
+            "hasSubItems": false,
+            "url": "/dsl_recipe_analytics.html"
+          }
         ]
       },
       {
-        "title": "Chef Solo",
+        "title": "Reporting",
         "hasSubItems": true,
         "subItems": [
           {
-            "title": "About Chef Solo",
-            "url": "/chef_solo.html"
+            "title": "Overview",
+            "hasSubItems": false,
+            "url": "/reporting.html"
           },
           {
-            "title": "chef-solo",
-            "url": "/ctl_chef_solo.html"
+            "title": "Install Reporting",
+            "hasSubItems": false,
+            "url": "/install_reporting.html"
           },
           {
-            "title": "solo.rb",
-            "url": "/config_rb_solo.html"
+            "title": "View Reports",
+            "hasSubItems": false,
+            "url": "/server_manage_reports.html"
           },
+          {
+            "title": "knife reporting",
+            "hasSubItems": false,
+            "url": "/plugin_knife_reporting.html"
+          },
+          {
+            "title": "opscode-reporting-ctl",
+            "hasSubItems": false,
+            "url": "/ctl_reporting.html"
+          },
+          {
+            "title": "opscode-reporting.rb",
+            "hasSubItems": false,
+            "url": "/config_rb_reporting.html"
+          },
+          {
+            "title": "Reporting API",
+            "hasSubItems": false,
+            "url": "/api_reporting.html"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Extension APIs",
+    "iconClass": "fa-clone",
+    "subItems": [
+      {
+        "title": "Compliance DSL",
+        "hasSubItems": false,
+        "url": "http://inspec.io/docs/reference/dsl_inspec/"
+      },
+      {
+        "title": "Handlers",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "Custom Handlers",
+            "hasSubItems": false,
+            "url": "/handlers.html#custom-handlers"
+          },
+          {
+            "title": "Handler DSL",
+            "hasSubItems": false,
+            "url": "/dsl_handler.html"
+          },
+          {
+            "title": "Community Handlers",
+            "hasSubItems": false,
+            "url": "/plugin_community.html#handlers"
+          }
         ]
       },
+      {
+        "title": "Knife Plugins",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "About Cloud Plugins",
+            "hasSubItems": false,
+            "url": "/plugin_knife.html"
+          },
+          {
+            "title": "Custom Plugins",
+            "hasSubItems": false,
+            "url": "/plugin_knife_custom.html"
+          },
+          {
+            "title": "Community Plugins",
+            "hasSubItems": false,
+            "url": "/plugin_community.html#knife"
+          }
+        ]
+      },
+      {
+        "title": "Ohai Plugins",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "Custom Plugins",
+            "hasSubItems": false,
+            "url": "/ohai_custom.html"
+          },
+          {
+            "title": "Community Plugins",
+            "hasSubItems": false,
+            "url": "/plugin_community.html#ohai"
+          }
+        ]
+      },
+      {
+        "title": "Chef Client Plugins",
+        "hasSubItems": false,
+        "url": "/plugin_community.html#chef-client"
+      }
     ]
   }
 ] -%}

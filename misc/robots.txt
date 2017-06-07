@@ -1,11 +1,12 @@
 User-agent: *
-Disallow: /release/analytics/
+Disallow: /release/automate/
 Disallow: /release/analytics_1-1/
 Disallow: /release/analytics_1-2/
 Disallow: /release/analytics_1-3/
 Disallow: /chef/
 Disallow: /chef/migrate_to_hosted.html
 Disallow: /client/
+Disallow: /release/compliance/
 Disallow: /release/compliance_1-0/
 Disallow: /release/delivery/
 Disallow: /release/delivery_1-0/
@@ -21,6 +22,7 @@ Disallow: /release/11-14/
 Disallow: /release/11-16/
 Disallow: /release/11-18/
 Disallow: /release/12-0/
+Disallow: /release/12-1/
 Disallow: /release/12-2/
 Disallow: /release/12-3/
 Disallow: /release/12-4/
@@ -32,6 +34,9 @@ Disallow: /release/12-9/
 Disallow: /release/12-10/
 Disallow: /release/12-11/
 Disallow: /release/12-12/
+Disallow: /release/12-13/
+Disallow: /release/push_jobs_1-0/
+Disallow: /release/push_jobs_2-1/
 Disallow: /enterprise/
 Disallow: /release/oec_11-0/
 Disallow: /release/oec_11-1/
@@ -50,6 +55,10 @@ Disallow: /release/server_12-2/
 Disallow: /release/server_12-3/
 Disallow: /release/server_12-4/
 Disallow: /release/server_12-5/
+Disallow: /release/server_12-6/
+Disallow: /release/server_12-7/
+Disallow: /release/server_12-8/
+Disallow: /release/supermarket/
 Disallow: /delivery/
 Disallow: /devkit/
 Disallow: /slides/
@@ -66,9 +75,12 @@ Disallow: /chef_overview_workstation.html
 Disallow: /config_rb_chef_server_enterprise_optional_settings.html
 Disallow: /config_rb_chef_server_enterprise.html
 Disallow: /config_rb_chef_server_optional_settings.html
-Disallow: /config_rb_chef_server.html
-Disallow: /config_rb_delivery_optional_settings.html
+Disallow: /config_rb_chef_sync.html
 Disallow: /ctl_chef_backend.html
+Disallow: /ctl_chef_backend.html
+Disallow: /ctl_chef_init.html
+Disallow: /ctl_chef_sync.html
+Disallow: /custom_resources_notes.html
 Disallow: /dsc_mof.html
 Disallow: /dsl_recipe_method_search.html
 Disallow: /error_messages.html
@@ -111,7 +123,6 @@ Disallow: /install_manager.html
 Disallow: /install_server_be.html
 Disallow: /install_server_fe.html
 Disallow: /install_server_febe.html
-Disallow: /install_server_ha.html
 Disallow: /install_server_hosted.html
 Disallow: /install_server_ldap.html
 Disallow: /install_server_oec.html
@@ -120,7 +131,6 @@ Disallow: /install_server_scenario_vm.html
 Disallow: /install_server_standalone.html
 Disallow: /install_server_users.html
 Disallow: /install_workstation.html
-Disallow: /integrate_delivery_bitbucket.html
 Disallow: /list_resources.html
 Disallow: /lwrp_common_inline_compile.html
 Disallow: /lwrp_apt.html
@@ -167,7 +177,6 @@ Disallow: /server_deploy_fe.html
 Disallow: /server_deploy_febe.html
 Disallow: /server_deploy_standalone.html
 Disallow: /server_types.html
-Disallow: /supported_platforms.html
 Disallow: /upgrade_server_ha_notes.html
 Disallow: /upgrade_server_ha.html
 Disallow: /upgrade_server_open_source.html

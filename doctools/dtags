@@ -1,0 +1,945 @@
+#!/usr/bin/env ruby
+
+#
+# dtags utility
+#
+# dtags helps you manage common blocks of content in documentation
+# source files. dtags operates on the .rst and .md.erb files found in
+# the current working directory and subdirectories of the current
+# working directory.
+#
+# Usage:
+#
+#    dtags check [<regexp> [<topic> [<topic2>]]]
+#       Checks for tagged regions with inconsistent contents.
+#       Writes to stderr.
+#
+#    dtags replicate <regexp> <topic> [<topic2>]
+#       Propagates tagged regions
+#
+#    dtags whereis <regexp> [<topic>]
+#       Prints references (file, line no) of tagged regions
+#
+#    dtags list [<regexp> [<topic>]]
+#       Lists tags
+#
+#    dtags print <regexp> [<topic>]
+#       Prints the contents of tagged regions
+#
+#    dtags diff <regexp> <topic> [<topic2>]
+#       Prints diffs of inconsistent tagged regions
+#
+#    dtags search <regexp> [<topic>]
+#       Returns tagged regions whose body match <regexp>
+#
+#    dtags rename OLDTAGNAME NEWTAGNAME [<topic>]
+#       Renames tags
+#
+#  where <regexp> is a regular expression (in Ruby engine format)
+#           or -- if no regular expression is specified
+#        <topic> is a file name or fileName:ddd (file name plus line number)
+#        <topic2> is a file name or fileName:ddd (file name plus line number)
+#
+#  <regexp> filters the scope of the operation to tags that match the regex.
+#  The value -- means "do not filter based on regexp."
+#
+#  <topic> filters the scope of the operation to tags that are found in
+#   the specified file, or the tag found at the specified line number
+#   (in addition to <regexp>).
+#
+#  <topic2>, if specified, determines the scope of files that are checked
+#   or modified. The general meaning is "the set of tags that match <regexp>
+#   and are found in <topic> that are also found in <topic2>.
+#
+#  If optional arguments are omitted, then the search applies to all
+#  .rst files in the current directory.
+#
+
+require 'digest/sha1'
+require 'pathname'
+require 'set'
+require 'English'
+
+
+#
+# Data structures
+#
+
+#
+# TaggedRegion - a file region delimited by tag and end_tag
+#
+TaggedRegion = Struct.new(:tag, :file, :line_no, :indent, :content)
+
+def new_tagged_region(tag, file, line_no, indent)
+  TaggedRegion.new(tag, file, line_no, indent, String.new(''))
+end
+
+#
+# TagRef - a reference to a tagged region from within a file
+#
+# [string, string, string, int]
+#
+TagRef = Struct.new(:tag, :hash, :file, :line_no)
+
+#
+# Selectors - configuration settings that control tag selection
+#             and formatting
+#
+# [bool, regex?, string?, string?, Set?, bool, bool, bool, string?, string?]
+Selectors = Struct.new(:check, :regexp, :topic, :fileloc, :tags,
+                       :listonly, :collect, :noprint, :topic2, :fileloc2)
+
+# Does the region match all selectors?
+# Selectors x TaggedRegion -> bool
+def selectors_match?(selectors, region)
+  regexp = selectors.regexp
+  file_tags = selectors.tags
+  tag = region.tag
+
+  (regexp.nil? || tag =~ regexp) &&
+  (file_tags.nil? || file_tags.include?(tag)) &&
+  (selectors.fileloc2.nil? ||
+      region.line_no.to_i.eql?(selectors.fileloc2.to_i))
+end
+
+# Copies Selectors, removing topic2 and fileloc2. Used to generate
+# filter tags.
+# Selectors -> Selectors
+def selectors_for_filter_creation(selectors)
+  selectors2 = Selectors.new
+  selectors2.regexp   = selectors.regexp
+  selectors2.topic    = selectors.topic
+  selectors2.fileloc  = selectors.fileloc
+  selectors2.topic2   = selectors.topic
+  selectors2.fileloc2 = selectors.fileloc
+  selectors2.collect  = true
+  selectors2.check    = true
+
+  selectors2
+end
+
+#
+# TagDef - a record that contains the body of a tag and references
+# to the tag.
+#
+# [[TagRef], string]
+#
+TagDef = Struct.new(:tagrefs, :body)
+
+#
+# TagTable - map of tags to definitions. Note that a tag may have
+# more than one definition (differentiated by hash digest).
+#
+# impl: {tag => {hash => TagDef}}
+# or    {string => {string => TagDef}}
+#
+TagTable = Struct.new(:impl)
+
+# New table
+def tag_table_new()
+  TagTable.new({})
+end
+
+# List all tags
+# TagTable -> [string]
+def tag_table_tags(table)
+  table.impl.keys.sort
+end
+
+# Create a tag definiton. If a definition already exists, add a reference
+# TagTable x TagRef x string -> nil
+# Modifies 'table'
+def tag_table_add(table, ref, body)
+  if table.impl.key?(ref.tag)
+    hashes = table.impl[ref.tag]
+    if hashes.key?(ref.hash)
+      hashes[ref.hash].tagrefs.push(ref)
+    else
+      hashes[ref.hash] = TagDef.new([ref], body)
+    end
+  else
+    table.impl[ref.tag] = { ref.hash => TagDef.new([ref], body) }
+  end
+end
+
+
+# Traverse table and select tag references
+# TagTable x Selectors -> [TagRef]
+# Note: selectors.check: false = all refs, true = inconsistent refs only
+def tag_table_select_refs(table, selectors)
+  result = []
+  sorted_tags = table.impl.sort_by { |tag, _| tag }
+  sorted_tags.each do |item|
+    hashes = item[1]
+    count = selectors.check ? 1 : 0
+    if hashes.length > count
+      sorted_hashes = hashes.sort_by { |_, tagdef| tagdef.tagrefs.length }
+      sorted_hashes.each do |kv|
+        hash, tagdef = kv
+        result.concat(tagdef.tagrefs)
+      end
+    end
+  end
+  result
+end
+
+# Traverse table and select tag definitions
+#    TagTable x Selectors -> [[tag, hash, contents]]
+# or TagTable x Selectors -> [[string, string, string]]
+# Note: selectors.check: false = all refs, true = inconsistent refs only
+def tag_table_select_defs(table, selectors)
+  result = []
+  errors = []
+  sorted_tags = table.impl.sort_by { |tag, _| tag }
+  sorted_tags.each do |item|
+    hashes = item[1]
+    count = selectors.check ? 1 : 0
+    if hashes.length > count
+      sorted_hashes = hashes.sort_by { |_, tagdef| tagdef.tagrefs.length }
+      sorted_hashes.each do |kv|
+        hash, tagdef = kv
+        ref = tagdef.tagrefs[0]
+        result << [ref.tag, hash, tagdef.body]
+      end
+    end
+  end
+  result
+end
+
+# Extract tagrefs by file name. Sort by file name and line no
+# Filter by hash digest
+#    TagTable x { tag => hash } -> [[file name, [TagRef]]]
+# or TagTable x Hashmap -> [[string, [TagRef]]]
+def tag_table_refs_to_modify(tag_table, tag_hash)
+  result_refs = []
+
+  # filter by hash digest
+  tag_table.impl.each do |tag, entries|
+    if (tag_hash.key?(tag))
+      target_hash = tag_hash[tag]
+      entries.each do |hash, tagdef|
+        if !hash.eql?(target_hash)
+          tagdef.tagrefs.each do |tagref|
+            result_refs << tagref
+          end
+        end
+      end
+    end
+  end
+
+  # sort results by file and line number
+  result_refs = result_refs.sort_by do |tagref|
+    tagref.file + tagref.line_no.to_s.rjust(6, '0')
+  end
+
+  # group results by file
+  result = []
+  previous_record = ['', []]
+  result_refs.each do |tagref|
+    if !previous_record[0].eql?(tagref.file)
+      new_record = [tagref.file, [tagref]]
+      result << new_record
+      previous_record = new_record
+    else
+      previous_record[1] << tagref
+    end
+  end
+  result
+end
+
+BLANKREGEX = /\A\s*\z/
+
+# indentation of line
+# string -> int
+def line_indent(line)
+  line.length - line.lstrip.length
+end
+
+# Add line to region, chopping indent off the front.
+# Collect indentation errors
+# TaggedRegion x int x [string] -> nil
+# Note: modifies region and errors
+def add_line(region, line, errors)
+  if line.length > 0 && !(line =~ BLANKREGEX)
+    if line_indent(line) < region.indent
+      # line must be indented at least as much as containing tag
+      errors << "In #{region.file}:#{region.line_no}, invalid indentation (saw #{line_indent(line)}, expected at least #{region.indent})"
+    else
+      # standardize by removing indentation and trailing whitespace
+      rest = line[region.indent..-1].rstrip
+      region.content += (rest + "\n")
+    end
+  else
+    # standardize whitespace line into empty line
+    region.content += "\n"
+  end
+end
+
+STARTTAGREGEX = /(\.\.\ tag)\s+(\w+)\s*$/
+ENDTAGREGEX = /^\s*\.\.\ end_tag\s*$/
+
+# Scan content for tagged regions
+#    content x file name x Selectors -> [TaggedRegion] x [error]
+# or string x string x Selectors -> [TaggedRegion] x [string]
+def get_tagged_regions(content, file, selectors)
+  line_no = 1
+  context = [nil]
+  regions = []
+  errors  = []
+  content.each_line do |line|
+    context = [nil] if !errors.empty?
+    break if !errors.empty?
+
+    if line =~ STARTTAGREGEX
+      tag = $LAST_MATCH_INFO[2]
+      indent = line.index($LAST_MATCH_INFO[1])
+      add_line(context[0], line, errors) unless context[0].nil?
+
+      r = new_tagged_region(tag, file, line_no, indent)
+      context.unshift(r)         # enter new context
+      regions.push(r) if selectors_match?(selectors, r)
+
+      clean_line = ''
+      indent.times { |n| clean_line << ' ' }
+      clean_line << line[indent..-1].rstrip
+      add_line(r, clean_line, errors)  # print start tag in new context
+    elsif line =~ ENDTAGREGEX
+      if context[0].nil?
+        errors << "At #{file}:#{line_no}, end_tag without matching start :#{line}"
+      else
+        errors << "at #{file}:#{line_no}, invalid end_tag indentation (saw: #{line_indent(line)}, expected: #{context[0].indent} for tag #{context[0].tag}" if line_indent(line) != context[0].indent
+
+        add_line(context[0], line, errors)
+        context.shift         # restore previous context
+        add_line(context[0], line, errors) unless context[0].nil?
+      end
+    elsif !context[0].nil?
+      add_line(context[0], line, errors)
+    else
+      # not processing tag, ignore line
+    end
+    line_no += 1
+  end
+  errors << "In #{context[0].file}:#{context[0].line_no}, no end_tag for tag #{context[0].tag}" if !context[0].nil?
+
+  [regions, errors]
+end
+
+# Calculate SHA1 digest of tag body
+# string -> string
+def region_hash(content)
+  Digest::SHA1.hexdigest(content)[0..6]
+end
+
+# Add entries to tag table.
+# [TaggedRegion] x TagTable x Selectors -> nil
+# Modfies tag_table
+# Note: Selectors.collect-- true: keep tag body for later use, false: discard
+def add_tags_to_table(regions, tag_table, selectors)
+  regions.each do |region|
+    hash = region_hash(region.content)
+    tag_ref = TagRef.new(region.tag, hash, region.file, region.line_no)
+    tag_table_add(tag_table, tag_ref, selectors.collect ? region.content : nil)
+  end
+end
+
+# Add entries to tag table.
+#    [TaggedRegion] x TagTable x Selectors -> [error]
+# or [TaggedRegion] x TagTable x Selectors -> [string]
+# Modifies tag_table
+def add_tags_to_table_for_file(tag_table, file, selectors)
+  errors = []
+
+  if !selectors.topic2.nil? && !file.eql?(selectors.topic2)
+    # skip file
+
+  elsif Pathname.new(file).exist?
+    content = File.read(file)
+    regions, file_errors = get_tagged_regions(content, file, selectors)
+    errors.concat(file_errors)
+    add_tags_to_table(regions, tag_table, selectors) if errors.empty?
+
+  else
+    errors << "File #{file} not found"
+  end
+
+  errors
+end
+
+# Create a tag table, given an array of file names to read
+#    [file name] x Selectors -> [error]
+# or [string] x Selectors -> [string]
+# Modifies tag_table
+def build_tag_table(result, files, selectors)
+  errors = []
+  files.each do |file|
+    errors.concat(add_tags_to_table_for_file(result, file, selectors))
+  end
+  errors
+end
+
+# Scan files for tags and print output determined by given Selectors
+#    [file] x Selectors -> [error]
+# or [string] x Selectors -> [string]
+# Prints to stdout and/or stderr
+# Modifies tag_table
+def dtags_check_1(tag_table, files, selectors)
+
+  errors = build_tag_table(tag_table, files, selectors)
+
+  unless errors.count > 0
+    if selectors.noprint
+      # don't print
+
+    elsif selectors.listonly
+      tags = tag_table_tags(tag_table)
+      tags.each { |tag| puts(tag) }
+
+    elsif selectors.collect
+      def_matches = tag_table_select_defs(tag_table, selectors)
+      def_matches.each do |d|
+        puts(d[1])
+        puts(d[2])
+      end
+
+    else
+      matches = tag_table_select_refs(tag_table, selectors)
+      outstr = selectors.check ? $stderr : $stdout
+      if matches.count > 0
+        outstr.puts 'Inconsistent tagged regions:' if selectors.check
+        previous_tag = ''
+        previous_hash = ''
+        matches.each do |r|
+          outstr.print("\n---\n") unless previous_tag.eql?('') || r.tag.eql?(previous_tag)
+          outstr.print("\n") if previous_tag.eql?(r.tag) && !previous_hash.eql?(r.hash)
+          outstr.print('  tag ', r.tag, ' ', r.hash, ' ', r.file, ':', r.line_no, "\n")
+
+          previous_tag = r.tag
+          previous_hash = r.hash
+        end
+        errors.push('dtags check found inconsistent tagged regions') if selectors.check
+      end
+    end
+  end
+  return errors
+end
+
+#
+# Add tags selector (if topic and/or fileloc are specified)
+#    Selectors -> [error]
+# or Selectors -> [string]
+# Modifies selectors
+def add_selector_tags(selectors)
+  errors = []
+  filter_topic = selectors.topic
+  if !selectors.topic.nil?
+
+    if Pathname.new(filter_topic).exist?
+      filter_selectors = selectors_for_filter_creation(selectors)
+      contents = File.read(filter_topic)
+      regions, file_errors = get_tagged_regions(contents, filter_topic, filter_selectors)
+      errors.concat(file_errors)
+      return errors if !errors.empty?
+
+      selectors.tags = Set.new([])
+      regions.each do |r|
+        selectors.tags.add(r.tag) if selectors.fileloc.nil? || r.line_no.to_i.eql?(selectors.fileloc.to_i)
+      end
+      errors << "No matching tag found at #{filter_topic}:#{selectors.fileloc}" if !selectors.fileloc.nil? && selectors.tags.count == 0
+    else
+      errors << "#{filter_topic} doesn't exist"
+    end
+  end
+  return errors
+end
+
+# Scan for tags in current directory, print output determined by given Selectors
+#    TagTable x Selectors -> [error]
+# or TagTable x Selectors -> [string]
+# Prints to stdout and/or stderr. Modifies (adds records to) tag_table
+def dtags_check(tag_table, selectors)
+  errors = []
+
+  files = []
+
+  # TODO: make recursive, add .md.erb file type
+  Dir.new('.').each do |file|
+    files << file if !File.directory?(file) && file =~ /\.rst$/
+  end
+
+  errors.concat(dtags_check_1(tag_table, files, selectors))
+  errors
+end
+
+# Create a Regexp from a string, collecting errors. Modifies Selectors.
+#    [arg] x arg_index x Selectors -> [error]
+# or [string] x int x Selectors -> [string]
+def add_selector_regexp(regexp_arg, selectors)
+  errors = []
+
+  # catch error if invalid regexp, otherwise modify Selectors
+  # '--' means no regexp specified
+  if !regexp_arg.nil? && !regexp_arg.eql?('--')
+    begin
+      selectors.regexp = Regexp.new("^#{regexp_arg}$")
+    rescue RegexpError
+      errors << 'Invalid regexp arg: ' + $!.to_s
+    end
+
+  # no regexp provided
+  else
+    selectors.regexp = nil
+  end
+  errors
+end
+
+TOPICLOCREGEX=/(.*):(\d+)\s*$/
+
+def add_selector_topic(file_name, selectors, selector)
+  raise 'Internal error' unless selector.eql?(:topic) ||
+                               selector.eql?(:topic2)
+  errors = []
+  topic = nil
+  fileloc = nil
+  if !file_name.nil?
+    if file_name =~ TOPICLOCREGEX
+      topic = $LAST_MATCH_INFO[1]
+      fileloc = $LAST_MATCH_INFO[2]
+    else
+      topic = file_name
+    end
+  end
+
+  if selector.eql?(:topic)
+    selectors.topic = topic
+    selectors.fileloc = fileloc
+  else
+    selectors.topic2 = topic
+    selectors.fileloc2 = fileloc
+  end
+
+  errors
+end
+
+def get_defs(selectors)
+  defs = []
+  errors = []
+
+  # Ensure that multiple defs don't exist in source topic
+  filter_table = tag_table_new()
+  filter_selectors = selectors_for_filter_creation(selectors)
+  filter_selectors.regexp = nil
+  filter_selectors.tags = nil
+  filter_selectors.topic = selectors.topic
+  filter_selectors.fileloc = nil
+  filter_selectors.topic2 = selectors.topic
+  filter_selectors.fileloc2 = nil
+  filter_selectors.collect = true
+  filter_selectors.check = true
+
+  add_tags_to_table_for_file(filter_table, selectors.topic, filter_selectors)
+  dups = tag_table_select_refs(filter_table, filter_selectors)
+  # print selectors.tags.to_a, "\n"
+  # print dups,"\n"
+
+  errors << "Inconsistent tag definitions in #{selectors.topic}" if dups.length > 1
+  dups.each do |r|
+    errors << "  tag #{r.tag} #{r.hash} #{r.file}:#{r.line_no}"
+  end
+
+  if errors.empty?
+    subs_table = tag_table_new()
+    filter_selectors.check = false
+    add_tags_to_table_for_file(subs_table, selectors.topic, filter_selectors)
+    defs = tag_table_select_defs(subs_table, filter_selectors)
+  end
+  [defs, errors]
+end
+
+# Insert tag definition
+# Note: recursive
+def insert_replacement_block(outstr, line, tag_body)
+  line =~ STARTTAGREGEX
+  raise "internal error: expecting tag #{line}" unless $LAST_MATCH_INFO
+  tag = $LAST_MATCH_INFO[2]
+  indent = line.index($LAST_MATCH_INFO[1])
+  raise "internal error at #{current_ref.file}:#{current_ref.line_no}: missing #{tag}" unless tag_body.key?(tag)
+
+  body = tag_body[tag]
+  # omit the start tag and end tag lines
+  body_lines = body.split(/\n/)
+  body_lines = body_lines[1..body_lines.length - 2]
+
+  body_lines.each do |body_line|
+    indented_body_line = ''
+    indent.times { |_| indented_body_line += ' ' }
+    indented_body_line += body_line
+
+    if indented_body_line =~ BLANKREGEX
+      outstr.print("\n")  # standardize whitespace
+    else
+      outstr.puts(indented_body_line)
+    end
+
+    if indented_body_line =~ STARTTAGREGEX
+      insert_replacement_block(outstr, indented_body_line, tag_body)
+    end
+  end
+end
+
+# Replace tag bodies at each given tagref location
+def replicate_tags_in_file(fileName, tagrefs, tag_hash, tag_body)
+  newFileName = "#{fileName}.new"
+
+  raise 'internal error' unless tagrefs.length > 0
+  tagrefs.each do |r|
+    print('  tag ', r.tag, ' ', r.hash, ' -> ', tag_hash[r.tag], ' ', r.file, ':', r.line_no, "\n")
+  end
+  current_ref = tagrefs[0]
+  remaining_refs = tagrefs[1..-1] + [nil]
+  context = [nil]
+  processing = false
+
+  File.open(fileName) do |instr|
+    File.open(newFileName, 'w') do |outstr|
+      line_no = 0
+      instr.each_line do |inline|
+        line_no += 1
+        if processing
+          # eat input lines until matching end tag is observed
+          if inline =~ STARTTAGREGEX
+            tag = $LAST_MATCH_INFO[2]
+            indent = inline.index($LAST_MATCH_INFO[1])
+            context.unshift(tag)         # enter new context
+          elsif inline =~ ENDTAGREGEX
+            raise "internal error at #{file}:#{line_no}" if context[0].nil?
+            context.shift
+
+          else
+            # eat line
+          end
+
+          if context[0].nil?
+            outstr.puts(inline)     # write end_tag
+            processing = false
+            while !current_ref.nil? && line_no > current_ref.line_no
+              current_ref = remaining_refs.shift
+            end
+          end
+
+        elsif current_ref.nil? || line_no < current_ref.line_no
+          outstr.puts(inline)
+
+        else
+          raise "internal error" unless line_no == current_ref.line_no
+          raise "internal error at #{file}:#{line_no}" unless inline =~ STARTTAGREGEX && current_ref.tag.eql?($LAST_MATCH_INFO[2])
+          outstr.puts(inline)
+          insert_replacement_block(outstr, inline, tag_body)
+          context.unshift(current_ref.tag)
+          current_ref = remaining_refs.shift
+          processing = true
+        end
+      end
+    end
+  end
+
+  # replace with updated version
+  File.delete(fileName)
+  File.rename(newFileName, fileName)
+end
+
+def replicate_tags(tag_table, defs)
+  errors = []
+  tag_hash = {}
+  tag_body = {}
+  defs.each do |record|
+    tag = record[0]
+    hash = record[1]
+    body = record[2]
+    raise 'internal error' if tag_hash.key?(tag) || tag_body.key?(tag)
+    tag_hash[tag] = hash
+    tag_body[tag] = body
+  end
+
+  # collect each file to be modified
+  modlist = tag_table_refs_to_modify(tag_table, tag_hash)
+
+  modlist.each do |record|
+     replicate_tags_in_file(record[0], record[1], tag_hash, tag_body)
+  end
+  errors
+end
+
+# top-level loop
+def dtags_main_1(args)
+  errors = []
+  selectors = Selectors.new()
+  command = args[:command]
+  case command
+  when 'check', 'whereis', 'print', 'list', 'replicate'
+    errors.concat(add_selector_regexp(args[:regexp], selectors))
+    errors << 'Missing <topic> argument' if !args[:topic] && command.eql?('replicate')
+    errors.concat(add_selector_topic(args[:topic], selectors, :topic)) if errors.empty?
+    errors.concat(add_selector_tags(selectors)) if errors.empty?
+    errors.concat(add_selector_topic(args[:topic2], selectors, :topic2)) if errors.empty?
+
+  else
+    errors << USAGE + HELP
+  end
+
+  # do command
+  tag_table = tag_table_new()
+
+  if errors.empty?
+    case command
+    when 'check'
+      selectors.check = true
+      errors.concat(dtags_check(tag_table, selectors))
+
+    when 'whereis'
+      errors.concat(dtags_check(tag_table, selectors))
+
+    when 'print'
+      selectors.collect = true
+      errors.concat(dtags_check(tag_table, selectors))
+
+    when 'list'
+      selectors.listonly = true
+      errors.concat(dtags_check(tag_table, selectors))
+
+    when 'replicate'
+
+      # build substitution table
+      defs, errs = get_defs(selectors)
+      errors.concat(errs)
+
+      # select regions to replace
+      selectors.noprint = true
+      errors.concat(dtags_check(tag_table, selectors)) if errors.empty?
+      # replace selected regions
+      errors.concat(replicate_tags(tag_table, defs)) if errors.empty?
+
+    else
+      raise 'internal error'
+    end
+  end
+
+  errors.each { |error| $stderr.puts(error) }
+
+  exit(!errors.empty? ? 1 : 0)
+end
+
+USAGE = <<ENDUSAGE
+Usage:
+   dtags [--help] <command> [<args>]
+
+ENDUSAGE
+        .freeze
+
+HELP = <<ENDHELP
+   -h, --help     Show this help.
+
+    The commands are:
+      check       Checks for tagged regions with inconsistent contents.
+      replicate   Propagates tagged regions to other files
+      whereis     Prints locations of tagged regions
+      list        Lists tags in use
+      print       Prints the contents of tagged regions
+      rename      Changes replaces a name used to identify tagged regions
+      help        Prints help for any of these commands
+
+ENDHELP
+       .freeze
+
+CHECKHELP = <<ENDCHECKHELP
+Usage: dtags check [(<regexp> | "--") [<topic> [<topic2>]]]
+
+The dtags check command lists tags with multiple (inconsistent)
+definitions. If <regexp> is given, only tags whose names match
+<regexp> are checked. dtags uses Ruby regex syntax, but it assumes
+that /^ .. $/ is the context. For example, use 'foo.*' to select tags
+that start with the 'foo'. The value -- can be used as a placeholder
+if no regex is needed.
+
+<topic>, if given, limits the check to tag names that match regexp and
+are also found in <topic>.
+
+<topic2>, if given, limits the check to tags found in <topic> that are
+inconsistent with their definitions in <topic2>. If absent, all .rst
+files in the current directory will be checked.
+
+The output, printed to stderr, shows tag name, tag version hash, plus
+where-used file name and line no.
+
+The command exits with status 1 if the check fails.
+
+ENDCHECKHELP
+            .freeze
+
+REPLICATEHELP = <<ENDREPLICATEHELP
+
+Usage: dtags replicate (<regexp> | "--") <topic> [<topic2>]
+
+The dtags replicate command collects all tags matching <regexp> found
+in <topic> and replaces the contents of those tags in all other topics
+(or just in <topic2>, if provided) with the corresponding text from
+<topic>.
+
+The <regexp> argument restricts replication to tags whose names match
+<regexp> instead of all tags. REXEXP uses the Ruby regex engine, but
+it assumes that /^ .. $/ is the context. For example, "foo.*" selects
+tags that start with the "foo". The value -- can be used as a
+placeholder if no regex is needed.
+
+<topic> is a file name, with an optional line number given by
+":<digits>".  If a line number is present, it specifies the tag on the
+given line.  For example,
+
+    dtags replicate foo mydoc.rst:43 yourdoc.rst
+
+has the following effect. If mydoc.rst line 43 contains ".. tag foo",
+then the body of all foo tags in yourdoc.rst will be replaced with the
+text taken from the foo tag located in mydoc.rst at line 43.
+
+ENDREPLICATEHELP
+                .freeze
+
+WHEREISHELP = <<ENDWHEREISHELP
+Usage: dtags whereis (<regexp> | "--") [<topic> [<topic2>]]
+
+The dtags 'whereis' command finds tags whose names match <regexp> and
+lists where they are used in the current directory, or just in
+<topic2>, if specified.
+
+If <regexp> is given, the command only considers tags whose names
+match <regexp> instead of all tags. <regexp> uses the Ruby regex
+engine, but it assumes that /^ .. $/ is the context. For example,
+"foo.*" selects tags that start with the "foo". The value -- can be
+used as a placeholder if no regex is needed.
+
+The output shows tag name, tag version hash as well as the file name
+and line number where each tagged region begins.
+
+<topic>, if given, limits the output to tags in <topic> that match
+<regexp>.
+
+ENDWHEREISHELP
+              .freeze
+
+LISTHELP = <<ENDLISTHELP
+
+Usage: dtags list [(<regexp> | "--") [<topic> [<topic2>]]
+
+The dtags list command scans the current directory and subdirectory
+(or just <topic2>, if provided) and prints tag names that match
+<regexp>, possibly limiting them to tags found in <topic>.
+
+If <regexp> is given, the command only considers tags whose names
+match <regexp> instead of all tags. <regexp> uses the Ruby regex
+engine, but it assumes that /^ .. $/ is the context. For example,
+"foo.*" selects tags that start with the "foo". The value -- can be
+used as a placeholder if no regex is needed.
+
+The results are in alphabetical order.
+
+ENDLISTHELP
+           .freeze
+
+PRINTHELP = <<ENDPRINTHELP
+Usage: dtags print (<regexp> | "--") [<topic> [<topic2>]]
+
+The dtags print command writes the contents of matching tags matching
+<regexp> and found in <topic>. The tagged regions to print are taken
+from all files or only from <topic2>, if given.
+
+If <regexp> is given, the command only considers tags whose names
+match <regexp> instead of all tags. <regexp> uses the Ruby regex
+engine, but it assumes that /^ .. $/ is the context. For example,
+"foo.*" selects tags that start with the "foo". The value -- can be
+used as a placeholder if no regex is needed.
+
+ENDPRINTHELP
+            .freeze
+
+RENAMEHELP = <<ENDRENAMEHELP
+Usage: dtags rename <oldtagname> <newtagname> [<topic>]
+
+The dtags rename command renames a tag in all files where it occurs,
+or just in <topic>.
+
+ENDRENAMEHELP
+             .freeze
+
+HELPHELP = <<ENDHELPHELP
+Usage: dtags help <command>
+
+The dtags help command prints help for the commands: check,
+replicate, whereis, list, print, rename and help.
+
+ENDHELPHELP
+           .freeze
+
+COMMANDHELP = {
+  'check'     => CHECKHELP,
+  'replicate' => REPLICATEHELP,
+  'whereis'   => WHEREISHELP,
+  'list'      => LISTHELP,
+  'print'     => PRINTHELP,
+  'rename'    => RENAMEHELP,
+  'help'      => HELPHELP
+}.freeze
+
+def dtags_main(argv)
+  # Arg parsing in the style of:
+  # http://stackoverflow.com/questions/26434923/parse-command-line-arguments-in-a-ruby-script
+  # TODO: improve arg parsing
+
+  args = {}
+  unflagged_args = [:command]
+
+  argv.each do |arg|
+    case arg
+    when '-h', '--help'
+      args[:help] = true
+      unflagged_args.unshift(:helptopic)
+    else
+      if unflagged_args.first
+        next_arg = unflagged_args.first
+        args[next_arg] = arg
+        unflagged_args.delete(next_arg)
+        if next_arg.eql?(:command)
+          case arg
+          when 'check', 'replicate', 'whereis', 'list', 'print'
+            unflagged_args.concat([:regexp, :topic, :topic2])
+          when 'rename'
+            unflagged_args.concat([:oldtagname, :newtagname, :topic])
+          when 'help'
+            unflagged_args.concat([:helptopic])
+          else
+          end
+        end
+      end
+    end
+  end
+
+  if (!args[:command] && !args[:helptopic]) ||
+     (args[:command].eql?('help') && !args[:helptopic])
+    puts USAGE
+    puts HELP if args[:help] || args[:command].eql?('help')
+    exit
+  end
+
+  if args[:helptopic]
+    if COMMANDHELP.key?(args[:helptopic])
+      puts COMMANDHELP[args[:helptopic]]
+    else
+      puts USAGE
+      puts HELP
+    end
+    exit
+  end
+
+  dtags_main_1(args)
+end
+
+dtags_main(ARGV)

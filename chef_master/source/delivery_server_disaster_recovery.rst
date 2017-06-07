@@ -1,106 +1,58 @@
 =====================================================
-Delivery Server Disaster Recovery
+Chef Automate Disaster Recovery
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/delivery_server_disaster_recovery.rst>`__
 
-Use a standby |delivery| server to protect against the loss of the primary |delivery| server. A standby |delivery| server is configured in an identical manner as the primary |delivery| server, but is powered down. In the event of loss of the primary |delivery| server, the standby is powered up, activated with a recent copy of data, and then reconfigured to become the primary.
+.. tag chef_automate_mark
 
-.. note:: These instructions assume that the primary and standby servers are in the same data center. If they are in different geographical locations additional considerations are necessary, as well as tuning the configuration to account for latency between data centers.
+.. image:: ../../images/chef_automate_full.png
+   :width: 40px
+   :height: 17px
 
+.. end_tag
 
-Install w/delivery-cluster
-=====================================================
-The following steps describe how to install a standby |delivery| server using the ``delivery-cluster`` cookbook.
+Use a standby Chef Automate server to protect against the loss of the primary Chef Automate server. A standby Chef Automate server is configured to replicate data from the primary Chef Automate server. In the event of loss of the primary Chef Automate server, the standby is then reconfigured to become the primary.
+
+.. note:: Disaster Recovery for Chef Automate pertains to the workflow capabilities only. Also, these instructions assume that the primary and standby servers are in the same data center. If they are in different geographical locations additional considerations are necessary, as well as tuning the configuration to account for latency between data centers.
 
 Requirements
------------------------------------------------------
-A disaster recovery configuration for |delivery| has the following requirements:
+====================================================
+A disaster recovery configuration for Chef Automate has the following requirements:
 
-* Two identically-configured |delivery| servers, one to act as the primary server and the other to act as a standby
-* |ssh| access between both |delivery| servers via port 22
-* |postgresql| replication allowed between both |delivery| servers via port 5432
-* The latest version of the |chef dk| is installed on the provisioning node
-* A |delivery| license
+* Two identically-configured Chef Automate servers, one to act as the primary server and the other to act as a standby
 
-Steps
------------------------------------------------------
-To install a standby |delivery| server using the ``delivery-cluster`` cookbook:
+  .. note:: You cannot log in to the Chef Automate web UI on the standby server.
 
-#. Download the ``delivery-cluster`` cookbook:
+* SSH access between both Chef Automate servers via port 22
+* PostgreSQL replication allowed between both Chef Automate servers via port 5432
+* The latest version of the Chef development kit is installed on the provisioning node
+* A Chef Automate license
 
-   .. code-block:: bash
-
-      $ git clone https://github.com/chef-cookbooks/delivery-cluster
-
-   or:
-
-   .. code-block:: bash
-
-      $ wget https://github.com/chef-cookbooks/delivery-cluster/archive/master.zip
-
-#. Create an environment:
-
-   .. code-block:: bash
-
-      $ rake setup:generate_env
-
-#. After creating the environment file in the easy setup instructions, edit the ``environments/<clust-name>.json`` file to add the following block to the ``"delivery"`` property.
-
-   If using the |amazon aws| provisioner:
-
-   .. code-block:: javascript
-
-      "delivery": {
-        "disaster_recovery": {
-          "enable": true
-        },
-        ...
-      }
-
-   If using the |ssh| provisioner:
-
-   .. code-block:: javascript
-
-      "delivery": {
-        "disaster_recovery": {
-          "enable": true,
-          "ip": "10.194.8.8"
-        },
-        ...
-      }
-
-#. Provision the |delivery| cluster:
-
-   .. code-block:: bash
-
-      $ rake setup:cluster
-
-5. For more information about the ``delivery-cluster`` cookbook, see https://github.com/chef-cookbooks/delivery-cluster.
-
-
-
-Install Manually
+Install a Standby Chef Automate Server
 =====================================================
-The following steps describe how to manually install a |delivery| server for use as a standby.
+The following steps describe how to manually install a Chef Automate server for use as a standby.
 
 .. note:: Look for items delimited with ``<BRACKETS>``. Replace the bracketed words (and the brackets) with the correct values for your configuration. All files require default permissions, unless noted. All commans must be run as the root user or by using ``sudo``.
 
-#. Provision a standby server that is exactly the same as the existing |delivery| server.
+#. Provision a standby server that is exactly the same as the existing Chef Automate server.
 
-#. Download the |delivery| package to the standby server: https://bintray.com/chef/stable/delivery.
+#. Download the Chef Automate package to the standby server: `<https://downloads.chef.io/automate/>`_.
 
-#. As a root user, install the |delivery| package on the server, using the name of the package provided by |company_name|. For |centos|:
+#. As a root user, install the Chef Automate package on the server, using the name of the package provided by Chef.
 
-   .. code-block:: bash
-
-      $ sudo rpm -i /path/to/delivery-package.rpm
-
-   For |ubuntu|:
+   For Debian:
 
    .. code-block:: bash
 
-      $ sudo dpkg -i /path/to/delivery-package.deb
+      dpkg -i $PATH_TO_AUTOMATE_SERVER_PACKAGE
 
-   After a few minutes, |delivery| will be installed.
+   For Red Hat or Centos:
+
+   .. code-block:: bash
+
+      rpm -Uvh $PATH_TO_AUTOMATE_SERVER_PACKAGE
+
+   After a few minutes, Chef Automate will be installed.
 
 #. Create the license directory:
 
@@ -108,7 +60,7 @@ The following steps describe how to manually install a |delivery| server for use
 
       $ sudo mkdir -p /var/opt/delivery/license
 
-   and then copy the ``delivery.license`` file that exists in the ``/var/opt/delivery/license`` directory on the primary |delivery| server into the license directory.
+   and then copy the ``delivery.license`` file that exists in the ``/var/opt/delivery/license`` directory on the primary Chef Automate server into the license directory.
 
 #. Create the configuration directory:
 
@@ -126,7 +78,7 @@ The following steps describe how to manually install a |delivery| server for use
 
    .. code-block:: ruby
 
-      delivery_fqdn "<DELIVERY_URL>"
+      delivery_fqdn "<AUTOMATE_URL>"
 
       delivery['chef_username']    = "delivery"
       delivery['chef_private_key'] = "/etc/delivery/delivery.pem"
@@ -138,22 +90,17 @@ The following steps describe how to manually install a |delivery| server for use
       delivery['primary_ip'] = '<PRIMARY_IP_ADDRESS>'
       postgresql['listen_address'] = 'localhost,<STANDBY_IP_ADDRESS>'
 
+   where ``PRIMARY_IP_ADDRESS``, ``STANDBY_IP_ADDRESS``, and ``AUTOMATE_URL``, ``CHEF_SERVER_URL`` should be replaced with the actual values for the Chef Automate configuration. The ``PRIMARY_IP_ADDRESS`` and ``STANDBY_IP_ADDRESS`` values should be from a private network between the two machines.
 
-   where ``PRIMARY_IP_ADDRESS``, ``STANDBY_IP_ADDRESS``, and ``DELIVERY_URL``, ``CHEF_SERVER_URL`` should be replaced with the actual values for the |delivery| configuration. The ``PRIMARY_IP_ADDRESS`` and ``STANDBY_IP_ADDRESS`` values should be from a private network between the two machines.
-
-#. On the existing (now primary) |delivery| server create a directory for the |ssh| key:
+#. Create a directory for the SSH key--if one is not already present--on the primary Chef Automate server:
 
    .. code-block:: bash
 
       $ sudo mkdir -p /opt/delivery/embedded/.ssh
 
-#. Create a private key on the primary |delivery| server. This key is used for file synchronization between the two servers. It may be created in any location with the exception of ``/opt/delivery/embedded/.ssh`` and must not contain a passphrase. The filename itself is arbitrary, but will be used again when editing the ``delivery.rb`` configuration file. First create the directory:
+#. Create a private key on the primary Chef Automate server. This key is used for file synchronization between the two servers. It will be created in ``/opt/delivery/embedded/.ssh`` and must not contain a passphrase.
 
-   .. code-block:: bash
-
-      $ sudo mkdir -p /opt/delivery/embedded/.ssh/
-
-   then move into the directory:
+   Move into the directory:
 
    .. code-block:: bash
 
@@ -165,15 +112,17 @@ The following steps describe how to manually install a |delivery| server for use
 
       $ sudo ssh-keygen -t rsa -b 4096 -C "<EMAIL_ADDRESS>"
 
-   and then save the filename for later.
+   and then save to a file (don't overwrite anything) and note the filename for later.
 
-#. Add the public key to ``/opt/delivery/embedded/.ssh/authorized_keys`` on the standby server:
+#. On the standby server, create the directory ``/opt/delivery/embedded/.ssh/authorized_keys``:
 
    .. code-block:: bash
 
-      $ sudo mkdir -p /opt/delivery/embedded/.ssh
+      $ sudo mkdir -p /opt/delivery/embedded/.ssh/authorized_keys
 
-#. On the primary |delivery| server edit the ``/etc/delivery/delivery.rb`` file to add the following:
+#. Copy the public key (from the key pair created above) to ``/opt/delivery/embedded/.ssh/authorized_keys`` on the standby server:
+
+#. On the primary Chef Automate server edit the ``/etc/delivery/delivery.rb`` file to add the following:
 
    .. code-block:: ruby
 
@@ -187,9 +136,9 @@ The following steps describe how to manually install a |delivery| server for use
       delivery['standby_ip'] = '<STANDBY_IP_ADDRESS>'
       lsyncd['ssh_key'] = '/opt/delivery/embedded/.ssh/<PRIVATE_KEY>'
 
-   where ``PRIMARY_IP_ADDRESS``, ``STANDBY_IP_ADDRESS``, and ``PRIVATE_KEY`` should be replaced with the actual values for the |delivery| configuration. The ``PRIMARY_IP_ADDRESS`` and ``STANDBY_IP_ADDRESS`` values should be from a private network between the two machines.
+   where ``PRIMARY_IP_ADDRESS``, ``STANDBY_IP_ADDRESS``, and ``PRIVATE_KEY`` should be replaced with the actual values for the Chef Automate configuration. The ``PRIMARY_IP_ADDRESS`` and ``STANDBY_IP_ADDRESS`` values should be from a private network between the two machines.
 
-#. Copy the following files from the ``/etc/delivery/`` directory on the primary |delivery| server to the standby: ``delivery.pem``, ``builder_key``, ``builder_key.pub``, and ``delivery-secrets.json``. And then verify that ``builder_key``, ``builder_key.pub``, and ``delivery-secrets.json`` have a mode of ``600``.
+#. Copy the following files from the ``/etc/delivery/`` directory on the primary Chef Automate server to the standby: ``delivery.pem``, ``builder_key``, ``builder_key.pub``, and ``delivery-secrets.json``. And then verify that ``builder_key``, ``builder_key.pub``, and ``delivery-secrets.json`` have a mode of ``600``.
 
 #. On the standby server, create the ``/etc/chef/trusted_certs`` directory:
 
@@ -197,7 +146,7 @@ The following steps describe how to manually install a |delivery| server for use
 
       $ sudo mkdir -p /etc/chef/trusted_certs
 
-#. Copy all of the files in ``/etc/chef/trusted_certs/`` from the primary |delivery| server to the same directory on the standby server.
+#. Copy all of the files in ``/etc/chef/trusted_certs/`` from the primary Chef Automate server to the same directory on the standby server.
 
 #. Create the ``/var/opt/delivery/nginx/ca/`` directory on the standby server:
 
@@ -205,44 +154,43 @@ The following steps describe how to manually install a |delivery| server for use
 
       $ sudo mkdir -p /var/opt/delivery/nginx/ca/
 
-#. Copy all contents of ``/var/opt/delivery/nginx/ca/`` from the primary |delivery| server to the same directory on the standby server.
+#. Copy all contents of ``/var/opt/delivery/nginx/ca/`` from the primary Chef Automate server to the same directory on the standby server.
 
-#. Run the following command on the primary |delivery| server:
-
-   .. code-block:: bash
-
-      $ sudo delivery-ctl reconfigure
-
-#. Run the following command on the standby |delivery| server:
+#. Run the following command on the primary Chef Automate server:
 
    .. code-block:: bash
 
-      $ sudo delivery-ctl reconfigure
+      $ sudo automate-ctl reconfigure
 
+#. Run the following command on the standby Chef Automate server:
+
+   .. code-block:: bash
+
+      $ sudo automate-ctl reconfigure
 
 Disaster Recovery
 =====================================================
-In most scenarios, converting the standby |delivery| server to a standalone configuration is the simplest way to get |delivery| itself back up and running, after which you can rebuild a standby server, update the IP address for the standby server, and then reconfigure the |delivery| configuration to have a primary and standby server.
+In most scenarios, converting the standby Chef Automate server to a standalone configuration is the simplest way to get Chef Automate itself back up and running, after which you can rebuild a standby server, update the IP address for the standby server, and then reconfigure the Chef Automate configuration to have a primary and standby server.
 
-Failover the |delivery| Server
+Failover the Chef Automate Server
 -----------------------------------------------------
-To promote a standby |delivery| server to primary, do the following:
+To promote a standby Chef Automate server to primary, do the following:
 
-#. Log into the standby |delivery| server and make a backup of the data:
-
-   .. code-block:: bash
-
-      $ sudo delivery-ctl backup-data
-
-   Move this data to a location that is not on the standby |delivery| server.
-
-#. If the primary |delivery| server is still accessible, log into it and run the following command as the root user:
+#. Log into the standby Chef Automate server (via SSH, and not the Chef Automate web UI) and make a backup of the data:
 
    .. code-block:: bash
 
-      $ delivery-ctl stop
+      $ sudo automate-ctl create-backup
 
-#. Convert the standby server to a standalone |delivery| server. Update the ``delivery["primary"]``, ``delivery["primary_ip"]``, and ``postgresql["listen_address"]`` settings in the ``/etc/delivery/delivery.rb`` file to be similar to:
+   Move this data to a location that is not on the standby Chef Automate server.
+
+#. If the primary Chef Automate server is still accessible, log into it and run the following command as the root user:
+
+   .. code-block:: bash
+
+      $ automate-ctl stop
+
+#. Convert the standby server to a standalone Chef Automate server. Update the ``delivery["primary"]``, ``delivery["primary_ip"]``, and ``postgresql["listen_address"]`` settings in the ``/etc/delivery/delivery.rb`` file to be similar to:
 
    .. code-block:: ruby
 
@@ -254,32 +202,32 @@ To promote a standby |delivery| server to primary, do the following:
 
    .. code-block:: bash
 
-      $ delivery-ctl reconfigure
+      $ automate-ctl reconfigure
 
-   This will reconfigure the server to become a standalone |delivery| server, after which a new standby server can be installed and configured to be the new standby.
+   This will reconfigure the server to become a standalone Chef Automate server, after which a new standby server can be installed and configured to be the new standby.
 
-#. Set the DNS/load balancer to redirect traffic to the new primary |delivery| server, as required.
+#. Set the DNS/load balancer to redirect traffic to the new primary Chef Automate server, as required.
 
 Recreate the Standby
 -----------------------------------------------------
-Recreating the standby |delivery| server requires the following steps:
+Recreating the standby Chef Automate server requires the following steps:
 
 * Deleting the old primary server
-* Updating configuration if |ssh| provisioning is being used
-* Installing a |delivery| server to act as a standby
+* Updating configuration if SSH provisioning is being used
+* Installing a Chef Automate server to act as a standby
 
 Delete the Primary
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 To delete the failed primary, do the following:
 
-#. Log in to the |chef server| and delete the primary |delivery| server node and client.
-#. Delete or destroy the primary |delivery| machine.
+#. Log in to the Chef server and delete the primary Chef Automate server node and client.
+#. Delete or destroy the primary Chef Automate machine.
 
 Configure SSH
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-If provisioning uses the |ssh| driver, do the following:
+If provisioning uses the SSH driver, do the following:
 
-#. Remove the disaster recovery block in the |delivery| cluster.
+#. Remove the disaster recovery block in the Chef Automate cluster.
 #. Set the correct IP address for new primary node.
 #. Run the following command:
 
@@ -289,4 +237,4 @@ If provisioning uses the |ssh| driver, do the following:
 
 Reinstall Standby
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-To set up a new standby |delivery| server, follow the same steps for installing the |delivery| server (either manually or using the ``delivery-cluster`` cookbook), as described earlier in this topic.
+To set up a new standby Chef Automate server, follow the same steps for installing the Chef Automate server (either manually or using the ``delivery-cluster`` cookbook), as described earlier in this topic.
