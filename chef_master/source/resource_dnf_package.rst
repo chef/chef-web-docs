@@ -1,15 +1,13 @@
 =====================================================
 dnf_package
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_dnf.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_dnf_package.rst>`__
 
 .. tag resource_package_dnf
 
-Use the **dnf_package** resource to install, upgrade, and remove packages with dnf for the Red Hat and CentOS platforms. The **dnf_package** resource is able to resolve ``provides`` data for packages much like dnf can do when it is run from the command line. This allows a variety of options for installing packages, like minimum versions, virtual provides, and library names.
+Use the **dnf_package** resource to install, upgrade, and remove packages with dnf for Fedora platforms. The **dnf_package** resource is able to resolve ``provides`` data for packages much like dnf can do when it is run from the command line. This allows a variety of options for installing packages, like minimum versions, virtual provides, and library names.
 
 .. end_tag
-
-.. note:: Support for using file names to install packages (as in ``dnf_package "/bin/sh"``) is not available because the volume of data required to parse for this is excessive.
 
 .. note:: .. tag notes_resource_based_on_package
 
@@ -34,15 +32,18 @@ The full syntax for all of the properties that are available to the **dnf_packag
    dnf_package 'name' do
      arch                       String, Array
      flush_cache                Array
-     notifies                   # see description
+     ignore_failure             TrueClass, FalseClass # defaults to ``false``
      options                    String
      package_name               String, Array # defaults to 'name' if not specified
-     provider                   Chef::Provider::Package::dnf
+     response_file              String
+     response_file_variables    Hash
+     retries                    Integer
+     retry_delay                Integer
+     sensitive                  TrueClass, FalseClass # default to 
      source                     String
-     subscribes                 # see description
      timeout                    String, Integer
      version                    String, Array
-     action                     Symbol # defaults to :install if not specified
+
    end
 
 where
@@ -50,9 +51,7 @@ where
 * ``dnf_package`` tells the chef-client to manage a package
 * ``'name'`` is the name of the package
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state
-* ``allow_downgrade``, ``arch``, ``flush_cache``, ``options``, ``package_name``, ``provider``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
-
-Changed in Chef Client 12.1 to support specifying multiple packages and/or versions.
+* ``arch``, ``flush_cache``, etc. are the properties available to this resource. See the "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -126,46 +125,12 @@ This resource has the following properties:
         #...
       end
 
-   .. note:: The ``flush_cache`` property does not flush the local dnf cache! Use dnf tools---``dnf clean headers``, ``dnf clean packages``, ``dnf clean all``---to clean the local dnf cache.
+   .. note:: The ``flush_cache`` property does not flush the local dnf cache! Use dnf tools---``dnf clean metadata``, ``dnf clean packages``, ``dnf clean all``---to clean the local dnf cache.
 
 ``ignore_failure``
    **Ruby Types:** TrueClass, FalseClass
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
-
-``notifies``
-   **Ruby Type:** Symbol, 'Chef::Resource[String]'
-
-   .. tag resources_common_notification_notifies
-
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_timers
-
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
-
-   ``:before``
-      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
-
-   ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
-
-   ``:immediate``, ``:immediately``
-      Specifies that a notification should be run immediately, per resource notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_notifies_syntax
-
-   The syntax for ``notifies`` is:
-
-   .. code-block:: ruby
-
-      notifies :action, 'resource[name]', :timer
-
-   .. end_tag
 
 ``options``
    **Ruby Type:** String
@@ -177,10 +142,15 @@ This resource has the following properties:
 
    One of the following: the name of a package, the name of a package and its architecture, the name of a dependency. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
 
-``provider``
-   **Ruby Type:** Chef Class
+``response_file``
+   **Ruby Type:** String
 
-   Optional. Explicitly specifies a provider. See "Providers" section below for more information.
+   The direct path to the file used to pre-seed a package.
+
+``response_file_variables``
+   **Ruby Type:** Hash
+
+   A Hash of response file variables in the form of {"VARIABLE" => "VALUE"}.
 
 ``retries``
    **Ruby Type:** Integer
@@ -192,44 +162,15 @@ This resource has the following properties:
 
    The retry delay (in seconds). Default value: ``2``.
 
+``sensitive``
+  **Ruby Type** TrueClass, FalseClass
+
+   Ensure that sensitive resource data is not logged by the chef-client. Default value: false. This property only applies to the execute, file and template resources.
+
 ``source``
    **Ruby Type:** String
 
    Optional. The path to a package in the local file system.
-
-``subscribes``
-   **Ruby Type:** Symbol, 'Chef::Resource[String]'
-
-   .. tag resources_common_notification_subscribes
-
-   A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
-
-   .. end_tag
-
-   .. tag resources_common_notification_timers
-
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
-
-   ``:before``
-      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
-
-   ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
-
-   ``:immediate``, ``:immediately``
-      Specifies that a notification should be run immediately, per resource notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_subscribes_syntax
-
-   The syntax for ``subscribes`` is:
-
-   .. code-block:: ruby
-
-      subscribes :action, 'resource[name]', :timer
-
-   .. end_tag
 
 ``timeout``
    **Ruby Types:** String, Integer
@@ -245,7 +186,7 @@ Multiple Packages
 -----------------------------------------------------
 .. tag resources_common_multiple_packages
 
-A resource may specify multiple packages and/or versions for platforms that use dnf, Apt, Zypper, or Chocolatey package managers. Specifing multiple packages and/or versions allows a single transaction to:
+A resource may specify multiple packages and/or versions for platforms that use Yum, DNF, Apt, Zypper, or Chocolatey package managers. Specifing multiple packages and/or versions allows a single transaction to:
 
 * Download the specified packages and versions via a single HTTP transaction
 * Update or install multiple packages with a single resource during the chef-client run
@@ -318,7 +259,7 @@ The chef-client will determine the correct provider based on configuration data 
 
 Generally, it's best to let the chef-client choose the provider, and this is (by far) the most common approach. However, in some cases, specifying a provider may be desirable. There are two approaches:
 
-* Use a more specific short name---``dnf_package "foo" do`` instead of ``package "foo" do``, ``script "foo" do`` instead of ``bash "foo" do``, and so on---when available
+* Use a more specific short name---``yum_package "foo" do`` instead of ``package "foo" do``, ``script "foo" do`` instead of ``bash "foo" do``, and so on---when available
 * Use the ``provider`` property within the resource block to specify the long name of the provider as a property of a resource. For example: ``provider Chef::Provider::Long::Name``
 
 .. end_tag
@@ -456,7 +397,7 @@ When a **cookbook_file** resource and a **dnf_package** resource are both called
 
 .. code-block:: ruby
 
-   cookbook_file '/etc/dnf.repos.d/custom.repo' do
+   cookbook_file '/etc/yum.repos.d/custom.repo' do
      source 'custom'
      mode '0755'
    end
