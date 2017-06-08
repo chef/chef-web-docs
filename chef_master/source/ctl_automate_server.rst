@@ -246,6 +246,8 @@ gather-logs
 =====================================================
 The ``gather-logs`` command is used to collect the logs from Chef Automate into a compressed file archive. Once it runs it will create a tbz2 file in the current working directory with the timestamp as the file name.
 
+By default, it collects the most current logfile as well as any others that have been modified in the last 180 minutes. If the ``--all-logs`` option is given, all log files are collected.
+
 **Syntax**
 
 This subcommand has the following syntax:
@@ -253,6 +255,7 @@ This subcommand has the following syntax:
 .. code-block:: bash
 
    $ automate-ctl gather-logs
+        --all-logs  Grab all of the logs, without regard to size or age. WARNING: could get very large
 
 generate-password-reset-token
 =====================================================
