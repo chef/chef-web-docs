@@ -6337,6 +6337,7 @@ The **solaris_package** resource is used to manage packages for the Solaris plat
 .. code-block:: ruby
 
    solaris_package 'name of package' do
+     source '/packages_directory'
      action :install
    end
 
