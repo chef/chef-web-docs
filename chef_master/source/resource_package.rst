@@ -425,7 +425,7 @@ Multiple Packages
 -----------------------------------------------------
 .. tag resources_common_multiple_packages
 
-A resource may specify multiple packages and/or versions for platforms that use Yum, Apt, Zypper, or Chocolatey package managers. Specifing multiple packages and/or versions allows a single transaction to:
+A resource may specify multiple packages and/or versions for platforms that use Yum, DNF, Apt, Zypper, or Chocolatey package managers. Specifing multiple packages and/or versions allows a single transaction to:
 
 * Download the specified packages and versions via a single HTTP transaction
 * Update or install multiple packages with a single resource during the chef-client run
@@ -434,13 +434,13 @@ For example, installing multiple packages:
 
 .. code-block:: ruby
 
-   package ['package1', 'package2']
+   package %w(package1 package2)
 
 Installing multiple packages with versions:
 
 .. code-block:: ruby
 
-   package ['package1', 'package2'] do
+   package %w(package1 package2) do
      version [ '1.3.4-2', '4.3.6-1']
    end
 
@@ -448,7 +448,7 @@ Upgrading multiple packages:
 
 .. code-block:: ruby
 
-   package ['package1', 'package2']  do
+   package %w(package1 package2)  do
      action :upgrade
    end
 
@@ -456,7 +456,7 @@ Removing multiple packages:
 
 .. code-block:: ruby
 
-   package ['package1', 'package2']  do
+   package %w(package1 package2)  do
      action :remove
    end
 
@@ -464,7 +464,7 @@ Purging multiple packages:
 
 .. code-block:: ruby
 
-   package ['package1', 'package2']  do
+   package %w(package1 package2)  do
      action :purge
    end
 
@@ -472,7 +472,7 @@ Notifications, via an implicit name:
 
 .. code-block:: ruby
 
-   package ['package1', 'package2']  do
+   package %w(package1 package2)  do
      action :nothing
    end
 
