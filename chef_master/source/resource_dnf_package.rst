@@ -33,16 +33,18 @@ The full syntax for all of the properties that are available to the **dnf_packag
      arch                       String, Array
      flush_cache                Array
      ignore_failure             TrueClass, FalseClass # defaults to ``false``
+     notifies                   # see description
      options                    String
      package_name               String, Array # defaults to 'name' if not specified
-     response_file              String
-     response_file_variables    Hash
+     provider                   Chef::Provider::Package::dnf
      retries                    Integer
      retry_delay                Integer
-     sensitive                  TrueClass, FalseClass # default to 
+     sensitive                  TrueClass, FalseClass # defaults to ``false``
      source                     String
+     subscribes                 # see description
      timeout                    String, Integer
      version                    String, Array
+     action                     Symbol # defaults to :install if not specified
 
    end
 
@@ -51,7 +53,7 @@ where
 * ``dnf_package`` tells the chef-client to manage a package
 * ``'name'`` is the name of the package
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state
-* ``arch``, ``flush_cache``, etc. are the properties available to this resource. See the "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``arch``, ``flush_cache``, etc. are the properties available to this resource. See the `Properties </resource_dnf_package.html#properties>`__ section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -72,9 +74,6 @@ This resource has the following actions:
 
 ``:purge``
    Purge a package. This action typically removes the configuration files as well as the package.
-
-``:reconfig``
-   Reconfigure a package. This action requires a response file.
 
 ``:remove``
    Remove a package.
@@ -132,6 +131,40 @@ This resource has the following properties:
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
+``notifies``
+   **Ruby Type:** Symbol, 'Chef::Resource[String]'
+
+   .. tag resources_common_notification_notifies
+
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+
+   .. end_tag
+
+   .. tag resources_common_notification_timers
+
+   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+
+   ``:before``
+      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
+
+   ``:delayed``
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+
+   ``:immediate``, ``:immediately``
+      Specifies that a notification should be run immediately, per resource notified.
+
+   .. end_tag
+
+   .. tag resources_common_notification_notifies_syntax
+
+   The syntax for ``notifies`` is:
+
+   .. code-block:: ruby
+
+      notifies :action, 'resource[name]', :timer
+
+   .. end_tag
+
 ``options``
    **Ruby Type:** String
 
@@ -142,15 +175,10 @@ This resource has the following properties:
 
    One of the following: the name of a package, the name of a package and its architecture, the name of a dependency. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
 
-``response_file``
-   **Ruby Type:** String
+``provider``
+   **Ruby Type:** Chef Class
 
-   The direct path to the file used to pre-seed a package.
-
-``response_file_variables``
-   **Ruby Type:** Hash
-
-   A Hash of response file variables in the form of {"VARIABLE" => "VALUE"}.
+   Optional. The chef-client will attempt to determine the correct provider during the chef-client run, and then choose the best/correct provider based on configuration data collected at the start of the chef-client run. In general, a provider does not need to be specified.
 
 ``retries``
    **Ruby Type:** Integer
@@ -165,12 +193,46 @@ This resource has the following properties:
 ``sensitive``
   **Ruby Type** TrueClass, FalseClass
 
-   Ensure that sensitive resource data is not logged by the chef-client. Default value: false. This property only applies to the execute, file and template resources.
+   Ensure that sensitive resource data is not logged by the chef-client. Default value: ``false``. 
 
 ``source``
    **Ruby Type:** String
 
    Optional. The path to a package in the local file system.
+
+``subscribes``
+   **Ruby Type:** Symbol, 'Chef::Resource[String]'
+
+   .. tag resources_common_notification_subscribes
+
+   A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
+
+   .. end_tag
+
+   .. tag resources_common_notification_timers
+
+   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+
+   ``:before``
+      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
+
+   ``:delayed``
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+
+   ``:immediate``, ``:immediately``
+      Specifies that a notification should be run immediately, per resource notified.
+
+   .. end_tag
+
+   .. tag resources_common_notification_subscribes_syntax
+
+   The syntax for ``subscribes`` is:
+
+   .. code-block:: ruby
+
+      subscribes :action, 'resource[name]', :timer
+
+   .. end_tag
 
 ``timeout``
    **Ruby Types:** String, Integer
@@ -382,7 +444,6 @@ or:
 
    dnf_package 'tzdata' do
      version '2011b-1.el5'
-     allow_downgrade true
    end
 
 .. end_tag
