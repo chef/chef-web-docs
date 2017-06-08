@@ -1,32 +1,13 @@
 =====================================================
-Job Dispatch
+Runners
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/job_dispatch.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/runners.rst>`__
 
 .. tag runner_summary
 
 Chef Automate's workflow engine automatically creates phase jobs as project code is promoted through the phases of a workflow pipeline. These phase jobs are dispatched to special nodes, called runners, that automatically execute each job as it is created.
 
 .. end_tag
-
-Recent Changes
---------------
-
-Chef Automate release 0.6.0 includes a new SSH-based job execution layer. Under the new system, you can more easily:
-
-- Add and remove runners
-- Cancel running phase jobs
-- View the queue of jobs in the Chef Automate UI
-- View and test runner status via the Chef Automate UI
-
-Job Dispatch and Push Jobs
------------------------------------------------------
-
-Any project configured to use Job Dispatch will not use Push Jobs as the transport mechanism for managing the phase builds (unit, lint, provision, etc.) on runner nodes. Push Jobs is still required to execute the `delivery_push_job` resource that the delivery-sugar cookbook exposes. This means that if you use the default `deploy.rb  <https://github.com/chef-cookbooks/delivery-truck/blob/b9e386e720376f7f3173ca03311cba667eb7ef4b/recipes/deploy.rb>`__ recipe from delivery-truck then Push Jobs is still used within the deploy phase.
-
-Job Dispatch is not a replacement for Push Jobs. Job Dispatch is a targeted solution for managing phase builds and Push Jobs allows users to perform remote tasks on pools of nodes. Job Dispatch uses SSH connections and allows additional features, such as cancelling jobs. 
-
-
 
 Terms
 =====================================================
@@ -43,13 +24,15 @@ Managing Runners
 Adding a Runner
 -----------------------------------------------------
 
-You can add a new runner via automate-ctl from your Chef Automate server. Log in to your Chef Automate server and run the :ref:`install-runner` command.
+You can add a new runner via ``automate-ctl`` from your Chef Automate server. Log in to your Chef Automate server and run the :ref:`install-runner` command.
+
+.. note:: You can pin to a specific ChefDK version through the ``--chef-dk-version`` option on the ``install-runner`` command or by using a version of the ChefDK that you have installed locally on your Chef Automate server using the ``-I`` option. As an example, this is useful if you have not upgraded your cookbooks to be Chef 13 compliant and the latest version of the ChefDK installs Chef 13 on your runner.
 
 After the :ref:`install-runner` command succeeds, the new runner should show up in the UI under ``Workflow -> Runners -> Manage Runners``. If you see it there, click the ``Test`` button. That will test an ssh connection to your runner to verify that jobs can be dispatched to it. If there are any issues, you should get an error in the UI.
 
 Supported runner platforms are listed `here </platforms.html#runners>`_. 
 
-Remove a Runner
+Removing a Runner
 -----------------------------------------------------
 
 To remove a runner, you will need to use the :ref:`delivery-cli-api` command.
@@ -68,10 +51,19 @@ To delete a runner:
 
 For a full list of additional options, refer to the :ref:`delivery-cli-api` documentation.
 
-Configuring Chef Automate Projects for Job Dispatch
-=====================================================
+.. _upgrade_dk_runner:
 
-To setup a Chef Automate project to use the SSH-based job dispatch system, you must edit its :doc:`config.json </config_json_delivery>`.
+Upgrading the version of ChefDK on a Runner
+-----------------------------------------------------
+
+If you need to upgrade the version of ChefDK on your runner, you can do so by logging into the runner, upgrading the ChefDK, and manually appending the Chef Automate server certificate to the cert file that ships in the ChefDK. 
+
+Typically, we recommend re-running the ``install-runner`` command rather than manually updating as the installation process will take care of this certification change for you when it bootstraps the node.
+
+Configuring Chef Automate Projects
+===================================
+
+Chef Automate 0.6 or later can use runners, and when setting up a project using ``delivery setup``, ChefDK v1.1.16 or later specifies the use of runners in the ``./delivery/config.json`` file. If you are running an older version of ChefDK, or your ``config.json`` was set up to use push jobs-based build nodes, you must edit the file in the following manner:
 
 At the bare minimum, you must set the version to v2:
 
@@ -95,6 +87,9 @@ and remove the ``build_nodes`` setting from ``config.json``.
 
 You can also set which runners you want jobs to run on for your project. You can set default, per phase, and matrix per phase filters to customize exactly which runners are targeted at various points of your pipeline. Refer to :ref:`job_dispatch config setting <job-dispatch-config-settings>` for more details and examples.
 
+For more detail on ``config.json``, see its :doc:`config.json </config_json_delivery>` .
+
+
 Cancelling Jobs
 =====================================================
 
@@ -104,3 +99,10 @@ Managing and Inspecting Jobs
 =====================================================
 
 You can see the job queue, runnning jobs, what your runners are currently doing, runner health, and so on. Navigate to `Workflow -> Runners` in the UI to see all the possibilities.
+
+Job Dispatch and Push Jobs
+=====================================================
+
+Any project configured to use runners will not use Push Jobs as the transport mechanism for managing the phase builds (unit, lint, provision, etc.). Push Jobs is still required to execute the `delivery_push_job` resource that the delivery-sugar cookbook exposes. This means that if you use the default `deploy.rb  <https://github.com/chef-cookbooks/delivery-truck/blob/b9e386e720376f7f3173ca03311cba667eb7ef4b/recipes/deploy.rb>`__ recipe from delivery-truck, then Push Jobs is still used within the deploy phase.
+
+The SSH-based Job Dispatch system used with runners is not a replacement for Push Jobs. Job Dispatch is a targeted solution for managing phase builds and Push Jobs allows users to perform remote tasks on pools of nodes. Job Dispatch uses SSH connections and allows additional features, such as cancelling jobs. 

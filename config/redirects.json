@@ -4888,5 +4888,6 @@
   "compliance.html": "/chef_compliance.html",
   "ctl_delivery_server.html": "/ctl_automate_server.html",
   "api_delivery.html": "/api_automate.html",
-  "integrate_compliance_chef_automate.html": "/perform_compliance_scan.html"
+  "integrate_compliance_chef_automate.html": "/perform_compliance_scan.html",
+  "job_dispatch.html": "/runners.html"
 }

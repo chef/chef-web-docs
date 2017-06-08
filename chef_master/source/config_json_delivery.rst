@@ -119,7 +119,7 @@ The behavior of pipeline phases can be customized using the project's ``config.j
 ``job_dispatch``
    **Optional**
 
-   The ``job_dispatch`` setting is needed to use the :doc:`improved SSH job dispatch system </job_dispatch>`. If you use this setting, you must remove any ``build_nodes`` settings from your configuration file.
+   The ``job_dispatch`` setting is needed to use the :doc:`improved SSH job dispatch system </runners>`. If you use this setting, you must remove any ``build_nodes`` settings from your configuration file.
 
    * ``"version"``
      Set the value to "v2" if you wish to use runners and the new job dispatch system:

@@ -131,7 +131,7 @@ Policyfiles
 Automate Workflow Adopts SSH for Cookbook Generation
 -----------------------------------------------------
 
-The ``chef generate cookbook`` command now uses the SSH based job dispatch system as its default behavior. For more details on this new system and how to use it, see `Job Dispatch Docs <https://docs.chef.io/job_dispatch.html>`_
+The ``chef generate cookbook`` command now uses the SSH based job dispatch system as its default behavior. For more details on this new system and how to use it, see `Job Dispatch Docs <https://docs.chef.io/runners.html>`_
 
 FIPS (Windows and RHEL only)
 -----------------------------------------------------
