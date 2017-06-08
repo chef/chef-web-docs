@@ -69,6 +69,11 @@ Properties
 =====================================================
 This resource has the following properties:
 
+``source``
+   **Ruby Type:** String
+
+   Required. The path to a package in the local file system.
+
 ``ignore_failure``
    **Ruby Types:** TrueClass, FalseClass
 
@@ -132,11 +137,6 @@ This resource has the following properties:
    **Ruby Type:** Integer
 
    The retry delay (in seconds). Default value: ``2``.
-
-``source``
-   **Ruby Type:** String
-
-   Optional. The path to a package in the local file system.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -222,6 +222,7 @@ The following examples demonstrate various approaches for using resources in rec
 .. code-block:: ruby
 
    solaris_package 'name of package' do
+     source '/packages_directory'
      action :install
    end
 
