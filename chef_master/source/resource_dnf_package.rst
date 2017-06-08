@@ -5,7 +5,7 @@ dnf_package
 
 .. tag resource_package_dnf
 
-Use the **dnf_package** resource to install, upgrade, and remove packages with dnf for Fedora platforms. The **dnf_package** resource is able to resolve ``provides`` data for packages much like dnf can do when it is run from the command line. This allows a variety of options for installing packages, like minimum versions, virtual provides, and library names.
+Use the **dnf_package** resource to install, upgrade, and remove packages with DNF for Fedora platforms. The **dnf_package** resource is able to resolve ``provides`` data for packages much like DNF can do when it is run from the command line. This allows a variety of options for installing packages, like minimum versions, virtual provides, and library names.
 
 .. end_tag
 
@@ -45,7 +45,6 @@ The full syntax for all of the properties that are available to the **dnf_packag
      timeout                    String, Integer
      version                    String, Array
      action                     Symbol # defaults to :install if not specified
-
    end
 
 where
@@ -63,7 +62,7 @@ This resource has the following actions:
    Default. Install a package. If a version is specified, install the specified version of the package.
 
 ``:lock``
-   Locks the dnf package to a specific version.
+   Locks the DNF package to a specific version.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -79,7 +78,7 @@ This resource has the following actions:
    Remove a package.
 
 ``:unlock``
-   Unlocks the dnf package so that it can be upgraded to a newer version.
+   Unlocks the DNF package so that it can be upgraded to a newer version.
 
 ``:upgrade``
    Install a package and/or ensure that a package is the latest version. This action will ignore the ``version`` attribute.
@@ -96,11 +95,11 @@ This resource has the following properties:
 ``flush_cache``
    **Ruby Type:** Array
 
-   Flush the in-memory cache before or after a dnf operation that installs, upgrades, or removes a package. Default value: ``[ :before, :after ]``. The value may also be a Hash: ``( { :before => true/false, :after => true/false } )``.
+   Flush the in-memory cache before or after a DNF operation that installs, upgrades, or removes a package. Default value: ``[ :before, :after ]``. The value may also be a Hash: ``( { :before => true/false, :after => true/false } )``.
 
    .. tag resources_common_package_dnf_cache
 
-   dnf automatically synchronizes remote metadata to a local cache. The chef-client creates a copy of the local cache, and then stores it in-memory during the chef-client run. The in-memory cache allows packages to be installed during the chef-client run without the need to continue synchronizing the remote metadata to the local cache while the chef-client run is in-progress.
+   DNF automatically synchronizes remote metadata to a local cache. The chef-client creates a copy of the local cache, and then stores it in-memory during the chef-client run. The in-memory cache allows packages to be installed during the chef-client run without the need to continue synchronizing the remote metadata to the local cache while the chef-client run is in-progress.
 
    .. end_tag
 
@@ -124,7 +123,7 @@ This resource has the following properties:
         #...
       end
 
-   .. note:: The ``flush_cache`` property does not flush the local dnf cache! Use dnf tools---``dnf clean metadata``, ``dnf clean packages``, ``dnf clean all``---to clean the local dnf cache.
+   .. note:: The ``flush_cache`` property does not flush the local DNF cache! Use dnf tools---``dnf clean metadata``, ``dnf clean packages``, ``dnf clean all``---to clean the local DNF cache.
 
 ``ignore_failure``
    **Ruby Types:** TrueClass, FalseClass
@@ -257,13 +256,13 @@ For example, installing multiple packages:
 
 .. code-block:: ruby
 
-   package ['package1', 'package2']
+   package %w(package1 package2)
 
 Installing multiple packages with versions:
 
 .. code-block:: ruby
 
-   package ['package1', 'package2'] do
+   package %w(package1 package2) do
      version [ '1.3.4-2', '4.3.6-1']
    end
 
@@ -271,7 +270,7 @@ Upgrading multiple packages:
 
 .. code-block:: ruby
 
-   package ['package1', 'package2']  do
+   package %w(package1 package2)  do
      action :upgrade
    end
 
@@ -279,7 +278,7 @@ Removing multiple packages:
 
 .. code-block:: ruby
 
-   package ['package1', 'package2']  do
+   package %w(package1 package2)  do
      action :remove
    end
 
@@ -287,7 +286,7 @@ Purging multiple packages:
 
 .. code-block:: ruby
 
-   package ['package1', 'package2']  do
+   package %w(package1 package2)  do
      action :purge
    end
 
@@ -295,7 +294,7 @@ Notifications, via an implicit name:
 
 .. code-block:: ruby
 
-   package ['package1', 'package2']  do
+   package %w(package1 package2)  do
      action :nothing
    end
 
@@ -454,7 +453,7 @@ or:
 
 .. To handle cookbook_file and dnf_package when both called in the same recipe
 
-When a **cookbook_file** resource and a **dnf_package** resource are both called from within the same recipe, use the ``flush_cache`` attribute to dump the in-memory dnf cache, and then use the repository immediately to ensure that the correct package is installed:
+When a **cookbook_file** resource and a **dnf_package** resource are both called from within the same recipe, use the ``flush_cache`` attribute to dump the in-memory DNF cache, and then use the repository immediately to ensure that the correct package is installed:
 
 .. code-block:: ruby
 
