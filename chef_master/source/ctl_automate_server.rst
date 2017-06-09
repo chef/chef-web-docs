@@ -244,7 +244,9 @@ This is helpful if ``delete-visibility-node`` is unable to delete a node by its 
 
 gather-logs
 =====================================================
-The ``gather-logs`` command is used to collect the logs from Chef Automate into a compressed file archive. Once it runs it will create a tbz2 file in the current working directory with the timestamp as the file name.
+The ``gather-logs`` command is used to collect the logs from Chef Automate into a compressed file archive. It will create a tbz2 file in the current working directory, with the timestamp as the file name.
+
+By default, it collects the most current log file as well as any others that have been modified in the last 180 minutes. If the ``--all-logs`` option is given, all log files are collected.
 
 **Syntax**
 
@@ -252,7 +254,10 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ automate-ctl gather-logs
+   $ automate-ctl gather-logs 
+        --all-logs          Gather all of the logs, regardless of size or age.
+
+.. warning:: The ``--all-logs`` option can potentially take up a large amount of disk space. 
 
 generate-password-reset-token
 =====================================================
