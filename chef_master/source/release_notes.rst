@@ -3135,7 +3135,7 @@ Syntax
 A custom resource is defined as a Ruby file and is located in a cookbook's ``/resources`` directory. This file
 
 * Declares the properties of the custom resource
-* Loads current properties, if the resource already exists
+* Loads current state of properties, if the resource already exists
 * Defines each action the custom resource may take
 
 The syntax for a custom resource is. For example:
@@ -3226,7 +3226,7 @@ action_class
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag dsl_custom_resource_block_action_class
 
-Use the ``action_class.class_eval`` block to make methods available to the actions in the custom resource. Modules with helper methods created as files in the cookbook library directory may be included. New action methods may also be defined directly in the ``action_class.class_eval`` block. Code in the ``action_class.class_eval`` block has access to the new_resource properties.
+Use the ``action_class`` block to make methods available to the actions in the custom resource. Modules with helper methods created as files in the cookbook library directory may be included. New action methods may also be defined directly in the ``action_class`` block. Code in the ``action_class`` block has access to the new_resource properties.
 
 Assume a helper module has been created in the cookbook ``libraries/helper.rb`` file.
 
@@ -3240,7 +3240,7 @@ Assume a helper module has been created in the cookbook ``libraries/helper.rb`` 
      end
    end
 
-Methods may be made available to the custom resource actions by using an ``action_class.class_eval`` block.
+Methods may be made available to the custom resource actions by using an ``action_class`` block.
 
 .. code-block:: ruby
 
@@ -3248,13 +3248,13 @@ Methods may be made available to the custom resource actions by using an ``actio
 
    action :delete do
      helper_method
-     FileUtils.rm(file) if file_ex
+     FileUtils.rm(new_resource.file) if file_ex
    end
 
-   action_class.class_eval do
+   action_class do
 
      def file_exist
-       ::File.exist?(file)
+       ::File.exist?(new_resource.file)
      end
 
      def file_ex
@@ -3295,14 +3295,14 @@ For example, a custom resource defines two properties (``content`` and ``path``)
    property :path, String, name_property: true
 
    load_current_value do
-     if ::File.exist?(path)
-       content IO.read(path)
+     if ::File.exist?(new_resource.path)
+       content IO.read(new_resource.path)
      end
    end
 
    action :create do
      converge_if_changed do
-       IO.write(path, content)
+       IO.write(new_resource.path, new_resource.content)
      end
    end
 
@@ -3330,18 +3330,18 @@ The ``converge_if_changed`` method may be used multiple times. The following exa
    property :mode, String
 
    load_current_value do
-     if ::File.exist?(path)
-       content IO.read(path)
-       mode ::File.stat(path).mode
+     if ::File.exist?(new_resource.path)
+       content IO.read(new_resource.path)
+       mode ::File.stat(new_resource.path).mode
      end
    end
 
    action :create do
      converge_if_changed :content do
-       IO.write(path, content)
+       IO.write(new_resource.path, new_resource.content)
      end
      converge_if_changed :mode do
-       ::File.chmod(mode, path)
+       ::File.chmod(new_resource.mode, new_resource.path)
      end
    end
 

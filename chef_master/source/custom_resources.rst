@@ -3,10 +3,6 @@ Custom Resources
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/custom_resources.rst>`__
 
-Chef 12.5 introduced custom resources, which are now the preferred method of writing your own resources in Chef. If you are using an older version of the chef-client, please use the version picker (in the top left of the navigation) to select your version, and then choose the same topic from the navigation tree ("Extend Chef > Custom Resources"). See also https://github.com/chef-cookbooks/compat_resource for using custom resources with chef-client 12.1 - 12.4.
-
-As of Chef client 12.14, individual resource properties can be marked as `sensitive: true`, which suppresses the value of that property when exporting the resource's state.
-
 .. tag custom_resources_summary
 
 A custom resource:
@@ -21,6 +17,10 @@ For example, Chef includes built-in resources to manage files, packages, templat
 
 .. end_tag
 
+Custom resources were introduced in Chef version 12.5 and are now the preferred method of writing your own resources in Chef. If you are using an older version of the chef-client, please see our `legacy documentation <https://docs-archive.chef.io/release/12-4/custom_resources.html>`__, as well as the `compat_resource <https://github.com/chef-cookbooks/compat_resource>`__ cookbook for information on using custom resources with chef-client 12.1 - 12.4.
+
+As of Chef client 12.14, individual resource properties can be marked as ``sensitive: true``, which suppresses the value of that property when exporting the resource's state.
+
 Syntax
 =====================================================
 .. tag custom_resources_syntax
@@ -28,7 +28,7 @@ Syntax
 A custom resource is defined as a Ruby file and is located in a cookbook's ``/resources`` directory. This file
 
 * Declares the properties of the custom resource
-* Loads current properties, if the resource already exists
+* Loads current state of properties, if the resource already exists
 * Defines each action the custom resource may take
 
 The syntax for a custom resource is. For example:
@@ -140,12 +140,6 @@ For example, the ``httpd.rb`` file in the ``website`` cookbook could be assigned
    resource_name :httpd
 
    property :homepage, String, default: '<h1>Hello world!</h1>'
-
-   load_current_value do
-     if ::File.exist?('/var/www/html/index.html')
-       homepage IO.read('/var/www/html/index.html')
-     end
-   end
 
    action :create do
      package 'httpd'
@@ -283,7 +277,7 @@ Use the **template** resource to create an ``httpd.service`` on the node based o
    template "/lib/systemd/system/httpd-#{instance_name}.service" do
      source 'httpd.service.erb'
      variables(
-       instance_name: instance_name
+       instance_name: new_resource.instance_name
      )
      owner 'root'
      group 'root'
@@ -302,11 +296,11 @@ Use the **template** resource to configure httpd on the node based on the ``http
 
 .. code-block:: ruby
 
-   template "/etc/httpd/conf/httpd-#{instance_name}.conf" do
+   template "/etc/httpd/conf/httpd-#{new_resource.instance_name}.conf" do
      source 'httpd.conf.erb'
      variables(
-       instance_name: instance_name,
-       port: port
+       instance_name: new_resource.instance_name,
+       port: new_resource.port
      )
      owner 'root'
      group 'root'
@@ -325,7 +319,7 @@ Use the **directory** resource to create the ``/var/www/vhosts`` directory on th
 
 .. code-block:: ruby
 
-   directory "/var/www/vhosts/#{instance_name}" do
+   directory "/var/www/vhosts/#{new_resource.instance_name}" do
      recursive true
      owner 'root'
      group 'root'
@@ -339,7 +333,7 @@ Use the **service** resource to enable, and then start the service:
 
 .. code-block:: ruby
 
-   service "httpd-#{instance_name}" do
+   service "httpd-#{new_resource.instance_name}" do
      action [:enable, :start]
    end
 
@@ -423,10 +417,10 @@ Final Resource
        action :install
      end
 
-     template "/lib/systemd/system/httpd-#{instance_name}.service" do
+     template "/lib/systemd/system/httpd-#{new_resource.instance_name}.service" do
        source 'httpd.service.erb'
        variables(
-         instance_name: instance_name
+         instance_name: new_resource.instance_name
        )
        owner 'root'
        group 'root'
@@ -434,11 +428,11 @@ Final Resource
        action :create
      end
 
-     template "/etc/httpd/conf/httpd-#{instance_name}.conf" do
+     template "/etc/httpd/conf/httpd-#{new_resource.instance_name}.conf" do
        source 'httpd.conf.erb'
        variables(
-         instance_name: instance_name,
-         port: port
+         instance_name: new_resource.instance_name,
+         port: new_resource.port
        )
        owner 'root'
        group 'root'
@@ -446,7 +440,7 @@ Final Resource
        action :create
      end
 
-     directory "/var/www/vhosts/#{instance_name}" do
+     directory "/var/www/vhosts/#{new_resource.instance_name}" do
        recursive true
        owner 'root'
        group 'root'
@@ -454,7 +448,7 @@ Final Resource
        action :create
      end
 
-     service "httpd-#{instance_name}" do
+     service "httpd-#{new_resource.instance_name}" do
        action [:enable, :start]
      end
 
@@ -504,7 +498,7 @@ action_class
 -----------------------------------------------------
 .. tag dsl_custom_resource_block_action_class
 
-Use the ``action_class.class_eval`` block to make methods available to the actions in the custom resource. Modules with helper methods created as files in the cookbook library directory may be included. New action methods may also be defined directly in the ``action_class.class_eval`` block. Code in the ``action_class.class_eval`` block has access to the new_resource properties.
+Use the ``action_class`` block to make methods available to the actions in the custom resource. Modules with helper methods created as files in the cookbook library directory may be included. New action methods may also be defined directly in the ``action_class`` block. Code in the ``action_class`` block has access to the new_resource properties.
 
 Assume a helper module has been created in the cookbook ``libraries/helper.rb`` file.
 
@@ -518,7 +512,7 @@ Assume a helper module has been created in the cookbook ``libraries/helper.rb`` 
      end
    end
 
-Methods may be made available to the custom resource actions by using an ``action_class.class_eval`` block.
+Methods may be made available to the custom resource actions by using an ``action_class`` block.
 
 .. code-block:: ruby
 
@@ -526,13 +520,13 @@ Methods may be made available to the custom resource actions by using an ``actio
 
    action :delete do
      helper_method
-     FileUtils.rm(file) if file_ex
+     FileUtils.rm(new_resource.file) if file_ex
    end
 
-   action_class.class_eval do
+   action_class do
 
      def file_exist
-       ::File.exist?(file)
+       ::File.exist?(new_resource.file)
      end
 
      def file_ex
@@ -573,14 +567,14 @@ For example, a custom resource defines two properties (``content`` and ``path``)
    property :path, String, name_property: true
 
    load_current_value do
-     if ::File.exist?(path)
-       content IO.read(path)
+     if ::File.exist?(new_resource.path)
+       content IO.read(new_resource.path)
      end
    end
 
    action :create do
      converge_if_changed do
-       IO.write(path, content)
+       IO.write(new_resource.path, new_resource.content)
      end
    end
 
@@ -608,18 +602,18 @@ The ``converge_if_changed`` method may be used multiple times. The following exa
    property :mode, String
 
    load_current_value do
-     if ::File.exist?(path)
-       content IO.read(path)
-       mode ::File.stat(path).mode
+     if ::File.exist?(new_resource.path)
+       content IO.read(new_resource.path)
+       mode ::File.stat(new_resource.path).mode
      end
    end
 
    action :create do
      converge_if_changed :content do
-       IO.write(path, content)
+       IO.write(new_resource.path, new_resource.content)
      end
      converge_if_changed :mode do
-       ::File.chmod(mode, path)
+       ::File.chmod(new_resource.mode, new_resource.path)
      end
    end
 

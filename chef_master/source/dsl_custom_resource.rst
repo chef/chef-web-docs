@@ -21,7 +21,7 @@ action_class
 =====================================================
 .. tag dsl_custom_resource_block_action_class
 
-Use the ``action_class.class_eval`` block to make methods available to the actions in the custom resource. Modules with helper methods created as files in the cookbook library directory may be included. New action methods may also be defined directly in the ``action_class.class_eval`` block. Code in the ``action_class.class_eval`` block has access to the new_resource properties.
+Use the ``action_class`` block to make methods available to the actions in the custom resource. Modules with helper methods created as files in the cookbook library directory may be included. New action methods may also be defined directly in the ``action_class`` block. Code in the ``action_class`` block has access to the new_resource properties.
 
 Assume a helper module has been created in the cookbook ``libraries/helper.rb`` file.
 
@@ -35,7 +35,7 @@ Assume a helper module has been created in the cookbook ``libraries/helper.rb`` 
      end
    end
 
-Methods may be made available to the custom resource actions by using an ``action_class.class_eval`` block.
+Methods may be made available to the custom resource actions by using an ``action_class`` block.
 
 .. code-block:: ruby
 
@@ -43,13 +43,13 @@ Methods may be made available to the custom resource actions by using an ``actio
 
    action :delete do
      helper_method
-     FileUtils.rm(file) if file_ex
+     FileUtils.rm(new_resource.file) if file_ex
    end
 
-   action_class.class_eval do
+   action_class do
 
      def file_exist
-       ::File.exist?(file)
+       ::File.exist?(new_resource.file)
      end
 
      def file_ex
@@ -90,14 +90,14 @@ For example, a custom resource defines two properties (``content`` and ``path``)
    property :path, String, name_property: true
 
    load_current_value do
-     if ::File.exist?(path)
-       content IO.read(path)
+     if ::File.exist?(new_resource.path)
+       content IO.read(new_resource.path)
      end
    end
 
    action :create do
      converge_if_changed do
-       IO.write(path, content)
+       IO.write(new_resource.path, new_resource.content)
      end
    end
 
@@ -125,18 +125,18 @@ The ``converge_if_changed`` method may be used multiple times. The following exa
    property :mode, String
 
    load_current_value do
-     if ::File.exist?(path)
-       content IO.read(path)
-       mode ::File.stat(path).mode
+     if ::File.exist?(new_resource.path)
+       content IO.read(new_resource.path)
+       mode ::File.stat(new_resource.path).mode
      end
    end
 
    action :create do
      converge_if_changed :content do
-       IO.write(path, content)
+       IO.write(new_resource.path, new_resource.content)
      end
      converge_if_changed :mode do
-       ::File.chmod(mode, path)
+       ::File.chmod(new_resource.mode, new_resource.path)
      end
    end
 
@@ -649,12 +649,6 @@ For example, the ``httpd.rb`` file in the ``website`` cookbook could be assigned
    resource_name :httpd
 
    property :homepage, String, default: '<h1>Hello world!</h1>'
-
-   load_current_value do
-     if ::File.exist?('/var/www/html/index.html')
-       homepage IO.read('/var/www/html/index.html')
-     end
-   end
 
    action :create do
      package 'httpd'
