@@ -37,7 +37,7 @@ Community
 Packages and Platforms
 -----------------------------------------------------
 :doc:`Packages </packages>` |
-:doc:`Platforms </platforms>` |
+:doc:`Platforms and Supported Versions</platforms>` |
 :doc:`Omnitruck API </api_omnitruck>` |
 :doc:`Licensing </chef_license>`
 
