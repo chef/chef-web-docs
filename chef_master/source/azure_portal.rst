@@ -5,7 +5,7 @@ Microsoft Azure Portal
 
 .. tag cloud_azure_portal
 
-Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual machines and integrated services for you to use with your cloud and hybrid applications. And through the Azure Marketplace and Azure portal (|url azure_production|), virtual machines can be bootstrapped and ready to run Chef Automate, Chef server, Chef Compliance and Chef client.
+Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual machines and integrated services for you to use with your cloud and hybrid applications. And through the Azure Marketplace and Azure portal (|url azure_production|), virtual machines can be bootstrapped and ready to run Chef Automate, Chef Compliance and Chef client.
 
 .. end_tag
 
@@ -206,92 +206,6 @@ Chef provides a fully functional Chef Compliance VM image that can be launched f
    .. note:: Before you can run through the wizard you must provide the VM Name of the instance in order to ensure that only you are configuring the Chef Compliance instance.
 
 #. Follow the prompts to sign up for a new account.
-
-Chef Server
-=====================================================
-
-.. attention:: This VM image has been deprecrated in favor of the Chef Automate marketplace offering.
-
-.. tag cloud_azure_portal_server_marketplace
-
-Chef provides a fully functional Chef server that can be launched from the Azure Marketplace. This server is preconfigured with Chef server, the Chef management console, Reporting, and Chef Analytics.
-
-Before getting started, you will need a functioning workstation. Install the :doc:`Chef development kit </install_dk>` on that workstation.
-
-   .. note:: The following steps assume that Chef is installed on the workstation and that the ``knife ssl fetch`` subcommand is available. The ``knife ssl fetch`` subcommand was added to Chef in the 11.16 release of the Chef Client, and then packaged as part of the Chef development kit starting with the 0.3 release.)
-
-#. Sign in to the Azure portal (|url azure_preview|). Authenticate using your Microsoft Azure account credentials.
-
-#. Click the **New** icon in the upper-left corner of the portal.
-
-#. In the search box enter **Chef Server**.
-
-#. Select the **Chef Server 12** offering that is appropriate for your size.
-
-   .. note:: The Chef server is available on the Azure Marketplace in 25, 50, 100, 150, 200, and 250 licensed images, as well as a "Bring Your Own License" image.
-
-#. Click **Create** and follow the steps to launch the Chef server, providing credentials, VM size, and any additional information required.
-
-#. Once your VM has been created, create a **DNS name label** for the instance by following these instructions:  <https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-create-fqdn-on-portal/>
-
-#. In order to use the Chef Manage UI, you will need to create an account. To do this, open an SSH connection to the host using the user name and password (or SSH key) provided when you launched the instance.
-
-#. Configure the Chef server with the DNS Name.
-
-   .. note:: In the following steps substitute ``<fqdn>`` for the fully qualified domain **DNS NAME** that you created.
-
-#. Remove the Nginx configuration for the existing Chef Analytics configuration:
-
-   .. code-block:: bash
-
-      $ sudo rm /var/opt/opscode/nginx/etc/nginx.d/analytics.conf
-
-#. Update the ``/etc/chef-marketplace/marketplace.rb`` file to include the ``api_fqdn`` of the machine:
-
-   .. code-block:: none
-
-      $ echo 'api_fqdn "<fqdn>"' | sudo tee -a /etc/chef-marketplace/marketplace.rb
-
-#. Update the ``/etc/opscode-analytics/opscode-analytics.rb`` file to include the ``analytics_fqdn`` of the machine:
-
-   .. code-block:: none
-
-      $ echo 'analytics_fqdn "<fqdn>"' | sudo tee -a /etc/opscode-analytics/opscode-analytics.rb
-
-#. Run the following command to update the hostname and reconfigure the software:
-
-   .. code-block:: bash
-
-      $ sudo chef-marketplace-ctl hostname <fqdn>
-
-#. Run the following command to update reconfigure Chef Analytics:
-
-   .. code-block:: bash
-
-      $ sudo opscode-analytics-ctl reconfigure
-
-#. Now proceed to the web based setup wizard ``https://<fqdn>/signup``.
-
-   .. note:: Before you can run through the wizard you must provide the VM Name or DNS Label of the instance in order to ensure that only you are configuring the Chef server.
-
-#. Enter credentials to sign up for a new account and download the starter kit.
-
-#. Extract the starter kit zip file. Open a command prompt and change into the ``chef-repo`` directory extracted from the starter kit.
-
-#. Open ``/path/to/chef-repo/.chef/knife.rb`` and replace the ``chef_server_url`` value with the following:
-
-   .. code-block:: bash
-
-      "https://<fqdn>/organizations/<orgname>"
-
-
-   .. note:: The organization value is the one you defined during setup.
-
-#. Run ``knife ssl fetch`` to retrieve the SSL keys for the Chef server. You should see a message informing you that a certificate for your Chef server VM was successfully added to your local ``chef-repo`` directory.
-
-#. Run ``knife client list`` to test the connection to the Chef server. The command should return ``<orgname>-validator``, where ``<orgname>`` is the name of the organization you previously created. You are now ready to add virtual machines to your Chef server.
-
-.. end_tag
 
 Virtual Machines running Chef client
 =====================================================
