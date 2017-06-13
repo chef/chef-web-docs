@@ -4855,7 +4855,7 @@ This resource has the following properties:
    ``version``
    **Ruby Types:** String, Array
 
-   The version of a package to be installed or upgraded. This attribute is ignored when using the ``:upgrade`` action.
+   The version of a package to be installed or upgraded.
 
 .. end_tag
 
