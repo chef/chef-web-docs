@@ -419,8 +419,6 @@ Powershell User Data
    $nodeName = "lab-win-{0}" -f (-join ((65..90) + (97..122) | Get-Random -Count 4 | % {[char]$_}))
    
    $clientrb = @"
-   ssl_verify_mode        :verify_none
-   verify_api_cert        false
    chef_server_url        'https://chef-server/organizations/my-org'
    validation_client_name 'validator'
    validation_key         'C:\chef\validator.pem'
