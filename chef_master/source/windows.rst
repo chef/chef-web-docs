@@ -364,7 +364,7 @@ Microsoft Azure portal
 
 .. tag cloud_azure_portal
 
-Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual machines and integrated services for you to use with your cloud and hybrid applications. And through the Azure Marketplace and Azure portal (|url azure_production|), virtual machines can be bootstrapped and ready to run Chef Automate, Chef server, Chef Compliance and Chef client.
+Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual machines and integrated services for you to use with your cloud and hybrid applications. And through the Azure Marketplace and Azure portal (|url azure_production|), virtual machines can be bootstrapped and ready to run Chef Automate, Chef Compliance and Chef client.
 
 .. end_tag
 
