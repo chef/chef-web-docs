@@ -277,18 +277,21 @@ To add a project using the Chef Automate web UI:
 
 Custom build-cookbook
 =======================================================
-The pipeline cookbook---``pcb``---is available on GitHub at https://github.com/chef-cookbooks/pcb. The ``pcb`` cookbook is a code generator cookbook that may be used with the ``chef generate`` commands packaged in the Chef development kit to generate a ``build-cookbook`` for use with a Chef Automate pipeline. The ``pcb`` cookbook serves as a complate example of a generated build cookbook, complete with tests, and ready for integration to Chef Automate, while at the same time may be cloned and then customized for your own purposes. This cookbook is not in Chef Supermarket because it is used by the ``delivery init`` command, which clones this cookbook to a cached location.
-
-Generate the build-cookbook
--------------------------------------------------------
-The following commands clone the ``pcb`` cookbook from GitHub, and then uses the ``chef generate`` command to generate a ``build-cookbook`` using the ``pcb`` cookbook as a template:
+``chef generate`` can also create a custom build cookbook for use with Delivery:
 
 .. code-block:: bash
 
-   $ git clone https://github.com/chef-cookbooks/pcb.git ~/.delivery/cache/generator-cookbooks/pcb
+   $ chef generate build-cookbook NAME [options]
 
-and then:
+The following options are available with ``chef generate build-cookbook``:
 
-.. code-block:: bash
+.. code-block:: none
 
-   $ chef generate cookbook .delivery/build-cookbook -g ~/.delivery/cache/generator-cookbooks/pcb
+     -C, --copyright COPYRIGHT        Name of the copyright holder - defaults to 'The Authors'
+     -m, --email EMAIL                Email address of the author - defaults to 'you@example.com'
+     -a, --generator-arg KEY=VALUE    Use to set arbitrary attribute KEY to VALUE in the code_generator cookbook
+     -h, --help                       Show this message
+     -I, --license LICENSE            all_rights, apachev2, mit, gplv2, gplv3 - defaults to all_rights
+     -v, --version                    Show chef version
+     -g GENERATOR_COOKBOOK_PATH,      Use GENERATOR_COOKBOOK_PATH for the code_generator cookbook
+            --generator-cookbook
