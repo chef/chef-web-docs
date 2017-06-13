@@ -38,6 +38,7 @@ The full syntax for all of the properties that are available to the **windows_pa
      source                     String # defaults to 'name' if not specified
      subscribes                 # see description
      timeout                    String, Integer
+     version                    String, Array
      action                     Symbol # defaults to :install if not specified
    end
 
@@ -217,6 +218,11 @@ This resource has the following properties:
    **Ruby Types:** String, Integer
 
    The amount of time (in seconds) to wait before timing out. Default value: ``600`` (seconds).
+
+   ``version``
+   **Ruby Types:** String, Array
+
+   The version of a package to be installed or upgraded.
 
 .. end_tag
 
