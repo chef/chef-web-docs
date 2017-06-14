@@ -12,7 +12,7 @@
     "functional"
   ],
   "job_dispatch": {
-    "version": "v2"
+    "version": "v2",
     "filters": {
       "default": {
         "os": ["linux"],
