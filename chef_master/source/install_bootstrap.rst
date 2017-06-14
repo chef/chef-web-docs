@@ -387,9 +387,9 @@ When the chef-client is installed using an unattended bootstrap, it may be built
 
 Bootstrapping with User Data
 -----------------------------------------------------
-The method used to inject a User Data script into a server will vary depending on the infrastructure platform being used. For example, on AWS you can pass this data in as a text file using the command line tool.
+The method used to inject a user data script into a server will vary depending on the infrastructure platform being used. For example, on AWS you can pass this data in as a text file using the command line tool.
 
-The following examples show User Data for bootstrapping Windows and Linux nodes.
+The following user data examples demonstrate the process of bootstrapping Windows and Linux nodes.
 
 Powershell User Data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -465,7 +465,7 @@ Bash User Data
    
    NODE_NAME=node-$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 4 | head -n 1)
    
-   # Create Client.rb
+   # Create client.rb
    /bin/echo 'log_location     STDOUT' >> /etc/chef/client.rb
    /bin/echo -e "chef_server_url  \"https://aut-chef-server/organizations/my-org\"" >> /etc/chef/client.rb
    /bin/echo -e "validation_client_name \"my-org-validator\"" >> /etc/chef/client.rb
@@ -500,6 +500,6 @@ where ``file.json`` is similar to:
 
 and where ``_default`` is the name of the environment that is assigned to the node.
 
-.. warning:: This approach may be used to update ``normal`` attributes, but should never be used to update any other attribute type, as all attributes updated using this option are treated as ``normal`` attributes.
+.. warning:: This approach may be used to update `normal </attributes.html#attribute-types>`__ attributes, but should never be used to update any other attribute type, as all attributes updated using this option are treated as ``normal`` attributes.
 
 .. end_tag
