@@ -382,7 +382,7 @@ This resource has the following attributes:
 
    .. tag resources_common_notification_subscribes
 
-   A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
+   A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action. Note that ``subscribes`` can take action upon any available resource, not just the one it's listening to.
 
    .. end_tag
 
