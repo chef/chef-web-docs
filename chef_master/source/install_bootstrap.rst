@@ -383,9 +383,98 @@ When the chef-client is installed using an unattended bootstrap, remember that t
 * Must be able to access the chef-validator.pem so that it may create a new identity on the Chef server
 * Must have a unique node name; the chef-client will use the FQDN for the host system by default
 
-When the chef-client is installed using an unattended bootstrap, it is typically built into an image that starts the chef-client on boot. The type of image used depends on the platform on which the unattended bootstrap will take place.
+When the chef-client is installed using an unattended bootstrap, it may be built into an image that starts the chef-client on boot, or installed using User Data or some other kind of post-deployment script. The type of image or User Data used depends on the platform on which the unattended bootstrap will take place.
 
-Use settings in the :doc:`client.rb file </config_rb_client>`---``chef_server_url``, ``http_proxy``, and so on---to ensure that configuration details are built into the unattended bootstrap process.
+Bootstrapping with User Data
+-----------------------------------------------------
+The method used to inject a user data script into a server will vary depending on the infrastructure platform being used. For example, on AWS you can pass this data in as a text file using the command line tool.
+
+The following user data examples demonstrate the process of bootstrapping Windows and Linux nodes.
+
+Powershell User Data
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: powershell
+   
+   ## Set host file so the instance knows where to find chef-server
+   $hosts = "1.2.3.4 hello.example.com"
+   $file = "C:\Windows\System32\drivers\etc\hosts"
+   $hosts | Add-Content $file
+   
+   ## Download the Chef client
+   $clientURL = "https://packages.chef.io/files/stable/chef/12.19.36/windows/2012/chef-client-<version-here>.msi"
+   $clientDestination = "C:\chef-client.msi"
+   Invoke-WebRequest $clientURL -OutFile $clientDestination
+   
+   ## Install the chef-client
+   Start-Process msiexec.exe -ArgumentList @('/qn', '/lv C:\Windows\Temp\chef-log.txt', '/i C:\chef-client.msi', 'ADDLOCAL="ChefClientFeature,ChefSchTaskFeature,ChefPSModuleFeature"') -Wait
+   
+   ## Create first-boot.json
+   $firstboot = @{
+      "run_list" = @("role[base]")
+   }
+   Set-Content -Path c:\chef\first-boot.json -Value ($firstboot | ConvertTo-Json -Depth 10)
+   
+   ## Create client.rb
+   $nodeName = "lab-win-{0}" -f (-join ((65..90) + (97..122) | Get-Random -Count 4 | % {[char]$_}))
+   
+   $clientrb = @"
+   chef_server_url        'https://chef-server/organizations/my-org'
+   validation_client_name 'validator'
+   validation_key         'C:\chef\validator.pem'
+   node_name              '{0}' 
+   "@ -f $nodeName
+   
+   Set-Content -Path c:\chef\client.rb -Value $clientrb
+   
+   ## Run Chef
+   C:\opscode\chef\bin\chef-client.bat -j C:\chef\first-boot.json
+
+Bash User Data
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+   
+   #!/bin/bash -xev
+   
+   # Do some chef pre-work
+   /bin/mkdir -p /etc/chef
+   /bin/mkdir -p /var/lib/chef
+   /bin/mkdir -p /var/log/chef
+   
+   # Setup hosts file correctly
+   cat > "/etc/hosts" << EOF
+   10.0.0.5    compliance-server compliance-server.automate.com
+   10.0.0.6    chef-server chef-server.automate.com
+   10.0.0.7    automate-server automate-server.automate.com
+   EOF
+   
+   cd /etc/chef/
+   
+   # Install chef
+   curl -L https://omnitruck.chef.io/install.sh | bash || error_exit 'could not install chef'
+   
+   # Create first-boot.json
+   cat > "/etc/chef/first-boot.json" << EOF
+   {
+      "run_list" :[
+      "role[base]"
+      ]
+   }
+   EOF
+   
+   NODE_NAME=node-$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 4 | head -n 1)
+   
+   # Create client.rb
+   /bin/echo 'log_location     STDOUT' >> /etc/chef/client.rb
+   /bin/echo -e "chef_server_url  \"https://aut-chef-server/organizations/my-org\"" >> /etc/chef/client.rb
+   /bin/echo -e "validation_client_name \"my-org-validator\"" >> /etc/chef/client.rb
+   /bin/echo -e "validation_key \"/etc/chef/my_org_validator.pem\"" >> /etc/chef/client.rb
+   /bin/echo -e "node_name  \"${NODE_NAME}\"" >> /etc/chef/client.rb
+   
+   sudo chef-client -j /etc/chef/first-boot.json
+
+It is important that settings in the :doc:`client.rb file </config_rb_client>`---``chef_server_url``, ``http_proxy``, and so on are used---to ensure that configuration details are built into the unattended bootstrap process.
 
 **Setting the initial run-list**
 
@@ -411,6 +500,6 @@ where ``file.json`` is similar to:
 
 and where ``_default`` is the name of the environment that is assigned to the node.
 
-.. warning:: This approach may be used to update ``normal`` attributes, but should never be used to update any other attribute type, as all attributes updated using this option are treated as ``normal`` attributes.
+.. warning:: This approach may be used to update `normal </attributes.html#attribute-types>`__ attributes, but should never be used to update any other attribute type, as all attributes updated using this option are treated as ``normal`` attributes.
 
 .. end_tag
