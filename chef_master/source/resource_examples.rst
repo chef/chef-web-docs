@@ -19,7 +19,6 @@ The examples in this section show functionality that is common across all resour
 
    service 'memcached' do
      action :nothing
-     supports :status => true, :start => true, :stop => true, :restart => true
    end
 
 .. end_tag
@@ -56,6 +55,8 @@ The examples in this section show functionality that is common across all resour
 **Use the supports common attribute**
 
 .. tag resource_service_use_supports_attribute
+
+.. warning:: This property was deprecated in Chef 12.14 and removed in Chef 13.0.
 
 .. To use the ``supports`` common attribute in a recipe:
 
@@ -5949,7 +5950,6 @@ Use the **service** resource to manage a service.
 
    service 'memcached' do
      action :nothing
-     supports :status => true, :start => true, :stop => true, :restart => true
    end
 
 .. end_tag
@@ -5957,6 +5957,8 @@ Use the **service** resource to manage a service.
 **Use the supports common attribute**
 
 .. tag resource_service_use_supports_attribute
+
+.. warning:: This property was deprecated in Chef 12.14 and removed in Chef 13.0.
 
 .. To use the ``supports`` common attribute in a recipe:
 

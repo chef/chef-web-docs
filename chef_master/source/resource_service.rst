@@ -365,7 +365,6 @@ The following examples demonstrate various approaches for using resources in rec
 
    service 'memcached' do
      action :nothing
-     supports :status => true, :start => true, :stop => true, :restart => true
    end
 
 .. end_tag
@@ -373,6 +372,8 @@ The following examples demonstrate various approaches for using resources in rec
 **Use the supports common attribute**
 
 .. tag resource_service_use_supports_attribute
+
+.. warning:: This property was deprecated in Chef 12.14 and removed in Chef 13.0.
 
 .. To use the ``supports`` common attribute in a recipe:
 

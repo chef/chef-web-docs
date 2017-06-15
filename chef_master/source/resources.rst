@@ -76,7 +76,6 @@ The following examples show how to use common actions in a recipe.
 
    service 'memcached' do
      action :nothing
-     supports :status => true, :start => true, :stop => true, :restart => true
    end
 
 .. end_tag
@@ -171,6 +170,8 @@ The following examples show how to use common properties in a recipe.
 **Use the supports common property**
 
 .. tag resource_service_use_supports_attribute
+
+.. warning:: This property was deprecated in Chef 12.14 and removed in Chef 13.0.
 
 .. To use the ``supports`` common attribute in a recipe:
 
