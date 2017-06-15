@@ -149,7 +149,7 @@ To upgrade to Chef server 12 from a high availability Chef server configuration,
 
       $ chef-server-ctl upgrade
 
-   In some instances, after the upgrade processes is complete, it may be required to stop Keepalived on the back end secondary server, then restart Keepalived on the back end primary server, and then restart Keepalived on the back end secondary server.
+   In some instances, after the upgrade process is complete, it may be required to stop Keepalived on the back end secondary server, then restart Keepalived on the back end primary server, and then restart Keepalived on the back end secondary server.
 
 #. Upgrade all front end servers with the following commands:
 
@@ -226,7 +226,7 @@ To upgrade to Chef server 12 from a tiered Chef server configuration, do the fol
 
 #. Copy the entire ``/etc/opscode`` directory from the back end server to all front end servers:
 
-   .. code-block:: bash
+   .. code-block:: none
 
       $ scp -r /etc/opscode <each server's IP>:/etc
 
@@ -376,13 +376,13 @@ To upgrade to Chef server 12 from a high availability Enterprise Chef server, do
 
    or from the back end primary server:
 
-   .. code-block:: bash
+   .. code-block:: none
 
       $ scp -r /etc/opscode <each server's IP>:/etc
 
 #. Upgrade the back end secondary server with the following command:
 
-   .. code-block:: bash
+   .. code-block:: none
 
       $ chef-server-ctl upgrade
 

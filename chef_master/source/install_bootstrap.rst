@@ -394,7 +394,7 @@ The following user data examples demonstrate the process of bootstrapping Window
 Powershell User Data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: powershell
+.. code-block:: none
    
    ## Set host file so the instance knows where to find chef-server
    $hosts = "1.2.3.4 hello.example.com"

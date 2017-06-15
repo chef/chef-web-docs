@@ -1328,7 +1328,7 @@ For example:
 
 The response is similar to:
 
-.. code-block:: json
+.. code-block:: none
 
    {
      "id": "3ca95021-84c1-43a6-a2e7-be10edcb238d",
@@ -1347,6 +1347,8 @@ The response is similar to:
          .
          .
          ]
+       }
+     ]
    }
 
 **Response Codes**
@@ -1505,7 +1507,7 @@ For example:
 
 The response is similar to:
 
-.. code-block:: json
+.. code-block:: none
 
    {
      "name": "apache-baseline",
