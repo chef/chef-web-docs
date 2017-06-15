@@ -817,6 +817,6 @@ where ``file.json`` is similar to:
 
 and where ``_default`` is the name of the environment that is assigned to the node.
 
-.. warning:: This approach may be used to update ``normal`` attributes, but should never be used to update any other attribute type, as all attributes updated using this option are treated as ``normal`` attributes.
+.. warning:: This approach may be used to update `normal </attributes.html#attribute-types>`__ attributes, but should never be used to update any other attribute type, as all attributes updated using this option are treated as ``normal`` attributes.
 
 .. end_tag
