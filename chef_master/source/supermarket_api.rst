@@ -40,7 +40,7 @@ This method has no parameters.
 
 .. code-block:: none
 
-   POST /cookbooks/COOKBOOK_NAME
+   POST /api/v1/cookbooks/COOKBOOK_NAME
 
 **Response**
 
@@ -102,13 +102,13 @@ The ``GET`` method is used to get a listing of the available cookbooks. Use the 
 
 .. code-block:: none
 
-   GET /cookbooks?start=START&items=ITEMS
+   GET /api/v1/cookbooks?start=START&items=ITEMS
 
 or:
 
 .. code-block:: none
 
-   GET /cookbooks?user=smith
+   GET /api/v1/cookbooks?user=smith
 
 **Response**
 
@@ -172,7 +172,7 @@ This method has no parameters.
 
 .. code-block:: none
 
-   DELETE /cookbooks/cookbook_name
+   DELETE /api/v1/cookbooks/cookbook_name
 
 **Response**
 
@@ -227,7 +227,7 @@ This method has no parameters.
 
 .. code-block:: none
 
-   GET /cookbooks/COOKBOOK_NAME
+   GET /api/v1/cookbooks/COOKBOOK_NAME
 
 **Response**
 
@@ -309,7 +309,7 @@ This method has no parameters.
 
 .. code-block:: none
 
-   DELETE /cookbooks/cookbook_name/versions/version
+   DELETE /api/v1/cookbooks/cookbook_name/versions/version
 
 **Response**
 
@@ -366,13 +366,13 @@ This method has no parameters.
 
 .. code-block:: none
 
-   GET /cookbooks/COOKBOOK_NAME/versions/latest
+   GET /api/v1/cookbooks/COOKBOOK_NAME/versions/latest
 
 or:
 
 .. code-block:: none
 
-   GET /cookbooks/COOKBOOK_NAME/versions/VERSION
+   GET /api/v1/cookbooks/COOKBOOK_NAME/versions/VERSION
 
 **Response**
 
@@ -445,13 +445,13 @@ The ``GET`` method is used to get a list of cookbooks that match a search query.
 
 .. code-block:: none
 
-   GET /search?q=SEARCH_QUERY
+   GET /api/v1/search?q=SEARCH_QUERY
 
 or:
 
 .. code-block:: none
 
-   GET /search?q=SEARCH_QUERY&start=START&items=ITEMS
+   GET /api/v1/search?q=SEARCH_QUERY&start=START&items=ITEMS
 
 **Response**
 
@@ -512,13 +512,13 @@ The ``GET`` method is used to get a listing of the available tools. Use the ``st
 
 .. code-block:: none
 
-   GET /tools?start=START&items=ITEMS
+   GET /api/v1/tools?start=START&items=ITEMS
 
 or:
 
 .. code-block:: none
 
-   GET /tools?order=recently_added
+   GET /api/v1/tools?order=recently_added
 
 **Response**
 
@@ -599,13 +599,13 @@ The ``GET`` method is used to get a list of tools that match a search query. Use
 
 .. code-block:: none
 
-   GET /tools-search?q=SEARCH_QUERY
+   GET /api/v1/tools-search?q=SEARCH_QUERY
 
 or:
 
 .. code-block:: none
 
-   GET /tools-search?q=SEARCH_QUERY&start=START&items=ITEMS
+   GET /api/v1/tools-search?q=SEARCH_QUERY&start=START&items=ITEMS
 
 **Response**
 
@@ -659,7 +659,7 @@ This method has no parameters.
 
 .. code-block:: none
 
-   GET /tools/TOOL_SLUG
+   GET /api/v1/tools/TOOL_SLUG
 
 **Response**
 
@@ -776,11 +776,11 @@ This method has no parameters.
 
 .. code-block:: none
 
-   GET /users/USERNAME
+   GET /api/v1/users/USERNAME
 
 **Response**
 
-The response will return details for a user, including their name, Chef username, associated account details, and a list of cookbooks that are associated with the user. Cookbooks are grouped into three categories: those that are owned by this user, those in which this user has collaborated, and those that are followed.
+The response will return details for a user, including their name, Chef username, associated account details, and a list of cookbooks and tools that are associated with the user. Cookbooks are grouped into three categories: those that are owned by this user, those in which this user has collaborated, and those that are followed.
 
 .. code-block:: javascript
 
@@ -793,7 +793,6 @@ The response will return details for a user, including their name, Chef username
      ],
      "twitter": "stevedanno",
      "irc": "stevedanno",
-     "jira": "stevedanno",
      "cookbooks": {
        "owns": {
          "bacon": "https://supermarket.chef.io/api/v1/cookbooks/bacon"
@@ -807,5 +806,10 @@ The response will return details for a user, including their name, Chef username
          "bacon": "https://supermarket.chef.io/api/v1/cookbooks/bacon"
          "chef-sugar": "https://supermarket.chef.io/api/v1/cookbooks/chef-sugar"
        }
-     }
+     }, 
+     "tools": {
+       "owns": {
+         "bacon_tool": "https://supermarket.chef.io/api/v1/tools/bacon_tool"
+    }
+  }
    }
