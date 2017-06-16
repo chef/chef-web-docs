@@ -7509,12 +7509,6 @@ To load the secret from a file:
 
    data_bag_item('bag', 'item', IO.read('secret_file'))
 
-Appending ``.strip`` will remove newline characters from your encrypted secret. To load the secret from a file, and remove newline characters:
-
-.. code-block:: ruby
-
-   data_bag_item('bag', 'item', IO.read('secret_file').strip)
-
 To load a single data bag item named ``admins``:
 
 .. code-block:: ruby
