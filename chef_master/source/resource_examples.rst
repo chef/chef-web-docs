@@ -52,7 +52,7 @@ The examples in this section show functionality that is common across all resour
 
 .. end_tag
 
-**Use the supports common attribute**
+**Use the retries common attribute**
 
 .. tag resource_service_use_supports_attribute
 
@@ -67,7 +67,7 @@ The examples in this section show functionality that is common across all resour
 
 .. end_tag
 
-**Use the supports and providers common attributes**
+**Use the retries and providers common attributes**
 
 .. tag resource_service_use_provider_and_supports_attributes
 
@@ -5952,7 +5952,7 @@ Use the **service** resource to manage a service.
 
 .. end_tag
 
-**Use the supports common attribute**
+**Use the retries common attribute**
 
 .. tag resource_service_use_supports_attribute
 
@@ -5967,7 +5967,7 @@ Use the **service** resource to manage a service.
 
 .. end_tag
 
-**Use the supports and providers common attributes**
+**Use the retries and provider common attributes**
 
 .. tag resource_service_use_provider_and_supports_attributes
 

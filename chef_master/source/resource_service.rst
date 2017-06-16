@@ -369,7 +369,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. end_tag
 
-**Use the supports common attribute**
+**Use the retries common attribute**
 
 .. tag resource_service_use_supports_attribute
 
@@ -384,7 +384,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. end_tag
 
-**Use the supports and providers common attributes**
+**Use the retries and providers common attributes**
 
 .. tag resource_service_use_provider_and_supports_attributes
 

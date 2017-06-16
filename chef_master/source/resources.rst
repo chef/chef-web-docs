@@ -167,7 +167,7 @@ The following examples show how to use common properties in a recipe.
 
 .. end_tag
 
-**Use the supports common property**
+**Use the retries common property**
 
 .. tag resource_service_use_supports_attribute
 
@@ -182,7 +182,7 @@ The following examples show how to use common properties in a recipe.
 
 .. end_tag
 
-**Use the supports and providers common properties**
+**Use the retries and providers common properties**
 
 .. tag resource_service_use_provider_and_supports_attributes
 
