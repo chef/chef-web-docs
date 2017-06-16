@@ -23,7 +23,7 @@ A **mount** resource block manages a mounted file system:
 
 The full syntax for all of the properties that are available to the **mount** resource is:
 
-.. code-block:: ruby
+.. code-block:: none
 
    mount 'name' do
      device                     String
@@ -42,7 +42,7 @@ The full syntax for all of the properties that are available to the **mount** re
      provider                   Chef::Provider::Mount
      subscribes                 # see description
      supports                   Hash # defaults to { :remount => false } (preferred)
-                                Array # defaults to { :remount => true } (non-preferred)
+                                Array which defaults to { :remount => true } (non-preferred)
      username                   String
      action                     Symbol # defaults to :mount if not specified
    end
