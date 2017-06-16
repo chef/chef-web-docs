@@ -56,15 +56,13 @@ The examples in this section show functionality that is common across all resour
 
 .. tag resource_service_use_supports_attribute
 
-.. warning:: This property was deprecated in Chef 12.14 and removed in Chef 13.0.
-
-.. To use the ``supports`` common attribute in a recipe:
+.. To use the ``retries`` common attribute in a recipe:
 
 .. code-block:: ruby
 
    service 'apache' do
-     supports :restart => true, :reload => true
-     action :enable
+     action :start
+     retries 3
    end
 
 .. end_tag
@@ -73,14 +71,14 @@ The examples in this section show functionality that is common across all resour
 
 .. tag resource_service_use_provider_and_supports_attributes
 
-.. To use the ``provider`` and ``supports`` common attributes in a recipe:
+.. To use the ``provider`` and ``retries`` common attributes in a recipe:
 
 .. code-block:: ruby
 
    service 'some_service' do
      provider Chef::Provider::Service::Upstart
-     supports :status => true, :restart => true, :reload => true
      action [ :enable, :start ]
+     retries 3
    end
 
 .. end_tag
@@ -5958,15 +5956,13 @@ Use the **service** resource to manage a service.
 
 .. tag resource_service_use_supports_attribute
 
-.. warning:: This property was deprecated in Chef 12.14 and removed in Chef 13.0.
-
-.. To use the ``supports`` common attribute in a recipe:
+.. To use the ``retries`` common attribute in a recipe:
 
 .. code-block:: ruby
 
    service 'apache' do
-     supports :restart => true, :reload => true
-     action :enable
+     action :start
+     retries 3
    end
 
 .. end_tag
@@ -5975,14 +5971,14 @@ Use the **service** resource to manage a service.
 
 .. tag resource_service_use_provider_and_supports_attributes
 
-.. To use the ``provider`` and ``supports`` common attributes in a recipe:
+.. To use the ``provider`` and ``retries`` common attributes in a recipe:
 
 .. code-block:: ruby
 
    service 'some_service' do
      provider Chef::Provider::Service::Upstart
-     supports :status => true, :restart => true, :reload => true
      action [ :enable, :start ]
+     retries 3
    end
 
 .. end_tag
