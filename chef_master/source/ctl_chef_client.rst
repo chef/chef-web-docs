@@ -266,6 +266,12 @@ This command has the following options:
 ``--[no-]fips``
    Allows OpenSSL to enforce FIPS-validated security during the chef-client run.
 
+``--[no-]skip-cookbook-sync``
+   Use cached cookbooks without overwriting local differences from the server.
+   Use with caution. Useful for patching a set of cookbooks on a machine when iterating during development.
+
+   New in Chef Client 12.8.1.
+
 ``--[no-]listen``
    Run chef-zero in socketless mode.
 
