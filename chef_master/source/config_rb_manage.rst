@@ -82,6 +82,21 @@ This configuration file has the following settings:
 ``public_port``
    The port on which the external load balancer will listen. Default value: ``443``.
 
+``recaptcha.enabled``
+   Enable reCAPTCHA for the sign-up page. Default value: ``false``.
+
+``recaptcha.fail_open``
+   If the reCAPTCHA service cannot be reached, allow to sign-up? Default value: ``true``.
+
+``recaptcha.verify_url``
+   Verify-URL of reCAPTCHA service to be used. Default value: ``https://www.google.com/recaptcha/api/siteverify``.
+
+``recaptcha.site_key``
+   The Site Key received from reCAPTCHA.
+
+``recaptcha.secret_key``
+   The Secret Key received from reCAPTCHA.
+
 ``redis.host``
    The host on which Redis runs. Default value: ``localhost``.
 
