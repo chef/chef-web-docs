@@ -76,7 +76,6 @@ The following examples show how to use common actions in a recipe.
 
    service 'memcached' do
      action :nothing
-     supports :status => true, :start => true, :stop => true, :restart => true
    end
 
 .. end_tag
@@ -168,33 +167,33 @@ The following examples show how to use common properties in a recipe.
 
 .. end_tag
 
-**Use the supports common property**
+**Use the retries common property**
 
 .. tag resource_service_use_supports_attribute
 
-.. To use the ``supports`` common attribute in a recipe:
+.. To use the ``retries`` common attribute in a recipe:
 
 .. code-block:: ruby
 
    service 'apache' do
-     supports :restart => true, :reload => true
-     action :enable
+     action :start
+     retries 3
    end
 
 .. end_tag
 
-**Use the supports and providers common properties**
+**Use the retries and providers common properties**
 
 .. tag resource_service_use_provider_and_supports_attributes
 
-.. To use the ``provider`` and ``supports`` common attributes in a recipe:
+.. To use the ``provider`` and ``retries`` common attributes in a recipe:
 
 .. code-block:: ruby
 
    service 'some_service' do
      provider Chef::Provider::Service::Upstart
-     supports :status => true, :restart => true, :reload => true
      action [ :enable, :start ]
+     retries 3
    end
 
 .. end_tag
@@ -851,6 +850,21 @@ Subscribes
 
 A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
 
+Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
+
+.. code-block:: ruby
+
+  file '/etc/nginx/ssl/example.crt' do
+     mode '0600'
+     owner 'root'
+  end
+
+  service 'nginx' do
+     subscribes :reload, 'file[/etc/nginx/ssl/example.crt', :immediately
+  end
+
+In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
+
 .. end_tag
 
 .. tag resources_common_notification_subscribes_syntax
@@ -871,7 +885,7 @@ The following examples show how to use the ``subscribes`` notification in a reci
 
 .. tag resource_execute_subscribes_prevent_restart_and_reconfigure
 
-Use the ``:nothing`` action (common to all resources) to prevent an application from restarting, and then use the ``subscribes`` notification to ask the broken configuration to be reconfigured immediately:
+Use the ``:nothing`` action (common to all resources) to prevent the test from starting automatically, and then use the ``subscribes`` notification to run a configuration test when a change to the template is detected:
 
 .. code-block:: ruby
 
@@ -887,7 +901,7 @@ Use the ``:nothing`` action (common to all resources) to prevent an application 
 
 .. tag resource_service_subscribes_reload_using_template
 
-To reload a service based on a template, use the **template** and **service** resources together in the same recipe, similar to the following:
+To reload a service that is based on a template, use the **template** and **service** resources together in the same recipe, similar to the following:
 
 .. code-block:: ruby
 
@@ -897,12 +911,11 @@ To reload a service based on a template, use the **template** and **service** re
    end
 
    service 'apache' do
-     supports :restart => true, :reload => true
      action :enable
      subscribes :reload, 'template[/tmp/somefile]', :immediately
    end
 
-where the ``subscribes`` notification is used to reload the service using the template specified by the **template** resource.
+where the ``subscribes`` notification is used to reload the service whenever the template is modified.
 
 .. end_tag
 

@@ -19,7 +19,6 @@ The examples in this section show functionality that is common across all resour
 
    service 'memcached' do
      action :nothing
-     supports :status => true, :start => true, :stop => true, :restart => true
    end
 
 .. end_tag
@@ -53,33 +52,33 @@ The examples in this section show functionality that is common across all resour
 
 .. end_tag
 
-**Use the supports common attribute**
+**Use the retries common attribute**
 
 .. tag resource_service_use_supports_attribute
 
-.. To use the ``supports`` common attribute in a recipe:
+.. To use the ``retries`` common attribute in a recipe:
 
 .. code-block:: ruby
 
    service 'apache' do
-     supports :restart => true, :reload => true
-     action :enable
+     action :start
+     retries 3
    end
 
 .. end_tag
 
-**Use the supports and providers common attributes**
+**Use the retries and providers common attributes**
 
 .. tag resource_service_use_provider_and_supports_attributes
 
-.. To use the ``provider`` and ``supports`` common attributes in a recipe:
+.. To use the ``provider`` and ``retries`` common attributes in a recipe:
 
 .. code-block:: ruby
 
    service 'some_service' do
      provider Chef::Provider::Service::Upstart
-     supports :status => true, :restart => true, :reload => true
      action [ :enable, :start ]
+     retries 3
    end
 
 .. end_tag
@@ -469,7 +468,7 @@ where by using the default ``provider`` for the **service**, the recipe is telli
 
 .. tag resource_execute_subscribes_prevent_restart_and_reconfigure
 
-Use the ``:nothing`` action (common to all resources) to prevent an application from restarting, and then use the ``subscribes`` notification to ask the broken configuration to be reconfigured immediately:
+Use the ``:nothing`` action (common to all resources) to prevent the test from starting automatically, and then use the ``subscribes`` notification to run a configuration test when a change to the template is detected:
 
 .. code-block:: ruby
 
@@ -485,7 +484,7 @@ Use the ``:nothing`` action (common to all resources) to prevent an application 
 
 .. tag resource_service_subscribes_reload_using_template
 
-To reload a service based on a template, use the **template** and **service** resources together in the same recipe, similar to the following:
+To reload a service that is based on a template, use the **template** and **service** resources together in the same recipe, similar to the following:
 
 .. code-block:: ruby
 
@@ -495,12 +494,11 @@ To reload a service based on a template, use the **template** and **service** re
    end
 
    service 'apache' do
-     supports :restart => true, :reload => true
      action :enable
      subscribes :reload, 'template[/tmp/somefile]', :immediately
    end
 
-where the ``subscribes`` notification is used to reload the service using the template specified by the **template** resource.
+where the ``subscribes`` notification is used to reload the service whenever the template is modified.
 
 .. end_tag
 
@@ -2520,7 +2518,7 @@ The following example shows how to install new Yum repositories from a file, whe
 
 .. tag resource_execute_subscribes_prevent_restart_and_reconfigure
 
-Use the ``:nothing`` action (common to all resources) to prevent an application from restarting, and then use the ``subscribes`` notification to ask the broken configuration to be reconfigured immediately:
+Use the ``:nothing`` action (common to all resources) to prevent the test from starting automatically, and then use the ``subscribes`` notification to run a configuration test when a change to the template is detected:
 
 .. code-block:: ruby
 
@@ -5950,38 +5948,37 @@ Use the **service** resource to manage a service.
 
    service 'memcached' do
      action :nothing
-     supports :status => true, :start => true, :stop => true, :restart => true
    end
 
 .. end_tag
 
-**Use the supports common attribute**
+**Use the retries common attribute**
 
 .. tag resource_service_use_supports_attribute
 
-.. To use the ``supports`` common attribute in a recipe:
+.. To use the ``retries`` common attribute in a recipe:
 
 .. code-block:: ruby
 
    service 'apache' do
-     supports :restart => true, :reload => true
-     action :enable
+     action :start
+     retries 3
    end
 
 .. end_tag
 
-**Use the supports and providers common attributes**
+**Use the retries and provider common attributes**
 
 .. tag resource_service_use_provider_and_supports_attributes
 
-.. To use the ``provider`` and ``supports`` common attributes in a recipe:
+.. To use the ``provider`` and ``retries`` common attributes in a recipe:
 
 .. code-block:: ruby
 
    service 'some_service' do
      provider Chef::Provider::Service::Upstart
-     supports :status => true, :restart => true, :reload => true
      action [ :enable, :start ]
+     retries 3
    end
 
 .. end_tag
@@ -6031,7 +6028,7 @@ Use the **service** resource to manage a service.
 
 .. tag resource_service_subscribes_reload_using_template
 
-To reload a service based on a template, use the **template** and **service** resources together in the same recipe, similar to the following:
+To reload a service that is based on a template, use the **template** and **service** resources together in the same recipe, similar to the following:
 
 .. code-block:: ruby
 
@@ -6041,12 +6038,11 @@ To reload a service based on a template, use the **template** and **service** re
    end
 
    service 'apache' do
-     supports :restart => true, :reload => true
      action :enable
      subscribes :reload, 'template[/tmp/somefile]', :immediately
    end
 
-where the ``subscribes`` notification is used to reload the service using the template specified by the **template** resource.
+where the ``subscribes`` notification is used to reload the service whenever the template is modified.
 
 .. end_tag
 
