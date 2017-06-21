@@ -225,7 +225,7 @@ The node (and, if provided, the organization and/or Chef server) must match a si
 
 delete-visibility-node-by-id
 =====================================================
-The ``delete-visibility-node-by-id`` subcommand is used to delete a node from the **Node State** dashboard in the Chef Automate UI using the node's unique ID.
+The ``delete-visibility-node-by-id`` subcommand is used to delete a node from the **Node State** dashboard in the Chef Automate UI using the node's unique ID. (Hint: Look in the web browser address bar if you are trying to figure out which nodes with the same name to delete)
 
 This is helpful if ``delete-visibility-node`` is unable to delete a node by its node name, org, and/or Chef server.
 
