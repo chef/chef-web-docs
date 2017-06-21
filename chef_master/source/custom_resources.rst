@@ -1088,3 +1088,16 @@ Use the ``reset_property`` method to clear the value for a property as if it had
    reset_property(:password)
 
 .. end_tag
+
+coerce
+-----------------------------------------------------
+
+``coerce`` is used to transform user input into a canonical form. The value is passed in, and the transformed value returned as output. Lazy values will **not** be passed to this method until after they are evaluated.
+
+``coerce`` is run in the context of the instance, which gives it access to other properties.
+
+.. code-block:: ruby
+
+   class File < Chef::Resource
+     attribute :mode, coerce: proc { |m| m.is_a?(String) ? m.to_s(8) : m }
+   end
