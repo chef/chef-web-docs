@@ -10,6 +10,17 @@ chef-vault is a RubyGems package that is included in the Chef development kit. c
 
 The ``chef-vault`` cookbook is maintained by Chef. Use it along with chef-vault itself. This cookbook adds the ``chef_vault_item`` helper method to the Recipe DSL and the ``chef_vault_secret`` resource. Use them both in recipes to work with data bag secrets.
 
+.. warning:: 
+
+   Chef vault is incompatible with the practice of using chef-client with a private key as ``client.pem`` and a certificate set as its public identity in the Chef server database. Chef vault requires the use of chef-client configured to use public/private key pairs. To update existing nodes to use chef-vault, first re-register your chef-client nodes with the Chef server, which will generate public/private key pairs, and then install Chef vault on each node. Chef vault will generate the following error if used with a chef-client with a private key as ``client.pem`` and a certificate set as its public identity in the Chef server database:
+
+   .. code-block:: none
+
+      OpenSSL::PKey::RSAError
+      -----------------------
+      Neither PUB key nor PRIV key:: nested asn1 error
+
+
 Options for knife bootstrap
 =====================================================
 .. tag chef_vault_knife_bootstrap_options
