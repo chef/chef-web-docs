@@ -61,6 +61,9 @@ $nav-docs-width: 260px;
     color: $input-text-color;
     display: inline-block;
     width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    border-radius: 0;
   }
   ::-webkit-input-placeholder {
     color: $input-text-color;

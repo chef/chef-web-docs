@@ -1,35 +1,6 @@
 {% extends "layout.html" %}
 
-{# This is the script for the Google search box. #}
-
 {% set title = _('Search') %}
-
-{% block extrahead %}
-
-{{ super() }}
-<!-- Put the following javascript before the closing </head> tag. -->
-<script>
- (function() {
-   var cx = '002253161482252482270:qevo820vfhm';
-   var gcse = document.createElement('script');
-   gcse.type = 'text/javascript';
-   gcse.async = true;
-   gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-       '//cse.google.com/cse.js?cx=' + cx;
-   var s = document.getElementsByTagName('script')[0];
-   s.parentNode.insertBefore(gcse, s);
- })();
-
-  setTimeout( function(){
-    $(".gsc-input").attr("placeholder", "Search");
-    $("input.gsc-search-button").attr("src", "");
-  }
- , 1000 );
-</script>
-
-
-{% endblock %}
-
 
 {% block body %}
 
@@ -41,8 +12,9 @@
 {% trans %}From here you can use a scoped Google search query to search all of the documentation about Chef that is located at docs.chef.io. (This page requires JavaScript be enabled to view the search box.){% endtrans %}
 </p>
 
-<!-- Place this tag where you want both of the search box and the search results to render -->
-<gcse:search defaultToRefinement="Chef Documentation" webSearchResultSetSize="20"></gcse:search>
+<input type="text" placeholder="Search" id="docs-search" name="q" class="st-default-search-input">
+
+<div class="st-search-container"></div>
 
 &nbsp;<br>
 &nbsp;<br>
