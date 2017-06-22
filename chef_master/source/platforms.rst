@@ -352,13 +352,13 @@ The following table lists the Foundational platforms for the Chef push jobs:
 Supported Versions
 ==============================================
 
-The following table lists the versions of the OSS and commercial Chef products and projects we currently support:
+The following table lists the versions of the OSS and commercial Chef products we currently support:
 
 .. list-table::
    :widths: 500 500
    :header-rows: 1
 
-   * - Product/project
+   * - Product
      - Version
    * - Chef client
      - 12.0.0 or later
@@ -383,4 +383,4 @@ The following table lists the versions of the OSS and commercial Chef products a
    * - Enterprise Chef
      - 11.2.2 or later
    * - Chef Analytics
-     - ?
+     - No longer supported for new installations.
