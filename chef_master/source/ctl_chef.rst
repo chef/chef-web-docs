@@ -96,6 +96,54 @@ to return something similar to:
 
    chef-dk (0.1.0)
 
+**List all local gems**
+
+To list all of the installed gems on your development environment, use the ``list`` command without any arguments:
+
+.. code-block:: bash
+
+   $ chef gem list
+
+**Search for local gems**
+
+The ``list`` command can also be used to search for locally installed gems. For example, to list all of the gems with ``knife`` in their title:
+
+.. code-block:: bash
+
+   $ chef gem list knife
+
+which returns the following output:
+
+.. code-block:: bash
+
+   *** LOCAL GEMS ***
+
+   knife-opc (0.3.2)
+   knife-push (1.0.2)
+   knife-spork (1.6.3)
+   knife-windows (1.9.0)
+
+**Search remote gems**
+
+Use the ``search`` command to search for remote gems available for installation:
+
+.. code-block:: bash
+
+   $ chef gem search kitchen
+
+to return something similar to:
+
+.. code-block:: bash
+
+   *** REMOTE GEMS ***
+
+   chefkitchen_cli (0.0.1)
+   gst-kitchen (0.9.0)
+   guard-kitchen (0.0.2)
+   jackal-kitchen (0.1.2)
+   jackal-kitchen-slack (0.1.2)
+   kitchen (0.0.3)
+
 **Install a gem**
 
 To install a gem, run a command similar to:
@@ -110,6 +158,20 @@ to return something similar to:
 
    Successfully installed knife-config-1.1.0
    1 gem installed
+
+**Uninstall a gem**
+
+To uninstall a gem from the Chef development kit environment:
+
+.. code-block:: bash
+
+   $ chef gem uninstall knife-config
+
+to return something similar to:
+
+.. code-block:: bash
+
+   Successfully uninstalled knife-config-1.1.0
 
 **View the contents of a gem**
 
