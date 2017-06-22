@@ -102,7 +102,7 @@ To list all of the installed gems on your development environment, use the ``lis
 
 .. code-block:: bash
 
-   chef gem list
+   $ chef gem list
 
 **Search for local gems**
 
@@ -110,7 +110,7 @@ The ``list`` command can also be used to search for locally installed gems. For 
 
 .. code-block:: bash
 
-   chef gem list knife
+   $ chef gem list knife
 
 which returns the following output:
 
