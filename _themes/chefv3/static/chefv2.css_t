@@ -671,7 +671,10 @@ nav.nav-main {
     border: 2px solid #e9ebec;
     color: #989fa4;
     display: inline-block;
-    width: 100%; }
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    border-radius: 0; }
   .nav-docs ::-webkit-input-placeholder {
     color: #989fa4; }
   .nav-docs :-moz-placeholder {
@@ -779,6 +782,15 @@ nav.nav-main {
   .sphinxsidebar > a.sphinxsidebar-ad > img {
     width: 100%;
     margin: 8px 0 1px; }
+
+input.st-default-search-input {
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  border-radius: 0; }
+
+.st-search-container {
+  margin-top: 20px; }
 
 .left {
   float: left; }

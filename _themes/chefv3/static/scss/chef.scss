@@ -1,7 +1,7 @@
 // TO COMPILE CSS
 // In command line switch to _themes/chefv3/static/ and run :
 // sass --watch scss/chef.scss:chefv2.css_t
-@import 'reset', 'config', 'sphinx', 'nav', 'nav-docs', 'sidebar-ad';
+@import 'reset', 'config', 'sphinx', 'nav', 'nav-docs', 'sidebar-ad', 'search';
 
 .left {
   float: left;
