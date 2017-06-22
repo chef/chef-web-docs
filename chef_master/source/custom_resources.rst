@@ -999,19 +999,19 @@ For example, the following custom resource creates and/or updates user propertie
 
 .. code-block:: ruby
 
-   action :create do
-     converge_if_changed do
-       system("rabbitmqctl create_or_update_user #{username} --prop1 #{prop1} ... ")
-     end
+  action :create do
+    converge_if_changed do
+      shell_out!("rabbitmqctl create_or_update_user #{username} --prop1 #{prop1} ... ")
+    end
 
-     if property_is_set?(:password)
-       if system("rabbitmqctl authenticate_user #{username} #{password}") != 0
-         converge_by "Updating password for user #{username} ..." do
-           system("rabbitmqctl update_user #{username} --password #{password}")
-         end
-       end
-     end
-   end
+    if property_is_set?(:password)
+      if shell_out("rabbitmqctl authenticate_user #{username} #{password}").error?
+        converge_by "Updating password for user #{username} ..." do
+          shell_out!("rabbitmqctl update_user #{username} --password #{password}")
+        end
+      end
+    end
+  end
 
 .. end_tag
 
@@ -1088,3 +1088,16 @@ Use the ``reset_property`` method to clear the value for a property as if it had
    reset_property(:password)
 
 .. end_tag
+
+coerce
+-----------------------------------------------------
+
+``coerce`` is used to transform user input into a canonical form. The value is passed in, and the transformed value returned as output. Lazy values will **not** be passed to this method until after they are evaluated.
+
+``coerce`` is run in the context of the instance, which gives it access to other properties.
+
+.. code-block:: ruby
+
+   class File < Chef::Resource
+     attribute :mode, coerce: proc { |m| m.is_a?(String) ? m.to_s(8) : m }
+   end

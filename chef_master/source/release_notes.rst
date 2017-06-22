@@ -3802,19 +3802,19 @@ For example, the following custom resource creates and/or updates user propertie
 
 .. code-block:: ruby
 
-   action :create do
-     converge_if_changed do
-       system("rabbitmqctl create_or_update_user #{username} --prop1 #{prop1} ... ")
-     end
+  action :create do
+    converge_if_changed do
+      shell_out!("rabbitmqctl create_or_update_user #{username} --prop1 #{prop1} ... ")
+    end
 
-     if property_is_set?(:password)
-       if system("rabbitmqctl authenticate_user #{username} #{password}") != 0
-         converge_by "Updating password for user #{username} ..." do
-           system("rabbitmqctl update_user #{username} --password #{password}")
-         end
-       end
-     end
-   end
+    if property_is_set?(:password)
+      if shell_out("rabbitmqctl authenticate_user #{username} #{password}").error?
+        converge_by "Updating password for user #{username} ..." do
+          shell_out!("rabbitmqctl update_user #{username} --password #{password}")
+        end
+      end
+    end
+  end
 
 .. end_tag
 
