@@ -43,7 +43,10 @@ This subcommand has the following syntax:
 
 create-backup
 =====================================================
-The ``create-backup`` subcommand is used to create Chef Automate backup archives and Elasticseach snapshots. When used with the default configuration it will create backup archives and Elasticseach snapshots
+
+.. tag automate_ctl_create_backup
+
+The ``create-backup`` subcommand is used to create Chef Automate backups. By default, it creates Automate backup archives and Elasticsearch snapshots. 
 
 **Syntax**
 
@@ -68,7 +71,9 @@ The ``create-backup`` subcommand is used to create Chef Automate backup archives
         --staging-dir [string]       The path to use for temporary files during backup
     -h, --help                       Show the usage message
 
-.. note:: The ``NAME`` value is optional. If omitted, a default name with the current time will be used.
+The ``NAME`` value is optional. If omitted, a default name with the current time will be used.
+
+.. warning:: In rare circumstances, jobs that are running at the time of backup creation may be left in an unrecoverable state. For this reason, it's recommended to take a backup when no critical jobs are running. 
 
 **Examples**
 
@@ -80,6 +85,8 @@ Elasticsearch snapshot only:
 
 Automate archive only
   ``$ automate-ctl create-backup --no-elasticsearch``
+
+.. end_tag
 
 create-enterprise
 =====================================================
