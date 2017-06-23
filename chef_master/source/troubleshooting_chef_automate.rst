@@ -294,3 +294,4 @@ We also recommend that you configure that same token in the typical way in /etc/
 .. code-block:: none
    
    chef-server-ctl set-secret data_collector token 'YOURSECRET'
+   chef-server-ctl restart nginx
