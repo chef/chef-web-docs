@@ -522,6 +522,9 @@ This argument has the following options:
 ``--winrm-authentication-protocol PROTOCOL``
    The authentication protocol to be used during WinRM communication. Possible values: ``basic``, ``kerberos`` or ``negotiate``. Default value: ``negotiate``.
 
+``--winrm-shell SHELL``
+   The WinRM shell type. Valid choices are ``cmd``, ``powershell`` or ``elevated``. Default value: ``cmd``. The ``elevated`` shell is similar to the ``powershell`` option, but runs the powershell command from a scheduled task.
+
 ``--winrm-ssl-verify-mode MODE``
    The peer verification mode that is used during WinRM communication. Possible values: ``verify_none`` or ``verify_peer``. Default value: ``verify_peer``.
 
