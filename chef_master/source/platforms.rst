@@ -384,3 +384,48 @@ The following table lists the versions of the OSS and commercial Chef products w
      - 11.2.2 or later
    * - Chef Analytics
      - No longer supported for new installations.
+
+.. list-table::
+   :widths: 500 500
+   :header-rows: 2
+
+   * - License:
+     - Chef Automate License
+   * - Product
+     - Version
+   * - Chef Automate
+     - 0.3.56
+
+
+Plain text	Typical result
+Grid table:
+
++----------------------------------------------+ 
+|  Open Source                                 | 
++----------------------+-----------------------+ 
+| Product              | Version               |
++======================+=======================+ 
+| Chef Client          | 12.0.0 or later       | 
++----------------------+-----------------------+
+| Chef DK              | 1.0.3 or later        | 
++----------------------+-----------------------+
+| Chef Server          | 11.0.4 or later       | 
++----------------------+-----------------------+   
+| Push Jobs Client     |                       | 
++----------------------+ 2.1.0 or later        |
+| Push Jobs Server     |                       | 
++----------------------+-----------------------+   
+
++------------+--------------------+ 
+|  Chef Automate License          | 
++----------------+----------------+ 
+| Product        | Version        |
++================+================+ 
+| Chef Automate  | 0.3.56         | 
++----------------+----------------+
+| Chef Compliance| 0.9.0 or later | 
++----------------+----------------+
+| Chef Backend   | 1.0.9 or later | 
++----------------+----------------+   
+| Chef Manage    | 2.1.0 or later | 
++----------------+----------------+ 
