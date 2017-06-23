@@ -590,6 +590,8 @@ The command is intended to restore an Automate instance completely from backup, 
 
 .. note:: Backups created with the older ``automate-ctl backup-data`` command are not supported with this command. If you wish to restore an older backup please install the version of Chef Automate that took the backup and use ``automate-ctl restore-data``
 
+.. warning:: In rare circumstances, jobs that are running at the time of backup creation may be left in an unrecoverable state.
+
 **Syntax**
 
 .. code-block:: console

@@ -132,7 +132,9 @@ If omitted, the default ``max_archives``, ``max_snapshots``, and ``notation`` se
 Create Backups
 =====================================================
 
-The `create-backup </ctl_automate_server.html#create-backup>`__ command is used to create Chef Automate backup archives and Elasticseach snapshots. When used with the default configuration it will create backup archives and Elasticseach snapshots
+The `create-backup </ctl_automate_server.html#create-backup>`__ command is used to create Chef Automate backup archives and Elasticseach snapshots. When used with the default configuration, it will create backup archives and Elasticseach snapshots.
+
+.. note:: In rare circumstances, jobs that are running at the time of backup creation may be left in an unrecoverable state.
 
 List Backups
 =====================================================
