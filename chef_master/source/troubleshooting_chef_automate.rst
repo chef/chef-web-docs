@@ -252,14 +252,14 @@ not highlight them in the UI. This is designed to keep the UI focused on the nod
 
 .. end_tag
 
-Chef Server 12.5.8 Proxying to Automate
-=====================================================
+Issue: Changing default token causes data collector request failures
+------------------------------------------------------------------------------------
 
-There is a bug in the latest Chef Server where setting the data collector token in /etc/opscode/chef-server.rb away from the default works....once. Afterwards, you will no longer be able to reset the token. It will be stuck, because the Veil secure credential storage now takes precedence over secrets set in /etc/delivery/delivery.rb. Currently, the token is considered to be a secret.
+There is a bug in Chef Server 12.15.8 where setting the data collector token in ``/etc/opscode/chef-server.rb`` away from the default works, but only once. Afterwards, you will no longer be able to reset the token. It will be stuck because the Veil secure credential storage now takes precedence over secrets set in ``/etc/delivery/delivery.rb``. Currently, the token is considered to be a secret.
 
-If you continually get 401s in the /var/log/delivery/nginx/delivery.access.log for data collector requests, but your configuration looks good, this issue is why.
+If you continually receive ``401`` errors in ``/var/log/delivery/nginx/delivery.access.log`` for data collector requests, but your configuration looks good, this issue is the cause.
 
-You can find what token is being sent by watching output from the following command on the Automate system. Look closely at the following output for the word "x-data-collector-token" and you will see that my token, "strangeCall" follows. Ctrl-c to exit the tcpdump.
+You can find what token is being sent by watching output from the following ``tcpdump`` command on the Automate system. Look closely at the output for the string ``x-data-collector-token``, and you will see that the token ``strangeCall`` follows. Use Ctrl-C to exit the ``tcpdump``.
 
 .. code-block:: none
 
@@ -287,11 +287,11 @@ You can find what token is being sent by watching output from the following comm
         0x0110:  6c65 6374 6f72 2d74 6f6b 656e 3a20 7374  lector-token:.st
         0x0120:  7261 6e67 6543 616c 6c0d 0a78 2d64 6174  rangeCall
 
-You can work around this bug with the following command on the Chef Server.
-You will want to set whatever token the Automate system has been configured with.
-We also recommend that you configure that same token in the typical way in /etc/opscode/chef-server.rb and reconfigure anyway, even though that will have no effect. In this way, there is a way to know what token should be being sent to the Automate system.
+You can work around this bug by issuing the following commands on the Chef Server, replacing ``SECRET`` with the token that the Automate system has been configured to use:
 
 .. code-block:: none
    
-   chef-server-ctl set-secret data_collector token 'YOURSECRET'
+   chef-server-ctl set-secret data_collector token 'SECRET'
    chef-server-ctl restart nginx
+
+It's also recommended that you configure that same token in ``/etc/opscode/chef-server.rb``, and then run ``chef-server-ctl reconfigure``. This will allow you to confirm that the correct token is used to access the Automate system. 
