@@ -131,7 +131,7 @@ html_static_path = ['_static']
 
 html_context = {
     'css_files': [
-        '_static/code-preview.css',  # overrides for wide tables in RTD theme
+        '_static/code-preview.css',  # overrides code example BG color
         ],
     }
 
