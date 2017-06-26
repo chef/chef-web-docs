@@ -42,7 +42,7 @@ Configure your Chef server to point to Chef Automate
 
 In addition to forwarding Chef run data to Automate, Chef server will send messages to Chef Automate whenever an action is taken on a Chef server object, such as when a cookbook is uploaded to the Chef server or when a user edits a role.
 
-To enable this feature, add the following settings to ``/etc/opscode/chef-server.rb`` on the Chef server:
+To enable this feature on Chef Servers 12.13.0 and below, add the following settings to ``/etc/opscode/chef-server.rb`` on the Chef server:
 
 .. code-block:: ruby
 
@@ -54,6 +54,13 @@ where ``my-automate-server.mycompany.com`` is the fully-qualified domain name of
 
 Save the file and run ``chef-server-ctl reconfigure`` to complete the process.
 
+On Chef Servers 12.14.x and beyond, you must do the following to change the data collector token. (These versions channel the token setting through our Veil secrets library, because the token is considered a secret and so cannot appear in /etc/opscode/chef-server.rb)
+
+.. code-block:: ruby
+
+   chef-server-ctl set-secret data_collector token 'TOKEN'
+   chef-server-ctl restart nginx
+   
 Additional configuration options include:
 
  * ``data_collector['timeout']``: timeout in milliseconds to abort an attempt to send a message to the
