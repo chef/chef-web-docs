@@ -251,3 +251,47 @@ that have a node associated with them will appear in the UI. Chef Automate has a
 not highlight them in the UI. This is designed to keep the UI focused on the nodes in your cluster.
 
 .. end_tag
+
+Issue: Changing default token causes data collector request failures
+------------------------------------------------------------------------------------
+
+There is a bug in Chef Server 12.15.8 where setting the data collector token in ``/etc/opscode/chef-server.rb`` away from the default works, but only once. Afterwards, you will no longer be able to reset the token. It will be stuck because the Veil secure credential storage now takes precedence over secrets set in ``/etc/delivery/delivery.rb``. Currently, the token is considered to be a secret.
+
+If you continually receive ``401`` errors in ``/var/log/delivery/nginx/delivery.access.log`` for data collector requests, but your configuration looks good, this issue is the cause.
+
+You can find what token is being sent by watching output from the following ``tcpdump`` command on the Automate system. Look closely at the output for the string ``x-data-collector-token``, and you will see that the token ``strangeCall`` follows. Use Ctrl-C to exit the ``tcpdump``.
+
+.. code-block:: none
+
+   tcpdump -i lo -XX -s0 -vv 'port 9611' | tee -a get-that-token.txt
+   
+   11:05:58.630201 IP (tos 0x0, ttl 64, id 5169, offset 0, flags [DF], proto TCP (6), length 1658)
+    localhost.39068 > localhost.9611: Flags [P.], cksum 0x046f (incorrect -> 0xfb07), seq 1:1607, ack 1, win 342, options   [nop,nop,TS val 34662932 ecr 34662932], length 1606
+        0x0000:  0000 0000 0000 0000 0000 0000 0800 4500  ..............E.
+        0x0010:  067a 1431 4000 4006 224b 7f00 0001 7f00  .z.1@.@."K......
+        0x0020:  0001 989c 258b fc06 fe3c 842e 5bc4 8018  ....%....<..[...
+        0x0030:  0156 046f 0000 0101 080a 0210 ea14 0210  .V.o............
+        0x0040:  ea14 504f 5354 202f 6461 7461 2d63 6f6c  ..POST./data-col
+        0x0050:  6c65 6374 6f72 2f76 302f 2048 5454 502f  lector/v0/.HTTP/
+        0x0060:  312e 310d 0a48 6f73 743a 2064 6174 612d  1.1..Host:.data-
+        0x0070:  636f 6c6c 6563 746f 723a 3434 330d 0a58  collector:443..X
+        0x0080:  2d52 6561 6c2d 4950 3a20 3130 2e30 2e33  -Real-IP:.10.0.3
+        0x0090:  2e32 3330 0d0a 582d 5363 6865 6d65 3a20  .230..X-Scheme:.
+        0x00a0:  6874 7470 730d 0a58 2d46 6f72 7761 7264  https..X-Forward
+        0x00b0:  6564 2d46 6f72 3a20 3130 2e30 2e33 2e32  ed-For:.10.0.3.2
+        0x00c0:  3330 0d0a 582d 466f 7277 6172 6465 642d  30..X-Forwarded-
+        0x00d0:  5072 6f74 6f3a 2068 7474 7073 0d0a 436f  Proto:.https..Co
+        0x00e0:  6e6e 6563 7469 6f6e 3a20 636c 6f73 650d  nnection:.close.
+        0x00f0:  0a43 6f6e 7465 6e74 2d4c 656e 6774 683a  .Content-Length:
+        0x0100:  2033 3533 0d0a 782d 6461 7461 2d63 6f6c  .353..x-data-col
+        0x0110:  6c65 6374 6f72 2d74 6f6b 656e 3a20 7374  lector-token:.st
+        0x0120:  7261 6e67 6543 616c 6c0d 0a78 2d64 6174  rangeCall
+
+You can work around this bug by issuing the following commands on the Chef Server, replacing ``SECRET`` with the token that the Automate system has been configured to use:
+
+.. code-block:: none
+   
+   chef-server-ctl set-secret data_collector token 'SECRET'
+   chef-server-ctl restart nginx
+
+It's also recommended that you configure that same token in ``/etc/opscode/chef-server.rb``, and then run ``chef-server-ctl reconfigure``. This will allow you to confirm that the correct token is used to access the Automate system. 
