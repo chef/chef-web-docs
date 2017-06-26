@@ -129,6 +129,13 @@ html_favicon = "../../favicon.ico"
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+html_context = {
+    'css_files': [
+        '_static/code-preview.css',  # overrides code example BG color
+        ],
+    }
+
+
 # This setting is being used by Chef to override a version # stamp inserted
 # at every page bottom, using a string. For example: chef-client 11.6.x. Or:
 # Enterprise Chef Server 11.0.x. And yeah, this is just a hack, but it's the
