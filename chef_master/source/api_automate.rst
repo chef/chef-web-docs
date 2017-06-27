@@ -19,7 +19,7 @@ Authentication Methods
 Authentication to the Chef Automate server occurs via a specific set of HTTP headers and two types of tokens:
 
 * ``user token`` is a short-lived (seven days) token and can be obtained from the Chef Automate dashboard by entering this URL in your browser:
-  
+
   .. code-block:: none
 
      https://YOUR_AUTOMATE_HOST/e/YOUR_AUTOMATE_ENTERPRISE/#/dashboard?token
@@ -2098,8 +2098,7 @@ The response is similar to:
 
 /compliance/stats/trend/controls
 --------------------------------
-Get the latest scan data for all nodes (or nodes that match `Filters`_), then for each control, aggregate the compliance
-results from the latest scans, build a date histogram, and return it.
+Get the latest scan data for all nodes (or nodes that match `Filters`_), aggregate the control results from the latest scans, build a date histogram, and return it.
 
 The endpoint has the following methods: ``GET``.
 
@@ -2129,8 +2128,7 @@ For example:
 .. code-block:: bash
 
    curl -X GET \
-   "https://my-auto-server.test/compliance/stats/trend/controls? \
-   filters=start_time:2017-02-01T00%3A00%3A00%2B00%3A00+end_time:2017-07-30T00%3A00%3A00%2B00%3A00&interval=3000000" \
+   "https://my-auto-server.test/compliance/stats/trend/controls?filters=start_time:2017-04-01T00%3A00%3A00%2B00%3A00+end_time:2017-04-05T00%3A00%3A00%2B00%3A00&interval=86400" \
    -H "chef-delivery-enterprise: acme" \
    -H "chef-delivery-user: john" \
    -H "chef-delivery-token: 7djW35..."
@@ -2143,36 +2141,31 @@ The response is similar to:
 
    [
      {
-       "time": "2017-01-21T12:00:00+0000",
-       "passed": 0,
-       "failed": 0,
-       "skipped": 0
-     },
-     {
-       "time": "2017-02-25T05:20:00+0000",
+       "report_time": "2017-04-02T00:00:00+0000",
        "passed": 23,
        "failed": 22,
        "skipped": 14
      },
      {
-       "time": "2017-03-31T22:40:00+0000",
-       "passed": 22,
-       "failed": 23,
-       "skipped": 68
+       "report_time": "2017-04-03T00:00:00+0000",
+       "passed": 23,
+       "failed": 22,
+       "skipped": 14
      },
      {
-       "time": "2017-05-05T16:00:00+0000",
-       "passed": 0,
-       "failed": 0,
-       "skipped": 0
+       "report_time": "2017-04-04T00:00:00+0000",
+       "passed": 45,
+       "failed": 45,
+       "skipped": 82
      },
      {
-       "time": "2017-06-09T09:20:00+0000",
-       "passed": 0,
-       "failed": 0,
-       "skipped": 0
+       "report_time": "2017-04-05T00:00:00+0000",
+       "passed": 45,
+       "failed": 45,
+       "skipped": 82
      }
    ]
+
 
 **Response Codes**
 
@@ -2193,7 +2186,7 @@ The response is similar to:
 
 /compliance/stats/trend/nodes
 -----------------------------
-Get the latest scan data for all nodes (or nodes that match `Filters`_), then for each profile, aggregate the compliance
+Get the latest scan data for all nodes (or nodes that match `Filters`_), aggregate the compliance
 results from the latest scans, build a date histogram, and return it.
 
 The endpoint has the following methods: ``GET``.
@@ -2224,8 +2217,7 @@ For example:
 .. code-block:: bash
 
    curl -X GET \
-   "https://my-auto-server.test/compliance/stats/trend/nodes? \
-   filters=start_time:2017-02-01T00%3A00%3A00%2B00%3A00+end_time:2017-07-30T00%3A00%3A00%2B00%3A00&interval=3000000" \
+   "https://my-auto-server.test/compliance/stats/trend/nodes?filters=start_time:2017-04-01T00%3A00%3A00%2B00%3A00+end_time:2017-04-05T00%3A00%3A00%2B00%3A00&interval=86400" \
    -H "chef-delivery-enterprise: acme" \
    -H "chef-delivery-user: john" \
    -H "chef-delivery-token: 7djW35..."
@@ -2238,31 +2230,31 @@ The response is similar to:
 
    [
      {
-       "time": "2017-01-21T12:00:00+0000",
-       "compliant": 0,
-       "noncompliant": 0
+       "report_time": "2017-04-02T00:00:00+0000",
+       "passed": 0,
+       "failed": 1,
+       "skipped": 0
      },
      {
-       "time": "2017-02-25T05:20:00+0000",
-       "compliant": 0,
-       "noncompliant": 1
+       "report_time": "2017-04-03T00:00:00+0000",
+       "passed": 0,
+       "failed": 1,
+       "skipped": 0
      },
      {
-       "time": "2017-03-31T22:40:00+0000",
-       "compliant": 0,
-       "noncompliant": 1
+       "report_time": "2017-04-04T00:00:00+0000",
+       "passed": 0,
+       "failed": 2,
+       "skipped": 0
      },
      {
-       "time": "2017-05-05T16:00:00+0000",
-       "compliant": 0,
-       "noncompliant": 0
-     },
-     {
-       "time": "2017-06-09T09:20:00+0000",
-       "compliant": 0,
-       "noncompliant": 0
+       "report_time": "2017-04-05T00:00:00+0000",
+       "passed": 0,
+       "failed": 2,
+       "skipped": 0
      }
    ]
+
 
 **Response Codes**
 
@@ -2413,5 +2405,3 @@ The response is similar to:
      - OK. The request was successful.
    * - ``401``
      - Unauthorized. The user who made the request is not authorized to perform the action.
-
-
