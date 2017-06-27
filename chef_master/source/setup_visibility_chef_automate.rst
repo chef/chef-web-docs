@@ -172,7 +172,7 @@ Sending Compliance Data to Chef Automate
 
 To send compliance data gathered by InSpec as part of a Chef client run, you will need to use the `audit cookbook <https://github.com/chef-cookbooks/audit>`_. All profiles that are configured to run during the audit cookbook execution will send their results back to the Chef Automate server.
 
-To configure the audit cookbook, you will first need to configure the Chef client to send node converge data, as previously described. The ``data_collector.server_url`` and ``data_collector.token`` values will be used as the reporting targets. Once you have done that, configure the the audit cookbook's collector by setting the ``audit.collector`` attribute to ``chef-visibility``.
+To configure the audit cookbook, you will first need to configure the Chef client to send node converge data, as previously described. The ``data_collector.server_url`` and ``data_collector.token`` values will be used as the reporting targets. Once you have done that, configure the audit cookbook's collector by setting the ``audit.collector`` attribute to ``chef-visibility``.
 
 A complete audit cookbook attribute configuration would look something like this:
 
