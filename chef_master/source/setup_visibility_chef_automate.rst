@@ -42,7 +42,7 @@ Configure your Chef server to point to Chef Automate
 
 In addition to forwarding Chef run data to Automate, Chef server will send messages to Chef Automate whenever an action is taken on a Chef server object, such as when a cookbook is uploaded to the Chef server or when a user edits a role.
 
-To enable this feature on Chef Servers 12.13.0 and below, add the following settings to ``/etc/opscode/chef-server.rb`` on the Chef server:
+To enable this feature on Chef Server versions 12.13 and below, add the following settings to ``/etc/opscode/chef-server.rb`` on the Chef server:
 
 .. code-block:: ruby
 
@@ -54,7 +54,7 @@ where ``my-automate-server.mycompany.com`` is the fully-qualified domain name of
 
 Save the file and run ``chef-server-ctl reconfigure`` to complete the process.
 
-Chef Servers 12.14.x and later, channel the token setting through our Veil secrets library because the token is considered a secret and, as such, cannot appear in /etc/opscode/chef-server.rb. On Chef Servers 12.14.x and later, you must make the following to change the data collector token:
+Chef Server versions 12.14 and later, channel the token setting through our Veil secrets library because the token is considered a secret and, as such, cannot appear in ``/etc/opscode/chef-server.rb``. On Chef Server versions 12.14 and above, you must make the following to change the data collector token:
 
 .. code-block:: ruby
 
@@ -226,7 +226,7 @@ a load-balancer or a third-party Elasticsearch-as-a-service offering.
 
 After saving the file, run ``sudo automate-ctl reconfigure``.
 
-An additional Elasticsearch-related configuration properties is ``elasticsearch['host_header']``. This is theHTTP ``Host`` header to send with the request.
+An additional Elasticsearch-related configuration properties is ``elasticsearch['host_header']``. This is the HTTP ``Host`` header to send with the request.
 When this attribute is unspecified, the default behavior is as follows:
 
   * If the ``urls`` parameter contains a single entry, the host of the supplied URI will be sent as the Host header.
