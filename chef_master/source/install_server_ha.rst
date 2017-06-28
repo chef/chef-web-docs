@@ -622,7 +622,7 @@ Chef HA backend leader management service settings
   https://github.com/cmullaparthi/ibrowse/blob/master/doc/ibrowse.html).
 * ``leaderl.epmd_monitor.check_interval`` How often (in milliseconds)
   to check that leaderl is registered with the Erlang Port Mapping
-  Deamon (epmd).  ``60000`` by default.
+  Daemon (epmd).  ``60000`` by default.
 
 Chef HA backend leader health status settings
 ----------------------------------------------------------------
