@@ -1372,8 +1372,7 @@ The response is similar to:
 
 /compliance/search/profiles
 ---------------------------
-Get retrieves the list of profile summary data.
-
+Retrieves a list of profile summary data, based on the filters and parameters listed below. 
 
 The endpoint has the following methods: ``GET``.
 
