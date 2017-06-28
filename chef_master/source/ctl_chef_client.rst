@@ -273,7 +273,7 @@ This command has the following options:
    New in Chef Client 12.8.1.
 
 ``--[no-]listen``
-   Run chef-zero in socketless mode.
+   Run chef-zero in socketless mode. **This is the default behavior on Chef Client 13.1 and above.**
 
    New in Chef Client 12.3.
 
@@ -363,6 +363,8 @@ Local mode will store temporary and cache files under the ``<chef_repo_path>/.ca
 About chef-zero
 -----------------------------------------------------
 chef-zero is a very lightweight Chef server that runs in-memory on the local machine. This allows the chef-client to be run against the chef-repo as if it were running against the Chef server. chef-zero was `originally a standalone tool <https://github.com/chef/chef-zero>`_; it is enabled from within the chef-client by using the ``--local-mode`` option. chef-zero is very useful for quickly testing and validating the behavior of the chef-client, cookbooks, recipes, and run-lists before uploading that data to the actual Chef server.
+
+.. note:: chef-zero does not save data between restarts. Because it is intended to be used locally, chef-zero does not perform input validation, authentication, or authorization, as these security measures are not necessary for local testing. For these reasons, we strongly recommend against using chef-zero as a persistent Chef server. 
 
 Changed in Chef Client 12.8, now chef-zero supports all Chef server API version 12 endpoints, except ``/universe``.
 
