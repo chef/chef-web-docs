@@ -185,6 +185,47 @@ A complete audit cookbook attribute configuration would look something like this
       }
     }
 
+    If you want the audit cookbook to directly report to Chef Automate, set the `collector`, `server`, `owner`, `refresh_token` and `profiles` attributes.
+
+     * `reporter` - 'chef-automate' to report to Chef Automate
+     * `server` - url of Chef Automate server with `/api`
+     * `owner` - Chef Automate user or organization that will receive this scan report
+     * `refresh_token` - refresh token for Chef Automate API
+       * note: A UI logout revokes the refresh_token. Workaround by logging in once in a private browser session, grab the token and then close the browser without logging out
+     * `insecure` - a `true` value will skip the SSL certificate verification when retrieving access token. Default value is `false`
+
+    ```ruby
+    "audit": {
+      "reporter": "chef-automate",
+      "server": "https://chef-automate-server/api",
+      "owner": "my-comp-org",
+      "refresh_token": "5/4T...g==",
+      "insecure": false,
+      "profiles": [
+        {
+          "name": "windows",
+          "compliance": "base/windows"
+        }
+      ]
+    }
+    ```
+
+    Instead of a refresh token, it is also possible to use a `token` that expires in 12h after creation .
+
+    ```ruby
+    "audit": {
+      "reporter": "chef-automate",
+      "server": "https://chef-automate-fqdn/api",
+      "owner": "my-comp-org",
+      "token": "eyJ........................YQ",
+      "profiles": [
+        {
+          "name": "windows",
+          "compliance": "base/windows"
+        }
+      ]
+    }
+
 
 Sending Habitat Data to Chef Automate
 =====================================
