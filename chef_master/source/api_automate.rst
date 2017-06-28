@@ -1372,20 +1372,17 @@ The response is similar to:
 
 /compliance/search/profiles
 ---------------------------
-Get operates in two different scenarios for this endpoint:
-   1. Searching for profiles by applying all filters and parameters listed in the table below
-   2. Searching for just one profile by its ``:profile_id``
-
+Retrieves a list of profile summary data, based on the filters and parameters listed below. 
 
 The endpoint has the following methods: ``GET``.
 
-GET (scenario 1)
-++++++++++++++++
+GET (list of profiles)
+++++++++++++++++++++++
 The ``GET`` method returns a list of profile summary data filtered down using `Filters`_.
 
 **Parameters**
 
-The following parameters are for scenario 1 (listed above).
+The following parameters are applicable to /search/profiles:
 
 +-------------+------------+-------------------------------------------------+---------------------------+
 | Parameter   | Type       | Description                                     | Default                   |
@@ -1410,8 +1407,6 @@ The following parameters are for scenario 1 (listed above).
 |             |            | - ``latest_report.controls.failed.critical``    |                           |
 +-------------+------------+-------------------------------------------------+---------------------------+
 
-If the ``q`` parameter is passed in and it contains ``:profile_id``, then that is the only parameter that will be used.
-This is where scenario 2 takes effect.
 
 **Request**
 
@@ -1482,68 +1477,6 @@ The response is similar to:
    * - ``404``
      - Not Found. The resource was not found.
 
-
-GET (scenario 2)
-++++++++++++++++
-The ``GET`` method is used to search for a profile given its ``:profile_id``.
-
-**Request**
-
-.. code-block:: none
-
-   GET /compliance/search/profiles?q=profile_id:some-id
-
-For example:
-
-.. code-block:: bash
-
-   curl -X GET "https://my-auto-server.test/compliance/search/profiles? \
-   q=profile_id:65707cb4299e5e821c687f6d5a704ffd3e21f6139a9ad0cc3b438c343b129d8c" \
-   -H "chef-delivery-enterprise: acme" \
-   -H "chef-delivery-user: john" \
-   -H "chef-delivery-token: 7djW35..."
-
-**Response**
-
-The response is similar to:
-
-.. code-block:: none
-
-   {
-     "name": "apache-baseline",
-     "title": "DevSec Apache Baseline",
-     "version": "2.0.1",
-     "summary": "Test-suite for best-practice apache hardening",
-     "maintainer": "Hardening Framework Team",
-     "license": "Apache 2 license",
-     "copyright": "Hardening Framework Team",
-     "copyright_email": "hello@dev-sec.io",
-     "controls": [
-       {
-         "id": "apache-01",
-         .
-         .
-         .
-       }
-     ]
-   }
-
-**Response Codes**
-
-.. list-table::
-   :widths: 100 400
-   :header-rows: 1
-
-   * - Response Code
-     - Description
-   * - ``200``
-     - OK. The request was successful.
-   * - ``400``
-     - Bad Request. Something is wrong with the request. Client should look closely at the request they're making.
-   * - ``401``
-     - Unauthorized. The user who made the request is not authorized to perform the action.
-   * - ``500``
-     - Internal Server Error. Problem on the backend.
 
 .. _compliance-stats-api:
 
