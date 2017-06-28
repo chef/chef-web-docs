@@ -512,6 +512,8 @@ This configuration file has the following settings for ``elasticsearch``:
 
       "#{(node.memory.total.to_i * 0.4 ).floor / 1024}m"
 
+**The following Elasticsearch options require Chef Automate 0.8.46 or above:**
+
 ``elasticsearch['max_open_file']``
    The maximum number of files Elasticsearch may open simultaneously. The default value is ``65536``. Setting this to a lower value may lead to data loss and is highly discouraged.
 
@@ -621,7 +623,7 @@ This configuration file has the following settings for ``logstash``:
    The port on which the service is to listen. Default value: ``8080``.
 
 ``logstash['heap_size']``
-   The amount of memory allocated to the logstash heap. Default value: 10% of system memory or 128 megabytes, whichever is larger.
+   The amount of memory allocated to the logstash heap. Default value: 10% of system memory or 128 megabytes, whichever is larger. Requires Automate 0.8.46 or above.
 
 lsyncd
 -----------------------------------------------------
