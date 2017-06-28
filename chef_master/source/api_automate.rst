@@ -13,13 +13,31 @@ Chef Automate API
 
 The Chef Automate API is a REST API.
 
+Stability Index
+===============
+
+Stability: 0 - Deprecated
+-------------------------
+
+This feature is known to be problematic, and changes are planned. Do not rely on it. Use of the feature may cause warnings. Backwards compatibility should not be expected.
+
+Stability: 1 - Experimental
+---------------------------
+
+This feature is subject to change. It may change or be removed in future versions.
+
+Stability: 2 - Stable
+---------------------
+
+The API has proven satisfactory. Compatibility is a high priority, and will not be broken unless absolutely necessary.
+
 Authentication Methods
 ======================
 
 Authentication to the Chef Automate server occurs via a specific set of HTTP headers and two types of tokens:
 
 * ``user token`` is a short-lived (seven days) token and can be obtained from the Chef Automate dashboard by entering this URL in your browser:
-  
+
   .. code-block:: none
 
      https://YOUR_AUTOMATE_HOST/e/YOUR_AUTOMATE_ENTERPRISE/#/dashboard?token
@@ -285,6 +303,8 @@ The endpoint has the following methods: ``GET``.
 
 GET (profiles)
 ++++++++++++++
+Stability: **2 - Stable**
+
 The ``GET`` method is used to get a list of compliance market profiles on the Chef Automate server.
 
 **Request**
@@ -374,6 +394,8 @@ The response is similar to:
 
 GET (profile by ``:name``)
 ++++++++++++++++++++++++++
+Stability: **2 - Stable**
+
 The ``GET`` method is used to get the profile of a given ``:name``.
 
 **Request**
@@ -431,6 +453,8 @@ The response is similar to:
 
 GET (profile by ``:name`` & ``:version``)
 +++++++++++++++++++++++++++++++++++++++++
+Stability: **2 - Stable**
+
 The ``GET`` method is used to get one specific :version of a profile of a given ``:name``.
 
 **Request**
@@ -488,6 +512,8 @@ The response is similar to:
 
 GET (profile tar by ``:name``)
 ++++++++++++++++++++++++++++++
+Stability: **2 - Stable**
+
 The ``GET`` method is used to get the latest version of a market profile tarball as specified by the ``:name`` parameter.
 
 **Request**
@@ -528,6 +554,8 @@ TAR STREAM - download of the file requested (if it exists)
 
 GET (profile tar by ``:name`` & ``:version``)
 +++++++++++++++++++++++++++++++++++++++++++++
+Stability: **2 - Stable**
+
 The ``GET`` method is used to get the market profile tarball for the given ``:name`` and ``:version``.
 
 **Request**
@@ -578,6 +606,8 @@ The endpoint has the following methods: ``GET``.
 
 GET (nodes)
 +++++++++++
+Stability: **2 - Stable**
+
 The ``GET`` method returns aggregated compliance results across one or more nodes.
 
 **Parameters**
@@ -709,6 +739,8 @@ The response is similar to:
 
 GET (node by ``:name``)
 +++++++++++++++++++++++
+Stability: **2 - Stable**
+
 The ``GET`` method is used to get the profile of a given node ``:name``.
 
 **Request**
@@ -801,6 +833,8 @@ The endpoint has the following methods: ``GET`` and ``POST``.
 
 GET (by ``:owner``)
 +++++++++++++++++++
+Stability: **2 - Stable**
+
 The ``GET`` method is used to get a list of compliance profiles namespaced by ``:owner`` on the Chef Automate server.
 
 **Request**
@@ -877,6 +911,8 @@ The response is similar to:
 
 POST
 ++++
+Stability: **2 - Stable**
+
 The ``POST`` method is used to upload a compliance profile (as a tarball) namespaced by ``:owner``.
 
 **Request**
@@ -918,6 +954,7 @@ No Content
 
 GET (by ``:owner`` & ``:name``)
 +++++++++++++++++++++++++++++++
+Stability: **2 - Stable**
 
 The ``GET`` method is used to return details of a particular profile ``:name`` belonging to an ``:owner``.
 
@@ -980,6 +1017,7 @@ The response is similar to:
 
 GET (by ``:owner`` & ``:name`` & ``:version``)
 ++++++++++++++++++++++++++++++++++++++++++++++
+Stability: **2 - Stable**
 
 The ``GET`` method is used to return details of a particular ``:version`` of a profile ``:name``, belonging to an ``:owner``.
 
@@ -1044,6 +1082,8 @@ The response is similar to:
 
 DELETE
 ++++++
+Stability: **2 - Stable**
+
 The ``DELETE`` method is used to remove a particular ``:version`` of a profile ``:name``, belonging to an ``:owner``.
 
 **Request**
@@ -1082,6 +1122,7 @@ No Content
 
 GET (profile tar by ``:owner`` and ``:name``)
 +++++++++++++++++++++++++++++++++++++++++++++
+Stability: **2 - Stable**
 
 The ``GET`` is used to download tarball of a particular a profile ``:name``, belonging to an ``:owner``.
 
@@ -1121,6 +1162,7 @@ TAR STREAM
 
 GET (profile tar by ``:owner`` ``:name`` ``:version``)
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Stability: **2 - Stable**
 
 The ``GET`` is used to download tarball of a particular ``:version`` of a profile ``:name``, belonging to an ``:owner``.
 
@@ -1169,6 +1211,8 @@ The endpoint has the following methods: ``GET``.
 
 GET (reports)
 +++++++++++++
+Stability: **2 - Stable**
+
 The ``GET`` method returns aggregated compliance results across one or more nodes.
 
 **Parameters**
@@ -1307,6 +1351,8 @@ The response is similar to:
 
 GET (report by ``:id``)
 +++++++++++++++++++++++
+Stability: **2 - Stable**
+
 The ``GET`` method is used to get the report of a given report ``:id``.
 
 **Request**
@@ -1381,6 +1427,8 @@ The endpoint has the following methods: ``GET``.
 
 GET (scenario 1)
 ++++++++++++++++
+Stability: **1 - Experimental**
+
 The ``GET`` method returns a list of profile summary data filtered down using `Filters`_.
 
 **Parameters**
@@ -1485,6 +1533,8 @@ The response is similar to:
 
 GET (scenario 2)
 ++++++++++++++++
+Stability: **1 - Experimental**
+
 The ``GET`` method is used to search for a profile given its ``:profile_id``.
 
 **Request**
@@ -1556,6 +1606,8 @@ The endpoint has the following methods: ``GET``.
 
 GET (failures)
 ++++++++++++++
+Stability: **1 - Experimental**
+
 The ``GET`` method returns aggregated stats failure results across one or more nodes.
 
 **Parameters**
@@ -1651,6 +1703,8 @@ The endpoint has the following methods: ``GET``.
 
 GET (profiles)
 ++++++++++++++
+Stability: **1 - Experimental**
+
 The ``GET`` method returns aggregated stats profile results across one or more nodes.
 
 **Parameters**
@@ -1738,6 +1792,8 @@ The response is similar to:
 
 GET (profile summary by ``:profile_id``)
 ++++++++++++++++++++++++++++++++++++++++
+Stability: **1 - Experimental**
+
 The ``GET`` method returns aggregated stats profile summary results across one or more nodes per ``:profile_id``.
 
 **Parameters**
@@ -1814,6 +1870,8 @@ The response is similar to:
 
 GET (profile controls stats by ``:profile_id``)
 +++++++++++++++++++++++++++++++++++++++++++++++
+Stability: **1 - Experimental**
+
 The ``GET`` method returns aggregated controls stats per ``:profile_id`` across latest scans on all or filtered nodes.
 
 **Parameters**
@@ -1901,6 +1959,8 @@ The endpoint has the following methods: ``GET``.
 
 GET (summary)
 +++++++++++++
+Stability: **1 - Experimental**
+
 The ``GET`` method returns summary data across latest scans on all or filtered nodes.
 
 **Parameters**
@@ -1971,6 +2031,8 @@ The endpoint has the following methods: ``GET``.
 
 GET (summary controls)
 ++++++++++++++++++++++
+Stability: **1 - Experimental**
+
 The ``GET`` method returns aggregated stats for all controls across latest scans on all or filtered nodes.
 
 **Parameters**
@@ -2038,6 +2100,8 @@ The endpoint has the following methods: ``GET``.
 
 GET (summary nodes)
 +++++++++++++++++++
+Stability: **1 - Experimental**
+
 The ``GET`` method returns aggregated stats for all nodes across latest scans on all or filtered nodes.
 
 **Parameters**
@@ -2105,6 +2169,8 @@ The endpoint has the following methods: ``GET``.
 
 GET (controls trend)
 ++++++++++++++++++++
+Stability: **1 - Experimental**
+
 The ``GET`` method returns a date histogram of aggregated control-oriented compliance data.
 
 **Parameters**
@@ -2200,6 +2266,8 @@ The endpoint has the following methods: ``GET``.
 
 GET (nodes trend)
 +++++++++++++++++
+Stability: **1 - Experimental**
+
 The ``GET`` method returns a date histogram  of aggregated node-oriented compliance data.
 
 **Parameters**
@@ -2292,6 +2360,8 @@ The endpoint has the following methods: ``GET``.
 
 GET (suggestions)
 +++++++++++++++++
+Stability: **1 - Experimental**
+
 The ``GET`` method returns a date histogram  of aggregated node-oriented compliance data.
 
 **Parameters**
@@ -2372,6 +2442,8 @@ The endpoint has the following methods: ``GET``.
 
 GET (version)
 +++++++++++++
+Stability: **2 - Stable**
+
 The ``GET`` method returns the version of the running Compliance API.
 
 **Request**
@@ -2413,5 +2485,3 @@ The response is similar to:
      - OK. The request was successful.
    * - ``401``
      - Unauthorized. The user who made the request is not authorized to perform the action.
-
-
