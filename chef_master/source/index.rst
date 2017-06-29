@@ -513,6 +513,7 @@ Addenda
    deprecations_json_auto_inflate
    deprecations_launchd_hash_property
    deprecations_local_listen
+   deprecations_namespace_collisions
    deprecations_ohai_amazon_linux
    deprecations_ohai_cloud
    deprecations_ohai_cloud_v2
