@@ -161,7 +161,7 @@ and will result in the custom resource failing.  This is avoided by the explicit
 
   action :doit do
     file "/tmp/file.xy" do
-      content new_resource.spiffyness # we are always referring to the outer custom resource's spiffiness propert
+      content new_resource.spiffyness # we are always referring to the outer custom resource's spiffiness property
     end
   end
 
