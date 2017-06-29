@@ -1,6 +1,6 @@
-=======================================================
+========================================================================
 Deprecation: Custom Resource Properties require `new_resource` (CHEF-19)
-=======================================================
+========================================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_namespace_collisions.rst>`__
 
 .. tag deprecations_verify_file
