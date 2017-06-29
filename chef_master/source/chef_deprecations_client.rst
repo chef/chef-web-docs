@@ -98,6 +98,10 @@ All Deprecations
     - Deprecation of local mode listening.
     - 13.1
     - 14.0
+  * - :doc:`CHEF-19 </deprecations_namespace_collisions>`
+    - Deprecation of ``property_name`` within actions.
+    - 13.2
+    - 14.0
   * - :doc:`CHEF-3694 </deprecations_resource_cloning>`
     - Resource Cloning will no longer work.
     - 10.18
