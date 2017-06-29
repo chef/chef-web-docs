@@ -15,7 +15,7 @@ Changed in 12.19 to support windows alternate user identity in execute resources
 
 Syntax
 =====================================================
-A **execute** resource block typically executes a single command that is unique to the environment in which a recipe will run. Some **execute** resource commands are run by themselves, but often they are run in combination with other Chef resources. For example, a single command that is run by itself:
+An **execute** resource block typically executes a single command that is unique to the environment in which a recipe will run. Some **execute** resource commands are run by themselves, but often they are run in combination with other Chef resources. For example, a single command that is run by itself:
 
 .. code-block:: ruby
 

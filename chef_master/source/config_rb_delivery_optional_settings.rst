@@ -512,6 +512,35 @@ This configuration file has the following settings for ``elasticsearch``:
 
       "#{(node.memory.total.to_i * 0.4 ).floor / 1024}m"
 
+**The following Elasticsearch options require Chef Automate 0.8.46 or above:**
+
+``elasticsearch['max_open_file']``
+   The maximum number of files Elasticsearch may open simultaneously. The default value is ``65536``. Setting this to a lower value may lead to data loss and is highly discouraged.
+
+``elasticsearch['max_map_count']``
+   The maximum number of memory map areas the Elasticsearch process may have. The default value is ``262144``. Setting this to a lower value may cause Elasticsearch to fail with out-of-memory errors.
+
+``elasticsearch['config']['bootstrap']['mlockall']``
+   When set to ``true``, locks the memory allocated by Elasticsearch so that it may not be swapped to disk by the OS. Enabling this will cause Elasticsearch to fail on start if there is not enough memory available for the configured heap size. On systems where swap is disabled, this setting has no effect. Default value: ``false``.
+
+``elasticsearch['config']['indices']['breaker']['fielddata']['limit']``
+   The maximum amount of heap memory that may be consumed by fielddata. Any query that would result in this limit being exceeded will be aborted. Default value: ``'60%'``.
+
+``elasticsearch['config']['indices']['breaker']['request']['limit']``
+   The maximum amount of heap memory, excluding fielddata, that may be consumed by a request. Any query that would result in this limit being exceeded will be aborted. Default value: ``'40%'``.
+
+``elasticsearch['config']['indices']['breaker']['total']['limit']``
+   The maximum amount of combined heap memory that may be consumed by a single request. Any query that would result in this limit being exceeded will be aborted. Default value: ``'70%'``.
+
+``elasticsearch['config']['indices']['store']['throttle']['max_bytes_per_sec']``
+   The maximum throughput allowed for creating and optimizing Elasticsearch search indexes. When this limit is reached, Elasticsearch logs a message containing ``now throttling indexing`` at the ``INFO`` log level. If you see evidence of index throttling and have sufficient disk I/O capacity, you can increase this setting. Default value: ``'100mb'``.
+
+``elasticsearch['config']['index']['merge']['scheduler']['max_thread_count']``
+   The number of threads that can concurrently access the Disk for each Elasticsearch index. For rotational disks, the optimal value is ``1``. For systems with SSDs, the optimal value is one half of the number of CPU cores, up to a maximum of 3. Default value: ``1``.
+
+``elasticsearch['config']['index']['translog']['flush_threshold_size']``
+   The amount of data that is buffered in a write-ahead log before being written to the on-disk search index. Setting this to a lower value can decrease disk I/O overhead and improve document indexing rates, but requires that the configured amount of RAM is available for buffering. Default value: ``'512m'``.
+
 git
 -----------------------------------------------------
 This configuration file has the following settings for ``git``:
@@ -592,6 +621,9 @@ This configuration file has the following settings for ``logstash``:
 
 ``logstash['port']``
    The port on which the service is to listen. Default value: ``8080``.
+
+``logstash['heap_size']``
+   The amount of memory allocated to the logstash heap. Default value: 10% of system memory or 128 megabytes, whichever is larger. Requires Automate 0.8.46 or above.
 
 lsyncd
 -----------------------------------------------------
