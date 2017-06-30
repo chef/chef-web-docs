@@ -635,9 +635,9 @@ Chef HA backend leader health status settings
 * ``leaderl.health_check.max_elasticsearch_failures`` Number of Elastic Search API failures allowed before health check fails. 5 by default.
 * ``leaderl.health_check.max_etcd_failures`` Number of etcd failures allowed before health check fails. 5 by default.
 * ``leaderl.health_check.max_pgsql_failures`` Number of PostgreSQL connection failures allowed before health check fails. 5 by default.
-* ``leaderl.health_check.fatal_system_checks`` Whether or not system check failures (such as disk space failures) will result in the node being marked ineligible for leadership. ``false`` by default.
-* ``leaderl.health_check.disk_paths`` An array containing the paths to check for sufficient disk space. ``[/var/log/chef-backend, /var/opt/chef-backend]`` by default.
-* ``leaderl.health_check.disk_min_space_mb`` The minimum amount of disk space (in megabytes) required for a disk health check to pass. ``250`` by default.
+* ``leaderl.health_check.fatal_system_checks`` Whether or not system check failures (such as disk space failures) will result in the node being marked ineligible for leadership. ``false`` by default. **Added in Backend 1.4.**
+* ``leaderl.health_check.disk_paths`` An array containing the paths to check for sufficient disk space. ``[/var/log/chef-backend, /var/opt/chef-backend]`` by default. **Added in Backend 1.4.**
+* ``leaderl.health_check.disk_min_space_mb`` The minimum amount of disk space (in megabytes) required for a disk health check to pass. ``250`` by default. **Added in Backend 1.4.**
 
 Chef HA backend leader connection pool settings
 ----------------------------------------------------------------
