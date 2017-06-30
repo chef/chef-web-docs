@@ -26,7 +26,7 @@ Update license
 
 To update a license on a Chef Automate server, perform the following steps:
 
-#. Securely copy your new license to your Chef Automate server. You must overwrite the current ``delivery.license`` file located at ``/var/opt/delivery/license/delivery.license``. The `scp` utility is used below to log into an Ubuntu machine; however, you can use other utilities such as `rsync` to copy the new license onto your Chef Automate server securely.
+#. Securely copy your new license to your Chef Automate server. You must overwrite the current ``delivery.license`` file located at ``/var/opt/delivery/license/delivery.license``. The ``scp`` utility is used below to log into an Ubuntu machine; however, you can use other utilities such as ``rsync`` to copy the new license onto your Chef Automate server securely.
 
    .. code-block:: bash
 
@@ -76,7 +76,7 @@ To upgrade to the latest version of Chef Automate, do the following:
 
    .. tag delivery_ctl_note
 
-   .. note:: Prior to Chef Automate 0.6.0, this tool was named `delivery-ctl`. To support backwards compatibility, you can continue to call `delivery-ctl` in Chef Automate 0.6.0.
+   .. note:: Prior to Chef Automate 0.6.0, this tool was named ``delivery-ctl``. To support backwards compatibility, you can continue to call ``delivery-ctl`` in Chef Automate 0.6.0.
 
    .. end_tag
 
@@ -115,7 +115,7 @@ Log in to the Chef Automate server and run the following command:
 
    automate-ctl migrate-compliance
 
-For a more detailed output, pass in the `--debug` option:
+For a more detailed output, pass in the ``--debug`` option:
 
 .. code-block:: bash
 
@@ -147,7 +147,7 @@ For a more detailed output, pass in the `--debug` option:
    [root@ca ~]#
 
 
-Once the migration is complete, subsequent `automate-ctl migrate-compliance` runs will exit with 0 reports to migrate.
+Once the migration is complete, subsequent ``automate-ctl migrate-compliance`` runs will exit with 0 reports to migrate.
 
 The Chef Automate server will store future compliance reports in both the old format (accessible via Nodes > Compliance Status) and the new format (Compliance > Reporting). To reduce the storage and processing needs of the server, you may choose to keep reports in only the new format. Storing reports only in the new format means that you will exclusively use the new view. To stop storing reports in the legacy format, configure Chef Automate like this:
 
