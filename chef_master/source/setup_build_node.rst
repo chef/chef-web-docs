@@ -29,7 +29,7 @@ The following steps should be performed on a Chef Automate server:
 
    .. tag delivery_ctl_note
 
-   .. note:: Prior to Chef Automate 0.6.0, this tool was named `delivery-ctl`. To support backwards compatibility, you can continue to call `delivery-ctl` in Chef Automate 0.6.0.
+   .. note:: Prior to Chef Automate 0.6.0, this tool was named ``delivery-ctl``. To support backwards compatibility, you can continue to call ``delivery-ctl`` in Chef Automate 0.6.0.
 
    .. end_tag
 
