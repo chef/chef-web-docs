@@ -207,7 +207,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife job status <job>
+   $ knife job status <job id>
 
 .. end_tag
 
@@ -286,7 +286,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife node status <node>
+   $ knife node status [<node> <node> ...]
 
 .. end_tag
 
