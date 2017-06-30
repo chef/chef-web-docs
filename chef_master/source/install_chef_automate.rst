@@ -461,7 +461,7 @@ Delivery-truck setup
 
 Delivery-truck is Chef Automate's recommended way of setting up build cookbooks.  See :doc:`About the delivery-truck Cookbook </delivery_truck>` for directions on how to get started.
 
-Next steps
+Configure Node Data collection
 =====================================================
 
 After you have setup your Chef Server, Chef Automate, and any build nodes, you must perform some simple configuration steps to visualize node data in Chef Automate. This, as well as more advanced data configuration scenarios are covered in See :doc:`Configure Data Collection </setup_visibility_chef_automate>`.
