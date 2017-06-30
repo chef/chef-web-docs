@@ -5,6 +5,95 @@ Backup and Restore
 
 Periodic backups of Chef server data are an essential part of managing and maintaining a healthy configuration and ensuring that important data can be restored, if required.
 
+chef-server-ctl
+=====================================================
+For the majority of use cases, ``chef-server-ctl backup`` is the recommended way to take backups of the Chef server. Use the following commands for managing backups of Chef server data, and for restoring those backups.
+
+.. note :: Starting in Chef server 12.10.0, a bug in the ``backup`` command produced backups that did not include the configuration data in the resulting tarball. This bug is now resolved. We recommend taking a new backup after upgrading to 12.12.0.
+
+backup
+-----------------------------------------------------
+.. tag ctl_chef_server_backup
+
+The ``backup`` subcommand is used to back up all Chef server data. This subcommand:
+
+* Requires rsync to be installed on the Chef server prior to running the command
+* Requires a ``chef-server-ctl reconfigure`` prior to running the command
+* Should not be run in a Chef server configuration with an external PostgreSQL database; `use knife ec backup <https://github.com/chef/knife-ec-backup>`__ instead
+* Puts the initial backup in the ``/var/opt/chef-backup`` directory as a tar.gz file; move this backup to a new location for safe keeping
+
+.. end_tag
+
+**Options**
+
+.. tag ctl_chef_server_backup_options
+
+This subcommand has the following options:
+
+``-y``, ``--yes``
+   Use to specify if the Chef server can go offline during tar.gz-based backups.
+
+.. end_tag
+
+**Syntax**
+
+.. tag ctl_chef_server_backup_syntax
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ chef-server-ctl backup
+
+.. end_tag
+
+restore
+-----------------------------------------------------
+
+.. tag ctl_chef_server_restore
+
+The ``restore`` subcommand is used to restore Chef server data from a backup that was created by the ``backup`` subcommand. This subcommand may also be used to add Chef server data to a newly-installed server. This subcommand:
+
+* Requires rsync to be installed on the Chef server prior to running the command
+* Requires a ``chef-server-ctl reconfigure`` prior to running the command
+* Should not be run in a Chef server configuration with an external PostgreSQL database; `use knife ec backup <https://github.com/chef/knife-ec-backup>`__ instead
+
+.. note :: The ``restore`` command does not support transferring backups across different versions of Chef server. Backups taken with the ``backup`` command must restore to the same version of Chef server that was in use when they were created. 
+
+.. end_tag
+
+**Options**
+
+.. tag ctl_chef_server_restore_options
+
+This subcommand has the following options:
+
+``-c``, ``--cleanse``
+   Use to remove all existing data on the Chef server; it will be replaced by the data in the backup archive.
+
+``-d DIRECTORY``, ``--staging-dir DIRECTORY``
+   Use to specify that the path to an empty directory to be used during the restore process. This directory must have enough disk space to expand all data in the backup archive.
+
+.. end_tag
+
+**Syntax**
+
+.. tag ctl_chef_server_restore_syntax
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ chef-server-ctl restore PATH_TO_BACKUP (options)
+
+.. end_tag
+
+**Examples**
+
+.. code-block:: bash
+
+   $ chef-server-ctl restore /path/to/tar/archive.tar.gz
+
 
 High Availability
 =====================================================
@@ -180,92 +269,3 @@ Verify
 
 We recommend periodically verifying your backup by restoring a single Chef backend node, a single Chef server node, and ensuring that various knife commands and chef-client runs can successfully complete against your backup.
 
-
-chef-server-ctl
-=====================================================
-Use the following commands for managing backups of Chef server data and for restoring those backups.
-
-.. note :: Starting in Chef server 12.10.0, a bug in the ``backup`` command produced backups that did not include the configuration data in the resulting tarball. This bug is now resolved. We recommend taking a new backup after upgrading to 12.12.0.
-
-backup
------------------------------------------------------
-.. tag ctl_chef_server_backup
-
-The ``backup`` subcommand is used to back up all Chef server data. This subcommand:
-
-* Requires rsync to be installed on the Chef server prior to running the command
-* Requires a ``chef-server-ctl reconfigure`` prior to running the command
-* Should not be run in a Chef server configuration with an external PostgreSQL database; `use knife ec backup <https://github.com/chef/knife-ec-backup>`__ instead
-* Puts the initial backup in the ``/var/opt/chef-backup`` directory as a tar.gz file; move this backup to a new location for safe keeping
-
-.. end_tag
-
-**Options**
-
-.. tag ctl_chef_server_backup_options
-
-This subcommand has the following options:
-
-``-y``, ``--yes``
-   Use to specify if the Chef server can go offline during tar.gz-based backups.
-
-.. end_tag
-
-**Syntax**
-
-.. tag ctl_chef_server_backup_syntax
-
-This subcommand has the following syntax:
-
-.. code-block:: bash
-
-   $ chef-server-ctl backup
-
-.. end_tag
-
-restore
------------------------------------------------------
-
-.. tag ctl_chef_server_restore
-
-The ``restore`` subcommand is used to restore Chef server data from a backup that was created by the ``backup`` subcommand. This subcommand may also be used to add Chef server data to a newly-installed server. This subcommand:
-
-* Requires rsync to be installed on the Chef server prior to running the command
-* Requires a ``chef-server-ctl reconfigure`` prior to running the command
-* Should not be run in a Chef server configuration with an external PostgreSQL database; `use knife ec backup <https://github.com/chef/knife-ec-backup>`__ instead
-
-.. note :: The ``restore`` command does not support transferring backups across different versions of Chef server. Backups taken with the ``backup`` command must restore to the same version of Chef server that was in use when they were created. 
-
-.. end_tag
-
-**Options**
-
-.. tag ctl_chef_server_restore_options
-
-This subcommand has the following options:
-
-``-c``, ``--cleanse``
-   Use to remove all existing data on the Chef server; it will be replaced by the data in the backup archive.
-
-``-d DIRECTORY``, ``--staging-dir DIRECTORY``
-   Use to specify that the path to an empty directory to be used during the restore process. This directory must have enough disk space to expand all data in the backup archive.
-
-.. end_tag
-
-**Syntax**
-
-.. tag ctl_chef_server_restore_syntax
-
-This subcommand has the following syntax:
-
-.. code-block:: bash
-
-   $ chef-server-ctl restore PATH_TO_BACKUP (options)
-
-.. end_tag
-
-**Examples**
-
-.. code-block:: bash
-
-   $ chef-server-ctl restore /path/to/tar/archive.tar.gz
