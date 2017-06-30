@@ -11,22 +11,22 @@ Upgrade Chef Automate
 
 .. end_tag
 
-The following sections describe the upgrade process between versions of Chef Automate.
+This page describes how to upgrade from Chef Automate versions earlier than 0.8.5.
 
 Prerequisites
 =====================================================
 
-This section describes the prereqs for the upgrade.
+To upgrade Chef Automate, you will first need:
 
-#. Previously installed version of Chef Automate.
+#. A previously installed version of Chef Automate.
 #. ``sudo`` or ``root`` access to the machine.
 
 Update license
 ====================================================
 
-If you need to update a license on a Chef Automate server, perform the following steps:
+To update a license on a Chef Automate server, perform the following steps:
 
-#. Securely copy your new license to your Chef Automate server. You must overwrite the current ``delivery.license`` file located at ``/var/opt/delivery/license/delivery.license``. The `scp` utility is used below to log into an Ubuntu machine; however, you can use other utilities such as `rsync` to securely copy the new license onto your Chef Automate server.
+#. Securely copy your new license to your Chef Automate server. You must overwrite the current ``delivery.license`` file located at ``/var/opt/delivery/license/delivery.license``. The `scp` utility is used below to log into an Ubuntu machine; however, you can use other utilities such as `rsync` to copy the new license onto your Chef Automate server securely.
 
    .. code-block:: bash
 
@@ -70,7 +70,7 @@ To upgrade to the latest version of Chef Automate, do the following:
 
       rpm -Uvh $PATH_TO_AUTOMATE_SERVER_PACKAGE
 
-#. If you are upgrading from a previous version of Chef Automate, then run ``sudo automate-ctl reconfigure`` to complete the upgrade process. If you are upgrading from a ``delivery-cluster`` setup, then skip to the section below.
+#. If you are upgrading from a previous version of Chef Automate, then run ``sudo automate-ctl reconfigure`` to complete the  process. If you are upgrading from a ``delivery-cluster`` setup, then skip to the section below.
 
    .. note:: This will restart your Chef Automate services and may result in a brief period of unavailability.
 
@@ -83,7 +83,7 @@ To upgrade to the latest version of Chef Automate, do the following:
 Upgrading and the ``automate-ctl setup`` command
 -------------------------------------------------------------------
 
-The ``automate-ctl setup`` command used during the Chef Automate installation process is intended to simplify the initial configuration of your Chef Automate cluster. If your cluster is up and running, you don't need to run this command; however to set up additional runners with the ``automate-ctl install-runner`` command, running ``automate-ctl setup`` is recomended to ensure all required files are in the correct place.
+The ``automate-ctl setup`` command used during the Chef Automate installation process is intended to simplify the initial configuration of your Chef Automate cluster. If your cluster is up and running, you don't need to run this command; however to set up additional runners with the ``automate-ctl install-runner`` command, running ``automate-ctl setup`` is recommended to ensure all required files are in the correct place.
 
 Upgrading to Push Jobs Server 2.1 and Later
 -------------------------------------------------------------------
@@ -97,9 +97,9 @@ Migrations
 Compliance Data Migration
 -------------------------------------------------------------------
 
-With the release of Chef Automate version 0.8.5, we've made significant changes to the data model in order to accommodate larger data sets and more complex queries.
+Beginning with Chef Automate version 0.8.5, and now with Chef Automate version 1.5.41, we've made significant changes to the data model in order to accommodate larger data sets and more complex queries.
 
-In order for the new Automate Compliance dashboard to display reports acquired on Automate releases prior to 0.8.5, you need to run a data migration command.
+To view reports from Automate versions earlier than 0.8.5 you will need to use a data migration command.
 
 **Prerequisites:**
 
@@ -109,7 +109,7 @@ In order for the new Automate Compliance dashboard to display reports acquired o
 
 **Migration:**
 
-Log in to the Chef Automate server and running the following command:
+Log in to the Chef Automate server and run the following command:
 
 .. code-block:: bash
 
@@ -121,9 +121,9 @@ For a more detailed output, pass in the `--debug` option:
 
    automate-ctl migrate-compliance --debug
 
-* First migration step is to ensure that previously uploaded profiles are cached in ElasticSearch. This takes a few seconds per profile.
+* First ensure that your previously uploaded profiles are cached in ElasticSearch. Storing each profile in memory takes a few seconds per profile.
 
-* Next, old reports are migrated at a rate of 15 per second, with the total number of reports being displayed when the migration is started. For example:
+* Second, migrate the old profiles to the new system using ``automate-ctl migrate-compliance --debug``.  The process moves 15 profiles per second, with the total number of reports displayed at the start of the migration. Your output will look something like this:
 
 .. code-block:: bash
 
@@ -136,7 +136,7 @@ For a more detailed output, pass in the `--debug` option:
    DEBU[0000] Run: inspec [json /var/opt/delivery/compliance/profiles/admin/apache-baseline.tar.gz]
    DEBU[0002] Stored profile 41a02784bfea15592ba2748d55927d8d1f9da205816ef18d3bb2ebe4c5ce18a9
    DEBU[0002] Stored profile mapping fea93aed071984b80b53473b6ab1c5dfa306a4b93d12fffc17b1d8630d1e232a
-   DEBU[0002] Store profile infromation for admin/apache-baseline
+   DEBU[0002] Store profile information for admin/apache-baseline
    ...
 
    Compliance reports to migrate from the insights-* indices: 757
@@ -147,9 +147,9 @@ For a more detailed output, pass in the `--debug` option:
    [root@ca ~]#
 
 
-Once the migration is complete, subsequent runs will exit with 0 reports to migrate.
+Once the migration is complete, subsequent `automate-ctl migrate-compliance` runs will exit with 0 reports to migrate.
 
-* Going forward, the Chef Automate server will store the compliance reports in both the old format(accessible via Nodes > Compliance Status) and the new format(Compliance > Reporting). If the old view is no longer used and you wish to store the reports only in the new format, configure Chef Automate like this:
+The Chef Automate server will store future compliance reports in both the old format (accessible via Nodes > Compliance Status) and the new format (Compliance > Reporting). To reduce the storage and processing needs of the server, you may choose to keep reports in only the new format. Storing reports only in the new format means that you will exclusively use the new view. To stop storing reports in the legacy format, configure Chef Automate like this:
 
 Add the following line to ``/etc/delivery/delivery.rb``:
 
@@ -164,9 +164,7 @@ Run the reconfigure subcommand to apply the change:
    automate-ctl reconfigure
 
 
-This will reduce the storage and processing needs of the server.
-
 Audit Cookbook
 -------------------------------------------------------------------
 
-If you are upgrading to Chef Automate 0.8.5 or newer, please ensure ``audit`` cookbook version ``4.0.0`` or newer is used for compliance reporting. See the README of the cookbook for more details.
+If you are upgrading to Chef Automate 0.8.5 or newer, please ensure ``audit`` cookbook version ``4.0.0`` or newer is used for compliance reporting. See the README of the cookbook for more details: https://github.com/chef-cookbooks/audit/blob/master/README.md .
