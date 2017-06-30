@@ -367,7 +367,6 @@ Use the ``node status`` argument to identify nodes that Chef push jobs may inter
 ``timed_out``
   Node timed out.
 
-
 .. end_tag
 
 Syntax

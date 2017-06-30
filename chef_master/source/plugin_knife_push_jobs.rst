@@ -207,7 +207,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife job status
+   $ knife job status <job>
 
 .. end_tag
 
@@ -276,7 +276,6 @@ Use the ``node status`` argument to identify nodes that Chef push jobs may inter
 ``timed_out``
   Node timed out.
 
-
 .. end_tag
 
 Syntax
@@ -287,7 +286,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife node status 
+   $ knife node status <node>
 
 .. end_tag
 
