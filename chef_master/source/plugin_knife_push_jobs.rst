@@ -171,7 +171,31 @@ job status
 =====================================================
 .. tag plugin_knife_push_jobs_job_status
 
-Use the ``job status`` argument to view the status of Chef push jobs jobs. Each job is always in one of the following states: ``new``, ``voting``, ``running``, ``complete``, ``quorum_failed``, ``crashed``, ``aborted``, or ``timed_out``.
+Use the ``job status`` argument to view the status of Chef push jobs jobs. Each job is always in one of the following states: 
+
+``new``
+  New job status.
+
+``voting``
+  Waiting for nodes to commit or refuse to run the command.
+
+``running``
+  Running the command on the nodes.
+
+``complete``
+  Ran the command. Check individual node statuses to see if they completed or had issues.
+
+``quorum_failed``
+  Did not run the command on any nodes.
+
+``crashed``
+  Crashed while running the job.
+
+``timed_out``
+  Timed out while running the job.
+
+``aborted``
+  Job aborted by user.
 
 .. end_tag
 
@@ -183,7 +207,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife job status
+   $ knife job status <job id>
 
 .. end_tag
 
@@ -217,7 +241,40 @@ node status
 =====================================================
 .. tag plugin_knife_push_jobs_node_status
 
-Use the ``node status`` argument to identify nodes that Chef push jobs may interact with. Each node is always in one of the following states: ``new``, ``ready``, ``running``, ``succeeded``, ``failed``, ``aborted``, ``unavailable``, ``nacked``, ``crashed``, ``was_ready``, or ``timed_out``.
+Use the ``node status`` argument to identify nodes that Chef push jobs may interact with. Each node is always in one of the following states:
+
+``new``
+  Node has neither committed nor refused to run the command.
+
+``ready``
+  Node has committed to run the command but has not yet run it.
+
+``running``
+  Node is presently running the command.
+
+``succeeded``
+  Node successfully ran the command (an exit code of 0 was returned).
+
+``failed``
+  Node failed to run the command (an exit code of non-zero was returned).
+
+``aborted``
+  Node ran the command but stopped before completion.
+
+``crashed``
+  Node went down after it started running the job.
+
+``nacked``
+  Node was busy when asked to be part of the job.
+
+``unavailable``
+  Node went down before it started running.
+
+``was_ready``
+  Node was ready but quorum failed.
+
+``timed_out``
+  Node timed out.
 
 .. end_tag
 
@@ -229,7 +286,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife node status
+   $ knife node status [<node> <node> ...]
 
 .. end_tag
 
