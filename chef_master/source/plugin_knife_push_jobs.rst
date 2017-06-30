@@ -171,16 +171,16 @@ job status
 =====================================================
 .. tag plugin_knife_push_jobs_job_status
 
-Use the ``job status`` argument to view the status of Chef push jobs jobs. Each job is always in one of the following states: ``new``, ``voting``, ``running``, ``complete``, ``quorum_failed``, ``crashed``, ``aborted``, or ``timed_out``.
+Use the ``job status`` argument to view the status of Chef push jobs jobs. Each job is always in one of the following states: 
 
-``new`` 
-  Node has neither committed nor refused to run the command.
+``new``
+  New job status.
 
-``voting`` 
+``voting``
   Waiting for nodes to commit or refuse to run the command.
 
-``running`` 
-  Running the command on the nodes
+``running``
+  Running the command on the nodes.
 
 ``complete``
   Ran the command. Check individual node statuses to see if they completed or had issues.
@@ -195,7 +195,7 @@ Use the ``job status`` argument to view the status of Chef push jobs jobs. Each 
   Timed out while running the job.
 
 ``aborted``
-  
+  Job aborted by user.
 
 .. end_tag
 
@@ -287,7 +287,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife node status
+   $ knife node status 
 
 .. end_tag
 
