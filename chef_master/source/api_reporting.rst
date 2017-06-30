@@ -36,7 +36,7 @@ The Chef server API has the following requirements:
 * A request must be signed using ``Mixlib::Authentication``.
 * A request must be well-formatted. The easiest way to ensure a well-formatted request is to use the ``Chef::REST`` library.
 
-Changed in Chef Client 12.7, now code that uses ``Chef::Rest`` must use ``require ``chef\rest``
+Changed in Chef Client 12.7, now code that uses ``Chef::Rest`` must use ``require 'chef/rest'``
 
 .. end_tag
 
