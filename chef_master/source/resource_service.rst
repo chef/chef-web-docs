@@ -601,7 +601,7 @@ This example uses the ``:before`` notification to restart the ``php-fpm`` servic
      notifies :restart, `service[php-fpm]`, :before
    end
 
-With the ``:before`` notification, that action specified for the ``nginx`` resource will not be run until action has been taken on the notified resource (``php-fpm``).
+With the ``:before`` notification, that action specified for the ``nginx`` resource will not run until action has been taken on the notified resource (``php-fpm``).
 
 .. end_tag
 
