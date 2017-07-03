@@ -1,5 +1,5 @@
 ==================================================================
-Deprecation: Use of property_name for inside of actions (CHEF-19)
+Deprecation: Use of property_name inside of actions (CHEF-19)
 ==================================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_namespace_collisions.rst>`__
 
