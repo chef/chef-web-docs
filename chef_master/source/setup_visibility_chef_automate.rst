@@ -42,7 +42,14 @@ Configure your Chef server to point to Chef Automate
 
 In addition to forwarding Chef run data to Automate, Chef server will send messages to Chef Automate whenever an action is taken on a Chef server object, such as when a cookbook is uploaded to the Chef server or when a user edits a role.
 
-To enable this feature on Chef Server versions 12.13 and below, add the following settings to ``/etc/opscode/chef-server.rb`` on the Chef server:
+To enable this feature on Chef Server versions 12.14 and later, channel the token setting through our Veil secrets library because the token is considered a secret and, as such, cannot appear in ``/etc/opscode/chef-server.rb``. On Chef Server versions 12.14 and above, you must make the following to change the data collector token:
+
+.. code-block:: ruby
+
+   chef-server-ctl set-secret data_collector token 'TOKEN'
+   chef-server-ctl restart nginx
+
+To enable this feature on Chef Server versions 12.13 and earlier, add the following settings to ``/etc/opscode/chef-server.rb`` on the Chef server:
 
 .. code-block:: ruby
 
@@ -53,13 +60,6 @@ where ``my-automate-server.mycompany.com`` is the fully-qualified domain name of
 ``TOKEN`` is either the default value or the token value you configured in the `prior section <#configure-a-data-collector-token-in-chef-automate>`__.
 
 Save the file and run ``chef-server-ctl reconfigure`` to complete the process.
-
-Chef Server versions 12.14 and later, channel the token setting through our Veil secrets library because the token is considered a secret and, as such, cannot appear in ``/etc/opscode/chef-server.rb``. On Chef Server versions 12.14 and above, you must make the following to change the data collector token:
-
-.. code-block:: ruby
-
-   chef-server-ctl set-secret data_collector token 'TOKEN'
-   chef-server-ctl restart nginx
 
 Additional configuration options include:
 
@@ -172,29 +172,18 @@ Sending Compliance Data to Chef Automate
 
 To send compliance data gathered by InSpec as part of a Chef client run, you will need to use the `audit cookbook <https://github.com/chef-cookbooks/audit>`_. All profiles that are configured to run during the audit cookbook execution will send their results back to the Chef Automate server.
 
-To configure the audit cookbook, you will first need to configure the Chef client to send node converge data, as previously described. The ``data_collector.server_url`` and ``data_collector.token`` values will be used as the reporting targets. Once you have done that, configure the audit cookbook's collector by setting the ``audit.collector`` attribute to ``chef-visibility``.
+To configure the audit cookbook, you will first need to configure the Chef client to send node converge data, as previously described. The ``data_collector.server_url`` and ``data_collector.token`` values will be used as the reporting targets. Once you have done that, configure the audit cookbook's collector by setting the  `collector`, `server`, `owner`, `refresh_token` and `profiles` attributes.
 
-A complete audit cookbook attribute configuration would look something like this:
+ * `reporter` - 'chef-automate' to report to Chef Automate
+ * `server` - url of Chef Automate server with `/api`
+ * `owner` - Chef Automate user or organization that will receive this scan report
+ * `refresh_token` - refresh token for Chef Automate API
+   * note: A UI logout revokes the refresh_token. Workaround by logging in once in a private browser session, grab the token and then close the browser without logging out
+ * `insecure` - a `true` value will skip the SSL certificate verification when retrieving access token. Default value is `false`
 
-.. code-block:: javascript
+A complete audit cookbook attribute configuration will look something like this:
 
-    audit: {
-      collector: 'chef-visibility',
-      profiles: {
-        'cis/cis-centos6-level1' => true
-      }
-    }
-
-    If you want the audit cookbook to directly report to Chef Automate, set the `collector`, `server`, `owner`, `refresh_token` and `profiles` attributes.
-
-     * `reporter` - 'chef-automate' to report to Chef Automate
-     * `server` - url of Chef Automate server with `/api`
-     * `owner` - Chef Automate user or organization that will receive this scan report
-     * `refresh_token` - refresh token for Chef Automate API
-       * note: A UI logout revokes the refresh_token. Workaround by logging in once in a private browser session, grab the token and then close the browser without logging out
-     * `insecure` - a `true` value will skip the SSL certificate verification when retrieving access token. Default value is `false`
-
-    ```ruby
+.. code=block:: ruby
     "audit": {
       "reporter": "chef-automate",
       "server": "https://chef-automate-server/api",
@@ -202,13 +191,13 @@ A complete audit cookbook attribute configuration would look something like this
       "refresh_token": "5/4T...g==",
       "insecure": false,
       "profiles": [
-        {
-          "name": "windows",
-          "compliance": "base/windows"
-        }
+         {
+         "name": "windows",
+         "compliance": "base/windows"
+         }
       ]
     }
-    ```
+
 
     Instead of a refresh token, it is also possible to use a `token` that expires in 12h after creation .
 
