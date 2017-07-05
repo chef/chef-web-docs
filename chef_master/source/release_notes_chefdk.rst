@@ -13,10 +13,10 @@ Chef Client 12.21
 
 Chef has been updated to the 12.21 release, fixing a number of bugs:
 
-* On Debian based systems, correctly prefer Systemd to Upstart
-* Handle the ``supports`` pseudo-property more gracefully
-* Don't crash when downgrading from Chef 13 to Chef 12
-* Provide better system information when Chef crashes
+* Debian-based systems will now correctly prefer Systemd to Upstart
+* Better handling of the ``supports`` pseudo-property
+* Fixes crashes that occurred when downgrading from Chef 13 to Chef 12
+* Provides better system information when Chef crashes
 
 See the full `release notes <https://github.com/chef/chef/blob/chef-12/RELEASE_NOTES.md#chef-client-release-notes-1221>`__ for more details.
 
