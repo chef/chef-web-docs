@@ -33,7 +33,7 @@ Report to Compliance via Chef Server
 ----------------------------------------
 .. code-block:: ruby
 
-   ['audit']['reporter'] = '-compliance'
+   ['audit']['reporter'] = 'chef-server-compliance'
    ['audit']['server'] = 'https://compliance-server.test/api'
    ['audit']['refresh_token' OR 'token'] = '..'
    ['audit']['owner'] = 'User/Org'
