@@ -16,8 +16,8 @@ chef-client
 In addition:
 
 * The recommended amount of RAM available to the chef-client during a chef-client run is 512MB
-* The chef-client binaries are stored in the ``/opt/chef`` directory, which requires a minimum of 200MB of disk space
-* The chef-client caches to ``/var/chef/cache`` during the chef-client run. This is the location in which downloaded cookbooks, packages required by those cookbooks, and other large files are stored. This directory requires enough space to save all of this data and should be generously sized. 5GB is a safe number, as a starting point, but tune the size of ``/var/chef/cache`` as necessary
+* The chef-client binaries are stored in the ``/opt/chef`` directory, which requires a minimum of 200MB of disk space. On Windows, the chef-client binaries can be found in ``C:\opscode\``, and they require a minimum of 600MB of disk space.
+* The chef-client caches to ``/var/chef/cache`` during the chef-client run. This is the location in which downloaded cookbooks, packages required by those cookbooks, and other large files are stored. This directory requires enough space to save all of this data and should be generously sized. 5GB is a safe number as a starting point, but tune the size of ``/var/chef/cache`` as necessary. This location is tunable in a node's `client.rb <https://docs.chef.io/config_rb_client.html>`__ file via the ``file_cache_path`` setting.
 * Ruby 2.2.2 (or higher). In general, using the version of Ruby that is installed by the omnibus installer is recommended. Changed in Chef Client 12.14 to recommend Ruby 2.3.1; Chef client 12.13 updated to Ruby 2.1.9.
 * The hosted Chef server is compatible with chef-client version 0.10.0 and greater; older clients must be upgraded before they can connect to Hosted Chef
 
