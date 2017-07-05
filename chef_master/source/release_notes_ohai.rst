@@ -24,6 +24,19 @@ Attributes that are collected by Ohai are automatic level attributes, in that th
 
 .. end_tag
 
+What's New in 13.1
+=====================================================
+Ohai 13.1 introduces the following changes:
+
+* **Socketless local mode by default** For security reasons, Local Mode now uses socketless connections by default. This prevents potential attacks where an unprivileged user or process connects to the internal Zero server for the converge and changes data.
+
+    If you use Chef Provisioning with Local Mode, you may need to pass ``--listen`` to chef-client.
+
+New deprecations introduced in this release:
+-----------------------------------------------------
+
+* `Removal of support for Ohai version 6 plugins </deprecations_ohai_v6_plugins.html>`__ Chef/Ohai 14 (April 2018) will remove support for loading Ohai v6 plugins, which were deprecated in Ohai 7/Chef 11.12.
+
 What's New in 13.0
 =====================================================
 Ohai 13.0 introduces the following changes:
