@@ -24,6 +24,35 @@ Attributes that are collected by Ohai are automatic level attributes, in that th
 
 .. end_tag
 
+What's New in 13.2
+=====================================================
+Ohai 13.2 introduces the following changes:
+
+* **Systemd Paths Plugin** A new plugin has been added to expose system and user paths from ``systemd-path`` (see https://www.freedesktop.org/software/systemd/man/systemd-path.html for details).
+* **Linux Network, Filesystem, and Mdadm Plugin Resilience** The Network, Filesystem, and Mdadm plugins have been improved to greatly reduce failures to collect data. The Network plugin now better finds the binaries it requires for shelling out, filesystem plugin utilizes data from multiple sources, and mdadm handles arrays in bad states.
+* **Zpool Plugin Platform Expansion** The Zpool plugin has been updated to support BSD and Linux in addition to Solaris.
+* **RPM version parsing on AIX** The packages plugin now correctly parses RPM package name / version information on AIX systems.
+* **Additional Platform Support** Ohai now properly detects the Clear and ClearOS Linux distributions:
+
+    * **Clear Linux**
+
+      platform: clearlinux
+      platform_family: clearlinux
+      
+    * **ClearOS**
+
+      platform: clearos
+      platform_family: rhel
+
+New deprecations introduced in this release:
+-----------------------------------------------------
+
+Removal of IpScopes plugin
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+* **Deprecation ID**: OHAI-13
+* **Remediation Docs**: :doc:`OHAI-13 </deprecations_ohai_ipscopes.html>`
+* **Expected Removal**: Ohai 14 (April 2018)
+
 What's New in 13.1
 =====================================================
 Ohai 13.1 introduces the following changes:
@@ -35,7 +64,11 @@ Ohai 13.1 introduces the following changes:
 New deprecations introduced in this release:
 -----------------------------------------------------
 
-* `Removal of support for Ohai version 6 plugins </deprecations_ohai_v6_plugins.html>`__ Chef/Ohai 14 (April 2018) will remove support for loading Ohai v6 plugins, which were deprecated in Ohai 7/Chef 11.12.
+Removal of support for Ohai version 6 plugins
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+* **Deprecation ID**: OHAI-10
+* **Remediation Docs**: :doc:`OHAI-10 </deprecations_ohai_v6_plugins.html>`
+* **Expected Removal**: Ohai 14 (April 2018)
 
 What's New in 13.0
 =====================================================
