@@ -5,6 +5,82 @@ Release Notes: Chef Automate
 
 Chef Automate provides a full suite of enterprise capabilities for workflow, visibility and compliance that allow you to manage and monitor application and cookbook deployments across a cluster of nodes in your environment.
 
+What's New in 1.5.46
+=====================================================
+
+New Features
+-----------------------------------------------------
+
+Compliance GA
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+With this release, we are moving to a new view for InSpec data in Chef Automate. It provides better insights for common user queries around the compliance state of nodes and the state of profiles and their controls, with powerful search queries to see the right sets of data. After a beta period since the last release it is now the new default view for all compliance and InSpec data.
+
+The previous **Compliance** sub-tab in the **Nodes** tab has been replaced with a new tab on the top-level navigation bar. This new **Compliance** tab provides access to both profiles and reporting capabilities.
+
+We introduced this new compliance view during ChefConf 2017. `Check out the demo recording <https://www.youtube.com/watch?v=r7_f8fIn-Yo&feature=youtu.be&t=25m52s>`_ to see an earlier version of the features. For complete details on getting started, please visit :doc:`chef_automate_compliance`.
+
+During the open beta, we improved a number of compliance capabilities:
+
+* Migrated old data to the new compliance view. See the `data migration guide <https://docs.chef.io/upgrade_chef_automate.html#migrations>`_
+* The trendgraph now displays the date of data in the tooltip
+* Added a JSON download button for all reports in the UI
+* Implemented faster profile installation
+* Improved the Audit cookbook; please use Audit cookbook version 4.x
+* Added support for ZIP profile upload
+
+.. note:: If you need to continue using the previous compliance view, you can enable it easily. We have included a new feature flag to activate the old compliance view by typing ``legacy`` in the UI and toggling on this view in the menu.
+
+All data that is received by Chef Automate will be available in both the new and old compliance view in our releases for the next 3 months, after which time the legacy view will be removed. Please reach out to us if you are unable to adopt the new view and are continuing to use the legacy compliance view, so we can understand in what way your needs are not met with the new view.
+
+Chef Automate Pilot
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+This release introduces a Docker-based pilot offering for Chef Automate. This is specifically designed for customers evaluating Chef Automate for their organization, and is not intended for production use. The offering is built with Chef’s Habitat technology, allowing Chef Automate to be installed in a few minutes in containers running on a single machine. Also included are sets of compliance-driven demo data, to offer first-hand experience with the product. Customers can try the pilot by visiting https://www.chef.io/automate/ or https://www.chef.io/why-chef/. You can also go through the tutorial for Chef Automate Pilot on `Learn Chef Rally <https://learn.chef.io/modules/chef-automate-pilot/linux/docker#/>`_. 
+
+Policyfile Data Views
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+With this release, users can now see policyfile information associated with converge data and can search on policyfile arguments (policy name, policy group, and policy revision). The new policyfile data will populate on a going forward basis after you re-converge nodes and re-upload policy groups. While most data will start populating immediately, Chef client version 13.2 or 12.21.3 is required for some run list data to be available. Policyfile data is now shown in the node list, node header, node detail, and run list views of Chef Automate.
+
+ChefDK 2.0 Support
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Runners for workflow can now be installed using either ChefDK 1.x or ChefDK 2.0.  Note that because ChefDK 2.0 includes Chef client 13, customers should confirm their build cookbooks are compatible before upgrading runners.
+
+Elasticsearch 5 Compatibility
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+This release of Chef Automate requires the Elasticsearch 2 API, and is fully compatible with both Elasticsearch 2 and Elasticsearch 5. Subsequent releases of Chef Automate will require Elasticsearch 5.
+
+Tuning Options for Elasticsearch and Logstash
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+There are now more options to tune Chef Automate for best performance in your environment. Both Elasticsearch and Logstash now have additional ways to configure their resource utilization. For more information, see :doc:`config_rb_delivery_optional_settings`.
+
+Additional preflight checks
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Before setup and configuration, you have the option of running the `automate-ctl preflight-check` subcommand. In this release, the parameters checked during preflight have been greatly expanded. For more information, see `Troubleshooting Preflight Check </troubleshooting_chef_automate.html#preflight-check>`_.
+
+Resolved Issues
+-----------------------------------------------------
+
+* Fixed profile data aggregation for compliance meta-profiles. They would end up reporting all partial profiles which would result in an empty meta-profile report. The profile view now has aggregated data for the meta-profile for each node. In the future we will provide more insights into which profile dependency created what data in the output and what is overwritten by a wrapper.
+* Fixed ``automate-ctl delete-visibility-node`` to work with compliance data. If a node is removed, all its compliance data will be removed as well. In future releases we will continue to improve node data lifecycle management.
+* Fixed a number of calls that did not respect the user search in the Compliance view. Summary numbers were reported for nodes instead of the current search.
+* Fixed compliance trendgraph data aggregation. If nodes didn't report within a data slot, you would not see any results in the trendgraph, which sometimes led to a line shaped like a wave. This is now corrected with every entry on the X axis showing the state of your fleet at that point aggregated from all previous information.
+* Fixed a number of minor UI issues related to the compliance trendgraph, filtering, and reports
+* In the **Nodes** tab, searching for nodes or attributes with uppercase letters in the name now returns correct results
+* Security fix: zlib updated to 1.2.11
+* Improved logging when ``automate-ctl install-runner`` fails executing knife commands
+* Filters in the **Nodes** tab no longer apply results to radial graphs on the Welcome page
+* Fixed an issue with misaligned text wrapping on node detail and run history pages
+* In **Workflow**, the tables on the runners tab no longer redraw on page load
+* In **Workflow**, under the **Review** tab, the expandable comments below a change in diff view will now display properly
+* Default permissions for Chef Automate’s primary configuration file ``/etc/delivery/delivery.rb`` have been tightened from 0644 to 0640 so that the file is no longer world readable
+
+
 What's New in 0.8.5
 =====================================================
 
