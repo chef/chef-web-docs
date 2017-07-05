@@ -5,6 +5,22 @@ Release Notes: chef-client 12.0 - 13.1
 
 Chef client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef CHANGELOG.md <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
 
+What's New in 13.2
+=====================================================
+
+* **Properly send PolicyFile data** When sending events back to the Chef Server, Chef client now correctly expands the run_list for nodes that use PolicyFiles. This allows Automate to correctly report the node.
+* **Reconfigure between runs when daemonized** When Chef performs a reconfigure, it rereads the configuration files. It also reopens its log files, which facilitates log file rotation.
+
+    Normally, Chef will reconfigure when sent a HUP signal. As of this release, if you send a HUP signal while it is converging, the reconfigure
+    happens at the end of the run. This is avoids the potential Ruby issues that occur when the configuration file contains additional Ruby code that is executed.
+    While the daemon is sleeping between runs, sending a SIGHUP will still cause an immediate reconfigure.
+
+    When daemonized, Chef now performs a reconfigure after every run.
+
+New deprecations included in this release
+-----------------------------------------------------
+
+* `Explicit property methods </deprecations_namespace_collisions.html>`__  In Chef 14, custom resources will no longer assume property methods are being called on ``new_resource``, and will instead require the resource author to be explicit.
 
 What's New in 13.0/13.1
 =====================================================

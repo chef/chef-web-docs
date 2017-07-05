@@ -526,6 +526,7 @@ Addenda
    deprecations_ohai_sigar_plugins
    deprecations_ohai_v6_plugins
    deprecations_ohai_windows_cpu
+   deprecations_ohai_ipscopes
    deprecations_property_name_collision
    deprecations_resource_cloning
    deprecations_run_command

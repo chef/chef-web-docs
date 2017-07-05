@@ -154,3 +154,7 @@ All Deprecations
     - Filesystem2 attribute removal.
     - 13.1
     - 15.0
+  * - :doc:`OHAI-13 </deprecations_ohai_ipscopes>`
+    - Removal of IpScopes plugin
+    - 13.2
+    - 14.0
