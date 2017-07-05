@@ -7,7 +7,7 @@ Managing how data is stored on the Chef server is sometimes necessary, such as r
 
 Resize DRBD
 =====================================================
-DRBD may be resized. First, make a backup of the Chef server data.
+DRBD may be resized online. First, make a `backup </server_backup_restore.html>`__ of the Chef server data.
 
 * The mounted filesystem on the primary backend server is ``ext4``
 * The backing device for the mounted ``ext4`` filesystem is an LVM2 volume named ``/dev/opscode/drbd``
@@ -54,7 +54,7 @@ and then:
 
 Logical Volumes
 -----------------------------------------------------
-Resize the logical volumes identically on both backend machines. Due to differences in the space available for logical volumes on the primary and secondary backend machines (which is typically caused by existing snapshots), the size of the logical volume should be specified in absolute terms on both sides of the DRBD link, rathern than in percentages. Be sure to leave about 20% of the total available space free on both sides of the DRBD link, minus any existing snapshots. Run the following command and replace ``SIZE`` with a value similar to ``10GiB``:
+Resize the logical volumes identically on both backend machines. Due to differences in the space available for logical volumes on the primary and secondary backend machines (which is typically caused by existing snapshots), the size of the logical volume should be specified in absolute terms on both sides of the DRBD link, rather than in percentages. Be sure to leave about 20% of the total available space free on both sides of the DRBD link, minus any existing snapshots. Run the following command and replace ``SIZE`` with a value similar to ``10GiB``:
 
 .. code-block:: bash
 
