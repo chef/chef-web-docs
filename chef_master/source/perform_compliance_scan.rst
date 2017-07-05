@@ -23,7 +23,7 @@ Scanning nodes in your Chef Automate cluster is enabled through the audit cookbo
 
 This flexibility means chef-client runs using the audit cookbook can be performed in several different usage scenarios; however, this topic describes how to use the audit cookbook with the integrated profile storage and audit reporting functionality of Chef Automate to perform compliance testing.
 
-The examples shown in this topic are meant to provide a quick way for you to see compliance data show up in Chef Automate. You could also wrap the audit cookbook in an existing cookbook, but this example will simply use the default recipe in the audit cookbook to run a profile against a node in your cluster. For more information and examples on how to use the audit cookbook, see the `audit project repo in GitHub <https://github.com/chef-cookbooks/audit>`_.
+The examples shown in this topic are meant to provide a quick way for you to see compliance data show up in Chef Automate. You could also wrap the audit cookbook in an existing cookbook, but this example will simply use the default recipe in the audit cookbook to run a profile against a node in your cluster. For more detailed configuration examples, see :doc:`setting up visibility on Chef automate </setup_visibility_chef_automate>` and :doc:`supported audit cookbook configurations </audit_supported_configurations>`. For more information and examples on how to use the audit cookbook, see the `audit project repo in GitHub <https://github.com/chef-cookbooks/audit>`_. 
 
 If your workflow requires the use of the standalone Chef Compliance server, or you are using a previous version of Chef Automate (older than 0.8.5), see :doc:`/integrate_compliance_server_chef_automate` for information on how to use the audit cookbook to scan your nodes.
 
@@ -47,7 +47,7 @@ Upload the audit cookbook to Chef server
 This section is intended to help you through uploading the audit cookbook (and its dependencies) to your Chef server. If
 you are already comfortable uploading cookbooks to a Chef server, you can skip this section and upload the audit cookbook as part of your normal workflow.
 
-#. Configure ``knife`` on your workstation to connect to the Chef server.  
+#. Configure ``knife`` on your workstation to connect to the Chef server.
 
 #. Pull the audit cookbook and its dependencies from Chef Supermarket. This starts with referencing the audit cookbook in your ``Berksfile``. A basic example of a ``Berksfile`` is shown below.
 
@@ -59,7 +59,7 @@ you are already comfortable uploading cookbooks to a Chef server, you can skip t
 
       cookbook 'audit'
 
-   You could also pull the audit cookbook from GitHub, but make sure that the version you use is 4.0 or later. 
+   You could also pull the audit cookbook from GitHub, but make sure that the version you use is 4.0 or later.
 
    .. code-block:: ruby
 
@@ -104,7 +104,7 @@ Configure Data Collection on Chef server
 
 To proxy node data through Chef server to Chef Automate, you must update the ``/etc/opscode/chef-server.rb`` file on your Chef server. This is needed for convergence status and general node data, but it is also true for proxying audit run data from nodes back to Chef Automate.
 
-Edit ``/etc/opscode/chef-server.rb`` and add the following information. Token values and general data collection setup instructions are described in :doc:`/setup_visibility_chef_automate`. 
+Edit ``/etc/opscode/chef-server.rb`` and add the following information. Token values and general data collection setup instructions are described in :doc:`/setup_visibility_chef_automate`.
 
 .. code-block:: ruby
 
@@ -112,7 +112,7 @@ Edit ``/etc/opscode/chef-server.rb`` and add the following information. Token va
    data_collector['token'] = 'TOKEN'
    profiles['root_url'] = 'https://my-automate-server.mycompany.com'
 
-After you have finished editing the file, run ``chef-server-ctl reconfigure`` to enable the changes. 
+After you have finished editing the file, run ``chef-server-ctl reconfigure`` to enable the changes.
 
 Upload Profiles to Chef Automate
 ------------------------------------------------------
@@ -123,11 +123,11 @@ Before you can see if your nodes are compliant, you need to have the profiles yo
 
 #. Click the **Compliance** tab, then click **Profiles**. You now can now upload any profiles you have locally on your machine. Chef Automate also has a set of built-in profiles that you can use. The example in the next section will reference the baseline Linux Security and SSH profiles found in this set.
 
-#. To use one of the existing profiles, click **Available**, and then click a radial button corresponding to the name of the profile(s) you wish to use. 
+#. To use one of the existing profiles, click **Available**, and then click a radial button corresponding to the name of the profile(s) you wish to use.
 
 #. Once you've made your selection, click **Get** to add the profiles to your profile collection. You will see them show up under **Profiles**.
 
-#. (Optional) If you want to upload a profile from your local machine, click **Upload**. 
+#. (Optional) If you want to upload a profile from your local machine, click **Upload**.
 
    Select your profiles to upload and click **Done** when you are finished.
 
@@ -136,9 +136,9 @@ Before you can see if your nodes are compliant, you need to have the profiles yo
 Use the audit cookbook on nodes in your cluster
 -------------------------------------------------------
 
-Once you have the audit cookbook installed on your Chef server and your profiles are ready to use in Chef Automate, you must add the ``audit::default`` recipe to your nodes' run-lists. The audit cookbook can be reused for all nodes because all node-specific configuration is done through Chef attributes. 
+Once you have the audit cookbook installed on your Chef server and your profiles are ready to use in Chef Automate, you must add the ``audit::default`` recipe to your nodes' run-lists. The audit cookbook can be reused for all nodes because all node-specific configuration is done through Chef attributes.
 
-As part of running the audit cookbook, the InSpec gem is installed onto your nodes to run the profile(s) you specify. 
+As part of running the audit cookbook, the InSpec gem is installed onto your nodes to run the profile(s) you specify.
 
 The ``default`` recipe requires a ``node['audit']['profiles']`` attribute to be set. For example, it can be defined as part of a JSON-based role or environment file:
 
@@ -162,7 +162,7 @@ The ``default`` recipe requires a ``node['audit']['profiles']`` attribute to be 
 
 .. note:: The ``audit`` cookbook also requires a time synchronization policy to be in place, such as Network Time Protocol (NTP).
 
-You can add the ``audit::default`` recipe to an existing run-list; however, in the example below, we will bootstrap a node with the ``audit::default`` recipe and the JSON shown above to do a series of baseline checks against a new node. 
+You can add the ``audit::default`` recipe to an existing run-list; however, in the example below, we will bootstrap a node with the ``audit::default`` recipe and the JSON shown above to do a series of baseline checks against a new node.
 
 .. code-block:: bash
 
@@ -191,6 +191,3 @@ View the results in Chef Automate
 When you go back to your Chef Automate UI under the **Compliance** tab, the **Reporting** dashboard should be visible. By alternating between **Node Status** and **Profile Status** views, you can view the scan results depending on which view is most important to you. The following shows some of the scan results on the bootstrapped node, "node1-ubuntu".
 
 .. image:: ../../images/compliance_report_node.png
-
-
-
