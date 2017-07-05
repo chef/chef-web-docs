@@ -1,9 +1,35 @@
 =====================================================
-Release Notes: Chef Development Kit 0.19 - 1.4
+Release Notes: Chef Development Kit 0.19 - 1.5
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_chefdk.rst>`__
 
 Chef Development Kit is released on a monthly schedule with new releases the third Monday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef DK on Github <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__
+
+What's New in 1.5
+=====================================================
+
+Chef Client 12.21
+-----------------------------------------------------
+
+Chef has been updated to the 12.21 release, fixing a number of bugs:
+
+* Debian-based systems will now correctly prefer Systemd to Upstart
+* Better handling of the ``supports`` pseudo-property
+* Fixes crashes that occurred when downgrading from Chef 13 to Chef 12
+* Provides better system information when Chef crashes
+
+See the full `release notes <https://github.com/chef/chef/blob/chef-12/RELEASE_NOTES.md#chef-client-release-notes-1221>`__ for more details.
+
+Chef Client 12.21 also contains a new version of zlib, fixing 4 CVEs:
+
+* `CVE-2016-98402 <https://www.cvedetails.com/cve/CVE-2016-9840/>`__
+* `CVE-2016-9841 <https://www.cvedetails.com/cve/CVE-2016-9841/>`__
+* `CVE-2016-9842 <https://www.cvedetails.com/cve/CVE-2016-9842/>`__
+* `CVE-2016-9843 <https://www.cvedetails.com/cve/CVE-2016-9843/>`__
+
+Notable Updated Gems
+-----------------------------------------------------
+- cookstyle 1.3.1 -> 1.4.0
 
 What's New in 1.4
 =====================================================
