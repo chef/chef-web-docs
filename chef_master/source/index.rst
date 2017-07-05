@@ -419,6 +419,7 @@ Addenda
    api_push_jobs
    api_reporting
    attributes
+   audit_supported_configurations
    auth
    aws_marketplace
    aws_opsworks_chef_automate
