@@ -5,7 +5,7 @@ Server Data Storage
 
 Managing how data is stored on the Chef server is sometimes necessary, such as resizing DRBD logical volumes, volume groups, and space available on the primary backend machine.
 
-Resize DRBD
+Resize DRBD Online
 =====================================================
 DRBD may be resized. First, make a backup of the Chef server data.
 
