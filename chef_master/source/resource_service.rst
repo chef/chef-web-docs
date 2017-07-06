@@ -588,6 +588,23 @@ where by using the default ``provider`` for the **service**, the recipe is telli
 
 .. end_tag
 
+**Restart one service before restarting another**
+
+.. tag resource_before_notification_restart
+
+This example uses the ``:before`` notification to restart the ``php-fpm`` service before restarting ``nginx``:
+
+.. code-block:: ruby
+
+   service `nginx` do
+     action :restart
+     notifies :restart, `service[php-fpm]`, :before
+   end
+
+With the ``:before`` notification, the action specified for the ``nginx`` resource will not run until action has been taken on the notified resource (``php-fpm``).
+
+.. end_tag
+
 **Stop a service, do stuff, and then restart it**
 
 .. tag resource_service_stop_do_stuff_start
