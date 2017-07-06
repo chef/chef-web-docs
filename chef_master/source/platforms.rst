@@ -352,7 +352,7 @@ The following table lists the Foundational platforms for the Chef push jobs:
 Supported Versions
 ==============================================
 
-The following table lists the versions of the OSS and commercial Chef products we currently support:
+The following tables list the versions of the OSS and commercial Chef products we currently support:
 
 +-------------------------------------------------------------------------+ 
 |  Open Source                                                            | 
