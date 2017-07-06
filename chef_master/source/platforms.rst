@@ -1,7 +1,12 @@
 =====================================================
-Platforms
+Platforms and Supported Versions
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/platforms.rst>`__
+
+Chef software is supported on the various platforms listed below. To see which versions of our software we currently support, see the :ref:`versions` section.
+
+Platforms
+=====================================================
 
 The sections below list the platforms that Chef have adopted for the chef-client, Ohai, and the Chef server.
 
@@ -18,7 +23,7 @@ The sections below list the platforms that Chef have adopted for the chef-client
           does not provide packages for.
 
 chef-client/ohai, Foundational Platforms
-=====================================================
+------------------------------------------------------
 The following table lists the Foundational platforms for the chef-client and ohai:
 
 .. list-table::
@@ -60,7 +65,7 @@ The following table lists the Foundational platforms for the chef-client and oha
      - ``2008r2``, ``2012``, ``2012r2``, ``7``, ``8``, ``8.1``, ``10``
 
 Secondary Platforms
------------------------------------------------------
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 The following table lists the Secondary platforms for the chef-client:
 
 .. list-table::
@@ -99,7 +104,7 @@ The following table lists the Secondary platforms for the chef-client:
      - ``2016``
 
 Other Platforms
------------------------------------------------------
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 The following platforms are not tested by Chef Software:
 
 .. list-table::
@@ -154,7 +159,7 @@ The following platforms are not tested by Chef Software:
      - ``2000``, ``2003``, ``2003 R2``, ``2008``
 
 Chef DK
-=====================================================
+------------------------------------------------------
 The following table lists the Foundational platforms for the Chef DK:
 
 .. list-table::
@@ -184,7 +189,7 @@ The following table lists the Foundational platforms for the Chef DK:
      - ``7``, ``8``, ``8.1``, ``10``, ``2008 R2``, ``2012``, ``2012 R2``
 
 Other Platforms
------------------------------------------------------
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 The following platforms are not tested by Chef Software:
 
 .. list-table::
@@ -202,7 +207,7 @@ The following platforms are not tested by Chef Software:
      - ``Vista``, ``XP``, ``2000``, ``2003``, ``2003 R2``, ``2008``
 
 Chef Server
-=====================================================
+------------------------------------------------------
 .. tag adopted_platforms_server
 
 The following table lists the Foundational platforms for the Chef server:
@@ -233,7 +238,7 @@ The following table lists the Foundational platforms for the Chef server:
 .. end_tag
 
 Other Platforms
------------------------------------------------------
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag adopted_platforms_server_other
 
 The following platforms are not tested by Chef Software:
@@ -245,7 +250,7 @@ The following platforms are not tested by Chef Software:
 .. end_tag
 
 Chef Automate
-=====================================================
+----------------------------------------------------
 The following table lists the Foundational platforms for Chef Automate. Do not mix platforms or platform versions within the Chef Automate cluster.
 
 .. list-table::
@@ -269,7 +274,7 @@ The following table lists the Foundational platforms for Chef Automate. Do not m
      - ``12.04``, ``14.04``, ``16.04``
 
 Secondary Platforms
------------------------------------------------------
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 The following table lists the Secondary platforms for the Chef Automate server:
 
 .. list-table::
@@ -291,7 +296,7 @@ The following table lists the Secondary platforms for the Chef Automate server:
           * Microsoft Windows
 
 Runners
------------------------------------------------------
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 Runners are supported on the Foundational and Secondary platforms listed above as well as on the following platforms:
 
 .. list-table::
@@ -306,7 +311,7 @@ Runners are supported on the Foundational and Secondary platforms listed above a
      - ``10.12``
 
 Chef Push Jobs
-=====================================================
+-----------------------------------------------------
 .. tag adopted_platforms_push_jobs
 
 The following table lists the Foundational platforms for the Chef push jobs:
@@ -341,3 +346,54 @@ The following table lists the Foundational platforms for the Chef push jobs:
      - ``2008r2``, ``2012``, ``2012r2``, ``7``, ``8``, ``8.1``, ``10``
 
 .. end_tag
+
+.. _versions:
+
+Supported Versions
+==============================================
+
+The following tables list the versions of the OSS and commercial Chef products we currently support:
+
++-------------------------------------------------------------------------+ 
+|  Open Source                                                            | 
++----------------------+--------------------------------------------------+       
+| Product              | Version                                          |
++======================+==================================================+ 
+| Chef Client          | 12.0.0 or later                                  | 
++----------------------+--------------------------------------------------+
+| Chef DK              | 1.0.3 or later                                   | 
++----------------------+--------------------------------------------------+
+| Chef Server          | 12.0.0 or later                                  | 
++----------------------+--------------------------------------------------+   
+| Push Jobs Client     |                                                  | 
++----------------------+ 2.1.0 or later                                   |
+| Push Jobs Server     |                                                  | 
++----------------------+--------------------------------------------------+
+| Supermarket          | 2.2.1 or later                                   | 
++----------------------+--------------------------------------------------+   
+
++-------------------------------------------------------------------------+ 
+|  Chef Automate License                                                  | 
++----------------------+--------------------------------------------------+ 
+| Product              | Version                                          |
++======================+==================================================+ 
+| Chef Automate        | 0.3.56                                           | 
++----------------------+--------------------------------------------------+
+| Chef Backend         | Latest                                           | 
++----------------------+--------------------------------------------------+  
+| Chef Compliance      | 0.9.0 or later                                   | 
++----------------------+--------------------------------------------------+
+| Chef Manage          | 2.1.0 or later                                   | 
++----------------------+--------------------------------------------------+ 
+
++-------------------------------------------------------------------------+ 
+|  Enterprise Chef License (Legacy)                                       | 
++----------------------+--------------------------------------------------+ 
+| Product              | Version                                          |
++======================+==================================================+ 
+| Enterprise Chef      | 11.2.2                                           | 
++----------------------+--------------------------------------------------+
+| Reporting            | 1.0.0 or later                                   | 
++----------------------+--------------------------------------------------+
+| Analytics            | No longer supported for new installations.       | 
++----------------------+--------------------------------------------------+
