@@ -3,7 +3,7 @@ Security
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_security.rst>`__
 
-This guide covers the best security practices for Chef server. 
+This guide covers the security features available in Chef server.
 
 SSL Certificates
 =====================================================
