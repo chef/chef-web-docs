@@ -3,36 +3,15 @@ Security
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_security.rst>`__
 
-Configuration of SSL for the Chef server using certificate authority-verified certificates is done by placing the certificate and private key file obtained from the certifying authority in the correct files after the initial configuration of Chef server.
-
-Initial configuration of the Chef server is done automatically using a self-signed certificate to create the certificate and private key files for Nginx.
-
-The locations of the certificate and private key files are
-
-* ``/var/opt/opscode/nginx/ca/FQDN.crt``
-* ``/var/opt/opscode/nginx/ca/FQDN.key``
-
-Because the FQDN has already been configured, do the following:
-
-#. Replace the contents of ``/var/opt/opscode/nginx/ca/FQDN.crt`` and ``/var/opt/opscode/nginx/ca/FQDN.key`` with the certifying authority's files.
-#. Reconfigure the Chef server:
-
-   .. code-block:: bash
-
-      $ chef-server-ctl reconfigure
-
-#. Restart the Nginx service to load the new key and certificate:
-
-   .. code-block:: bash
-
-      $ chef-server-ctl restart nginx
-
-.. warning:: The FQDN for the Chef server should not exceed 64 characters when using OpenSSL. OpenSSL requires the ``CN`` in a certificate to be no longer than 64 characters.
-
-.. warning:: By default, the Chef server uses the FQDN to determine the common name (``CN``). If the FQDN of the Chef server is longer than 64 characters, the ``reconfigure`` command will not fail, but an empty certificate file will be created. Nginx will not start if a certificate file is empty.
+This guide covers the security features available in Chef server.
 
 SSL Certificates
 =====================================================
+Initial configuration of the Chef server is done automatically using a self-signed certificate to create the certificate and private key files for Nginx. This section details the process for updating a Chef server's SSL certificate. 
+
+Automatic Installation (recommended)
+-----------------------------------------------------
+
 .. tag server_security_ssl_cert_custom
 
 The Chef server can be configured to use SSL certificates by adding the following settings to the server configuration file:
@@ -66,6 +45,35 @@ Save the file, and then run the following command:
    $ sudo chef-server-ctl reconfigure
 
 For more information about the server configuration file, see :doc:`chef-server.rb </config_rb_server>`.
+
+Manual Installation
+-----------------------------------------------------
+
+SSL certificates can be updated manually by placing the certificate and private key file obtained from the certifying authority in the correct files, after the initial configuration of Chef server.
+
+The locations of the certificate and private key files are:
+
+* ``/var/opt/opscode/nginx/ca/FQDN.crt``
+* ``/var/opt/opscode/nginx/ca/FQDN.key``
+
+Because the FQDN has already been configured, do the following:
+
+#. Replace the contents of ``/var/opt/opscode/nginx/ca/FQDN.crt`` and ``/var/opt/opscode/nginx/ca/FQDN.key`` with the certifying authority's files.
+#. Reconfigure the Chef server:
+
+   .. code-block:: bash
+
+      $ chef-server-ctl reconfigure
+
+#. Restart the Nginx service to load the new key and certificate:
+
+   .. code-block:: bash
+
+      $ chef-server-ctl restart nginx
+
+.. warning:: The FQDN for the Chef server should not exceed 64 characters when using OpenSSL. OpenSSL requires the ``CN`` in a certificate to be no longer than 64 characters.
+
+.. warning:: By default, the Chef server uses the FQDN to determine the common name (``CN``). If the FQDN of the Chef server is longer than 64 characters, the ``reconfigure`` command will not fail, but an empty certificate file will be created. Nginx will not start if a certificate file is empty.
 
 SSL Protocols
 -----------------------------------------------------
