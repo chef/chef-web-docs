@@ -75,6 +75,9 @@ The following table lists the Secondary platforms for the chef-client:
    * - Platform
      - Architecture
      - Version
+   * - AIX
+     - ``ppc64``
+     - ``7.2``
    * - Amazon Linux
      -
      - current version
