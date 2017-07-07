@@ -355,6 +355,12 @@ Set up a build node/runner (Optional)
 
 Chef Automate's workflow engine automatically creates phase jobs as project code is promoted through the phases of a workflow pipeline. These phase jobs are dispatched to special nodes, called runners and build nodes, that automatically execute each job as it is created. The previous job dispatch system using push jobs-based build nodes is still supported; however the new SSH-based system using runners is the default job dispatch system and should be used for any new deployment.
 
+.. tag DK2_automate_note
+
+.. note:: ChefDK 2.0 or later should only be installed on runners that are associated with Chef Automate 1.5 or later. Using ChefDK 2.0 on runners that are associated with an earlier version of Chef Automate will result in an error during deployment. If you are running an older version of Chef Automate, you should either downgrade your runners to use ChefDK 1.x or upgrade to Chef Automate 1.5 or later.
+
+.. end_tag
+
 The following steps show how to set up a runner from a Chef Automate server. For instructions on how to set up a push jobs-based build node, see :doc:`setup_build_node`.
 
 #. If you have an on-premises Supermarket installation, copy the Supermarket certificate file to ``/etc/delivery/supermarket.crt``.
@@ -423,6 +429,11 @@ Any host that needs to make outgoing http or https connections will require thes
 
 For general information on proxy settings, please see :doc:`About Proxies </proxies>`.
 
+Configure Node Data collection
+=====================================================
+
+After you have setup your Chef Server, Chef Automate, and any build runners/build nodes, you must perform some simple configuration steps to visualize node data in Chef Automate. This, as well as more advanced data configuration scenarios are covered in See :doc:`Configure Data Collection </setup_visibility_chef_automate>`.
+
 Compliance
 ===================================================================
 
@@ -460,8 +471,3 @@ Delivery-truck setup
 ====================================================================
 
 Delivery-truck is Chef Automate's recommended way of setting up build cookbooks.  See :doc:`About the delivery-truck Cookbook </delivery_truck>` for directions on how to get started.
-
-Configure Node Data collection
-=====================================================
-
-After you have setup your Chef Server, Chef Automate, and any build nodes, you must perform some simple configuration steps to visualize node data in Chef Automate. This, as well as more advanced data configuration scenarios are covered in See :doc:`Configure Data Collection </setup_visibility_chef_automate>`.

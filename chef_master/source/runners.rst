@@ -28,6 +28,12 @@ You can add a new runner via ``automate-ctl`` from your Chef Automate server. Lo
 
 .. note:: You can pin to a specific ChefDK version through the ``--chef-dk-version`` option on the ``install-runner`` command or by using a version of the ChefDK that you have installed locally on your Chef Automate server using the ``-I`` option. As an example, this is useful if you have not upgraded your cookbooks to be Chef 13 compliant and the latest version of the ChefDK installs Chef 13 on your runner.
 
+.. tag DK2_automate_note
+
+.. note:: ChefDK 2.0 or later should only be installed on runners that are associated with Chef Automate 1.5 or later. Using ChefDK 2.0 on runners that are associated with an earlier version of Chef Automate will result in an error during deployment. If you are running an older version of Chef Automate, you should either downgrade your runners to use ChefDK 1.x or upgrade to Chef Automate 1.5 or later.
+
+.. end_tag
+
 After the :ref:`install-runner` command succeeds, the new runner should show up in the UI under ``Workflow -> Runners -> Manage Runners``. If you see it there, click the ``Test`` button. That will test an ssh connection to your runner to verify that jobs can be dispatched to it. If there are any issues, you should get an error in the UI.
 
 Supported runner platforms are listed `here </platforms.html#runners>`_. 
