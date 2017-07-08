@@ -11,14 +11,6 @@ Perform a Compliance Scan in Chef Automate
 
 .. end_tag
 
-.. tag compliance_beta
-
-.. important:: The new compliance functionality described in this topic is currently in Beta. To enable compliance reporting in the Chef Automate UI, navigate to the **Nodes** tab, make sure your cursor is not in any text box or field, and type ``beta``. A new ``Compliance`` tab should appear in the top-level menu of the UI. Note: Enabling the ``Compliance`` tab will allow you to view only new compliance scan data, not historical data.
-
-   While we encourage customers to try out this new functionality, the new compliance features are not recommended for production use until they are made generally available in an upcoming Chef Automate release.
-
-.. end_tag
-
 Scanning nodes in your Chef Automate cluster is enabled through the audit cookbook. This cookbook allows you to run InSpec profiles as part of a chef-client run. It downloads configured profiles from various sources like a standalone Chef Compliance server, Chef Automate, Chef Supermarket, or Git, and reports audit runs to Chef Compliance or Chef Automate.
 
 This flexibility means chef-client runs using the audit cookbook can be performed in several different usage scenarios; however, this topic describes how to use the audit cookbook with the integrated profile storage and audit reporting functionality of Chef Automate to perform compliance testing.
@@ -29,13 +21,19 @@ If your workflow requires the use of the standalone Chef Compliance server, or y
 
 .. note:: Remote scanning capabilities currently part of Chef Compliance and will be available in Chef Automate in the future.
 
+.. tag beta_note
+
+If you are using Chef Automate 0.8.5, this functionality is hidden behind a ``beta`` feature flag. See the `Chef Automate 0.8.5 release notes </release_notes_chef_automate.html##what-s-new-in-0-8-5>`_ for more details.
+
+.. end_tag
+
 Prerequisites
 -----------------------------------------------------
 
 The following are required when using the built-in compliance capabilities of Chef Automate:
 
 * Chef client 12.16.42 or later must be installed on your nodes
-* Chef Automate server 0.8.5 or later
+* Chef Automate server 1.5.46 or later (the compliance view was previously enabled through a ``beta`` flag in 0.8.5)
 * Chef server 12.11.1 or later (when using Chef server to report node data to Chef Automate)
 * The audit cookbook 4.0 or later
 * ChefDK 1.4.3 or later installed on your workstation

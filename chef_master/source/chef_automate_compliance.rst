@@ -11,15 +11,15 @@ An Overview of Compliance in Chef Automate
 
 .. end_tag
 
-.. tag compliance_beta
+Chef Automate 1.5.46 or later provides you the ability to store and manage compliance profiles, view compliance reports over time, and quickly filter compliance reports through a dashboard interface. In addition to seeing your compliance status, you can also easily see which controls failed and why to provide you immediate information for remediation. 
 
-.. important:: The new compliance functionality described in this topic is currently in Beta. To enable compliance reporting in the Chef Automate UI, navigate to the **Nodes** tab, make sure your cursor is not in any text box or field, and type ``beta``. A new ``Compliance`` tab should appear in the top-level menu of the UI. Note: Enabling the ``Compliance`` tab will allow you to view only new compliance scan data, not historical data. 
+.. note:: If you need to continue using the previous compliance view that was in earlier versions of Chef Automate, you can enable this view easily. We have included a new feature flag to activate the old compliance view by typing ``legacy`` in the UI and toggling on this view in the menu.
 
-   While we encourage customers to try out this new functionality, the new compliance features are not recommended for production use until they are made generally available in an upcoming Chef Automate release.
+.. tag beta_note
+
+If you are using Chef Automate 0.8.5, this functionality is hidden behind a ``beta`` feature flag. See the `Chef Automate 0.8.5 release notes </release_notes_chef_automate.html##what-s-new-in-0-8-5>`_ for more details.
 
 .. end_tag
-
-Chef Automate 0.8.5 or later provides you the ability to store and manage compliance profiles, view compliance reports over time, and quickly filter compliance reports through a dashboard interface. In addition to seeing your compliance status, you can also easily see which controls failed and why to provide you immediate information for remediation. 
 
 Profile storage
 =====================================================
