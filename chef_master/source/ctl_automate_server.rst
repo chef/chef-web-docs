@@ -46,7 +46,7 @@ create-backup
 
 .. tag automate_ctl_create_backup
 
-The ``create-backup`` subcommand is used to create Chef Automate backups. By default, it creates Automate backup archives and Elasticsearch snapshots. 
+The ``create-backup`` subcommand is used to create Chef Automate backups. By default, it creates Automate backup archives and Elasticsearch snapshots.
 
 **Syntax**
 
@@ -73,7 +73,9 @@ The ``create-backup`` subcommand is used to create Chef Automate backups. By def
 
 The ``NAME`` value is optional. If omitted, a default name with the current time will be used.
 
-.. warning:: In rare circumstances, jobs that are running at the time of backup creation may be left in an unrecoverable state. For this reason, it's recommended to take a backup when no critical jobs are running. 
+.. warning:: In rare circumstances, jobs that are running at the time of backup creation may be left in an unrecoverable state. For this reason, it's recommended to take a backup when no critical jobs are running.
+
+.. note:: ``create-backup`` should be run outside of root-only directories like ``/root``, as it tries to chpst to the user chef-pgsql. This user will have problems running with a current working directory owned by root.
 
 **Examples**
 
