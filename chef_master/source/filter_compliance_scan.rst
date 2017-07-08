@@ -11,15 +11,13 @@ Filter Compliance Scans in Chef Automate
 
 .. end_tag
 
-.. tag compliance_beta
+The **Compliance** tab in your Chef Automate cluster allows you to upload, search, and view the profiles on your Chef Automate server, as well as the ability to filter on the compliance status of the nodes in your cluster. You can pivot your reports based on either the nodes or the profiles you have executed against those nodes. 
 
-.. important:: The new compliance functionality described in this topic is currently in Beta. To enable compliance reporting in the Chef Automate UI, navigate to the **Nodes** tab, make sure your cursor is not in any text box or field, and type ``beta``. A new ``Compliance`` tab should appear in the top-level menu of the UI. Note: Enabling the ``Compliance`` tab will allow you to view only new compliance scan data, not historical data.
+.. tag beta_note
 
-   While we encourage customers to try out this new functionality, the new compliance features are not recommended for production use until they are made generally available in an upcoming Chef Automate release.
+If you are using Chef Automate 0.8.5, this functionality is hidden behind a ``beta`` feature flag. See the `Chef Automate 0.8.5 release notes </release_notes_chef_automate.html##what-s-new-in-0-8-5>`_ for more details.
 
 .. end_tag
-
-The **Compliance** tab in your Chef Automate cluster allows you to upload, search, and view the profiles on your Chef Automate server, as well as the ability to filter on the compliance status of the nodes in your cluster. You can pivot your reports based on either the nodes or the profiles you have executed against those nodes. 
 
 Filter your report data
 ==============================================
