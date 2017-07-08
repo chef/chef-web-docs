@@ -16,6 +16,8 @@ The following are issues that you may encounter during the setup and usage of Ch
 Preflight Check
 =====================================================
 
+Error Codes
+-----------------------------------------------------
 This is a list of possible error codes and remediation steps you might see when running the ``preflight-check`` command before setting up your Chef Automate server:
 
 *   PF01: The system does not have this given directory or is not writable.
@@ -46,6 +48,62 @@ This is a list of possible error codes and remediation steps you might see when 
 
     *   Please install this software via the given command.
 
+*   PF08: The system sysctl setting is not a recommended setting.
+
+    *   Set the sysctl parameter to the recommended value.
+
+*   PF09: The transparent hugepage setting is not a recommended setting.
+
+    *   Set the transparent hugepage setting to the recommended value.
+
+*   PF10: The minimum ephemeral ports count is not high enough.
+
+    *   Set the ephemeral port range to a larger value.
+
+*   PF11: The devices for the mounted directory are not mounted with the suggested option.
+
+    *   Update `/etc/fstab` or systemd mount unit for the device to have the recommended settings.
+
+*   PF12: The block device read-ahead setting is not within the within the suggested range.
+
+    *   Set the read-ahead for the device to the recommended range.
+
+*   PF13: The I/O scheduler for the device is not suggested scheduler.
+
+    *   Set the I/O scheduler for the device to the recommended setting.
+
+Recommended System Configuration
+-----------------------------------------------------
+Chef Automate's preflight checks give recommendations that are generally advisable for most hardware options. The following is a list of suggestions for that we have found will positively impact performance.
+
+*   `vm.swappiness` should between 1 and 20
+    Most Chef Automate installations run several shared services on a single machine. We recommend having swap enabled as a failsafe. Without it we've seen greedy services like Postgresq and Elasticsearch trigger the OOM-killer for other system and Automate services. Swappiness should be low to discourage the use of swapping because of the I/O hit it can have on Elasticsearch and Postgres.
+
+*   `fs.file-max` should be at least 64,000
+    Elasticsearch, Postgres, and nginx make extensive use of temporary files and require several thousand open file handles for normal operations.
+
+*   `vm.max_map_count` should be at least 256,000
+    Elasticsearch uses a mix of NioFS and MMapFS for the open files and requires many maps for normal operation.
+
+*   `vm.dirty_ratio` should be between 5 and 30
+    `vm.dirty_backgroud_ratio` should be between 10 and 60
+    `vm.dirty_expire_centisecs` should be between 10,000 and 30,000
+    These page cache controls handle how often dirty pages are purged to disk. These will differ depending on hardware, but in general these should recommendations are a good baseline for performance vs. safety.
+
+*   `net.ipv4.ip_local_port_range` should be at least 65,000
+    Chef Automate has several services that utilize HTTP connections, each of which require ephemeral ports. Setting this too low can cause services to either fail or wait for open ports.
+
+*   `/etc/fstab` should mount the Chef Automate data directory with `noatime` if the disk is formatted with `ext3` or `ext4`.
+    Failing to mount the disk that contains the Chef Automate data directory with `noatime` will result in every disk read operation also doing an access time write operation. That adds quite a bit of disk I/O for very little use.
+
+*   `blockdev --getra` for the disk that contains the Chef Automate data directory should be at least 4096. This setting will vary greatly depending on hardware and can sometimes be set much higher. Elasticsearch utilizes large files for indices and increasing the read-ahead can improve performance when reading those long sequential files. You will normall see diminishing returns after 64000.
+
+*   `/sys/block/<device>/queue/scheduler` should be `noop` for SSD's or `deadline` for rotational disks.
+    Depending on the disk type that is being used for the Chef Automate data directory, set the appropriate disk scheduler for maximum performance.
+
+*   `/sys/kernel/mm/transparent_hugepage/enabled` should be `never` \
+    `/sys/kernel/mm/transparent_hugepage/defrag` should be `never` \
+    The version of Postgres that Chef Automate utilizes is not compatible with transparent hugepages.
 
 Build nodes/Runners
 =====================================================
@@ -55,25 +113,27 @@ The following are possible issues you might run into when using build nodes and/
 Issue: Waiting for builder.
 -----------------------------------------------------
 If "waiting for builder" occurs in the log output on a new Chef Automate setup with no existing build nodes, then the Chef Automate server and Chef server are not communicating. To establish communication, try restarting Chef Automate's main service with ``automate-ctl restart delivery``.
-
 If "waiting for builder" occurs in the log output on a Chef Automate setup with existing build nodes, then it indicates incorrect mapping between between v1/v2 build job type and the available builder/runner resources in a Chef Automate cache. Check your project's ``.delivery/config.json`` to confirm that it correctly represents the use of builders/runners, adjust this if necessary, and restart Automate's main service with ``automate-ctl restart delivery``.
 
 If your Chef Automate system has builders(push jobs), then your projects should have the following configuration in .delivery/config.json :
 
-   .. code-block:: none
+   .. code-block:: json
 
-       "job_dispatch": {
-         "version": "v1"
-       },
+       {
+         "job_dispatch": {
+           "version": "v1"
+           }
+       }
 
 If your Chef Automate system has runners, then your projects should have the following configuration in .delivery/config.json
 
-   .. code-block:: none
+   .. code-block:: json
 
-       "job_dispatch": {
-         "version": "v2"
-       },
-
+       {
+         "job_dispatch": {
+           "version": "v2"
+           }
+       }
 
 If the ``.delivery/config.json`` is correct, but jobs are not kicking off, then the best thing to do is restart Automate's main service with ``automate-ctl restart delivery``. After restarting the service, queued change jobs should start being processed by the available resources for that job type.
 
@@ -89,20 +149,23 @@ At a minimum, the build-node and runner configuration includes the following:
 
 If your Chef Automate system has builders(push jobs), then your projects should have the following configuration in .delivery/config.json :
 
-   .. code-block:: none
+   .. code-block:: json
 
-       "job_dispatch": {
-         "version": "v1"
-       },
+       {
+         "job_dispatch": {
+           "version": "v1"
+           }
+       }
 
 If your Chef Automate system has runners, then your projects should have the following configuration in .delivery/config.json
 
-   .. code-block:: none
+   .. code-block:: json
 
-       "job_dispatch": {
-         "version": "v2"
-       },
-
+       {
+         "job_dispatch": {
+           "version": "v2"
+           }
+       }
 
 If you are trying debugging a specific build node or runner and need to ensure that one is available for your projects,
 then modify the build-nodes or job_dispatch default search for your project as described in :doc:`Configure a Project </config_json_delivery>`.
@@ -129,7 +192,7 @@ You can verify that a certificate is correctly copied by doing the following:
 
    The output should be the certificate information, for example
 
-   .. code-block:: none
+   .. code-block:: text
 
       Certificate:
          Data:
@@ -150,7 +213,7 @@ If the output from the above commands displays the certificate info, but you sti
 
 If the certificate can be decoded, you should see something like:
 
-.. code-block:: none
+.. code-block:: erlang
 
    > base64:decode(Content).
    <<48,130,3,158,48,130,2,134,160,3,2,1,2,2,6,1,75,65,219,
@@ -158,7 +221,7 @@ If the certificate can be decoded, you should see something like:
 
 and if it can't be decoded:
 
-.. code-block:: none
+.. code-block:: erlang
 
    > base64:decode(Content).
    ** exception error: no match of right hand side value false
@@ -192,12 +255,12 @@ A configuration mismatch of this kind most likely breaks the interaction complet
 
 Follow the steps provided in Case #1 to examine the assertions returned from the IdP and verify that the recipient of the assertion response matches Chef Automate's saml/consume endpoint:
 
-.. code-block:: none
+.. code-block:: xml
 
    <?xml version="1.0" encoding="UTF-8"?>
      <saml2p:Response
         xmlns:saml2p="urn:oasis:names:tc:SAML:2.0:protocol"
-        Destination="http://<yourChef AutomateDomain>/api/v0/e/cd/saml/consume" <<< THIS NEEDS TO MATCH
+        Destination="http://<yourChef AutomateDomain>/api/v0/e/cd/saml/consume"
         ID="id106938446989890821534691506"
         InResponseTo="_209b55372ca56aee1457a2f6a5eced8e"
         IssueInstant="2016-06-13T12:03:04.758Z"
@@ -209,14 +272,14 @@ Case #3
 
 If you see this error and the logs show ``[error] Invalid assertion bad_in_response_to``, then the response does not match a request.
 
-.. code-block:: none
+.. code-block:: xml
 
    <?xml version="1.0" encoding="UTF-8"?>
      <saml2p:Response
         xmlns:saml2p="urn:oasis:names:tc:SAML:2.0:protocol"
         Destination="http://<delivery>/api/v0/e/cd/saml/consume"
         ID="id106938446989890821534691506"
-        InResponseTo="_209b55372ca56aee1457a2f6a5eced8e" <<< THIS NEEDS TO MATCH
+        InResponseTo="_209b55372ca56aee1457a2f6a5eced8e"
         IssueInstant="2016-06-13T12:03:04.758Z"
         Version="2.0"
         xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -259,10 +322,10 @@ If you continually receive ``401`` errors in ``/var/log/delivery/nginx/delivery.
 
 You can find what token is being sent by watching output from the following ``tcpdump`` command on the Automate system. Look closely at the output for the string ``x-data-collector-token``, and you will see that the token ``strangeCall`` follows. Use Ctrl-C to exit the ``tcpdump``.
 
-.. code-block:: none
+.. code-block:: shell
 
    tcpdump -i lo -XX -s0 -vv 'port 9611' | tee -a get-that-token.txt
-   
+
    11:05:58.630201 IP (tos 0x0, ttl 64, id 5169, offset 0, flags [DF], proto TCP (6), length 1658)
     localhost.39068 > localhost.9611: Flags [P.], cksum 0x046f (incorrect -> 0xfb07), seq 1:1607, ack 1, win 342, options   [nop,nop,TS val 34662932 ecr 34662932], length 1606
         0x0000:  0000 0000 0000 0000 0000 0000 0800 4500  ..............E.
@@ -287,9 +350,9 @@ You can find what token is being sent by watching output from the following ``tc
 
 You can work around this bug by issuing the following commands on the Chef Server, replacing ``SECRET`` with the token that the Automate system has been configured to use:
 
-.. code-block:: none
-   
+.. code-block:: shell
+
    chef-server-ctl set-secret data_collector token 'SECRET'
    chef-server-ctl restart nginx
 
-It's also recommended that you configure that same token in ``/etc/opscode/chef-server.rb``, and then run ``chef-server-ctl reconfigure``. This will allow you to confirm that the correct token is used to access the Automate system. 
+It's also recommended that you configure that same token in ``/etc/opscode/chef-server.rb``, and then run ``chef-server-ctl reconfigure``. This will allow you to confirm that the correct token is used to access the Automate system.
