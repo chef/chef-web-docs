@@ -50,7 +50,7 @@ install Sphinx, the documentation generator, possibly using `sudo`:
 
 > Note: The default `make` target is `docs`. This is the target that creates the appropriate `build` directory on your local machine and references in the source files in the `chef_master/source` directory of your local repo.
 
-We currently require version 1.2.3 of
+We currently require version 1.6.2 of
 [Sphinx](http://sphinx-doc.org/). The requirements.txt file referenced above pins Sphinx and its dependencies to versions that are compatible with each other. You may also need to install Python, depending on your system.
 
 The docs build in a minute or two. To
