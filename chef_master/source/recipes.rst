@@ -461,7 +461,7 @@ To select a package name based on platform:
 .. code-block:: ruby
 
    package "apache2" do
-     case node[:platform]
+     case node["platform"]
      when "centos","redhat","fedora","suse"
        package_name "httpd"
      when "debian","ubuntu"
@@ -494,7 +494,7 @@ To use an expression to execute when a condition returns a false value:
 
 .. code-block:: ruby
 
-   unless node[:platform_version] == "5.0"
+   unless node["platform_version"] == "5.0"
      # do stuff on everything but 5.0
    end
 
