@@ -2466,7 +2466,7 @@ This resource has the following properties:
      end
 
      service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt', :immediately
+        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
      end
 
    In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
@@ -2830,7 +2830,7 @@ This resource has the following properties:
      end
 
      service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt', :immediately
+        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
      end
 
    In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
@@ -3225,7 +3225,7 @@ This resource has the following properties:
      end
 
      service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt', :immediately
+        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
      end
 
    In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
@@ -3622,7 +3622,7 @@ This resource has the following properties:
      end
 
      service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt', :immediately
+        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
      end
 
    In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
@@ -3914,7 +3914,7 @@ This resource has the following properties:
      end
 
      service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt', :immediately
+        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
      end
 
    In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
@@ -4508,7 +4508,7 @@ This resource has the following properties:
      end
 
      service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt', :immediately
+        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
      end
 
    In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
@@ -4840,7 +4840,7 @@ This resource has the following properties:
      end
 
      service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt', :immediately
+        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
      end
 
    In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
@@ -5219,7 +5219,7 @@ This resource has the following properties:
      end
 
      service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt', :immediately
+        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
      end
 
    In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
