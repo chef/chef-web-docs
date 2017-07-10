@@ -32,9 +32,9 @@ This is a list of possible error codes and remediation steps you might see when 
 
     *   Please increase CPU cores to at least 4.
 
-*   PF04: System has less than 80GB disk space at `/var`.
+*   PF04: System has less than 80GB disk space at ``/var``.
 
-    *   Please increase free disk space at `/var` to at least 80GB.
+    *   Please increase free disk space at ``/var`` to at least 80GB.
 
 *   PF05: System has less than 16GB of free memory.
 
@@ -48,9 +48,9 @@ This is a list of possible error codes and remediation steps you might see when 
 
     *   Please install this software via the given command.
 
-*   PF08: The system sysctl setting is not a recommended setting.
+*   PF08: The system ``sysctl`` setting is not a recommended setting.
 
-    *   Set the sysctl parameter to the recommended value.
+    *   Set the ``sysctl`` parameter to the recommended value.
 
 *   PF09: The transparent hugepage setting is not a recommended setting.
 
@@ -62,7 +62,7 @@ This is a list of possible error codes and remediation steps you might see when 
 
 *   PF11: The devices for the mounted directory are not mounted with the suggested option.
 
-    *   Update `/etc/fstab` or systemd mount unit for the device to have the recommended settings.
+    *   Update ``/etc/fstab`` or systemd mount unit for the device to have the recommended settings.
 
 *   PF12: The block device read-ahead setting is not within the within the suggested range.
 
@@ -72,38 +72,46 @@ This is a list of possible error codes and remediation steps you might see when 
 
     *   Set the I/O scheduler for the device to the recommended setting.
 
+Note that the ``preflight-check`` will provide more detailed remediation steps than those listed here, based on the specific problems that it encounters. For example:
+
+.. code-block:: none
+
+   * Error PF08: The vm.swappiness level should satisfy: '>= 1, <= 20'
+     Remedy: Set the vm.swappiness: 'sudo sysctl -w vm.swappiness=1'
+
 Recommended System Configuration
 -----------------------------------------------------
-Chef Automate's preflight checks give recommendations that are generally advisable for most hardware options. The following is a list of suggestions for that we have found will positively impact performance.
+Chef Automate's preflight checks give recommendations that are generally advisable for most hardware options. The following is a list of suggestions that we have found will positively impact performance.
 
-*   `vm.swappiness` should between 1 and 20
-    Most Chef Automate installations run several shared services on a single machine. We recommend having swap enabled as a failsafe. Without it we've seen greedy services like Postgresq and Elasticsearch trigger the OOM-killer for other system and Automate services. Swappiness should be low to discourage the use of swapping because of the I/O hit it can have on Elasticsearch and Postgres.
+*   ``vm.swappiness`` should between ``1`` and ``20``
+    Most Chef Automate installations run several shared services on a single machine. We recommend having swap enabled as a failsafe. Without it we've seen services like Postgresql and Elasticsearch trigger the OOM-killer for other system and Automate services. Swappiness should be low to discourage the use of swap, because the increased disk I/O can adversely impact Elasticsearch and Postgresql.
 
-*   `fs.file-max` should be at least 64,000
-    Elasticsearch, Postgres, and nginx make extensive use of temporary files and require several thousand open file handles for normal operations.
+*   ``fs.file-max`` should be at least ``64,000``
+    Elasticsearch, Postgresql, and nginx make extensive use of temporary files and require several thousand open file handles for normal operations.
 
-*   `vm.max_map_count` should be at least 256,000
-    Elasticsearch uses a mix of NioFS and MMapFS for the open files and requires many maps for normal operation.
+*   ``vm.max_map_count`` should be at least ``256,000``
+    Elasticsearch uses a mix of NioFS and MMapFS for open files, and requires many maps for normal operation.
 
-*   `vm.dirty_ratio` should be between 5 and 30
-    `vm.dirty_backgroud_ratio` should be between 10 and 60
-    `vm.dirty_expire_centisecs` should be between 10,000 and 30,000
-    These page cache controls handle how often dirty pages are purged to disk. These will differ depending on hardware, but in general these should recommendations are a good baseline for performance vs. safety.
+*   ``vm.dirty_ratio`` should be between ``5`` and ``30``
+    ``vm.dirty_backgroud_ratio`` should be between ``10`` and ``60``
+    ``vm.dirty_expire_centisecs`` should be between ``10,000`` and ``30,000``
+    These page cache controls handle how often dirty pages are purged to disk. These will differ depending on hardware, but in general these recommendations are a good baseline for performance vs. safety.
 
-*   `net.ipv4.ip_local_port_range` should be at least 65,000
+*   ``net.ipv4.ip_local_port_range`` should be at least ``65,000``
     Chef Automate has several services that utilize HTTP connections, each of which require ephemeral ports. Setting this too low can cause services to either fail or wait for open ports.
 
-*   `/etc/fstab` should mount the Chef Automate data directory with `noatime` if the disk is formatted with `ext3` or `ext4`.
-    Failing to mount the disk that contains the Chef Automate data directory with `noatime` will result in every disk read operation also doing an access time write operation. That adds quite a bit of disk I/O for very little use.
+*   ``/etc/fstab`` should mount the Chef Automate data directory with ``noatime`` if the disk is formatted with ``ext3`` or ``ext4``.
+    Failing to mount the disk that contains the Chef Automate data directory with `noatime` will cause every disk read operation an access time write operation. That adds quite a bit of disk I/O for very little use.
 
-*   `blockdev --getra` for the disk that contains the Chef Automate data directory should be at least 4096. This setting will vary greatly depending on hardware and can sometimes be set much higher. Elasticsearch utilizes large files for indices and increasing the read-ahead can improve performance when reading those long sequential files. You will normall see diminishing returns after 64000.
+*   ``blockdev --getra`` for the disk that contains the Chef Automate data directory should be at least ``4096``. This setting will vary greatly depending on hardware and can sometimes be set much higher. Elasticsearch utilizes large files for indices and increasing the read-ahead can improve performance when reading those long sequential files. You will normally see diminishing returns after ``64000``.
 
-*   `/sys/block/<device>/queue/scheduler` should be `noop` for SSD's or `deadline` for rotational disks.
+*   ``/sys/block/<device>/queue/scheduler`` should be ``noop`` for SSDs or ``deadline`` for rotational disks.
     Depending on the disk type that is being used for the Chef Automate data directory, set the appropriate disk scheduler for maximum performance.
 
-*   `/sys/kernel/mm/transparent_hugepage/enabled` should be `never` \
-    `/sys/kernel/mm/transparent_hugepage/defrag` should be `never` \
-    The version of Postgres that Chef Automate utilizes is not compatible with transparent hugepages.
+*   ``/sys/kernel/mm/transparent_hugepage/enabled`` should be ``never`` \
+    ``/sys/kernel/mm/transparent_hugepage/defrag`` should be ``never`` \
+
+    The version of Postgresql that Chef Automate utilizes is not compatible with transparent hugepages.
 
 Build nodes/Runners
 =====================================================
