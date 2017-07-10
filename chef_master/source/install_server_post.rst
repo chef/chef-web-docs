@@ -88,7 +88,7 @@ To configure the Chef server to use Active Directory or LDAP do the following:
 
       .. code-block:: ruby
 
-         ldap['group_dn'] = 'CN=user,OU=Employees,DC=example,DC=com'
+         ldap['group_dn'] = 'CN=abcxyz,OU=users,DC=company,DC=com'
 
    ``ldap['host']``
       The name (or IP address) of the LDAP server. The hostname of the LDAP or Active Directory server. Be sure the Chef server is able to resolve any host names. Default value: ``ldap-server-host``.
