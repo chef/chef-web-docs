@@ -100,7 +100,7 @@ Report to Automate via Chef Server
 
 
 Fetch From Automate via Chef Server
-
+=====================================
 Report Directly to Compliance
 ----------------------------------------
 .. code-block:: ruby
