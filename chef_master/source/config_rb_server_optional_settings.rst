@@ -1632,3 +1632,21 @@ This configuration file has the following settings for ``user``:
 
 ``user['username']``
    The user name under which Chef server services run. Default value: ``opscode``.
+
+
+required_recipe
+-----------------------------------------------------
+
+``required_recipe`` is a feature in Chef server versions 12.15.0 and above that allows an administrator to specify a recipe that will be run by all Chef Clients that connect to it, regardless of the node's run list. This feature is targeted at expert level practitioners who are delivering isolated configuration changes to the target systems, such as self-contained agent software. Further explanation of the feature can be found in RFC_089_.
+
+.. _RFC_089: https://github.com/chef/chef-rfc/blob/master/rfc089-server-enforced-recipe.md
+
+This feature requires Chef Client 12.20.3 or greater.
+
+This configuration file has the following settings for ``required_recipe``:
+
+``required_recipe["enable"]``
+   Whether the feature is enabled. Default value: ``false``.
+``required_recipe["path"]``
+   The location of the recipe to serve. The file must be owned by the root user and group, and may not be group or world-writeable. Default value: ``nil``.
+
