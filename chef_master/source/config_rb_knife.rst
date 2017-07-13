@@ -22,6 +22,8 @@ Settings
 =====================================================
 This configuration file has the following settings:
 
+.. tag config_rb_knife_settings
+
 ``bootstrap_template``
    The path to a template file to be used during a bootstrap operation.
 
@@ -172,6 +174,8 @@ This configuration file has the following settings:
    .. code-block:: ruby
 
       config_log_location "/path/to/log_location"   # Please make sure that the path exists
+
+.. end_tag
 
 Proxy Settings
 -----------------------------------------------------
