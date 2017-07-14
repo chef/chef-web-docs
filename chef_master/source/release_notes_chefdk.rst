@@ -7,7 +7,7 @@ Chef Development Kit is released on a monthly schedule with new releases the thi
 
 What's New in 2.0.28
 =====================================================
-Chef 2.0.28 fixes an `issue <https://github.com/chef/chef-dk/issues/1322>`__ where ``chef push`` would upload incomplete cookbooks.
+Chef 2.0.28 fixes an `issue <https://github.com/chef/chef-dk/issues/1322>`__ in Chef DK 2.0 where ``chef push`` would upload incomplete cookbooks.
 
 What's New in 2.0
 =====================================================
