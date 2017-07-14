@@ -5,6 +5,10 @@ Release Notes: Chef Development Kit 0.19 - 2.0
 
 Chef Development Kit is released on a monthly schedule with new releases the third Monday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef DK on Github <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__
 
+What's New in 2.0.28
+=====================================================
+Chef 2.0.28 fixes an `issue <https://github.com/chef/chef-dk/issues/1322>`__ in Chef DK 2.0 where ``chef push`` would upload incomplete cookbooks.
+
 What's New in 2.0
 =====================================================
 
