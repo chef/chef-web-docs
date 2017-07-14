@@ -41,6 +41,13 @@ The following list describes all of the optional settings that can be added to t
 ``knife[:attribute_from_cli]``
 
 ``knife[:authentication_protocol_version]``
+   Sets the authentication protocol that is used to communicate with Chef server. For example, specify protocol version 1.3 to enable support for SHA-256 algorithms:
+
+   .. code-block:: ruby
+
+      knife[:authentication_protocol_version] = '1.3'
+      
+   Note that authentication protocol 1.3 is only supported on Chef server versions 12.4.0 and above. 
 
 ``knife[:bare_directories]``
    Prevent a directory's children from showing when a directory matches a pattern.

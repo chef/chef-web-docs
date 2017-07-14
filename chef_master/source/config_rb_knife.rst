@@ -22,6 +22,8 @@ Settings
 =====================================================
 This configuration file has the following settings:
 
+.. tag config_rb_knife_settings
+
 ``bootstrap_template``
    The path to a template file to be used during a bootstrap operation.
 
@@ -87,7 +89,18 @@ This configuration file has the following settings:
 ``fips``
   Allows OpenSSL to enforce FIPS-validated security during the chef-client run. Set to ``true`` to enable FIPS-validated security.
 
-  Changed in Chef server 12.13 to expose FIPS runtime flag on RHEL.
+  FIPS support is available in Chef client versions 12.8 and above. The following operating systems are supported:
+
+  * Red Hat Enterprise Linux
+  * Oracle Enterprise Linux
+  * CentOS
+  * Windows
+
+  Support for FIPS was introduced in Chef server version 12.13. The following operating systems are supported:
+
+  * Red Hat Enterprise Linux
+  * Oracle Enterprise Linux
+  * CentOS
 
 ``local_mode``
    Run the chef-client in local mode. This allows all commands that work against the Chef server to also work against the local chef-repo. For example:
@@ -172,6 +185,8 @@ This configuration file has the following settings:
    .. code-block:: ruby
 
       config_log_location "/path/to/log_location"   # Please make sure that the path exists
+
+.. end_tag
 
 Proxy Settings
 -----------------------------------------------------

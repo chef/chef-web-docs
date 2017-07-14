@@ -28,6 +28,15 @@ This configuration file has the following settings:
 
    Changed in Chef Client 12.4 to "stable", changed in 12.1 to run chef-client in audit_mode.
 
+``authentication_protocol_version``
+  Sets the authentication protocol that is used to communicate with Chef server. For example, specify protocol version 1.3 to enable support for SHA-256 algorithms:
+
+   .. code-block:: ruby
+
+      knife[:authentication_protocol_version] = '1.3'
+      
+   Note that authentication protocol 1.3 is only supported on Chef server versions 12.4.0 and above.
+
 ``automatic_attribute_blacklist``
    A hash  that blacklists ``automatic`` attributes, preventing blacklisted attributes from being saved.
 

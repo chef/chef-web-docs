@@ -16,6 +16,8 @@ Settings
 =====================================================
 This configuration file has the following settings:
 
+.. tag config_rb_knife_settings
+
 ``bootstrap_template``
    The path to a template file to be used during a bootstrap operation.
 
@@ -39,6 +41,11 @@ This configuration file has the following settings:
    .. code-block:: ruby
 
       chef_zero[:port] 8889
+
+``client_d_dir``
+   A directory that contains additional configuration scripts to load for chef-client.
+
+   New in Chef client 12.8.
 
 ``client_key``
    The location of the file that contains the client key. Default value: ``/etc/chef/client.pem``. For example:
@@ -73,6 +80,22 @@ This configuration file has the following settings:
 
       data_bag_encrypt_version 2
 
+``fips``
+  Allows OpenSSL to enforce FIPS-validated security during the chef-client run. Set to ``true`` to enable FIPS-validated security. 
+  
+  FIPS support is available in Chef client versions 12.8 and above. The following operating systems are supported:
+  
+  * Red Hat Enterprise Linux
+  * Oracle Enterprise Linux
+  * CentOS
+  * Windows
+
+  Support for FIPS was introduced in Chef server version 12.13. The following operating systems are supported:
+
+  * Red Hat Enterprise Linux
+  * Oracle Enterprise Linux
+  * CentOS
+
 ``local_mode``
    Run the chef-client in local mode. This allows all commands that work against the Chef server to also work against the local chef-repo. For example:
 
@@ -81,11 +104,17 @@ This configuration file has the following settings:
       local_mode true
 
 ``node_name``
-   The name of the node. This is typically also the same name as the computer from which knife is run. For example:
+   The name of the node. This may be a username with permission to authenticate to the Chef server or it may be the name of the machine from which knife is run. For example:
 
    .. code-block:: ruby
 
-      node_name 'node_name'
+      node_name 'user_name'
+
+   or:
+
+   .. code-block:: ruby
+
+      node_name 'machine_name'
 
 ``no_proxy``
    A comma-separated list of URLs that do not need a proxy. Default value: ``nil``. For example:
@@ -93,6 +122,9 @@ This configuration file has the following settings:
    .. code-block:: ruby
 
       no_proxy 'localhost, 10.0.1.35, *.example.com, *.dev.example.com'
+
+``ssh_timeout``
+   The amount of time (in seconds) to wait for an SSH connection time out.
 
 ``ssl_verify_mode``
    Set the verify mode for HTTPS requests.
@@ -104,6 +136,9 @@ This configuration file has the following settings:
 
 ``syntax_check_cache_path``
    All files in a cookbook must contain valid Ruby syntax. Use this setting to specify the location in which knife caches information about files that have been checked for valid Ruby syntax.
+
+``tmux_split``
+   Split the Tmux window. Default value: ``false``.
 
 ``validation_client_name``
    The name of the chef-validator key that is used by the chef-client to access the Chef server during the initial chef-client run. For example:
@@ -144,6 +179,8 @@ This configuration file has the following settings:
    .. code-block:: ruby
 
       config_log_location "/path/to/log_location"   # Please make sure that the path exists
+
+.. end_tag
 
 Proxy Settings
 -----------------------------------------------------

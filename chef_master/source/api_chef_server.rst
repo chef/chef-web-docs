@@ -40,7 +40,7 @@ Header Format
 -----------------------------------------------------
 .. tag api_chef_server_headers_format
 
-All hashing is done using SHA-1 and encoded in Base64. Base64 encoding should have line breaks every 60 characters. Each canonical header should be encoded in the following format:
+By default, all hashing is done using SHA-1 and encoded in Base64. Base64 encoding should have line breaks every 60 characters. Each canonical header should be encoded in the following format:
 
 .. code-block:: none
 
@@ -57,6 +57,20 @@ where:
 * The private key must be an RSA key in the SSL .pem file format. This signature is then broken into character strings (of not more than 60 characters per line) and placed in the header.
 
 The Chef server decrypts this header and ensures its content matches the content of the non-encrypted headers that were in the request. The timestamp of the message is checked to ensure the request was received within a reasonable amount of time. One approach generating the signed headers is to use `mixlib-authentication <https://github.com/chef/mixlib-authentication>`_, which is a class-based header signing authentication object similar to the one used by the chef-client.
+
+Enable SHA-256
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Chef server versions 12.4.0 and above support signing protocol version 1.3, which adds support for SHA-256 algorithms. It can be enabled on Chef client via the ``client.rb`` file:
+
+.. code-block:: ruby
+
+   authentication_protocol_version = '1.3'
+
+And on Chef knife via ``knife.rb``:
+
+.. code-block:: ruby
+
+   knife[:authentication_protocol_version] = '1.3'
 
 .. end_tag
 
