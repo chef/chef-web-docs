@@ -60,7 +60,7 @@ The Chef server decrypts this header and ensures its content matches the content
 
 Enable SHA-256
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-Chef server versions 12.4.0 and above support TLS 1.3  as a signing protocol, which adds support for SHA-256 algorithms. It can be enabled on Chef client via the ``client.rb`` file:
+Chef server versions 12.4.0 and above support signing protocol version 1.3, which adds support for SHA-256 algorithms. It can be enabled on Chef client via the ``client.rb`` file:
 
 .. code-block:: ruby
 

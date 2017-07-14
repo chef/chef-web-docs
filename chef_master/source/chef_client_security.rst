@@ -41,13 +41,13 @@ As part of `every chef-client run </chef_client.html#the-chef-client-run>`_, the
 
 authentication_protocol_version
 ----------------------------------------------------
-The ``authentication_protocol_version`` option in the ``client.rb`` file is used to determine the authentication protocol that communicates with Chef server. For example, specify TLS version 1.3 to enable support for SHA-256 algorithms:
+The ``authentication_protocol_version`` option in the ``client.rb`` file is used to determine the authentication protocol that communicates with Chef server. For example, specify protocol version 1.3 to enable support for SHA-256 algorithms:
 
    .. code-block:: ruby
 
       knife[:authentication_protocol_version] = '1.3'
       
-Note that TLS 1.3 is only supported on Chef server versions 12.4.0 and above.
+Note that authentication protocol 1.3 is only supported on Chef server versions 12.4.0 and above.
 
 SSL Certificates
 =====================================================
