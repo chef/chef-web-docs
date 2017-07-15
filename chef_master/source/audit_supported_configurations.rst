@@ -5,17 +5,8 @@ Supported Configurations in ``audit`` Cookbook
 
 The ``audit`` cookbook supports several different methods of fetching and reporting compliance information.
 
-Fetch Directly From Compliance
-=====================================
-
-Report Directly to Compliance
-----------------------------------------
-.. code-block:: ruby
-
-   ['audit']['reporter'] = 'chef-compliance'
-   ['audit']['server'] = 'https://compliance-server.test/api'
-   ['audit']['refresh_token' OR 'token'] = '..'
-   ['audit']['owner'] = 'User/Org'
+Fetch Directly From Automate or Compliance
+===========================================
 
 Report Directly to Automate
 ----------------------------------------
@@ -29,11 +20,11 @@ Report Directly to Automate
    data_collector['server_url'] = 'https://automate-server.test/data-collector/v0/'
    data_collector['token'] = '..'
 
-Report to Compliance via Chef Server
+Report Directly to Compliance
 ----------------------------------------
 .. code-block:: ruby
 
-   ['audit']['reporter'] = 'chef-server-compliance'
+   ['audit']['reporter'] = 'chef-compliance'
    ['audit']['server'] = 'https://compliance-server.test/api'
    ['audit']['refresh_token' OR 'token'] = '..'
    ['audit']['owner'] = 'User/Org'
@@ -49,19 +40,17 @@ Report to Automate via Chef Server
    #Set in chef-server.rb:
    data_collector['root_url'] = 'https://automate-server.test/data-collector/v0/'
 
-Fetch From Compliance via Chef Server
-=====================================
-Report Directly to Compliance
+Report to Compliance via Chef Server
 ----------------------------------------
 .. code-block:: ruby
 
-   ['audit']['reporter'] = 'chef-compliance'
-   ['audit']['fetcher'] = 'chef-server-automate'
+   ['audit']['reporter'] = 'chef-server-compliance'
    ['audit']['server'] = 'https://compliance-server.test/api'
    ['audit']['refresh_token' OR 'token'] = '..'
    ['audit']['owner'] = 'User/Org'
 
-.. note:: Must have Compliance Integrated w/ Chef Server
+Fetch From Automate or Compliance via Chef Server
+==================================================
 
 Report Directly to Automate
 ----------------------------------------
@@ -78,6 +67,18 @@ Report Directly to Automate
 
 .. note: Must have Compliance Integrated w/ Chef Server
 
+Report Directly to Compliance
+----------------------------------------
+.. code-block:: ruby
+
+   ['audit']['reporter'] = 'chef-compliance'
+   ['audit']['fetcher'] = 'chef-server-automate'
+   ['audit']['server'] = 'https://compliance-server.test/api'
+   ['audit']['refresh_token' OR 'token'] = '..'
+   ['audit']['owner'] = 'User/Org'
+
+.. note:: Must have Compliance Integrated w/ Chef Server
+
 Report to Compliance via Chef Server
 ----------------------------------------
 .. code-block:: ruby
@@ -99,22 +100,8 @@ Report to Automate via Chef Server
 .. note:: Must have Compliance Integrated w/ Chef Server
 
 
-Fetch From Automate via Chef Server
-=====================================
-Report Directly to Compliance
-----------------------------------------
-.. code-block:: ruby
-
-   ['audit']['reporter'] = 'chef-compliance'
-   ['audit']['fetcher'] = 'chef-server-automate'
-   ['audit']['server'] = 'https://compliance-server.test/api'
-   ['audit']['refresh_token' OR 'token'] = '..'
-   ['audit']['owner'] = 'User/Org'
-   #Set in chef-server.rb:
-   profiles['root_url'] = 'https://automate-server.test'
-   #Set in delivery.rb:
-   compliance_profiles["enable"] = true
-
+Fetch From Automate or Compliance via Chef Server
+==================================================
 Report Directly to Automate
 ----------------------------------------
 .. code-block:: ruby
@@ -129,18 +116,19 @@ Report Directly to Automate
    #Set in delivery.rb:
    compliance_profiles["enable"] = true
 
-Report to Compliance via Chef Server
+Report Directly to Compliance
 ----------------------------------------
 .. code-block:: ruby
 
-   ['audit']['reporter'] = 'chef-server-compliance'
+   ['audit']['reporter'] = 'chef-compliance'
    ['audit']['fetcher'] = 'chef-server-automate'
+   ['audit']['server'] = 'https://compliance-server.test/api'
+   ['audit']['refresh_token' OR 'token'] = '..'
+   ['audit']['owner'] = 'User/Org'
    #Set in chef-server.rb:
    profiles['root_url'] = 'https://automate-server.test'
    #Set in delivery.rb:
    compliance_profiles["enable"] = true
-
-.. note:: Must have Compliance Integrated w/ Chef Server
 
 Report to Automate via Chef Server
 ----------------------------------------
@@ -153,3 +141,16 @@ Report to Automate via Chef Server
    profiles['root_url'] = 'https://automate-server.test'
    #Set in delivery.rb:
    compliance_profiles["enable"] = true
+
+Report to Compliance via Chef Server
+----------------------------------------
+.. code-block:: ruby
+
+   ['audit']['reporter'] = 'chef-server-compliance'
+   ['audit']['fetcher'] = 'chef-server-automate'
+   #Set in chef-server.rb:
+   profiles['root_url'] = 'https://automate-server.test'
+   #Set in delivery.rb:
+   compliance_profiles["enable"] = true
+
+.. note:: Must have Compliance Integrated w/ Chef Server
