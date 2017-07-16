@@ -248,9 +248,9 @@ For example:
 
 .. code-block:: ruby
 
-node.default["foo"] = "fizz"
-n = node.to_hash   # or node.dup
-n["foo"] << "buzz"
+   node.default["foo"] = "fizz"
+   n = node.to_hash   # or node.dup
+   n["foo"] << "buzz"
 
 
 before this would have mutated the original string in-place so that ``node["foo"]`` and ``node.default["foo"]`` would have changed to "fizzbuzz" while now they remain "fizz" and only the mutable ``n["foo"]`` copy is changed to "fizzbuzz".
@@ -322,13 +322,13 @@ This const is no longer created for resources and providers. You can access reso
 
 .. code-block:: ruby
 
-Chef::Resource.resource_for_node(:mycook_thing, node)
+   Chef::Resource.resource_for_node(:mycook_thing, node)
 
 Accessing a provider class is a bit more complex, as you need a resource against which to run a resolution like so:
 
 .. code-block:: ruby
 
-Chef::ProviderResolver.new(node, find_resource!("mycook_thing[name]"), :nothing).resolve
+   Chef::ProviderResolver.new(node, find_resource!("mycook_thing[name]"), :nothing).resolve
 
 
 Default values for resource properties are frozen
@@ -337,13 +337,13 @@ A resource declaring something like:
 
 .. code-block:: ruby
 
-property :x, default: {}
+   property :x, default: {}
 
 will now see the default value set to be immutable. This prevents cases of modifying the default in one resource affecting others. If you want a per-resource mutable default value, define it inside a ``lazy{}`` helper like:
 
 .. code-block:: ruby
 
-property :x, default: lazy { {} }
+   property :x, default: lazy { {} }
 
 
 ResourceCollection and notifications
@@ -1176,7 +1176,7 @@ The syntax for the ``delete_resource!`` method is as follows:
 
 .. code-block:: ruby
 
-delete_resource!(:resource_type, 'resource_name')
+   delete_resource!(:resource_type, 'resource_name')
 
 where:
 
