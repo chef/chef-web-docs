@@ -393,6 +393,15 @@ The knife.rb file must be created in the .chef folder. It should look similar to
    cache_options( :path => "#{ENV['HOME']}/.chef/checksums" )
    cookbook_path            ["#{current_dir}/../cookbooks"]
 
+At a minimum, you must update the following settings with the appropriate values:
+
+* ``client_key`` should point to the location of the Chef server user's ``.pem`` file on your workstation.
+* ``validation_client_name`` should be updated with the name of the desired organization that was created on the Chef server.
+* ``validation_key`` should point to the location of your organization's ``.pem`` file on your workstation. 
+* ``chef_server_url`` must be updated with the domain or IP address used to access the Chef server.
+
+See the `knife documentation </config_rb_knife.html>`__ for more details. 
+
 Add Ruby to $PATH
 -----------------------------------------------------
 The chef-client includes a stable version of Ruby as part of the omnibus installer. The path to this version of Ruby must be added to the ``$PATH`` environment variable and saved in the configuration file for the command shell (Bash, csh, and so on) that is used on the workstation. In a command window, type the following:
