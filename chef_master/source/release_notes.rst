@@ -230,7 +230,7 @@ Retained only for the service resource (where it makes some sense) and for the m
 
 Removed retrying of non-StandardError exceptions for Chef::Resource
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Exceptions not decending from StandardError (e.g. LoadError, SecurityError, SystemExit) will no longer trigger a retry if they are raised during the executiong of a resources with a non-zero retries setting.
+Exceptions not descending from StandardError (e.g. LoadError, SecurityError, SystemExit) will no longer trigger a retry if they are raised during the execution of a resources with a non-zero retries setting.
 
 Removed deprecated ``method_missing`` access from the Chef::Node object
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -248,9 +248,9 @@ For example:
 
 .. code-block:: ruby
 
-node.default["foo"] = "fizz"
-n = node.to_hash   # or node.dup
-n["foo"] << "buzz"
+   node.default["foo"] = "fizz"
+   n = node.to_hash   # or node.dup
+   n["foo"] << "buzz"
 
 
 before this would have mutated the original string in-place so that ``node["foo"]`` and ``node.default["foo"]`` would have changed to "fizzbuzz" while now they remain "fizz" and only the mutable ``n["foo"]`` copy is changed to "fizzbuzz".
@@ -322,13 +322,13 @@ This const is no longer created for resources and providers. You can access reso
 
 .. code-block:: ruby
 
-Chef::Resource.resource_for_node(:mycook_thing, node)
+   Chef::Resource.resource_for_node(:mycook_thing, node)
 
 Accessing a provider class is a bit more complex, as you need a resource against which to run a resolution like so:
 
 .. code-block:: ruby
 
-Chef::ProviderResolver.new(node, find_resource!("mycook_thing[name]"), :nothing).resolve
+   Chef::ProviderResolver.new(node, find_resource!("mycook_thing[name]"), :nothing).resolve
 
 
 Default values for resource properties are frozen
@@ -337,13 +337,13 @@ A resource declaring something like:
 
 .. code-block:: ruby
 
-property :x, default: {}
+   property :x, default: {}
 
 will now see the default value set to be immutable. This prevents cases of modifying the default in one resource affecting others. If you want a per-resource mutable default value, define it inside a ``lazy{}`` helper like:
 
 .. code-block:: ruby
 
-property :x, default: lazy { {} }
+   property :x, default: lazy { {} }
 
 
 ResourceCollection and notifications
@@ -1176,7 +1176,7 @@ The syntax for the ``delete_resource!`` method is as follows:
 
 .. code-block:: ruby
 
-delete_resource!(:resource_type, 'resource_name')
+   delete_resource!(:resource_type, 'resource_name')
 
 where:
 
@@ -1675,7 +1675,7 @@ This resource has the following properties:
 
    .. tag resources_common_notification_notifies
 
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
 
    .. end_tag
 
@@ -2076,7 +2076,7 @@ The following items are new for chef-client 12.7 and/or are changes from previou
 * **New apt_update resource** Use the **apt_update** resource to manage Apt repository updates on Debian and Ubuntu platforms.
 * **Improved support for UTF-8** The chef-client 12.7 release fixes a UTF-8 handling bug present in chef-client versions 12.4, 12.5, and 12.6.
 * **New options for the chef-client** The chef-client has a new option: ``--delete-entire-chef-repo``.
-* **Multi-package support for Chocolatey and Zypper** A resource may specify multiple packages and/or versions for platforms that use Zypper or Chocolatey package managers (in addition to the edtaxisting support for specifying multiple packages for Yum and Apt packages).
+* **Multi-package support for Chocolatey and Zypper** A resource may specify multiple packages and/or versions for platforms that use Zypper or Chocolatey package managers (in addition to the existing support for specifying multiple packages for Yum and Apt packages).
 
 Chef::REST => require 'chef/rest'
 -----------------------------------------------------
@@ -2182,7 +2182,7 @@ This resource has the following properties:
 
    .. tag resources_common_notification_notifies
 
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
 
    .. end_tag
 
@@ -2402,7 +2402,7 @@ This resource has the following properties:
 
    .. tag resources_common_notification_notifies
 
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
 
    .. end_tag
 
@@ -2684,7 +2684,7 @@ This resource has the following properties:
 
    .. tag resources_common_notification_notifies
 
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
 
    .. end_tag
 
@@ -2970,7 +2970,7 @@ This resource has the following properties:
 
    .. tag resources_common_notification_notifies
 
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
 
    .. end_tag
 
@@ -5006,7 +5006,7 @@ This resource has the following properties:
 
    .. tag resources_common_notification_notifies
 
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
 
    .. end_tag
 
@@ -6525,7 +6525,7 @@ This resource has the following properties:
 
    .. tag resources_common_notification_notifies
 
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
 
    .. end_tag
 
@@ -6736,7 +6736,7 @@ This resource has the following properties:
 
    .. tag resources_common_notification_notifies
 
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
 
    .. end_tag
 
@@ -7752,7 +7752,7 @@ This resource has the following properties:
 
    .. tag resources_common_notification_notifies
 
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
 
    .. end_tag
 
@@ -8007,7 +8007,7 @@ This resource has the following properties:
 
    .. tag resources_common_notification_notifies
 
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
 
    .. end_tag
 
@@ -8264,7 +8264,7 @@ This resource has the following properties:
 
    .. tag resources_common_notification_notifies
 
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
 
    .. end_tag
 
@@ -8492,7 +8492,7 @@ This resource has the following properties:
 
    .. tag resources_common_notification_notifies
 
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
 
    .. end_tag
 
