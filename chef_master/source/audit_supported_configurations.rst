@@ -51,7 +51,6 @@ Report to Compliance via Chef Server
 
 Fetch From Automate or Compliance via Chef Server
 ==================================================
-
 Report Directly to Automate
 ----------------------------------------
 .. code-block:: ruby
