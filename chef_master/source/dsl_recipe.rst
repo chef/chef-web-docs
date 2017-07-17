@@ -1378,7 +1378,7 @@ The syntax for the ``delete_resource!`` method is as follows:
 
 .. code-block:: ruby
 
-delete_resource!(:resource_type, 'resource_name')
+   delete_resource!(:resource_type, 'resource_name')
 
 where:
 
