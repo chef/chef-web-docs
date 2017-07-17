@@ -251,7 +251,7 @@ Custom resources are designed to use core resources that are built into Chef. In
        sensitive sensitive
        # gsub replaces 10+ spaces at the beginning of the line with nothing
        command <<-CODE.gsub(/^ {10}/, '')
-         #{prefix}/#{version}/#{command}
+         #{prefix}/#{new_resource.version}/#{command}
        CODE
      end
    end
