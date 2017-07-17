@@ -49,7 +49,7 @@ The following table lists the Foundational platforms for the chef-client and oha
      - ``i386``, ``x86_64``
      - ``5``, ``6``, ``7``
    * - Red Hat Enterprise Linux
-     - ``i386``, ``x86_64``
+     - ``i386``, ``x86_64``, ``s390x``
      - ``5``, ``6``, ``7``
    * - Solaris
      - ``sparc``, ``x86``
