@@ -7,23 +7,20 @@ Chef software is supported on the various platforms listed below. To see which v
 
 Platforms
 =====================================================
+The available platforms for Chef software are divided into three categories, based on the level of testing that is performed, and the amount of support that is provided for them:
 
-The sections below list the platforms that Chef have adopted for the chef-client, Ohai, and the Chef server.
+**Foundational platforms** are those for which Chef performs some post-build verification on them or their equivalents, and publishes packages for them. Only platform versions that receive automated post-build verification are listed here, even when newer or intermediate versions may be known to work.
 
-.. note:: Foundational platforms are those for which Chef performs some
-          post-build verification on them or their equivalents, and
-          publishes packages for. Only platform versions that receive
-          automated post-build verification are listed here, even when
-          newer or intermediate versions may be known to work.
+**Secondary platforms** are those that Chef does not perform post-build verification on, but packages are made available for them.
 
-.. note:: Secondary platforms are those that Chef performs no
-          post-build verification on, but packages are made available for.
+**Other platforms** are those that are supported in code, but Chef does not provide packages for them.
 
-.. note:: Other platforms are those that are supported in code, but Chef
-          does not provide packages for.
+chef-client/ohai
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-chef-client/ohai, Foundational Platforms
+Foundational Platforms
 ------------------------------------------------------
+
 The following table lists the Foundational platforms for the chef-client and ohai:
 
 .. list-table::
@@ -65,7 +62,7 @@ The following table lists the Foundational platforms for the chef-client and oha
      - ``2008r2``, ``2012``, ``2012r2``, ``7``, ``8``, ``8.1``, ``10``
 
 Secondary Platforms
-++++++++++++++++++++++++++++++++++++++++++++++++++++
+------------------------------------------------------
 The following table lists the Secondary platforms for the chef-client:
 
 .. list-table::
@@ -107,7 +104,7 @@ The following table lists the Secondary platforms for the chef-client:
      - ``2016``
 
 Other Platforms
-++++++++++++++++++++++++++++++++++++++++++++++++++++
+------------------------------------------------------
 The following platforms are not tested by Chef Software:
 
 .. list-table::
@@ -162,6 +159,9 @@ The following platforms are not tested by Chef Software:
      - ``2000``, ``2003``, ``2003 R2``, ``2008``
 
 Chef DK
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Foundational Platforms
 ------------------------------------------------------
 The following table lists the Foundational platforms for the Chef DK:
 
@@ -192,7 +192,7 @@ The following table lists the Foundational platforms for the Chef DK:
      - ``7``, ``8``, ``8.1``, ``10``, ``2008 R2``, ``2012``, ``2012 R2``
 
 Other Platforms
-++++++++++++++++++++++++++++++++++++++++++++++++++++
+------------------------------------------------------
 The following platforms are not tested by Chef Software:
 
 .. list-table::
@@ -210,7 +210,11 @@ The following platforms are not tested by Chef Software:
      - ``Vista``, ``XP``, ``2000``, ``2003``, ``2003 R2``, ``2008``
 
 Chef Server
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Foundational Platforms
 ------------------------------------------------------
+
 .. tag adopted_platforms_server
 
 The following table lists the Foundational platforms for the Chef server:
@@ -241,7 +245,7 @@ The following table lists the Foundational platforms for the Chef server:
 .. end_tag
 
 Other Platforms
-++++++++++++++++++++++++++++++++++++++++++++++++++++
+------------------------------------------------------
 .. tag adopted_platforms_server_other
 
 The following platforms are not tested by Chef Software:
@@ -253,7 +257,10 @@ The following platforms are not tested by Chef Software:
 .. end_tag
 
 Chef Automate
-----------------------------------------------------
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Foundational Platforms
+------------------------------------------------------
 The following table lists the Foundational platforms for Chef Automate. Do not mix platforms or platform versions within the Chef Automate cluster.
 
 .. list-table::
@@ -277,7 +284,7 @@ The following table lists the Foundational platforms for Chef Automate. Do not m
      - ``12.04``, ``14.04``, ``16.04``
 
 Secondary Platforms
-++++++++++++++++++++++++++++++++++++++++++++++++++++
+------------------------------------------------------
 The following table lists the Secondary platforms for the Chef Automate server:
 
 .. list-table::
@@ -299,8 +306,8 @@ The following table lists the Secondary platforms for the Chef Automate server:
           * Microsoft Windows
 
 Runners
-++++++++++++++++++++++++++++++++++++++++++++++++++++
-Runners are supported on the Foundational and Secondary platforms listed above as well as on the following platforms:
+------------------------------------------------------
+Runners are supported on the Foundational and Secondary platforms listed above, as well as on the following platforms:
 
 .. list-table::
    :widths: 280 100 120
@@ -314,7 +321,10 @@ Runners are supported on the Foundational and Secondary platforms listed above a
      - ``10.12``
 
 Chef Push Jobs
------------------------------------------------------
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Foundational Platforms
+------------------------------------------------------
 .. tag adopted_platforms_push_jobs
 
 The following table lists the Foundational platforms for the Chef push jobs:
