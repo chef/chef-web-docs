@@ -997,35 +997,6 @@ In this situation, run the following ``chef shell-init`` command instead:
 
 .. end_tag
 
-chef verify
-=====================================================
-Use the ``chef verify`` subcommand to verify that components in the Chef development kit are installed correctly.
-
-Syntax
------------------------------------------------------
-This subcommand has the following syntax:
-
-.. code-block:: bash
-
-   $ chef verify [APPLICATION]
-
-Options
------------------------------------------------------
-This subcommand has the following options:
-
-``APPLICATION``
-   Use to verify a single, named application: ``berkshelf``, ``test-kitchen``, ``chef-client``, ``chef-dk``, ``chefspec``, ``rubocop``, ``fauxhai``, ``knife-spork``, ``kitchen-vagrant``. If an application is not specified, the subcommand will verify all applications.
-
-``-h``, ``--help``
-   Show help for the command.
-
-``-v``, ``--version``
-   The version of the chef-client.
-
-Examples
------------------------------------------------------
-None.
-
 Policyfile Commands
 =====================================================
 .. tag policyfile_chef_commands
