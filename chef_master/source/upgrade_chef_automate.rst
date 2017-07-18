@@ -11,8 +11,6 @@ Upgrade Chef Automate
 
 .. end_tag
 
-This page describes how to upgrade from Chef Automate versions earlier than 0.8.5.
-
 Prerequisites
 =====================================================
 
