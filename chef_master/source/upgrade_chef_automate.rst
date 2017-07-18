@@ -11,8 +11,6 @@ Upgrade Chef Automate
 
 .. end_tag
 
-This page describes how to upgrade from Chef Automate versions earlier than 0.8.5.
-
 Prerequisites
 =====================================================
 
@@ -97,13 +95,13 @@ Migrations
 Compliance Data Migration
 -------------------------------------------------------------------
 
-Beginning with Chef Automate version 0.8.5, and now with Chef Automate version 1.5.41, we've made significant changes to the data model in order to accommodate larger data sets and more complex queries.
+Beginning with Chef Automate version 0.8.5, and now with Chef Automate version 1.5.46, we've made significant changes to the data model in order to accommodate larger data sets and more complex queries.
 
 To view reports from Automate versions earlier than 0.8.5 you will need to use a data migration command.
 
 **Prerequisites:**
 
-#. Chef Automate version 1.5.41 or newer
+#. Chef Automate version 1.5.46 or newer
 #. ``sudo`` or ``root`` access to the machine.
 #. `Backup <https://docs.chef.io/delivery_server_backup.html>`__ the Chef Automate data:
 
