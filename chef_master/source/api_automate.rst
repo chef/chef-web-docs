@@ -737,17 +737,17 @@ The response is similar to:
    * - ``500``
      - Internal Server Error. Problem on the backend.
 
-GET (node by ``:name``)
+GET (node by ``:id``)
 +++++++++++++++++++++++
 Stability: **2 - Stable**
 
-The ``GET`` method is used to get the profile of a given node ``:name``.
+The ``GET`` method is used to get the profile of a given node ``:id``.
 
 **Request**
 
 .. code-block:: none
 
-   GET /compliance/nodes/:name
+   GET /compliance/nodes/:id
 
 For example:
 
@@ -1418,7 +1418,7 @@ The response is similar to:
 
 /compliance/search/profiles
 ---------------------------
-Retrieves a list of profile summary data, based on the filters and parameters listed below. 
+Retrieves a list of profile summary data, based on the filters and parameters listed below.
 
 The endpoint has the following methods: ``GET``.
 
