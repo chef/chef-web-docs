@@ -137,3 +137,18 @@ To download all cookbooks that start with "apache" and belong to the "webserver"
 .. code-block:: bash
 
    $  knife download cookbooks/apache\* roles/webserver.json
+
+**Download data bags**
+
+To download all data bags from the Chef server, browse to the top level of the chef-repo and enter:
+
+.. code-block:: bash
+
+   $  knife download data_bags
+
+or from anywhere in the chef-repo, enter:
+
+.. code-block:: bash
+
+   $ knife download /data_bags
+   
