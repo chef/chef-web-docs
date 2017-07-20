@@ -132,7 +132,7 @@ On UNIX and Linux systems the Omnitruck install script is invoked with:
 
 .. code-block:: bash
 
-   curl -L https://omnitruck.chef.io/install.sh | sudo bash
+   curl -L https://chef.io/chef/install.sh | sudo bash
 
 and then enter the local password when prompted.
 
@@ -146,7 +146,7 @@ On Microsoft Windows systems the Omnitruck install script is invoked using Windo
 
 .. code-block:: none
 
-   . { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install
+   . { iwr -useb https://chef.io/chef/install.ps1 } | iex; install
 
 .. end_tag
 
@@ -177,25 +177,25 @@ Examples
 -----------------------------------------------------
 .. tag packages_install_script_examples
 
-The following examples show how to use the Omnitruck install script.
+The following examples show how to use the install script.
 
-To install chef-client version 12.0.2:
+To install chef-client version 13.2.20:
 
 .. code-block:: bash
 
-   $ curl -LO https://omnitruck.chef.io/install.sh && sudo bash ./install.sh -v 12.0.2 && rm install.sh
+   $ curl -LO https://chef.io/chef/install.sh && sudo bash ./install.sh -v 13.2.20 && rm install.sh
 
 and/or:
 
 .. code-block:: bash
 
-   $ curl -L https://omnitruck.chef.io/install.sh | sudo bash -s -- -v 12.0.2
+   $ curl -L https://chef.io/chef/install.sh | sudo bash -s -- -v 13.2.20
 
 To install the latest version of the Chef development kit on Microsoft Windows from the ``current`` channel:
 
 .. code-block:: none
 
-   . { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install -channel current -project chefdk
+   . { iwr -useb https://chef.io/chef/install.ps1 } | iex; install -channel current -project chefdk
 
 .. end_tag
 
