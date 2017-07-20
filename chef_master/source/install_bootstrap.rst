@@ -452,7 +452,7 @@ Bash User Data
    cd /etc/chef/
    
    # Install chef
-   curl -L https://omnitruck.chef.io/install.sh | bash || error_exit 'could not install chef'
+   curl -L https://chef.io/chef/install.sh | bash || error_exit 'could not install chef'
    
    # Create first-boot.json
    cat > "/etc/chef/first-boot.json" << EOF
