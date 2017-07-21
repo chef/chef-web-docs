@@ -53,7 +53,7 @@ The following table lists the Foundational platforms for the chef-client and oha
      - ``5``, ``6``, ``7``
    * - Solaris
      - ``sparc``, ``x86``
-     - ``10 1\13`` (``"10U11"``), ``11.2``, ``11.3`` 
+     - ``10 1\13`` (``"10U11"``), ``11.2``, ``11.3``
    * - SUSE Enterprise Linux Server
      - ``x86_64``, ``s390x``
      - ``11 SP4``, ``12 SP1``
@@ -81,18 +81,15 @@ The following table lists the Secondary platforms for the chef-client:
    * - Amazon Linux
      -
      - current version
-   * - Arch Linux
-     -
-     - current version
    * - Debian
      - ``i686``, ``x86_64``
-     - ``6``, ``7``, ``8``
+     - ``7``, ``8``, ``9``
+   * - FreeBSD
+     - ``i386``, ``amd64``
+     - ``11``
    * - Fedora
      -
      - current non-EOL releases
-   * - Gentoo
-     -
-     - current version
    * - OmniOS
      -
      - stable and LTS releases
@@ -120,12 +117,21 @@ The following platforms are not tested by Chef Software:
    * - AIX
      -
      - ``5.1L``
+   * - Arch Linux
+     -
+     - current version
    * - CentOS
      -
      - ``4.x`` (or older)
+   * - Debian
+     -
+     - ``6``
    * - FreeBSD
      -
      - ``8``
+   * - Gentoo
+     -
+     - current version
    * - HP-UX
      -
      -
@@ -147,7 +153,6 @@ The following platforms are not tested by Chef Software:
    * - Red Hat Enterprise Linux
      - ``ppc64``, ``System/z``
      -
-
    * - SUSE Enterprise Linux Server
      - ``ppc64``, ``System/z``, 10 (or older)
      -
@@ -174,7 +179,7 @@ The following table lists the Foundational platforms for the Chef DK:
      - Version
    * - Debian
      -
-     - ``7.x``, ``8.x``
+     - ``7.x``, ``8.x``, ``9.x``
    * - macOS
      -
      - ``10.10``, ``10.11``, ``10.12``
