@@ -5,7 +5,7 @@ Custom Knife Plugins
 
 .. tag plugin_knife_summary
 
-A knife plugin is a set of one (or more) subcommands that can be added to knife to support additional functionality that is not built-in to the base set of knife subcommands. Many of the knife plugins are built by members of the Chef community and several of them are built and maintained by Chef. A knife plugin is installed to the ``~/.chef/plugins/knife/`` directory, from where it can be run just like any other knife subcommand.
+A knife plugin is a set of one (or more) subcommands that can be added to knife to support additional functionality that is not built-in to the base set of knife subcommands. Many of the knife plugins are built by members of the Chef community and several of them are built and maintained by Chef.
 
 .. end_tag
 
@@ -635,4 +635,3 @@ To install a knife plugin from a file, do one of the following:
 * Copy the file to the ``~/.chef/plugins/knife`` directory; the file's extension must be ``.rb``
 * Add the file to the chef-repo at the ``CHEF_REPO/.chef/plugins/knife``; the file's extension must be ``.rb``
 * Install the plugin from RubyGems
-
