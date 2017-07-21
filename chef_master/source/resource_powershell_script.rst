@@ -539,7 +539,7 @@ where:
 
 **Run a command as an alternate user**
 
-.. tag resource_batch_alternate_user
+.. tag resource_powershell_script_alternate_user
 
 *Note*: When Chef is running as a service, this feature requires that the user that Chef runs as has 'SeAssignPrimaryTokenPrivilege' (aka 'SE_ASSIGNPRIMARYTOKEN_NAME') user right. By default only LocalSystem and NetworkService have this right when running as a service. This is necessary even if the user is an Administrator.
 
@@ -558,7 +558,7 @@ The following example shows how to run ``mkdir test_dir`` from a chef-client run
 .. code-block:: ruby
 
    # Passing only username and password
-   batch 'mkdir test_dir' do
+   powershell_script 'mkdir test_dir' do
     code "mkdir test_dir"
     cwd Chef::Config[:file_cache_path]
     user "username"
@@ -566,7 +566,7 @@ The following example shows how to run ``mkdir test_dir`` from a chef-client run
    end
 
    # Passing username and domain
-   batch 'mkdir test_dir' do
+   powershell_script 'mkdir test_dir' do
     code "mkdir test_dir"
     cwd Chef::Config[:file_cache_path]
     domain "domain"
@@ -575,7 +575,7 @@ The following example shows how to run ``mkdir test_dir`` from a chef-client run
    end
 
    # Passing username = 'domain-name\\username'. No domain is passed
-   batch 'mkdir test_dir' do
+   powershell_script 'mkdir test_dir' do
     code "mkdir test_dir"
     cwd Chef::Config[:file_cache_path]
     user "domain-name\\username"
@@ -583,7 +583,7 @@ The following example shows how to run ``mkdir test_dir`` from a chef-client run
    end
 
    # Passing username = 'username@domain-name'. No domain is passed
-   batch 'mkdir test_dir' do
+   powershell_script 'mkdir test_dir' do
     code "mkdir test_dir"
     cwd Chef::Config[:file_cache_path]
     user "username@domain-name"
