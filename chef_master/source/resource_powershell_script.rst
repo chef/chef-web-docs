@@ -539,7 +539,7 @@ where:
 
 **Run a command as an alternate user**
 
-.. tag resource_batch_alternate_user
+.. tag resource_powershell_script_alternate_user
 
 *Note*: When Chef is running as a service, this feature requires that the user that Chef runs as has 'SeAssignPrimaryTokenPrivilege' (aka 'SE_ASSIGNPRIMARYTOKEN_NAME') user right. By default only LocalSystem and NetworkService have this right when running as a service. This is necessary even if the user is an Administrator.
 
