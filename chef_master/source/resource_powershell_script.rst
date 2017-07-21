@@ -558,7 +558,7 @@ The following example shows how to run ``mkdir test_dir`` from a chef-client run
 .. code-block:: ruby
 
    # Passing only username and password
-   batch 'mkdir test_dir' do
+   powershell_script 'mkdir test_dir' do
     code "mkdir test_dir"
     cwd Chef::Config[:file_cache_path]
     user "username"
@@ -566,7 +566,7 @@ The following example shows how to run ``mkdir test_dir`` from a chef-client run
    end
 
    # Passing username and domain
-   batch 'mkdir test_dir' do
+   powershell_script 'mkdir test_dir' do
     code "mkdir test_dir"
     cwd Chef::Config[:file_cache_path]
     domain "domain"
@@ -575,7 +575,7 @@ The following example shows how to run ``mkdir test_dir`` from a chef-client run
    end
 
    # Passing username = 'domain-name\\username'. No domain is passed
-   batch 'mkdir test_dir' do
+   powershell_script 'mkdir test_dir' do
     code "mkdir test_dir"
     cwd Chef::Config[:file_cache_path]
     user "domain-name\\username"
@@ -583,7 +583,7 @@ The following example shows how to run ``mkdir test_dir`` from a chef-client run
    end
 
    # Passing username = 'username@domain-name'. No domain is passed
-   batch 'mkdir test_dir' do
+   powershell_script 'mkdir test_dir' do
     code "mkdir test_dir"
     cwd Chef::Config[:file_cache_path]
     user "username@domain-name"
