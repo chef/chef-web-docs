@@ -5,7 +5,7 @@ kitchen-vagrant
 
 .. tag test_kitchen_driver_vagrant
 
-The ``kitchen-vagrant`` driver for Kitchen generates a single Vagrantfile for each instance of Kitchen in a sandboxed directory. The ``kitchen-vagrant`` driver supports VirtualBox and VMware Fusion, requires Vagrant 1.1.0 (or higher), and is the default driver for Kitchen.
+The ``kitchen-vagrant`` driver for Kitchen generates a single Vagrantfile for each instance of Kitchen in a sandboxed directory. The ``kitchen-vagrant`` driver supports VirtualBox and VMware Fusion, requires Vagrant 1.1.0 (or higher), and is the default driver for Test Kitchen.
 
 .. end_tag
 
@@ -63,9 +63,9 @@ The ``kitchen-vagrant`` driver can predict the box name for Vagrant and the down
    platforms:
    - name: ubuntu-14.04
    - name: ubuntu-16.04
-   - name: centos-6.8
+   - name: centos-6.9
    - name: centos-7.3
-   - name: debian-8.6
+   - name: debian-8.8
 
 which will generate a configuration file similar to:
 
@@ -81,4 +81,3 @@ which will generate a configuration file similar to:
    # ...
 
 .. end_tag
-
