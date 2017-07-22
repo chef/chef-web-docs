@@ -76,7 +76,8 @@ A Berksfile is a Ruby file, in which sources, dependencies, and options may be s
 Source Keyword
 +++++++++++++++
 
-A source defines where Berkshelf should look for cookbooks. Sources are processed in the order that they are defined in, and processing stops as soon as a suitable cookbook is found. A location can either be a :doc:`Supermarket <supermarket>` system, or a Chef Server.
+A source defines where Berkshelf should look for cookbooks. Sources are processed in the order that they are defined in, and processing stops as soon as a suitable cookbook is found. Locations include a private or public :doc:`Supermarket <supermarket>`, Chef Server, or local Chef repository.
+
 By default, a Berksfile has a source for Chef's public supermarket:
 
 .. code-block:: ruby
@@ -96,6 +97,13 @@ To add a Chef Server:
 
    source "https://supermarket.chef.io"
    source :chef_server
+
+To add a local Chef repository:
+
+.. code-block:: ruby
+
+   source "https://supermarket.chef.io"
+   source chef_repo: ".."
 
 The location and authentication details for the Chef Server will be taken from the user's ``knife.rb``.
 
