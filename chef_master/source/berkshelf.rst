@@ -607,7 +607,7 @@ Use ``berks version`` to display the version of Berkshelf.
 
 berks viz
 -----------------------------------------------------
-Use ``berks viz`` to show the dependency graph.
+Use ``berks viz`` to generate a dependency graph image file.
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
