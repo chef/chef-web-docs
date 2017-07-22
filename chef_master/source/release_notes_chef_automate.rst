@@ -256,7 +256,7 @@ Chef Automate supports operating in FIPS mode for our government customers. Plea
 Outbound Proxy Support
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Chef Automate now supports environments that require a web proxy for outbound network communication. This allows Chef Automate to be integrated with external SCM providers, such as Github, even in networks with rigorous security policies.
+Chef Automate now supports environments that require a web proxy for outbound network communication. This allows Chef Automate to be integrated with external SCM providers, such as GitHub, even in networks with rigorous security policies.
 
 Changed Package Name to "automate"
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
