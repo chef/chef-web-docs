@@ -27,20 +27,20 @@ This diagram shows how you develop, test, and deploy your Chef code.
 
 Using the workstation
 -----------------------------------------------------
-You create and test your code on your workstation before you deploy it to other environments. Your workstation is the computer where you author your cookbooks and administer your network. It's typically the machine you use everyday. It can be any OS you choose, whether it's Linux, Mac OS, or Windows.
+You create and test your code on your workstation before you deploy it to other environments. Your workstation is the computer where you author your cookbooks and administer your infrastructure. It's typically the machine you use everyday. It can be any OS you choose, whether it's Linux, macOS, or Windows.
 
-You'll need to install a text editor (whatever you like) to write code and Chef DK to get the tools to test your code. The primary testing tools you'll use are Foodcritic, Test Kitchen and ChefSpec. With them, you can make sure your Chef code does what you intended before you deploy it to environments used by others, such as staging or production.
+You'll need to install a text editor (whichever you like) to write code and the Chef Development Kit (Chef DK) to get the tools to test your code. The primary testing tools you'll use are Cookstyle, Foodcritic, ChefSpec, InSpec, and Test Kitchen. With them, you can make sure your Chef code does what you intended before you deploy it to environments used by others, such as staging or production.
 
-When you write your code, you use resources to describe your network. A resource corresponds to some piece of infrastructure, such as a file, a template, or a package. Each resource declares what state a part of the system should be in, but not how to get there. Chef handles these complexities for you. Chef provides many resources that are ready for you to use. You can also write your own resources if you need to.
+When you write your code, you use resources to describe your infrastructure. A resource corresponds to some piece of infrastructure, such as a file, a template, or a package. Each resource declares what state a part of the system should be in, but not how to get there. Chef handles these complexities for you. Chef provides many resources that are ready for you to use. You can also utilize resources shipped in community cookbooks, or write your own resources specific to your infrastructure.
 
 A Chef recipe is a file that groups related resources, such as everything needed to configure a web server, database server, or a load balancer. A Chef cookbook provides structure to your recipes and, in general, helps you stay organized.
 
-The Chef DK includes other useful tools such as InSpec, which is an open-source testing framework with a language for specifying compliance, security and policy requirements. Command-line tools include chef-solo, which runs locally and mimics an actual Chef server, knife for interacting with the Chef server, and chef for interacting with your local chef-repo.
+The Chef DK includes other command line tools for interacting with Chef. These include knife for interacting with the Chef server, and chef for interacting with your local chef code repository (chef-repo).
 
 Uploading your code to Chef server
 -----------------------------------------------------
 
-Once you're done developing and testing your code locally, on your workstation, you can upload it to the Chef server. The Chef server acts as a hub for configuration data. It stores cookbooks, the policies that are applied to the systems in your infrastructure and metadata that describes each system. The knife command lets you communicate with the Chef server from your workstation. For example, you use it to upload your cookbooks.
+Once you're done developing and testing code on your local workstation, you can upload it to the Chef server. The Chef server acts as a hub for configuration data. It stores cookbooks, the policies that are applied to the systems in your infrastructure and metadata that describes each system. The knife command lets you communicate with the Chef server from your workstation. For example, you use it to upload your cookbooks.
 
 Configuring nodes with the Chef client
 -----------------------------------------------------
@@ -119,7 +119,7 @@ Compliance
 
 Chef Automate creates customizable reports that identify compliance issues, security risks, and outdated software. You can write your own compliance rules in InSpec, or you can get started quickly by using built-in profiles, which are predefined rule sets for a variety of security frameworks, such as Center for Internet Security (CIS) benchmarks, included as part of Chef Automate.
 
-Compliance reporting is currently done through two mechanisms: The integrated compliance reporting in Chef Automate 0.8.5 or later, and the standalone Chef Compliance server. 
+Compliance reporting is currently done through two mechanisms: The integrated compliance reporting in Chef Automate 0.8.5 or later, and the standalone Chef Compliance server.
 
 For information on the integrated reporting capabilities in Chef Automate, see :doc:`Compliance Overview </chef_automate_compliance>`.
 
