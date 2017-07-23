@@ -3,7 +3,7 @@ Release Notes: Chef Development Kit 0.19 - 2.0
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_chefdk.rst>`__
 
-Chef Development Kit is released on a monthly schedule with new releases the third Monday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef DK on Github <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__
+Chef Development Kit is released on a monthly schedule with new releases the third Monday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef DK on GitHub <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__
 
 What's New in 2.0.28
 =====================================================
@@ -336,7 +336,7 @@ Foodcritic
 * Foodcritic constraint updated to require v8.0 or greater.
 * Supermarket Foodcritic rules are now disabled by default when you run ``chef generate cookbook``.
 
-Inspec
+InSpec
 -----------------------------------------------------
 
 The ``inspec`` command is now included in the PATH managed by ChefDK. Just run
@@ -373,8 +373,8 @@ New ``mixlib-install`` command allows you to quickly download Chef binaries. Run
 
 Delivery CLI
 -----------------------------------------------------
-* Deprecation of Github V1 backed project initialization.
-* Initialization of Github V2 backed projects (``delivery init --github``). Requires Chef Automate server version ``0.5.432`` or above.
+* Deprecation of GitHub V1 backed project initialization.
+* Initialization of GitHub V2 backed projects (``delivery init --github``). Requires Chef Automate server version ``0.5.432`` or above.
 * Project name verification with repository name for projects with Source Control Management (SCM) integration.
 * Increased clarity of the command structure by introducing the ``--pipeline`` alias for the ``--for`` option.
 * Honor custom config on project initialization (``delivery init -c /my/config.json``).
