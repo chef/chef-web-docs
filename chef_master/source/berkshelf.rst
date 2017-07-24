@@ -7,7 +7,7 @@ About Berkshelf
 
 Berkshelf is a dependency manager for Chef cookbooks. With it, you can easily depend on community cookbooks and have them safely included in your workflow. You can also ensure that your CI systems reproducibly select the same cookbook versions, and can upload and bundle cookbook dependencies without needing a locally maintained copy. Berkshelf is included in the Chef Development Kit.
 
-.. note:: For new users, we strongly recommend using :doc:`Policyfiles </policyfile>` rather than Berkshelf. Policyfiles provide more predictability, since dependencies are only resolved once, and a much improved way of promoting cookbooks from dev to testing, and then to production. This is unless you are using Chef Automate, which for now can only use Berkshelf.
+.. note:: For new users, we strongly recommend using :doc:`Policyfiles </policyfile>` rather than Berkshelf. Policyfiles provide more predictability, since dependencies are only resolved once, and a much improved way of promoting cookbooks from dev to testing, and then to production. Note that Policyfile is not supported as part of a Chef Automate workflow.
 
 .. end_tag
 
@@ -76,7 +76,8 @@ A Berksfile is a Ruby file, in which sources, dependencies, and options may be s
 Source Keyword
 +++++++++++++++
 
-A source defines where Berkshelf should look for cookbooks. Sources are processed in the order that they are defined in, and processing stops as soon as a suitable cookbook is found. A location can either be a :doc:`Supermarket <supermarket>` system, or a Chef Server.
+A source defines where Berkshelf should look for cookbooks. Sources are processed in the order that they are defined in, and processing stops as soon as a suitable cookbook is found. Locations include a private or public :doc:`Supermarket <supermarket>`, Chef Server, or local Chef repository.
+
 By default, a Berksfile has a source for Chef's public supermarket:
 
 .. code-block:: ruby
@@ -96,6 +97,13 @@ To add a Chef Server:
 
    source "https://supermarket.chef.io"
    source :chef_server
+
+To add a local Chef repository:
+
+.. code-block:: ruby
+
+   source "https://supermarket.chef.io"
+   source chef_repo: ".."
 
 The location and authentication details for the Chef Server will be taken from the user's ``knife.rb``.
 
@@ -599,7 +607,7 @@ Use ``berks version`` to display the version of Berkshelf.
 
 berks viz
 -----------------------------------------------------
-Use ``berks viz`` to show the dependency graph.
+Use ``berks viz`` to generate a dependency graph image file.
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
