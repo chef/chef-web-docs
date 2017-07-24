@@ -38,7 +38,7 @@ The following table lists the Foundational platforms for the chef-client and oha
      - ``6.1`` (TL6 or higher, recommended), ``7.1`` (TL0 SP3 or higher, recommended)
    * - CentOS
      - ``i386``, ``x86_64``
-     - ``5``, ``6``, ``7``
+     - ``6``, ``7``
    * - FreeBSD
      - ``i386``, ``amd64``
      - ``9``, ``10``
@@ -53,7 +53,7 @@ The following table lists the Foundational platforms for the chef-client and oha
      - ``5``, ``6``, ``7``
    * - Solaris
      - ``sparc``, ``x86``
-     - ``10 1\13`` (``"10U11"``), ``11.2``, ``11.3`` 
+     - ``10 1\13`` (``"10U11"``), ``11.2``, ``11.3``
    * - SUSE Enterprise Linux Server
      - ``x86_64``, ``s390x``
      - ``11 SP4``, ``12 SP1``
@@ -81,18 +81,15 @@ The following table lists the Secondary platforms for the chef-client:
    * - Amazon Linux
      -
      - current version
-   * - Arch Linux
-     -
-     - current version
    * - Debian
      - ``i686``, ``x86_64``
-     - ``6``, ``7``, ``8``
+     - ``7``, ``8``, ``9``
+   * - FreeBSD
+     - ``i386``, ``amd64``
+     - ``11``
    * - Fedora
      -
      - current non-EOL releases
-   * - Gentoo
-     -
-     - current version
    * - OmniOS
      -
      - stable and LTS releases
@@ -119,25 +116,34 @@ The following platforms are not tested by Chef Software:
      - Version
    * - AIX
      -
-     - ``5.1L``
+     - ``5.1L`` (or older)
+   * - Arch Linux
+     -
+     -
    * - CentOS
      -
-     - ``4.x`` (or older)
+     - ``5.x`` (or older)
+   * - Debian
+     -
+     - ``6`` (or older)
    * - FreeBSD
      -
-     - ``8``
+     - ``8`` (or older)
+   * - Gentoo
+     -
+     -
    * - HP-UX
      -
      -
    * - macOS
      -
-     - ``10.8`` (and older)
+     - ``10.8`` (or older)
    * - NetBSD
      -
      -
    * - openSUSE
-     - ``13.x`` (or older)
      -
+     - ``13.x`` (or older)
    * - OpenBSD
      -
      -
@@ -146,14 +152,13 @@ The following platforms are not tested by Chef Software:
      - ``4.x`` (or older)
    * - Red Hat Enterprise Linux
      - ``ppc64``, ``System/z``
-     -
-
+     - ``4.x`` (or older)
    * - SUSE Enterprise Linux Server
-     - ``ppc64``, ``System/z``, 10 (or older)
-     -
+     - ``ppc64``, ``System/z``
+     - 10 (or older)
    * - Solaris
      -
-     - ``8``, ``9``
+     - ``8``, ``9`` (or older)
    * - Ubuntu
      -
      - ``10.04`` (or older)
@@ -174,7 +179,7 @@ The following table lists the Foundational platforms for the Chef DK:
      - Version
    * - Debian
      -
-     - ``7.x``, ``8.x``
+     - ``7.x``, ``8.x``, ``9.x``
    * - macOS
      -
      - ``10.10``, ``10.11``, ``10.12``
@@ -224,7 +229,7 @@ The following table lists the Foundational platforms for the Chef server:
      - Version
    * - CentOS
      -
-     - ``5.x``, ``6.x``, ``7.x``
+     - ``6.x``, ``7.x``
    * - Oracle Linux
      -
      - ``5.x``, ``6.x``
@@ -328,10 +333,10 @@ The following table lists the Foundational platforms for the Chef push jobs:
      - Version
    * - CentOS
      - ``i386``
-     - ``5``, ``6``
+     - ``6``
    * -
      - ``x86_64``
-     - ``5``, ``6``, ``7``
+     - ``6``, ``7``
    * - Debian
      - ``i386``, ``x86_64``
      - ``7``
@@ -357,46 +362,46 @@ Supported Versions
 
 The following tables list the versions of the OSS and commercial Chef products we currently support:
 
-+-------------------------------------------------------------------------+ 
-|  Open Source                                                            | 
-+----------------------+--------------------------------------------------+       
++-------------------------------------------------------------------------+
+|  Open Source                                                            |
++----------------------+--------------------------------------------------+
 | Product              | Version                                          |
-+======================+==================================================+ 
-| Chef Client          | 12.0.0 or later                                  | 
++======================+==================================================+
+| Chef Client          | 12.0.0 or later                                  |
 +----------------------+--------------------------------------------------+
-| Chef DK              | 1.0.3 or later                                   | 
+| Chef DK              | 1.0.3 or later                                   |
 +----------------------+--------------------------------------------------+
-| Chef Server          | 12.0.0 or later                                  | 
-+----------------------+--------------------------------------------------+   
-| Push Jobs Client     |                                                  | 
+| Chef Server          | 12.0.0 or later                                  |
++----------------------+--------------------------------------------------+
+| Push Jobs Client     |                                                  |
 +----------------------+ 2.1.0 or later                                   |
-| Push Jobs Server     |                                                  | 
+| Push Jobs Server     |                                                  |
 +----------------------+--------------------------------------------------+
-| Supermarket          | 2.2.1 or later                                   | 
-+----------------------+--------------------------------------------------+   
+| Supermarket          | 2.2.1 or later                                   |
++----------------------+--------------------------------------------------+
 
-+-------------------------------------------------------------------------+ 
-|  Chef Automate License                                                  | 
-+----------------------+--------------------------------------------------+ 
++-------------------------------------------------------------------------+
+|  Chef Automate License                                                  |
++----------------------+--------------------------------------------------+
 | Product              | Version                                          |
-+======================+==================================================+ 
-| Chef Automate        | 0.3.56                                           | 
++======================+==================================================+
+| Chef Automate        | 0.3.56                                           |
 +----------------------+--------------------------------------------------+
-| Chef Backend         | Latest                                           | 
-+----------------------+--------------------------------------------------+  
-| Chef Compliance      | 0.9.0 or later                                   | 
+| Chef Backend         | Latest                                           |
 +----------------------+--------------------------------------------------+
-| Chef Manage          | 2.1.0 or later                                   | 
-+----------------------+--------------------------------------------------+ 
+| Chef Compliance      | 0.9.0 or later                                   |
++----------------------+--------------------------------------------------+
+| Chef Manage          | 2.1.0 or later                                   |
++----------------------+--------------------------------------------------+
 
-+-------------------------------------------------------------------------+ 
-|  Enterprise Chef License (Legacy)                                       | 
-+----------------------+--------------------------------------------------+ 
++-------------------------------------------------------------------------+
+|  Enterprise Chef License (Legacy)                                       |
++----------------------+--------------------------------------------------+
 | Product              | Version                                          |
-+======================+==================================================+ 
-| Enterprise Chef      | 11.2.2                                           | 
++======================+==================================================+
+| Enterprise Chef      | 11.2.2                                           |
 +----------------------+--------------------------------------------------+
-| Reporting            | 1.0.0 or later                                   | 
+| Reporting            | 1.0.0 or later                                   |
 +----------------------+--------------------------------------------------+
-| Analytics            | No longer supported for new installations.       | 
+| Analytics            | No longer supported for new installations.       |
 +----------------------+--------------------------------------------------+
