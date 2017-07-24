@@ -40,10 +40,10 @@ The following table lists the Foundational platforms for the Chef push jobs:
      - Version
    * - CentOS
      - ``i386``
-     - ``5``, ``6``
+     - ``6``
    * -
      - ``x86_64``
-     - ``5``, ``6``, ``7``
+     - ``6``, ``7``
    * - Debian
      - ``i386``, ``x86_64``
      - ``7``

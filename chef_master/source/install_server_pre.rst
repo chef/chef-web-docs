@@ -20,7 +20,7 @@ The following table lists the Foundational platforms for the Chef server:
      - Version
    * - CentOS
      -
-     - ``5.x``, ``6.x``, ``7.x``
+     - ``6.x``, ``7.x``
    * - Oracle Linux
      -
      - ``5.x``, ``6.x``
