@@ -275,13 +275,13 @@ Generally, it's best to let the chef-client choose the provider, and this is (by
 
 .. end_tag
 
-.. tag resource_package_windows_providers
-
 .. tag resource_provider_list_note
 
 For reference, the providers available for this resource are listed below. However please note that specifying a provider via its long name (such as ``Chef::Provider::Package``) using the ``provider`` property is not recommended. If a provider needs to be called manually, use one of the two approaches detailed above.
 
 .. end_tag
+
+.. tag resource_package_windows_providers
 
 ``Chef::Provider::Package``, ``package``
    When this short name is used, the chef-client will attempt to determine the correct provider during the chef-client run.
