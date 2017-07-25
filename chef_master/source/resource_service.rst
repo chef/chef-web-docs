@@ -262,26 +262,30 @@ Generally, it's best to let the chef-client choose the provider, and this is (by
 * Use a more specific short name---``yum_package "foo" do`` instead of ``package "foo" do``, ``script "foo" do`` instead of ``bash "foo" do``, and so on---when available
 * Use ``build_resource``. This replaces all previous use cases where the provider class was passed in through the ``provider`` property:
 
-.. code-block:: ruby
+  .. code-block:: ruby
 
-   pkg_resource = case node['platform_family']
-     when "debian"
-       :dpkg_package
-     when "fedora", "rhel", "amazon"
-       :rpm_package
+     pkg_resource = case node['platform_family']
+       when "debian"
+         :dpkg_package
+       when "fedora", "rhel", "amazon"
+         :rpm_package
+       end
+
+     pkg_path = ( pkg_resource == :dpkg_package ) ? "/tmp/foo.deb" : "/tmp/foo.rpm"
+
+     build_resource(pkg_resource, pkg_path) do
+       action :install
      end
-
-   pkg_path = ( pkg_resource == :dpkg_package ) ? "/tmp/foo.deb" : "/tmp/foo.rpm"
-
-   build_resource(pkg_resource, pkg_path) do
-     action :install
-   end
 
 .. end_tag
 
-The **service** resource does not have service-specific short names. This is because the chef-client identifies the platform at the start of every chef-client run based on data collected by Ohai. The chef-client looks up the platform, and then determines the correct provider for that platform. In certain situations, such as when more than one init system is available on a node, a specific provider may need to be identified by using the ``provider`` attribute and the long name for that provider.
+The **service** resource does not have service-specific short names. This is because the chef-client identifies the platform at the start of every chef-client run based on data collected by Ohai. The chef-client looks up the platform, and then determines the correct provider for that platform.
 
-This resource has the following providers:
+.. tag resource_provider_list_note
+
+For reference, the providers available for this resource are listed below. However please note that specifying a provider via its long name (such as ``Chef::Provider::Package``) using the ``provider`` property is not recommended. If a provider needs to be called manually, use one of the two approaches detailed above.
+
+.. end_tag 
 
 ``Chef::Provider::Service``, ``service``
    When this short name is used, the chef-client will determine the correct provider during the chef-client run.

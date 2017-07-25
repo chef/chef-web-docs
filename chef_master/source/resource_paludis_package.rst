@@ -14,7 +14,7 @@ Use the **paludis_package** resource to manage packages for the Paludis platform
           In many cases, it is better to use the **package** resource instead of this one. This is because when the **package** resource is used in a recipe, the chef-client will use details that are collected by Ohai at the start of the chef-client run to determine the correct package application. Using the **package** resource allows a recipe to be authored in a way that allows it to be used across many platforms.
 
           .. end_tag
-          
+
 New in Chef Client 12.1.
 
 Syntax
@@ -227,24 +227,28 @@ Generally, it's best to let the chef-client choose the provider, and this is (by
 * Use a more specific short name---``yum_package "foo" do`` instead of ``package "foo" do``, ``script "foo" do`` instead of ``bash "foo" do``, and so on---when available
 * Use ``build_resource``. This replaces all previous use cases where the provider class was passed in through the ``provider`` property:
 
-.. code-block:: ruby
+  .. code-block:: ruby
 
-   pkg_resource = case node['platform_family']
-     when "debian"
-       :dpkg_package
-     when "fedora", "rhel", "amazon"
-       :rpm_package
+     pkg_resource = case node['platform_family']
+       when "debian"
+         :dpkg_package
+       when "fedora", "rhel", "amazon"
+         :rpm_package
+       end
+
+     pkg_path = ( pkg_resource == :dpkg_package ) ? "/tmp/foo.deb" : "/tmp/foo.rpm"
+
+     build_resource(pkg_resource, pkg_path) do
+       action :install
      end
-
-   pkg_path = ( pkg_resource == :dpkg_package ) ? "/tmp/foo.deb" : "/tmp/foo.rpm"
-
-   build_resource(pkg_resource, pkg_path) do
-     action :install
-   end
 
 .. end_tag
 
-This resource has the following providers:
+.. tag resource_provider_list_note
+
+For reference, the providers available for this resource are listed below. However please note that specifying a provider via its long name (such as ``Chef::Provider::Package``) using the ``provider`` property is not recommended. If a provider needs to be called manually, use one of the two approaches detailed above.
+
+.. end_tag
 
 ``Chef::Provider::Package``, ``package``
    When this short name is used, the chef-client will attempt to determine the correct provider during the chef-client run.

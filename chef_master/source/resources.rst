@@ -132,20 +132,20 @@ Generally, it's best to let the chef-client choose the provider, and this is (by
 * Use a more specific short name---``yum_package "foo" do`` instead of ``package "foo" do``, ``script "foo" do`` instead of ``bash "foo" do``, and so on---when available
 * Use ``build_resource``. This replaces all previous use cases where the provider class was passed in through the ``provider`` property:
 
-.. code-block:: ruby
+  .. code-block:: ruby
 
-   pkg_resource = case node['platform_family']
-     when "debian"
-       :dpkg_package
-     when "fedora", "rhel", "amazon"
-       :rpm_package
+     pkg_resource = case node['platform_family']
+       when "debian"
+         :dpkg_package
+       when "fedora", "rhel", "amazon"
+         :rpm_package
+       end
+
+     pkg_path = ( pkg_resource == :dpkg_package ) ? "/tmp/foo.deb" : "/tmp/foo.rpm"
+
+     build_resource(pkg_resource, pkg_path) do
+       action :install
      end
-
-   pkg_path = ( pkg_resource == :dpkg_package ) ? "/tmp/foo.deb" : "/tmp/foo.rpm"
-
-   build_resource(pkg_resource, pkg_path) do
-     action :install
-   end
 
 .. end_tag
 
