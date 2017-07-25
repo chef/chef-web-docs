@@ -728,7 +728,6 @@ The following example shows how start a service named ``example_service`` and im
 
    service 'example_service' do
      action :start
-     provider Chef::Provider::Service::Init
      notifies :restart, 'service[nginx]', :immediately
    end
 
