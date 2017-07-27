@@ -129,12 +129,12 @@ The **chef-client** cookbook can be configured to automatically install and conf
 
 .. code-block:: ruby
 
-   node.set['chef_client']['load_gems']['chef-reporting'] = {
+   node.normal['chef_client']['load_gems']['chef-reporting'] = {
      :require_name => 'chef_reporting',
      :action => :install
    }
 
-   node.set['chef_client']['config']['start_handlers'] = [
+   node.normal['chef_client']['config']['start_handlers'] = [
      {
        :class => 'Chef::Reporting::StartHandler',
        :arguments => []
@@ -1001,4 +1001,3 @@ The following open source handlers are available from the Chef community:
      - A Chef report handler to send Chef run notifications to ZooKeeper.
 
 .. end_tag
-

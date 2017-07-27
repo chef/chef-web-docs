@@ -333,12 +333,9 @@ To install a gem while the resource collection is being built (the “compile ph
 
 .. code-block:: ruby
 
-   execute 'apt-get update' do
-     ignore_failure true
-     action :nothing
-   end.run_action(:run) if node['platform_family'] == 'debian'
+   apt_update
 
-   node.set['build_essential']['compiletime'] = true
+   node.override['build_essential']['compiletime'] = true
    include_recipe 'build-essential'
    include_recipe 'mysql::client'
 
