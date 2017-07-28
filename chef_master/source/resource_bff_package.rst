@@ -23,7 +23,7 @@ Syntax
 =====================================================
 .. tag resource_package_bff_syntax
 
-A **bff_package** resource block manages a package on a node, typically by installing it. The simplest use of the **bff_package** resource is:
+A **bff_package** resource manages a package on a node, typically by installing it. The simplest use of the **bff_package** resource is:
 
 .. code-block:: ruby
 
