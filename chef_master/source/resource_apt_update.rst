@@ -216,8 +216,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. code-block:: ruby
 
-   apt_update 'update' do
-     action :update
-   end
+   apt_update 'update'
 
 .. end_tag
