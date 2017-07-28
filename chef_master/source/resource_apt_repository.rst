@@ -22,7 +22,7 @@ where
 
 * ``apt_repository`` is the resource
 * ``name`` is the name of the resource block
-* ``uri`` is a base URI for the distribution where the apt packages are located at
+* ``uri`` is a base URI for the distribution where the APT packages are located at
 * ``components`` is an array of package groupings in the repository
 
 The full syntax for all of the properties that are available to the **apt_repository** resource is:
@@ -123,7 +123,7 @@ cookbook
 cache_rebuild
    **Ruby Type:** TrueClass, FalseClass
 
-   Determines whether to rebuild the apt package cache. Default value: ``true``.
+   Determines whether to rebuild the APT package cache. Default value: ``true``.
 
 sensitive
    **Ruby Type:** TrueClass, FalseClass

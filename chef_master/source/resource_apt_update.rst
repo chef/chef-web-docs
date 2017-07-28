@@ -5,7 +5,7 @@ apt_update
 
 .. tag resource_apt_update_summary
 
-Use the **apt_update** resource to manage Apt repository updates on Debian and Ubuntu platforms.
+Use the **apt_update** resource to manage APT repository updates on Debian and Ubuntu platforms.
 
 .. end_tag
 
@@ -15,7 +15,7 @@ Syntax
 =====================================================
 .. tag resource_apt_update_syntax
 
-A **apt_update** resource block defines the update frequency for Apt repositories:
+An **apt_update** resource block defines the update frequency for APT repositories:
 
 .. code-block:: ruby
 
@@ -78,7 +78,7 @@ This resource has the following properties:
 ``frequency``
    **Ruby Type:** Integer
 
-   The frequency at which Apt repository updates are made. Use this property when the ``:periodic`` action is specified. Default value: ``86400``.
+   The frequency at which APT repository updates are made. Use this property when the ``:periodic`` action is specified. Default value: ``86400``.
 
 ``ignore_failure``
    **Ruby Types:** TrueClass, FalseClass
