@@ -470,7 +470,7 @@ or:
 
 **Handle cookbook_file and yum_package resources in the same recipe**
 
-.. tag resource_yum_package_handle_cookbook_file_and_yum_package
+.. tag resource_package_handle_cookbook_file_and_package
 
 .. To handle cookbook_file and yum_package when both called in the same recipe
 

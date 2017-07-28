@@ -78,7 +78,7 @@ This resource has the following properties:
 ``frequency``
    **Ruby Type:** Integer
 
-   The frequency at which APT repository updates are made. Use this property when the ``:periodic`` action is specified. Default value: ``86400``.
+   Determines how frequently APT repository updates are made. Accepts integers representing number of seconds between repository updates. Use this property when the ``:periodic`` action is specified. Default value: ``86400``.
 
 ``ignore_failure``
    **Ruby Types:** TrueClass, FalseClass
