@@ -621,7 +621,7 @@ apt_update
 =====================================================
 .. tag resource_apt_update_summary
 
-Use the **apt_update** resource to manage Apt repository updates on Debian and Ubuntu platforms.
+Use the **apt_update** resource to manage APT repository updates on Debian and Ubuntu platforms.
 
 .. end_tag
 
@@ -648,9 +648,7 @@ Use the **apt_update** resource to manage Apt repository updates on Debian and U
 
 .. code-block:: ruby
 
-   apt_update 'update' do
-     action :update
-   end
+   apt_update 'update'
 
 .. end_tag
 
@@ -7298,9 +7296,9 @@ or:
 
 .. tag resource_package_handle_cookbook_file_and_package
 
-.. To handle cookbook_file and yum_package when both called in the same recipe
+.. To handle cookbook_file and package when both called in the same recipe
 
-When a **cookbook_file** resource and a **yum_package** resource are both called from within the same recipe, use the ``flush_cache`` attribute to dump the in-memory Yum cache, and then use the repository immediately to ensure that the correct package is installed:
+When a **cookbook_file** resource and a **package** resource are both called from within the same recipe, use the ``flush_cache`` attribute to dump the in-memory Yum cache, and then use the repository immediately to ensure that the correct package is installed:
 
 .. code-block:: ruby
 
@@ -7309,7 +7307,7 @@ When a **cookbook_file** resource and a **yum_package** resource are both called
      mode '0755'
    end
 
-   yum_package 'only-in-custom-repo' do
+   package 'only-in-custom-repo' do
      action :install
      flush_cache [ :before ]
    end
