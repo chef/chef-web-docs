@@ -5,7 +5,7 @@ chocolatey_package
 
 .. tag resource_package_chocolatey
 
-Use the **chocolatey_package** resource to manage packages using Chocolatey for the Microsoft Windows platform.
+Use the **chocolatey_package** resource to manage packages using Chocolatey on the Microsoft Windows platform.
 
 .. end_tag
 
@@ -21,7 +21,7 @@ Syntax
 =====================================================
 .. tag resource_package_chocolatey_syntax
 
-A **chocolatey_package** resource block manages packages using Chocolatey for the Microsoft Windows platform. The simplest use of the **chocolatey_package** resource is:
+A **chocolatey_package** resource manages packages using Chocolatey on the Microsoft Windows platform. The simplest use of the **chocolatey_package** resource is:
 
 .. code-block:: ruby
 
