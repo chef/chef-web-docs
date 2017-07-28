@@ -519,11 +519,11 @@ A cookbook may have a ``/files`` directory structure like this::
 
    files/
       host-foo.example.com
-      ubuntu-10.04
-      ubuntu-10
+      ubuntu-16.04
+      ubuntu-16
       ubuntu
-      redhat-5.8
-      redhat-6.4
+      redhat-5.11
+      redhat-6.9
       ...
       default
 
@@ -538,13 +538,13 @@ and a resource that looks something like the following:
      group 'root'
    end
 
-This resource is matched in the same order as the ``/files`` directory structure. For a node that is running Ubuntu 10.04, the second item would be the matching item and the location to which the file identified in the **cookbook_file** resource would be distributed:
+This resource is matched in the same order as the ``/files`` directory structure. For a node that is running Ubuntu 16.04, the second item would be the matching item and the location to which the file identified in the **cookbook_file** resource would be distributed:
 
 .. code-block:: ruby
 
    host-foo.example.com/apache2_module_conf_generate.pl
-   ubuntu-10.04/apache2_module_conf_generate.pl
-   ubuntu-10/apache2_module_conf_generate.pl
+   ubuntu-16.04/apache2_module_conf_generate.pl
+   ubuntu-16/apache2_module_conf_generate.pl
    ubuntu/apache2_module_conf_generate.pl
    default/apache2_module_conf_generate.pl
 
