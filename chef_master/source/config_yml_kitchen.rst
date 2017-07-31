@@ -310,21 +310,21 @@ A .kitchen.yml file may define chef-client-specific settings, such as whether to
 
    suites:
      - name: config
-     run_list:
-     ...
-     attributes:
-       chef_client:
-         load_gems:
-           chef-handler-updated-resources:
-             require_name: "chef/handler/updated_resources"
-         config:
-           log_level: ":debug"
-           ssl_verify_mode: ":verify_peer"
-           start_handlers: [{class: "SimpleReport::UpdatedResources", arguments: []}]
-           report_handlers: [{class: "SimpleReport::UpdatedResources", arguments: []}]
-           exception_handlers: [{class: "SimpleReport::UpdatedResources", arguments: []}]
-       ohai:
-         disabled_plugins: ["passwd"]
+       run_list:
+       ...
+       attributes:
+         chef_client:
+           load_gems:
+             chef-handler-updated-resources:
+               require_name: "chef/handler/updated_resources"
+           config:
+             log_level: ":debug"
+             ssl_verify_mode: ":verify_peer"
+             start_handlers: [{class: "SimpleReport::UpdatedResources", arguments: []}]
+             report_handlers: [{class: "SimpleReport::UpdatedResources", arguments: []}]
+             exception_handlers: [{class: "SimpleReport::UpdatedResources", arguments: []}]
+         ohai:
+           disabled_plugins: ["passwd"]
 
 where:
 
