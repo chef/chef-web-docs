@@ -69,6 +69,9 @@ This configuration file has the following settings:
 ``chef_zero.port``
    The port on which chef-zero is to listen. This value may be specified as a range; the chef-client will take the first available port in the range. For example ``10,20,30`` or ``10000-20000``. Default value: ``8889-9999``.
 
+``client_fork``
+   Contain the chef-client run in a secondary process with dedicated RAM. When the chef-client run is complete, the RAM is returned to the master process. This setting helps ensure that a chef-client uses a steady amount of RAM over time because the master process does not run recipes. This setting also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Set to ``false`` to disable running the chef-client in fork node. Default value: ``true``.
+
 ``client_key``
    The location of the file that contains the client key. Default value: ``/etc/chef/client.pem``.
 
