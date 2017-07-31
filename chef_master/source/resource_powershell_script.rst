@@ -54,6 +54,7 @@ The full syntax for all of the properties that are available to the **powershell
      password                   String
      domain                     String
      action                     Symbol # defaults to :run if not specified
+     elevated                   Boolean
    end
 
 where
@@ -62,7 +63,7 @@ where
 * ``name`` is the name of the resource block
 * ``command`` is the command to be run and ``cwd`` is the location from which the command is run
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``architecture``, ``code``, ``command``, ``convert_boolean_return``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``provider``, ``returns``,``timeout``, ``user``, ``password`` and ``domain`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``architecture``, ``code``, ``command``, ``convert_boolean_return``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``provider``, ``returns``,``timeout``, ``user``, ``password``, ``domain`` and ``elevated`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -220,6 +221,11 @@ This resource has the following properties:
    **Ruby Types:** Integer, Array
 
    Inherited from **execute** resource. The return value for a command. This may be an array of accepted values. An exception is raised when the return value(s) do not match. Default value: ``0``.
+
+``elevated``
+   **Ruby Types:** Boolean
+
+   *Windows only*: Runs windows process with elevated privileges. Required for Powershell commands which need elevated privileges. (Optional) 
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
