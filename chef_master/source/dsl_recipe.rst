@@ -2266,7 +2266,7 @@ For example:
    tag('machine')
 
    if tagged?('machine')
-      Chef::Log.info('Hey I'm #{node[:tags]}')
+      Chef::Log.info("Hey I'm #{node[:tags]}")
    end
 
    untag('machine')
