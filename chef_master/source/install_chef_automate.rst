@@ -11,7 +11,7 @@ Install Chef Automate
 
 .. end_tag
 
-A Chef Automate installation consists of a minimum of two nodes:
+A Chef Automate installation consists of a minimum of two servers:
 
 * **Chef server**
 
