@@ -45,7 +45,7 @@ The syntax for a custom resource is. For example:
     # a mix of built-in Chef resources and Ruby
    end
 
-   action : do
+   action :name do
     # a mix of built-in Chef resources and Ruby
    end
 
