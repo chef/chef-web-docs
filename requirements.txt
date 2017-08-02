@@ -20,6 +20,7 @@ six==1.10.0               # via sphinx
 snowballstemmer==1.2.1    # via sphinx
 sphinx==1.6.2
 sphinxcontrib-websupport==1.0.1  # via sphinx
+sphinx-autobuild==0.7.1
 typing==3.6.1             # via sphinx
 urllib3==1.21.1           # via requests
 
