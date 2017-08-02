@@ -11,27 +11,27 @@ Install Chef Automate
 
 .. end_tag
 
-A Chef Automate installation consists of a minimum of two nodes:
+A Chef Automate installation consists of a minimum of two servers:
 
-* Chef server
+* **Chef server**
 
   Contains the cookbooks and data used to build, test, and deploy your components within Chef Automate and your infrastructure
 
-* Chef Automate server
+* **Chef Automate server**
 
   Coordinates the process of moving a change through the workflow pipeline as well as providing insights and visualizations about your Chef Automate cluster
 
 Optional components include:
 
-* Push jobs server
+* **Push jobs server**
 
   Runs push jobs, which is used to create infrastructure nodes for deployment testing and is also needed if you use push jobs-based build nodes as part of your testing and deployment process
 
-* Runners/build nodes
+* **Runners/build nodes**
 
-  Perform the work of running builds, tests, and deployments out of Chef Automate and are only required when using the workflow capabilities of Chef Automate
+  Perform the work of running builds, tests, and deployments out of Chef Automate. These are only required when using the workflow capabilities of Chef Automate
 
-* Chef Compliance server 
+* **Chef Compliance server**
 
   Used in conjunction with the ``audit cookbook`` to run InSpec profiles as part of a Chef client run
 
@@ -133,7 +133,7 @@ Chef Server Installation and Configuration
 
 Chef Automate associates with a Chef server for application/cookbook building and testing as well as proxying cluster data from nodes for visualization purposes. Because of hardware requirements for both Chef server and Chef Automate, it is recommended that Chef server is installed on a separate node from Chef Automate server.
 
-Also, if you have an existing Chef server installation, it is recommended that you have a separate organization for use with Chef Automate. This keeps any existing production organizations separate from the organization used by runners and infrastructure nodes in your Chef Automate cluster. 
+Also, if you have an existing Chef server installation, it is recommended that you have a separate organization for use with Chef Automate. This keeps any existing production organizations separate from the organization used by runners and infrastructure nodes in your Chef Automate cluster.
 
 Instructions for creating a new organization can be found below under the subheading `Create a User and Organization to Manage Your Cluster </install_chef_automate.html#create-a-user-and-organization-to-manage-your-cluster>`_.
 
@@ -185,7 +185,7 @@ Create a User and Organization to Manage Your Cluster
 
 As noted above, it's a best practice to use a separate organization when managing nodes in a Chef Automate cluster. Perform the following steps to create a new administrator user and a new organization for your Chef Automate cluster:
 
-#. Create a user named ``delivery``, and specify a first name, last name, email address, and password. A private key will be generated for you, so specify where to save that key using the ``--filename`` option with an absolute path to its intended location. 
+#. Create a user named ``delivery``, and specify a first name, last name, email address, and password. A private key will be generated for you, so specify where to save that key using the ``--filename`` option with an absolute path to its intended location.
 
     .. code-block:: bash
 
@@ -203,7 +203,7 @@ As noted above, it's a best practice to use a separate organization when managin
 
    The full name must begin with a non-white space character and must be between 1 and 1023 characters. For example: ``'Fourth Coffee, Inc.'``.
 
-   The ``--association_user`` (``-a``) option will associate the ``delivery`` user with the ``admins`` security group on the Chef server. 
+   The ``--association_user`` (``-a``) option will associate the ``delivery`` user with the ``admins`` security group on the Chef server.
 
    An RSA private key is generated automatically. This is the chef-validator key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to the specified absolute path.
 
@@ -247,9 +247,9 @@ Running this ``reconfigure`` command may trigger a brief restart of your Chef se
 Chef Automate Server Installation and Configuration
 ========================================================
 
-Now that you have your Chef server set up, install and configure Chef Automate by doing the following: 
+Now that you have your Chef server set up, install and configure Chef Automate by doing the following:
 
-.. note:: If you plan to use a private Supermarket with your Chef Automate server, please make sure it is set up correctly by following the steps in :doc:`install_supermarket`. 
+.. note:: If you plan to use a private Supermarket with your Chef Automate server, please make sure it is set up correctly by following the steps in :doc:`install_supermarket`.
 
 #. Download and install the latest stable Chef Automate package for your operating system from `<https://downloads.chef.io/automate/>`_ on the Chef Automate server machine.
 
@@ -301,7 +301,7 @@ Now that you have your Chef server set up, install and configure Chef Automate b
 
    ``AUTOMATE_CHEF_USER_KEY`` is the ``delivery`` user key that you created on your Chef server. For example: ``/root/delivery.pem``.
 
-   The ``--server-url`` is the URL of your Chef server, which contains the fully-qualified domain name of the Chef server and the name of the organization you created when you created the ``delivery`` user. 
+   The ``--server-url`` is the URL of your Chef server, which contains the fully-qualified domain name of the Chef server and the name of the organization you created when you created the ``delivery`` user.
 
    ``AUTOMATE_SERVER_FQDN`` is the external fully-qualified domain name of the Chef Automate server. This is just the name of the system, not a URL. For example: ``host.4thcoffee.co``.
 
@@ -366,10 +366,10 @@ The following steps show how to set up a runner from a Chef Automate server. For
 #. If you have an on-premises Supermarket installation, copy the Supermarket certificate file to ``/etc/delivery/supermarket.crt``.
 
 #. Run the ``install-runner`` subcommand.
- 
+
    .. important:: The ``install-runner`` command will create a new file called ``job_runner`` in the ``/etc/sudoers.d`` directory to give the runner the appropriate ``sudo`` access. If your runner does not have the ``#includedir /etc/sudoers.d`` directive included in its ``/etc/sudoers`` file, you must put that directive in before you run the ``install-runner`` command.
 
-   .. note:: You can optionally download the latest ChefDK from `<https://downloads.chef.io/chefdk/>`_ to specify a local package via ``--installer``. Doing so is useful if you are in an air-gapped environment. Version 0.15.16 or greater of the ChefDK is required. The download location is referred to below as ``OPTIONAL_CHEF_DK_PACKAGE_PATH``. This option cannot be used with the ``--chefdk-version`` as the version of the local package will be used. 
+   .. note:: You can optionally download the latest ChefDK from `<https://downloads.chef.io/chefdk/>`_ to specify a local package via ``--installer``. Doing so is useful if you are in an air-gapped environment. Version 0.15.16 or greater of the ChefDK is required. The download location is referred to below as ``OPTIONAL_CHEF_DK_PACKAGE_PATH``. This option cannot be used with the ``--chefdk-version`` as the version of the local package will be used.
 
    .. code-block:: bash
 
@@ -442,9 +442,9 @@ Compliance
 Profiles
 ------------------------------------------------------------
 
-Chef Automate contains a compliance profiles asset store that provides several built-in profiles covering baseline security checks through CIS benchmarks across multiple operating systems. 
+Chef Automate contains a compliance profiles asset store that provides several built-in profiles covering baseline security checks through CIS benchmarks across multiple operating systems.
 
-In Chef Automate 0.8.5 or later, the compliance profiles asset store is enabled by default. You can manage your profiles through :doc:`api_automate` as well as through the Chef Automate UI. See :doc:`/chef_automate_compliance` for more information on the new integrated compliance functionality. 
+In Chef Automate 0.8.5 or later, the compliance profiles asset store is enabled by default. You can manage your profiles through :doc:`api_automate` as well as through the Chef Automate UI. See :doc:`/chef_automate_compliance` for more information on the new integrated compliance functionality.
 
 In Chef Automate version 0.6, the profiles asset store functionality is available; however, you must enable the service by adding this line:
 
