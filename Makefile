@@ -1,5 +1,5 @@
 BUILDDIR = build
-BUILD_COMMAND = sphinx-build -a -W
+BUILD_COMMAND = sphinx-build -W
 BUILD_COMMAND_AND_ARGS = $(BUILD_COMMAND)
 
 docs:
