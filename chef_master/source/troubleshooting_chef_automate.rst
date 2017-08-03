@@ -370,4 +370,4 @@ Issue: Nodes tab does not show information beyond 100 pages
 
 In the Nodes tab, there is a bug that occurs when the node list exceeds 100 pages (10,000 nodes). As a result of this bug, pages beyond the first 100 will not provide node data.
 
-To avoid this issue, it's recommended that you use `filtering <visibility.html#navigating-the-ui>` to reduce the number of nodes shown to below 10,000.
+To avoid this issue, use `filtering </visibility.html#navigating-the-ui>`__ to reduce the number of nodes shown to below 10,000.
