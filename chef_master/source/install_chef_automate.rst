@@ -350,6 +350,11 @@ If you plan on using the workflow capabilities of Automate, proceed to the next 
 
 For more information about ``automate-ctl`` and how to use it, see :doc:`ctl_automate_server`.
 
+Configure node data collection
+------------------------------------------------------------
+
+After you have set up your Chef Server and Chef Automate server, you must perform some simple configuration steps to visualize node data in Chef Automate. This process, along with more advanced data configuration scenarios, is detailed in :doc:`Configure Data Collection </setup_visibility_chef_automate>`.
+
 Set up a build node/runner (Optional)
 ------------------------------------------------------------
 
@@ -428,11 +433,6 @@ Any host that needs to make outgoing http or https connections will require thes
 (which makes knife calls to Chef server) and Chef server (for push jobs) should have these configured. To update the Chef Automate server, update ``/etc/delivery/delivery.rb`` on your Chef Automate server with the values specified in `Proxy Settings </config_rb_delivery.html#proxy-settings>`_. After you have configured your settings, run ``sudo automate-ctl reconfigure``.
 
 For general information on proxy settings, please see :doc:`About Proxies </proxies>`.
-
-Configure Node Data collection
-=====================================================
-
-After you have setup your Chef Server, Chef Automate, and any build runners/build nodes, you must perform some simple configuration steps to visualize node data in Chef Automate. This, as well as more advanced data configuration scenarios are covered in See :doc:`Configure Data Collection </setup_visibility_chef_automate>`.
 
 Compliance
 ===================================================================
