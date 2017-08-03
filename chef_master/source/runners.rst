@@ -26,7 +26,7 @@ Adding a Runner
 
 You can add a new runner via ``automate-ctl`` from your Chef Automate server. Log in to your Chef Automate server and run the :ref:`install-runner` command.
 
-.. note:: You can pin to a specific ChefDK version through the ``--chef-dk-version`` option on the ``install-runner`` command or by using a version of the ChefDK that you have installed locally on your Chef Automate server using the ``-I`` option. As an example, this is useful if you have not upgraded your cookbooks to be Chef 13 compliant and the latest version of the ChefDK installs Chef 13 on your runner.
+.. note:: You can pin to a specific ChefDK version through the ``--chefdk-version`` option on the ``install-runner`` command or by using a version of the ChefDK that you have installed locally on your Chef Automate server using the ``-I`` option. As an example, this is useful if you have not upgraded your cookbooks to be Chef 13 compliant and the latest version of the ChefDK installs Chef 13 on your runner.
 
 .. tag DK2_automate_note
 
