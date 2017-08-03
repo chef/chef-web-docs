@@ -434,11 +434,6 @@ Any host that needs to make outgoing http or https connections will require thes
 
 For general information on proxy settings, please see :doc:`About Proxies </proxies>`.
 
-Configure Node Data collection
-=====================================================
-
-After you have setup your Chef Server, Chef Automate, and any build runners/build nodes, you must perform some simple configuration steps to visualize node data in Chef Automate. This, as well as more advanced data configuration scenarios are covered in See :doc:`Configure Data Collection </setup_visibility_chef_automate>`.
-
 Compliance
 ===================================================================
 
