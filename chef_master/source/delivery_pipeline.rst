@@ -11,7 +11,7 @@ About Chef Automate Pipelines
 
 .. end_tag
 
-Each project contains a configuration file in its source repository, located at ``.delivery/config.json``, that specifies the build cookbook to use for the project, and in turn, the build cookbook contains recipes that control what happens in the pipeline phases. The config file also allows customization of the behavior of Chef Automate and the build cookbook.  You can create a config file (as well as a build cookbook) using the Chef Automate CLI tool and the init subcommand: `delivery init` or `delivery init --local`.
+Each project contains a configuration file in its source repository, located at ``.delivery/config.json``, that specifies the build cookbook to use for the project, and in turn, the build cookbook contains recipes that control what happens in the pipeline phases. The config file also allows customization of the behavior of Chef Automate and the build cookbook.  You can create a config file (as well as a build cookbook) using the Chef Automate CLI tool and the init subcommand: ``delivery init`` or ``delivery init --local``.
 
 When Chef Automate executes a phase, it selects a build node or runner to run the job. On the build node/runner, the project's source is fetched and synchronized to the revision matching the head of the feature branch for the change. The build node/runner reads the project's ``config.json`` file and uses this information to fetch the appropriate build cookbook. Finally, the build node/runner runs a local chef-zero run to execute the appropriate phase.
 
