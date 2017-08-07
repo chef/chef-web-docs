@@ -49,7 +49,7 @@ The following table lists the Foundational platforms for the Chef Compliance ser
      - ``6.x``, ``7.x``
    * - Ubuntu
      -
-     - ``12.04 LTS``, ``14.04 LTS``
+     - ``12.04 LTS``, ``14.04 LTS``, ``16.04 LTS``
 
 Untested Platforms
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -101,7 +101,7 @@ To install the Chef Compliance server:
 
 AWS Marketplace
 =====================================================
-See /aws_marketplace.html for more information.
+See the `AWS Marketplace documentation </aws_marketplace.html#chef-compliance-ami>`__ for instructions on deploying the Compliance server Amazon Machine Image (AMI).
 
 Configure SSL
 =====================================================
