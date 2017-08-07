@@ -49,7 +49,7 @@ The following table lists the Foundational platforms for the Chef Compliance ser
      - ``6.x``, ``7.x``
    * - Ubuntu
      -
-     - ``12.04 LTS``, ``14.04 LTS``
+     - ``12.04 LTS``, ``14.04 LTS``, ``16.04 LTS``
 
 Untested Platforms
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
