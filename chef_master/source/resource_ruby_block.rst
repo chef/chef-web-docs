@@ -313,8 +313,8 @@ The following example shows how to use variables within a Ruby block to set envi
 
 .. code-block:: ruby
 
-   node.set[:rbenv][:root] = rbenv_root
-   node.set[:ruby_build][:bin_path] = rbenv_binary_path
+   node.override[:rbenv][:root] = rbenv_root
+   node.override[:ruby_build][:bin_path] = rbenv_binary_path
 
    ruby_block 'initialize' do
      block do
@@ -419,4 +419,3 @@ The following example shows how to reload the configuration of a chef-client usi
    end
 
 .. end_tag
-

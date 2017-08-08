@@ -179,9 +179,9 @@ To define these attributes, do the following:
 
    .. code-block:: ruby
 
-      node.set['supermarket_omnibus']['chef_server_url'] = app['chef_server_url']
-      node.set['supermarket_omnibus']['chef_oauth2_app_id'] = app['chef_oauth2_app_id']
-      node.set['supermarket_omnibus']['chef_oauth2_secret'] = app['chef_oauth2_secret']
+      node.override['supermarket_omnibus']['chef_server_url'] = app['chef_server_url']
+      node.override['supermarket_omnibus']['chef_oauth2_app_id'] = app['chef_oauth2_app_id']
+      node.override['supermarket_omnibus']['chef_oauth2_secret'] = app['chef_oauth2_secret']
 
    When finished, the ``/recipes/default.rb`` file should have code similar to:
 
@@ -189,15 +189,15 @@ To define these attributes, do the following:
 
       app = data_bag_item('apps', 'supermarket')
 
-      node.set['supermarket_omnibus']['chef_server_url'] = app['chef_server_url']
-      node.set['supermarket_omnibus']['chef_oauth2_app_id'] = app['chef_oauth2_app_id']
-      node.set['supermarket_omnibus']['chef_oauth2_secret'] = app['chef_oauth2_secret']
+      node.override['supermarket_omnibus']['chef_server_url'] = app['chef_server_url']
+      node.override['supermarket_omnibus']['chef_oauth2_app_id'] = app['chef_oauth2_app_id']
+      node.override['supermarket_omnibus']['chef_oauth2_secret'] = app['chef_oauth2_secret']
 
       include_recipe 'supermarket-omnibus-cookbook'
 
 #. Save and close the ``/recipes/default.rb`` file.
 
-.. note:: If you are running your private Supermarket in AWS, you may need to set an additional attribute for the node's public ip.  i.e. node node.set['supermarket_omnibus']['config']['fqdn'] = your_node_public_ip
+.. note:: If you are running your private Supermarket in AWS, you may need to set an additional attribute for the node's public ip.  i.e. node node.override['supermarket_omnibus']['config']['fqdn'] = your_node_public_ip
 
 Upload the Wrapper
 -----------------------------------------------------
@@ -299,13 +299,13 @@ A Chef Supermarket installation can use an external database running PostgreSQL 
 
 .. code-block:: ruby
 
-   node.set['supermarket_omnibus']['config']['postgresql']['enable'] = false
-   node.set['supermarket_omnibus']['config']['database']['user'] = 'supermarket'
-   node.set['supermarket_omnibus']['config']['database']['name'] = 'supermarket'
-   node.set['supermarket_omnibus']['config']['database']['host'] = 'yourcompany...rds.amazon.com'
-   node.set['supermarket_omnibus']['config']['database']['port'] = '5432'
-   node.set['supermarket_omnibus']['config']['database']['pool'] = '25'
-   node.set['supermarket_omnibus']['config']['database']['password'] = 'topsecretneverguessit'
+   node.override['supermarket_omnibus']['config']['postgresql']['enable'] = false
+   node.override['supermarket_omnibus']['config']['database']['user'] = 'supermarket'
+   node.override['supermarket_omnibus']['config']['database']['name'] = 'supermarket'
+   node.override['supermarket_omnibus']['config']['database']['host'] = 'yourcompany...rds.amazon.com'
+   node.override['supermarket_omnibus']['config']['database']['port'] = '5432'
+   node.override['supermarket_omnibus']['config']['database']['pool'] = '25'
+   node.override['supermarket_omnibus']['config']['database']['password'] = 'topsecretneverguessit'
 
 External Cache
 -----------------------------------------------------
@@ -313,8 +313,8 @@ Chef Supermarket installations can also use an external cache store. The public 
 
 .. code-block:: ruby
 
-   node.set['supermarket_omnibus']['config']['redis']['enable'] = false
-   node.set['supermarket_omnibus']['config']['redis_url'] = 'redis://your-redis-instance:6379'
+   node.override['supermarket_omnibus']['config']['redis']['enable'] = false
+   node.override['supermarket_omnibus']['config']['redis_url'] = 'redis://your-redis-instance:6379'
 
 External Cookbook Storage
 -----------------------------------------------------
@@ -322,9 +322,9 @@ Cookbook artifacts---tar.gz artifacts that are uploaded to Chef Supermarket when
 
 .. code-block:: ruby
 
-   node.set['supermarket_omnibus']['config']['s3_access_key_id'] = false
-   node.set['supermarket_omnibus']['config']['s3_bucket'] = 'supermarket'
-   node.set['supermarket_omnibus']['config']['s3_access_key_id'] = 'yoursecretaccesskey'
+   node.override['supermarket_omnibus']['config']['s3_access_key_id'] = false
+   node.override['supermarket_omnibus']['config']['s3_bucket'] = 'supermarket'
+   node.override['supermarket_omnibus']['config']['s3_access_key_id'] = 'yoursecretaccesskey'
 
 Run Supermarket in Kitchen
 =====================================================
