@@ -489,9 +489,9 @@ or:
 
 **Handle cookbook_file and yum_package resources in the same recipe**
 
-.. tag resource_yum_package_handle_cookbook_file_and_yum_package
+.. tag resource_package_handle_cookbook_file_and_yum_package
 
-.. To handle cookbook_file and yum_package when both called in the same recipe
+.. To handle cookbook_file and package when both called in the same recipe
 
 When a **cookbook_file** resource and a **yum_package** resource are both called from within the same recipe, use the ``flush_cache`` attribute to dump the in-memory Yum cache, and then use the repository immediately to ensure that the correct package is installed:
 

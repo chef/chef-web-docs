@@ -5,7 +5,7 @@ bff_package
 
 .. tag resource_package_bff
 
-Use the **bff_package** resource to manage packages for the AIX platform using the installp utility. When a package is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources. New in Chef Client 12.0.
+Use the **bff_package** resource to manage packages for the AIX platform using the installp utility. When a package is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources.
 
 .. note:: A Backup File Format (BFF) package may not have a ``.bff`` file extension. The chef-client will still identify the correct provider to use based on the platform, regardless of the file extension.
 
@@ -17,13 +17,13 @@ Use the **bff_package** resource to manage packages for the AIX platform using t
 
           .. end_tag
 
-New in Chef Client 12.0.
+*New in Chef Client 12.0.*
 
 Syntax
 =====================================================
 .. tag resource_package_bff_syntax
 
-A **bff_package** resource block manages a package on a node, typically by installing it. The simplest use of the **bff_package** resource is:
+A **bff_package** resource manages a package on a node, typically by installing it. The simplest use of the **bff_package** resource is:
 
 .. code-block:: ruby
 

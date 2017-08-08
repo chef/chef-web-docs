@@ -5,7 +5,7 @@ chocolatey_package
 
 .. tag resource_package_chocolatey
 
-Use the **chocolatey_package** resource to manage packages using Chocolatey for the Microsoft Windows platform.
+Use the **chocolatey_package** resource to manage packages using Chocolatey on the Microsoft Windows platform.
 
 .. end_tag
 
@@ -21,7 +21,7 @@ Syntax
 =====================================================
 .. tag resource_package_chocolatey_syntax
 
-A **chocolatey_package** resource block manages packages using Chocolatey for the Microsoft Windows platform. The simplest use of the **chocolatey_package** resource is:
+A **chocolatey_package** resource manages packages using Chocolatey on the Microsoft Windows platform. The simplest use of the **chocolatey_package** resource is:
 
 .. code-block:: ruby
 
@@ -55,8 +55,6 @@ where
 * ``options``, ``package_name``, ``provider``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
-
-Changed in Chef Client 12.1 to support specifying multiple packages and/or versions.
 
 Actions
 =====================================================

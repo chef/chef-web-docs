@@ -456,7 +456,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Install repositories from a file, trigger a command, and force the internal cache to reload**
 
-.. tag resource_yum_package_install_yum_repo_from_file
+.. tag resource_package_install_yum_repo_from_file
 
 The following example shows how to install new Yum repositories from a file, where the installation of the repository triggers a creation of the Yum cache that forces the internal cache for the chef-client to reload:
 

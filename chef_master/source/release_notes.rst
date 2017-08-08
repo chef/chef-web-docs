@@ -2092,7 +2092,7 @@ chocolatey_package
 -----------------------------------------------------
 .. tag resource_package_chocolatey
 
-Use the **chocolatey_package** resource to manage packages using Chocolatey for the Microsoft Windows platform.
+Use the **chocolatey_package** resource to manage packages using Chocolatey on the Microsoft Windows platform.
 
 .. end_tag
 
@@ -2616,7 +2616,7 @@ apt_update
 
 .. tag resource_apt_update_summary
 
-Use the **apt_update** resource to manage Apt repository updates on Debian and Ubuntu platforms.
+Use the **apt_update** resource to manage APT repository updates on Debian and Ubuntu platforms.
 
 .. end_tag
 
@@ -2624,7 +2624,7 @@ Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_apt_update_syntax
 
-A **apt_update** resource block defines the update frequency for Apt repositories:
+An **apt_update** resource block defines the update frequency for APT repositories:
 
 .. code-block:: ruby
 
@@ -2672,7 +2672,7 @@ This resource has the following properties:
 ``frequency``
    **Ruby Type:** Integer
 
-   The frequency at which Apt repository updates are made. Use this property when the ``:periodic`` action is specified. Default value: ``86400``.
+   Determines how frequently (in seconds) APT repository updates are made. Use this property when the ``:periodic`` action is specified. Default value: ``86400``.
 
 ``ignore_failure``
    **Ruby Types:** TrueClass, FalseClass
@@ -2805,9 +2805,7 @@ Examples
 
 .. code-block:: ruby
 
-   apt_update 'update' do
-     action :update
-   end
+   apt_update 'update'
 
 .. end_tag
 
@@ -7671,7 +7669,7 @@ bff_package
 -----------------------------------------------------
 .. tag resource_package_bff
 
-Use the **bff_package** resource to manage packages for the AIX platform using the installp utility. When a package is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources. New in Chef Client 12.0.
+Use the **bff_package** resource to manage packages for the AIX platform using the installp utility. When a package is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources.
 
 .. note:: A Backup File Format (BFF) package may not have a ``.bff`` file extension. The chef-client will still identify the correct provider to use based on the platform, regardless of the file extension.
 
@@ -7681,7 +7679,7 @@ Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_package_bff_syntax
 
-A **bff_package** resource block manages a package on a node, typically by installing it. The simplest use of the **bff_package** resource is:
+A **bff_package** resource manages a package on a node, typically by installing it. The simplest use of the **bff_package** resource is:
 
 .. code-block:: ruby
 

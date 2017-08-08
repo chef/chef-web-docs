@@ -569,7 +569,7 @@ apt_package
 =====================================================
 .. tag resource_package_apt
 
-Use the **apt_package** resource to manage packages for the Debian and Ubuntu platforms.
+Use the **apt_package** resource to manage packages on Debian and Ubuntu platforms.
 
 .. end_tag
 
@@ -620,7 +620,7 @@ apt_update
 =====================================================
 .. tag resource_apt_update_summary
 
-Use the **apt_update** resource to manage Apt repository updates on Debian and Ubuntu platforms.
+Use the **apt_update** resource to manage APT repository updates on Debian and Ubuntu platforms.
 
 .. end_tag
 
@@ -647,9 +647,7 @@ Use the **apt_update** resource to manage Apt repository updates on Debian and U
 
 .. code-block:: ruby
 
-   apt_update 'update' do
-     action :update
-   end
+   apt_update 'update'
 
 .. end_tag
 
@@ -818,7 +816,7 @@ batch
 =====================================================
 .. tag resource_batch_summary
 
-Use the **batch** resource to execute a batch script using the cmd.exe interpreter. The **batch** resource creates and executes a temporary file (similar to how the **script** resource behaves), rather than running the command inline. This resource inherits actions (``:run`` and ``:nothing``) and properties (``creates``, ``cwd``, ``environment``, ``group``, ``path``, ``timeout``, and ``user``) from the **execute** resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
+Use the **batch** resource to execute a batch script using the cmd.exe interpreter on Windows. The **batch** resource creates and executes a temporary file (similar to how the **script** resource behaves), rather than running the command inline. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
 
 .. end_tag
 
@@ -869,7 +867,7 @@ bff_package
 =====================================================
 .. tag resource_package_bff
 
-Use the **bff_package** resource to manage packages for the AIX platform using the installp utility. When a package is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources. New in Chef Client 12.0.
+Use the **bff_package** resource to manage packages for the AIX platform using the installp utility. When a package is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources.
 
 .. note:: A Backup File Format (BFF) package may not have a ``.bff`` file extension. The chef-client will still identify the correct provider to use based on the platform, regardless of the file extension.
 
@@ -1248,7 +1246,7 @@ chocolatey_package
 =====================================================
 .. tag resource_package_chocolatey
 
-Use the **chocolatey_package** resource to manage packages using Chocolatey for the Microsoft Windows platform.
+Use the **chocolatey_package** resource to manage packages using Chocolatey on the Microsoft Windows platform.
 
 .. end_tag
 
@@ -1290,11 +1288,11 @@ Use the **cookbook_file** resource to transfer files from a sub-directory of ``C
 
 **Handle cookbook_file and yum_package resources in the same recipe**
 
-.. tag resource_yum_package_handle_cookbook_file_and_yum_package
+.. tag resource_package_handle_cookbook_file_and_package
 
-.. To handle cookbook_file and yum_package when both called in the same recipe
+.. To handle cookbook_file and package when both called in the same recipe
 
-When a **cookbook_file** resource and a **yum_package** resource are both called from within the same recipe, use the ``flush_cache`` attribute to dump the in-memory Yum cache, and then use the repository immediately to ensure that the correct package is installed:
+When a **cookbook_file** resource and a **package** resource are both called from within the same recipe, use the ``flush_cache`` attribute to dump the in-memory Yum cache, and then use the repository immediately to ensure that the correct package is installed:
 
 .. code-block:: ruby
 
@@ -1303,7 +1301,7 @@ When a **cookbook_file** resource and a **yum_package** resource are both called
      mode '0755'
    end
 
-   yum_package 'only-in-custom-repo' do
+   package 'only-in-custom-repo' do
      action :install
      flush_cache [ :before ]
    end
@@ -1312,7 +1310,7 @@ When a **cookbook_file** resource and a **yum_package** resource are both called
 
 **Install repositories from a file, trigger a command, and force the internal cache to reload**
 
-.. tag resource_yum_package_install_yum_repo_from_file
+.. tag resource_package_install_yum_repo_from_file
 
 The following example shows how to install new Yum repositories from a file, where the installation of the repository triggers a creation of the Yum cache that forces the internal cache for the chef-client to reload:
 
@@ -2500,7 +2498,7 @@ Use the **execute** resource to execute a single command. Commands that are exec
 
 **Install repositories from a file, trigger a command, and force the internal cache to reload**
 
-.. tag resource_yum_package_install_yum_repo_from_file
+.. tag resource_package_install_yum_repo_from_file
 
 The following example shows how to install new Yum repositories from a file, where the installation of the repository triggers a creation of the Yum cache that forces the internal cache for the chef-client to reload:
 
@@ -5520,7 +5518,7 @@ Use the **ruby_block** resource to execute Ruby code during a chef-client run. R
 
 **Install repositories from a file, trigger a command, and force the internal cache to reload**
 
-.. tag resource_yum_package_install_yum_repo_from_file
+.. tag resource_package_install_yum_repo_from_file
 
 The following example shows how to install new Yum repositories from a file, where the installation of the repository triggers a creation of the Yum cache that forces the internal cache for the chef-client to reload:
 
@@ -7291,11 +7289,11 @@ or:
 
 **Handle cookbook_file and yum_package resources in the same recipe**
 
-.. tag resource_yum_package_handle_cookbook_file_and_yum_package
+.. tag resource_package_handle_cookbook_file_and_package
 
-.. To handle cookbook_file and yum_package when both called in the same recipe
+.. To handle cookbook_file and package when both called in the same recipe
 
-When a **cookbook_file** resource and a **yum_package** resource are both called from within the same recipe, use the ``flush_cache`` attribute to dump the in-memory Yum cache, and then use the repository immediately to ensure that the correct package is installed:
+When a **cookbook_file** resource and a **package** resource are both called from within the same recipe, use the ``flush_cache`` attribute to dump the in-memory Yum cache, and then use the repository immediately to ensure that the correct package is installed:
 
 .. code-block:: ruby
 
@@ -7304,7 +7302,7 @@ When a **cookbook_file** resource and a **yum_package** resource are both called
      mode '0755'
    end
 
-   yum_package 'only-in-custom-repo' do
+   package 'only-in-custom-repo' do
      action :install
      flush_cache [ :before ]
    end

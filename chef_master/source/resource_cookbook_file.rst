@@ -519,11 +519,11 @@ A cookbook may have a ``/files`` directory structure like this::
 
    files/
       host-foo.example.com
-      ubuntu-10.04
-      ubuntu-10
+      ubuntu-16.04
+      ubuntu-16
       ubuntu
-      redhat-5.8
-      redhat-6.4
+      redhat-5.11
+      redhat-6.9
       ...
       default
 
@@ -538,13 +538,13 @@ and a resource that looks something like the following:
      group 'root'
    end
 
-This resource is matched in the same order as the ``/files`` directory structure. For a node that is running Ubuntu 10.04, the second item would be the matching item and the location to which the file identified in the **cookbook_file** resource would be distributed:
+This resource is matched in the same order as the ``/files`` directory structure. For a node that is running Ubuntu 16.04, the second item would be the matching item and the location to which the file identified in the **cookbook_file** resource would be distributed:
 
 .. code-block:: ruby
 
    host-foo.example.com/apache2_module_conf_generate.pl
-   ubuntu-10.04/apache2_module_conf_generate.pl
-   ubuntu-10/apache2_module_conf_generate.pl
+   ubuntu-16.04/apache2_module_conf_generate.pl
+   ubuntu-16/apache2_module_conf_generate.pl
    ubuntu/apache2_module_conf_generate.pl
    default/apache2_module_conf_generate.pl
 
@@ -574,13 +574,13 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. end_tag
 
-**Handle cookbook_file and yum_package resources in the same recipe**
+**Handle cookbook_file and package resources in the same recipe**
 
-.. tag resource_yum_package_handle_cookbook_file_and_yum_package
+.. tag resource_package_handle_cookbook_file_and_package
 
-.. To handle cookbook_file and yum_package when both called in the same recipe
+.. To handle cookbook_file and package when both called in the same recipe
 
-When a **cookbook_file** resource and a **yum_package** resource are both called from within the same recipe, use the ``flush_cache`` attribute to dump the in-memory Yum cache, and then use the repository immediately to ensure that the correct package is installed:
+When a **cookbook_file** resource and a **package** resource are both called from within the same recipe, use the ``flush_cache`` attribute to dump the in-memory Yum cache, and then use the repository immediately to ensure that the correct package is installed:
 
 .. code-block:: ruby
 
@@ -589,7 +589,7 @@ When a **cookbook_file** resource and a **yum_package** resource are both called
      mode '0755'
    end
 
-   yum_package 'only-in-custom-repo' do
+   package 'only-in-custom-repo' do
      action :install
      flush_cache [ :before ]
    end
@@ -598,7 +598,7 @@ When a **cookbook_file** resource and a **yum_package** resource are both called
 
 **Install repositories from a file, trigger a command, and force the internal cache to reload**
 
-.. tag resource_yum_package_install_yum_repo_from_file
+.. tag resource_package_install_yum_repo_from_file
 
 The following example shows how to install new Yum repositories from a file, where the installation of the repository triggers a creation of the Yum cache that forces the internal cache for the chef-client to reload:
 
