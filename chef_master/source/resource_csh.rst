@@ -330,7 +330,7 @@ The chef-client will determine the correct provider based on configuration data 
 Generally, it's best to let the chef-client choose the provider, and this is (by far) the most common approach. However, in some cases, specifying a provider may be desirable. There are two approaches:
 
 * Use a more specific short name---``yum_package "foo" do`` instead of ``package "foo" do``, ``script "foo" do`` instead of ``bash "foo" do``, and so on---when available
-* Use ``build_resource``. This replaces all previous use cases where the provider class was passed in through the ``provider`` property:
+* Use ``declare_resource``. This replaces all previous use cases where the provider class was passed in through the ``provider`` property:
 
   .. code-block:: ruby
 
@@ -343,7 +343,7 @@ Generally, it's best to let the chef-client choose the provider, and this is (by
 
      pkg_path = ( pkg_resource == :dpkg_package ) ? "/tmp/foo.deb" : "/tmp/foo.rpm"
 
-     build_resource(pkg_resource, pkg_path) do
+     declare_resource(pkg_resource, pkg_path) do
        action :install
      end
 
