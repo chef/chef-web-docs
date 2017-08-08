@@ -4886,9 +4886,9 @@ This resource has the following properties:
 
 Providers
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_package_windows_providers
-
 This resource has the following providers:
+
+.. tag resource_package_windows_providers
 
 ``Chef::Provider::Package``, ``package``
    When this short name is used, the chef-client will attempt to determine the correct provider during the chef-client run.

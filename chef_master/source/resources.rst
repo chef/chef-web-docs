@@ -130,7 +130,22 @@ The chef-client will determine the correct provider based on configuration data 
 Generally, it's best to let the chef-client choose the provider, and this is (by far) the most common approach. However, in some cases, specifying a provider may be desirable. There are two approaches:
 
 * Use a more specific short name---``yum_package "foo" do`` instead of ``package "foo" do``, ``script "foo" do`` instead of ``bash "foo" do``, and so on---when available
-* Use the ``provider`` property within the resource block to specify the long name of the provider as a property of a resource. For example: ``provider Chef::Provider::Long::Name``
+* Use ``declare_resource``. This replaces all previous use cases where the provider class was passed in through the ``provider`` property:
+
+  .. code-block:: ruby
+
+     pkg_resource = case node['platform_family']
+       when "debian"
+         :dpkg_package
+       when "fedora", "rhel", "amazon"
+         :rpm_package
+       end
+
+     pkg_path = ( pkg_resource == :dpkg_package ) ? "/tmp/foo.deb" : "/tmp/foo.rpm"
+
+     declare_resource(pkg_resource, pkg_path) do
+       action :install
+     end
 
 .. end_tag
 
@@ -809,7 +824,6 @@ The following example shows how start a service named ``example_service`` and im
 
    service 'example_service' do
      action :start
-     provider Chef::Provider::Service::Init
      notifies :restart, 'service[nginx]', :immediately
    end
 

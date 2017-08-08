@@ -46,7 +46,7 @@ The full syntax for all of the properties that are available to the **service** 
 
 where
 
-* ``service`` is the resource; depending on the platform, more specific providers are run: ``Chef::Provider::Service::Init``, ``Chef::Provider::Service::Init::Debian``, ``Chef::Provider::Service::Upstart``, ``Chef::Provider::Service::Init::Freebsd``, ``Chef::Provider::Service::Init::Gentoo``, ``Chef::Provider::Service::Init::Redhat``, ``Chef::Provider::Service::Solaris``, ``Chef::Provider::Service::Windows``, or ``Chef::Provider::Service::Macosx``
+* ``service`` is the resource; depending on the platform, more specific providers are run: ``Chef::Provider::Service``, ``Chef::Provider::Service::Debian``, ``Chef::Provider::Service::Upstart``, ``Chef::Provider::Service::Freebsd``, ``Chef::Provider::Service::Gentoo``, ``Chef::Provider::Service::Redhat``, ``Chef::Provider::Service::Solaris``, ``Chef::Provider::Service::Windows``, or ``Chef::Provider::Service::Macosx``
 * ``name`` is the name of the resource block; when the ``path`` property is not specified, ``name`` is also the path to the directory, from the root
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
 * ``init_command``, ``options``, ``pattern``, ``priority``, ``provider``, ``reload_command``, ``restart_command``, ``service_name``, ``start_command``, ``status_command``, ``stop_command``, ``supports``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
@@ -260,15 +260,34 @@ The chef-client will determine the correct provider based on configuration data 
 Generally, it's best to let the chef-client choose the provider, and this is (by far) the most common approach. However, in some cases, specifying a provider may be desirable. There are two approaches:
 
 * Use a more specific short name---``yum_package "foo" do`` instead of ``package "foo" do``, ``script "foo" do`` instead of ``bash "foo" do``, and so on---when available
-* Use the ``provider`` property within the resource block to specify the long name of the provider as a property of a resource. For example: ``provider Chef::Provider::Long::Name``
+* Use ``declare_resource``. This replaces all previous use cases where the provider class was passed in through the ``provider`` property:
+
+  .. code-block:: ruby
+
+     pkg_resource = case node['platform_family']
+       when "debian"
+         :dpkg_package
+       when "fedora", "rhel", "amazon"
+         :rpm_package
+       end
+
+     pkg_path = ( pkg_resource == :dpkg_package ) ? "/tmp/foo.deb" : "/tmp/foo.rpm"
+
+     declare_resource(pkg_resource, pkg_path) do
+       action :install
+     end
 
 .. end_tag
 
-The **service** resource does not have service-specific short names. This is because the chef-client identifies the platform at the start of every chef-client run based on data collected by Ohai. The chef-client looks up the platform, and then determines the correct provider for that platform. In certain situations, such as when more than one init system is available on a node, a specific provider may need to be identified by using the ``provider`` attribute and the long name for that provider.
+The **service** resource does not have service-specific short names. This is because the chef-client identifies the platform at the start of every chef-client run based on data collected by Ohai. The chef-client looks up the platform, and then determines the correct provider for that platform.
 
-This resource has the following providers:
+.. tag resource_provider_list_note
 
-``Chef::Provider::Service::Init``, ``service``
+For reference, the providers available for this resource are listed below. However please note that specifying a provider via its long name (such as ``Chef::Provider::Package``) using the ``provider`` property is not recommended. If a provider needs to be called manually, use one of the two approaches detailed above.
+
+.. end_tag 
+
+``Chef::Provider::Service``, ``service``
    When this short name is used, the chef-client will determine the correct provider during the chef-client run.
 
 ``Chef::Provider::Service::Aix``, ``service``
@@ -277,16 +296,16 @@ This resource has the following providers:
 ``Chef::Provider::Service::AixInit``
    Use the long name---``Chef::Provider::Service::AixInit``---in a recipe to manage services with BSD-based init systems on the AIX platform.
 
-``Chef::Provider::Service::Init::Debian``, ``service``
+``Chef::Provider::Service::Debian``, ``service``
    The provider for the Debian and Ubuntu platforms.
 
-``Chef::Provider::Service::Init::Freebsd``, ``service``
+``Chef::Provider::Service::Freebsd``, ``service``
    The provider for the FreeBSD platform.
 
-``Chef::Provider::Service::Init::Gentoo``, ``service``
+``Chef::Provider::Service::Gentoo``, ``service``
    The provider for the Gentoo platform.
 
-``Chef::Provider::Service::Init::Redhat``, ``service``
+``Chef::Provider::Service::Redhat``, ``service``
    The provider for the Red Hat and CentOS platforms.
 
 ``Chef::Provider::Service::Simple``
@@ -580,7 +599,6 @@ The following example shows how start a service named ``example_service`` and im
 
    service 'example_service' do
      action :start
-     provider Chef::Provider::Service::Init
      notifies :restart, 'service[nginx]', :immediately
    end
 
@@ -727,4 +745,3 @@ and then enable it using the ``mkitab`` command:
    end
 
 .. end_tag
-
