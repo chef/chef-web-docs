@@ -197,6 +197,8 @@ delete-node
 =====================================================
 The ``delete-node`` subcommand is used to delete a node and it's corresponding history from Chef Automate. The user must provide some combination of the node's UUID, name, organization name, and chef server FQDN to determine which node to delete. In the event that multiple nodes are found, a list of matching nodes will displayed. Narrow the search by providing more search parameters or use the UUID to delete the node.
 
+New in Chef Automate 1.6.88.
+
 **Hint:** You can also determine the UUID of nodes via the web browsers address bar:
 
 .. image:: ../../images/chef_automate_node_uuid.png
