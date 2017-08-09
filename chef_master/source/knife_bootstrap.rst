@@ -57,10 +57,7 @@ This subcommand has the following options:
    Arbitrary options to be added to the bootstrap command when using cURL. This option may not be used in the same command with ``--bootstrap-install-command``.
 
 ``--bootstrap-install-command COMMAND``
-   Execute a custom installation command sequence for the chef-client. This option may not be used in the same command with ``--bootstrap-curl-options``, ``--bootstrap-install-sh``, or ``--bootstrap-wget-options``.
-
-``--bootstrap-install-sh URL``
-   Fetch and execute an installation script at the specified URL. This option may not be used in the same command with ``--bootstrap-install-command``.
+   Execute a custom installation command sequence for the chef-client. This option may not be used in the same command with ``--bootstrap-curl-options`` or ``--bootstrap-wget-options``.
 
 ``--bootstrap-no-proxy NO_PROXY_URL_or_IP``
    A URL or IP address that specifies a location that should not be proxied.
@@ -550,14 +547,6 @@ which returns something similar to:
 .. code-block:: bash
 
    $ knife bootstrap 192.168.1.1 -x username -i ~/.ssh/id_rsa --sudo
-
-**Fetch and execute an installation script from a URL**
-
-.. To fetch and execute an installation script from a URL:
-
-.. code-block:: bash
-
-   $ knife bootstrap --bootstrap-install-sh http://mycustomserver.com/custom_install_chef_script.sh
 
 **Specify options when using cURL**
 
