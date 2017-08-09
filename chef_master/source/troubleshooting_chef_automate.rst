@@ -368,6 +368,6 @@ It's also recommended that you configure that same token in ``/etc/opscode/chef-
 Issue: Nodes tab does not show information beyond 100 pages
 ------------------------------------------------------------------------------
 
-In the Nodes tab, there is a bug that occurs when the node list exceeds 100 pages (10,000 nodes). As a result of this bug, pages beyond the first 100 will not provide node data.
+In the Nodes tab, there is a bug that occurs when the node list exceeds 100 pages (10,000 nodes). As a result of this bug, node information will be visible on the first 100 pages, but pages beyond the first 100 will fail to update.
 
 To avoid this issue, use `filtering </visibility.html#navigating-the-ui>`__ to reduce the number of nodes shown to below 10,000.
