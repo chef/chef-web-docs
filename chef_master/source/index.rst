@@ -615,7 +615,6 @@ Addenda
    nodes
    ohai
    ohai_custom
-   openstack
    packages
    page_not_found
    perform_compliance_scan
