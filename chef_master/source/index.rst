@@ -318,6 +318,7 @@ Compliance scanner
 :doc:`Upgrade Compliance </upgrade_compliance>` |
 :doc:`chef-compliance.rb </config_rb_compliance>` |
 :doc:`Chef Compliance API </api_compliance>`
+:doc: `Profile Store </profile_store>`
 
 AWS OpsWorks for Chef Automate
 -----------------------------------------------------
@@ -632,6 +633,7 @@ Addenda
    plugin_knife_windows
    policy
    policyfile
+   profile_store
    proxies
    provisioning
    provisioning_aws

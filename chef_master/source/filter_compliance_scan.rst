@@ -38,10 +38,10 @@ To clear a filter, simply click on the filter icon and remove the filter or clea
 Switching views
 ===============================================
 
-In addition to filtering your reporting data, you can also switch your views to either see profiles and test results on a per-node basis, or see how your cluster of nodes behaves according to a profile.
+In addition to filtering your reporting data, you can also switch your views to see compliance report results by node status or by profile status.
 
 .. image:: ../../images/compliance_filter_3.png
-   :width: 300px
+   :width: 200px
    :height: 41px
 
 
