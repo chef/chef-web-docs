@@ -506,13 +506,13 @@ This configuration file has the following settings for ``elasticsearch``:
    The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value: ``10``.
 
 ``elasticsearch['memory']``
-   Default value:
+   The Elasticsearch JVM's heap size. Default value:
 
    .. code-block:: ruby
 
       "#{(node.memory.total.to_i * 0.4 ).floor / 1024}m"
 
-**The following Elasticsearch options require Chef Automate 0.8.46 or above:**
+**The following Elasticsearch options require Chef Automate 0.8.46 or later:**
 
 ``elasticsearch['max_open_file']``
    The maximum number of files Elasticsearch may open simultaneously. The default value is ``65536``. Setting this to a lower value may lead to data loss and is highly discouraged.
@@ -520,8 +520,8 @@ This configuration file has the following settings for ``elasticsearch``:
 ``elasticsearch['max_map_count']``
    The maximum number of memory map areas the Elasticsearch process may have. The default value is ``262144``. Setting this to a lower value may cause Elasticsearch to fail with out-of-memory errors.
 
-``elasticsearch['config']['bootstrap']['mlockall']``
-   When set to ``true``, locks the memory allocated by Elasticsearch so that it may not be swapped to disk by the OS. Enabling this will cause Elasticsearch to fail on start if there is not enough memory available for the configured heap size. On systems where swap is disabled, this setting has no effect. Default value: ``false``.
+``elasticsearch['config']['bootstrap']['memory_lock']``
+   When set to ``true``, locks the memory allocated by Elasticsearch so that it may not be swapped to disk by the OS. Enabling this will cause Elasticsearch to fail on start if there is not enough memory available for the configured heap size. On systems where swap is disabled, this setting has no effect. Default value: ``false``.  This flag was named ``elasticsearch['config']['bootstrap']['mlockall']`` in Chef Automate 1.5.x and below.
 
 ``elasticsearch['config']['indices']['breaker']['fielddata']['limit']``
    The maximum amount of heap memory that may be consumed by fielddata. Any query that would result in this limit being exceeded will be aborted. Default value: ``'60%'``.
@@ -535,11 +535,29 @@ This configuration file has the following settings for ``elasticsearch``:
 ``elasticsearch['config']['indices']['store']['throttle']['max_bytes_per_sec']``
    The maximum throughput allowed for creating and optimizing Elasticsearch search indexes. When this limit is reached, Elasticsearch logs a message containing ``now throttling indexing`` at the ``INFO`` log level. If you see evidence of index throttling and have sufficient disk I/O capacity, you can increase this setting. Default value: ``'100mb'``.
 
-``elasticsearch['config']['index']['merge']['scheduler']['max_thread_count']``
-   The number of threads that can concurrently access the Disk for each Elasticsearch index. For rotational disks, the optimal value is ``1``. For systems with SSDs, the optimal value is one half of the number of CPU cores, up to a maximum of 3. Default value: ``1``.
+**The following Elasticsearch options require Chef Automate 1.6.87 or later:**
 
-``elasticsearch['config']['index']['translog']['flush_threshold_size']``
-   The amount of data that is buffered in a write-ahead log before being written to the on-disk search index. Setting this to a lower value can decrease disk I/O overhead and improve document indexing rates, but requires that the configured amount of RAM is available for buffering. Default value: ``'512m'``.
+``elasticsearch['new_memory_size']``
+   The 'new generation' heap size of the JVM running Elasticsearch. Default value:
+
+   .. code-block:: ruby
+
+      "#{elasticsearch['memory'].to_i / 16}m"
+
+``elasticsearch['jvm_opts']``
+   A list of other JVM-related options to pass along. Note that this should not contain the heap memory size and the new generation memory size from above. Default value: ``[]``. Example:
+
+   .. code-block:: ruby
+
+      elasticsearch['jvm_opts'] = [
+        "-xoption1",
+        "-xoption2",
+        ...
+        "optionN"
+      ]
+
+``elasticsearch['enable_gc_log']``
+   Enable garbage-collection logging on the JVM. Only set this to ``true`` if you are debugging a garbage collection-related performance issue. Default value: ``false``.
 
 git
 -----------------------------------------------------
@@ -576,7 +594,7 @@ kibana
 This configuration file has the following settings for ``kibana``:
 
 ``kibana['enable']``
-   Enable a service. Only enabled if ``insights`` is also enabled. The default value is the recommended value. Default value: ``'true'``
+   Enable the Kibana service. This is disabled by default. If you choose to enable it, you must have at least 2GB of extra RAM for Kibana to perform well. Default value: ``'true'``.
 
 ``kibana['conf_dir']``
    The working directory. The default value is the recommended value. Default value: ``'/var/opt/delivery/kibana/'``.
