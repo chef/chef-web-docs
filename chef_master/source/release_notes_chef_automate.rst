@@ -8,12 +8,12 @@ Chef Automate provides a full suite of enterprise capabilities for workflow, vis
 What's New in 1.6.87
 =====================================================
 
-.. note:: This release contains significant upgrades to the platform; please read these release notes carefully.  Before you upgrade to this release, please make a `complete backup  <https://docs.chef.io/delivery_server_backup.html#create-backups>`_ of your Chef Automate server.  Also note that if you are using Chef Backend for high availability of Chef Server, you should not upgrade to this release of Chef Automate until a compatible release of Chef Backend is available.
+.. note:: This release contains significant upgrades to the platform; please read these release notes carefully.  Before you upgrade to this release, please make a `complete backup  </delivery_server_backup.html#create-backups>`_ of your Chef Automate server.  Also note that if you are using Chef Backend for high availability of Chef Server, you should not upgrade to this release of Chef Automate until a compatible release of Chef Backend is available.
 
 Important Note when Upgrading from 0.8.5 or Earlier
 -----------------------------------------------------
 
-If you plan to upgrade to Chef Automate 1.6.87 by restoring a backup from an existing Chef Automate cluster that is running Chef Automate 0.8.5 or earlier, there is an additional step required to ensure that the Elasticsearch data can be restored and migrated to the new schema.
+If you plan to upgrade to Chef Automate 1.6.87 by restoring a backup from an existing Chef Automate cluster that is running Chef Automate 0.8.5 or earlier, there is an additional step required to ensure that the Elasticsearch data can be restored and migrated to the new schema. If you are performing an in-place upgrade, you can disregard these instructions.
 
 1. First, install the package and restore just the data archive.
 
@@ -43,27 +43,17 @@ Elasticsearch 5 Upgrade
 
 We’ve improved Chef Automate’s data handling resulting in a 20% decrease in on-disk index size for converge and compliance data going forward. The bundled version of Elasticsearch was upgraded from version 2.3 to 5.4.1 providing many `performance and resiliency benefits <https://www.elastic.co/blog/elasticsearch-5-0-0-released>`_. 
 
-Before you install this release, please make a `complete backup <https://docs.chef.io/delivery_server_backup.html#create-backups>`_ of your Chef Automate server.  Data will be migrated to new Elasticsearch indices as part of the reconfigure after installation; the process requires no user interaction.  After upgrading, note that backups made with version 1.6.87 cannot be restored to earlier versions of Chef Automate.
+Before you install this release, please make a `complete backup </delivery_server_backup.html#create-backups>`_ of your Chef Automate server.  Data will be migrated to new Elasticsearch indices as part of the reconfigure after installation; the process requires no user interaction.  After upgrading, note that backups made with version 1.6.87 cannot be restored to earlier versions of Chef Automate.
 
 **Compatibility Notes**
 If you are operating an external Elasticsearch cluster with Chef Automate, it must be upgraded to a 5.x version for compatibility with this release.  Customers using Chef Backend for high availability of the Chef Server should not upgrade to this release until a compatible release of Chef Backend is available in the coming days.  
-
-Additionally the following minimum versions of other Chef applications are required for compatibility with this release:
-
-* Chef Server 12.15.8
-
-* Chef Manage 2.5.1 (2.5.4 is recommended due to recent security fix)
-
-* Chef Push Jobs Server 2.2.1 (2.2.2 is recommended due to recent security fix)
-
-* Chef Backend - release pending (upgrade Backend before upgrading Chef Automate)
 
 Kibana 5 Upgrade
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Paired with the Elasticsearch upgrade, a matching Kibana version is a requirement for interoperability.  The upgrade to version 5.4.1 of Kibana in this release should have no material impact to Chef Automate’s functionality.  We are not upgrading Logstash at this time and Chef Automate will remain on version 2.x; customers using external ELK systems should ensure they also remain on Logstash 2.x.
 
-Kibana is `no longer enabled by default <https://docs.chef.io/config_rb_delivery_optional_settings.html#kibana>`_ as of this release of Chef Automate.  Note that the newer version of Kibana requires additional memory, and we recommend allocating 2GB of RAM if you choose to enable it.
+Kibana is `no longer enabled by default </config_rb_delivery_optional_settings.html#kibana>`_ as of this release of Chef Automate.  Note that the newer version of Kibana requires additional memory, and we recommend allocating 2GB of RAM if you choose to enable it.
 
 Additionally, if you have built custom dashboards with Kibana, they will be deleted as part of this upgrade.  Please *back up your dashboards* before applying this release of Chef Automate, and restore them when the upgrade is complete.  Before importing a custom dashboard, you will need to edit the exported JSON to change ``insights-*`` to ``[insights-]YYYY.MM.DD``.
 
@@ -81,7 +71,7 @@ Your screen should look like this before you click **Create**:
 Notifications -- Open Beta
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-We are delighted to invite all customers to participate in our open beta for notifications.  Chef Automate now supports simple configuration of `Slack <https://docs.chef.io/integrate_node_notifications_slack.html>`_ or `webhook <https://docs.chef.io/integrate_node_notifications_webhook.html>`_ notifications for Chef client run failures and critical compliance control failures.
+We are delighted to invite all customers to participate in our open beta for notifications.  Chef Automate now supports simple configuration of `Slack </integrate_node_notifications_slack.html>`_ or `webhook </integrate_node_notifications_webhook.html>`_ notifications for Chef client run failures and critical compliance control failures.
 
 To get started using notifications, navigate to the **Nodes** tab in Chef Automate and type ``beta`` anywhere in the UI.  The beta feature flag menu will allow you to toggle on the new notifications sub-tab in the nodes view.  We’d love to get your feedback -- please join us at https://chef-success.slack.com in the #automate-notification channel or visit feedback.chef.io.
 
@@ -115,7 +105,7 @@ We’ve rebuilt the search bar on the Nodes view to be easier to use, and have a
 Delete Node Improvements
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-There is now a ``delete-node`` subcommand for automate-ctl to delete a node and its corresponding history. This replaces ``delete-visibility-node``, which would remove the node from Chef Automate views but did not delete any data. For more information, see the `delete-node <https://docs.chef.io/ctl_automate_server.html#delete-node>`_.
+There is now a ``delete-node`` subcommand for automate-ctl to delete a node and its corresponding history. This replaces ``delete-visibility-node``, which would remove the node from Chef Automate views but did not delete any data. For more information, see the `delete-node documentation </ctl_automate_server.html#delete-node>`_.
 
 FIPS Support for Nginx
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -126,7 +116,7 @@ Resolved Issues
 -----------------------------------------------------
 
 * Fixed an issue where ``automate-ctl install-runner`` was not prompting for a password
-* The ``automate-ctl cleanse`` command has been fixed to behave as `documented <https://docs.chef.io/ctl_automate_server.html#cleanse>`_
+* The ``automate-ctl cleanse`` command has been fixed to behave as `documented </ctl_automate_server.html#cleanse>`_
 * The Chef Automate UI no longer has issues when accessed through the IP address or anything not configured as its FQDN
 * Fixed an issue that caused ``automate-ctl reconfigure`` to hang for several minutes when Chef’s product telemetry endpoint was not reachable  
 * Compliance scan results now display their latest timestamp
