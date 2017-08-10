@@ -193,67 +193,52 @@ This subcommand has the following syntax:
 
    $ automate-ctl delete-user ENT_NAME john_smith
 
-delete-visibility-node
+delete-node
 =====================================================
-The ``delete-visibility-node`` subcommand is used to delete a node from the **Node State** dashboard in the Chef Automate UI.
+The ``delete-node`` subcommand is used to delete a node and it's corresponding history from Chef Automate. The user must provide some combination of the node's UUID, name, organization name, and chef server FQDN to determine which node to delete. In the event that multiple nodes are found, a list of matching nodes will displayed. Narrow the search by providing more search parameters or use the UUID to delete the node.
 
-The node (and, if provided, the organization and/or Chef server) must match a single node. If multiple nodes match, a table of nodes that match the provided criteria will be displayed.
+New in Chef Automate 1.6.88.
+
+**Hint:** You can also determine the UUID of nodes via the web browsers address bar:
+
+.. image:: ../../images/chef_automate_node_uuid.png
+
+.. note:: Compliance data is **not** deleted by default. You must pass ``-c`` to delete these records.
 
 **Syntax**
 
-.. code-block:: bash
+.. code-block:: none
 
-  $ automate-ctl delete-visibility-node NODE_NAME [options]
-          --org ORG                    Organization the node belongs to
-          --chef_server CHEF_SERVER    Chef server the node belongs to
-      -h, --help                       Show this message
+   $ automate-ctl delete-node OPTIONS
+      -u, --uuid UUID                  The UUID of the node you wish to delete
+      -n, --name NODE_NAME             The name of the node you wish to delete
+      -o, --org ORG_NAME               The organization name of the node you wish to delete
+      -s, --chef-server-fqdn FQDN      The fully qualified domain name of the node's Chef server
+      -d, --[no-]node-data             Delete the node run and converge data
+      -c, --[no-]compliance-data       Delete the node compliance data
+          --force                      Agree to all warnings and prompts
+          --purge                      Purge all node data (not recommended)
+      -r, --request-timeout SECONDS    The Elasticsearch client request timeout in seconds
 
 **Examples**
 
 .. code-block:: bash
 
-   $ automate-ctl delete-visibility-node tester1
-   Node tester1 (UUID: f470b942-31b6-4665-81df-03013a0b6ef6) has been deleted.
+   $ automate-ctl delete-node -n chef-test
+   Multiple nodes were found matching your request. Please specify the UUID and try again: automate-ctl delete-node --uuid <UUID>
+
+   NAME       ORG        CHEF SERVER FQDN  UUID
+   chef-test  chef_solo  localhost         f44c40a4-a0bb-4120-bd75-079972d98072
+   chef-test  chef_dev   chef-server.dev   8703593e-723a-4394-a36d-34da11a2f668
+
+   ERROR: Too many nodes found, please delete by node UUID
 
 .. code-block:: bash
 
-   $ automate-ctl delete-visibility-node tester2
-   Multiple nodes were found matching your request. Please delete by ID using: automate-ctl delete-visibility-node-by-id NODE_UUID
-
-   Node UUID                            Node Name Org Name Chef Server
-   ==================================== ========= ======== ===========
-   6bbe462c-670e-4ca4-b9f3-e45ed4c78f7c tester2   org1     localhost
-   2380c127-7e54-46b3-b4c2-28ae7f2afe10 tester2   org2     localhost
-
-   ERROR: Unable to delete node with name tester2
-
-.. code-block:: bash
-
-   $ automate-ctl delete-visibility-node tester2 --org org2
-   Node tester2 (UUID: 2380c127-7e54-46b3-b4c2-28ae7f2afe10) has been deleted.
-
-delete-visibility-node-by-id
-=====================================================
-The ``delete-visibility-node-by-id`` subcommand is used to delete a node from the **Node State** dashboard in the Chef Automate UI using the node's unique ID. 
-
-**Hint:** Nodes with the same name can be individually identified via their unique ID, which is exposed from the   web browser's address bar:
-
-.. image:: ../../images/chef_automate_node_uuid.png
-
-This is helpful if ``delete-visibility-node`` is unable to delete a node by its name, organization, or Chef server.
-
-**Syntax**
-
-.. code-block:: bash
-
-   $ automate-ctl delete-visibility-node-by-id NODE_UUID
-
-**Example**
-
-.. code-block:: bash
-
-   $ automate-ctl delete-visibility-node-by-id e05d6c79-15ab-417e-a54e-4fe28a84c04c
-   Node tester3 (UUID: e05d6c79-15ab-417e-a54e-4fe28a84c04c) has been deleted
+   $ automate-ctl delete-node -u f44c40a4-a0bb-4120-bd75-079972d98072
+   Delete 2 records associated with node 'chef-test f44c40a4-a0bb-4120-bd75-079972d98072'.
+   Do you wish to proceed? (yes/no):
+   $ yes
 
 gather-logs
 =====================================================
