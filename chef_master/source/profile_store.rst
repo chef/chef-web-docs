@@ -20,7 +20,7 @@ The public Profile Store is supplied Chef as part of the Automate installation.
 
 The Profile Store is located under Chef Automate's Compliance tab
 
-.. image:: ../../images/NEEDIMAGEOFCOMPLIANCETAB
+.. image:: ../../images/profile_store.png
    :width: 700px
    :align: center
 
@@ -34,20 +34,12 @@ Installing Profiles
 =====================================================
 To install Chef Automate Compliance profiles, navigate to the Profile Store under the **Compliance** tab and select the **Available** tab, which is located in the body of the page.
 
-.. image:: ../../images/NEEDIMAGEOFAVAILABLETAB
-   :width: 700px
-   :align: center
-
 You will then see a list of available profiles. For more information about the controls within a profile, click blue arrow on the right side of the profile entry.  To select a profile and then install it, click on the radial button on the left side of the profile entry followed by clicking the "Get" button on the right side of the page, which is located directly above the list of available profiles.
 
-Once the profile is installed, you will be able to use it to perform a compliance scan.  For help on performing a compliance scan, see :doc: Perform a Compliance Scan in Chef Automate </perform_compliance_scan>`.
+Once the profile is installed, you will be able to use it to perform a compliance scan.  For help on performing a compliance scan, see :doc:`Perform a Compliance Scan in Chef Automate </perform_compliance_scan>`.
 
 Updating Profiles
 =====================================================
 After a Chef Automate upgrade, any available profile updates for installed profiles will appear under the **Profiles** tab on the body of the page. Select the `available updates` button to download updated profiles.
 
 The updated profiles have already been validated by Chef and can be added directly to your compliance controls. If you would prefer to compare the updated and original profiles, add the updated profile to your compliance cookbook, run them both, and compare the results. For help on performing a compliance scan, see :doc:`Perform a Compliance Scan in Chef Automate </perform_compliance_scan>`.
-
-.. image:: ../../images/NEEDIMAGEOFPROFILEUPDATES
-   :width: 700px
-   :align: center
