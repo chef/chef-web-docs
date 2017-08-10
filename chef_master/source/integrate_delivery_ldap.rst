@@ -1,5 +1,5 @@
 =====================================================
-Integrate Chef Automate with LDAP
+Integrate Chef Automate with LDAP for Authentication
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/integrate_delivery_ldap.rst>`__
 

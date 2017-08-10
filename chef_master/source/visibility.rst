@@ -45,7 +45,7 @@ Further filtering can also be provided by the **Environment** and **Roles** drop
 
 If you wish to share your filtered search with others, you can do so with the share and save icons next to the search bar.
 
-.. note:: If you want to see the raw, real-time events coming into Chef Automate and perform simple queries and visualizations on them, navigate to ``https://<YourAutomateServer>/kibana``. Please note that this endpoint may be removed or restricted in a future release of Chef Automate, so any custom dashboard or visualization built on the Kibana endpoint is not supported. For more information on Kibana, see the `Kibana User Guide <https://www.elastic.co/guide/en/kibana/current/index.html>`_.
+.. note:: If you want to see the raw, real-time events coming into Chef Automate and perform simple queries and visualizations on them, navigate to ``https://<YourAutomateServer>/kibana``. Please note that as of Chef Automate 1.6.87, Kibana is no longer enabled by default. Also, this endpoint may be removed or restricted in a future release of Chef Automate, so any custom dashboards or visualizations built on the Kibana endpoint are not supported, but can be used. See the `Chef Automate 1.6.87 release notes <http://docs.chef.io/release_notes_chef_automate.html#what-s-new-in-1-6-87>`_ for more details. And for more information on Kibana, see the `Kibana User Guide <https://www.elastic.co/guide/en/kibana/current/index.html>`_.
 
 Compliance status
 ------------------------------------------------------

@@ -1,5 +1,5 @@
 =====================================================
-Integrate Chef Automate with Bitbucket
+Integrate Chef Automate Workflow with Bitbucket
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/integrate_delivery_bitbucket.rst>`__
 

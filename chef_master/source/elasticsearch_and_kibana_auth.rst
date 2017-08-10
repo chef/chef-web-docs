@@ -11,7 +11,13 @@ Authentication for Elasticsearch and Kibana
 
 .. end_tag
 
-Visibility data in Chef Automate is stored in `Elasticsearch <https://www.elastic.co/products/elasticsearch>`__ and viewable in the Visibility UI as well as `Kibana <https://www.elastic.co/products/kibana>`__. Access to Chef Automate's Elasticsearch and Kibana is protected by the same authentication used by the Chef Automate user interface. Elasticsearch and Kibana authentication is enabled by default.
+Node data in Chef Automate is stored in `Elasticsearch <https://www.elastic.co/products/elasticsearch>`__ and viewable in the Chef Automate UI as well as `Kibana <https://www.elastic.co/products/kibana>`__. Access to Chef Automate's Elasticsearch and Kibana is protected by the same authentication used by the Chef Automate user interface. Elasticsearch authentication is enabled by default.
+
+.. tag kibana_note
+
+.. note:: As of Chef Automate 1.6.87, Kibana is no longer enabled by default. To enable it, see the `Kibana setup documentation <https://www.elastic.co/guide/en/kibana/current/setup.html>`_. In prior versions of Chef Automate, Kibana and its authentication are enabled by default.
+
+.. end_tag
 
 
 How It Works

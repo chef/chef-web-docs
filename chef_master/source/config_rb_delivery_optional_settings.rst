@@ -202,6 +202,9 @@ This configuration file has the following settings for ``backup``:
    Name to use for Chef Automate backup archives and snapshots. When omitted
    a default will used automatically. Default value: ``nil``.
 
+``backup['notifications']['enable']``
+   Back up the Chef Automate notification rules. Default value: ``true``.
+
 ``backup['quiet']``
    Silence non-error information during the Chef Automate backup procedure.
    Default value: ``false``.
@@ -573,6 +576,13 @@ This configuration file has the following settings for ``java``:
 
 kibana
 -----------------------------------------------------
+
+.. tag kibana_note
+
+.. note:: As of Chef Automate 1.6.87, Kibana is no longer enabled by default. To enable it, see the `Kibana setup documentation <https://www.elastic.co/guide/en/kibana/current/setup.html>`_. In prior versions of Chef Automate, Kibana and its authentication are enabled by default.
+
+.. end_tag
+
 This configuration file has the following settings for ``kibana``:
 
 ``kibana['enable']``
@@ -772,6 +782,32 @@ This configuration file has the following settings for ``nginx``:
 
 ``nginx['worker_processes']``
    The number of allowed worker processes. Use with ``nginx['worker_connections']`` to determine the maximum number of allowed clients. Default value: ``node['cpu']['total'].to_i``.
+
+notifications
+-----------------------------------------------------
+The following settings allow you to customize the behavior of the event notifications engine in Chef Automate:
+
+``notifications['enable']``
+   Set to ``true`` to enable the addition, deletion, processing and dispatch of notifications. Default value: ``true``.
+
+``notifications['port']``
+   The internal network port on which the notifications service listens. Only change this if you encounter port collisions with other services. Default value: ``9603``.
+
+``notifications['conf_dir']``
+   The working directory. The default value is the recommended value. Default value: ``'/var/opt/delivery/notifications'``.
+
+``notifications['rule_store_file']``
+   Path to the file where the notification rules are stored. Default value: ``'/var/opt/delivery/notifications/rule_store'``.
+
+``notifications['log_directory']``
+   The directory in which log data is stored. The default value is the recommended value. Default value: ``'/var/log/delivery/notifications'``.
+
+``notifications['log_rotation']['file_maxbytes']``
+   The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value: ``1024 * 1000 * 10``.
+
+``notifications['log_rotation']['num_to_keep']``
+   The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value: ``10``.
+
 
 postgresql
 -----------------------------------------------------
