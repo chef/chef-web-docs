@@ -45,12 +45,12 @@ Further filtering can also be provided by the **Environment** and **Roles** drop
 
 If you wish to share your filtered search with others, you can do so with the share and save icons next to the search bar.
 
-.. note:: If you want to see the raw, real-time events coming into Chef Automate and perform simple queries and visualizations on them, navigate to ``https://<YourAutomateServer>/kibana``. Please note that this endpoint may be removed or restricted in a future release of Chef Automate, so any custom dashboard or visualization built on the Kibana endpoint is not supported. For more information on Kibana, see the `Kibana User Guide <https://www.elastic.co/guide/en/kibana/current/index.html>`_.
+.. note:: If you want to see the raw, real-time events coming into Chef Automate and perform simple queries and visualizations on them, navigate to ``https://<YourAutomateServer>/kibana``. As of Chef Automate 1.6.0, Kibana is no longer enabled by default. For information on enabling Kibana, see :doc:`delivery.rb Optional Settings </config_rb_delivery_optional_settings>`. For more information on Kibana, see the `Kibana User Guide <https://www.elastic.co/guide/en/kibana/current/index.html>`_.
 
 Compliance status
 ------------------------------------------------------
 
-In addition to converge data, Chef Automate also provides information on the compliance state of your nodes. By using Chef Automate 1.5.46 or later, you can view compliance scan data in the **Compliance** tab at the top of the page. See :doc:`/chef_automate_compliance` for more information. 
+In addition to converge data, Chef Automate also provides information on the compliance state of your nodes. By using Chef Automate 1.5.46 or later, you can view compliance scan data in the **Compliance** tab at the top of the page. See :doc:`/chef_automate_compliance` for more information.
 
 .. image:: ../../images/compliance_node.png
 
