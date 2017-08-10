@@ -2,7 +2,7 @@
 .. THIS PAGE IS LOCATED AT THE /delivery/ PATH.
 
 =====================================================
-Integrate Chef Automate with Slack
+Integrate Chef Automate Workflow with Slack
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/integrate_delivery_slack.rst>`__
 

@@ -1,5 +1,5 @@
 =====================================================
-Integrate Chef Automate with SAML
+Integrate Chef Automate with SAML for Authentication
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/integrate_chef_automate_saml.rst>`__
 

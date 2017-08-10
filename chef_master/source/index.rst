@@ -250,12 +250,14 @@ Delivery CLI
 
 Integrations
 -----------------------------------------------------
-:doc:`w/Bitbucket </integrate_delivery_bitbucket>` |
-:doc:`w/Email (SMTP) </integrate_delivery_smtp>` |
-:doc:`w/GitHub </integrate_delivery_github>` |
-:doc:`w/LDAP </integrate_delivery_ldap>` |
-:doc:`w/SAML </integrate_chef_automate_saml>` |
-:doc:`w/Slack </integrate_delivery_slack>`
+:doc:`Authentication w/LDAP </integrate_delivery_ldap>` |
+:doc:`Authentication w/SAML </integrate_chef_automate_saml>` |
+:doc:`Node Notifications w/Slack </integrate_node_notifications_slack>` |
+:doc:`Node Notifications w/Webhooks </integrate_node_notifications_webhook>` |
+:doc:`Workflow w/Bitbucket </integrate_delivery_bitbucket>` |
+:doc:`Workflow w/Email (SMTP) </integrate_delivery_smtp>` |
+:doc:`Workflow w/GitHub </integrate_delivery_github>` |
+:doc:`Workflow w/Slack </integrate_delivery_slack>`
 
 Cookbooks
 -----------------------------------------------------
@@ -577,6 +579,8 @@ Addenda
    integrate_delivery_ldap
    integrate_delivery_slack
    integrate_delivery_smtp
+   integrate_node_notifications_slack
+   integrate_node_notifications_webhook
    junos
    kitchen
    knife
