@@ -45,7 +45,7 @@ Further filtering can also be provided by the **Environment** and **Roles** drop
 
 If you wish to share your filtered search with others, you can do so with the share and save icons next to the search bar.
 
-.. note:: If you want to see the raw, real-time events coming into Chef Automate and perform simple queries and visualizations on them, navigate to ``https://<YourAutomateServer>/kibana``. As of Chef Automate 1.6.0, Kibana is no longer enabled by default. For information on enabling Kibana, see :doc:`delivery.rb Optional Settings </config_rb_delivery_optional_settings>`. For more information on Kibana, see the `Kibana User Guide <https://www.elastic.co/guide/en/kibana/current/index.html>`_.
+.. note:: If you want to see the raw, real-time events coming into Chef Automate and perform simple queries and visualizations on them, navigate to ``https://<YourAutomateServer>/kibana``. As of Chef Automate 1.6.0, Kibana is no longer enabled by default. For information on enabling Kibana, see :doc:`delivery.rb Optional Settings </config_rb_delivery_optional_settings>`. Kibana 5 requires additional memory and we recommend allocating 2GB of RAM if you choose to enable it. For more information on Kibana, see the `Kibana User Guide <https://www.elastic.co/guide/en/kibana/current/index.html>`_.
 
 Compliance status
 ------------------------------------------------------
