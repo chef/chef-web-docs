@@ -64,6 +64,7 @@ The ``create-backup`` subcommand is used to create Chef Automate backups. By def
         --no-elasticsearch           Do not snapshot Chef Automate's Elasticsearch
         --no-git                     Do not back up Chef Automate's git repositories
         --no-license                 Do not back up Chef Automate's license file
+        --no-notifications           Do not back up Chef Automate's notifications rulestore
         --no-wait                    Do not wait for non-blocking backup operations
         --quiet                      Do not output non-error information
         --rabbit                     Back up Chef Automate's RabbitMQ queues
@@ -604,6 +605,7 @@ The command is intended to restore an Automate instance completely from backup, 
         --no-db                      Do not restore Chef Automate's database
         --no-git                     Do not restore Chef Automate's git repositories
         --no-license                 Do not restore Chef Automate's license file
+        --no-notifications           Do not restore Chef Automate's notifications rulestore
         --no-rabbit                  Do not restore Chef Automate's RabbitMQ data
         --no-wait                    Do not wait for non-blocking restore operations
         --quiet                      Do not output non-error information
