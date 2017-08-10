@@ -10,6 +10,31 @@ What's New in 1.6.87
 
 .. note:: This release contains significant upgrades to the platform; please read these release notes carefully.  Before you upgrade to this release, please make a `complete backup  <https://docs.chef.io/delivery_server_backup.html#create-backups>`_ of your Chef Automate server.  Also note that if you are using Chef Backend for high availability of Chef Server, you should not upgrade to this release of Chef Automate until a compatible release of Chef Backend is available.
 
+Important Note when Upgrading from 0.8.5 or Earlier
+-----------------------------------------------------
+
+If you plan to upgrade to Chef Automate 1.6.87 by restoring a backup from an existing Chef Automate cluster that is running Chef Automate 0.8.5 or earlier, there is an additional step required to ensure that the Elasticsearch data can be restored and migrated to the new schema.
+
+1. First, install the package and restore just the data archive.
+
+   .. code-block:: bash
+
+      rpm -Uvh automate-1.6.87-1.el7.x86_64.rpm
+      automate-ctl restore-backup my-backup.zst
+
+2. Next, delete the compliance-profiles alias.
+
+   .. code-block:: none
+
+      curl -X DELETE http://localhost:8080/elasticsearch/compliance-profiles/_alias/_all
+
+3. Finally, restore the Elasticsearch snapshot.
+
+   .. code-block:: bash
+
+      automate-ctl restore-backup my-backup
+
+
 New Features
 -----------------------------------------------------
 
