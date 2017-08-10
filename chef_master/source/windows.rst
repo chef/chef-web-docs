@@ -761,10 +761,7 @@ This subcommand has the following options:
    Arbitrary options to be added to the bootstrap command when using cURL. This option may not be used in the same command with ``--bootstrap-install-command``.
 
 ``--bootstrap-install-command COMMAND``
-   Execute a custom installation command sequence for the chef-client. This option may not be used in the same command with ``--bootstrap-curl-options``, ``--bootstrap-install-sh``, or ``--bootstrap-wget-options``.
-
-``--bootstrap-install-sh URL``
-   Fetch and execute an installation script at the specified URL. This option may not be used in the same command with ``--bootstrap-install-command``.
+   Execute a custom installation command sequence for the chef-client. This option may not be used in the same command with ``--bootstrap-curl-options`` or ``--bootstrap-wget-options``.
 
 ``--bootstrap-no-proxy NO_PROXY_URL_or_IP``
    A URL or IP address that specifies a location that should not be proxied.
