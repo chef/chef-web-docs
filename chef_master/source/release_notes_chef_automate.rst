@@ -5,6 +5,111 @@ Release Notes: Chef Automate
 
 Chef Automate provides a full suite of enterprise capabilities for workflow, visibility and compliance that allow you to manage and monitor application and cookbook deployments across a cluster of nodes in your environment.
 
+What's New in 1.6.87
+=====================================================
+
+.. note:: This release contains significant upgrades to the platform; please read these release notes carefully.  Before you upgrade to this release, please make a `complete backup  <https://docs.chef.io/delivery_server_backup.html#create-backups>`_ of your Chef Automate server.  Also note that if you are using Chef Backend for high availability of Chef Server, you should not upgrade to this release of Chef Automate until a compatible release of Chef Backend is available.
+
+New Features
+-----------------------------------------------------
+
+Elasticsearch 5 Upgrade
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+We’ve improved Chef Automate’s data handling resulting in a 20% decrease in on-disk index size for converge and compliance data going forward. The bundled version of Elasticsearch was upgraded from version 2.3 to 5.4.1 providing many `performance and resiliency benefits <https://www.elastic.co/blog/elasticsearch-5-0-0-released>`_. 
+
+Before you install this release, please make a `complete backup <https://docs.chef.io/delivery_server_backup.html#create-backups>`_ of your Chef Automate server.  Data will be migrated to new Elasticsearch indices as part of the reconfigure after installation; the process requires no user interaction.  After upgrading, note that backups made with version 1.6.87 cannot be restored to earlier versions of Chef Automate.
+
+**Compatibility Notes**
+If you are operating an external Elasticsearch cluster with Chef Automate, it must be upgraded to a 5.x version for compatibility with this release.  Customers using Chef Backend for high availability of the Chef Server should not upgrade to this release until a compatible release of Chef Backend is available in the coming days.  
+
+Additionally the following minimum versions of other Chef applications are required for compatibility with this release:
+
+* Chef Server 12.15.8
+
+* Chef Manage 2.5.1 (2.5.4 is recommended due to recent security fix)
+
+* Chef Push Jobs Server 2.2.1 (2.2.2 is recommended due to recent security fix)
+
+* Chef Backend - release pending (upgrade Backend before upgrading Chef Automate)
+
+Kibana 5 Upgrade
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Paired with the Elasticsearch upgrade, a matching Kibana version is a requirement for interoperability.  The upgrade to version 5.4.1 of Kibana in this release should have no material impact to Chef Automate’s functionality.  We are not upgrading Logstash at this time and Chef Automate will remain on version 2.x; customers using external ELK systems should ensure they also remain on Logstash 2.x.
+
+Kibana is `no longer enabled by default <https://docs.chef.io/config_rb_delivery_optional_settings.html#kibana>`_ as of this release of Chef Automate.  Note that the newer version of Kibana requires additional memory, and we recommend allocating 2GB of RAM if you choose to enable it.
+
+Additionally, if you have built custom dashboards with Kibana, they will be deleted as part of this upgrade.  Please *back up your dashboards* before applying this release of Chef Automate, and restore them when the upgrade is complete.  Before importing a custom dashboard, you will need to edit the exported JSON to change ``insights-*`` to ``[insights-]YYYY.MM.DD``.
+
+Initial setup for Kibana after this upgrade:
+
+#. Under “Index name or pattern”, change “logstash” to “insights”.
+#. Select “@timestamp” for “Time-field name”.
+#. Check the “Use event times to create index names [DEPRECATED]” checkbox.
+#. Click **Create**.
+
+Your screen should look like this before you click **Create**: 
+
+.. image:: ../../images/kibana_setup.png
+
+Notifications -- Open Beta
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+We are delighted to invite all customers to participate in our open beta for notifications.  Chef Automate now supports simple configuration of `Slack <https://docs.chef.io/integrate_node_notifications_slack.html>`_ or `webhook <https://docs.chef.io/integrate_node_notifications_webhook.html>`_ notifications for Chef client run failures and critical compliance control failures.
+
+To get started using notifications, navigate to the **Nodes** tab in Chef Automate and type ``beta`` anywhere in the UI.  The beta feature flag menu will allow you to toggle on the new notifications sub-tab in the nodes view.  We’d love to get your feedback -- please join us at https://chef-success.slack.com in the #automate-notification channel or visit feedback.chef.io.
+
+Updated Compliance Profiles
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+All compliance profiles have been updated to include the build number of the profile. This change was necessary to track updates to CIS profiles which received changes without the official version number increasing. For example, a number of improvements were made to tests in the the RHEL profile family. Additionally, incorrectly formatted descriptions were updated and improved significantly.  
+
+CSV Export for Compliance Reports
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+In addition to the existing JSON export of compliance reports we have introduced the option to export a CSV file as well. The button in the top right corner of the compliance reporting view was updated to give the user the choice between exporting to JSON and exporting to CSV. In light of this change we also export node name information alongside node IDs.
+
+Control Filter for Compliance
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+An additional filter was added to the search bar in the compliance reporting view. It allows users to search for specific controls and filter the view around these. In the past, it was only possible to search and filter the view around entire profiles, which didn’t cover cases where users asked for more fine-grained control. 
+
+.. note: This mechanism will filter the list of nodes and profiles but the summary information is still calculated for the entire node and profile, not just for the control.
+
+Node Compliance View and History
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+This new view allows users to inspect the current and historic state of a node’s compliance assessment. In addition to the already included trendgraph, users can now see the node state and its entire scan history via the node view of all compliance reports.
+
+New Search Bar on Nodes View
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+We’ve rebuilt the search bar on the Nodes view to be easier to use, and have added the ability to filter nodes by platform.  The original search bar will remain available under the `legacy` flag for three months.  Complete details on searching for nodes can be found in :doc:`search_query_chef_automate`.  If you have trouble with the new search bar and find yourself continuing to use the legacy version, please contact us with your feedback.
+
+Delete Node Improvements
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+There is now a ``delete-node`` subcommand for automate-ctl to delete a node and its corresponding history. This replaces ``delete-visibility-node``, which would remove the node from Chef Automate views but did not delete any data. For more information, see the `delete-node <https://docs.chef.io/ctl_automate_server.html#delete-node>`_.
+
+FIPS Support for Nginx
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Chef Automate runs in a FIPS 140-2 compliant mode when the operating system kernel is configured similarly or when ``fips['enable'] = true`` is set in ``/etc/delivery/delivery.rb``.  When Chef Automate is configured for FIPS mode, this will also now configure Nginx to use the OpenSSL FIPS validated container.
+
+Resolved Issues
+-----------------------------------------------------
+
+* Fixed an issue where ``automate-ctl install-runner`` was not prompting for a password
+* The ``automate-ctl cleanse`` command has been fixed to behave as `documented <https://docs.chef.io/ctl_automate_server.html#cleanse>`_
+* The Chef Automate UI no longer has issues when accessed through the IP address or anything not configured as its FQDN
+* Fixed an issue that caused ``automate-ctl reconfigure`` to hang for several minutes when Chef’s product telemetry endpoint was not reachable  
+* Compliance scan results now display their latest timestamp
+* Profile updates are now available from the profiles screen whenever a new version is released 
+* Fixed an issue that limited the list of compliance profiles in the report to 10
+* Small UI fixes in the compliance view around scan results filter, profile suggestions, and reports with multiple scan results
+
+
 What's New in 1.5.46
 =====================================================
 
