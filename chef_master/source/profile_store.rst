@@ -5,7 +5,7 @@ Profile Store
 
 .. tag profile_store
 
-The Profile Store is the page for compliance tests that are provided by chef. It provides an easily searchable repository with a user-friendly web interface. Profiles that are part of the Profile Store are accessible by any Automate user.
+The Profile Store is the page for compliance tests that are provided by Chef. It provides an easily searchable repository with a user-friendly web interface. Profiles that are part of the Profile Store are accessible by any Chef Automate user.
 
 There are two ways of using the Profile Store:
 
@@ -16,9 +16,9 @@ There are two ways of using the Profile Store:
 
 Public Profile Store
 =====================================================
-The public Profile Store is supplied Chef as part of the Automate installation.
+The public Profile Store is supplied by Chef as part of the Chef Automate installation.
 
-The Profile Store is located under Chef Automate's Compliance tab
+The Profile Store is located under Chef Automate's **Compliance** tab
 
 .. image:: ../../images/profile_store.png
    :width: 700px
@@ -27,14 +27,13 @@ The Profile Store is located under Chef Automate's Compliance tab
 
 Updating the Profile Store
 =====================================================
-Profile Store updates are part of Chef Automate :doc:`Upgrade Chef Automate </upgrade_chef_automate>`.
-Upgrading Chef Automate will automatically update the Profile Store. However, installed compliance profiles are not automatically updated.
+Profile Store updates are part of the `Chef Automate upgrade process </upgrade_chef_automate>`_; however, installed compliance profiles are not automatically updated.
 
 Installing Profiles
 =====================================================
 To install Chef Automate Compliance profiles, navigate to the Profile Store under the **Compliance** tab and select the **Available** tab, which is located in the body of the page.
 
-You will then see a list of available profiles. For more information about the controls within a profile, click blue arrow on the right side of the profile entry.  To select a profile and then install it, click on the radial button on the left side of the profile entry followed by clicking the "Get" button on the right side of the page, which is located directly above the list of available profiles.
+You will then see a list of available profiles. For more information about the controls within a profile, click the blue arrow on the right side of the profile entry.  To select a profile and then install it, click on the radial button on the left side of the profile entry followed by clicking the "Get" button on the right side of the page, which is located directly above the list of available profiles.
 
 Once the profile is installed, you will be able to use it to perform a compliance scan.  For help on performing a compliance scan, see :doc:`Perform a Compliance Scan in Chef Automate </perform_compliance_scan>`.
 
