@@ -1,9 +1,15 @@
 =====================================================
-Release Notes: Chef Development Kit 0.19 - 2.0
+Release Notes: Chef Development Kit 0.19 - 2.1.11
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_chefdk.rst>`__
 
 Chef Development Kit is released on a monthly schedule with new releases the third Monday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef DK on GitHub <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__
+
+What's New in 2.0.28
+=====================================================
+This release updates the version of git shipped in Chef DK to 2.14.1 to address `CVE-2017-1000117 <https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2017-1000117>`__.
+
+See the detailed `change log <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md#v2111-2017-08-11>`__ for a full list of changes.
 
 What's New in 2.0.28
 =====================================================
