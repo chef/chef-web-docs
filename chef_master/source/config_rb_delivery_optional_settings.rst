@@ -72,6 +72,9 @@ This configuration file has the following settings for ``backup``:
    Only use this if you cannot configure the machine with an instance profile,
    shared credentials, or environment variables. Default value: ``nil``.
 
+``backup['create_bucket']``
+   Create an S3 bucket for backup archives if it does not exist. Default value: ``true``.
+
 ``backup['bucket']``
    S3 bucket for storing Chef Automate backup archives. Default value: ``nil``.
 
@@ -157,9 +160,20 @@ This configuration file has the following settings for ``backup``:
    Maximum snapshot speed when creating shared filesystem Elasticsearch
    snaphots. Default value: ``40mb``.
 
+``backup['elasticsearch']['poll_interval']``
+   How many seconds to wait between polling requests while waiting for
+   Elasicsearch operations.  Default value ``5``.
+
 ``backup['elasticsearch']['region']``
    Amazon Web Services (AWS) region to use for Chef Automate S3 Elasticsearch snapshots.
    Default value ``nil``.
+
+``backup['elasticsearch']['request_timeout']``
+   Maximum seconds an Elasticsearch request can wait before timing out.
+   Default value ``'300'``.
+
+``backup['elasticsearch']['retry_limit']``
+   Maximum number of times to retry failed Elasticsearch requests. Default value ``3``.
 
 ``backup['elasticsearch']['secret_access_key']``
    Amazon Web Services (AWS) Secret Key for uploading Chef Automate Elasticsearch snapshots in
@@ -174,6 +188,10 @@ This configuration file has the following settings for ``backup``:
    Which backup type to use for Chef Automate Elasticsearch snapshots. Shared
    filesystem and S3 backups are currently supported by using the ``fs`` and
    ``s3`` types. Default value: ``fs``.
+
+``backup['elasticsearch']['wait_for_lock']``
+   Enable or disable waiting for the Chef Automate exclusive Elasticsearch lock
+   when performing major operations. Default value: ``true``.
 
 ``backup['force']``
    Agree to any prompts or warnings during the Chef Automate backup precedure.
