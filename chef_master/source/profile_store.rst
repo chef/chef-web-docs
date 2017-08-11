@@ -5,12 +5,12 @@ Profile Store
 
 .. tag profile_store
 
-The Profile Store is the page for compliance tests that are provided by Chef. It provides an easily searchable repository with a user-friendly web interface. Profiles that are part of the Profile Store are accessible by any Chef Automate user.
+The Profile Store is the location for compliance tests that are provided by Chef. It has an easily searchable repository with a user-friendly web interface. Profiles in the Profile Store are accessible by any Chef Automate user.
 
 There are two ways of using the Profile Store:
 
 * The public Profile Store is available under the Chef Automate's Compliance tab.
-* A private Profile Store may be installed on-premise behind the firewall on the internal network. 
+* A private Profile Store may be installed on-premise behind the firewall on the internal network.
 
 .. end_tag
 
@@ -39,6 +39,10 @@ Once the profile is installed, you will be able to use it to perform a complianc
 
 Updating Profiles
 =====================================================
-After a Chef Automate upgrade, any available profile updates for installed profiles will appear under the **Profiles** tab on the body of the page. Select the `available updates` button to download updated profiles.
+Installed profiles are not updated during a Chef Automate upgrade. Available profile updates for installed profiles will appear under the **Profiles** tab on the body of the page. Select the `view` button to examine and install updated profiles.
 
-The updated profiles have already been validated by Chef and can be added directly to your compliance controls. If you would prefer to compare the updated and original profiles, add the updated profile to your compliance cookbook, run them both, and compare the results. For help on performing a compliance scan, see :doc:`Perform a Compliance Scan in Chef Automate </perform_compliance_scan>`.
+Chef validates the profiles in the Profile Store for use in compliance scans. To compare the updated and original profiles, add the updated profile to your compliance cookbook, run them both, and compare the results. For help on performing a compliance scan, see :doc:`Perform a Compliance Scan in Chef Automate </perform_compliance_scan>`.
+
+.. image:: ../../images/profile_store_update.png
+   :width: 700px
+   :align: center
