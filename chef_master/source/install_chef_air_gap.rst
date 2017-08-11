@@ -36,14 +36,109 @@ The install script should be accessible from your artifact store.
 
 Chef server
 =====================================================
-Install Chef server using the `standalone installation instructions </install_server.html#standalone>`__. If you intend to use Chef Automate, create the ``delivery`` user and add it to your organization during this step.
+If you intend to use Chef Automate, create the ``delivery`` user and add it to your organization during this step. Note that in order to configure Supermarket later in this guide, you will need a user that is a member of the ``admins`` group.
+
+#. Download the package from https://downloads.chef.io/chef-server/.
+#. Upload the package to the machine that will run the Chef server, and then record its location on the file system. The rest of these steps assume this location is in the ``/tmp`` directory.
+
+#. .. tag install_chef_server_install_package
+
+   .. This topic is hooked in globally to install topics for Chef server applications.
+
+   As a root user, install the Chef server package on the server, using the name of the package provided by Chef. For Red Hat Enterprise Linux and CentOS:
+
+   .. code-block:: bash
+
+      $ rpm -Uvh /tmp/chef-server-core-<version>.rpm
+
+   For Ubuntu:
+
+   .. code-block:: bash
+
+      $ dpkg -i /tmp/chef-server-core-<version>.deb
+
+   After a few minutes, the Chef server will be installed.
+
+   .. end_tag
+
+#. Run the following to start all of the services:
+
+   .. code-block:: bash
+
+      $ chef-server-ctl reconfigure
+
+   Because the Chef server is composed of many different services that work together to create a functioning system, this step may take a few minutes to complete.
+
+#. .. tag ctl_chef_server_user_create_admin
+
+   Run the following command to create an administrator:
+
+   .. code-block:: bash
+
+      $ chef-server-ctl user-create USER_NAME FIRST_NAME LAST_NAME EMAIL 'PASSWORD' --filename FILE_NAME
+
+   An RSA private key is generated automatically. This is the user's private key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to the specified absolute path.
+
+   For example:
+
+   .. code-block:: bash
+
+      $ chef-server-ctl user-create stevedanno Steve Danno steved@chef.io 'abc123' --filename /path/to/stevedanno.pem
+
+   .. end_tag
+
+#. .. tag ctl_chef_server_org_create_summary
+
+   Run the following command to create an organization:
+
+   .. code-block:: bash
+
+      $ chef-server-ctl org-create short_name 'full_organization_name' --association_user user_name --filename ORGANIZATION-validator.pem
+
+   The name must begin with a lower-case letter or digit, may only contain lower-case letters, digits, hyphens, and underscores, and must be between 1 and 255 characters. For example: ``4thcoffee``.
+
+   The full name must begin with a non-white space character and must be between 1 and 1023 characters. For example: ``'Fourth Coffee, Inc.'``.
+
+   The ``--association_user`` option will associate the ``user_name`` with the ``admins`` security group on the Chef server.
+
+   An RSA private key is generated automatically. This is the chef-validator key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to the specified absolute path.
+
+   For example:
+
+   .. code-block:: bash
+
+      $ chef-server-ctl org-create 4thcoffee 'Fourth Coffee, Inc.' --association_user stevedanno --filename /path/to/4thcoffee-validator.pem
+
+   .. end_tag
 
 Chef workstation
 =====================================================
 
 Install Chef DK
 -----------------------------------------------------
-Now that you've created your Chef server and organization, `install the Chef DK </install_dk.html#install-on-a-workstation>`__ on your workstation and copy the ``USER.pem`` and ``ORGANIZATION.pem`` files from the server. `Generate </install_dk.html#manually-w-o-webui>`__ your Chef repo, and create a ``.chef`` directory within your Chef repo, and move your ``.pem`` files into it.
+#. Your workstation should have a copy of the Chef DK `installer package <https://downloads.chef.io/chefdk>`__. Use the appropriate tool to run the installer:
+
+   .. code-block:: bash
+
+      dpkg -i chefdk_2.0.28-1_amd64.deb
+
+#. Use the ``chef generate app`` command to generate your Chef repo:
+
+   .. code-block:: bash
+
+      chef generate app chef-repo
+
+#. Within your Chef repo, create a ``.chef`` directory:
+
+   .. code-block:: bash
+
+      mkdir /chef-repo/.chef
+
+#. Copy the ``USER.pem`` and ``ORGANIZATION.pem`` files from the server, and move them into the ``.chef`` directory.
+
+   .. code-block:: bash
+
+      scp ssh-user@chef-server.example.com:/path/to/pem/files /chef-repo/.chef/
 
 Create a bootstrap template
 -----------------------------------------------------
@@ -95,3 +190,50 @@ Within the ``.chef`` directory, create a ``knife.rb`` file and replace ``USER`` 
    knife[:bootstrap_template] = "#{current_dir}/bootstrap/airgap.erb"
 
 The ``knife[:bootstrap_template]`` option in this example allows you to specify the template that ``knife bootstrap`` will use by default when bootstrapping a node. It should point to your custom template within the ``bootstrap`` directory.
+
+Now that ``knife`` is configured, copy the SSL certificates from your Chef server to your trusted certificates:
+
+.. code-block:: ruby
+
+   knife ssl fetch
+
+Private Supermarket
+=====================================================
+Private Supermarket allows you to host your own internal version of the `Chef supermarket <https://supermarket.chef.io>`__ within your air-gapped network. In this section, you will use a wrapper cookbook with the `Supermarket omnibus cookbook <https://supermarket.chef.io/cookbooks/supermarket-omnibus-cookbook>`__ to install private Supermarket.
+
+First, you'll configure Chef Identity credentials for Supermarket. Chef Identity is an OAuth 2.0 service packaged with the Chef server, that allows you to use the same credentials to access both server and Supermarket.
+
+#. Log on to the Chef server via SSH and elevate to an admin-level user. If running a multi-node Chef server cluster, log on to the node acting as the primary node in the cluster.
+#. Update the ``/etc/opscode/chef-server.rb`` configuration file.
+
+   .. tag config_ocid_application_hash_supermarket
+
+   To define OAuth 2 information for Chef Supermarket, create a Hash similar to:
+
+      .. code-block:: ruby
+
+         oc_id['applications'] ||= {}
+         oc_id['applications']['supermarket'] = {
+           'redirect_uri' => 'https://supermarket.mycompany.com/auth/chef_oauth2/callback'
+         }
+
+   .. end_tag
+
+#. Reconfigure the Chef server.
+
+   .. code-block:: bash
+
+      $ sudo chef-server-ctl reconfigure
+
+#. Retrieve Supermarket's OAuth 2.0 client credentials:
+
+   Depending on your Chef server version and configuration (see :ref:`chef-server.rb <config_rb_server_insecure_addon_compat>`), this can be retrieved via :ref:`chef-server-ctl oc-id-show-app supermarket <ctl_chef_server_oc_id_show_app>` or is located in ``/etc/opscode/oc-id-applications/supermarket.json``:
+
+   .. code-block:: javascript
+
+      {
+        "name": "supermarket",
+        "uid": "0bad0f2eb04e935718e081fb71asdfec3681c81acb9968a8e1e32451d08b",
+        "secret": "17cf1141cc971a10ce307611beda7ffadstr4f1bc98d9f9ca76b9b127879",
+        "redirect_uri": "https://supermarket.mycompany.com/auth/chef_oauth2/callback"
+      }
