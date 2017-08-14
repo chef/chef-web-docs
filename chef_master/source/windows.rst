@@ -1680,10 +1680,6 @@ The following WinRM configuration settings should be updated:
      - The chef-client and Ohai typically require more memory than the default setting allows. Increase this value to ``300MB``. Only required on Windows Server 2008 R2 Standard and older. The default in Windows Server 2012 was increased to ``1024MB``.
    * - ``MaxTimeoutms``
      - A bootstrap command can take longer than allowed by the default setting. Increase this value to ``1800000`` (30 minutes).
-   * - ``AllowUnencrypted``
-     - Set this value to ``true`` for development and testing purposes.
-   * - ``Basic``
-     - Set this value to ``true`` for development and testing purposes. The ``knife windows`` subcommand supports Kerberos and Basic authentication schemes.
 
 To update these settings, run the following commands:
 
@@ -1691,23 +1687,11 @@ To update these settings, run the following commands:
 
    $ winrm set winrm/config/winrs '@{MaxMemoryPerShellMB="300"}'
 
-and:
-
-.. code-block:: bash
-
-   $ winrm set winrm/config '@{MaxTimeoutms="1800000"}'
-
-and:
-
-.. code-block:: bash
-
-   $ winrm set winrm/config/service '@{AllowUnencrypted="true"}'
-
 and then:
 
 .. code-block:: bash
 
-   $ winrm set winrm/config/service/auth '@{Basic="true"}'
+   $ winrm set winrm/config '@{MaxTimeoutms="1800000"}'
 
 Ensure that the Windows Firewall is configured to allow WinRM connections between the workstation and the Chef server. For example:
 
