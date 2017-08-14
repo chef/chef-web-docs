@@ -48,7 +48,7 @@ Actions
 This resource has the following actions:
 
 ``:create``
-   creates a task (or updates existing if user or command has changed)
+   creates a task (or updates existing if any property has changed)
 
 ``:delete``
    deletes a task
