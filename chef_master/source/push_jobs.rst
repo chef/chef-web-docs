@@ -105,7 +105,7 @@ A whitelist is a list of jobs and commands that are used by Chef push jobs. A wh
      'job_name' => 'command',
    }
 
-The whitelist is accessed from a recipe using the ``node['push_jobs']['whitelist]`` attribute. For example:
+The whitelist is accessed from a recipe using the ``node['push_jobs']['whitelist']`` attribute. For example:
 
 .. code-block:: ruby
 
