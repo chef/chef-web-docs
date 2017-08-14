@@ -31,7 +31,7 @@ knife-vsphere
 * Most VMware compute use cases are covered
 * This integration is the main starting point for Chef and VMware
 
-The main settings for your `knife.rb` are these:
+The main settings for your ``knife.rb`` file:
 
 .. code-block:: ruby
 
@@ -59,8 +59,8 @@ called "SPEC" to help bootstrap. Also calls a different SSH user and Password.
   $ knife vsphere vm clone MACHINENAME --template TEMPLATENAME --bootstrap --cips dhcp \
   --cspec SPEC --ssh-user USER --ssh-password PASSWORD
 
-*Note*: add a `-f FOLDERNAME` if you put your `--template` in someplace other then root folder,
-and use `--dest-folder FOLDERNAME` if you want your VM created in `FOLDERNAME` rather than the root.
+*Note*: add a ``-f FOLDERNAME`` if you put your ``--template`` in someplace other then root folder,
+and use ``--dest-folder FOLDERNAME`` if you want your VM created in ``FOLDERNAME`` rather than the root.
 
 A full basic example of cloning from a folder, and putting it in the "Datacenter Root"
 directory is the following:
@@ -94,7 +94,7 @@ knife-vcenter
 * Supports the main usecases of knife, bootstrap, create, destroy, and list
 * If you have the `VCSA <https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vcsa.doc/GUID-223C2821-BD98-4C7A-936B-7DBE96291BA4.html>`__ or are planning on upgrading to vCenter 6.5+ this is the plugin you want to use
 
-The main settings for your `knife.rb` are these:
+The main settings for your ``knife.rb`` are these:
 
 .. code-block:: ruby
 
@@ -145,12 +145,12 @@ knife-vrealize
 
 * Supports both vRealize Automation and vRealize Orchestrator
 * Supports vRealize Automation 7.0+
-* If you have vRealize Automation < 7.0 you will need to downgrade the `vmware-vra-gem <https://github.com/chef-partners/vmware-vra-gem>`__ to version `1.7.0`
+* If you have vRealize Automation < 7.0 you will need to downgrade the `vmware-vra-gem <https://github.com/chef-partners/vmware-vra-gem>`__ to version ``1.7.0``
 * Supports the main usecases of knife, bootstrap, create, destroy, and list
 * This plugin directly integrates with vRA to call out predetermined blueprints or catalogs
 * This plugin also can integrate directly with vRO to call out predetermined workflows
 
-The main settings for your `knife.rb` to talk to vRA are:
+The main settings for your ``knife.rb`` to talk to vRA are:
 
 .. code-block:: ruby
 
@@ -170,20 +170,20 @@ If you want to talk to vRO your `knife.rb` settings are as followed:
 
 A basic clone example for vRA is:
 
-Creates a server from a catalog blueprint. Find the catalog ID with the `knife vra catalog list` command. After the resource is created, knife will attempt to bootstrap it (install chef, run chef-client for the first time, etc.).
+Creates a server from a catalog blueprint. Find the catalog ID with the ``knife vra catalog list`` command. After the resource is created, knife will attempt to bootstrap it (install chef, run chef-client for the first time, etc.).
 
 Each blueprint may require different parameters to successfully complete provisioning. See your vRA administrator with questions. We'll do our best to give you any helpful error messages from vRA if they're available to us.
 
 Common parameters to specify are:
 
-* `--cpus`: number of CPUs
-* `--memory`: amount of RAM in MB
-* `--requested-for`: vRA login that should be listed as the owner
-* `--lease-days`: number of days for the resource lease
-* `--notes`: any optional notes you'd like to be logged with your request
-* `--subtenant-id`: all resources must be tied back to a Business Group, or "subtenant." If your catalog item is tied to a specific Business Group, you do not need to specify this. However, if your catalog item is a global catalog item, then the subtenant ID is not available to us; you will need to provide it. It usually looks like a UUID. See your vRA administrator for assistance in determining your subtenant ID.
-* `--ssh-password`: if a linux host, the password to use during bootstrap
-* `--winrm-password`: if a windows host, the password to use during bootstrap
+* ``--cpus```: number of CPUs
+* ``--memory``: amount of RAM in MB
+* ``--requested-for``: vRA login that should be listed as the owner
+* ``--lease-days``: number of days for the resource lease
+* ``--notes``: any optional notes you'd like to be logged with your request
+* ``--subtenant-id``: all resources must be tied back to a Business Group, or "subtenant." If your catalog item is tied to a specific Business Group, you do not need to specify this. However, if your catalog item is a global catalog item, then the subtenant ID is not available to us; you will need to provide it. It usually looks like a UUID. See your vRA administrator for assistance in determining your subtenant ID.
+* ``--ssh-password``: if a linux host, the password to use during bootstrap
+* ``--winrm-password``: if a windows host, the password to use during bootstrap
 
 .. code-block:: bash
 
@@ -197,7 +197,7 @@ Common parameters to specify are:
 
 A basic delete for vRA is as follows:
 
-Deletes a server from vRA. If you supply `--purge`, the server will also be removed from the Chef Server.
+Deletes a server from vRA. If you supply ``--purge``, the server will also be removed from the Chef Server.
 
 .. code-block:: bash
 
@@ -232,7 +232,7 @@ Executes a vRO workflow. Requires the workflow name. You may supply any input pa
    2015-08-13 09:17:57 -0700 info: cloudadmin: Workflow 'Knife Testing' has started
    2015-08-13 09:17:58 -0700 info: cloudadmin: Workflow 'Knife Testing' has completed
 
-If your workflow name is not unique in your vRO workflow list, you can specify a specific workflow to use with `--vro-workflow-id ID`. You can find the workflow ID from within the vRO UI. However, a workflow name is still required by the API.
+If your workflow name is not unique in your vRO workflow list, you can specify a specific workflow to use with ``--vro-workflow-id ID``. You can find the workflow ID from within the vRO UI. However, a workflow name is still required by the API.
 
 chef-provisioning
 =====================================================
@@ -320,7 +320,7 @@ kitchen-vsphere (chef-provisioning-vsphere)
 * Leverages the typical test-kitchen workflow for vCenter > 5.0+
 * There is a gem `kitchen-vsphere <https://rubygems.org/gems/kitchen-vsphere>`__ it is not supported at this time, **do not** use/install that one
 
-There is full example cookbook located `here <https://github.com/jjasghar/vsphere_testing>`__ that attempts to capture everything required. A basic example for a `.kitchen.yml` is as follows though:
+There is full example cookbook located `here <https://github.com/jjasghar/vsphere_testing>`__ that attempts to capture everything required. A basic example for a ``.kitchen.yml`` is as follows though:
 
 .. code-block:: yaml
 
@@ -380,7 +380,7 @@ kitchen-vcenter
 * Leverages the typical test-kitchen workflow for vCenter >= 6.5+
 * If you have the `VCSA <https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vcsa.doc/GUID-223C2821-BD98-4C7A-936B-7DBE96291BA4.html>`__ or are planning on upgrading to vCenter 6.5+ this is the plugin you want to use
 
-A basic example for a `.kitchen.yml` is as follows though:
+A basic example for a ``.kitchen.yml`` is as follows though:
 
 .. code-block:: yaml
 
@@ -414,7 +414,7 @@ kitchen-vra
 * More and more usage is being reported
 * Any major modern VMware shop probably uses this, or is at least investigating this
 
-A basic example for a `.kitchen.yml` is as follows though:
+A basic example for a ``.kitchen.yml`` is as follows though:
 
 .. code-block:: yaml
 
@@ -443,7 +443,7 @@ kitchen-vro
 * Not sure about the adoption rate
 * Leverages specific Workflows in vRO if it’s required by their VMware admins
 
-A basic example for a `.kitchen.yml` is as follows though:
+A basic example for a ``.kitchen.yml`` is as follows though:
 
 .. code-block:: yaml
 
@@ -523,5 +523,3 @@ vRO plugin
 * If you use vRO this does the majority of what you’re looking for
 
 A basic demo is located here: https://www.youtube.com/watch?v=HlvoZ4Zdwc4
-
-.. [Wikipedia] https://en.wikipedia.org/wiki/VMware
