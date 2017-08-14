@@ -66,6 +66,7 @@ The ``create-backup`` subcommand is used to create Chef Automate backups. By def
         --no-license                 Do not back up Chef Automate's license file
         --no-notifications           Do not back up Chef Automate's notifications rulestore
         --no-wait                    Do not wait for non-blocking backup operations
+        --no-wait-for-lock           Do not wait for Elasticsearch lock
         --quiet                      Do not output non-error information
         --rabbit                     Back up Chef Automate's RabbitMQ queues
         --retry-limit                Maximum number of times to retry archive uploads to S3
@@ -133,6 +134,10 @@ The ``delete-backups`` subcommand is used to delete Chef Automate backup archive
 
    $ automate-ctl delete-backups REGEX [options]
         --force                      Agree to all warnings and prompts
+        --max-archives [integer]     Maximum number of backup archives to keep
+        --max-snapshots [integer]    Maximum number of Elasticsearch snapshots to keep
+        --pattern [string]           Delete backups matching the Ruby RegExp pattern
+        --no-wait-for-lock           Do not wait for Elasticsearch lock<Paste>
     -h, --help                       Show the usage message
 
 **Examples**
@@ -145,6 +150,32 @@ Deleting a single Elasticsearch snapshot:
 
 Deleting all backup archives and snapshots from October, 2016:
   ``$ automate-ctl delete-backups 2016-10-.+-chef-automate-backup --force``
+
+delete-elasticsearch-lock
+=====================================================
+The ``delete-elasticsearch-lock`` subcommand is used to delete the exclusive Elasticsearch lock document that is used by several of Chef Automate's services to coordinate major operations. Each service should create and remove this lock automatically, but in the event of an issue an operator can use this command to manually free the lock.
+
+Added in Chef Automate version 1.6.87.
+
+**Syntax**
+
+.. code-block:: bash
+
+   $ automate-ctl delete-elasticsearch-lock [options]
+        --force                      Agree to all warnings and prompts
+    -h, --help                       Show the usage message
+
+**Examples**
+
+.. code-block:: bash
+
+   $ automate-ctl delete-elasticsearch-lock
+
+   HOSTNAME            PROCESS  PID    TIME
+   automate.myorg.com  reaper   12345  2017-08-11T16:46:33Z
+
+   Removing the Elasticsearch lock before the process completes can cause race conditions. Are you sure you wish to proceed? (yes/no):
+   $ yes
 
 delete-enterprise
 =====================================================
@@ -253,10 +284,10 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ automate-ctl gather-logs 
+   $ automate-ctl gather-logs
         --all-logs          Gather all of the logs, regardless of size or age.
 
-.. warning:: The ``--all-logs`` option can potentially take up a large amount of disk space. 
+.. warning:: The ``--all-logs`` option can potentially take up a large amount of disk space.
 
 generate-password-reset-token
 =====================================================
@@ -608,6 +639,7 @@ The command is intended to restore an Automate instance completely from backup, 
         --no-notifications           Do not restore Chef Automate's notifications rulestore
         --no-rabbit                  Do not restore Chef Automate's RabbitMQ data
         --no-wait                    Do not wait for non-blocking restore operations
+        --no-wait-for-lock           Do not wait for Elasticsearch lock
         --quiet                      Do not output non-error information
         --retry-limit                Maximum number of times to retry archive downloads from S3
         --staging-dir [string]       The path to use for temporary files during restore
@@ -641,18 +673,18 @@ This subcommand has the following syntax:
 .. code-block:: bash
 
    $ automate-ctl show-config
-   
+
 telemetry
 =====================================================
 
-The ``telemetry`` subcommand is used in conjunction with additional subcommands to query the ``status`` of, ``enable`` or ``disable`` telemetry server wide. 
+The ``telemetry`` subcommand is used in conjunction with additional subcommands to query the ``status`` of, ``enable`` or ``disable`` telemetry server wide.
 
 This subcommand has the following syntax:
 
 .. code-block:: bash
 
  $ automate-ctl telemetry status
-    
+
 **Examples**
 
 Query current status:
