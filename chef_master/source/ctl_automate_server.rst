@@ -155,6 +155,8 @@ delete-elasticsearch-lock
 =====================================================
 The ``delete-elasticsearch-lock`` subcommand is used to delete the exclusive Elasticsearch lock document that is used by several of Chef Automate's services to coordinate major operations. Each service should create and remove this lock automatically, but in the event of an issue an operator can use this command to manually free the lock.
 
+Added in Chef Automate version 1.6.87.
+
 **Syntax**
 
 .. code-block:: bash
@@ -282,10 +284,10 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ automate-ctl gather-logs 
+   $ automate-ctl gather-logs
         --all-logs          Gather all of the logs, regardless of size or age.
 
-.. warning:: The ``--all-logs`` option can potentially take up a large amount of disk space. 
+.. warning:: The ``--all-logs`` option can potentially take up a large amount of disk space.
 
 generate-password-reset-token
 =====================================================
@@ -671,18 +673,18 @@ This subcommand has the following syntax:
 .. code-block:: bash
 
    $ automate-ctl show-config
-   
+
 telemetry
 =====================================================
 
-The ``telemetry`` subcommand is used in conjunction with additional subcommands to query the ``status`` of, ``enable`` or ``disable`` telemetry server wide. 
+The ``telemetry`` subcommand is used in conjunction with additional subcommands to query the ``status`` of, ``enable`` or ``disable`` telemetry server wide.
 
 This subcommand has the following syntax:
 
 .. code-block:: bash
 
  $ automate-ctl telemetry status
-    
+
 **Examples**
 
 Query current status:
