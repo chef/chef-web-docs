@@ -93,7 +93,7 @@ This resource has the following properties:
    The package version or repository to pin. 
 
 ``pin_priority``
-   **Ruby Types:** Integer
+   **Ruby Types:** String, Integer
 
    Sets the ``Pin-Priority`` for a package. See the `APT pinning documentation <https://wiki.debian.org/AptPreferences>`__ for more details. 
 
