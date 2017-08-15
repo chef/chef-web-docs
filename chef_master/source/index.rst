@@ -206,7 +206,7 @@ Habitat Documentation
 Tutorials
 -----------------------------------------------------
 
- `Getting started with Habitat <https://www.habitat.sh/tutorials/getting-started-overview>`_
+ `Getting started with Habitat <https://www.habitat.sh/tutorials/get-started/>`_
 
 InSpec
 =====================================================
