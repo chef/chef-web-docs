@@ -211,10 +211,10 @@ Tutorials
 InSpec
 =====================================================
 
-InSpec Overview
+InSpec Documentation
 -----------------------------------------------------
 
-:doc:`InSpec Overview </inspec>`
+`InSpec Documentation <https://www.inspec.io/docs/>`
 
 Chef Automate
 =====================================================
@@ -553,7 +553,6 @@ Addenda
    glossary
    habitat_prism
    handlers
-   inspec
    install_chef_automate
    install_bootstrap
    install_chef_compliance
