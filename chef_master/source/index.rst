@@ -209,7 +209,7 @@ Documentation
 Tutorials
 -----------------------------------------------------
 
- `Habitat Tutorials <https://www.habitat.sh/tutorials/get-started/>`_
+ `Habitat Tutorials <https://www.habitat.sh/tutorials/>`_
 
 InSpec
 =====================================================
