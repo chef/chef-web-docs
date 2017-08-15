@@ -197,10 +197,10 @@ Managing the Server
 Habitat
 =====================================================
 
-Habitat Overview
+Habitat Documentation
 -----------------------------------------------------
 
-:doc:`Habitat Overview </habitat>` |
+`Habitat Documentation <https://www.habitat.sh/docs/>` |
 :doc:`Prism </habitat_prism>`
 
 Tutorials
@@ -551,7 +551,6 @@ Addenda
    fips
    foodcritic
    glossary
-   habitat
    habitat_prism
    handlers
    inspec
