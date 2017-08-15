@@ -5,18 +5,13 @@ Profile Store
 
 .. tag profile_store
 
-The Profile Store is the location for compliance tests that are provided by Chef. It has an easily searchable repository with a user-friendly web interface. Profiles in the Profile Store are accessible by any Chef Automate user.
-
-There are two ways of using the Profile Store:
-
-* The public Profile Store is available under the Chef Automate's Compliance tab.
-* A private Profile Store may be installed on-premise behind the firewall on the internal network.
+The Chef Automate Profile Store is available under the **Compliance** tab for both typical and air-gapped installations. The Profile Store contains the compliance tests that are provided by Chef. It has an easily searchable repository with a user-friendly web interface. Profiles in the Profile Store are accessible by any Chef Automate user.
 
 .. end_tag
 
-Public Profile Store
+Profile Store
 =====================================================
-The public Profile Store is supplied by Chef as part of the Chef Automate installation.
+The Profile Store is supplied by Chef as part of the Chef Automate installation.
 
 The Profile Store is located under Chef Automate's **Compliance** tab
 
