@@ -197,24 +197,29 @@ Managing the Server
 Habitat
 =====================================================
 
-Habitat Documentation
+Documentation
 -----------------------------------------------------
 
-`Habitat Documentation <https://www.habitat.sh/docs/>` |
+`Habitat Documentation <https://www.habitat.sh/docs/>`_ |
 :doc:`Prism </habitat_prism>`
 
 Tutorials
 -----------------------------------------------------
 
- `Getting started with Habitat <https://www.habitat.sh/tutorials/get-started/>`_
+ `Habitat Tutorials <https://www.habitat.sh/tutorials/get-started/>`_
 
 InSpec
 =====================================================
 
-InSpec Documentation
+Documentation
 -----------------------------------------------------
 
-`InSpec Documentation <https://www.inspec.io/docs/>`
+`InSpec Documentation <https://www.inspec.io/docs/>`_ 
+
+Tutorials
+-----------------------------------------------------
+
+`InSpec Tutorials <https://www.inspec.io/tutorials/>`_
 
 Chef Automate
 =====================================================
