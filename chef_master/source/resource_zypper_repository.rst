@@ -55,15 +55,7 @@ This resource has the following actions:
 
 ``:add``
 
-   Add a new Zypper repository. 
-
-``:create``
-
-   Default action. Create a repository? 
-
-``:refresh``
-
-   Refresh the Zypper repository. 
+   Default action. Add a new Zypper repository. 
 
 ``:remove``
 
