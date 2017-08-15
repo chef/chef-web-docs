@@ -3,13 +3,16 @@ Site Map
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/index.rst>`__
 
-This is the documentation for
+This is the documentation for:
 
-- Chef, including the Chef server, the Chef client, the Chef
+* Chef, including the Chef server, the Chef client, the Chef
   development kit (Chef DK) and related tools
-- Habitat
-- InSpec
-- Chef Automate
+* Chef Automate
+
+For information on Habitat and InSpec, see their respective documentation:
+
+* `Habitat documentation <https://www.habitat.sh/docs/>`_
+* `InSpec documentation <https://www.inspec.io/docs/>`_
 
 This page has links to each topic in this doc set. You can also use
 the navigation tool or the search box to find what you're looking for.
