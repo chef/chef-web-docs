@@ -488,7 +488,7 @@ The ``node-summary`` subcommand produces a summary of the nodes that are known t
 
 New in Chef Automate 0.5.328.
 
-The default setting for ``node-summary`` is to display the name, UUID, status, and the last time the node's checked in via the Chef Client, Inspec, or the liveness agent.
+The default setting for ``node-summary`` is to display the name, UUID, status, and the last time the nodes checked in via the Chef Client, Inspec, or the liveness agent.
 
 **Syntax**
 
@@ -533,43 +533,43 @@ Produce a summary of nodes known to Automate in JSON.
     ...
   ]
 
-Explanation of fields:
+Explanation of fields
 -----------------------------------------------------
-chef_version
+``chef_version``
    The version of the Chef Client that ran on the node.
-checkin
+``checkin``
    The last time Chef Client ran on the node.
-@timestamp
+``@timestamp``
    The time when the node's information was received by Chef Automate.
-platform_version
+``platform_version``
    Platform version information discovered by ohai on the node.
-fqdn
+``fqdn``
    Fully qualified domain name of the node.
-name
+``name``
    Name of the node in Chef Server.
-organization_name
+``organization_name``
    The name of the Chef Server organization the node belongs to.
-platform_family
+``platform_family``
    Platform family information discovered by ohai on the node.
-platform
+``platform``
    Platform information discovered by ohai on the node.
-status
+``status``
    ``success`` if the last Chef Client run succeeded on the node.
 
    ``failure`` if the last Chef Client run failed on the node.
 
-   ``live`` if the liveness agent has successfully updated Chef Automate but the Chef Client has not run in the expected check-in duration configured in Chef Automate (default is 12 hours).
+   ``live`` if the liveness agent has successfully updated Chef Automate, but the Chef Client has not run within the expected check-in duration configured in Chef Automate (default is 12 hours).
 
-   ``missing`` if Chef Client did not run in the expected check-in duration configured in Chef Automate (default is 12 hours).
-uuid
+   ``missing`` if Chef Client did not run within the expected check-in duration configured in Chef Automate (default is 12 hours).
+``uuid``
    The universally unique identifier of the node in Chef Automate.
-chef_server_status
+``chef_server_status``
    This field is only populated in Opsworks for Chef Automate instances.
 
    ``present``: Node is still present on the Chef Server.
 
    ``missing``: Node is still present on the Chef Server.
-ec2
+``ec2``
    EC2 information discovered by ohai on the node. This field is only populated in Chef Automate instances that are running on EC2
 
 preflight-check
