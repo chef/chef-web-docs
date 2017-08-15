@@ -1,4 +1,6 @@
 {
+  "habitat.html": "https:www.habitat.sh/docs/",
+  "inspec.html": "https://www.inspec.io/docs/",
   "ctl_delivery.html": "/delivery_cli.html",
   "rubocop.html": "/cookstyle.html",
   "_images/chef_run_legacy.png": "/_images/chef_run.png",

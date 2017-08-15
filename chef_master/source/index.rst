@@ -3,13 +3,16 @@ Site Map
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/index.rst>`__
 
-This is the documentation for
+This is the documentation for:
 
-- Chef, including the Chef server, the Chef client, the Chef
+* Chef, including the Chef server, the Chef client, the Chef
   development kit (Chef DK) and related tools
-- Habitat
-- InSpec
-- Chef Automate
+* Chef Automate
+
+For information on Habitat and InSpec, see their respective documentation:
+
+* `Habitat documentation <https://www.habitat.sh/docs/>`_
+* `InSpec documentation <https://www.inspec.io/docs/>`_
 
 This page has links to each topic in this doc set. You can also use
 the navigation tool or the search box to find what you're looking for.
@@ -197,24 +200,29 @@ Managing the Server
 Habitat
 =====================================================
 
-Habitat Overview
+Documentation
 -----------------------------------------------------
 
-:doc:`Habitat Overview </habitat>` |
+`Habitat Documentation <https://www.habitat.sh/docs/>`_ |
 :doc:`Prism </habitat_prism>`
 
 Tutorials
 -----------------------------------------------------
 
- `Getting started with Habitat <https://www.habitat.sh/tutorials/getting-started-overview>`_
+ `Habitat Tutorials <https://www.habitat.sh/tutorials/>`_
 
 InSpec
 =====================================================
 
-InSpec Overview
+Documentation
 -----------------------------------------------------
 
-:doc:`InSpec Overview </inspec>`
+`InSpec Documentation <https://www.inspec.io/docs/>`_ 
+
+Tutorials
+-----------------------------------------------------
+
+`InSpec Tutorials <https://www.inspec.io/tutorials/>`_
 
 Chef Automate
 =====================================================
@@ -551,10 +559,8 @@ Addenda
    fips
    foodcritic
    glossary
-   habitat
    habitat_prism
    handlers
-   inspec
    install_chef_automate
    install_bootstrap
    install_chef_compliance
