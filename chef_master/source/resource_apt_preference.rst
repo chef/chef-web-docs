@@ -184,3 +184,4 @@ This example instructs APT to prefer the ``packages.dotdeb.org`` repository:
      glob         '*'
      pin          'origin packages.dotdeb.org'
      pin_priority '700'
+   end
