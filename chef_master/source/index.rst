@@ -663,6 +663,7 @@ Addenda
    release_notes_ohai
    resource
    resource_apt_package
+   resource_apt_preference
    resource_apt_repository
    resource_apt_update
    resource_bash
