@@ -1,9 +1,29 @@
 =====================================================
-Release Notes: chef-client 12.0 - 13.2
+Release Notes: chef-client 12.0 - 13.3
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes.rst>`__
 
-Chef client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef CHANGELOG.md <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
+Chef client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef changelog <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
+
+What's New in 13.3
+=====================================================
+
+* **Unprivileged symlink creation on Windows** Chef can now create symlinks without privilege escalation, which allows for the creation of symlinks on Windows 10 Creator Update.
+* **nokogiri Gem** The nokogiri gem is once again bundled with the omnibus install of Chef.
+* **New resources** This release introduces the `apt_preference </resource_apt_preference.html>`__ and `zypper_repository </resource_zypper_repository.html>`__ resources.
+* **windows_task Improvements** The ``windows_task`` resource now allows updating the configuration of a scheduled task when using the ``:create`` action. The ``:change`` action from the windows cookbook has been aliased to ``:create`` to provide backward compatibility.
+* **zypper_package Options** It is now possible to pass additional options to Zypper in the ``zypper_package`` resource. For example:
+
+  .. code-block:: ruby
+
+     zypper_package 'foo' do
+       options '--user-provided'
+     end
+
+* **Ohai support for F5 Big-IP** Ohai now detects the `F5 Big-IP <https://www.f5.com/>`__ platform and platform_version:
+
+    * platform: bigip
+    * platform_family: rhel
 
 What's New in 13.2
 =====================================================
@@ -115,7 +135,7 @@ The behavior of the ``clear_sources`` property is now to only add ``--clear-sour
 Ruby version upgraded to 2.4.1
 -----------------------------------------------------
 We've upgraded to the latest stable release of the Ruby programming
-language. See the Ruby [2.4.0 Release Notes](https://www.ruby-lang.org/en/news/2016/12/25/ruby-2-4-0-released/) for an overview of what's new in the language.
+language. See the Ruby `2.4.0 Release Notes <https://www.ruby-lang.org/en/news/2016/12/25/ruby-2-4-0-released/>`__ for an overview of what's new in the language.
 
 Resource can now declare a default name
 -----------------------------------------------------
