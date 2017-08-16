@@ -5,6 +5,21 @@ Release Notes: Chef Automate
 
 Chef Automate provides a full suite of enterprise capabilities for workflow, visibility and compliance that allow you to manage and monitor application and cookbook deployments across a cluster of nodes in your environment.
 
+What's New in 1.6.95
+=====================================================
+
+This is a minor bug fix release. If you are upgrading from 1.5.x or earlier, please review the detailed upgrade notes for the 1.6.87 release for important upgrade information.
+
+If you are using Chef Backend for high availability of Chef Server, you should not upgrade to this release of Chef Automate until a compatible release of Chef Backend is available.
+
+Resolved Issues
+-----------------------------------------------------
+
+* Fixed an issue where ``automate-ctl delete-node`` was returning 400 errors
+* Fixed an issue where ``automate-ctl node-summary`` was returning 400 errors, and added UUID to the results returned by this command
+* Removed the Environment and Role filter dropdowns from the Nodes page; these parameters have moved to the search bar on that page
+* Resolved an issue from 1.6.87 where a backup/restore upgrade from 0.8.5 or earlier required additional migration steps for a subset of customers; these steps are no longer required if upgrading to this release
+
 What's New in 1.6.87
 =====================================================
 
