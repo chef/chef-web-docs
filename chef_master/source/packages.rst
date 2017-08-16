@@ -101,7 +101,7 @@ To set up a Yum package repository for Enterprise Linux platforms:
 
    .. code-block:: bash
 
-      $ sudo mv chef-stable.repo /etc/yum.repos.d/
+      $ sudo yum-config-manager --add-repo chef-stable.repo
 
 Omnitruck Install Scripts
 =====================================================
