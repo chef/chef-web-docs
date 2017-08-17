@@ -41,7 +41,7 @@ The following are required when using the built-in compliance capabilities of Ch
 
 .. tag audit_cookbook_420
 
-.. note:: Audit Cookbook version 4.2.0 or later requires InSpec 1.25.1 or later. You can upgrade your InSpec package in several different ways: by upgrading Automate, by upgrading the Chef Development Kit, by upgrading Chef Client, or by setting the ```node['audit']['inspec_version']`` attribute in your cookbook.
+.. note:: Audit Cookbook version 4.2.0 or later requires InSpec 1.25.1 or later. You can upgrade your InSpec package in several different ways: by upgrading Automate, by upgrading the Chef Development Kit, by upgrading Chef Client, or by setting the ``node['audit']['inspec_version']`` attribute in your cookbook.
 
 .. end_tag
 
