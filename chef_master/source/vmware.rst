@@ -6,7 +6,7 @@ Chef and VMware
 
 VMware, Inc. is a subsidiary of Dell Technologies that provides cloud computing and platform virtualization software and services. This page outlines the different tools that can be used to integrate Chef with the VMware platform. 
 
-For discussions on VMware and Chef, visit the `[VMware{code}] <https://code.vmware.com/web/code/join>`__ Slack team, located in the **#chef** channel.
+For discussions on VMware and Chef, visit the `VMware{code} <https://code.vmware.com/web/code/join>`__ Slack team, located in the **#chef** channel.
 
 knife
 =====================================================
@@ -41,7 +41,7 @@ Usage Examples
 
    $ knife vsphere vm clone MACHINENAME --template TEMPLATENAME --bootstrap --cips dhcp
 
-**Clone a virtual machine from a VMware template and bootstrap Chef, use a customization template called "SPEC" to assist the bootstrapping process, and specify the SSH user and Password:**
+**Clone a virtual machine from a VMware template, use a customization template called "SPEC" to assist the bootstrapping process, and specify the SSH user and password:**
 
 .. code-block:: bash
 
@@ -498,8 +498,6 @@ An example demo control:
 Chef integrations inside of the VMware Suite
 =====================================================
 
-We have a few integrations inside the VMware suite we would like to highlight.
-
 vRA Example Blueprints
 -----------------------------------------------------
 
@@ -512,4 +510,4 @@ vRO plugin
 * The `Chef plugin for vRealize Orchestrator <https://solutionexchange.vmware.com/store/products/chef-plugin-for-vrealize-orchestrator>`__ (vRO) is a VMware-supplied plugin
 * If you use vRO this provides the majority of the necessary features
 
-For more information, see the plugin demo on `YouTube <https://www.youtube.com/watch?v=HlvoZ4Zdwc4>`__
+For more information, see the plugin demo on `YouTube <https://www.youtube.com/watch?v=HlvoZ4Zdwc4>`__.
