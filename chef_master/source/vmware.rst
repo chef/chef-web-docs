@@ -4,22 +4,14 @@ Chef and VMware
 
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/vmware.rst>`__
 
-.. note:: This page collects information about Chef that is specific to using Chef with VMware.
+VMware, Inc. is a subsidiary of Dell Technologies that provides cloud computing and platform virtualization software and services. This page outlines the different tools that can be used to integrate Chef with the VMware platform. 
 
-VMware, Inc. is a subsidiary of Dell Technologies that provides cloud computing and platform
-virtualization software and services. It was the first commercially successful company to
-virtualize the x86 architecture.
-
-VMware's desktop software runs on Microsoft Windows, Linux, and macOS, while its enterprise software
-hypervisor for servers, VMware ESXi, is a bare-metal hypervisor that runs directly on server
-hardware without requiring an additional underlying operating system. 
-
-We also attempt to centralize the discussions for VMware and Chef on the `[VMware{code}] <https://code.vmware.com/web/code/join>`__ Slack team. We are located in **#chef**.
+For discussions on VMware and Chef, visit the `[VMware{code}] <https://code.vmware.com/web/code/join>`__ Slack team, located in the **#chef** channel.
 
 knife
 =====================================================
 
-There are multiple knife plugins that interact with the VMware stack in different ways. The following knife plugins are directly supported by Chef.
+There are multiple knife plugins that interact with the VMware stack in different ways. The following knife plugins are directly supported by Chef:
 
 knife-vsphere
 -----------------------------------------------------
@@ -36,29 +28,27 @@ These are the necessary settings for your ``knife.rb`` file:
 
    knife[:vsphere_host] = "vcenter-hostname"
    knife[:vsphere_user] = "privileged username" # Domain logins may need to be "user@domain.com"
-   knife[:vsphere_pass] = "your password"       # or %Q(mypasswordwithfunnycharacters)
+   knife[:vsphere_pass] = "password"       # or %Q(mypasswordwithfunnycharacters)
    knife[:vsphere_dc] = "your-datacenter"
    knife[:vsphere_insecure] = true              # Set this if you have self signed certs
 
 Usage Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-**Clone from a VMware template and bootstrap Chef:**
+**Clone from a VMware template and bootstrap Chef with generic DHCP options:**
 
 .. code-block:: bash
 
    $ knife vsphere vm clone MACHINENAME --template TEMPLATENAME --bootstrap --cips dhcp
 
-This clones a vm from a VMware template bootstraps chef, then uses a Customization template
-called "SPEC" to help bootstrap. Also calls a different SSH user and Password.
+**Clone a virtual machine from a VMware template and bootstrap Chef, use a customization template called "SPEC" to assist the bootstrapping process, and specify the SSH user and Password:**
 
 .. code-block:: bash
 
   $ knife vsphere vm clone MACHINENAME --template TEMPLATENAME --bootstrap --cips dhcp \
   --cspec SPEC --ssh-user USER --ssh-password PASSWORD
 
-*Note*: add a ``-f FOLDERNAME`` if you put your ``--template`` in someplace other then root folder,
-and use ``--dest-folder FOLDERNAME`` if you want your VM created in ``FOLDERNAME`` rather than the root.
+.. note:: Add a ``-f FOLDERNAME`` if you put your ``--template`` in a directory other than the root folder. Use ``--dest-folder FOLDERNAME`` if you want your VM created in ``FOLDERNAME`` instead of the root folder.
 
 **Clone from a folder into the "Datacenter Root" directory:**
 
@@ -90,15 +80,15 @@ knife-vcenter
 `[Github] <https://github.com/chef/knife-vcenter>`__
 
 * Supports vCenter >= 6.5 REST API
-* Supports the main use cases of ``knife``, ``bootstrap``, ``create``, ``destroy``, and ``list``
+* Supports the main use cases of knife: ``bootstrap``, ``create``, ``destroy``, and ``list``
 * If you have the `VCSA <https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vcsa.doc/GUID-223C2821-BD98-4C7A-936B-7DBE96291BA4.html>`__ or are planning on upgrading to vCenter 6.5+, this is the plugin to use
 
 The main settings for your ``knife.rb``:
 
 .. code-block:: ruby
 
-   knife[:vcenter_username] = "myuser"
-   knife[:vcenter_password] = "mypassword"
+   knife[:vcenter_username] = "user"
+   knife[:vcenter_password] = "password"
    knife[:vcenter_host] = "172.16.20.2"
    knife[:vcenter_disable_ssl_verify] = true # if you want to disable SSL checking
 
@@ -154,25 +144,25 @@ The main settings for your ``knife.rb``:
 
 .. code-block:: ruby
 
-   knife[:vra_username] = 'myuser'
-   knife[:vra_password] = 'mypassword'
+   knife[:vra_username] = 'user'
+   knife[:vra_password] = 'password'
    knife[:vra_base_url] = 'https://vra.corp.local'
-   knife[:vra_tenant]   = 'mytenant'
+   knife[:vra_tenant]   = 'tenant'
    knife[:vra_disable_ssl_verify] = true # if you want to disable SSL checking.
 
 Additional ``knife.rb`` settings are required to integrate with vRO:
 
 .. code-block:: ruby
 
-   knife[:vro_username] = 'myuser'
-   knife[:vro_password] = 'mypassword'
+   knife[:vro_username] = 'user'
+   knife[:vro_password] = 'password'
    knife[:vro_base_url] = 'https://vra.corp.local:8281'
 
 A basic clone example for vRA is:
 
-Creates a server from a catalog blueprint. Find the catalog ID with the ``knife vra catalog list`` command. After the resource is created, knife will attempt to bootstrap it (install chef, run chef-client for the first time, etc.).
+Creates a server from a catalog blueprint. Find the catalog ID with the ``knife vra catalog list`` command. After the resource is created, knife will attempt to bootstrap it.
 
-Each blueprint may require different parameters to successfully complete provisioning. See your vRA administrator with questions. We'll do our best to give you any helpful error messages from vRA if they're available to us.
+Each blueprint may require different parameters to successfully complete provisioning. See your vRA administrator with questions. Knife will attempt to provide any helpful error messages from vRA if they're available.
 
 Common parameters to specify are:
 
@@ -198,9 +188,7 @@ Common parameters to specify are:
 Usage Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-A basic delete for vRA is as follows:
-
-Deletes a server from vRA. If you supply ``--purge``, the server will also be removed from the Chef Server.
+**Delete a server from vRA:**
 
 .. code-block:: bash
 
@@ -218,8 +206,9 @@ Deletes a server from vRA. If you supply ``--purge``, the server will also be re
    Current request status: IN_PROGRESS...
    ...
 
+If you supply the ``--purge`` option, the server will also be removed from the Chef Server
 
-Executes a vRO workflow. Requires the workflow name. You may supply any input parameters, as well.
+**Execute a vRO workflow:**
 
 .. code-block:: bash
 
@@ -235,12 +224,12 @@ Executes a vRO workflow. Requires the workflow name. You may supply any input pa
    2015-08-13 09:17:57 -0700 info: cloudadmin: Workflow 'Knife Testing' has started
    2015-08-13 09:17:58 -0700 info: cloudadmin: Workflow 'Knife Testing' has completed
 
-If your workflow name is not unique in your vRO workflow list, you can specify a specific workflow to use with ``--vro-workflow-id ID``. You can find the workflow ID from within the vRO UI. However, a workflow name is still required by the API.
+This requires the workflow name. You may supply any input parameters, as well. If your workflow name is not unique in your vRO workflow list, you can specify a workflow to use with ``--vro-workflow-id ID``. You can find the workflow ID from within the vRO UI. However, a workflow name is still required by the API.
 
 chef-provisioning
 =====================================================
 
-There are several chef-provisioning drivers that can drive the VMware stack. The following ones are directly supported by Chef.
+There are several chef-provisioning drivers that can drive the VMware stack. The following drivers are directly supported by Chef:
 
 chef-provisioning-vsphere
 -----------------------------------------------------
@@ -250,7 +239,10 @@ chef-provisioning-vsphere
 * Supports vCenter > 5.0
 * Most VMware compute use cases are covered
 
-An example verbose provisioning recipe:
+Usage Examples
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The following is an example of a verbose provisioning recipe:
 
 .. code-block:: ruby
 
@@ -263,8 +255,8 @@ An example verbose provisioning recipe:
 
   with_vsphere_driver host: 'vcenter-host-name',
     insecure: true,
-     user:     'you_user_name',
-     password: 'your_mothers_maiden_name'
+     user:     'user',
+     password: 'password'
 
   with_machine_options :bootstrap_options => {
     use_linked_clone: true,
@@ -291,7 +283,7 @@ An example verbose provisioning recipe:
     run_list ['my_cookbook::default']
   end
 
-If you are looking for more examples please see `chef-provisioning-vsphere examples <https://github.com/chef-partners/chef-provisioning-vsphere#more-config-examples>`__ .
+See `chef-provisioning-vsphere examples <https://github.com/chef-partners/chef-provisioning-vsphere#more-config-examples>`__ for detailed usage examples.
 
 chef-provisioning-vra
 -----------------------------------------------------
@@ -301,12 +293,12 @@ chef-provisioning-vra
 * Supports vRealize Automation >= 7.0
 * Only supports the machine resource
 
-For specific examples of how to use this driver, see `chef-provisioning-vra <https://github.com/chef-partners/chef-provisioning-vra#configuring-and-usage>`__.
+For specific examples of how to use this driver, see `chef-provisioning-vra examples <https://github.com/chef-partners/chef-provisioning-vra#configuring-and-usage>`__.
 
 test-kitchen
 =====================================================
 
-The following test-kitchen drivers for VMware are directly supported by Chef.
+The following test-kitchen drivers for VMware are directly supported by Chef:
 
 kitchen-vsphere (chef-provisioning-vsphere)
 -----------------------------------------------------
@@ -318,7 +310,10 @@ kitchen-vsphere (chef-provisioning-vsphere)
 * Leverages the typical test-kitchen workflow for vCenter > 5.0+
 * There is a `kitchen-vsphere <https://rubygems.org/gems/kitchen-vsphere>`__ gem, but it is not supported at this time
 
-There is full example cookbook located `here <https://github.com/jjasghar/vsphere_testing>`__ that attempts to capture everything required. A basic example for a ``.kitchen.yml`` is as follows though:
+Usage Examples
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+There is an `example cookbook <https://github.com/jjasghar/vsphere_testing>`__ that attempts to capture everything required. The following is a basic ``.kitchen.yml`` example:
 
 .. code-block:: yaml
 
@@ -378,14 +373,17 @@ kitchen-vcenter
 * Leverages the typical test-kitchen workflow for vCenter >= 6.5+
 * If you have the `VCSA <https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vcsa.doc/GUID-223C2821-BD98-4C7A-936B-7DBE96291BA4.html>`__ or are planning on upgrading to vCenter 6.5+, use this plugin
 
-A basic ``.kitchen.yml`` for vCenter:
+Usage Examples
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The following is a basic ``.kitchen.yml`` for vCenter:
 
 .. code-block:: yaml
 
   driver:
     name: vcenter
     vcenter_username: <%= ENV['VCENTER_USER'] || "administrator@vsphere.local" %>
-    vcenter_password: <%= ENV['VCENTER_PASSWORD'] || "P@ssw0rd!" %>
+    vcenter_password: <%= ENV['VCENTER_PASSWORD'] || "password" %>
     vcenter_host: vcenter.chef.io
     vcenter_disable_ssl_verify: true
     driver_config:
@@ -407,20 +405,20 @@ kitchen-vra
 `[Github] <https://github.com/chef-partners/kitchen-vra>`__
 
 * An integration point with vRA and test-kitchen
-* Adoption is the same or more then knife-vrealize
-* For companies required to use vRA a natural progression for Chef Development
-* More and more usage is being reported
-* Any major modern VMware shop probably uses this, or is at least investigating this
+* For companies required to use vRA this is a natural progression for Chef Development
 
-A basic example for a ``.kitchen.yml`` is as follows though:
+Usage Examples
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The following is a basic ``.kitchen.yml`` example:
 
 .. code-block:: yaml
 
    driver:
      name: vra
-     username: myuser@corp.local
-     password: mypassword
-     tenant: mytenant
+     username: user@corp.local
+     password: password
+     tenant: tenant
      base_url: https://vra.corp.local
      verify_ssl: true
 
@@ -438,17 +436,19 @@ kitchen-vro
 `[Github] <https://github.com/chef-partners/kitchen-vro>`__
 
 * An integration point with vRO and test-kitchen
-* Not sure about the adoption rate
-* Leverages specific Workflows in vRO if it’s required by their VMware admins
+* Leverages specific Workflows in vRO if it’s required by VMware admins
 
-A basic example for a ``.kitchen.yml`` is as follows though:
+Usage Examples
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The following is a basic ``.kitchen.yml`` example:
 
 .. code-block:: yaml
 
   driver:
     name: vro
     vro_username: user@domain.com
-    vro_password: MyS33kretPassword
+    vro_password: password
     vro_base_url: https://vra.corp.local:8281
     create_workflow_name: Create TK Server
     destroy_workflow_name: Destroy TK Server
@@ -470,7 +470,7 @@ A basic example for a ``.kitchen.yml`` is as follows though:
 InSpec
 =====================================================
 
-We have an inspec plugin that verifies the vCenter and ESXi VMware stack.
+The InSpec VMware plugin is used to verify the vCenter and ESXi VMware stack.
 
 inspec-vmware
 -----------------------------------------------------
@@ -478,10 +478,12 @@ inspec-vmware
 `[Github] <https://github.com/chef/inspec-vmware>`__
 
 * Supports vCenter > 5.0
-* 11 resources available
-* Multiple more resources are planned
+* 11 resources available at the time of writing, with more planned
 
-A demo control is something like the following:
+Usage Examples
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+An example demo control:
 
 .. code-block:: ruby
 
@@ -501,23 +503,13 @@ We have a few integrations inside the VMware suite we would like to highlight.
 vRA Example Blueprints
 -----------------------------------------------------
 
-Linux
- - Posted to the `VMware{Code} <https://code.vmware.com/samples?id=1371>`__
- - 490+ Downloads
-
-Windows
- - Posted to the `VMware{Code} <https://code.vmware.com/samples?id=1390>`__
- - 450+ Downloads
- - Some  high named customers have used and leveraged this one
-
-We are planning on having an in depth Webinar on this at some point, when it is completed,
-it will be linked here.
+* `Linux <https://code.vmware.com/samples?id=1371>`__
+* `Windows <https://code.vmware.com/samples?id=1390>`__
 
 vRO plugin
 -----------------------------------------------------
 
-* Created by VMware and located `here <https://solutionexchange.vmware.com/store/products/chef-plugin-for-vrealize-orchestrator>`__
-* Planning on having an in depth Webinar on this
-* If you use vRO this does the majority of what you’re looking for
+* The `Chef plugin for vRealize Orchestrator <https://solutionexchange.vmware.com/store/products/chef-plugin-for-vrealize-orchestrator>`__ (vRO) is a VMware-supplied plugin
+* If you use vRO this provides the majority of the necessary features
 
-A basic demo is located here: https://www.youtube.com/watch?v=HlvoZ4Zdwc4
+For more information, see the plugin demo on `YouTube <https://www.youtube.com/watch?v=HlvoZ4Zdwc4>`__
