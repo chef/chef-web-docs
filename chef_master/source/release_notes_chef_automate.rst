@@ -22,6 +22,7 @@ What's New in 1.6.87
 =====================================================
 
 .. note:: This release contains significant upgrades to the platform; please read these release notes carefully.  Before you upgrade to this release, please make a `complete backup  </delivery_server_backup.html#create-backups>`_ of your Chef Automate server.
+
 Important Note when Upgrading from 0.8.5 or Earlier
 -----------------------------------------------------
 
