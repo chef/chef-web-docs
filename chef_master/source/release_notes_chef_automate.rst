@@ -10,8 +10,6 @@ What's New in 1.6.95
 
 This is a minor bug fix release. If you are upgrading from 1.5.x or earlier, please review the detailed upgrade notes for the 1.6.87 release for important upgrade information.
 
-If you are using Chef Backend for high availability of Chef Server, you should not upgrade to this release of Chef Automate until a compatible release of Chef Backend is available.
-
 Resolved Issues
 -----------------------------------------------------
 
