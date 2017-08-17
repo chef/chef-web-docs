@@ -21,8 +21,7 @@ Resolved Issues
 What's New in 1.6.87
 =====================================================
 
-.. note:: This release contains significant upgrades to the platform; please read these release notes carefully.  Before you upgrade to this release, please make a `complete backup  </delivery_server_backup.html#create-backups>`_ of your Chef Automate server.  Also note that if you are using Chef Backend for high availability of Chef Server, you should not upgrade to this release of Chef Automate until a compatible release of Chef Backend is available.
-
+.. note:: This release contains significant upgrades to the platform; please read these release notes carefully.  Before you upgrade to this release, please make a `complete backup  </delivery_server_backup.html#create-backups>`_ of your Chef Automate server.
 Important Note when Upgrading from 0.8.5 or Earlier
 -----------------------------------------------------
 
@@ -59,7 +58,7 @@ We’ve improved Chef Automate’s data handling resulting in a 20% decrease in 
 Before you install this release, please make a `complete backup </delivery_server_backup.html#create-backups>`_ of your Chef Automate server.  Data will be migrated to new Elasticsearch indices as part of the reconfigure after installation; the process requires no user interaction.  After upgrading, note that backups made with version 1.6.87 cannot be restored to earlier versions of Chef Automate.
 
 **Compatibility Notes**
-If you are operating an external Elasticsearch cluster with Chef Automate, it must be upgraded to a 5.x version for compatibility with this release.  Customers using Chef Backend for high availability of the Chef Server should not upgrade to this release until a compatible release of Chef Backend is available in the coming days.  
+If you are operating an external Elasticsearch cluster with Chef Automate, it must be upgraded to a 5.x version for compatibility with this release.
 
 Kibana 5 Upgrade
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
