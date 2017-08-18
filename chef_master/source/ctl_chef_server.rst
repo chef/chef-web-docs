@@ -680,6 +680,17 @@ There are various ways to pass the secret to this command:
       Enter ldap bind_password:    (no terminal output)
       Re-enter ldap bind_password: (no terminal output)
 
+**Options**
+
+.. tag ctl_chef_server_set_secret_options
+
+This subcommand has the following options:
+
+``--with-restart``
+    If any services depend on the secret being changed, attempt to restart them
+    after changing the secret.
+
+.. end_tag
 
 .. _ctl_chef_server_remove_secret:
 
