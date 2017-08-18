@@ -1,5 +1,5 @@
 =====================================================
-Release Notes: Chef Server 12.0 - 12.15
+Release Notes: Chef Server 12.0 - 12.16
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_server.rst>`__
 
@@ -11,6 +11,59 @@ Chef is a systems and cloud infrastructure automation framework that makes it ea
 
 .. end_tag
 
+What's New in 12.16
+=====================================================
+The following items are new for Chef server 12.16:
+
+* **Upgrade to PostgreSQL 9.6**
+* **Elasticsearch 5 support**
+* **Changes to Erlang Port Mapper Daemon (EPMD) listening ports**
+* **RabbitMQ health check in status endpoint**
+* **Notification of affected services when updating secrets with set-secret**
+
+Upgrade to PostgreSQL 9.6
+-----------------------------------------------------
+
+Chef server now uses the latest stable version of the 9.6 series (9.6.3). Upgrades of existing installations are done automatically, but creating backups is advised.
+
+The information below only applies if you have set a custom value set for ``checkpoint_segments`` in your ``/etc/opscode/chef-server.rb``. If you have not set a custom value, there is nothing to change:
+
+The ``checkpoint_segments`` configuration setting is gone, so if you previously used the following parameter:
+
+.. code-block:: ruby
+
+   postgresql['checkpoint_segments'] = 10
+
+You would instead use:
+
+.. code-block:: ruby
+
+   postgresql['max_wal_size'] = '3G'
+
+This is just an example configuration - seee the `PostgreSQL release notes <https://www.postgresql.org/docs/9.6/static/release-9-5.html>`__ for more information on tuning this option. The default setting for ``max_wal_size`` is ``1G``. The PostgreSQL release notes mention a conversion rule: ``max_wal_size = (3 * checkpoint_segments) * 16MB``. They also state that the default value for ``max_wal_size`` (1GB) should be sufficient in most settings, so this conversion is not performed automatically.
+
+The ``shmmax`` and ````shmall`` configuration settings are no longer used, as PostgreSQL 9.6 relies on System V shared memory much less than PostgreSQL 9.2. The ``shared_buffers`` configuration setting is still respected, and can be used to modify the amount of shared memory used by PostgreSQL.
+
+This update also adds two new configurables in the "Checkpoints" group: ``min_wal_size`` and ``checkpoint_flush_after``.
+
+As part of the upgrade procedure, ``chef-server-ctl cleanup`` will remove Postgres 9.2's data and logs.
+
+Elasticsearch 5 support
+-----------------------------------------------------
+Chef server now supports Elasticsearch 5. This allows Chef server and Chef Automate 1.6 to use the same Elasticsearch instance.
+
+Changes to EPMD listening ports
+-----------------------------------------------------
+The Erlang Port Mapper Daemon (EPMD) included in version 12.16 is patched to only listen on the addresses specified in ``ERL_EPMD_ADDRESS``. Before, it would implicitly add ``::1`` and ``127.0.0.1`` to the set of listening addresses, which caused trouble for systems without ``::1``.
+
+RabbitMQ health check in status endpoint
+-----------------------------------------------------
+Chef server's ``_status`` endpoint now checks the health of the analytics and internal RabbitMQ vhosts. For these checks to work, the RabbitMQ management plugin must be installed. If it is not, the checks are not performed. If Chef server is configured not to use Actions, a check will not be performed against the Actions vhost. If an indexing queue is not used, the ``chef_index`` RabbitMQ vhost will not be checked.
+
+Notification of affected services when updating secrets with set-secret
+-------------------------------------------------------------------------
+``chef-server-ctl set-secret`` will notify the user of services that depend on the secret that is being changed. When used with the optional ``--with-restart`` flag, ``chef-server-ctl set-secret`` will attempt to automatically restart the dependent services.
+
 What's New in 12.15
 =====================================================
 The following items are new for Chef server 12.15:
@@ -21,11 +74,11 @@ The following items are new for Chef server 12.15:
 * **User customization of field mapping**
 
 Supports SUSE Linux Enterprise Server on x86_64
-=====================================================
+-----------------------------------------------------
 Support for a new platform was added: SUSE Linux Enterprise Server 11 & 12 on x86_64.
 
 Add required_recipe endpoint
-=====================================================
+-----------------------------------------------------
 Added the ability to serve a required recipe file to chef-clients.
 
 The setting ``required_recipe["enable"]`` in chef-server.rb enables the required recipe feature.
@@ -39,14 +92,14 @@ The ``/organizations/<orgname>/required_recipe`` endpoint returns the required r
 See `Chef RFC 89 <https://github.com/chef/chef-rfc/blob/master/rfc089-server-enforced-recipe.md>`_ for a complete description on the ``required_recipe`` endpoint.
 
 ACLs and groups can refer to global groups
-=====================================================
+-----------------------------------------------------
 The server-admins group is useful, but it breaks roundtripping when it appears in an organizations ACLs and groups. This makes it difficult when using the API for backups.
 
 A new syntax '::' was added to indicate scoping. ``::GROUPNAME`` without a prefix indicates a global (across multiple orgs) entity, while ``ORGNAME::GROUPNAME`` refers to a group in an another org.
 So if the server-admins appears in an organizations ACL, you will see the name ``::server-admins``.
 
 User customization of field mapping
-=====================================================
+-----------------------------------------------------
 Attributes from a user's LDAP record are used during account-linking to populate the erchef user record when it is created. Previously, the mapping between LDAP attributes and chef user attributes were fixed. Now, they are configurable. For example, if the user's LDAP record stores their email address in a field named 'address' instead of 'mail', then you could set the following in ``private-chef.rb``:
 
 .. code-block:: ruby
@@ -54,7 +107,7 @@ Attributes from a user's LDAP record are used during account-linking to populate
    ldap['email_attribute'] = "address"
 
 Bug Fixes
-=====================================================
+-----------------------------------------------------
 Fixed regression in oc-id. The identity service was using the wrong Chef Server API version level.
 
 Fixed regression in the nginx proxy that prevented Automate-based Compliance profiles from being reachable.
@@ -72,7 +125,7 @@ The following items are new for Chef server 12.14:
 * **Reduce password proliferation**
 
 Reduce password proliferation
-=====================================================
+-----------------------------------------------------
 We've substantially reduced the number of configuration files that contain plaintext passwords. Now, no passwords or credentials are rendered outside of ``/etc/opscode/`` in Chef server's default configuration.
 
 To ensure backwards compatibility, Chef server still renders passwords and keys to multiple files in ``/etc/opscode``. However, if you are not using any Chef Server add-ons, or if you have updated to the latest releases of all add-ons, you can set the following:
@@ -100,11 +153,11 @@ The following items are new for Chef server 12.13:
 * **FIPS runtime flag exposed on RHEL systems** Setting ``fips true`` and reconfiguring will start the server in FIPS mode.  Packages for other systems will not have the required OpenSSL FIPS module and will fail to start if reconfigured with ``fips true``.
 
 New platform: RHEL6/s390x
-=====================================================
+-----------------------------------------------------
 Support for a new platform was added: Red Hat Enterprise Linux 6 on s390x.
 
 Solr4 Admin API/UI disabled by default
-=====================================================
+-----------------------------------------------------
 With this release, the admin UI of Solr4 has been removed. The underlying API
 has also been disabled. Users that depend on the admin API endpoints can enable
 them via adding:
@@ -116,7 +169,7 @@ them via adding:
 to ``chef-server.rb``.
 
 FIPS runtime flag exposed
-=====================================================
+-----------------------------------------------------
 The Chef Server package now exposes a ``fips`` configuration flag in
 ``chef-server.rb``. Setting ``fips true`` and reconfiguring will start the
 server in FIPS mode. The default value of this flag is ``false`` except
@@ -137,7 +190,7 @@ The following items are new for Chef server 12.12:
 * **New oc_id email configuration options** Outbound email address can now be configured.
 
 Solr 4 GC Logging
-=====================================================
+-----------------------------------------------------
 Chef server now uses Java's native rotation for the gclog. This prevents situations where logrotate creates large sparse files on disk, which may be problematic to manage with tools that can't handle sparse files.
 
 The Solr 4 GC log can now be found at ``/var/log/opscode/opscode-solr4/gclog.log.N.current`` where *N* is an integer. The ``.current`` extension denotes the log currently being written to.
@@ -153,7 +206,7 @@ To suppress the GC log completely, set the following option in ``/etc/opscode/ch
    opscode_solr4['log_gc'] = false
 
 oc_id Email Configuration Options
-=====================================================
+-----------------------------------------------------
 The ``oc_id`` service now includes configuration for outbound email to ensure password reset emails can be sent correctly.
 
 You can now set the following options in ``/etc/opscode/chef-server.rb``:
@@ -171,7 +224,7 @@ What's New in 12.11
 The following items are new for Chef server 12.11:
 
 New Endpoints
-=====================================================
+-----------------------------------------------------
 * **/organizations/ORGNAME/validate/PATH** accepts a signed request and validates it as if it had been sent to `PATH`. It returns 200 if the request is authentic and 401 if it is not.
 * **/organizations/ORGNAME/data-collector** forwards requests for a data-collector service after authenticating the request using Chef Server's standard authentication headers.  To use this endpoint, users must set both of the following options in /etc/opscode/chef-server.rb:
 
@@ -188,7 +241,7 @@ New Endpoints
      data_collector['token']
 
 Security Updates
-=====================================================
+-----------------------------------------------------
 
 * The default allowed SSL ciphers now include AES256-GCM-SHA384 to ensure compatibility with AWS's Classic ELB health check tool.
 * **chef-server-ctl psql** previously revealed the postgresql password via `ps`.
@@ -205,12 +258,12 @@ The following items are new for Chef server 12.10:
 * Regression fix: that caused errors on reconfigure when LDAP bind password is nil has been fixed.
 
 Security Updates
-=====================================================
+-----------------------------------------------------
 * Upgrade to OpenSSL 1.0.2j. The prior release (1.0.1u) is approaching EOL.
 * Updated TLS ciphers. See compatibility notes, below.
 
 Compatibility Notes
-=====================================================
+-----------------------------------------------------
 
 * The change of TLS ciphers can cause older tooling to fail to negotiate SSL sessions with the Chef Server. The changes to the cipher list are captured here. Upgrading any custom clients of the Chef Server API to use a current SSL release will resolve this.
 
@@ -261,7 +314,7 @@ The following items are new for Chef server 12.7:
 * **Updated to OpenSSL 1.0.1t** Version 1.0.1t contains several security fixes.
 
 Service credential rotation support
-=====================================================
+-----------------------------------------------------
 `Veil <https://github.com/chef/chef-server/blob/3ff412b5a2e6ad54cfa79bca6865e1bbca28fe5e/omnibus/files/veil/README.md>`_ is a new library to manage Chef server secrets. It allows any Chef server with a given set of secrets to create new service credentials and rotate them without requiring the secrets files to be copied between each Chef server in a cluster.
 
 Five new commands have been created to support credential rotation:
@@ -275,7 +328,7 @@ Five new commands have been created to support credential rotation:
 Your secrets file is located at ``/etc/opscode/private-chef-secrets.json``, so whenever you rotate your service credentials, or update your shared secrets, this file will contain the changes.
 
 Supporting SAML-authentication in Chef Manage
-=====================================================
+-----------------------------------------------------
 To support SAML-authentication in Chef Manage, you can now filter users using ``external_authentication_uid`` in a GET request against the Chef server API. For example, to retrieve users where the ``external_authentication_uid`` is ``jane@doe.com``, do the following:
 
 .. code-block:: none
@@ -289,7 +342,7 @@ The following items are new for Chef server 12.6:
 * **Chef licenses** All Chef products have a license that governs the entire product and includes links to license files for any third-party software included in Chef packages. This release updates the Chef server for the Chef license.
 
 About Chef Licenses
-=====================================================
+-----------------------------------------------------
 .. tag chef_license_summary
 
 All Chef products have a license that governs the entire product and includes links to license files for any third-party software included in Chef packages. The ``/opt/<PRODUCT-NAME>/LICENSES`` directory contains individual copies of all referenced licenses.
@@ -319,7 +372,7 @@ The following items are new for Chef server 12.5:
 * **New group for key-related Chef server API endpoints** The ``public_key_read_access`` group defines which users and clients have read permissions to key-related endpoints in the Chef server API.
 
 public_key_read_access
-=====================================================
+-----------------------------------------------------
 .. tag server_rbac_permissions_default_public_key_read_access
 
 The ``public_key_read_access`` group controls which users and clients have :doc:`read permissions to the following endpoints </api_chef_server>`:
@@ -371,7 +424,7 @@ The following items are new for Chef server 12.4:
 * **Global server administrator list** Use the ``grant-server-admin-permissions``, ``remove-server-admin-permissions``, and ``list-server-admins`` to manage the list of users who belong to the ``server-admins`` group.
 
 /universe
-=====================================================
+-----------------------------------------------------
 .. tag api_chef_server_endpoint_universe
 
 Use the ``/universe`` endpoint to retrieve the known collection of cookbooks, and then use it with Berkshelf and Chef Supermarket.
@@ -443,7 +496,7 @@ The response will return an embedded hash, with the name of each cookbook as a t
 .. end_tag
 
 Server Admins
-=====================================================
+-----------------------------------------------------
 .. tag server_rbac_server_admins
 
 The ``server-admins`` group is a global group that grants its members permission to create, read, update, and delete user accounts, with the exception of superuser accounts. The ``server-admins`` group is useful for users who are responsible for day-to-day administration of the Chef server, especially user management via the ``knife user`` subcommand. Before members can be added to the ``server-admins`` group, they must already have a user account on the Chef server.
@@ -752,7 +805,7 @@ The following settings may be used for tuning RabbitMQ queues used by Chef Analy
 .. end_tag
 
 What's New
-=====================================================
+-----------------------------------------------------
 The following items are new for Chef server 12.2:
 
 * **Solr to Solr4 settings** Built-in transition for Apache Solr memory and JVM settings from Enterprise Chef to Chef server version 12.
@@ -762,7 +815,7 @@ The following items are new for Chef server 12.2:
 * **New options for chef-server-ctl reindex** The ``reindex`` subcommand has new options: ``--all-orgs`` (reindex all organizations), ``--disable-api`` (disable the Chef server API during reindexing), ``--with-timing`` (print timing information), and ``--wait`` (wait for reindex queue to clear before exiting).
 
 Solr => Solr 4 Changes
-=====================================================
+-----------------------------------------------------
 .. tag 2_solr_to_solr4
 
 Chef server version 12 is upgraded to Apache Solr 4. If Apache Solr options were added to the private-chef.rb file under ``opscode_solr`` for Enterprise Chef, those configuration options are now stored under ``opscode_solr4`` in the chef-server.rb file for Chef server version 12.
@@ -772,7 +825,7 @@ Some ``opscode_solr`` settings are imported automatically, such as heap, new siz
 .. end_tag
 
 External PostgreSQL
-=====================================================
+-----------------------------------------------------
 .. tag server_ha_external_postgresql
 
 The following diagram highlights the specific changes that occur when PostgreSQL is configured and managed independently of the Chef server configuration.
@@ -826,7 +879,7 @@ Use the following configuration settings in the chef-server.rb file to configure
      - Required when ``postgresql['external']`` is set to ``true``. The virtual IP address. The host for this IP address must be online and reachable from the Chef server via the port specified by ``postgresql['port']``. Set this value to the IP address or hostname for the machine on which external PostgreSQL is located when ``postgresql['external']`` is set to ``true``.
 
 Backup / Restore
-=====================================================
+-----------------------------------------------------
 Use the following commands to manage backups of Chef server data, and then to restore those backups.
 
 backup
@@ -912,7 +965,7 @@ This subcommand has the following syntax:
    $ chef-server-ctl restore /path/to/tar/archive.tar.gz
 
 psql
-=====================================================
+-----------------------------------------------------
 .. tag ctl_chef_server_psql
 
 The ``psql`` subcommand is used to log into the PostgreSQL database associated with the named service. This subcommand:
@@ -948,7 +1001,7 @@ This subcommand has the following options:
 .. end_tag
 
 reindex Options
-=====================================================
+-----------------------------------------------------
 .. tag ctl_chef_server_reindex_options
 
 This subcommand has the following options:
@@ -968,7 +1021,7 @@ This subcommand has the following options:
 .. end_tag
 
 Chef server API Endpoints
-=====================================================
+-----------------------------------------------------
 The following endpoints have been added to the Chef server API:
 
 /policy_groups/NAME
@@ -3217,7 +3270,7 @@ The following settings are new:
 .. note:: Previous versions of the Chef server used the ``ldap['ssl_enabled']`` setting to first enable SSL, and then the ``ldap['encryption']`` setting to specify the encryption type. These settings are deprecated.
 
 Key Rotation
-=====================================================
+-----------------------------------------------------
 Use the following commands to manage public and private key rotation for users and clients.
 
 add-client-key
@@ -3494,5 +3547,5 @@ Returns:
    -----END PUBLIC KEY-----
 
 Changelog
-=====================================================
+-----------------------------------------------------
 For the list of issues that were addressed for this release, please see the changelog on GitHub: https://github.com/chef/chef-server/blob/master/CHANGELOG.md

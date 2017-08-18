@@ -688,7 +688,7 @@ This subcommand has the following options:
 
 ``--with-restart``
     If any services depend on the secret being changed, attempt to restart them
-    after changing the secret.
+    after changing the secret. Added in Chef server 12.16.2.
 
 .. end_tag
 
