@@ -1,5 +1,5 @@
 =====================================================
-Release Notes: Chef Server 12.0 - 12.15
+Release Notes: Chef Server 12.0 - 12.16
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_server.rst>`__
 
@@ -10,6 +10,58 @@ Release Notes: Chef Server 12.0 - 12.15
 Chef is a systems and cloud infrastructure automation framework that makes it easy to deploy servers and applications to any physical, virtual, or cloud location, no matter the size of the infrastructure. Each organization is comprised of one (or more) workstations, a single server, and every node that will be configured and maintained by the chef-client. Cookbooks (and recipes) are used to tell the chef-client how each node in your organization should be configured. The chef-client (which is installed on every node) does the actual configuration.
 
 .. end_tag
+
+What's New in 12.16
+=====================================================
+
+* **Upgrade to PostgreSQL 9.6**
+* **Elasticsearch 5 support**
+* **Changes to Erlang Port Mapper Daemon (EPMD) listening ports**
+* **RabbitMQ health check in status endpoint**
+* **Notification of affected services when updating secrets with set-secret**
+
+Upgrade to PostgreSQL 9.6
+-----------------------------------------------------
+
+Chef server now uses the latest stable version of the 9.6 series (9.6.3). Upgrades of existing installations are done automatically, but creating backups is advised.
+
+The information below only applies if you have set a custom value set for ``checkpoint_segments`` in your ``/etc/opscode/chef-server.rb``. If you have not set a custom value, there is nothing to change:
+
+The ``checkpoint_segments`` configuration setting is gone, so if you previously used the following parameter:
+
+.. code-block:: ruby
+
+   postgresql['checkpoint_segments'] = 10
+
+You would instead use:
+
+.. code-block:: ruby
+
+   postgresql['max_wal_size'] = '3G'
+
+This is just an example configuration - seee the `PostgreSQL release notes <https://www.postgresql.org/docs/9.6/static/release-9-5.html>`__ for more information on tuning this option. The default setting for ``max_wal_size`` is ``1G``. The PostgreSQL release notes mention a conversion rule: ``max_wal_size = (3 * checkpoint_segments) * 16MB``. They also state that the default value for ``max_wal_size`` (1GB) should be sufficient in most settings, so this conversion is not performed automatically.
+
+The ``shmmax`` and ````shmall`` configuration settings are no longer used, as PostgreSQL 9.6 relies on System V shared memory much less than PostgreSQL 9.2. The ``shared_buffers`` configuration setting is still respected, and can be used to modify the amount of shared memory used by PostgreSQL.
+
+This update also adds two new configurables in the "Checkpoints" group: ``min_wal_size`` and ``checkpoint_flush_after``.
+
+As part of the upgrade procedure, ``chef-server-ctl cleanup`` will remove Postgres 9.2's data and logs.
+
+Elasticsearch 5 support
+-----------------------------------------------------
+Chef server now supports Elasticsearch 5. This allows Chef server and Chef Automate 1.6 to use the same Elasticsearch instance.
+
+Changes to EPMD listening ports
+-----------------------------------------------------
+The Erlang Port Mapper Daemon (EPMD) included in version 12.16 is patched to only listen on the addresses specified in ``ERL_EPMD_ADDRESS``. Before, it would implicitly add ``::1`` and ``127.0.0.1`` to the set of listening addresses, which caused trouble for systems without ``::1``.
+
+RabbitMQ health check in status endpoint
+-----------------------------------------------------
+Chef server's ``_status`` endpoint now checks the health of the analytics and internal RabbitMQ vhosts. For these checks to work, the RabbitMQ management plugin must be installed. If it is not, the checks are not performed. If Chef server is configured not to use Actions, a check will not be performed against the Actions vhost. If an indexing queue is not used, the ``chef_index`` RabbitMQ vhost will not be checked.
+
+Notification of affected services when updating secrets with set-secret
+-------------------------------------------------------------------------
+``chef-server-ctl set-secret`` will notify the user of services that depend on the secret that is being changed. When used with the optional ``--with-restart`` flag, ``chef-server-ctl set-secret`` will attempt to automatically restart the dependent services.
 
 What's New in 12.15
 =====================================================
