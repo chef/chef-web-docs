@@ -142,7 +142,7 @@ Install Chef DK
 
 Create a bootstrap template
 -----------------------------------------------------
-By default, ``knife bootstrap`` uses the ``chef-full`` template to bootstrap a node. This template contains a number of useful features, but it also attempts to pull an installation script from ``omnitruck.chef.io``. In this section, you'll copy the contents of the ``chef-full`` template to a custom template, and then modify the package source.
+By default, ``knife bootstrap`` uses the ``chef-full`` template to bootstrap a node. This template contains a number of useful features, but it also attempts to pull an installation script from ``omnitruck.chef.io``. In this section, you'll copy the contents of the ``chef-full`` template to a custom template, and then modify the package and Ruby gem sources.
 
 #. Navigate to the ``.chef`` directory, and create a ``bootstap`` directory within it:
 
@@ -169,6 +169,24 @@ By default, ``knife bootstrap`` uses the ``chef-full`` template to bootstrap a n
    .. code-block:: ruby
 
       install_sh="<%= knife_config[:bootstrap_url] ? knife_config[:bootstrap_url] : "http://packages.example.com/install.sh" %>"
+
+#. Still in your text editor, locate the following line near the bottom of your ``airgap.erb`` file:
+
+   .. code-block:: ruby
+
+      cat > /etc/chef/client.rb <<'EOP'
+      <%= config_content %>
+      EOP
+
+   Beneath it, add the following, replacing ``rubygems.example.com`` with the URL of your Gem mirror:
+
+   .. code-block:: ruby
+
+      cat >> /etc/chef/client.rb <<'EOP'
+      rubygems_url "http://gems.example.com"
+      EOP
+
+   This appends the appropriate ``rubygems_url`` setting to the ``/etc/chef/client.rb`` file that is created during bootstrap, which ensures that your nodes use your internal gem mirror.
 
 Configure knife
 -----------------------------------------------------
