@@ -5,6 +5,18 @@ Release Notes: Chef Automate
 
 Chef Automate provides a full suite of enterprise capabilities for workflow, visibility and compliance that allow you to manage and monitor application and cookbook deployments across a cluster of nodes in your environment.
 
+What's New in 1.6.99
+=====================================================
+
+This is a minor bug fix release. If you are upgrading from 1.5.x or earlier, please review the detailed upgrade notes for the 1.6.87 release for important upgrade information.
+
+Resolved Issues
+-----------------------------------------------------
+
+* Fixed an issue that caused ``automate-ctl delete-node`` to fail with ``414 Request-URI Too Large``
+* Fixed an issue that occurred on marketplace images (AWS and Azure) when a user tried to scan a node with the audit cookbook. A ``401 unauthorized`` error was returned when trying to use the “compliance” source for profiles. Until 1.6.99 is deployed to the marketplaces, you will need to upgrade images using ``marketplace-ctl upgrade``
+* Changed logic on the **Test** button for webhook notifications to accept all ``2xx`` responses as successful
+
 What's New in 1.6.95
 =====================================================
 
@@ -54,7 +66,7 @@ New Features
 Elasticsearch 5 Upgrade
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-We’ve improved Chef Automate’s data handling resulting in a 20% decrease in on-disk index size for converge and compliance data going forward. The bundled version of Elasticsearch was upgraded from version 2.3 to 5.4.1 providing many `performance and resiliency benefits <https://www.elastic.co/blog/elasticsearch-5-0-0-released>`_. 
+We’ve improved Chef Automate’s data handling resulting in a 20% decrease in on-disk index size for converge and compliance data going forward. The bundled version of Elasticsearch was upgraded from version 2.3 to 5.4.1 providing many `performance and resiliency benefits <https://www.elastic.co/blog/elasticsearch-5-0-0-released>`_.
 
 Before you install this release, please make a `complete backup </delivery_server_backup.html#create-backups>`_ of your Chef Automate server.  Data will be migrated to new Elasticsearch indices as part of the reconfigure after installation; the process requires no user interaction.  After upgrading, note that backups made with version 1.6.87 cannot be restored to earlier versions of Chef Automate.
 
@@ -77,7 +89,7 @@ Initial setup for Kibana after this upgrade:
 #. Check the “Use event times to create index names [DEPRECATED]” checkbox.
 #. Click **Create**.
 
-Your screen should look like this before you click **Create**: 
+Your screen should look like this before you click **Create**:
 
 .. image:: ../../images/kibana_setup.png
 
@@ -91,7 +103,7 @@ To get started using notifications, navigate to the **Nodes** tab in Chef Automa
 Updated Compliance Profiles
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-All compliance profiles have been updated to include the build number of the profile. This change was necessary to track updates to CIS profiles which received changes without the official version number increasing. For example, a number of improvements were made to tests in the the RHEL profile family. Additionally, incorrectly formatted descriptions were updated and improved significantly.  
+All compliance profiles have been updated to include the build number of the profile. This change was necessary to track updates to CIS profiles which received changes without the official version number increasing. For example, a number of improvements were made to tests in the the RHEL profile family. Additionally, incorrectly formatted descriptions were updated and improved significantly.
 
 CSV Export for Compliance Reports
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -101,7 +113,7 @@ In addition to the existing JSON export of compliance reports we have introduced
 Control Filter for Compliance
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-An additional filter was added to the search bar in the compliance reporting view. It allows users to search for specific controls and filter the view around these. In the past, it was only possible to search and filter the view around entire profiles, which didn’t cover cases where users asked for more fine-grained control. 
+An additional filter was added to the search bar in the compliance reporting view. It allows users to search for specific controls and filter the view around these. In the past, it was only possible to search and filter the view around entire profiles, which didn’t cover cases where users asked for more fine-grained control.
 
 .. note: This mechanism will filter the list of nodes and profiles but the summary information is still calculated for the entire node and profile, not just for the control.
 
@@ -131,9 +143,9 @@ Resolved Issues
 * Fixed an issue where ``automate-ctl install-runner`` was not prompting for a password
 * The ``automate-ctl cleanse`` command has been fixed to behave as `documented </ctl_automate_server.html#cleanse>`_
 * The Chef Automate UI no longer has issues when accessed through the IP address or anything not configured as its FQDN
-* Fixed an issue that caused ``automate-ctl reconfigure`` to hang for several minutes when Chef’s product telemetry endpoint was not reachable  
+* Fixed an issue that caused ``automate-ctl reconfigure`` to hang for several minutes when Chef’s product telemetry endpoint was not reachable
 * Compliance scan results now display their latest timestamp
-* Profile updates are now available from the profiles screen whenever a new version is released 
+* Profile updates are now available from the profiles screen whenever a new version is released
 * Fixed an issue that limited the list of compliance profiles in the report to 10
 * Small UI fixes in the compliance view around scan results filter, profile suggestions, and reports with multiple scan results
 
@@ -169,7 +181,7 @@ All data that is received by Chef Automate will be available in both the new and
 Chef Automate Pilot
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-This release introduces a Docker-based pilot offering for Chef Automate. This is specifically designed for customers evaluating Chef Automate for their organization, and is not intended for production use. The offering is built with Chef’s Habitat technology, allowing Chef Automate to be installed in a few minutes in containers running on a single machine. Also included are sets of compliance-driven demo data, to offer first-hand experience with the product. Customers can try the pilot by visiting https://www.chef.io/automate/ or https://www.chef.io/why-chef/. You can also go through the tutorial for Chef Automate Pilot on `Learn Chef Rally <https://learn.chef.io/modules/chef-automate-pilot/linux/docker#/>`_. 
+This release introduces a Docker-based pilot offering for Chef Automate. This is specifically designed for customers evaluating Chef Automate for their organization, and is not intended for production use. The offering is built with Chef’s Habitat technology, allowing Chef Automate to be installed in a few minutes in containers running on a single machine. Also included are sets of compliance-driven demo data, to offer first-hand experience with the product. Customers can try the pilot by visiting https://www.chef.io/automate/ or https://www.chef.io/why-chef/. You can also go through the tutorial for Chef Automate Pilot on `Learn Chef Rally <https://learn.chef.io/modules/chef-automate-pilot/linux/docker#/>`_.
 
 Policyfile Data Views
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -269,7 +281,7 @@ Resolved Issues
 
 * The command automate-ctl backup-data has been removed. Please use automate-ctl create-backup in its place.
 * Corrected an issue where users without root access could not use the --help command in automate-ctl.
-* Updated users.rb to correct an issue of adding ‘git’ user in a tightly controlled user access environment. 
+* Updated users.rb to correct an issue of adding ‘git’ user in a tightly controlled user access environment.
 * Added guarding to startup of the RabbitMQ service to avoid failures in cases where the network is not yet fully configured.
 * Minor UI fixes (button colors, navigation breadcrumbs, incorrect favicon in Firefox browser).
 * A newline as the first character in a delivery review title no longer renders an empty title in the Chef Automate workflow UI.
@@ -281,7 +293,7 @@ What's New in 0.7.151
 New Features
 -----------------------------------------------------
 
-Password Reset Token 
+Password Reset Token
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 There is a new ``automate-ctl`` command that issues a temporary token and URL to allow users to reset their passwords via the GUI as an alternative to an admin typing in the password via the ``automate-ctl reset-password`` command. The new command is documented `here </ctl_automate_server.html#generate-password-reset-token>`_.
@@ -493,7 +505,7 @@ As part of the enhancements to improve Chef automate installation experience, a 
 
 Resources validated includes: Memory, CPU, target directory structure, target directory disk space, umask, port access, and availability of SSH client.
 
-Additional details on the command can be found at: 
+Additional details on the command can be found at:
 `pre-flight check reference </ctl_automate_server.html#preflight-check>`_
 `troubleshooting information on pre-flight check </troubleshooting_chef_automate.html#preflight-check>`_
 `Chef Automate Server Installation and Configuration </install_chef_automate.html#id2>`_
