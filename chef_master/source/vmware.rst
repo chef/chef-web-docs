@@ -4,7 +4,7 @@ Chef and VMware
 
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/vmware.rst>`__
 
-VMware, Inc. is a subsidiary of Dell Technologies that provides cloud computing and platform virtualization software and services. This page outlines the different tools that can be used to integrate Chef with the VMware platform. 
+VMware, Inc. is a subsidiary of Dell Technologies that provides cloud computing and platform virtualization software and services. This page outlines the different tools that can be used to integrate Chef with the VMware platform.
 
 For discussions on VMware and Chef, visit the `VMware{code} <https://code.vmware.com/web/code/join>`__ Slack team, located in the **#chef** channel.
 
@@ -70,9 +70,9 @@ Usage Examples
 
 .. code-block:: bash
 
-   $ knife vsphere vm delete MACHINENAME 
-   
-This command can be used with the ``-P`` option to remove the machine from the Chef server. 
+   $ knife vsphere vm delete MACHINENAME
+
+This command can be used with the ``-P`` option to remove the machine from the Chef server.
 
 knife-vcenter
 -----------------------------------------------------
@@ -166,7 +166,7 @@ Each blueprint may require different parameters to successfully complete provisi
 
 Common parameters to specify are:
 
-* ``--cpus```: number of CPUs
+* ``--cpus``: number of CPUs
 * ``--memory``: amount of RAM in MB
 * ``--requested-for``: vRA login that should be listed as the owner
 * ``--lease-days``: number of days for the resource lease
