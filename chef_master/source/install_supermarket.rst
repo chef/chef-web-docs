@@ -161,7 +161,7 @@ The following attribute values must be defined:
 * ``chef_oauth2_app_id``
 * ``chef_oauth2_secret``
 
-You can get the chef_oauth2_app_id and chef_oauth2_secret values from your Chef server (which you configured earlier in this process) in ``/etc/opscode/oc-id-applications/supermarket.json``:
+Once configured, you can get the ``chef_oauth2_app_id`` and ``chef_oauth2_secret`` values from your Chef server within ``/etc/opscode/oc-id-applications/supermarket.json``:
 
 For ``chef_server_url``, enter in the url for your chef server.
 For ``chef_oauth2_app_id``, enter in the uid from ``/etc/opscode/oc-id-applications/supermarket.json``
@@ -169,7 +169,7 @@ For ``chef_oauth2_secret``, enter in the secret from ``/etc/opscode/oc-id-applic
 
 To define these attributes, do the following:
 
-#. Open the ``/recipes/default.rb`` file and add the following, BEFORE the `include_recipe` line that was added in the previous step, (assuming a data bag named ``apps`` and a data bag item named ``supermarket``):
+#. Open the ``/recipes/default.rb`` file and add the following, BEFORE the ``include_recipe`` line that was added in the previous step. This example uses a data bag named ``apps`` and a data bag item named ``supermarket``:
 
    .. code-block:: ruby
 
@@ -197,7 +197,11 @@ To define these attributes, do the following:
 
 #. Save and close the ``/recipes/default.rb`` file.
 
-.. note:: If you are running your private Supermarket in AWS, you may need to set an additional attribute for the node's public ip.  i.e. node node.override['supermarket_omnibus']['config']['fqdn'] = your_node_public_ip
+.. note:: If you are running your private Supermarket in AWS, you may need to set an additional attribute for the node's public IP address:
+
+   .. code-block:: ruby
+
+      node.override['supermarket_omnibus']['config']['fqdn'] = your_node_public_ip
 
 Upload the Wrapper
 -----------------------------------------------------
@@ -340,7 +344,7 @@ To run Chef Supermarket in Kitchen, do the following:
 
       $ cd supermarket-omnibus-cookbook
 
-#. Create a .kitchen.yml file that is local to the repo: ``.kitchen.local.yml`` and then add the following:
+#. Create a ``.kitchen.yml`` file that is local to the repo: ``.kitchen.local.yml`` and then add the following:
 
    .. code-block:: yaml
 
@@ -380,7 +384,7 @@ To run Chef Supermarket in Kitchen, do the following:
 
 Proxies
 -----------------------------------------------------
-If Kitchen fails due to being behind a proxy, update the .kitchen.yml file:
+If Kitchen fails due to being behind a proxy, update the ``.kitchen.yml`` file:
 
 .. code-block:: yaml
 
@@ -395,7 +399,7 @@ Kitchen Runs Slowly
 -----------------------------------------------------
 If Kitchen has to download and install the chef-client omnibus package every time, do the following to speed that process up:
 
-#. Update the .kitchen.yml file so that Kitchen can cache the omnibus installer:
+#. Update the ``.kitchen.yml`` file so that Kitchen can cache the omnibus installer:
 
    .. code-block:: yaml
 
@@ -431,7 +435,7 @@ If Kitchen has to download and install the chef-client omnibus package every tim
 
       $ cd supermarket-omnibus-cookbook
 
-#. Create a .kitchen.yml file that is local to the repo: ``.kitchen.local.yml`` and then add the following:
+#. Create a ``.kitchen.yml`` file that is local to the repo: ``.kitchen.local.yml`` and then add the following:
 
    .. code-block:: yaml
 
