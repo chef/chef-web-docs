@@ -10,10 +10,10 @@ Prerequisites
 
 Since a variety of different practices are used to create an air-gapped network, this guide focuses solely on the implementation of Chef software - as such, it makes the following assumptions:
 
-* You have a way to get packages to your air-gapped machines.
-* Machines on your air-gapped network are able to resolve each other via DNS.
-* A server's Fully Qualified Domain Name (FQDN) is the name that will be used by other servers to access it.
-* You have a private Ruby gem mirror to supply gems as needed.
+* You have a way to get packages to your air-gapped machines
+* Machines on your air-gapped network are able to resolve each other via DNS
+* A server's Fully Qualified Domain Name (FQDN) is the name that will be used by other servers to access it
+* You have a private Ruby gem mirror to supply gems as needed
 * You have an artifact store for file downloads. At a minimum, it should have the following packages available:
     * Chef DK
     * Chef client
@@ -22,7 +22,7 @@ Since a variety of different practices are used to create an air-gapped network,
 
 Create an install script
 -----------------------------------------------------
-An install script is used to install Chef client when bootstrapping a new node. It simply pulls the Chef client package from your artifact store, and then installs it. For example, on Debian-based Linux systems, it looks like this:
+An install script is used to install Chef client when bootstrapping a new node. It simply pulls the Chef client package from your artifact store, and then installs it. For example, on Debian-based Linux systems, it would look similar to this:
 
 .. code-block:: bash
 
@@ -36,7 +36,9 @@ The install script should be accessible from your artifact store.
 
 Chef server
 =====================================================
-If you intend to use Chef Automate, create the ``delivery`` user and add it to your organization during this step. Note that in order to configure Supermarket later in this guide, you will need a user that is a member of the ``admins`` group.
+In this section you'll create install the Chef server, and create your organization and user.  Note that in order to configure Supermarket later in this guide, you will need a user that is a member of the ``admins`` group.
+
+.. note:: If you intend to use Chef Automate, create the ``delivery`` user and add it to your organization during this step.
 
 #. Download the package from https://downloads.chef.io/chef-server/.
 #. Upload the package to the machine that will run the Chef server, and then record its location on the file system. The rest of these steps assume this location is in the ``/tmp`` directory.
@@ -178,7 +180,7 @@ By default, ``knife bootstrap`` uses the ``chef-full`` template to bootstrap a n
       <%= config_content %>
       EOP
 
-   Beneath it, add the following, replacing ``rubygems.example.com`` with the URL of your Gem mirror:
+   Beneath it, add the following, replacing ``gems.example.com`` with the URL of your gem mirror:
 
    .. code-block:: ruby
 
@@ -217,7 +219,26 @@ Now that ``knife`` is configured, copy the SSL certificates from your Chef serve
 
 Private Supermarket
 =====================================================
-Private Supermarket allows you to host your own internal version of the `Chef supermarket <https://supermarket.chef.io>`__ within your air-gapped network. In this section, you will use a wrapper cookbook with the `Supermarket omnibus cookbook <https://supermarket.chef.io/cookbooks/supermarket-omnibus-cookbook>`__ to install private Supermarket.
+Private Supermarket allows you to host your own internal version of the `Chef supermarket <https://supermarket.chef.io>`__ within your air-gapped network.
+
+Requirements
+-----------------------------------------------------
+In this section, you will use a wrapper around the `Supermarket omnibus cookbook <https://supermarket.chef.io/cookbooks/supermarket-omnibus-cookbook>`__ to install private Supermarket. The Supermarket omnibus cookbook depends upon the following cookbooks:
+
+* `Chef ingredient <https://supermarket.chef.io/cookbooks/chef-ingredient>`_ 
+* `hostsfile <https://supermarket.chef.io/cookbooks/hostsfile>`_ 
+
+Your ``cookbooks`` directory must have all three of these cookbooks installed before you will be able to use the Supermarket cookbook wrapper. In addition the necessary cookbooks, a private Chef Supermarket has the following requirements:
+
+* An operational Chef server (version 12.0 or higher) to act as the OAuth 2.0 provider
+* A user account on the Chef server with ``admins`` priviliges
+* A key for the user account on the Chef server
+* An x86_64 compatible Linux host with at least 1 GB memory
+* System clocks synchronized on the Chef server and Supermarket hosts
+* Sufficient disk space to meet project cookbook storage capacity or credentials to store cookbooks in an Amazon Simple Storage Service (S3) bucket
+
+Configure credentials
+-----------------------------------------------------
 
 First, you'll configure Chef Identity credentials for Supermarket. Chef Identity is an OAuth 2.0 service packaged with the Chef server, that allows you to use the same credentials to access both server and Supermarket.
 
@@ -255,3 +276,162 @@ First, you'll configure Chef Identity credentials for Supermarket. Chef Identity
         "secret": "17cf1141cc971a10ce307611beda7ffadstr4f1bc98d9f9ca76b9b127879",
         "redirect_uri": "https://supermarket.mycompany.com/auth/chef_oauth2/callback"
       }
+
+Create a Wrapper
+-----------------------------------------------------
+A wrapper cookbook is used to define project and/or organization-specific requirements around a community cookbook.
+
+.. image:: ../../images/supermarket_wrapper_cookbook.svg
+   :width: 400px
+   :align: left
+
+#. Generate the cookbook:
+
+   .. code-block:: bash
+
+      $ chef generate cookbook my_supermarket_wrapper
+
+#. Change directories into that cookbook:
+
+   .. code-block:: bash
+
+      $ cd my_supermarket_wrapper
+
+#. Defines the wrapper cookbook’s dependency on the ``supermarket-omnibus-cookbook`` cookbook. Open the metadata.rb file of the newly-created cookbook, and then add the following line:
+
+   .. code-block:: ruby
+
+      depends 'supermarket-omnibus-cookbook'
+
+#. Save and close the metadata.rb file.
+
+#. Open the ``/recipes/default.rb`` recipe located within the newly-generated cookbook and add the following content:
+
+   .. code-block:: ruby
+
+      include_recipe 'supermarket-omnibus-cookbook'
+
+   This ensures that the ``default.rb`` file in the ``supermarket-omnibus-cookbook`` is run.
+
+Define Attributes
+-----------------------------------------------------
+Define the attributes for the Chef Supermarket installation and how it connects to the Chef server. One approach would be to hard-code attributes in the wrapper cookbook's ``default.rb`` recipe. A better approach is to place these attributes in a :doc: `data bag </data_bags>`_, and then reference them from the recipe. For example, the data bag could be named ``apps`` and then a data bag item within the data bag could be named ``supermarket``. The following attributes are required:
+
+* ``chef_server_url``: the url for your chef server.
+* ``chef_oauth2_app_id``: the Chef Identity uid from ``/etc/opscode/oc-id-applications/supermarket.json``
+* ``chef_oauth2_secret``: The Chef Identity secret from ``/etc/opscode/oc-id-applications/supermarket.json``
+* ``package_url``: The location of the Supermarket package on your artifact store
+
+To define these attributes, do the following:
+
+#. Open the ``/recipes/default.rb`` file and add the following, **before** the ``include_recipe`` line that was added in the previous step. This example uses a data bag named ``apps`` and a data bag item named ``supermarket``:
+
+   .. code-block:: ruby
+
+      app = data_bag_item('apps', 'supermarket')
+
+#. Set the attributes from the data bag:
+
+   .. code-block:: ruby
+
+      node.override['supermarket_omnibus']['chef_server_url'] = app['chef_server_url']
+      node.override['supermarket_omnibus']['chef_oauth2_app_id'] = app['chef_oauth2_app_id']
+      node.override['supermarket_omnibus']['chef_oauth2_secret'] = app['chef_oauth2_secret']
+      node.override['supermarket_omnibus']['package_url'] = app['package_url']
+
+   Note that the ``['package_url']`` setting points to the location of the Supermarket package on your artifact store. When finished, the ``/recipes/default.rb`` file should have code similar to:
+
+   .. code-block:: ruby
+
+      app = data_bag_item('apps', 'supermarket')
+
+      node.override['supermarket_omnibus']['chef_server_url'] = app['chef_server_url']
+      node.override['supermarket_omnibus']['chef_oauth2_app_id'] = app['chef_oauth2_app_id']
+      node.override['supermarket_omnibus']['chef_oauth2_secret'] = app['chef_oauth2_secret']
+
+      include_recipe 'supermarket-omnibus-cookbook'
+
+   .. code-block:: ruby
+
+   Alternatively, if you chose not to use a data bag to store these values, your ``default.rb`` should look similar to this:
+
+      app = data_bag_item('apps', 'supermarket')
+
+      node.override['supermarket_omnibus']['chef_server_url'] = 'https://chef-server.example.com:443'
+      node.override['supermarket_omnibus']['chef_oauth2_app_id'] = '0bad0f2eb04e935718e081fb71asdfec3681c81acb9968a8e1e32451d08b'
+      node.override['supermarket_omnibus']['chef_oauth2_secret'] = '17cf1141cc971a10ce307611beda7ffadstr4f1bc98d9f9ca76b9b127879'
+      node.override['supermarket_omnibus']['package_url'] = 'http://packages.example.com/supermarket_3.1.22-1_amd64.deb'
+
+
+      include_recipe 'supermarket-omnibus-cookbook'
+
+#. Save and close the ``/recipes/default.rb`` file.
+
+#. Upload all of your cookbooks to the Chef server:
+
+   .. code-block:: ruby
+
+      knife cookbook upload -a
+
+Bootstrap Supermarket
+-----------------------------------------------------
+Bootstrap the node on which Chef Supermarket is to be installed. For example, to bootstrap a node running Ubuntu on Amazon Web Services (AWS), the command is similar to:
+
+.. code-block:: bash
+
+   $ knife bootstrap ip_address -N supermarket-node -x ubuntu --sudo
+
+where
+
+* ``-N`` defines the name of the Chef Supermarket node: ``supermarket-node``
+* ``-x`` defines the (ssh) user name: ``ubuntu``
+* ``--sudo`` ensures that sudo is used while running commands on the node during the bootstrap operation
+
+When the bootstrap operation is finished, do the following:
+
+#. Edit the node to add the wrapper cookbook's ``/recipes/default.rb`` recipe to the run-list:
+
+   .. code-block:: bash
+
+      $ knife node edit supermarket-node
+
+   where ``supermarket-node`` is the name of the node that was just bootstrapped.
+
+#. Add the recipe to the run-list:
+
+   .. code-block:: ruby
+
+	  "run_list": [
+	    "recipe[my_supermarket_wrapper::default]"
+	  ]
+
+#. Start the chef-client on the newly-bootstrapped Chef Supermarket node. For example, using SSH:
+
+   .. code-block:: bash
+
+      $ ssh ubuntu@your-supermarket-node-public-dns
+
+#. After accessing the Chef Supermarket node, run the chef-client:
+
+   .. code-block:: bash
+
+      $ sudo chef-client
+
+Connect to Supermarket
+-----------------------------------------------------
+To reach the newly spun up private Chef Supermarket, the hostname must be resolvable from a workstation. For production use, the hostname should have a DNS entry in an appropriate domain that is trusted by each user's workstation.
+
+#. Visit the Chef Supermarket hostname in the browser. A private Chef Supermarket will generate and use a self-signed certificate, if a certificate is not supplied as part of the installation process (via the wrapper cookbook).
+#. If an SSL notice is shown while connecting to Chef Supermarket via a web browser, accept the SSL certificate. A trusted SSL certificate should be used for  private Chef Supermarket that is used in production.
+#. After opening Chef Supermarket in a web browser, click the **Create Account** link. A prompt to log in to the Chef server is shown, but only if the user is not already logged in. Authorize the Chef Supermarket to use the Chef server account for authentication. **Important:** If you intend to use Supermarket in conjunction with Chef Automate, you should log into to Supermarket as the ``delivery`` user.
+
+.. note:: The redirect URL specified for Chef Identity **MUST** match the fqdn hostname of the Chef Supermarket server. The URI must also be correct: ``/auth/chef_oauth2/callback``. Otherwise, an error message similar to ``The redirect uri included is not valid.`` will be shown.
+
+Berkshelf
+-----------------------------------------------------
+If you're using Berkshelf, update your ``Berksfile`` to use your private Supermarket as a source:
+
+.. code-block:: ruby
+
+   source 'https://supermarket.example.com'
+
