@@ -231,7 +231,7 @@ In this section, you will use a wrapper around the `Supermarket omnibus cookbook
 Your ``cookbooks`` directory must have all three of these cookbooks installed before you will be able to use the Supermarket cookbook wrapper. In addition the necessary cookbooks, a private Chef Supermarket has the following requirements:
 
 * An operational Chef server (version 12.0 or higher) to act as the OAuth 2.0 provider
-* A user account on the Chef server with ``admins`` priviliges
+* A user account on the Chef server with ``admins`` privileges
 * A key for the user account on the Chef server
 * An x86_64 compatible Linux host with at least 1 GB memory
 * System clocks synchronized on the Chef server and Supermarket hosts
@@ -355,7 +355,7 @@ To define these attributes, do the following:
 
    Alternatively, if you chose not to use a data bag to store these values, your ``default.rb`` should look similar to this:
 
-      app = data_bag_item('apps', 'supermarket')
+   .. code-block:: ruby
 
       node.override['supermarket_omnibus']['chef_server_url'] = 'https://chef-server.example.com:443'
       node.override['supermarket_omnibus']['chef_oauth2_app_id'] = '0bad0f2eb04e935718e081fb71asdfec3681c81acb9968a8e1e32451d08b'
@@ -427,11 +427,34 @@ To reach the newly spun up private Chef Supermarket, the hostname must be resolv
 
 .. note:: The redirect URL specified for Chef Identity **MUST** match the fqdn hostname of the Chef Supermarket server. The URI must also be correct: ``/auth/chef_oauth2/callback``. Otherwise, an error message similar to ``The redirect uri included is not valid.`` will be shown.
 
-Berkshelf
+Configuration updates
 -----------------------------------------------------
-If you're using Berkshelf, update your ``Berksfile`` to use your private Supermarket as a source:
+Knife
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Update your ``knife.rb`` on your workstation to use your private Supermarket:
+
+.. code-block:: ruby
+
+   knife[:supermarket_site] = 'https://supermarket.example.com'
+
+Berkshelf
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+If you're using Berkshelf, update your ``Berksfile`` to replace ``https://supermarket.chef.io`` with your private Supermarket:
 
 .. code-block:: ruby
 
    source 'https://supermarket.example.com'
+
+Upload cookbooks to Supermarket
+-----------------------------------------------------
+
+To upload new cookbooks to your private Supermarket, use the ``knife cookbook site share`` command on your workstation:
+
+.. code-block:: ruby
+
+   knife cookbook site share chef-ingredient
+
+
+
+
 
