@@ -279,11 +279,6 @@ First, you'll configure Chef Identity credentials for Supermarket. Chef Identity
 
 Create a Wrapper
 -----------------------------------------------------
-A wrapper cookbook is used to define project and/or organization-specific requirements around a community cookbook.
-
-.. image:: ../../images/supermarket_wrapper_cookbook.svg
-   :width: 400px
-   :align: left
 
 #. Generate the cookbook:
 
@@ -297,13 +292,13 @@ A wrapper cookbook is used to define project and/or organization-specific requir
 
       $ cd my_supermarket_wrapper
 
-#. Defines the wrapper cookbook’s dependency on the ``supermarket-omnibus-cookbook`` cookbook. Open the metadata.rb file of the newly-created cookbook, and then add the following line:
+#. Defines the wrapper cookbook’s dependency on the ``supermarket-omnibus-cookbook`` cookbook. Open the ``metadata.rb`` file of the newly-created cookbook, and then add the following line:
 
    .. code-block:: ruby
 
       depends 'supermarket-omnibus-cookbook'
 
-#. Save and close the metadata.rb file.
+#. Save and close the ``metadata.rb`` file.
 
 #. Open the ``/recipes/default.rb`` recipe located within the newly-generated cookbook and add the following content:
 
@@ -324,7 +319,7 @@ Define the attributes for the Chef Supermarket installation and how it connects 
 
 To define these attributes, do the following:
 
-#. Open the ``/recipes/default.rb`` file and add the following, **before** the ``include_recipe`` line that was added in the previous step. This example uses a data bag named ``apps`` and a data bag item named ``supermarket``:
+#. Open the ``recipes/default.rb`` file and add the following, **before** the ``include_recipe`` line that was added in the previous step. This example uses a data bag named ``apps`` and a data bag item named ``supermarket``:
 
    .. code-block:: ruby
 
@@ -351,8 +346,6 @@ To define these attributes, do the following:
 
       include_recipe 'supermarket-omnibus-cookbook'
 
-   .. code-block:: ruby
-
    Alternatively, if you chose not to use a data bag to store these values, your ``default.rb`` should look similar to this:
 
    .. code-block:: ruby
@@ -365,7 +358,7 @@ To define these attributes, do the following:
 
       include_recipe 'supermarket-omnibus-cookbook'
 
-#. Save and close the ``/recipes/default.rb`` file.
+#. Save and close the ``recipes/default.rb`` file.
 
 #. Upload all of your cookbooks to the Chef server:
 
@@ -381,7 +374,7 @@ Bootstrap the node on which Chef Supermarket is to be installed. For example, to
 
    $ knife bootstrap ip_address -N supermarket-node -x ubuntu --sudo
 
-where
+where:
 
 * ``-N`` defines the name of the Chef Supermarket node: ``supermarket-node``
 * ``-x`` defines the (ssh) user name: ``ubuntu``
@@ -423,7 +416,7 @@ To reach the newly spun up private Chef Supermarket, the hostname must be resolv
 
 #. Visit the Chef Supermarket hostname in the browser. A private Chef Supermarket will generate and use a self-signed certificate, if a certificate is not supplied as part of the installation process (via the wrapper cookbook).
 #. If an SSL notice is shown while connecting to Chef Supermarket via a web browser, accept the SSL certificate. A trusted SSL certificate should be used for  private Chef Supermarket that is used in production.
-#. After opening Chef Supermarket in a web browser, click the **Create Account** link. A prompt to log in to the Chef server is shown, but only if the user is not already logged in. Authorize the Chef Supermarket to use the Chef server account for authentication. **Important:** If you intend to use Supermarket in conjunction with Chef Automate, you should log into to Supermarket as the ``delivery`` user.
+#. After opening Chef Supermarket in a web browser, click the **Create Account** link. A prompt to log in to the Chef server is shown. Authorize the Chef Supermarket to use the Chef server account for authentication. **Important:** If you intend to use Supermarket in conjunction with Chef Automate, you should log into to Supermarket as the ``delivery`` user.
 
 .. note:: The redirect URL specified for Chef Identity **MUST** match the fqdn hostname of the Chef Supermarket server. The URI must also be correct: ``/auth/chef_oauth2/callback``. Otherwise, an error message similar to ``The redirect uri included is not valid.`` will be shown.
 
@@ -431,7 +424,7 @@ Configuration updates
 -----------------------------------------------------
 Knife
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-Update your ``knife.rb`` on your workstation to use your private Supermarket:
+Update the ``knife.rb`` file on your workstation to use your private Supermarket:
 
 .. code-block:: ruby
 
@@ -439,7 +432,7 @@ Update your ``knife.rb`` on your workstation to use your private Supermarket:
 
 Berkshelf
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-If you're using Berkshelf, update your ``Berksfile`` to replace ``https://supermarket.chef.io`` with your private Supermarket:
+If you're using Berkshelf, update your ``Berksfile`` to replace ``https://supermarket.chef.io`` with the URL of your private Supermarket:
 
 .. code-block:: ruby
 
@@ -453,6 +446,142 @@ To upload new cookbooks to your private Supermarket, use the ``knife cookbook si
 .. code-block:: ruby
 
    knife cookbook site share chef-ingredient
+
+Chef Automate
+=====================================================
+
+Installation
+-----------------------------------------------------
+
+#. Upload and install the latest stable Chef Automate package for your operating system from `<https://downloads.chef.io/automate/>`_ on the Chef Automate server machine.
+
+   For Debian:
+
+   .. code-block:: bash
+
+      dpkg -i PATH_TO_AUTOMATE_SERVER_PACKAGE
+
+   For Red Hat Enterprise Linux or CentOS:
+
+   .. code-block:: bash
+
+      rpm -Uvh PATH_TO_AUTOMATE_SERVER_PACKAGE
+
+#. In Chef Automate 0.6.64 and above, you have the option of running the ``preflight-check`` command. This command is optional, but you are encouraged to use it, as it can uncover common environmental problems prior to the actual setup process. For example, there may be required ports that are unavailable, which would have to be rectified prior to setup.
+
+   .. code-block:: bash
+
+      sudo automate-ctl preflight-check
+
+   This triggers a series of validation steps on your system that will be sent to stdout as
+   they are run, along with whether they are passing or failing. The end of the
+   check will include a report of all failures and remediation steps that you can
+   take to fix them.
+
+   .. note:: As shown in the example above, this command requires root user privileges.
+
+   Please refer to the troubleshooting section for more information about the error codes and remediation steps.
+
+#. Ensure that the Chef Automate license file and the ``delivery`` user key you created earlier in the Chef Server setup are located on the Chef Automate server.
+
+#. Run the ``automate-ctl setup`` command with the ``--supermarket-fqdn`` option to specify the URL of your private Supermarket. This command requires root user privileges. 
+
+   .. code-block:: bash
+
+      sudo automate-ctl setup --supermarket-fqdn supermarket.example.com
+
+   ``automate-ctl setup`` automatically prompts for the following information:
+
+   * he full path and file name of your Chef Automate license file. For example: ``/root/automate.license``.
+
+   * The ``delivery`` user key that you created on your Chef server. For example: ``/root/delivery.pem``.
+
+   * The URL of your Chef server, which contains the fully-qualified domain name of the Chef server and the name of the organization you created when you created the ``delivery`` user.
+
+   * The external fully-qualified domain name of the Chef Automate server. This is just the name of the system, not a URL. For example: ``host.4thcoffee.co``.
+
+   *  The name of your enterprise. For example: ``4thcoffee_inc``. Currently, only one enterprise is allowed in Chef Automate.
+
+   .. tag automate_supermarket
+
+   .. note:: To enable Chef Automate to upload cookbooks to a private Supermarket, you have to manually log into the Supermarket server with the ``delivery`` user, and when it prompts you to enable the user for Supermarket, enter ``yes``. Also, you must copy the Supermarket certificate file to ``/etc/delivery/supermarket.crt`` on the Chef Automate server.
+
+   .. end_tag
+
+Once setup of your Chef Automate server completes, you will be prompted to apply the configuration.
+This will apply the configuration changes and bring services online, or restart them if you've previously
+run setup and applied configuration at that time. You can bypass this prompt by passing in the argument
+``--configure`` to the ``setup`` command, which will run it automatically, or pass in ``--no-configure`` to skip it.
+
+.. note:: Your Chef Automate server will not be available for use until you either agree to apply the configuration, or manually run ``sudo automate-ctl reconfigure``.
+
+If you've applied the configuration, you will also be prompted to set up a Chef Automate runner and submit additional information. In addition to installing runners during setup, you can also install push jobs-based build nodes after your Chef Automate setup completes using the command ``sudo automate-ctl install-build-node``. If you need to install additional runners, run ``sudo automate-ctl install-runner``. These commands can be run each time you want to install a new build node or runner. See the next section for installation instructions.
+
+After setup successfully completes and a configuration has been applied, login credentials are reported in the completion output; however, they are also saved to ``/etc/delivery/ENTERPRISE_NAME-admin-credentials``.
+
+If you plan on using the workflow capabilities of Automate, proceed to the next section to setup your build nodes/runners. After they are set up, you can attempt to run an initial application or cookbook change through your Chef Automate server.
+
+For more information about ``automate-ctl`` and how to use it, see :doc:`ctl_automate_server`.
+
+Configure node data collection
+------------------------------------------------------------
+
+Configure a Data Collector token in Chef Automate
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+All messages sent to Chef Automate are performed over HTTP and are authenticated with a pre-shared key called a ``token.`` Every Chef Automate installation configures a default token by default, but we strongly recommend that you create your own.
+
+To set your own token, add the following to your ``/etc/delivery/delivery.rb`` file:
+
+.. code-block:: ruby
+
+   data_collector['token'] = 'sometokenvalue'
+
+... and then run ``automate-ctl reconfigure``
+
+If you do not configure a token, the default token value is: ``93a49a4f2482c64126f7b6015e6b0f30284287ee4054ff8807fb63d9cbd1c506``
+
+
+Configure your Chef server to point to Chef Automate
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+In addition to forwarding Chef run data to Automate, Chef server will send messages to Chef Automate whenever an action is taken on a Chef server object, such as when a cookbook is uploaded to the Chef server or when a user edits a role.
+
+To enable this feature on Chef Server versions 12.14 and later, channel the token setting through our veil secrets library because the token is considered a secret and, as such, cannot appear in ``/etc/opscode/chef-server.rb``. On Chef Server versions 12.14 and above, you must make the following to change the data collector token:
+
+.. code-block:: ruby
+
+   chef-server-ctl set-secret data_collector token 'TOKEN'
+   chef-server-ctl restart nginx
+
+To enable this feature on Chef Server versions 12.13 and earlier, add the following settings to ``/etc/opscode/chef-server.rb`` on the Chef server:
+
+.. code-block:: ruby
+
+   data_collector['root_url'] = 'https://my-automate-server.mycompany.com/data-collector/v0/'
+   data_collector['token'] = 'TOKEN'
+
+where ``my-automate-server.mycompany.com`` is the fully-qualified domain name of your Chef Automate server, and
+``TOKEN`` is either the default value or the token value you configured in the `prior section <#configure-a-data-collector-token-in-chef-automate>`__.
+
+Save the file and run ``chef-server-ctl reconfigure`` to complete the process.
+
+Additional configuration options include:
+
+ * ``data_collector['timeout']``: timeout in milliseconds to abort an attempt to send a message to the
+   Chef Automate server. Default: ``30000``.
+ * ``data_collector['http_init_count']``: number of Chef Automate HTTP workers Chef server should start.
+   Default: ``25``.
+ * ``data_collector['http_max_count']``: maximum number of Chef Automate HTTP workers Chef server should
+   allow to exist at any time. Default: ``100``.
+ * ``data_collector['http_max_age']``: maximum age a Chef Automate HTTP worker should be allowed to live,
+   specified as an Erlang tuple. Default: ``{70, sec}``.
+ * ``data_collector['http_cull_interval']``: how often Chef server should cull aged-out Chef Automate
+   HTTP workers that have exceeded their ``http_max_age``, specified as an Erlang tuple. Default: ``{1,
+   min}``.
+ * ``data_collector['http_max_connection_duration']``: maximum duration an HTTP connection is allowed
+   to exist before it is terminated, specified as an Erlang tuple. Default: ``{70, sec}``.
+
 
 
 
