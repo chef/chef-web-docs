@@ -250,7 +250,7 @@ Prerequisites
 -----------------------------------------------------
 
 * Chef Automate server
-* Elasticsearch (version 2.4.1 or greater; however, v5.x is not yet supported)
+* Elasticsearch (version 2.4.1 or greater; version 5.x is required for Chef Automate 1.6 and above)
 
 Elasticsearch configuration
 -----------------------------------------------------
