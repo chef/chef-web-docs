@@ -20,6 +20,19 @@ Since a variety of different practices are used to create an air-gapped network,
     * Chef Supermarket
     * An `install script </#create-an-install-script>`__ for Chef client
 
+Required cookbooks
+-----------------------------------------------------
+This guide will link to the required cookbooks for each piece of software in that software's respective section, but this is a full list of the cookbooks required to complete the entire guide:
+
+For Chef Supermarket:
+* `Supermarket-omnibus-cookbook <https://supermarket.chef.io/cookbooks/supermarket-omnibus-cookbook>`_
+* `Chef-ingredient <https://supermarket.chef.io/cookbooks/chef-ingredient>`_
+* `hostsfile <https://supermarket.chef.io/cookbooks/hostsfile>`_ 
+
+For Chef Automate:
+* `delivery-sugar <https://supermarket.chef.io/cookbooks/delivery-sugar>`_
+* `delivery-truck <https://supermarket.chef.io/cookbooks/delivery-truck>`_
+
 Create an install script
 -----------------------------------------------------
 An install script is used to install Chef client when bootstrapping a new node. It simply pulls the Chef client package from your artifact store, and then installs it. For example, on Debian-based Linux systems, it would look similar to this:
