@@ -505,7 +505,7 @@ Installation
 
    ``automate-ctl setup`` automatically prompts for the following information:
 
-   * he full path and file name of your Chef Automate license file. For example: ``/root/automate.license``.
+   * The full path and file name of your Chef Automate license file. For example: ``/root/automate.license``.
 
    * The ``delivery`` user key that you created on your Chef server. For example: ``/root/delivery.pem``.
 
