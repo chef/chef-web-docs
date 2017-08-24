@@ -32,24 +32,23 @@ To set your own token, add the following to your ``/etc/delivery/delivery.rb`` f
 
    data_collector['token'] = 'sometokenvalue'
 
-... and then run ``automate-ctl reconfigure``
-
-If you do not configure a token, the default token value is: ``93a49a4f2482c64126f7b6015e6b0f30284287ee4054ff8807fb63d9cbd1c506``
+Then run ``automate-ctl reconfigure``. If you do not configure a token, the default token value is: ``93a49a4f2482c64126f7b6015e6b0f30284287ee4054ff8807fb63d9cbd1c506``
 
 
 Configure your Chef server to point to Chef Automate
 ----------------------------------------------------
-
 In addition to forwarding Chef run data to Automate, Chef server will send messages to Chef Automate whenever an action is taken on a Chef server object, such as when a cookbook is uploaded to the Chef server or when a user edits a role.
 
-To enable this feature on Chef Server versions 12.14 and later, channel the token setting through our veil secrets library because the token is considered a secret and, as such, cannot appear in ``/etc/opscode/chef-server.rb``. On Chef Server versions 12.14 and above, you must make the following to change the data collector token:
+Enable data collector on Chef server versions 12.14 and above
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Channel the token setting through the veil secrets library because the token is considered a secret, and cannot appear in ``/etc/opscode/chef-server.rb``:
 
 .. code-block:: ruby
 
    chef-server-ctl set-secret data_collector token 'TOKEN'
    chef-server-ctl restart nginx
 
-To enable this feature on Chef Server versions 12.13 and earlier, add the following settings to ``/etc/opscode/chef-server.rb`` on the Chef server:
+Then add the following settings to ``/etc/opscode/chef-server.rb`` on the Chef server:
 
 .. code-block:: ruby
 
@@ -61,6 +60,22 @@ where ``my-automate-server.mycompany.com`` is the fully-qualified domain name of
 
 Save the file and run ``chef-server-ctl reconfigure`` to complete the process.
 
+Enable data collector on Chef server versions 12.13 and prior
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+On versions 12.13 and prior, simply add the ``'root_url'`` and ``token`` values in ``/etc/opscode/chef-server.rb``:
+
+.. code-block:: ruby
+
+   data_collector['root_url'] = 'https://my-automate-server.mycompany.com/data-collector/v0/'
+   data_collector['token'] = 'TOKEN'
+
+where ``my-automate-server.mycompany.com`` is the fully-qualified domain name of your Chef Automate server, and
+``TOKEN`` is either the default value or the token value you configured in the `prior section <#configure-a-data-collector-token-in-chef-automate>`__.
+
+Save the file and run ``chef-server-ctl reconfigure`` to complete the process.
+
+Additional options
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Additional configuration options include:
 
  * ``data_collector['timeout']``: timeout in milliseconds to abort an attempt to send a message to the
