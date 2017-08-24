@@ -48,15 +48,13 @@ Channel the token setting through the veil secrets library because the token is 
    chef-server-ctl set-secret data_collector token 'TOKEN'
    chef-server-ctl restart nginx
 
-Then add the following settings to ``/etc/opscode/chef-server.rb`` on the Chef server:
+Then add the following setting to ``/etc/opscode/chef-server.rb`` on the Chef server:
 
 .. code-block:: ruby
 
    data_collector['root_url'] = 'https://my-automate-server.mycompany.com/data-collector/v0/'
-   data_collector['token'] = 'TOKEN'
 
-where ``my-automate-server.mycompany.com`` is the fully-qualified domain name of your Chef Automate server, and
-``TOKEN`` is either the default value or the token value you configured in the `prior section <#configure-a-data-collector-token-in-chef-automate>`__.
+where ``my-automate-server.mycompany.com`` is the fully-qualified domain name of your Chef Automate server.
 
 Save the file and run ``chef-server-ctl reconfigure`` to complete the process.
 
