@@ -327,8 +327,8 @@ Compliance scanner
 :doc:`Integrate w/Chef Automate </integrate_compliance_server_chef_automate>` |
 :doc:`Upgrade Compliance </upgrade_compliance>` |
 :doc:`chef-compliance.rb </config_rb_compliance>` |
-:doc:`Chef Compliance API </api_compliance>`
-:doc: `Profile Store </profile_store>`
+:doc:`Chef Compliance API </api_compliance>` |
+:doc:`Profile Store </profile_store>`
 
 AWS OpsWorks for Chef Automate
 -----------------------------------------------------
