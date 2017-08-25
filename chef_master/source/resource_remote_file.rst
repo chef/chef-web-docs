@@ -59,6 +59,7 @@ The full syntax for all of the properties that are available to the **remote_fil
      use_etag                   TrueClass, FalseClass
      use_last_modified          TrueClass, FalseClass
      verify                     String, Block
+     show_progress              TrueClass, FalseClass
      action                     Symbol # defaults to :create if not specified
    end
 
@@ -67,7 +68,7 @@ where
 * ``remote_file`` is the resource
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``atomic_update``, ``backup``, ``checksum``, ``force_unlink``, ``ftp_active_mode``, ``group``, ``headers``, ``inherits``, ``manage_symlink_source``, ``mode``, ``owner``, ``path``, ``provider``, ``rights``, ``source``, ``use_conditional_get``, ``use_etag``, ``use_last_modified``, and ``verify`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``atomic_update``, ``backup``, ``checksum``, ``force_unlink``, ``ftp_active_mode``, ``group``, ``headers``, ``inherits``, ``manage_symlink_source``, ``mode``, ``owner``, ``path``, ``provider``, ``rights``, ``source``, ``use_conditional_get``, ``use_etag``, ``use_last_modified``, ```show_progress`` and ``verify`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -369,6 +370,11 @@ This resource has the following properties:
    **Ruby Types:** TrueClass, FalseClass
 
    Enable If-Modified-Since headers. Set to ``false`` to disable If-Modified-Since headers. To use this setting, ``use_conditional_get`` must also be set to ``true``. Default value: ``true``.
+
+``show_progess`` 
+   **Ruby Types:** TrueClass, FalseClass
+
+   Displays the progress of the file download. Set to ``true`` to enable this feature. Default value: ``false``.
 
 ``verify``
    **Ruby Types:** String, Block
