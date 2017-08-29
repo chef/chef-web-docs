@@ -583,7 +583,7 @@ Changes to that file can then be made:
      "description": "I am passing the time by letting time pass over me ..."
    }
 
-The type of text editor that is used by knife can be configured by adding an entry to the knife.rb file or by setting an ``EDITOR`` environment variable. For example, to configure the text editor to always open with vim, add the following to the knife.rb file:
+The type of text editor that is used by knife can be configured by adding an entry to your knife.rb file, or by setting an ``EDITOR`` environment variable. For example, to configure knife to open the ``vim`` text editor, add the following to your knife.rb file:
 
 .. code-block:: ruby
 

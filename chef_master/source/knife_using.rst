@@ -7,7 +7,7 @@ knife runs from a management workstation and sits in-between a Chef server and a
 
 JSON Data Format
 =====================================================
-Most data is entered using a text editor in JSON format, unless the ``--disable-editing`` option is entered as part of a command. (Encrypted data bags use YAML, which is a superset of JSON.) JSON is a common, language-independent data format that provides a simple text representation of arbitrary data structures. For more information about JSON, see http://www.json.org/ or http://en.wikipedia.org/wiki/JSON.
+Most data is entered using a text editor in JSON format, unless the ``--disable-editing`` option is entered as part of a command. (Encrypted data bags use YAML, which is a superset of JSON.) JSON is a common, language-independent data format that provides a simple text representation of arbitrary data structures. For more information about JSON, see http://www.json.org/ or https://en.wikipedia.org/wiki/JSON.
 
 Set the Text Editor
 -----------------------------------------------------
@@ -36,7 +36,7 @@ Changes to that file can then be made:
      "description": "I am passing the time by letting time pass over me ..."
    }
 
-The type of text editor that is used by knife can be configured by adding an entry to the knife.rb file or by setting an ``EDITOR`` environment variable. For example, to configure the text editor to always open with vim, add the following to the knife.rb file:
+The type of text editor that is used by knife can be configured by adding an entry to your knife.rb file, or by setting an ``EDITOR`` environment variable. For example, to configure knife to open the ``vim`` text editor, add the following to your knife.rb file:
 
 .. code-block:: ruby
 
@@ -80,7 +80,7 @@ and for vim:
 
 Using Quotes
 =====================================================
-Values can be entered with double quotes (" ") or single quotes (' '), but this should be done consistently.
+The text editor command cannot include spaces that are not properly wrapped in quotes. The command can be entered with double quotes (" ") or single quotes (' '), but this should be done consistently as shown in the examples above.
 
 Subcommands
 =====================================================
