@@ -41,10 +41,9 @@ Get Package, Run Installer
 -----------------------------------------------------
 To install the Chef development kit:
 
-#. Visit this page: https://downloads.chef.io/chefdk. The Chef development kit supports Debian, macOS, Red Hat Enterprise Linux, SUSE Linux Enterprise Server, Ubuntu, and Microsoft Windows.
-#. Select a platform, and then a package. (These docs refer to macOS setup instructions specifically.)
+#. Visit the `ChefDK downloads page <https://downloads.chef.io/chefdk>`_ and select a package for one of the `supported platforms </platforms.html#chef-dk>`_. These docs refer to macOS setup instructions specifically.
 #. Click the download button.
-#. Follow the steps in the installer and install the Chef development kit to your machine. The Chef development kit is installed to ``/opt/chefdk/`` on macOS or Linux systems and C:\opscode\chefdk\ on Windows.
+#. Follow the steps in the installer and install the Chef development kit to your machine. The Chef development kit is installed to ``/opt/chefdk/`` on macOS or Linux systems and ``C:\opscode\chefdk\`` on Windows.
 #. Optional. Set the default shell. On Microsoft Windows it is strongly recommended to use Windows PowerShell and cmd.exe.
 
 Set System Ruby
