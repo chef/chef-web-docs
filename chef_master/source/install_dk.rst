@@ -13,8 +13,7 @@ The following sections describe how to install the Chef development kit on a wor
 
 #. Identify the Chef server type: hosted or on-premises
 #. Review the prerequisites
-#. Select the omnibus installer for the desired platform
-#. Run the omnibus installer
+#. Download and run the ChefDK installer
 #. Set the system Ruby
 #. Install git
 #. Set up the chef-repo
@@ -33,9 +32,8 @@ Ensure that the workstation meets all of the software prerequisites and that it 
 
 The following items are prerequisites for installing the chef-client on a workstation:
 
-* A computer running UNIX, Linux, macOS or Microsoft Windows
-* Apple XCode is installed on machines running macOS; this application can be downloaded from Apple for free
-* A GitHub account; the chef-repo must be downloaded and/or cloned from GitHub
+* A computer running Linux, macOS or Microsoft Windows
+* Apple Xcode is installed on machines running macOS; this application can be downloaded from Apple for free
 * Access to a Chef server: a hosted Chef server account or an on-premises Chef server. If you have a proxy, information on configuring chef-client to work with it is :doc:`here </proxies>`
 * Access to a machine (physical or virtual) that can be used as the first node; the FQDN or IP address for a machine is required by the ``knife bootstrap`` subcommand during a bootstrap operation
 
@@ -43,10 +41,10 @@ Get Package, Run Installer
 -----------------------------------------------------
 To install the Chef development kit:
 
-#. Visit this page: https://downloads.chef.io/chefdk/. The Chef development kit supports macOS, Red Hat Enterprise Linux, Ubuntu, and Microsoft Windows.
-#. Select a platform, and then a package. (chef-docs uses the macOS setup within the documentation.)
+#. Visit this page: https://downloads.chef.io/chefdk. The Chef development kit supports Debian, macOS, Red Hat Enterprise Linux, SUSE Linux Enterprise Server, Ubuntu, and Microsoft Windows.
+#. Select a platform, and then a package. (These docs refer to macOS setup instructions specifically.)
 #. Click the download button.
-#. Follow the steps in the installer and install the Chef development kit to your machine. The Chef development kit is installed to ``/opt/chefdk/`` on UNIX and Linux systems.
+#. Follow the steps in the installer and install the Chef development kit to your machine. The Chef development kit is installed to ``/opt/chefdk/`` on macOS or Linux systems and C:\opscode\chefdk\ on Windows.
 #. Optional. Set the default shell. On Microsoft Windows it is strongly recommended to use Windows PowerShell and cmd.exe.
 
 Set System Ruby
