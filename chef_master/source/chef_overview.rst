@@ -126,9 +126,9 @@ Some important tools and components of Chef workstations include:
        The Chef Development Kit is a package that contains everything that is needed to start using Chef:
 
        * chef-client and ohai
-       * chef command line tool
+       * chef and knife command line tools
        * Testing tools such as Test Kitchen, ChefSpec, Cookstyle, and Foodcritic
-       * Chef provisioning
+       * InSpec
        * Everything else needed to author cookbooks and upload them to the Chef server
 
        .. end_tag
