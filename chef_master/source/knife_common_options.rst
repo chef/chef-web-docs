@@ -1,5 +1,5 @@
 =====================================================
-Common Options
+Knife Common Options
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_common_options.rst>`__
 
@@ -8,8 +8,11 @@ The following options can be run with all knife subcommands and plug-ins:
 ``-c CONFIG_FILE``, ``--config CONFIG_FILE``
    The configuration file to use. For example, when knife is run from a node that is configured to be managed by the Chef server, this option is used to allow knife to use the same credentials as the chef-client when communicating with the Chef server.
 
+``--chef-zero-host HOST``
+  The host to start chef-zero on.
+
 ``--chef-zero-port PORT``
-   The port on which chef-zero listens.
+   The port (or port range) to start chef-zero on. Port ranges like ``1000,1010`` or ``8889-9999`` will try all given ports until one works.
 
    Changed in Chef Client 12.0 to support specifying a range of ports.
 
