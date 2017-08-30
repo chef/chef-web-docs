@@ -78,9 +78,9 @@ Chef is a systems and cloud infrastructure automation framework that makes it ea
 The Chef Development Kit is a package that contains everything that is needed to start using Chef:
 
 * chef-client and ohai
-* chef command line tool
+* chef and knife command line tools
 * Testing tools such as Test Kitchen, ChefSpec, Cookstyle, and Foodcritic
-* Chef provisioning
+* InSpec
 * Everything else needed to author cookbooks and upload them to the Chef server
 
 .. end_tag
@@ -89,7 +89,9 @@ After :doc:`installing the ChefDK </install_dk>`, learn more about the tools tha
 
 * :doc:`chef (executable) </ctl_chef>`
 * :doc:`Berkshelf </berkshelf>`
+* :doc:`knife </knife>`
 * :doc:`chef-vault </chef_vault>`
 * :doc:`ChefSpec </chefspec>`
 * :doc:`Foodcritic </foodcritic>`
 * :doc:`test-kitchen </kitchen>`
+* `InSpec <https://inspec.io/>`_
