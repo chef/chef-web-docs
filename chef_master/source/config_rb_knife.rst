@@ -3,11 +3,7 @@ knife.rb
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_knife.rst>`__
 
-.. tag config_rb_knife_summary
-
 A knife.rb file is used to specify configuration details for knife.
-
-.. end_tag
 
 A knife.rb file:
 
