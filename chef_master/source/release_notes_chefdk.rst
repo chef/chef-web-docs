@@ -158,7 +158,7 @@ InSpec
 
 InSpec has been updated to 1.19.1 with the following new functionality:
 
-- Better filter support for the `processes resource <http://inspec.io/docs/reference/resources/processes/>`_.
+- Better filter support for the `processes resource <https://inspec.io/docs/reference/resources/processes/>`_.
 - New ``packages``, ``crontab``, ``x509_certificate``, and ``x509_private_key`` resources
 - New ``inspec habitat profile create`` command to create a Habitat artifact for a given InSpec profile.
 - Functional JUnit reporting
