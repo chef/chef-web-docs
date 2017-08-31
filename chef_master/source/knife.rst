@@ -24,10 +24,10 @@ knife is a command-line tool that provides an interface between a local chef-rep
 
    * - Topic
      - Description
-   * - :doc:`knife_using`
-     - knife runs from a management workstation and sits in-between a Chef server and an organization's infrastructure.
+   * - :doc:`knife_setup`
+     - Configure knife to interact with your organization's Chef server and infrastructure.
    * - :doc:`knife_common_options`
-     - There are many options that are available for all knife subcommands.
+     - Common options that are available for all knife subcommands.
 
 Knife Subcommands
 =====================================================
@@ -332,11 +332,15 @@ Plugin Installation
 
 Knife plugins ship as Rubygems and are installed into the ChefDK installation using the ``chef`` command:
 
-``chef gem install PLUGIN_NAME``
+.. code-block:: bash
+
+  chef gem install PLUGIN_NAME
 
 Post installation you will also need to rehash the list of knife commands by running:
 
-``knife rehash``
+.. code-block:: bash
+
+  knife rehash
 
 Chef Maintained Knife Plugins
 -----------------------------------------------------

@@ -319,34 +319,3 @@ When working with chef-container, add the following setting:
    The path to the directory in which Docker contexts are stored. Default value: ``/var/chef/dockerfiles``.
 
 .. warning:: Review the full list of :doc:`optional settings </config_rb_knife_optional_settings>` that can be added to the knife.rb file. Many of these optional settings should not be added to the knife.rb file. The reasons for not adding them can vary. For example, using ``--yes`` as a default in the knife.rb file will cause knife to always assume that "Y" is the response to any prompt, which may lead to undesirable outcomes. Other settings, such as ``--hide-healthy`` (used only with the ``knife status`` subcommand) or ``--bare-directories`` (used only with the ``knife list`` subcommand) probably aren't used often enough (and in the same exact way) to justify adding them to the knife.rb file. In general, if the optional settings are not listed on :doc:`the main knife.rb topic </config_rb_knife>`, then add settings only after careful consideration. Do not use optional settings in a production environment until after the setting's performance has been validated in a safe testing environment.
-
-Many Users, Same Repo
-=====================================================
-.. tag chef_repo_many_users_same_repo
-
-It is possible for multiple users to access the Chef server using the same knife.rb file. (A user can even access multiple organizations if, for example, each instance of the chef-repo contained the same copy of the knife.rb file.) This can be done by adding the knife.rb file to the chef-repo, and then using environment variables to handle the user-specific credential details and/or sensitive values. For example:
-
-.. code-block:: none
-
-   current_dir = File.dirname(__FILE__)
-     user = ENV['OPSCODE_USER'] || ENV['USER']
-     node_name                user
-     client_key               "#{ENV['HOME']}/chef-repo/.chef/#{user}.pem"
-     validation_client_name   "#{ENV['ORGNAME']}-validator"
-     validation_key           "#{ENV['HOME']}/chef-repo/.chef/#{ENV['ORGNAME']}-validator.pem"
-     chef_server_url          "https://api.opscode.com/organizations/#{ENV['ORGNAME']}"
-     syntax_check_cache_path  "#{ENV['HOME']}/chef-repo/.chef/syntax_check_cache"
-     cookbook_path            ["#{current_dir}/../cookbooks"]
-     cookbook_copyright       "Your Company, Inc."
-     cookbook_license         "apachev2"
-     cookbook_email           "cookbooks@yourcompany.com"
-
-     # Amazon AWS
-     knife[:aws_access_key_id] = ENV['AWS_ACCESS_KEY_ID']
-     knife[:aws_secret_access_key] = ENV['AWS_SECRET_ACCESS_KEY']
-
-     # Rackspace Cloud
-     knife[:rackspace_api_username] = ENV['RACKSPACE_USERNAME']
-     knife[:rackspace_api_key] = ENV['RACKSPACE_API_KEY']
-
-.. end_tag
