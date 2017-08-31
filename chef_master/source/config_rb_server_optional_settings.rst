@@ -149,6 +149,15 @@ This configuration file has the following settings for ``bookshelf``:
 
    Please use ``chef-server-ctl set-secret bookshelf secret_access_key`` from the :ref:`ctl_chef_server_secrets_management` commands.
 
+``bookshelf['storage_type']``
+   Determines where cookbooks are stored. Default value: ``:filesystem``. 
+
+   In instances that require cookbooks to be stored within a SQL backend, such as in a high availability setup, you must set ``storage_type`` to ``:sql``:
+
+   .. code-block:: ruby
+
+      bookshelf['storage_type'] = :sql
+
 ``bookshelf['stream_download']``
    Enable stream downloading of cookbooks. This setting (when ``true``) typically results in improved cookbook download performance, especially with the memory usage of the **bookshelf** service and the behavior of load balancers and proxies in-between the chef-client and the Chef server. Default value: ``true``.
 

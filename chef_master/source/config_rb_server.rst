@@ -134,15 +134,6 @@ The following setting is often modified from the default as part of the tuning e
 
              .. end_tag
 
-``bookshelf['storage_type']``
-   Determines where cookbooks are stored. Default value: ``:filesystem``. 
-
-   In instances that require cookbooks to be stored within a SQL backend, such as in a high availability setup, you can set ``storage_type`` to ``:sql``:
-
-   .. code-block:: ruby
-
-      bookshelf['storage_type'] = :sql
-
 opscode-account
 -----------------------------------------------------
 The following setting is often modified from the default as part of the tuning effort for the **opscode-account** service:
