@@ -444,46 +444,6 @@ To view information in JSON format, use the ``-F`` common option as part of the 
 
 Other formats available include ``text``, ``yaml``, and ``pp``.
 
-test
-=====================================================
-Use the ``test`` argument to test a cookbook for syntax errors. This argument uses Ruby syntax checking to verify every file in a cookbook that ends in .rb and Embedded Ruby (ERB). This argument will respect chefignore files when determining which cookbooks to test for syntax errors.
-
-Syntax
------------------------------------------------------
-This argument has the following syntax:
-
-.. code-block:: bash
-
-   $ knife cookbook test COOKBOOK_NAME (options)
-
-Options
------------------------------------------------------
-This argument has the following options:
-
-``-a``, ``--all``
-   Test all cookbooks.
-
-``-o PATH:PATH``, ``--cookbook-path PATH:PATH``
-   The directory in which cookbooks are created. This can be a colon-separated path.
-
-.. note:: .. tag knife_common_see_all_config_options
-
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
-
-          .. end_tag
-
-Examples
------------------------------------------------------
-The following examples show how to use this knife subcommand:
-
-**Test a cookbook**
-
-.. To test a cookbook named "getting-started", enter:
-
-.. code-block:: bash
-
-   $ knife cookbook test cookbook_name
-
 upload
 =====================================================
 Use the ``upload`` argument to upload one or more cookbooks (and any files that are associated with those cookbooks) from a local repository to the Chef server. Only files that do not already exist on the Chef server will be uploaded.
@@ -564,4 +524,3 @@ If a cookbook is frozen and the ``--force`` option is not specified, knife will 
 
    Uploading redis...
    ERROR: Version 0.1.6 of cookbook redis is frozen. Use --force to override.
-

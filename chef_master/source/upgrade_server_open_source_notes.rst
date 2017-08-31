@@ -270,7 +270,6 @@ Verify Nodes and Cookbooks
 
 Install the latest version of the chef-client on a small number of test nodes. Download all cookbooks, and then and check the following:
 
-* Run ``knife cookbook test``. Do they all pass validation with the version of the chef-client you plan on using?
 * Run ``egrep -L ^name */metadata.rb``. Do they all have a metadata.rb file?
 * Does the cookbook name in the metadata.rb file match the name in the run-list? (Some older versions of the chef-client used the cookbook name for the run-list based on the directory name of the cookbook and not the value of the ``cookbook_name`` setting in the metadata.rb file.)
 * Do all cookbooks have a metadata.rb file or metadata.json file?
