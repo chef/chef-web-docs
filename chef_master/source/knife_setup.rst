@@ -129,7 +129,3 @@ and for vim:
 Using Quotes
 -----------------------------------------------------
 The text editor command cannot include spaces that are not properly wrapped in quotes. The command can be entered with double quotes (" ") or single quotes (' '), but this should be done consistently as shown in the examples above.
-
-Setting up Knife for Proxy Servers
-=====================================================
-See the :doc:`proxies </proxies>` documentation for information on how to configure Knife to use a proxy server.
