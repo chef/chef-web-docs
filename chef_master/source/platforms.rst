@@ -355,51 +355,126 @@ The following table lists the Foundational platforms for the Chef push jobs:
 Supported Versions
 ==============================================
 
-The following tables list the versions of the OSS and commercial Chef products we currently support:
+This section lists the versions of the OSS and commercial Chef products we currently support as well as the support level (expressed as a lifecycle status) for each product. The lifecycle status defines the involvement by Chef Software in updating and maintaining each product in the list below.
 
-**Open Source**                                                            
+Lifecycle Definitions
+----------------------------------------------
 
-+----------------------+-----------------------------------------------------------------------------------------------------------+       
-| Product              | Version                                                                                                   |
-+======================+===========================================================================================================+ 
-| Chef Client          | 12.0.0 or later                                                                                           | 
-+----------------------+-----------------------------------------------------------------------------------------------------------+
-| Chef DK              | 1.0.3 or later                                                                                            | 
-+----------------------+-----------------------------------------------------------------------------------------------------------+
-| Chef Server          | 12.0.0 or later                                                                                           | 
-+----------------------+-----------------------------------------------------------------------------------------------------------+ 
-| Chef Provisioning    | 1.6.0 or later                                                                                            | 
-+----------------------+-----------------------------------------------------------------------------------------------------------+
-| InSpec               | Current minor version - 1 or later  (e.g. 1.32 when the current version is 1.33)                          |
-+                      +                                                                                                           +
-|                      | See the `Changelog <https://github.com/chef/inspec/blob/master/CHANGELOG.md>`__ for latest InSpec versions|
-+----------------------+-----------------------------------------------------------------------------------------------------------+
-| Habitat              | No supported version at this time                                                                         | 
-+----------------------+-----------------------------------------------------------------------------------------------------------+    
-| Push Jobs Client     |                                                                                                           | 
-+----------------------+ 2.1.0 or later                                                                                            |
-| Push Jobs Server     |                                                                                                           | 
-+----------------------+-----------------------------------------------------------------------------------------------------------+  
-| Supermarket          | 2.2.1 or later                                                                                            | 
-+----------------------+-----------------------------------------------------------------------------------------------------------+ 
+**Generally Available (GA)**
+
+This stage indicates that an application or version is in active development or is considered feature complete.
+
+* Chef continues to provide releases to the application or version in response to customer needs and security vulnerabilities
+* Chef welcomes customer feature requests for the product roadmap for the application
+
+**Deprecated** 
+
+This stage indicates that an application or version is no longer in active development and will eventually move to end of life status.  Chef continues to provide support `according to our SLAs <https://www.chef.io/service-level-agreement/>`_.
+
+* Chef no longer provides scheduled releases
+* Customers should use the GA alternative to these products; contact us for help with product selection and deployment
+* Chef may provide a release for a critical defect or security vulnerability
+
+**End of Life (EOL)**
+
+This stage indicates that Chef has set a date after which the application or version will no longer be supported or recommended for use by customers.
+
+* As of the end of life date, the application will no longer be supported by Chef and will no longer be available for download
+* Documentation for the application will be moved to https://docs-archive.chef.io
+
+
+Versions and Status
+----------------------------------------------
+.. important:: Unless otherwise stated, versions older than those listed below are EOL.
+
+**Premium Supported Open Source**                                                            
+
+.. list-table:: 
+   :header-rows: 1
+   :widths: 150, 450, 100, 100
+
+   * - Product
+     - Version
+     - Lifecycle Status
+     - EOL Date
+   * - Chef Client
+     - 12.x
+     - Deprecated
+     - TBD
+   * - Chef Client
+     - 13.x
+     - GA
+     - n/a
+   * - Chef DK
+     - 1.x
+     - Deprecated
+     - TBD
+   * - Chef DK
+     - 2.x
+     - GA
+     - n/a
+   * - Chef Server
+     - 12.x
+     - GA
+     - n/a
+   * - Chef Provisioning
+     - 1.6.0 or later
+     - GA
+     - n/a
+   * - `InSpec <https://www.inspec.io/>`_
+     - Latest 
+     - GA
+     - n/a
+   * - `Habitat <https://www.habitat.sh/>`_
+     - Latest
+     - GA
+     - n/a
+   * - | Push Jobs Client
+       | Push Jobs Server
+     - 2.1.0 or later
+     - GA
+     - n/a
+   * - Supermarket
+     - 2.2.1 or later
+     - GA
+     - n/a
 
 
 **Commercial**                                                             
 
-+----------------------+--------------------------------------------------+ 
-| Product              | Version                                          |
-+======================+==================================================+ 
-| Chef Automate        | 0.7.151 or later                                 | 
-+----------------------+--------------------------------------------------+
-| Chef Backend         | Latest                                           | 
-+----------------------+--------------------------------------------------+  
-| Chef Compliance      | 0.9.0 or later                                   | 
-+----------------------+--------------------------------------------------+
-| Chef Manage          | 2.1.0 or later                                   | 
-+----------------------+--------------------------------------------------+ 
-| Enterprise Chef      | 11.2.2 or later                                  | 
-+----------------------+--------------------------------------------------+
-| Reporting            | 1.5.5 or later                                   | 
-+----------------------+--------------------------------------------------+
-| Analytics            | No longer supported for new installations        | 
-+----------------------+--------------------------------------------------+
+.. list-table::
+   :header-rows: 1
+   :widths: 150, 450, 100, 100
+
+   * - Product
+     - Version
+     - Lifecycle Status
+     - EOL Date
+   * - Chef Automate
+     - 0.7.151 or later
+     - GA
+     - n/a
+   * - Chef Backend
+     - Latest
+     - GA
+     - n/a
+   * - Chef Compliance
+     - 0.9.0 or later
+     - GA
+     - n/a
+   * - Chef Manage
+     - 2.1.0 or later
+     - GA
+     - n/a
+   * - Enterprise Chef
+     - 11.2.2 or later
+     - GA
+     - n/a
+   * - Reporting
+     - 1.5.5 or later
+     - GA
+     - n/a
+   * - Analytics
+     - 1.5.0 or later
+     - Deprecated
+     - TBD
