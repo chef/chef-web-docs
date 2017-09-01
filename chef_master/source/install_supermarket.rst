@@ -332,9 +332,10 @@ Cookbook artifacts---tar.gz artifacts that are uploaded to Chef Supermarket when
 
 .. code-block:: ruby
 
-   node.override['supermarket_omnibus']['config']['s3_access_key_id'] = false
-   node.override['supermarket_omnibus']['config']['s3_bucket'] = 'supermarket'
-   node.override['supermarket_omnibus']['config']['s3_access_key_id'] = 'yoursecretaccesskey'
+   node.override['supermarket_omnibus']['config']['s3_access_key_id'] = 'yourkeyid'
+   node.override['supermarket_omnibus']['config']['s3_bucket'] = 'all-our-awesome-cookbooks'
+   node.override['supermarket_omnibus']['config']['s3_region'] = 'some-place-3'
+   node.override['supermarket_omnibus']['config']['s3_secret_access_key'] = 'yoursecretaccesskey'
 
 Run Supermarket in Kitchen
 =====================================================
