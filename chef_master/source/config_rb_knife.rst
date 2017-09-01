@@ -317,11 +317,6 @@ Some settings are better left to Ohai, which will get the value at the start of 
 ``node_name``
    See the description above for this setting.
 
-When working with chef-container, add the following setting:
-
-``knife[:dockerfiles_path]``
-   The path to the directory in which Docker contexts are stored. Default value: ``/var/chef/dockerfiles``.
-
 .. warning:: Review the full list of :doc:`optional settings </config_rb_knife_optional_settings>` that can be added to the knife.rb file. Many of these optional settings should not be added to the knife.rb file. The reasons for not adding them can vary. For example, using ``--yes`` as a default in the knife.rb file will cause knife to always assume that "Y" is the response to any prompt, which may lead to undesirable outcomes. Other settings, such as ``--hide-healthy`` (used only with the ``knife status`` subcommand) or ``--bare-directories`` (used only with the ``knife list`` subcommand) probably aren't used often enough (and in the same exact way) to justify adding them to the knife.rb file. In general, if the optional settings are not listed on :doc:`the main knife.rb topic </config_rb_knife>`, then add settings only after careful consideration. Do not use optional settings in a production environment until after the setting's performance has been validated in a safe testing environment.
 
 Many Users, Same Repo
