@@ -35,11 +35,19 @@ Requirements
 A private Chef Supermarket has the following requirements:
 
 * An operational Chef server (version 12.0 or higher) to act as the OAuth 2.0 provider
-* A user account on the Chef server with ``admins`` priviliges
+* A user account on the Chef server with ``admins`` privileges
 * A key for the user account on the Chef server
 * An x86_64 compatible Linux host with at least 1 GB memory
 * System clocks synchronized on the Chef server and Supermarket hosts
-* Sufficient disk space to meet project cookbook storage capacity or credentials to store cookbooks in an Amazon Simple Storage Service (S3) bucket
+* Sufficient disk space on host to meet project cookbook storage capacity **or** credentials to store cookbooks in an Amazon Simple Storage Service (S3) bucket
+
+**Considerations with regard to storage capacity:**
+
+* PostgreSQL database size will grow linearly based on the number of cookbooks and the number of cookbook versions published
+* Redis database size is negligible as it is used only for background job queuing, and to cache a small number of API responses
+* Cookbook storage growth is entirely dependent on the size of the cookbooks published. Cookbooks that include binaries or other large files will consume more space than code-only cookbooks
+* Opting to run a private Supermarket with off-host PostgreSQL, Redis, and cookbook store is less a decision about storage sizing; it is about data service uptime, backup, and restore procedure for your organization
+* As a point of reference: as of September 2017 after three years of operation, the public Supermarket has approx 70,000 users, 3,300 cookbooks with a total of 20,000 versions published. The PostgreSQL database weighs in at 310 MB (50 MB when exported with ``pg_dump``), and the S3 bucket containing all of the published community cookbooks weighs in at 2.7 GB
 
 Chef Identity
 =====================================================
@@ -326,9 +334,10 @@ Cookbook artifacts---tar.gz artifacts that are uploaded to Chef Supermarket when
 
 .. code-block:: ruby
 
-   node.override['supermarket_omnibus']['config']['s3_access_key_id'] = false
-   node.override['supermarket_omnibus']['config']['s3_bucket'] = 'supermarket'
-   node.override['supermarket_omnibus']['config']['s3_access_key_id'] = 'yoursecretaccesskey'
+   node.override['supermarket_omnibus']['config']['s3_access_key_id'] = 'yourkeyid'
+   node.override['supermarket_omnibus']['config']['s3_bucket'] = 'all-our-awesome-cookbooks'
+   node.override['supermarket_omnibus']['config']['s3_region'] = 'some-place-3'
+   node.override['supermarket_omnibus']['config']['s3_secret_access_key'] = 'yoursecretaccesskey'
 
 Run Supermarket in Kitchen
 =====================================================
