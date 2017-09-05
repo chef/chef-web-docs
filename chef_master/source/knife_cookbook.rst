@@ -448,6 +448,8 @@ test
 =====================================================
 Use the ``test`` argument to test a cookbook for syntax errors. This argument uses Ruby syntax checking to verify every file in a cookbook that ends in .rb and Embedded Ruby (ERB). This argument will respect chefignore files when determining which cookbooks to test for syntax errors.
 
+.. warning:: This feature is deprecated in favor of :doc:`Cookstyle </cookstyle>` and :doc:`ChefSpec </chefspec>`
+
 Syntax
 -----------------------------------------------------
 This argument has the following syntax:
