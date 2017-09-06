@@ -96,7 +96,7 @@ To add a Chef Server:
 .. code-block:: ruby
 
    source "https://supermarket.chef.io"
-   source :chef_server
+   source chef_server: "https://chef-server.example.com"
 
 To add a local Chef repository:
 
