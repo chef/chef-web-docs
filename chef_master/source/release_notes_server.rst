@@ -1,19 +1,33 @@
 =====================================================
-Release Notes: Chef Server 12.0 - 12.16
+Release Notes: Chef Server 12.0 - 12.16.9
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_server.rst>`__
 
-.. tag chef_index
+The Chef server acts as a hub for configuration data by storing cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is managed by the chef-client.
 
-.. This page is used as the short overview on the index page at docs.chef.io
-
-Chef is a systems and cloud infrastructure automation framework that makes it easy to deploy servers and applications to any physical, virtual, or cloud location, no matter the size of the infrastructure. Each organization is comprised of one (or more) workstations, a single server, and every node that will be configured and maintained by the chef-client. Cookbooks (and recipes) are used to tell the chef-client how each node in your organization should be configured. The chef-client (which is installed on every node) does the actual configuration.
-
-.. end_tag
-
-What's New in 12.16
+What's New in 12.16.9
 =====================================================
-The following items are new for Chef server 12.16:
+The following items are new for Chef server 12.16.9:
+
+* **Minor fixes for the PostgreSQL upgrade process**
+* **Remove unused authorization objects from bifrost database**
+
+Fixes for the PostgreSQL upgrade process
+-----------------------------------------------------
+Chef server 12.16.9 adds the following features to make the PostgreSQL upgrade process easier:
+
+* Ensures that your disk has the required space before starting the PostgreSQL upgrade
+* For users with large databases, ``pg_upgrade`` timeout is now configurable. The default timeout has been increased to 2 hours. 
+
+Remove unused authorization objects from bifrost database
+----------------------------------------------------------
+This release adds the  ``chef-server-ctl cleanup-bifrost`` command. ``cleanup-bifrost`` removes unused authorization objects from the authorization database (called bifrost).  These unused objects can accumulate on long-running Chef servers as a result of failed object creation requests.  For most users, the unused authorization objects do not substantially affect the performance of Chef server; however in certain situations it can be helpful to clean them up.  This command is primarily intended for use by Chef support.
+
+See the `cleanup-bifrost </ctl_chef_server.html#cleanup-bifrost>`_ subcommand documentation for syntax examples and additional options.
+
+What's New in 12.16.2
+=====================================================
+The following items are new for Chef server 12.16.2:
 
 * **Upgrade to PostgreSQL 9.6**
 * **Elasticsearch 5 support**
