@@ -3,13 +3,7 @@ Release Notes: Chef Server 12.0 - 12.16.9
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_server.rst>`__
 
-.. tag chef_index
-
-.. This page is used as the short overview on the index page at docs.chef.io
-
-Chef is a systems and cloud infrastructure automation framework that makes it easy to deploy servers and applications to any physical, virtual, or cloud location, no matter the size of the infrastructure. Each organization is comprised of one (or more) workstations, a single server, and every node that will be configured and maintained by the chef-client. Cookbooks (and recipes) are used to tell the chef-client how each node in your organization should be configured. The chef-client (which is installed on every node) does the actual configuration.
-
-.. end_tag
+The Chef server acts as a hub for configuration data. The Chef server stores cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is being managed by the chef-client.
 
 What's New in 12.16.9
 =====================================================
