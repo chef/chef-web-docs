@@ -211,6 +211,8 @@ To install Chef server 12:
 
    .. end_tag
 
+.. note:: If you are installing on CentOS 7 forward, you may run into a firewall issue. Chef Server requires ``HTTP`` and ``HTTPS`` ports open. You can run ``firewall-cmd --permanent --zone public --add-service http && firewall-cmd --permanent --zone public --add-service https && firewall-cmd --reload`` as root to get around this.
+
 Update config for purchased nodes
 =====================================================
 When using more than 25 nodes, a configuration change to your Chef server needs to be made in order for your Chef server to be properly configured and recognize your purchased licenses. You will need to edit to your ``chef-server.rb`` file by following the process below:
