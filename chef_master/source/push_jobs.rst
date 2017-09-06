@@ -29,7 +29,7 @@ Platforms
 -----------------------------------------------------
 .. tag adopted_platforms_push_jobs
 
-The following table lists the Foundational platforms for the Chef push jobs:
+The following table lists the commercially-supported platforms for the Chef push jobs client:
 
 .. list-table::
    :widths: 280 100 120
@@ -44,9 +44,6 @@ The following table lists the Foundational platforms for the Chef push jobs:
    * -
      - ``x86_64``
      - ``5``, ``6``, ``7``
-   * - Debian
-     - ``i386``, ``x86_64``
-     - ``7``
    * - Red Hat Enterprise Linux
      - ``i386``
      - ``5``, ``6``

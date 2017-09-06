@@ -9,7 +9,10 @@ Platforms
 =====================================================
 .. tag adopted_platforms_server
 
-The following table lists the Foundational platforms for the Chef server:
+Commercial Support
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The following table lists the commercially-supported platforms and versions for the Chef Server:
 
 .. list-table::
    :widths: 280 100 120
@@ -19,13 +22,13 @@ The following table lists the Foundational platforms for the Chef server:
      - Architecture
      - Version
    * - CentOS
-     -
+     - ``x86_64``
      - ``5.x``, ``6.x``, ``7.x``
-   * - Oracle Linux
-     -
-     - ``5.x``, ``6.x``
+   * - Oracle Enterprise Linux
+     - ``x86_64``
+     - ``5.x``, ``6.x``, ``7.x``
    * - Red Hat Enterprise Linux
-     -
+     - ``x86_64``
      - ``5.x``, ``6.x``, ``7.x``
    * - SUSE Enterprise Linux Server
      - ``x86_64``, ``s390x``
