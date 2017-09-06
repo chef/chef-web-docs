@@ -26,7 +26,7 @@ Chef server 12.16.9 adds the following features to make the PostgreSQL upgrade p
 * For users with large databases, ``pg_upgrade`` timeout is now configurable. The default timeout has been increased to 2 hours. 
 
 Remove unused authorization objects from bifrost database
------------------------------------------------------
+----------------------------------------------------------
 This release adds the  ``chef-server-ctl cleanup-bifrost`` command. ``cleanup-bifrost`` removes unused authorization objects from the authorization database (called bifrost).  These unused objects can accumulate on long-running Chef servers as a result of failed object creation requests.  For most users, the unused authorization objects do not substantially affect the performance of Chef server; however in certain situations it can be helpful to clean them up.  This command is primarily intended for use by Chef support.
 
 See the `cleanup-bifrost </ctl_chef_server.html#cleanup-bifrost>`_ subcommand documentation for syntax examples and additional options.
