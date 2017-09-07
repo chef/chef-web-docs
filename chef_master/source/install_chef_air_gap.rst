@@ -25,11 +25,13 @@ Required cookbooks
 This guide will link to the required cookbooks for each piece of software in that software's respective section, but this is a full list of the cookbooks required to complete the entire guide:
 
 For Chef Supermarket:
+
 * `Supermarket-omnibus-cookbook <https://supermarket.chef.io/cookbooks/supermarket-omnibus-cookbook>`_
 * `Chef-ingredient <https://supermarket.chef.io/cookbooks/chef-ingredient>`_
 * `hostsfile <https://supermarket.chef.io/cookbooks/hostsfile>`_ 
 
 For Chef Automate Workflow:
+
 * `delivery-sugar <https://supermarket.chef.io/cookbooks/delivery-sugar>`_
 * `delivery-truck <https://supermarket.chef.io/cookbooks/delivery-truck>`_
 
@@ -604,6 +606,4 @@ Additional configuration options include:
    min}``.
  * ``data_collector['http_max_connection_duration']``: maximum duration an HTTP connection is allowed
    to exist before it is terminated, specified as an Erlang tuple. Default: ``{70, sec}``.
-
-
-
+ * ``opscode_erchef['max_request_size']``: When the request body size is greater than this value, a ``413 Request Entity Too Large`` error   is returned. Default value: ``1000000``.  
