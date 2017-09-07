@@ -438,7 +438,7 @@ Connect to Supermarket
 To reach the newly spun up private Chef Supermarket, the hostname must be resolvable from a workstation. For production use, the hostname should have a DNS entry in an appropriate domain that is trusted by each user's workstation.
 
 #. Visit the Chef Supermarket hostname in the browser. A private Chef Supermarket will generate and use a self-signed certificate, if a certificate is not supplied as part of the installation process (via the wrapper cookbook).
-#. If an SSL notice is shown while connecting to Chef Supermarket via a web browser, accept the SSL certificate. A trusted SSL certificate should be used for  private Chef Supermarket that is used in production.
+#. If an SSL notice is shown due to your self-signed certificate while connecting to Chef Supermarket via a web browser, accept the SSL certificate. A trusted SSL certificate should be used for  private Chef Supermarket that is used in production.
 #. After opening Chef Supermarket in a web browser, click the **Create Account** link. A prompt to log in to the Chef server is shown. Authorize the Chef Supermarket to use the Chef server account for authentication. **Important:** If you intend to use Supermarket in conjunction with Chef Automate, you should log into to Supermarket as the ``delivery`` user.
 
 .. note:: The redirect URL specified for Chef Identity **MUST** match the fqdn hostname of the Chef Supermarket server. The URI must also be correct: ``/auth/chef_oauth2/callback``. Otherwise, an error message similar to ``The redirect uri included is not valid.`` will be shown.
