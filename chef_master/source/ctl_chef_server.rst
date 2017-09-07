@@ -142,6 +142,13 @@ This subcommand has the following syntax:
 
 ha-status
 =====================================================
+
+.. warning:: .. tag chef_license_note_current
+
+            The ``ha-status`` command no longer returns meaningful information as of the 12.9 release. Use ``status`` instead.
+
+             .. end_tag
+
 The ``ha-status`` subcommand is used to check the status for services running in a high availability topology. This command will verify the following:
 
 * The Keepalived daemon is enabled in the config
