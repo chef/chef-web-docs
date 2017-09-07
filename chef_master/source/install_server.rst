@@ -37,7 +37,7 @@ To install Chef server 12:
 
    .. This topic is hooked in globally to install topics for Chef server applications.
 
-   As a root user, install the Chef server package on the server, using the name of the package provided by Chef. For Red Hat and CentOS 6:
+   As a root user, install the Chef server package on the server, using the name of the package provided by Chef. For Red Hat Enterprise Linux and CentOS:
 
    .. code-block:: bash
 
