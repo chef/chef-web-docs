@@ -101,6 +101,7 @@ Setup
 
 **Integrations**: :doc:`w/Chef Compliance </integrate_compliance_chef_server>`
 
+:doc:`Air-gapped Installation </install_chef_air_gap>`
 :doc:`Uninstall </uninstall>`
 
 Cookbook Reference
@@ -554,6 +555,7 @@ Addenda
    inspec
    install_chef_automate
    install_bootstrap
+   install_chef_air_gap
    install_chef_compliance
    install_dk
    install_omnibus

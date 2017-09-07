@@ -29,9 +29,20 @@ For Chef Supermarket:
 * `Chef-ingredient <https://supermarket.chef.io/cookbooks/chef-ingredient>`_
 * `hostsfile <https://supermarket.chef.io/cookbooks/hostsfile>`_ 
 
-For Chef Automate:
+For Chef Automate Workflow:
 * `delivery-sugar <https://supermarket.chef.io/cookbooks/delivery-sugar>`_
 * `delivery-truck <https://supermarket.chef.io/cookbooks/delivery-truck>`_
+
+Required Gems
+-----------------------------------------------------
+The following Ruby gems are required to install private Supermarket via the supermarket-omnibus-cookbook:
+
+* mixlib-install
+* mixlib-shellout
+* mixlib-versioning
+* artifactory
+
+These should be accessible from your Gem mirror. 
 
 Create an install script
 -----------------------------------------------------
@@ -49,7 +60,7 @@ The install script should be accessible from your artifact store.
 
 Chef server
 =====================================================
-In this section you'll create install the Chef server, and create your organization and user.  Note that in order to configure Supermarket later in this guide, you will need a user that is a member of the ``admins`` group.
+In this section you'll install the Chef server, and create your organization and user.  Note that in order to configure Supermarket later in this guide, you will need a user that is a member of the ``admins`` group.
 
 .. note:: If you intend to use Chef Automate, create the ``delivery`` user and add it to your organization during this step.
 
@@ -241,6 +252,13 @@ In this section, you will use a wrapper around the `Supermarket omnibus cookbook
 * `Chef ingredient <https://supermarket.chef.io/cookbooks/chef-ingredient>`_ 
 * `hostsfile <https://supermarket.chef.io/cookbooks/hostsfile>`_ 
 
+The following Gems must be accessible via your Gem, mirror:
+
+* mixlib-install
+* mixlib-shellout
+* mixlib-versioning
+* artifactory
+
 Your ``cookbooks`` directory must have all three of these cookbooks installed before you will be able to use the Supermarket cookbook wrapper. In addition the necessary cookbooks, a private Chef Supermarket has the following requirements:
 
 * An operational Chef server (version 12.0 or higher) to act as the OAuth 2.0 provider
@@ -395,21 +413,13 @@ where:
 
 When the bootstrap operation is finished, do the following:
 
-#. Edit the node to add the wrapper cookbook's ``/recipes/default.rb`` recipe to the run-list:
+#. Add the wrapper cookbook's ``/recipes/default.rb`` recipe to the run-list:
 
    .. code-block:: bash
 
-      $ knife node edit supermarket-node
+      $ knife node run_list set supermarket-node recipe[my_supermarket_wrapper::default]
 
    where ``supermarket-node`` is the name of the node that was just bootstrapped.
-
-#. Add the recipe to the run-list:
-
-   .. code-block:: ruby
-
-	  "run_list": [
-	    "recipe[my_supermarket_wrapper::default]"
-	  ]
 
 #. Start the chef-client on the newly-bootstrapped Chef Supermarket node. For example, using SSH:
 
@@ -594,9 +604,6 @@ Additional configuration options include:
    min}``.
  * ``data_collector['http_max_connection_duration']``: maximum duration an HTTP connection is allowed
    to exist before it is terminated, specified as an Erlang tuple. Default: ``{70, sec}``.
-
-
-
 
 
 
