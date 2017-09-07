@@ -52,31 +52,6 @@ Capacity Planning
 =====================================================
 Read the `guidance around capacity planning </server_components.html#capacity-planning>`__ for information about how to choose the right toplogy for the Chef server.
 
-Software Requirements
-=====================================================
-.. tag system_requirements_server_software
-
-Before installing the Chef server, ensure that each machine has the following installed and configured properly:
-
-* **Hostnames** --- Ensure that all systems have properly configured hostnames. The hostname for the Chef server must be a FQDN, including the domain suffix, and must be resolvable. See `Hostnames, FQDNs </install_server_pre.html#hostnames>`_ for more information
-* **FQDNs** --- Ensure that all systems have a resolvable FQDN
-* **NTP** --- Ensure that every server is connected to NTP; the Chef server is sensitive to clock drift
-* **Mail Relay** --- The Chef server uses email to send notifications for various events; a local mail transfer agent should be installed and available to the Chef server
-* **cron** --- Periodic maintenance tasks are performed using cron
-* **git** --- git must be installed so that various internal services can confirm revisions
-* **libfreetype and libpng** --- These libraries are required
-* **Apache Qpid** --- This daemon must be disabled on CentOS and Red Hat systems
-* **Required users** --- If the environment in which the Chef server will run has restrictions on the creation of local user and group accounts, ensure that the correct users and groups exist before reconfiguring
-* **Firewalls and ports** --- If host-based firewalls (iptables, ufw, etc.) are being used, ensure that ports 80 and 443 are open. These ports are used by the **nginx** service
-* **Hostname** --- The hostname for the Chef server must be a FQDN, including the domain suffix, and must be resolvable. See `Hostnames, FQDNs </install_server_pre.html#hostnames>`_ for more information
-
-In addition:
-
-* **Browser** --- Firefox, Google Chrome, Safari, or Internet Explorer (versions 9 or better)
-* **chef-client communication with the Chef server** Every node that will be configured by the chef-client and every workstation that will upload data to the Chef server must be able to communicate with the Chef server
-
-.. end_tag
-
 Hardware Requirements
 =====================================================
 .. tag system_requirements_server_hardware
@@ -123,6 +98,31 @@ Backend requirements
 
 .. end_tag
 
+Software Requirements
+=====================================================
+.. tag system_requirements_server_software
+
+Before installing the Chef server, ensure that each machine has the following installed and configured properly:
+
+* **Hostnames** --- Ensure that all systems have properly configured hostnames. The hostname for the Chef server must be a FQDN, including the domain suffix, and must be resolvable. See `Hostnames, FQDNs </install_server_pre.html#hostnames>`_ for more information
+* **FQDNs** --- Ensure that all systems have a resolvable FQDN
+* **NTP** --- Ensure that every server is connected to NTP; the Chef server is sensitive to clock drift
+* **Mail Relay** --- The Chef server uses email to send notifications for various events; a local mail transfer agent should be installed and available to the Chef server
+* **cron** --- Periodic maintenance tasks are performed using cron
+* **git** --- git must be installed so that various internal services can confirm revisions
+* **libfreetype and libpng** --- These libraries are required
+* **Apache Qpid** --- This daemon must be disabled on CentOS and Red Hat systems
+* **Required users** --- If the environment in which the Chef server will run has restrictions on the creation of local user and group accounts, ensure that the correct users and groups exist before reconfiguring
+* **Firewalls and ports** --- If host-based firewalls (iptables, ufw, etc.) are being used, ensure that ports 80 and 443 are open. These ports are used by the **nginx** service
+* **Hostname** --- The hostname for the Chef server must be a FQDN, including the domain suffix, and must be resolvable. See `Hostnames, FQDNs </install_server_pre.html#hostnames>`_ for more information
+
+In addition:
+
+* **Browser** --- Firefox, Google Chrome, Safari, or Internet Explorer (versions 9 or better)
+* **chef-client communication with the Chef server** Every node that will be configured by the chef-client and every workstation that will upload data to the Chef server must be able to communicate with the Chef server
+
+.. end_tag
+
 UIDs and GIDs
 -----------------------------------------------------
 The installation process for the Chef server requires the use of at least two user and group identifiers (UIDs and GIDs). These are used to create the ``opscode`` and ``opscode-pgsql`` users and their default groups.
@@ -161,8 +161,41 @@ The installation process for the Chef server requires the use of at least two us
 
    If the ``opscode`` and ``opscode-pgsql`` user and group identifiers exist prior to installing the Chef server, the Chef server installation process will use the existing identifiers instead of creating them.
 
-SELinux
+
+Firewalls
 -----------------------------------------------------
+
+iptables
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+To allow access to your Chef server on ports 80 and 443 via the iptables firewall, issue the following command with root privileges:
+
+.. code-block:: bash
+
+   $ iptables -A INPUT -p tcp -m multiport --destination-ports 80,443 -j ACCEPT
+
+Note that you will need to make use of a tool such as `iptables-persistent <https://packages.ubuntu.com/xenial/admin/iptables-persistent>`_ to restore your iptables rules upon reboot. 
+
+FirewallD
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+On RHEL and CentOS versions 7 and above, the FirewallD firewall is enabled by default. Issue the following command with root privileges to open ports 80 and 443:
+
+.. code-block:: bash
+
+   $ firewall-cmd --permanent --zone public --add-service http && firewall-cmd --permanent --zone public --add-service https && firewall-cmd --reload
+
+UFW
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+While UFW is installed on Ubuntu, it is not enabled by default. However, if you wish to use a UFW-based firewall on your Chef server, issue the following command with root privileges to open ports 80 and 443:
+
+.. code-block:: bash
+
+   $ ufw allow proto tcp from any to any port 80,443
+
+Security Modules
+-----------------------------------------------------
+
+SELinux
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 On CentOS and Red Hat Enterprise Linux systems, SELinux is enabled in enforcing mode by default. The Chef server does not have a profile available to run under SELinux. In order for the Chef server to run, SELinux must be disabled or set to ``Permissive`` mode.
 
 To determine if SELinux is installed, run the following command:
@@ -186,7 +219,7 @@ and then check the status:
    $ getenforce
 
 AppArmor
------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 On Ubuntu systems, AppArmor is enabled in enforcing mode by default. Chef products do not have a profile available to run under AppArmor. In order for the Chef products to run, AppArmor must set to ``Complaining`` mode or disabled.
 
 To determine if AppArmor is installed, run the following command:

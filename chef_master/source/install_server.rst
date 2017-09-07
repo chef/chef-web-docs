@@ -16,9 +16,10 @@ The Chef server has the following prerequisites:
 * An x86_64 compatible system architecture; Red Hat Enterprise Linux and CentOS may require updates prior to installation
 * A resolvable hostname that is specified using a FQDN or an IP address
 * A connection to Network Time Protocol (NTP) to prevent clock drift
+* If host-based firewalls (iptables, ufw, etc.) are being used, ensure that ports 80 and 443 are open. See the `firewalls </install_server_pre.html#firewalls>`_ section of the install prerequisites for additional details. 
 * A local mail transfer agent that allows the Chef server to send email notifications
 * Using cron and the ``/etc/cron.d`` directory for periodic maintenance tasks
-* Disabling the Apache Qpid daemon on CentOS and Red Hat systems
+* Disabling the Apache Qpid daemon on CentOS and Red Hat systems. See the `Apache Qpid </install_server_pre.html#apache-qpid>`_ of the prerequisite documentation for detailed steps. 
 * Optional. A local user account under which services will run, a local user account for PostgreSQL, and a group account under which services will run. See `UIDs and GIDs </install_server_pre.html#uids-and-gids>`__ for more information.
 
 .. note:: See the :doc:`expanded list of prerequisites </install_server_pre>` for a detailed list of software and hardware requirements.
