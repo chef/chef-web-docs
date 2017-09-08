@@ -148,7 +148,7 @@ InSpec is an open-source run-time framework and rule language used to specify co
 * Any detected security, compliance, or policy issues are flagged in a log
 * The InSpec audit resource framework is fully compatible with Chef Compliance
 
-To learn more about InSpec, see the `InSpec website <http://inspec.io/>`__. The site contains tutorials and reference documentation on how to use the various audit resources, profiles, InSpec CLI, and more.
+To learn more about InSpec, see the `InSpec website <https://inspec.io/>`__. The site contains tutorials and reference documentation on how to use the various audit resources, profiles, InSpec CLI, and more.
 
 .. end_tag
 

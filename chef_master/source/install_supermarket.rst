@@ -35,11 +35,19 @@ Requirements
 A private Chef Supermarket has the following requirements:
 
 * An operational Chef server (version 12.0 or higher) to act as the OAuth 2.0 provider
-* A user account on the Chef server with ``admins`` priviliges
+* A user account on the Chef server with ``admins`` privileges
 * A key for the user account on the Chef server
 * An x86_64 compatible Linux host with at least 1 GB memory
 * System clocks synchronized on the Chef server and Supermarket hosts
-* Sufficient disk space to meet project cookbook storage capacity or credentials to store cookbooks in an Amazon Simple Storage Service (S3) bucket
+* Sufficient disk space on host to meet project cookbook storage capacity **or** credentials to store cookbooks in an Amazon Simple Storage Service (S3) bucket
+
+**Considerations with regard to storage capacity:**
+
+* PostgreSQL database size will grow linearly based on the number of cookbooks and the number of cookbook versions published
+* Redis database size is negligible as it is used only for background job queuing, and to cache a small number of API responses
+* Cookbook storage growth is entirely dependent on the size of the cookbooks published. Cookbooks that include binaries or other large files will consume more space than code-only cookbooks
+* Opting to run a private Supermarket with off-host PostgreSQL, Redis, and cookbook store is less a decision about storage sizing; it is about data service uptime, backup, and restore procedure for your organization
+* As a point of reference: as of September 2017 after three years of operation, the public Supermarket has approx 70,000 users, 3,300 cookbooks with a total of 20,000 versions published. The PostgreSQL database weighs in at 310 MB (50 MB when exported with ``pg_dump``), and the S3 bucket containing all of the published community cookbooks weighs in at 2.7 GB
 
 Chef Identity
 =====================================================
@@ -161,7 +169,7 @@ The following attribute values must be defined:
 * ``chef_oauth2_app_id``
 * ``chef_oauth2_secret``
 
-You can get the chef_oauth2_app_id and chef_oauth2_secret values from your Chef server (which you configured earlier in this process) in ``/etc/opscode/oc-id-applications/supermarket.json``:
+Once configured, you can get the ``chef_oauth2_app_id`` and ``chef_oauth2_secret`` values from your Chef server within ``/etc/opscode/oc-id-applications/supermarket.json``:
 
 For ``chef_server_url``, enter in the url for your chef server.
 For ``chef_oauth2_app_id``, enter in the uid from ``/etc/opscode/oc-id-applications/supermarket.json``
@@ -169,7 +177,7 @@ For ``chef_oauth2_secret``, enter in the secret from ``/etc/opscode/oc-id-applic
 
 To define these attributes, do the following:
 
-#. Open the ``/recipes/default.rb`` file and add the following, BEFORE the `include_recipe` line that was added in the previous step, (assuming a data bag named ``apps`` and a data bag item named ``supermarket``):
+#. Open the ``/recipes/default.rb`` file and add the following, BEFORE the ``include_recipe`` line that was added in the previous step. This example uses a data bag named ``apps`` and a data bag item named ``supermarket``:
 
    .. code-block:: ruby
 
@@ -197,7 +205,11 @@ To define these attributes, do the following:
 
 #. Save and close the ``/recipes/default.rb`` file.
 
-.. note:: If you are running your private Supermarket in AWS, you may need to set an additional attribute for the node's public ip.  i.e. node node.override['supermarket_omnibus']['config']['fqdn'] = your_node_public_ip
+.. note:: If you are running your private Supermarket in AWS, you may need to set an additional attribute for the node's public IP address:
+
+   .. code-block:: ruby
+
+      node.override['supermarket_omnibus']['config']['fqdn'] = your_node_public_ip
 
 Upload the Wrapper
 -----------------------------------------------------
@@ -322,9 +334,10 @@ Cookbook artifacts---tar.gz artifacts that are uploaded to Chef Supermarket when
 
 .. code-block:: ruby
 
-   node.override['supermarket_omnibus']['config']['s3_access_key_id'] = false
-   node.override['supermarket_omnibus']['config']['s3_bucket'] = 'supermarket'
-   node.override['supermarket_omnibus']['config']['s3_access_key_id'] = 'yoursecretaccesskey'
+   node.override['supermarket_omnibus']['config']['s3_access_key_id'] = 'yourkeyid'
+   node.override['supermarket_omnibus']['config']['s3_bucket'] = 'all-our-awesome-cookbooks'
+   node.override['supermarket_omnibus']['config']['s3_region'] = 'some-place-3'
+   node.override['supermarket_omnibus']['config']['s3_secret_access_key'] = 'yoursecretaccesskey'
 
 Run Supermarket in Kitchen
 =====================================================
@@ -340,7 +353,7 @@ To run Chef Supermarket in Kitchen, do the following:
 
       $ cd supermarket-omnibus-cookbook
 
-#. Create a .kitchen.yml file that is local to the repo: ``.kitchen.local.yml`` and then add the following:
+#. Create a ``.kitchen.yml`` file that is local to the repo: ``.kitchen.local.yml`` and then add the following:
 
    .. code-block:: yaml
 
@@ -380,7 +393,7 @@ To run Chef Supermarket in Kitchen, do the following:
 
 Proxies
 -----------------------------------------------------
-If Kitchen fails due to being behind a proxy, update the .kitchen.yml file:
+If Kitchen fails due to being behind a proxy, update the ``.kitchen.yml`` file:
 
 .. code-block:: yaml
 
@@ -395,7 +408,7 @@ Kitchen Runs Slowly
 -----------------------------------------------------
 If Kitchen has to download and install the chef-client omnibus package every time, do the following to speed that process up:
 
-#. Update the .kitchen.yml file so that Kitchen can cache the omnibus installer:
+#. Update the ``.kitchen.yml`` file so that Kitchen can cache the omnibus installer:
 
    .. code-block:: yaml
 
@@ -431,7 +444,7 @@ If Kitchen has to download and install the chef-client omnibus package every tim
 
       $ cd supermarket-omnibus-cookbook
 
-#. Create a .kitchen.yml file that is local to the repo: ``.kitchen.local.yml`` and then add the following:
+#. Create a ``.kitchen.yml`` file that is local to the repo: ``.kitchen.local.yml`` and then add the following:
 
    .. code-block:: yaml
 

@@ -280,6 +280,8 @@ when ``filter`` is included as a parameter, all filters listed below are allowed
 +----------------+--------------------------------------------------+
 |``node_id``     | run on target with ``node_id``                   |
 +----------------+--------------------------------------------------+
+|``node_name``   | run on target with ``node_name``                 |
++----------------+--------------------------------------------------+
 |``platform``    | run on ``platform``                              |
 +----------------+--------------------------------------------------+
 |``profile_id``  | run against this ``profile_id``                  |

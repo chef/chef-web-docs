@@ -1097,7 +1097,5 @@ coerce
 ``coerce`` is run in the context of the instance, which gives it access to other properties.
 
 .. code-block:: ruby
-
-   class File < Chef::Resource
-     attribute :mode, coerce: proc { |m| m.is_a?(String) ? m.to_s(8) : m }
-   end
+    
+    property :mode, coerce: proc { |m| m.is_a?(String) ? m.to_s(8) : m }

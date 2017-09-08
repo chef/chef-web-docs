@@ -297,3 +297,11 @@ Use the following configuration settings in the chef-server.rb file to configure
 .. end_tag
 
 .. note:: See the list of `error messages that may be present </error_messages.html#external-postgresql>`_ when configuring the Chef server to use a remote PostgreSQL server.
+
+Bookshelf Settings
+-----------------------------------------------------
+In instances that require cookbooks to be stored within a SQL backend, such as in a high availability setup, you must set the ``storage_type`` to ``:sql``:
+
+   .. code-block:: ruby
+
+      bookshelf['storage_type'] = :sql

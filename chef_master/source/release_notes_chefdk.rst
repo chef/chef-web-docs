@@ -1,13 +1,47 @@
 =====================================================
-Release Notes: Chef Development Kit 0.19 - 2.1.11
+Release Notes: Chef Development Kit 0.19 - 2.2.1
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_chefdk.rst>`__
 
 Chef Development Kit is released on a monthly schedule with new releases the third Monday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef DK on GitHub <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__
 
+What's New in 2.2.1
+=====================================================
+This release includes RubyGems 2.6.13 to address the following CVEs:
+
+* `CVE-2017-0899 <https://nvd.nist.gov/vuln/detail/CVE-2017-0899>`_
+* `CVE-2017-0900 <https://nvd.nist.gov/vuln/detail/CVE-2017-0900>`_
+* `CVE-2017-0901 <https://nvd.nist.gov/vuln/detail/CVE-2017-0901>`_
+* `CVE-2017-0902 <https://nvd.nist.gov/vuln/detail/CVE-2017-0902>`__
+
+ChefDK 2.2.1 includes:
+
+* Chef 13.3.42
+* InSpec 1.35.1
+* Berkshelf 6.3.1
+* Chef Vault 3.3.0
+* Foodcritic 11.3.1
+* Test Kitchen 1.17.0
+
+
 What's New in 2.1.11
 =====================================================
 This release updates the version of git shipped in Chef DK to 2.14.1 to address `CVE-2017-1000117 <https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2017-1000117>`__.
+
+Notable Updated Gems
+-----------------------------------------------------
+* berkshelf 6.2.0 -> 6.3.0
+* chef-provisioning 2.4.0 -> 2.5.0
+* chef-zero 13.0.0 -> 13.1.0
+* fauxhai 5.2.0 -> 5.3.0
+* fog 1.40 -> 1.41
+* inspec 1.31.1 -> 1.33.1
+* kitchen-dokken 2.5.1 -> 2.6.1
+* kitchen-vagrant 1.1.0 -> 1.2.0
+* knife-push 1.0.2 -> 1.0.3
+* ohai 13.2.0 -> 13.3.0
+* serverspec 2.39.1 -> 2.40.0
+* test-kitchen 1.16 -> 1.17
 
 See the detailed `change log <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md#v2111-2017-08-11>`__ for a full list of changes.
 
@@ -143,7 +177,7 @@ InSpec
 
 InSpec has been updated to 1.19.1 with the following new functionality:
 
-- Better filter support for the `processes resource <http://inspec.io/docs/reference/resources/processes/>`_.
+- Better filter support for the `processes resource <https://inspec.io/docs/reference/resources/processes/>`_.
 - New ``packages``, ``crontab``, ``x509_certificate``, and ``x509_private_key`` resources
 - New ``inspec habitat profile create`` command to create a Habitat artifact for a given InSpec profile.
 - Functional JUnit reporting

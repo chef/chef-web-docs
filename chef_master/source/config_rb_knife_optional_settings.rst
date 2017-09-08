@@ -563,6 +563,8 @@ The following ``knife cookbook test`` settings can be added to the knife.rb file
 ``knife[:all]``
    Adds the the ``--all`` option.
 
+.. warning:: This feature is deprecated in favor of :doc:`Cookstyle </cookstyle>` and :doc:`ChefSpec </chefspec>`
+
 cookbook upload
 -----------------------------------------------------
 The following ``knife cookbook upload`` settings can be added to the knife.rb file:

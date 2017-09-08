@@ -115,7 +115,7 @@ Spaces and Directories
 -----------------------------------------------------
 .. tag windows_spaces_and_directories
 
-Directories that are used by Chef on the Microsoft Windows platform cannot have spaces. For example, ``/c/Users/Steven Danno`` will not work, but ``/c/Users/StevenDanno`` will.
+Directories that are used by Chef on the Microsoft Windows platform cannot have spaces. For example, ``C:\Users\Steven Danno`` will not work, but ``C:\Users\StevenDanno`` will.
 
 A different issue exists with the knife command line tool that is also related to spaces and directories. The ``knife cookbook site install`` subcommand will fail when the Microsoft Windows directory contains a space.
 
@@ -125,7 +125,7 @@ Top-level Directory Names
 -----------------------------------------------------
 .. tag windows_top_level_directory_names
 
-Paths can be longer in UNIX and Linux environments than they can be in Microsoft Windows. Microsoft Windows will throw errors when path name lengths are too long. For this reason, it's often helpful to use a very short top-level directory in Microsoft Windows, much like what is done in UNIX and Linux. For example, Chef uses ``/opt/`` to install the Chef development kit on macOS. A similar approach can be done on Microsoft Windows, by creating a top-level directory with a short name. For example: ``c:\chef``.
+Paths can be longer in UNIX and Linux environments than they can be in Microsoft Windows. Microsoft Windows will throw errors when path name lengths are too long. For this reason, it's often helpful to use a very short top-level directory in Microsoft Windows, much like what is done in UNIX and Linux. For example, Chef uses ``/opt/`` to install the Chef development kit on macOS. A similar approach can be done on Microsoft Windows, by creating a top-level directory with a short name. For example: ``C:\chef``.
 
 .. end_tag
 
@@ -583,7 +583,7 @@ Changes to that file can then be made:
      "description": "I am passing the time by letting time pass over me ..."
    }
 
-The type of text editor that is used by knife can be configured by adding an entry to the knife.rb file or by setting an ``EDITOR`` environment variable. For example, to configure the text editor to always open with vim, add the following to the knife.rb file:
+The type of text editor that is used by knife can be configured by adding an entry to your knife.rb file, or by setting an ``EDITOR`` environment variable. For example, to configure knife to open the ``vim`` text editor, add the following to your knife.rb file:
 
 .. code-block:: ruby
 
@@ -3711,6 +3711,7 @@ The full syntax for all of the properties that are available to the **powershell
      password                   String
      domain                     String
      action                     Symbol # defaults to :run if not specified
+     elevated                   TrueClass, FalseClass
    end
 
 where
@@ -3719,7 +3720,7 @@ where
 * ``name`` is the name of the resource block
 * ``command`` is the command to be run and ``cwd`` is the location from which the command is run
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``architecture``, ``code``, ``command``, ``convert_boolean_return``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``provider``, ``returns``,``timeout``, ``user``, ``password`` and ``domain`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``architecture``, ``code``, ``command``, ``convert_boolean_return``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``provider``, ``returns``, ``timeout``, ``user``, ``password``, ``domain`` and ``elevated`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -3948,6 +3949,15 @@ This resource has the following properties:
 
    *Windows only*: The domain of the user user specified by the `user` property.
    Default value: `nil`. If not specified, the user name and password specified by the `user` and `password` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the `user` property.
+
+``elevated``
+    **Ruby Type:**  TrueClass, FalseClass
+
+    Determines whether the script will run with elevated permissions to circumvent User Access Control (UAC) interactively blocking the process.
+
+    This will cause the process to be run under a batch login instead of an interactive login. The user running Chef needs the "Replace a process level token" and "Adjust Memory Quotas for a process" permissions. The user that is running the command needs the "Log on as a batch job" permission.
+
+    Because this requires a login, the ``user`` and ``password`` properties are required.
 
 .. end_tag
 

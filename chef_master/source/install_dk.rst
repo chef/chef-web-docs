@@ -13,15 +13,14 @@ The following sections describe how to install the Chef development kit on a wor
 
 #. Identify the Chef server type: hosted or on-premises
 #. Review the prerequisites
-#. Select the omnibus installer for the desired platform
-#. Run the omnibus installer
+#. Download and run the ChefDK installer
 #. Set the system Ruby
 #. Install git
 #. Set up the chef-repo
-#. Create the .chef directory
-#. Get the .pem files and knife.rb files
+#. Create the ``.chef`` directory
+#. Get the ``.pem`` files and ``knife.rb`` files
 #. Move files to the .chef directory
-#. Add omnibus Ruby to the $PATH environment variable
+#. Add omnibus Ruby to the ``$PATH`` environment variable
 #. Get SSL certificates from the Chef server
 #. Verify the chef-client install
 
@@ -33,9 +32,8 @@ Ensure that the workstation meets all of the software prerequisites and that it 
 
 The following items are prerequisites for installing the chef-client on a workstation:
 
-* A computer running UNIX, Linux, macOS or Microsoft Windows
-* Apple XCode is installed on machines running macOS; this application can be downloaded from Apple for free
-* A GitHub account; the chef-repo must be downloaded and/or cloned from GitHub
+* A computer running Linux, macOS or Microsoft Windows
+* Apple Xcode is installed on machines running macOS; this application can be downloaded from Apple for free
 * Access to a Chef server: a hosted Chef server account or an on-premises Chef server. If you have a proxy, information on configuring chef-client to work with it is :doc:`here </proxies>`
 * Access to a machine (physical or virtual) that can be used as the first node; the FQDN or IP address for a machine is required by the ``knife bootstrap`` subcommand during a bootstrap operation
 
@@ -43,10 +41,9 @@ Get Package, Run Installer
 -----------------------------------------------------
 To install the Chef development kit:
 
-#. Visit this page: https://downloads.chef.io/chefdk/. The Chef development kit supports macOS, Red Hat Enterprise Linux, Ubuntu, and Microsoft Windows.
-#. Select a platform, and then a package. (chef-docs uses the macOS setup within the documentation.)
+#. Visit the `ChefDK downloads page <https://downloads.chef.io/chefdk>`_ and select a package for one of the `supported platforms </platforms.html#chef-dk>`_. These docs refer to macOS setup instructions specifically.
 #. Click the download button.
-#. Follow the steps in the installer and install the Chef development kit to your machine. The Chef development kit is installed to ``/opt/chefdk/`` on UNIX and Linux systems.
+#. Follow the steps in the installer and install the Chef development kit to your machine. The Chef development kit is installed to ``/opt/chefdk/`` on macOS or Linux systems and ``C:\opscode\chefdk\`` on Windows.
 #. Optional. Set the default shell. On Microsoft Windows it is strongly recommended to use Windows PowerShell and cmd.exe.
 
 Set System Ruby
@@ -168,11 +165,11 @@ There are two ways to create the chef-repo:
 
 Starter Kit
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-If you have access to Chef server (hosted or on premises), you can download the starter kit. The starter kit will create the necessary configuration files---the .chef directory, knife.rb, the ORGANIZATION-validator.pem, and USER.pem files) with the correct information that is required to interact with the Chef server. Simply download the starter kit and then move it to the desired location on your workstation.
+If you have access to Chef server (hosted or on premises), you can download the starter kit. The starter kit will create the necessary configuration files: the ``.chef ``directory, ``knife.rb``, ``ORGANIZATION-validator.pem``, and ``USER.pem``. Simply download the starter kit and then move it to the desired location on your workstation.
 
 Manually (w/ Webui)
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-Use the following steps to manually set up the chef-repo and to use the Chef management console to get the .pem and knife.rb files.
+Use the following steps to manually set up the chef-repo and to use the Chef management console to get the ``.pem`` and ``knife.rb`` files.
 
 **Create the chef-repo**
 
@@ -182,15 +179,15 @@ Use `the chef generate app command </ctl_chef.html#chef-generate-app>`__ to crea
 
 .. tag install_chef_client_repo_manual_chef_directory
 
-The .chef directory is used to store three files:
+The ``.chef`` directory is used to store three files:
 
-* knife.rb
-* ORGANIZATION-validator.pem
-* USER.pem
+* ``knife.rb``
+* ``ORGANIZATION-validator.pem``
+* ``USER.pem``
 
-Where ``ORGANIZATION`` and ``USER`` represent strings that are unique to each organization. These files must be present in the .chef directory in order for a workstation to be able to connect to a Chef server.
+Where ``ORGANIZATION`` and ``USER`` represent strings that are unique to each organization. These files must be present in the ``.chef`` directory in order for a workstation to be able to connect to a Chef server.
 
-To create the .chef directory:
+To create the ``.chef`` directory:
 
 #. In a command window, enter the following:
 
@@ -198,7 +195,7 @@ To create the .chef directory:
 
       mkdir -p ~/chef-repo/.chef
 
-#. After the .chef directory has been created, the following folder structure will be present on the local machine::
+#. After the ``.chef`` directory has been created, the following folder structure will be present on the local machine::
 
       chef-repo/
          .chef/        << the hidden directory
@@ -227,9 +224,9 @@ For a workstation that will interact with the Chef server (including the hosted 
 
 **Move Config Files**
 
-The knife.rb, ORGANIZATION-validator.pem, and USER.pem files must be moved to the .chef directory after they are downloaded from the Chef server.
+The ``knife.rb``, ``ORGANIZATION-validator.pem``, and ``USER.pem`` files must be moved to the ``.chef`` directory after they are downloaded from the Chef server.
 
-To move files to the .chef directory:
+To move files to the ``.chef`` directory:
 
 #. In a command window, enter each of the following:
 
@@ -251,11 +248,11 @@ To move files to the .chef directory:
 
    where ``/path/to/`` represents the path to the location in which these three files were placed after they were downloaded.
 
-#. Verify that the files are in the .chef folder.
+#. Verify that the files are in the ``.chef`` folder.
 
 Manually (w/o Webui)
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-Use the following steps to manually set up the chef-repo, create the ORGANIZATION-validator.pem and USER.pem files with the chef-server-ctl command line tool, and then create the knife.rb file.
+Use the following steps to manually set up the chef-repo, create the ``ORGANIZATION-validator.pem`` and ``USER.pem`` files with the ``chef-server-ctl`` command line tool, and then create the ``knife.rb`` file.
 
 **Create the chef-repo**
 
@@ -265,15 +262,15 @@ Use `the chef generate app command </ctl_chef.html#chef-generate-app>`__ to crea
 
 .. tag install_chef_client_repo_manual_chef_directory
 
-The .chef directory is used to store three files:
+The ``.chef`` directory is used to store three files:
 
-* knife.rb
-* ORGANIZATION-validator.pem
-* USER.pem
+* ``knife.rb``
+* ``ORGANIZATION-validator.pem``
+* ``USER.pem``
 
-Where ``ORGANIZATION`` and ``USER`` represent strings that are unique to each organization. These files must be present in the .chef directory in order for a workstation to be able to connect to a Chef server.
+Where ``ORGANIZATION`` and ``USER`` represent strings that are unique to each organization. These files must be present in the ``.chef`` directory in order for a workstation to be able to connect to a Chef server.
 
-To create the .chef directory:
+To create the ``.chef`` directory:
 
 #. In a command window, enter the following:
 
@@ -281,7 +278,7 @@ To create the .chef directory:
 
       mkdir -p ~/chef-repo/.chef
 
-#. After the .chef directory has been created, the following folder structure will be present on the local machine::
+#. After the ``.chef`` directory has been created, the following folder structure will be present on the local machine::
 
       chef-repo/
          .chef/        << the hidden directory
@@ -302,7 +299,7 @@ To create the .chef directory:
 
 **Create an Organization**
 
-On the Chef server machine create the ORGANIZATION-validator.pem from the command line using chef-server-ctl. Run the following command:
+On the Chef server machine create the ``ORGANIZATION-validator.pem`` from the command line using ``chef-server-ctl``. Run the following command:
 
 .. code-block:: bash
 
@@ -312,7 +309,7 @@ where
 
 * The name must begin with a lower-case letter or digit, may only contain lower-case letters, digits, hyphens, and underscores, and must be between 1 and 255 characters. For example: ``chef``
 * The full name must begin with a non-white space character and must be between 1 and 1023 characters. For example: ``"Chef Software, Inc."``
-* ``-f FILE_NAME``: Write the ORGANIZATION-validator.pem to ``FILE_NAME`` instead of printing it to ``STDOUT``. For example: ``/tmp/chef.key``.
+* ``-f FILE_NAME``: Write the ``ORGANIZATION-validator.pem`` to ``FILE_NAME`` instead of printing it to ``STDOUT``. For example: ``/tmp/chef.key``.
 
 For example, an organization named ``chef``, with a full name of ``Chef Software, Inc.``, and with the ORGANIZATION-validator.pem file saved to ``/tmp/chef.key``:
 
@@ -322,7 +319,7 @@ For example, an organization named ``chef``, with a full name of ``Chef Software
 
 **Create a User**
 
-On the Chef server machine create the USER.pem from the command line using chef-server-ctl. Run the following command:
+On the Chef server machine create the ``USER.pem`` from the command line using ``chef-server-ctl``. Run the following command:
 
 .. code-block:: bash
 
@@ -330,9 +327,9 @@ On the Chef server machine create the USER.pem from the command line using chef-
 
 where
 
-* Write the USER.pem to a file instead of ``STDOUT``. For example: ``/tmp/grantmc.key``.
+* ``-f FILE_NAME`` writes the ``USER.pem`` to a file instead of ``STDOUT``. For example: ``/tmp/grantmc.key``.
 
-For example, a user named ``grantmc``, with a first and last name of ``Grant McLennan``, an email address of ``grantmc@chef.io``, a poorly-chosen password, and with the USER.pem file saved to ``/tmp/grantmc.key``:
+For example: a user named ``grantmc``, with a first and last name of ``Grant McLennan``, an email address of ``grantmc@chef.io``, a poorly-chosen password, and a ``USER.pem`` file saved to ``/tmp/grantmc.key``:
 
 .. code-block:: bash
 
@@ -340,7 +337,7 @@ For example, a user named ``grantmc``, with a first and last name of ``Grant McL
 
 **Move .pem Files**
 
-The ORGANIZATION-validator.pem and USER.pem files must be moved to the .chef directory after they are downloaded from the Chef server.
+The ``ORGANIZATION-validator.pem`` and ``USER.pem`` files must be moved to the ``.chef`` directory after they are downloaded from the Chef server.
 
 To move files to the .chef directory:
 
@@ -358,11 +355,11 @@ To move files to the .chef directory:
 
    where ``/path/to/`` represents the path to the location in which these three files were placed after they were downloaded.
 
-#. Verify that the files are in the .chef folder.
+#. Verify that the files are in the ``.chef`` folder.
 
 **Create the knife.rb File**
 
-The knife.rb file must be created in the .chef folder. It should look similar to:
+The ``knife.rb`` file must be created in the ``.chef`` folder. It should look similar to:
 
 .. code-block:: ruby
 
@@ -448,7 +445,7 @@ Spaces and Directories
 -----------------------------------------------------
 .. tag windows_spaces_and_directories
 
-Directories that are used by Chef on the Microsoft Windows platform cannot have spaces. For example, ``/c/Users/Steven Danno`` will not work, but ``/c/Users/StevenDanno`` will.
+Directories that are used by Chef on the Microsoft Windows platform cannot have spaces. For example, ``C:\Users\Steven Danno`` will not work, but ``C:\Users\StevenDanno`` will.
 
 A different issue exists with the knife command line tool that is also related to spaces and directories. The ``knife cookbook site install`` subcommand will fail when the Microsoft Windows directory contains a space.
 
@@ -458,7 +455,7 @@ Top-level Directory Names
 -----------------------------------------------------
 .. tag windows_top_level_directory_names
 
-Paths can be longer in UNIX and Linux environments than they can be in Microsoft Windows. Microsoft Windows will throw errors when path name lengths are too long. For this reason, it's often helpful to use a very short top-level directory in Microsoft Windows, much like what is done in UNIX and Linux. For example, Chef uses ``/opt/`` to install the Chef development kit on macOS. A similar approach can be done on Microsoft Windows, by creating a top-level directory with a short name. For example: ``c:\chef``.
+Paths can be longer in UNIX and Linux environments than they can be in Microsoft Windows. Microsoft Windows will throw errors when path name lengths are too long. For this reason, it's often helpful to use a very short top-level directory in Microsoft Windows, much like what is done in UNIX and Linux. For example, Chef uses ``/opt/`` to install the Chef development kit on macOS. A similar approach can be done on Microsoft Windows, by creating a top-level directory with a short name. For example: ``C:\chef``.
 
 .. end_tag
 

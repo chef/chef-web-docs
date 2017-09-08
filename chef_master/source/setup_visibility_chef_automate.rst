@@ -32,24 +32,35 @@ To set your own token, add the following to your ``/etc/delivery/delivery.rb`` f
 
    data_collector['token'] = 'sometokenvalue'
 
-... and then run ``automate-ctl reconfigure``
-
-If you do not configure a token, the default token value is: ``93a49a4f2482c64126f7b6015e6b0f30284287ee4054ff8807fb63d9cbd1c506``
+Then run ``automate-ctl reconfigure``. If you do not configure a token, the default token value is: ``93a49a4f2482c64126f7b6015e6b0f30284287ee4054ff8807fb63d9cbd1c506``
 
 
 Configure your Chef server to point to Chef Automate
 ----------------------------------------------------
-
 In addition to forwarding Chef run data to Automate, Chef server will send messages to Chef Automate whenever an action is taken on a Chef server object, such as when a cookbook is uploaded to the Chef server or when a user edits a role.
 
-To enable this feature on Chef Server versions 12.14 and later, channel the token setting through our veil secrets library because the token is considered a secret and, as such, cannot appear in ``/etc/opscode/chef-server.rb``. On Chef Server versions 12.14 and above, you must make the following to change the data collector token:
+Enable data collector on Chef server versions 12.14 and above
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Channel the token setting through the veil secrets library because the token is considered a secret, and cannot appear in ``/etc/opscode/chef-server.rb``:
 
 .. code-block:: ruby
 
    chef-server-ctl set-secret data_collector token 'TOKEN'
    chef-server-ctl restart nginx
 
-To enable this feature on Chef Server versions 12.13 and earlier, add the following settings to ``/etc/opscode/chef-server.rb`` on the Chef server:
+Then add the following setting to ``/etc/opscode/chef-server.rb`` on the Chef server:
+
+.. code-block:: ruby
+
+   data_collector['root_url'] = 'https://my-automate-server.mycompany.com/data-collector/v0/'
+
+where ``my-automate-server.mycompany.com`` is the fully-qualified domain name of your Chef Automate server.
+
+Save the file and run ``chef-server-ctl reconfigure`` to complete the process.
+
+Enable data collector on Chef server versions 12.13 and prior
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+On versions 12.13 and prior, simply add the ``'root_url'`` and ``token`` values in ``/etc/opscode/chef-server.rb``:
 
 .. code-block:: ruby
 
@@ -61,6 +72,8 @@ where ``my-automate-server.mycompany.com`` is the fully-qualified domain name of
 
 Save the file and run ``chef-server-ctl reconfigure`` to complete the process.
 
+Additional options
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Additional configuration options include:
 
  * ``data_collector['timeout']``: timeout in milliseconds to abort an attempt to send a message to the
@@ -177,6 +190,13 @@ For more information specifically on using the ``audit`` cookbook with Automate,
 
 The ``Audit`` Cookbook
 ----------------------------------------
+
+.. tag audit_cookbook_420
+
+.. note:: Audit Cookbook version 4.2.0 or later requires InSpec 1.25.1 or later. You can upgrade your InSpec package in several different ways: by upgrading Automate, by upgrading the Chef Development Kit, by upgrading Chef Client, or by setting the ``node['audit']['inspec_version']`` attribute in your cookbook.
+
+.. end_tag
+
 To send compliance data gathered by InSpec as part of a Chef client run, you will need to use the `audit cookbook <https://github.com/chef-cookbooks/audit>`_. All profiles configured to run during the audit cookbook execution will send their results back to the Chef Automate server.
 
 Configure the Node for ``audit`` Cookbook
@@ -243,7 +263,7 @@ Prerequisites
 -----------------------------------------------------
 
 * Chef Automate server
-* Elasticsearch (version 2.4.1 or greater; however, v5.x is not yet supported)
+* Elasticsearch (version 2.4.1 or greater; version 5.x is required for Chef Automate 1.6 and above)
 
 Elasticsearch configuration
 -----------------------------------------------------

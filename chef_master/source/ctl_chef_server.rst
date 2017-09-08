@@ -228,9 +228,9 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl install name_of_premium_feature (options)
+   $ chef-server-ctl install name_of_addon (options)
 
-where ``name_of_premium_feature`` represents the command line value associated with the premium feature.
+where ``name_of_addon`` represents the command line value associated with the add-on or premium feature.
 
 .. end_tag
 
@@ -680,6 +680,17 @@ There are various ways to pass the secret to this command:
       Enter ldap bind_password:    (no terminal output)
       Re-enter ldap bind_password: (no terminal output)
 
+**Options**
+
+.. tag ctl_chef_server_set_secret_options
+
+This subcommand has the following options:
+
+``--with-restart``
+    If any services depend on the secret being changed, attempt to restart them
+    after changing the secret. Added in Chef server 12.16.2.
+
+.. end_tag
 
 .. _ctl_chef_server_remove_secret:
 
@@ -870,6 +881,33 @@ This subcommand has the following syntax:
 .. code-block:: bash
 
    $ chef-server-ctl show-service-credentials
+
+cleanup-bifrost
+-----------------------------------------------------
+The ``cleanup-bifrost`` subcommand removes unused authorization objects from the authorization database (called bifrost).  These unused objects can accumulate on long-running Chef servers as a result of failed object creation requests.  For most users, the unused authorization objects do not substantially affect the performance of Chef server; however in certain situations it can be helpful to clean them up.  This command is primarily intended for use by Chef support.
+
+New in Chef Server 12.16.9
+
+**Syntax**
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ chef-server-ctl cleanup-bifrost OPTIONS
+
+**Options**
+
+This subcommand has the following options:
+
+``--estimate-only``
+   Provides an estimate of the number of unused objects that will be deleted, without deleting anything.
+``--wait-time SECONDS``
+   The number of seconds to wait for in-flight requests to complete.  Only decrease this value if you are running the command when the Chef server is not taking requests.
+``--force-cleanup``
+   Removes internal tracking tables used during the cleanup process.  Manual cleanup of these tables is only required if the cleanup command is killed unexpectedly.
+``--batch-size`` 
+   The number of orphaned authorization actors to delete at a time.
 
 master-recover
 =====================================================
