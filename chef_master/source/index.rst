@@ -96,7 +96,7 @@ Setup
 
 **Nodes**::doc:`Install via Bootstrap </install_bootstrap>` | :doc:`Install via URL </install_omnibus>` | :doc:`Install on Windows </install_windows>` | :doc:`Install on Junos OS </junos>` | :doc:`chef-client (executable) </ctl_chef_client>` | :doc:`client.rb </config_rb_client>` | :doc:`Upgrades </upgrade_client>` | :doc:`Security </chef_client_security>`
 
-**Server**: `Hosted Chef Server <https://manage.chef.io/signup>`_ | `Install Standalone <https://docs.chef.io/install_server.html#standalone>`_ | :doc:`Install High Availability </install_server_ha>` | :doc:`Upgrade High Availability </upgrade_server_ha_v2>`  | :doc:`AWS Marketplace </aws_marketplace>` | :doc:`Microsoft Azure </azure_portal>`
+**Server**: `Hosted Chef Server <https://manage.chef.io/signup>`_ | `Install Standalone <https://docs.chef.io/install_server.html#standalone>`_ | :doc:`Install High Availability </install_server_ha>` | :doc:`Upgrade High Availability </upgrade_server_ha_v2>`  | :doc:`AWS Marketplace </aws_marketplace>` | :doc:`Microsoft Azure </azure_portal>` | :doc:`VMware </vmware>`
 
 **Supermarket**: `Public Supermarket <https://supermarket.chef.io>`_ | :doc:`Install Private Supermarket </install_supermarket>` | `Customize Supermarket </install_supermarket.html#customize-supermarket>`_ | `Run in Kitchen </install_supermarket.html#run-supermarket-in-kitchen>`_
 
@@ -104,6 +104,7 @@ Setup
 
 **Integrations**: :doc:`w/Chef Compliance </integrate_compliance_chef_server>`
 
+:doc:`Air-gapped Installation </install_chef_air_gap>`
 :doc:`Uninstall </uninstall>`
 
 Cookbook Reference
@@ -116,7 +117,7 @@ Cookbook Reference
 
 **Recipes**: :doc:`About Recipes </recipes>` | :doc:`Debug Recipes, Client Runs </debug>`
 
-**Resources**: :doc:`About Resources </resource>` | :doc:`Common Functionality </resource_common>` | :doc:`Custom Resources </custom_resources>` | :doc:`All Resources (Single Page) </resources>` | :doc:`apt_package </resource_apt_package>` | :doc:`apt_repository </resource_apt_repository>` | :doc:`apt_update </resource_apt_update>` | :doc:`bash </resource_bash>` | :doc:`batch </resource_batch>` | :doc:`bff_package </resource_bff_package>` | :doc:`breakpoint </resource_breakpoint>` | :doc:`cab_package </resource_cab_package>` | :doc:`chef_acl </resource_chef_acl>` | :doc:`chef_client </resource_chef_client>` | :doc:`chef_container </resource_chef_container>` | :doc:`chef_data_bag </resource_chef_data_bag>` | :doc:`chef_data_bag_item </resource_chef_data_bag_item>` | :doc:`chef_environment </resource_chef_environment>` | :doc:`chef_gem </resource_chef_gem>` | :doc:`chef_group </resource_chef_group>` | :doc:`chef_handler </resource_chef_handler>` | :doc:`chef_mirror </resource_chef_mirror>` | :doc:`chef_node </resource_chef_node>` | :doc:`chef_organization </resource_chef_organization>` | :doc:`chef_role </resource_chef_role>` | :doc:`chef_user </resource_chef_user>` |  :doc:`chocolatey_package </resource_chocolatey_package>` | :doc:`cookbook_file </resource_cookbook_file>` | :doc:`cron </resource_cron>` | :doc:`csh </resource_csh>` | :doc:`deploy </resource_deploy>` | :doc:`directory </resource_directory>` | :doc:`dpkg_package </resource_dpkg_package>` | :doc:`dsc_resource </resource_dsc_resource>` | :doc:`dsc_script </resource_dsc_script>` | :doc:`env </resource_env>` | :doc:`erl_call </resource_erlang_call>` | :doc:`execute </resource_execute>` | :doc:`file </resource_file>` | :doc:`freebsd_package </resource_freebsd_package>` | :doc:`gem_package </resource_gem_package>` | :doc:`git </resource_git>` | :doc:`group </resource_group>` | :doc:`homebrew_package </resource_homebrew_package>` | :doc:`http_request </resource_http_request>` | :doc:`ifconfig </resource_ifconfig>` | :doc:`ips_package </resource_ips_package>` | :doc:`ksh </resource_ksh>` | :doc:`launchd </resource_launchd>` | :doc:`link </resource_link>` | :doc:`log </resource_log>` | :doc:`macports_package </resource_macports_package>` | :doc:`mdadm </resource_mdadm>` | :doc:`mount </resource_mount>` | :doc:`ohai </resource_ohai>` | :doc:`openbsd_package </resource_openbsd_package>` | :doc:`osx_profile </resource_osx_profile>` | :doc:`package </resource_package>` | :doc:`pacman_package </resource_pacman_package>` | :doc:`paludis_package </resource_paludis_package>` | :doc:`perl </resource_perl>` | :doc:`portage_package </resource_portage_package>` | :doc:`powershell_script </resource_powershell_script>` | :doc:`private_key </resource_private_key>` | :doc:`public_key </resource_public_key>` | :doc:`python </resource_python>` | :doc:`reboot </resource_reboot>` | :doc:`registry_key </resource_registry_key>` | :doc:`remote_directory </resource_remote_directory>` | :doc:`remote_file </resource_remote_file>` | :doc:`route </resource_route>` | :doc:`rpm_package </resource_rpm_package>` | :doc:`ruby </resource_ruby>` | :doc:`ruby_block </resource_ruby_block>` | :doc:`script </resource_script>` | :doc:`service </resource_service>` | :doc:`smartos_package </resource_smartos_package>` | :doc:`solaris_package </resource_solaris_package>` | :doc:`subversion </resource_subversion>` | :doc:`systemd_unit </resource_systemd_unit>` | :doc:`template </resource_template>` | :doc:`user </resource_user>` | :doc:`windows_package </resource_windows_package>` | :doc:`windows_service </resource_windows_service>` | :doc:`windows_task </resource_windows_task>` | :doc:`yum_package </resource_yum>` | :doc:`yum_repository </resource_yum_repository>` | :doc:`dnf_package </resource_dnf_package>` | :doc:`zypper_package </resource_zypper_package>` | :doc:`zypper_repository </resource_zypper_repository>` | :doc:`Examples (by Resource) </resource_examples>`
+**Resources**: :doc:`About Resources </resource>` | :doc:`Common Functionality </resource_common>` | :doc:`Custom Resources </custom_resources>` | :doc:`All Resources (Single Page) </resources>` | :doc:`apt_package </resource_apt_package>` | :doc:`apt_preference </resource_apt_preference>` | :doc:`apt_repository </resource_apt_repository>` | :doc:`apt_update </resource_apt_update>` | :doc:`bash </resource_bash>` | :doc:`batch </resource_batch>` | :doc:`bff_package </resource_bff_package>` | :doc:`breakpoint </resource_breakpoint>` | :doc:`cab_package </resource_cab_package>` | :doc:`chef_acl </resource_chef_acl>` | :doc:`chef_client </resource_chef_client>` | :doc:`chef_container </resource_chef_container>` | :doc:`chef_data_bag </resource_chef_data_bag>` | :doc:`chef_data_bag_item </resource_chef_data_bag_item>` | :doc:`chef_environment </resource_chef_environment>` | :doc:`chef_gem </resource_chef_gem>` | :doc:`chef_group </resource_chef_group>` | :doc:`chef_handler </resource_chef_handler>` | :doc:`chef_mirror </resource_chef_mirror>` | :doc:`chef_node </resource_chef_node>` | :doc:`chef_organization </resource_chef_organization>` | :doc:`chef_role </resource_chef_role>` | :doc:`chef_user </resource_chef_user>` |  :doc:`chocolatey_package </resource_chocolatey_package>` | :doc:`cookbook_file </resource_cookbook_file>` | :doc:`cron </resource_cron>` | :doc:`csh </resource_csh>` | :doc:`deploy </resource_deploy>` | :doc:`directory </resource_directory>` | :doc:`dpkg_package </resource_dpkg_package>` | :doc:`dsc_resource </resource_dsc_resource>` | :doc:`dsc_script </resource_dsc_script>` | :doc:`env </resource_env>` | :doc:`erl_call </resource_erlang_call>` | :doc:`execute </resource_execute>` | :doc:`file </resource_file>` | :doc:`freebsd_package </resource_freebsd_package>` | :doc:`gem_package </resource_gem_package>` | :doc:`git </resource_git>` | :doc:`group </resource_group>` | :doc:`homebrew_package </resource_homebrew_package>` | :doc:`http_request </resource_http_request>` | :doc:`ifconfig </resource_ifconfig>` | :doc:`ips_package </resource_ips_package>` | :doc:`ksh </resource_ksh>` | :doc:`launchd </resource_launchd>` | :doc:`link </resource_link>` | :doc:`log </resource_log>` | :doc:`macports_package </resource_macports_package>` | :doc:`mdadm </resource_mdadm>` | :doc:`mount </resource_mount>` | :doc:`ohai </resource_ohai>` | :doc:`openbsd_package </resource_openbsd_package>` | :doc:`osx_profile </resource_osx_profile>` | :doc:`package </resource_package>` | :doc:`pacman_package </resource_pacman_package>` | :doc:`paludis_package </resource_paludis_package>` | :doc:`perl </resource_perl>` | :doc:`portage_package </resource_portage_package>` | :doc:`powershell_script </resource_powershell_script>` | :doc:`private_key </resource_private_key>` | :doc:`public_key </resource_public_key>` | :doc:`python </resource_python>` | :doc:`reboot </resource_reboot>` | :doc:`registry_key </resource_registry_key>` | :doc:`remote_directory </resource_remote_directory>` | :doc:`remote_file </resource_remote_file>` | :doc:`route </resource_route>` | :doc:`rpm_package </resource_rpm_package>` | :doc:`ruby </resource_ruby>` | :doc:`ruby_block </resource_ruby_block>` | :doc:`script </resource_script>` | :doc:`service </resource_service>` | :doc:`smartos_package </resource_smartos_package>` | :doc:`solaris_package </resource_solaris_package>` | :doc:`subversion </resource_subversion>` | :doc:`systemd_unit </resource_systemd_unit>` | :doc:`template </resource_template>` | :doc:`user </resource_user>` | :doc:`windows_package </resource_windows_package>` | :doc:`windows_service </resource_windows_service>` | :doc:`windows_task </resource_windows_task>` | :doc:`yum_package </resource_yum>` | :doc:`yum_repository </resource_yum_repository>` | :doc:`dnf_package </resource_dnf_package>` | :doc:`zypper_package </resource_zypper_package>` | :doc:`zypper_repository </resource_zypper_repository>` | :doc:`Examples (by Resource) </resource_examples>`
 
 :doc:`Templates </templates>` |
 :doc:`Cookbook Repo </cookbook_repo>` |
@@ -217,7 +218,7 @@ InSpec
 Documentation
 -----------------------------------------------------
 
-`InSpec Documentation <https://www.inspec.io/docs/>`_ 
+`InSpec Documentation <https://www.inspec.io/docs/>`_
 
 Tutorials
 -----------------------------------------------------
@@ -327,8 +328,8 @@ Compliance scanner
 :doc:`Integrate w/Chef Automate </integrate_compliance_server_chef_automate>` |
 :doc:`Upgrade Compliance </upgrade_compliance>` |
 :doc:`chef-compliance.rb </config_rb_compliance>` |
-:doc:`Chef Compliance API </api_compliance>`
-:doc: `Profile Store </profile_store>`
+:doc:`Chef Compliance API </api_compliance>` |
+:doc:`Profile Store </profile_store>`
 
 AWS OpsWorks for Chef Automate
 -----------------------------------------------------
@@ -563,6 +564,7 @@ Addenda
    handlers
    install_chef_automate
    install_bootstrap
+   install_chef_air_gap
    install_chef_compliance
    install_dk
    install_omnibus
@@ -809,6 +811,7 @@ Addenda
    upgrade_server_notes
    upgrade_server_open_source_notes
    visibility
+   vmware
    windows
    workflow
    workstation

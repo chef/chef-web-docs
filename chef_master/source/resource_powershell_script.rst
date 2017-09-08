@@ -54,6 +54,7 @@ The full syntax for all of the properties that are available to the **powershell
      password                   String
      domain                     String
      action                     Symbol # defaults to :run if not specified
+     elevated                   TrueClass, FalseClass
    end
 
 where
@@ -62,7 +63,7 @@ where
 * ``name`` is the name of the resource block
 * ``command`` is the command to be run and ``cwd`` is the location from which the command is run
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``architecture``, ``code``, ``command``, ``convert_boolean_return``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``provider``, ``returns``,``timeout``, ``user``, ``password`` and ``domain`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``architecture``, ``code``, ``command``, ``convert_boolean_return``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``provider``, ``returns``, ``timeout``, ``user``, ``password``, ``domain`` and ``elevated`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -291,6 +292,15 @@ This resource has the following properties:
 
    *Windows only*: The domain of the user user specified by the `user` property.
    Default value: `nil`. If not specified, the user name and password specified by the `user` and `password` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the `user` property.
+
+``elevated``
+    **Ruby Type:**  TrueClass, FalseClass
+
+    Determines whether the script will run with elevated permissions to circumvent User Access Control (UAC) interactively blocking the process. 
+
+    This will cause the process to be run under a batch login instead of an interactive login. The user running Chef needs the "Replace a process level token" and "Adjust Memory Quotas for a process" permissions. The user that is running the command needs the "Log on as a batch job" permission.
+
+    Because this requires a login, the ``user`` and ``password`` properties are required.
 
 .. end_tag
 
@@ -588,6 +598,15 @@ The following example shows how to run ``mkdir test_dir`` from a chef-client run
     cwd Chef::Config[:file_cache_path]
     user "username@domain-name"
     password "password"
+   end
+
+   # Work around User Access Control (UAC)
+   powershell_script 'mkdir test_dir' do
+    code "mkdir test_dir"
+    cwd Chef::Config[:file_cache_path]
+    user "username"
+    password "password"
+    elevated true
    end
 
 .. end_tag

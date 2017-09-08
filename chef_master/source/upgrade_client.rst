@@ -40,7 +40,6 @@ Ensure that all of the cookbooks used by your organization are correctly located
  * Delete unused cookbook versions. First, run ``knife cookbook list`` to view a list of cookbooks. Next, for each cookbook, run ``knife cookbook show COOKBOOK_NAME`` to view its versions. Then, delete each unused version with ``knife cookbook delete -v VERSION_NAME``.
 
 Download all cookbooks and validate the following against each cookbook:
- * Run ``knife cookbook test``. Does each cookbook pass validation with the version of chef client you plan on using?
  * Run ``egrep -L ^name */metadata.rb``. Does each have a ``metadata.rb`` file?
  * Does the cookbook name in the ``metadata.rb`` file match the name in the run-list? (Some older versions of the Chef client used the cookbook name for the run-list based on the directory name of the cookbook and not the cookbook_name in the ``metadata.rb`` file.)
 

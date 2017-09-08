@@ -333,7 +333,7 @@ The ``recommends``, ``suggests``, ``conflicts``, ``replaces`` and ``grouping`` m
 All unignored cookbook files will now be uploaded.
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 We now treat every file under a cookbook directory as belonging to a cookbook, unless that file is ignored with a ``chefignore`` file. This is a change from the previous behavior where only files in certain directories, such as ``recipes`` or ``templates``, were treated as special.
-This change allows chef to support new classes of files, such as Ohai plugins or Inspec tests, without having to make changes to the cookbook format to support them.
+This change allows chef to support new classes of files, such as Ohai plugins or InSpec tests, without having to make changes to the cookbook format to support them.
 
 DSL-based custom resources and providers no longer get module constants
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

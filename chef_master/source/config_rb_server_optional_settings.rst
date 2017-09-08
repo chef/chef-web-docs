@@ -9,12 +9,6 @@ The chef-server.rb file contains all of the non-default configuration settings u
 
 .. end_tag
 
-.. note:: .. tag notes_config_rb_server_does_not_exist_by_default
-
-          The chef-server.rb file does not exist by default. To modify the settings for the Chef server, create a file named ``chef-server.rb`` in the ``/etc/opscode/`` directory.
-
-          .. end_tag
-
 .. note:: .. tag notes_config_rb_server_was_private_chef_rb
 
           This file was named private-chef.rb in previous versions of Enterprise Chef. After an upgrade to Chef server 12 from Enterprise Chef, the private-chef.rb file is symlinked to chef-server.rb. The private-chef.rb file is deprecated, starting with Chef server 12.
@@ -148,6 +142,15 @@ This configuration file has the following settings for ``bookshelf``:
    The secret key. This may point at an external storage location, such as Amazon EC2. See :ref:`external_bookshelf_settings` for more information on configuring external bookshelf. Default value: **generated**. As of Chef server 12.14, this is no longer the preferred command.
 
    Please use ``chef-server-ctl set-secret bookshelf secret_access_key`` from the :ref:`ctl_chef_server_secrets_management` commands.
+
+``bookshelf['storage_type']``
+   Determines where cookbooks are stored. Default value: ``:filesystem``. 
+
+   In instances that require cookbooks to be stored within a SQL backend, such as in a high availability setup, you must set ``storage_type`` to ``:sql``:
+
+   .. code-block:: ruby
+
+      bookshelf['storage_type'] = :sql
 
 ``bookshelf['stream_download']``
    Enable stream downloading of cookbooks. This setting (when ``true``) typically results in improved cookbook download performance, especially with the memory usage of the **bookshelf** service and the behavior of load balancers and proxies in-between the chef-client and the Chef server. Default value: ``true``.
