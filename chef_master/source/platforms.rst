@@ -177,7 +177,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``x86_64``
      - ``5.x``, ``6.x``, ``7.x``
    * - Red Hat Enterprise Linux
-     - ``x86_64``, ``ppc64`` (7.x only), ``ppc64`` (7.x only)
+     - ``x86_64``, ``ppc64le`` (7.x only), ``ppc64`` (7.x only)
      - ``5.x``, ``6.x``, ``7.x``
    * - SUSE Enterprise Linux Server
      - ``x86_64``
