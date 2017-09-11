@@ -26,8 +26,8 @@ This guide will link to the required cookbooks for each piece of software in tha
 
 For Chef Supermarket:
 
-* `Supermarket-omnibus-cookbook <https://supermarket.chef.io/cookbooks/supermarket-omnibus-cookbook>`_
-* `Chef-ingredient <https://supermarket.chef.io/cookbooks/chef-ingredient>`_
+* `supermarket-omnibus-cookbook <https://supermarket.chef.io/cookbooks/supermarket-omnibus-cookbook>`_
+* `chef-ingredient <https://supermarket.chef.io/cookbooks/chef-ingredient>`_
 * `hostsfile <https://supermarket.chef.io/cookbooks/hostsfile>`_ 
 
 For Chef Automate Workflow:
