@@ -996,6 +996,7 @@ and then to provision the machine, run the following:
    $ chef provision test123 --sync -n aar-dev
 
 This will synchronize the Policyfile.lock.json file to the Chef server, and then run the chef-client on the node.
+
 .. code-block:: bash
 
    Recipe: code_generator::cookbook
