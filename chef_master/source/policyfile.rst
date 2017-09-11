@@ -338,10 +338,6 @@ This subcommand has the following options:
 
 .. end_tag
 
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-None.
-
 chef clean-policy-revisions
 -----------------------------------------------------
 .. tag ctl_chef_clean_policy_revisions
@@ -381,10 +377,6 @@ This subcommand has the following options:
    The version of the chef-client.
 
 .. end_tag
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-None.
 
 chef delete-policy
 -----------------------------------------------------
@@ -426,10 +418,6 @@ This subcommand has the following options:
 
 .. end_tag
 
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-None.
-
 chef delete-policy-group
 -----------------------------------------------------
 .. tag ctl_chef_delete_policy_group
@@ -469,10 +457,6 @@ This subcommand has the following options:
    The version of the chef-client.
 
 .. end_tag
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-None.
 
 chef diff
 -----------------------------------------------------
@@ -673,10 +657,6 @@ This subcommand has the following options:
 
 .. end_tag
 
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-None.
-
 chef generate policyfile
 -----------------------------------------------------
 .. tag ctl_chef_generate_policyfile
@@ -710,10 +690,6 @@ This subcommand has the following options:
    The version of the chef-client.
 
 .. end_tag
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-None.
 
 chef generate repo
 -----------------------------------------------------
@@ -759,10 +735,6 @@ This subcommand has the following options:
    The version of the chef-client.
 
 .. end_tag
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-None.
 
 chef install
 -----------------------------------------------------
@@ -853,10 +825,6 @@ A ``Policyfile.lock.json file is similar to:
        }
 
 .. end_tag
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-None.
 
 chef provision
 -----------------------------------------------------
@@ -1102,10 +1070,6 @@ This subcommand has the following options:
 
 .. end_tag
 
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-None.
-
 chef push-archive
 -----------------------------------------------------
 .. tag ctl_chef_push_archive
@@ -1145,10 +1109,6 @@ This subcommand has the following options:
    The version of the chef-client.
 
 .. end_tag
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-None.
 
 chef show-policy
 -----------------------------------------------------
@@ -1195,10 +1155,6 @@ This subcommand has the following options:
    The version of the chef-client.
 
 .. end_tag
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-None.
 
 chef undelete
 -----------------------------------------------------
@@ -1255,10 +1211,6 @@ This subcommand has the following options:
 
 .. end_tag
 
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-None.
-
 chef update
 -----------------------------------------------------
 .. tag ctl_chef_update
@@ -1298,7 +1250,3 @@ This subcommand has the following options:
    The version of the chef-client.
 
 .. end_tag
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-None.
