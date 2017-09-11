@@ -5,11 +5,12 @@ Policyfile.rb
 
 .. tag policyfile_summary
 
-.. note:: Policyfile file is an optional way to manage role, environment, and community cookbook data.
+A Policyfile is an optional way to manage role, environment, and community cookbook data with a single document that is uploaded to the Chef server. The file is associated with a group of nodes, cookbooks, and settings. When these nodes perform a Chef client run, they utilize recipes specified in the Policyfile run-list.
 
-Policyfile is a single document that is uploaded to the Chef server. It is associated with a group of nodes, cookbooks, and settings. When these nodes run, they run the recipes specified in the Policyfile run-list.
+.. note:: Consider the following before using Policyfiles:
 
-.. warning:: Policyfile is not supported as part of a Chef Automate workflow.
+   * Policyfile is not supported as part of a Chef Automate workflow
+   * Policyfile is intended to be used with Chef server 12.3 or above, and Chef client 12.8 or above
 
 .. end_tag
 
@@ -25,7 +26,7 @@ Syntax
 =====================================================
 .. tag policyfile_rb_syntax
 
-A Policyfile.rb is a Ruby file, in which a run-list and cookbook locations are specified. The syntax is as follows:
+A ``Policyfile.rb`` is a Ruby file in which run-list and cookbook locations are specified. The syntax is as follows:
 
 .. code-block:: ruby
 
@@ -40,7 +41,7 @@ Settings
 =====================================================
 .. tag policyfile_rb_settings
 
-A Policyfile.rb file may contain the following settings:
+A ``Policyfile.rb`` file may contain the following settings:
 
 ``name "name"``
    Required. The name of the policy. Use a name that reflects the purpose of the machines against which the policy will run.
