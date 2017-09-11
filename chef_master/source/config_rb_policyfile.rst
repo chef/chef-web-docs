@@ -26,7 +26,7 @@ Syntax
 =====================================================
 .. tag policyfile_rb_syntax
 
-A ``Policyfile.rb`` is a Ruby file, in which run-list and cookbook locations are specified. The syntax is as follows:
+A ``Policyfile.rb`` is a Ruby file in which run-list and cookbook locations are specified. The syntax is as follows:
 
 .. code-block:: ruby
 
