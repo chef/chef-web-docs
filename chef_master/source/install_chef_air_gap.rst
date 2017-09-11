@@ -544,7 +544,10 @@ If you've applied the configuration, you will also be prompted to set up a Chef 
 
 After setup successfully completes and a configuration has been applied, login credentials are reported in the completion output; however, they are also saved to ``/etc/delivery/ENTERPRISE_NAME-admin-credentials``.
 
-If you plan on using the workflow capabilities of Automate, proceed to the next section to setup your build nodes/runners. After they are set up, you can attempt to run an initial application or cookbook change through your Chef Automate server.
+If you plan on using the workflow capabilities of Automate, you will need to have the following cookbooks available on your Private supermarket:
+
+* `delivery-sugar <https://supermarket.chef.io/cookbooks/delivery-sugar>`_
+* `delivery-truck <https://supermarket.chef.io/cookbooks/delivery-truck>`_
 
 For more information about ``automate-ctl`` and how to use it, see :doc:`ctl_automate_server`.
 
