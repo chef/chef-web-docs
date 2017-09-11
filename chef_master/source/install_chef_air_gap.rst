@@ -254,7 +254,7 @@ In this section, you will use a wrapper around the `Supermarket omnibus cookbook
 * `Chef ingredient <https://supermarket.chef.io/cookbooks/chef-ingredient>`_ 
 * `hostsfile <https://supermarket.chef.io/cookbooks/hostsfile>`_ 
 
-The following Gems must be accessible via your Gem, mirror:
+The following Gems must be accessible via your Gem mirror:
 
 * mixlib-install
 * mixlib-shellout
@@ -343,7 +343,7 @@ Create a Wrapper
 
 Define Attributes
 -----------------------------------------------------
-Define the attributes for the Chef Supermarket installation and how it connects to the Chef server. One approach would be to hard-code attributes in the wrapper cookbook's ``default.rb`` recipe. A better approach is to place these attributes in a :doc: `data bag </data_bags>`_, and then reference them from the recipe. For example, the data bag could be named ``apps`` and then a data bag item within the data bag could be named ``supermarket``. The following attributes are required:
+Define the attributes for the Chef Supermarket installation and how it connects to the Chef server. One approach would be to hard-code attributes in the wrapper cookbook's ``default.rb`` recipe. A better approach is to place these attributes in a :doc:`data bag </data_bags>`, and then reference them from the recipe. For example, the data bag could be named ``apps`` and then a data bag item within the data bag could be named ``supermarket``. The following attributes are required:
 
 * ``chef_server_url``: the url for your chef server.
 * ``chef_oauth2_app_id``: the Chef Identity uid from ``/etc/opscode/oc-id-applications/supermarket.json``
@@ -443,7 +443,7 @@ To reach the newly spun up private Chef Supermarket, the hostname must be resolv
 #. If an SSL notice is shown due to your self-signed certificate while connecting to Chef Supermarket via a web browser, accept the SSL certificate. A trusted SSL certificate should be used for  private Chef Supermarket that is used in production.
 #. After opening Chef Supermarket in a web browser, click the **Create Account** link. A prompt to log in to the Chef server is shown. Authorize the Chef Supermarket to use the Chef server account for authentication. **Important:** If you intend to use Supermarket in conjunction with Chef Automate, you should log into to Supermarket as the ``delivery`` user.
 
-.. note:: The redirect URL specified for Chef Identity **MUST** match the fqdn hostname of the Chef Supermarket server. The URI must also be correct: ``/auth/chef_oauth2/callback``. Otherwise, an error message similar to ``The redirect uri included is not valid.`` will be shown.
+.. note:: The redirect URL specified for Chef Identity **MUST** match the FQDN hostname of the Chef Supermarket server. The URI must also be correct: ``/auth/chef_oauth2/callback``. Otherwise, an error message similar to ``The redirect uri included is not valid.`` will be shown.
 
 Configuration updates
 -----------------------------------------------------
@@ -544,7 +544,10 @@ If you've applied the configuration, you will also be prompted to set up a Chef 
 
 After setup successfully completes and a configuration has been applied, login credentials are reported in the completion output; however, they are also saved to ``/etc/delivery/ENTERPRISE_NAME-admin-credentials``.
 
-If you plan on using the workflow capabilities of Automate, proceed to the next section to setup your build nodes/runners. After they are set up, you can attempt to run an initial application or cookbook change through your Chef Automate server.
+If you plan on using the workflow capabilities of Automate, you will need to have the following cookbooks available on your Private supermarket:
+
+* `delivery-sugar <https://supermarket.chef.io/cookbooks/delivery-sugar>`_
+* `delivery-truck <https://supermarket.chef.io/cookbooks/delivery-truck>`_
 
 For more information about ``automate-ctl`` and how to use it, see :doc:`ctl_automate_server`.
 
