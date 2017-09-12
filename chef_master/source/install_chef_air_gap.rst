@@ -26,8 +26,8 @@ This guide will link to the required cookbooks for each piece of software in tha
 
 For Chef Supermarket:
 
-* `Supermarket-omnibus-cookbook <https://supermarket.chef.io/cookbooks/supermarket-omnibus-cookbook>`_
-* `Chef-ingredient <https://supermarket.chef.io/cookbooks/chef-ingredient>`_
+* `supermarket-omnibus-cookbook <https://supermarket.chef.io/cookbooks/supermarket-omnibus-cookbook>`_
+* `chef-ingredient <https://supermarket.chef.io/cookbooks/chef-ingredient>`_
 * `hostsfile <https://supermarket.chef.io/cookbooks/hostsfile>`_ 
 
 For Chef Automate Workflow:
@@ -249,9 +249,9 @@ Private Supermarket allows you to host your own internal version of the `Chef su
 
 Requirements
 -----------------------------------------------------
-In this section, you will use a wrapper around the `Supermarket omnibus cookbook <https://supermarket.chef.io/cookbooks/supermarket-omnibus-cookbook>`__ to install private Supermarket. The Supermarket omnibus cookbook depends upon the following cookbooks:
+In this section, you will use a wrapper around the `supermarket-omnibus-cookbook <https://supermarket.chef.io/cookbooks/supermarket-omnibus-cookbook>`__ to install private Supermarket. The Supermarket cookbook depends upon the following cookbooks:
 
-* `Chef ingredient <https://supermarket.chef.io/cookbooks/chef-ingredient>`_ 
+* `chef-ingredient <https://supermarket.chef.io/cookbooks/chef-ingredient>`_ 
 * `hostsfile <https://supermarket.chef.io/cookbooks/hostsfile>`_ 
 
 The following Gems must be accessible via your Gem mirror:
