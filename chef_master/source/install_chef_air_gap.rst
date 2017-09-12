@@ -251,7 +251,7 @@ Requirements
 -----------------------------------------------------
 In this section, you will use a wrapper around the `Supermarket omnibus cookbook <https://supermarket.chef.io/cookbooks/supermarket-omnibus-cookbook>`__ to install private Supermarket. The Supermarket omnibus cookbook depends upon the following cookbooks:
 
-* `Chef ingredient <https://supermarket.chef.io/cookbooks/chef-ingredient>`_ 
+* `chef-ingredient <https://supermarket.chef.io/cookbooks/chef-ingredient>`_ 
 * `hostsfile <https://supermarket.chef.io/cookbooks/hostsfile>`_ 
 
 The following Gems must be accessible via your Gem mirror:
