@@ -88,7 +88,7 @@ This resource has the following properties:
 ``bonding_opts``
    **Ruby Type:** String
 
-   Bonding options to pass via BONDING_OPTS on Red Hat/Centos. For example ``mode=active-backup miimon=100``
+   Bonding options to pass via ``BONDING_OPTS`` on RHEL and CentOS. For example: ``mode=active-backup miimon=100``
 
 ``bootproto``
    **Ruby Type:** String
@@ -128,7 +128,7 @@ This resource has the following properties:
 ``master``
    **Ruby Type:** String
 
-   Master is the channel bonding interface to which the Ethernet interface is linked
+   Specifies the channel bonding interface to which the Ethernet interface is linked.
 
 ``metric``
    **Ruby Type:** String
@@ -256,7 +256,7 @@ This resource has the following properties:
 ``slave``
    **Ruby Type:** String
 
-   When set to yes this device is controlled by the channel bonding interface specified in the MASTER directive.
+   When set to ``yes``, this device is controlled by the channel bonding interface that is specified via the ``master`` property.
 
 ``target``
    **Ruby Type:** String
