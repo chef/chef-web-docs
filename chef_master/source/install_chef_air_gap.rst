@@ -249,7 +249,7 @@ Private Supermarket allows you to host your own internal version of the `Chef su
 
 Requirements
 -----------------------------------------------------
-In this section, you will use a wrapper around the `Supermarket omnibus cookbook <https://supermarket.chef.io/cookbooks/supermarket-omnibus-cookbook>`__ to install private Supermarket. The Supermarket omnibus cookbook depends upon the following cookbooks:
+In this section, you will use a wrapper around the `supermarket-omnibus-cookbook <https://supermarket.chef.io/cookbooks/supermarket-omnibus-cookbook>`__ to install private Supermarket. The Supermarket omnibus cookbook depends upon the following cookbooks:
 
 * `chef-ingredient <https://supermarket.chef.io/cookbooks/chef-ingredient>`_ 
 * `hostsfile <https://supermarket.chef.io/cookbooks/hostsfile>`_ 
