@@ -38,7 +38,7 @@ The full syntax for all of the properties that are available to the **route** re
 where
 
 * ``route`` is the resource
-* ``name`` is the name of the resource block
+* ``name`` is the name of the resource block. When the name is ``default``, the default gateway is modified and added to a file under ``/etc/sysconfig/network``` on RHEL and CentOS nodes.
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
 * ``device``, ``gateway``, ``netmask``, ``provider`` and ``target`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
@@ -201,6 +201,20 @@ The following examples demonstrate various approaches for using resources in rec
    route '10.0.1.10/32' do
      gateway '10.0.0.20'
      device 'eth1'
+   end
+
+.. end_tag
+
+**Add a default route**
+
+.. tag resource_route_add_default_route
+
+.. To add a default route:
+
+.. code-block:: ruby
+
+   route 'default' do
+     gateway '10.0.0.20'
    end
 
 .. end_tag
