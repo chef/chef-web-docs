@@ -38,7 +38,7 @@ The full syntax for all of the properties that are available to the **apt_reposi
       trusted               TrueClass, FalseClass
       deb_src               TrueClass, FalseClass
       keyserver             String
-      key                   String
+      key                   String, Array
       key_proxy             String
       cookbook              String
       cache_rebuild         TrueClass, FalseClass
@@ -106,9 +106,11 @@ This resource has the following properties:
    The GPG keyserver where the key for the repo should be retrieved. Default value: "keyserver.ubuntu.com".
 
 ``key``
-   **Ruby Type:** String
+   **Ruby Type:** String, Array
 
-   If a keyserver is provided, this is assumed to be the fingerprint; otherwise it can be either the URI to the GPG key for the repo, or a cookbook_file. Default value: ``nil``.
+   If a keyserver is provided, this is assumed to be the fingerprint; otherwise it can be either the URI of GPG key for the repo, or a cookbook_file. Default value: ``nil``.
+
+   New in Chef client 13.4. 
 
 ``key_proxy``
    **Ruby Type:** String
@@ -182,6 +184,18 @@ Examples
      keyserver 'keyserver.ubuntu.com'
      action :add
      deb_src true
+   end
+
+**Add repository that requires multiple keys to authenticate packages**
+
+.. code-block:: ruby
+
+   apt_repository 'rundeck' do
+     uri 'https://dl.bintray.com/rundeck/rundeck-deb'
+     distribution '/'
+     key ['379CE192D401AB61', 'http://rundeck.org/keys/BUILD-GPG-KEY-Rundeck.org.key']
+     keyserver 'keyserver.ubuntu.com'
+     action :add
    end
 
 **Add the Cloudera Repo of CDH4 packages for Ubuntu 12.04 on AMD64**
