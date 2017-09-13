@@ -11,14 +11,6 @@ Perform a Compliance Scan in Chef Automate
 
 .. end_tag
 
-.. tag compliance_beta
-
-.. important:: The new compliance functionality described in this topic is currently in Beta. To enable compliance reporting in the Chef Automate UI, navigate to the **Nodes** tab, make sure your cursor is not in any text box or field, and type ``beta``. A new ``Compliance`` tab should appear in the top-level menu of the UI. Note: Enabling the ``Compliance`` tab will allow you to view only new compliance scan data, not historical data.
-
-   While we encourage customers to try out this new functionality, the new compliance features are not recommended for production use until they are made generally available in an upcoming Chef Automate release.
-
-.. end_tag
-
 Scanning nodes in your Chef Automate cluster is enabled through the audit cookbook. This cookbook allows you to run InSpec profiles as part of a chef-client run. It downloads configured profiles from various sources like a standalone Chef Compliance server, Chef Automate, Chef Supermarket, or Git, and reports audit runs to Chef Compliance or Chef Automate.
 
 This flexibility means chef-client runs using the audit cookbook can be performed in several different usage scenarios; however, this topic describes how to use the audit cookbook with the integrated profile storage and audit reporting functionality of Chef Automate to perform compliance testing.
@@ -29,6 +21,12 @@ If your workflow requires the use of the standalone Chef Compliance server, or y
 
 .. note:: Remote scanning capabilities currently part of Chef Compliance and will be available in Chef Automate in the future.
 
+.. tag beta_note
+
+If you are using Chef Automate 0.8.5, this functionality is hidden behind a ``beta`` feature flag. See the `Chef Automate 0.8.5 release notes </release_notes_chef_automate.html##what-s-new-in-0-8-5>`_ for more details.
+
+.. end_tag
+
 Prerequisites
 -----------------------------------------------------
 
@@ -36,7 +34,7 @@ The following are required when using the built-in compliance capabilities of Ch
 
 * Chef client 12.16.42 or later must be installed on your nodes
 * Chef Automate server 0.8.5 or later
-* Chef server 12.11.1 or later (when using Chef server to report node data to Chef Automate)
+* Chef server 12.11.1 or later
 * The audit cookbook 4.0 or later
 * ChefDK 1.4.3 or later installed on your workstation
 * InSpec 1.25.1 or later installed by the audit cookbook
@@ -44,7 +42,7 @@ The following are required when using the built-in compliance capabilities of Ch
 Configure Data Collection on Chef server
 -------------------------------------------------------
 
-To send node data through Chef server to Chef Automate, you must update the ``/etc/opscode/chef-server.rb`` file on your Chef server. This is needed for convergence status and general node data, but it is also true for sending audit run data from nodes back to Chef Automate.
+To send node data through Chef server to Chef Automate, you must update the ``/etc/opscode/chef-server.rb`` file on your Chef server. This is needed for converge status and general node data, but it is also true for sending audit run data from nodes back to Chef Automate.
 
 Edit ``/etc/opscode/chef-server.rb`` and add the following information. Token values and general data collection setup instructions are described in :doc:`/setup_visibility_chef_automate`.
 
@@ -56,12 +54,12 @@ Edit ``/etc/opscode/chef-server.rb`` and add the following information. Token va
 
 After you have finished editing the file, run ``chef-server-ctl reconfigure`` to enable the changes.
 
-Upload Profiles to Chef Automate
+Add Profiles to Chef Automate
 ------------------------------------------------------
 
 Before you can see if your nodes are compliant, you need to have the profiles you intend to use uploaded to Chef Automate. Feel free to skip this section if you have already completed this process.
 
-#. Open the Chef Automate UI in your browser.
+#. Login to the Chef Automate UI as the ``admin`` user.
 
 #. Click the **Compliance** tab, then click **Profiles**. You now can now upload any profiles you have locally on your machine. Chef Automate also has a set of built-in profiles that you can use. The example in the next section will reference the baseline Linux Security and SSH profiles found in this set.
 
@@ -82,7 +80,7 @@ Before you can see if your nodes are compliant, you need to have the profiles yo
 Using the Audit Cookbook
 ------------------------------------------------------
 
-The recommended method for using the audit cookbook is via a wrapper cookbook. A wrapper cookbook is a regular cookbook that includes recipes from other cookbooks. In case the wrapper cookbook will use ``include audit::default``.
+The recommended method for using the audit cookbook is via a wrapper cookbook. A wrapper cookbook is a regular cookbook that includes recipes from other cookbooks. In case the wrapper cookbook will include ``audit::default``.
 
 Create the Wrapper Cookbook
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -93,13 +91,13 @@ Generate the wrapper cookbook:
 
   chef generate cookbook mycompany_audit
 
-Place the following in mycompany_audit/metadata.rb:
+Place the following in ``mycompany_audit/metadata.rb``:
 
 .. code-block:: ruby
 
   depends 'audit'
 
-Add the following in mycompany_audit/recipes/default.rb:
+Add the following in ``mycompany_audit/recipes/default.rb``:
 
 .. code-block:: ruby
 
@@ -111,7 +109,7 @@ Generate the default attributes file:
 
   chef generate attribute default
 
-Configure the ``audit`` cookbook reporter to send scan data to Automate in the mycompany_wrapper/attributes/default.rb file. ``audit`` cookbook supports many different configurations, see :doc:`Supported Configurations </audit_supported_configurations>`.
+Configure the ``audit`` cookbook reporter to send scan data to Automate in the ``mycompany_wrapper/attributes/default.rb`` file. ``audit`` cookbook supports many different configurations, see :doc:`Supported Configurations </audit_supported_configurations>`.
 
 .. code-block:: ruby
 
@@ -153,7 +151,7 @@ You can add the ``mycompany_wrapper::default`` recipe to an existing run-list; h
 
 .. code-block:: bash
 
-   knife bootstrap localhost --ssh-port 2201 --ssh-user vagrant --sudo --identity-file /Users/<username>/Repos/chef-test/.vagrant/machines/node1-ubuntu/virtualbox/private_key --node-name node1-ubuntu --run-list 'recipe[mycompany_wrapper::default]'
+   knife bootstrap NODE_IP_OR_FQDN --ssh-user ADMIN_USERNAME --sudo --identity-file ~/.ssh/private_key.pem --run-list 'recipe[mycompany_wrapper::default]'
 
 A truncated version of the bootstrap output is shown below:
 
@@ -161,9 +159,8 @@ A truncated version of the bootstrap output is shown below:
 
    localhost Running handlers:
    localhost [2017-05-17T21:11:07+00:00] INFO: Running report handlers
-   localhost [2017-05-17T21:11:07+00:00] WARN: Format is json
    localhost [2017-05-17T21:11:07+00:00] INFO: Initialize InSpec 1.24.0
-   localhost [2017-05-17T21:11:08+00:00] INFO: Running tests from: [{:name=>"DevSec Linux Security Baseline", :compliance=>"User/linux-baseline"}, {:name=>"DevSec SSH Baseline", :compliance=>"User/ssh-baseline"}]
+   localhost [2017-05-17T21:11:08+00:00] INFO: Running tests from: [{:name=>"DevSec Linux Security Baseline", :compliance=>"admin/linux-baseline"}, {:name=>"DevSec Windows Security Baseline", :compliance=>"admin/ssh-baseline"}]
    localhost [2017-05-17T21:11:11+00:00] INFO: Reporting to chef-server-automate
    localhost [2017-05-17T21:11:11+00:00] WARN: enriched_report: unsupported data type(Array) for attribute
    localhost [2017-05-17T21:11:11+00:00] INFO: Report to Chef Automate via Chef Server: https://chef-server.test/organizations/automatespecific/data-collector
@@ -176,6 +173,6 @@ A truncated version of the bootstrap output is shown below:
 
 View the results in Chef Automate
 -------------------------------------------------------
-When you go back to your Chef Automate UI under the **Compliance** tab, the **Reporting** dashboard should be visible. By alternating between **Node Status** and **Profile Status** views, you can view the scan results depending on which view is most important to you. The following shows some of the scan results on the bootstrapped node, "node1-ubuntu".
+When you go back to your Chef Automate UI under the **Compliance** tab, the **Reporting** dashboard should be visible. By alternating between **Node Status** and **Profile Status** views, you can view the scan results depending on which view is most important to you. The following shows some of the scan results on the bootstrapped node.
 
 .. image:: ../../images/compliance_report_node.png
