@@ -1,33 +1,16 @@
 =====================================================
-chef-client
+Chef Client Overview
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_client.rst>`__
 
-.. tag chef_client_summary
 
-A chef-client is an agent that runs locally on every node that is under management by Chef. When a chef-client is run, it will perform all of the steps that are required to bring the node into the expected state, including:
 
-* Registering and authenticating the node with the Chef server
-* Building the node object
-* Synchronizing cookbooks
-* Compiling the resource collection by loading each of the required cookbooks, including recipes, attributes, and all other dependencies
-* Taking the appropriate and required actions to configure the node
-* Looking for exceptions and notifications, handling each as required
-
-.. end_tag
-
-.. note:: The chef-client executable can be run as a daemon.
-
-.. tag node_components
-
-The key components of nodes that are under management by Chef include:
+.. note:: For the ``chef-client`` command line tool, see :doc:`chef-client(executable) </ctl_chef_client>`
+   The chef-client executable can be run as a daemon.
 
 .. list-table::
    :widths: 100 420
-   :header-rows: 1
 
-   * - Component
-     - Description
    * - .. image:: ../../images/icon_chef_client.svg
           :width: 100px
           :align: center
@@ -50,33 +33,6 @@ The key components of nodes that are under management by Chef include:
        RSA public key-pairs are used to authenticate the chef-client with the Chef server every time a chef-client needs access to data that is stored on the Chef server. This prevents any node from accessing data that it shouldn't and it ensures that only nodes that are properly registered with the Chef server can be managed.
 
        .. end_tag
-
-   * - .. image:: ../../images/icon_ohai.svg
-          :width: 100px
-          :align: center
-
-     - .. tag ohai_summary
-
-       Ohai is a tool that is used to collect system configuration data, which is provided to the chef-client for use within cookbooks. Ohai is run by the chef-client at the beginning of every Chef run to determine system state. Ohai includes many built-in plugins to detect common configuration details as well as a plugin model for writing custom plugins.
-
-       The types of attributes Ohai collects include but are not limited to:
-
-       * Operating System
-       * Network
-       * Memory
-       * Disk
-       * CPU
-       * Kernel
-       * Host names
-       * Fully qualified domain names
-       * Virtualization
-       * Cloud provider metadata
-
-       Attributes that are collected by Ohai are automatic level attributes, in that these attributes are used by the chef-client to ensure that these attributes remain unchanged after the chef-client is done configuring the node.
-
-       .. end_tag
-
-.. end_tag
 
 .. _the-chef-client-run:
 

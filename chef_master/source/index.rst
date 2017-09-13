@@ -68,7 +68,7 @@ Concepts
 :doc:`Workstation </workstation>` |
 :doc:`chef-repo </chef_repo>` |
 :doc:`Nodes </nodes>` |
-:doc:`chef-client </chef_client>` |
+:doc:`Chef Client Overview </chef_client_overview>` |
 :doc:`Server </server_components>` |
 :doc:`Search </chef_search>` |
 :doc:`Cookbooks </cookbooks>` |
@@ -439,7 +439,7 @@ Addenda
    berkshelf
    chef_automate
    chef_automate_compliance
-   chef_client
+   chef_client_overview
    chef_client_security
    chef_deprecations_client
    chef_license
