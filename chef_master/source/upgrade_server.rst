@@ -261,7 +261,7 @@ There are two upgrade scenarios for upgrades from Enterprise Chef 11 to Chef ser
 Before upgrading, please :doc:`view the notes </upgrade_server_notes>` for more background on the upgrade process from Enterprise Chef 11 to Chef server 12.
 
 
-.. note:: Using `nohup` with `chef-server-ctl upgrade` for Enterprise Chef 11 to Chef server 12 upgrades has been found to cause issues and is not supported.
+.. warning:: Using ``nohup`` with ``chef-server-ctl upgrade`` to upgrade from Enterprise Chef 11 to Chef server 12 causes issues, and is not supported.
 
 Standalone
 -----------------------------------------------------
