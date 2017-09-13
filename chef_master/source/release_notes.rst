@@ -1,9 +1,86 @@
 =====================================================
-Release Notes: chef-client 12.0 - 13.3
+Release Notes: chef-client 12.0 - 13.4
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes.rst>`__
 
 Chef client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef changelog <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
+
+What's New in 13.4
+=====================================================
+
+* **Security release of RubyGems** RubyGems has been upgraded to 2.6.13 to address the following:
+   * `CVE-2017-0899 <https://nvd.nist.gov/vuln/detail/CVE-2017-0899>`_
+   * `CVE-2017-0900 <https://nvd.nist.gov/vuln/detail/CVE-2017-0900>`_
+   * `CVE-2017-0901 <https://nvd.nist.gov/vuln/detail/CVE-2017-0901>`_
+   * `CVE-2017-0902 <https://nvd.nist.gov/vuln/detail/CVE-2017-0902>`__
+* **Additional ifconfig options on RHEL and CentOS** The ``ethtool_opts``, ``bonding_opts``, ``master``, and ``slave`` properties have been added. See the :doc:`ifconfig resource documentation </resource_ifconfig>` for additional details. 
+* **Chef vault now included by default** Chef client 13.4 includes the ``chef-vault`` gem, so users can more easily work with encrypted items.
+* **Windows remote_file resource now supports alternative credentials** The ``remote_user``, ``remote_domain``, and ``remote_password`` options have been added to allow access to a file even if the Chef client process identity does not have permission to access it. This is mainly intended to be used for accessing files between two nodes on different domains. See the :doc:`remote_file documentation </resource_remote_file>` for more information. 
+* **New windows_path resource** ``windows_path`` has been moved from the Windows cookbook to core Chef. The ``windows_path`` resource is used to manage the path environment variable on Windows. See the :doc:`windows_path documentation </resource_windows_path>` for additional details. 
+
+Ohai 13.4
+-----------------------------------------------------
+
+* **Windows EC2 Detection** Detection of nodes running in EC2 has been greatly improved, and  Ohai should now detect nodes 100% of the time, including nodes that have been migrated to EC2 or were built with custom AMIs.
+* **Package plugin supports Arch Linux** The Package plugin has been updated to include package information on Arch Linux systems.
+* **Azure Metadata Endpoint Detection** Ohai now polls the new Azure metadata endpoint, providing additional configuration details on nodes running in Azure. Sample data now available under Azure:
+  
+  .. code-block:: none
+
+      {
+        "metadata": {
+          "compute": {
+            "location": "westus",
+            "name": "timtest",
+            "offer": "UbuntuServer",
+            "osType": "Linux",
+            "platformFaultDomain": "0",
+            "platformUpdateDomain": "0",
+            "publisher": "Canonical",
+            "sku": "17.04",
+            "version": "17.04.201706191",
+            "vmId": "8d523242-71cf-4dff-94c3-1bf660878743",
+            "vmSize": "Standard_DS1_v2"
+          },
+          "network": {
+            "interfaces": {
+              "000D3A33AF03": {
+                "mac": "000D3A33AF03",
+                "public_ipv6": [
+
+                ],
+                "public_ipv4": [
+                  "52.160.95.99",
+                  "23.99.10.211"
+                ],
+                "local_ipv6": [
+
+                ],
+                "local_ipv4": [
+                  "10.0.1.5",
+                  "10.0.1.4",
+                  "10.0.1.7"
+                ]
+              }
+            },
+            "public_ipv4": [
+              "52.160.95.99",
+              "23.99.10.211"
+            ],
+            "local_ipv4": [
+              "10.0.1.5",
+              "10.0.1.4",
+              "10.0.1.7"
+            ],
+            "public_ipv6": [
+
+            ],
+            "local_ipv6": [
+
+            ]
+          }
+        }
+      }
 
 What's New in 13.3
 =====================================================
