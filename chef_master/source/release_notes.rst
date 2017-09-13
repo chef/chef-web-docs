@@ -15,7 +15,7 @@ What's New in 13.4
    * `CVE-2017-0902 <https://nvd.nist.gov/vuln/detail/CVE-2017-0902>`__
 * **Additional ifconfig options on RHEL and CentOS** The ``ethtool_opts``, ``bonding_opts``, ``master``, and ``slave`` properties have been added. See the :doc:`ifconfig resource documentation </resource_ifconfig>` for additional details. 
 * **Chef vault now included by default** Chef client 13.4 includes the ``chef-vault`` gem, so users can more easily work with encrypted items.
-* **Windows remote_file resource now supports alternative credentials** The ``remote_user``, ``remote_domain``, and ``remote_password`` options have been added allow access to a file even if the Chef client process identity does not have permission to access it. This is mainly intended to be used for accessing files between two nodes on different domains. See the :doc:`remote_file documentation </resource_remote_file>` for more information. 
+* **Windows remote_file resource now supports alternative credentials** The ``remote_user``, ``remote_domain``, and ``remote_password`` options have been added to allow access to a file even if the Chef client process identity does not have permission to access it. This is mainly intended to be used for accessing files between two nodes on different domains. See the :doc:`remote_file documentation </resource_remote_file>` for more information. 
 * **New windows_path resource** ``windows_path`` has been moved from the Windows cookbook to core Chef. The ``windows_path`` resource is used to manage the path environment variable on Windows. See the :doc:`windows_path documentation </resource_windows_path>` for additional details. 
 
 Ohai 13.4
