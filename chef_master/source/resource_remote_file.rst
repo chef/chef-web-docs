@@ -60,6 +60,9 @@ The full syntax for all of the properties that are available to the **remote_fil
      use_last_modified          TrueClass, FalseClass
      verify                     String, Block
      show_progress              TrueClass, FalseClass
+     remote_user                String
+     remote_password            String
+     remote_domain              String
      action                     Symbol # defaults to :create if not specified
    end
 
@@ -68,7 +71,7 @@ where
 * ``remote_file`` is the resource
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``atomic_update``, ``backup``, ``checksum``, ``force_unlink``, ``ftp_active_mode``, ``group``, ``headers``, ``inherits``, ``manage_symlink_source``, ``mode``, ``owner``, ``path``, ``provider``, ``rights``, ``source``, ``use_conditional_get``, ``use_etag``, ``use_last_modified``, ```show_progress`` and ``verify`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``atomic_update``, ``backup``, ``checksum``, ``force_unlink``, ``ftp_active_mode``, ``group``, ``headers``, ``inherits``, ``manage_symlink_source``, ``mode``, ``owner``, ``path``, ``provider``, ``remote_user``, ``remote_password``, ``remote_domain``, ``rights``, ``source``, ``use_conditional_get``, ``use_etag``, ``use_last_modified``, ```show_progress`` and ``verify`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -229,6 +232,27 @@ This resource has the following properties:
 
    Optional. Explicitly specifies a provider.
 
+``remote_user``
+   **Ruby Types:** String
+
+   **Windows only** The name of a user with access to the remote file specified by the ``source`` property. Default value: ``nil``. The user name may optionally be specifed with a domain, such as: ``domain\user`` or ``user@my.dns.domain.com`` via Universal Principal Name (UPN) format. The domain may also be set using the ``remote_domain`` property. Note that this property is ignored if ``source`` is not a UNC path. If this property is specified, the ``remote_password`` property is required.
+
+   New in Chef client 13.4
+
+``remote_password``
+   **Ruby Types:** String
+
+   **Windows only** The password of the user specified by the ``remote_user`` property. Default value: ``nil``. This property is required if `remote_user` is specified and may only be specified if ``remote_user`` is specified. The ``sensitive`` property for this resource will automatically be set to ``true`` if ``remote_password`` is specified.
+
+   New in Chef client 13.4
+
+``remote_domain``
+   **Ruby Types:** String
+
+   **Windows only** The domain of the user specified by the ``remote_user`` property. Default value: ``nil``. By default the resource will authenticate against the domain of the remote system, or as a local account if the remote system is not joined to a domain. If the remote system is not part of a domain, it is necessary to authenticate as a local user on the remote system by setting the domain to ``.``, for example: ``remote_domain "."``. The domain may also be specified as part of the ``remote_user`` property.
+
+   New in Chef client 13.4
+
 ``retries``
    **Ruby Type:** Integer
 
@@ -371,7 +395,7 @@ This resource has the following properties:
 
    Enable If-Modified-Since headers. Set to ``false`` to disable If-Modified-Since headers. To use this setting, ``use_conditional_get`` must also be set to ``true``. Default value: ``true``.
 
-``show_progess`` 
+``show_progess``
    **Ruby Types:** TrueClass, FalseClass
 
    Displays the progress of the file download. Set to ``true`` to enable this feature. Default value: ``false``.
@@ -599,6 +623,58 @@ To prevent the chef-client from re-downloading files that are already present on
 * The ``checksum`` attribute will ask the chef-client to compare the checksum for the local file to the one at the remote location. If they match, the chef-client will not re-download the file. Using a local checksum for comparison requires that the local checksum be the correct checksum.
 
 The desired approach just depends on the desired workflow. For example, if a node requires a new file every day, using the checksum approach would require that the local checksum be updated and/or verified every day as well, in order to ensure that the local checksum was the correct one. Using a conditional ``GET`` in this scenario will greatly simplify the management required to ensure files are being updated accurately.
+
+Access a remote UNC path on Windows
+-----------------------------------------------------
+The ``remote_file`` resource on Windows supports accessing files from a remote SMB/CIFS share. The file name should be specified in the source property as a UNC path e.g. ``\\myserver\myshare\mydirectory\myfile.txt``. This
+allows access to the file at that path location even if the Chef client process identity does not have permission to access the file. Credentials for authenticating to the remote system can be specified using the ``remote_user``, ``remote_domain``, and ``remote_password`` properties when the user that the Chef client is running does not have access to the remote file. See the "Properties" section for more details on these options. 
+
+**Note**: This is primarily for accessing remote files when the user that the Chef client is running as does not have sufficient access, and alternative credentials need to be specified. If the user already has access, the credentials do not need to be specified.
+In a case where the local system and remote system are in the same domain, the ``remote_user`` and ``remote_password`` properties often do not need to be specified, as the user may already have access to the remote file share.
+
+Examples:
+
+**Access a file from a different domain account:**
+
+.. code-block:: ruby
+
+   remote_file "E:/domain_test.txt"  do
+     source  "\\\\myserver\\myshare\\mydirectory\\myfile.txt"
+     remote_domain "domain"
+     remote_user "username"
+     remote_password "password"
+   end
+
+OR
+
+.. code-block:: ruby
+
+   remote_file "E:/domain_test.txt"  do
+     source  "\\\\myserver\\myshare\\mydirectory\\myfile.txt"
+     remote_user "domain\\username"
+     remote_password "password"
+   end
+
+**Access a file using a local account on the remote machine:**
+
+.. code-block:: ruby
+
+   remote_file "E:/domain_test.txt"  do
+     source  "\\\\myserver\\myshare\\mydirectory\\myfile.txt"
+     remote_domain "."
+     remote_user "username"
+     remote_password "password"
+   end
+
+OR
+
+.. code-block:: ruby
+
+   remote_file "E:/domain_test.txt"  do
+     source  "\\\\myserver\\myshare\\mydirectory\\myfile.txt"
+     remote_user ".\\username"
+     remote_password "password"
+   end
 
 Providers
 =====================================================
