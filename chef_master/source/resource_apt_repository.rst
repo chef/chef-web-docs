@@ -108,9 +108,9 @@ This resource has the following properties:
 ``key``
    **Ruby Type:** String, Array
 
-   If a keyserver is provided, this is assumed to be the fingerprint; otherwise it can be either the URI to the GPG key for the repo, or a cookbook_file. Default value: ``nil``.
+   If a keyserver is provided, this is assumed to be the fingerprint; otherwise it can be either the URI of GPG key for the repo, or a cookbook_file. Default value: ``nil``.
 
-   An array of keys is supported in Chef client 13.4 or later.
+   New in Chef client 13.4. 
 
 ``key_proxy``
    **Ruby Type:** String
