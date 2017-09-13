@@ -90,6 +90,8 @@ This resource has the following properties:
 
    Bonding options to pass via ``BONDING_OPTS`` on RHEL and CentOS. For example: ``mode=active-backup miimon=100``
 
+   New in Chef Client 13.4
+
 ``bootproto``
    **Ruby Type:** String
 
@@ -104,6 +106,8 @@ This resource has the following properties:
    **Ruby Type:** String
 
    Options to be passed to ethtool(8). For example: ``-A eth0 autoneg off rx off tx off``
+
+   New in Chef Client 13.4
 
 ``hwaddr``
    **Ruby Type:** String
@@ -129,6 +133,8 @@ This resource has the following properties:
    **Ruby Type:** String
 
    Specifies the channel bonding interface to which the Ethernet interface is linked.
+
+   New in Chef Client 13.4
 
 ``metric``
    **Ruby Type:** String
@@ -257,6 +263,8 @@ This resource has the following properties:
    **Ruby Type:** String
 
    When set to ``yes``, this device is controlled by the channel bonding interface that is specified via the ``master`` property.
+
+   New in Chef Client 13.4
 
 ``target``
    **Ruby Type:** String
