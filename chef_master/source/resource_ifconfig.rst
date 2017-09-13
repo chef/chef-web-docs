@@ -25,11 +25,14 @@ The full syntax for all of the properties that are available to the **ifconfig**
 
    ifconfig 'name' do
      bcast                      String
+     bonding_opts               String
      bootproto                  String
      device                     String
+     ethtool_opts               String
      hwaddr                     String
      inet_addr                  String
      mask                       String
+     master                     String
      metric                     String
      mtu                        String
      network                    String
@@ -37,6 +40,7 @@ The full syntax for all of the properties that are available to the **ifconfig**
      onboot                     String
      onparent                   String
      provider                   Chef::Provider::Ifconfig
+     slave                      String
      subscribes                 # see description
      target                     String # defaults to 'name' if not specified
      action                     Symbol # defaults to :create if not specified
@@ -47,7 +51,7 @@ where
 * ``ifconfig`` is the resource
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``bcast``, ``bootproto``, ``device``, ``hwaddr``, ``inet_addr``, ``mask``, ``metric``, ``mtu``, ``network``, ``onboot``, ``onparent``, ``provider``,  and ``target`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``bcast``, ``bonding_opts``, ``bootproto``, ``device``, ``ethtool_opts``, ``hwaddr``, ``inet_addr``, ``mask``, ``master``, ``metric``, ``mtu``, ``network``, ``onboot``, ``onparent``, ``provider``, ``slave``,  and ``target`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -81,6 +85,13 @@ This resource has the following properties:
 
    The broadcast address for a network interface. On some platforms this property is not set using ifconfig, but instead is added to the startup configuration file for the network interface.
 
+``bonding_opts``
+   **Ruby Type:** String
+
+   Bonding options to pass via ``BONDING_OPTS`` on RHEL and CentOS. For example: ``mode=active-backup miimon=100``
+
+   New in Chef Client 13.4
+
 ``bootproto``
    **Ruby Type:** String
 
@@ -90,6 +101,13 @@ This resource has the following properties:
    **Ruby Type:** String
 
    The network interface to be configured.
+
+``ethtool_opts``
+   **Ruby Type:** String
+
+   Options to be passed to ethtool(8). For example: ``-A eth0 autoneg off rx off tx off``
+
+   New in Chef Client 13.4
 
 ``hwaddr``
    **Ruby Type:** String
@@ -110,6 +128,13 @@ This resource has the following properties:
    **Ruby Type:** String
 
    The decimal representation of the network mask. For example: ``255.255.255.0``.
+
+``master``
+   **Ruby Type:** String
+
+   Specifies the channel bonding interface to which the Ethernet interface is linked.
+
+   New in Chef Client 13.4
 
 ``metric``
    **Ruby Type:** String
@@ -233,6 +258,13 @@ This resource has the following properties:
       subscribes :action, 'resource[name]', :timer
 
    .. end_tag
+
+``slave``
+   **Ruby Type:** String
+
+   When set to ``yes``, this device is controlled by the channel bonding interface that is specified via the ``master`` property.
+
+   New in Chef Client 13.4
 
 ``target``
    **Ruby Type:** String
