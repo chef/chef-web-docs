@@ -260,6 +260,9 @@ There are two upgrade scenarios for upgrades from Enterprise Chef 11 to Chef ser
 
 Before upgrading, please :doc:`view the notes </upgrade_server_notes>` for more background on the upgrade process from Enterprise Chef 11 to Chef server 12.
 
+
+.. warning:: Using ``nohup`` with ``chef-server-ctl upgrade`` to upgrade from Enterprise Chef 11 to Chef server 12 causes issues, and is not supported.
+
 Standalone
 -----------------------------------------------------
 This section describes the upgrade process from a standalone Enterprise Chef 11 to Chef server 12. The upgrade process will require downtime equal to the amount of time it takes to stop the server, run dpkg or RPM Package Manager, and then upgrade the server. The final step will remove older components (like CouchDB) and will destroy the data after the upgrade process is complete.
