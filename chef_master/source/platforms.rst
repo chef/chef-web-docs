@@ -8,13 +8,16 @@ Chef software is supported on the various operating systems (platforms) listed b
 Platforms
 =====================================================
 
-The sections below list the platforms that Chef Software Inc. supports. There are also several platforms for which support is only available through the community.
+The sections below list the platforms that Chef Software Inc. supports. Support is divided into two levels:
+
+* **Commercial Support** consists of the platforms that are supported as part of a paid commercial support contract with Chef Software Inc.
+* **Community Support** is made up of platforms for which support is only available through the Chef community
 
 Any platforms or versions not explicitly listed here are unsupported, both commercially and by the community.
 
-Commercial support generally follows Chef community support policies which also track the lifecycle policies of the underlying operating system vendor.
+Commercial support generally follows Chef community support policies, which track the lifecycle policies of the underlying operating system vendor.
 
-In all cases (beyond community support), a maintenance contract with Chef Software Inc. is required in order to open support tickets and get SLA-based support from our support desk.
+In all cases (beyond community support), a maintenance contract with Chef Software Inc. is required in order to open support tickets and get SLA-based assistance from our support desk.
 
 Chef Client
 ------------------------------------------------------
