@@ -71,60 +71,73 @@ This resource has the following properties:
 
 ``task_name``
    **Ruby Type:** String
-   Name attribute, The task name. ("Task Name" or "/Task Name")
+
+   Name attribute, The task name, such as ``"Task Name"`` or ``"/Task Name"``
 
 ``force``
    **Ruby Type:** TrueClass, FalseClass
+
    When used with create, will update the task.
 
 ``cwd``
    **Ruby Type:** String
+
    The directory the task will be run from.
 
 ``user``
-   **Ruby Type:** String
-   The user to run the task as. (defaults to 'SYSTEM')
+   **Ruby Type:** String | **Default Value:** 'SYSTEM'
+
+   The user to run the task as. 
 
 ``password``
    **Ruby Type:** String
-   The user's password. (requires user)
+
+   The user's password. Requires user.
 
 ``run_level``
-   **Ruby Type:** Symbol
-   Run with :limited or :highest privileges. Default is :limited.
+   **Ruby Type:** Symbol | **Default Value:** ``:limited``
+
+   Run with ``:limited`` or ``:highest`` privileges. 
 
 ``frequency``
-   **Ruby Type:** Symbol
-   Frequency with which to run the task (default is :hourly. Other valid values include :minute, :hourly, :daily, :weekly, :monthly, :once, :on_logon, :onstart, :on_idle).
-   :once requires start_time.
+   **Ruby Type:** Symbol | **Default Value:** ``:hourly``
+
+   Frequency with which to run the task. Values include: ``:minute``, ``:hourly``, ``:daily``, ``:weekly``, ``:monthly``, ``:once``, ``:on_logon``, ``:onstart``, ``:on_idle``. The ``:once`` value requires the ``start_time`` property.
 
 ``frequency_modifier``
    **Ruby Type:** Integer, String
-   Multiple for frequency. (15 minutes, 2 days). Monthly tasks may also use these values": ('FIRST', 'SECOND', 'THIRD', 'FOURTH', 'LAST', 'LASTDAY')
+
+   Multiple for frequency, such as 15 minutes or 2 days. Monthly tasks may also use these values: ``'FIRST'``, ``'SECOND'``, ``'THIRD'``, ``'FOURTH'``, ``'LAST'``, ``'LASTDAY'``.
 
 ``start_day``
    **Ruby Type:** String
-   Specifies the first date on which the task runs. Optional string (MM/DD/YYYY)
+
+   Specifies the first date on which the task runs in **MM/DD/YYYY** format. 
 
 ``start_time``
    **Ruby Type:** String
-   Specifies the start time to run the task. Optional string (HH:mm)
+
+   Specifies the start time to run the task, in **HH:mm** format. 
 
 ``interactive_enabled``
    **Ruby Type:** TrueClass, FalseClass
+
    Allow task to run interactively or non-interactively. Requires user and password.
 
 ``day``
    **Ruby Type:** String
-   For monthly or weekly tasks, the day(s) on which the task runs. (MON - SUN, \* ,1 - 31)
+
+   For monthly or weekly tasks, the day(s) on which the task runs, such as: ``MON - SUN``, ``\*``, ``1 - 31``.
 
 ``months``
    **Ruby Type:** String
-   The Months of the year on which the task runs. (JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC, \*). Multiple months should be comma delimited.
+
+   The Months of the year on which the task runs, such as: ``JAN, FEB`` or ``\*``. Multiple months should be comma delimited.
 
 ``idle_time``
    **Ruby Type:** Integer
-   For :on_idle frequency, the time (in minutes) without user activity that must pass to trigger the task. (1 - 999)
+
+   For ``:on_idle`` frequency, the time (in minutes) without user activity that must pass to trigger the task, from 1 - 999. 
 
 Examples
 =====================================================
