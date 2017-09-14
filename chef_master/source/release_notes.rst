@@ -1,11 +1,24 @@
 =====================================================
-Release Notes: chef-client 12.0 - 13.4
+Release Notes: chef-client 12.0 - 13.4.24
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes.rst>`__
 
 Chef client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef changelog <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
 
-What's New in 13.4
+What's new in 13.4.24
+=====================================================
+This release includes Ruby 2.4.2 to fix the following CVEs:
+
+* `CVE-2017-0898 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0898>`_
+* `CVE-2017-10784 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CxVE-2017-10784>`_
+*  CVE-2017-14033
+* `CVE-2017-14064 <https://nvd.nist.gov/vuln/detail/CVE-2017-14064>`_
+
+It contains no other changes from version 13.4.19. 
+
+.. note:: Due to issues beyond our control, this release is only built for Linux (on x86, x86_64 and s390x), FreeBSD, and Windows. We’ll release a new build with support for our other platforms (AIX, Solaris, and macOS) as soon as possible.
+
+What's New in 13.4.19
 =====================================================
 
 * **Security release of RubyGems** RubyGems has been upgraded to 2.6.13 to address the following:
