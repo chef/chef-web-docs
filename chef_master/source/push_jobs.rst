@@ -29,6 +29,9 @@ Platforms
 -----------------------------------------------------
 .. tag adopted_platforms_push_jobs
 
+Commercial Support
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 The following table lists the commercially-supported platforms for the Chef push jobs client:
 
 .. list-table::
@@ -39,20 +42,17 @@ The following table lists the commercially-supported platforms for the Chef push
      - Architecture
      - Version
    * - CentOS
-     - ``i386``
-     - ``5``, ``6``
-   * -
+     - ``i386`` (5.x only), ``x86_64``
+     - ``5.x``, ``6.x``, ``7.x``
+   * - macOS
      - ``x86_64``
-     - ``5``, ``6``, ``7``
+     - ``10.10``, ``10.11``, ``10.12``
    * - Red Hat Enterprise Linux
-     - ``i386``
-     - ``5``, ``6``
-   * -
-     - ``x86_64``
-     - ``5``, ``6``, ``7``
-   * - Ubuntu
+     - ``i386`` (5.x and 6.x only), ``x86_64``
+     - ``5.x``, ``6.x``, ``7.x``
+   * - Ubuntu (LTS releases)
      - ``x86``, ``x86_64``
-     - ``12.04``, ``14.04``
+     - ``14.04``
    * - Microsoft Windows
      - ``x86``, ``x86_64``
      - ``2008r2``, ``2012``, ``2012r2``, ``7``, ``8``, ``8.1``, ``10``
