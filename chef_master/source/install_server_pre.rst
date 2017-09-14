@@ -9,9 +9,6 @@ Platforms
 =====================================================
 .. tag adopted_platforms_server
 
-Commercial Support
-++++++++++++++++++++++++++++++++++++++++++++++++++++
-
 The following table lists the commercially-supported platforms and versions for the Chef Server:
 
 .. list-table::
