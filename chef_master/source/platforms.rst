@@ -3,28 +3,29 @@ Platforms and Supported Versions
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/platforms.rst>`__
 
-Chef software is supported on the various platforms listed below. To see which versions of our software we currently support, see the :ref:`versions` section.
+Chef software is supported on the various operating systems (platforms) listed below. To see which versions of our software we currently support, see the :ref:`versions` section.
 
 Platforms
 =====================================================
 
-The sections below list the platforms that Chef have adopted for the chef-client, Ohai, and the Chef server.
+The sections below list the platforms that Chef Software Inc. supports. Support is divided into two levels:
 
-.. note:: Foundational platforms are those for which Chef performs some
-          post-build verification on them or their equivalents, and
-          publishes packages for. Only platform versions that receive
-          automated post-build verification are listed here, even when
-          newer or intermediate versions may be known to work.
+* **Commercial Support** consists of the platforms that are supported as part of a paid commercial support contract with Chef Software Inc.
+* **Community Support** is made up of platforms for which support is only available through the Chef community
 
-.. note:: Secondary platforms are those that Chef performs no
-          post-build verification on, but packages are made available for.
+Any platforms or versions not explicitly listed here are unsupported, both commercially and by the community.
 
-.. note:: Other platforms are those that are supported in code, but Chef
-          does not provide packages for.
+Commercial support generally follows Chef community support policies, which track the lifecycle policies of the underlying operating system vendor.
 
-chef-client/ohai, Foundational Platforms
+In all cases (beyond community support), a maintenance contract with Chef Software Inc. is required in order to open support tickets and get SLA-based assistance from our support desk.
+
+Chef Client
 ------------------------------------------------------
-The following table lists the Foundational platforms for the chef-client and ohai:
+
+Commercial Support
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The following table lists the commercially-supported platforms and versions for Chef Client:
 
 .. list-table::
    :widths: 280 100 120
@@ -35,38 +36,42 @@ The following table lists the Foundational platforms for the chef-client and oha
      - Version
    * - AIX
      - ``ppc64``
-     - ``6.1`` (TL6 or higher, recommended), ``7.1`` (TL0 SP3 or higher, recommended)
+     - ``6.1`` (TL6 or higher, recommended), ``7.1`` (TL0 SP3 or higher, recommended), ``7.2``
+   * - Amazon Linux
+     -
+     - current version
    * - CentOS
-     - ``i386``, ``x86_64``
+     - ``i386`` (5.x only), ``x86_64``
      - ``5``, ``6``, ``7``
    * - FreeBSD
-     - ``i386``, ``amd64``
-     - ``9``, ``10``
+     - ``amd64``
+     - ``10``, ``11``
    * - macOS
      - ``x86_64``
-     - ``10.9``, ``10.10``, ``10.11``, ``10.12``
-   * - Oracle Linux
-     - ``i386``, ``x86_64``
-     - ``5``, ``6``, ``7``
+     - ``10.10``, ``10.11``, ``10.12``
+   * - Oracle Enterprise Linux
+     - ``i386`` (5.x only), ``x86_64``
+     - ``5.x``, ``6.x``, ``7.x``
    * - Red Hat Enterprise Linux
-     - ``i386``, ``x86_64``
-     - ``5``, ``6``, ``7``
+     - ``i386`` (5.x only), ``x86_64``, ``s390x``, ``ppc64le`` (7.x only), ``ppc64`` (7.x only)
+     - ``5.x``, ``6.x``, ``7.x``
    * - Solaris
      - ``sparc``, ``x86``
      - ``10 1\13`` (``"10U11"``), ``11.2``, ``11.3`` 
    * - SUSE Enterprise Linux Server
-     - ``x86_64``, ``s390x``
+     - ``x86_64``, ``s390x``, ``ppc64le``, ``ppc64``
      - ``11 SP4``, ``12 SP1``
-   * - Ubuntu
-     - ``x86``, ``x86_64``
-     - ``12.04``, ``14.04``, ``16.04``
+   * - Ubuntu (LTS releases)
+     - ``x86``, ``x86_64``, ``ppc64le`` (14.04 only)
+     - ``14.04``, ``16.04``
    * - Microsoft Windows
      - ``x86``, ``x86_64``
-     - ``2008r2``, ``2012``, ``2012r2``, ``7``, ``8``, ``8.1``, ``10``
+     - ``2008r2``, ``2012``, ``2012r2``, ``2016``, ``7``, ``8``, ``8.1``, ``10``
 
-Secondary Platforms
+Community Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
-The following table lists the Secondary platforms for the chef-client:
+
+The following platforms are supported only via the community:
 
 .. list-table::
    :widths: 280 100 120
@@ -75,12 +80,6 @@ The following table lists the Secondary platforms for the chef-client:
    * - Platform
      - Architecture
      - Version
-   * - AIX
-     - ``ppc64``
-     - ``7.2``
-   * - Amazon Linux
-     -
-     - current version
    * - Arch Linux
      -
      - current version
@@ -100,15 +99,19 @@ The following table lists the Secondary platforms for the chef-client:
      -
      - ``42``
    * - Scientific Linux
-     - ``i386``, ``x86-64``
-     - ``5``, ``6``, ``7``
-   * - Microsoft Windows
-     -
-     - ``2016``
+     - ``i386`` (5.x only), ``x86-64``
+     - ``5.x``, ``6.x``, ``7.x``
+   * - Ubuntu
+     - ``x86``, ``x86_64``
+     - non-LTS releases
 
-Other Platforms
+Chef DK
+------------------------------------------------------
+
+Commercial Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
-The following platforms are not tested by Chef Software:
+
+The following table lists the commercially-supported platforms and versions for the Chef Development Kit (Chef DK):
 
 .. list-table::
    :widths: 280 100 120
@@ -117,53 +120,25 @@ The following platforms are not tested by Chef Software:
    * - Platform
      - Architecture
      - Version
-   * - AIX
-     -
-     - ``5.1L``
-   * - CentOS
-     -
-     - ``4.x`` (or older)
-   * - FreeBSD
-     -
-     - ``8``
-   * - HP-UX
-     -
-     -
    * - macOS
      -
-     - ``10.8`` (and older)
-   * - NetBSD
-     -
-     -
-   * - openSUSE
-     - ``13.x`` (or older)
-     -
-   * - OpenBSD
-     -
-     -
-   * - Oracle Linux
-     -
-     - ``4.x`` (or older)
+     - ``10.10``, ``10.11``, ``10.12``
    * - Red Hat Enterprise Linux
-     - ``ppc64``, ``System/z``
      -
-
+     - ``6.x``, ``7.x``
    * - SUSE Enterprise Linux Server
-     - ``ppc64``, ``System/z``, 10 (or older)
      -
-   * - Solaris
-     -
-     - ``8``, ``9``
+     - ``11 SP4``, ``12 SP1``
    * - Ubuntu
      -
-     - ``10.04`` (or older)
+     - ``14.04``, ``16.04``
    * - Microsoft Windows
      -
-     - ``2000``, ``2003``, ``2003 R2``, ``2008``
+     - ``7``, ``8``, ``8.1``, ``10``, ``2008 R2``, ``2012``, ``2012 R2``
 
-Chef DK
-------------------------------------------------------
-The following table lists the Foundational platforms for the Chef DK:
+Community Support
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+The following platforms are supported only via the community:
 
 .. list-table::
    :widths: 280 100 120
@@ -177,33 +152,6 @@ The following table lists the Foundational platforms for the Chef DK:
      - ``7.x``, ``8.x``
    * - macOS
      -
-     - ``10.10``, ``10.11``, ``10.12``
-   * - Red Hat Enterprise Linux
-     -
-     - ``6.x``, ``7.x``
-   * - SUSE Enterprise Linux Server
-     -
-     - ``11 SP4``, ``12 SP1``
-   * - Ubuntu
-     -
-     - ``12.04``, ``14.04``, ``16.04``
-   * - Microsoft Windows
-     -
-     - ``7``, ``8``, ``8.1``, ``10``, ``2008 R2``, ``2012``, ``2012 R2``
-
-Other Platforms
-++++++++++++++++++++++++++++++++++++++++++++++++++++
-The following platforms are not tested by Chef Software:
-
-.. list-table::
-   :widths: 280 100 120
-   :header-rows: 1
-
-   * - Platform
-     - Architecture
-     - Version
-   * - macOS
-     -
      - ``10.9`` (and earlier)
    * - Microsoft Windows
      -
@@ -211,9 +159,12 @@ The following platforms are not tested by Chef Software:
 
 Chef Server
 ------------------------------------------------------
+
+Commercial Support
+++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag adopted_platforms_server
 
-The following table lists the Foundational platforms for the Chef server:
+The following table lists the commercially-supported platforms and versions for the Chef Server:
 
 .. list-table::
    :widths: 280 100 120
@@ -223,38 +174,30 @@ The following table lists the Foundational platforms for the Chef server:
      - Architecture
      - Version
    * - CentOS
-     -
+     - ``x86_64``
      - ``5.x``, ``6.x``, ``7.x``
-   * - Oracle Linux
-     -
-     - ``5.x``, ``6.x``
+   * - Oracle Enterprise Linux
+     - ``x86_64``
+     - ``5.x``, ``6.x``, ``7.x``
    * - Red Hat Enterprise Linux
-     -
+     - ``x86_64``, ``ppc64le`` (7.x only), ``ppc64`` (7.x only)
      - ``5.x``, ``6.x``, ``7.x``
    * - SUSE Enterprise Linux Server
-     - ``x86_64``, ``s390x``
+     - ``x86_64``
      - ``11 SP4``, ``12 SP1``
    * - Ubuntu
-     -
+     - ``x86_64``, ``ppc64le`` (14.04 only)
      - ``12.04``, ``14.04``, ``16.04``
 
 .. end_tag
 
-Other Platforms
-++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag adopted_platforms_server_other
-
-The following platforms are not tested by Chef Software:
-
-* Any Linux or UNIX distribution that is not listed as a Foundational platform.
-* Microsoft Windows
-* 32-bit architectures
-
-.. end_tag
-
-Chef Automate
+Chef Automate Server
 ----------------------------------------------------
-The following table lists the Foundational platforms for Chef Automate. Do not mix platforms or platform versions within the Chef Automate cluster.
+
+Commercial Support
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The following table lists the commercially-supported platforms and versions for Chef Automate Server. Do not mix platforms or platform versions within the Chef Automate cluster.
 
 .. list-table::
    :widths: 280 100 120
@@ -265,42 +208,27 @@ The following table lists the Foundational platforms for Chef Automate. Do not m
      - Version
    * - CentOS
      - ``x86_64``
-     - ``6.5``, ``6.6``, ``7``
+     - ``6``, ``7``
+   * - Oracle Enterprise Linux
+     - ``x86_64``
+     - ``6``, ``7``
    * - Red Hat Enterprise Linux
      - ``x86_64``
-     - ``6.5``, ``6.6``, ``7``
+     - ``6``, ``7``
    * - SUSE Enterprise Linux Server
      - ``x86_64``
      - ``11 SP4``, ``12 SP2``
    * - Ubuntu
      - ``x86_64``
-     - ``12.04``, ``14.04``, ``16.04``
+     - ``14.04``, ``16.04``
 
-Secondary Platforms
+Chef Automate Job Runners
+----------------------------------------------------
+
+Commercial Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
-The following table lists the Secondary platforms for the Chef Automate server:
 
-.. list-table::
- :widths: 280 100 120
- :header-rows: 1
-
- * - Platform
-   - Architecture
-   - Version
- * - Oracle Linux
-   - ``x86_64``
-   - ``6``, ``7``
-
-.. note:: The Delivery CLI may be run on the following platforms:
-
-          * macOS
-          * Ubuntu
-          * Red Hat Enterprise Linux
-          * Microsoft Windows
-
-Runners
-++++++++++++++++++++++++++++++++++++++++++++++++++++
-Runners are supported on the Foundational and Secondary platforms listed above as well as on the following platforms:
+Chef Automate Job Runners are supported on the Commercial Support platforms for Chef Automate Server listed above as well as on the following platforms:
 
 .. list-table::
    :widths: 280 100 120
@@ -313,11 +241,14 @@ Runners are supported on the Foundational and Secondary platforms listed above a
      - ``x86_64``
      - ``10.12``
 
-Chef Push Jobs
+Chef Push Jobs Client
 -----------------------------------------------------
 .. tag adopted_platforms_push_jobs
 
-The following table lists the Foundational platforms for the Chef push jobs:
+Commercial Support
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The following table lists the commercially-supported platforms for the Chef push jobs client:
 
 .. list-table::
    :widths: 280 100 120
@@ -327,28 +258,183 @@ The following table lists the Foundational platforms for the Chef push jobs:
      - Architecture
      - Version
    * - CentOS
-     - ``i386``
-     - ``5``, ``6``
-   * -
+     - ``i386`` (5.x only), ``x86_64``
+     - ``5.x``, ``6.x``, ``7.x``
+   * - macOS
      - ``x86_64``
-     - ``5``, ``6``, ``7``
-   * - Debian
-     - ``i386``, ``x86_64``
-     - ``7``
+     - ``10.10``, ``10.11``, ``10.12``
    * - Red Hat Enterprise Linux
-     - ``i386``
-     - ``5``, ``6``
-   * -
-     - ``x86_64``
-     - ``5``, ``6``, ``7``
-   * - Ubuntu
+     - ``i386`` (5.x and 6.x only), ``x86_64``
+     - ``5.x``, ``6.x``, ``7.x``
+   * - Ubuntu (LTS releases)
      - ``x86``, ``x86_64``
-     - ``12.04``, ``14.04``
+     - ``14.04``
    * - Microsoft Windows
      - ``x86``, ``x86_64``
      - ``2008r2``, ``2012``, ``2012r2``, ``7``, ``8``, ``8.1``, ``10``
 
 .. end_tag
+
+Chef Push Jobs Server
+-----------------------------------------------------
+
+Commercial Support
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The following table lists the commercially-supported platforms for the Chef push jobs server:
+
+.. list-table::
+   :widths: 280 100 120
+   :header-rows: 1
+
+   * - Platform
+     - Architecture
+     - Version
+   * - CentOS
+     - ``x86_64``
+     - ``5.x``, ``6.x``, ``7.x``
+   * - Red Hat Enterprise Linux
+     - ``x86_64``
+     - ``5.x``, ``6.x``, ``7.x``
+   * - Ubuntu (LTS releases)
+     - ``x86_64``
+     - ``14.04``, ``16.04``
+
+Chef Backend
+------------
+
+Commercial Support
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The following table lists the commercially-supported platforms for Chef Backend, the high-availability solution for Chef Server:
+
+.. list-table::
+   :widths: 280 100 120
+   :header-rows: 1
+
+   * - Platform
+     - Architecture
+     - Version
+   * - CentOS
+     - ``x86_64``
+     - ``5.x``, ``6.x``, ``7.x``
+   * - Red Hat Enterprise Linux
+     - ``x86_64``
+     - ``5.x``, ``6.x``, ``7.x``
+   * - Ubuntu (LTS releases)
+     - ``x86_64``
+     - ``14.04``, ``16.04``
+
+Chef Compliance Server
+----------------------
+
+Commercial Support
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The following table lists the commercially-supported platforms for Chef Compliance Server:
+
+.. list-table::
+   :widths: 280 100 120
+   :header-rows: 1
+
+   * - Platform
+     - Architecture
+     - Version
+   * - CentOS
+     - ``x86_64``
+     - ``6.x``, ``7.x``
+   * - Red Hat Enterprise Linux
+     - ``x86_64``
+     - ``6.x``, ``7.x``
+   * - Ubuntu (LTS releases)
+     - ``x86_64``
+     - ``14.04``, ``16.04``
+
+Chef Manage
+-----------
+
+Commercial Support
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The following table lists the commercially-supported platforms for Chef Manage:
+
+.. list-table::
+   :widths: 280 100 120
+   :header-rows: 1
+
+   * - Platform
+     - Architecture
+     - Version
+   * - CentOS
+     - ``x86_64``
+     - ``5.x``, ``6.x``, ``7.x``
+   * - Red Hat Enterprise Linux
+     - ``x86_64``
+     - ``5.x``, ``6.x``, ``7.x``
+   * - Ubuntu (LTS releases)
+     - ``x86_64``
+     - ``14.04``, ``16.04``
+
+Platform End-of-Life Policy
+===========================
+
+Chef's products on particular platforms and versions generally reach end-of-life on the same date as the vendor EOL milestone for that operating systems.
+Because different vendors use different terminology, the following table clarifies when Chef products are end-of-life according to those vendors'
+terms:
+
++------------------------------------------------------------------------------------+----------------------------+
+| Platform                                                                           | Vendor End-of-Life         |
++====================================================================================+============================+
+| AIX                                                                                | IBM End of Support Date    |
++------------------------------------------------------------------------------------+----------------------------+
+| Enterprise Linux (covers RedHat Enterprise Linux, CentOS)                          | End of Production 3        |
++------------------------------------------------------------------------------------+----------------------------+
+| FreeBSD                                                                            | End of Life                |
++------------------------------------------------------------------------------------+----------------------------+
+| Microsoft Windows                                                                  | Mainstream End of Support  |
++------------------------------------------------------------------------------------+----------------------------+
+| Oracle Enterprise Linux                                                            | Premier Support Ends       |
++------------------------------------------------------------------------------------+----------------------------+
+| Oracle Solaris                                                                     | Premier Support Ends       |
++------------------------------------------------------------------------------------+----------------------------+
+| SUSE Linux Enterprise Server                                                       | General Support Ends       |
++------------------------------------------------------------------------------------+----------------------------+
+| Ubuntu Linux                                                                       | End of maintenance updates |
++------------------------------------------------------------------------------------+----------------------------+
+
+At Chef's option, additional support may be provided to customers beyond the vendor end-of-life in the above table.
+As such, the following table indicates upcoming product end-of-life dates for particular platforms.
+On the Chef end-of-life date, Chef discontinues building software for that platform and version.
+
++--------------------------------------------------------------+-------------------------+-----------------------+
+| Platform and Version                                         | Vendor End-of-Life Date | Chef End-of-Life Date |
++==============================================================+=========================+=======================+
+| Microsoft Windows Server 2008 (RTM) Service Pack 2           | January 13, 2015        | January 13, 2015      |
++--------------------------------------------------------------+-------------------------+-----------------------+
+| Ubuntu Linux 12.04 LTS                                       | April 30, 2017          | April 30, 2017        |
++--------------------------------------------------------------+-------------------------+-----------------------+
+| AIX 6.1                                                      | April 30, 2017          | December 31, 2017     |
++--------------------------------------------------------------+-------------------------+-----------------------+
+| Enterprise Linux 5 (covers Red Hat Enterprise Linux, CentOS) | April 30, 2017          | December 31, 2017     |
++--------------------------------------------------------------+-------------------------+-----------------------+
+| Oracle Enterprise Linux 5                                    | June 30, 2017           | December 31, 2017     |
++--------------------------------------------------------------+-------------------------+-----------------------+
+| Microsoft Windows Server 2008R2 Service Pack 1               | January 13, 2015        | January 13, 2018      |
++--------------------------------------------------------------+-------------------------+-----------------------+
+| Oracle Solaris 10                                            | January 30, 2018        | January 30, 2018      |
++--------------------------------------------------------------+-------------------------+-----------------------+
+| FreeBSD 10-STABLE                                            | April 30, 2018          | April 30, 2018        |
++--------------------------------------------------------------+-------------------------+-----------------------+
+| Microsoft Windows Server 2012 and 2012R2                     | October 9, 2018         | October 9, 2018       |
++--------------------------------------------------------------+-------------------------+-----------------------+
+| SUSE Linux Enterprise Server 11                              | March 31, 2019          | March 31, 2019        |
++--------------------------------------------------------------+-------------------------+-----------------------+
+| Ubuntu Linux 14.04 LTS                                       | April 30, 2019          | April 30, 2019        |
++--------------------------------------------------------------+-------------------------+-----------------------+
+| Enterprise Linux 6 (covers Red Hat Enterprise Linux, CentOS) | November 30, 2020       | November 30, 2020     |
++--------------------------------------------------------------+-------------------------+-----------------------+
+| Oracle Enterprise Linux 6                                    | March 31, 2021          | March 31, 2021        |
++--------------------------------------------------------------+-------------------------+-----------------------+
 
 .. _versions:
 
@@ -438,8 +524,7 @@ Versions and Status
      - 2.2.1 or later
      - GA
      - n/a
-
-
+     
 **Commercial**                                                             
 
 .. list-table::
