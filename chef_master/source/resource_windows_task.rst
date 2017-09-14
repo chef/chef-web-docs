@@ -127,12 +127,12 @@ This resource has the following properties:
 ``day``
    **Ruby Type:** String
 
-   For monthly or weekly tasks, the day(s) on which the task runs, such as: ``MON - SUN, \* ,1 - 31``.
+   For monthly or weekly tasks, the day(s) on which the task runs, such as: ``MON - SUN``, ``\*``, ``1 - 31``.
 
 ``months``
    **Ruby Type:** String
 
-   The Months of the year on which the task runs, such as: ``JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC, \*``. Multiple months should be comma delimited.
+   The Months of the year on which the task runs, such as: ``JAN, FEB`` or ``\*``. Multiple months should be comma delimited.
 
 ``idle_time``
    **Ruby Type:** Integer
