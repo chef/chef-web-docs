@@ -22,11 +22,43 @@ This topic describes the process of upgrading a highly available Chef server clu
 Overview
 =====================================================
 
-These instructions cover doing zero downtime upgrades of a
-chef-backend cluster. They should work for any minor version
-upgrade. Major version upgrades may require downtime.
+These instructions cover upgrading a Chef Backend cluster. Please
+refer to the directions appropriate for version of Chef Backend you
+are using.
 
-Procedure
+- `Chef Backend 1.x to 2.x Upgrade`_ (downtime upgrade)
+- `Chef Backend 1.x to 1.x Upgrade`_ (rolling upgrade)
+
+Chef Backend 1.x to 2.x Upgrade
+=====================================================
+
+Upgrading from Chef Backend 1.x to Chef Backend 2.x requires full cluster downtime.
+
+#. Find the leader node using the :code:`chef-backend-ctl
+   cluster-status` command.  The leader is the node with the **Role**
+   of **leader**. For example, in the following output backend-1 is leader:
+
+   .. code-block:: none
+
+    Name       IP              GUID                              Role      PG        ES
+    backend-1  192.168.33.215  dc0c6ea77a751f94037cd950e8451fa3  leader    leader    not_master
+    backend-2  192.168.33.216  008782c59d3628b6bb7f43556ac0c66c  follower  follower  not_master
+    backend-3  192.168.33.217  1af654172b1830927a571d9a5ba7965b  follower  follower  master
+
+#. Install the new Chef Backend package on all nodes in the cluster:
+
+   * In RedHat/CentOS: :code:`yum install PATH_TO_RPM`
+   * In Debian/Ubuntu: :code:`dpkg -i PATH_TO_DEB`
+
+#. On the leader, run: :code:`chef-backend-ctl down-for-upgrade`
+#. On each follower, run: :code:`chef-backend-ctl down-for-upgrade`
+#. On each follower, run: :code:`chef-backend-ctl upgrade`
+#. On the leader, run: :code:`chef-backend-ctl upgrade`
+#. On any Chef Server nodes using this Chef Backend cluster run:
+   :code:`chef-server-ctl reconfigure`
+
+
+Chef Backend 1.x to 1.x Upgrade
 =====================================================
 
 .. note:: The procedure assumes that the new chef-backend package has been copied to all of the nodes.
