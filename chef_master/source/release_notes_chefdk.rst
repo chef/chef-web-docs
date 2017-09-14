@@ -1,9 +1,32 @@
 =====================================================
-Release Notes: Chef Development Kit 0.19 - 2.2.1
+Release Notes: Chef Development Kit 0.19 - 2.3.1
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_chefdk.rst>`__
 
 Chef Development Kit is released on a monthly schedule with new releases the third Monday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef DK on GitHub <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__
+
+What's New in 2.3.1
+=====================================================
+This release includes Ruby 2.4.2 to fix the following CVEs:
+
+* `CVE-2017-0898 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0898>`_
+* `CVE-2017-10784 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-10784>`_
+*  CVE-2017-14033
+* `CVE-2017-14064 <https://nvd.nist.gov/vuln/detail/CVE-2017-14064>`_
+
+ChefDK 2.3 includes:
+
+* Chef 13.4.19
+* InSpec 1.36.1
+* Berkshelf 6.3.1
+* Chef Vault 3.3.0
+* Foodcritic 11.4.0
+* Test Kitchen 1.17.0
+* Stove 6.0
+
+Additionally, the cookbook generator now adds a ``LICENSE`` file when creating a new cookbook. 
+
+See the detailed `change log <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md#v231-2017-09-14>`_ for a complete list of changes.
 
 What's New in 2.2.1
 =====================================================
