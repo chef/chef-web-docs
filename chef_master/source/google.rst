@@ -54,14 +54,15 @@ Usage Examples
 
   $ knife google server list
 
-chef-provisioning
+Chef Provisioning
 =====================================================
-The following driver are directly supported by Chef:
+The following driver is directly supported by Chef:
 
 chef-provisioning-google
 -----------------------------------------------------
 `[Github] <https://github.com/chef/chef-provisioning-google>`__
 
+This plugin makes it easy to use Chef Provisioning with the Google Cloud Platform. 
 
 Usage Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -87,16 +88,15 @@ The following is an example of a verbose provisioning recipe:
     action [:converge, :destroy]
   end
 
-test-kitchen
+Test Kitchen
 =====================================================
-The following test-kitchen drivers for VMware are directly supported by Chef:
+The following Test Kitchen driver for VMware is directly supported by Chef:
 
 kitchen-google
 -----------------------------------------------------
 `[Github] <https://github.com/test-kitchen/kitchen-google>`__
 
-* This is a Test Kitchen driver for Google Compute Engine. While similar to EC2 and other IaaS providers, GCE has a couple of advantages for Chef cookbook testing:
-* (Subjectively) faster instance launch times; and Sub-hour billing.
+A test kitchen driver for Google Cloud Platform.
 
 Usage Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
