@@ -28,6 +28,10 @@ knife is a command-line tool that provides an interface between a local chef-rep
      - Configure knife to interact with your organization's Chef server and infrastructure.
    * - :doc:`knife_common_options`
      - Common options that are available for all knife subcommands.
+   * - :doc:`config_rb_knife.html`
+     - Common options for the ``knife.rb`` file
+   * - :doc:`config_rb_knife_optional_settings`
+     - Additional options for your ``knife.rb``
 
 Knife Subcommands
 =====================================================
