@@ -1,34 +1,27 @@
 =====================================================
 Chef and Google
 =====================================================
-
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/google.rst>`__
 
-Google Cloud Platform, offered by Google, is a suite of cloud computing services that runs on the same
+Google Cloud Platform is a suite of cloud computing services that run on the same
 infrastructure that Google uses internally for its end-user products, such as Google Search and YouTube.
 Alongside a set of management tools, it provides a series of modular cloud services including computing,
-data storage, data analytics and machine learning.
+data storage, data analytics, and machine learning.
 
 knife
 =====================================================
 
 knife-google
 -----------------------------------------------------
-
 `[Github] <https://github.com/chef/knife-google>`__
 
-* This plugin gives knife the ability to create, bootstrap, and manage Google Compute Engine (GCE) instances.
+This plugin gives knife the ability to create, bootstrap, and manage Google Compute Engine (GCE) instances.
 
 Authentication and Authorization
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+``knife-google`` relies on the Google Auth Library to handle authentication to the Google Cloud API. The auth library expects to find a JSON credentials file located under ``~/.config/gcloud/application_default_credentials.json``.
 
-The underlying API this plugin uses relies on the Google Auth Library to handle authentication to the Google Cloud API. The auth library expects that there is a JSON credentials file located at:
-
-``~/.config/gcloud/application_default_credentials.json``
-
-The easiest way to create this is to download and install the Google Cloud SDK and run the gcloud auth login command which will create the credentials file for you.
-
-Update: ``gcloud auth login`` no longer writes application default credentials. Please run ``gcloud auth application-default login`` for appropriate application credentials file.
+The easiest way to create this is to download and install the Google Cloud SDK and run the ``gcloud auth application-default login`` command, which will create the credentials file for you.
 
 If you already have a file you'd like to use that is in a different location, set the ``GOOGLE_APPLICATION_CREDENTIALS`` environment variable with the full path to that file.
 
@@ -41,7 +34,6 @@ These are the necessary settings for your ``knife.rb`` file:
 
 Usage Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-
 **knife google server create INSTANCE_NAME**
 
 .. code-block:: bash
@@ -64,18 +56,15 @@ Usage Examples
 
 chef-provisioning
 =====================================================
-
 The following driver are directly supported by Chef:
 
 chef-provisioning-google
 -----------------------------------------------------
-
 `[Github] <https://github.com/chef/chef-provisioning-google>`__
 
 
 Usage Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-
 The following is an example of a verbose provisioning recipe:
 
 .. code-block:: ruby
@@ -100,12 +89,10 @@ The following is an example of a verbose provisioning recipe:
 
 test-kitchen
 =====================================================
-
 The following test-kitchen drivers for VMware are directly supported by Chef:
 
 kitchen-google
 -----------------------------------------------------
-
 `[Github] <https://github.com/test-kitchen/kitchen-google>`__
 
 * This is a Test Kitchen driver for Google Compute Engine. While similar to EC2 and other IaaS providers, GCE has a couple of advantages for Chef cookbook testing:
