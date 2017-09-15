@@ -97,8 +97,8 @@ In the $EDITOR enter the role data in JSON:
       "default_attributes": {
       },
       "json_class": "Chef::Role",
-      "run_list": ["recipe[cookbook_name::recipe_name],
-                    role[role_name]"
+      "run_list": ["recipe[cookbook_name::recipe_name]",
+                    "role[role_name]"
       ],
       "description": "",
       "chef_type": "role",
