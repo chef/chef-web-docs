@@ -96,15 +96,15 @@ Setup
 
 **Nodes**::doc:`Install via Bootstrap </install_bootstrap>` | :doc:`Install via URL </install_omnibus>` | :doc:`Install on Windows </install_windows>` | :doc:`Install on Junos OS </junos>` | :doc:`chef-client (executable) </ctl_chef_client>` | :doc:`client.rb </config_rb_client>` | :doc:`Upgrades </upgrade_client>` | :doc:`Security </chef_client_security>`
 
-**Server**: `Hosted Chef Server <https://manage.chef.io/signup>`_ | `Install Standalone <https://docs.chef.io/install_server.html#standalone>`_ | :doc:`Install High Availability </install_server_ha>` | :doc:`Upgrade High Availability </upgrade_server_ha_v2>`  | :doc:`AWS Marketplace </aws_marketplace>` | :doc:`Microsoft Azure </azure_portal>` | :doc:`VMware </vmware>`
+**Server**: `Hosted Chef Server <https://manage.chef.io/signup>`_ | `Install Standalone <https://docs.chef.io/install_server.html#standalone>`_ | :doc:`Install High Availability </install_server_ha>` | :doc:`Upgrade High Availability </upgrade_server_ha_v2>`  | :doc:`Integrate Chef Compliance with Chef Server </integrate_compliance_chef_server>`
 
 **Supermarket**: `Public Supermarket <https://supermarket.chef.io>`_ | :doc:`Install Private Supermarket </install_supermarket>` | `Customize Supermarket </install_supermarket.html#customize-supermarket>`_ | `Run in Kitchen </install_supermarket.html#run-supermarket-in-kitchen>`_
 
 `Management Console </ctl_chef_server.html#install>`_ | :doc:`Push Jobs </install_push_jobs>`
 
-**Integrations**: :doc:`w/Chef Compliance </integrate_compliance_chef_server>`
+**Integrations**: :doc:`AWS Marketplace </aws_marketplace>` |  :doc:`Microsoft Azure </azure_portal>` | :doc:`Google Cloud Platform </google>` | :doc:`VMware </vmware>`
 
-:doc:`Air-gapped Installation </install_chef_air_gap>`
+:doc:`Air-gapped Installation </install_chef_air_gap>` |
 :doc:`Uninstall </uninstall>`
 
 Cookbook Reference
@@ -573,6 +573,7 @@ Addenda
    fips
    foodcritic
    glossary
+   google
    habitat_prism
    handlers
    install_chef_automate
