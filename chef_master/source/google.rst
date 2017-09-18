@@ -8,11 +8,8 @@ infrastructure that Google uses internally for its end-user products, such as Go
 Alongside a set of management tools, it provides a series of modular cloud services including computing,
 data storage, data analytics, and machine learning. This page outlines the different tools that can be used to integrate Chef with the Google Cloud Platform.
 
-knife
-=====================================================
-
 knife-google
------------------------------------------------------
+=====================================================
 `[Github] <https://github.com/chef/knife-google>`__
 
 This plugin gives knife the ability to create, bootstrap, and manage Google Compute Engine (GCE) instances.
@@ -21,7 +18,7 @@ Authentication and Authorization
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 ``knife-google`` relies on the Google Auth Library to handle authentication to the Google Cloud API. The auth library expects to find a JSON credentials file located under ``~/.config/gcloud/application_default_credentials.json``.
 
-The easiest way to create this is to download and install the Google Cloud SDK and run the ``gcloud auth application-default login`` command, which will create the credentials file for you.
+The easiest way to create this is to download and install the `Google Cloud SDK <https://cloud.google.com/sdk/>`_ and run the ``gcloud auth application-default login`` command, which will create the credentials file for you.
 
 If you already have a file you'd like to use that is in a different location, set the ``GOOGLE_APPLICATION_CREDENTIALS`` environment variable with the full path to that file.
 
@@ -34,7 +31,7 @@ These are the necessary settings for your ``knife.rb`` file:
 
 Usage Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-**knife google server create INSTANCE_NAME**
+**Create a server:**
 
 .. code-block:: bash
 
@@ -42,24 +39,20 @@ Usage Examples
    --gce-machine-type n1-standard-2 --gce-public-ip ephemeral --ssh-user myuser \
    --identity-file /Users/myuser/.ssh/google_compute_engine
 
-**knife google server delete INSTANCE_NAME [INSTANCE_NAME]**
+**Delete multiple servers:**
 
 .. code-block:: bash
 
   $ knife google server delete my-instance-1 my-instance-2 --purge
 
-**knife google server list**
+**List all servers:**
 
 .. code-block:: bash
 
   $ knife google server list
 
-Chef Provisioning
-=====================================================
-The following driver is directly supported by Chef:
-
 chef-provisioning-google
------------------------------------------------------
+=====================================================
 `[Github] <https://github.com/chef/chef-provisioning-google>`__
 
 This plugin makes it easy to use Chef Provisioning with the Google Cloud Platform. 
@@ -88,12 +81,8 @@ The following is an example of a verbose provisioning recipe:
     action [:converge, :destroy]
   end
 
-Test Kitchen
-=====================================================
-The following Test Kitchen driver is directly supported by Chef:
-
 kitchen-google
------------------------------------------------------
+=====================================================
 `[Github] <https://github.com/test-kitchen/kitchen-google>`__
 
 A test kitchen driver for Google Cloud Platform.
