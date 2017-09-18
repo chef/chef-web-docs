@@ -6,7 +6,7 @@ Chef and Google
 Google Cloud Platform is a suite of cloud computing services that run on the same
 infrastructure that Google uses internally for its end-user products, such as Google Search and YouTube.
 Alongside a set of management tools, it provides a series of modular cloud services including computing,
-data storage, data analytics, and machine learning.
+data storage, data analytics, and machine learning. This page outlines the different tools that can be used to integrate Chef with the Google Cloud Platform.
 
 knife
 =====================================================
@@ -90,7 +90,7 @@ The following is an example of a verbose provisioning recipe:
 
 Test Kitchen
 =====================================================
-The following Test Kitchen driver for VMware is directly supported by Chef:
+The following Test Kitchen driver is directly supported by Chef:
 
 kitchen-google
 -----------------------------------------------------
