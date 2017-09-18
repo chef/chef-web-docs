@@ -9,7 +9,6 @@
   "auth_authorization.html": "/auth.html",
   "chef_dk.html": "/workstation.html",
   "chef_init.html": "/containers.html",
-  "chef_client.html": "/chef_client_overview.html"
   "community_lists.html": "/community.html",
   "community_plugin_chef.html": "/plugin_community.html#chef-client-title",
   "community_plugin_knife.html": "/plugin_community.html#knife-title",
