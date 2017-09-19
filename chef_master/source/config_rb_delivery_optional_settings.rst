@@ -580,6 +580,14 @@ This configuration file has the following settings for ``elasticsearch``:
 ``elasticsearch['enable_gc_log']``
    Enable garbage-collection logging on the JVM. Only set this to ``true`` if you are debugging a garbage collection-related performance issue. Default value: ``false``.
 
+**The following Elasticsearch options require Chef Automate 1.6.179 or later:**
+
+``elasticsearch['auth_user']``
+   The username that Chef Automate will use if you have Elasticsearch X-Pack Basic Authentication enabled on your Elasticsearch cluster. Default value: ``nil``.
+
+``elasticsearch['auth_password']``
+   The password that Chef Automate will use if you have Elasticsearch X-Pack Basic Authentication enabled on your Elasticsearch cluster. Default value: ``nil``.
+
 git
 -----------------------------------------------------
 This configuration file has the following settings for ``git``:
