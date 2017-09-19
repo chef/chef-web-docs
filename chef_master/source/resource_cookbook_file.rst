@@ -209,7 +209,7 @@ This resource has the following properties:
 ``source``
    **Ruby Types:** String, Array
 
-   The name of the file in ``COOKBOOK_NAME/files/default`` or the path to a file located in ``COOKBOOK_NAME/files``. The path must include the file name and its extension. Can be used to distribute specific files to specific platforms. See "File Specificity" below for more information. See "Syntax" section above for more information.
+   The name of the file in ``COOKBOOK_NAME/files/default`` or the path to a file located in ``COOKBOOK_NAME/files``. The path must include the file name and its extension. Can be used to distribute specific files to specific platforms. See "File Specificity" below for more information. See "Syntax" section above for more information. Default value: ``Basename(name)``
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
