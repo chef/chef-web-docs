@@ -11,12 +11,6 @@ Send Node Notifications to a Custom Webhook
 
 .. end_tag
 
-.. tag chef_automate_beta_disclaimer
-
-.. important:: The new functionality described in this topic is currently in Beta. To enable it in the Chef Automate UI, make sure your cursor is not in any text box or field, and type ``beta``. A new ``Notifications`` menu item will appear under the **Nodes** tab in the UI.
-
-.. end_tag
-
 Chef Automate can be configured to post JSON messages to any compatible webhook when it detects certain issues with the nodes you are managing. Currently, those messages include:
 
 * A Chef client run failure on any node in your fleet.
