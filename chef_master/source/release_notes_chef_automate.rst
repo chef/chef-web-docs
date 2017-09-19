@@ -5,6 +5,30 @@ Release Notes: Chef Automate
 
 Chef Automate provides a full suite of enterprise capabilities for workflow, visibility and compliance that allow you to manage and monitor application and cookbook deployments across a cluster of nodes in your environment.
 
+What's New in 1.6.179
+=====================================================
+
+New Features
+-----------------------------------------------------
+
+Notifications
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+The beta period is complete and this feature is now generally available and enabled by default.  Chef Automate supports simple configuration of `Slack </integrate_node_notifications_slack.html>`_ or `webhook </integrate_node_notifications_webhook.html>`_ notifications for Chef client run failures and critical compliance control failures.
+
+Authentication for External Elasticsearch
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Communication between Chef Automate and externally managed Elasticsearch clusters can now be configured to use SSL.  Additionally we have added `support for authentication </config_rb_delivery_optional_settings.html#elasticsearch>`_ through Elasticsearch X-Pack for external clusters.
+
+Resolved Issues
+-----------------------------------------------------
+
+* Redesigned the CSV and JSON export for compliance data; it is now served from an API endpoint and can be used separate from the UI.  Previously the export omitted some records; it now includes all data, and accordingly the report may take more time to generate.
+* Fixed an issue where upgrading Elasticsearch 5.x (during upgrade to Chef Automate 1.6.x) fails if there are incompatible configuration options for Elasticsearch 2.x specified in ``delivery.rb``
+* Resolved an issue where ``automate-ctl delete-node`` was not removing nodes from the compliance UI
+* Corrected a regression with the ``mark-nodes-missing`` script; nodes will now be set to missing if they have not checked in for 12 hours
+* Upgraded Ruby to version 2.4.2 to address multiple CVEs
+
+
 What's New in 1.6.99
 =====================================================
 
