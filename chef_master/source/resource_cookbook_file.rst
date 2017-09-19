@@ -207,9 +207,9 @@ This resource has the following properties:
    Microsoft Windows only. The permissions for users and groups in a Microsoft Windows environment. For example: ``rights <permissions>, <principal>, <options>`` where ``<permissions>`` specifies the rights granted to the principal, ``<principal>`` is the group or user name, and ``<options>`` is a Hash with one (or more) advanced rights options.
 
 ``source``
-   **Ruby Types:** String, Array
+   **Ruby Types:** String, Array | **Default Value:** ``'name'``
 
-   The name of the file in ``COOKBOOK_NAME/files/default`` or the path to a file located in ``COOKBOOK_NAME/files``. The path must include the file name and its extension. Can be used to distribute specific files to specific platforms. See "File Specificity" below for more information. See "Syntax" section above for more information.
+   The name of the file in ``COOKBOOK_NAME/files/default`` or the path to a file located in ``COOKBOOK_NAME/files``. The path must include the file name and its extension. This can be used to distribute specific files depending upon the platform used - see `File Specificity <#file-specificity>`_ for more information.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
