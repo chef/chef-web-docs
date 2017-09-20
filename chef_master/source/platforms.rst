@@ -36,7 +36,7 @@ The following table lists the commercially-supported platforms and versions for 
      - Version
    * - AIX
      - ``ppc64``
-     - ``6.1`` (TL6 or higher, recommended), ``7.1`` (TL0 SP3 or higher, recommended), ``7.2``
+     - ``6.1`` (TL8 or higher, required), ``7.1`` (TL0 SP3 or higher, recommended), ``7.2``
    * - Amazon Linux
      -
      - current version
@@ -57,7 +57,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``5.x``, ``6.x``, ``7.x``
    * - Solaris
      - ``sparc``, ``x86``
-     - ``10 1\13`` (``"10U11"``), ``11.2``, ``11.3`` 
+     - ``10 1/13`` (``"10U11"``), ``11.2``, ``11.3`` 
    * - SUSE Enterprise Linux Server
      - ``x86_64``, ``s390x``, ``ppc64le``, ``ppc64``
      - ``11 SP4``, ``12 SP1``
