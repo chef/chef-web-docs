@@ -85,7 +85,7 @@ The following platforms are supported only via the community:
      - current version
    * - Debian
      - ``i686``, ``x86_64``
-     - ``6``, ``7``, ``8``
+     - ``7``, ``8``, ``9``
    * - Fedora
      -
      - current non-EOL releases
@@ -149,7 +149,7 @@ The following platforms are supported only via the community:
      - Version
    * - Debian
      -
-     - ``7.x``, ``8.x``
+     - ``7.x``, ``8.x``, ``9.x``
    * - macOS
      -
      - ``10.9`` (and earlier)
