@@ -333,7 +333,7 @@ run setup and applied configuration at that time. You can bypass this prompt by 
 
 .. note:: Your Chef Automate server will not be available for use until you either agree to apply the configuration, or manually run ``sudo automate-ctl reconfigure``.
 
-If you've applied the configuration, you will also be prompted to set up a Chef Automate runner and submit additional information. In addition to installing runners during setup, you can also install push jobs-based build nodes after your Chef Automate setup completes using the command ``sudo automate-ctl install-build-node``. If you need to install additional runners, run ``sudo automate-ctl install-runner``. These commands can be run each time you want to install a new build node or runner. See the next section for installation instructions.
+If you've applied the configuration, you will also be prompted to set up a Chef Automate runner and submit additional information. Alternatively, you can do so after the setup completes. See the `runner / build node <#set-up-a-build-node-runner-optional>`_ section of this guide for detailed steps. 
 
 After setup successfully completes and a configuration has been applied, login credentials are reported in the completion output; however, they are also saved to ``/etc/delivery/ENTERPRISE_NAME-admin-credentials``.
 
@@ -346,8 +346,6 @@ And if you don't have DNS, specify the fully-qualified domain names for your Che
 
 .. note:: If your environment requires going through a proxy server, please see `About Proxies </install_chef_automate.html#about-proxies>`_ for information on how to configure proxy settings.
 
-If you plan on using the workflow capabilities of Automate, proceed to the next section to setup your build nodes/runners. After they are set up, you can attempt to run an initial application or cookbook change through your Chef Automate server.
-
 For more information about ``automate-ctl`` and how to use it, see :doc:`ctl_automate_server`.
 
 Configure node data collection
@@ -358,7 +356,7 @@ After you have set up your Chef Server and Chef Automate server, you must perfor
 Set up a build node/runner (Optional)
 ------------------------------------------------------------
 
-Chef Automate's workflow engine automatically creates phase jobs as project code is promoted through the phases of a workflow pipeline. These phase jobs are dispatched to special nodes, called runners and build nodes, that automatically execute each job as it is created. The previous job dispatch system using push jobs-based build nodes is still supported; however the new SSH-based system using runners is the default job dispatch system and should be used for any new deployment.
+Chef Automate's workflow engine automatically creates phase jobs as project code is promoted through the phases of a workflow pipeline. These phase jobs are dispatched to special nodes, called runners and build nodes, that automatically execute each job as it is created.
 
 .. tag DK2_automate_note
 
@@ -366,7 +364,7 @@ Chef Automate's workflow engine automatically creates phase jobs as project code
 
 .. end_tag
 
-The following steps show how to set up a runner from a Chef Automate server. For instructions on how to set up a push jobs-based build node, see :doc:`setup_build_node`.
+The following steps show how to set up a runner from a Chef Automate server. While push jobs-based build nodes are still supported, the new SSH-based system using runners is the default job dispatch system and should be used for any new deployment. For instructions on how to set up a push jobs-based build node, see :doc:`setup_build_node`. 
 
 #. If you have an on-premises Supermarket installation, copy the Supermarket certificate file to ``/etc/delivery/supermarket.crt``.
 
