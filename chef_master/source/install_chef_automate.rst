@@ -333,7 +333,7 @@ run setup and applied configuration at that time. You can bypass this prompt by 
 
 .. note:: Your Chef Automate server will not be available for use until you either agree to apply the configuration, or manually run ``sudo automate-ctl reconfigure``.
 
-If you've applied the configuration, you will also be prompted to set up a Chef Automate runner and submit additional information. Alernatively, you can do so after the setup completes. See the `runner / build node setup <#set-up-a-build-node-runner-optional>`_ section of this guide for detailed steps. 
+If you've applied the configuration, you will also be prompted to set up a Chef Automate runner and submit additional information. Alternatively, you can do so after the setup completes. See the `runner / build node <#set-up-a-build-node-runner-optional>`_ section of this guide for detailed steps. 
 
 After setup successfully completes and a configuration has been applied, login credentials are reported in the completion output; however, they are also saved to ``/etc/delivery/ENTERPRISE_NAME-admin-credentials``.
 
