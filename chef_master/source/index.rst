@@ -117,10 +117,10 @@ Cookbook Reference
 
 **Recipes**: :doc:`About Recipes </recipes>` | :doc:`Debug Recipes, Client Runs </debug>`
 
-**Resources**: :doc:`About Resources </resource>` | :doc:`Common Functionality </resource_common>` | :doc:`Custom Resources </custom_resources>` | :doc:`All Resources (Single Page) </resources>` | :doc:`apt_package </resource_apt_package>` | :doc:`apt_preference </resource_apt_preference>` | :doc:`apt_repository </resource_apt_repository>` | 
-:doc:`apt_update </resource_apt_update>` | :doc:`bash </resource_bash>` | :doc:`batch </resource_batch>` | :doc:`bff_package </resource_bff_package>` | :doc:`breakpoint </resource_breakpoint>` | :doc:`cab_package </resource_cab_package>` | :doc:`chef_acl </resource_chef_acl>` | 
+**Resources**: :doc:`About Resources </resource>` | :doc:`Common Functionality </resource_common>` | :doc:`Custom Resources </custom_resources>` | :doc:`All Resources (Single Page) </resources>` | :doc:`apt_package </resource_apt_package>` | :doc:`apt_preference </resource_apt_preference>` | :doc:`apt_repository </resource_apt_repository>` |
+:doc:`apt_update </resource_apt_update>` | :doc:`bash </resource_bash>` | :doc:`batch </resource_batch>` | :doc:`bff_package </resource_bff_package>` | :doc:`breakpoint </resource_breakpoint>` | :doc:`cab_package </resource_cab_package>` | :doc:`chef_acl </resource_chef_acl>` |
 :doc:`chef_client </resource_chef_client>` | :doc:`chef_container </resource_chef_container>` | :doc:`chef_data_bag </resource_chef_data_bag>` | :doc:`chef_data_bag_item </resource_chef_data_bag_item>` | :doc:`chef_environment </resource_chef_environment>` | :doc:`chef_gem </resource_chef_gem>` | :doc:`chef_group </resource_chef_group>` |
-:doc:`chef_handler </resource_chef_handler>` | :doc:`chef_mirror </resource_chef_mirror>` | :doc:`chef_node </resource_chef_node>` | :doc:`chef_organization </resource_chef_organization>` | :doc:`chef_role </resource_chef_role>` | :doc:`chef_user </resource_chef_user>` |  :doc:`chocolatey_package </resource_chocolatey_package>` 
+:doc:`chef_handler </resource_chef_handler>` | :doc:`chef_mirror </resource_chef_mirror>` | :doc:`chef_node </resource_chef_node>` | :doc:`chef_organization </resource_chef_organization>` | :doc:`chef_role </resource_chef_role>` | :doc:`chef_user </resource_chef_user>` |  :doc:`chocolatey_package </resource_chocolatey_package>`
 :doc:`cookbook_file </resource_cookbook_file>` | :doc:`cron </resource_cron>` | :doc:`csh </resource_csh>` | :doc:`deploy </resource_deploy>` | :doc:`directory </resource_directory>` | :doc:`dpkg_package </resource_dpkg_package>` | :doc:`dsc_resource </resource_dsc_resource>` |
 :doc:`dsc_script </resource_dsc_script>` | :doc:`env </resource_env>` | :doc:`erl_call </resource_erlang_call>` | :doc:`execute </resource_execute>` | :doc:`file </resource_file>` | :doc:`freebsd_package </resource_freebsd_package>` | :doc:`gem_package </resource_gem_package>` |
 :doc:`git </resource_git>` | :doc:`group </resource_group>` | :doc:`homebrew_package </resource_homebrew_package>` | :doc:`http_request </resource_http_request>` | :doc:`ifconfig </resource_ifconfig>` | :doc:`ips_package </resource_ips_package>` | :doc:`ksh </resource_ksh>` |
@@ -444,6 +444,7 @@ Addenda
    api_push_jobs
    api_reporting
    attributes
+   audit_cookbook
    audit_supported_configurations
    auth
    aws_marketplace
@@ -513,6 +514,10 @@ Addenda
    custom_resources
    custom_resources_notes
    data_bags
+   data_collection
+   data_collection_ha
+   data_collection_habitat
+   data_collection_without_server
    scaling_capacity_planning_chef_automate
    stream_data_chef_automate
    data_retention_chef_automate
