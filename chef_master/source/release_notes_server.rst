@@ -1,9 +1,13 @@
 =====================================================
-Release Notes: Chef Server 12.0 - 12.16.9
+Release Notes: Chef Server 12.0 - 12.16.14
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_server.rst>`__
 
 The Chef server acts as a hub for configuration data by storing cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is managed by the chef-client.
+
+What's New in 12.16.14
+=====================================================
+This release updates Ruby to version 2.2.8 to take advantage of multiple `security fixes <https://www.ruby-lang.org/en/news/2017/09/14/ruby-2-2-8-released/>`_. See the full `change log <https://github.com/chef/chef-server/blob/master/CHANGELOG.md#121614-2017-09-21>`_ for details on minor changes.
 
 What's New in 12.16.9
 =====================================================
