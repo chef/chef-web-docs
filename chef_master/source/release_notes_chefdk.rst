@@ -1,9 +1,13 @@
 =====================================================
-Release Notes: Chef Development Kit 0.19 - 2.3.1
+Release Notes: Chef Development Kit 0.19 - 2.3.3
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_chefdk.rst>`__
 
 Chef Development Kit is released on a monthly schedule with new releases the third Monday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef DK on GitHub <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__
+
+What's New in 2.3.3
+=====================================================
+This release restores macOS support in ChefDK 2.3. See the `change log <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md#v233-2017-09-21>`_ for more information.
 
 What's New in 2.3.1
 =====================================================
@@ -27,6 +31,8 @@ ChefDK 2.3 includes:
 Additionally, the cookbook generator now adds a ``LICENSE`` file when creating a new cookbook. 
 
 See the detailed `change log <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md#v231-2017-09-14>`_ for a complete list of changes.
+
+.. note:: Due to issues beyond our control, this release is only built for Linux (x86_64) and Windows. We’ll release a new build with macOS support as soon as possible.
 
 What's New in 2.2.1
 =====================================================
