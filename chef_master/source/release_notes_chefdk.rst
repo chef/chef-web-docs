@@ -1,5 +1,5 @@
 =====================================================
-Release Notes: Chef Development Kit 0.19 - 2.3.3
+Release Notes: Chef Development Kit 0.19 - 2.3.4
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_chefdk.rst>`__
 
