@@ -11,7 +11,7 @@ Perform a Compliance Scan in Chef Automate
 
 .. end_tag
 
-Scanning nodes in your Chef Automate cluster is enabled through the audit cookbook. This cookbook allows you to run InSpec profiles as part of a chef-client run. It downloads configured profiles from various sources like a standalone Chef Compliance server, Chef Automate, Chef Supermarket, or Git, and reports audit runs to Chef Compliance or Chef Automate.
+Scanning nodes in your Chef Automate cluster is enabled through the ``audit`` cookbook. This cookbook allows you to run InSpec profiles as part of a chef-client run. It downloads configured profiles from various sources like a standalone Chef Compliance server, Chef Automate, Chef Supermarket, or Git, and reports audit runs to Chef Compliance or Chef Automate.
 
 This flexibility means chef-client runs using the audit cookbook can be performed in several different usage scenarios; however, this topic describes how to use the audit cookbook with the integrated profile storage and audit reporting functionality of Chef Automate to perform compliance testing.
 
@@ -44,7 +44,7 @@ Configure Data Collection on Chef server
 
 To send node data through Chef server to Chef Automate, you must update the ``/etc/opscode/chef-server.rb`` file on your Chef server. This is needed for converge status and general node data, but it is also true for sending audit run data from nodes back to Chef Automate.
 
-Edit ``/etc/opscode/chef-server.rb`` and add the following information. Token values and general data collection setup instructions are described in :doc:`Configure Data Collection </setup_visibility_chef_automate>`.
+Edit ``/etc/opscode/chef-server.rb`` and add the following information. Token values and general data collection setup instructions are described in :doc:`Configure Data Collection </data_collection>`.
 
 .. code-block:: ruby
 
@@ -109,7 +109,7 @@ Generate the default attributes file:
 
   chef generate attribute default
 
-Configure the ``audit`` cookbook reporter to send scan data to Automate in the ``mycompany_wrapper/attributes/default.rb`` file. ``audit`` cookbook supports many different configurations, see :doc:`Supported Configurations </audit_supported_configurations>`.
+Configure the ``audit`` cookbook reporter to send scan data to Automate in the ``mycompany_wrapper/attributes/default.rb`` file. For an overview and supported configurations, see :doc:`audit cookbook </audit_cookbook>`.
 
 .. code-block:: ruby
 
@@ -176,3 +176,11 @@ View the results in Chef Automate
 When you go back to your Chef Automate UI under the **Compliance** tab, the **Reporting** dashboard should be visible. By alternating between **Node Status** and **Profile Status** views, you can view the scan results depending on which view is most important to you. The following shows some of the scan results on the bootstrapped node.
 
 .. image:: ../../images/compliance_report_node.png
+   :width: 400px
+   :align: center
+
+Next Steps
+---------------------------------------------------------
+:doc:`Audit Cookbook </audit_cookbook>`
+
+-

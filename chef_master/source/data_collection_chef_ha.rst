@@ -1,6 +1,6 @@
 Data Collection with a Chef High Availability Cluster
 ========================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/data_collection_ha.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/data_collection_chef_ha.rst>`__
 
 .. important:: Previous step: :doc:`Setup Data Collection </data_collection>`
 
@@ -31,10 +31,3 @@ The following example sets the ``fqdn`` field to ``"my-chef-server.mycompany.com
   data_collector['token'] = 'TOKEN'
 
 .. warning:: Failure to set the ``fqdn`` field to the same value will result in Chef Automate treating data from each of these front-end servers as separate Chef servers.
-
-Next Steps
-============================
-   * :doc:`Perform a Compliance Scan </perform_compliance_scan>`
-   * :doc:`Data Collection  </data_collection>`
-   * :doc:`Data Collection without Chef Server </data_collection_without_server>`
-   * :doc:`Data Collection with Habitat </data_collection_habitat>`
