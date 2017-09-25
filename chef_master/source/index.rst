@@ -518,7 +518,6 @@ Addenda
    data_bags
    data_collection
    data_collection_ha
-   data_collection_chef_ha
    data_collection_habitat
    data_collection_without_server
    scaling_capacity_planning_chef_automate
