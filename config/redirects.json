@@ -4892,5 +4892,7 @@
   "ctl_delivery_server.html": "/ctl_automate_server.html",
   "api_delivery.html": "/api_automate.html",
   "integrate_compliance_chef_automate.html": "/perform_compliance_scan.html",
-  "job_dispatch.html": "/runners.html"
+  "job_dispatch.html": "/runners.html",
+  "audit_supported_configurations.html": "audit_cookbook.html",
+  "setup_visibility_chef_automate.html": "data_collection.html"
 }
