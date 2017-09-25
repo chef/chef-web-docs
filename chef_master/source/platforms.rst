@@ -553,8 +553,8 @@ Versions and Status
      - n/a
    * - Enterprise Chef
      - 11.2.2 or later
-     - GA
-     - n/a
+     - Deprecated
+     - TBD
    * - Reporting
      - 1.5.5 or later
      - GA
