@@ -1,9 +1,13 @@
 =====================================================
-Release Notes: Chef Development Kit 0.19 - 2.3.3
+Release Notes: Chef Development Kit 0.19 - 2.3.4
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_chefdk.rst>`__
 
 Chef Development Kit is released on a monthly schedule with new releases the third Monday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef DK on GitHub <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__
+
+What's New in 2.3.4
+=====================================================
+ChefDK 2.3.4 pins the net-ssh gem to version 4.1 to prevent errors in test-kitchen and kitchen-inspec that would prevent systems from properly converging or verifying. This release is recommended for all users of ChefDK 2.3.
 
 What's New in 2.3.3
 =====================================================
