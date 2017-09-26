@@ -256,7 +256,10 @@ Setup
 -----------------------------------------------------
 :doc:`Configure a Pipeline </delivery_pipeline>` |
 :doc:`Configure a Project </config_json_delivery>` |
-:doc:`Configure Data Collection </setup_visibility_chef_automate>`
+:doc:`Configure Data Collection </data_collection>` |
+:doc:`Data Collection and Chef HA </data_collection_ha>` |
+:doc:`Data Collection and Habitat </data_collection_habitat>` |
+:doc:`Data Collection without Chef Server </data_collection_without_server>`
 
 Concepts
 -----------------------------------------------------
@@ -445,7 +448,6 @@ Addenda
    api_reporting
    attributes
    audit_cookbook
-   audit_supported_configurations
    auth
    aws_marketplace
    aws_opsworks_chef_automate
@@ -812,7 +814,6 @@ Addenda
    server_tuning
    server_users
    setup_build_node
-   setup_visibility_chef_automate
    style_guide
    supermarket
    supermarket_api

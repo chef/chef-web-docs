@@ -701,8 +701,8 @@
   "supported_platforms.html": "/platforms.html",
   "start_compliance.html": "/chef_compliance.html",
   "start_delivery.html": "/workflow.html",
-  "ingest_data_chef_automate.html": "/setup_visibility_chef_automate.html",
-  "release/automate/ingest_data_chef_automate.html": "/setup_visibility_chef_automate.html",
+  "ingest_data_chef_automate.html": "/data_collection.html",
+  "release/automate/ingest_data_chef_automate.html": "/data_collection.html",
   "release/12-14/release_notes.html": "/release_notes.html",
   "release/automate/inspec_apache_conf.html": "https://inspec.io/docs/reference/resources/apache_conf/",
   "release/automate/inspec_apt.html": "https://inspec.io/docs/reference/resources/apt/",
@@ -1031,7 +1031,7 @@
   "release/automate/integrate_delivery_smtp.html": "/integrate_delivery_smtp.html",
   "release/automate/search_query_chef_automate.html": "/search_query_chef_automate.html",
   "release/automate/server_configure_saml.html": "/server_configure_saml.html",
-  "release/automate/setup_visibility_chef_automate.html": "/setup_visibility_chef_automate.html",
+  "release/automate/data_collection.html": "/data_collection.html",
   "release/automate/stream_data_chef_automate.html": "/stream_data_chef_automate.html",
   "release/automate/troubleshooting_chef_automate.html": "/troubleshooting_chef_automate.html",
   "release/automate/upgrade_chef_automate.html": "/upgrade_chef_automate.html",
@@ -4892,5 +4892,7 @@
   "ctl_delivery_server.html": "/ctl_automate_server.html",
   "api_delivery.html": "/api_automate.html",
   "integrate_compliance_chef_automate.html": "/perform_compliance_scan.html",
-  "job_dispatch.html": "/runners.html"
+  "job_dispatch.html": "/runners.html",
+  "audit_supported_configurations.html": "audit_cookbook.html",
+  "setup_visibility_chef_automate.html": "data_collection.html"
 }

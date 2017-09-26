@@ -351,7 +351,7 @@ For more information about ``automate-ctl`` and how to use it, see :doc:`ctl_aut
 Configure node data collection
 ------------------------------------------------------------
 
-After you have set up your Chef Server and Chef Automate server, you must perform some simple configuration steps to visualize node data in Chef Automate. This process, along with more advanced data configuration scenarios, is detailed in :doc:`Configure Data Collection </setup_visibility_chef_automate>`.
+After you have set up your Chef Server and Chef Automate server, you must perform some simple configuration steps to visualize node data in Chef Automate. This process, along with more advanced data configuration scenarios, is detailed in :doc:`Configure Data Collection </data_collection>`.
 
 Set up a build node/runner (Optional)
 ------------------------------------------------------------
