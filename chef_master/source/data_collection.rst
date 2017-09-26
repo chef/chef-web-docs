@@ -55,6 +55,7 @@ Channel the token setting through the veil secrets library because the token is 
 
       chef-server-ctl set-secret data_collector token 'TOKEN'
       chef-server-ctl restart nginx
+      chef-server-ctl restart opscode-erchef
 
 Then add the following setting to ``/etc/opscode/chef-server.rb`` on the Chef server:
 
