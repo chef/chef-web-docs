@@ -20,14 +20,14 @@ To send compliance data gathered by InSpec as part of a Chef client run, you wil
 
 Configure the Node for ``audit`` Cookbook
 ---------------------------------------------
-Once the cookbook is available in Chef Server, you will need to add the recipe to the run-list of each node. Compliance profiles are added using the ``node['audit']['profiles']`` attribute. A complete list of the possible configuration are documented in :doc:`Audit Cookbook </audit_cookbook>`.
+Once the cookbook is available in Chef Server, you will need to add the recipe to the run-list of each node. Compliance profiles are added using the ``node['audit']['profiles']`` attribute. A complete list of the possible configurations are documented in :doc:`Audit Cookbook </audit_cookbook>`.
 
-To configure the audit cookbook to report compliance data directly to Chef Automate, you will first need to configure the Chef client to send node converge data, as described in :doc:`Data Collection </data_collection>`. Once you have done that, configure the audit cookbook's collector by setting the ``collector``, ``server``, ``owner``, ``refresh_token`` and ``profiles`` attributes.
+To configure the audit cookbook to report compliance data directly to Chef Automate, you will first need to configure the Chef client to send node converge data, as described in :doc:`Data Collection </data_collection>`. Once you have done that, configure the audit cookbook's collector by setting the ``reporter``, ``server``, ``owner``, ``refresh_token`` and ``profiles`` attributes.
 
    * ``reporter`` - ``'chef-automate'`` to report to Chef Automate.
    * ``server`` - url of Chef Automate server with ``/api``.
    * ``owner`` - Chef Automate user or organization that will receive this scan report.
-   * ``refresh_token`` - refresh token for Chef Automate API. Please note that logging out of the user interface revokes the refresh_token. To workaround, log in once in a private browser session, grab the token and then close the browser without logging out.
+   * ``refresh_token`` - refresh token for Chef Automate API. Please note that logging out of the user interface revokes the ``refresh_token``. To workaround, log in once in a private browser session, grab the token and then close the browser without logging out.
    * ``insecure`` - a ``true`` value will skip the SSL certificate verification when retrieving an access token. The default value is ``false``.
 
 A complete audit cookbook attribute configuration will look something like this:
@@ -158,7 +158,7 @@ Fetch From Compliance via Chef Server
 Fetch From Automate via Chef Server
 ---------------------------------------------------------------------------
 
-.. note:: Must have Compliance Integrated w/ Chef Server
+.. note:: Must have Compliance Integrated with Chef Server
 
 .. list-table::
    :header-rows: 1

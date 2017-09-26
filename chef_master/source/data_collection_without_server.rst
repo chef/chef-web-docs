@@ -4,23 +4,23 @@ Data Collection without Chef Server
 
 .. important:: Previous step: :doc:`Setup Data Collection </data_collection>`
 
-If you do not use a Chef server in your environment (if you only use `chef-solo`, for example), you can configure your Chef clients to send their run data to Automate directly.
+If you do not use a Chef server in your environment (if you only use ```chef-solo```, for example), you can configure your Chef clients to send their run data to Automate directly.
 
 To enable this functionality, you must perform the following steps:
 
  * Configure a Data Collector token in Chef Automate (see `prior section </data_collection.rst#configure-a-data-collector-token-in-chef-automate>`__)
- * Add Chef Automate SSL certificate to `trusted_certs` directory
+ * Add Chef Automate SSL certificate to ``trusted_certs`` directory
  * Configure Chef Client to use the Data Collector endpoint in Chef Automate
 
 
-Add Chef Automate certificate to `trusted_certs` directory
+Add Chef Automate certificate to ``trusted_certs`` directory
 ----------------------------------------------------------
 
 .. note:: This step only applies to self-signed SSL certificates. If you are using an SSL certificate signed by a valid certificate authority, you may skip this step.
 
 Chef requires that the self-signed Chef Automate SSL certificate (``HOSTNAME.crt``) is located in the ``/etc/chef/trusted_certs`` directory on any node that wants to send data to Chef Automate. This directory is the location into which SSL certificates are placed when a node has been bootstrapped with chef-client.
 
-To fetch the certificate onto your workstation, use ``knife ssl fetch`` and pass in the URL of the Chef Automate server. You can then use utilities such as `scp` or `rsync` to copy the downloaded cert files from your ``.chef/trusted_certs`` directory to the ``/etc/chef/trusted_certs`` directory on the nodes in your infrastructure that will be sending data directly to the Chef Automate server.
+To fetch the certificate onto your workstation, use ``knife ssl fetch`` and pass in the URL of the Chef Automate server. You can then use utilities such as ``scp`` or ``rsync`` to copy the downloaded cert files from your ``.chef/trusted_certs`` directory to the ``/etc/chef/trusted_certs`` directory on the nodes in your infrastructure that will be sending data directly to the Chef Automate server.
 
 Configure Chef Client to use the Data Collector endpoint in Chef Automate
 -------------------------------------------------------------------------
@@ -30,7 +30,7 @@ Configure Chef Client to use the Data Collector endpoint in Chef Automate
 The data collector functionality is used by the Chef client to send node and converge data to Chef Automate. This feature works for the following: Chef client, and both the default and legacy modes of Chef solo.
 
 To send node, converge, and compliance data to Chef Automate, modify your Chef config (that is
-`client.rb`, `solo.rb`, or add an additional config file in an appropriate directory, such as
+``client.rb``, ``solo.rb``, or add an additional config file in an appropriate directory, such as
 `client.d`) to contain the following configuration:
 
 .. code-block:: ruby
