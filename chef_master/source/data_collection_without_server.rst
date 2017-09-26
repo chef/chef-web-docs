@@ -14,7 +14,7 @@ To enable this functionality, you must perform the following steps:
 
 
 Add Chef Automate certificate to ``trusted_certs`` directory
-----------------------------------------------------------
+----------------------------------------------------------------------
 
 .. note:: This step only applies to self-signed SSL certificates. If you are using an SSL certificate signed by a valid certificate authority, you may skip this step.
 
