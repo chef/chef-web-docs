@@ -1031,7 +1031,7 @@
   "release/automate/integrate_delivery_smtp.html": "/integrate_delivery_smtp.html",
   "release/automate/search_query_chef_automate.html": "/search_query_chef_automate.html",
   "release/automate/server_configure_saml.html": "/server_configure_saml.html",
-  "release/automate/data_collection.html": "/data_collection.html",
+  "release/automate/setup_visibility_chef_automate.html": "/data_collection.html",
   "release/automate/stream_data_chef_automate.html": "/stream_data_chef_automate.html",
   "release/automate/troubleshooting_chef_automate.html": "/troubleshooting_chef_automate.html",
   "release/automate/upgrade_chef_automate.html": "/upgrade_chef_automate.html",
@@ -4893,6 +4893,6 @@
   "api_delivery.html": "/api_automate.html",
   "integrate_compliance_chef_automate.html": "/perform_compliance_scan.html",
   "job_dispatch.html": "/runners.html",
-  "audit_supported_configurations.html": "audit_cookbook.html",
-  "setup_visibility_chef_automate.html": "data_collection.html"
+  "audit_supported_configurations.html": "/audit_cookbook.html",
+  "setup_visibility_chef_automate.html": "/data_collection.html"
 }
