@@ -41,13 +41,13 @@ To install Chef server 12:
 
    .. code-block:: bash
 
-      $ rpm -Uvh /tmp/chef-server-core-<version>.rpm
+      $ sudo rpm -Uvh /tmp/chef-server-core-<version>.rpm
 
    For Ubuntu:
 
    .. code-block:: bash
 
-      $ dpkg -i /tmp/chef-server-core-<version>.deb
+      $ sudo dpkg -i /tmp/chef-server-core-<version>.deb
 
    After a few minutes, the Chef server will be installed.
 
