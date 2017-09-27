@@ -24,7 +24,7 @@ The ``knife supermarket`` subcommand is used to interact with cookbooks that are
 
           .. end_tag
 
-.. note:: Review the list of `common options </knife_common_options>`_ available to this (and all) knife subcommands and plugins.
+.. note:: Review the list of `common options </knife_options>`_ available to this (and all) knife subcommands and plugins.
 
 download
 =====================================================

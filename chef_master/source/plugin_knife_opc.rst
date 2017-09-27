@@ -11,7 +11,7 @@ The ``knife opc`` subcommand is used to manage organizations and users in Chef s
 
 .. note:: Administrator permissions are required to add, remove, or edit users. To manage organizations, or change a user's assignment to an organization, the pivotal key is required. To grant a user administrator permissions, use ``chef-server-ctl grant-server-admin-permissions USER_NAME`` on the Chef server. :doc:`See chef-server-ctl for details </ctl_chef_server>`.
 
-.. note:: Review the list of :doc:`common options </knife_common_options>` available to this (and all) knife subcommands and plugins.
+.. note:: Review the list of :doc:`common options </knife_options>` available to this (and all) knife subcommands and plugins.
 
 .. end_tag
 

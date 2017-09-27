@@ -748,7 +748,7 @@ This subcommand has the following syntax:
 
 Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. note:: Review the list of :doc:`common options </knife_common_options>` available to this (and all) knife subcommands and plugins.
+.. note:: Review the list of :doc:`common options </knife_options>` available to this (and all) knife subcommands and plugins.
 
 .. tag knife_bootstrap_options
 
@@ -1028,7 +1028,7 @@ Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual
 
 .. end_tag
 
-.. note:: Review the list of :doc:`common options </knife_common_options>` available to this (and all) knife subcommands and plugins.
+.. note:: Review the list of :doc:`common options </knife_options>` available to this (and all) knife subcommands and plugins.
 
 Install this plugin
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1642,7 +1642,7 @@ The ``knife windows`` subcommand is used to configure and interact with nodes th
 
 .. end_tag
 
-.. note:: Review the list of :doc:`common options </knife_common_options>` available to this (and all) knife subcommands and plugins.
+.. note:: Review the list of :doc:`common options </knife_options>` available to this (and all) knife subcommands and plugins.
 
 Install this plugin
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

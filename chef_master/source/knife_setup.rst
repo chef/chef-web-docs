@@ -5,6 +5,25 @@ Setting up Knife
 
 The knife command line tool must be configured to communicate with the Chef Server as well as any other infrastructure within your organization. This is done initially during the workstation setup, but subsequent modifications can be made using the knife.rb configuration file.
 
+.. tag knife_index
+
+.. list-table::
+   :widths: 150 450
+   :header-rows: 1
+
+   * - Topic
+     - Description
+   * - `Setting up Knife </knife_setup>`_
+     - Configure knife to interact with your organization's Chef server and infrastructure.
+   * - `Knife Common Options </knife_options>`_
+     - Common options that are available for all knife subcommands.
+   * - `knife.rb </config_rb_knife>`_
+     - Common options for the ``knife.rb`` file
+   * - `knife.rb Optional Settings </config_rb_knife_optional_settings>`_
+     - Additional options for your ``knife.rb``
+
+.. end_tag
+
 Knife.rb Configuration File
 =====================================================
 

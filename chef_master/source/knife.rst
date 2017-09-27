@@ -18,20 +18,24 @@ knife is a command-line tool that provides an interface between a local chef-rep
 
 .. note:: The Knife Quick Reference provides an all-in-one quick reference of knife commands. View a web-based PNG file here: |url docs_knife_png|. Or download the source files from here: |url docs_repo_qr|. Print the front/back source files and laminate them for best effect.
 
+.. tag knife_index
+
 .. list-table::
    :widths: 150 450
    :header-rows: 1
 
    * - Topic
      - Description
-   * - :doc:`knife_setup`
+   * - `Setting up Knife </knife_setup>`_
      - Configure knife to interact with your organization's Chef server and infrastructure.
-   * - :doc:`knife_common_options`
+   * - `Knife Common Options </knife_options>`_
      - Common options that are available for all knife subcommands.
-   * - :doc:`config_rb_knife.html`
+   * - `knife.rb </config_rb_knife>`_
      - Common options for the ``knife.rb`` file
-   * - :doc:`config_rb_knife_optional_settings`
+   * - `knife.rb Optional Settings </config_rb_knife_optional_settings>`_
      - Additional options for your ``knife.rb``
+
+.. end_tag
 
 Knife Subcommands
 =====================================================
