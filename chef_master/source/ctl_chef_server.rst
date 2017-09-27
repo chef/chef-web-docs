@@ -1286,7 +1286,7 @@ This subcommand has the following options:
    Use to print timing information for the reindex processes.
 
 ``-w``, ``--wait``
-   Use to wait for the reindexing queue to clear before exiting.
+   Use to wait for the reindexing queue to clear before exiting. This option only works when run on a standalone Chef server, or on a primary backend Chef server within a legacy tier or DRBD HA system. This option should not be used on a HA frontend.
 
 .. end_tag
 
