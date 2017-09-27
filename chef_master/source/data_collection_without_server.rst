@@ -20,11 +20,7 @@ Add Chef Automate certificate to ``trusted_certs`` directory
 
 Chef requires that the self-signed Chef Automate SSL certificate (``HOSTNAME.crt``) is located in the ``/etc/chef/trusted_certs`` directory on any node that wants to send data to Chef Automate. This directory is the location into which SSL certificates are placed when a node has been bootstrapped with chef-client.
 
-<<<<<<< HEAD
 To fetch the certificate onto your workstation, use ``knife ssl fetch`` and pass in the URL of the Chef Automate server. You can then use utilities such as ``scp`` or ``rsync`` to copy the downloaded cert files from your ``.chef/trusted_certs`` directory to the ``/etc/chef/trusted_certs`` directory on the nodes in your infrastructure that will be sending data directly to the Chef Automate server.
-=======
-To fetch the certificate onto your workstation, use ``knife ssl fetch`` and pass in the URL of the Chef Automate server. You can then use utilities such as `scp` or `rsync` to copy the downloaded cert files from your ``.chef/trusted_certs`` directory to the ``/etc/chef/trusted_certs`` directory on the nodes in your infrastructure that will be sending data directly to the Chef Automate server.
->>>>>>> c7f5ab85dafa92ef07cb506be4edceb53b7977ff
 
 Configure Chef Client to use the Data Collector endpoint in Chef Automate
 -------------------------------------------------------------------------
@@ -34,12 +30,7 @@ Configure Chef Client to use the Data Collector endpoint in Chef Automate
 The data collector functionality is used by the Chef client to send node and converge data to Chef Automate. This feature works for the following: Chef client, and both the default and legacy modes of Chef solo.
 
 To send node, converge, and compliance data to Chef Automate, modify your Chef config (that is
-<<<<<<< HEAD
-``client.rb``, ``solo.rb``, or add an additional config file in an appropriate directory, such as
-=======
-`client.rb`, `solo.rb`, or add an additional config file in an appropriate directory, such as
->>>>>>> c7f5ab85dafa92ef07cb506be4edceb53b7977ff
-`client.d`) to contain the following configuration:
+``client.rb``, ``solo.rb``, or add an additional config file in an appropriate directory, such as ``client.d``) to contain the following configuration:
 
 .. code-block:: ruby
 
