@@ -160,13 +160,13 @@ To install Chef server 12:
 
    .. code-block:: bash
 
-      $ rpm -Uvh /tmp/chef-server-core-<version>.rpm
+      $ sudo rpm -Uvh /tmp/chef-server-core-<version>.rpm
 
    For Ubuntu:
 
    .. code-block:: bash
 
-      $ dpkg -i /tmp/chef-server-core-<version>.deb
+      $ sudo dpkg -i /tmp/chef-server-core-<version>.deb
 
    After a few minutes, the Chef server will be installed.
 
@@ -176,7 +176,7 @@ To install Chef server 12:
 
    .. code-block:: bash
 
-      $ chef-server-ctl reconfigure
+      $ sudo chef-server-ctl reconfigure
 
    Because the Chef server is composed of many different services that work together to create a functioning system, this step may take a few minutes to complete.
 
@@ -257,13 +257,13 @@ Now that you have your Chef server set up, install and configure Chef Automate b
 
    .. code-block:: bash
 
-      dpkg -i PATH_TO_AUTOMATE_SERVER_PACKAGE
+      sudo dpkg -i PATH_TO_AUTOMATE_SERVER_PACKAGE
 
-   For Red Hat or Centos:
+   For Red Hat or CentOS:
 
    .. code-block:: bash
 
-      rpm -Uvh PATH_TO_AUTOMATE_SERVER_PACKAGE
+      sudo rpm -Uvh PATH_TO_AUTOMATE_SERVER_PACKAGE
 
 #. In Chef Automate 0.6.64, you have the option of running the ``preflight-check`` command. This command is optional, but you are encouraged to use it, as it can uncover common environmental problems prior to the actual setup process. For example, there may be required ports that are unavailable, which would have to be rectified prior to setup.
 
@@ -333,7 +333,7 @@ run setup and applied configuration at that time. You can bypass this prompt by 
 
 .. note:: Your Chef Automate server will not be available for use until you either agree to apply the configuration, or manually run ``sudo automate-ctl reconfigure``.
 
-If you've applied the configuration, you will also be prompted to set up a Chef Automate runner and submit additional information. Alternatively, you can do so after the setup completes. See the `runner / build node <#set-up-a-build-node-runner-optional>`_ section of this guide for detailed steps. 
+If you've applied the configuration, you will also be prompted to set up a Chef Automate runner and submit additional information. Alternatively, you can do so after the setup completes. See the `runner / build node <#set-up-a-build-node-runner-optional>`_ section of this guide for detailed steps.
 
 After setup successfully completes and a configuration has been applied, login credentials are reported in the completion output; however, they are also saved to ``/etc/delivery/ENTERPRISE_NAME-admin-credentials``.
 
@@ -364,7 +364,7 @@ Chef Automate's workflow engine automatically creates phase jobs as project code
 
 .. end_tag
 
-The following steps show how to set up a runner from a Chef Automate server. While push jobs-based build nodes are still supported, the new SSH-based system using runners is the default job dispatch system and should be used for any new deployment. For instructions on how to set up a push jobs-based build node, see :doc:`setup_build_node`. 
+The following steps show how to set up a runner from a Chef Automate server. While push jobs-based build nodes are still supported, the new SSH-based system using runners is the default job dispatch system and should be used for any new deployment. For instructions on how to set up a push jobs-based build node, see :doc:`setup_build_node`.
 
 #. If you have an on-premises Supermarket installation, copy the Supermarket certificate file to ``/etc/delivery/supermarket.crt``.
 
