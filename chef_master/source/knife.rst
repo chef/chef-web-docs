@@ -16,7 +16,7 @@ knife is a command-line tool that provides an interface between a local chef-rep
 
 .. end_tag
 
-The Knife Quick Reference provides an all-in-one quick reference of knife commands. View a web-based PNG file here: |url docs_knife_png|. Or download the source files from here: |url docs_repo_qr|.
+The Knife Quick Reference provides an all-in-one quick reference of knife commands. You can view the `overview <https://github.com/chef/quick-reference/blob/master/qr_knife_web.png>`_ or download the `source files <https://github.com/chef/quick-reference>`_.
 
 .. tag knife_index
 
@@ -91,7 +91,7 @@ Built-in Subcommands
    * - :doc:`knife_cookbook_site`
      - .. tag knife_site_cookbook
 
-       The ``knife cookbook site`` subcommand is used to interact with cookbooks that are located at |url supermarket|. A user account is required for any community actions that write data to this site. The following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
+       The ``knife cookbook site`` subcommand is used to interact with cookbooks that are available in the `Chef Supermarket <https://supermarket.chef.io/>`_. A user account is required for any community actions that write data to this site. The following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
 
        .. end_tag
 
