@@ -11,7 +11,7 @@ The Supermarket API is used to provide access to cookbooks, tools, and users on 
 
 .. tag knife_site_cookbook
 
-The ``knife cookbook site`` subcommand is used to interact with cookbooks that are located at |url supermarket|. A user account is required for any community actions that write data to this site. The following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
+The ``knife cookbook site`` subcommand is used to interact with cookbooks that are available in the `Chef Supermarket <https://supermarket.chef.io/>`_. A user account is required for any community actions that write data to this site. The following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
 
 .. end_tag
 
@@ -23,7 +23,7 @@ The ``knife cookbook site`` subcommand is used to interact with cookbooks that a
 
 .. note:: .. tag knife_common_see_common_options_link
 
-          Review the list of :doc:`common options </knife_common_options>` available to this (and all) knife subcommands and plugins.
+          Review the list of :doc:`common options </knife_options>` available to this (and all) knife subcommands and plugins.
 
           .. end_tag
 

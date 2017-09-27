@@ -3,11 +3,7 @@ knife.rb
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_knife.rst>`__
 
-.. tag config_rb_knife_summary
-
 A knife.rb file is used to specify configuration details for knife.
-
-.. end_tag
 
 A knife.rb file:
 
@@ -17,6 +13,25 @@ A knife.rb file:
 * Will override the default configuration when a knife.rb file exists at the default path or the path specified by the ``--config`` option
 
 .. note:: When running Microsoft Windows, the knife.rb file is located at ``%HOMEDRIVE%:%HOMEPATH%\.chef`` (e.g. ``c:\Users\<username>\.chef``). If this path needs to be scripted, use ``%USERPROFILE%\chef-repo\.chef``.
+
+.. tag knife_index
+
+.. list-table::
+   :widths: 150 450
+   :header-rows: 1
+
+   * - Topic
+     - Description
+   * - `Setting up Knife </knife_setup>`_
+     - Configure knife to interact with your organization's Chef server and infrastructure.
+   * - `Knife Common Options </knife_options>`_
+     - Common options that are available for all knife subcommands.
+   * - `knife.rb </config_rb_knife>`_
+     - Common options for the ``knife.rb`` file
+   * - `knife.rb Optional Settings </config_rb_knife_optional_settings>`_
+     - Additional options for your ``knife.rb``
+
+.. end_tag
 
 Settings
 =====================================================
@@ -318,34 +333,3 @@ Some settings are better left to Ohai, which will get the value at the start of 
    See the description above for this setting.
 
 .. warning:: Review the full list of :doc:`optional settings </config_rb_knife_optional_settings>` that can be added to the knife.rb file. Many of these optional settings should not be added to the knife.rb file. The reasons for not adding them can vary. For example, using ``--yes`` as a default in the knife.rb file will cause knife to always assume that "Y" is the response to any prompt, which may lead to undesirable outcomes. Other settings, such as ``--hide-healthy`` (used only with the ``knife status`` subcommand) or ``--bare-directories`` (used only with the ``knife list`` subcommand) probably aren't used often enough (and in the same exact way) to justify adding them to the knife.rb file. In general, if the optional settings are not listed on :doc:`the main knife.rb topic </config_rb_knife>`, then add settings only after careful consideration. Do not use optional settings in a production environment until after the setting's performance has been validated in a safe testing environment.
-
-Many Users, Same Repo
-=====================================================
-.. tag chef_repo_many_users_same_repo
-
-It is possible for multiple users to access the Chef server using the same knife.rb file. (A user can even access multiple organizations if, for example, each instance of the chef-repo contained the same copy of the knife.rb file.) This can be done by adding the knife.rb file to the chef-repo, and then using environment variables to handle the user-specific credential details and/or sensitive values. For example:
-
-.. code-block:: none
-
-   current_dir = File.dirname(__FILE__)
-     user = ENV['OPSCODE_USER'] || ENV['USER']
-     node_name                user
-     client_key               "#{ENV['HOME']}/chef-repo/.chef/#{user}.pem"
-     validation_client_name   "#{ENV['ORGNAME']}-validator"
-     validation_key           "#{ENV['HOME']}/chef-repo/.chef/#{ENV['ORGNAME']}-validator.pem"
-     chef_server_url          "https://api.opscode.com/organizations/#{ENV['ORGNAME']}"
-     syntax_check_cache_path  "#{ENV['HOME']}/chef-repo/.chef/syntax_check_cache"
-     cookbook_path            ["#{current_dir}/../cookbooks"]
-     cookbook_copyright       "Your Company, Inc."
-     cookbook_license         "apachev2"
-     cookbook_email           "cookbooks@yourcompany.com"
-
-     # Amazon AWS
-     knife[:aws_access_key_id] = ENV['AWS_ACCESS_KEY_ID']
-     knife[:aws_secret_access_key] = ENV['AWS_SECRET_ACCESS_KEY']
-
-     # Rackspace Cloud
-     knife[:rackspace_api_username] = ENV['RACKSPACE_USERNAME']
-     knife[:rackspace_api_key] = ENV['RACKSPACE_API_KEY']
-
-.. end_tag

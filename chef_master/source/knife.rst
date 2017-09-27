@@ -16,7 +16,9 @@ knife is a command-line tool that provides an interface between a local chef-rep
 
 .. end_tag
 
-.. note:: The Knife Quick Reference provides an all-in-one quick reference of knife commands. View a web-based PNG file here: |url docs_knife_png|. Or download the source files from here: |url docs_repo_qr|. Print the front/back source files and laminate them for best effect.
+The Knife Quick Reference provides an all-in-one quick reference of knife commands. You can view the `overview <https://github.com/chef/quick-reference/blob/master/qr_knife_web.png>`_ or download the `source files <https://github.com/chef/quick-reference>`_.
+
+.. tag knife_index
 
 .. list-table::
    :widths: 150 450
@@ -24,15 +26,34 @@ knife is a command-line tool that provides an interface between a local chef-rep
 
    * - Topic
      - Description
-   * - :doc:`knife_using`
-     - knife runs from a management workstation and sits in-between a Chef server and an organization's infrastructure.
-   * - :doc:`knife_common_options`
-     - There are many options that are available for all knife subcommands.
+   * - `Setting up Knife </knife_setup>`_
+     - Configure knife to interact with your organization's Chef server and infrastructure.
+   * - `Knife Common Options </knife_options>`_
+     - Common options that are available for all knife subcommands.
+   * - `knife.rb </config_rb_knife>`_
+     - Common options for the ``knife.rb`` file
+   * - `knife.rb Optional Settings </config_rb_knife_optional_settings>`_
+     - Additional options for your ``knife.rb``
 
-.. note:: The knife executable cannot be run as a daemon.
+.. end_tag
 
-knife includes the following subcommands:
+Knife Subcommands
+=====================================================
 
+knife includes a collection of built in subcommands that work together to provide all of the functionality required to take specific actions against any object in an organization, including cookbooks, nodes, roles, data bags, environments, and users. A knife plugin extends the functionality beyond built-in subcommands.
+
+Plugin Command Syntax
+-----------------------------------------------------
+All knife subcommands have the following syntax:
+
+   knife subcommand [ARGUMENT] (options)
+
+Each subcommand has its own set of arguments and options.
+
+.. note:: All syntax examples in this document show variables in ALL_CAPS. For example ``-u PORT_LIST`` (where PORT_LIST is a comma-separated list of local and public UDP ports) or ``-F FORMAT`` (where FORMAT determines the output format, either ``summary``, ``text``, ``json``, ``yaml``, or ``pp``). These variables often require specific values that are unique to each organization.
+
+Built-in Subcommands
+-----------------------------------------------------
 .. list-table::
    :widths: 150 450
    :header-rows: 1
@@ -70,7 +91,7 @@ knife includes the following subcommands:
    * - :doc:`knife_cookbook_site`
      - .. tag knife_site_cookbook
 
-       The ``knife cookbook site`` subcommand is used to interact with cookbooks that are located at |url supermarket|. A user account is required for any community actions that write data to this site. The following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
+       The ``knife cookbook site`` subcommand is used to interact with cookbooks that are available in the `Chef Supermarket <https://supermarket.chef.io/>`_. A user account is required for any community actions that write data to this site. The following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
 
        .. end_tag
 
@@ -254,3 +275,100 @@ knife includes the following subcommands:
        Use the ``knife xargs`` subcommand to take patterns from standard input, download as JSON, run a command against the downloaded JSON, and then upload any changes.
 
        .. end_tag
+
+Verb Subcommands
+-----------------------------------------------------
+
+knife includes a set of subcommands that are built around common verbs: ``delete``, ``deps``, ``diff``, ``download``, ``edit``, ``list``, ``show``, ``upload``, ``xargs``. These subcommands allow knife to issue commands that interact with any object stored in the chef-repo or stored on the Chef server. Some important principles behind this group of subcommands includes:
+
+* A command that works with each object in the chef-repo. The subcommands specify the desired action (the "verb"), and then directory in which that object resides (``clients``, ``cookbooks/``, ``data_bags/``, ``environments/``, ``nodes``, ``roles/``, and ``users``). For example: ``download cookbooks/``
+* A command that works with certain objects in the Chef server, including ``acls``, ``groups``, and ``containers``
+* Uses the Chef server as if it were a file system, allowing the chef-repo on the Chef server to behave like a mirror of the chef-repo on the workstation. The Chef server will have the same objects as the local chef-repo. To make changes to the files on the Chef server, just download files from the Chef server or upload files from the chef-repo
+* The context from which a command is run matters. For example, when working in the ``roles/`` directory, knife will know what is being worked with. Enter ``knife show base.json`` and knife will return the base role from the Chef server. From the chef-repo root, enter ``knife show roles/base.json`` to get the same result
+* Parallel requests can be made to the Chef server and are configurable on a per-command basis
+
+Wildcard Search
+-----------------------------------------------------
+A wildcard matching pattern can be used for substring matches that replace zero (or more) characters. There are two types of wildcard patterns:
+
+* A question mark ("?") can be used to replace exactly one character (as long as that character is not the first character)
+* An asterisk ("*") can be used to replace any number of characters (including zero)
+
+Wildcard patterns must be escaped (using a backslash) so that the wildcard itself can reach the Chef server. If they are not escaped, the wildcard is expanded into the actual filenames and knife will not know the wildcard was intended to be used. For example, if the Chef server has data bags named ``aardvarks``, ``anagrams``, and ``arp_tables``, but the local file system only has ``aardvarks`` and ``anagrams``, escaping vs. not escaping the wildcard pattern will yield different results:
+
+.. code-block:: bash
+
+  $ knife list data_bags/a\*
+
+asks the Chef server for everything starting with the letter "a" and will return:
+
+.. code-block:: bash
+
+  $ aardvarks/ anagrams/ arp_tables/
+
+But, the following:
+
+.. code-block:: bash
+
+  $ knife list data_bags/a*
+
+will return:
+
+.. code-block:: bash
+
+  $ aardvarks/ anagrams/
+
+Which is the same as entering:
+
+.. code-block:: bash
+
+  $ knife list data_bags/aardvarks data_bags/anagrams
+
+to return:
+
+.. code-block:: bash
+
+  $ aardvarks/ anagrams/
+
+Knife Plug-ins
+=====================================================
+
+Knife functionality can be extended with plugins, which work the same as built-in subcommands (including common options). Knife plugins have been written to interact with common cloud providers, to simplify common Chef tasks, and to aid in Chef workflows.
+
+Plugin Installation
+-----------------------------------------------------
+
+Knife plugins ship as Rubygems and are installed into the ChefDK installation using the ``chef`` command:
+
+.. code-block:: bash
+
+  chef gem install PLUGIN_NAME
+
+Post installation you will also need to rehash the list of knife commands by running:
+
+.. code-block:: bash
+
+  knife rehash
+
+Chef Maintained Knife Plugins
+-----------------------------------------------------
+
+Chef maintains the following plugins:
+
+* ``knife-acl``
+* ``knife-azure``
+* ``knife-ec2``
+* ``knife-eucalyptus``
+* ``knife-google``
+* ``knife-linode``
+* ``knife-lpar``
+* ``knife-openstack``
+* ``knife-push``
+* ``knife-rackspace``
+* ``knife-vcenter``
+* ``knife-windows``.
+
+Community Knife Plugins
+-----------------------------------------------------
+
+Knife plugins written by Chef community members can be found on Supermarket under `Knife Plugins <https://supermarket.chef.io/tools?type=knife_plugin>`_.

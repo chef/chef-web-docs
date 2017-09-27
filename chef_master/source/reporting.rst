@@ -85,7 +85,7 @@ The ``knife reporting`` subcommand is used by Reporting to report about chef-cli
 
 .. end_tag
 
-.. note:: Review the list of :doc:`common options </knife_common_options>` available to this (and all) knife subcommands and plugins.
+.. note:: Review the list of :doc:`common options </knife_options>` available to this (and all) knife subcommands and plugins.
 
 Install the Plugin
 -----------------------------------------------------

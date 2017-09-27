@@ -581,9 +581,11 @@ Using multiple organizations within the Chef server ensures that the same toolse
 
 Many Users, Same Repo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. tag chef_repo_many_users_same_repo
+.. tag chef_repo_many_users_same_knife
 
-It is possible for multiple users to access the Chef server using the same knife.rb file. (A user can even access multiple organizations if, for example, each instance of the chef-repo contained the same copy of the knife.rb file.) This can be done by adding the knife.rb file to the chef-repo, and then using environment variables to handle the user-specific credential details and/or sensitive values. For example:
+The knife.rb configuration can include arbitrary Ruby code to extend configuration beyond static values. This can be used to load environmental variables from the workstation. This makes it possible to write a single knife.rb file that can be used by all users within your organization. This single file can also be checked into your chef-repo, allowing users to load different knife.rb files based on which chef-repo they execute the commands from. This can be especially useful when each chef-repo points to a different chef server or organization.
+
+Example knife.rb:
 
 .. code-block:: none
 
@@ -603,11 +605,6 @@ It is possible for multiple users to access the Chef server using the same knife
      # Amazon AWS
      knife[:aws_access_key_id] = ENV['AWS_ACCESS_KEY_ID']
      knife[:aws_secret_access_key] = ENV['AWS_SECRET_ACCESS_KEY']
-
-     # Rackspace Cloud
-     knife[:rackspace_api_username] = ENV['RACKSPACE_USERNAME']
-     knife[:rackspace_api_key] = ENV['RACKSPACE_API_KEY']
-
 .. end_tag
 
 Chef server API

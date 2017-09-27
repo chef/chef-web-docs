@@ -1,7 +1,7 @@
 =====================================================
 Knife Common Options
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_common_options.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_options.rst>`__
 
 The following options can be run with all knife subcommands and plug-ins:
 
