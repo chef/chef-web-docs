@@ -16,7 +16,7 @@ knife is a command-line tool that provides an interface between a local chef-rep
 
 .. end_tag
 
-.. note:: The Knife Quick Reference provides an all-in-one quick reference of knife commands. View a web-based PNG file here: |url docs_knife_png|. Or download the source files from here: |url docs_repo_qr|. Print the front/back source files and laminate them for best effect.
+The Knife Quick Reference provides an all-in-one quick reference of knife commands. View a web-based PNG file here: |url docs_knife_png|. Or download the source files from here: |url docs_repo_qr|.
 
 .. tag knife_index
 
