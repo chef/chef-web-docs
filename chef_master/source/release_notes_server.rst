@@ -1034,7 +1034,7 @@ This subcommand has the following options:
    Use to print timing information for the reindex processes.
 
 ``-w``, ``--wait``
-   Use to wait for the reindexing queue to clear before exiting.
+   Use to wait for the reindexing queue to clear before exiting. This option only works when run on a Standalone or primary backend of an old style Tier or DRBD HA system. Frontends in these configurations cannot handle the use of this option.
 
 .. end_tag
 
