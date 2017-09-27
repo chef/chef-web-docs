@@ -158,11 +158,7 @@ Fetch From Compliance via Chef Server
 Fetch From Automate via Chef Server
 ---------------------------------------------------------------------------
 
-<<<<<<< HEAD
 .. note:: Must have Compliance Integrated with Chef Server
-=======
-.. note:: Must have Compliance Integrated w/ Chef Server
->>>>>>> c7f5ab85dafa92ef07cb506be4edceb53b7977ff
 
 .. list-table::
    :header-rows: 1
