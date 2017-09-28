@@ -73,7 +73,7 @@ Example knife.rb:
 Generating a Knife.rb File
 =====================================================
 
-The knife command `knife configure` can be used to generate your initial knife.rb configuration file in your home directory. See :doc:`knife_configure` for details
+The knife command `knife configure` can be used to generate your initial knife.rb configuration file in your home directory. See `knife configure </knife_configure>`_ for details
 
 Setting Your Text Editor
 =====================================================

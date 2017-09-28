@@ -3,8 +3,6 @@
 ==========================================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_yml_kitchen.rst>`__
 
-.. tag test_kitchen
-
 Use `Test Kitchen <http://kitchen.ci>`_  to automatically test cookbook data across any combination of platforms and test suites:
 
 * Defined in a .kitchen.yml file
@@ -13,7 +11,6 @@ Use `Test Kitchen <http://kitchen.ci>`_  to automatically test cookbook data acr
 * Supports all common testing frameworks that are used by the Ruby community
 * Uses a comprehensive set of base images provided by `Bento <https://github.com/chef/bento>`_
 
-.. end_tag
 
 .. tag test_kitchen_yml
 
