@@ -547,7 +547,7 @@ This release adds support for Server Enforced Recipe, as described in `RFC 896 <
 
 Bugfixes
 -----------------------------------------------------
-Fixes issue where :doc:`resource_apt_repository` couldn't identify key fingerprints when gnupg 2.1.x was used.
+Fixes issue where the `apt_repository </resource_apt_repository.html>`_ resource couldn't identify key fingerprints when gnupg 2.1.x was used.
 
 
 What's New in 12.19

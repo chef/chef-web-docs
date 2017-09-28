@@ -28,7 +28,7 @@ Chef Automate contains a collection of built-in profiles to help you perform sec
 
 These profiles can be searched and managed through the Chef Automate web UI. If you require custom profiles to be used across your cluster, Chef Automate also provides the ability to upload those profiles.
 
-The following is a list of built-in profiles. See :doc:`/perform_compliance_scan` to see how to use these profiles against nodes in your cluster.
+The following is a list of built-in profiles. See `Perform a Compliance Scan in Chef Automate </perform_compliance_scan.html>`_ to see how to use these profiles against nodes in your cluster.
 
 CIS profiles
 -----------------------------------------------------
@@ -81,4 +81,4 @@ Chef Automate provides the ability to filter on the compliance status of the nod
 
 .. image:: ../../images/compliance_filter_1.png
 
-See :doc:`/filter_compliance_scan` for more information.
+See `Filter Compliance Scans in Chef Automate </filter_compliance_scan.html>`_ for more information.

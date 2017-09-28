@@ -12,7 +12,7 @@ Chef Client for Chef Analytics
 
 .. end_tag
 
-This topic discusses the chef-client only from the context of Chef Analytics. For general information about the Chef client, see :doc:`/chef_client_overview`.
+This topic discusses the chef-client only from the context of Chef Analytics. For general information about the Chef client, see the `Chef Client Overview </chef_client_overview.html>`_.
 
 audit-mode
 =====================================================

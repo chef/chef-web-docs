@@ -32,7 +32,7 @@ The Chef Analytics server shares the :doc:`same prerequisites </install_server_p
 * A local mail transfer agent that allows Chef Analytics to send email notifications; for versions of Chef Analytics prior to 1.1.3, ``to``, ``from``, ``host`` (the email server), ``password``, ``port``, and ``username`` must be specified.
 * Using cron and the ``/etc/cron.d`` directory for periodic maintenance tasks
 * Disabling the Apache Qpid daemon on CentOS and Red Hat systems
-* Optional. A local user account under which services will run, a local user account for PostgreSQL, and a group account under which services will run. See :doc:`/install_server_pre` for more information.
+* Optional. A local user account under which services will run, a local user account for PostgreSQL, and a group account under which services will run. See the `Chef server installation prerequisites </install_server_pre.html>`_ for more information.
 * The RabbitMQ queues on the Chef server that are used by Chef Analytics---``/analytics``---are capped to prevent unintended disk overruns. For example:
 
   .. code-block:: bash

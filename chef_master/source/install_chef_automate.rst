@@ -249,7 +249,7 @@ Chef Automate Server Installation and Configuration
 
 Now that you have your Chef server set up, install and configure Chef Automate by doing the following:
 
-.. note:: If you plan to use a private Supermarket with your Chef Automate server, please make sure it is set up correctly by following the steps in :doc:`install_supermarket`.
+.. note:: If you plan to use a private Supermarket with your Chef Automate server, please make sure it is set up correctly by following the steps in `Install Private Supermarket </install_supermarket.html>`_.
 
 #. Download and install the latest stable Chef Automate package for your operating system from `<https://downloads.chef.io/automate/>`_ on the Chef Automate server machine.
 
@@ -346,7 +346,7 @@ And if you don't have DNS, specify the fully-qualified domain names for your Che
 
 .. note:: If your environment requires going through a proxy server, please see `About Proxies </install_chef_automate.html#about-proxies>`_ for information on how to configure proxy settings.
 
-For more information about ``automate-ctl`` and how to use it, see :doc:`ctl_automate_server`.
+For more information about ``automate-ctl`` and how to use it, see `automate-ctl (executable) </ctl_automate_server.html>`_.
 
 Configure node data collection
 ------------------------------------------------------------
@@ -364,7 +364,7 @@ Chef Automate's workflow engine automatically creates phase jobs as project code
 
 .. end_tag
 
-The following steps show how to set up a runner from a Chef Automate server. While push jobs-based build nodes are still supported, the new SSH-based system using runners is the default job dispatch system and should be used for any new deployment. For instructions on how to set up a push jobs-based build node, see :doc:`setup_build_node`.
+The following steps show how to set up a runner from a Chef Automate server. While push jobs-based build nodes are still supported, the new SSH-based system using runners is the default job dispatch system and should be used for any new deployment. For instructions on how to set up a push jobs-based build node, see `Set up a build node </setup_build_node.html>`_.
 
 #. If you have an on-premises Supermarket installation, copy the Supermarket certificate file to ``/etc/delivery/supermarket.crt``.
 
@@ -388,7 +388,7 @@ The following steps show how to set up a runner from a Chef Automate server. Whi
 
    If you require a specific version of the ChefDK to be downloaded and installed on your runners, you can specify it in the ``--chefdk-version`` option. This is useful if your cookbooks are not compatible the Chef client that comes with the latest version of the ChefDK.
 
-   For more ``install-runner`` usage examples, see :ref:`install-runner`, and for more information on runners and the SSH-based job dispatch system, see :doc:`runners`.
+   For more ``install-runner`` usage examples, see :ref:`install-runner`, and for more information on runners and the SSH-based job dispatch system, see `Runners </runners.html>`_.
 
    .. tag chef_automate_build_nodes
 
@@ -442,7 +442,7 @@ Profiles
 
 Chef Automate contains a compliance profiles asset store that provides several built-in profiles covering baseline security checks through CIS benchmarks across multiple operating systems.
 
-In Chef Automate 0.8.5 or later, the compliance profiles asset store is enabled by default. You can manage your profiles through :doc:`api_automate` as well as through the Chef Automate UI. See :doc:`/chef_automate_compliance` for more information on the new integrated compliance functionality.
+In Chef Automate 0.8.5 or later, the compliance profiles asset store is enabled by default. You can manage your profiles through the `Chef Automate API </api_automate.html>`_ as well as through the Chef Automate UI. See `An Overview of Compliance in Chef Automate </chef_automate_compliance.html>`_ for more information on the new integrated compliance functionality.
 
 In Chef Automate version 0.6, the profiles asset store functionality is available; however, you must enable the service by adding this line:
 
@@ -452,13 +452,13 @@ In Chef Automate version 0.6, the profiles asset store functionality is availabl
 
 into ``/etc/delivery/delivery.rb`` and running ``automate-ctl reconfigure``. The ``automate-ctl status`` subcommand should now list the status of the ``compliance_profiles`` service.
 
-Also, the profiles in this asset store are managed using the :doc:`api_automate` and cannot be managed through the UI as with the 0.8.5 release.
+Also, the profiles in this asset store are managed using the `Chef Automate API </api_automate.html>`_ and cannot be managed through the UI as with the 0.8.5 release.
 
 
 Scanning
 ------------------------------------------------------------
 
-Allows nodes to execute infrastructure tests or compliance profiles as part of the chef-client runs. For more details, see :doc:`/perform_compliance_scan`.
+Allows nodes to execute infrastructure tests or compliance profiles as part of the chef-client runs. For more details, see `Perform a Compliance Scan in Chef Automate </perform_compliance_scan>`_.
 
 Troubleshooting
 ===================================================================

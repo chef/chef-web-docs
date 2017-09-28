@@ -771,4 +771,4 @@ where ``ORG_NAME`` is the name of the organization.
 
 .. end_tag
 
-For more information about the Chef server API endpoints see :doc:`api_chef_server`.
+For more information about the Chef server API endpoints see the `Chef server API </api_chef_server.html>`_ documentation.

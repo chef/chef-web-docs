@@ -50,7 +50,7 @@ If you wish to share your filtered search with others, you can do so with the sh
 Compliance status
 ------------------------------------------------------
 
-In addition to converge data, Chef Automate also provides information on the compliance state of your nodes. By using Chef Automate 1.5.46 or later, you can view compliance scan data in the **Compliance** tab at the top of the page. See :doc:`/chef_automate_compliance` for more information. 
+In addition to converge data, Chef Automate also provides information on the compliance state of your nodes. By using Chef Automate 1.5.46 or later, you can view compliance scan data in the **Compliance** tab at the top of the page. See this `Overview of Compliance in Chef Automate </chef_automate_compliance.html>`_ for more information. 
 
 .. image:: ../../images/compliance_node.png
 

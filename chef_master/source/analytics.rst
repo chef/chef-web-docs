@@ -492,7 +492,7 @@ Notifications may be sent to any email address, a chat service like HipChat or S
 
 .. end_tag
 
-.. note:: For more information about Chef Analytics rules, see :doc:`analytics_rules`.
+.. note:: For more information about Chef Analytics rules, see `Chef Analytics Rules </analytics_rules.html>`_.
 
 Chef Analytics Webui
 =====================================================

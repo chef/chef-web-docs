@@ -549,7 +549,7 @@ If you plan on using the workflow capabilities of Automate, you will need to hav
 * `delivery-sugar <https://supermarket.chef.io/cookbooks/delivery-sugar>`_
 * `delivery-truck <https://supermarket.chef.io/cookbooks/delivery-truck>`_
 
-For more information about ``automate-ctl`` and how to use it, see :doc:`ctl_automate_server`.
+For more information about ``automate-ctl`` and how to use it, see `automate-ctl (executable) </ctl_automate_server.html>`_.
 
 Configure node data collection
 ------------------------------------------------------------

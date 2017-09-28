@@ -149,7 +149,7 @@ This new view allows users to inspect the current and historic state of a node�
 New Search Bar on Nodes View
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-We’ve rebuilt the search bar on the Nodes view to be easier to use, and have added the ability to filter nodes by platform.  The original search bar will remain available under the `legacy` flag for three months.  Complete details on searching for nodes can be found in :doc:`search_query_chef_automate`.  If you have trouble with the new search bar and find yourself continuing to use the legacy version, please contact us with your feedback.
+We’ve rebuilt the search bar on the Nodes view to be easier to use, and have added the ability to filter nodes by platform.  The original search bar will remain available under the `legacy` flag for three months.  Complete details on searching for nodes can be found in the `Node Search Query Reference </search_query_chef_automate.html>`_.  If you have trouble with the new search bar and find yourself continuing to use the legacy version, please contact us with your feedback.
 
 Delete Node Improvements
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -225,7 +225,7 @@ This release of Chef Automate requires the Elasticsearch 2 API, and is fully com
 Tuning Options for Elasticsearch and Logstash
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-There are now more options to tune Chef Automate for best performance in your environment. Both Elasticsearch and Logstash now have additional ways to configure their resource utilization. For more information, see :doc:`config_rb_delivery_optional_settings`.
+There are now more options to tune Chef Automate for best performance in your environment. Both Elasticsearch and Logstash now have additional ways to configure their resource utilization. For more information, see `delivery.rb Optional Settings </config_rb_delivery_optional_settings.html>`_.
 
 Additional preflight checks
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

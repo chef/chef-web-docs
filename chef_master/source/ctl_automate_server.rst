@@ -294,7 +294,7 @@ generate-password-reset-token
 =====================================================
 The ``generate-password-reset-token`` command is used to unset the password for an existing Chef Automate user, and generate a token that allows them to set a new password. The command returns a URL pointing to the Chef Automate UI, allowing the user to enter a new password.
 
-The token is embedded in that URL and has an expiry of two hours. This command may be issued again to get a new token. After the command has been run, the previously stored password will no longer work. Issued API tokens (e.g. in existing UI sessions or for use with :doc:`delivery_cli`) will not be revoked.
+The token is embedded in that URL and has an expiry of two hours. This command may be issued again to get a new token. After the command has been run, the previously stored password will no longer work. Issued API tokens (e.g. in existing UI sessions or for use with the `Delivery CLI </delivery_cli.html>`_) will not be revoked.
 
 When a token is consumed (through the web UI), all issued password reset tokens for this user will be revoked.
 
@@ -328,7 +328,7 @@ This subcommand has the following syntax:
 
 install-runner
 =====================================================
-The ``install-runner`` subcommand configures a remote node as a job runner, which are used by Chef Automate to run phase jobs. For more information on runners, please see :doc:`runners`.
+The ``install-runner`` subcommand configures a remote node as a job runner, which are used by Chef Automate to run phase jobs. For more information on runners, please see the `Runners documentation </runners.html>`_.
 
 **Syntax**
 

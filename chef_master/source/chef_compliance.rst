@@ -17,7 +17,7 @@ Chef Compliance is a standalone solution that allows you to assess your infrastr
 * Prebuilt compliance profiles to help you get started quickly
 * A language for writing audit controls, which includes audit resources that you can invoke
 
-.. note:: If you are running Chef Automate 0.8.5 or later, you can view, analyze, and manage your compliance reports across nodes in your Chef Automate cluster through built-in reporting capabilities without the need for a standalone Chef Compliance server. For more information on the integrated compliance reporting functionality within Chef Automate, see :doc:`/chef_automate_compliance`. 
+.. note:: If you are running Chef Automate 0.8.5 or later, you can view, analyze, and manage your compliance reports across nodes in your Chef Automate cluster through built-in reporting capabilities without the need for a standalone Chef Compliance server. For more information on the integrated compliance reporting functionality within Chef Automate, see this `Overview of Chef Compliance in Chef Automate </chef_automate_compliance.html>`_. 
 
    Remote scanning is currently only available in Chef Compliance, but will be added to Chef Automate in the future. 
 
