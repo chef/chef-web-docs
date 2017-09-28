@@ -4800,9 +4800,9 @@ This resource has the following properties:
 ``source``
    **Ruby Type:** String
 
-   Optional. The path to a package in the local file system. The location of the package may be at a URL. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   Optional. The path to a package in the local file system. The location of the package may be at a URL. Default value: the ``name`` of the resource block. See the "Syntax" section above for more information.
 
-   If the ``source`` property is not specified, the package name MUST be exactly the same as the display name found in **Add/Remove programs** or exacty the same as the ``DisplayName`` property in the appropriate registry key:
+   If the ``source`` property is not specified, the package name MUST be exactly the same as the display name found in **Add/Remove programs** or exactly the same as the ``DisplayName`` property in the appropriate registry key, which may be one of the following:
 
    .. code-block:: ruby
 
