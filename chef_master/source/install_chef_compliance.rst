@@ -133,6 +133,61 @@ Save the file, and then run the following command:
 
    $ sudo chef-compliance-ctl reconfigure
 
+Configuring WinRM
+=====================================================
+
+Chef Compliance also allows you to configure SSH and WinRM through the user interface.
+In the case of WinRM, you will need to perform additional steps from the command line to enable and verify the WinRM configuration of a node.
+
+#. From CMD, start the WinRM service and load the default WinRM configuration.
+
+   .. code-block:: none
+
+      c:\ winrm quickconfig
+
+
+#. Verify whether a listener is running, and which ports are used. The default ports are 5985 for HTTP, and 5986 for HTTPS.
+
+   .. code-block:: none
+
+      c:\ winrm enumerate winrm/config/listener
+
+
+#. Enable basic authentication on the WinRM service. Run the following command to check whether basic authentication is allowed.
+
+   .. code-block:: none
+
+      c:\ winrm get winrm/config/service
+
+#. Run the following command to enable basic authentication on the WinRM service.
+
+   .. code-block:: none
+
+      c:\ winrm set winrm/config/service/auth @{Basic="true"}
+
+   .. note:: Powershell requires a slightly modified syntax:
+      ``PS:\ winrm set winrm/config/service/auth '@{Basic="true"}'``
+
+#. Run the following command to allow transfer of unencrypted data on the WinRM service.
+
+   .. code-block:: none
+
+      c:\ winrm set winrm/config/service @{AllowUnencrypted="true"}
+
+#. Enable Unencrypted client connections for the test winrm identity command to work.
+
+   .. code-block:: none
+
+      c:\ winrm set winrm/config/client @{AllowUnencrypted="true"}
+
+#. Run the following command to test the connection to the WinRM service.
+
+   .. code-block:: none
+
+      c:\ winrm identify -r:http://NODE:5985 -auth:basic -u:USERNAME -p:PASSWORD -encoding:utf-8
+
+
+
 Logging
 =====================================================
 .. tag compliance_logging
