@@ -14,25 +14,6 @@ A knife.rb file:
 
 .. note:: When running Microsoft Windows, the knife.rb file is located at ``%HOMEDRIVE%:%HOMEPATH%\.chef`` (e.g. ``c:\Users\<username>\.chef``). If this path needs to be scripted, use ``%USERPROFILE%\chef-repo\.chef``.
 
-.. tag knife_index
-
-.. list-table::
-   :widths: 150 450
-   :header-rows: 1
-
-   * - Topic
-     - Description
-   * - `Setting up Knife </knife_setup>`_
-     - Configure knife to interact with your organization's Chef server and infrastructure.
-   * - `Knife Common Options </knife_options>`_
-     - Common options that are available for all knife subcommands.
-   * - `knife.rb </config_rb_knife>`_
-     - Common options for the ``knife.rb`` file
-   * - `knife.rb Optional Settings </config_rb_knife_optional_settings>`_
-     - Additional options for your ``knife.rb``
-
-.. end_tag
-
 Settings
 =====================================================
 This configuration file has the following settings:
