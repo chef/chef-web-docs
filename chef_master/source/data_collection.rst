@@ -36,9 +36,9 @@ To set your own token, add the following to your ``/etc/delivery/delivery.rb`` f
 
 To apply the changes, run:
 
-   .. code-block:: ruby
+   .. code-block:: shell
 
-      automate-ctl reconfigure
+      sudo automate-ctl reconfigure
 
 
 If you do not configure a token, the default token value is: ``93a49a4f2482c64126f7b6015e6b0f30284287ee4054ff8807fb63d9cbd1c506``
@@ -51,11 +51,11 @@ Setting up data collection on Chef server versions 12.14 and higher
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Channel the token setting through the veil secrets library because the token is considered a secret, and cannot appear in ``/etc/opscode/chef-server.rb``:
 
-   .. code-block:: ruby
+   .. code-block:: shell
 
-      chef-server-ctl set-secret data_collector token 'TOKEN'
-      chef-server-ctl restart nginx
-      chef-server-ctl restart opscode-erchef
+      sudo chef-server-ctl set-secret data_collector token 'TOKEN'
+      sudo chef-server-ctl restart nginx
+      sudo chef-server-ctl restart opscode-erchef
 
 Then add the following setting to ``/etc/opscode/chef-server.rb`` on the Chef server:
 
