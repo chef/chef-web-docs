@@ -126,7 +126,7 @@ Cookbook Reference
 :doc:`git </resource_git>` | :doc:`group </resource_group>` | :doc:`homebrew_package </resource_homebrew_package>` | :doc:`http_request </resource_http_request>` | :doc:`ifconfig </resource_ifconfig>` | :doc:`ips_package </resource_ips_package>` | :doc:`ksh </resource_ksh>` |
 :doc:`launchd </resource_launchd>` | :doc:`link </resource_link>` | :doc:`log </resource_log>` | :doc:`macports_package </resource_macports_package>` | :doc:`mdadm </resource_mdadm>` | :doc:`mount </resource_mount>` | :doc:`ohai </resource_ohai>` |
 :doc:`openbsd_package </resource_openbsd_package>` | :doc:`osx_profile </resource_osx_profile>` | :doc:`package </resource_package>` | :doc:`pacman_package </resource_pacman_package>` | :doc:`paludis_package </resource_paludis_package>` | :doc:`perl </resource_perl>` | :doc:`portage_package </resource_portage_package>` |
-:doc:`powershell_script </resource_powershell_script>` | :doc:`private_key </resource_private_key>` | :doc:`public_key </resource_public_key>` | :doc:`python </resource_python>` | :doc:`reboot </resource_reboot>` | :doc:`registry_key </resource_registry_key>` | :doc:`remote_directory </resource_remote_directory>` |
+:doc:`powershell_package </resource_powershell_package>` | :doc:`powershell_script </resource_powershell_script>` | :doc:`private_key </resource_private_key>` | :doc:`public_key </resource_public_key>` | :doc:`python </resource_python>` | :doc:`reboot </resource_reboot>` | :doc:`registry_key </resource_registry_key>` | :doc:`remote_directory </resource_remote_directory>` |
 :doc:`remote_file </resource_remote_file>` | :doc:`route </resource_route>` | :doc:`rpm_package </resource_rpm_package>` | :doc:`ruby </resource_ruby>` | :doc:`ruby_block </resource_ruby_block>` | :doc:`script </resource_script>` | :doc:`service </resource_service>` |
 :doc:`smartos_package </resource_smartos_package>` | :doc:`solaris_package </resource_solaris_package>` | :doc:`subversion </resource_subversion>` | :doc:`systemd_unit </resource_systemd_unit>` | :doc:`template </resource_template>` | :doc:`user </resource_user>` | :doc:`windows_package </resource_windows_package>` |
 :doc:`windows_service </resource_windows_service>` | :doc:`windows_task </resource_windows_task>` | :doc:`yum_package </resource_yum>` | :doc:`yum_repository </resource_yum_repository>` | :doc:`dnf_package </resource_dnf_package>` | :doc:`zypper_package </resource_zypper_package>` |
@@ -754,6 +754,7 @@ Addenda
    resource_paludis_package
    resource_perl
    resource_portage_package
+   resource_powershell_package
    resource_powershell_script
    resource_private_key
    resource_public_key
