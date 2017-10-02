@@ -39,7 +39,6 @@ The full syntax for all of the properties that are available to the **service** 
      status_command             String
      stop_command               String
      subscribes                 # see description
-     supports                   Hash
      timeout                    Integer # Microsoft Windows only
      action                     Symbol # defaults to :nothing if not specified
    end
@@ -49,7 +48,7 @@ where
 * ``service`` is the resource; depending on the platform, more specific providers are run: ``Chef::Provider::Service``, ``Chef::Provider::Service::Debian``, ``Chef::Provider::Service::Upstart``, ``Chef::Provider::Service::Freebsd``, ``Chef::Provider::Service::Gentoo``, ``Chef::Provider::Service::Redhat``, ``Chef::Provider::Service::Solaris``, ``Chef::Provider::Service::Windows``, or ``Chef::Provider::Service::Macosx``
 * ``name`` is the name of the resource block; when the ``path`` property is not specified, ``name`` is also the path to the directory, from the root
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``init_command``, ``options``, ``pattern``, ``priority``, ``provider``, ``reload_command``, ``restart_command``, ``service_name``, ``start_command``, ``status_command``, ``stop_command``, ``supports``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``init_command``, ``options``, ``pattern``, ``priority``, ``provider``, ``reload_command``, ``restart_command``, ``service_name``, ``start_command``, ``status_command``, ``stop_command``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -235,11 +234,6 @@ This resource has the following properties:
 
    .. end_tag
 
-``supports``
-   **Ruby Type:** Hash
-
-   A list of properties that controls how the chef-client is to attempt to manage a service: ``:restart``, ``:reload``, ``:status``. For ``:restart``, the init script or other service provider can use a restart command; if ``:restart`` is not specified, the chef-client attempts to stop and then start a service. For ``:reload``, the init script or other service provider can use a reload command. For ``:status``, the init script or other service provider can use a status command to determine if the service is running; if ``:status`` is not specified, the chef-client attempts to match the ``service_name`` against the process table as a regular expression, unless a pattern is specified as a parameter property. Default value: ``{ restart: false, reload: false, status: false }`` for all platforms (except for the Red Hat platform family, which defaults to ``{ restart: false, reload: false, status: true }``.)
-
 ``timeout``
    **Ruby Type:** Integer
 
@@ -353,7 +347,6 @@ The following examples demonstrate various approaches for using resources in rec
 .. code-block:: ruby
 
    service 'example_service' do
-     supports :status => true, :restart => true, :reload => true
      action [ :enable, :start ]
    end
 
@@ -434,7 +427,6 @@ The following examples demonstrate various approaches for using resources in rec
      else
        service_name 'other_name'
      end
-     supports :restart => true
      action [ :enable, :start ]
    end
 
@@ -491,7 +483,6 @@ where the ``subscribes`` notification is used to reload the service whenever the
 .. code-block:: ruby
 
    service 'apache' do
-     supports :restart => true, :reload => true
      action :enable
    end
 
@@ -519,7 +510,7 @@ The recipe then does the following to:
    node.default['nginx']['authorized_ips'] = ['127.0.0.1/32']
 
    service 'nginx' do
-     supports :status => true, :restart => true, :reload => true
+      action :nothing
    end
 
    template 'authorized_ip' do
