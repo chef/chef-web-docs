@@ -502,6 +502,6 @@ For more information ...
 =====================================================
 For more information about ChefSpec:
 
-* `ChefSpec GitHub Repo <https://github.com/sethvargo/chefspec>`_
+* `ChefSpec GitHub Repo <https://github.com/chefspec/chefspec>`_
 
 .. * `RSpec Documentation <https://relishapp.com/rspec/rspec-core/v/3-4/docs/command-line>`_
