@@ -39,9 +39,9 @@ To download a cookbook when git is used for version source control, run the foll
 
    $ knife cookbook site install COOKBOOK_NAME
 
-where ``COOKBOOK_NAME`` is the name of a cookbook on |url supermarket|. This will start a process that:
+where ``COOKBOOK_NAME`` is the name of a cookbook on `Chef Supermarket <https://supermarket.chef.io/>`__. This will start a process that:
 
-   * downloads the cookbook from |url supermarket| as a tar.gz archive
+   * downloads the cookbook from `Chef Supermarket <https://supermarket.chef.io/>`__ as a tar.gz archive
    * ensures that its using the git master branch, and then checks out the cookbook from a vendor branch (creating a new vendor branch, if required)
    * removes the old (existing) version
    * expands the tar.gz archive and adds the expanded files to the git index and commits
@@ -57,7 +57,7 @@ To download a cookbook when git is not used for version source control, run the 
 
    $ knife cookbook site download COOKBOOK_NAME
 
-where ``COOKBOOK_NAME`` is the name of a cookbook on |url supermarket|. This will download the tar.gz file associated with the cookbook and will create a file named ``COOKBOOK_NAME.tar.gz`` in the current directory (e.g., ``~/chef-repo``). Once downloaded, using a version source control system is recommended.
+where ``COOKBOOK_NAME`` is the name of a cookbook on `Chef Supermarket <https://supermarket.chef.io/>`__. This will download the tar.gz file associated with the cookbook and will create a file named ``COOKBOOK_NAME.tar.gz`` in the current directory (e.g., ``~/chef-repo``). Once downloaded, using a version source control system is recommended.
 
 About Cookbook Metadata
 =====================================================

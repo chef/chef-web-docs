@@ -899,7 +899,6 @@ More about Ruby
 =====================================================
 To learn more about Ruby, see the following:
 
-* |url ruby_lang_org|
-* |url ruby_power_of_chef|
-* |url codeacademy|
-* |url ruby_doc_org|
+* `Ruby Documentation <https://www.ruby-lang.org/en/documentation/>`_
+* `Ruby Standard Library Documentation <http://www.ruby-doc.org/stdlib/>`_
+* `Codeacademy <https://www.codecademy.com/tracks/ruby>`_

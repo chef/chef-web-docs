@@ -1023,7 +1023,7 @@ The following items are new for chef-client 12.11 and/or are changes from previo
 
 exit_status
 -----------------------------------------------------
-When set to ``:enabled``, chef-client will use |url exit codes| for Chef client run status, and any non-standard exit codes will be converted to ``1`` or ``GENERIC_FAILURE``. This setting can also be set to ``:disabled`` which preserves the old behavior of using non-standardized exit codes and skips the deprecation warnings. Default value: ``nil``.
+When set to ``:enabled``, chef-client will use `standardized exit codes <https://github.com/chef/chef-rfc/blob/master/rfc062-exit-status.md#exit-codes-in-use>`_ for Chef client run status, and any non-standard exit codes will be converted to ``1`` or ``GENERIC_FAILURE``. This setting can also be set to ``:disabled`` which preserves the old behavior of using non-standardized exit codes and skips the deprecation warnings. Default value: ``nil``.
 
    .. note:: The behavior with the default value consists of a warning on the use of deprecated and non-standard exit codes. In a future release of Chef client, using standardized exit codes will be the default behavior.
 
@@ -1496,7 +1496,7 @@ For example, consider the following script:
 
 When running a 32-bit version of chef-client, the script will write the ``chef_architecture`` file to the ``C:\Windows\SysWow64`` directory. However, when running a native 64-bit version of the chef-client, the script will write a file to the ``C:\Windows\System32`` directory, as expected.
 
-For more information, see: |url msdn_file_redirection|.
+For more information, see: `File System Redirector <https://msdn.microsoft.com/en-us/library/windows/desktop/aa384187(v=vs.85).aspx>`_.
 
 Key Redirection
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1508,7 +1508,7 @@ The chef-client can access any reflected or redirected registry key. The machine
 
 32-bit versions of the chef-client (12.8 and earlier) and 64-bit versions of the chef-client (12.9 and later) generally behave the same in this situation, with one exception: it is only possible to read and write from a redirected registry location using chef-client version 12.9 (and later).
 
-For more information, see: |url msdn_registry_key|.
+For more information, see: `Registry Reflection <https://msdn.microsoft.com/en-us/library/windows/desktop/aa384235(v=vs.85).aspx>`_.
 
 .. end_tag
 

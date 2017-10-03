@@ -167,7 +167,7 @@ This configuration file has the following settings:
    The path to the environment. Default value: ``/var/chef/environments``.
 
 ``exit_status``
-   When set to ``:enabled``, chef-client will use |url exit codes| for Chef client run status, and any non-standard exit codes will be converted to ``1`` or ``GENERIC_FAILURE``. This setting can also be set to ``:disabled`` which preserves the old behavior of using non-standardized exit codes and skips the deprecation warnings. Default value: ``nil``.
+   When set to ``:enabled``, chef-client will use `standardized exit codes <https://github.com/chef/chef-rfc/blob/master/rfc062-exit-status.md#exit-codes-in-use>`_ for Chef client run status, and any non-standard exit codes will be converted to ``1`` or ``GENERIC_FAILURE``. This setting can also be set to ``:disabled`` which preserves the old behavior of using non-standardized exit codes and skips the deprecation warnings. Default value: ``nil``.
 
    .. note:: The behavior with the default value consists of a warning on the use of deprecated and non-standard exit codes. In a future release of Chef client, using standardized exit codes will be the default behavior.
 

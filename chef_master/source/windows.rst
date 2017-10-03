@@ -364,7 +364,7 @@ Microsoft Azure portal
 
 .. tag cloud_azure_portal
 
-Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual machines and integrated services for you to use with your cloud and hybrid applications. And through the Azure Marketplace and Azure portal (|url azure_production|), virtual machines can be bootstrapped and ready to run Chef Automate, Chef Compliance and Chef client.
+Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual machines and integrated services for you to use with your cloud and hybrid applications. Through the Azure Marketplace and the `Azure portal <https://portal.azure.com/>`_, virtual machines can be bootstrapped and ready to run Chef Automate, Chef Compliance and Chef client.
 
 .. end_tag
 
@@ -394,7 +394,7 @@ Set up Virtual Machines
 
 Once this information has been identified, launch the Azure portal, start the virtual machine creation workflow, and then bootstrap virtual machines with Chef using the following steps:
 
-#. Sign in to the Azure portal (|url azure_production|). Authenticate using your Microsoft Azure account credentials.
+#. Sign in to the `Azure portal <https://portal.azure.com/>`_ and authenticate using your Microsoft Azure account credentials.
 
 #. Choose **Virtual Machines** in the left pane of the portal.
 

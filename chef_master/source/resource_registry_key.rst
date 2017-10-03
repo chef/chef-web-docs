@@ -17,7 +17,7 @@ Use the **registry_key** resource to create and delete registry keys in Microsof
 
           32-bit versions of the chef-client (12.8 and earlier) and 64-bit versions of the chef-client (12.9 and later) generally behave the same in this situation, with one exception: it is only possible to read and write from a redirected registry location using chef-client version 12.9 (and later).
 
-          For more information, see: |url msdn_registry_key|.
+          For more information, see: `Registry Reflection <https://msdn.microsoft.com/en-us/library/windows/desktop/aa384235(v=vs.85).aspx>`_.
 
           .. end_tag
 

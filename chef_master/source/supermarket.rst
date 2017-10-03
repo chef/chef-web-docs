@@ -9,14 +9,14 @@ Chef Supermarket is the site for community cookbooks. It provides an easily sear
 
 There are two ways to use Chef Supermarket:
 
-* The public Chef Supermarket is hosted by Chef and is located at |url supermarket|.
+* The public Chef Supermarket is hosted by Chef and is located at `Chef Supermarket <https://supermarket.chef.io/>`__.
 * A private Chef Supermarket may be installed on-premise behind the firewall on the internal network. Cookbook retrieval from a private Chef Supermarket is often faster than from the public Chef Supermarket because of closer proximity and fewer cookbooks to resolve. A private Chef Supermarket can also help formalize internal cookbook release management processes (e.g. "a cookbook is not released until it's published on the private Chef Supermarket").
 
 .. end_tag
 
 Public Supermarket
 =====================================================
-The public Chef Supermarket hosted by Chef is located at |url supermarket|.
+The public Chef Supermarket hosted by Chef is located at `Chef Supermarket <https://supermarket.chef.io/>`__.
 
 To interact with the public Chef Supermarket, use :doc:`knife cookbook site </knife_cookbook_site>` commands.
 
@@ -294,7 +294,7 @@ Supermarket API
 -----------------------------------------------------
 .. tag supermarket_api_summary
 
-The Supermarket API is used to provide access to cookbooks, tools, and users on the Chef Supermarket at |url supermarket_cookbooks|. All of the cookbooks, tools, and users on the Supermarket are accessible through a RESTful API located at |url supermarket_api| by using any of the supported endpoints. In most cases, using knife is the best way to interact with the Supermarket; in some cases, using the Supermarket API directly is necessary.
+The Supermarket API is used to provide access to cookbooks, tools, and users on the `Chef Supermarket <https://supermarket.chef.io>`__. All of the cookbooks, tools, and users on the Supermarket are accessible through a RESTful API by accessing ``supermarket.chef.io/api/v1/`` via the supported endpoints. In most cases, knife is the best way to interact with the Supermarket; however in some cases, direct use of the Supermarket API is necessary.
 
 .. end_tag
 

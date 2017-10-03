@@ -37,7 +37,7 @@ The sub-directories in the chef-repo are:
    * - ``.chef/``
      - A hidden directory that is used to store validation key files and the knife.rb file.
    * - ``cookbooks/``
-     - Contains cookbooks that have been downloaded from the |url supermarket| or created locally.
+     - Contains cookbooks that have been downloaded from the `Chef Supermarket <https://supermarket.chef.io/>`__ or created locally.
    * - ``data_bags/``
      - Stores data bags (and data bag items) in JSON (.json).
    * - ``environments/``
