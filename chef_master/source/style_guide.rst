@@ -7,7 +7,7 @@ Chef reference documentation is written using restructuredText (reST) and built 
 
 We recommend that you use the conventions described in this guide when contributing to Chef reference documentation.
 
-The HTML version of the doc set can be found at |url docs|.
+The HTML version of the doc set can be found at `docs.chef.io <https://docs.chef.io>`__.
 
 Building
 =====================================================
@@ -191,7 +191,7 @@ where ``:doc:`` tells Sphinx that what follows is a file name that Sphinx will e
 
 External
 -----------------------------------------------------
-An external link points to something that does not live on |url docs|. An external link requires an HTTP address. In general, it's better to spell out the HTTP address fully, in case the topic is printed out::
+An external link points to something that does not reside within `docs.chef.io <https://docs.chef.io>`__. An external link requires an HTTP address. In general, it's better to spell out the HTTP address fully, in case the topic is printed out::
 
    http://www.codecademy.com/tracks/ruby
 
