@@ -1515,7 +1515,7 @@ This configuration file has the following settings for ``rabbitmq``:
    Default value: ``'/reindexer'``.
 
 ``rabbitmq['ssl_versions']``
-   The SSL versions used by the rabbitmq-management plugin. (See also |url rabbitmqssl|.) Default value: ``['tlsv1.2', 'tlsv1.1']``.
+   The SSL versions used by the rabbitmq-management plugin. (See `RabbitMQ TLS support <https://www.rabbitmq.com/ssl.html>`_ for more information.) Default value: ``['tlsv1.2', 'tlsv1.1']``.
 
 ``rabbitmq['user']``
    Default value: ``'chef'``.

@@ -367,7 +367,7 @@ The following settings may be used for tuning RabbitMQ queues used by Chef Analy
    The timeout for the HTTP connection pool that is used by the rabbitmq-management plugin. Default value: ``30000``.
 
 ``rabbitmq['ssl_versions']``
-   The SSL versions used by the rabbitmq-management plugin. (See also |url rabbitmqssl|.) Default value: ``['tlsv1.2', 'tlsv1.1']``.
+   The SSL versions used by the rabbitmq-management plugin. (See `RabbitMQ TLS Support <https://www.rabbitmq.com/ssl.html>`_ for more details.) Default value: ``['tlsv1.2', 'tlsv1.1']``.
 
 .. end_tag
 

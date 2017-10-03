@@ -3,7 +3,7 @@ About Resources
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource.rst>`__
 
-.. note:: If you want to see all of the information about resources in a single document, see: |url docs_resources_all|. Keep reading this page for topics about individual resources.
+.. note:: If you want to see all of the information about resources in a single document, see the `Resources reference </resources.html>`_. 
 
 .. tag resources_common
 
