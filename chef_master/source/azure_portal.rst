@@ -5,7 +5,7 @@ Microsoft Azure Portal
 
 .. tag cloud_azure_portal
 
-Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual machines and integrated services for you to use with your cloud and hybrid applications. And through the Azure Marketplace and Azure portal (|url azure_production|), virtual machines can be bootstrapped and ready to run Chef Automate, Chef Compliance and Chef client.
+Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual machines and integrated services for you to use with your cloud and hybrid applications. Through the Azure Marketplace and the `Azure portal <https://portal.azure.com/>`_, virtual machines can be bootstrapped and ready to run Chef Automate, Chef Compliance and Chef client.
 
 .. end_tag
 
@@ -13,7 +13,7 @@ Chef Automate
 =====================================================
 Chef provides a fully functional Chef Automate server that can be launched from the Azure Marketplace. A single VM running Chef Automate and Chef server will be provisioned and configured for you. The only requirement is that you provide your own Chef Automate license at the time of launch; otherwise, Chef Automate will run under a 30-day free trial. If you would like to continue using the image after 30 days, please contact amp@chef.io to obtain a new license.
 
-#. Sign in to the Azure portal (|url azure_preview|). Authenticate using your Microsoft Azure account credentials.
+#. Sign in to the `Azure portal <https://portal.azure.com/>`_ and authenticate using your Microsoft Azure account credentials.
 
 #. Click the **New** icon in the upper-left corner of the portal and search the Azure Marketplace for **Chef Automate**.
 
@@ -164,7 +164,7 @@ Chef Compliance
 =====================================================
 Chef provides a fully functional Chef Compliance VM image that can be launched from the Azure Marketplace.
 
-#. Sign in to the Azure portal (|url azure_preview|). Authenticate using your Microsoft Azure account credentials.
+#. Sign in to the `Azure portal <https://portal.azure.com/>`_ and authenticate using your Microsoft Azure account credentials.
 
 #. Click the **New** icon in the upper-left corner of the portal.
 
@@ -232,7 +232,7 @@ Before virtual machines can be created using the Azure portal, some chef-client-
 
 Once this information has been identified, launch the Azure portal, start the virtual machine creation workflow, and then bootstrap virtual machines with Chef using the following steps:
 
-#. Sign in to the Azure portal (|url azure_production|). Authenticate using your Microsoft Azure account credentials.
+#. Sign in to the `Azure portal <https://portal.azure.com/>`_ and authenticate using your Microsoft Azure account credentials.
 
 #. Choose **Virtual Machines** in the left pane of the portal.
 

@@ -581,7 +581,7 @@ During a ``knife bootstrap`` bootstrap operation, the following happens:
 
        On Microsoft Windows machines: The batch file that is derived from the windows-chef-client-msi.erb bootstrap template will make a request to the Chef website to get the .msi installer.
    * - **Get the chef-client package from Chef**
-     - The second shell script (or batch file) then gathers system-specific information and determines the correct package for the chef-client. The second shell script (or batch file) makes a request to the Chef website, and then downloads the appropriate package from |url bootstrap_s3|.
+     - The second shell script (or batch file) then gathers system-specific information and determines the correct package for the chef-client, and then downloads the appropriate package from ``omnitruck-direct.chef.io``.
    * - **Install the chef-client**
      - The chef-client is installed on the target node.
    * - **Start the chef-client run**
