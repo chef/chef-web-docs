@@ -1,9 +1,23 @@
 =====================================================
-Release Notes: chef-client 12.0 - 13.4.24
+Release Notes: chef-client 12.0 - 13.5
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes.rst>`__
 
 Chef client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef changelog <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
+
+What's new in 13.5.3
+=====================================================
+
+* **The mount resource's password property is now marked as sensitive** Passwords passed to mount won’t show up in logs.
+* **The windows_task resource now correctly handles start_day** Previously, the resource would accept any date that was formatted correctly in the local locale, unlike the Windows cookbook and Windows itself. We now support only the MM/DD/YYYY format, in keeping with the Windows cookbook.
+* **InSpec updated to 1.39.1**
+
+See the detailed `change log <https://github.com/chef/chef/blob/master/CHANGELOG.md#v1353-2017-10-03>`__ for additonal information.
+
+Ohai 13.5
+-----------------------------------------------------
+* **Correctly detect IPv6 routes ending in ::** Previously, Ohai would ignore routes that ended with ``::``, but now they can be detected properly.
+* **Plugin run time is now measured** Debug logs will show the length of time each plugin takes to run, which makes it easier to debug long Ohai runs. 
 
 What's new in 13.4.24
 =====================================================
