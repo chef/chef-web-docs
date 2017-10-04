@@ -337,6 +337,14 @@ This configuration file has the following settings:
 
       supports 'ubuntu', '= 14.10'
 
+   Here is a list of all of the supported specific operating systems:
+
+    .. code-block:: ruby
+
+      %w( aix amazon centos fedora freebsd debian oracle mac_os_x redhat suse opensuse opensuseleap ubuntu windows zlinux ).each do |os|
+        supports os
+      end
+
 ``version``
    The current version of a cookbook. Version numbers always follow a simple three-number version sequence.
 
