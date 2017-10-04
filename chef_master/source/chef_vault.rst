@@ -21,7 +21,7 @@ The ``chef-vault`` cookbook is maintained by Chef. Use it along with chef-vault 
       -----------------------
       Neither PUB key nor PRIV key:: nested asn1 error
 
-INSTALLATION:
+Installation
 =====================================================
 If you are installing ``chef-vault`` independently of the Chef Development Kit, then first verify that you have  the latest version Chef installed. Versions earlier than 0.10.0 don't support plugins:
 
@@ -62,30 +62,36 @@ The syntax for ``knife vault`` commands is:
    
    knife vault SUBCOMMAND VAULT ITEM VALUES
 
-where 
+where:
+
 * ``vault`` names the location for storing the encrypted item.  
 * ``item`` names the item stored the vault. 
 * ``values`` contains the data that will be encrypted and stored in the vault.
 
-** VAULT COMMANDS **
-``knife vault create VAULT ITEM VALUES (options)``
-``knife vault delete VAULT ITEM (options)``
-``knife vault download VAULT ITEM PATH (options)``
-``knife vault edit VAULT ITEM (options)``
-``knife vault isvault VAULT ITEM (options)``
-``knife vault itemtype VAULT ITEM (options)``
-``knife vault list (options)``
-``knife vault refresh VAULT ITEM``
-``knife vault remove VAULT ITEM VALUES (options)``
-``knife vault rotate all keys``
-``knife vault rotate keys VAULT ITEM (options)``
-``knife vault show VAULT [ITEM] [VALUES] (options)``
-``knife vault update VAULT ITEM VALUES (options)``
+Vault Commands
+--------------------------------------
+
+.. code-block:: shell
+
+   knife vault create VAULT ITEM VALUES (options)
+   knife vault delete VAULT ITEM (options)
+   knife vault download VAULT ITEM PATH (options)
+   knife vault edit VAULT ITEM (options)
+   knife vault isvault VAULT ITEM (options)
+   knife vault itemtype VAULT ITEM (options)
+   knife vault list (options)
+   knife vault refresh VAULT ITEM
+   knife vault remove VAULT ITEM VALUES (options)
+   knife vault rotate all keys
+   knife vault rotate keys VAULT ITEM (options)
+   knife vault show VAULT [ITEM] [VALUES] (options)
+   knife vault update VAULT ITEM VALUES (options)
+
 
 Vault Common Options
 --------------------------------------------------
 
-`` -A``, ``--admins ADMINS``
+``-A``, ``--admins ADMINS``
       Chef users to be added as admins
 
 ``-s``, ``--server-url URL``
@@ -173,7 +179,7 @@ Example Commands
 --------------------------------------------------
 
 ``create``
-+++++++++++++++++++++++++++++++++++++++++++++++++++
+--------------------------------------------------
 ``knife vault create passwords root '{"username": "root", "password": "mypassword"}' -S "role:webserver" -C "client1,client2" -A "admin1,admin2"``
       Create a vault called passwords and put an item called root in it with the given values for username and password encrypted for clients role:webserver, client1 & client2 and admins admin1 & admin2
 
@@ -197,8 +203,8 @@ Example Commands
 
 .. note:: A JSON file can be used in place of specifying the values on the command line, see global options below for details
 
-update
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+``update``
+--------------------------------------------------
 
 ``knife vault update passwords root '{"username": "root", "password": "mypassword"}'``
       Update the values in username and password in the vault passwords and item root.  Will overwrite existing values if values already exist!
@@ -239,7 +245,7 @@ Add admin1 & admin2 to encrypted admins and client1 & client2 to encrypted clien
 ..Note:: A JSON file can be used in place of specifying the values on the command line, see global options below for details
 
 ``remove``
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+--------------------------------------------------
 ``knife vault remove passwords root '{"username": "root", "password": "mypassword"}'``
       Remove the values in username and password from the vault passwords and item root.
 
@@ -278,12 +284,12 @@ Add admin1 & admin2 to encrypted admins and client1 & client2 to encrypted clien
       Remove admin1 & admin2 from encrypted admins for the vault passwords and item root.
 
 ``delete``
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+--------------------------------------------------
 ``knife vault delete passwords root``
       Delete the item root from the vault passwords
 
 ``show``
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+--------------------------------------------------
 ``knife vault show passwords``
       Show the items in a vault
 
@@ -300,19 +306,19 @@ Add admin1 & admin2 to encrypted admins and client1 & client2 to encrypted clien
       Show the contents for the item user_pem in the vault certs.
 
 ``edit``
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+--------------------------------------------------
 
 ``knife vault edit passwords root``
       Decrypt the entire root item in the passwords vault and open it in json format in your $EDITOR.  Writing and exiting out the editor will save and encrypt the vault item.
 
 
 ``download``
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+--------------------------------------------------
 ``knife vault download certs user_pem ~/downloaded_user_pem``
       Decrypt and download an encrypted file to the specified path.
 
 ``rotate keys``
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+--------------------------------------------------
 ``knife vault rotate keys passwords root``
       Rotate the shared key for the vault passwords and item root. The shared key is that which is used for the chef encrypted data bag item.
 
@@ -320,8 +326,7 @@ Add admin1 & admin2 to encrypted admins and client1 & client2 to encrypted clien
       To remove clients which have been deleted from Chef but not from the vault, add the --clean-unknown-clients switch:
 
 ``rotate all keys``
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+--------------------------------------------------
 ``knife vault rotate all keys``
       Rotate the shared key for all vaults and items. The shared key is that which is used for the chef encrypted data bag item. 
 
@@ -329,7 +334,7 @@ Add admin1 & admin2 to encrypted admins and client1 & client2 to encrypted clien
       Removes clients which have been deleted from Chef but not from the vault.
 
 ``refresh``
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+--------------------------------------------------
 ``knife vault refresh VAULT ITEM``
       This command reads the search_query in the vault item, performs the search, and reapplies the results.
 
@@ -337,75 +342,75 @@ Add admin1 & admin2 to encrypted admins and client1 & client2 to encrypted clien
       To remove clients which have been deleted from Chef but not from the vault, add the --clean-unknown-clients switch:
 
 ``isvault``
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+--------------------------------------------------
 ``knife vault isvault VAULT ITEM``
       This command checks if the given item is a vault or not, and exit with a status of 0 if it is and 1 if it is not.
 
 ``itemtype``
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+--------------------------------------------------
 ``knife vault itemtype VAULT ITEM``
       This command outputs the type of the data bag item: normal, encrypted or vault
 
 Global Options
 ------------------------------------------------------------
 
-.. list-table:: 
-   :widths: 50 50 50 50 50 50
+.. list-table::
    :header-rows: 1
 
-* - Short
-  - Long
-  - Description
-  - Default
-  - Valid Values
-  - Sub-Commands
-* - ``-M``, ``MODE``
-  - ``--mode MODE`` 
-  - Chef mode to run in. Can be set in knife.rb 
-  - solo 
-  - solo, client 
-  - all
-* - ``-S`` ``SEARCH`` 
-  - ``--search SEARCH`` | 
-  - Chef Server SOLR Search Of Nodes 
-  - none
-  - none
-  - ``create``, ``remove`` , ``update``
-* - ``-A`` ``ADMINS`` 
-  - ``--admins ADMINS``
-  - Chef clients or users to be vault admins, can be comma list
-  - none
-  - none
-  - ``create``, ``remove`` , ``update``
-* - ``-J`` ``FILE`` 
-  - ``--json FILE`` 
-  - JSON file to be used for values, will be merged with VALUES if VALUES is passed
-  - none
-  - ``create``, ``update``
-* - ``--file`` ``FILE``
-  - none 
-  - File that chef-vault should encrypt. It adds "file-content" & "file-name" keys to the vault item
-  - none
-  - none
-  - ``create``, ``update``
-* - ``-p`` ``DATA`` 
-  - ``--print DATA`` 
-  - Print extra vault data
-  - none
-  - search, clients, admins, all 
-  - show
-* - ``-F`` ``FORMAT`` 
-  - ``--format FORMAT``
-  - Format for decrypted output
-  - summary
-  - summary, json, yaml, pp 
-  - ``show``
-* - --clean-unknown-clients
-  - none
-  - Remove unknown clients during key rotation
-  - none
-  - none 
-  - ``refresh``, ``remove``, ``rotate``
+   * - Short Command
+     - Long Command
+     - Description
+     - Default
+     - Valid Values
+     - Sub-Commands
+   * - ``-M``, ``MODE``
+     - ``--mode MODE`` 
+     - Chef mode to run in. Can be set in knife.rb 
+     - ``solo`` 
+     - ``solo``, ``client`` 
+     - all
+   * - ``-S`` ``SEARCH`` 
+     - ``--search SEARCH``
+     - Chef Server SOLR Search Of Nodes 
+     - none
+     - none
+     - ``create``, ``remove`` , ``update``
+   * - ``-A`` ``ADMINS`` 
+     - ``--admins ADMINS``
+     - Chef clients or users to be vault admins, can be comma list
+     - none
+     - none
+     - ``create``, ``remove`` , ``update``
+   * - ``-J`` ``FILE`` 
+     - ``--json FILE`` 
+     - JSON file to be used for values, will be merged with VALUES if VALUES is passed
+     - none
+     - none
+     - ``create``, ``update``
+   * - ``--file`` ``FILE``
+     - none 
+     - File that chef-vault should encrypt. It adds "file-content" & "file-name" keys to the vault item
+     - none
+     - none
+     - ``create``, ``update``
+   * - ``-p`` ``DATA`` 
+     - ``--print DATA`` 
+     - Print extra vault data
+     - none
+     - ``search``, ``clients``, ``admins``, ``all`` 
+     - ``show``
+   * - ``-F`` ``FORMAT`` 
+     - ``--format FORMAT``
+     - Format for decrypted output
+     - summary
+     - ``summary``, ``json``, ``yaml``, ``pp`` 
+     - ``show``
+   * - --clean-unknown-clients
+     - none
+     - Remove unknown clients during key rotation
+     - none
+     - none 
+     - ``refresh``, ``remove``, ``rotate``
 
 Options for knife bootstrap
 =====================================================
@@ -434,28 +439,28 @@ Use the following options with a validatorless bootstrap to specify items that a
 
 .. end_tag
 
-USAGE IN RECIPES
+Using ``chef-vault`` in recipes
 -----------------------------------------------
 To use this gem in a recipe to decrypt data you must first install the gem
 via a chef_gem resource. Once the gem is installed require the gem and then
 you can create a new instance of ChefVault.
 
-.. note:: chef-vault 1.0 style decryption is supported, however it has been
+``chef-vault`` 1.0 style decryption is supported, however it has been
 deprecated and chef-vault 2.0 decryption should be used instead
 
 Example Code
-+++++++++++++++++++++++++++++++++++++++++++++++++++
-
+--------------------------------------------------
 .. code-block:: ruby
 
     chef_gem 'chef-vault' do
       compile_time true if respond_to?(:compile_time)
     end
-
+    #
     require 'chef-vault'
-
+    #
     item = ChefVault::Item.load("passwords", "root")
     item["password"]
+
 
 Note that in this case, the gem needs to be installed at compile time
 because the require statement is at the top-level of the recipe.  If
@@ -464,7 +469,7 @@ library or provider code, you can install the gem in the converge phase
 instead.
 
 Specifying an alternate node name or client key path
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+--------------------------------------------------------
 Normally, the value of `Chef::Config[:node_name]` is used to find the
 per-node encrypted secret in the keys data bag item, and the value of
 `Chef::Config[:client_key]` is used to locate the private key to decrypt
@@ -490,29 +495,30 @@ nodes, which can be helpful when working in cloud environments or other
 configurations where nodes are created dynamically.
 
 chef_vault_item helper
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+--------------------------------------------------
 The [chef-vault cookbook](https://supermarket.chef.io/cookbooks/chef-vault)
 contains a recipe to install the chef-vault gem and a helper method
 `chef_vault_helper` which makes it easier to test cookbooks that use
 chef-vault using Test Kitchen.
-      ...
 
-DETERMINING IF AN ITEM IS A VAULT
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Determining if Item is a Vault
+--------------------------------------------------
 ChefVault provides a helper method to determine if a data bag item is a vault,
 which can be helpful if you produce a recipe for community consumption and want
 to support both normal data bags and vaults:
 
 .. code-block:: ruby
+
     if ChefVault::Item.vault?('passwords', 'root')
       item = ChefVault::Item.load('passwords', 'root')
     else
       item = Chef::DataBagItem.load('passwords', 'root')
     end
 
+
 This functionality is also available from the command line as `knife vault isvault VAULT ITEM`.
 
-DETERMINING THE TYPE OF A DATA BAG ITEM
+Determining Data Bag Item Type
 -----------------------------------------------------------------
 ChefVault provides a helper method to determine the type of a data bag item.
 It returns one of the symbols :normal, :encrypted or :vault
@@ -529,7 +535,7 @@ It returns one of the symbols :normal, :encrypted or :vault
 
 This functionality is also available from the command line as `knife vault itemtype VAULT ITEM`.
 
-USAGE STAND ALONE
+Stand Alone Usage
 ------------------------------------------------------------------------
 ``chef-vault`` can be used as a stand alone binary to decrypt values stored in
 Chef. It requires that Chef is installed on the system and that you have a
@@ -544,10 +550,10 @@ uses it to go grab the data bag.
 Use ``chef-vault --help`` to see all all available options
 
 Example usage (password)
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+--------------------------------------------------
     chef-vault -v passwords -i root -a password -k /etc/chef/knife.rb
 
-TESTING
+Testing
 ----------------------------------------------------------------------------
 To stub vault items in ChefSpec, use the
 [chef-vault-testfixtures](https://rubygems.org/gems/chef-vault-testfixtures)
@@ -560,4 +566,5 @@ For more information ...
 =====================================================
 For more information about chef-vault:
 
+* ` Nell Shamrell-Harringon's blog post <https://blog.chef.io/2016/01/21/chef-vault-what-is-it-and-what-can-it-do-for-you/>`_
 * `Joshua Timberman's blog post <https://www.chef.io/blog/2013/09/19/managing-secrets-with-chef-vault/>`_
