@@ -43,7 +43,7 @@ Contributing this way requires some set-up, but once you're done, you can contri
 frequently and from the comfort of your own GitHub repo. Our docs have three major dependencies: 
 
   1. We currently require version 1.6.2 of [Sphinx](http://sphinx-doc.org/). 
-  2. The requirements.txt file below pins Sphinx and its dependencies to versions that are compatible with each other. 
+  2. The requirements.txt file referenced below pins Sphinx and its dependencies to versions that are compatible with each other. 
   3. You may also need to install Python, depending on your system.
   4. You may also need to install Ruby, depending on your system.
 
