@@ -292,7 +292,7 @@ Commits to the Chef repositories should never be made against the master branch.
 
 Use the following steps to create a topic branch:
 
-#. For a brand new clone of the Chef repository (that was created using the steps listed earlier), fetch the ``opscode`` remote:
+#. For a brand new clone of the Chef repository (that was created using the steps listed earlier), fetch the ``chef`` remote:
 
    .. code-block:: bash
 
@@ -316,7 +316,7 @@ Use the following steps to create a topic branch:
 
    .. code-block:: bash
 
-      $ git commit --signoff <filespec>
+      $ git commit -s <filespec>
 
 #. Rebase the commits against ``chef/master``. After work in the topic branch is finished, rebase these commits against the upstream master. Do this manually with ``git fetch`` followed by a ``git rebase`` or use ``git pull --rebase``.
 
