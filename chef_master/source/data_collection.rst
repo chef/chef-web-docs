@@ -146,13 +146,13 @@ To utilize an external Elasticsearch installation, set the following configurati
 
 .. code-block:: ruby
 
-  elasticsearch['urls'] = ['https://my-elaticsearch-cluster.mycompany.com']
+  elasticsearch['urls'] = ['https://my-elasticsearch-cluster.mycompany.com']
 
 Or for a three node on premise install
 
 .. code-block:: ruby
 
-  elasticserach['urls'] = ['http://172.16.0.100:9200', 'http://172.16.0.101:9200', 'http://172.16.0.100:9202']
+  elasticsearch['urls'] = ['http://172.16.0.100:9200', 'http://172.16.0.101:9200', 'http://172.16.0.100:9202']
 
 The ``elasticsearch['urls']`` attribute should be an array of Elasticsearch nodes over
 which Chef Automate will round-robin requests. You can also supply a single entry which corresponds to
