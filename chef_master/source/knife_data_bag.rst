@@ -54,6 +54,8 @@ This argument has the following options:
 ``--secret-file FILE``
    The path to the file that contains the encryption key.
 
+.. note:: ``DATA_BAG_NAME`` may not be ``client``, ``environment``, ``node`` or ``role``, as these are reserved words for :doc:`knife search </knife_search>`.
+
 .. note:: For encrypted data bag items, use *either* ``--secret`` or ``--secret-file``, not both.
 
 .. note:: .. tag knife_common_see_all_config_options
@@ -150,7 +152,7 @@ This argument has the following options:
 ``--secret-file FILE``
    The path to the file that contains the encryption key.
 
-.. note::  For encrypted data bag items, use *either* ``--secret`` or ``--secret-file``, not both.
+.. note:: For encrypted data bag items, use *either* ``--secret`` or ``--secret-file``, not both.
 
 .. note:: .. tag knife_common_see_all_config_options
 
