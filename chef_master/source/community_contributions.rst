@@ -48,7 +48,7 @@ Contribution Process
 =====================================================
 We have a 3 step process for contributions:
 
-#. Commit changes to a git branch, making sure to sign-off those changes for the Developer Certificate of Origin.
+#. Commit changes to a git branch, making sure to sign-off those changes for the Developer Certificate of Origin with ``git commit -s``
 #. Create a GitHub Pull Request for your change, following the instructions in the pull request template.
 #. Perform a Code Review with the project maintainers on the pull request.
 
@@ -292,7 +292,7 @@ Commits to the Chef repositories should never be made against the master branch.
 
 Use the following steps to create a topic branch:
 
-#. For a brand new clone of the Chef repository (that was created using the steps listed earlier), fetch the ``opscode`` remote:
+#. For a brand new clone of the Chef repository (that was created using the steps listed earlier), fetch the ``chef`` remote:
 
    .. code-block:: bash
 
@@ -316,7 +316,7 @@ Use the following steps to create a topic branch:
 
    .. code-block:: bash
 
-      $ git commit <filespec>
+      $ git commit -s <filespec>
 
 #. Rebase the commits against ``chef/master``. After work in the topic branch is finished, rebase these commits against the upstream master. Do this manually with ``git fetch`` followed by a ``git rebase`` or use ``git pull --rebase``.
 
