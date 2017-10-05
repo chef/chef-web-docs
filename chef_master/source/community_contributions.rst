@@ -48,7 +48,7 @@ Contribution Process
 =====================================================
 We have a 3 step process for contributions:
 
-#. Commit changes to a git branch, making sure to sign-off those changes for the Developer Certificate of Origin with --signoff
+#. Commit changes to a git branch, making sure to sign-off those changes for the Developer Certificate of Origin with ``git commit -s``
 #. Create a GitHub Pull Request for your change, following the instructions in the pull request template.
 #. Perform a Code Review with the project maintainers on the pull request.
 
