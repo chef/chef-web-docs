@@ -172,7 +172,7 @@ Create a bootstrap template
 -----------------------------------------------------
 By default, ``knife bootstrap`` uses the ``chef-full`` template to bootstrap a node. This template contains a number of useful features, but it also attempts to pull an installation script from ``omnitruck.chef.io``. In this section, you'll copy the contents of the ``chef-full`` template to a custom template, and then modify the package and Ruby gem sources.
 
-#. Navigate to the ``.chef`` directory, and create a ``bootstap`` directory within it:
+#. Navigate to the ``.chef`` directory, and create a ``bootstrap`` directory within it:
 
    .. code-block:: bash
 
