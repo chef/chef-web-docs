@@ -376,14 +376,6 @@ For example, the default bootstrap operation relies on an Internet connection to
 
    This appends the appropriate ``rubygems_url`` setting to the ``/etc/chef/client.rb`` file that is created during bootstrap, which ensures that your nodes use your internal gem mirror.
 
-#. Finally, bootstrap from your template file with the ``--bootstrap-template`` option:
-
-   .. code-block:: bash
-
-      $ knife bootstrap 123.456.7.8 -x username -P password --sudo --bootstrap-template "template"
-
-The following examples show how a bootstrap template file can be customized for various platforms.
-
 .. end_tag
 
 Bootstrap a Custom Template
