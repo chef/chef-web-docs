@@ -39,6 +39,14 @@ workstation, and make pull requests from commits you push to your
 forked repo. After you fork `chef/chef-web-docs` using the GitHub web
 interface, clone the forked repo to your workstation, following these [instructions](https://docs.chef.io/community_contributions.html#use-git).
 
+Contributing this way requires some set-up, but once you're done, you can contribute 
+frequently and from the comfort of your own GitHub repo. Our docs have three major dependencies: 
+
+  1. We currently require version 1.6.2 of [Sphinx](http://sphinx-doc.org/). 
+  2. The requirements.txt file referenced below pins Sphinx and its dependencies to versions that are compatible with each other. 
+  3. You may also need to install Python, depending on your system.
+  4. You may also need to install Ruby, depending on your system.
+
 After making your changes but before submitting a PR, run the shell
 command `make` at the root of your local `chef-web-docs` repo to check for errors and build a local version of
 the doc set in HTML for testing. Before running `make` for the first time, you'll need to
@@ -50,8 +58,6 @@ install Sphinx, the documentation generator, possibly using `sudo`:
 
 > Note: The default `make` target is `docs`. This is the target that creates the appropriate `build` directory on your local machine and references in the source files in the `chef_master/source` directory of your local repo.
 
-We currently require version 1.6.2 of
-[Sphinx](http://sphinx-doc.org/). The requirements.txt file referenced above pins Sphinx and its dependencies to versions that are compatible with each other. You may also need to install Python, depending on your system.
 
 The docs build in a minute or two. To
 view the local version you built, you have two options:
