@@ -328,170 +328,69 @@ Custom Templates
 =====================================================
 .. tag knife_bootstrap_template
 
-The ``chef-full`` distribution uses the omnibus installer. For most bootstrap operations, regardless of the platform on which the target node is running, using the ``chef-full`` distribution is the best approach for installing the chef-client on a target node. In some situations, using another supported distribution is necessary. And in some situations, a custom template may be required.
+The default ``chef-full`` template uses the omnibus installer. For most bootstrap operations, regardless of the platform on which the target node is running, using the ``chef-full`` distribution is the best approach for installing the chef-client on a target node. In some situations, a custom template may be required.
 
-For example, the default bootstrap operation relies on an Internet connection to get the distribution to the target node. If a target node cannot access the Internet, then a custom template can be used to define a specific location for the distribution so that the target node may access it during the bootstrap operation.
+For example, the default bootstrap operation relies on an Internet connection to get the distribution to the target node. If a target node cannot access the Internet, then a custom template can be used to define a specific location for the distribution so that the target node may access it during the bootstrap operation. The example below will show you how to create a bootstrap template that uses a custom artifact store for Chef packages and installation scripts, as well as a RubyGem mirror:
 
-For example, a bootstrap template file named "sea_power":
+#. A custom bootstrap template file must be located in a ``bootstrap/`` directory, which is typically located within the ``~/.chef/`` directory on the local workstation. Navigate to the ``.chef`` directory, and create a ``bootstrap`` directory within it:
 
-.. code-block:: bash
+   .. code-block:: bash
 
-   $ knife bootstrap 123.456.7.8 -x username -P password --sudo --bootstrap-template "sea_power"
+      mkdir bootstrap
 
-The following examples show how a bootstrap template file can be customized for various platforms.
+#. Move to the ``bootstrap`` directory and create a blank template file; this example will use ``template.erb`` for the template name:
+
+   .. code-block:: bash
+
+      touch template.erb
+
+#. Still in the ``bootstrap`` directory, issue the following command to copy the ``chef-full`` configuration to your new template:
+
+   .. code-block:: bash
+
+      find /opt/chefdk/embedded/lib/ruby -type f -name chef-full.erb -exec cat {} \; > template.erb
+
+   This command searches for the ``chef-full`` template file under ``/opt/chefdk/embedded/lib/ruby``, and then outputs the contents of the file to ``template.erb``. If you used a different template file name, be sure to replace ``template.erb`` with the template file you created during the last step.
+
+#. Update ``template.erb`` to replace ``omnitruck.chef.io`` with the URL of an ``install.sh`` script on your artifact store:
+
+   .. code-block:: ruby
+
+      install_sh="<%= knife_config[:bootstrap_url] ? knife_config[:bootstrap_url] : "http://packages.example.com/install.sh" %>"
+
+#. Still in your text editor, locate the following line near the bottom of your ``template.erb`` file:
+
+   .. code-block:: ruby
+
+      cat > /etc/chef/client.rb <<'EOP'
+      <%= config_content %>
+      EOP
+
+   Beneath it, add the following, replacing ``gems.example.com`` with the URL of your gem mirror:
+
+   .. code-block:: ruby
+
+      cat >> /etc/chef/client.rb <<'EOP'
+      rubygems_url "http://gems.example.com"
+      EOP
+
+   This appends the appropriate ``rubygems_url`` setting to the ``/etc/chef/client.rb`` file that is created during bootstrap, which ensures that your nodes use your internal gem mirror.
 
 .. end_tag
 
-Template Locations
+Bootstrap a Custom Template
 -----------------------------------------------------
-A custom bootstrap template file must be located in a ``bootstrap/`` directory, which is typically located within the ``~/.chef/`` directory on the local workstation.
-
-Use the ``--bootstrap-template`` option with the ``knife bootstrap`` subcommand to specify the name of the bootstrap template file. This location is configurable when the following setting is added to the knife.rb file:
-
-.. list-table::
-   :widths: 200 300
-   :header-rows: 1
-
-   * - Setting
-     - Description
-   * - ``knife[:bootstrap_template]``
-     - The path to a template file to be used during a bootstrap operation.
-
-Ubuntu 14.04
------------------------------------------------------
-The following example shows how to modify the default script for Ubuntu 14.04. First, copy the bootstrap template from the default location. If the chef-client is installed from a RubyGems, the full path can be found in the gem contents. For example:
+You can use the ``--bootstrap-template`` option with the ``knife bootstrap`` subcommand to specify the name of your bootstrap template file:
 
 .. code-block:: bash
 
-   $ gem contents chef | grep ubuntu14.04-gems
-   /Users/grantmc/.rvm/gems/ruby-2.0/gems/chef-12.0.2/lib/chef/knife/bootstrap/ubuntu14.04-gems.erb
+   $ knife bootstrap 123.456.7.8 -x username -P password --sudo --bootstrap-template "template"
 
-Copy the template to the chef-repo in the ``.chef/bootstrap`` directory:
-
-.. code-block:: bash
-
-   $ cp /Users/grantmc/.rvm/gems/ruby-2.0/gems/chef-12.0.2/
-      lib/chef/knife/bootstrap/ubuntu14.04-gems.erb ~/chef-repo/.chef/
-      bootstrap/ubuntu14.04-gems-mine.erb
-
-Modify the template with any editor, then specify it using the ``--bootstrap-template`` option as part of the the ``knife bootstrap`` operation, or with any of the knife plug-ins that support cloud computing.
-
-.. code-block:: bash
-
-   $ knife bootstrap 192.168.1.100 -r 'role[webserver]' -bootstrap-template ubuntu14.04-gems-mine
-
-Alternatively, an example bootstrap template can be found in the git source for the chef-repo: https://github.com/chef/chef/tree/master/lib/chef/knife/bootstrap. Copy the template to ``~/.chef-repo/.chef/bootstrap/ubuntu14.04-apt.erb`` and modify the template appropriately.
-
-Debian and Apt
------------------------------------------------------
-The following example shows how to use the ``knife bootstrap`` subcommand to create a client configuration file (/etc/chef/client.rb) that uses Hosted Chef as the Chef server. The configuration file will look something like:
+Alternatively, you can use the ``knife[:bootstrap_template]`` option within ``knife.rb`` to specify the template that ``knife bootstrap`` will use by default when bootstrapping a node. It should point to your custom template within the ``bootstrap`` directory:
 
 .. code-block:: ruby
 
-   log_level        :info
-   log_location     STDOUT
-   chef_server_url  'https://api.opscode.com/organizations/NAME'
-   validation_client_name 'ORGNAME-validator'
-
-The ``knife bootstrap`` subcommand will look in three locations for the template that is used during the bootstrap operation. The locations are:
-
-#. A bootstrap directory in the installed knife library; the actual location may vary, depending how the chef-client is installed
-#. A bootstrap directory in the ``$PWD/.chef``, e.g. in ``~/chef-repo/.chef``
-#. A bootstrap directory in the users ``$HOME/.chef``
-
-If, in the example above, the second location was used, then create the ``.chef/bootstrap/`` directory in the chef-repo, and then create the Embedded Ruby (ERB) template file by running commands similar to the following:
-
-.. code-block:: bash
-
-   mkdir ~/.chef/bootstrap
-   vi ~/.chef/bootstrap/debian6.0-apt.erb
-
-When finished creating the directory and the Embedded Ruby (ERB) template file, edit the template to run the SSH commands. Then set up the validation certificate and the client configuration file.
-
-Finally, run the chef-client on the node using a ``knife bootstrap`` command that specifies a run-list (the ``-r`` option). The bootstrap template can be called using a command similar to the following:
-
-.. code-block:: bash
-
-   $ knife bootstrap mynode.example.com -r 'role[webserver]','role[production]' --bootstrap-template debian6.0-apt
-
-Microsoft Windows
------------------------------------------------------
-.. tag knife_bootstrap_example_windows
-
-The following example shows how to modify the default script for Microsoft Windows and Windows PowerShell:
-
-..   # Moved this license/header info out of the code sample; keeping it in the topic just because
-..   @rem
-..   @rem Author:: Seth Chisamore (<schisamo@opscode.com>)
-..   @rem Author:: Michael Goetz (<mpgoetz@opscode.com>)
-..   @rem Author:: Julian Dunn (<jdunn@opscode.com>)
-..   @rem Copyright:: Copyright (c) 2011-2013 Opscode, Inc.
-..   @rem License:: Apache License, Version 2.0
-..   @rem
-..   @rem Licensed under the Apache License, Version 2.0 (the "License");
-..   @rem you may not use this file except in compliance with the License.
-..   @rem You may obtain a copy of the License at
-..   @rem
-..   @rem     http://www.apache.org/licenses/LICENSE-2.0
-..   @rem
-..   @rem Unless required by applicable law or agreed to in writing, software
-..   @rem distributed under the License is distributed on an "AS IS" BASIS,
-..   @rem WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-..   @rem See the License for the specific language governing permissions and
-..   @rem limitations under the License.
-..   @rem
-
-.. code-block:: bash
-
-   @setlocal
-
-   <%= "SETX HTTP_PROXY \"#{knife_config[:bootstrap_proxy]}\"" if knife_config[:bootstrap_proxy] %>
-   @mkdir <%= bootstrap_directory %>
-
-   > <%= bootstrap_directory %>\wget.ps1 (
-    <%= win_wget_ps %>
-   )
-
-   :install
-   @rem Install Chef using chef-client MSI installer
-
-   <% url="http://reposerver.example.com/chef-client-12.0.2.windows.msi" -%>
-   @set "REMOTE_SOURCE_MSI_URL=<%= url %>"
-   @set "LOCAL_DESTINATION_MSI_PATH=<%= local_download_path %>"
-
-   @powershell -ExecutionPolicy Unrestricted -NoProfile -NonInteractive "& '<%= bootstrap_directory %>\wget.ps1' '%REMOTE_SOURCE_MSI_URL%' '%LOCAL_DESTINATION_MSI_PATH%'"
-
-   @REM Replace install_chef from knife-windows Gem with one that has extra flags to turn on Chef service feature -- only available in Chef >= 12.0.x
-   @REM <%= install_chef %>
-   @echo Installing Chef Client 12.0.2 with msiexec
-   @msiexec /q /i "%LOCAL_DESTINATION_MSI_PATH%" ADDLOCAL="ChefClientFeature,ChefServiceFeature"
-   @endlocal
-
-   @echo Writing validation key...
-
-   > <%= bootstrap_directory %>\validation.pem (
-    <%= validation_key %>
-   )
-
-   @echo Validation key written.
-
-   <% if @config[:encrypted_data_bag_secret] -%>
-   > <%= bootstrap_directory %>\encrypted_data_bag_secret (
-    <%= encrypted_data_bag_secret %>
-   )
-   <% end -%>
-
-   > <%= bootstrap_directory %>\client.rb (
-    <%= config_content %>
-   )
-
-   > <%= bootstrap_directory %>\first-boot.json (
-    <%= run_list %>
-   )
-
-   <%= start_chef %>
-
-.. end_tag
+   knife[:bootstrap_template] = "#{current_dir}/bootstrap/template.erb"
 
 Examples
 =====================================================
