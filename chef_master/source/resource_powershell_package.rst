@@ -148,7 +148,7 @@ Examples
 
    powershell_package 'xCertificate' do
      action :install
-     version "1.1.0.0"
+     version '1.1.0.0'
    end
 
 **Install multiple packages:**
@@ -157,7 +157,7 @@ Examples
 
    powershell_package 'Install Multiple Packages' do
      action :install
-     package_name ['xCertificate','xNetworking']
+     package_name %w(xCertificate xNetworking)
    end
 
 **Install multiple packages, and specify package versions:**
@@ -166,8 +166,8 @@ Examples
 
     powershell_package 'Install Multiple Packages' do
       action :install
-      package_name ['xCertificate','xNetworking']
-      version ["2.0.0.0","2.12.0.0"]
+      package_name %w(xCertificate xNetworking)
+      version ['2.0.0.0', '2.12.0.0']
     end
 
 ** Install multiple packages, specifying the package version for one package but not the other:**
@@ -176,8 +176,8 @@ Examples
 
    powershell_package 'Install Multiple Packages' do
       action :install
-      package_name ['xCertificate','xNetworking']
-      version [nil,"2.12.0.0"]
+      package_name %w(xCertificate xNetworking)
+      version [nil, '2.12.0.0']
     end
 
 In this example, the ``nil`` tells ``powershell_package`` to install the most up to date version of ``xCertificate`` that is available, while pinning ``xNetworking`` to version 2.12.0.0.
