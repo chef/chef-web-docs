@@ -170,7 +170,33 @@ For reference, the providers available for this resource are listed below. Howev
 ``Chef::Provider::SystemdUnit``, ``systemd_unit``
    The provider for systemd_unit.
 
-..
-.. Examples
-.. =====================================================
-..
+Examples
+=====================================================
+
+.. tag systemd_unit_examples
+
+**Create etcd systemd service unit file**
+
+.. code-block:: ruby
+
+   systemd_unit 'etcd' do
+     content({
+        Unit: {
+          Description: 'Etcd',
+          Documentation: 'https://coreos.com/etcd',
+          After: 'network.target',
+        },
+        Service: {
+          Type: 'notify',
+          ExecStart: '/usr/local/etcd',
+          Restart: 'always',
+        },
+        Install: {
+          WantedBy: 'multi-user.target',
+        },
+      })
+     action :create
+   end
+
+.. end_tag
+
