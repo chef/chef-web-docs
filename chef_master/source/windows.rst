@@ -4064,9 +4064,9 @@ A **registry_key** resource block creates and deletes registry keys in Microsoft
 
    registry_key "HKEY_LOCAL_MACHINE\\...\\System" do
      values [{
-       :name => "NewRegistryKeyValue",
-       :type => :multi_string,
-       :data => ['foo\0bar\0\0']
+       name: "NewRegistryKeyValue",
+       type: :multi_string,
+       data: ['foo\0bar\0\0']
      }]
      action :create
    end
@@ -4076,9 +4076,9 @@ Use multiple registry key entries with key values that are based on node attribu
 .. code-block:: ruby
 
    registry_key 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\name_of_registry_key' do
-     values [{:name => 'key_name', :type => :string, :data => 'C:\Windows\System32\file_name.bmp'},
-             {:name => 'key_name', :type => :string, :data => node['node_name']['attribute']['value']},
-             {:name => 'key_name', :type => :string, :data => node['node_name']['attribute']['value']}
+     values [{name: 'key_name', type: :string, data: 'C:\Windows\System32\file_name.bmp'},
+             {name: 'key_name', type: :string, data: node['node_name']['attribute']['value']},
+             {name: 'key_name', type: :string, data: node['node_name']['attribute']['value']}
             ]
      action :create
    end
@@ -4102,8 +4102,8 @@ where
 
 * ``registry_key`` is the resource
 * ``name`` is the name of the resource block
-* ``values`` is a hash that contains at least one registry key to be created or deleted. Each registry key in the hash is grouped by brackets in which the ``:name``, ``:type``, and ``:data`` values for that registry key are specified.
-* ``:type`` represents the values available for registry keys in Microsoft Windows. Use ``:binary`` for REG_BINARY, ``:string`` for REG_SZ, ``:multi_string`` for REG_MULTI_SZ, ``:expand_string`` for REG_EXPAND_SZ, ``:dword`` for REG_DWORD, ``:dword_big_endian`` for REG_DWORD_BIG_ENDIAN, or ``:qword`` for REG_QWORD.
+* ``values`` is a hash that contains at least one registry key to be created or deleted. Each registry key in the hash is grouped by brackets in which the ``name:``, ``type:``, and ``data:`` values for that registry key are specified.
+* ``type:`` represents the values available for registry keys in Microsoft Windows. Use ``:binary`` for REG_BINARY, ``:string`` for REG_SZ, ``:multi_string`` for REG_MULTI_SZ, ``:expand_string`` for REG_EXPAND_SZ, ``:dword`` for REG_DWORD, ``:dword_big_endian`` for REG_DWORD_BIG_ENDIAN, or ``:qword`` for REG_QWORD.
 
   .. warning:: ``:multi_string`` must be an array, even if there is only a single string.
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
@@ -4167,15 +4167,15 @@ The syntax for the ``registry_data_exists?`` method is as follows:
 
    registry_data_exists?(
      KEY_PATH,
-     { :name => 'NAME', :type => TYPE, :data => DATA },
+     { name: 'NAME', type: TYPE, data: DATA },
      ARCHITECTURE
    )
 
 where:
 
 * ``KEY_PATH`` is the path to the registry key value. The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
-* ``{ :name => 'NAME', :type => TYPE, :data => DATA }`` is a hash that contains the expected name, type, and data of the registry key value
-* ``:type`` represents the values available for registry keys in Microsoft Windows. Use ``:binary`` for REG_BINARY, ``:string`` for REG_SZ, ``:multi_string`` for REG_MULTI_SZ, ``:expand_string`` for REG_EXPAND_SZ, ``:dword`` for REG_DWORD, ``:dword_big_endian`` for REG_DWORD_BIG_ENDIAN, or ``:qword`` for REG_QWORD.
+* ``{ name: 'NAME', type: TYPE, data: DATA }`` is a hash that contains the expected name, type, and data of the registry key value
+* ``type:`` represents the values available for registry keys in Microsoft Windows. Use ``:binary`` for REG_BINARY, ``:string`` for REG_SZ, ``:multi_string`` for REG_MULTI_SZ, ``:expand_string`` for REG_EXPAND_SZ, ``:dword`` for REG_DWORD, ``:dword_big_endian`` for REG_DWORD_BIG_ENDIAN, or ``:qword`` for REG_QWORD.
 * ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
 
 This method will return ``true`` or ``false``.
@@ -4338,15 +4338,15 @@ The syntax for the ``registry_value_exists?`` method is as follows:
 
    registry_value_exists?(
      KEY_PATH,
-     { :name => 'NAME' },
+     { name: 'NAME' },
      ARCHITECTURE
    )
 
 where:
 
 * ``KEY_PATH`` is the path to the registry key. The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
-* ``{ :name => 'NAME' }`` is a hash that contains the name of the registry key value; if either ``:type`` or ``:value`` are specified in the hash, they are ignored
-* ``:type`` represents the values available for registry keys in Microsoft Windows. Use ``:binary`` for REG_BINARY, ``:string`` for REG_SZ, ``:multi_string`` for REG_MULTI_SZ, ``:expand_string`` for REG_EXPAND_SZ, ``:dword`` for REG_DWORD, ``:dword_big_endian`` for REG_DWORD_BIG_ENDIAN, or ``:qword`` for REG_QWORD.
+* ``{ name: 'NAME' }`` is a hash that contains the name of the registry key value; if either ``type:`` or ``:value`` are specified in the hash, they are ignored
+* ``type:`` represents the values available for registry keys in Microsoft Windows. Use ``:binary`` for REG_BINARY, ``:string`` for REG_SZ, ``:multi_string`` for REG_MULTI_SZ, ``:expand_string`` for REG_EXPAND_SZ, ``:dword`` for REG_DWORD, ``:dword_big_endian`` for REG_DWORD_BIG_ENDIAN, or ``:qword`` for REG_QWORD.
 * ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
 
 This method will return ``true`` or ``false``.
@@ -4534,9 +4534,9 @@ This resource has the following properties:
 ``values``
    **Ruby Types:** Hash, Array
 
-   An array of hashes, where each Hash contains the values that are to be set under a registry key. Each Hash must contain ``:name``, ``:type``, and ``:data`` (and must contain no other key values).
+   An array of hashes, where each Hash contains the values that are to be set under a registry key. Each Hash must contain ``name:``, ``type:``, and ``data:`` (and must contain no other key values).
 
-   ``:type`` represents the values available for registry keys in Microsoft Windows. Use ``:binary`` for REG_BINARY, ``:string`` for REG_SZ, ``:multi_string`` for REG_MULTI_SZ, ``:expand_string`` for REG_EXPAND_SZ, ``:dword`` for REG_DWORD, ``:dword_big_endian`` for REG_DWORD_BIG_ENDIAN, or ``:qword`` for REG_QWORD.
+   ``type:`` represents the values available for registry keys in Microsoft Windows. Use ``:binary`` for REG_BINARY, ``:string`` for REG_SZ, ``:multi_string`` for REG_MULTI_SZ, ``:expand_string`` for REG_EXPAND_SZ, ``:dword`` for REG_DWORD, ``:dword_big_endian`` for REG_DWORD_BIG_ENDIAN, or ``:qword`` for REG_QWORD.
 
    .. warning:: ``:multi_string`` must be an array, even if there is only a single string.
 
@@ -4558,9 +4558,9 @@ Use a double-quoted string:
 
    registry_key "HKEY_LOCAL_MACHINE\\path-to-key\\Policies\\System" do
      values [{
-       :name => 'EnableLUA',
-       :type => :dword,
-       :data => 0
+       name: 'EnableLUA',
+       type: :dword,
+       data: 0
      }]
      action :create
    end
@@ -4571,9 +4571,9 @@ or a single-quoted string:
 
    registry_key 'HKEY_LOCAL_MACHINE\path-to-key\Policies\System' do
      values [{
-       :name => 'EnableLUA',
-       :type => :dword,
-       :data => 0
+       name: 'EnableLUA',
+       type: :dword,
+       data: 0
      }]
      action :create
    end
@@ -4592,9 +4592,9 @@ Use a double-quoted string:
 
    registry_key "HKEY_LOCAL_MACHINE\\SOFTWARE\\path\\to\\key\\AU" do
      values [{
-       :name => 'NoAutoRebootWithLoggedOnUsers',
-       :type => :dword,
-       :data => ''
+       name: 'NoAutoRebootWithLoggedOnUsers',
+       type: :dword,
+       data: ''
        }]
      action :delete
    end
@@ -4605,14 +4605,14 @@ or a single-quoted string:
 
    registry_key 'HKEY_LOCAL_MACHINE\SOFTWARE\path\to\key\AU' do
      values [{
-       :name => 'NoAutoRebootWithLoggedOnUsers',
-       :type => :dword,
-       :data => ''
+       name: 'NoAutoRebootWithLoggedOnUsers',
+       type: :dword,
+       data: ''
        }]
      action :delete
    end
 
-.. note:: If ``:data`` is not specified, you get an error: ``Missing data key in RegistryKey values hash``
+.. note:: If ``data:`` is not specified, you get an error: ``Missing data key in RegistryKey values hash``
 
 .. end_tag
 
@@ -5321,15 +5321,15 @@ The syntax for the ``registry_data_exists?`` method is as follows:
 
    registry_data_exists?(
      KEY_PATH,
-     { :name => 'NAME', :type => TYPE, :data => DATA },
+     { name: 'NAME', type: TYPE, data: DATA },
      ARCHITECTURE
    )
 
 where:
 
 * ``KEY_PATH`` is the path to the registry key value. The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
-* ``{ :name => 'NAME', :type => TYPE, :data => DATA }`` is a hash that contains the expected name, type, and data of the registry key value
-* ``:type`` represents the values available for registry keys in Microsoft Windows. Use ``:binary`` for REG_BINARY, ``:string`` for REG_SZ, ``:multi_string`` for REG_MULTI_SZ, ``:expand_string`` for REG_EXPAND_SZ, ``:dword`` for REG_DWORD, ``:dword_big_endian`` for REG_DWORD_BIG_ENDIAN, or ``:qword`` for REG_QWORD.
+* ``{ name: 'NAME', type: TYPE, data: DATA }`` is a hash that contains the expected name, type, and data of the registry key value
+* ``type:`` represents the values available for registry keys in Microsoft Windows. Use ``:binary`` for REG_BINARY, ``:string`` for REG_SZ, ``:multi_string`` for REG_MULTI_SZ, ``:expand_string`` for REG_EXPAND_SZ, ``:dword`` for REG_DWORD, ``:dword_big_endian`` for REG_DWORD_BIG_ENDIAN, or ``:qword`` for REG_QWORD.
 * ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
 
 This method will return ``true`` or ``false``.
@@ -5492,15 +5492,15 @@ The syntax for the ``registry_value_exists?`` method is as follows:
 
    registry_value_exists?(
      KEY_PATH,
-     { :name => 'NAME' },
+     { name: 'NAME' },
      ARCHITECTURE
    )
 
 where:
 
 * ``KEY_PATH`` is the path to the registry key. The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
-* ``{ :name => 'NAME' }`` is a hash that contains the name of the registry key value; if either ``:type`` or ``:value`` are specified in the hash, they are ignored
-* ``:type`` represents the values available for registry keys in Microsoft Windows. Use ``:binary`` for REG_BINARY, ``:string`` for REG_SZ, ``:multi_string`` for REG_MULTI_SZ, ``:expand_string`` for REG_EXPAND_SZ, ``:dword`` for REG_DWORD, ``:dword_big_endian`` for REG_DWORD_BIG_ENDIAN, or ``:qword`` for REG_QWORD.
+* ``{ name: 'NAME' }`` is a hash that contains the name of the registry key value; if either ``type:`` or ``:value`` are specified in the hash, they are ignored
+* ``type:`` represents the values available for registry keys in Microsoft Windows. Use ``:binary`` for REG_BINARY, ``:string`` for REG_SZ, ``:multi_string`` for REG_MULTI_SZ, ``:expand_string`` for REG_EXPAND_SZ, ``:dword`` for REG_DWORD, ``:dword_big_endian`` for REG_DWORD_BIG_ENDIAN, or ``:qword`` for REG_QWORD.
 * ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
 
 This method will return ``true`` or ``false``.

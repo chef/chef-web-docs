@@ -4974,9 +4974,9 @@ Use a double-quoted string:
 
    registry_key "HKEY_LOCAL_MACHINE\\path-to-key\\Policies\\System" do
      values [{
-       :name => 'EnableLUA',
-       :type => :dword,
-       :data => 0
+       name: 'EnableLUA',
+       type: :dword,
+       data: 0
      }]
      action :create
    end
@@ -4987,9 +4987,9 @@ or a single-quoted string:
 
    registry_key 'HKEY_LOCAL_MACHINE\path-to-key\Policies\System' do
      values [{
-       :name => 'EnableLUA',
-       :type => :dword,
-       :data => 0
+       name: 'EnableLUA',
+       type: :dword,
+       data: 0
      }]
      action :create
    end
@@ -5008,9 +5008,9 @@ Use a double-quoted string:
 
    registry_key "HKEY_LOCAL_MACHINE\\SOFTWARE\\path\\to\\key\\AU" do
      values [{
-       :name => 'NoAutoRebootWithLoggedOnUsers',
-       :type => :dword,
-       :data => ''
+       name: 'NoAutoRebootWithLoggedOnUsers',
+       type: :dword,
+       data: ''
        }]
      action :delete
    end
@@ -5021,14 +5021,14 @@ or a single-quoted string:
 
    registry_key 'HKEY_LOCAL_MACHINE\SOFTWARE\path\to\key\AU' do
      values [{
-       :name => 'NoAutoRebootWithLoggedOnUsers',
-       :type => :dword,
-       :data => ''
+       name: 'NoAutoRebootWithLoggedOnUsers',
+       type: :dword,
+       data: ''
        }]
      action :delete
    end
 
-.. note:: If ``:data`` is not specified, you get an error: ``Missing data key in RegistryKey values hash``
+.. note:: If ``data:`` is not specified, you get an error: ``Missing data key in RegistryKey values hash``
 
 .. end_tag
 
@@ -5130,9 +5130,9 @@ Use a double-quoted string:
 
    proxy = URI.parse(Chef::Config[:http_proxy])
    registry_key "HKCU\Software\Microsoft\path\to\key\Internet Settings" do
-     values [{:name => 'ProxyEnable', :type => :reg_dword, :data => 1},
-             {:name => 'ProxyServer', :data => "#{proxy.host}:#{proxy.port}"},
-             {:name => 'ProxyOverride', :type => :reg_string, :data => <local>},
+     values [{name: 'ProxyEnable', type: :reg_dword, data: 1},
+             {name: 'ProxyServer', data: "#{proxy.host}:#{proxy.port}"},
+             {name: 'ProxyOverride', type: :reg_string, data: <local>},
             ]
      action :create
    end
@@ -5143,9 +5143,9 @@ or a single-quoted string:
 
    proxy = URI.parse(Chef::Config[:http_proxy])
    registry_key 'HKCU\Software\Microsoft\path\to\key\Internet Settings' do
-     values [{:name => 'ProxyEnable', :type => :reg_dword, :data => 1},
-             {:name => 'ProxyServer', :data => "#{proxy.host}:#{proxy.port}"},
-             {:name => 'ProxyOverride', :type => :reg_string, :data => <local>},
+     values [{name: 'ProxyEnable', type: :reg_dword, data: 1},
+             {name: 'ProxyServer', data: "#{proxy.host}:#{proxy.port}"},
+             {name: 'ProxyOverride', type: :reg_string, data: <local>},
             ]
      action :create
    end
@@ -5163,11 +5163,11 @@ Use a double-quoted string:
 .. code-block:: ruby
 
    registry_key 'Set (Default) value' do
-     action :create
      key "HKLM\\Software\\Test\\Key\\Path"
      values [
-       {:name => '', :type => :string, :data => 'test'},
+       {name: '', type: :string, data: 'test'},
      ]
+     action :create
    end
 
 or a single-quoted string:
@@ -5175,14 +5175,14 @@ or a single-quoted string:
 .. code-block:: ruby
 
    registry_key 'Set (Default) value' do
-     action :create
      key 'HKLM\Software\Test\Key\Path'
      values [
-       {:name => '', :type => :string, :data => 'test'},
+       {name: '', type: :string, data: 'test'},
      ]
+     action :create
    end
 
-where ``:name => ''`` contains an empty string, which will set the name of the registry key to ``(Default)``.
+where ``name: ''`` contains an empty string, which will set the name of the registry key to ``(Default)``.
 
 .. end_tag
 
