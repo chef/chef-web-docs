@@ -449,6 +449,10 @@ Addenda
    attributes
    audit_cookbook
    auth
+   automate_compliance_scanner
+   automate_compliance_reporting
+   automate_compliance_profile_store
+   automate_compliance_credentials
    aws_marketplace
    aws_opsworks_chef_automate
    azure_portal
