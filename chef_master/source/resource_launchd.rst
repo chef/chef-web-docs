@@ -289,9 +289,9 @@ This resource has the following properties:
    .. end_tag
 
 ``supports``
-   **Ruby Type:** Array
+   **Ruby Type:** Hash
 
-   An array of options for supported mount features. Default value: ``{ :remount => false }``.
+   Specify a Hash of supported mount features. Default value: ``remount: false``.
 
 ``type``
    **Ruby Type:** String
