@@ -306,9 +306,20 @@ This resource has the following properties:
    .. end_tag
 
 ``supports``
+
+   .. warning:: This property has been deprecated, and will be removed in the future. Use the ``type`` property instead.
+
    **Ruby Type:** Hash
 
-   The type of handler. Possible values: ``:exception``, ``:report``, or ``:start``. Default value: ``{ :report => true, :exception => true }``.
+   The type of handler. Possible values: ``:exception``, ``:report``, or ``:start``. Default value: ``{ report: true, exception: true }``.
+
+``type``
+
+  **Ruby Type:** Hash
+
+   The type of handler. Possible values: ``:exception``, ``:report``, or ``:start``. Default value: ``{ report: true, exception: true }``.
+
+  
 
 Custom Handlers
 =====================================================
