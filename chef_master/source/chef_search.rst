@@ -443,7 +443,7 @@ To find all IP address that are on the same network, enter the following:
 
 .. code-block:: bash
 
-   $ knife search node 'network_interfaces__addresses:192.168*'
+   $ knife search node 'ipaddress:192.168*'
 
 where ``192.168*`` is the network address for which the search will be run.
 
@@ -455,7 +455,7 @@ To use a range search to find IP addresses within a subnet, enter the following:
 
 .. code-block:: bash
 
-   $ knife search node 'network_interfaces_X_addresses:[192.168.0.* TO 192.168.127.*]'
+   $ knife search node 'ipaddress:[192.168.0.* TO 192.168.127.*]'
 
 where ``192.168.0.* TO 192.168.127.*`` defines the subnet range.
 
