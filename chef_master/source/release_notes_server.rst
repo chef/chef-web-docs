@@ -58,7 +58,7 @@ You would instead use:
 
    postgresql['max_wal_size'] = '3G'
 
-This is just an example configuration - seee the `PostgreSQL release notes <https://www.postgresql.org/docs/9.6/static/release-9-5.html>`__ for more information on tuning this option. The default setting for ``max_wal_size`` is ``1G``. The PostgreSQL release notes mention a conversion rule: ``max_wal_size = (3 * checkpoint_segments) * 16MB``. They also state that the default value for ``max_wal_size`` (1GB) should be sufficient in most settings, so this conversion is not performed automatically.
+This is just an example configuration - see the `PostgreSQL release notes <https://www.postgresql.org/docs/9.6/static/release-9-5.html>`__ for more information on tuning this option. The default setting for ``max_wal_size`` is ``1G``. The PostgreSQL release notes mention a conversion rule: ``max_wal_size = (3 * checkpoint_segments) * 16MB``. They also state that the default value for ``max_wal_size`` (1GB) should be sufficient in most settings, so this conversion is not performed automatically.
 
 The ``shmmax`` and ````shmall`` configuration settings are no longer used, as PostgreSQL 9.6 relies on System V shared memory much less than PostgreSQL 9.2. The ``shared_buffers`` configuration setting is still respected, and can be used to modify the amount of shared memory used by PostgreSQL.
 
@@ -311,9 +311,9 @@ What's New in 12.9
 =====================================================
 The following items are new for Chef server 12.9:
 
-* **New warning and functionality when trying to delete user in multiple 'admin' groups** If a user is in an admininstrator group in any organization, the ``chef-server-ctl user-delete`` subcommand does not allow you to remove the user from that group. To provide more information when the ``user-delete`` subcommand fails for this reason, the error message contains a list of organizations the user is an adminstrator of. Using the new flag ``--remove-from-admin-groups``, you can now remove that user provided they are not the only user in the ``admin`` group.
+* **New warning and functionality when trying to delete user in multiple 'admin' groups** If a user is in an administrator group in any organization, the ``chef-server-ctl user-delete`` subcommand does not allow you to remove the user from that group. To provide more information when the ``user-delete`` subcommand fails for this reason, the error message contains a list of organizations the user is an administrator of. Using the new flag ``--remove-from-admin-groups``, you can now remove that user provided they are not the only user in the ``admin`` group.
 * **LDAP bind passwords now support special characters**
-* **Updated to OpenSSL 1.0.1u** Updated version of OpenSSL to address security vunerabilities.
+* **Updated to OpenSSL 1.0.1u** Updated version of OpenSSL to address security vulnerabilities.
 * **Multiple ACL updates on the Chef server API** The ``_acl`` endpoint now requires that any users being added to an object's ACL exist in the same organization as the object itself. Existing users that are not organization members and have already been added to an ACL will not be affected, and will still be in the GET response for this API. Additional changes can be found `here <https://github.com/chef/chef-server/blob/master/RELEASE_NOTES.md#api-changes>`__.
 
 What's New in 12.8

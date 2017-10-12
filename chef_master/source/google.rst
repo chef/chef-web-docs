@@ -130,5 +130,5 @@ The following is a basic ``.kitchen.yml`` example:
    suites:
      - name: default
        run_list:
-         - recipe[COOBOOK::default]
+         - recipe[COOKBOOK::default]
        attributes:

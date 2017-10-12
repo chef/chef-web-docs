@@ -188,7 +188,7 @@ To upload a cookbook to Chef Supermarket, do the following:
 
    If you are using Chef 12.13 or later, you have everything you need in the knife cookbook site commands
 
-   If you are using Chef 12.12 or earler, you need to install the ``knife supermarket`` plugin:
+   If you are using Chef 12.12 or earlier, you need to install the ``knife supermarket`` plugin:
 
    .. code-block:: bash
 

@@ -29,7 +29,7 @@ This code worked in 12.5.1 and later revisions up to Chef 13.0:
 Remediation
 =============
 
-The ``my_content`` reference will no longer be wired up automatically to the ``new_resource`` object and users will need to specify ``new_resource.my_content`` explictly:
+The ``my_content`` reference will no longer be wired up automatically to the ``new_resource`` object and users will need to specify ``new_resource.my_content`` explicitly:
 
 .. code-block:: ruby
 
@@ -55,8 +55,8 @@ select what works best for their use case:
   content_to_set = new_resource.property_name.nil? ? current_resource.property_name : new_resource.property_name
   content_to_set = new_resource.property_is_set?(:property_name) ? new_resource.property_name : current_resource.property_name
 
-Unfortunately, if you were reliant upon the old code's automatic switching between the ``new_resource`` and ``current_resource`` you will need to be explict.  Most users, however,
-were not aware that this was occuring and moving that uncommon logic explicitly into the action code will produce more comprehensible code that is less reliant on
+Unfortunately, if you were reliant upon the old code's automatic switching between the ``new_resource`` and ``current_resource`` you will need to be explicit.  Most users, however,
+were not aware that this was occurring and moving that uncommon logic explicitly into the action code will produce more comprehensible code that is less reliant on
 subtle tricks of the API.
 
 It is also entirely possible that the access of the ``current_resource`` was never intended by the user. If this behavior was undesired, the correct remediation would be to
@@ -110,7 +110,7 @@ file subresource ``content`` property, or if it refers to the parent custom reso
   end
 
 In fact, the subprocess wins (because it has to) and this code will result in the content always being nil and the file being empty.  The output of the ``puts`` debugging will
-be correct, however, since ``content`` is being accessed outside of the file resource scope so it acquires it from the ``new_resource`` implcitly (in Chef 12.5.1 and Chef 13.x)
+be correct, however, since ``content`` is being accessed outside of the file resource scope so it acquires it from the ``new_resource`` implicitly (in Chef 12.5.1 and Chef 13.x)
 
 The way to remediate that is by specifying the ``new_resource``:
 

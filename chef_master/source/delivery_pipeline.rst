@@ -60,7 +60,7 @@ where:
 
 * ``ignore_rules`` is set to ignore Foodcritic rules ``FC009``, ``FC057``, ``FC058``
 * ``only_rules`` is set to run only Foodcritic rule ``FC002``; omit this setting to specify all rules not specified by ``ignore_rules``
-* ``excludes`` prevents Foodcritic rules from running if they are present in a cookbook's ``/spec`` and/or ``/test`` diretories
+* ``excludes`` prevents Foodcritic rules from running if they are present in a cookbook's ``/spec`` and/or ``/test`` directories
 * ``fail_tags`` states which rules should cause the run to fail; omit this setting to specify ``correctness``
 
 .. end_tag

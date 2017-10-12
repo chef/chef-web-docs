@@ -55,7 +55,7 @@ Should be replaced by:
    provides :mysql_service, platform: "fedora", platform_version: ">= 19"
 
 This can also be directly sent to the provider class in library code, although this form is less encouraged (which does not mean the
-same thing as discouraged -- but you gain better code organizatino with the prior code):
+same thing as discouraged -- but you gain better code organization with the prior code):
 
 .. code-block:: ruby
 
@@ -66,7 +66,7 @@ between Chef 13 and Chef 11 without the cookbook doing the work to check the Che
 supported back to Chef 12.0, although some more advanced forms of the ``provides`` syntax were only introduced in Chef 12.5.1.
 
 Also you may have found this web page due to deprecation of library-based resources and providers that do not declare provides in
-which case your chef-client run is likely full of a compliation of warnings and deprecations:
+which case your chef-client run is likely full of a compilation of warnings and deprecations:
 
 .. code-block:: none
 

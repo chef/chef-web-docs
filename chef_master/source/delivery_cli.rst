@@ -430,7 +430,7 @@ and returns output similar to:
    Generating build cookbook skeleton
    Using cached copy of build-cookbook generator "/Users/justinc/.delivery/cache/generator-cookbooks/pcb"
    Build-cookbook generated: "chef" "generate" "cookbook" ".delivery/build-cookbook" "-g" "/Users/justinc/.delivery/cache/generator-cookbooks/pcb"
-   Adding and commiting build-cookbook: done
+   Adding and committing build-cookbook: done
    Writing configuration to /Users/justinc/chef/delivery/organizations/sandbox/anagrams/.delivery/config.json
    New delivery configuration
    --------------------------
@@ -480,7 +480,7 @@ and returns output similar to:
    Generating build cookbook skeleton
    Using cached copy of build-cookbook generator "/Users/albertatom/.delivery/cache/generator-cookbooks/pcb"
    Build-cookbook generated: "chef" "generate" "cookbook" ".delivery/build-cookbook" "-g" "/Users/albertatom/.delivery/cache/generator-cookbooks/pcb"
-   Adding and commiting build-cookbook: done
+   Adding and committing build-cookbook: done
    Writing configuration to /Users/albertatom/chef/delivery/organizations/sandbox/seapower/.delivery/config.json
    New delivery configuration
    --------------------------
@@ -527,7 +527,7 @@ To initialize a project using a GitHub repository, run a command similar to:
 
    $ delivery init --generator PATH_TO_COOKBOOK -c PATH_TO_CONFIG -f PIPELINE
 
-where ``PATH_TO_COOKBOOK`` is path to the cookbook generator, ``PATH_TO_CONFIG`` is the path to a ``config.json`` file, and ``PIPELINE`` is the name of a pipeline in Chef Automate. For example to initialize a pipeine using the ``bc-generator`` cookbook generator and the ``trunk`` pipeline:
+where ``PATH_TO_COOKBOOK`` is path to the cookbook generator, ``PATH_TO_CONFIG`` is the path to a ``config.json`` file, and ``PIPELINE`` is the name of a pipeline in Chef Automate. For example to initialize a pipeline using the ``bc-generator`` cookbook generator and the ``trunk`` pipeline:
 
 .. code-block:: bash
 
@@ -555,7 +555,7 @@ returns output similar to:
    Generating build cookbook skeleton
    Downloading build-cookbook generator from "https://github.com/albertatom/bc-generator.git"
    Build-cookbook generated: "chef" "generate" "cookbook" ".delivery/build-cookbook" "-g" "/Users/albertatom/.delivery/cache/generator-cookbooks/bc-generator"
-   Adding and commiting build-cookbook: done
+   Adding and committing build-cookbook: done
    Copying configuration to /Users/albertatom/chef/delivery/organizations/sandbox/seapower/.delivery/config.json
    New delivery configuration
    --------------------------

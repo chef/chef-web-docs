@@ -10,7 +10,7 @@ This is problematic because having multiple resources named the same makes it im
 
 .. end_tag
 
-The behaviour in Chef 12 and earlier, which is now deprecated, is that we will try to clone the existing resource, and then apply any properties from the new resource. For example:
+The behavior in Chef 12 and earlier, which is now deprecated, is that we will try to clone the existing resource, and then apply any properties from the new resource. For example:
 
 .. code-block:: ruby
 

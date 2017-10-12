@@ -427,7 +427,7 @@ Guards
    describe 'guards::default' do
      let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '16.04').converge(described_recipe) }
 
-     it 'includes resource that have guards that evalute to true' do
+     it 'includes resource that have guards that evaluate to true' do
        expect(chef_run).to start_service('true_guard')
      end
 

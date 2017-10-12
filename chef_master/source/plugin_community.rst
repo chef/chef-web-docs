@@ -113,7 +113,7 @@ The following table lists knife plugins built by the Chef community.
    * - `knife-santoku <https://github.com/knuckolls/knife-santoku>`_
      - Adds the ability to build processes around the chef-client.
    * - `knife-select <https://github.com/hpcloud/knife-select>`_
-     - Adds the ability for selecting the chef server or organisation to interact with.
+     - Adds the ability for selecting the chef server or organization to interact with.
    * - `knife-server <https://github.com/fnichol/knife-server>`_
      - Adds the ability to manage a Chef server, including bootstrapping a Chef server on Amazon EC2 or a standalone server and backing up and/or restoring node, role, data bag, and environment data.
    * - `knife-set-environment <https://gist.github.com/961827>`_

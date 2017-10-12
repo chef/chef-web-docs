@@ -64,7 +64,7 @@ Policyfile effectively replaces roles. Policyfile files are versioned automatica
 
 Cookbook Mutability
 -----------------------------------------------------
-When running Chef without Policyfile, existing versions of cookbooks are mutable. This is convenient for many use cases, especially if users upload in-development cookbook revisions to the Chef server. But this sometimes creates issues that are similar to role mutability by allowing those cookbook changes to be applied immediately to nodes that use that cookbook. Users account for this by rigorous testing processes to ensure that only fully integrated cookbooks are ever published. This process does enforce good development habits, but at the same time it shoudn't be a required part of a workflow that ends with publishing an in-development cookbook to the Chef server for testing against real nodes.
+When running Chef without Policyfile, existing versions of cookbooks are mutable. This is convenient for many use cases, especially if users upload in-development cookbook revisions to the Chef server. But this sometimes creates issues that are similar to role mutability by allowing those cookbook changes to be applied immediately to nodes that use that cookbook. Users account for this by rigorous testing processes to ensure that only fully integrated cookbooks are ever published. This process does enforce good development habits, but at the same time it shouldn't be a required part of a workflow that ends with publishing an in-development cookbook to the Chef server for testing against real nodes.
 
 Policyfile solves this issue by using a cookbook publishing API for the Chef server that does not provide cookbook mutability. Name collisions are prevented by storing cookbooks by name and an opaque identifier that is computed from the content of the cookbook itself.
 
@@ -74,7 +74,7 @@ Opaque IDs
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The opaque identifier that is computed from the content of a cookbook is the only place where an opaque identifier is necessary. When working with Policyfile, be sure to:
 
-* Use the same names and version contraints as normal in the ``Policyfile.rb`` file
+* Use the same names and version constraints as normal in the ``Policyfile.rb`` file
 * Use the same references to cookbooks pulled from Chef Supermarket
 * Use the same branch, tag, and revision patterns for cookbooks pulled from git
 * Use the same paths for cookbooks pulled from disk
@@ -1074,7 +1074,7 @@ chef push-archive
 -----------------------------------------------------
 .. tag ctl_chef_push_archive
 
-The ``chef push-archive`` subcommand is used to publish a policy archive file to the Chef server. (A policy archive is created using the ``chef export`` subcommand.) The policy archive is assigned to the speciified policy group, which is a set of nodes that share the same run-list and cookbooks.
+The ``chef push-archive`` subcommand is used to publish a policy archive file to the Chef server. (A policy archive is created using the ``chef export`` subcommand.) The policy archive is assigned to the specified policy group, which is a set of nodes that share the same run-list and cookbooks.
 
 .. end_tag
 

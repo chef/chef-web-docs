@@ -204,7 +204,7 @@ To fix object permissions:
 
 500 (Unexpected)
 =====================================================
-HTTP 500 is a non-speciﬁc error message. The full error message for the error the chef-client is receiving can be found in one of the following log ﬁles:
+HTTP 500 is a non-specific error message. The full error message for the error the chef-client is receiving can be found in one of the following log ﬁles:
 
 * ``/var/log/opscode/opscode-account/current``
 * ``/var/log/opscode/opscode-erchef/current``
@@ -248,7 +248,7 @@ If you're seeing an error like:
 .. code-block:: bash
 
    Client key /etc/chef/client.pem is notresent - registering
-   WARN: Failed to read the private key /etc/che/validation.pem: #<Errno::ENOENT: No such file or directory - /etc/chef/validaton.pem>
+   WARN: Failed to read the private key /etc/che/validation.pem: #<Errno::ENOENT: No such file or directory - /etc/chef/validation.pem>
    FATAL: Stacktrace dumped to /etc/chef/cache/chef-stacktrace.out
    FATAL: Chef::Exceptions::PrivateKeyMissing: I cannot read /etc/chef/validation.pem, which you told me to use to sign requests
 

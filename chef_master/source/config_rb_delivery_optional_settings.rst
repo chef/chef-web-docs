@@ -126,7 +126,7 @@ This configuration file has the following settings for ``backup``:
    Output the SHA digest of the backup archive to STDOUT. Default value:
    ``true``.
 
-``backup['digest']['legth']``
+``backup['digest']['length']``
    The SHA digest length to use. Valid options are ``256``, ``384``, and
    ``512``.  Default value: ``256``.
 
@@ -162,7 +162,7 @@ This configuration file has the following settings for ``backup``:
 
 ``backup['elasticsearch']['poll_interval']``
    How many seconds to wait between polling requests while waiting for
-   Elasicsearch operations.  Default value ``5``.
+   Elasticsearch operations.  Default value ``5``.
 
 ``backup['elasticsearch']['region']``
    Amazon Web Services (AWS) region to use for Chef Automate S3 Elasticsearch snapshots.
@@ -194,7 +194,7 @@ This configuration file has the following settings for ``backup``:
    when performing major operations. Default value: ``true``.
 
 ``backup['force']``
-   Agree to any prompts or warnings during the Chef Automate backup precedure.
+   Agree to any prompts or warnings during the Chef Automate backup procedure.
    Default value: ``false``.
 
 ``backup['git']['enabled']``

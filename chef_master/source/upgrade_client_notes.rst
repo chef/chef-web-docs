@@ -24,7 +24,7 @@ Install the latest version of the chef-client on a small number of test nodes. D
 * Do all cookbooks have a metadata.rb file or metadata.json file?
 * Do all cookbooks used in the organization also exist in source control?
 * Do unused cookbooks (or cookbook versions) exist in source control? Run ``knife cookbook list`` to view a list of cookbooks, and then for each cookbook run ``knife cookbook show COOKBOOK_NAME`` to view its versions. Delete unused cookbook versions with ``knife cookbook delete -v VERSION_NAME``.
-* How large is a cookbook? Most cookbooks are quite small, under ~200 KB. Sometimes cookbooks need to be larger than that. For larger cookbooks, consider why they are that large. Do they contain unecessary binary files? Do they have a long git history? Mitigate the size of large cookbooks where possible.
+* How large is a cookbook? Most cookbooks are quite small, under ~200 KB. Sometimes cookbooks need to be larger than that. For larger cookbooks, consider why they are that large. Do they contain unnecessary binary files? Do they have a long git history? Mitigate the size of large cookbooks where possible.
 
 Verify the nodes and clients that are in use:
 

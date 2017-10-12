@@ -310,7 +310,7 @@ A project may be a binary, a package, or some other set of arbitrary information
 
 Configure Project Application
 -----------------------------------------------------
-Project applications are defined in the ``pubish.rb`` recipe in a ``build-cookbook`` using the ``define_project_application`` helper method, and then in the ``deploy.rb`` recipe using the ``get_project_application`` method. The publish phase happens at the end of the build stage. It is at this point where the project application version is pinned, uploaded to the Chef server as a data bag item, and then used through the remaining stages.
+Project applications are defined in the ``publish.rb`` recipe in a ``build-cookbook`` using the ``define_project_application`` helper method, and then in the ``deploy.rb`` recipe using the ``get_project_application`` method. The publish phase happens at the end of the build stage. It is at this point where the project application version is pinned, uploaded to the Chef server as a data bag item, and then used through the remaining stages.
 
 .. note:: The ``define_project_application`` helper method is available from the ``delivery-sugar`` cookbook, which is a dependency of the ``delivery-truck`` cookbook. This helper is available when the ``publish.rb`` recipe has ``include_recipe 'delivery-truck::publish'`` defined.
 

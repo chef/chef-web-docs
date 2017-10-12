@@ -88,7 +88,7 @@ A Microsoft Windows registry key can be used as a string in Ruby code, such as w
 
    HKCU\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Themes
 
-may be encloused in a single-quoted string with a single backslash:
+may be enclosed in a single-quoted string with a single backslash:
 
 .. code-block:: ruby
 

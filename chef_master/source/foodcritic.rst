@@ -47,7 +47,7 @@ Foodcritic output:
 * States a Foodcritic rule. For example: ``FC003``
 * Describes the rule, based on the results of the evaluation. For example: ``Check whether you are running with chef server before using server-specific features``
 * Specifies the file path. For example: ``./recipes/ip-logger.rb``
-* Specifes the line number. For example: ``1``
+* Specifies the line number. For example: ``1``
 
 A Foodcritic evaluation has the following syntax:
 

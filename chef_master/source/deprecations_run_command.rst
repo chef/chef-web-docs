@@ -9,7 +9,7 @@ The old run_command API has been replaced by shell_out (a wrapper around Mixlib:
 
 .. end_tag
 
-This deprecation warning was added in Chef 12.18.31, and run_command will be removed permanantly in Chef 13.
+This deprecation warning was added in Chef 12.18.31, and run_command will be removed permanently in Chef 13.
 
 Example
 =====================================================

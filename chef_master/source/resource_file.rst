@@ -274,7 +274,7 @@ This resource has the following properties:
 ``verify``
    **Ruby Types:** String, Block
 
-   Allows verification of a file's contents before it is created. Creates a temporary file and then allows execution of commands or Ruby code. If this code evalutes to true, the file is created. If the code evaluates to false, an error is raised.
+   Allows verification of a file's contents before it is created. Creates a temporary file and then allows execution of commands or Ruby code. If this code evaluates to true, the file is created. If the code evaluates to false, an error is raised.
 
    The types for this property are a block or a string. When specified as a block, it returns ``true`` or ``false``. When specified as a string, it is executed as a system command. It evaluates to ``true`` if the command returns 0 as its exit status code and ``false`` if the command returns a non-zero exit status code.
 

@@ -89,7 +89,7 @@ Cannot connect to PostgreSQL on the remote server because rules in ``pg_hba`` ar
 
      host     postgres     @chef_users     192.168.93.0/24     md5
 
-  or, using the same ``$PGDATA/chef_users`` file (from the previous example), the following example shows a way to limit connections to specific nodes that are running components of the Chef server. This approach requires more maintanence because the ``pg_hba.conf`` file must be updated when machines are added to or removed from the Chef server configuration. For example, a high availability configuration with four nodes: ``backend-1`` (192.168.18.100), ``backend-2`` (192.168.18.101), ``frontend-1`` (192.168.18.110), and ``frontend-2`` (192.168.18.111).
+  or, using the same ``$PGDATA/chef_users`` file (from the previous example), the following example shows a way to limit connections to specific nodes that are running components of the Chef server. This approach requires more maintenance because the ``pg_hba.conf`` file must be updated when machines are added to or removed from the Chef server configuration. For example, a high availability configuration with four nodes: ``backend-1`` (192.168.18.100), ``backend-2`` (192.168.18.101), ``frontend-1`` (192.168.18.110), and ``frontend-2`` (192.168.18.111).
 
   The corresponding ``pg_hba.conf`` entry is similar to:
 

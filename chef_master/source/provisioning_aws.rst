@@ -362,7 +362,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``preferred_availability_zone``
      - **Ruby Type:** String
 
-       Use to specify the perferred availability zone for this cache cluster. Use this property **or** use ``preferred_availability_zones``.
+       Use to specify the preferred availability zone for this cache cluster. Use this property **or** use ``preferred_availability_zones``.
    * - ``preferred_availability_zones``
      - **Ruby Types:** String, Array
 
@@ -492,7 +492,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``automatic_failover``
      - **Ruby Type:** TrueClass, FalseClass
 
-       Use to specify if a read-only replica is automatically promoted to read/write primary if the existing primary fails. Set to ``true`` to enabme automatic failover for this cache replication group.
+       Use to specify if a read-only replica is automatically promoted to read/write primary if the existing primary fails. Set to ``true`` to enable automatic failover for this cache replication group.
    * - ``aws_tags``
      - **Ruby Type:** Hash
 
@@ -1290,7 +1290,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 aws_image
 =====================================================
-The ``aws_image`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_image`` resource to manage Amazon Machine Images (AMI) `images <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html>`__ that exist in Amazon EC2. An image includes a template for the root volume of an instance (operating system, application server, application, for example), launch permissions, and a block mappping device that attaches volumes to the instance when it is launched.
+The ``aws_image`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_image`` resource to manage Amazon Machine Images (AMI) `images <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html>`__ that exist in Amazon EC2. An image includes a template for the root volume of an instance (operating system, application server, application, for example), launch permissions, and a block mapping device that attaches volumes to the instance when it is launched.
 
 Syntax
 -----------------------------------------------------
@@ -2333,7 +2333,7 @@ The ``aws_rds_instance`` resource is a driver-specific resource used by Chef pro
 
 Syntax
 -----------------------------------------------------
-A ``aws_rds_instance`` resource block manages remote database intances. For example:
+A ``aws_rds_instance`` resource block manages remote database instances. For example:
 
 .. code-block:: ruby
 
@@ -2690,7 +2690,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 aws_s3_bucket
 =====================================================
-The ``aws_s3_bucket`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_s3_bucket`` resource to create an Amazon Simple Storage Service (S3) bucket in which any amout of data is stored, retrievable at any time from anywhere.
+The ``aws_s3_bucket`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_s3_bucket`` resource to create an Amazon Simple Storage Service (S3) bucket in which any amount of data is stored, retrievable at any time from anywhere.
 
 Syntax
 -----------------------------------------------------

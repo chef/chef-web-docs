@@ -235,7 +235,7 @@ This resource has the following properties:
 ``remote_user``
    **Ruby Types:** String
 
-   **Windows only** The name of a user with access to the remote file specified by the ``source`` property. Default value: ``nil``. The user name may optionally be specifed with a domain, such as: ``domain\user`` or ``user@my.dns.domain.com`` via Universal Principal Name (UPN) format. The domain may also be set using the ``remote_domain`` property. Note that this property is ignored if ``source`` is not a UNC path. If this property is specified, the ``remote_password`` property is required.
+   **Windows only** The name of a user with access to the remote file specified by the ``source`` property. Default value: ``nil``. The user name may optionally be specified with a domain, such as: ``domain\user`` or ``user@my.dns.domain.com`` via Universal Principal Name (UPN) format. The domain may also be set using the ``remote_domain`` property. Note that this property is ignored if ``source`` is not a UNC path. If this property is specified, the ``remote_password`` property is required.
 
    New in Chef client 13.4
 

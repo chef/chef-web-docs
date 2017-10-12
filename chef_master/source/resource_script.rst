@@ -278,7 +278,7 @@ This resource has the following attributes:
 ``user``
    **Ruby Types:** String
 
-   The user name of the user identity with which to launch the new process. Default value: `nil`. The user name may optionally be specifed with a domain, i.e. `domain\user` or `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can also be specified without a domain simply as user if the domain is instead specified using the `domain` attribute. On Windows only, if this property is specified, the `password` property must be specified.
+   The user name of the user identity with which to launch the new process. Default value: `nil`. The user name may optionally be specified with a domain, i.e. `domain\user` or `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can also be specified without a domain simply as user if the domain is instead specified using the `domain` attribute. On Windows only, if this property is specified, the `password` property must be specified.
 
 ``password``
    **Ruby Types:** String
@@ -466,7 +466,7 @@ The ``not_if`` statement now inherits the ``environment`` property and will use 
 
 .. tag resources_common_guard_interpreter_example_default
 
-For example, the following code block will ensure the command is evaluated using the default intepreter as identified by the chef-client:
+For example, the following code block will ensure the command is evaluated using the default interpreter as identified by the chef-client:
 
 .. code-block:: ruby
 

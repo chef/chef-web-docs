@@ -44,7 +44,7 @@ Validation Keys
 -----------------------------------------------------
 The Open Source Chef server does not have the concept of organizations. The Chef server version 12 upgrade process will require an organization to be created.
 
-The Open Source Chef uses a validation key and validation client name to ensure that clients can validate to the Open Source Chef server. In Open Source Chef, this is a generic validation client and key. These two settings in the the client.rb and/or knife.rb files specifiy the generic client and key:
+The Open Source Chef uses a validation key and validation client name to ensure that clients can validate to the Open Source Chef server. In Open Source Chef, this is a generic validation client and key. These two settings in the the client.rb and/or knife.rb files specify the generic client and key:
 
 .. list-table::
    :widths: 200 300
@@ -59,7 +59,7 @@ The Open Source Chef uses a validation key and validation client name to ensure 
 
 In Chef server version 12, the server supports multiple organizations and each organization has a unique validation client and key. The upgrade process will create a new validation client and key and will associate their names with the newly-created organization.
 
-The ``default_orgname`` setting will ensure that the existing generic validation client and key will work with the newly-created organization. Post-upgrate, there will be TWO validation clients and validation keys. The organization-specific client and key is not required; in some cases, it may be necessary to reset that validation key through the Chef management console web user interface.
+The ``default_orgname`` setting will ensure that the existing generic validation client and key will work with the newly-created organization. Post-upgrade, there will be TWO validation clients and validation keys. The organization-specific client and key is not required; in some cases, it may be necessary to reset that validation key through the Chef management console web user interface.
 
 .. note:: The Chef management console web user interface will not be able to reset the generic validation client and key that was migrated from Open Source Chef.
 
@@ -262,7 +262,7 @@ If this error occurs, re-run the upgrade process, adding the ``--upload-threads`
 
    $ chef-server-ctl upgrade --upload-threads 1
 
-This option will ensure that only one cookbook is uploaded at a time. This approach will be slower, but will prevent a race condition (and this error) from occuring. It may also be helpful to run each stage of the upgrade process separately. See the section "Subcommands Reference" below for more information about the individual commands.
+This option will ensure that only one cookbook is uploaded at a time. This approach will be slower, but will prevent a race condition (and this error) from occurring. It may also be helpful to run each stage of the upgrade process separately. See the section "Subcommands Reference" below for more information about the individual commands.
 
 Verify Nodes and Cookbooks
 =====================================================
@@ -275,7 +275,7 @@ Install the latest version of the chef-client on a small number of test nodes. D
 * Do all cookbooks have a metadata.rb file or metadata.json file?
 * Do all cookbooks used in the organization also exist in source control?
 * Do unused cookbooks (or cookbook versions) exist in source control? Run ``knife cookbook list`` to view a list of cookbooks, and then for each cookbook run ``knife cookbook show COOKBOOK_NAME`` to view its versions. Delete unused cookbook versions with ``knife cookbook delete -v VERSION_NAME``.
-* How large is a cookbook? Most cookbooks are quite small, under ~200 KB. Sometimes cookbooks need to be larger than that. For larger cookbooks, consider why they are that large. Do they contain unecessary binary files? Do they have a long git history? Mitigate the size of large cookbooks where possible.
+* How large is a cookbook? Most cookbooks are quite small, under ~200 KB. Sometimes cookbooks need to be larger than that. For larger cookbooks, consider why they are that large. Do they contain unnecessary binary files? Do they have a long git history? Mitigate the size of large cookbooks where possible.
 
 Verify the nodes and clients that are in use:
 

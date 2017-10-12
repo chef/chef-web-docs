@@ -437,7 +437,7 @@ A webhook for Chef Analytics enables real-time event streams to be sent to arbit
         end
       end
 
-   Slack expects a JSON document to be sent to the incoming webook integration from Chef Analytics. Chef Analytics supports multi-line notifications to be written. Use the ``'text'`` property in the rule to send the data as a JSON document.
+   Slack expects a JSON document to be sent to the incoming webhook integration from Chef Analytics. Chef Analytics supports multi-line notifications to be written. Use the ``'text'`` property in the rule to send the data as a JSON document.
 
 #. Finally, create a rule that is more specific to the Chef Analytics data, such as assigning an emoji and a name for the notification:
 

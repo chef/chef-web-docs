@@ -185,7 +185,7 @@ You can repeat these steps for each Bitbucket project to be added to Chef Automa
       Generating build cookbook skeleton
       Using cached copy of build-cookbook generator "/Users/justinc/.delivery/cache/generator-cookbooks/pcb"
       Build-cookbook generated: "chef" "generate" "cookbook" ".delivery/build-cookbook" "-g" "/Users/justinc/.delivery/cache/generator-cookbooks/pcb"
-      Adding and commiting build-cookbook: done
+      Adding and committing build-cookbook: done
       Writing configuration to /Users/justinc/chef/delivery/organizations/sandbox/anagrams/.delivery/config.json
       New delivery configuration
       --------------------------

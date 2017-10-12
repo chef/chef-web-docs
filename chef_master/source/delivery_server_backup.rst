@@ -183,12 +183,12 @@ Automate archive only
 List Backups
 =====================================================
 
-The `list-backups </ctl_automate_server.html#list-backups>`__ command is used to list Chef Automate backup archives and Elasticseach snapshots in either human or machine readable outputs.
+The `list-backups </ctl_automate_server.html#list-backups>`__ command is used to list Chef Automate backup archives and Elasticsearch snapshots in either human or machine readable outputs.
 
 Delete Backups
 =====================================================
 
-The `delete-backups </ctl_automate_server.html#delete-backups>`__ command is used to delete Chef Automate backup archives and Elasticseach snapshots. The command matches a given regular expression and prompts the user to confirm deletion of each matched backup or snapshot. It can also be passed maximum archive and snapshot limits and prune the backup repositories to conform to those limits.
+The `delete-backups </ctl_automate_server.html#delete-backups>`__ command is used to delete Chef Automate backup archives and Elasticsearch snapshots. The command matches a given regular expression and prompts the user to confirm deletion of each matched backup or snapshot. It can also be passed maximum archive and snapshot limits and prune the backup repositories to conform to those limits.
 
 Restore Backups
 =====================================================
@@ -211,7 +211,7 @@ Follow the process below for an example of restoring a Chef Automate cluster fro
   4. Restore the backup archive and snapshot:
        ``$ automate-ctl restore-backup /mnt/ephemeral/2016-10-14-08-38-55-chef-automate-backup.zst 2016-10-14-08-38-55-chef-automate-backup --staging-dir /mnt/ephemeral/restore``
 
-.. note:: Specifying a staging directory is not mandatatory but when given it will clear **all** existing data from it.
+.. note:: Specifying a staging directory is not mandatory but when given it will clear **all** existing data from it.
 
 S3 Backups
 -----------------------------------------------------

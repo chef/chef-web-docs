@@ -22,7 +22,7 @@ Chef Analytics includes a powerful rules processing system that allows notificat
 * Machines on which audit-mode runs have failed
 * Resources that were updated as a result of a chef-client run
 
-Notifications may be sent to any email address, a chat service like HipChat or Slack, or to a webhook-based service for generic intergrations.
+Notifications may be sent to any email address, a chat service like HipChat or Slack, or to a webhook-based service for generic integrations.
 
 .. end_tag
 
@@ -402,11 +402,11 @@ For example:
          // match 1 or more lower case characters followed by a single digit
          entity_name =~ '[a-z]+\d'
        then
-         nofity('my_webhook')
+         notify('my_webhook')
      end
    end
 
-Use the following to match contstructs:
+Use the following to match constructs:
 
 .. list-table::
    :widths: 60 420
@@ -536,7 +536,7 @@ The following fields are available for the ``action`` message type:
      - The type of entity. For example: ``'node'``.
    * - ``id``
      - string
-     - The globaly-unique identifier for this message. For example: ``'12345678-9012-3456-7890-12345678901211'``.
+     - The globally-unique identifier for this message. For example: ``'12345678-9012-3456-7890-12345678901211'``.
    * - ``organization_name``
      - string
      - The short name of the organization to which the node belongs. For example: ``'chef'``.
@@ -611,7 +611,7 @@ The following fields are available for the ``run_control`` message type:
      - Details about the control object.
    * - ``id``
      - string
-     - The globaly-unique identifier for this message. For example: ``'12345678-9012-3456-7890-12345678901211'``.
+     - The globally-unique identifier for this message. For example: ``'12345678-9012-3456-7890-12345678901211'``.
    * - ``name``
      - string
      - The name of the control object. For example: ``'should be installed'``.
@@ -681,7 +681,7 @@ The following fields are available for the ``run_control_group`` message type:
 
    * - ``id``
      - string
-     - The globaly-unique identifier for this message. For example: ``'12345678-9012-3456-7890-12345678901211'``.
+     - The globally-unique identifier for this message. For example: ``'12345678-9012-3456-7890-12345678901211'``.
    * - ``name``
      - string
      - The name of the control group object. For example: ``'mysql audit'``.
@@ -829,7 +829,7 @@ The following fields are available for the ``run_resource`` message type:
      - The version of the cookbook initiated the changes made by this chef-client run. For example: ``'0.2.3'``.
    * - ``delta``
      - string
-     - The difference between the intial and final value of resource. For example:
+     - The difference between the initial and final value of resource. For example:
 
        .. code-block:: none
 
@@ -959,7 +959,7 @@ The syntax for this function:
 
 where:
 
-* ``field`` is an attribute in the JSON oject
+* ``field`` is an attribute in the JSON object
 * ``valueToFind`` is the value for that attribute
 
 For example:
@@ -980,7 +980,7 @@ The syntax for this function:
 
 where:
 
-* ``field`` is an attribute in the JSON oject
+* ``field`` is an attribute in the JSON object
 * ``dateTimeComponent`` must be one of the following (lower or uppercase) as a quoted string: ``era``, ``year_of_era``, ``century_of_era``, ``year_of_century``, ``year``, ``day_of_year``, ``month_of_year``, ``day_of_month``, ``weekyear_of_century``, ``weekyear``, ``week_of_weekyear``, ``day_of_week``, ``halfday_of_day``, ``hour_of_halfday``, ``clockhour_of_halfday``, ``clockhour_of_day``, ``hour_of_day``, ``minute_of_day``, ``minute_of_hour``, ``second_of_day``, ``second_of_minute``, ``millis_of_day``, or ``millis_of_second``
 
 For example:
@@ -1335,7 +1335,7 @@ Verify Run-lists
 -----------------------------------------------------
 .. tag analytics_rules_verify_run_lists
 
-The following rule verfies if a specific role appears in a run-list:
+The following rule verifies if a specific role appears in a run-list:
 
 .. code-block:: ruby
 

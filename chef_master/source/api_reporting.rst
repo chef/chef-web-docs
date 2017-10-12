@@ -146,7 +146,7 @@ The following authentication headers are required:
        Use to specify the protocol version for the Reporting API. This header must be set to ``0.1.0``.
 
        * A request to the Chef server API that does not include this header and the correct value will return a 404 response code.
-       * A request to the Chef server API that includes this header with an incorrect value will return a 406 reponse code.
+       * A request to the Chef server API that includes this header with an incorrect value will return a 406 response code.
 
        If the protocol version is incorrect (or unspecified), the chef-client run will proceed normally, but Reporting data will not be collected for that chef-client run unless the ``enable_reporting_url_fatals`` setting is ``true`` in the client.rb file for that node.
 
@@ -602,7 +602,7 @@ GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag api_reporting_endpoint_reports_runs_durations_get
 
-The ``GET`` method is used to return the frequency of chef-client runs that occured within a specified range.
+The ``GET`` method is used to return the frequency of chef-client runs that occurred within a specified range.
 
 This method has the following parameters:
 
