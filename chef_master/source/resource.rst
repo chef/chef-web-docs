@@ -97,7 +97,7 @@ All resources (including custom resources) share a set of common actions, proper
    * - :ref:`resource_common_actions`
      - The ``:nothing`` action can be used with any resource or custom resource.
    * - :ref:`resource_common_properties`
-     - The ``ignore_failure``, ``provider``, ``retries``, ``retry_delay``, and ``supports`` properties can be used with any resource or custom resources.
+     - The ``ignore_failure``, ``provider``, ``retries``, and ``retry_delay`` properties can be used with any resource or custom resources.
    * - :ref:`resource_common_guards`
      - The ``not_if`` and ``only_if`` conditional executions can be used to put additional guards around certain resources so that they are only run when the condition is met.
    * - :ref:`resource_common_guard_interpreters`
