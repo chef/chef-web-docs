@@ -341,7 +341,7 @@ There are three types of handlers:
 
 .. end_tag
 
-Read more :doc:`about exception, report, and start handlers </handlers>`.
+Read more `about exception, report, and start handlers </handlers.html>`__.
 
 chef-shell
 -----------------------------------------------------

@@ -8,7 +8,7 @@ The knife command line tool must be configured to communicate with the Chef Serv
 Knife.rb Configuration File
 =====================================================
 
-Knife is configured using a knife.rb configuration, which contains configuration for both the knife command line tool as well as any installed knife plugins. See :doc:`knife.rb </config_rb_knife>` for a complete list of configuration options in the knife.rb file.
+Knife is configured using a knife.rb configuration, which contains configuration for both the knife command line tool as well as any installed knife plugins. See `knife.rb </config_rb_knife.html>`__ for a complete list of configuration options in the knife.rb file.
 
 Load Path Priority
 -----------------------------------------------------

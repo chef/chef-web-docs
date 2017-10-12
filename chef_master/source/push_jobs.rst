@@ -11,7 +11,7 @@ Chef push jobs uses the Chef server API and a Ruby client to initiate all connec
 
 .. end_tag
 
-Install :doc:`Push Jobs </install_push_jobs>` using the **push-jobs** cookbook and a chef-client run on each of the target nodes.
+Install `Push Jobs </install_push_jobs.html>`__ using the **push-jobs** cookbook and a chef-client run on each of the target nodes.
 
 Requirements
 =====================================================
@@ -140,7 +140,7 @@ The ``knife push jobs`` subcommand is used by Chef push jobs to start jobs, view
 
 .. end_tag
 
-.. note:: Review the list of :doc:`common options </knife_options>` available to this (and all) knife subcommands and plugins.
+.. note:: Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
 job list
 -----------------------------------------------------

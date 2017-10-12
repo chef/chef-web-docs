@@ -222,9 +222,9 @@ Through the Azure portal, you can provision a virtual machine with chef-client r
 
 Before virtual machines can be created using the Azure portal, some chef-client-specific settings will need to be identified so they can be provided to the Azure portal during the virtual machine creation workflow. These settings are available from the chef-client configuration settings:
 
-* The ``chef_server_url`` and ``validation_client_name``. These are settings in the :doc:`client.rb file </config_rb_client>`.
+* The ``chef_server_url`` and ``validation_client_name``. These are settings in the `client.rb file </config_rb_client.html>`__.
 
-* The file for the :doc:`validator key </chef_private_keys>`.
+* The file for the `validator key </chef_private_keys.html>`__.
 
 .. end_tag
 
@@ -270,7 +270,7 @@ Once this information has been identified, launch the Azure portal, start the vi
 
    .. note:: Same directory issue from previous step applies here as well. Also, the ``knife.rb`` file must be correctly configured to communicate to the Chef server. Specifically, it must have valid values for the following two settings: ``chef_server_url`` and ``validation_client_name``.
 
-#. Optional. :doc:`Use a run-list </run_lists>` to specify what should be run when the virtual machine is provisioned, such as using the run-list to provision a virtual machine with Internet Information Services (IIS). Use the ``iis`` cookbook and the default recipe to build a run-list. For example:
+#. Optional. `Use a run-list </run_lists.html>`__ to specify what should be run when the virtual machine is provisioned, such as using the run-list to provision a virtual machine with Internet Information Services (IIS). Use the ``iis`` cookbook and the default recipe to build a run-list. For example:
 
    .. code-block:: ruby
 

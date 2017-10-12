@@ -393,7 +393,7 @@ public_key_read_access
 -----------------------------------------------------
 .. tag server_rbac_permissions_default_public_key_read_access
 
-The ``public_key_read_access`` group controls which users and clients have :doc:`read permissions to the following endpoints </api_chef_server>`:
+The ``public_key_read_access`` group controls which users and clients have `read permissions to the following endpoints </api_chef_server.html>`__:
 
 * GET /clients/CLIENT/keys
 * GET /clients/CLIENT/keys/KEY
@@ -2533,7 +2533,7 @@ What's New in 12.0
 =====================================================
 The following items are new for Chef server 12:
 
-* **Upgrades from Open Source Chef and Enterprise Chef servers to Chef 12 server** Upgrades to Chef server 12 are supported from Enterprise Chef 11 high availability and standalone configurations and Open Source Chef 11 standalone configurations. View the topic :doc:`Upgrade to Chef Server 12 </upgrade_server>` for more information about these processes.
+* **Upgrades from Open Source Chef and Enterprise Chef servers to Chef 12 server** Upgrades to Chef server 12 are supported from Enterprise Chef 11 high availability and standalone configurations and Open Source Chef 11 standalone configurations. View the topic `Upgrade to Chef Server 12 </upgrade_server.html>`__ for more information about these processes.
 * **chef-server.rb configuration file is created by default** Previous versions of the Chef server did not create the chef-server.rb file and users had to create the file first, before updates to tuneable settings could be made.
 * **Pluggable high availability architecture** Support for high availability now provides alternatives to DRBD, including using Amazon Web Services (AWS).
 * **High availability using Amazon Web Services** Amazon Web Services (AWS) is a supported high availability configuration option for the Chef server. Machines are stored as Amazon Elastic Block Store (EBS) volumes. A passive node monitors the availabilty of the active node, and will take over if required.
@@ -2574,7 +2574,7 @@ For more information about Amazon Elastic Block Store (EBS), see http://aws.amaz
 
 .. end_tag
 
-View the topic :doc:`High Availability: AWS </install_server_ha_aws>` for more information about how to set up the Chef server for high availability in Amazon Web Services (AWS).
+View the topic `High Availability: AWS </install_server_ha_aws.html>`__ for more information about how to set up the Chef server for high availability in Amazon Web Services (AWS).
 
 Chef Replication
 -----------------------------------------------------
@@ -2616,7 +2616,7 @@ A daemon named **ec-syncd** runs on each of the replica instances of the Chef se
 
 .. end_tag
 
-View the topic :doc:`Chef Replication </server_replication>` for more information about how to set up the Chef server for replication.
+View the topic `Chef Replication </server_replication.html>`__ for more information about how to set up the Chef server for replication.
 
 chef-server-ctl
 -----------------------------------------------------
@@ -2696,7 +2696,7 @@ The ``install`` subcommand downloads packages from https://packages.chef.io/ by 
 
        .. note:: .. tag chef_license_reconfigure_manage
 
-                 Starting with the Chef management console 2.3.0, the :doc:`Chef MLSA </chef_license>` must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
+                 Starting with the Chef management console 2.3.0, the `Chef MLSA </chef_license.html>`__ must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
 
                  .. end_tag
 

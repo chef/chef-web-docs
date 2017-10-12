@@ -40,10 +40,10 @@ What's New in 13.4.19
    * `CVE-2017-0900 <https://nvd.nist.gov/vuln/detail/CVE-2017-0900>`_
    * `CVE-2017-0901 <https://nvd.nist.gov/vuln/detail/CVE-2017-0901>`_
    * `CVE-2017-0902 <https://nvd.nist.gov/vuln/detail/CVE-2017-0902>`__
-* **Additional ifconfig options on RHEL and CentOS** The ``ethtool_opts``, ``bonding_opts``, ``master``, and ``slave`` properties have been added. See the :doc:`ifconfig resource documentation </resource_ifconfig>` for additional details. 
+* **Additional ifconfig options on RHEL and CentOS** The ``ethtool_opts``, ``bonding_opts``, ``master``, and ``slave`` properties have been added. See the `ifconfig resource documentation </resource_ifconfig.html>`__ for additional details. 
 * **Chef vault now included by default** Chef client 13.4 includes the ``chef-vault`` gem, so users can more easily work with encrypted items.
-* **Windows remote_file resource now supports alternative credentials** The ``remote_user``, ``remote_domain``, and ``remote_password`` options have been added to allow access to a file even if the Chef client process identity does not have permission to access it. This is mainly intended to be used for accessing files between two nodes on different domains. See the :doc:`remote_file documentation </resource_remote_file>` for more information. 
-* **New windows_path resource** ``windows_path`` has been moved from the Windows cookbook to core Chef. The ``windows_path`` resource is used to manage the path environment variable on Windows. See the :doc:`windows_path documentation </resource_windows_path>` for additional details. 
+* **Windows remote_file resource now supports alternative credentials** The ``remote_user``, ``remote_domain``, and ``remote_password`` options have been added to allow access to a file even if the Chef client process identity does not have permission to access it. This is mainly intended to be used for accessing files between two nodes on different domains. See the `remote_file documentation </resource_remote_file.html>`__ for more information. 
+* **New windows_path resource** ``windows_path`` has been moved from the Windows cookbook to core Chef. The ``windows_path`` resource is used to manage the path environment variable on Windows. See the `windows_path documentation </resource_windows_path.html>`__ for additional details. 
 
 Ohai 13.4
 -----------------------------------------------------
@@ -548,7 +548,7 @@ When Chef Client is running as a forked process on unix systems, the standardize
 
 New deprecations included in this release
 -----------------------------------------------------
-* :doc:`Removal of support for Ohai version 6 plugins</deprecations_ohai_v6_plugins>`
+* `Removal of support for Ohai version 6 plugins</deprecations_ohai_v6_plugins.html>`__
 
 What's New in 12.20
 =====================================================
@@ -664,9 +664,9 @@ The following items are new for chef-client 12.18 and/or are changes from previo
 
 New deprecations included in this release
 -----------------------------------------------------
-* :doc:`Chef::Platform helper methods </deprecations_chef_platform_methods>`
-* :doc:`run_command helper method </deprecations_run_command>`
-* :doc:`DNF package allow_downgrade property </deprecations_dnf_package_allow_downgrade>`
+* `Chef::Platform helper methods </deprecations_chef_platform_methods.html>`__
+* `run_command helper method </deprecations_run_command.html>`__
+* `DNF package allow_downgrade property </deprecations_dnf_package_allow_downgrade.html>`__
 
 
 What's New in 12.17
@@ -913,7 +913,7 @@ Use the **yum_repository** resource to manage a Yum repository configuration fil
 
 .. end_tag
 
-For syntax, a list of properties and actions, see :doc:`yum_repository </resource_yum_repository>`.
+For syntax, a list of properties and actions, see `yum_repository </resource_yum_repository.html>`__.
 
 sensitive: true
 -----------------------------------------------------
@@ -4038,7 +4038,7 @@ The following examples show:
 
 #. A definition
 #. The same definition rewritten as a custom resource
-#. The same definition, rewritten again to use a :doc:`common resource property </resource_common>`
+#. The same definition, rewritten again to use a `common resource property </resource_common.html>`__
 
 .. end_tag
 
@@ -4109,7 +4109,7 @@ Common Properties
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag definition_example_as_resource_with_common_properties
 
-Unlike definitions, custom resources are able to use :doc:`common resource properties </resource_common>`. For example, ``only_if``:
+Unlike definitions, custom resources are able to use `common resource properties </resource_common.html>`__. For example, ``only_if``:
 
 .. code-block:: ruby
 
@@ -4540,7 +4540,7 @@ Examples:
 
 .. tag resource_package_windows_source_remote_file_attributes
 
-The **windows_package** resource may specify a package at a remote location using the ``remote_file_attributes`` property. This uses the **remote_file** resource to download the contents at the specified URL and passes in a Hash that modifes the properties of the :doc:`remote_file resource </resource_remote_file>`.
+The **windows_package** resource may specify a package at a remote location using the ``remote_file_attributes`` property. This uses the **remote_file** resource to download the contents at the specified URL and passes in a Hash that modifes the properties of the `remote_file resource </resource_remote_file.html>`__.
 
 For example:
 
@@ -7113,7 +7113,7 @@ The following items are new for chef-client 12.0 and/or are changes from previou
 * **SSL certificate validation improvements** The default settings for SSL certificate validation now default in favor of validation. In addition, using the ``knife ssl fetch`` subcommand is now an important part of setting up your workstation.
 * **New property for git resource** The **git** resource has a new property: ``environment``, which takes a Hash of environment variables in the form of ``{"ENV_VARIABLE" => "VALUE"}``.
 
-Please :doc:`view the notes </upgrade_client_notes>` for more background on the upgrade process from chef-client 11 to chef-client 12.
+Please `view the notes </upgrade_client_notes.html>`__ for more background on the upgrade process from chef-client 11 to chef-client 12.
 
 Change Attributes
 -----------------------------------------------------

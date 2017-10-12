@@ -22,9 +22,9 @@ comprehensive 24×7 support services for the entire platform, including open sou
 Compliance
 ======================================================
 
-Chef Automate 1.5.46 or later provides an easy way to view how successful the nodes in your infrastructure are at meeting the compliance requirements specified by your organization. Several built-in profiles are included in Chef Automate to scan for security risks, outdated software, and more. These profiles cover a variety of security frameworks, such as Center for Internet Security (CIS) benchmarks. If you have additional compliance requirements, you can also write your own compliance profiles in InSpec and upload them to Chef Automate. For more information how to view the compliance status across your cluster, see :doc:`Compliance Overview </chef_automate_compliance>`.
+Chef Automate 1.5.46 or later provides an easy way to view how successful the nodes in your infrastructure are at meeting the compliance requirements specified by your organization. Several built-in profiles are included in Chef Automate to scan for security risks, outdated software, and more. These profiles cover a variety of security frameworks, such as Center for Internet Security (CIS) benchmarks. If you have additional compliance requirements, you can also write your own compliance profiles in InSpec and upload them to Chef Automate. For more information how to view the compliance status across your cluster, see `Compliance Overview </chef_automate_compliance.html>`__.
 
-If you are using an older version of Chef Automate, or your workflow requires you to use our standalone Chef Compliance server, you can find general information on Chef Compliance :doc:`here </chef_compliance>`. 
+If you are using an older version of Chef Automate, or your workflow requires you to use our standalone Chef Compliance server, you can find general information on Chef Compliance `here </chef_compliance.html>`__. 
 
 .. tag beta_note
 
@@ -37,7 +37,7 @@ Visibility
 
 Chef Automate gives you a data warehouse that accepts input from Chef, Habitat, and Chef Automate
 workflow and compliance. It provides views into operational, compliance, and workflow events. There is a query
-language available through the UI and customizable dashboards. For more information, see :doc:`Visibility Overview </visibility>`.
+language available through the UI and customizable dashboards. For more information, see `Visibility Overview </visibility.html>`__.
 
 Workflow
 ======================================================
@@ -45,4 +45,4 @@ Workflow
 Chef Automate includes a pipeline for continuous delivery of infrastructure and applications.
 This full-stack approach, where infrastructure changes are delivered in tandem with any application changes,
 allows for safe deployment at high velocity. For information Chef Automate safely moves changes move through a gated pipeline,
-see :doc:`Workflow Overview </workflow>`.
+see `Workflow Overview </workflow.html>`__.

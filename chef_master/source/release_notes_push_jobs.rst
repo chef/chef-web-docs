@@ -105,7 +105,7 @@ In addition to environment variables specified with the ``--with-env`` flag, the
 
 Server Sent Event Feeds
 =====================================================
-There are two new endpoints that provide feeds for the state of jobs on the server. There's an organization-level feed that provides high level job start/completion information, and a per job feed that provides node level state changes for a particular job. As of this release, these feeds are only available via the :doc:`Chef Push Jobs API </api_push_jobs>`.
+There are two new endpoints that provide feeds for the state of jobs on the server. There's an organization-level feed that provides high level job start/completion information, and a per job feed that provides node level state changes for a particular job. As of this release, these feeds are only available via the `Chef Push Jobs API </api_push_jobs.html>`__.
 
 Here is a quick example of what an organization-level feed might look like.
 

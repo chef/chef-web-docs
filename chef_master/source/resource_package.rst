@@ -13,26 +13,26 @@ This resource is the base resource for several other resources used for package 
 
 For more information about specific resources for specific platforms, see the following topics:
 
-* :doc:`apt_package </resource_apt_package>`
-* :doc:`bff_package </resource_bff_package>`
-* :doc:`chef_gem </resource_chef_gem>`
-* :doc:`chocolatey_package </resource_chocolatey_package>`
-* :doc:`dpkg_package </resource_dpkg_package>`
-* :doc:`freebsd_package </resource_freebsd_package>`
-* :doc:`gem_package </resource_gem_package>`
-* :doc:`homebrew_package </resource_homebrew_package>`
-* :doc:`ips_package </resource_ips_package>`
-* :doc:`macports_package </resource_macports_package>`
-* :doc:`openbsd_package </resource_openbsd_package>`
-* :doc:`pacman_package </resource_pacman_package>`
-* :doc:`paludis_package </resource_paludis_package>`
-* :doc:`portage_package </resource_portage_package>`
-* :doc:`rpm_package </resource_rpm_package>`
-* :doc:`smartos_package </resource_smartos_package>`
-* :doc:`solaris_package </resource_solaris_package>`
-* :doc:`windows_package </resource_windows_package>`
-* :doc:`yum_package </resource_yum>`
-* :doc:`zypper_package </resource_zypper_package>`
+* `apt_package </resource_apt_package.html>`__
+* `bff_package </resource_bff_package.html>`__
+* `chef_gem </resource_chef_gem.html>`__
+* `chocolatey_package </resource_chocolatey_package.html>`__
+* `dpkg_package </resource_dpkg_package.html>`__
+* `freebsd_package </resource_freebsd_package.html>`__
+* `gem_package </resource_gem_package.html>`__
+* `homebrew_package </resource_homebrew_package.html>`__
+* `ips_package </resource_ips_package.html>`__
+* `macports_package </resource_macports_package.html>`__
+* `openbsd_package </resource_openbsd_package.html>`__
+* `pacman_package </resource_pacman_package.html>`__
+* `paludis_package </resource_paludis_package.html>`__
+* `portage_package </resource_portage_package.html>`__
+* `rpm_package </resource_rpm_package.html>`__
+* `smartos_package </resource_smartos_package.html>`__
+* `solaris_package </resource_solaris_package.html>`__
+* `windows_package </resource_windows_package.html>`__
+* `yum_package </resource_yum.html>`__
+* `zypper_package </resource_zypper_package.html>`__
 
 Syntax
 =====================================================

@@ -173,7 +173,7 @@ kitchen is the command-line tool for Kitchen, an integration testing tool used b
 
 .. end_tag
 
-.. note:: For more information about the ``kitchen`` command line tool, see :doc:`kitchen </ctl_kitchen>`.
+.. note:: For more information about the ``kitchen`` command line tool, see `kitchen </ctl_kitchen.html>`__.
 
 .kitchen.yml
 =====================================================
@@ -183,7 +183,7 @@ Use a .kitchen.yml file to define what is required to run Kitchen, including dri
 
 .. end_tag
 
-.. note:: For more information about the .kitchen.yml file, see :doc:`kitchen.yml </config_yml_kitchen>`.
+.. note:: For more information about the .kitchen.yml file, see `kitchen.yml </config_yml_kitchen.html>`__.
 
 Syntax
 -----------------------------------------------------

@@ -53,7 +53,7 @@ Listen
 
 Interact
 =====================================================
-* :doc:`Community Guidelines </community_guidelines>`
+* `Community Guidelines </community_guidelines.html>`__
 * `@chef <https://twitter.com/chef>`_
 * `@chef-docs <https://twitter.com/chefdocs>`_
 * `@opscode_status <https://twitter.com/opscode_status>`_
@@ -72,7 +72,7 @@ Contribute
 
 Supermarket
 =====================================================
-* :doc:`About Supermarket </supermarket>`
+* `About Supermarket </supermarket.html>`__
 * `Visit Supermarket <https://supermarket.chef.io>`_
 * `Cookbooks available on Supermarket <https://supermarket.chef.io/cookbooks-directory>`_
 

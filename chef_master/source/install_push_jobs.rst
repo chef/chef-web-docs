@@ -149,7 +149,7 @@ Chef push jobs uses the Chef server API and a Ruby client to initiate all connec
 
 .. end_tag
 
-.. note:: The Chef server uses role-based access control to define the :doc:`organizations, groups, and users </server_orgs>`, including those needed by Chef push jobs.
+.. note:: The Chef server uses role-based access control to define the `organizations, groups, and users </server_orgs.html>`__, including those needed by Chef push jobs.
 
 .. tag server_rbac_groups_push_jobs
 

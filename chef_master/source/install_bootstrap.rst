@@ -5,9 +5,9 @@ Bootstrap a Node
 
 .. tag chef_client_bootstrap_node
 
-A node is any physical, virtual, or cloud machine that is configured to be maintained by a chef-client. In order to bootstrap a node, you will first need a working installation of the :doc:`Chef software package </packages>`. A bootstrap is a process that installs the chef-client on a target system so that it can run as a chef-client and communicate with a Chef server. There are two ways to do this:
+A node is any physical, virtual, or cloud machine that is configured to be maintained by a chef-client. In order to bootstrap a node, you will first need a working installation of the `Chef software package </packages.html>`__. A bootstrap is a process that installs the chef-client on a target system so that it can run as a chef-client and communicate with a Chef server. There are two ways to do this:
 
-* Use the ``knife bootstrap`` subcommand to :doc:`bootstrap a node using the omnibus installer </install_bootstrap>`
+* Use the ``knife bootstrap`` subcommand to `bootstrap a node using the omnibus installer </install_bootstrap.html>`__
 * Use an unattended install to bootstrap a node from itself, without using SSH or WinRM
 
 .. end_tag
@@ -38,7 +38,7 @@ The ``knife bootstrap`` subcommand is used to run a bootstrap operation that ins
 
       $ knife bootstrap 123.45.6.789 -x username -P password --sudo
 
-   where ``123.45.6.789`` is the IP address or the FQDN for the node. Use the ``--distro`` option to specify a non-default distribution. For more information about the options available to the ``knife bootstrap`` command for Ubuntu- and Linux-based platforms, see :doc:`knife bootstrap </knife_bootstrap>`. For Microsoft Windows, the ``knife windows`` plugin is required, see :doc:`knife windows </plugin_knife_windows>`.
+   where ``123.45.6.789`` is the IP address or the FQDN for the node. Use the ``--distro`` option to specify a non-default distribution. For more information about the options available to the ``knife bootstrap`` command for Ubuntu- and Linux-based platforms, see `knife bootstrap </knife_bootstrap.html>`__. For Microsoft Windows, the ``knife windows`` plugin is required, see `knife windows </plugin_knife_windows.html>`__.
 
    And then while the bootstrap operation is running, the command window will show something like the following:
 
@@ -474,7 +474,7 @@ Bash User Data
 
    sudo chef-client -j /etc/chef/first-boot.json
 
-It is important that settings in the :doc:`client.rb file </config_rb_client>`---``chef_server_url``, ``http_proxy``, and so on are used---to ensure that configuration details are built into the unattended bootstrap process.
+It is important that settings in the `client.rb file </config_rb_client.html>`__---``chef_server_url``, ``http_proxy``, and so on are used---to ensure that configuration details are built into the unattended bootstrap process.
 
 **Setting the initial run-list**
 

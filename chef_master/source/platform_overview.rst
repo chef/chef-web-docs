@@ -121,9 +121,9 @@ Chef Automate creates customizable reports that identify compliance issues, secu
 
 Compliance reporting is currently done through two mechanisms: The integrated compliance reporting in Chef Automate 0.8.5 or later, and the standalone Chef Compliance server.
 
-For information on the integrated reporting capabilities in Chef Automate, see :doc:`Compliance Overview </chef_automate_compliance>`.
+For information on the integrated reporting capabilities in Chef Automate, see `Compliance Overview </chef_automate_compliance.html>`__.
 
-For information on how to use the standalone Chef Compliance server, see :doc:`Chef Compliance </chef_compliance>`.
+For information on how to use the standalone Chef Compliance server, see `Chef Compliance </chef_compliance.html>`__.
 
 High availability
 -----------------------------------------------------

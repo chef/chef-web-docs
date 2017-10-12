@@ -9,9 +9,9 @@ The ``knife opc`` subcommand is used to manage organizations and users in Chef s
 
 .. note:: The ``knife-opc`` plugin ships in ChefDK 1.0 and later. If you use an older version, please upgrade, or install ``knife-opc`` from RubyGems manually.
 
-.. note:: Administrator permissions are required to add, remove, or edit users. To manage organizations, or change a user's assignment to an organization, the pivotal key is required. To grant a user administrator permissions, use ``chef-server-ctl grant-server-admin-permissions USER_NAME`` on the Chef server. :doc:`See chef-server-ctl for details </ctl_chef_server>`.
+.. note:: Administrator permissions are required to add, remove, or edit users. To manage organizations, or change a user's assignment to an organization, the pivotal key is required. To grant a user administrator permissions, use ``chef-server-ctl grant-server-admin-permissions USER_NAME`` on the Chef server. `See chef-server-ctl for details </ctl_chef_server.html>`__.
 
-.. note:: Review the list of :doc:`common options </knife_options>` available to this (and all) knife subcommands and plugins.
+.. note:: Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
 .. end_tag
 
@@ -35,7 +35,7 @@ To configure knife-opc, set the ``chef_server_root`` option to the root of your 
 
 If your ``chef_server_url`` configuration ends with ``/organizations/ORG_NAME`` (as shown above), this setting will default to ``https://chef.yourdomain.com/``.
 
-.. note:: On Chef server 12, the majority of the commands provided by this plugin can be accessed via ``chef-server-ctl`` wrapper commands. :doc:`See chef-server-ctl for details </ctl_chef_server>`.
+.. note:: On Chef server 12, the majority of the commands provided by this plugin can be accessed via ``chef-server-ctl`` wrapper commands. `See chef-server-ctl for details </ctl_chef_server.html>`__.
 
 .. _plugin_knife_opc-opc-user-list:
 

@@ -10,4 +10,4 @@ Remediation
 
 If you have custom Ohai V6 plugins installed via cookbook or bootstrap you will need to update these plugins to the Ohai V7 plugin format.
 
-See the :doc:`Ohai Custom Plugins page </ohai_custom>` for additional information on writing V7 plugins.
+See the `Ohai Custom Plugins page </ohai_custom.html>`__ for additional information on writing V7 plugins.

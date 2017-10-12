@@ -5,7 +5,7 @@ Chef Client Overview
 
 
 
-.. note:: For the ``chef-client`` command line tool, see :doc:`chef-client(executable) </ctl_chef_client>`
+.. note:: For the ``chef-client`` command line tool, see `chef-client(executable) </ctl_chef_client.html>`__
    The chef-client executable can be run as a daemon.
 
 .. list-table::
@@ -264,8 +264,8 @@ Knife Subcommands
 -----------------------------------------------------
 The chef-client includes two knife commands for managing SSL certificates:
 
-* Use :doc:`knife ssl check </knife_ssl_check>` to troubleshoot SSL certificate issues
-* Use :doc:`knife ssl fetch </knife_ssl_fetch>` to pull down a certificate from the Chef server to the ``/.chef/trusted_certs`` directory on the workstation.
+* Use `knife ssl check </knife_ssl_check.html>`__ to troubleshoot SSL certificate issues
+* Use `knife ssl fetch </knife_ssl_fetch.html>`__ to pull down a certificate from the Chef server to the ``/.chef/trusted_certs`` directory on the workstation.
 
 After the workstation has the correct SSL certificate, bootstrap operations from that workstation will use the certificate in the ``/.chef/trusted_certs`` directory during the bootstrap operation.
 
@@ -426,9 +426,9 @@ The omnibus installer puts everything into a unique directory (``/opt/chef/``) s
 
 .. tag chef_client_bootstrap_node
 
-A node is any physical, virtual, or cloud machine that is configured to be maintained by a chef-client. In order to bootstrap a node, you will first need a working installation of the :doc:`Chef software package </packages>`. A bootstrap is a process that installs the chef-client on a target system so that it can run as a chef-client and communicate with a Chef server. There are two ways to do this:
+A node is any physical, virtual, or cloud machine that is configured to be maintained by a chef-client. In order to bootstrap a node, you will first need a working installation of the `Chef software package </packages.html>`__. A bootstrap is a process that installs the chef-client on a target system so that it can run as a chef-client and communicate with a Chef server. There are two ways to do this:
 
-* Use the ``knife bootstrap`` subcommand to :doc:`bootstrap a node using the omnibus installer </install_bootstrap>`
+* Use the ``knife bootstrap`` subcommand to `bootstrap a node using the omnibus installer </install_bootstrap.html>`__
 * Use an unattended install to bootstrap a node from itself, without using SSH or WinRM
 
 .. end_tag
@@ -450,7 +450,7 @@ During a ``knife bootstrap`` bootstrap operation, the following happens:
    * - **$ knife bootstrap**
      - On UNIX- and Linux-based machines: The ``knife bootstrap`` subcommand is issued from a workstation. The hostname, IP address, or FQDN of the target node is issued as part of this command. An SSH connection is established with the target node using port 22. A shell script is assembled using the chef-full.erb (the default bootstrap template), and is then executed on the target node.
 
-       On Microsoft Windows machines: The ``knife bootstrap windows winrm`` subcommand is issued from a workstation. (This command is part of the :doc:`knife windows plugin </plugin_knife_windows>`.) The hostname, IP address, or FQDN of the target node is issued as part of this command. A connection is established with the target node using WinRM over port 5985. (WinRM must be enabled with the corresponding firewall rules in place.)
+       On Microsoft Windows machines: The ``knife bootstrap windows winrm`` subcommand is issued from a workstation. (This command is part of the `knife windows plugin </plugin_knife_windows.html>`__.) The hostname, IP address, or FQDN of the target node is issued as part of this command. A connection is established with the target node using WinRM over port 5985. (WinRM must be enabled with the corresponding firewall rules in place.)
    * - **Get the install script from Chef**
      - On UNIX- and Linux-based machines: The shell script that is derived from the chef-full.erb bootstrap template will make a request to the Chef website to get the most recent version of a second shell script (``install.sh``).
 
@@ -466,6 +466,6 @@ During a ``knife bootstrap`` bootstrap operation, the following happens:
    * - **Complete the chef-client run**
      - The chef-client run proceeds, using HTTPS (port 443), and registers the node with the Chef server.
 
-       The first chef-client run, by default, contains an empty run-list. A :doc:`run-list can be specified </knife_bootstrap>` as part of the initial bootstrap operation using the ``--run-list`` option as part of the ``knife bootstrap`` subcommand.
+       The first chef-client run, by default, contains an empty run-list. A `run-list can be specified </knife_bootstrap.html>`__ as part of the initial bootstrap operation using the ``--run-list`` option as part of the ``knife bootstrap`` subcommand.
 
 .. end_tag

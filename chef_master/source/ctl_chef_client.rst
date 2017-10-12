@@ -782,7 +782,7 @@ and then enable it using the ``mkitab`` command:
 
 Configuring a Proxy Server
 =====================================================
-See the :doc:`proxies </proxies>` documentation for information on how to configure chef-client to use a proxy server.
+See the `proxies </proxies.html>`__ documentation for information on how to configure chef-client to use a proxy server.
 
 Examples
 =====================================================

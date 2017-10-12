@@ -15,11 +15,11 @@ The ``knife role`` subcommand is used to manage the roles that are associated wi
 
 .. end_tag
 
-.. note:: To add a role to a node and then build out the run-list for that node, use the :doc:`knife node </knife_node>` subcommand and its ``run_list add`` argument.
+.. note:: To add a role to a node and then build out the run-list for that node, use the `knife node </knife_node.html>`__ subcommand and its ``run_list add`` argument.
 
 .. note:: .. tag knife_common_see_common_options_link
 
-          Review the list of :doc:`common options </knife_options>` available to this (and all) knife subcommands and plugins.
+          Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
           .. end_tag
 
@@ -72,7 +72,7 @@ This argument has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 
@@ -206,7 +206,7 @@ This command does not have any specific options.
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 
@@ -274,7 +274,7 @@ This argument has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 

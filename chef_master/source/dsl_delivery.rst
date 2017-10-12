@@ -303,7 +303,7 @@ Use attributes from the ``node['delivery']['change']`` namespace to get details 
 
 Project Configuration
 -----------------------------------------------------
-Use attributes from the ``node['delivery']['config']`` namespace to get :doc:`configuration settings from the .delivery/config.json file </config_json_delivery>`.
+Use attributes from the ``node['delivery']['config']`` namespace to get `configuration settings from the .delivery/config.json file </config_json_delivery.html>`__.
 
 ``['build-cookbook']``
    Use ``node['delivery']['config']['build-cookbook']`` for the contents of the ``"build-cookbook"`` configuration setting.

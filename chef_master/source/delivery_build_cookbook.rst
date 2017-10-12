@@ -271,7 +271,7 @@ To add a project using the Chef Automate web UI:
 
       **Verify SSL**  When selected, have GitHub perform SSL certificate verification when it connects to Chef Automate to run its web hooks.
 
-#. If you choose **Bitbucket**, you must follow the integration steps in :doc:`Integrate Delivery with Bitbucket </integrate_delivery_bitbucket>` before you can add a project. After you have done that you can add a new Chef Automate project through this web UI by entering the Bitbucket project key, repository, and target branch information.
+#. If you choose **Bitbucket**, you must follow the integration steps in `Integrate Delivery with Bitbucket </integrate_delivery_bitbucket.html>`__ before you can add a project. After you have done that you can add a new Chef Automate project through this web UI by entering the Bitbucket project key, repository, and target branch information.
 
 #. Click **Save and Close**.
 

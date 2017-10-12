@@ -3,7 +3,7 @@ delivery.rb Optional Settings
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_delivery_optional_settings.rst>`__
 
-.. warning:: The configuration settings in the ``delivery.rb`` file should not be modified before discussing those changes with Chef. Some of these settings should be considered for tuning (see :doc:`Automate Server Tuning </delivery_server_tuning>`), but many of them should be left as default values.
+.. warning:: The configuration settings in the ``delivery.rb`` file should not be modified before discussing those changes with Chef. Some of these settings should be considered for tuning (see `Automate Server Tuning </delivery_server_tuning.html>`__), but many of them should be left as default values.
 
 Settings
 =====================================================

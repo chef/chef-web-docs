@@ -351,7 +351,7 @@ For more information about ``automate-ctl`` and how to use it, see `automate-ctl
 Configure node data collection
 ------------------------------------------------------------
 
-After you have set up your Chef Server and Chef Automate server, you must perform some simple configuration steps to visualize node data in Chef Automate. This process, along with more advanced data configuration scenarios, is detailed in :doc:`Configure Data Collection </data_collection>`.
+After you have set up your Chef Server and Chef Automate server, you must perform some simple configuration steps to visualize node data in Chef Automate. This process, along with more advanced data configuration scenarios, is detailed in `Configure Data Collection </data_collection.html>`__.
 
 Set up a build node/runner (Optional)
 ------------------------------------------------------------
@@ -430,7 +430,7 @@ to complete successfully. These can be set in the environment directly, or added
 Any host that needs to make outgoing http or https connections will require these settings as well. For example, the Chef Automate server
 (which makes knife calls to Chef server) and Chef server (for push jobs) should have these configured. To update the Chef Automate server, update ``/etc/delivery/delivery.rb`` on your Chef Automate server with the values specified in `Proxy Settings </config_rb_delivery.html#proxy-settings>`_. After you have configured your settings, run ``sudo automate-ctl reconfigure``.
 
-For general information on proxy settings, please see :doc:`About Proxies </proxies>`.
+For general information on proxy settings, please see `About Proxies </proxies.html>`__.
 
 Compliance
 ===================================================================
@@ -463,9 +463,9 @@ Allows nodes to execute infrastructure tests or compliance profiles as part of t
 Troubleshooting
 ===================================================================
 
-If you run into issues during during setup or in the use of Chef Automate, see :doc:`Troubleshooting Chef Automate </troubleshooting_chef_automate>` for debugging tips and remediations.
+If you run into issues during during setup or in the use of Chef Automate, see `Troubleshooting Chef Automate </troubleshooting_chef_automate.html>`__ for debugging tips and remediations.
 
 Delivery-truck setup
 ====================================================================
 
-Delivery-truck is Chef Automate's recommended way of setting up build cookbooks.  See :doc:`About the delivery-truck Cookbook </delivery_truck>` for directions on how to get started.
+Delivery-truck is Chef Automate's recommended way of setting up build cookbooks.  See `About the delivery-truck Cookbook </delivery_truck.html>`__ for directions on how to get started.

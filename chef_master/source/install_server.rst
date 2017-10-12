@@ -22,7 +22,7 @@ The Chef server has the following prerequisites:
 * Disabling the Apache Qpid daemon on CentOS and Red Hat systems. See the `Apache Qpid </install_server_pre.html#apache-qpid>`_ of the prerequisite documentation for detailed steps. 
 * Optional. A local user account under which services will run, a local user account for PostgreSQL, and a group account under which services will run. See `UIDs and GIDs </install_server_pre.html#uids-and-gids>`__ for more information.
 
-.. note:: See the :doc:`expanded list of prerequisites </install_server_pre>` for a detailed list of software and hardware requirements.
+.. note:: See the `expanded list of prerequisites </install_server_pre.html>`__ for a detailed list of software and hardware requirements.
 
 Standalone
 =====================================================
@@ -144,7 +144,7 @@ To install Chef server 12:
 
           .. note:: .. tag chef_license_reconfigure_manage
 
-                    Starting with the Chef management console 2.3.0, the :doc:`Chef MLSA </chef_license>` must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
+                    Starting with the Chef management console 2.3.0, the `Chef MLSA </chef_license.html>`__ must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
 
                     .. end_tag
 
@@ -246,7 +246,7 @@ When using more than 25 nodes, a configuration change to your Chef server needs 
 
       sudo chef-server-ctl reconfigure
 
-For more information on configuring your Chef server, see :doc:`chef-server.rb Settings </config_rb_server>` and :doc:`chef-server.rb Optional Settings </config_rb_server_optional_settings>`.
+For more information on configuring your Chef server, see `chef-server.rb Settings </config_rb_server.html>`__ and `chef-server.rb Optional Settings </config_rb_server_optional_settings.html>`__.
 
 High Availability
 =====================================================

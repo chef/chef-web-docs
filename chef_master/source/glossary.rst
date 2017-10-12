@@ -118,4 +118,4 @@ Glossary
    A feature of Chef Automate that provides real-time visibility into what is happening on the Chef server, including what's changing, who made those changes, and when they occurred.
 
 **workflow**
-   A feature of Chef Automate that manages changes to both infrastructure and application code, giving your operations and development teams a common platform for developing, building, testing, and deploying cookbooks, applications, and more. For more information see the :doc:`Chef Automate Overview </chef_automate>`.
+   A feature of Chef Automate that manages changes to both infrastructure and application code, giving your operations and development teams a common platform for developing, building, testing, and deploying cookbooks, applications, and more. For more information see the `Chef Automate Overview </chef_automate.html>`__.

@@ -337,7 +337,7 @@ public_key_read_access
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag server_rbac_permissions_default_public_key_read_access
 
-The ``public_key_read_access`` group controls which users and clients have :doc:`read permissions to the following endpoints </api_chef_server>`:
+The ``public_key_read_access`` group controls which users and clients have `read permissions to the following endpoints </api_chef_server.html>`__:
 
 * GET /clients/CLIENT/keys
 * GET /clients/CLIENT/keys/KEY

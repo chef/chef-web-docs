@@ -5,7 +5,7 @@ knife ssh
 
 .. tag knife_ssh_summary
 
-Use the ``knife ssh`` subcommand to invoke SSH commands (in parallel) on a subset of nodes within an organization, based on the results of a :doc:`search query </chef_search>` made to the Chef server.
+Use the ``knife ssh`` subcommand to invoke SSH commands (in parallel) on a subset of nodes within an organization, based on the results of a `search query </chef_search.html>`__ made to the Chef server.
 
 .. end_tag
 
@@ -23,7 +23,7 @@ Options
 =====================================================
 .. note:: .. tag knife_common_see_common_options_link
 
-          Review the list of :doc:`common options </knife_options>` available to this (and all) knife subcommands and plugins.
+          Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
           .. end_tag
 
@@ -101,7 +101,7 @@ or:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 

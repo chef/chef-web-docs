@@ -210,7 +210,7 @@ Built-in Subcommands
    * - `knife ssh </knife_ssh.html>`_
      - .. tag knife_ssh_summary
 
-       Use the ``knife ssh`` subcommand to invoke SSH commands (in parallel) on a subset of nodes within an organization, based on the results of a :doc:`search query </chef_search>` made to the Chef server.
+       Use the ``knife ssh`` subcommand to invoke SSH commands (in parallel) on a subset of nodes within an organization, based on the results of a `search query </chef_search.html>`__ made to the Chef server.
 
        .. end_tag
 

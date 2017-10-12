@@ -34,7 +34,7 @@ The following items are prerequisites for installing the chef-client on a workst
 
 * A computer running Linux, macOS or Microsoft Windows
 * Apple Xcode is installed on machines running macOS; this application can be downloaded from Apple for free
-* Access to a Chef server: a hosted Chef server account or an on-premises Chef server. If you have a proxy, information on configuring chef-client to work with it is :doc:`here </proxies>`
+* Access to a Chef server: a hosted Chef server account or an on-premises Chef server. If you have a proxy, information on configuring chef-client to work with it is `here </proxies.html>`__
 * Access to a machine (physical or virtual) that can be used as the first node; the FQDN or IP address for a machine is required by the ``knife bootstrap`` subcommand during a bootstrap operation
 
 Get Package, Run Installer

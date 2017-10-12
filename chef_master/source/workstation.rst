@@ -25,7 +25,7 @@ Some important components of workstations include:
 
    * - Feature
      - Description
-   * - :doc:`Knife </knife>`
+   * - `Knife </knife.html>`__
      - .. tag knife_summary
 
        knife is a command-line tool that provides an interface between a local chef-repo and the Chef server. knife helps users to manage:
@@ -39,7 +39,7 @@ Some important components of workstations include:
 
        .. end_tag
 
-   * - :doc:`The chef-repo </chef_repo>`
+   * - `The chef-repo </chef_repo.html>`__
      - .. tag chef_repo_summary
 
        The chef-repo is the repository structure in which cookbooks are authored, tested, and maintained:
@@ -55,7 +55,7 @@ Some important components of workstations include:
 
        .. end_tag
 
-   * - :doc:`knife.rb </config_rb_knife>`
+   * - `knife.rb </config_rb_knife.html>`__
      - .. tag config_rb_knife_summary
 
        A knife.rb file is used to specify configuration details for knife.
@@ -85,13 +85,13 @@ The Chef Development Kit is a package that contains everything that is needed to
 
 .. end_tag
 
-After :doc:`installing the ChefDK </install_dk>`, learn more about the tools that are packaged with the Chef development kit:
+After `installing the ChefDK </install_dk.html>`__, learn more about the tools that are packaged with the Chef development kit:
 
-* :doc:`chef (executable) </ctl_chef>`
-* :doc:`Berkshelf </berkshelf>`
-* :doc:`knife </knife>`
-* :doc:`chef-vault </chef_vault>`
-* :doc:`ChefSpec </chefspec>`
-* :doc:`Foodcritic </foodcritic>`
-* :doc:`test-kitchen </kitchen>`
+* `chef (executable) </ctl_chef.html>`__
+* `Berkshelf </berkshelf.html>`__
+* `knife </knife.html>`__
+* `chef-vault </chef_vault.html>`__
+* `ChefSpec </chefspec.html>`__
+* `Foodcritic </foodcritic.html>`__
+* `test-kitchen </kitchen.html>`__
 * `InSpec <https://inspec.io/>`_
