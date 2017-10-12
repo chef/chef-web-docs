@@ -879,7 +879,7 @@ A search query can be made for roles that are at the top-level of a run-list and
 
           role:ROLE_NAME
 
-       where ``role`` (singlular!) indicates the top-level run-list.
+       where ``role`` (singular!) indicates the top-level run-list.
    * - Expanded
      - To find a node with a role in an expanded run-list, search within the ``roles`` field (and escaping any special characters with the slash symbol) using the following syntax::
 

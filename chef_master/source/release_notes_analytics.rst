@@ -29,7 +29,7 @@ What's New (1.3)
 The following items are new for Chef Analytics 1.3 and/or are changes from previous versions. The short version:
 
 * **Bug Fix** Ability to scroll through the dropdown of organizations when they are longer than the page.
-* **Database Partitioning and Management** Databse partitioning was added for easier management. This has consequences for upgrading so read below.
+* **Database Partitioning and Management** Database partitioning was added for easier management. This has consequences for upgrading so read below.
 
 Database Partitioning and Management
 -----------------------------------------------------
@@ -43,7 +43,7 @@ By default, partitions will be enabled and the data retention timeline for activ
 
 Important Notes Before You Upgrade
 -----------------------------------------------------
-It is recommended that you use paritions but if you do not wish to do so, you must disable them before running reconfigure during your upgrade process (otherwise you cannot revert paritions without data loss). To disable paritions, add the following to your opscode-analytics.rb:
+It is recommended that you use partitions but if you do not wish to do so, you must disable them before running reconfigure during your upgrade process (otherwise you cannot revert partitions without data loss). To disable partitions, add the following to your opscode-analytics.rb:
 
 .. code-block:: ruby
 
@@ -193,7 +193,7 @@ The following items are new for Chef Analytics 1.1.5 and/or are changes from pre
 * **Splunk application for Chef server** Use the Chef App for Splunk to gather insights about nodes that are under management by Chef.
 * **Rules** Use rules to generate notifications based on the results of tests run during the chef-client run.
 * **Actions** Use Chef actions to view changes made to each node object, the run history for all nodes, the history of every cookbook (and cookbook version), how and where policy settings---roles, environments, and data bags---are applied, and which users made which changes.
-* **Reporting 1.2.2** Reporting should be upgraded to version 1.2.2 for full funcationality with the Chef Analytics 1.1 release.
+* **Reporting 1.2.2** Reporting should be upgraded to version 1.2.2 for full functionality with the Chef Analytics 1.1 release.
 * **oc-id service** The **oc-id** service enables OAuth 2.0 authentication to the Chef server by Chef Analytics.
 * **knife-analytics plugin** Use the ``knife analytics`` subcommand to view information about actions, alerts, notifications, and rules that are managed by Chef Analytics.
 * **New settings for data retention** The number of months for which activities data is kept is configurable. (New in Chef Analytics 1.1.5.)
@@ -241,7 +241,7 @@ A webhook for Chef Analytics enables real-time event streams to be sent to arbit
         end
       end
 
-   Slack expects a JSON document to be sent to the incoming webook integration from Chef Analytics. Chef Analytics supports multi-line notifications to be written. Use the ``'text'`` property in the rule to send the data as a JSON document.
+   Slack expects a JSON document to be sent to the incoming webhook integration from Chef Analytics. Chef Analytics supports multi-line notifications to be written. Use the ``'text'`` property in the rule to send the data as a JSON document.
 
 #. Finally, create a rule that is more specific to the Chef Analytics data, such as assigning an emoji and a name for the notification:
 
@@ -337,7 +337,7 @@ Chef Analytics includes a powerful rules processing system that allows notificat
 * Machines on which audit-mode runs have failed
 * Resources that were updated as a result of a chef-client run
 
-Notifications may be sent to any email address, a chat service like HipChat or Slack, or to a webhook-based service for generic intergrations.
+Notifications may be sent to any email address, a chat service like HipChat or Slack, or to a webhook-based service for generic integrations.
 
 .. end_tag
 
@@ -515,7 +515,7 @@ The following rule verifies if resources have been updated on a ``run_converge``
 
 .. tag analytics_rules_verify_run_lists
 
-The following rule verfies if a specific role appears in a run-list:
+The following rule verifies if a specific role appears in a run-list:
 
 .. code-block:: ruby
 

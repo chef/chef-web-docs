@@ -97,7 +97,7 @@ The following examples show how to use cookbook definitions.
 
 Many Recipes, One Definition
 -----------------------------------------------------
-.. warning:: With the improved custom resource pattern available starting with chef-client 12.5, the need to use definitions is greatly minimized. In every case when considering to use a definition, first evaluate whether that defintion is better represented as a custom resource.
+.. warning:: With the improved custom resource pattern available starting with chef-client 12.5, the need to use definitions is greatly minimized. In every case when considering to use a definition, first evaluate whether that definition is better represented as a custom resource.
 
 Data can be passed to a definition from more than one recipe. Use a definition to create a compile-time macro that can be referenced by resources during the converge phase. For example, when both ``/etc/aliases`` and ``/etc/sudoers`` require updates from multiple recipes during a single chef-client run.
 

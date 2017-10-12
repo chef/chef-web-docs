@@ -22,8 +22,8 @@ A **windows_task** resource creates, deletes or runs a Windows scheduled task.
      user                        String # defaults to SYSTEM
      password                    String
      run_level                   Symbol # defaults to :limited
-     force                       TrueClass, FalseClass # defauls to false
-     interactive_enabled         TrueClass, FalseClass # defauls to false
+     force                       TrueClass, FalseClass # defaults to false
+     interactive_enabled         TrueClass, FalseClass # defaults to false
      frequency_modifier          Integer, String # defaults to 1
      frequency                   Symbol # defaults to :hourly
      start_day                   String

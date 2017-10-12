@@ -60,7 +60,7 @@ The chef-client has specific components that are designed to support unique aspe
 
 The most popular core resources in the chef-client---:doc:`cookbook_file </resource_cookbook_file>`, :doc:`directory </resource_directory>`, :doc:`env </resource_env>`, :doc:`execute </resource_execute>`, :doc:`file </resource_file>`, :doc:`group </resource_group>`, :doc:`http_request </resource_http_request>`, :doc:`link </resource_link>`, :doc:`mount </resource_mount>`, :doc:`package </resource_package>`, :doc:`remote_directory </resource_remote_directory>`, :doc:`remote_file </resource_remote_file>`, :doc:`ruby_block </resource_ruby_block>`, :doc:`service </resource_service>`, :doc:`template </resource_template>`, and :doc:`user </resource_user>`---work the same way in Microsoft Windows as they do on any UNIX- or Linux-based platform.
 
-The file-based resources---**cookbook_file**, **file**, **remote_file**, and **template**---have attributes that support unique requirements within the Microsoft Windows platform, including ``inherits`` (for file inheritence), ``mode`` (for octal modes), and ``rights`` (for access control lists, or ACLs).
+The file-based resources---**cookbook_file**, **file**, **remote_file**, and **template**---have attributes that support unique requirements within the Microsoft Windows platform, including ``inherits`` (for file inheritance), ``mode`` (for octal modes), and ``rights`` (for access control lists, or ACLs).
 
 .. note:: The Microsoft Windows platform does not support running as an alternate user unless full credentials (a username and password or equivalent) are specified.
 
@@ -382,7 +382,7 @@ chef-client Settings
 
 Before virtual machines can be created using the Azure portal, some chef-client-specific settings will need to be identified so they can be provided to the Azure portal during the virtual machine creation workflow. These settings are available from the chef-client configuration settings:
 
-* The ``chef_server_url`` and ``validaton_client_name``. These are settings in the :doc:`client.rb file </config_rb_client>`.
+* The ``chef_server_url`` and ``validation_client_name``. These are settings in the :doc:`client.rb file </config_rb_client>`.
 
 * The file for the :doc:`validator key </chef_private_keys>`.
 
@@ -430,7 +430,7 @@ Once this information has been identified, launch the Azure portal, start the vi
 
 #. For **Client Configuration File**, browse to the ``chef-repo/.chef/knife.rb`` file and upload it through your web browser.
 
-   .. note:: Same directory issue from previous step applies here as well. Also, the ``knife.rb`` file must be correctly configured to communicate to the Chef server. Specifically, it must have valid values for the following two settings: ``chef_server_url`` and ``validaton_client_name``.
+   .. note:: Same directory issue from previous step applies here as well. Also, the ``knife.rb`` file must be correctly configured to communicate to the Chef server. Specifically, it must have valid values for the following two settings: ``chef_server_url`` and ``validation_client_name``.
 
 #. Optional. :doc:`Use a run-list </run_lists>` to specify what should be run when the virtual machine is provisioned, such as using the run-list to provision a virtual machine with Internet Information Services (IIS). Use the ``iis`` cookbook and the default recipe to build a run-list. For example:
 
@@ -528,7 +528,7 @@ Troubleshoot Log Files
 After the log files have been located, open them using a text editor to view the log file. The most common problem are below:
 
 * Connectivity errors with the Chef server caused by incorrect settings in the client.rb file. Ensure that the ``chef_server_url`` value in the client.rb file is the correct value and that it can be resolved.
-* An invalid validator key has been specified. This will prevent the chef-client from authenticating to the Chef server. Ensure that the ``validaton_client_name`` value in the client.rb file is the correct value
+* An invalid validator key has been specified. This will prevent the chef-client from authenticating to the Chef server. Ensure that the ``validation_client_name`` value in the client.rb file is the correct value
 * The name of the node is the same as an existing node. Node names must be unique. Ensure that the name of the virtual machine in Microsoft Azure has a unique name.
 * An error in one the run-list. The log file will specify the details about errors related to the run-list.
 
@@ -2505,7 +2505,7 @@ Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_dsc_resource_syntax
 
-A **dsc_resource** resource block allows DSC resourcs to be used in a Chef recipe. For example, the DSC ``Archive`` resource:
+A **dsc_resource** resource block allows DSC resources to be used in a Chef recipe. For example, the DSC ``Archive`` resource:
 
 .. code-block:: powershell
 
@@ -3667,7 +3667,7 @@ This resource has the following properties:
 
    Return ``0`` if the last line of a command is evaluated to be true or to return ``1`` if the last line is evaluated to be false. Default value: ``false``.
 
-   When the ``guard_intrepreter`` common attribute is set to ``:powershell_script``, a string command will be evaluated as if this value were set to ``true``. This is because the behavior of this attribute is similar to the value of the ``"$?"`` expression common in UNIX interpreters. For example, this:
+   When the ``guard_interpreter`` common attribute is set to ``:powershell_script``, a string command will be evaluated as if this value were set to ``true``. This is because the behavior of this attribute is similar to the value of the ``"$?"`` expression common in UNIX interpreters. For example, this:
 
    .. code-block:: ruby
 
@@ -3839,7 +3839,7 @@ This resource has the following properties:
 ``user``
    **Ruby Types:** String
 
-   The user name of the user identity with which to launch the new process. Default value: `nil`. The user name may optionally be specifed with a domain, i.e. `domain\user` or `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can also be specified without a domain simply as user if the domain is instead specified using the `domain` attribute. On Windows only, if this property is specified, the `password` property must be specified.
+   The user name of the user identity with which to launch the new process. Default value: `nil`. The user name may optionally be specified with a domain, i.e. `domain\user` or `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can also be specified without a domain simply as user if the domain is instead specified using the `domain` attribute. On Windows only, if this property is specified, the `password` property must be specified.
 
 ``password``
    **Ruby Types:** String
@@ -4024,7 +4024,7 @@ A Microsoft Windows registry key can be used as a string in Ruby code, such as w
 
    HKCU\SOFTWARE\Policies\Microsoft\Windows\CurrentVersion\Themes
 
-may be encloused in a single-quoted string with a single backslash:
+may be enclosed in a single-quoted string with a single backslash:
 
 .. code-block:: ruby
 

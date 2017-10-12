@@ -126,7 +126,7 @@ This subcommand has the following syntax:
 
 delete-backups
 =====================================================
-The ``delete-backups`` subcommand is used to delete Chef Automate backup archives and Elasticseach snapshots. The command matches a given regular expression and prompts the user to confirm deletion of each matched backup or snapshot.
+The ``delete-backups`` subcommand is used to delete Chef Automate backup archives and Elasticsearch snapshots. The command matches a given regular expression and prompts the user to confirm deletion of each matched backup or snapshot.
 
 **Syntax**
 
@@ -246,7 +246,7 @@ New in Chef Automate 1.6.87.
       -n, --name NODE_NAME             The name of the node you wish to delete
       -o, --org ORG_NAME               The organization name of the node you wish to delete
       -s, --chef-server-fqdn FQDN      The fully qualified domain name of the node's Chef server
-      -b, --batch-size string          Maximum number of documents to modify in each Elasicsearch bulk request
+      -b, --batch-size string          Maximum number of documents to modify in each Elasticsearch bulk request
       -d, --[no-]node-data             Delete the node run and converge data
       -c, --[no-]compliance-data       Delete the node compliance data
           --force                      Agree to all warnings and prompts
@@ -391,7 +391,7 @@ Installing a custom version of ChefDK via download, a identity file for ssh acce
 
 list-backups
 =====================================================
-The ``list-backups`` subcommand is used to list Chef Automate backup archives and Elasticseach snapshots.
+The ``list-backups`` subcommand is used to list Chef Automate backup archives and Elasticsearch snapshots.
 
 **Syntax**
 

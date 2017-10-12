@@ -561,7 +561,7 @@ For communication between Chef Analytics and the Chef server, ensure that ports 
    * - 5672
      - **rabbitmq**
 
-       .. note:: The RabbitMQ port on the Chef server must alow inbound traffic from Chef Analytics.
+       .. note:: The RabbitMQ port on the Chef server must allow inbound traffic from Chef Analytics.
      - no
    * - 10011
      - actions

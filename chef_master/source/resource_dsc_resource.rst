@@ -46,7 +46,7 @@ Syntax
 =====================================================
 .. tag resource_dsc_resource_syntax
 
-A **dsc_resource** resource block allows DSC resourcs to be used in a Chef recipe. For example, the DSC ``Archive`` resource:
+A **dsc_resource** resource block allows DSC resources to be used in a Chef recipe. For example, the DSC ``Archive`` resource:
 
 .. code-block:: powershell
 

@@ -226,6 +226,6 @@ To view permissions for an environment object:
 #. Open the Chef management console.
 #. Click **Policy**.
 #. Click **Environments**.
-#. Select an enviromnent.
+#. Select an environment.
 #. Click the **Permissions** tab.
 #. Set the appropriate permissions: **Read**, **Update**, **Delete**, and **Grant**.

@@ -310,7 +310,7 @@ Some more complex ways to debug issues with a chef-client run include:
 
 * Using the **chef_handler** cookbook
 * Using the chef-shell and the **breakpoint** resource to add breakpoints to recipes, and to then step through the recipes using the breakpoints
-* Using the ``debug_value`` method from chef-shell to indentify the location(s) from which attribute values are being set
+* Using the ``debug_value`` method from chef-shell to identify the location(s) from which attribute values are being set
 * Using the ``ignore_failure`` method in a recipe to force the chef-client to move past an error to see what else is going on in the recipe, outside of a known failure
 * Using chef-solo to run targeted chef-client runs for specific scenarios
 
@@ -1064,7 +1064,7 @@ This command has the following options:
    The URL location from which a remote cookbook tar.gz is to be downloaded.
 
 ``-s SECONDS``, ``--splay SECONDS``
-   A random number between zero and ``splay`` that is added to ``interval``. Use splay to help balance the load on the Chef server by ensuring that many chef-client runs are not occuring at the same interval. When the chef-client is run at intervals, ``--splay`` values are applied first, then the chef-client run occurs, and then ``--interval`` values are applied.
+   A random number between zero and ``splay`` that is added to ``interval``. Use splay to help balance the load on the Chef server by ensuring that many chef-client runs are not occurring at the same interval. When the chef-client is run at intervals, ``--splay`` values are applied first, then the chef-client run occurs, and then ``--interval`` values are applied.
 
    Changed in Chef Client 12.0 to be applied before the chef-client run.
 

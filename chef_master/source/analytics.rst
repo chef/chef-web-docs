@@ -96,7 +96,7 @@ The following diagram shows the relationships between the various elements of Ch
        * Machines on which audit-mode runs have failed
        * Resources that were updated as a result of a chef-client run
 
-       Notifications may be sent to any email address, a chat service like HipChat or Slack, or to a webhook-based service for generic intergrations.
+       Notifications may be sent to any email address, a chat service like HipChat or Slack, or to a webhook-based service for generic integrations.
 
        .. end_tag
 
@@ -177,7 +177,7 @@ Next, create a notification in Chef Analytics:
         - Choose a color for the notification. Defaults to yellow.
       * - **Notify the room**
         - Optional. Choose "yes" if you want HipChat to alert room participants when
-          the room recieves this notification. Otherwise choose "no."
+          the room receives this notification. Otherwise choose "no."
 
 #. Click on **Save**. The new notification will be displayed in the **Notifications** list.
 
@@ -220,7 +220,7 @@ A webhook for Chef Analytics enables real-time event streams to be sent to arbit
         end
       end
 
-   Slack expects a JSON document to be sent to the incoming webook integration from Chef Analytics. Chef Analytics supports multi-line notifications to be written. Use the ``'text'`` property in the rule to send the data as a JSON document.
+   Slack expects a JSON document to be sent to the incoming webhook integration from Chef Analytics. Chef Analytics supports multi-line notifications to be written. Use the ``'text'`` property in the rule to send the data as a JSON document.
 
 #. Finally, create a rule that is more specific to the Chef Analytics data, such as assigning an emoji and a name for the notification:
 
@@ -488,7 +488,7 @@ Chef Analytics includes a powerful rules processing system that allows notificat
 * Machines on which audit-mode runs have failed
 * Resources that were updated as a result of a chef-client run
 
-Notifications may be sent to any email address, a chat service like HipChat or Slack, or to a webhook-based service for generic intergrations.
+Notifications may be sent to any email address, a chat service like HipChat or Slack, or to a webhook-based service for generic integrations.
 
 .. end_tag
 

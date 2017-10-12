@@ -5186,7 +5186,7 @@ Run the following from a ``.chef`` directory that contains a ``pivotal.rb`` file
      puts user
    end
 
-An examle of a ``.chef/pivotal.rb`` file is shown below:
+An example of a ``.chef/pivotal.rb`` file is shown below:
 
 .. code-block:: ruby
 

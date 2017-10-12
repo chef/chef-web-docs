@@ -197,7 +197,7 @@ chef generate app
 Use the ``chef generate app`` subcommand to generate a cookbook structure that:
 
 * Supports multiple cookbooks (as many as needed to support an "application")
-* Supports a top-level instance of Kitchen that can be used to test each cookbook in the appication
+* Supports a top-level instance of Kitchen that can be used to test each cookbook in the application
 * Supports a single Policyfile.rb, which is an upcoming feature of the Chef development kit that defines a workflow around a set of cookbooks and related policy (such as roles, environments, and so on); for more information about Policyfile.rb, see the chef.lists discussions (search for "policyfile")
 
 .. note:: .. tag ruby_style_patterns_hyphens
@@ -1771,7 +1771,7 @@ chef push-archive
 -----------------------------------------------------
 .. tag ctl_chef_push_archive
 
-The ``chef push-archive`` subcommand is used to publish a policy archive file to the Chef server. (A policy archive is created using the ``chef export`` subcommand.) The policy archive is assigned to the speciified policy group, which is a set of nodes that share the same run-list and cookbooks.
+The ``chef push-archive`` subcommand is used to publish a policy archive file to the Chef server. (A policy archive is created using the ``chef export`` subcommand.) The policy archive is assigned to the specified policy group, which is a set of nodes that share the same run-list and cookbooks.
 
 .. end_tag
 

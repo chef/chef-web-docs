@@ -116,7 +116,7 @@ This ensures that the dependencies of the cookbook are resolved by Berkshelf. Us
 Cookbook Keyword
 ++++++++++++++++++
 
-The ``cookbook`` keyword allows the user to define where a cookbook is installed from, or to set additional version constraints. It can also be used to install additonal cookbooks, for example to use during testing.
+The ``cookbook`` keyword allows the user to define where a cookbook is installed from, or to set additional version constraints. It can also be used to install additional cookbooks, for example to use during testing.
 
 The format of a ``cookbook`` stanza is as follows:
 
@@ -140,7 +140,7 @@ Version constraints are the second parameter:
 
 These are identical to the version constraints in a :ref:`cookbook metadata file <cookbook_version_constraints>`.
 
-Source options are used to specify the location to acquire a cookbook from, or to place a cookbook in a group. By default, cookbooks are acquired from the default sources, but it's possible to override this on a case by case basis. Often this is used to get a development cookbok from Git, or to use another cookbook in a monolithic cookbook repository.
+Source options are used to specify the location to acquire a cookbook from, or to place a cookbook in a group. By default, cookbooks are acquired from the default sources, but it's possible to override this on a case by case basis. Often this is used to get a development cookbook from Git, or to use another cookbook in a monolithic cookbook repository.
 
 **Path Location**
 
@@ -219,7 +219,7 @@ It is possible to configure which engine to use for the `solve <https://github.c
 
 By default, the solver selection depends on your environment. When the ``dep_selector`` gem is installed, as in the case of Chef DK, the ``gecode`` solver is used. Otherwise, the ``ruby`` solver is utilized by default.
 
-The ``gecode`` solver matches the engine used by the Chef Server, so will more closely reflect the behaviour of the Chef Server in selecting cookbooks:
+The ``gecode`` solver matches the engine used by the Chef Server, so will more closely reflect the behavior of the Chef Server in selecting cookbooks:
 
 .. code-block:: ruby
 

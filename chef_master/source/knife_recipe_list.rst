@@ -46,4 +46,4 @@ to return:
    couchdb::main_monitors
    couchdb::master
    couchdb::default
-   couchdb::org_cleanu
+   couchdb::org_cleanup

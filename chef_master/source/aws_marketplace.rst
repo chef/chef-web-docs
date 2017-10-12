@@ -120,9 +120,9 @@ To update the hostname, do the following:
 
 #. Run ``chef-marketplace-ctl hostname <new.fully.qualified.hostname.com>`` to update the hostname.
 
-#. Run ``automate-ctl reconfigure`` to ensure Chef Automate has beeen correctly configured with the new hostname.
+#. Run ``automate-ctl reconfigure`` to ensure Chef Automate has been correctly configured with the new hostname.
 
-#. Run ``chef-server-ctl reconfigure`` to ensure Chef server has beeen correctly configured with the new hostname.
+#. Run ``chef-server-ctl reconfigure`` to ensure Chef server has been correctly configured with the new hostname.
 
 #. Run ``automate-ctl restart`` to restart Chef Automate
 
@@ -452,7 +452,7 @@ To update the hostname, do the following:
 
 #. Run ``chef-marketplace-ctl hostname <new.hostname.com>`` to update the hostname.
 
-#. Run ``chef-compliance-ctl reconfigure`` to ensure Chef Compliance has beeen correctly configured with the new hostname.
+#. Run ``chef-compliance-ctl reconfigure`` to ensure Chef Compliance has been correctly configured with the new hostname.
 
 #. Run ``chef-compliance-ctl restart`` to restart Chef Compliance
 
@@ -581,7 +581,7 @@ To migrate from an older Amazon Machine Images (AMI) to the latest Amazon Machin
 Chef Server AMI
 =====================================================
 
-.. attention:: This AMI has been deprecrated in favor of Chef Automate marketplace AMI.
+.. attention:: This AMI has been deprecated in favor of Chef Automate marketplace AMI.
 
 Follow the steps in the sections below to install the Chef server in AWS Marketplace.
 
@@ -700,7 +700,7 @@ To update the hostname, do the following:
 
 #. Run ``chef-marketplace-ctl hostname <new.hostname.com>`` to update the hostname.
 
-#. Run ``chef-server-ctl reconfigure`` to ensure Chef server has beeen correctly configured with the new hostname.
+#. Run ``chef-server-ctl reconfigure`` to ensure Chef server has been correctly configured with the new hostname.
 
 #. Run ``chef-server-ctl restart`` to restart Chef server
 

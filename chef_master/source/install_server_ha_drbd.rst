@@ -1,4 +1,4 @@
-.. This page is the Chef 12 server install page, for high availabilty in AWS.
+.. This page is the Chef 12 server install page, for high availability in AWS.
 
 =====================================================
 High Availability: DRBD (DEPRECATED)
@@ -62,7 +62,7 @@ and:
 
 chef-server.rb
 =====================================================
-Each Chef server in a high availabilty configuration must have an identical chef-server.rb file that is located in the ``/etc/opscode/`` directory on each server. This file describes the topology of the high availability configuration. On the primary backend server, create a file named chef-server.rb and save it in the ``/etc/opscode/`` directory.
+Each Chef server in a high availability configuration must have an identical chef-server.rb file that is located in the ``/etc/opscode/`` directory on each server. This file describes the topology of the high availability configuration. On the primary backend server, create a file named chef-server.rb and save it in the ``/etc/opscode/`` directory.
 
 Add the following settings to the chef-server.rb file:
 

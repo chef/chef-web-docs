@@ -9,4 +9,4 @@ Cookbooks
 default location is: /var/opt/supermarket/data
 
 Database
-/opt/supermarket/embedded/bin/pg_dump <supermaket_database_name> -c -f supermarket.sql
+/opt/supermarket/embedded/bin/pg_dump <supermarket_database_name> -c -f supermarket.sql

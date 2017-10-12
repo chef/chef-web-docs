@@ -25,7 +25,7 @@ Chef provides a fully functional Chef Automate server that can be launched from 
 
 #. While the Chef Automate VM is being provisioned, download and install the `Chef development kit </install_dk.html>`__.  The Chef development kit is a collection of tools ---Test Kitchen, ChefSpec, knife, delivery-cli, chef, chef-vault, Foodcritic, and more--- and libraries that are all packaged together to get your started with the Chef Automate workflow. You'll need this to interact with Chef Automate and Chef server from the command line.
 
-#. After the VM has been provisioned and the Resource Manager has completed (usually 10 to 13 minutes), finish configuring Chef Automate and Chef server. Access the intial configuration page by loading the ``/biscotti/setup`` route. Build the URL by prepending ``https://`` and appending ``/biscotti/setup`` to the DNS label that you chose when the VM was launched. For example, ``https://<dns_label>.<location>.cloudapp.azure.com/biscotti/setup`` or ``https://chef-automate-01.eastus.cloudapp.azure.com/biscotti/setup``.
+#. After the VM has been provisioned and the Resource Manager has completed (usually 10 to 13 minutes), finish configuring Chef Automate and Chef server. Access the initial configuration page by loading the ``/biscotti/setup`` route. Build the URL by prepending ``https://`` and appending ``/biscotti/setup`` to the DNS label that you chose when the VM was launched. For example, ``https://<dns_label>.<location>.cloudapp.azure.com/biscotti/setup`` or ``https://chef-automate-01.eastus.cloudapp.azure.com/biscotti/setup``.
 
    .. note:: .. tag notes_chef_azure_ssl
 
@@ -222,7 +222,7 @@ Through the Azure portal, you can provision a virtual machine with chef-client r
 
 Before virtual machines can be created using the Azure portal, some chef-client-specific settings will need to be identified so they can be provided to the Azure portal during the virtual machine creation workflow. These settings are available from the chef-client configuration settings:
 
-* The ``chef_server_url`` and ``validaton_client_name``. These are settings in the :doc:`client.rb file </config_rb_client>`.
+* The ``chef_server_url`` and ``validation_client_name``. These are settings in the :doc:`client.rb file </config_rb_client>`.
 
 * The file for the :doc:`validator key </chef_private_keys>`.
 
@@ -268,7 +268,7 @@ Once this information has been identified, launch the Azure portal, start the vi
 
 #. For **Client Configuration File**, browse to the ``chef-repo/.chef/knife.rb`` file and upload it through your web browser.
 
-   .. note:: Same directory issue from previous step applies here as well. Also, the ``knife.rb`` file must be correctly configured to communicate to the Chef server. Specifically, it must have valid values for the following two settings: ``chef_server_url`` and ``validaton_client_name``.
+   .. note:: Same directory issue from previous step applies here as well. Also, the ``knife.rb`` file must be correctly configured to communicate to the Chef server. Specifically, it must have valid values for the following two settings: ``chef_server_url`` and ``validation_client_name``.
 
 #. Optional. :doc:`Use a run-list </run_lists>` to specify what should be run when the virtual machine is provisioned, such as using the run-list to provision a virtual machine with Internet Information Services (IIS). Use the ``iis`` cookbook and the default recipe to build a run-list. For example:
 
@@ -622,7 +622,7 @@ The following examples show how to use the ``knife azure server create`` command
 
 Azure Resource Manager (ARM) Templates
 -----------------------------------------------------
-If you are using Azure Resource Manager templates to create your infrastructure you can use the Chef extension to have Azure handle the bootstraping/configuration of your node to your Chef Server.
+If you are using Azure Resource Manager templates to create your infrastructure you can use the Chef extension to have Azure handle the bootstrapping/configuration of your node to your Chef Server.
 
 Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -647,7 +647,7 @@ The extension has the following options that can be provided in the `settings` h
 ``bootstrap_options``
    A hash of the following options: ``chef_node_name``, ``chef_server_url``, ``environment``, ``secret``, and ``validation_client_name``.
 
-   .. note:: Options that are supplied in the bootstrap items will take presidence over any conflicts found in the ``client.rb`` file.
+   .. note:: Options that are supplied in the bootstrap items will take precedence over any conflicts found in the ``client.rb`` file.
 
 ``chef_node_name``
    Determines which configuration should be applied and sets the ``client_name``, which is the name used when authenticating to a Chef server. The default value is the FQDN of the chef-client, as detected by Ohai. In general, Chef recommends that you leave this setting blank and let Ohai assign the FQDN of the node as the ``node_name`` during each chef-client run.
@@ -837,7 +837,7 @@ Troubleshoot Log Files
 After the log files have been located, open them using a text editor to view the log file. The most common problem are below:
 
 * Connectivity errors with the Chef server caused by incorrect settings in the client.rb file. Ensure that the ``chef_server_url`` value in the client.rb file is the correct value and that it can be resolved.
-* An invalid validator key has been specified. This will prevent the chef-client from authenticating to the Chef server. Ensure that the ``validaton_client_name`` value in the client.rb file is the correct value
+* An invalid validator key has been specified. This will prevent the chef-client from authenticating to the Chef server. Ensure that the ``validation_client_name`` value in the client.rb file is the correct value
 * The name of the node is the same as an existing node. Node names must be unique. Ensure that the name of the virtual machine in Microsoft Azure has a unique name.
 * An error in one the run-list. The log file will specify the details about errors related to the run-list.
 

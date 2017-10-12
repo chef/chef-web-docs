@@ -587,7 +587,7 @@ Chef HA backend leader management service settings
 ----------------------------------------------------------------
 * ``leaderl.db_timeout`` Socket timeout when connecting to PostgreSQL
   in milliseconds. ``2000`` by default.
-* ``leaderl.http_acceptors`` Http threads that responds to monitorng
+* ``leaderl.http_acceptors`` Http threads that responds to monitoring
   and leadership status requests from HAProxy. ``10`` by default.
 * ``leaderl.http_address`` The address that leaderl listens on. This
   address should not be ``127.0.0.1``. It should be reachable from

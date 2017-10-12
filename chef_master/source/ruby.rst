@@ -65,7 +65,7 @@ Do some basic arithmetic:
    2 * 7           # => 14
    5 / 2           # => 2   (because both arguments are whole numbers)
    5 / 2.0         # => 2.5 (because one of the numbers had a decimal place)
-   1 + (2 * 3)     # => 7   (you can use parens to group expressions)
+   1 + (2 * 3)     # => 7   (you can use parentheses to group expressions)
 
 Strings
 -----------------------------------------------------
@@ -233,7 +233,7 @@ Wrong:
 
 **Example**
 
-WiX includes serveral tools -- such as ``candle`` (preprocesses and compiles source files into object files), ``light`` (links and binds object files to an installer database), and ``heat`` (harvests files from various input formats). The following example uses a whitespace array and the InSpec ``file`` audit resource to verify if these three tools are present:
+WiX includes several tools -- such as ``candle`` (preprocesses and compiles source files into object files), ``light`` (links and binds object files to an installer database), and ``heat`` (harvests files from various input formats). The following example uses a whitespace array and the InSpec ``file`` audit resource to verify if these three tools are present:
 
 .. code-block:: ruby
 
@@ -393,7 +393,7 @@ Define a method (or a function, if you like):
    # => "You gave me apple and banana"
    do_something_useless 1, 2
    # => "You gave me 1 and 2"
-   # see how the parens are optional if there's no confusion about what to do
+   # see how the parentheses are optional if there's no confusion about what to do
 
 Ruby Class
 -----------------------------------------------------

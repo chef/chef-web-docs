@@ -17,7 +17,7 @@ Remediation
 
 There are two possible remediations.
 
-The first is to set the ``compile_time`` property on the resource. To maintain the same behaviour as before, the property should be set to ``true``:
+The first is to set the ``compile_time`` property on the resource. To maintain the same behavior as before, the property should be set to ``true``:
 
 .. code-block:: ruby
 

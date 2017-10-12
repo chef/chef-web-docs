@@ -26,7 +26,7 @@ Standalone
 =====================================================
 There are two upgrade paths to Chef Analytics for 1.3.x: with or without partitions. ``pg_partman`` supported partitioning in the database was added in Chef Analytics 1.3.0 and is enabled by default. **Using partitions is strongly recommended.**
 
-Upgrade with Paritions
+Upgrade with Partitions
 -----------------------------------------------------
 Recommended. The following steps describe upgrading Chef Analytics with partitions enabled.
 
@@ -82,7 +82,7 @@ Recommended. The following steps describe upgrading Chef Analytics with partitio
 
       $ opscode-analytics-ctl start
 
-Upgrade without Paritions
+Upgrade without Partitions
 -----------------------------------------------------
 The following steps describe upgrading Chef Analytics with partitions disabled.
 

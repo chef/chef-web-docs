@@ -32,7 +32,7 @@ Install a Standby Chef Automate Server
 =====================================================
 The following steps describe how to manually install a Chef Automate server for use as a standby.
 
-.. note:: Look for items delimited with ``<BRACKETS>``. Replace the bracketed words (and the brackets) with the correct values for your configuration. All files require default permissions, unless noted. All commans must be run as the root user or by using ``sudo``.
+.. note:: Look for items delimited with ``<BRACKETS>``. Replace the bracketed words (and the brackets) with the correct values for your configuration. All files require default permissions, unless noted. All commands must be run as the root user or by using ``sudo``.
 
 #. Provision a standby server that is exactly the same as the existing Chef Automate server.
 

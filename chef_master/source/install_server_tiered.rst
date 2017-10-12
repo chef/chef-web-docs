@@ -34,7 +34,7 @@ For a tiered deployment, your backend server should support the following hardwa
 * 1 GigE NIC interface
 * A back-end server; all other systems will be front-end servers.
 
-.. note: Tiered deployments are deprecated as of Chef server 12.9. You are encouraged to set up a high availability server cluser instead. See see :doc:`High Availability: Backend Cluster </install_server_ha>` for more details.
+.. note: Tiered deployments are deprecated as of Chef server 12.9. You are encouraged to set up a high availability server cluster instead. See see :doc:`High Availability: Backend Cluster </install_server_ha>` for more details.
 
 Disk Configuration
 =====================================================

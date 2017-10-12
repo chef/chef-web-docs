@@ -106,9 +106,9 @@ The following settings are often modified from the default as part of the tuning
    * - ``actions['session_expiry']``
      - Expiration time for web client sessions (in minutes). If web clients are timing out too quickly, increase this setting. Default value: ``30``.
 
-paritioning
+partitioning
 ----------------------------------------------------
 The following setting is used to enable and disable partitioning on the Chef Analytics server:
 
 ``features['partitioning']``
-   Set this to ``false`` before running an upgrade to 1.3.0 to disable database paritioning; however, we recommend that you leave paritioning on. This setting must be set at the time of the 1.3.0 migration to take effect. See the "Upgrade With Paritions Disabled (Not Recommended)" section of the :doc:`upgrade documentation </upgrade_analytics>` for details on how to upgrade without paritioning enabled.
+   Set this to ``false`` before running an upgrade to 1.3.0 to disable database partitioning; however, we recommend that you leave partitioning on. This setting must be set at the time of the 1.3.0 migration to take effect. See the "Upgrade With Partitions Disabled (Not Recommended)" section of the :doc:`upgrade documentation </upgrade_analytics>` for details on how to upgrade without partitioning enabled.
