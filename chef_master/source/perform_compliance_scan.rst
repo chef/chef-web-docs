@@ -54,6 +54,20 @@ Edit ``/etc/opscode/chef-server.rb`` and add the following information. Token va
 
 After you have finished editing the file, run ``chef-server-ctl reconfigure`` to enable the changes.
 
+Optional: Tune the Chef Server
+-------------------------------------------------------
+
+For larger Inspec profiles, the Chef Server may need to be configured to accept increased request sizes. If you receive the error ``413 Request Entity Too Large`` on your chef-client run, you can increase these settings from their default values to allow the Chef server to ingest more data from a chef-client run.
+
+To make this change you'll add the following configuration options to ``/etc/opscode/chef-server.rb``. Further details about configuring and tuning your Chef server are described in `Server Tuning </server_tuning.html>`__.
+
+.. code-block:: ruby
+
+  opscode_erchef['max_request_size'] = '10000000' 
+  nginx['client_max_body_size'] = '2500m'
+  
+After you have finished editing the file, run ``chef-server-ctl reconfigure`` to enable the changes.
+
 Add Profiles to Chef Automate
 ------------------------------------------------------
 
