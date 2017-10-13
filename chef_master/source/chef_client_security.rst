@@ -160,8 +160,8 @@ Knife Subcommands
 -----------------------------------------------------
 The chef-client includes two knife commands for managing SSL certificates:
 
-* Use :doc:`knife ssl check </knife_ssl_check>` to troubleshoot SSL certificate issues
-* Use :doc:`knife ssl fetch </knife_ssl_fetch>` to pull down a certificate from the Chef server to the ``/.chef/trusted_certs`` directory on the workstation.
+* Use `knife ssl check </knife_ssl_check.html>`__ to troubleshoot SSL certificate issues
+* Use `knife ssl fetch </knife_ssl_fetch.html>`__ to pull down a certificate from the Chef server to the ``/.chef/trusted_certs`` directory on the workstation.
 
 After the workstation has the correct SSL certificate, bootstrap operations from that workstation will use the certificate in the ``/.chef/trusted_certs`` directory during the bootstrap operation.
 

@@ -93,7 +93,7 @@ and remove the ``build_nodes`` setting from ``config.json``.
 
 You can also set which runners you want jobs to run on for your project. You can set default, per phase, and matrix per phase filters to customize exactly which runners are targeted at various points of your pipeline. Refer to :ref:`job_dispatch config setting <job-dispatch-config-settings>` for more details and examples.
 
-For more detail on ``config.json``, see its :doc:`config.json </config_json_delivery>` .
+For more detail on ``config.json``, see its `config.json </config_json_delivery.html>`__ .
 
 
 Cancelling Jobs

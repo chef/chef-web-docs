@@ -26,7 +26,7 @@ Attributes that are collected by Ohai are automatic level attributes, in that th
 
 Ohai collects data for many platforms, including AIX, Darwin, Linux, FreeBSD, OpenBSD, NetBSD, Solaris, and any Microsoft Windows operating systems.
 
-View the :doc:`release notes </release_notes_ohai>` for the latest information on Ohai.
+View the `release notes </release_notes_ohai.html>`__ for the latest information on Ohai.
 
 Automatic Attributes
 =====================================================
@@ -357,7 +357,7 @@ The following list shows the type of plugins that are included with Ohai. See th
 Custom Plugins
 =====================================================
 
-Custom Ohai plugins can be written to collect additional information from systems as necessary. See the :doc:`Ohai Custom Plugins</ohai_custom>` docs for more information.
+Custom Ohai plugins can be written to collect additional information from systems as necessary. See the `Ohai Custom Plugins </ohai_custom.html>`__ docs for more information.
 
 Hints
 =====================================================
@@ -395,7 +395,7 @@ ohai Resource
 =====================================================
 .. tag resources_common_generic
 
-A :doc:`resource </resource>` defines the desired state for a single configuration item present on a node that is under management by Chef. A resource collection---one (or more) individual resources---defines the desired state for the entire node. During a `chef-client run </chef_client.html#the-chef-client-run>`_, the current state of each resource is tested, after which the chef-client will take any steps that are necessary to repair the node and bring it back into the desired state.
+A `resource </resource.html>`__ defines the desired state for a single configuration item present on a node that is under management by Chef. A resource collection---one (or more) individual resources---defines the desired state for the entire node. During a `chef-client run </chef_client.html#the-chef-client-run.html>`__, the current state of each resource is tested, after which the chef-client will take any steps that are necessary to repair the node and bring it back into the desired state.
 
 .. end_tag
 

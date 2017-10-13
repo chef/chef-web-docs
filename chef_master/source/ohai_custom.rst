@@ -9,7 +9,7 @@ Custom Ohai plugins describe additional configuration attributes to be collected
 
 .. end_tag
 
-See :doc:`About Ohai</ohai>` for information on Ohai configuration and usage.
+See `About Ohai </ohai.html>`__ for information on Ohai configuration and usage.
 
 Syntax
 =====================================================

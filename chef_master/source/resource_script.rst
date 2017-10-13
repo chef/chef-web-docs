@@ -13,12 +13,12 @@ Use the **script** resource to execute scripts using a specified interpreter, su
 
 This resource is the base resource for several other resources used for scripting on specific platforms. For more information about specific resources for specific platforms, see the following topics:
 
-* :doc:`bash </resource_bash>`
-* :doc:`csh </resource_csh>`
-* :doc:`ksh </resource_ksh>`
-* :doc:`perl </resource_perl>`
-* :doc:`python </resource_python>`
-* :doc:`ruby </resource_ruby>`
+* `bash </resource_bash.html>`__
+* `csh </resource_csh.html>`__
+* `ksh </resource_ksh.html>`__
+* `perl </resource_perl.html>`__
+* `python </resource_python.html>`__
+* `ruby </resource_ruby.html>`__
 
 Changed in 12.19 to support windows alternate user identity in execute resources
 

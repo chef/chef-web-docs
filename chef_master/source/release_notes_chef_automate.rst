@@ -187,7 +187,7 @@ With this release, we are moving to a new view for InSpec data in Chef Automate.
 
 The previous **Compliance** sub-tab in the **Nodes** tab has been replaced with a new tab on the top-level navigation bar. This new **Compliance** tab provides access to both profiles and reporting capabilities.
 
-We introduced this new compliance view during ChefConf 2017. `Check out the demo recording <https://www.youtube.com/watch?v=r7_f8fIn-Yo&feature=youtu.be&t=25m52s>`_ to see an earlier version of the features. For complete details on getting started, please visit :doc:`chef_automate_compliance`.
+We introduced this new compliance view during ChefConf 2017. `Check out the demo recording <https://www.youtube.com/watch?v=r7_f8fIn-Yo&feature=youtu.be&t=25m52s>`__ to see an earlier version of the features. For complete details on getting started, please visit `chef_automate_compliance`.
 
 During the open beta, we improved a number of compliance capabilities:
 
@@ -280,7 +280,7 @@ To get started using compliance, install or upgrade to this release. Navigate to
 
 .. note:: The beta views will display new data only. Historical data is displayed only in the existing sub-tab view under the **Nodes** page.
 
-As you explore the beta, we welcome your feedback and invite you to visit `Chef’s Community Slack <http://community-slack.chef.io/>`_ and join our public #automate-compliance channel. You can also find :doc:`documentation </chef_automate_compliance>` about the features, including version requirements for InSpec and the Audit cookbook. The new compliance features are not recommended for production use until they are made generally available in an upcoming Chef Automate release.
+As you explore the beta, we welcome your feedback and invite you to visit `Chef’s Community Slack <http://community-slack.chef.io/>`__ and join our public #automate-compliance channel. You can also find `documentation </chef_automate_compliance.html>`__ about the features, including version requirements for InSpec and the Audit cookbook. The new compliance features are not recommended for production use until they are made generally available in an upcoming Chef Automate release.
 
 SUSE Linux Enterprise Server Support
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

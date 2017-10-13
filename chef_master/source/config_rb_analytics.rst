@@ -7,7 +7,7 @@ opscode-analytics.rb
 
 .. note:: This documentation is meant to support existing Chef customers using Analytics.
 
-          If you are a new Chef customer, or are looking to gain better insight into your fleet, try :doc:`Chef Automate </chef_automate>`. You'll get a graphical interface and query language that gives you insight into operational, compliance, and workflow events. Download Chef Automate `here <https://downloads.chef.io/automate/>`__.
+          If you are a new Chef customer, or are looking to gain better insight into your fleet, try `Chef Automate </chef_automate.html>`__. You'll get a graphical interface and query language that gives you insight into operational, compliance, and workflow events. Download Chef Automate `here <https://downloads.chef.io/automate>`__.
 
 
 .. end_tag
@@ -111,4 +111,4 @@ partitioning
 The following setting is used to enable and disable partitioning on the Chef Analytics server:
 
 ``features['partitioning']``
-   Set this to ``false`` before running an upgrade to 1.3.0 to disable database partitioning; however, we recommend that you leave partitioning on. This setting must be set at the time of the 1.3.0 migration to take effect. See the "Upgrade With Partitions Disabled (Not Recommended)" section of the :doc:`upgrade documentation </upgrade_analytics>` for details on how to upgrade without partitioning enabled.
+   Set this to ``false`` before running an upgrade to 1.3.0 to disable database partitioning; however, we recommend that you leave partitioning on. This setting must be set at the time of the 1.3.0 migration to take effect. See the "Upgrade With Partitions Disabled (Not Recommended)" section of the `upgrade documentation </upgrade_analytics.html>`__ for details on how to upgrade without partitioning enabled.

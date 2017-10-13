@@ -7,7 +7,7 @@ Install Chef Analytics
 
 .. note:: This documentation is meant to support existing Chef customers using Analytics.
 
-          If you are a new Chef customer, or are looking to gain better insight into your fleet, try :doc:`Chef Automate </chef_automate>`. You'll get a graphical interface and query language that gives you insight into operational, compliance, and workflow events. Download Chef Automate `here <https://downloads.chef.io/automate/>`__.
+          If you are a new Chef customer, or are looking to gain better insight into your fleet, try `Chef Automate </chef_automate.html>`__. You'll get a graphical interface and query language that gives you insight into operational, compliance, and workflow events. Download Chef Automate `here <https://downloads.chef.io/automate>`__.
 
 
 .. end_tag
@@ -20,7 +20,7 @@ The Chef Analytics platform is a feature of Chef that provides real-time visibil
 
 Prerequisites
 =====================================================
-The Chef Analytics server shares the :doc:`same prerequisites </install_server_pre>` as the Chef server. In addition:
+The Chef Analytics server shares the `same prerequisites </install_server_pre.html>`__ as the Chef server. In addition:
 
 * Chef server version 12.0.3 **or** Enterprise Chef version 11.3 is required to use Chef Analytics 1.1
 * chef-client version 12.1 is required for audit-mode and using the ``control_group`` and ``control`` Recipe DSL methods
@@ -132,7 +132,7 @@ Configure the Chef server. On each server in the Chef server configuration, do t
 
    .. note:: .. tag chef_license_reconfigure_manage
 
-             Starting with the Chef management console 2.3.0, the :doc:`Chef MLSA </chef_license>` must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
+             Starting with the Chef management console 2.3.0, the `Chef MLSA </chef_license.html>`__ must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
 
              .. end_tag
 

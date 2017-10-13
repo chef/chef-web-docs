@@ -1895,7 +1895,7 @@ The following Chef provisioning driver-specific resources are available for Amaz
 * ``aws_subnet``
 * ``aws_vpc``
 
-For more information about these driver-specific resources, see :doc:`AWS Driver Resources </provisioning_aws>`.
+For more information about these driver-specific resources, see `AWS Driver Resources </provisioning_aws.html>`__.
 
 Fog Driver Resources
 =====================================================
@@ -1915,7 +1915,7 @@ The following Chef provisioning driver-specific resources are available for Fog:
 
 * ``fog_key_pair``
 
-For more information about these driver-specific resources, see :doc:`Fog Driver Resources </provisioning_fog>`.
+For more information about these driver-specific resources, see `Fog Driver Resources </provisioning_fog.html>`__.
 
 Vagrant Driver Resources
 =====================================================
@@ -1936,4 +1936,4 @@ The following Chef provisioning driver-specific resources are available for Vagr
 * ``vagrant_box``
 * ``vagrant_cluster``
 
-For more information about these driver-specific resources, see :doc:`Vagrant Driver Resources </provisioning_vagrant>`.
+For more information about these driver-specific resources, see `Vagrant Driver Resources </provisioning_vagrant.html>`__.

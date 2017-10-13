@@ -176,7 +176,7 @@ If your Chef Automate system has runners, then your projects should have the fol
        }
 
 If you are trying debugging a specific build node or runner and need to ensure that one is available for your projects,
-then modify the build-nodes or job_dispatch default search for your project as described in :doc:`Configure a Project </config_json_delivery>`.
+then modify the build-nodes or job_dispatch default search for your project as described in `Configure a Project </config_json_delivery.html>`__.
 
 SAML Authentication
 =======================================================

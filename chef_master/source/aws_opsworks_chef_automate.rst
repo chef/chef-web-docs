@@ -78,11 +78,11 @@ Enabling the compliance profile storage service in AWS OpsWorks for Chef Automat
 Adding push jobs server based build nodes to AWS OpsWorks for Chef Automate
 ============================================================================
 
-Build nodes enable you to push infrastructure or application changes through a pipeline. Pipelines are part of Chef Automate's :doc:`workflow <workflow>` feature. Build nodes run jobs, called *phases*, which define how your change is built, tested, and deployed to your infrastructure.
+Build nodes enable you to push infrastructure or application changes through a pipeline. Pipelines are part of Chef Automate's `workflow </workflow.html>`__ feature. Build nodes run jobs, called *phases*, which define how your change is built, tested, and deployed to your infrastructure.
 
-:doc:`Push jobs <push_jobs>` are one way to trigger jobs to run on your build nodes. Configuring push jobs on AWS OpsWorks for Chef Automate requires changes to the Chef Automate instance as well as the node that will run as a builder.
+`Push jobs </push_jobs.html>`__ are one way to trigger jobs to run on your build nodes. Configuring push jobs on AWS OpsWorks for Chef Automate requires changes to the Chef Automate instance as well as the node that will run as a builder.
 
-If you don't already have a system set up to run as your build node, refer to the :doc:`installation guide <install_chef_automate>` to learn about the supported platforms and network requirements. Then, bring up an instance to serve as your build node. The examples that follow use CentOS 7.3 running on Amazon Web Services with ports 22 (SSH) and 443 (HTTPS) open to inbound network traffic.
+If you don't already have a system set up to run as your build node, refer to the `installation guide </install_chef_automate.html>`__ to learn about the supported platforms and network requirements. Then, bring up an instance to serve as your build node. The examples that follow use CentOS 7.3 running on Amazon Web Services with ports 22 (SSH) and 443 (HTTPS) open to inbound network traffic.
 
 To prepare for the steps that follow, create an SSH connection to both your Chef Automate server and your build node. Here's an example for connecting to your Chef Automate instance.
 
@@ -242,7 +242,7 @@ This certificate file name appears as ``CHEF_AUTOMATE_SSL_CERT`` in the steps th
 
       build-node-1	available
 
-Because Chef server and Chef Automate exist on the same system, Chef Automate can communicate directly with the Chef server to dispatch push jobs to build nodes. Although not typically required, you can perform the following steps if you would like to use :doc:`knife job <plugin_knife_push_jobs>` to submit push jobs to your build nodes directly.
+Because Chef server and Chef Automate exist on the same system, Chef Automate can communicate directly with the Chef server to dispatch push jobs to build nodes. Although not typically required, you can perform the following steps if you would like to use `knife job </plugin_knife_push_jobs.html>`__ to submit push jobs to your build nodes directly.
 
 #. Add the following inbound rule to the security group of the Chef Automate instance.
 

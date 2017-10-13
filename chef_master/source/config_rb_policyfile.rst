@@ -20,7 +20,7 @@ A Policyfile file allows you to specify in a single document the cookbook revisi
 
 .. end_tag
 
-.. note:: For more information about Policyfile, see :doc:`About Policyfile </policyfile>`
+.. note:: For more information about Policyfile, see `About Policyfile </policyfile.html>`__
 
 Syntax
 =====================================================

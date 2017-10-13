@@ -7,7 +7,7 @@ Release Notes: Chef Analytics
 
 .. note:: This documentation is meant to support existing Chef customers using Analytics.
 
-          If you are a new Chef customer, or are looking to gain better insight into your fleet, try :doc:`Chef Automate </chef_automate>`. You'll get a graphical interface and query language that gives you insight into operational, compliance, and workflow events. Download Chef Automate `here <https://downloads.chef.io/automate/>`__.
+          If you are a new Chef customer, or are looking to gain better insight into your fleet, try `Chef Automate </chef_automate.html>`__. You'll get a graphical interface and query language that gives you insight into operational, compliance, and workflow events. Download Chef Automate `here <https://downloads.chef.io/automate>`__.
 
 
 .. end_tag
@@ -35,11 +35,11 @@ Database Partitioning and Management
 -----------------------------------------------------
 We've made it easier to manage your data by utilizing ``pg_partman`` supported partitioning in the database. It is enabled by default as of 1.3.0.
 
-.. note:: There are additional upgrade steps and concerns for the 1.3.0 upgrade. Please see the notes below for a short summary and be sure to follow the :doc:`1.3.0 upgrade instructions </upgrade_analytics>` when upgrading.
+.. note:: There are additional upgrade steps and concerns for the 1.3.0 upgrade. Please see the notes below for a short summary and be sure to follow the `1.3.0 upgrade instructions </upgrade_analytics.html>`__ when upgrading.
 
 The largest table, activities, will allow partitions. The benefit of using partitions is that when old data is dropped the disk space is easily reclaimed.
 
-By default, partitions will be enabled and the data retention timeline for activities is set to a year. These values are configurable via :doc:`opscode-analytics.rb </config_rb_analytics>`.
+By default, partitions will be enabled and the data retention timeline for activities is set to a year. These values are configurable via `opscode-analytics.rb </config_rb_analytics.html>`__.
 
 Important Notes Before You Upgrade
 -----------------------------------------------------
@@ -57,7 +57,7 @@ If you have disk space concerns, please run this command before reconfiguring to
 
    $ opscode-analytics-ctl purge-nodes
 
-Be sure to follow the :doc:`1.3.0 upgrade instructions </upgrade_analytics>` when upgrading.
+Be sure to follow the `1.3.0 upgrade instructions </upgrade_analytics.html>`__ when upgrading.
 
 What's New (1.2)
 =====================================================
@@ -341,7 +341,7 @@ Notifications may be sent to any email address, a chat service like HipChat or S
 
 .. end_tag
 
-.. note:: For more information about building rules for Chef Analytics, including the full rules syntax, see :doc:`Chef Analytics Rules </analytics_rules>`.
+.. note:: For more information about building rules for Chef Analytics, including the full rules syntax, see `Chef Analytics Rules </analytics_rules.html>`__.
 
 Rule Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -9,7 +9,7 @@ Install Delivery CLI
 =====================================================
 .. tag delivery_cli_install
 
-The Delivery CLI is required for the workstation and for many Chef Automate functions. It is included in the Chef DK and can be obtained by :doc:`installing the latest version </install_dk>`.
+The Delivery CLI is required for the workstation and for many Chef Automate functions. It is included in the Chef DK and can be obtained by `installing the latest version </install_dk.html>`__.
 
 .. note:: You must delete your old Delivery CLI if you installed it prior to it being included in the Chef DK.
 
@@ -44,7 +44,7 @@ FIPS 140-2 is a specific federal government security standard used to approve cr
 
 .. end_tag
 
-See the main :doc:`FIPS documentation </fips>` for more information on what FIPS is and how to enable it.
+See the main `FIPS documentation </fips.html>`__ for more information on what FIPS is and how to enable it.
 
 .. tag delivery_cli_fips
 

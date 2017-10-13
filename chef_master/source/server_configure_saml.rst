@@ -45,4 +45,4 @@ Finally, run ``chef-manage-ctl reconfigure`` to apply these settings.
 Configuring the Chef Automate Server
 =====================================================
 
-See :doc:`Integrate Chef Automate with SAML </integrate_chef_automate_saml>` for information on how to configure it to act like an OpenID Connect server.
+See `Integrate Chef Automate with SAML </integrate_chef_automate_saml.html>`__ for information on how to configure it to act like an OpenID Connect server.

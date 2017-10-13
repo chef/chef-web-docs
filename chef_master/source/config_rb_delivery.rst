@@ -115,4 +115,4 @@ Additional settings are available for performance tuning of the Chef Automate se
 
              $ delivery-server-ctl reconfigure
 
-.. note:: Review the full list of :doc:`optional settings </config_rb_delivery_optional_settings>` that can be added to the ``delivery.rb`` file. Many of these optional settings should not be added without first consulting with Chef support.
+.. note:: Review the full list of `optional settings </config_rb_delivery_optional_settings.html>`__ that can be added to the ``delivery.rb`` file. Many of these optional settings should not be added without first consulting with Chef support.

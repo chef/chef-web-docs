@@ -7,7 +7,7 @@ Chef Analytics
 
 .. note:: This documentation is meant to support existing Chef customers using Analytics.
 
-          If you are a new Chef customer, or are looking to gain better insight into your fleet, try :doc:`Chef Automate </chef_automate>`. You'll get a graphical interface and query language that gives you insight into operational, compliance, and workflow events. Download Chef Automate `here <https://downloads.chef.io/automate/>`__.
+          If you are a new Chef customer, or are looking to gain better insight into your fleet, try `Chef Automate </chef_automate.html>`__. You'll get a graphical interface and query language that gives you insight into operational, compliance, and workflow events. Download Chef Automate `here <https://downloads.chef.io/automate>`__.
 
 
 .. end_tag
@@ -580,7 +580,7 @@ Reference Topics
 =====================================================
 See the following links for information about installing, monitoring, using command-line tools, and configuration file settings:
 
-* :doc:`Install Chef Analytics </install_analytics>`
-* :doc:`Monitor Chef Analytics </analytics_monitor>`
-* :doc:`opscode-analytics-ctl </ctl_analytics>`
-* :doc:`opscode-analytics.rb </config_rb_analytics>`
+* `Install Chef Analytics </install_analytics.html>`__
+* `Monitor Chef Analytics </analytics_monitor.html>`__
+* `opscode-analytics-ctl </ctl_analytics.html>`__
+* `opscode-analytics.rb </config_rb_analytics.html>`__

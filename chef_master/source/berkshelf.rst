@@ -7,7 +7,7 @@ About Berkshelf
 
 Berkshelf is a dependency manager for Chef cookbooks. With it, you can easily depend on community cookbooks and have them safely included in your workflow. You can also ensure that your CI systems reproducibly select the same cookbook versions, and can upload and bundle cookbook dependencies without needing a locally maintained copy. Berkshelf is included in the Chef Development Kit.
 
-.. note:: For new users, we strongly recommend using :doc:`Policyfiles </policyfile>` rather than Berkshelf. Policyfiles provide more predictability, since dependencies are only resolved once, and a much improved way of promoting cookbooks from dev to testing, and then to production. Note that Policyfile is not supported as part of a Chef Automate workflow.
+.. note:: For new users, we strongly recommend using `Policyfiles </policyfile.html>`__ rather than Berkshelf. Policyfiles provide more predictability, since dependencies are only resolved once, and a much improved way of promoting cookbooks from dev to testing, and then to production. Note that Policyfile is not supported as part of a Chef Automate workflow.
 
 .. end_tag
 
@@ -76,7 +76,7 @@ A Berksfile is a Ruby file, in which sources, dependencies, and options may be s
 Source Keyword
 +++++++++++++++
 
-A source defines where Berkshelf should look for cookbooks. Sources are processed in the order that they are defined in, and processing stops as soon as a suitable cookbook is found. Locations include a private or public :doc:`Supermarket <supermarket>`, Chef Server, or local Chef repository.
+A source defines where Berkshelf should look for cookbooks. Sources are processed in the order that they are defined in, and processing stops as soon as a suitable cookbook is found. Locations include a private or public `Supermarket </supermarket.html>`__, Chef Server, or local Chef repository.
 
 By default, a Berksfile has a source for Chef's public supermarket:
 
@@ -468,7 +468,7 @@ This command may run any Kitchen CLI command, such as:
 * `kitchen test </ctl_kitchen.html#kitchen-test>`__
 * `kitchen verify </ctl_kitchen.html#kitchen-verify>`__
 
-See :doc:`kitchen (executable) </ctl_kitchen>` for descriptions of every Test Kitchen subcommand.
+See `kitchen (executable) </ctl_kitchen.html>`__ for descriptions of every Test Kitchen subcommand.
 
 berks show
 -----------------------------------------------------

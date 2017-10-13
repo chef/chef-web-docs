@@ -494,10 +494,10 @@ in that environment.
 Prerequisites
 -----------------------------------------------------
 
-* Ensure you have a private Supermarket installed, setup, and running. See :doc:`Install Private Supermarket </install_supermarket>` for more information.
-* Ensure you have a Chef server with the Chef Identity authentication/authorization service configured, a Chef Automate server setup that references your private Supermarket, and at least one Chef Automate build node/runner installed, setup, and running. See :doc:`Install Chef Automate </install_chef_automate>` and `Chef Identity </install_supermarket.html#chef-identity>`__ for more information.
+* Ensure you have a private Supermarket installed, setup, and running. See `Install Private Supermarket </install_supermarket.html>`__ for more information.
+* Ensure you have a Chef server with the Chef Identity authentication/authorization service configured, a Chef Automate server setup that references your private Supermarket, and at least one Chef Automate build node/runner installed, setup, and running. See `Install Chef Automate </install_chef_automate.html>`__ and `Chef Identity </install_supermarket.html#chef-identity.html>`__ for more information.
 * Ensure you have created a project in Chef Automate. Follow these instructions to `Set Up Projects </delivery_build_cookbook.html#set-up-projects>`__.
-* Ensure you have `ChefDK <https://downloads.chef.io/chefdk/>`__ installed on your :doc:`workstation </workstation>`.
+* Ensure you have `ChefDK <https://downloads.chef.io/chefdk/.html>`__ installed on your `workstation </workstation.html>`__.
 
 Share cookbooks with your private Supermarket
 -----------------------------------------------------

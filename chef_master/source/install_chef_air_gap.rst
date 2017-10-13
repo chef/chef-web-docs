@@ -343,7 +343,7 @@ Create a Wrapper
 
 Define Attributes
 -----------------------------------------------------
-Define the attributes for the Chef Supermarket installation and how it connects to the Chef server. One approach would be to hard-code attributes in the wrapper cookbook's ``default.rb`` recipe. A better approach is to place these attributes in a :doc:`data bag </data_bags>`, and then reference them from the recipe. For example, the data bag could be named ``apps`` and then a data bag item within the data bag could be named ``supermarket``. The following attributes are required:
+Define the attributes for the Chef Supermarket installation and how it connects to the Chef server. One approach would be to hard-code attributes in the wrapper cookbook's ``default.rb`` recipe. A better approach is to place these attributes in a `data bag </data_bags.html>`__, and then reference them from the recipe. For example, the data bag could be named ``apps`` and then a data bag item within the data bag could be named ``supermarket``. The following attributes are required:
 
 * ``chef_server_url``: the url for your chef server.
 * ``chef_oauth2_app_id``: the Chef Identity uid from ``/etc/opscode/oc-id-applications/supermarket.json``

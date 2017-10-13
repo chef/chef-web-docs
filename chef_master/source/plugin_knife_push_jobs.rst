@@ -9,7 +9,7 @@ The ``knife push jobs`` subcommand is used by Chef push jobs to start jobs, view
 
 .. end_tag
 
-.. note:: Review the list of :doc:`common options </knife_options>` available to this (and all) knife subcommands and plugins.
+.. note:: Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
 job list
 =====================================================

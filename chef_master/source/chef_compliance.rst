@@ -35,7 +35,7 @@ The Chef Compliance server is a centralized location from which all aspects of t
    :width: 600px
    :align: center
 
-.. note:: To install the Chef Compliance server in a standalone configuration, :doc:`read this topic </install_chef_compliance>`.
+.. note:: To install the Chef Compliance server in a standalone configuration, `read this topic </install_chef_compliance.html>`__.
 
 Compliance Profiles
 -----------------------------------------------------
@@ -134,7 +134,7 @@ Integrate Chef Compliance with the Chef server to allow:
 
 .. end_tag
 
-.. note:: To learn more about how to integrate Chef Compliance with the Chef server, :doc:`read this topic </integrate_compliance_chef_server>`.
+.. note:: To learn more about how to integrate Chef Compliance with the Chef server, `read this topic </integrate_compliance_chef_server.html>`__.
 
 InSpec
 =====================================================

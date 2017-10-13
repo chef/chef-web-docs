@@ -18,7 +18,7 @@ Public Supermarket
 =====================================================
 The public Chef Supermarket hosted by Chef is located at `Chef Supermarket <https://supermarket.chef.io/>`__.
 
-To interact with the public Chef Supermarket, use :doc:`knife cookbook site </knife_cookbook_site>` commands.
+To interact with the public Chef Supermarket, use `knife cookbook site </knife_cookbook_site.html>`__ commands.
 
 .. image:: ../../images/public_supermarket.svg
    :width: 700px
@@ -67,11 +67,11 @@ Stove is a utility for packaging and releasing Chef cookbooks: https://github.co
 Installing Private Supermarket
 -----------------------------------------------------
 
-To install a Private Supermarket, see the instructions :doc:`here </install_supermarket>`.
+To install a Private Supermarket, see the instructions `here </install_supermarket.html>`__.
 
 Set up Workstation
 -----------------------------------------------------
-If you are using Chef 12.13 or higher, use the :doc:`knife cookbook site </knife_cookbook_site>` commands to work with cookbooks in both Public Chef Supermarket and a Private Chef Supermarket.
+If you are using Chef 12.13 or higher, use the `knife cookbook site </knife_cookbook_site.html>`__ commands to work with cookbooks in both Public Chef Supermarket and a Private Chef Supermarket.
 
 If you are using Chef 12.12 or lower, use the ``knife supermarket`` plugin to work with cookbooks in a Private Chef Supermarket.
 
@@ -80,7 +80,7 @@ knife
 Chef 12.13 and higher
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you are using Chef 12.13 or higher, use the :doc:`knife cookbook site </knife_cookbook_site>` commands with BOTH Public Supermarket and Private Supermarket.
+If you are using Chef 12.13 or higher, use the `knife cookbook site </knife_cookbook_site.html>`__ commands with BOTH Public Supermarket and Private Supermarket.
 
 Chef 12.12 and lower
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -278,7 +278,7 @@ The Chef Supermarket installations that are done using the omnibus installer inc
 
 .. end_tag
 
-For more information about the supermarket-ctl command line tool, see :doc:`supermarket-ctl </ctl_supermarket>`.
+For more information about the supermarket-ctl command line tool, see `supermarket-ctl </ctl_supermarket.html>`__.
 
 supermarket.rb
 -----------------------------------------------------
@@ -288,7 +288,7 @@ The supermarket.rb file contains all of the non-default configuration settings u
 
 .. end_tag
 
-For more information about the supermarket.rb file, see :doc:`supermarket.rb </config_rb_supermarket>`.
+For more information about the supermarket.rb file, see `supermarket.rb </config_rb_supermarket.html>`__.
 
 Supermarket API
 -----------------------------------------------------
@@ -298,7 +298,7 @@ The Supermarket API is used to provide access to cookbooks, tools, and users on 
 
 .. end_tag
 
-For more information about the Supermarket API, see :doc:`Supermarket API </supermarket_api>`.
+For more information about the Supermarket API, see `Supermarket API </supermarket_api.html>`__.
 
 fieri
 -----------------------------------------------------

@@ -7,7 +7,7 @@ knife reporting
 
 .. note:: This documentation is meant to support existing Chef customers using Reporting.
 
-          Are you a new Chef customer, or looking to gain better insight into your fleet? Take advantage of :doc:`Chef Automate </chef_automate>`. You'll get a graphical interface and query language that gives you insight into operational, compliance, and workflow events. You can `download Chef Automate here <https://downloads.chef.io/automate/>`__.
+          Are you a new Chef customer, or looking to gain better insight into your fleet? Take advantage of `Chef Automate </chef_automate.html>`__. You'll get a graphical interface and query language that gives you insight into operational, compliance, and workflow events. You can `download Chef Automate here <https://downloads.chef.io/automate>`__.
 
 .. end_tag
 
@@ -25,7 +25,7 @@ The ``knife reporting`` subcommand is used by Reporting to report about chef-cli
 
 .. end_tag
 
-.. note:: Review the list of :doc:`common options </knife_options>` available to this (and all) knife subcommands and plugins.
+.. note:: Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
 Install this plugin
 =====================================================

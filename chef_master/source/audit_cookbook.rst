@@ -5,8 +5,8 @@ Sending Compliance Data to Chef Automate with ``audit`` Cookbook
 
 .. note:: The ``audit`` cookbook uses the InSpec gem. It will check for an installed version of InSpec and install it upon finding none. The latest version of InSpec will be installed by default unless otherwise specified with ``node['audit']['inspec_version']``.
 
-:doc:`Cookbooks </cookbooks>` are Chef's primary unit of configuration management.  For tutorials on working with cookbooks in Chef, see `Learn Chef Rally <https://learn.chef.io>`_.
-For more information specifically on using the ``audit`` cookbook with Automate, see :doc:`perform a compliance scan </perform_compliance_scan>`.
+`Cookbooks </cookbooks.html>`__ are Chef's primary unit of configuration management.  For tutorials on working with cookbooks in Chef, see `Learn Chef Rally <https://learn.chef.io.html>`__.
+For more information specifically on using the ``audit`` cookbook with Automate, see `perform a compliance scan </perform_compliance_scan.html>`__.
 
 The ``Audit`` Cookbook
 =================================
@@ -20,9 +20,9 @@ To send compliance data gathered by InSpec as part of a Chef client run, you wil
 
 Configure the Node for ``audit`` Cookbook
 ---------------------------------------------
-Once the cookbook is available in Chef Server, you will need to add the recipe to the run-list of each node. Compliance profiles are added using the ``node['audit']['profiles']`` attribute. A complete list of the possible configurations are documented in :doc:`Audit Cookbook </audit_cookbook>`.
+Once the cookbook is available in Chef Server, you will need to add the recipe to the run-list of each node. Compliance profiles are added using the ``node['audit']['profiles']`` attribute. A complete list of the possible configurations are documented in `Audit Cookbook </audit_cookbook.html>`__.
 
-To configure the audit cookbook to report compliance data directly to Chef Automate, you will first need to configure the Chef client to send node converge data, as described in :doc:`Data Collection </data_collection>`. Once you have done that, configure the audit cookbook's collector by setting the ``reporter``, ``server``, ``owner``, ``refresh_token`` and ``profiles`` attributes.
+To configure the audit cookbook to report compliance data directly to Chef Automate, you will first need to configure the Chef client to send node converge data, as described in `Data Collection </data_collection.html>`__. Once you have done that, configure the audit cookbook's collector by setting the ``reporter``, ``server``, ``owner``, ``refresh_token`` and ``profiles`` attributes.
 
    * ``reporter`` - ``'chef-automate'`` to report to Chef Automate.
    * ``server`` - url of Chef Automate server with ``/api``.

@@ -7,7 +7,7 @@ Chef Analytics Webui
 
 .. note:: This documentation is meant to support existing Chef customers using Analytics.
 
-          If you are a new Chef customer, or are looking to gain better insight into your fleet, try :doc:`Chef Automate </chef_automate>`. You'll get a graphical interface and query language that gives you insight into operational, compliance, and workflow events. Download Chef Automate `here <https://downloads.chef.io/automate/>`__.
+          If you are a new Chef customer, or are looking to gain better insight into your fleet, try `Chef Automate </chef_automate.html>`__. You'll get a graphical interface and query language that gives you insight into operational, compliance, and workflow events. Download Chef Automate `here <https://downloads.chef.io/automate>`__.
 
 
 .. end_tag
@@ -50,7 +50,7 @@ Chef Analytics can also tell you things like:
 
 Because Chef Analytics tracks all of this in real-time, your organization will be able to use Chef Analytics to react to events as they happen and to more quickly resolve issues that may arise.
 
-The Chef Analytics web user interface is installed as part of :doc:`Chef analytics </install_analytics>`.
+The Chef Analytics web user interface is installed as part of `Chef analytics </install_analytics.html>`__.
 
 .. note:: .. tag chef_subscriptions
 

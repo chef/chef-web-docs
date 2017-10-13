@@ -7,7 +7,7 @@ Reporting
 
 .. note:: This documentation is meant to support existing Chef customers using Reporting.
 
-          Are you a new Chef customer, or looking to gain better insight into your fleet? Take advantage of :doc:`Chef Automate </chef_automate>`. You'll get a graphical interface and query language that gives you insight into operational, compliance, and workflow events. You can `download Chef Automate here <https://downloads.chef.io/automate/>`__.
+          Are you a new Chef customer, or looking to gain better insight into your fleet? Take advantage of `Chef Automate </chef_automate.html>`__. You'll get a graphical interface and query language that gives you insight into operational, compliance, and workflow events. You can `download Chef Automate here <https://downloads.chef.io/automate>`__.
 
 .. end_tag
 
@@ -44,7 +44,7 @@ The Reporting client is built into the chef-client and can run on all platforms 
 
 .. end_tag
 
-Reporting is configured as :doc:`a premium feature </install_reporting>` of the Chef server and requires acceptance of the :doc:`Chef MLSA </chef_license>` as part of the installation process, starting with version 1.6.0.
+Reporting is configured as `a premium feature </install_reporting.html>`__ of the Chef server and requires acceptance of the `Chef MLSA </chef_license.html>`__ as part of the installation process, starting with version 1.6.0.
 
 The Reporting Run
 =====================================================
@@ -85,7 +85,7 @@ The ``knife reporting`` subcommand is used by Reporting to report about chef-cli
 
 .. end_tag
 
-.. note:: Review the list of :doc:`common options </knife_options>` available to this (and all) knife subcommands and plugins.
+.. note:: Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
 Install the Plugin
 -----------------------------------------------------

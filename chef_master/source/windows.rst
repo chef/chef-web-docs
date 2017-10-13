@@ -58,7 +58,7 @@ The chef-client has specific components that are designed to support unique aspe
        - Use to test for Windows XP.
 * Two community provisioners for Kitchen: `kitchen-dsc <https://github.com/test-kitchen/kitchen-dsc>`_ and `kitchen-pester <https://github.com/test-kitchen/kitchen-pester>`_
 
-The most popular core resources in the chef-client---:doc:`cookbook_file </resource_cookbook_file>`, :doc:`directory </resource_directory>`, :doc:`env </resource_env>`, :doc:`execute </resource_execute>`, :doc:`file </resource_file>`, :doc:`group </resource_group>`, :doc:`http_request </resource_http_request>`, :doc:`link </resource_link>`, :doc:`mount </resource_mount>`, :doc:`package </resource_package>`, :doc:`remote_directory </resource_remote_directory>`, :doc:`remote_file </resource_remote_file>`, :doc:`ruby_block </resource_ruby_block>`, :doc:`service </resource_service>`, :doc:`template </resource_template>`, and :doc:`user </resource_user>`---work the same way in Microsoft Windows as they do on any UNIX- or Linux-based platform.
+The most popular core resources in the chef-client---`cookbook_file </resource_cookbook_file.html>`__, `directory </resource_directory.html>`__, `env </resource_env.html>`__, `execute </resource_execute.html>`__, `file </resource_file.html>`__, `group </resource_group.html>`__, `http_request </resource_http_request.html>`__, `link </resource_link.html>`__, `mount </resource_mount.html>`__, `package </resource_package.html>`__, `remote_directory </resource_remote_directory.html>`__, `remote_file </resource_remote_file.html>`__, `ruby_block </resource_ruby_block.html>`__, `service </resource_service.html>`__, `template </resource_template.html>`__, and `user </resource_user.html>`__---work the same way in Microsoft Windows as they do on any UNIX- or Linux-based platform.
 
 The file-based resources---**cookbook_file**, **file**, **remote_file**, and **template**---have attributes that support unique requirements within the Microsoft Windows platform, including ``inherits`` (for file inheritance), ``mode`` (for octal modes), and ``rights`` (for access control lists, or ACLs).
 
@@ -72,7 +72,7 @@ Install the chef-client on Windows
 
 The chef-client can be installed on machines running Microsoft Windows in the following ways:
 
-* By using the :doc:`knife windows </plugin_knife_windows>` plugin to bootstrap the chef-client; this process requires the target node be available via SSH (port 22) or by using the HTTP or HTTPS ports that are required by WinRM
+* By using the `knife windows </plugin_knife_windows.html>`__ plugin to bootstrap the chef-client; this process requires the target node be available via SSH (port 22) or by using the HTTP or HTTPS ports that are required by WinRM
 * By downloading the chef-client to the target node, and then running the Microsoft Installer Package (MSI) locally
 * By using an existing process already in place for managing Microsoft Windows machines, such as System Center
 
@@ -137,7 +137,7 @@ The ``knife windows`` subcommand is used to configure and interact with nodes th
 
 .. end_tag
 
-For more information about the ``knife windows`` plugin, see :doc:`windows </plugin_knife_windows>`.
+For more information about the ``knife windows`` plugin, see `windows </plugin_knife_windows.html>`__.
 
 Ports
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -382,9 +382,9 @@ chef-client Settings
 
 Before virtual machines can be created using the Azure portal, some chef-client-specific settings will need to be identified so they can be provided to the Azure portal during the virtual machine creation workflow. These settings are available from the chef-client configuration settings:
 
-* The ``chef_server_url`` and ``validation_client_name``. These are settings in the :doc:`client.rb file </config_rb_client>`.
+* The ``chef_server_url`` and ``validation_client_name``. These are settings in the `client.rb file </config_rb_client.html>`__.
 
-* The file for the :doc:`validator key </chef_private_keys>`.
+* The file for the `validator key </chef_private_keys.html>`__.
 
 .. end_tag
 
@@ -432,7 +432,7 @@ Once this information has been identified, launch the Azure portal, start the vi
 
    .. note:: Same directory issue from previous step applies here as well. Also, the ``knife.rb`` file must be correctly configured to communicate to the Chef server. Specifically, it must have valid values for the following two settings: ``chef_server_url`` and ``validation_client_name``.
 
-#. Optional. :doc:`Use a run-list </run_lists>` to specify what should be run when the virtual machine is provisioned, such as using the run-list to provision a virtual machine with Internet Information Services (IIS). Use the ``iis`` cookbook and the default recipe to build a run-list. For example:
+#. Optional. `Use a run-list </run_lists.html>`__ to specify what should be run when the virtual machine is provisioned, such as using the run-list to provision a virtual machine with Internet Information Services (IIS). Use the ``iis`` cookbook and the default recipe to build a run-list. For example:
 
    .. code-block:: ruby
 
@@ -719,9 +719,9 @@ knife bootstrap
 -----------------------------------------------------
 .. tag chef_client_bootstrap_node
 
-A node is any physical, virtual, or cloud machine that is configured to be maintained by a chef-client. In order to bootstrap a node, you will first need a working installation of the :doc:`Chef software package </packages>`. A bootstrap is a process that installs the chef-client on a target system so that it can run as a chef-client and communicate with a Chef server. There are two ways to do this:
+A node is any physical, virtual, or cloud machine that is configured to be maintained by a chef-client. In order to bootstrap a node, you will first need a working installation of the `Chef software package </packages.html>`__. A bootstrap is a process that installs the chef-client on a target system so that it can run as a chef-client and communicate with a Chef server. There are two ways to do this:
 
-* Use the ``knife bootstrap`` subcommand to :doc:`bootstrap a node using the omnibus installer </install_bootstrap>`
+* Use the ``knife bootstrap`` subcommand to `bootstrap a node using the omnibus installer </install_bootstrap.html>`__
 * Use an unattended install to bootstrap a node from itself, without using SSH or WinRM
 
 .. end_tag
@@ -732,7 +732,7 @@ Use the ``knife bootstrap`` subcommand to run a bootstrap operation that install
 
 .. end_tag
 
-.. note:: To bootstrap the chef-client on Microsoft Windows machines, the :doc:`knife-windows </plugin_knife_windows>` plugins is required, which includes the necessary bootstrap scripts that are used to do the actual installation.
+.. note:: To bootstrap the chef-client on Microsoft Windows machines, the `knife-windows </plugin_knife_windows.html>`__ plugins is required, which includes the necessary bootstrap scripts that are used to do the actual installation.
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -748,7 +748,7 @@ This subcommand has the following syntax:
 
 Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. note:: Review the list of :doc:`common options </knife_options>` available to this (and all) knife subcommands and plugins.
+.. note:: Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
 .. tag knife_bootstrap_options
 
@@ -919,7 +919,7 @@ This subcommand has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 
@@ -931,7 +931,7 @@ Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual
 
 .. end_tag
 
-.. note:: Review the list of :doc:`common options </knife_options>` available to this (and all) knife subcommands and plugins.
+.. note:: Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
 Install this plugin
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1545,7 +1545,7 @@ The ``knife windows`` subcommand is used to configure and interact with nodes th
 
 .. end_tag
 
-.. note:: Review the list of :doc:`common options </knife_options>` available to this (and all) knife subcommands and plugins.
+.. note:: Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
 Install this plugin
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2460,13 +2460,7 @@ dsc_resource
 
 .. tag resources_common_generic
 
-A :doc:`resource </resource>` defines the desired state for a single configuration item present on a node that is under management by Chef. A resource collection---one (or more) individual resources---defines the desired state for the entire node. During a `chef-client run </chef_client.html#the-chef-client-run>`_, the current state of each resource is tested, after which the chef-client will take any steps that are necessary to repair the node and bring it back into the desired state.
-
-.. end_tag
-
-.. tag resources_common_powershell
-
-Windows PowerShell is a task-based command-line shell and scripting language developed by Microsoft. Windows PowerShell uses a document-oriented approach for managing Microsoft Windows-based machines, similar to the approach that is used for managing UNIX- and Linux-based machines. Windows PowerShell is `a tool-agnostic platform <http://technet.microsoft.com/en-us/library/bb978526.aspx>`_ that supports using Chef for configuration management.
+A `resource </resource.html>`__ defines the desired state for a single configuration item present on a node that is under management by Chef. A resource collection---one (or more) individual resources---defines the desired state for the entire node. During a `chef-client run </chef_client.html#the-chef-client-run.html>`__, the current state of each resource is tested, after which the chef-client will take any steps that are necessary to repair the node and bring it back into the desired state.
 
 .. end_tag
 
@@ -2865,13 +2859,13 @@ dsc_script
 
 .. tag resources_common_generic
 
-A :doc:`resource </resource>` defines the desired state for a single configuration item present on a node that is under management by Chef. A resource collection---one (or more) individual resources---defines the desired state for the entire node. During a `chef-client run </chef_client.html#the-chef-client-run>`_, the current state of each resource is tested, after which the chef-client will take any steps that are necessary to repair the node and bring it back into the desired state.
+A `resource </resource.html>`__ defines the desired state for a single configuration item present on a node that is under management by Chef. A resource collection---one (or more) individual resources---defines the desired state for the entire node. During a `chef-client run </chef_client.html#the-chef-client-run.html>`__, the current state of each resource is tested, after which the chef-client will take any steps that are necessary to repair the node and bring it back into the desired state.
 
 .. end_tag
 
 .. tag resources_common_powershell
 
-Windows PowerShell is a task-based command-line shell and scripting language developed by Microsoft. Windows PowerShell uses a document-oriented approach for managing Microsoft Windows-based machines, similar to the approach that is used for managing UNIX- and Linux-based machines. Windows PowerShell is `a tool-agnostic platform <http://technet.microsoft.com/en-us/library/bb978526.aspx>`_ that supports using Chef for configuration management.
+Windows PowerShell is a task-based command-line shell and scripting language developed by Microsoft. Windows PowerShell uses a document-oriented approach for managing Microsoft Windows-based machines, similar to the approach that is used for managing Unix and Linux-based machines. Windows PowerShell is `a tool-agnostic platform <http://technet.microsoft.com/en-us/library/bb978526.aspx>`_ that supports using Chef for configuration management.
 
 .. end_tag
 
@@ -4844,7 +4838,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. tag resource_package_windows_source_remote_file_attributes
 
-The **windows_package** resource may specify a package at a remote location using the ``remote_file_attributes`` property. This uses the **remote_file** resource to download the contents at the specified URL and passes in a Hash that modifes the properties of the :doc:`remote_file resource </resource_remote_file>`.
+The **windows_package** resource may specify a package at a remote location using the ``remote_file_attributes`` property. This uses the **remote_file** resource to download the contents at the specified URL and passes in a Hash that modifes the properties of the `remote_file resource </resource_remote_file.html>`__.
 
 For example:
 

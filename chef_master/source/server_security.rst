@@ -44,7 +44,7 @@ Save the file, and then run the following command:
 
    $ sudo chef-server-ctl reconfigure
 
-For more information about the server configuration file, see :doc:`chef-server.rb </config_rb_server>`.
+For more information about the server configuration file, see `chef-server.rb </config_rb_server.html>`__.
 
 Manual Installation
 -----------------------------------------------------

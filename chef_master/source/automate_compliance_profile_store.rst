@@ -22,7 +22,7 @@ The Profile Store is located under Chef Automate's **Compliance** tab
 
 Updating the Profile Store
 =====================================================
-Profile Store updates are part of the :doc:`Chef Automate upgrade process </upgrade_chef_automate>`; however, installed compliance profiles are not automatically updated.
+Profile Store updates are part of the `Chef Automate upgrade process </upgrade_chef_automate.html>`__; however, installed compliance profiles are not automatically updated.
 
 Installing Profiles
 =====================================================
@@ -30,7 +30,7 @@ To install Chef Automate Compliance profiles, navigate to the Profile Store unde
 
 You will then see a list of available profiles. For more information about the controls within a profile, click the blue arrow on the right side of the profile entry.  To select a profile and then install it, click on the radial button on the left side of the profile entry followed by clicking the **Get** button on the right side of the page, which is located directly above the list of available profiles.
 
-Once the profile is installed, you will be able to use it to perform a compliance scan.  For help on performing a compliance scan, see :doc:`Perform a Compliance Scan in Chef Automate </perform_compliance_scan>`.
+Once the profile is installed, you will be able to use it to perform a compliance scan.  For help on performing a compliance scan, see `Perform a Compliance Scan in Chef Automate </perform_compliance_scan.html>`__.
 
 Updating Profiles
 =====================================================

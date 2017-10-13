@@ -75,7 +75,7 @@ A cookbook can contain the following types of files:
 
        .. end_tag
 
-       .. warning:: Starting with chef-client 12.5, it is recommended to :doc:`build custom resources </custom_resources>` instead of definitions and to :doc:`migrate existing definitions to be custom resources </definitions>`.
+       .. warning:: Starting with chef-client 12.5, it is recommended to `build custom resources </custom_resources.html>`__ instead of definitions and to `migrate existing definitions to be custom resources </definitions.html>`__.
 
    * - Files
      - .. tag resource_cookbook_file_summary

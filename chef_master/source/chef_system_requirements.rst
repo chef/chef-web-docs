@@ -5,7 +5,7 @@ System Requirements
 
 Before installing Chef:
 
-* Ensure that each machine that will be a node is running a :doc:`platform </platforms>`
+* Ensure that each machine that will be a node is running a `platform </platforms.html>`__
 * Ensure that the machine that will run the Chef server is sufficiently powerful
 * Ensure that any network and firewall settings are configured correctly
 

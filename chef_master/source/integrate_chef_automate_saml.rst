@@ -43,7 +43,7 @@ and find that it starts with the following:
 
 Since it is uncommon to use CA-signed certificates for this, and the set of certificates retrieved from that endpoint is trusted in the
 verification of SAML logins, it is crucial for establishing trust to use HTTPS for retrieving the metadata file.
-Chef Automate will default to verifying the HTTPS endpoints certificate using your operating system's trusted certificate bundle. See the Trust SSL Certificate section of :doc:`Integrate Chef Automate with BitBucket </integrate_delivery_bitbucket>` for more information.
+Chef Automate will default to verifying the HTTPS endpoints certificate using your operating system's trusted certificate bundle. See the Trust SSL Certificate section of `Integrate Chef Automate with BitBucket </integrate_delivery_bitbucket.html>`__ for more information.
 
 The periodic refresh can be controlled through ``delivery.rb``. The following are the default settings:
 
@@ -310,9 +310,9 @@ Configuration of Chef Server
 -----------------------------------------------------
 
 Note that all of the client-related values need to match the configuration in the Chef Server management console.
-See :doc:`Configuring for SAML Authentication </server_configure_saml>` for more details.
+See `Configuring for SAML Authentication </server_configure_saml.html>`__ for more details.
 
 Troubleshooting
 ===================================================================
 
-If you have problems with SAML configuration and integration, see the SAML section of :doc:`Troubleshooting Chef Automate Deployments </troubleshooting_chef_automate>` for debugging tips.
+If you have problems with SAML configuration and integration, see the SAML section of `Troubleshooting Chef Automate Deployments </troubleshooting_chef_automate.html>`__ for debugging tips.

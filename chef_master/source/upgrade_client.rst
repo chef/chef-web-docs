@@ -5,7 +5,7 @@ Upgrading chef-client
 
 The following sections describe the upgrade process for chef-client 12.
 
-Please :doc:`view the notes </upgrade_client_notes>` for more background on the upgrade process.
+Please `view the notes </upgrade_client_notes.html>`__ for more background on the upgrade process.
 
 Upgrade via Command Line
 =====================================================
@@ -27,7 +27,7 @@ Considerations
 
 Preparing your chef-client system before upgrading to Chef server will enhance your Chef experience.  During a Chef server upgrade, all of the data is extracted, converted to a new format, and then uploaded. A large amount of data (cookbooks, nodes, etc.,) can increase the upgrade process significantly and extend your downtime.
 
-Managing your data prior to upgrading will improve experience upgrading and using Chef server and client. Following this list of client-based tasks prior to upgrading will expedite the upgrade process and mitigate many common issues.  For more information on upgrading to Chef server, see :doc:`Enterprise Chef to Chef 12 Upgrades. <upgrade_server_notes>`
+Managing your data prior to upgrading will improve experience upgrading and using Chef server and client. Following this list of client-based tasks prior to upgrading will expedite the upgrade process and mitigate many common issues.  For more information on upgrading to Chef server, see `Enterprise Chef to Chef 12 Upgrades. </upgrade_server_notes.html>`__
 
 Install the version of chef client you plan on using after the upgrade on a small number of test nodes and verify:
  * All nodes can authenticate and converge successfully.
@@ -48,7 +48,7 @@ Cook as lean as possible:
  * Clean up ``git`` history for any cookbook found to be excessively large.
 
 Verify nodes and clients that are in use:
- * Are all nodes and/or clients in use? Clean up any extra nodes and clients. Use the ``knife node list``, ``knife client list``, and :doc:`knife status </knife_status>` commands to verify nodes and clients in use.
+ * Are all nodes and/or clients in use? Clean up any extra nodes and clients. Use the ``knife node list``, ``knife client list``, and `knife status </knife_status.html>`__ commands to verify nodes and clients in use.
  * Use the ``knife client delete` command to remove unused clients. Use the ``knife node delete`` command to remove unused nodes.
 
 Run the test nodes against the Chef server. If the server is also being upgraded, **first** complete the Chef server upgrade process, and **then** verify the test nodes against the upgraded Chef server.

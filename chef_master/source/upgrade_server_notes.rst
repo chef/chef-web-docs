@@ -8,7 +8,7 @@ The following sections contain more information about the upgrade process from E
 
 Considerations
 =====================================================
-As part of the Chef server upgrade, all of the data is extracted, converted to a new format and then uploaded. A large amount of data (cookbooks, nodes, etc..) can increase the upgrade process significantly and extend your downtime. Preparing your client-side system will improve your chef server upgrade experience.  Following this list of client-based tasks prior to upgrading will expedite the upgrade process and mitigate many of the common issues: :doc:`Upgrading chef-client. </upgrade_client>`
+As part of the Chef server upgrade, all of the data is extracted, converted to a new format and then uploaded. A large amount of data (cookbooks, nodes, etc..) can increase the upgrade process significantly and extend your downtime. Preparing your client-side system will improve your chef server upgrade experience.  Following this list of client-based tasks prior to upgrading will expedite the upgrade process and mitigate many of the common issues: `Upgrading chef-client. </upgrade_client.html>`__
 
 chef-server.rb, Symlinks
 =====================================================

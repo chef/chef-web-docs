@@ -180,7 +180,7 @@ Tiered
 -----------------------------------------------------
 This section describes the upgrade process from a tiered server configuration. The upgrade process will require downtime equal to the amount of time it takes to stop the server, run dpkg or RPM Package Manager, and then upgrade the server.
 
-.. note:: These instructions are primarily intended for existing users of the ``tier`` Chef server topology. For the latest information on high availability and how to set up a highly-available server cluster, see :doc:`High Availability: Backend Cluster </install_server_ha>`
+.. note:: These instructions are primarily intended for existing users of the ``tier`` Chef server topology. For the latest information on high availability and how to set up a highly-available server cluster, see `High Availability: Backend Cluster </install_server_ha.html>`__
 
 To upgrade to Chef server 12 from a tiered Chef server configuration, do the following:
 
@@ -258,7 +258,7 @@ There are two upgrade scenarios for upgrades from Enterprise Chef 11 to Chef ser
 * `Standalone </upgrade_server.html#id1>`__
 * `High availability </upgrade_server.html#id2>`__
 
-Before upgrading, please :doc:`view the notes </upgrade_server_notes>` for more background on the upgrade process from Enterprise Chef 11 to Chef server 12.
+Before upgrading, please `view the notes </upgrade_server_notes.html>`__ for more background on the upgrade process from Enterprise Chef 11 to Chef server 12.
 
 
 .. warning:: Using ``nohup`` with ``chef-server-ctl upgrade`` to upgrade from Enterprise Chef 11 to Chef server 12 causes issues, and is not supported.
@@ -454,7 +454,7 @@ This section details the process for upgrading additional features after the Che
 
           .. note:: .. tag chef_license_reconfigure_manage
 
-                    Starting with the Chef management console 2.3.0, the :doc:`Chef MLSA </chef_license>` must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
+                    Starting with the Chef management console 2.3.0, the `Chef MLSA </chef_license.html>`__ must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
 
                     .. end_tag
 

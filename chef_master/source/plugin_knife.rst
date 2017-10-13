@@ -9,10 +9,10 @@ A knife plugin is a set of one (or more) subcommands that can be added to knife 
 
 .. end_tag
 
-* The same :doc:`common options </knife_options>` used by knife subcommands can also be used by knife plug-ins
+* The same `common options </knife_options.html>`__ used by knife subcommands can also be used by knife plug-ins
 * A knife plugin can make authenticated API requests to the Chef server
 
-Build a :doc:`custom plugin </plugin_knife_custom>` or use one of the following plugins that are maintained by Chef:
+Build a `custom plugin </plugin_knife_custom.html>`__ or use one of the following plugins that are maintained by Chef:
 
 The following knife plug-ins are maintained by Chef:
 

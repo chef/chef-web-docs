@@ -15,11 +15,11 @@ This diagram shows how you develop, test, and deploy your Chef code.
 
 .. end_tag
 
-* The workstation is the location from which users interact with Chef. On the workstation users author and test :doc:`cookbooks </cookbooks>` using tools such as :doc:`Test Kitchen </kitchen>` and interact with the Chef server using the :doc:`knife</knife>` and :doc:`chef </ctl_chef>` command line tools.
+* The workstation is the location from which users interact with Chef. On the workstation users author and test `cookbooks </cookbooks.html>`__ using tools such as `Test Kitchen </kitchen.html>`__ and interact with the Chef server using the `knife </knife.html>`__ and `chef </ctl_chef.html>`__ command line tools.
 * Nodes are the machines---physical, virtual, cloud, and so on---that are under management by Chef. The chef-client is installed on each node and is what `performs the automation on that machine </chef_client.html#the-chef-client-run>`__.
 * Use the Chef server as your foundation to create and manage flexible, dynamic infrastructure whether you manage 50 or 500,000 nodes, across multiple datacenters, public and private clouds, and in heterogeneous environments.
 
-  The Chef server acts as :doc:`a hub for configuration data </server_components>`. The Chef server stores cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is being managed by the chef-client. Nodes use the chef-client to ask the Chef server for configuration details, such as recipes, templates, and file distributions. The chef-client then does as much of the configuration work as possible on the nodes themselves (and not on the Chef server). This scalable approach distributes the configuration effort throughout the organization.
+  The Chef server acts as `a hub for configuration data </server_components.html>`__. The Chef server stores cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is being managed by the chef-client. Nodes use the chef-client to ask the Chef server for configuration details, such as recipes, templates, and file distributions. The chef-client then does as much of the configuration work as possible on the nodes themselves (and not on the Chef server). This scalable approach distributes the configuration effort throughout the organization.
 
 Chef Components
 =====================================================
@@ -309,7 +309,7 @@ Cookbooks are comprised of the following components:
 
        .. end_tag
 
-       Chef has :doc:`many built-in resources </resources>` that cover all of the most common actions across all of the most common platforms. You can :doc:`build your own resources </custom_resources>` to handle any situation that isn't covered by a built-in resource.
+       Chef has `many built-in resources </resources.html>`__ that cover all of the most common actions across all of the most common platforms. You can `build your own resources </custom_resources.html>`__ to handle any situation that isn't covered by a built-in resource.
    * - .. image:: ../../images/icon_cookbook_templates.svg
           :width: 100px
           :align: center

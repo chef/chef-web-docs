@@ -37,7 +37,7 @@ or:
 
 where:
 
-* ``<CHANNEL>`` is the release channel to install from. See :doc:`Chef Software Inc Packages </packages>` for full details on the available channels.
+* ``<CHANNEL>`` is the release channel to install from. See `Chef Software Inc Packages </packages.html>`__ for full details on the available channels.
 * ``<PRODUCT>`` is the Chef Software Inc product to install. A list of valid product keys can be found at https://omnitruck.chef.io/products
 * ``p`` is the platform. Possible values: ``debian``, ``el`` (for CentOS), ``freebsd``, ``mac_os_x``, ``solaris2``, ``sles``, ``suse``, ``ubuntu`` or ``windows``.
 * ``pv`` is the platform version. Possible values depend on the platform. For example, Ubuntu: ``10.10``, ``11.04``, ``11.10``, ``12.04``, or ``12.10`` or for macOS: ``10.6`` or ``10.7``.

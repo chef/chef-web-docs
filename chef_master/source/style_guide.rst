@@ -173,27 +173,11 @@ Links
 =====================================================
 Chef docs can contain and internal and external links.
 
-Internal
------------------------------------------------------
-An internal link is one that resolves to another topic that is built by Sphinx::
-
-   :doc:`essentials_nodes`
-
-where ``:doc:`` tells Sphinx that what follows is a file name that Sphinx will encounter during the build process.
-
-Internal w/short names
------------------------------------------------------
-Sometimes it's better to have the name of the link that displays be as short as possible (and different from the actual title of the topic)::
-
-   :doc:`Actions </resource_common_actions>`
-
-where ``:doc:`` tells Sphinx that what follows is a file name that Sphinx will encounter during the build process. ``Actions`` represents the short name that will display on the page in which this internal link is located, and then ``resource_common_actions`` is the filename and is contained within brackets (< >).
-
 External
 -----------------------------------------------------
-An external link points to something that does not reside within `docs.chef.io <https://docs.chef.io>`__. An external link requires an HTTP address. In general, it's better to spell out the HTTP address fully, in case the topic is printed out::
+An external link points to something that does not reside within `docs.chef.io <https://docs.chef.io>`__. An external link requires an HTTP address. In general, it's better to spell out the HTTP address fully, in case the topic is printed out:
 
-   http://www.codecademy.com/tracks/ruby
+   ``http://www.codecademy.com/tracks/ruby``
 
 Code Blocks
 =====================================================

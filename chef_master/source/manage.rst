@@ -335,7 +335,7 @@ Policy maps business and operational requirements, process, and workflow to sett
 
 .. end_tag
 
-The Chef management console provides ways for users to manage :doc:`data bags </server_manage_data_bags>`, :doc:`environments </server_manage_environments>`, :doc:`roles </server_manage_roles>`, :doc:`cookbooks </server_manage_cookbooks>`, :doc:`clients </server_manage_clients>`, and `managing tags </server_manage_nodes.html#manage-tags>`_.
+The Chef management console provides ways for users to manage `data bags </server_manage_data_bags.html>`__, `environments </server_manage_environments.html>`__, `roles </server_manage_roles.html>`__, `cookbooks </server_manage_cookbooks.html>`__, `clients </server_manage_clients.html>`__, and `managing tags </server_manage_nodes.html#manage-tags.html>`__.
 
 .. image:: ../../images/step_manage_webui_policy.png
 

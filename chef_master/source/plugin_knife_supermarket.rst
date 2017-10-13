@@ -3,7 +3,7 @@ knife supermarket
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/plugin_knife_supermarket.rst>`__
 
-.. warning:: Only use knife supermarket if you are using a Chef 12.12 or earlier. If you are using Chef 12.13 or later, you should use the :doc:`knife cookbook site </knife_cookbook_site>` commands.
+.. warning:: Only use knife supermarket if you are using a Chef 12.12 or earlier. If you are using Chef 12.13 or later, you should use the `knife cookbook site </knife_cookbook_site.html>`__ commands.
 
 .. tag supermarket_api_summary
 

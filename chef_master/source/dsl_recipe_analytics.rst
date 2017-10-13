@@ -7,12 +7,12 @@ Recipe DSL for Chef Analytics
 
 .. note:: This documentation is meant to support existing Chef customers using Analytics.
 
-          If you are a new Chef customer, or are looking to gain better insight into your fleet, try :doc:`Chef Automate </chef_automate>`. You'll get a graphical interface and query language that gives you insight into operational, compliance, and workflow events. Download Chef Automate `here <https://downloads.chef.io/automate/>`__.
+          If you are a new Chef customer, or are looking to gain better insight into your fleet, try `Chef Automate </chef_automate.html>`__. You'll get a graphical interface and query language that gives you insight into operational, compliance, and workflow events. Download Chef Automate `here <https://downloads.chef.io/automate>`__.
 
 
 .. end_tag
 
-The following methods are :doc:`part of the Recipe DSL <dsl_recipe>` and are specific to the Chef Analytics platform. Use them to define audit rules within a recipe. The audit rules are processed when the chef-client is run in audit-mode.
+The following methods are `part of the Recipe DSL </dsl_recipe.html>`__ and are specific to the Chef Analytics platform. Use them to define audit rules within a recipe. The audit rules are processed when the chef-client is run in audit-mode.
 
 .. warning:: These methods require chef-client version 12.0.0 (or higher).
 

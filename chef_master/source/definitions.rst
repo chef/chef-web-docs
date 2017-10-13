@@ -3,7 +3,7 @@ About Definitions
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/definitions.rst>`__
 
-.. warning:: Starting with chef-client 12.5, it is recommended to :doc:`build custom resources </custom_resources>` instead of definitions. While the use of definitions is not deprecated---all existing definitions will continue to work---it is recommended to also migrate existing definitions to the new custom resource patterns. This topic introduces definitions as they once were (and still can be, if desired), but deprecates all but one example of using them in favor of showing how to migrate an existing definition to the new custom resource pattern.
+.. warning:: Starting with chef-client 12.5, it is recommended to `build custom resources </custom_resources.html>`__ instead of definitions. While the use of definitions is not deprecated---all existing definitions will continue to work---it is recommended to also migrate existing definitions to the new custom resource patterns. This topic introduces definitions as they once were (and still can be, if desired), but deprecates all but one example of using them in favor of showing how to migrate an existing definition to the new custom resource pattern.
 
 A definition behaves like a compile-time macro that is reusable across recipes. A definition is typically created by wrapping arbitrary code around resources that are declared as if they were in a recipe. A definition is then used in one (or more) actual recipes as if the definition were a resource.
 
@@ -136,7 +136,7 @@ The following examples show:
 
 #. A definition
 #. The same definition rewritten as a custom resource
-#. The same definition, rewritten again to use a :doc:`common resource property </resource_common>`
+#. The same definition, rewritten again to use a `common resource property </resource_common.html>`__
 
 .. end_tag
 
@@ -207,7 +207,7 @@ Use Common Properties
 -----------------------------------------------------
 .. tag definition_example_as_resource_with_common_properties
 
-Unlike definitions, custom resources are able to use :doc:`common resource properties </resource_common>`. For example, ``only_if``:
+Unlike definitions, custom resources are able to use `common resource properties </resource_common.html>`__. For example, ``only_if``:
 
 .. code-block:: ruby
 

@@ -121,14 +121,14 @@ The following resources are platform resources (i.e. "are available from the che
 
    * - Resource
      - Description
-   * - :doc:`apt_package </resource_apt_package>`
+   * - `apt_package </resource_apt_package.html>`__
      - .. tag resource_package_apt
 
        Use the **apt_package** resource to manage packages on Debian and Ubuntu platforms.
 
        .. end_tag
 
-   * - :doc:`bash </resource_bash>`
+   * - `bash </resource_bash.html>`__
      - .. tag resource_script_bash
 
        Use the **bash** resource to execute scripts using the Bash interpreter. This resource may also use any of the actions and properties that are available to the **execute** resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
@@ -137,14 +137,14 @@ The following resources are platform resources (i.e. "are available from the che
 
        .. end_tag
 
-   * - :doc:`batch </resource_batch>`
+   * - `batch </resource_batch.html>`__
      - .. tag resource_batch_summary
 
        Use the **batch** resource to execute a batch script using the cmd.exe interpreter on Windows. The **batch** resource creates and executes a temporary file (similar to how the **script** resource behaves), rather than running the command inline. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
 
        .. end_tag
 
-   * - :doc:`bff_package </resource_bff_package>`
+   * - `bff_package </resource_bff_package.html>`__
      - .. tag resource_package_bff
 
        Use the **bff_package** resource to manage packages for the AIX platform using the installp utility. When a package is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources.
@@ -153,14 +153,14 @@ The following resources are platform resources (i.e. "are available from the che
 
        .. end_tag
 
-   * - :doc:`breakpoint </resource_breakpoint>`
+   * - `breakpoint </resource_breakpoint.html>`__
      - .. tag resource_breakpoint_summary
 
        Use the **breakpoint** resource to add breakpoints to recipes. Run the chef-shell in chef-client mode, and then use those breakpoints to debug recipes. Breakpoints are ignored by the chef-client during an actual chef-client run. That said, breakpoints are typically used to debug recipes only when running them in a non-production environment, after which they are removed from those recipes before the parent cookbook is uploaded to the Chef server.
 
        .. end_tag
 
-   * - :doc:`chef_gem </resource_chef_gem>`
+   * - `chef_gem </resource_chef_gem.html>`__
      - .. tag resource_package_chef_gem
 
        Use the **chef_gem** resource to install a gem only for the instance of Ruby that is dedicated to the chef-client. When a gem is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources.
@@ -172,14 +172,14 @@ The following resources are platform resources (i.e. "are available from the che
 
        .. end_tag
 
-   * - :doc:`cookbook_file </resource_cookbook_file>`
+   * - `cookbook_file </resource_cookbook_file.html>`__
      - .. tag resource_cookbook_file_summary
 
        Use the **cookbook_file** resource to transfer files from a sub-directory of ``COOKBOOK_NAME/files/`` to a specified path located on a host that is running the chef-client. The file is selected according to file specificity, which allows different source files to be used based on the hostname, host platform (operating system, distro, or as appropriate), or platform version. Files that are located in the ``COOKBOOK_NAME/files/default`` sub-directory may be used on any platform.
 
        .. end_tag
 
-   * - :doc:`cron </resource_cron>`
+   * - `cron </resource_cron.html>`__
      - .. tag resource_cron_summary
 
        Use the **cron** resource to manage cron entries for time-based job scheduling. Properties for a schedule will default to ``*`` if not provided. The **cron** resource requires access to a crontab program, typically cron.
@@ -188,7 +188,7 @@ The following resources are platform resources (i.e. "are available from the che
 
        .. end_tag
 
-   * - :doc:`csh </resource_csh>`
+   * - `csh </resource_csh.html>`__
      - .. tag resource_script_csh
 
        Use the **csh** resource to execute scripts using the csh interpreter. This resource may also use any of the actions and properties that are available to the **execute** resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
@@ -197,119 +197,119 @@ The following resources are platform resources (i.e. "are available from the che
 
        .. end_tag
 
-   * - :doc:`deploy </resource_deploy>`
+   * - `deploy </resource_deploy.html>`__
      - .. tag resource_deploy_summary
 
        Use the **deploy** resource to manage and control deployments. This is a popular resource, but is also complex, having the most properties, multiple providers, the added complexity of callbacks, plus four attributes that support layout modifications from within a recipe.
 
        .. end_tag
 
-   * - :doc:`directory </resource_directory>`
+   * - `directory </resource_directory.html>`__
      - .. tag resource_directory_summary
 
        Use the **directory** resource to manage a directory, which is a hierarchy of folders that comprises all of the information stored on a computer. The root directory is the top-level, under which the rest of the directory is organized. The **directory** resource uses the ``name`` property to specify the path to a location in a directory. Typically, permission to access that location in the directory is required.
 
        .. end_tag
 
-   * - :doc:`dpkg_package </resource_dpkg_package>`
+   * - `dpkg_package </resource_dpkg_package.html>`__
      - .. tag resource_package_dpkg
 
        Use the **dpkg_package** resource to manage packages for the dpkg platform. When a package is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources.
 
        .. end_tag
 
-   * - :doc:`dsc_script </resource_dsc_script>`
+   * - `dsc_script </resource_dsc_script.html>`__
      - .. tag resource_dsc_script_summary
 
        Many DSC resources are comparable to built-in Chef resources. For example, both DSC and Chef have **file**, **package**, and **service** resources. The **dsc_script** resource is most useful for those DSC resources that do not have a direct comparison to a resource in Chef, such as the ``Archive`` resource, a custom DSC resource, an existing DSC script that performs an important task, and so on. Use the **dsc_script** resource to embed the code that defines a DSC configuration directly within a Chef recipe.
 
        .. end_tag
 
-   * - :doc:`env </resource_env>`
+   * - `env </resource_env.html>`__
      - .. tag resource_env_summary
 
        Use the **env** resource to manage environment keys in Microsoft Windows. After an environment key is set, Microsoft Windows must be restarted before the environment key will be available to the Task Scheduler.
 
        .. end_tag
 
-   * - :doc:`erl_call </resource_erlang_call>`
+   * - `erl_call </resource_erlang_call.html>`__
      - .. tag resource_erlang_call_summary
 
        Use the **erl_call** resource to connect to a node located within a distributed Erlang system. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
 
        .. end_tag
 
-   * - :doc:`execute </resource_execute>`
+   * - `execute </resource_execute.html>`__
      - .. tag resource_execute_summary
 
        Use the **execute** resource to execute a single command. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
 
        .. end_tag
 
-   * - :doc:`file </resource_file>`
+   * - `file </resource_file.html>`__
      - .. tag resource_file_summary
 
        Use the **file** resource to manage files directly on a node.
 
        .. end_tag
 
-   * - :doc:`freebsd_package </resource_freebsd_package>`
+   * - `freebsd_package </resource_freebsd_package.html>`__
      - .. tag resource_package_freebsd
 
        Use the **freebsd_package** resource to manage packages for the FreeBSD platform.
 
        .. end_tag
 
-   * - :doc:`gem_package </resource_gem_package>`
+   * - `gem_package </resource_gem_package.html>`__
      - .. tag resource_package_gem
 
        Use the **gem_package** resource to manage gem packages that are only included in recipes. When a package is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources.
 
        .. end_tag
 
-   * - :doc:`git </resource_git>`
+   * - `git </resource_git.html>`__
      - .. tag resource_scm_git
 
        Use the **git** resource to manage source control resources that exist in a git repository. git version 1.6.5 (or higher) is required to use all of the functionality in the **git** resource.
 
        .. end_tag
 
-   * - :doc:`group </resource_group>`
+   * - `group </resource_group.html>`__
      - .. tag resource_group_summary
 
        Use the **group** resource to manage a local group.
 
        .. end_tag
 
-   * - :doc:`homebrew_package </resource_homebrew_package>`
+   * - `homebrew_package </resource_homebrew_package.html>`__
      - .. tag resource_package_homebrew
 
        Use the **homebrew_package** resource to manage packages for the macOS platform.
 
        .. end_tag
 
-   * - :doc:`http_request </resource_http_request>`
+   * - `http_request </resource_http_request.html>`__
      - .. tag resource_http_request_summary
 
        Use the **http_request** resource to send an HTTP request (``GET``, ``PUT``, ``POST``, ``DELETE``, ``HEAD``, or ``OPTIONS``) with an arbitrary message. This resource is often useful when custom callbacks are necessary.
 
        .. end_tag
 
-   * - :doc:`ifconfig </resource_ifconfig>`
+   * - `ifconfig </resource_ifconfig.html>`__
      - .. tag resource_ifconfig_summary
 
        Use the **ifconfig** resource to manage interfaces.
 
        .. end_tag
 
-   * - :doc:`ips_package </resource_ips_package>`
+   * - `ips_package </resource_ips_package.html>`__
      - .. tag resource_package_ips
 
        Use the **ips_package** resource to manage packages (using Image Packaging System (IPS)) on the Solaris 11 platform.
 
        .. end_tag
 
-   * - :doc:`ksh </resource_ksh>`
+   * - `ksh </resource_ksh.html>`__
      - .. tag resource_script_ksh
 
        Use the **ksh** resource to execute scripts using the Korn shell (ksh) interpreter. This resource may also use any of the actions and properties that are available to the **execute** resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence. New in Chef Client 12.6.
@@ -318,14 +318,14 @@ The following resources are platform resources (i.e. "are available from the che
 
        .. end_tag
 
-   * - :doc:`link </resource_link>`
+   * - `link </resource_link.html>`__
      - .. tag resource_link_summary
 
        Use the **link** resource to create symbolic or hard links.
 
        .. end_tag
 
-   * - :doc:`log </resource_log>`
+   * - `log </resource_log.html>`__
      - .. tag resource_log_summary
 
        Use the **log** resource to create log entries. The **log** resource behaves like any other resource: built into the resource collection during the compile phase, and then run during the execution phase. (To create a log entry that is not built into the resource collection, use ``Chef::Log`` instead of the **log** resource.)
@@ -334,49 +334,49 @@ The following resources are platform resources (i.e. "are available from the che
 
        .. end_tag
 
-   * - :doc:`macports_package </resource_macports_package>`
+   * - `macports_package </resource_macports_package.html>`__
      - .. tag resource_package_macports
 
        Use the **macports_package** resource to manage packages for the macOS platform.
 
        .. end_tag
 
-   * - :doc:`mdadm </resource_mdadm>`
+   * - `mdadm </resource_mdadm.html>`__
      - .. tag resource_mdadm_summary
 
        Use the **mdadm** resource to manage RAID devices in a Linux environment using the mdadm utility. The **mdadm** provider will create and assemble an array, but it will not create the config file that is used to persist the array upon reboot. If the config file is required, it must be done by specifying a template with the correct array layout, and then by using the **mount** provider to create a file systems table (fstab) entry.
 
        .. end_tag
 
-   * - :doc:`mount </resource_mount>`
+   * - `mount </resource_mount.html>`__
      - .. tag resource_mount_summary
 
        Use the **mount** resource to manage a mounted file system.
 
        .. end_tag
 
-   * - :doc:`ohai </resource_ohai>`
+   * - `ohai </resource_ohai.html>`__
      - .. tag resource_ohai_summary
 
        Use the **ohai** resource to reload the Ohai configuration on a node. This allows recipes that change system attributes (like a recipe that adds a user) to refer to those attributes later on during the chef-client run.
 
        .. end_tag
 
-   * - :doc:`package </resource_package>`
+   * - `package </resource_package.html>`__
      - .. tag resource_package_summary
 
        Use the **package** resource to manage packages. When the package is installed from a local file (such as with RubyGems, dpkg, or RPM Package Manager), the file must be added to the node using the **remote_file** or **cookbook_file** resources.
 
        .. end_tag
 
-   * - :doc:`pacman_package </resource_pacman_package>`
+   * - `pacman_package </resource_pacman_package.html>`__
      - .. tag resource_package_pacman
 
        Use the **pacman_package** resource to manage packages (using pacman) on the Arch Linux platform.
 
        .. end_tag
 
-   * - :doc:`perl </resource_perl>`
+   * - `perl </resource_perl.html>`__
      - .. tag resource_script_perl
 
        Use the **perl** resource to execute scripts using the Perl interpreter. This resource may also use any of the actions and properties that are available to the **execute** resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
@@ -385,14 +385,14 @@ The following resources are platform resources (i.e. "are available from the che
 
        .. end_tag
 
-   * - :doc:`portage_package </resource_portage_package>`
+   * - `portage_package </resource_portage_package.html>`__
      - .. tag resource_package_portage
 
        Use the **portage_package** resource to manage packages for the Gentoo platform.
 
        .. end_tag
 
-   * - :doc:`powershell_script </resource_powershell_script>`
+   * - `powershell_script </resource_powershell_script.html>`__
      - .. tag resource_powershell_script_summary
 
        Use the **powershell_script** resource to execute a script using the Windows PowerShell interpreter, much like how the **script** and **script**-based resources---**bash**, **csh**, **perl**, **python**, and **ruby**---are used. The **powershell_script** is specific to the Microsoft Windows platform and the Windows PowerShell interpreter.
@@ -401,7 +401,7 @@ The following resources are platform resources (i.e. "are available from the che
 
        .. end_tag
 
-   * - :doc:`python </resource_python>`
+   * - `python </resource_python.html>`__
      - .. tag resource_script_python
 
        Use the **python** resource to execute scripts using the Python interpreter. This resource may also use any of the actions and properties that are available to the **execute** resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
@@ -410,49 +410,49 @@ The following resources are platform resources (i.e. "are available from the che
 
        .. end_tag
 
-   * - :doc:`reboot </resource_reboot>`
+   * - `reboot </resource_reboot.html>`__
      - .. tag resource_service_reboot
 
        Use the **reboot** resource to reboot a node, a necessary step with some installations on certain platforms. This resource is supported for use on the Microsoft Windows, macOS, and Linux platforms.  New in Chef Client 12.0.
 
        .. end_tag
 
-   * - :doc:`registry_key </resource_registry_key>`
+   * - `registry_key </resource_registry_key.html>`__
      - .. tag resource_registry_key_summary
 
        Use the **registry_key** resource to create and delete registry keys in Microsoft Windows.
 
        .. end_tag
 
-   * - :doc:`remote_directory </resource_remote_directory>`
+   * - `remote_directory </resource_remote_directory.html>`__
      - .. tag resource_remote_directory_summary
 
        Use the **remote_directory** resource to incrementally transfer a directory from a cookbook to a node. The directory that is copied from the cookbook should be located under ``COOKBOOK_NAME/files/default/REMOTE_DIRECTORY``. The **remote_directory** resource will obey file specificity.
 
        .. end_tag
 
-   * - :doc:`remote_file </resource_remote_file>`
+   * - `remote_file </resource_remote_file.html>`__
      - .. tag resource_remote_file_summary
 
        Use the **remote_file** resource to transfer a file from a remote location using file specificity. This resource is similar to the **file** resource.
 
        .. end_tag
 
-   * - :doc:`route </resource_route>`
+   * - `route </resource_route.html>`__
      - .. tag resource_route_summary
 
        Use the **route** resource to manage the system routing table in a Linux environment.
 
        .. end_tag
 
-   * - :doc:`rpm_package </resource_rpm_package>`
+   * - `rpm_package </resource_rpm_package.html>`__
      - .. tag resource_package_rpm
 
        Use the **rpm_package** resource to manage packages for the RPM Package Manager platform.
 
        .. end_tag
 
-   * - :doc:`ruby </resource_ruby>`
+   * - `ruby </resource_ruby.html>`__
      - .. tag resource_script_ruby
 
        Use the **ruby** resource to execute scripts using the Ruby interpreter. This resource may also use any of the actions and properties that are available to the **execute** resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
@@ -461,14 +461,14 @@ The following resources are platform resources (i.e. "are available from the che
 
        .. end_tag
 
-   * - :doc:`ruby_block </resource_ruby_block>`
+   * - `ruby_block </resource_ruby_block.html>`__
      - .. tag resource_ruby_block_summary
 
        Use the **ruby_block** resource to execute Ruby code during a chef-client run. Ruby code in the ``ruby_block`` resource is evaluated with other resources during convergence, whereas Ruby code outside of a ``ruby_block`` resource is evaluated before other resources, as the recipe is compiled.
 
        .. end_tag
 
-   * - :doc:`script </resource_script>`
+   * - `script </resource_script.html>`__
      - .. tag resource_script_summary
 
        Use the **script** resource to execute scripts using a specified interpreter, such as Bash, csh, Perl, Python, or Ruby. This resource may also use any of the actions and properties that are available to the **execute** resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
@@ -477,76 +477,76 @@ The following resources are platform resources (i.e. "are available from the che
 
        .. end_tag
 
-   * - :doc:`service </resource_service>`
+   * - `service </resource_service.html>`__
      - .. tag resource_service_summary
 
        Use the **service** resource to manage a service.
 
        .. end_tag
 
-   * - :doc:`smart_os_package </resource_smartos_package>`
+   * - `smart_os_package </resource_smartos_package.html>`__
      - .. tag resource_package_smartos
 
        Use the **smartos_package** resource to manage packages for the SmartOS platform.
 
        .. end_tag
 
-   * - :doc:`solaris_package </resource_solaris_package>`
+   * - `solaris_package </resource_solaris_package.html>`__
      - .. tag resource_package_solaris
 
        The **solaris_package** resource is used to manage packages for the Solaris platform.
 
        .. end_tag
 
-   * - :doc:`subversion </resource_subversion>`
+   * - `subversion </resource_subversion.html>`__
      - .. tag resource_scm_subversion
 
        Use the **subversion** resource to manage source control resources that exist in a Subversion repository.
 
        .. end_tag
 
-   * - :doc:`template </resource_template>`
+   * - `template </resource_template.html>`__
      - .. tag resource_template_summary
 
        Use the **template** resource to manage the contents of a file using an Embedded Ruby (ERB) template by transferring files from a sub-directory of ``COOKBOOK_NAME/templates/`` to a specified path located on a host that is running the chef-client. This resource includes actions and properties from the **file** resource. Template files managed by the **template** resource follow the same file specificity rules as the **remote_file** and **file** resources.
 
        .. end_tag
 
-   * - :doc:`user </resource_user>`
+   * - `user </resource_user.html>`__
      - .. tag resource_user_summary
 
        Use the **user** resource to add users, update existing users, remove users, and to lock/unlock user passwords.
 
-       .. note:: System attributes are collected by Ohai at the start of every chef-client run. By design, the actions available to the **user** resource are processed **after** the start of the chef-client run. This means that system attributes added or modified by the **user** resource during the chef-client run must be reloaded before they can be available to the chef-client. These system attributes can be reloaded in two ways: by picking up the values at the start of the (next) chef-client run or by using the :doc:`ohai resource </resource_ohai>` to reload the system attributes during the current chef-client run.
+       .. note:: System attributes are collected by Ohai at the start of every chef-client run. By design, the actions available to the **user** resource are processed **after** the start of the chef-client run. This means that system attributes added or modified by the **user** resource during the chef-client run must be reloaded before they can be available to the chef-client. These system attributes can be reloaded in two ways: by picking up the values at the start of the (next) chef-client run or by using the `ohai resource </resource_ohai.html>`__ to reload the system attributes during the current chef-client run.
 
        .. end_tag
 
-   * - :doc:`windows_package </resource_windows_package>`
+   * - `windows_package </resource_windows_package.html>`__
      - .. tag resource_package_windows
 
        Use the **windows_package** resource to manage Microsoft Installer Package (MSI) packages for the Microsoft Windows platform.
 
        .. end_tag
 
-   * - :doc:`windows_service </resource_windows_service>`
+   * - `windows_service </resource_windows_service.html>`__
      - .. tag resource_service_windows
 
        Use the **windows_service** resource to manage a service on the Microsoft Windows platform. New in Chef Client 12.0.
 
        .. end_tag
 
-   * - :doc:`yum_package </resource_yum>`
+   * - `yum_package </resource_yum.html>`__
      - .. tag resource_package_yum
 
        Use the **yum_package** resource to install, upgrade, and remove packages with Yum for the Red Hat and CentOS platforms. The **yum_package** resource is able to resolve ``provides`` data for packages much like Yum can do when it is run from the command line. This allows a variety of options for installing packages, like minimum versions, virtual provides, and library names.
 
        .. end_tag
 
-   * - :doc:`zypper_package </resource_zypper_package>`
+   * - `zypper_package </resource_zypper_package.html>`__
      - .. tag resource_package_zypper
 
        Use the **zypper_package** resource to install, upgrade, and remove packages with Zypper for the SUSE Enterprise and OpenSUSE platforms.
 
        .. end_tag
 
-In addition, the :doc:`chef_handler </resource_chef_handler>` resource is configured and run using the **chef_handler** cookbook, which is the location in which custom handlers are defined and maintained. Despite being defined in a cookbook (and as a "lightweight resource"), the **chef_handler** resource should otherwise be considered a "platform resource".
+In addition, the `chef_handler </resource_chef_handler.html>`__ resource is configured and run using the **chef_handler** cookbook, which is the location in which custom handlers are defined and maintained. Despite being defined in a cookbook (and as a "lightweight resource"), the **chef_handler** resource should otherwise be considered a "platform resource".

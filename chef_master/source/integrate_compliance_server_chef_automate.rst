@@ -74,9 +74,9 @@ The ``audit`` cookbook does not require Chef Automate url or token attributes as
 Reporter: ``chef-server``
 =====================================================
 
-This method is compatible with nodes managed by a Chef server integrated with :doc:`Chef Compliance </chef_compliance>`.
+This method is compatible with nodes managed by a Chef server integrated with `Chef Compliance </chef_compliance.html>`__.
 
-Integration instructions can be found :doc:`here </integrate_compliance_chef_server>`.
+Integration instructions can be found `here </integrate_compliance_chef_server.html>`__.
 
 Integrating Chef Compliance with Chef server allows:
 
