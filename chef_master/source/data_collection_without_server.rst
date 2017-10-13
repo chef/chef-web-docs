@@ -2,7 +2,7 @@ Data Collection without Chef Server
 ==============================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/data_collection_without_server.rst>`__
 
-.. important:: Previous step: :doc:`Setup Data Collection </data_collection>`
+.. important:: Previous step: `Setup Data Collection </data_collection.html>`__
 
 If you do not use a Chef server in your environment (if you only use ```chef-solo```, for example), you can configure your Chef clients to send their run data to Automate directly.
 
@@ -67,7 +67,6 @@ Additional Configuration Options:
 
 Next Steps
 ============================
-   * :doc:`Perform a Compliance Scan </perform_compliance_scan>`
-   * :doc:`Data Collection  </data_collection>`
-   * :doc:`Data Collection with a Chef HA Cluster </data_collection_ha>`
-   * :doc:`Data Collection with Habitat </data_collection_habitat>`
+   * `Perform a Compliance Scan </perform_compliance_scan.html>`__
+   * `Data Collection  </data_collection.html>`__
+   * `Data Collection with a Chef HA Cluster </data_collection_ha.html>`__
