@@ -17,7 +17,7 @@ This flexibility means chef-client runs using the audit cookbook can be performe
 
 The examples shown in this topic are meant to provide a quick way for you to see compliance data show up in Chef Automate. You could also wrap the audit cookbook in an existing cookbook, but this example will simply use the default recipe in the audit cookbook to run a profile against a node in your cluster. For more information and examples on how to use the audit cookbook, see the `audit project repo in GitHub <https://github.com/chef-cookbooks/audit>`_.
 
-If your workflow requires the use of the standalone Chef Compliance server, or you are using a previous version of Chef Automate (older than 0.8.5), see :doc:`Integrate Compliance Server </integrate_compliance_server_chef_automate>` for information on how to use the audit cookbook to scan your nodes.
+If your workflow requires the use of the standalone Chef Compliance server, or you are using a previous version of Chef Automate (older than 0.8.5), see `Integrate Compliance Server </integrate_compliance_server_chef_automate.html>`__ for information on how to use the audit cookbook to scan your nodes.
 
 .. note:: Remote scanning capabilities currently part of Chef Compliance and will be available in Chef Automate in the future.
 
@@ -44,7 +44,7 @@ Configure Data Collection on Chef server
 
 To send node data through Chef server to Chef Automate, you must update the ``/etc/opscode/chef-server.rb`` file on your Chef server. This is needed for converge status and general node data, but it is also true for sending audit run data from nodes back to Chef Automate.
 
-Edit ``/etc/opscode/chef-server.rb`` and add the following information. Token values and general data collection setup instructions are described in :doc:`Configure Data Collection </data_collection>`.
+Edit ``/etc/opscode/chef-server.rb`` and add the following information. Token values and general data collection setup instructions are described in `Configure Data Collection </data_collection.html>`__.
 
 .. code-block:: ruby
 
@@ -57,9 +57,9 @@ After you have finished editing the file, run ``chef-server-ctl reconfigure`` to
 Optional: Tune the Chef Server
 -------------------------------------------------------
 
-For larger Inspec profiles, the Chef Server may need to be configured to accept larger request sizes. If you receive the error ```413 Request Entity Too Large``` on your chef-client run, increasing these settings from their default values will allow the Chef server to ingest more data from a chef-client run.
+For larger Inspec profiles, the Chef Server may need to be configured to accept increased request sizes. If you receive the error ```413 Request Entity Too Large``` on your chef-client run, you can increase these settings from their default values to allow the Chef server to ingest more data from a chef-client run.
 
-To make this change you'll add the following configuration options to ``/etc/opscode/chef-server.rb``. Further details about configuring and tuning your Chef Server are described in :doc:`Server Tuning </server_tuning>`.
+To make this change you'll add the following configuration options to ``/etc/opscode/chef-server.rb``. Further details about configuring and tuning your Chef server are described in `Server Tuning </server_tuning.html>`__.
 
 .. code-block:: ruby
 
@@ -123,7 +123,7 @@ Generate the default attributes file:
 
   chef generate attribute default
 
-Configure the ``audit`` cookbook reporter to send scan data to Automate in the ``mycompany_wrapper/attributes/default.rb`` file. For an overview and supported configurations, see :doc:`audit cookbook </audit_cookbook>`.
+Configure the ``audit`` cookbook reporter to send scan data to Automate in the ``mycompany_wrapper/attributes/default.rb`` file. For an overview and supported configurations, see `audit cookbook </audit_cookbook.html>`__.
 
 .. code-block:: ruby
 
@@ -161,7 +161,7 @@ Use Berkshelf to install cookbook dependencies and upload it to all Chef Servers
 
 Collect Compliance Scan Data
 +++++++++++++++++++++++++++++++++++++++
-You can add the ``mycompany_wrapper::default`` recipe to an existing run-list; however, in the example below, we will bootstrap a node with the ``mycompany_wrapper::default`` recipe and run a series of baseline checks against a new node. For more information, see :doc:`knife bootstrap </knife_bootstrap>`
+You can add the ``mycompany_wrapper::default`` recipe to an existing run-list; however, in the example below, we will bootstrap a node with the ``mycompany_wrapper::default`` recipe and run a series of baseline checks against a new node. For more information, see `knife bootstrap </knife_bootstrap.html>`__
 
 .. code-block:: bash
 
@@ -195,6 +195,6 @@ When you go back to your Chef Automate UI under the **Compliance** tab, the **Re
 
 Next Steps
 ---------------------------------------------------------
-:doc:`Audit Cookbook </audit_cookbook>`
+`Audit Cookbook </audit_cookbook.html>`__
 
 -
