@@ -298,7 +298,7 @@ Backwards Compatibility Breaks
 -----------------------------------------------------
 Resource Cloning has been removed
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-When Chef compiles resources, it will no longer attempt to merge the properties of previously compiled resources with the same name and type in to the new resource. See [the deprecation page](https://docs.chef.io/deprecations_resource_cloning.html) for further information.
+When Chef compiles resources, it will no longer attempt to merge the properties of previously compiled resources with the same name and type in to the new resource. See `the deprecation page <https://docs.chef.io/deprecations_resource_cloning.html>`__ for further information.
 
 It is an error to specify both ``default`` and ``name_property`` on a property
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -418,7 +418,7 @@ Support for actions with spaces and hyphens in the action name has been dropped.
 ``easy_install`` resource has been removed
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The Python ``easy_install`` package installer has been deprecated for many years, so we have removed support for it. No specific replacement for ``pip`` is being included with Chef at this time, but a ``pip`-based ``python_package`` resource is available in the [`poise-python`](https://github.com/poise/poise-python) cookbooks.
+The Python ``easy_install`` package installer has been deprecated for many years, so we have removed support for it. No specific replacement for ``pip`` is being included with Chef at this time, but a ``pip`-based ``python_package`` resource is available in the `poise-python <https://github.com/poise/poise-python>`__ cookbooks.
 
 Removal of run_command and popen4 APIs
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -548,7 +548,7 @@ When Chef Client is running as a forked process on unix systems, the standardize
 
 New deprecations included in this release
 -----------------------------------------------------
-* `Removal of support for Ohai version 6 plugins</deprecations_ohai_v6_plugins.html>`__
+* `Removal of support for Ohai version 6 plugins </deprecations_ohai_v6_plugins.html>`__
 
 What's New in 12.20
 =====================================================
@@ -972,7 +972,7 @@ The following items are new for chef-client 12.12 and/or are changes from previo
 
 * **New node attribute APIs** Common set of methods to read, write, delete, and check if node attributes exist.
 * **Data collector updates** Minor enhancements to data that the data collector reports on.
-* **knife cookbook create has been deprecated** You should use `chef generate cookbook </ctl_chef.html#chef-generate-cookbook>`_ instead.
+* **knife cookbook create has been deprecated** You should use `chef generate cookbook </ctl_chef.html#chef-generate-cookbook>`__ instead.
 
 New node attribute read, write, unlink, and exist? APIs
 -----------------------------------------------------------
@@ -4124,7 +4124,7 @@ ps_credential Helper
 -----------------------------------------------------
 .. tag resource_dsc_script_helper_ps_credential
 
-Use the ``ps_credential`` helper to embed a ``PSCredential`` object---`a set of security credentials, such as a user name or password <https://technet.microsoft.com/en-us/magazine/ff714574.aspx>`__---within a script, which allows that script to be run using security credentials.
+Use the ``ps_credential`` helper to embed a ``PSCredential`` object--- `a set of security credentials, such as a user name or password <https://technet.microsoft.com/en-us/magazine/ff714574.aspx>`__ ---within a script, which allows that script to be run using security credentials.
 
 For example, assuming the ``CertificateID`` is configured in the local configuration manager, the ``SeaPower1@3`` object is created and embedded within the ``seapower-user`` script:
 
@@ -5028,7 +5028,7 @@ dsc_resource
 
 .. tag resources_common_powershell
 
-Windows PowerShell is a task-based command-line shell and scripting language developed by Microsoft. Windows PowerShell uses a document-oriented approach for managing Microsoft Windows-based machines, similar to the approach that is used for managing UNIX- and Linux-based machines. Windows PowerShell is `a tool-agnostic platform <http://technet.microsoft.com/en-us/library/bb978526.aspx>`_ that supports using Chef for configuration management.
+Windows PowerShell is a task-based command-line shell and scripting language developed by Microsoft. Windows PowerShell uses a document-oriented approach for managing Microsoft Windows-based machines, similar to the approach that is used for managing Unix and Linux-based machines. Windows PowerShell is `a tool-agnostic platform <http://technet.microsoft.com/en-us/library/bb978526.aspx>`_ that supports using Chef for configuration management.
 
 .. end_tag
 
