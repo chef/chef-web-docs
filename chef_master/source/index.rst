@@ -217,8 +217,7 @@ Habitat
 Documentation
 -----------------------------------------------------
 
-`Habitat Documentation <https://www.habitat.sh/docs/>`__ |
-`Prism </habitat_prism.html>`__
+`Habitat Documentation <https://www.habitat.sh/docs/>`__
 
 Tutorials
 -----------------------------------------------------
@@ -258,7 +257,6 @@ Setup
 `Configure a Project </config_json_delivery.html>`__ |
 `Configure Data Collection </data_collection.html>`__ |
 `Data Collection and Chef HA </data_collection_ha.html>`__ |
-`Data Collection and Habitat </data_collection_habitat.html>`__ |
 `Data Collection without Chef Server </data_collection_without_server.html>`__
 
 Concepts
@@ -522,7 +520,6 @@ Addenda
    data_bags
    data_collection
    data_collection_ha
-   data_collection_habitat
    data_collection_without_server
    scaling_capacity_planning_chef_automate
    stream_data_chef_automate
@@ -585,7 +582,6 @@ Addenda
    foodcritic
    glossary
    google
-   habitat_prism
    handlers
    install_chef_automate
    install_bootstrap

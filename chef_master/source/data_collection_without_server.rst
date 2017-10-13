@@ -70,4 +70,3 @@ Next Steps
    * `Perform a Compliance Scan </perform_compliance_scan.html>`__
    * `Data Collection  </data_collection.html>`__
    * `Data Collection with a Chef HA Cluster </data_collection_ha.html>`__
-   * `Data Collection with Habitat </data_collection_habitat.html>`__
