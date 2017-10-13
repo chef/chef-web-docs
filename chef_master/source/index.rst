@@ -40,7 +40,7 @@ Community
 Packages and Platforms
 -----------------------------------------------------
 `Packages </packages.html>`__ |
-`Platforms and Supported Versions</platforms.html>`__ |
+`Platforms and Supported Versions </platforms.html>`__ |
 `Omnitruck API </api_omnitruck.html>`__ |
 `Licensing </chef_license.html>`__
 
@@ -81,9 +81,9 @@ Concepts
 `Reporting </reporting.html>`__ |
 `Run-lists </run_lists.html>`__
 
-**Security**:`Authentication </auth.html#authentication.html>`___ | `Authorization </auth.html#authorization.html>`___ | `Private Keys </chef_private_keys.html>`__ | `FIPS-mode </ctl_chef_client.html#run-in-fips-mode.html>`___
+**Security**:`Authentication </auth.html#authentication.html>`__ | `Authorization </auth.html#authorization.html>`__ | `Private Keys </chef_private_keys.html>`__ | `FIPS-mode </ctl_chef_client.html#run-in-fips-mode.html>`__
 
-**Supermarket**: `Public Supermarket (overview) </supermarket.html#public-supermarket>`_ | `Private Supermarket (overview) </supermarket.html#private-supermarket>`_
+**Supermarket**: `Public Supermarket (overview) </supermarket.html#public-supermarket>`__ | `Private Supermarket (overview) </supermarket.html#private-supermarket>`__
 
 `Microsoft Windows </windows.html>`__
 
@@ -96,11 +96,11 @@ Setup
 
 **Nodes**:`Install via Bootstrap </install_bootstrap.html>`__ | `Install via URL </install_omnibus.html>`__ | `Install on Windows </install_windows.html>`__ | `Install on Junos OS </junos.html>`__ | `chef-client (executable) </ctl_chef_client.html>`__ | `client.rb </config_rb_client.html>`__ | `Upgrades </upgrade_client.html>`__ | `Security </chef_client_security.html>`__
 
-**Server**: `Hosted Chef Server <https://manage.chef.io/signup.html>`___ | `Install Standalone <https://docs.chef.io/install_server.html#standalone.html>`___ | `Install High Availability </install_server_ha.html>`__ | `Upgrade High Availability </upgrade_server_ha_v2.html>`__  | `Integrate Chef Compliance with Chef Server </integrate_compliance_chef_server.html>`__
+**Server**: `Hosted Chef Server <https://manage.chef.io/signup.html>`__ | `Install Standalone </install_server.html#standalone.html>`__ | `Install High Availability </install_server_ha.html>`__ | `Upgrade High Availability </upgrade_server_ha_v2.html>`__  | `Integrate Chef Compliance with Chef Server </integrate_compliance_chef_server.html>`__
 
-**Supermarket**: `Public Supermarket <https://supermarket.chef.io.html>`___ | `Install Private Supermarket </install_supermarket.html>`__ | `Customize Supermarket </install_supermarket.html#customize-supermarket.html>`___ | `Run in Kitchen </install_supermarket.html#run-supermarket-in-kitchen.html>`___
+**Supermarket**: `Public Supermarket <https://supermarket.chef.io.html>`__ | `Install Private Supermarket </install_supermarket.html>`__ | `Customize Supermarket </install_supermarket.html#customize-supermarket.html>`__ | `Run in Kitchen </install_supermarket.html#run-supermarket-in-kitchen.html>`__
 
-`Management Console </ctl_chef_server.html#install.html>`___ | `Push Jobs </install_push_jobs.html>`__
+`Management Console </ctl_chef_server.html#install.html>`__ | `Push Jobs </install_push_jobs.html>`__
 
 **Integrations**: `AWS Marketplace </aws_marketplace.html>`__ |  `Microsoft Azure </azure_portal.html>`__ | `Google Cloud Platform </google.html>`__ | `VMware </vmware.html>`__
 
@@ -148,7 +148,7 @@ Chef DK
 `chef-apply (executable) </ctl_chef_apply.html>`__ |
 `chef-shell (executable) </chef_shell.html>`__
 
-**chef (executable)**:`chef env </ctl_chef.html#chef-env>`_ | `chef exec </ctl_chef.html#chef-exec>`_ | `chef gem </ctl_chef.html#chef-gem>`_ | `chef generate app </ctl_chef.html#chef-generate-app>`_ | `chef generate attribute </ctl_chef.html#chef-generate-attribute>`_ | `chef generate cookbook </ctl_chef.html#chef-generate-cookbook>`_ | `chef generate build-cookbook </ctl_chef.html#chef-generate-build-cookbook>`_ | `chef generate file </ctl_chef.html#chef-generate-file>`_ | `chef generate lwrp </ctl_chef.html#chef-generate-lwrp>`_ | `chef generate recipe </ctl_chef.html#chef-generate-recipe>`_ | `chef generate repo </ctl_chef.html#chef-generate-repo>`_ | `chef generate template </ctl_chef.html#chef-generate-template>`_ | `chef provision </ctl_chef.html#chef-provision>`_ | `chef shell-init </ctl_chef.html#chef-shell-init>`_ | `chef verify </ctl_chef.html#chef-verify>`_
+**chef (executable)**:`chef env </ctl_chef.html#chef-env>`__ | `chef exec </ctl_chef.html#chef-exec>`__ | `chef gem </ctl_chef.html#chef-gem>`__ | `chef generate app </ctl_chef.html#chef-generate-app>`__ | `chef generate attribute </ctl_chef.html#chef-generate-attribute>`__ | `chef generate cookbook </ctl_chef.html#chef-generate-cookbook>`__ | `chef generate build-cookbook </ctl_chef.html#chef-generate-build-cookbook>`__ | `chef generate file </ctl_chef.html#chef-generate-file>`__ | `chef generate lwrp </ctl_chef.html#chef-generate-lwrp>`__ | `chef generate recipe </ctl_chef.html#chef-generate-recipe>`__ | `chef generate repo </ctl_chef.html#chef-generate-repo>`__ | `chef generate template </ctl_chef.html#chef-generate-template>`__ | `chef provision </ctl_chef.html#chef-provision>`__ | `chef shell-init </ctl_chef.html#chef-shell-init>`__ | `chef verify </ctl_chef.html#chef-verify>`__
 
 **Chef Solo**: `About Chef Solo </chef_solo.html>`__ | `chef-solo (executable) </ctl_chef_solo.html>`__ | `solo.rb </config_rb_solo.html>`__
 
@@ -157,7 +157,7 @@ Chef DK
 `chef-vault </chef_vault.html>`__ |
 `ChefSpec </chefspec.html>`__
 
-**Configuration**: `config.rb </config_rb.html>`__ | `Multiple Config Files </config_rb_client.html#d-directories.html>`___
+**Configuration**: `config.rb </config_rb.html>`__ | `Multiple Config Files </config_rb_client.html#d-directories.html>`__
 
 `cookstyle </cookstyle.html>`__ |
 `Delivery CLI </delivery_cli.html>`__ |
@@ -171,7 +171,7 @@ Chef DK
 
 `knife spork </plugin_knife_spork.html>`__ |
 
-**knife supermarket**: `supermarket download </plugin_knife_supermarket.html#download>`_ | `supermarket install </plugin_knife_supermarket.html#install>`_ | `supermarket list </plugin_knife_supermarket.html#list>`_ | `supermarket search </plugin_knife_supermarket.html#search>`_ | `supermarket share </plugin_knife_supermarket.html#share>`_ | `supermarket show </plugin_knife_supermarket.html#show>`_ | `supermarket unshare </plugin_knife_supermarket.html#unshare>`_
+**knife supermarket**: `supermarket download </plugin_knife_supermarket.html#download>`__ | `supermarket install </plugin_knife_supermarket.html#install>`__ | `supermarket list </plugin_knife_supermarket.html#list>`__ | `supermarket search </plugin_knife_supermarket.html#search>`__ | `supermarket share </plugin_knife_supermarket.html#share>`__ | `supermarket show </plugin_knife_supermarket.html#show>`__ | `supermarket unshare </plugin_knife_supermarket.html#unshare>`__
 
 **Ohai**: `About Ohai </ohai.html>`__ | `ohai (executable) </ctl_ohai.html>`__
 
@@ -209,7 +209,7 @@ Managing the Server
 
 **Supermarket**:`Log Files </supermarket_logs.html>`__ | `Backup and Restore </supermarket_backup_restore.html>`__ | `Monitoring </supermarket_monitor.html>`__ | `supermarket.rb </config_rb_supermarket.html>`__ | `knife supermarket </plugin_knife_supermarket.html>`__ | `supermarket-ctl </ctl_supermarket.html>`__ | `Supermarket API </supermarket_api.html>`__
 
-**Management Console**:`Configure SAML </server_configure_saml.html>`__ | `Clients </server_manage_clients.html>`__ | `Cookbooks </server_manage_cookbooks.html>`__ | `Data Bags </server_manage_data_bags.html>`__ | `Environments </server_manage_environments.html>`__ | `Nodes </server_manage_nodes.html>`__ | `Roles </server_manage_roles.html>`__ | `Users </server_users.html#chef-manage.html>`___ | `manage.rb </config_rb_manage.html>`__ | `chef-manage-ctl </ctl_manage.html>`__
+**Management Console**:`Configure SAML </server_configure_saml.html>`__ | `Clients </server_manage_clients.html>`__ | `Cookbooks </server_manage_cookbooks.html>`__ | `Data Bags </server_manage_data_bags.html>`__ | `Environments </server_manage_environments.html>`__ | `Nodes </server_manage_nodes.html>`__ | `Roles </server_manage_roles.html>`__ | `Users </server_users.html#chef-manage.html>`__ | `manage.rb </config_rb_manage.html>`__ | `chef-manage-ctl </ctl_manage.html>`__
 
 Habitat
 =====================================================
@@ -217,7 +217,7 @@ Habitat
 Documentation
 -----------------------------------------------------
 
-`Habitat Documentation <https://www.habitat.sh/docs/>`_ |
+`Habitat Documentation <https://www.habitat.sh/docs/>`__ |
 `Prism </habitat_prism.html>`__
 
 Tutorials
@@ -315,14 +315,14 @@ Managing the Server
 `Tuning </delivery_server_tuning.html>`__ |
 `Upgrades </upgrade_chef_automate.html>`__ |
 `Users and Roles </delivery_users_and_roles.html>`__ |
-`cleanse </ctl_automate_server.html#cleanse>`_ |
-`create-enterprise </ctl_automate_server.html#create-enterprise>`_ |
-`create-user </ctl_automate_server.html#create-user>`_ |
-`delete-application </ctl_automate_server.html#delete-application>`_ |
-`delete-enterprise </ctl_automate_server.html#delete-enterprise>`_ |
-`delete-project </ctl_automate_server.html#delete-project>`_ |
-`delete-user </ctl_automate_server.html#delete-user>`_ | `generate-password-reset-token </ctl_automate_server.html#generate-password-reset-token>`_ |
-`install-runner </ctl_automate_server.html#install-runner>`_ |
+`cleanse </ctl_automate_server.html#cleanse>`__ |
+`create-enterprise </ctl_automate_server.html#create-enterprise>`__ |
+`create-user </ctl_automate_server.html#create-user>`__ |
+`delete-application </ctl_automate_server.html#delete-application>`__ |
+`delete-enterprise </ctl_automate_server.html#delete-enterprise>`__ |
+`delete-project </ctl_automate_server.html#delete-project>`__ |
+`delete-user </ctl_automate_server.html#delete-user>`__ | `generate-password-reset-token </ctl_automate_server.html#generate-password-reset-token>`_ |
+`install-runner </ctl_automate_server.html#install-runner>`__ |
 `list-applications </ctl_automate_server.html#list-applications>`_ |
 `list-enterprises </ctl_automate_server.html#list-enterprises>`_ |
 `list-users </ctl_automate_server.html#list-users>`_ |
@@ -400,7 +400,7 @@ Resources
 
 **Recipe DSL**: `attribute? </dsl_recipe.html#attribute>`_ | `control </dsl_recipe.html#control>`_ | `control_group </dsl_recipe.html#control-group>`_ | `cookbook_name </dsl_recipe.html#cookbook-name>`_ | `data_bag </dsl_recipe.html#data-bag>`_ | `data_bag_item </dsl_recipe.html#data-bag-item>`_ | `platform? </dsl_recipe.html#platform>`_ | `platform_family? </dsl_recipe.html#platform-family>`_ | `reboot_pending? </dsl_recipe.html#reboot-pending>`_ | `recipe_name </dsl_recipe.html#recipe-name>`_ | `registry_data_exists? </dsl_recipe.html#registry-data-exists>`_ | `registry_get_subkeys </dsl_recipe.html#registry-get-subkeys>`_ | `registry_get_values </dsl_recipe.html#registry-get-values>`_ | `registry_has_subkeys? </dsl_recipe.html#registry-has-subkeys>`_ | `registry_key_exists? </dsl_recipe.html#registry-key-exists>`_ | `registry_value_exists? </dsl_recipe.html#registry-value-exists>`_ | `resources </dsl_recipe.html#resources>`_ | `search </dsl_recipe.html#search>`_ | `shell_out </dsl_recipe.html#shell-out>`_ | `shell_out! </dsl_recipe.html#shell-out-bang>`_ | `shell_out_with_systems_locale </dsl_recipe.html#shell-out-with-systems-locale>`_ | `tag </dsl_recipe.html#tag-tagged-untag>`_ | `tagged? </dsl_recipe.html#tag-tagged-untag>`_ | `untag </dsl_recipe.html#tag-tagged-untag>`_ | `value_for_platform </dsl_recipe.html#value-for-platform>`_ | `value_for_platform_family </dsl_recipe.html#value-for-platform-family>`_ | `Windows Platform Helpers </dsl_recipe.html#helpers>`_
 
- `Community Resources <https://supermarket.chef.io>`_
+ `Community Resources <https://supermarket.chef.io>`__
 
 Handlers
 -----------------------------------------------------
@@ -417,7 +417,7 @@ Knife Plugins
 
 Ohai Plugins
 -----------------------------------------------------
-`Custom Plugins </ohai_custom.html>`__ | `Community Plugins </plugin_community.html#ohai.html>`___
+`Custom Plugins </ohai_custom.html>`__ | `Community Plugins </plugin_community.html#ohai.html>`__
 
 Chef Client Plugins
 -----------------------------------------------------

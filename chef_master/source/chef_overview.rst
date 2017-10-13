@@ -15,7 +15,7 @@ This diagram shows how you develop, test, and deploy your Chef code.
 
 .. end_tag
 
-* The workstation is the location from which users interact with Chef. On the workstation users author and test `cookbooks </cookbooks.html>`__ using tools such as `Test Kitchen </kitchen.html>`__ and interact with the Chef server using the `knife</knife.html>`__ and `chef </ctl_chef.html>`__ command line tools.
+* The workstation is the location from which users interact with Chef. On the workstation users author and test `cookbooks </cookbooks.html>`__ using tools such as `Test Kitchen </kitchen.html>`__ and interact with the Chef server using the `knife </knife.html>`__ and `chef </ctl_chef.html>`__ command line tools.
 * Nodes are the machines---physical, virtual, cloud, and so on---that are under management by Chef. The chef-client is installed on each node and is what `performs the automation on that machine </chef_client.html#the-chef-client-run>`__.
 * Use the Chef server as your foundation to create and manage flexible, dynamic infrastructure whether you manage 50 or 500,000 nodes, across multiple datacenters, public and private clouds, and in heterogeneous environments.
 
