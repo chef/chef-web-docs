@@ -76,7 +76,7 @@ A Berksfile is a Ruby file, in which sources, dependencies, and options may be s
 Source Keyword
 +++++++++++++++
 
-A source defines where Berkshelf should look for cookbooks. Sources are processed in the order that they are defined in, and processing stops as soon as a suitable cookbook is found. Locations include a private or public `Supermarket <supermarket.html>`__, Chef Server, or local Chef repository.
+A source defines where Berkshelf should look for cookbooks. Sources are processed in the order that they are defined in, and processing stops as soon as a suitable cookbook is found. Locations include a private or public `Supermarket </supermarket.html>`__, Chef Server, or local Chef repository.
 
 By default, a Berksfile has a source for Chef's public supermarket:
 
