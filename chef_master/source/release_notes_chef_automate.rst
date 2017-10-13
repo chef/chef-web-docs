@@ -280,7 +280,7 @@ To get started using compliance, install or upgrade to this release. Navigate to
 
 .. note:: The beta views will display new data only. Historical data is displayed only in the existing sub-tab view under the **Nodes** page.
 
-As you explore the beta, we welcome your feedback and invite you to visit `Chef’s Community Slack <http://community-slack.chef.io/.html>`___ and join our public #automate-compliance channel. You can also find `documentation </chef_automate_compliance.html>`__ about the features, including version requirements for InSpec and the Audit cookbook. The new compliance features are not recommended for production use until they are made generally available in an upcoming Chef Automate release.
+As you explore the beta, we welcome your feedback and invite you to visit `Chef’s Community Slack <http://community-slack.chef.io/>`__ and join our public #automate-compliance channel. You can also find `documentation </chef_automate_compliance.html>`__ about the features, including version requirements for InSpec and the Audit cookbook. The new compliance features are not recommended for production use until they are made generally available in an upcoming Chef Automate release.
 
 SUSE Linux Enterprise Server Support
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
