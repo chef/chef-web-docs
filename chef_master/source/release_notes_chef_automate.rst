@@ -187,7 +187,7 @@ With this release, we are moving to a new view for InSpec data in Chef Automate.
 
 The previous **Compliance** sub-tab in the **Nodes** tab has been replaced with a new tab on the top-level navigation bar. This new **Compliance** tab provides access to both profiles and reporting capabilities.
 
-We introduced this new compliance view during ChefConf 2017. `Check out the demo recording <https://www.youtube.com/watch?v=r7_f8fIn-Yo&feature=youtu.be&t=25m52s.html>`___ to see an earlier version of the features. For complete details on getting started, please visit `chef_automate_compliance`.
+We introduced this new compliance view during ChefConf 2017. `Check out the demo recording <https://www.youtube.com/watch?v=r7_f8fIn-Yo&feature=youtu.be&t=25m52s>`__ to see an earlier version of the features. For complete details on getting started, please visit `chef_automate_compliance`.
 
 During the open beta, we improved a number of compliance capabilities:
 
