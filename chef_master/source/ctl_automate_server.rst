@@ -37,7 +37,7 @@ The software that was put on-disk by the package installation will remain. Re-ru
 
 This subcommand has the following syntax:
 
-.. code-block:: bash
+.. code-block:: none
 
    $ automate-ctl cleanse
 
@@ -123,6 +123,38 @@ This subcommand has the following syntax:
 .. code-block:: bash
 
    $ automate-ctl create-user enterprise john_smith --password my_password --roles reviewer,committer
+
+data-summary
+=====================================================
+The ``data-summary`` subcommand is used to get the summary of Chef Automate's data store. It will provide the total number of Chef client run records and compliance scan records, as well as the amount of storage consumed.
+
+New in Chef Automate 1.7.3
+
+**Syntax**
+
+.. code-block:: shell
+
+   $ automate-ctl data-summary [options]
+
+     Options:
+
+      -c, --compliance                 Display compliance and inspec data
+      -f, --format string              The output format. 'text' or 'json'
+      -h, --help                       Show this message
+      -i, --insights                   Display insights and converge data
+      -n, --node                       Display the node-state data
+      -s, --cluster                    Display the Elasticsearch cluster data
+      -u, --unit string                The unit measurement to use (b, kb, mb, gb)
+
+**Examples**
+
+Return data store information as JSON:
+
+  ``$ automate-ctl data-summary --format json``
+
+Return only compliance and inspec data:
+
+  ``$ automate-ctl data-summary -c``
 
 delete-backups
 =====================================================
@@ -332,7 +364,7 @@ The ``install-runner`` subcommand configures a remote node as a job runner, whic
 
 **Syntax**
 
-.. code-block:: none
+.. code-block:: bash
 
    $ automate-ctl install-runner FQDN USERNAME [options]
 
@@ -395,7 +427,7 @@ The ``list-backups`` subcommand is used to list Chef Automate backup archives an
 
 **Syntax**
 
-.. code-block:: none
+.. code-block:: bash
 
    $ automate-ctl list-backups [options]
         --all                        List all backups and snapshots (default)
