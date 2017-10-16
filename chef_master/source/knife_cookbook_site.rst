@@ -11,13 +11,13 @@ The Supermarket API is used to provide access to cookbooks, tools, and users on 
 
 .. tag knife_site_cookbook
 
-The ``knife cookbook site`` subcommand is used to interact with cookbooks that are available in the `Chef Supermarket <https://supermarket.chef.io/>`___. A user account is required for any community actions that write data to this site. The following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
+The ``knife cookbook site`` subcommand is used to interact with cookbooks that are available in the `Chef Supermarket <https://supermarket.chef.io/>`__. A user account is required for any community actions that write data to this site. The following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
 
 .. end_tag
 
 .. warning:: .. tag notes_knife_cookbook_site_use_devkit_berkshelf
 
-             Please consider managing community cookbooks using the version of Berkshelf that ships with the Chef development kit. For more information about the Chef development kit, see /about_chefdk.html.
+             Please consider managing community cookbooks using the version of Berkshelf that ships with the Chef development kit. For more information about the Chef development kit, see `About the Chef DK </about_chefdk.html>`__.
 
              .. end_tag
 
@@ -26,6 +26,16 @@ The ``knife cookbook site`` subcommand is used to interact with cookbooks that a
           Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
           .. end_tag
+
+Private Supermarket
+=====================================================
+To use the ``knife cookbook site`` command with a private Supermarket installation, you must first add the URL of your Supermarket to your ``knife.rb`` file:
+
+.. code-block:: ruby 
+
+   knife[:supermarket_site] = 'https://supermarket.example.com'
+
+If this value is not specified, knife will use ``https://supermarket.chef.io`` by default. 
 
 download
 =====================================================
@@ -280,7 +290,7 @@ to return something like:
 
 share
 =====================================================
-Use the ``share`` argument to add a cookbook to the `Chef Supermarket <https://supermarket.chef.io/cookbooks>`__. This action will require a user account and a certificate for `Chef Supermarket <https://supermarket.chef.io/>`___. By default, knife will use the user name and API key that is identified in the configuration file used during the upload; otherwise these values must be specified on the command line or in an alternate configuration file. If a cookbook already exists on the `Chef Supermarket <https://supermarket.chef.io/cookbooks>`__, then only an owner or maintainer of that cookbook can make updates.
+Use the ``share`` argument to add a cookbook to the `Chef Supermarket <https://supermarket.chef.io/cookbooks>`__. This action will require a user account and a certificate for `Chef Supermarket <https://supermarket.chef.io/>`__. By default, knife will use the user name and API key that is identified in the configuration file used during the upload; otherwise these values must be specified on the command line or in an alternate configuration file. If a cookbook already exists on the `Chef Supermarket <https://supermarket.chef.io/cookbooks>`__, then only an owner or maintainer of that cookbook can make updates.
 
 Syntax
 -----------------------------------------------------

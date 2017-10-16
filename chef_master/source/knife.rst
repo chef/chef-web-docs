@@ -91,7 +91,7 @@ Built-in Subcommands
    * - `knife cookbook site </knife_cookbook_site.html>`_
      - .. tag knife_site_cookbook
 
-       The ``knife cookbook site`` subcommand is used to interact with cookbooks that are available in the `Chef Supermarket <https://supermarket.chef.io/>`___. A user account is required for any community actions that write data to this site. The following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
+       The ``knife cookbook site`` subcommand is used to interact with cookbooks that are available in the `Chef Supermarket <https://supermarket.chef.io/>`__. A user account is required for any community actions that write data to this site. The following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
 
        .. end_tag
 
