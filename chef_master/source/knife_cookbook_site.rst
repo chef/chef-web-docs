@@ -27,6 +27,16 @@ The ``knife cookbook site`` subcommand is used to interact with cookbooks that a
 
           .. end_tag
 
+Private Supermarket
+=====================================================
+To use the ``knife cookbook site`` command with a private Supermarket installation, you must first add the URL of your Supermarket to your ``knife.rb`` file:
+
+.. code-block:: ruby 
+
+   knife[:supermarket_site] = 'https://supermarket.example.com'
+
+If this value is not specified, knife will use ``https://supermarket.chef.io`` by default. 
+
 download
 =====================================================
 Use the ``download`` argument to download a cookbook from the community website. A cookbook will be downloaded as a tar.gz archive and placed in the current working directory. If a cookbook (or cookbook version) has been deprecated and the ``--force`` option is not used, knife will alert the user that the cookbook is deprecated and then will provide the name of the most recent non-deprecated version of that cookbook.
