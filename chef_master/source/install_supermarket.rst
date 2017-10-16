@@ -297,7 +297,7 @@ While there are many benefits to using the cookbook method to install Supermarke
 
 Before following these steps, be sure to complete the OAuth setup process detailed in the `Chef Identity </install_supermarket.html#chef-identity>`__ section of this guide.  
 
-#. `Download <https://downloads.chef.io/supermarket/>`__ and the correct package for your operating system from ``downloads.chef.io``. 
+#. `Download <https://downloads.chef.io/supermarket/>`__ the correct package for your operating system from ``downloads.chef.io``. 
 
 #. Install Supermarket using the appropriate package manager for your distribution:
 
@@ -311,7 +311,7 @@ Before following these steps, be sure to complete the OAuth setup process detail
 
      .. code-block:: bash
 
-        rpm -Uvh /path/to/package/supermarket.rpm
+        rpm -Uvh /path/to/package/supermarket*.rpm
 
 #. Run the ``reconfigure`` command to complete the initial installation:
 
