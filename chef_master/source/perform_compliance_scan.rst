@@ -189,12 +189,11 @@ View the results in Chef Automate
 -------------------------------------------------------
 When you go back to your Chef Automate UI under the **Compliance** tab, the **Reporting** dashboard should be visible. By alternating between **Node Status** and **Profile Status** views, you can view the scan results depending on which view is most important to you. The following shows some of the scan results on the bootstrapped node.
 
-.. image:: ../../images/compliance_report_node.png
+.. image:: ../../images/automate_compliance_overview.png
    :width: 400px
    :align: center
 
 Next Steps
 ---------------------------------------------------------
-`Audit Cookbook </audit_cookbook.html>`__
+* `Audit Cookbook </audit_cookbook.html>`__
 
--
