@@ -458,7 +458,7 @@ Also, the profiles in this asset store are managed using the `Chef Automate API 
 Scanning
 ------------------------------------------------------------
 
-Allows nodes to execute infrastructure tests or compliance profiles as part of the chef-client runs. For more details, see `Perform a Compliance Scan in Chef Automate </perform_compliance_scan>`_.
+Allows nodes to execute infrastructure tests or compliance profiles as part of the chef-client runs. For more details, see `Perform a Compliance Scan in Chef Automate </perform_compliance_scan.html>`_.
 
 Troubleshooting
 ===================================================================
