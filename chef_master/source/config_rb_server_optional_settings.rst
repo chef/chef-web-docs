@@ -667,7 +667,7 @@ This configuration file has the following settings for ``nginx``:
 ``nginx['strict_host_header']``
    Whether nginx should only respond to requests where the Host header matches one of the configured FQDNs. Default value: ``false``.
 
-   Added in Chef server 12.17
+   New in Chef server 12.17
 
 ``nginx['stub_status']['allow_list']``
    The IP address on which accessing the ``stub_status`` endpoint is allowed. Default value: ``["127.0.0.1"]``.
@@ -693,7 +693,7 @@ This configuration file has the following settings for ``nginx``:
 ``nginx['use_implicit_hosts']``
    Automatically add `localhost` and any local IP addresses to the configured FQDNs. Useful in combination with ``nginx['strict_host_header']``. Default value: ``true``.
 
-   Added in Chef server 12.17
+   New in Chef server 12.17
 
 ``nginx['worker_connections']``
    The maximum number of simultaneous clients. Use with ``nginx['worker_processes']`` to determine the maximum number of allowed clients. Default value: ``10240``.
