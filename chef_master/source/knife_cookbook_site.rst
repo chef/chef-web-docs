@@ -11,7 +11,7 @@ The Supermarket API is used to provide access to cookbooks, tools, and users on 
 
 .. tag knife_site_cookbook
 
-The ``knife cookbook site`` subcommand is used to interact with cookbooks that are available in the `Chef Supermarket <https://supermarket.chef.io/>`___. A user account is required for any community actions that write data to this site. The following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
+The ``knife cookbook site`` subcommand is used to interact with cookbooks that are available in the `Chef Supermarket <https://supermarket.chef.io/>`__. A user account is required for any community actions that write data to this site. The following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
 
 .. end_tag
 
@@ -280,7 +280,7 @@ to return something like:
 
 share
 =====================================================
-Use the ``share`` argument to add a cookbook to the `Chef Supermarket <https://supermarket.chef.io/cookbooks>`__. This action will require a user account and a certificate for `Chef Supermarket <https://supermarket.chef.io/>`___. By default, knife will use the user name and API key that is identified in the configuration file used during the upload; otherwise these values must be specified on the command line or in an alternate configuration file. If a cookbook already exists on the `Chef Supermarket <https://supermarket.chef.io/cookbooks>`__, then only an owner or maintainer of that cookbook can make updates.
+Use the ``share`` argument to add a cookbook to the `Chef Supermarket <https://supermarket.chef.io/cookbooks>`__. This action will require a user account and a certificate for `Chef Supermarket <https://supermarket.chef.io/>`__. By default, knife will use the user name and API key that is identified in the configuration file used during the upload; otherwise these values must be specified on the command line or in an alternate configuration file. If a cookbook already exists on the `Chef Supermarket <https://supermarket.chef.io/cookbooks>`__, then only an owner or maintainer of that cookbook can make updates.
 
 Syntax
 -----------------------------------------------------
