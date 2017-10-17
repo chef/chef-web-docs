@@ -815,11 +815,21 @@ This configuration file has the following settings for ``nginx``:
 ``nginx['ssl_state_name']``
    The state, province, or region in which your company is located. Default value: "WA".
 
+``nginx['strict_host_header']``
+   Whether nginx should only respond to requests where the Host header matches one of the configured FQDNs. Default value: ``false``.
+  
+   New in Automate version 1.7
+
 ``nginx['tcp_nodelay']``
    Enable the Nagle buffering algorithm. Possible values: ``on`` or ``off``. Default value: ``'on'``.
 
 ``nginx['tcp_nopush']``
    Enable TCP/IP transactions. Possible values: ``on`` or ``off``. Default value: ``'on'``.
+
+``nginx['use_implicit_hosts']``
+   Automatically add `localhost` and any local IP addresses to the configured FQDNs. Useful in combination with ``nginx['strict_host_header']``. Default value: ``true``.
+
+   New in Automate version 1.7
 
 ``nginx['worker_connections']``
    The maximum number of simultaneous clients. Use with ``nginx['worker_processes']`` to determine the maximum number of allowed clients. Default value: ``10240``.
