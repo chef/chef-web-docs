@@ -13,18 +13,23 @@ New Features
 
 Compliance Scanner Open Beta
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
-The compliance scanner is now available as an open beta feature in Chef Automate. It allows you to add nodes and execute ad hoc remote compliance scans; in a future release we will add the ability to set up scheduled scan jobs. Remote scans provide an important capability for any systems that may not have an agent installed, as well as for other endpoints and devices. The scanner combined with already existing reporting capabilities and profiles offers a major enhancement to remote compliance testing with Chef Automate.
+Previously, the only way to orchestrate remote InSpec runs was through the use of Chef Compliance, a standalone application which does not report data to Chef Automate. The compliance scanner, now available as an open beta feature in Chef Automate, allows you to add nodes and execute ad hoc remote compliance scans from within Chef Automate. In a future release we will add the ability to set up scheduled scan jobs. 
+
+Remote scans provide an important capability for any systems that may not have an agent installed, as well as for other endpoints and devices. The scanner, combined with existing reporting capabilities and profiles, offers a major enhancement to remote compliance testing with Chef Automate. 
+
+A few of the new features introduced:
 
 * Add remote nodes with SSH and WinRM connections
 * Add credentials for remote connections and sudo configuration
 * Create jobs that execute ad hoc remote scans on all configured nodes
 * View results in Chef Automate's compliance reporting view
 
-To use the scanner please type `beta` from within the Chef Automate UI and enable the compliance scanner feature. 
+To use the scanner please type ``beta`` from within the Chef Automate UI and enable the `compliance scanner feature </automate_compliance_scanner.html>`__.
 
 Chef Automate Statistics
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``automate-ctl data-summary`` command that gives the total number of Chef client run records and compliance scan records, as well as how much storage is being consumed.
+The new ``automate-ctl data-summary`` command gives the total number of Chef client run records and compliance scan records, as well as how much storage is being consumed. For more information, see the `automate-ctl documentation </ctl_automate_server.html#data-summary>`__
+
 
 Command Line Option for Reaper
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -33,16 +38,18 @@ Override Reaper settings to run a manual Reaper job to remove data from Elastics
 Removed Legacy Compliance Views
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The original compliance data views under the Nodes tab have been accessible via the `legacy` flag since release of Chef Automate 1.5 in July.  With this release those views have been removed from the product, and data is no longer written to the underlying data indices.  Historical and new compliance data is stored in new indices.  To remove the legacy data and reduce storage volume, see `Data Retention Management in Chef Automate <https://docs.chef.io/data_retention_chef_automate.html>`__.
+The original compliance data views under the Nodes tab have been accessible via the ``legacy`` flag since the release of Chef Automate 1.5 in July.  With this release those views have been removed from the product, and data is no longer written to the underlying data indices.  Both historical and new compliance data is stored in new indices.  To remove the legacy data and reduce storage volume, see `Data Retention Management in Chef Automate <https://docs.chef.io/data_retention_chef_automate.html>`__.
 
 
 Resolved Issues
 -----------------------------------------------------
 
-* Added on option to fix a security issue where an arbitrary host header could be passed and reflected in a subsequent redirect, which could potentially be used maliciously if a web cache was in use.
+* Added `Nginx configuration option </config_rb_delivery_optional_settings.html#nginx>`__ to fix a security issue where an arbitrary host header could be passed and reflected in a subsequent redirect, which could potentially be used maliciously if a web cache was in use.
 * LDAP authentication can now be configured to use anonymous bind
-* Server-jre has been updated to Java 8 Update 144
-* Golang has been updated to version 1.9.1
+* Fixed a UI issue where the workflow change detail screen would scroll to the bottom, obscuring the Deliver button
+* Fixed a UI issue where clicking on the view source window in compliance would close the window, making it impossible to copy its contents
+* To address `CVE-2017-3526 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3526>`__, server-jre has been updated to Java 8 Update 144
+* To address `CVE-2017-8932 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-8932>`__, Golang has been updated to version 1.9.1
 
 What's New in 1.6.179
 =====================================================
