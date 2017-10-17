@@ -96,3 +96,44 @@ Using your own Elasticsearch cluster provides additional redundancy and performa
 
 * **S3 Archiving**: If you choose to enable archiving and choose to archive to S3, you need to install the `Elasticsearch AWS Cloud Plugin <https://www.elastic.co/guide/en/elasticsearch/plugins/current/cloud-aws.html>`__ on all of your Elasticsearch nodes.
 
+Manually Invoking Reaper
+=====================================================
+
+If you need to free disk space immediately, reaper can be invoked on the command line.
+
+When invoked manually, reaper accepts the following command line options:
+
+``-c CONFIG_FILE``, ``--config CONFIG_FILE``
+  Path to the reaper config file.
+
+``-p PIDFILE``, ``--pid-file PIDFILE``
+  Path to the pid file to use. Default: ``/var/opt/delivery/reaper/reaper.pid``.
+
+``-l LOGFILE``, ``--log-file LOGFILE``
+  Path to the reaper log file.
+
+Reaper also accepts the following environment variables:
+
+* ``REAPER_RETENTION_PERIOD_IN_DAYS``: Number of days of data to keep. Defaults to the value set in the configuration file. Requires Automate 1.7.5 or above.
+* ``REAPER_WORKFLOW_API_HOST``: Hostname to use when connecting to the workflow API. Default value: ``localhost``.
+* ``REAPER_WORKFLOW_API_PORT``: TCP port number the workflow API is listening on. By default, reaper will attempt to connect to the API via the load balancer on port ``8080``. The load balancer can be bypassed by setting this to ``9611``.
+* ``CURATOR_ELASTICSEARCH_HOST``: Hostname to use when connecting to Elasticsearch. Default value: ``elasticsearch``.
+* ``CURATOR_ELASTICSEARCH_PORT``: TCP port number Elasticsearch is listening on. Default value: ``9200``.
+* ``CURATOR_ELASTICSEARCH_PREFIX``: Prefix to prepend to the path part of the URL for Elasticsearch, if Elasticsearch is accessed via a load balancer.
+
+**Example:**
+
+If both the workflow API and Elasticsearch are running locally, reaper can be invoked as follows:
+
+.. code-block:: bash
+
+  PATH=/opt/delivery/embedded/bin:$PATH \
+  REAPER_RETENTION_PERIOD_IN_DAYS=14 \
+  REAPER_WORKFLOW_API_PORT=9611 \
+  CURATOR_ELASTICSEARCH_HOST='localhost' \
+  CURATOR_ELASTICSEARCH_PORT='8080' \
+  CURATOR_ELASTICSEARCH_PREFIX='/elasticsearch' \
+  ruby /opt/delivery/embedded/service/reaper/bin/reaper \
+  --config /var/opt/delivery/reaper/reaper_config.json \
+  --log-file /var/log/delivery/reaper/reaper.log
+
