@@ -74,6 +74,11 @@ Chef Automate deployments have the following hardware requirements:
 \*If you use your own Elasticsearch cluster instead of the single Elasticsearch instance provided with Chef Automate,
 then the Chef Automate server only requires 8 GB of RAM.
 
+Sudoers
+-----------------------------------------------------
+
+The /etc/sudoers and files found under /etc/sudoers.d should not contain the line ``Defaults requiretty``, as this will break the ``automate-ctl preflight-check`` command. It uses sudo to do it's checks on the new Automate system.
+
 Node Hostnames and Network Access
 -----------------------------------------------------
 
@@ -370,7 +375,7 @@ The following steps show how to set up a runner from a Chef Automate server. Whi
 
 #. Run the ``install-runner`` subcommand.
 
-   .. important:: The ``install-runner`` command will create a new file called ``job_runner`` in the ``/etc/sudoers.d`` directory to give the runner the appropriate ``sudo`` access. If your runner does not have the ``#includedir /etc/sudoers.d`` directive included in its ``/etc/sudoers`` file, you must put that directive in before you run the ``install-runner`` command.
+   .. important:: The ``install-runner`` command will create a new file called ``job_runner`` in the ``/etc/sudoers.d`` directory to give the runner the appropriate ``sudo`` access. If your runner does not have the ``#includedir /etc/sudoers.d`` directive included in its ``/etc/sudoers`` file, you must put that directive in before you run the ``install-runner`` command. Additionally, the line ``Defaults requiretty`` must not occur in the /etc/sudoers file on any runner. This will prevent proper installation of runners.
 
    .. note:: You can optionally download the latest ChefDK from `<https://downloads.chef.io/chefdk/>`_ to specify a local package via ``--installer``. Doing so is useful if you are in an air-gapped environment. Version 0.15.16 or greater of the ChefDK is required. The download location is referred to below as ``OPTIONAL_CHEF_DK_PACKAGE_PATH``. This option cannot be used with the ``--chefdk-version`` as the version of the local package will be used.
 
