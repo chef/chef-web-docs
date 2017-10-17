@@ -1,7 +1,7 @@
 =====================================================
 An Overview of Compliance in Chef Automate
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_automate_compliance.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_automate_compliance.html>`__
 
 .. tag chef_automate_mark
 
@@ -17,7 +17,7 @@ Chef Automate 1.5.46 or later provides you the ability to store and manage compl
 
 .. tag beta_note
 
-If you are using Chef Automate 0.8.5, this functionality is hidden behind a ``beta`` feature flag. See the `Chef Automate 0.8.5 release notes </release_notes_chef_automate.html##what-s-new-in-0-8-5>`_ for more details.
+This feature is in ``beta`` release. To access this feature, place your cursor anywhere on an Automate page, type ``beta`` and enable the feature.
 
 .. end_tag
 
