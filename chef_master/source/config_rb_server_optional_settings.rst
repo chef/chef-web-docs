@@ -144,7 +144,7 @@ This configuration file has the following settings for ``bookshelf``:
    Please use ``chef-server-ctl set-secret bookshelf secret_access_key`` from the :ref:`ctl_chef_server_secrets_management` commands.
 
 ``bookshelf['storage_type']``
-   Determines where cookbooks are stored. Default value: ``:filesystem``. 
+   Determines where cookbooks are stored. Default value: ``:filesystem``.
 
    In instances that require cookbooks to be stored within a SQL backend, such as in a high availability setup, you must set ``storage_type`` to ``:sql``:
 
@@ -664,6 +664,11 @@ This configuration file has the following settings for ``nginx``:
 ``nginx['ssl_state_name']``
    The state, province, or region in which your company is located. Default value: ``WA``.
 
+``nginx['strict_host_header']``
+   Whether nginx should only respond to requests where the Host header matches one of the configured FQDNs. Default value: ``false``.
+
+   New in Chef server 12.17
+
 ``nginx['stub_status']['allow_list']``
    The IP address on which accessing the ``stub_status`` endpoint is allowed. Default value: ``["127.0.0.1"]``.
 
@@ -684,6 +689,11 @@ This configuration file has the following settings for ``nginx``:
 
 ``nginx['url']``
    Default value: ``https://#{node['fqdn']}``.
+
+``nginx['use_implicit_hosts']``
+   Automatically add `localhost` and any local IP addresses to the configured FQDNs. Useful in combination with ``nginx['strict_host_header']``. Default value: ``true``.
+
+   New in Chef server 12.17
 
 ``nginx['worker_connections']``
    The maximum number of simultaneous clients. Use with ``nginx['worker_processes']`` to determine the maximum number of allowed clients. Default value: ``10240``.
@@ -1073,7 +1083,7 @@ This configuration file has the following settings for ``opscode-erchef``:
    Default value: ``10000``.
 
 ``opscode_erchef['max_request_size']``
-   When the request body size is greater than this value, a ``413 Request Entity Too Large`` error is returned. Default value: ``1000000``.  
+   When the request body size is greater than this value, a ``413 Request Entity Too Large`` error is returned. Default value: ``1000000``.
 
 ``opscode_erchef['nginx_bookshelf_caching']``
    Whether Nginx is used to cache cookbooks. When ``:on``, Nginx serves up the cached content instead of forwarding the request. Default value: ``:off``.
@@ -1652,4 +1662,3 @@ This configuration file has the following settings for ``required_recipe``:
    Whether the feature is enabled. Default value: ``false``.
 ``required_recipe["path"]``
    The location of the recipe to serve. The file must be owned by the root user and group, and may not be group or world-writeable. Default value: ``nil``.
-
