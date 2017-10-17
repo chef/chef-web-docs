@@ -15,14 +15,16 @@ Compliance Scanner Open Beta
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 Previously, the only way to orchestrate remote InSpec runs was through the use of Chef Compliance, a standalone application which does not report data to Chef Automate. The compliance scanner, now available as an open beta feature in Chef Automate, allows you to add nodes and execute ad hoc remote compliance scans from within Chef Automate. In a future release we will add the ability to set up scheduled scan jobs. 
 
-Remote scans provide an important capability for any systems that may not have an agent installed, as well as for other endpoints and devices. The scanner combined with already existing reporting capabilities and profiles offers a major enhancement to remote compliance testing with Chef Automate.
+Remote scans provide an important capability for any systems that may not have an agent installed, as well as for other endpoints and devices. The scanner, combined with existing reporting capabilities and profiles, offers a major enhancement to remote compliance testing with Chef Automate. 
+
+A few of the new features introduced:
 
 * Add remote nodes with SSH and WinRM connections
 * Add credentials for remote connections and sudo configuration
 * Create jobs that execute ad hoc remote scans on all configured nodes
 * View results in Chef Automate's compliance reporting view
 
-To use the scanner please type `beta` from within the Chef Automate UI and enable the `compliance scanner feature </automate_compliance_scanner.html>`__.
+To use the scanner please type ``beta`` from within the Chef Automate UI and enable the `compliance scanner feature </automate_compliance_scanner.html>`__.
 
 Chef Automate Statistics
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -36,7 +38,7 @@ Override Reaper settings to run a manual Reaper job to remove data from Elastics
 Removed Legacy Compliance Views
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The original compliance data views under the Nodes tab have been accessible via the `legacy` flag since release of Chef Automate 1.5 in July.  With this release those views have been removed from the product, and data is no longer written to the underlying data indices.  Historical and new compliance data is stored in new indices.  To remove the legacy data and reduce storage volume, see `Data Retention Management in Chef Automate <https://docs.chef.io/data_retention_chef_automate.html>`__.
+The original compliance data views under the Nodes tab have been accessible via the ``legacy`` flag since the release of Chef Automate 1.5 in July.  With this release those views have been removed from the product, and data is no longer written to the underlying data indices.  Both historical and new compliance data is stored in new indices.  To remove the legacy data and reduce storage volume, see `Data Retention Management in Chef Automate <https://docs.chef.io/data_retention_chef_automate.html>`__.
 
 
 Resolved Issues
