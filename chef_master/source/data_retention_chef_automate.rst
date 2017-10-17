@@ -114,7 +114,7 @@ When invoked manually, reaper accepts the following command line options:
 
 Reaper also accepts the following environment variables:
 
-* ``REAPER_RETENTION_PERIOD_IN_DAYS``: Number of days of data to keep. Defaults to the value set in the configuration file.
+* ``REAPER_RETENTION_PERIOD_IN_DAYS``: Number of days of data to keep. Defaults to the value set in the configuration file. Require Automate 1.7.5 or above.
 * ``REAPER_WORKFLOW_API_HOST``: Hostname to use when connecting to the workflow API. Default value: ``localhost``.
 * ``REAPER_WORKFLOW_API_PORT``: TCP port number the workflow API is listening on. By default, reaper will attempt to connect to the API via the load balancer on port ``8080``. The load balancer can be bypassed by setting this to ``9611``.
 * ``CURATOR_ELASTICSEARCH_HOST``: Hostname to use when connecting to Elasticsearch. Default value: ``elasticsearch``.
