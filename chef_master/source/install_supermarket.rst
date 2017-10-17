@@ -333,7 +333,7 @@ Before following these steps, be sure to complete the OAuth setup process detail
    Where:
 
    * ``"chef_server_url"`` should contain the FQDN of your Chef server
-   * ``"chef_oauth2_app_id"`` should be contain the ``"uid"`` value from your OAuth credentials
+   * ``"chef_oauth2_app_id"`` should contain the ``"uid"`` value from your OAuth credentials
    * ``"chef_oauth2_secret"`` should contain the ``"secret"`` value from your OAuth credentials
  
 #. Issue another ``reconfigure`` command to apply your changes:
