@@ -282,6 +282,15 @@ Integrations
 `Workflow w/GitHub </integrate_delivery_github.html>`__ |
 `Workflow w/Slack </integrate_delivery_slack.html>`__
 
+
+Compliance
+-----------------------------------------------------
+`Reporting </automate_compliance_reporting.html>`__|
+`Scanner </automate_compliance_scanner.html>`__|
+`Profile Store </profile_store.html>`__|
+`Credentials </automate_compliance_credentials.html>`__
+
+
 Cookbooks
 -----------------------------------------------------
 `build-cookbook (cookbook) </delivery_build_cookbook.html>`__ |
