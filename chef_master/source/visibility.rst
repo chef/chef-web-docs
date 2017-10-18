@@ -56,11 +56,5 @@ In addition to converge data, Chef Automate also provides information on the com
 
 This tab provides a summary of the compliance status across all nodes of your cluster and allows you to pivot and search through that data from either a node perspective or a profile perspective. In addition, you can manage your compliance profiles and perform powerful filtering against your compliance data. See the link above for more information.
 
-.. tag beta_note
-
-This feature is in ``beta`` release. To access this feature, place your cursor anywhere on an Automate page, type ``beta`` and enable the feature.
-
-.. end_tag
-
 Chef Automate also continues to support the reporting of compliance data through the **Nodes** tab. If you need to continue using the previous compliance view, you can enable it easily by typing ``legacy`` in the UI and toggling on this view in the menu.
 

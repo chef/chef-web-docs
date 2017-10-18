@@ -26,11 +26,6 @@ Chef Automate 1.5.46 or later provides an easy way to view how successful the no
 
 If you are using an older version of Chef Automate, or your workflow requires you to use our standalone Chef Compliance server, you can find general information on Chef Compliance `here </chef_compliance.html>`__. 
 
-.. tag beta_note
-
-This feature is in ``beta`` release. To access this feature, place your cursor anywhere on an Automate page, type ``beta`` and enable the feature.
-
-.. end_tag
 
 Visibility
 ======================================================
