@@ -126,35 +126,112 @@ This subcommand has the following syntax:
 
 data-summary
 =====================================================
-The ``data-summary`` subcommand is used to get the summary of Chef Automate's data store. It will provide the total number of Chef client run records and compliance scan records, as well as the amount of storage consumed.
+New in Chef Automate 1.6.192.
 
-New in Chef Automate 1.7.3
+The ``data-summary`` subcommand is used to get the summary of Chef Automate's data store. The default setting for ``data-summary`` is to display the complete data summary of the Chef Automate Elasticsearch cluster which includes the cluster, converge, compliance and node state information. You may optionally pass one or many flags to limit the output to specific data groupings.
 
 **Syntax**
 
-.. code-block:: shell
+.. code-block:: bash
 
    $ automate-ctl data-summary [options]
-
-     Options:
-
-      -c, --compliance                 Display compliance and inspec data
-      -f, --format string              The output format. 'text' or 'json'
-      -h, --help                       Show this message
-      -i, --insights                   Display insights and converge data
-      -n, --node                       Display the node-state data
-      -s, --cluster                    Display the Elasticsearch cluster data
-      -u, --unit string                The unit measurement to use (b, kb, mb, gb)
+       -c, --compliance                 Display compliance and inspec data
+       -f, --format string              The output format ([text], json)
+       -h, --help                       Show the help message
+       -i, --insights                   Display insights and converge data
+       -n, --node                       Display the node-state data
+       -s, --cluster                    Display the Elasticsearch cluster data
+       -u, --unit string                Select the unit of measurement ([b], kb, mb, gb)
 
 **Examples**
 
-Return data store information as JSON:
+Summarize Chef Automate's data usage using the ``data-summary`` command's default behavior.
 
-  ``$ automate-ctl data-summary --format json``
+.. code-block:: bash
 
-Return only compliance and inspec data:
+   $ automate-ctl data-summary
+   CLUSTER NAME   DISK FREE  MEM FREE  AVG ES CPU %  AVG OS CPU %  AVG ES HEAP  AVG ES NON HEAP
+   chef-insights  23.58 GB   0.45 GB   0             2             0.23 GB      0.08 GB
 
-  ``$ automate-ctl data-summary -c``
+   NODE NAME               DISK FREE  MEM FREE  AVG ES CPU %  AVG OS CPU %  AVG ES HEAP  AVG ES NON HEAP
+   t3HQTkyNQ-aSt8h2KK3TXQ  23.58 GB   0.45 GB   0             2             0.23 GB      0.08 GB
+
+   INDEX NAME  DELETED NODES  TOTAL NODES  TOTAL SIZE
+   node-state  0              1            0.0 GB
+
+   INDICES GROUP  INDICES TOTAL  TOTAL CONVERGES  AVG DAILY CONVERGE  TOTAL SIZE  AVG DAILY SIZE
+   insights       1              2                2                   0.0 GB      0.0 GB
+
+   INDEX NAME           TOTAL CONVERGES  TOTAL SIZE
+   insights-2017.10.16  2                0.0 GB
+
+   INDICES GROUP  INDICES TOTAL  TOTAL INSPEC RUNS  AVG DAILY INSPEC RUNS  TOTAL SIZE  AVG DAILY SIZE
+   compliance     1              1                  1                      0.0 GB      0.0 GB
+
+   INDEX NAME             TOTAL INSPEC RUNS  TOTAL SIZE
+   compliance-2017.10.16  1                  0.0 GB
+
+Symmarize Chef Automate's compliance data in kilobytes.
+
+.. code-block:: bash
+
+   $ automate-ctl data-summary -c -u kb
+   INDICES GROUP  INDICES TOTAL  TOTAL INSPEC RUNS  AVG DAILY INSPEC RUNS  TOTAL SIZE  AVG DAILY SIZE
+   compliance     1              1                  1                      22.79 KB    22.79 KB
+
+   INDEX NAME             TOTAL INSPEC RUNS  TOTAL SIZE
+   compliance-2017.10.16  1                  22.79 KB
+
+
+Summarize Chef Automate's data usage with JSON formatting.
+
+.. code-block:: bash
+
+   $ automate-ctl data-summary -f json
+   {"cluster":{"name":"chef-insights","nodes":[{"es_cpu_percent":0,"es_max_file_descriptors":50000,"es_open_file_descriptors":219,"os_cpu_percent":3,"es_mem_total_virtual_in_b":4892397568,"fs_free_in_b":38063587328,"fs_total_in_b":63381999616,"jvm_heap_max_in_b":1064042496,"jvm_heap_used_in_b":250139784,"jvm_non_heap_used_in_b":89278448,"os_mem_total_in_b":4397072384,"os_mem_used_in_b":3916091392}],"averages":{"es_cpu_percent":0,"es_max_file_descriptors":50000,"es_open_file_descriptors":219,"os_cpu_percent":3,"es_mem_total_virtual_in_b":4892397568,"fs_free_in_b":38063587328,"fs_total_in_b":63381999616,"jvm_heap_max_in_b":1064042496,"jvm_heap_used_in_b":250139784,"jvm_non_heap_used_in_b":89278448,"os_mem_total_in_b":4397072384,"os_mem_used_in_b":3916091392}},"indices":{"totals":{"converges":2,"deleted_nodes":0,"docs":22,"indices":5,"inspec_summaries":1,"nodes":1,"size_in_bytes":502067},"insights":{"totals":{"converges":2,"docs":2,"indices":1,"size_in_b":229142},"averages":{"converges":2,"docs":2,"size_in_b":229142},"indices":[{"converges":2,"docs":2,"size_in_b":229142}]},"compliance":{"totals":{"docs":19,"indices":1,"inspec_summaries":1,"size_in_b":23333},"averages":{"docs":19,"inspec_summaries":1,"size_in_b":23333},"indices":[{"docs":19,"inspec_summaries":1,"size_in_b":23333}]},"node_state":{"totals":{"deleted_nodes":0,"docs":1,"nodes":1,"size_in_b":249592}}}}
+
+Explanation of fields
+-----------------------------------------------------
+``cluster``
+   Elasticsearch cluster statistics for each node in the cluster.
+``es_cpu_percent``
+   Elasticsearch processes CPU usage in percent.
+``es_max_file_descriptors``
+   Maximum number of files that Elasticsearch can concurrently open.
+``es_open_file_descriptors``
+   Current number of files that Elasticsearch has open.
+``os_cpu_percent``
+   Operating system reported CPU usage in percent.
+``es_mem_total_virtual_in_b``
+   Maximum amount of virtual memory that Elasticsearch is allowed to allocate in bytes.
+``fs_free_in_b``
+   Unallocated filesystem space in the Elasticsearch repository path in bytes.
+``fs_total_in_b``
+   Total filesystem space in the Elasticsearch repository path in bytes
+``jvm_heap_max_in_b``
+   Maximum amount of heap memory that the Elasticsearch Java Virtual Machine is allowed to allocate in bytes.
+``jvm_heap_used_in_b``
+   The Elasticsearch Java Virtual Machine's currently allocated amount of heap memory in bytes.
+``jvm_non_heap_used_in_b``
+   The Elasticsearch Java Virtual Machine's currently allocated amount of non-heap memory in bytes.
+``os_mem_total_in_b``
+   The operating system's total memory amount in bytes.
+``os_mem_used_in_b``
+   The operating system's total memory used in bytes.
+``converges``
+   The count of chef-client converges have started.
+``deleted_nodes``
+   Count of nodes that have been deleted but not purged from Chef Automate.
+``docs``
+   Total Elasticsearch document count.
+``indices``
+   The indices that are available in the indices group.
+``inspec_summaries``
+   Count of inspec runs that have completed.
+``nodes``
+   Total node count.
+``size_in_bytes``
+   The total size of the index or indices in bytes.
 
 delete-backups
 =====================================================
