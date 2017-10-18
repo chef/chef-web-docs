@@ -19,13 +19,6 @@ The examples shown in this topic are meant to provide a quick way for you to see
 
 If your workflow requires the use of the standalone Chef Compliance server, or you are using a previous version of Chef Automate (older than 0.8.5), see `Integrate Compliance Server </integrate_compliance_server_chef_automate.html>`__ for information on how to use the audit cookbook to scan your nodes.
 
-.. note:: Remote scanning capabilities currently part of Chef Compliance and will be available in Chef Automate in the future.
-
-.. tag beta_note
-
-This feature is in ``beta`` release. To access this feature, place your cursor anywhere on an Automate page, type ``beta`` and enable the feature.
-
-.. end_tag
 
 Prerequisites
 -----------------------------------------------------
