@@ -1057,6 +1057,28 @@ This configuration file has the following settings for ``ssh_git``:
 ``ssh_git['port']``
    The port on which the service is to listen. Default value: ``8989``.
 
+statistics
+-----------------------------------------------------
+This configuration file has the following settings for ``statistics``:
+
+``statistics['enable']``
+   Whether or not to enable the statistics service. Default value: ``true``.
+
+``statistics['port']``
+   The listen port of the statistics service. Default value: ``7676``.
+
+``statistics['bind_address']``
+   The listen bind address of the statistics service. Default value: ``127.0.0.1``.
+
+``statistics['log_directory']``
+   The statistics log file location. Default value: ``/var/log/delivery/statistics``.
+
+``statistics['log_rotation']['file_maxbytes']``
+   The statistics log file max bytes. Default value: ``104857600``.
+
+``statistics['log_rotation']['num_to_keep']``
+   The maxiumum number of statistics log files. Default value: ``10``.
+
 user
 -----------------------------------------------------
 This configuration file has the following settings for ``user``:
