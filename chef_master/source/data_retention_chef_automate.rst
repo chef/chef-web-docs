@@ -15,6 +15,19 @@ Chef Automate manages data retention of Elasticsearch indices through a tool cal
 
 Reaper uses `Elasticsearch Curator <https://github.com/elastic/curator>`__ to perform the index archives and deletions and relies on Elasticsearch plugins to perform any necessary archive tasks.
 
+Example Configuration (Delete mode)
+=====================================================
+
+For delete mode, the following is a suitable configuration. We recommend delete mode for most customers as it's the simplest and most reliable.
+
+Set the following group of options in /etc/delivery/delivery.rb on your Automate system and run a ``automate-ctl reconfigure`` to apply the configuration change.
+
+```
+reaper['enable'] = true
+reaper['mode'] = "delete"
+reaper['retention_period_in_days'] = 7
+```
+
 Configuration
 =====================================================
 
