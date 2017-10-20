@@ -77,7 +77,7 @@ then the Chef Automate server only requires 8 GB of RAM.
 Sudoers
 -----------------------------------------------------
 
-The /etc/sudoers and files found under /etc/sudoers.d should not contain the line ``Defaults requiretty``, as this will break the ``automate-ctl preflight-check`` command. It uses sudo to do it's checks on the new Automate system.
+The ``/etc/sudoers`` and files found under ``/etc/sudoers.d`` should not contain the line ``Defaults requiretty``, which will break the ``automate-ctl preflight-check`` command. The preflight check uses ``sudo`` for checking the new Automate system.
 
 Node Hostnames and Network Access
 -----------------------------------------------------
@@ -149,6 +149,8 @@ If you don't have an existing Chef server installed and configured, the steps be
 
 Chef Server Installation
 ------------------------------------------------------
+
+.. note:: The standalone Chef server installation is not needed for most workflows. Only install the standalone Chef server if your workflow depends on it.
 
 The standalone installation of Chef server creates a working installation on a single server. This installation is also useful when you are installing Chef server in a virtual machine, for proof-of-concept deployments, or as a part of a development or testing loop.
 
@@ -270,7 +272,7 @@ Now that you have your Chef server set up, install and configure Chef Automate b
 
       sudo rpm -Uvh PATH_TO_AUTOMATE_SERVER_PACKAGE
 
-#. In Chef Automate 0.6.64, you have the option of running the ``preflight-check`` command. This command is optional, but you are encouraged to use it, as it can uncover common environmental problems prior to the actual setup process. For example, there may be required ports that are unavailable, which would have to be rectified prior to setup.
+#. In Chef Automate encourages the use of the optional ``preflight-check`` command to uncover common environmental problems prior to starting the actual setup process. For example, there may be required ports that are unavailable, which would have to be rectified prior to setup.
 
    .. code-block:: bash
 
@@ -375,7 +377,7 @@ The following steps show how to set up a runner from a Chef Automate server. Whi
 
 #. Run the ``install-runner`` subcommand.
 
-   .. important:: The ``install-runner`` command will create a new file called ``job_runner`` in the ``/etc/sudoers.d`` directory to give the runner the appropriate ``sudo`` access. If your runner does not have the ``#includedir /etc/sudoers.d`` directive included in its ``/etc/sudoers`` file, you must put that directive in before you run the ``install-runner`` command. Additionally, the line ``Defaults requiretty`` must not occur in the /etc/sudoers file on any runner. This will prevent proper installation of runners.
+   .. important:: The ``install-runner`` command creates a new file called ``job_runner`` in the ``/etc/sudoers.d`` directory that gives the runner the appropriate ``sudo`` access. If your runner does not have the ``#includedir /etc/sudoers.d`` directive included in its ``/etc/sudoers`` file, you must put that directive in before you run the ``install-runner`` command. Additionally, the line ``Defaults requiretty`` must not occur in the /etc/sudoers file on any runner. This will prevent proper installation of runners.
 
    .. note:: You can optionally download the latest ChefDK from `<https://downloads.chef.io/chefdk/>`_ to specify a local package via ``--installer``. Doing so is useful if you are in an air-gapped environment. Version 0.15.16 or greater of the ChefDK is required. The download location is referred to below as ``OPTIONAL_CHEF_DK_PACKAGE_PATH``. This option cannot be used with the ``--chefdk-version`` as the version of the local package will be used.
 
@@ -448,17 +450,6 @@ Profiles
 Chef Automate contains a compliance profiles asset store that provides several built-in profiles covering baseline security checks through CIS benchmarks across multiple operating systems.
 
 In Chef Automate 0.8.5 or later, the compliance profiles asset store is enabled by default. You can manage your profiles through the `Chef Automate API </api_automate.html>`_ as well as through the Chef Automate UI. See `An Overview of Compliance in Chef Automate </chef_automate_compliance.html>`_ for more information on the new integrated compliance functionality.
-
-In Chef Automate version 0.6, the profiles asset store functionality is available; however, you must enable the service by adding this line:
-
-.. code-block:: bash
-
-   compliance_profiles['enable'] = true
-
-into ``/etc/delivery/delivery.rb`` and running ``automate-ctl reconfigure``. The ``automate-ctl status`` subcommand should now list the status of the ``compliance_profiles`` service.
-
-Also, the profiles in this asset store are managed using the `Chef Automate API </api_automate.html>`_ and cannot be managed through the UI as with the 0.8.5 release.
-
 
 Scanning
 ------------------------------------------------------------
