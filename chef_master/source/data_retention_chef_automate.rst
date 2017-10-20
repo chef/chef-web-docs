@@ -11,50 +11,84 @@ Data Retention Management in Chef Automate
 
 .. end_tag
 
-Chef Automate manages data retention of Elasticsearch indices through a tool called Reaper. Reaper will delete indices that fall outside of the requested retention period. Additionally, prior to deleting any indices, Reaper will optionally archive those indices to an alternate filesystem location or an S3 bucket if desired.
+Chef Automate manages data retention of Elasticsearch indices through a tool called Reaper. Reaper will delete indices that fall outside of the requested retention period. Reaper can be configured to archive the indices scheduled for deletion to an alternate filesystem location or an S3 bucket.
 
-Reaper uses `Elasticsearch Curator <https://github.com/elastic/curator>`__ to perform the index archives and deletions and relies on Elasticsearch plugins to perform any necessary archive tasks.
+Reaper uses `Elasticsearch Curator <https://github.com/elastic/curator>`__ for indexing archives and deletions. Reaper relies on Elasticsearch plugins to perform any necessary archival tasks.
 
 Example Configuration (Delete mode)
 =====================================================
 
-For delete mode, the following is a suitable configuration. We recommend delete mode for most customers as it's the simplest and most reliable.
+ We recommend delete mode for most customers as it is the simplest and most reliable. For delete mode, the following is a suitable configuration.
 
-Set the following group of options in /etc/delivery/delivery.rb on your Automate system and run a ``automate-ctl reconfigure`` to apply the configuration change.
+Set the following group of options in ``/etc/delivery/delivery.rb`` on your Automate system and run a ``automate-ctl reconfigure`` to apply the configuration change.
 
-```
-reaper['enable'] = true
-reaper['mode'] = "delete"
-reaper['retention_period_in_days'] = 7
-```
+.. code-block:: bash
 
-Configuration
+   reaper['enable'] = true
+   reaper['mode'] = "delete"
+   reaper['retention_period_in_days'] = 7
+
+Settings
 =====================================================
-
 Reaper has a number of configuration parameters you may specify in your ``/etc/delivery/delivery.rb`` configuration file.
 
-* ``reaper['enable']``: boolean. If ``true``, Reaper will be enabled and run every 15 minutes. Default: ``false``.
-* ``reaper['mode']``: string. Valid options are ``'delete'`` or ``'archive'``. **This setting is required if reaper['enable'] is set to true**.
-   * If set to ``'delete'``, Reaper will delete any indices older than the value specified in ``reaper['retention_period_in_days']``.
-   * If set to ``'archive'``, Reaper will take snapshots of any indices older than ``reaper['retention_period_in_days']`` and then delete the indices.
-* ``reaper['archive_destination']``: string. Valid options are ``'fs'`` or ``'s3'``. **This setting is required if reaper['mode'] is set to 'archive'**.
-   * If set to ``'fs'``, Reaper will take snapshots to a filesystem location on your Elasticsearch nodes.
-   * If set to ``'s3'``, Reaper will take snapshots and store them on an AWS S3 bucket.
-* ``reaper['retention_period_in_days']``: integer. Any indices older than this value will reaped by Reaper. Default: ``14``.
-* ``reaper['evasive_maneuvers_enabled']``: boolean. If ``true``, Reaper will perform evasive maneuvers if they are necessary. See the section Evasive Maneuvers for more information. Default: ``true`` if using Chef Automate's provided Elasticsearch service; ``false`` if using an external Elasticsearch service.
-* ``reaper['free_space_threshold_percent']``: integer. If the free space on any volume on any Elasticsearch node in your cluster falls below this threshold, Reaper will perform evasive maneuvers. Default: ``10``.
-* ``reaper[‘repository’]``: string. The name of the repository set up in Elasticsearch, defaults to ``'reaper[‘archive_destination’]-chef-automate'``
+``reaper['enable']``: boolean
+  If ``true`` Reaper will be enabled and run every 15 minutes. Default: ``false``.
 
-The following option applies when ``reaper['archive_destination']`` is set to ``'fs'``:
+``reaper['mode']``: string
+  This setting is **required** if ``reaper['enable']`` is set to ``true``. Valid options are ``'delete'`` or ``'archive'``. 
 
- * ``reaper['archive_filesystem_path']``: *required*. string. The full path to the directory/filesystem on your Elasticsearch nodes in which snapshots should be stored. This should be a different filesystem/volume than where Elasticsearch stores its running data.
+``reaper['mode']``: ``'delete'``
+  Reaper will delete any indices older than the value specified in ``reaper['retention_period_in_days']``.
+
+``reaper['mode']``: ``'archive'``
+  Reaper will take snapshots of any indices older than defined in ``reaper['retention_period_in_days']`` and then delete the indices.
+
+``reaper['archive_destination']``: string
+  This setting is **required** if ``reaper['mode']`` is set to ``'archive'``. Valid options are ``'fs'`` or ``'s3'``.
+
+``reaper['retention_period_in_days']``: integer
+  Any indices older than this value will reaped by Reaper. Default: ``14``.
+
+``reaper['evasive_maneuvers_enabled']``: boolean
+    If ``true``, Reaper will perform evasive maneuvers if they are necessary. The default setting depends on the Elasticsearch service in use.
+    Default: ``true`` if using Chef Automate's provided Elasticsearch service. 
+    Default: ``false`` if using an external Elasticsearch service.
+
+``reaper['free_space_threshold_percent']``: integer 
+  The threshold for free space on any volume on any Elasticsearch node in your cluster. If the free space falls below this threshold, Reaper will perform evasive maneuvers. Default: ``10``.
+
+``reaper[‘repository’]``: string
+  The name of the repository set up in Elasticsearch, defaults to ``'reaper[‘archive_destination’]-chef-automate'``
+
+Using Reaper and the Chef Automate AWS S3 Elasticsearch Service
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+``reaper['archive_destination']``: ``'s3'``
+  Reaper will take snapshots and store them on an AWS S3 bucket.
 
 The following options apply when ``reaper['archive_destination']`` is set to ``'s3'``:
 
-* ``reaper['archive_region']``: *required*. string. The AWS region in which to store your snapshots. Example: ``'us-east-1'``.
-* ``reaper['s3_bucket_name']``: *required*. string. The name of the S3 bucket in which to store your snapshots.
-* ``reaper['aws_access_key_id']``: *optional*. string. The AWS IAM Access Key ID to use when authenticating to S3. If omitted, Reaper will look for default AWS credentials. See the section Authenticating to AWS for more information.
-* ``reaper['aws_secret_key']``: *optional*. string. The AWS IAM Secret Key to use when authenticating to S3. If omitted, Reaper will look for default AWS credentials. See the section Authenticating to AWS for more information.
+``reaper['archive_region']``: string
+  **Required.** The AWS region in which to store your snapshots. Example: ``'us-east-1'``.
+
+``reaper['s3_bucket_name']``: string
+  **Required.** The name of the S3 bucket in which to store your snapshots.
+
+``reaper['aws_access_key_id']``:  string
+  **Optional.** The AWS IAM Access Key ID to use when authenticating to S3. If omitted, Reaper will look for default AWS credentials. See the section Authenticating to AWS for more information.
+
+``reaper['aws_secret_key']``: string
+  **Optional.** The AWS IAM Secret Key to use when authenticating to S3. If omitted, Reaper will look for default AWS credentials. See the section Authenticating to AWS for more information.
+
+Using Reaper and an External Elasticsearch Service
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+``reaper['archive_destination']``: ``'fs'``
+  Reaper will take snapshots to a filesystem location on your Elasticsearch nodes.
+
+The following option applies when ``reaper['archive_destination']`` is set to ``'fs'``:
+
+  ``reaper['archive_filesystem_path']``: string
+    **Required.** The full path to the directory/filesystem on your Elasticsearch nodes for storing snapshots. This should be a different filesystem/volume than where Elasticsearch stores its running data.
 
 How Reaper Operates
 =====================================================
@@ -68,19 +102,19 @@ Reaper runs every 15 minutes and performs these operations:
 Evasive Maneuvers
 =====================================================
 
-In addition to allowing you to manage your own data retention requirements, the main goal of Reaper is to ensure Chef Automate does not degrade or become unavailable due to disk space consumption issues. Retention periods are not foolproof; if you add a large number of nodes to your infrastructure, or increase your converge rate, you can cause a sudden increase in disk space utilization for which the retention period would not delete enough data.
+In addition to allowing you to manage your own data retention requirements, Reaper ensures Chef Automate does not degrade or become unavailable because of disk space consumption issues. Retention periods are not foolproof; changes to the infrastructure or operation of Chef Automate, such as adding a large number of nodes to the infrastructure, or increasing the converge rate, can cause a sudden increase in disk space utilization for which the retention period would not delete enough data.
 
 To address this issue, Reaper includes the ability to more aggressively remove older Chef Automate indices if the available free space on any Elasticsearch nodes falls below a user-configurable threshold. If your Elasticsearch nodes are configured with multiple volumes, Reaper will take action when **any** of the volumes are below the free space threshold.
 
-If evasive maneuvers is enabled, Reaper will do the following steps in a loop after the normal task:
+If ``evasive maneuvers`` is enabled, Reaper performs the following steps in a loop after the normal task:
 
  * Request disk space utilization information from Elasticsearch's status endpoint
- * Calculate the amount of free space on all nodes in the Elasticsearch cluster
-    * If all nodes' free disk space percentage is greater than the ``free_space_threshold_percent``, stop. Evasive maneuvers are complete.
-    * If any node's free disk space percentage is less than ``free_space_threshold_percent``, delete one more day's worth of data.
+ * Calculate the amount of free space on every node in the Elasticsearch cluster
+    * If the free disk space percentage for each node is greater than the ``free_space_threshold_percent``, stop. Evasive maneuvers are complete.
+    * If the free disk space percentage for any node is less than ``free_space_threshold_percent``, delete one day's worth of data.
  * Repeat the evasive maneuvers loop
 
-Regardless of the available free space in your Elasticsearch cluster, Reaper will always leave today's and yesterday's indices.
+Regardless of the available free space in your Elasticsearch cluster, Reaper will always retain the indices for the current day and one day prior.
 
 Authenticating to AWS
 =====================================================
