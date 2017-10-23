@@ -40,7 +40,7 @@ where
 * ``windows_task`` is the resource
 * ``'name'`` is the name of the resource block
 * ``command`` is the command to be executed by the windows scheduled task.
-* ``frequency`` is the frequency with which to run the task. (default is :hourly. Other valid values include :minute, :hourly, :daily, :weekly, :monthly, :once, :on_logon, :onstart, :on_idle) :once requires start_time
+* ``frequency`` is the frequency with which to run the task. (default is :hourly. Other valid values include :minute, :hourly, :daily, :weekly, :monthly, :none, :once, :on_logon, :onstart, :on_idle)
 * ``frequency_modifier`` Multiple for frequency. (15 minutes, 2 days). Monthly tasks may also use these values": ('FIRST', 'SECOND', 'THIRD', 'FOURTH', 'LAST', 'LASTDAY')
 
 Actions
@@ -102,7 +102,7 @@ This resource has the following properties:
 ``frequency``
    **Ruby Type:** Symbol | **Default Value:** ``:hourly``
 
-   Frequency with which to run the task. Values include: ``:minute``, ``:hourly``, ``:daily``, ``:weekly``, ``:monthly``, ``:once``, ``:on_logon``, ``:onstart``, ``:on_idle``. The ``:once`` value requires the ``start_time`` property.
+   Frequency with which to run the task. Values include: ``:minute``, ``:hourly``, ``:daily``, ``:weekly``, ``:monthly``, ``:none``, ``:once``, ``:on_logon``, ``:onstart``, ``:on_idle``. The ``:once`` value requires the ``start_time`` property. The ``:none`` frequency requires Chef 13.6 or later.
 
 ``frequency_modifier``
    **Ruby Type:** Integer, String
