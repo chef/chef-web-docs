@@ -13,7 +13,7 @@ Data Retention Management in Chef Automate
 
 Chef Automate manages data retention of Elasticsearch indices through a tool called Reaper. Reaper will delete indices that fall outside of the requested retention period. Reaper can be configured to archive the indices scheduled for deletion to an alternate filesystem location or an S3 bucket.
 
-Reaper uses `Elasticsearch Curator <https://github.com/elastic/curator>`__ for indexing archives and deletions. Reaper relies on Elasticsearch plugins to perform any necessary archival tasks.
+Reaper uses `Elasticsearch Curator <https://github.com/elastic/curator>`__ for indexing archives and deletions. Elasticsearch plugins are used to perform any necessary archival tasks.
 
 Example Configuration (Delete mode)
 =====================================================
@@ -75,10 +75,10 @@ The following options apply when ``reaper['archive_destination']`` is set to ``'
   **Required.** The name of the S3 bucket in which to store your snapshots.
 
 ``reaper['aws_access_key_id']``:  string
-  **Optional.** The AWS IAM Access Key ID to use when authenticating to S3. If omitted, Reaper will look for default AWS credentials. See the section Authenticating to AWS for more information.
+  **Optional.** The AWS IAM Access Key ID to use when authenticating to S3. If omitted, Reaper will look for default AWS credentials. See the `Authenticating to AWS </data_retention_chef_automate.html#authenticating-to-aws>`__ section for more information.
 
 ``reaper['aws_secret_key']``: string
-  **Optional.** The AWS IAM Secret Key to use when authenticating to S3. If omitted, Reaper will look for default AWS credentials. See the section Authenticating to AWS for more information.
+  **Optional.** The AWS IAM Secret Key to use when authenticating to S3. If omitted, Reaper will look for default AWS credentials. See the `Authenticating to AWS </data_retention_chef_automate.html#authenticating-to-aws>`__ section for more information.
 
 Using Reaper and an External Elasticsearch Service
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -102,7 +102,7 @@ Reaper runs every 15 minutes and performs these operations:
 Evasive Maneuvers
 =====================================================
 
-In addition to allowing you to manage your own data retention requirements, Reaper ensures Chef Automate does not degrade or become unavailable because of disk space consumption issues. Retention periods are not foolproof; changes to the infrastructure or operation of Chef Automate, such as adding a large number of nodes to the infrastructure, or increasing the converge rate, can cause a sudden increase in disk space utilization for which the retention period would not delete enough data.
+In addition to allowing you to manage your own data retention requirements, Reaper ensures Chef Automate does not degrade or become unavailable because of disk space consumption issues. Retention periods are not foolproof; changes to the infrastructure or operation of Chef Automate, such as adding a large number of nodes or increasing the converge rate, can cause a sudden increase in disk space utilization for which the retention period would not delete enough data.
 
 To address this issue, Reaper includes the ability to more aggressively remove older Chef Automate indices if the available free space on any Elasticsearch nodes falls below a user-configurable threshold. If your Elasticsearch nodes are configured with multiple volumes, Reaper will take action when **any** of the volumes are below the free space threshold.
 
