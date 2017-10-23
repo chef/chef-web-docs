@@ -76,8 +76,7 @@ then the Chef Automate server only requires 8 GB of RAM.
 
 Sudoers
 -----------------------------------------------------
-
-The ``/etc/sudoers`` and files found under ``/etc/sudoers.d`` should not contain the line ``Defaults requiretty``, which will break the ``automate-ctl preflight-check`` command. The preflight check uses ``sudo`` for checking the new Automate system.
+The ``/etc/sudoers`` file should not contain the line ``Defaults requiretty``, as it will break the ``automate-ctl preflight-check`` command. The preflight check uses ``sudo`` to inspect the new Automate system. This also applies to files within the ``/etc/sudoers.d`` directory.
 
 Node Hostnames and Network Access
 -----------------------------------------------------
@@ -272,7 +271,7 @@ Now that you have your Chef server set up, install and configure Chef Automate b
 
       sudo rpm -Uvh PATH_TO_AUTOMATE_SERVER_PACKAGE
 
-#. In Chef Automate encourages the use of the optional ``preflight-check`` command to uncover common environmental problems prior to starting the actual setup process. For example, there may be required ports that are unavailable, which would have to be rectified prior to setup.
+#. Before starting the Chef Automate setup process, you're encouraged to use the optional ``preflight-check`` command to uncover common environmental problems that may prevent Chef Automate from functioning properly. For example, there may be required ports that are unavailable, which would have to be rectified prior to setup.
 
    .. code-block:: bash
 
@@ -377,7 +376,7 @@ The following steps show how to set up a runner from a Chef Automate server. Whi
 
 #. Run the ``install-runner`` subcommand.
 
-   .. important:: The ``install-runner`` command creates a new file called ``job_runner`` in the ``/etc/sudoers.d`` directory that gives the runner the appropriate ``sudo`` access. If your runner does not have the ``#includedir /etc/sudoers.d`` directive included in its ``/etc/sudoers`` file, you must put that directive in before you run the ``install-runner`` command. Additionally, the line ``Defaults requiretty`` must not occur in the /etc/sudoers file on any runner. This will prevent proper installation of runners.
+   .. important:: The ``install-runner`` command creates a new file called ``job_runner`` in the ``/etc/sudoers.d`` directory that gives the runner the appropriate ``sudo`` access. If your runner does not have the ``#includedir /etc/sudoers.d`` directive included in its ``/etc/sudoers`` file, you must put that directive in before you run the ``install-runner`` command. Additionally, the line ``Defaults requiretty`` must not occur in the ``/etc/sudoers`` file on any runner. This will prevent proper installation of runners.
 
    .. note:: You can optionally download the latest ChefDK from `<https://downloads.chef.io/chefdk/>`_ to specify a local package via ``--installer``. Doing so is useful if you are in an air-gapped environment. Version 0.15.16 or greater of the ChefDK is required. The download location is referred to below as ``OPTIONAL_CHEF_DK_PACKAGE_PATH``. This option cannot be used with the ``--chefdk-version`` as the version of the local package will be used.
 
