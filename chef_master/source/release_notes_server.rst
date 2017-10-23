@@ -1,9 +1,19 @@
 =====================================================
-Release Notes: Chef Server 12.0 - 12.16.14
+Release Notes: Chef Server 12.0 - 12.17.3
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_server.rst>`__
 
 The Chef server acts as a hub for configuration data by storing cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is managed by the chef-client.
+
+What's New in 12.17.3
+=====================================================
+The following items are new for Chef server 12.17.3:
+
+* Java has been updated to version 8u144 to address `CVE-2017-3526 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-3526>`__
+* A ``/_stats`` endpoint has been added to Erchef. It exposes statistics about connection pool usage inside Erchef, Postgresql, and the Erlang VM
+* The ``strict_host_header`` and ``use_implicit_hosts`` settings have been added for nginx. These options help to prevent against cache poisoning attacks by ensuring that nginx only responds to requests with host headers that match the configured FQDN for the given machine. See Chef server's `optional nginx settings </config_rb_server_optional_settings.html#nginx>`__ for additional details
+
+See the `change log <https://github.com/chef/chef-server/blob/master/CHANGELOG.md#12173-2017-10-19>`__ for a full list of changes.
 
 What's New in 12.16.14
 =====================================================
