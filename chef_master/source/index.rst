@@ -264,7 +264,7 @@ Concepts
 
 **Workflow**: `Workflow Overview </workflow.html>`__ | `Manage Dependencies </delivery_manage_dependencies.html>`__
 
-`Visibility Overview </visibility.html>`__ |
+`Nodes Overview </visibility.html>`__ |
 `Compliance Overview </chef_automate_compliance.html>`__
 
 Delivery CLI
