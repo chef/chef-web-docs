@@ -536,7 +536,7 @@ Versions and Status
      - Lifecycle Status
      - EOL Date
    * - Chef Automate
-     - 0.7.151 or later
+     - 0.8.5 or later
      - GA
      - n/a
    * - Chef Backend
