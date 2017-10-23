@@ -264,7 +264,7 @@ Concepts
 
 **Workflow**: `Workflow Overview </workflow.html>`__ | `Manage Dependencies </delivery_manage_dependencies.html>`__
 
-`Visibility Overview </visibility.html>`__ |
+`Nodes Overview </visibility.html>`__ |
 `Compliance Overview </chef_automate_compliance.html>`__
 
 Delivery CLI
@@ -275,13 +275,16 @@ Integrations
 -----------------------------------------------------
 `Authentication w/LDAP </integrate_delivery_ldap.html>`__ |
 `Authentication w/SAML </integrate_chef_automate_saml.html>`__ |
-`Node Notifications w/Slack </integrate_node_notifications_slack.html>`__ |
-`Node Notifications w/Webhooks </integrate_node_notifications_webhook.html>`__ |
 `Workflow w/Bitbucket </integrate_delivery_bitbucket.html>`__ |
 `Workflow w/Email (SMTP) </integrate_delivery_smtp.html>`__ |
 `Workflow w/GitHub </integrate_delivery_github.html>`__ |
 `Workflow w/Slack </integrate_delivery_slack.html>`__
 
+Nodes
+-----------------------------------------------------
+`Node Notifications w/Slack </integrate_node_notifications_slack.html>`__ |
+`Node Notifications w/Webhooks </integrate_node_notifications_webhook.html>`__ |
+`Node Search Reference </search_query_chef_automate.html>`__
 
 Compliance
 -----------------------------------------------------
@@ -317,7 +320,6 @@ Managing the Server
 `Elasticsearch and Kibana Authentication </elasticsearch_and_kibana_auth.html>`__ |
 `Secrets </delivery_manage_secrets.html>`__ |
 `Data Retention Management in Chef Automate </data_retention_chef_automate.html>`__ |
-`Node Search Reference </search_query_chef_automate.html>`__ |
 `Stream Data </stream_data_chef_automate.html>`__ |
 `Tuning </delivery_server_tuning.html>`__ |
 `Upgrades </upgrade_chef_automate.html>`__ |
@@ -460,6 +462,7 @@ Addenda
    automate_compliance_reporting
    automate_compliance_profile_store
    automate_compliance_credentials
+   automate_nodes
    aws_marketplace
    aws_opsworks_chef_automate
    azure_portal

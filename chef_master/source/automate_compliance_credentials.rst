@@ -21,7 +21,7 @@ This feature is in ``beta`` release. To access this feature, place your cursor a
 
 Adding SSH, WinRM, and Sudo credentials is the essential first step for using the Chef Automate Compliance Scanner. After adding credentials, you’ll be able to add nodes and create ad-hoc scan jobs.
 
-Depending on how you’ve set up your nodes, you may need to set up more than one key that uses the same SSH Private Key with different usernames. For example, AWS EC2 Amazon Linux nodes require the username ``ec2-user``, while AWS EC2 Ubuntu nodes require the username ``ubuntu`` or ``root``. The **Credentials** tab enable saving two different sets of credentials, both using the same SSH Private Key and different user names.  However, credentials with different content may also reuse identical key names;it may be advisable to reduce confusion by follow a naming pattern that uses different key name that distinguishes between similar credentials.
+Depending on how you’ve set up your nodes, you may need to set up more than one key that uses the same SSH Private Key with different usernames. For example, AWS EC2 Amazon Linux nodes require the username ``ec2-user``, while AWS EC2 Ubuntu nodes require the username ``ubuntu`` or ``root``. The **Credentials** tab enable saving two different sets of credentials, both using the same SSH Private Key and different user names.  However, credentials with different content may also reuse identical key names; it may be advisable to reduce confusion by follow a naming pattern specifying the key name and platform to distinguish between similar credentials.
 
 .. Warning:: A credential name may be reused, even when it contains different usernames or keys.
 
