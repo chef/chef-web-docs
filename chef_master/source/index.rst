@@ -460,6 +460,7 @@ Addenda
    automate_compliance_reporting
    automate_compliance_profile_store
    automate_compliance_credentials
+   automate_nodes
    aws_marketplace
    aws_opsworks_chef_automate
    azure_portal
