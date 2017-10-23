@@ -74,6 +74,10 @@ Chef Automate deployments have the following hardware requirements:
 \*If you use your own Elasticsearch cluster instead of the single Elasticsearch instance provided with Chef Automate,
 then the Chef Automate server only requires 8 GB of RAM.
 
+Sudoers
+-----------------------------------------------------
+The ``/etc/sudoers`` file should not contain the line ``Defaults requiretty``, as it will break the ``automate-ctl preflight-check`` command. The preflight check uses ``sudo`` to inspect the new Automate system. This also applies to files within the ``/etc/sudoers.d`` directory.
+
 Node Hostnames and Network Access
 -----------------------------------------------------
 
@@ -128,61 +132,18 @@ Chef Automate has the following network and port requirements. At a minimum the 
 
 .. note:: Any build nodes/runners must be accessible from the Chef Automate server over SSH and they must have a user account configured that has sudo privileges.
 
-Chef Server Installation and Configuration
+Chef Server Configuration
 =====================================================
+Chef Automate associates with a Chef server for application/cookbook building and testing, as well as for the proxying of cluster data from nodes for visualization purposes. Because of the hardware requirements for both Chef server and Chef Automate, it is recommended that Chef server is installed on a separate node from Chef Automate server.
 
-Chef Automate associates with a Chef server for application/cookbook building and testing as well as proxying cluster data from nodes for visualization purposes. Because of hardware requirements for both Chef server and Chef Automate, it is recommended that Chef server is installed on a separate node from Chef Automate server.
+If you have an existing Chef server installation, it is recommended that you have a separate organization for use with Chef Automate. This keeps any existing production organizations separate from the organization used by runners and infrastructure nodes in your Chef Automate cluster. Instructions for creating a new organization can be found in the `next section </install_chef_automate.html#create-a-user-and-organization-to-manage-your-cluster>`__.
 
-Also, if you have an existing Chef server installation, it is recommended that you have a separate organization for use with Chef Automate. This keeps any existing production organizations separate from the organization used by runners and infrastructure nodes in your Chef Automate cluster.
+If you already have an existing Chef server and wish to manage infrastructure nodes for deployment testing (or want to use push jobs-based build nodes), update it with the `push jobs server add-on </install_chef_automate.html#push-jobs-server-installation>`_.
 
-Instructions for creating a new organization can be found below under the subheading `Create a User and Organization to Manage Your Cluster </install_chef_automate.html#create-a-user-and-organization-to-manage-your-cluster>`_.
-
-If you already have an existing Chef server and wish to manage infrastructure nodes for deployment testing (or want to use push jobs-based build nodes), update it with
-the `push jobs server add-on </install_chef_automate.html#push-jobs-server-installation>`_.
-
-If you don't have an existing Chef server installed and configured, the steps below will configure a minimal Chef server for use with Chef Automate.
-
-Chef Server Installation
-------------------------------------------------------
-
-The standalone installation of Chef server creates a working installation on a single server. This installation is also useful when you are installing Chef server in a virtual machine, for proof-of-concept deployments, or as a part of a development or testing loop.
-
-To install Chef server 12:
-
-#. Download the package from https://downloads.chef.io/chef-server/.
-#. Upload the package to the machine that will run the Chef server, and then record its location on the file system. The rest of these steps assume this location is in the ``/tmp`` directory.
-
-#. .. tag install_chef_server_install_package
-
-   .. This topic is hooked in globally to install topics for Chef server applications.
-
-   As a root user, install the Chef server package on the server, using the name of the package provided by Chef. For Red Hat Enterprise Linux and CentOS:
-
-   .. code-block:: bash
-
-      $ sudo rpm -Uvh /tmp/chef-server-core-<version>.rpm
-
-   For Ubuntu:
-
-   .. code-block:: bash
-
-      $ sudo dpkg -i /tmp/chef-server-core-<version>.deb
-
-   After a few minutes, the Chef server will be installed.
-
-   .. end_tag
-
-#. Run the following to start all of the services:
-
-   .. code-block:: bash
-
-      $ sudo chef-server-ctl reconfigure
-
-   Because the Chef server is composed of many different services that work together to create a functioning system, this step may take a few minutes to complete.
+If you don't have an existing Chef server installed and configured, follow the initial steps for your desired installation method (`standalone </install_server.html#standalone>`__ or `high availability </install_server_ha.html>`__) and then proceed to the `next section </install_chef_automate.html#create-a-user-and-organization-to-manage-your-cluster>`__ to create a user and organization for use with Chef Automate.
 
 Create a User and Organization to Manage Your Cluster
 -------------------------------------------------------
-
 As noted above, it's a best practice to use a separate organization when managing nodes in a Chef Automate cluster. Perform the following steps to create a new administrator user and a new organization for your Chef Automate cluster:
 
 #. Create a user named ``delivery``, and specify a first name, last name, email address, and password. A private key will be generated for you, so specify where to save that key using the ``--filename`` option with an absolute path to its intended location.
@@ -265,7 +226,7 @@ Now that you have your Chef server set up, install and configure Chef Automate b
 
       sudo rpm -Uvh PATH_TO_AUTOMATE_SERVER_PACKAGE
 
-#. In Chef Automate 0.6.64, you have the option of running the ``preflight-check`` command. This command is optional, but you are encouraged to use it, as it can uncover common environmental problems prior to the actual setup process. For example, there may be required ports that are unavailable, which would have to be rectified prior to setup.
+#. Before starting the Chef Automate setup process, you're encouraged to use the optional ``preflight-check`` command to uncover common environmental problems that may prevent Chef Automate from functioning properly. For example, there may be required ports that are unavailable, which would have to be rectified prior to setup.
 
    .. code-block:: bash
 
@@ -370,7 +331,7 @@ The following steps show how to set up a runner from a Chef Automate server. Whi
 
 #. Run the ``install-runner`` subcommand.
 
-   .. important:: The ``install-runner`` command will create a new file called ``job_runner`` in the ``/etc/sudoers.d`` directory to give the runner the appropriate ``sudo`` access. If your runner does not have the ``#includedir /etc/sudoers.d`` directive included in its ``/etc/sudoers`` file, you must put that directive in before you run the ``install-runner`` command.
+   .. important:: The ``install-runner`` command creates a new file called ``job_runner`` in the ``/etc/sudoers.d`` directory that gives the runner the appropriate ``sudo`` access. If your runner does not have the ``#includedir /etc/sudoers.d`` directive included in its ``/etc/sudoers`` file, you must put that directive in before you run the ``install-runner`` command. Additionally, the line ``Defaults requiretty`` must not occur in the ``/etc/sudoers`` file on any runner. This will prevent proper installation of runners.
 
    .. note:: You can optionally download the latest ChefDK from `<https://downloads.chef.io/chefdk/>`_ to specify a local package via ``--installer``. Doing so is useful if you are in an air-gapped environment. Version 0.15.16 or greater of the ChefDK is required. The download location is referred to below as ``OPTIONAL_CHEF_DK_PACKAGE_PATH``. This option cannot be used with the ``--chefdk-version`` as the version of the local package will be used.
 
@@ -443,17 +404,6 @@ Profiles
 Chef Automate contains a compliance profiles asset store that provides several built-in profiles covering baseline security checks through CIS benchmarks across multiple operating systems.
 
 In Chef Automate 0.8.5 or later, the compliance profiles asset store is enabled by default. You can manage your profiles through the `Chef Automate API </api_automate.html>`_ as well as through the Chef Automate UI. See `An Overview of Compliance in Chef Automate </chef_automate_compliance.html>`_ for more information on the new integrated compliance functionality.
-
-In Chef Automate version 0.6, the profiles asset store functionality is available; however, you must enable the service by adding this line:
-
-.. code-block:: bash
-
-   compliance_profiles['enable'] = true
-
-into ``/etc/delivery/delivery.rb`` and running ``automate-ctl reconfigure``. The ``automate-ctl status`` subcommand should now list the status of the ``compliance_profiles`` service.
-
-Also, the profiles in this asset store are managed using the `Chef Automate API </api_automate.html>`_ and cannot be managed through the UI as with the 0.8.5 release.
-
 
 Scanning
 ------------------------------------------------------------
