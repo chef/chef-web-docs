@@ -30,7 +30,7 @@ Set the following group of options in ``/etc/delivery/delivery.rb`` on your Auto
 
 Settings
 =====================================================
-Reaper has a number of configuration parameters you may specify in your ``/etc/delivery/delivery.rb`` configuration file.
+Reaper has a number of configuration parameters you may specify in your ``/etc/delivery/delivery.rb`` configuration file. See the `External Elasticsearch </data_retention_chef_automate.html#external-elasticsearch>`__ section for additional settings that are specific to the process of using an external Elasticsearch cluster.
 
 ``reaper['enable']``: boolean
   If ``true`` Reaper will be enabled and run every 15 minutes. Default: ``false``.
@@ -61,35 +61,6 @@ Reaper has a number of configuration parameters you may specify in your ``/etc/d
 ``reaper[‘repository’]``: string
   The name of the repository set up in Elasticsearch, defaults to ``'reaper[‘archive_destination’]-chef-automate'``
 
-Using Reaper and the Chef Automate AWS S3 Elasticsearch Service
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-``reaper['archive_destination']``: ``'s3'``
-  Reaper will take snapshots and store them on an AWS S3 bucket.
-
-The following options apply when ``reaper['archive_destination']`` is set to ``'s3'``:
-
-``reaper['archive_region']``: string
-  **Required.** The AWS region in which to store your snapshots. Example: ``'us-east-1'``.
-
-``reaper['s3_bucket_name']``: string
-  **Required.** The name of the S3 bucket in which to store your snapshots.
-
-``reaper['aws_access_key_id']``:  string
-  **Optional.** The AWS IAM Access Key ID to use when authenticating to S3. If omitted, Reaper will look for default AWS credentials. See the `Authenticating to AWS </data_retention_chef_automate.html#authenticating-to-aws>`__ section for more information.
-
-``reaper['aws_secret_key']``: string
-  **Optional.** The AWS IAM Secret Key to use when authenticating to S3. If omitted, Reaper will look for default AWS credentials. See the `Authenticating to AWS </data_retention_chef_automate.html#authenticating-to-aws>`__ section for more information.
-
-Using Reaper and an External Elasticsearch Service
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-``reaper['archive_destination']``: ``'fs'``
-  Reaper will take snapshots to a filesystem location on your Elasticsearch nodes.
-
-The following option applies when ``reaper['archive_destination']`` is set to ``'fs'``:
-
-  ``reaper['archive_filesystem_path']``: string
-    **Required.** The full path to the directory/filesystem on your Elasticsearch nodes for storing snapshots. This should be a different filesystem/volume than where Elasticsearch stores its running data.
-
 How Reaper Operates
 =====================================================
 
@@ -116,6 +87,51 @@ If ``evasive maneuvers`` is enabled, Reaper performs the following steps in a lo
 
 Regardless of the available free space in your Elasticsearch cluster, Reaper will always retain the indices for the current day and one day prior.
 
+External Elasticsearch
+=====================================================
+
+Requirements
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Using your own Elasticsearch cluster provides additional redundancy and performance to your Chef Automate installation. However, if you choose to enable and use Reaper, there are some aspects you need to be aware of:
+
+* **We recommend that your Elasticsearch cluster is dedicated to Chef Automate**. We absolutely support co-existing with other applications on your Elasticsearch cluster. However, if you use Reaper and have enabled evasive maneuvers, Reaper may delete more Visibility data than you wish if another co-existing application suddenly starts consuming large amounts of disk.
+
+* **Filesystem Archiving**: If you choose to enable archiving and choose to archive to the filessytem:
+
+   * The filesystem path must exist on all of your Elasticsearch nodes
+   * The filesystem path must be included in your Elasticsearch ``path.repo`` configuration parameter
+
+* **S3 Archiving**: If you choose to enable archiving and choose to archive to S3, you need to install the `Elasticsearch AWS Cloud Plugin <https://www.elastic.co/guide/en/elasticsearch/plugins/current/cloud-aws.html>`__ on all of your Elasticsearch nodes.
+
+Using Reaper and an External Elasticsearch Service
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+``reaper['archive_destination']``: ``'fs'``
+  Reaper will take snapshots to a filesystem location on your Elasticsearch nodes.
+
+The following option applies when ``reaper['archive_destination']`` is set to ``'fs'``:
+
+  ``reaper['archive_filesystem_path']``: string
+    **Required.** The full path to the directory/filesystem on your Elasticsearch nodes for storing snapshots. This should be a different filesystem/volume than where Elasticsearch stores its running data.
+
+Using Reaper and the Chef Automate AWS S3 Elasticsearch Service
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+``reaper['archive_destination']``: ``'s3'``
+  Reaper will take snapshots and store them on an AWS S3 bucket.
+
+The following options apply when ``reaper['archive_destination']`` is set to ``'s3'``:
+
+``reaper['archive_region']``: string
+  **Required.** The AWS region in which to store your snapshots. Example: ``'us-east-1'``.
+
+``reaper['s3_bucket_name']``: string
+  **Required.** The name of the S3 bucket in which to store your snapshots.
+
+``reaper['aws_access_key_id']``:  string
+  **Optional.** The AWS IAM Access Key ID to use when authenticating to S3. If omitted, Reaper will look for default AWS credentials. See the `Authenticating to AWS </data_retention_chef_automate.html#authenticating-to-aws>`__ section for more information.
+
+``reaper['aws_secret_key']``: string
+  **Optional.** The AWS IAM Secret Key to use when authenticating to S3. If omitted, Reaper will look for default AWS credentials. See the `Authenticating to AWS </data_retention_chef_automate.html#authenticating-to-aws>`__ section for more information.
+
 Authenticating to AWS
 =====================================================
 
@@ -128,20 +144,6 @@ Reaper supports three ways to authenticate:
  * **Option 3**: Specify the AWS Access Key ID and Security Key in the reaper configuration in ``/etc/delivery/delivery.rb``.
 
 **Option 1 is the preferred solution.** This allows you to use AWS IAM best practices to control what nodes can access your S3 buckets and avoid needing to manage AWS credentials across multiple nodes. If EC2 Instance Profiles are not an option for you, Option 2 is the recommended solution.
-
-Requirements if Using Your Own Elasticsearch Cluster
-=====================================================
-
-Using your own Elasticsearch cluster provides additional redundancy and performance to your Chef Automate installation. However, if you choose to enable and use Reaper, there are some aspects you need to be aware of:
-
-* **We recommend that your Elasticsearch cluster is dedicated to Chef Automate**. We absolutely support co-existing with other applications on your Elasticsearch cluster. However, if you use Reaper and have enabled evasive maneuvers, Reaper may delete more Visibility data than you wish if another co-existing application suddenly starts consuming large amounts of disk.
-
-* **Filesystem Archiving**: If you choose to enable archiving and choose to archive to the filessytem:
-
-   * The filesystem path must exist on all of your Elasticsearch nodes, and
-   * The filesystem path must be included in your Elasticsearch ``path.repo`` configuration parameter
-
-* **S3 Archiving**: If you choose to enable archiving and choose to archive to S3, you need to install the `Elasticsearch AWS Cloud Plugin <https://www.elastic.co/guide/en/elasticsearch/plugins/current/cloud-aws.html>`__ on all of your Elasticsearch nodes.
 
 Manually Invoking Reaper
 =====================================================
