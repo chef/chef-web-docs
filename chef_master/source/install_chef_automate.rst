@@ -40,6 +40,10 @@ Prerequisites
 
 Chef Automate requires a license from Chef to install. You will receive an email with a license key valid for 30 days after you complete the Chef Automate registration. If you would like to continue using Chef Automate after that period, please contact `awesome@chef.io` for a permanent key.
 
+Browser Support
+------------------------------------------
+Chef Automate works best in Google Chrome. Microsoft Internet Explorer is currently not supported.
+
 Platform Support
 -----------------------------------------
 Please see the `platforms topic </platforms.html#chef-automate>`_ for details on supported platforms, architectures, and versions for both Chef Automate servers and runners.
