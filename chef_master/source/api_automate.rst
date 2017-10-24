@@ -599,8 +599,10 @@ TAR STREAM - download of the file requested (if it exists)
 
 .. _compliance-nodes-api:
 
-/compliance/nodes
------------------
+/compliance/reporting/nodes 
+---------------------------------------
+**Changed in Chef Automate 1.7.10. For earlier versions of Chef Automate, use the  ``/compliance/nodes`` endpoint.**
+
 Get the latest scan data for all nodes (or nodes that match `Filters`_), then aggregate the compliance results from the
 latest scans at the specified point in time.
 
@@ -645,13 +647,13 @@ The ``GET`` method returns aggregated compliance results across one or more node
 
 .. code-block:: none
 
-   GET /compliance/nodes
+   GET /compliance/reporting/nodes
 
 For example:
 
 .. code-block:: bash
 
-   curl -X GET "https://my-auto-server.test/compliance/nodes" \
+   curl -X GET "https://my-auto-server.test/compliance/reporting/nodes" \
    -H "chef-delivery-enterprise: acme" \
    -H "chef-delivery-user: john" \
    -H "chef-delivery-token: 7djW35..."
@@ -749,13 +751,13 @@ The ``GET`` method is used to get the profile of a given node ``:id``.
 
 .. code-block:: none
 
-   GET /compliance/nodes/:id
+   GET /compliance/reporting/nodes/:id
 
 For example:
 
 .. code-block:: bash
 
-   curl -X GET "https://my-auto-server.test/compliance/nodes/74a54a28-c628-4f82-86df-61c43866db6a" \
+   curl -X GET "https://my-auto-server.test/compliance/reporting/nodes/74a54a28-c628-4f82-86df-61c43866db6a" \
    -H "chef-delivery-enterprise: acme" \
    -H "chef-delivery-user: john" \
    -H "chef-delivery-token: 7djW35..."
