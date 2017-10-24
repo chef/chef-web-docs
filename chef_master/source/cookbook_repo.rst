@@ -123,7 +123,9 @@ This configuration file has the following settings:
 
 ``chef_version``
    New in Chef Client 12.6.
+
    .. note:: This setting is not visible in Chef Supermarket.
+
    A range of chef-client versions that are supported by this cookbook. All :ref:`version constraint operators <cookbook_version_constraints>` are applicable to this field.
 
 

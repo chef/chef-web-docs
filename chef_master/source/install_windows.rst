@@ -160,6 +160,26 @@ The chef-client can be run as a scheduled task. On the Microsoft Windows platfor
 * Prevents insufficient permissions related to service context
 * Prevents issues related to a system reboot
 
+Scheduled Task Options
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. tag install_chef_client_windows_as_scheduled_task
+
+To run the chef-client at periodic intervals (so that it can check in with the Chef server automatically), configure the chef-client to run as a scheduled task. This can be done via the MSI, by selecting the **Chef Unattended Execution Options** --> **Chef Client Scheduled Task** option on the **Custom Setup** page or by running the following command after the chef-client is installed:
+
+For example:
+
+.. code-block:: none
+
+   $ SCHTASKS.EXE /CREATE /TN ChefClientSchTask /SC MINUTE /MO 30 /F /RU "System" /RP /RL HIGHEST /TR "cmd /c \"C:\opscode\chef\embedded\bin\ruby.exe C:\opscode\chef\bin\chef-client -L C:\chef\chef-client.log -c C:\chef\client.rb\""
+
+Refer `Schedule a Task <https://technet.microsoft.com/en-us/library/cc748993%28v=ws.11%29.aspx>`_ for more details.
+
+After the chef-client is configured to run as a scheduled task, the default file path is: ``c:\chef\chef-client.log``.
+
+Using a scheduled task is a recommended approach. Refer to `Should I run chef-client on Windows as a 'service' or a 'scheduled task'? <https://getchef.zendesk.com/hc/en-us/articles/205233360-Should-I-run-chef-client-on-Windows-as-a-service-or-a-scheduled-task->`_ for additional information on the differences between the two approaches.
+
+.. end_tag
+
 Use an Existing Process
 =====================================================
 .. tag windows_install_system_center
