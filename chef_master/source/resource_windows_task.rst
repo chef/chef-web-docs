@@ -5,9 +5,9 @@ windows_task
 
 Use the **windows_task** resource to create, delete or run a Windows scheduled task. Requires Windows Server 2008 or later due to API usage.
 
-*New in Chef Client 13.*
+**New in Chef Client 13.**
 
-.. note:: ``:change`` action has been removed from ``windows_task`` resource. ``:create`` action can be used to update an existing task.
+.. note:: The ``windows_task`` resource that was provided as part of the ``windows`` cookbook included the ``:change`` action, which has been removed from ``windows_task`` in Chef client. The ``:create`` action can be used instead to update an existing task.
 
 Syntax
 ==========================================
