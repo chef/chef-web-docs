@@ -161,6 +161,8 @@ Kitchen can configure the chef-zero provisioner with the following Chef-specific
      - Set to `true` to treat deprecation warning messages as error messages.
    * - ``driver``
      - Use to specify a driver for a platform. This will override the default driver.
+   * - ``enforce_idempotency``
+     - Use with ``multiple_converge`` > 1. Set to ``true`` to force test-kitchen to fail if last converge has any updated resources.
    * - ``encrypted_data_bag_secret_key_path``
      - The path to an RSA key file that is used to decrypt encrypted data bag items.
    * - ``environments_path``
@@ -177,6 +179,8 @@ Kitchen can configure the chef-zero provisioner with the following Chef-specific
      - chef-client provisioner only.
    * - ``log_file``
      -
+   * - ``multiple_converge``
+     - Number of times to converge the node. Defaults to 1.
    * - ``nodes_path``
      - The relative path to the directory in which node data is located. This data must be defined as JSON.
    * - ``require_chef_omnibus``
