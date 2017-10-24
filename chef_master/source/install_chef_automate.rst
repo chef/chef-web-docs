@@ -31,10 +31,6 @@ Optional components include:
 
   Perform the work of running builds, tests, and deployments out of Chef Automate. These are only required when using the workflow capabilities of Chef Automate
 
-* **Chef Compliance server**
-
-  Used in conjunction with the ``audit cookbook`` to run InSpec profiles as part of a Chef client run
-
 Prerequisites
 =====================================================
 
