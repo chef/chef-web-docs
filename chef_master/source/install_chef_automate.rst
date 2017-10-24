@@ -42,7 +42,7 @@ Chef Automate requires a license from Chef to install. You will receive an email
 
 Browser Support
 ------------------------------------------
-Chef Automate works best in Google Chrome. At this point, Microsoft Internet Explorer is not supported.
+Chef Automate works best in Google Chrome. Microsoft Internet Explorer is currently not supported.
 
 Platform Support
 -----------------------------------------
