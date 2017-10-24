@@ -160,7 +160,7 @@ The chef-client can be run as a scheduled task. On the Microsoft Windows platfor
 * Prevents insufficient permissions related to service context
 * Prevents issues related to a system reboot
 
-Scheduled Task Optons
+Scheduled Task Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag install_chef_client_windows_as_scheduled_task
 
@@ -168,7 +168,7 @@ To run the chef-client at periodic intervals (so that it can check in with the C
 
 For example:
 
-.. code-block:: bash
+.. code-block:: none
 
    $ SCHTASKS.EXE /CREATE /TN ChefClientSchTask /SC MINUTE /MO 30 /F /RU "System" /RP /RL HIGHEST /TR "cmd /c \"C:\opscode\chef\embedded\bin\ruby.exe C:\opscode\chef\bin\chef-client -L C:\chef\chef-client.log -c C:\chef\client.rb\""
 
@@ -176,7 +176,7 @@ Refer `Schedule a Task <https://technet.microsoft.com/en-us/library/cc748993%28v
 
 After the chef-client is configured to run as a scheduled task, the default file path is: ``c:\chef\chef-client.log``.
 
-Using a scheduled task is a recommended approach. Refer `Should I run chef-client on Windows as a 'service' or a 'scheduled task'? <https://getchef.zendesk.com/hc/en-us/articles/205233360-Should-I-run-chef-client-on-Windows-as-a-service-or-a-scheduled-task->`_ to help you identify some reasons for why scheduled task is preferred over service.
+Using a scheduled task is a recommended approach. Refer to `Should I run chef-client on Windows as a 'service' or a 'scheduled task'? <https://getchef.zendesk.com/hc/en-us/articles/205233360-Should-I-run-chef-client-on-Windows-as-a-service-or-a-scheduled-task->`_ for additional information on the differences between the two approaches.
 
 .. end_tag
 
