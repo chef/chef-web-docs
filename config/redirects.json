@@ -1,4 +1,5 @@
 {
+  "openstack.html": "https://github.com/openstack/openstack-chef-repo",
   "habitat.html": "https://www.habitat.sh/docs/",
   "inspec.html": "https://www.inspec.io/docs/",
   "ctl_delivery.html": "/delivery_cli.html",
