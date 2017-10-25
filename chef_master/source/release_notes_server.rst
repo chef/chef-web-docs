@@ -1,9 +1,15 @@
 =====================================================
-Release Notes: Chef Server 12.0 - 12.17.3
+Release Notes: Chef Server 12.0 - 12.17.5
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_server.rst>`__
 
 The Chef server acts as a hub for configuration data by storing cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is managed by the chef-client.
+
+What's New in 12.17.5
+=====================================================
+This release fixes a regression that occurs when deploying to DigitalOcean and potentially other non-AWS cloud platforms, where the ``nginx[‘use_implicit_hosts’] = true`` setting results in an incorrect nginx configuration.
+
+See the `change log <https://github.com/chef/chef-server/blob/master/CHANGELOG.md#12175-2017-10-25>`__ for a full list of changes.
 
 What's New in 12.17.3
 =====================================================
