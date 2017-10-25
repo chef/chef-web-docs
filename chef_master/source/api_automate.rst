@@ -151,7 +151,7 @@ For the primary server in a disaster recovery pair, the response will be similar
        {
          "postgres": {
            "status": "pong",
-           "standby_ip_address": "192.168.33.13",
+           "standby_ip_address": "192.0.2.0",
            "pg_current_xlog_location": "0/3000D48"
          },
          "lsyncd": {

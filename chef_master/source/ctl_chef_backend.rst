@@ -423,11 +423,11 @@ The following example shows the results of running the ``chef-backend-ctl gen-se
 
    fqdn "frontend1.chef-demo.com"
    postgresql['external'] = true
-   postgresql['vip'] = '192.168.33.220'
+   postgresql['vip'] = '192.0.2.0'
    postgresql['db_superuser'] = 'chef_pgsql'
    postgresql['db_superuser_password'] = '...6810e52a01e562'
    opscode_solr4['external'] = true
-   opscode_solr4['external_url'] = 'http://192.168.33.220:9200'
+   opscode_solr4['external_url'] = 'http://192.0.2.0:9200'
    opscode_erchef['search_provider'] = 'elasticsearch'
    opscode_erchef['search_queue_mode'] = 'batch'
    bookshelf['storage_type'] = :sql

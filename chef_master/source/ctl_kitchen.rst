@@ -492,7 +492,7 @@ Use the ``--loader`` option to include diagnostic data in the output:
        raw_data:
          driver:
            name: vagrant
-           socket: tcp://192.168.12.34:1234
+           socket: tcp://192.0.2.0:1234
        provisioner:
         #...
 
@@ -547,7 +547,7 @@ When Kitchen is being used to test cookbooks, Kitchen will track state data:
    instances:
      default-ubuntu-1404
        state_file:
-         hostname: 192.168.123.456
+         hostname: 192.0.2.0
          last_action: create
          port: '22'
          ssh_key: "/Users/username/path/to/key"

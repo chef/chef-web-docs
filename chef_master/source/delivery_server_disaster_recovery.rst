@@ -195,8 +195,8 @@ To promote a standby Chef Automate server to primary, do the following:
    .. code-block:: ruby
 
       delivery["primary"] = false
-      delivery["primary_ip"] = '192.168.10.10'
-      postgresql["listen_address"] = 'localhost,192.168.10.11'
+      delivery["primary_ip"] = '192.0.2.0'
+      postgresql["listen_address"] = 'localhost,192.0.2.0'
 
 #. On the standby server, run the following command as the root user:
 

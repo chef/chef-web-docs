@@ -91,7 +91,7 @@ Proxy Settings
 If you wish to operate your Chef Automate server from behind a proxy, you may specify you proxy host name and configuration using these options.
 
 ``delivery['proxy']['host']``
-    The hostname to your proxy server such as ``foo.bar.com`` or ``192.168.1.10``.
+    The hostname to your proxy server such as ``foo.bar.com`` or ``192.0.2.00``.
 
 ``delivery['proxy']['port']``
     The port to connect on. This will be used for all connections (http and https).

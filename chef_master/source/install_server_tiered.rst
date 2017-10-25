@@ -402,7 +402,7 @@ A completed chef-server.rb configuration file for a four server tiered Chef serv
      - Real IP Address
      - Role
    * - be1.example.com
-     - 192.168.4.1
+     - 192.0.2.0
      - backend
    * - fe1.example.com
      - 192.168.4.2
@@ -427,7 +427,7 @@ Looks like this:
    topology "tier"
 
    server "be1.example.com",
-     :ipaddress => "192.168.4.1",
+     :ipaddress => "192.0.2.0",
      :role => "backend",
      :bootstrap => true
 

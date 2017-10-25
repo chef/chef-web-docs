@@ -909,7 +909,7 @@ This configuration file has the following settings for ``postgresql``:
    The home directory for PostgreSQL. Default value: ``"/var/opt/delivery/postgresql"``.
 
 ``postgresql['listen_address']``
-   The connection source to which PostgreSQL is to respond. Default value: ``'localhost'``. In a disaster recovery configuration, this value is similar to: ``'localhost,192.168.10.11'``.
+   The connection source to which PostgreSQL is to respond. Default value: ``'localhost'``. In a disaster recovery configuration, this value is similar to: ``'localhost,192.0.2.0'``.
 
 ``postgresql['log_directory']``
    The directory in which log data is stored. The default value is the recommended value. Default value:
