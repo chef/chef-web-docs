@@ -112,7 +112,7 @@ This configuration file has the following settings:
 ``secret_token``
    The secret token used by Ruby on Rails to prevent session tampering. See: http://guides.rubyonrails.org/security.html#session-storage. Default value: **generated**.
 
-   To override the default value, use the :ref:`ctl_chef_server_secrets_management` commands: ``chef-server-ctl set-secret manage secret_token``.
+   To override the default value, use the `Secrets Management </ctl_chef_server.html#ctl-chef-server-secrets-management>`__ commands: ``chef-server-ctl set-secret manage secret_token``.
 
 ``services['opscode-manage-events'].enable``
    Use to enable the ``opscode-manage-events`` service. Default value: ``true``.
@@ -162,7 +162,7 @@ This configuration file has the following settings:
 Web UI Private Key
 ==========================================================================
 Chef Manage uses the Web UI private key for signing requests sent to the Chef server.
-The key is subject to Chef server's :ref:`ctl_chef_server_secrets_management`, and will be stored in ``/etc/opscode/private-chef-secrets.json``.
+The key is subject to Chef server's `Secrets Management </ctl_chef_server.html#ctl-chef-server-secrets-management>`__, and will be stored in ``/etc/opscode/private-chef-secrets.json``.
 
 Any run of ``chef-server-ctl reconfigure`` will ensure the key exists and is stored without any additional steps.
 
