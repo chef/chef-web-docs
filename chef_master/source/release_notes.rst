@@ -1579,7 +1579,7 @@ The following command-line option may be used to with a knife or chef-client exe
 
 .. code-block:: bash
 
-   $ knife bootstrap 12.34.56.789 -P vanilla -x root -r 'recipe[apt],recipe[xfs],recipe[vim]' --fips
+   $ knife bootstrap 192.0.2.0 -P vanilla -x root -r 'recipe[apt],recipe[xfs],recipe[vim]' --fips
 
 which shows something similar to:
 
@@ -1587,7 +1587,7 @@ which shows something similar to:
 
    OpenSSL FIPS 140 mode enabled
    ...
-   12.34.56.789 Chef Client finished, 12/12 resources updated in 78.942455583 seconds
+   192.0.2.0 Chef Client finished, 12/12 resources updated in 78.942455583 seconds
 
 .. end_tag
 

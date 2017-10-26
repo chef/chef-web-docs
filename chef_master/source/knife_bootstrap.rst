@@ -312,7 +312,7 @@ Changed in Chef server 12.13 to expose FIPS runtime flag on RHEL. New in Chef Cl
 
 .. code-block:: bash
 
-   $ knife bootstrap 12.34.56.789 -P vanilla -x root -r 'recipe[apt],recipe[xfs],recipe[vim]' --fips
+   $ knife bootstrap 192.0.2.0 -P vanilla -x root -r 'recipe[apt],recipe[xfs],recipe[vim]' --fips
 
 which shows something similar to:
 
@@ -320,7 +320,7 @@ which shows something similar to:
 
    OpenSSL FIPS 140 mode enabled
    ...
-   12.34.56.789 Chef Client finished, 12/12 resources updated in 78.942455583 seconds
+   192.0.2.0 Chef Client finished, 12/12 resources updated in 78.942455583 seconds
 
 .. end_tag
 
@@ -402,14 +402,14 @@ The following examples show how to use this knife subcommand:
 
 .. code-block:: bash
 
-   $ knife bootstrap 12.34.56.789 -P vanilla -x root -r 'recipe[apt],recipe[xfs],recipe[vim]'
+   $ knife bootstrap 192.0.2.0 -P vanilla -x root -r 'recipe[apt],recipe[xfs],recipe[vim]'
 
 which shows something similar to:
 
 .. code-block:: none
 
    ...
-   12.34.56.789 Chef Client finished, 12/12 resources updated in 78.942455583 seconds
+   192.0.2.0 Chef Client finished, 12/12 resources updated in 78.942455583 seconds
 
 Use ``knife node show`` to verify:
 
@@ -424,7 +424,7 @@ which returns something similar to:
    Node Name:   debian-wheezy.int.domain.org
    Environment: _default
    FQDN:        debian-wheezy.int.domain.org
-   IP:          12.34.56.789
+   IP:          192.0.2.0
    Run List:    recipe[apt], recipe[xfs], recipe[vim]
    Roles:
    Recipes:     apt, xfs, vim, apt::default, xfs::default, vim::default
@@ -437,7 +437,7 @@ which returns something similar to:
 
 .. code-block:: bash
 
-   $ knife bootstrap 192.168.1.1 -x username -P PASSWORD --sudo
+   $ knife bootstrap 192.0.2.0 -x username -P PASSWORD --sudo
 
 **Use a file that contains a private key**
 
@@ -445,7 +445,7 @@ which returns something similar to:
 
 .. code-block:: bash
 
-   $ knife bootstrap 192.168.1.1 -x username -i ~/.ssh/id_rsa --sudo
+   $ knife bootstrap 192.0.2.0 -x username -i ~/.ssh/id_rsa --sudo
 
 **Specify options when using cURL**
 

@@ -5192,8 +5192,8 @@ An example of a ``.chef/pivotal.rb`` file is shown below:
 
    current_dir = File.dirname(__FILE__)
    node_name "pivotal"
-   chef_server_url "https://192.168.1.2:443"
-   chef_server_root "https://192.168.1.2:443"
+   chef_server_url "https://192.0.2.0:443"
+   chef_server_root "https://192.0.2.0:443"
    client_key "#{current_dir}/pivotal.pem"
 
 .. note:: The ``pivotal.pem`` file must exist in the specified location and the IP addresses must be correct for the Chef server.

@@ -1147,8 +1147,8 @@ The response will return a JSON object similar to:
        "id": "d850ba44-7a82-4177-50db-79be1143d632",
        "environment": "b771e025-6445-4ead-5cac-b466ea725177",
        "owner": "7ae9dd7d-5201-4ae3-4949-60eb4b902e77",
-       "name": "192.168.100.200",
-       "hostname": "192.168.100.200",
+       "name": "192.0.2.0",
+       "hostname": "192.0.2.0",
        "loginMethod": "ssh",
        "loginUser": "root",
        "loginPassword": "",
@@ -1194,8 +1194,8 @@ The response will return a JSON object similar to:
      "id": "6f7336b5-380e-4e75-4b06-781950c9a1a5",
      "environment": "b771e025-6445-4ead-5cac-b466ea725177",
      "owner": "7ae9dd7d-5201-4ae3-4949-60eb4b902e77",
-     "name": "192.168.100.200",
-     "hostname": "192.168.100.200",
+     "name": "192.0.2.0",
+     "hostname": "192.0.2.0",
      "loginMethod": "ssh",
      "loginUser": "root",
      "loginPassword": "",
@@ -1229,8 +1229,8 @@ with a JSON object similar to:
 .. code-block:: javascript
 
    {
-     "name": "192.168.100.200",
-     "hostname": "192.168.100.200",
+     "name": "192.0.2.0",
+     "hostname": "192.0.2.0",
      "loginUser": "root",
      "loginMethod": "ssh",
      "loginKey": "john/vagrant",
@@ -1252,8 +1252,8 @@ The response will return a JSON object similar to:
 
    {
      "id":"67243304-0909-4bc3-5ed0-3637a5d0fe93",
-     "hostname": "192.168.100.200",
-     "name": "192.168.100.200",
+     "hostname": "192.0.2.0",
+     "name": "192.0.2.0",
      "loginUser": "root",
      "loginMethod": "ssh",
      "loginKey": "john/vagrant"
@@ -2007,7 +2007,7 @@ The response will return a JSON object similar to:
    [
      {
        "environment": "b771e025-6445-4ead-5cac-b466ea725177",
-       "node": "192.168.59.107:11024",
+       "node": "192.0.2.0:11024",
        "complianceStatus": 0,
        "patchlevelStatus": -1,
        "unknownStatus": 0,
@@ -2015,7 +2015,7 @@ The response will return a JSON object similar to:
        "family": "",
        "release": "",
        "connectSuccess": false,
-       "connectMessage": "Failed to verify connectivity to sshPassword://root@192.168.56.239:0 using login password : exit status 1",
+       "connectMessage": "Failed to verify connectivity to sshPassword://root@192.0.2.0:0 using login password : exit status 1",
        "complianceSummary": {
          "success": 0,
          "minor": 0,

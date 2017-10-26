@@ -185,7 +185,7 @@ A sample log line:
 
 .. code-block:: bash
 
-   192.168.4.1 - - [17/Feb/2012:16:02:42 -0800]
+   192.0.2.0 - - [17/Feb/2012:16:02:42 -0800]
      "GET /organizations/nginx/cookbooks HTTP/1.1" 200
      "0.346" 12 "-"
      "Chef Knife/0.10.4 (ruby-1.9.3-p0;

@@ -311,7 +311,7 @@ Consider the following snippet of JSON data:
              "f8:1e:df:d8:63:a2": {
                "family": "lladdr"
              },
-             "192.168.0.195": {
+             "192.0.2.0": {
                "netmask": "255.255.255.0",
                "broadcast": "192.168.0.255",
                "family": "inet"
@@ -371,26 +371,26 @@ This data is also flattened into various compound fields, which follow the same 
 .. code-block:: none
 
      # ...snip...
-     "network_interfaces_en1_addresses_192.168.0.195_broadcast" => "192.168.0.255",
+     "network_interfaces_en1_addresses_192.0.2.0_broadcast" => "192.168.0.255",
      "network_interfaces_en1_addresses_fe80::fa1e:tldr_family"  => "inet6",
-     "network_interfaces_en1_addresses"                         => ["fe80::fa1e:tldr","f8:1e:df:tldr","192.168.0.195"]
+     "network_interfaces_en1_addresses"                         => ["fe80::fa1e:tldr","f8:1e:df:tldr","192.0.2.0"]
      # ...snip...
 
 which allows searches like the following to find data that is present in this node:
 
 .. code-block:: ruby
 
-   node "network_interfaces_en1_addresses:192.168.0.195"
+   node "network_interfaces_en1_addresses:192.0.2.0"
 
 This flattened data structure also supports using wildcard compound fields, which allow searches to omit levels within the JSON data structure that are not important to the search query. In the following example, an asterisk (``*``) is used to show where the wildcard can exist when searching for a nested field:
 
 .. code-block:: ruby
 
    "network_interfaces_*_flags"     => ["UP", "BROADCAST", "SMART", "RUNNING", "SIMPLEX", "MULTICAST"]
-   "network_interfaces_*_addresses" => ["fe80::fa1e:dfff:fed8:63a2", "192.168.0.195", "f8:1e:df:d8:63:a2"]
+   "network_interfaces_*_addresses" => ["fe80::fa1e:dfff:fed8:63a2", "192.0.2.0", "f8:1e:df:d8:63:a2"]
    "network_interfaces_en0_media_*" => ["autoselect", "none", "1000baseT", "10baseT/UTP", "100baseTX"]
    "network_interfaces_en1_*"       => ["1", "UP", "BROADCAST", "SMART", "RUNNING", "SIMPLEX", "MULTICAST",
-                                        "fe80::fa1e:dfff:fed8:63a2", "f8:1e:df:d8:63:a2", "192.168.0.195",
+                                        "fe80::fa1e:dfff:fed8:63a2", "f8:1e:df:d8:63:a2", "192.0.2.0",
                                         "1500", "supported", "selected", "en", "active", "Ethernet"]
 
 For each of the wildcard examples above, the possible values are shown contained within the brackets. When running a search query, the query syntax for wildcards is to simply omit the name of the node (while preserving the underscores), similar to:
@@ -455,9 +455,9 @@ To use a range search to find IP addresses within a subnet, enter the following:
 
 .. code-block:: bash
 
-   $ knife search node 'ipaddress:[192.168.0.* TO 192.168.127.*]'
+   $ knife search node 'ipaddress:[192.168.0.* TO 192.0.2.*]'
 
-where ``192.168.0.* TO 192.168.127.*`` defines the subnet range.
+where ``192.168.0.* TO 192.0.2.*`` defines the subnet range.
 
 .. end_tag
 

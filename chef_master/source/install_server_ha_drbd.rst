@@ -711,7 +711,7 @@ A completed chef-server.rb configuration file for a four server tiered Chef serv
      - Cluster IP Address
      - Role
    * - be1.example.com
-     - 192.168.4.1
+     - 192.0.2.0
      - 10.1.2.10
      - backend
    * - be2.example.com
@@ -746,7 +746,7 @@ Looks like this:
    topology "ha"
 
    server "be1.example.com",
-     :ipaddress => "192.168.4.1",
+     :ipaddress => "192.0.2.0",
      :role => "backend",
      :bootstrap => true,
      :cluster_ipaddress => "10.1.2.10"
