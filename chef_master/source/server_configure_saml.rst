@@ -23,7 +23,7 @@ To configure the Chef server management console, first add the following code to
    saml.enabled true
    saml.issuer_url '<AUTOMATE OIDC ENDPOINT>'
 
-Second, store your OIDC client credentials with using the :ref:`ctl_chef_server_secrets_management` commands:
+Second, store your OIDC client credentials with using the `Secrets Management </ctl_chef_server.html#ctl-chef-server-secrets-management>`__ commands:
 
 .. code-block:: bash
 
