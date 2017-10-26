@@ -5,6 +5,20 @@ Release Notes: Chef Automate
 
 Chef Automate provides a full suite of enterprise capabilities for workflow, visibility and compliance that allow you to manage and monitor application and cookbook deployments across a cluster of nodes in your environment.
 
+What's New in 1.7.27
+=====================================================
+
+Resolved Issues
+-----------------------------------------------------
+
+* The Compliance API endpoints experienced an unexpected move in their paths as part of the new compliance scanner being added in 1.7.10. These endpoint changes were reverted and the current API around ``/compliance/nodes`` is now available again. All scanner endpoints moved to the ``/compliance/scanner`` subpath instead. 
+* By default, the workflow functionality in Chef Automate would previously only connect to external services like Elasticsearch over SSL when the number of certificates in the chain was two or less. The default has been increased to 20.
+* The ``automate-ctl install-runner`` command now works on nodes with an existing ``/etc/chef/validation.pem`` file.
+* The ``nginx['use_implicit_hosts']`` setting now defaults to false to avoid edge cases on systems where we cannot detect the local IP addresses. It is recommended to set this to true if ``nginx['strict_host_header']`` is set to true for security reasons.
+* The ``automate ctl data-summary`` command was reporting the total number of "converge" documents, which included started, completed and failed notifications. This has been modified to report only the total number of started runs.
+* OpsWorks for Chef Automate and the cloud marketplace instances of Chef Automate rely on self-signed SSL certificates. As of Chrome 58, self-signed certificates with x509 version 3 without the SubjectAltName extension are invalid. We added the correct extension for the self-signed cert.
+
+
 What's New in 1.7.10
 =====================================================
 
