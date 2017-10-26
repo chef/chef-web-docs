@@ -17,6 +17,7 @@ Resolved Issues
 * The ``nginx['use_implicit_hosts']`` setting now defaults to false to avoid edge cases on systems where we cannot detect the local IP addresses. It is recommended to set this to true if ``nginx['strict_host_header']`` is set to true for security reasons.
 * The ``automate ctl data-summary`` command was reporting the total number of "converge" documents, which included started, completed and failed notifications. This has been modified to report only the total number of started runs.
 * OpsWorks for Chef Automate and the cloud marketplace instances of Chef Automate rely on self-signed SSL certificates. As of Chrome 58, self-signed certificates with x509 version 3 without the SubjectAltName extension are invalid. We added the correct extension for the self-signed cert.
+* Bitbucket integration now works with usernames containing the @ symbol.
 
 
 What's New in 1.7.10
