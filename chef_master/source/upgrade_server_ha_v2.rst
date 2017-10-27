@@ -21,13 +21,10 @@ This topic describes the process of upgrading a highly available Chef server clu
 
 Overview
 =====================================================
+These instructions cover the process of upgrading a Chef Backend cluster. Please refer to the appropriate directions for the version of Chef Backend you are using, and the version you intend to upgrade to:
 
-These instructions cover upgrading a Chef Backend cluster. Please
-refer to the directions appropriate for version of Chef Backend you
-are using.
-
-- `Chef Backend 1.x to 2.x Upgrade`_ (downtime upgrade)
-- `Chef Backend 1.x to 1.x Upgrade`_ (rolling upgrade)x
+* `Chef Backend 1.x to 2.x Upgrade`_ (downtime upgrade)
+* `Chef Backend 1.x to 1.x Upgrade`_ (rolling upgrade)
 
 Chef Backend 1.x to 2.x Upgrade
 =====================================================
