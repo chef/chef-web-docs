@@ -32,11 +32,9 @@ are using.
 Chef Backend 1.x to 2.x Upgrade
 =====================================================
 
-Upgrading from Chef Backend 1.x to Chef Backend 2.x requires full cluster downtime.
+.. warning:: Upgrading from Chef Backend 1.x to Chef Backend 2.x requires full cluster downtime.
 
-#. Find the leader node using the :code:`chef-backend-ctl
-   cluster-status` command.  The leader is the node with the **Role**
-   of **leader**. For example, in the following output backend-1 is leader:
+#. Identify the node with the **leader** role using the ``chef-backend-ctl cluster-status`` command:
 
    .. code-block:: none
 
@@ -45,17 +43,51 @@ Upgrading from Chef Backend 1.x to Chef Backend 2.x requires full cluster downti
     backend-2  192.168.33.216  008782c59d3628b6bb7f43556ac0c66c  follower  follower  not_master
     backend-3  192.168.33.217  1af654172b1830927a571d9a5ba7965b  follower  follower  master
 
+   In this example, ``backend-1`` is the **leader** node, as indicated by its role in the **Role** column. 
+
 #. Install the new Chef Backend package on all nodes in the cluster:
 
-   * In RedHat/CentOS: :code:`yum install PATH_TO_RPM`
-   * In Debian/Ubuntu: :code:`dpkg -i PATH_TO_DEB`
+   * RHEL and CentOS: 
+   
+     .. code-block:: bash
 
-#. On the leader, run: :code:`chef-backend-ctl down-for-upgrade`
-#. On each follower, run: :code:`chef-backend-ctl down-for-upgrade`
-#. On each follower, run: :code:`chef-backend-ctl upgrade`
-#. On the leader, run: :code:`chef-backend-ctl upgrade`
-#. On any Chef Server nodes using this Chef Backend cluster run:
-   :code:`chef-server-ctl reconfigure`
+        yum install PATH_TO_FILE.rpm
+
+   * Debian and Ubuntu:  
+     
+     .. code-block:: bash
+
+        dpkg -i PATH_TO_FILE.deb
+
+#. On the leader, run the following command to take the node down for the upgrade:
+
+   .. code-block:: bash
+
+      chef-backend-ctl down-for-upgrade
+
+#. Then issue the same command on the follower nodes: 
+
+   .. code-block:: bash
+
+      chef-backend-ctl down-for-upgrade
+
+#. Initiate the upgrade on the follower nodes first: 
+
+   .. code-block:: bash
+
+      chef-backend-ctl upgrade
+
+#. Then initiate the upgrade on the leader node: 
+
+   .. code-block:: bash
+   
+      chef-backend-ctl upgrade
+
+#. On any Chef Server nodes using this Chef Backend cluster, run: 
+
+   .. code-block:: bash
+
+      chef-server-ctl reconfigure
 
 
 Chef Backend 1.x to 1.x Upgrade
