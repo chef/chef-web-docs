@@ -27,22 +27,14 @@ refer to the directions appropriate for version of Chef Backend you
 are using.
 
 - `Chef Backend 1.x to 2.x Upgrade`_ (downtime upgrade)
-- `Chef Backend 1.x to 1.x Upgrade`_ (rolling upgrade)
+- `Chef Backend 1.x to 1.x Upgrade`_ (rolling upgrade)x
 
 Chef Backend 1.x to 2.x Upgrade
 =====================================================
 
-<<<<<<< HEAD
 .. warning:: Upgrading from Chef Backend 1.x to Chef Backend 2.x requires full cluster downtime.
 
 #. Identify the node with the **leader** role using the ``chef-backend-ctl cluster-status`` command:
-=======
-Upgrading from Chef Backend 1.x to Chef Backend 2.x requires full cluster downtime.
-
-#. Find the leader node using the :code:`chef-backend-ctl
-   cluster-status` command.  The leader is the node with the **Role**
-   of **leader**. For example, in the following output backend-1 is leader:
->>>>>>> a2aa60d85a98cf5a70c53dcebea3f2180fd2d8ea
 
    .. code-block:: none
 
@@ -51,7 +43,6 @@ Upgrading from Chef Backend 1.x to Chef Backend 2.x requires full cluster downti
     backend-2  192.168.33.216  008782c59d3628b6bb7f43556ac0c66c  follower  follower  not_master
     backend-3  192.168.33.217  1af654172b1830927a571d9a5ba7965b  follower  follower  master
 
-<<<<<<< HEAD
    In this example, ``backend-1`` is the **leader** node, as indicated by its role in the **Role** column. 
 
 #. Install the new Chef Backend package on all nodes in the cluster:
@@ -97,20 +88,6 @@ Upgrading from Chef Backend 1.x to Chef Backend 2.x requires full cluster downti
    .. code-block:: bash
 
       chef-server-ctl reconfigure
-=======
-#. Install the new Chef Backend package on all nodes in the cluster:
-
-   * In RedHat/CentOS: :code:`yum install PATH_TO_RPM`
-   * In Debian/Ubuntu: :code:`dpkg -i PATH_TO_DEB`
-
-#. On the leader, run: :code:`chef-backend-ctl down-for-upgrade`
-#. On each follower, run: :code:`chef-backend-ctl down-for-upgrade`
-#. On each follower, run: :code:`chef-backend-ctl upgrade`
-#. On the leader, run: :code:`chef-backend-ctl upgrade`
-#. It may take a few minutes for the previous leader to reclaim leadership. Use :code:`chef-backend-ctl cluster-status` to see the current cluster state.
-#. On any Chef Server nodes using this Chef Backend cluster run:
-   :code:`chef-server-ctl reconfigure`
->>>>>>> a2aa60d85a98cf5a70c53dcebea3f2180fd2d8ea
 
 
 Chef Backend 1.x to 1.x Upgrade
