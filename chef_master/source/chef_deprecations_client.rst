@@ -149,11 +149,11 @@ All Deprecations
   * - `OHAI-11 </deprecations_ohai_cloud_v2.html>`__
     - Cloud_v2 attribute removal.
     - 13.1
-    - 15.0
+    - 14.0
   * - `OHAI-12 </deprecations_ohai_filesystem_v2.html>`__
     - Filesystem2 attribute removal.
     - 13.1
-    - 15.0
+    - 14.0
   * - `OHAI-13 </deprecations_ohai_ipscopes.html>`__
     - Removal of IpScopes plugin
     - 13.2
