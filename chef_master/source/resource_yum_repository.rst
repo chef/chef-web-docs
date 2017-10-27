@@ -290,7 +290,7 @@ report_instanceid
    Determines whether to report the instance ID when using Amazon Linux AMIs and repositories.
 
 repositoryid
-   **Ruby Type:** TrueClass, FalseClass
+   **Ruby Type:** String
 
    Specifies a unique name for each repository, one word. Defaults to name attribute.
 
