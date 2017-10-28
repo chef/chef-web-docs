@@ -654,13 +654,16 @@ This argument has the following options:
 ``-a ATTR``, ``--attribute ATTR``
    The attribute (or attributes) to show.
 
+``-F json``, ``--format=json``
+   Display output as JSON.
+   
 ``-l``, ``--long``
-   Display all attributes in the output and show the output as JSON.
+   Display all attributes in the output.
 
    New in Chef Client 12.0.
 
 ``-m``, ``--medium``
-   Display normal attributes in the output and to show the output as JSON.
+   Display normal attributes in the output.
 
    New in Chef Client 12.0.
 
