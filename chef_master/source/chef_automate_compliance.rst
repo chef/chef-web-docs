@@ -33,7 +33,7 @@ The following is a list of built-in profiles. See `Perform a Compliance Scan in 
 CIS profiles
 -----------------------------------------------------
 
-The following CIS benchmark profiles are included: 
+The following CIS Level 1 and 2 benchmark profiles are included: 
 
 * AIX
 * Apache Tomcat
@@ -43,7 +43,8 @@ The following CIS benchmark profiles are included:
 * HP-UX
 * IBM AIX
 * macOS/OSX
-* Microsoft Windows
+* Microsoft Windows Server
+* Microsoft Windows Desktop
 * Oracle Linux
 * Oracle Solaris
 * Red Hat Enterprise Linux
