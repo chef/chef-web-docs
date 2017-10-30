@@ -17,7 +17,7 @@ See the detailed `change log <https://github.com/chef/chef/blob/master/CHANGELOG
 Ohai 13.5
 -----------------------------------------------------
 * **Correctly detect IPv6 routes ending in ::** Previously, Ohai would ignore routes that ended with ``::``, but now they can be detected properly.
-* **Plugin run time is now measured** Debug logs will show the length of time each plugin takes to run, which makes it easier to debug long Ohai runs. 
+* **Plugin run time is now measured** Debug logs will show the length of time each plugin takes to run, which makes it easier to debug long Ohai runs.
 
 What's new in 13.4.24
 =====================================================
@@ -28,7 +28,7 @@ This release includes Ruby 2.4.2 to fix the following CVEs:
 *  CVE-2017-14033
 * `CVE-2017-14064 <https://nvd.nist.gov/vuln/detail/CVE-2017-14064>`_
 
-It contains no other changes from version 13.4.19. 
+It contains no other changes from version 13.4.19.
 
 .. note:: Due to issues beyond our control, this release is only built for Linux (on x86, x86_64 and s390x), FreeBSD, and Windows. We’ll release a new build with support for our other platforms (AIX, Solaris, and macOS) as soon as possible.
 
@@ -40,10 +40,10 @@ What's New in 13.4.19
    * `CVE-2017-0900 <https://nvd.nist.gov/vuln/detail/CVE-2017-0900>`_
    * `CVE-2017-0901 <https://nvd.nist.gov/vuln/detail/CVE-2017-0901>`_
    * `CVE-2017-0902 <https://nvd.nist.gov/vuln/detail/CVE-2017-0902>`__
-* **Additional ifconfig options on RHEL and CentOS** The ``ethtool_opts``, ``bonding_opts``, ``master``, and ``slave`` properties have been added. See the `ifconfig resource documentation </resource_ifconfig.html>`__ for additional details. 
+* **Additional ifconfig options on RHEL and CentOS** The ``ethtool_opts``, ``bonding_opts``, ``master``, and ``slave`` properties have been added. See the `ifconfig resource documentation </resource_ifconfig.html>`__ for additional details.
 * **Chef vault now included by default** Chef client 13.4 includes the ``chef-vault`` gem, so users can more easily work with encrypted items.
-* **Windows remote_file resource now supports alternative credentials** The ``remote_user``, ``remote_domain``, and ``remote_password`` options have been added to allow access to a file even if the Chef client process identity does not have permission to access it. This is mainly intended to be used for accessing files between two nodes on different domains. See the `remote_file documentation </resource_remote_file.html>`__ for more information. 
-* **New windows_path resource** ``windows_path`` has been moved from the Windows cookbook to core Chef. The ``windows_path`` resource is used to manage the path environment variable on Windows. See the `windows_path documentation </resource_windows_path.html>`__ for additional details. 
+* **Windows remote_file resource now supports alternative credentials** The ``remote_user``, ``remote_domain``, and ``remote_password`` options have been added to allow access to a file even if the Chef client process identity does not have permission to access it. This is mainly intended to be used for accessing files between two nodes on different domains. See the `remote_file documentation </resource_remote_file.html>`__ for more information.
+* **New windows_path resource** ``windows_path`` has been moved from the Windows cookbook to core Chef. The ``windows_path`` resource is used to manage the path environment variable on Windows. See the `windows_path documentation </resource_windows_path.html>`__ for additional details.
 
 Ohai 13.4
 -----------------------------------------------------
@@ -51,7 +51,7 @@ Ohai 13.4
 * **Windows EC2 Detection** Detection of nodes running in EC2 has been greatly improved, and  Ohai should now detect nodes 100% of the time, including nodes that have been migrated to EC2 or were built with custom AMIs.
 * **Package plugin supports Arch Linux** The Package plugin has been updated to include package information on Arch Linux systems.
 * **Azure Metadata Endpoint Detection** Ohai now polls the new Azure metadata endpoint, providing additional configuration details on nodes running in Azure. Sample data now available under Azure:
-  
+
   .. code-block:: none
 
       {
@@ -549,6 +549,120 @@ When Chef Client is running as a forked process on unix systems, the standardize
 New deprecations included in this release
 -----------------------------------------------------
 * `Removal of support for Ohai version 6 plugins </deprecations_ohai_v6_plugins.html>`__
+
+What's New in 12.21.26
+=====================================================
+
+* **Security release of libxml2** libxml2 has been upgraded upgraded to 2.9.5 to resolve the following CVEs:
+   * `CVE-2017-9050 <https://www.cvedetails.com/cve/CVE-2017-9050/>`_
+   * `CVE-2017-9049 <https://www.cvedetails.com/cve/CVE-2017-9049/>`_
+   * `CVE-2017-9048 <https://www.cvedetails.com/cve/CVE-2017-9048/>`_
+   * `CVE-2017-9047 <https://www.cvedetails.com/cve/CVE-2017-9047/>`_
+   * `CVE-2017-8872 <https://www.cvedetails.com/cve/CVE-2017-8872/>`_
+   * `CVE-2017-5969 <https://www.cvedetails.com/cve/CVE-2017-5969/>`_
+   * `CVE-2016-9318 <https://www.cvedetails.com/cve/CVE-2016-9318/>`_
+   * `CVE-2016-5131 <https://www.cvedetails.com/cve/CVE-2016-5131/>`__
+* **Security release of libxlst** libxlst has been upgraded to 1.1.30 to resolve the following CVEs:
+   * `CVE-2017-5029 <http://www.cvedetails.com/cve/CVE-2017-5029/>`_
+   * `CVE-2015-9019 <http://www.cvedetails.com/cve/CVE-2015-9019/>`_
+* **Security release of zlib** zlib has been upgraded to 1.2.11 to resolve the following CVEs:
+   * `CVE-2016-9840 <https://www.cvedetails.com/cve/CVE-2016-9840/>`_
+   * `CVE-2016-9841 <https://www.cvedetails.com/cve/CVE-2016-9841/>`_
+   * `CVE-2016-9842 <https://www.cvedetails.com/cve/CVE-2016-9842/>`_
+   * `CVE-2016-9843 <https://www.cvedetails.com/cve/CVE-2016-9843/>`__
+* **Security release of openssl** openssl has been upgraded to 1.0.2j to resolve the following CVEs:
+   * `CVE-2017-3731 <http://www.cvedetails.com/cve/CVE-2017-3731>`_
+   * `CVE-2017-3732 <http://www.cvedetails.com/cve/CVE-2017-3732>`_
+   * `CVE-2016-7055 <http://www.cvedetails.com/cve/CVE-2016-7055>`__
+* **Security release of rubygems** rubygems has been upgraded to 2.6.14 to resolve the following CVEs:
+   * `CVE-2017-0903 <http://www.cvedetails.com/cve/CVE-2017-0903>`__
+* **Ruby 2.2 compatibility** a regression in the 12.21.20 release has been corrected to restore full compatibility with Ruby 2.2 and later
+* **Ohai Critical Plugins** Ohai has been upgraded to 8.25 with support for Ohai critical plugins.
+
+Ohai Critical Plugins Functionality
+-----------------------------------------------------
+Users can now specify a list of plugins which are critical for the Chef run. Critical plugins will cause Ohai to fail if they do not run successfully (and thus cause a Chef run using Ohai to fail). The syntax for this is:
+
+.. code-block:: ruby
+
+   ohai.critical_plugins << :Filesystem
+
+What's New in 12.21.20
+=====================================================
+
+* **Improved dsc_script logging** Converge logging in dsc_script has been improved
+* **DNF Improvements** Determination of when to use the dnf_package has been improved. DNF will no longer be used on RHEL 7 systems with dnf installed and the determination logic performance has been greatly improved.
+
+What's New in 12.21.14
+=====================================================
+
+* **apt_repository apt key fingerprint fixes** apt_repository now correctly checks apt key fingerprints on newer systems
+
+What's New in 12.21.12
+=====================================================
+
+* **DSC Windows Management Framework 5** DSC has been updated to work properly with Windows Management Framework 5
+* **Security release of Ruby** RubyGems has been upgraded to 2.3.5 to address the following CVEs:
+   * CVE-2017-0898
+   * CVE-2017-10784
+   * CVE-2017-14033
+   * CVE-2017-14064
+
+What's New in 12.21.10
+=====================================================
+
+* **Security release of RubyGems** RubyGems has been upgraded to 2.6.13 to address the following:
+   * `CVE-2017-0899 <https://nvd.nist.gov/vuln/detail/CVE-2017-0899>`_
+   * `CVE-2017-0900 <https://nvd.nist.gov/vuln/detail/CVE-2017-0900>`_
+   * `CVE-2017-0901 <https://nvd.nist.gov/vuln/detail/CVE-2017-0901>`_
+   * `CVE-2017-0902 <https://nvd.nist.gov/vuln/detail/CVE-2017-0902>`__
+* **Attribute Performance** Attribute performance has been improved when utilizing large numbers of merged attributes
+
+What's New in 12.21.4
+=====================================================
+
+* **Improved Resource Reporting** Resource reporting for Chef Automate has been improved
+* **Ruby Upgrade** Ruby has been updated to 2.3.4
+* **Rubygems Upgrade** Rubygems has been updated to 2.6.12 to prevent a Segfault on Windows
+* **Policyfile fix** Properly send expanded run list event for policy file nodes
+
+What's New in 12.21.1
+=====================================================
+
+zlib Security Update
+-----------------------------------------------------
+zlib has been updated to resolve the following CVEs:
+ * `CVE-2016-98406 <https://nvd.nist.gov/vuln/detail/CVE-2016-98406>`_
+ * `CVE-2016-98414 <https://nvd.nist.gov/vuln/detail/CVE-2016-98414>`_
+ * `CVE-2016-98423 <https://nvd.nist.gov/vuln/detail/CVE-2016-98423>`_
+ * `CVE-2016-98434 <https://nvd.nist.gov/vuln/detail/CVE-2016-98434>`__
+
+On Debian prefer Systemd to Upstart
+-----------------------------------------------------
+
+On Debian systems, packages that support systemd will often ship both an
+old style init script and a systemd unit file. When this happened, Chef
+would incorrectly choose Upstart rather than Systemd as the service
+provider. We now pick Systemd.
+
+Handle the 'supports' propety better
+-----------------------------------------------------
+Chef 13 removed the supports property from core resources. However,
+many cookbooks also have a property named support, and Chef 12 was
+incorrectly giving a deprecation notice in that case, preventing users
+from properly testing their cookbooks for upgrades.
+
+Don't crash if downgrading from Chef 13 to 12
+-----------------------------------------------------
+On systems where Chef 13 had been run, Chef 12 would crash as the
+on disk cookbook format has changed. Chef 12 now correctly ignores the
+unexpected files.
+
+Provide better information during failures
+-----------------------------------------------------
+When chef-client fails, the output now includes details about the platform
+and version of Chef that was running, so that a bug report has more
+detail from the off.
 
 What's New in 12.20
 =====================================================
