@@ -552,6 +552,7 @@ Addenda
    deprecations_chef_platform_methods
    deprecations_chef_rest
    deprecations_custom_resource_cleanups
+   deprecations_deploy_resource
    deprecations_dnf_package_allow_downgrade
    deprecations_easy_install
    deprecations_exit_code

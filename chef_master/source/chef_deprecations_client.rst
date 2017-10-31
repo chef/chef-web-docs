@@ -102,6 +102,10 @@ All Deprecations
     - Deprecation of ``property_name`` within actions.
     - 13.2
     - 14.0
+  * - `CHEF-20 </deprecations_deploy_resource.html>`__
+    - Deprecation of the ``deploy`` resource.
+    - 13.6
+    - 14.0
   * - `CHEF-3694 </deprecations_resource_cloning.html>`__
     - Resource Cloning will no longer work.
     - 10.18
