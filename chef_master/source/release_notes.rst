@@ -590,23 +590,23 @@ Users can now specify a list of plugins which are critical for the Chef run. Cri
 What's New in 12.21.20
 =====================================================
 
-* **Improved dsc_script logging** Converge logging in dsc_script has been improved
-* **DNF Improvements** Determination of when to use the dnf_package has been improved. DNF will no longer be used on RHEL 7 systems with dnf installed and the determination logic performance has been greatly improved.
+* **Improved dsc_script logging** Converge logging in ``dsc_script`` has been improved
+* **DNF Improvements** Accuracy in determining when to use the ``dnf_package`` has been improved. DNF will no longer be used on RHEL 7 systems that have it installed, and the determination logic performance has been greatly improved.
 
 What's New in 12.21.14
 =====================================================
 
-* **apt_repository apt key fingerprint fixes** apt_repository now correctly checks apt key fingerprints on newer systems
+* **apt_repository APT key fingerprint fixes** ``apt_repository`` now correctly checks APT key fingerprints on newer systems
 
 What's New in 12.21.12
 =====================================================
 
 * **DSC Windows Management Framework 5** DSC has been updated to work properly with Windows Management Framework 5
 * **Security release of Ruby** RubyGems has been upgraded to 2.3.5 to address the following CVEs:
-   * CVE-2017-0898
-   * CVE-2017-10784
-   * CVE-2017-14033
-   * CVE-2017-14064
+   * `CVE-2017-0898 <https://nvd.nist.gov/vuln/detail/CVE-2017-0898>`__
+   * `CVE-2017-10784 <https://nvd.nist.gov/vuln/detail/CVE-2017-10784>`__
+   * `CVE-2017-14033 <https://nvd.nist.gov/vuln/detail/CVE-2017-14033>`__
+   * `CVE-2017-14064 <https://nvd.nist.gov/vuln/detail/CVE-2017-14064>`__
 
 What's New in 12.21.10
 =====================================================
@@ -623,8 +623,8 @@ What's New in 12.21.4
 
 * **Improved Resource Reporting** Resource reporting for Chef Automate has been improved
 * **Ruby Upgrade** Ruby has been updated to 2.3.4
-* **Rubygems Upgrade** Rubygems has been updated to 2.6.12 to prevent a Segfault on Windows
-* **Policyfile fix** Properly send expanded run list event for policy file nodes
+* **Rubygems Upgrade** Rubygems has been updated to 2.6.12 to prevent a segfault on Windows
+* **Policyfile fix** Chef client now properly sends expanded run list events for policy file nodes
 
 What's New in 12.21.1
 =====================================================
@@ -639,35 +639,32 @@ zlib has been updated to resolve the following CVEs:
 
 On Debian prefer Systemd to Upstart
 -----------------------------------------------------
-
 On Debian systems, packages that support systemd will often ship both an
 old style init script and a systemd unit file. When this happened, Chef
-would incorrectly choose Upstart rather than Systemd as the service
-provider. We now pick Systemd.
+would incorrectly choose Upstart rather than systemd as the service
+provider. Chef will now prefer systemd where available.
 
-Handle the 'supports' propety better
+Handle the 'supports' property better
 -----------------------------------------------------
-Chef 13 removed the supports property from core resources. However,
-many cookbooks also have a property named support, and Chef 12 was
-incorrectly giving a deprecation notice in that case, preventing users
+Chef 13 removed the ``supports`` property from core resources. Chef 12 was
+incorrectly giving a deprecation notice for another propeerty called ``support``, which prevented users
 from properly testing their cookbooks for upgrades.
 
 Don't crash if downgrading from Chef 13 to 12
 -----------------------------------------------------
 On systems where Chef 13 had been run, Chef 12 would crash as the
-on disk cookbook format has changed. Chef 12 now correctly ignores the
+on-disk cookbook format has changed. Chef 12 now correctly ignores the
 unexpected files.
 
 Provide better information during failures
 -----------------------------------------------------
-When chef-client fails, the output now includes details about the platform
+When Chef client fails, the output now includes details about the platform
 and version of Chef that was running, so that a bug report has more
-detail from the off.
+detail.
 
 What's New in 12.20
 =====================================================
-
-The following items are new for chef-client 12.20 and/or are changes from previous versions:
+The following items are new for chef-client 12.20, or introduce changes from previous versions:
 
 Server Enforced Recipe
 -----------------------------------------------------
