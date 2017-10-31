@@ -10,7 +10,7 @@ A run-list defines all of the information necessary for Chef to configure a node
 * An ordered list of roles and/or recipes that are run in the exact order defined in the run-list; if a recipe appears more than once in the run-list, the chef-client will not run it twice
 * Always specific to the node on which it runs; nodes may have a run-list that is identical to the run-list used by other nodes
 * Stored as part of the node object on the Chef server
-* Maintained using knife, and then uploaded from the workstation to the Chef server, or is maintained using the Chef management console
+* Maintained using knife and then uploaded from the workstation to the Chef server, or maintained using Chef Automate
 
 .. end_tag
 
@@ -132,7 +132,7 @@ A run-list defines all of the information necessary for Chef to configure a node
 * An ordered list of roles and/or recipes that are run in the exact order defined in the run-list; if a recipe appears more than once in the run-list, the chef-client will not run it twice
 * Always specific to the node on which it runs; nodes may have a run-list that is identical to the run-list used by other nodes
 * Stored as part of the node object on the Chef server
-* Maintained using knife, and then uploaded from the workstation to the Chef server, or is maintained using the Chef management console
+* Maintained using knife and then uploaded from the workstation to the Chef server, or maintained using Chef Automate
 
 .. end_tag
 
