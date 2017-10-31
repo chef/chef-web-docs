@@ -504,7 +504,7 @@ The following example shows how to use lazy evaluation with template variables:
      variables(
        canvey_island: lazy { node.run_state['sea_power'] }
      )
-    end
+   end
 
 .. end_tag
 
