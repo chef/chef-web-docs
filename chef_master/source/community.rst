@@ -27,6 +27,7 @@ More books about Chef:
 * `Managing Windows Servers with Chef <https://www.packtpub.com/networking-and-servers/managing-windows-servers-chef>`_
 * `Test-Driven Infrastructure with Chef, 2nd Edition <http://shop.oreilly.com/product/0636920030973.do>`_
 * `Chef Cookbook - Third Edition [Packt Publishing] <https://www.packtpub.com/networking-and-servers/chef-cookbook-third-edition>`_
+* `Chef: Powerful Infrastructure Automation [Packt Publishing] <https://www.packtpub.com/virtualization-and-cloud/chef-powerful-infrastructure-automation>`_
 
 Meet
 =====================================================
