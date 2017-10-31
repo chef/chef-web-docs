@@ -80,7 +80,7 @@ knife is used to upload data to the Chef server from the chef-repo directory. On
 
 .. tag all_directory_chef
 
-The .chef directory is a hidden directory that is used to store validation key files and the knife.rb file.
+The .chef directory is a hidden directory that is used to store validation key files and optionally a knife.rb file.
 
 .. end_tag
 
