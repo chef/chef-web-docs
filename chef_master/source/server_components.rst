@@ -11,7 +11,7 @@ The Chef server acts as a hub for configuration data. The Chef server stores coo
 
 .. tag chef_server_component_erchef_background
 
-Starting with the release of Chef server 11, the front-end for the Chef server is written using `Erlang <http://www.erlang.org/>`_, which is a programming language that `first appeared in 1986 <http://en.wikipedia.org/wiki/Erlang_%28programming_language%29>`_, was open sourced in 1998, and is excellent with critical enterprise concerns like concurrency, fault-tolerance, and distributed environments. The Chef server can scale to the size of any enterprise and is sometimes referred to as Erchef.
+The front-end for the Chef server is written using `Erlang <http://www.erlang.org/>`_, which is a programming language that `first appeared in 1986 <http://en.wikipedia.org/wiki/Erlang_%28programming_language%29>`_, was open sourced in 1998, and is excellent with critical enterprise concerns like concurrency, fault-tolerance, and distributed environments. The Chef server can scale to the size of any enterprise and is sometimes referred to as Erchef.
 
 .. end_tag
 
@@ -40,7 +40,7 @@ The following diagram shows the various components that are part of a Chef serve
    * - Chef Manage
      - .. tag chef_server_component_webui
 
-       chef-server-webui is a Ruby on Rails 3.0 application that hosts the web interface for the Chef server.
+       chef-server-webui is a Ruby on Rails application that hosts the web interface for the Chef server.
 
        .. end_tag
 
