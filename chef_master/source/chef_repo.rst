@@ -3,8 +3,6 @@ About the chef-repo
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_repo.rst>`__
 
-.. note:: For information about the accessing the source code implementation of Chef (the Chef repo on GitHub), see `Community Contributions </community_contributions.html>`__.
-
 .. tag chef_repo_description
 
 The chef-repo is a directory on your workstation that stores:
