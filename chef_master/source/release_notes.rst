@@ -640,7 +640,7 @@ What's New in 12.21.20
 =====================================================
 
 * **Improved dsc_script logging** Converge logging in ``dsc_script`` has been improved
-* **DNF Improvements** Accuracy in determining when to use the ``dnf_package`` has been improved. DNF will no longer be used on RHEL 7 systems that have it installed, and the determination logic performance has been greatly improved.
+* **DNF Improvements** Accuracy in determining when to use the ``dnf_package`` resource has been improved. DNF will no longer be used on RHEL 7 systems that have it installed, and the determination logic performance has been greatly improved.
 
 What's New in 12.21.14
 =====================================================
