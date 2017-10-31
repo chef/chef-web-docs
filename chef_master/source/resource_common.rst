@@ -80,7 +80,7 @@ The following properties are common to every resource:
 ``supports``
    .. warning:: This property was deprecated in Chef 12.14; it will generate a warning when used in Chef 12 versions 12.14 and above, and it was entirely removed in Chef 13. See the `deprecation notice </deprecations_supports_property.html>`_ for details and remediation.
 
-   .. note:: This property is not the same as the ``supports`` property that was previously available for the `user </resource_user.html>`_ resource, or that which is currently available for the `service </resource_service.html>`_ resource. These resources use entirely separate implementations of the ``supports`` property. 
+   .. note:: This property is not the same as the ``supports`` property that was previously available for the `user </resource_user.html>`_ resource, or that which is currently available for the `service </resource_service.html>`_ resource. These resources use entirely separate implementations of the ``supports`` property.
 
    **Ruby Type:** Hash
 
@@ -151,7 +151,7 @@ The following examples show how to use common properties in a recipe.
      retries 3
    end
 
-.. end_tag  
+.. end_tag
 
 .. _resource_common_guards:
 
@@ -502,7 +502,7 @@ The following example shows how to use lazy evaluation with template variables:
    template '/tmp/canvey_island.txt' do
      source 'canvey_island.txt.erb'
      variables(
-       { :canvey_island => lazy { node.run_state['sea_power'] } }
+       canvey_island: lazy { node.run_state['sea_power'] }
      )
    end
 
@@ -800,7 +800,7 @@ Note that ``subscribes`` does not apply the specified action to the resource tha
      subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
   end
 
-In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected. 
+In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
 
 .. end_tag
 
