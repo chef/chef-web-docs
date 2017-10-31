@@ -1,4 +1,4 @@
-=====================================================
+  =====================================================
 knife data bag
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_data_bag.rst>`__
@@ -46,17 +46,13 @@ Options
 This argument has the following options:
 
 ``DATA_BAG_ITEM``
-   The name of a specific item within a data bag.
+   The name of a specific item within a data bag. ``DATA_BAG_NAME`` may not be ``client``, ``environment``, ``node`` or ``role``, as these are reserved words for `knife search </knife_search.html>`__.
 
 ``--secret SECRET``
-   The encryption key that is used for values contained within a data bag item. If ``secret`` is not specified, the chef-client looks for a secret at the path specified by the ``encrypted_data_bag_secret`` setting in the client.rb file.
+   The encryption key that is used for values contained within a data bag item. If ``secret`` is not specified, the chef-client looks for a secret at the path specified by the ``encrypted_data_bag_secret`` setting in the client.rb file. For encrypted data bag items, use **either** ``--secret`` or ``--secret-file``, not both.
 
 ``--secret-file FILE``
    The path to the file that contains the encryption key.
-
-.. note:: ``DATA_BAG_NAME`` may not be ``client``, ``environment``, ``node`` or ``role``, as these are reserved words for :doc:`knife search </knife_search>`.
-
-.. note:: For encrypted data bag items, use *either* ``--secret`` or ``--secret-file``, not both.
 
 .. note:: .. tag knife_common_see_all_config_options
 
@@ -443,4 +439,3 @@ To view information in JSON format, use the ``-F`` common option as part of the 
    $ knife data bag show admins -F json
 
 Other formats available include ``text``, ``yaml``, and ``pp``.
-
