@@ -485,7 +485,7 @@ Versions and Status
      - EOL Date
    * - Chef Client
      - 12.x
-     - Deprecated
+     - EOL
      - April 30, 2018
    * - Chef Client
      - 13.x
@@ -493,7 +493,7 @@ Versions and Status
      - n/a
    * - Chef DK
      - 1.x
-     - Deprecated
+     - EOL
      - April 30, 2018
    * - Chef DK
      - 2.x
