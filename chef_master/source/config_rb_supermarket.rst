@@ -22,47 +22,51 @@ General
 This configuration file has the following general settings:
 
 ``default['enterprise']['name']``
-   Default value: ``'supermarket'``.
+   The Chef Automate enterprise name. Default value: ``'supermarket'``.
 
 ``default['supermarket']['app_directory']``
    Default value: ``"#{node['supermarket']['install_directory']}/embedded/service/supermarket"``.
 
 ``default['supermarket']['chef_server_url']``
-   The URL for the Chef server.
+   The URL of the Chef server.
 
 ``default['supermarket']['config_directory']``
-   Default value: ``'/etc/supermarket'``.
+   The directory that is used to store Supermarket configuration files. Default value: ``'/etc/supermarket'``.
 
 ``default['supermarket']['features']``
    Use to enable announcments, CLA features, a service that reports on cookbook quality, GitHub integration, enable joining of corporate CLAs, and tools. Default value: ``'tools'``.
 
 ``default['supermarket']['fqdn']``
-   Default value: ``node['fqdn']``.
+   The fully qualified domain name for the Supermarket server. Defaults to using the current FQDN for the machine.
 
 ``default['supermarket']['group']``
-   Default value: ``'supermarket'``.
+   The system group that is used to manage Supermarket on the server. Default value: ``'supermarket'``.
 
 ``default['supermarket']['install_directory']``
-   Default value: ``'/opt/supermarket'``.
+   The directory where Supermarket is installed. Default value: ``'/opt/supermarket'``.
 
 ``default['supermarket']['install_path']``
    The directory in which Chef Supermarket is installed. Default value: ``node['supermarket']['install_directory']``.
 
 ``default['supermarket']['log_directory']``
-   Default value: ``'/var/log/supermarket'``.
+   The directory that Supermarket will use to store logs. Default value: ``'/var/log/supermarket'``.
 
 ``default['supermarket']['sysvinit_id']``
    Use to specify 1-4 characters that define a unique identifier for the file located in ``/etc/inittab``. Default value: ``SUP``.
 
 ``default['supermarket']['user']``
-   Default value: ``'supermarket'``.
+   The system user that is used to run Supermarket. Default value: ``'supermarket'``.
 
 ``default['supermarket']['var_directory']``
-   Default value: ``'/var/opt/supermarket'``.
+   The directory where data and cookbooks are installed. Default value: ``'/var/opt/supermarket'``.
 
-.. there are these as well:
-..
-.. default['supermarket']['fieri_url'] = nil
+Fieri
+-----------------------------------------------------
+The following configuration settings are for `fieri </supermarket.html#fieri>`__, an optional service built into Supermarket that is used to provide cookbook quality metrics.
+
+``default['supermarket']['fieri_url']``
+   The full URL that Supermarket uses to communicate with Fieri. Default value: ``'http://localhost:13000/fieri/jobs'``
+``default['supermarket']['fieri_supermarket_endpoint']``
 .. default['supermarket']['fieri_key'] = nil
 .. default['supermarket']['from_email'] = nil
 .. default['supermarket']['github_access_token'] = nil
