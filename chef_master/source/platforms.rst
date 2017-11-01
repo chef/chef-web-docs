@@ -485,7 +485,7 @@ Versions and Status
      - EOL Date
    * - Chef Client
      - 12.x
-     - EOL
+     - `EOL <https://www.chef.io/eol-chef12-and-chefdk1/>`__
      - April 30, 2018
    * - Chef Client
      - 13.x
@@ -493,7 +493,7 @@ Versions and Status
      - n/a
    * - Chef DK
      - 1.x
-     - EOL
+     - `EOL <https://www.chef.io/eol-chef12-and-chefdk1/>`__
      - April 30, 2018
    * - Chef DK
      - 2.x
