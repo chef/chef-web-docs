@@ -45,9 +45,3 @@ The following knife plug-ins are maintained by Chef:
      - Rackspace is a cloud-driven platform of virtualized servers that provide services for storage and data, platform and networking, and cloud computing. The ``knife rackspace`` subcommand is used to manage API-driven cloud servers that are hosted by Rackspace cloud services.
    * - `knife-terremark <https://github.com/chef/knife-terremark>`__
      - Terremark is a cloud hosting platform that provides cloud, IT infrastructure, and managed hosting services. The ``knife terremark`` subcommand is used to manage API-driven cloud servers that are hosted by Terremark.
-   * - `knife-vcloud <https://github.com/chef/knife-vcloud>`__
-     - .. tag plugin_knife_windows_summary
-
-       The ``knife windows`` subcommand is used to configure and interact with nodes that exist on server and/or desktop machines that are running Microsoft Windows. Nodes are configured using WinRM, which allows native objects---batch scripts, Windows PowerShell scripts, or scripting library variables---to be called by external applications. The ``knife windows`` subcommand supports NTLM and Kerberos methods of authentication.
-
-       .. end_tag
