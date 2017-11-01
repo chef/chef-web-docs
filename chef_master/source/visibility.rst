@@ -24,7 +24,7 @@ Setup and configuration for node visibility is done through the following steps:
 * Configure any Chef client and/or servers to connect to your Chef Automate server to begin ingesting data
 * (Optional) Stream event data out to a websocket consumer for further processing
 
-See `Configure Data Collection </data_collection.html>`__ for more information on the initial setup and configuring
+See `Configurgite Data Collection </data_collection.html>`__ for more information on the initial setup and configuring
 Chef client and server for data ingestion, and `Stream Data </stream_data_chef_automate.html>`__ to learn how to stream data out for further processing.
 
 Navigating the UI
