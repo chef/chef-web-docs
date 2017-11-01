@@ -57,7 +57,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``5.x``, ``6.x``, ``7.x``
    * - Solaris
      - ``sparc``, ``x86``
-     - ``10 1/13`` (``"10U11"``), ``11.2``, ``11.3`` 
+     - ``10 1/13`` (``"10U11"``), ``11.2``, ``11.3``
    * - SUSE Enterprise Linux Server
      - ``x86_64``, ``s390x``, ``ppc64le``, ``ppc64``
      - ``11 SP4``, ``12 SP1``
@@ -453,7 +453,7 @@ This stage indicates that an application or version is in active development or 
 * Chef continues to provide releases to the application or version in response to customer needs and security vulnerabilities
 * Chef welcomes customer feature requests for the product roadmap for the application
 
-**Deprecated** 
+**Deprecated**
 
 This stage indicates that an application or version is no longer in active development and will eventually move to end of life status.  Chef continues to provide support `according to our SLAs <https://www.chef.io/service-level-agreement/>`_.
 
@@ -473,9 +473,9 @@ Versions and Status
 ----------------------------------------------
 .. important:: Unless otherwise stated, versions older than those listed below are EOL.
 
-**Premium Supported Open Source**                                                            
+**Premium Supported Open Source**
 
-.. list-table:: 
+.. list-table::
    :header-rows: 1
    :widths: 150, 450, 100, 100
 
@@ -485,16 +485,16 @@ Versions and Status
      - EOL Date
    * - Chef Client
      - 12.x
-     - Deprecated
-     - TBD
+     - EOL
+     - April 30, 2018
    * - Chef Client
      - 13.x
      - GA
      - n/a
    * - Chef DK
      - 1.x
-     - Deprecated
-     - TBD
+     - EOL
+     - April 30, 2018
    * - Chef DK
      - 2.x
      - GA
@@ -508,7 +508,7 @@ Versions and Status
      - GA
      - n/a
    * - `InSpec <https://www.inspec.io/>`_
-     - Latest 
+     - Latest
      - GA
      - n/a
    * - `Habitat <https://www.habitat.sh/>`_
@@ -524,8 +524,8 @@ Versions and Status
      - 2.2.1 or later
      - GA
      - n/a
-     
-**Commercial**                                                             
+
+**Commercial**
 
 .. list-table::
    :header-rows: 1
