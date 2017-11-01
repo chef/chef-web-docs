@@ -18,19 +18,19 @@ UI using a simple query language. Searches can then be shared and saved for futu
 Setup and Configuration
 ======================================================
 
-Setup and configuration for node visibility is done through the following steps:
+Setup and configuration for visibility is done through the following steps:
 
-* Enable the node visibility feature after Chef Automate has been installed on a machine
+* Enable the visibility feature after Chef Automate has been installed on a machine
 * Configure any Chef client and/or servers to connect to your Chef Automate server to begin ingesting data
 * (Optional) Stream event data out to a websocket consumer for further processing
 
-See `Configurgite Data Collection </data_collection.html>`__ for more information on the initial setup and configuring
+See `Configure Data Collection </data_collection.html>`__ for more information on the initial setup and configuring
 Chef client and server for data ingestion, and `Stream Data </stream_data_chef_automate.html>`__ to learn how to stream data out for further processing.
 
 Navigating the UI
 ======================================================
 
-To see the node visibility capabilities of Chef Automate, log into the Chef Automate UI and click on the **Nodes** menu item in the top nav bar.
+To see the visibility capabilities of Chef Automate, log into the Chef Automate UI and click on the **Nodes** menu item in the top nav bar.
 This will open the ``http://<yourAutomateServer>/viz`` page, which is the main Dashboard to visualize and filter on the data pushed to
 your Chef Automate server from the Chef server and Chef clients that have been configured to do so.
 
