@@ -14,7 +14,7 @@ Stream Data from Chef Automate
 Chef Automate exposes an endpoint to stream the data that is visualized in the UI. Every event is
 streamed as JSON and can be accessed from a websocket consumer by doing the following:
 
-#. Make sure the visibility capability of Chef Automate has been installed and is running.
+#. Make sure the node visibility capability of Chef Automate has been installed and is running.
 #. Connect a websocket consumer to the fully-qualified domain name of the Chef Automate server on port 3232.
 
    .. code-block:: none

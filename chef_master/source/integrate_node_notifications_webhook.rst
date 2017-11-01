@@ -20,8 +20,16 @@ To use this Chef Automate integration, you need a webserver or service end-point
 
 .. note:: Notifications sent to custom webhooks by Chef Automate do not support retries; therefore, notifications sent while your particular webhook end-point is experiencing API issues, outages, or some other unplanned downtime may never be received. Undelivered notifications are not re-sent. Attempts to send notifications do generate log messages in your Chef Automate server.
 
+
 Add a Webhook to Chef Automate
 =====================================================
+
+.. raw:: html
+
+   <iframe width="560" height="315" align="center" src="https://www.youtube.com/embed/UqkKwJAQZ0c" frameborder="0" gesture="media" allowfullscreen></iframe>
+
+
+
 To add a custom webhook for Chef Automate:
 
 #. On the Chef Automate server, select **Notifications** under the **Nodes** tab.

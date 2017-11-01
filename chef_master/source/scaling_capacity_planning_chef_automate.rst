@@ -11,7 +11,7 @@ Scaling and Capacity Planning for Visibility
 
 .. end_tag
 
-The following disk and CPU utilization metrics for the visibility feature in Chef Automate can be used when performing scaling and capacity planning on your Chef Automate server.
+The following disk and CPU utilization metrics for the node visibility feature in Chef Automate can be used when performing scaling and capacity planning on your Chef Automate server.
 
 Determining Storage Needs
 ==================================================
