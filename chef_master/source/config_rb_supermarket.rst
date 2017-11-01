@@ -39,6 +39,9 @@ This configuration file has the following general settings:
 ``default['supermarket']['fqdn']``
    The fully qualified domain name for the Supermarket server. Defaults to using the current FQDN for the machine.
 
+``default['supermarket']['from_email']``
+   The default sender address of all Supermarket mailers. Default value: ``nil``.
+
 ``default['supermarket']['group']``
    The system group that is used to manage Supermarket on the server. Default value: ``'supermarket'``.
 
@@ -65,10 +68,13 @@ Fieri
 The following configuration settings are for `fieri </supermarket.html#fieri>`__, an optional service built into Supermarket that is used to provide cookbook quality metrics.
 
 ``default['supermarket']['fieri_url']``
-   The full URL that Supermarket uses to communicate with Fieri. Default value: ``'http://localhost:13000/fieri/jobs'``
+   The full URL that is used to access Fieri. Default value: ``'http://localhost:13000/fieri/jobs'``
+
 ``default['supermarket']['fieri_supermarket_endpoint']``
-.. default['supermarket']['fieri_key'] = nil
-.. default['supermarket']['from_email'] = nil
+   The URL of the Chef Supermarket that is using Fieri. Default value: ``'https://localhost:13000'``
+
+``default['supermarket']['fieri_key']``
+   A string that is used as a key to authenticate Fieri. Default value: ``nil``
 .. default['supermarket']['github_access_token'] = nil
 .. default['supermarket']['github_key'] = nil
 .. default['supermarket']['github_secret'] = nil
@@ -417,13 +423,16 @@ SMTP
 This configuration file has the following settings for SMTP:
 
 ``default['supermarket']['smtp_address']``
+   The SMTP server address that Supermarket will use to send mail.
 
 ``default['supermarket']['smtp_password']``
+   The SMTP server password.
 
 ``default['supermarket']['smtp_port']``
    The port on which the service is to listen.
 
 ``default['supermarket']['smtp_user_name']``
+   The user on the SMTP server. 
 
 SSL
 -----------------------------------------------------
