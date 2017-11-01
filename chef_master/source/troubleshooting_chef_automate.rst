@@ -306,10 +306,10 @@ This can be triggered by either:
 
 This can also indicate a change in NameId settings.
 
-Visibility
+Nodes
 ====================================================================
 
-The following is an issue you might run into when using the visibility capabilities in Chef Automate.
+The following is an issue you might run into when using the node visibility capabilities in Chef Automate.
 
 Issue: Data does not show up in Chef Automate UI.
 ------------------------------------------------------------------------------------
