@@ -11,7 +11,7 @@ Chef Automate
 
 .. end_tag
 
-Chef Automate provides a full suite of enterprise capabilities for workflow, visibility and compliance.
+Chef Automate provides a full suite of enterprise capabilities for workflow, nodes visibility and compliance.
 Chef Automate integrates with the open-source products Chef, InSpec and Habitat. Chef Automate comes with
 comprehensive 24×7 support services for the entire platform, including open source components.
 
@@ -32,7 +32,7 @@ Visibility
 
 Chef Automate gives you a data warehouse that accepts input from Chef, Habitat, and Chef Automate
 workflow and compliance. It provides views into operational, compliance, and workflow events. There is a query
-language available through the UI and customizable dashboards. For more information, see `Visibility Overview </visibility.html>`__.
+language available through the UI and customizable dashboards. For more information, see `Nodes Overview </visibility.html>`__.
 
 Workflow
 ======================================================
