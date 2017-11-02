@@ -30,10 +30,10 @@ How It Works
    * If the session is invalid, or if no session information is present, the server returns a ``401 Unauthorized`` message.
 
 
-Accessing Elasticsearch with Authentication - Visibility UI
-===========================================================
+Accessing Elasticsearch with Authentication - Node Visibility UI
+=================================================================
 
-The Visibility UI performs a number of queries to Elasticsearch in order to present the Visibility data. The Chef Automate server will validate each of the Elasticsearch requests with the session cookie information as described in the **How It Works** section above.
+The Automate node visibility UI performs a number of queries to Elasticsearch in order to present the node visibility data. The Chef Automate server will validate each of the Elasticsearch requests with the session cookie information as described in the **How It Works** section above.
 
 
 Accessing Elasticsearch with Authentication - API/CLI

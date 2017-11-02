@@ -28,7 +28,7 @@ To get a fully-functional Amazon Machine Image (AMI) for Chef Automate, do the f
 
    .. note:: You must assign the previously created IAM role or another role with full marketplace access.
 
-#. Increase the root volume size to a minimum of 30GB. You might consider even larger if you have hundreds of nodes or need to maintain months of Visibility data.
+#. Increase the root volume size to a minimum of 30GB. You might consider even larger if you have hundreds of nodes or need to maintain months of node visibility data.
 #. Configure security group to include the required ports 22, 443 and 8989.
 #. Launch the Amazon Machine Image (AMI).
 
