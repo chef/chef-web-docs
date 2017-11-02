@@ -102,6 +102,14 @@ This configuration file has the following settings:
       chef_version '~> 12'
 
    .. end_tag
+   
+   A more complex example where you would like to set a lower and upper bound of chef-client version:
+   
+   .. code-block:: ruby
+
+   chef_version ">= 14.2.1", "< 14.5.1"
+   
+   .. end_tag
 
 ``depends``
    This field requires that a cookbook with a matching name and version exists on the Chef server. When the match exists, the Chef server includes the dependency as part of the set of cookbooks that are sent to the node when the chef-client runs. It is very important that the ``depends`` field contain accurate data. If a dependency statement is inaccurate, the chef-client may not be able to complete the configuration of the system. All :ref:`version constraint operators <cookbook_version_constraints>` are applicable to this field.
