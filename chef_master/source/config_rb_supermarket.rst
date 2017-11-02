@@ -5,17 +5,17 @@ supermarket.rb Settings
 
 .. tag config_rb_supermarket_summary
 
-The supermarket.rb file contains all of the non-default configuration settings used by the Chef Supermarket. (The default settings are built-in to the Chef Supermarket configuration and should only be added to the supermarket.rb file to apply non-default values.) These configuration settings are processed when the ``supermarket-ctl reconfigure`` command is run, such as immediately after setting up Chef Supermarket or after making a change to the underlying configuration settings after the server has been deployed. The supermarket.rb file is a Ruby file, which means that conditional statements can be used in the configuration file.
+The supermarket.rb file contains all of the non-default configuration settings used by the Chef Supermarket. The default settings are built-in to the Chef Supermarket configuration, and should only be added to the supermarket.rb file to apply non-default values. These configuration settings are processed when the ``supermarket-ctl reconfigure`` command is run. The supermarket.rb file is a Ruby file, which means that conditional statements can be used in the configuration file.
 
 .. end_tag
 
-.. note:: The supermarket.rb file does not exist by default. To modify the settings for the Chef server, create a file named ``supermarket.rb`` in the ``/etc/supermarket/`` directory.
+.. note:: The ``supermarket.rb`` file does not exist by default. To modify the settings for the Supermarket server, create a file named ``supermarket.rb`` in the ``/etc/supermarket/`` directory.
 
 Settings
 =====================================================
-The following settings are may be configured in the supermarket.rb file.
+The following settings are may be configured in the ``supermarket.rb`` file.
 
-.. note:: When changes are made to the chef-server.rb file the Chef server must be reconfigured by running the ``supermarket-ctl reconfigure`` command.
+.. note:: You must run ``supermarket-ctl reconfigure`` to apply any changes made in the ``supermarket.rb`` file.
 
 General
 -----------------------------------------------------
@@ -34,7 +34,9 @@ This configuration file has the following general settings:
    The directory that is used to store Supermarket configuration files. Default value: ``'/etc/supermarket'``.
 
 ``default['supermarket']['features']``
-   Use to enable announcments, CLA features, a service that reports on cookbook quality, GitHub integration, enable joining of corporate CLAs, and tools. Default value: ``'tools'``.
+     Use to enable additional features, such as announcements and GitHub integration. Default value: ``'tools'``.
+
+     Features currently available: ``tools``, ``fieri``, ``announcement``, ``github``, and ``no_crawl``.
 
 ``default['supermarket']['fqdn']``
    The fully qualified domain name for the Supermarket server. Defaults to using the current FQDN for the machine.
@@ -63,32 +65,12 @@ This configuration file has the following general settings:
 ``default['supermarket']['var_directory']``
    The directory where data and cookbooks are installed. Default value: ``'/var/opt/supermarket'``.
 
-Fieri
------------------------------------------------------
-The following configuration settings are for `fieri </supermarket.html#fieri>`__, an optional service built into Supermarket that is used to provide cookbook quality metrics.
-
-``default['supermarket']['fieri_url']``
-   The full URL that is used to access Fieri. Default value: ``'http://localhost:13000/fieri/jobs'``
-
-``default['supermarket']['fieri_supermarket_endpoint']``
-   The URL of the Chef Supermarket that is using Fieri. Default value: ``'https://localhost:13000'``
-
-``default['supermarket']['fieri_key']``
-   A string that is used as a key to authenticate Fieri. Default value: ``nil``
-.. default['supermarket']['github_access_token'] = nil
-.. default['supermarket']['github_key'] = nil
-.. default['supermarket']['github_secret'] = nil
 .. default['supermarket']['google_analytics_id'] = nil
-.. default['supermarket']['host'] = node['supermarket']['fqdn']
-.. default['supermarket']['newrelic_agent_enabled'] = 'false'
-.. default['supermarket']['newrelic_app_name'] = nil
-.. default['supermarket']['newrelic_license_key'] = nil
 .. default['supermarket']['port'] = node['supermarket']['nginx']['force_ssl'] ? node['supermarket']['nginx']['ssl_port'] : node['supermarket']['non_ssl_port']
 .. default['supermarket']['protocol'] = node['supermarket']['nginx']['force_ssl'] ? 'https' : 'http'
 .. default['supermarket']['pubsubhubbub_callback_url'] = nil
 .. default['supermarket']['pubsubhubbub_secret'] = nil
 .. default['supermarket']['redis_url'] = "redis://#{node['supermarket']['redis']['bind']}:#{node['supermarket']['redis']['port']}/0/supermarket"
-.. default['supermarket']['sentry_url'] = nil
 
 Amazon Simple Storage Service (S3)
 -----------------------------------------------------
@@ -104,7 +86,7 @@ This configuration file has the following settings for uploading cookbooks to a 
    The bucket name. (required to use S3)
 
 ``default['supermarket']['s3_path']``
-   Directory structure to prepend to the standard path to the directory containing cookbooks. Set this if you must store cookbooks in a deeper directory structure within a shared bucket, however, dedicated S3 buckets are recommended for cookbook storage and distribution. (optional)
+   **(Optional)** Directory structure to prepend to the standard path of the directory containing cookbooks. Set this if you must store cookbooks in a deeper directory structure within a shared bucket. However, keep in mind that dedicated S3 buckets are recommended for cookbook storage and distribution.
 
 ``default['supermarket']['s3_private_objects']``
    Whether cookbooks stored in S3 should be public or private. ``true/false`` Default: ``false``
@@ -137,10 +119,10 @@ This configuration file has the following settings for the Chef Supermarket Cont
 
 Database
 -----------------------------------------------------
-This configuration file has the following settings for database configurations:
+The following database options are available:
 
 ``default['supermarket']['database']['extensions']``
-   Default value: ``{ 'pgpsql' => true, 'pg_trgm' => 'true' }``.
+   Determines which PostgreSQL extensions are enabled. Default value: ``{ 'pgpsql' => true, 'pg_trgm' => 'true' }``.
 
 ``default['supermarket']['database']['host']``
    Default value: ``node['supermarket']['postgresql']['listen_address']``.
@@ -156,6 +138,52 @@ This configuration file has the following settings for database configurations:
 
 ``default['supermarket']['database']['user']``
    Default value: ``node['supermarket']['postgresql']['username']``.
+
+``default['supermarket']['postgresql']['username']``
+   The system user that runs PostgreSQL. By default, this uses the value of ``node['supermarket']['user']``.
+
+Fieri
+-----------------------------------------------------
+Use these settings to enable `fieri </supermarket.html#fieri>`__, an optional service built into Supermarket that provides cookbook quality metrics.
+
+As a Supermarket feature, Fieri must be enabled via the ``default['supermarket']['features']`` option.
+
+``default['supermarket']['fieri_url']``
+   The full URL that is used to access Fieri. Default value: ``'http://localhost:13000/fieri/jobs'``
+
+``default['supermarket']['fieri_supermarket_endpoint']``
+   The URL of the Chef Supermarket that is using Fieri. Default value: ``'https://localhost:13000'``
+
+``default['supermarket']['fieri_key']``
+   A string that is used as a key to authenticate Fieri. Default value: ``nil``
+
+Github
+-----------------------------------------------------
+Use these settings to integrate Supermarket with Github.
+
+As a Supermarket feature, Github must be enabled via the ``default['supermarket']['features']`` option.
+
+``default['supermarket']['github_access_token']``
+   The access token created from your Github account. Default value: ``nil``.
+
+``default['supermarket']['github_key']``
+   The application client ID that is used to authenticate Supermarket to Github. Default value: ``nil``.
+
+``default['supermarket']['github_secret']``
+   The application client secret that is used to authenticate Supermarket to Github. Default value: ``nil``.
+
+New Relic
+-----------------------------------------------------
+Use these settings to integrate Supermarket with `New Relic <https://newrelic.com/>`__, a software analytics platform:
+
+``default['supermarket']['newrelic_agent_enabled']``
+   Determines whether or not the New Relic agent is enabled. Default value: ``'false'``.
+
+``default['supermarket']['newrelic_app_name']``
+   The name used by New Relic to identify the Supermarket installation. Default value: ``nil``.
+
+``default['supermarket']['newrelic_license_key']``
+   The New Relic license key. Default value: ``nil``.
 
 Nginx
 -----------------------------------------------------
@@ -399,6 +427,13 @@ This configuration file has the following settings for runit:
 ``default['supermarket']['runit']['svlogd_bin']``
    Default value: ``"#{node['supermarket']['install_directory']}/embedded/bin/svlogd"``.
 
+Sentry
+-----------------------------------------------------
+This option is used to integrate Supermarket with the `Sentry <https://sentry.io/welcome/>`__ error logging service:
+
+``default['supermarket']['sentry_url']``
+   The Sentry URL that is used to send error reports. Default value: ``nil``.
+
 Sidekiq
 -----------------------------------------------------
 This configuration file has the following settings for background processes that are managed by Sidekiq:
@@ -432,7 +467,10 @@ This configuration file has the following settings for SMTP:
    The port on which the service is to listen.
 
 ``default['supermarket']['smtp_user_name']``
-   The user on the SMTP server. 
+   The user on the SMTP server.
+
+``default['supermarket']['from_email']``
+   The default sender address of all Supermarket mailers. Default value: ``nil``.
 
 SSL
 -----------------------------------------------------
@@ -499,13 +537,17 @@ Unicorn
 This configuration file has the following settings for Unicorn:
 
 ``default['supermarket']['unicorn']['after_fork']``
-
-``default['supermarket']['unicorn']['copy_on_write']``
-   Default value: ``true``.
-
-``default['supermarket']['unicorn']['before_exec']``
+   Determines what to do after forking a worker.  In most instances, this should not be changed. Default value: ``nil``.
 
 ``default['supermarket']['unicorn']['before_fork']``
+   Determines what to do before a worker is forked. In most instances, this should not be changed. Default value: ``nil``.
+
+``default['supermarket']['unicorn']['before_exec']``
+   Determines what to do before executing the new Unicorn binary. Default value: ``nil``
+
+``default['supermarket']['unicorn']['copy_on_write']``
+   Determines whether or not `copy-on-write <http://www.rubyenterpriseedition.com/faq.html#adapt_apps_for_cow>`__ is enabled. Default value: ``true``.
+
 
 ``default['supermarket']['unicorn']['enable_stats']``
    Default value: ``false``.
