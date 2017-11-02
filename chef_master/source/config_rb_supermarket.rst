@@ -172,6 +172,13 @@ As a Supermarket feature, Github must be enabled via the ``default['supermarket'
 ``default['supermarket']['github_secret']``
    The application client secret that is used to authenticate Supermarket to Github. Default value: ``nil``.
 
+Google Analytics
+-----------------------------------------------------
+Use this setting to set up `Google Analytics <https://analytics.google.com>`__ tracking for Supermarket:
+
+``default['supermarket']['google_analytics_id']``
+   The Google Analytics `tracking ID <https://support.google.com/analytics/answer/7372977?hl=en>`__ for Supermarket.
+
 New Relic
 -----------------------------------------------------
 Use these settings to integrate Supermarket with `New Relic <https://newrelic.com/>`__, a software analytics platform:
@@ -190,17 +197,19 @@ Nginx
 This configuration file has the following settings for Nginx:
 
 ``default['supermarket']['nginx']['access_log_options']``
+   A string of `additional options https://nginx.org/en/docs/http/ngx_http_log_module.html`__ to be added to the nginx access log directive. Default value: ``nil``.
 
 ``default['supermarket']['nginx']['cache']['directory']``
-   Default value: ``"#{node['supermarket']['var_directory']}/nginx//cache"``.
+   The directory used by nginx for caching. Default value: ``"#{node['supermarket']['var_directory']}/nginx//cache"``.
 
 ``default['supermarket']['nginx']['cache']['enable']``
-   Default value: ``false``.
+   Determines whether or not nginx caching is enabled. Default value: ``false``.
 
 ``default['supermarket']['nginx']['client_body_buffer_size']``
+   The `client_body_buffer_size <https://nginx.org/en/docs/http/ngx_http_core_module.html#client_body_buffer_size>`__ used by nginx. Default value: ``nil``.
 
 ``default['supermarket']['nginx']['client_max_body_size']``
-   The maximum accepted body size for a client request, as indicated by the ``Content-Length`` request header. When the maximum accepted body size is greater than this value, a ``413 Request Entity Too Large`` error is returned. Default value: ``250m``.
+   The maximum accepted body size for a client request, as indicated by the ``Content-Length`` request header. When the maximum accepted body size is greater than this value, a ``413 Request Entity Too Large`` error is returned. Default value: ``250m``. See the `nginx documentation <https://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size>`__ for additional information. 
 
 ``default['supermarket']['nginx']['daemon_disable']``
    Default value: ``true``.
@@ -318,14 +327,16 @@ Oauth2
 This configuration file has the following settings for the Chef server identity service:
 
 ``default['supermarket']['chef_oauth2_app_id']``
+   The `Chef Identity </install_supermarket.html#chef-identity>`__ application ID created for Supermarket on the Chef server. See the `Chef Identity configuration </install_supermarket.html#configure>`__ section of the Supermarket installation guide for additional details.
 
 ``default['supermarket']['chef_oauth2_secret']``
+   The `Chef Identity </install_supermarket.html#chef-identity>`__ application secret created for Supermarket on the Chef server. See the `Chef Identity configuration </install_supermarket.html#configure>`__ section of the Supermarket installation guide for additional details.
 
 ``default['supermarket']['chef_oauth2_url']``
-   Default value: ``node['supermarket']['chef_server_url']``.
+   The URL of the Chef server that Supermarket connects to. Default value: ``node['supermarket']['chef_server_url']``.
 
 ``default['supermarket']['chef_oauth2_verify_ssl']``
-   Default value: ``true``.
+   Determines whether or not Supermarket performs SSL verification. Default value: ``true``. If your Chef server is using a self-signed certificate without a properly configured certificate authority, this must be set to ``false``.
 
 PostgreSQL
 -----------------------------------------------------
@@ -547,7 +558,6 @@ This configuration file has the following settings for Unicorn:
 
 ``default['supermarket']['unicorn']['copy_on_write']``
    Determines whether or not `copy-on-write <http://www.rubyenterpriseedition.com/faq.html#adapt_apps_for_cow>`__ is enabled. Default value: ``true``.
-
 
 ``default['supermarket']['unicorn']['enable_stats']``
    Default value: ``false``.
