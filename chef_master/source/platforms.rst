@@ -99,11 +99,11 @@ The following platforms are supported only via the community:
      -
      - ``42``
    * - Scientific Linux
-     - ``i386`` (5.x only), ``x86-64``
-     - ``5.x``, ``6.x``, ``7.x``
+     - ``x86-64``
+     - ``6.x``, ``7.x``
    * - Ubuntu
      - ``x86``, ``x86_64``
-     - non-LTS releases
+     - Current non-LTS releases
 
 Chef DK
 ------------------------------------------------------
@@ -150,12 +150,9 @@ The following platforms are supported only via the community:
    * - Debian
      -
      - ``7.x``, ``8.x``, ``9.x``
-   * - macOS
-     -
-     - ``10.9`` (and earlier)
-   * - Microsoft Windows
-     -
-     - ``Vista``, ``XP``, ``2000``, ``2003``, ``2003 R2``, ``2008``
+   * - Scientific Linux
+     - ``x86-64``
+     - ``6.x``, ``7.x``
 
 Chef Server
 ------------------------------------------------------
