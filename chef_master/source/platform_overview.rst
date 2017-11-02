@@ -103,7 +103,7 @@ The Union phase enables cross-team collaboration—it contains quality gates tha
 
 Chef Automate includes a graphical user interface that shows you the entire process. For example, you can tell at a glance which organizations include which projects. Dashboards let you track each change and see its status as it moves through the pipeline.
 
-Visibility
+Nodes
 -----------------------------------------------------
 
 Chef Automate gives you a data warehouse that accepts input from Chef, Habitat, and Chef Automate workflow and compliance. It provides views into operational and workflow events. There is a query language available through the UI and customizable dashboards.

@@ -27,12 +27,12 @@ Chef Automate 1.5.46 or later provides an easy way to view how successful the no
 If you are using an older version of Chef Automate, or your workflow requires you to use our standalone Chef Compliance server, you can find general information on Chef Compliance `here </chef_compliance.html>`__. 
 
 
-Visibility
+Nodes
 ======================================================
 
 Chef Automate gives you a data warehouse that accepts input from Chef, Habitat, and Chef Automate
 workflow and compliance. It provides views into operational, compliance, and workflow events. There is a query
-language available through the UI and customizable dashboards. For more information, see `Visibility Overview </visibility.html>`__.
+language available through the UI and customizable dashboards. For more information, see `Nodes Overview </visibility.html>`__.
 
 Workflow
 ======================================================
