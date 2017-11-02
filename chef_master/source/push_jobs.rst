@@ -46,7 +46,7 @@ The following table lists the commercially-supported platforms for the Chef push
      - ``5.x``, ``6.x``, ``7.x``
    * - macOS
      - ``x86_64``
-     - ``10.10``, ``10.11``, ``10.12``
+     - ``10.11``, ``10.12``, ``10.13``
    * - Red Hat Enterprise Linux
      - ``i386`` (5.x and 6.x only), ``x86_64``
      - ``5.x``, ``6.x``, ``7.x``
