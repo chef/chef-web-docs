@@ -73,7 +73,7 @@ This configuration file has the following general settings:
 
 Amazon Simple Storage Service (S3)
 -----------------------------------------------------
-This configuration file has the following settings for uploading cookbooks to a specified Amazon Simple Storage Service (S3) bucket:
+Use these settings to upload cookbooks to an Amazon Simple Storage Service (S3) bucket:
 
 ``default['supermarket']['cdn_url']``
    The URL for the content delivery network. (optional)
@@ -104,19 +104,19 @@ The following database options are available:
    Determines which PostgreSQL extensions are enabled. Default value: ``{ 'pgpsql' => true, 'pg_trgm' => 'true' }``.
 
 ``default['supermarket']['database']['host']``
-   Default value: ``node['supermarket']['postgresql']['listen_address']``.
+   The address PostgreSQL listens on. Default value: ``node['supermarket']['postgresql']['listen_address']``.
 
 ``default['supermarket']['database']['name']``
-   Default value: ``'supermarket'``.
+   The name of the Supermarket database. Default value: ``'supermarket'``.
 
 ``default['supermarket']['database']['pool']``
-   Default value: ``node['supermarket']['sidekiq']['concurrency']``.
+   The number of concurrent threads a database worker can create. Default value: ``node['supermarket']['sidekiq']['concurrency']``.
 
 ``default['supermarket']['database']['port']``
-   Default value: ``node['supermarket']['postgresql']['port']``.
+   The port that the database listens on. Default value: ``node['supermarket']['postgresql']['port']``.
 
 ``default['supermarket']['database']['user']``
-   Default value: ``node['supermarket']['postgresql']['username']``.
+   The database user. Default value: ``node['supermarket']['postgresql']['username']``.
 
 ``default['supermarket']['postgresql']['username']``
    The system user that runs PostgreSQL. By default, this uses the value of ``node['supermarket']['user']``.
@@ -156,7 +156,7 @@ Google Analytics
 Use this setting to set up `Google Analytics <https://analytics.google.com>`__ tracking for Supermarket:
 
 ``default['supermarket']['google_analytics_id']``
-   The Google Analytics `tracking ID <https://support.google.com/analytics/answer/7372977?hl=en>`__ for Supermarket.
+   The Google Analytics `tracking ID <https://support.google.com/analytics/answer/7372977?hl=en>`__ for Supermarket. Default value: ``nil``.
 
 New Relic
 -----------------------------------------------------
@@ -173,7 +173,7 @@ Use these settings to integrate Supermarket with `New Relic <https://newrelic.co
 
 Nginx
 -----------------------------------------------------
-This configuration file has the following settings for Nginx:
+This configuration file has the following settings for nginx:
 
 ``default['supermarket']['nginx']['access_log_options']``
    A string of `additional options https://nginx.org/en/docs/http/ngx_http_log_module.html`__ to be added to the nginx access log directive. Default value: ``nil``.
@@ -242,7 +242,7 @@ This configuration file has the following settings for Nginx:
    Determines whether or not proxied requests are compressed with gzip, based on the presence of the ``Via`` request header field. Default value: ``any``.
 
 ``default['supermarket']['nginx']['gzip_static']``
-   Allows you to send precompressed files with the “.gz” filename extension instead of regular files. Requires the `ngx_http_gzip_static_module <https://nginx.org/en/docs/http/ngx_http_gzip_static_module.html>`__ module. Default value: ``'off'``.
+   Allows you to send precompressed files with the ``.gz`` file extension instead of regular files. Requires the `ngx_http_gzip_static_module <https://nginx.org/en/docs/http/ngx_http_gzip_static_module.html>`__ module. Default value: ``'off'``.
 
 ``default['supermarket']['nginx']['gzip_types']``
    Enable compression for the specified MIME-types. Default value: ``[ 'text/plain', 'text/css', 'application/x-javascript', 'text/xml', 'application/xml', 'application/xml+rss', 'application/atom+xml', 'text/javascript', 'application/javascript', 'application/json' ]``.
@@ -263,7 +263,7 @@ This configuration file has the following settings for Nginx:
    The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value: ``{ 'file_maxbytes' => 104857600, 'num_to_keep' => 10 }``
 
 ``default['supermarket']['nginx']['multi_accept']``
-   Determines whether a worker process accepts a single connection at a time, all new connections at one time. The default value sets this to a single connection at a time. Default value: ``false``.
+   Determines whether a worker process accepts a single connection at a time, or all new connections at one time. The default value sets this to a single connection at a time. Default value: ``false``.
 
 ``default['supermarket']['nginx']['non_ssl_port']``
    The port on which the WebUI and API are bound for non-SSL connections. Default value: ``80``. Set to ``false`` to disable non-SSL connections.
@@ -435,10 +435,10 @@ Sidekiq
 This configuration file has the following settings for background processes that are managed by Sidekiq:
 
 ``default['supermarket']['sidekiq']['concurrency']``
-   Default value: ``25``.
+   Determines how many threads a Sidekiq process can spin up. Default value: ``25``.
 
 ``default['supermarket']['sidekiq']['enable']``
-   Enable a service. Default value: ``true``.
+   Enable the Sidekiq service. Default value: ``true``.
 
 ``default['supermarket']['sidekiq']['log_directory']``
    The directory in which log data is stored. The default value is the recommended value. Default value: ``"#{node['supermarket']['log_directory']}/sidekiq"``.
@@ -447,7 +447,7 @@ This configuration file has the following settings for background processes that
    The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value: ``{ 'file_maxbytes' => 104857600, 'num_to_keep' => 10 }``
 
 ``default['supermarket']['sidekiq']['timeout']``
-   Default value: ``30``.
+   The amount of time (in seconds) that Sidekiq should wait for a worker before it is terminated. Default value: ``30``.
 
 SMTP
 -----------------------------------------------------
@@ -523,14 +523,14 @@ StatsD
 This configuration file has the following settings for reporting to a StatsD server:
 
 ``default['supermarket']['statsd_port']``
-   The port on which the service is to listen.
+   The port on which the service is to listen. Default value: ``nil``.
 
 ``default['supermarket']['statsd_url']``
-   The URL to which reporting metrics are sent.
+   The URL to which reporting metrics are sent. Default value: ``nil``.
 
 URLs
 -----------------------------------------------------
-This configuration file has the following settings for URLs:
+Use these settings to
 
 ``default['supermarket']['chef_blog_url']``
    Default value: ``"https://www.#{node['supermarket']['chef_domain']}/blog"``.
