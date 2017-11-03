@@ -13,7 +13,7 @@ The supermarket.rb file contains all of the non-default configuration settings u
 
 Settings
 =====================================================
-The following settings are may be configured in the ``supermarket.rb`` file.
+The following settings are available in the ``supermarket.rb`` file.
 
 .. note:: You must run ``supermarket-ctl reconfigure`` to apply any changes made in the ``supermarket.rb`` file.
 
@@ -65,7 +65,6 @@ This configuration file has the following general settings:
 ``default['supermarket']['var_directory']``
    The directory where data and cookbooks are installed. Default value: ``'/var/opt/supermarket'``.
 
-.. default['supermarket']['google_analytics_id'] = nil
 .. default['supermarket']['port'] = node['supermarket']['nginx']['force_ssl'] ? node['supermarket']['nginx']['ssl_port'] : node['supermarket']['non_ssl_port']
 .. default['supermarket']['protocol'] = node['supermarket']['nginx']['force_ssl'] ? 'https' : 'http'
 .. default['supermarket']['pubsubhubbub_callback_url'] = nil
@@ -144,7 +143,7 @@ The following database options are available:
 
 Fieri
 -----------------------------------------------------
-Use these settings to enable `fieri </supermarket.html#fieri>`__, an optional service built into Supermarket that provides cookbook quality metrics.
+Use these settings to enable `Fieri </supermarket.html#fieri>`__, an optional service built into Supermarket that provides cookbook quality metrics.
 
 As a Supermarket feature, Fieri must be enabled via the ``default['supermarket']['features']`` option.
 
@@ -209,70 +208,73 @@ This configuration file has the following settings for Nginx:
    The `client_body_buffer_size <https://nginx.org/en/docs/http/ngx_http_core_module.html#client_body_buffer_size>`__ used by nginx. Default value: ``nil``.
 
 ``default['supermarket']['nginx']['client_max_body_size']``
-   The maximum accepted body size for a client request, as indicated by the ``Content-Length`` request header. When the maximum accepted body size is greater than this value, a ``413 Request Entity Too Large`` error is returned. Default value: ``250m``. See the `nginx documentation <https://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size>`__ for additional information. 
+   The maximum accepted body size for a client request, as indicated by the ``Content-Length`` request header. When the maximum accepted body size is greater than this value, a ``413 Request Entity Too Large`` error is returned. Default value: ``250m``. See the `nginx documentation <https://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size>`__ for additional information.
 
 ``default['supermarket']['nginx']['daemon_disable']``
-   Default value: ``true``.
+   Determines whether or not nginx is daemonized. By default, this will be handled by the init system. Default value: ``true``.
 
 ``default['supermarket']['nginx']['default']['modules']``
-   Default value: ``[]``.
+   Determines which additional `nginx modules <https://www.nginx.com/resources/wiki/modules/>`__ should be included. Default value: ``[]``.
 
 ``default['supermarket']['nginx']['default_site_enabled']``
-   Default value: ``false``.
+   Determines whether or not the nginx default page is enabled. Default value: ``false``.
 
 ``default['supermarket']['nginx']['dir']``
    The working directory. The default value is the recommended value. Default value: ``node['supermarket']['nginx']['directory']``.
 
 ``default['supermarket']['nginx']['disable_access_log']``
-   Default value: ``false``.
+   Allows you to disable the nginx access log. Default value: ``false``.
 
 ``default['supermarket']['nginx']['error_log_options']``
+   A string of `additional options https://nginx.org/en/docs/http/ngx_http_log_module.html`__ to be added to the nginx access log directive. Default value: ``nil``.
 
 ``default['supermarket']['nginx']['enable']``
-   Enable a service. Default value: ``true``.
+   Enable the nginx service. Default value: ``true``.
 
 ``default['supermarket']['nginx']['event']``
+   Set the event-model. By default nginx looks for the most suitable method for your OS. Default value: ``nil``.
 
 ``default['supermarket']['nginx']['force_ssl']``
-   Default value: ``true``.
+   Force connections to use SSL. Default value: ``true``.
 
 ``default['supermarket']['nginx']['group']``
-   Default value: ``node['supermarket']['group']``.
+   The system group that is used to manage nginx. Default value: ``node['supermarket']['group']``.
 
 ``default['supermarket']['nginx']['gzip']``
-   Enable  gzip compression. Default value: ``on``.
+   Enable gzip compression. Default value: ``on``.
 
 ``default['supermarket']['gzip_buffers']``
+   Set the `gzip buffer <https://nginx.org/en/docs/http/ngx_http_gzip_module.html#gzip_buffers>` size. The nginx default is equal to one memory page. Default value: ``nil``.
 
 ``default['supermarket']['nginx']['gzip_comp_level']``
    The compression level used with gzip, from least amount of compression (``1``, fastest) to the most (``2``, slowest). Default value: ``2``.
 
 ``default['supermarket']['gzip_disable']``
-   Default value: ``'MSIE [1-6]\.'``.
+   Disables gzip compression when a ``User-Agent`` field is present in headers matching the specified regular expressions. Default value: ``'MSIE [1-6]\.'``.
 
 ``default['supermarket']['nginx']['gzip_http_version']``
    Enable gzip depending on the version of the HTTP request. Default value: ``1.0``.
 
 ``default['supermarket']['gzip_min_length']``
-   Default value: ``1000``.
+   The minimum reponse length that will be compressed by gzip, as determined by the ``Content-Length`` response header. Default value: ``1000``.
 
 ``default['supermarket']['nginx']['gzip_proxied']``
-   The type of compression used based on the request and response. Default value: ``any``.
+   Determines whether or not proxied requests are compressed with gzip, based on the presence of the ``Via`` request header field. Default value: ``any``.
 
 ``default['supermarket']['nginx']['gzip_static']``
-   Default value: ``'off'``.
+   Allows you to send precompressed files with the “.gz” filename extension instead of regular files. Requires the `ngx_http_gzip_static_module <https://nginx.org/en/docs/http/ngx_http_gzip_static_module.html>`__ module. Default value: ``'off'``.
 
 ``default['supermarket']['nginx']['gzip_types']``
    Enable compression for the specified MIME-types. Default value: ``[ 'text/plain', 'text/css', 'application/x-javascript', 'text/xml', 'application/xml', 'application/xml+rss', 'application/atom+xml', 'text/javascript', 'application/javascript', 'application/json' ]``.
 
 ``default['supermarket']['gzip_vary']``
-   Default value: ``'off'``.
+   Determines whether or not the ``Vary: Accept-Encoding`` response header field is inserted when the following directives are active: ``gzip``,``gzip_static``, or ``gunzip``. Default value: ``'off'``.
 
 ``default['supermarket']['nginx']['keepalive']``
-   Use to enable Keepalived. Default value: ``'on'``.
+   Use to enable `Keepalived <http://www.keepalived.org/documentation.html>`__. Default value: ``'on'``.
 
 ``default['supermarket']['nginx']['keepalive_timeout']``
-   The amount of time (in seconds) to wait for requests on a Keepalived connection. Default value: ``65``.
+   The amount of time (in seconds) to wait for requests on a ``Keepalived`` connection. Default value: ``65``.
 
 ``default['supermarket']['nginx']['log_dir']``
    The directory in which log data is stored. The default value is the recommended value. Default value: ``node['supermarket']['nginx']['log_directory']``.
@@ -281,43 +283,46 @@ This configuration file has the following settings for Nginx:
    The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value: ``{ 'file_maxbytes' => 104857600, 'num_to_keep' => 10 }``
 
 ``default['supermarket']['nginx']['multi_accept']``
-   Default value: ``false``.
+   Determines whether a worker process accepts a single connection at a time, all new connections at one time. The default value sets this to a single connection at a time. Default value: ``false``.
 
 ``default['supermarket']['nginx']['non_ssl_port']``
    The port on which the WebUI and API are bound for non-SSL connections. Default value: ``80``. Set to ``false`` to disable non-SSL connections.
 
 ``default['supermarket']['nginx']['pid']``
-   Default value: ``"#{node['supermarket']['nginx']['directory']}/nginx.pid"``.
+   The system process ID for the nginx service. Default value: ``"#{node['supermarket']['nginx']['directory']}/nginx.pid"``.
 
 ``default['supermarket']['nginx']['proxy_read_timeout']``
+   Defines a timeout between two successive read operations for reading a response from the proxied server. Default value: ``nil``.
 
 ``default['supermarket']['nginx']['redirect_to_canonical']``
-   Default value: ``true``.
+   Redirect requests to the Supermarket server FQDN. Default value: ``true``.
 
 ``default['supermarket']['nginx']['sendfile']``
    Copy data between file descriptors when ``sendfile()`` is used. Default value: ``on``.
 
 ``default['supermarket']['nginx']['server_names_hash_bucket_size']``
-   Default value: ``64``.
+   The size of the bucket that contains the server names hash tables. Default value: ``64``.
 
 ``default['supermarket']['nginx']['server_tokens']``
+   Determines whether or not the nginx version is included in error pages and the ``Server`` response header. Default value: ``nil``.
 
 ``default['supermarket']['nginx']['ssl_port']``
-   Default value: ``443``.
+   The port that is used by nginx to terminate SSL connections. Default value: ``443``.
 
 ``default['supermarket']['nginx']['types_hash_bucket_size']``
-   Default value: ``64``.
+   Determines the bucket size for the types hash tables. Default value: ``64``.
 
 ``default['supermarket']['nginx']['types_hash_max_size']``
-   Default value: ``2048``.
+   Sets the maximum size of the types hash table. Default value: ``2048``.
 
 ``default['supermarket']['nginx']['user']``
-   Default value: ``node['supermarket']['user']``.
+   The system user that is used to run nginx. Default value: ``node['supermarket']['user']``.
 
 ``default['supermarket']['nginx']['worker_connections']``
    The maximum number of simultaneous clients. Use with ``nginx['worker_processes']`` to determine the maximum number of allowed clients. Default value: ``1024``.
 
 ``default['supermarket']['nginx']['worker_rlimit_nofile']``
+   Determines the maximum number of open files allowed for worker processes. Default value: ``nil``.
 
 ``default['supermarket']['nginx']['worker_processes']``
    The number of allowed worker processes. Use with ``nginx['worker_connections']`` to determine the maximum number of allowed clients. Default value: ``node['cpu'] && node['cpu']['total'] ? node['cpu']['total'] : 1``.
