@@ -758,6 +758,7 @@ The command is intended to restore an Automate instance completely from backup, 
         --no-wait-for-lock           Do not wait for Elasticsearch lock
         --quiet                      Do not output non-error information
         --retry-limit                Maximum number of times to retry archive downloads from S3
+        --snapshot-timeout [int]     Maximum number of seconds to wait when restoring an Elasticsearch snapshot
         --staging-dir [string]       The path to use for temporary files during restore
     -h, --help                       Show the usage message
 
