@@ -96,26 +96,6 @@ This configuration file has the following settings for uploading cookbooks to a 
 ``default['supermarket']['s3_secret_access_key']``
    The access key identifier. (required to use S3)
 
-CLA
------------------------------------------------------
-This configuration file has the following settings for the Chef Supermarket Contributor License Agreement (CLA):
-
-``default['supermarket']['ccla_version']``
-
-``default['supermarket']['cla_report_email']``
-
-``default['supermarket']['cla_signature_notification_email']``
-
-``default['supermarket']['curry_cla_location']``
-
-``default['supermarket']['curry_success_label']``
-
-``default['supermarket']['icla_location']``
-
-``default['supermarket']['icla_version']``
-
-``default['supermarket']['seed_cla_data']``
-
 Database
 -----------------------------------------------------
 The following database options are available:
@@ -547,57 +527,6 @@ This configuration file has the following settings for reporting to a StatsD ser
 
 ``default['supermarket']['statsd_url']``
    The URL to which reporting metrics are sent.
-
-Unicorn
------------------------------------------------------
-This configuration file has the following settings for Unicorn:
-
-``default['supermarket']['unicorn']['after_fork']``
-   Determines what to do after forking a worker.  In most instances, this should not be changed. Default value: ``nil``.
-
-``default['supermarket']['unicorn']['before_fork']``
-   Determines what to do before a worker is forked. In most instances, this should not be changed. Default value: ``nil``.
-
-``default['supermarket']['unicorn']['before_exec']``
-   Determines what to do before executing the new Unicorn binary. Default value: ``nil``
-
-``default['supermarket']['unicorn']['copy_on_write']``
-   Determines whether or not `copy-on-write <http://www.rubyenterpriseedition.com/faq.html#adapt_apps_for_cow>`__ is enabled. Default value: ``true``.
-
-``default['supermarket']['unicorn']['enable_stats']``
-   Default value: ``false``.
-
-``default['supermarket']['unicorn']['forked_group']``
-   Default value: ``node['supermarket']['group']``.
-
-``default['supermarket']['unicorn']['forked_user']``
-   Default value: ``node['supermarket']['user']``.
-
-``default['supermarket']['unicorn']['listen']``
-   The IP address on which the service is to listen. Default value: ``["127.0.0.1:#{node['supermarket']['rails']['port']}"]``.
-
-``default['supermarket']['unicorn']['name']``
-   Default value: ``'supermarket'``.
-
-``default['supermarket']['unicorn']['pid']``
-   Default value: ``"#{node['supermarket']['var_directory']}/rails/run/unicorn.pid"``.
-
-``default['supermarket']['unicorn']['preload_app']``
-   Default value: ``true``.
-
-``default['supermarket']['unicorn']['stderr_path']``
-
-``default['supermarket']['unicorn']['stdout_path']``
-
-``default['supermarket']['unicorn']['unicorn_command_line']``
-
-``default['supermarket']['unicorn']['worker_processes']``
-   The number of allowed worker processes. Default value: ``node['nginx']['worker_processes']``.
-
-``default['supermarket']['unicorn']['worker_timeout']``
-   The amount of time (in seconds) before a worker process times out. Default value: ``15``.
-
-``default['supermarket']['unicorn']['working_directory']``
 
 URLs
 -----------------------------------------------------
