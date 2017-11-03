@@ -176,7 +176,7 @@ Nginx
 This configuration file has the following settings for nginx:
 
 ``default['supermarket']['nginx']['access_log_options']``
-   A string of `additional options https://nginx.org/en/docs/http/ngx_http_log_module.html`__ to be added to the nginx access log directive. Default value: ``nil``.
+   A string of `additional options <https://nginx.org/en/docs/http/ngx_http_log_module.html>`__ to be added to the nginx access log directive. Default value: ``nil``.
 
 ``default['supermarket']['nginx']['cache']['directory']``
    The directory used by nginx for caching. Default value: ``"#{node['supermarket']['var_directory']}/nginx//cache"``.
@@ -206,7 +206,7 @@ This configuration file has the following settings for nginx:
    Allows you to disable the nginx access log. Default value: ``false``.
 
 ``default['supermarket']['nginx']['error_log_options']``
-   A string of `additional options https://nginx.org/en/docs/http/ngx_http_log_module.html`__ to be added to the nginx access log directive. Default value: ``nil``.
+   A string of `additional options <https://nginx.org/en/docs/http/ngx_http_log_module.html>`__ to be added to the nginx access log directive. Default value: ``nil``.
 
 ``default['supermarket']['nginx']['enable']``
    Enable the nginx service. Default value: ``true``.
@@ -530,34 +530,34 @@ This configuration file has the following settings for reporting to a StatsD ser
 
 URLs
 -----------------------------------------------------
-Use these settings to
+Use these settings to replace ``chef.io`` URLs with your own internal mirrors or alternatives.
 
 ``default['supermarket']['chef_blog_url']``
-   Default value: ``"https://www.#{node['supermarket']['chef_domain']}/blog"``.
+   The URL of the Chef blog. Default value: ``"https://www.#{node['supermarket']['chef_domain']}/blog"``.
 
 ``default['supermarket']['chef_docs_url']``
-   Default value: ``"https://docs.#{node['supermarket']['chef_domain']}"``.
+   The URL of the Chef Docs site. Default value: ``"https://docs.#{node['supermarket']['chef_domain']}"``.
 
 ``default['supermarket']['chef_downloads_url']``
-   Default value: ``"https://downloads.#{node['supermarket']['chef_domain']}"``.
+   The URL of the Chef downloads page. Default value: ``"https://downloads.#{node['supermarket']['chef_domain']}"``.
 
 ``default['supermarket']['chef_domain']``
-   Default value: ``'chef.io'``.
+   The root domain that is used by all Chef URLs. Most of the settings in this section rely upon this setting. Default value: ``'chef.io'``.
 
 ``default['supermarket']['chef_identity_url']``
-   Default value: ``"#{node['supermarket']['chef_server_url']}/id"``.
+   The URL that is used to interact with Chef Identity on the Chef server. Default value: ``"#{node['supermarket']['chef_server_url']}/id"``.
 
 ``default['supermarket']['chef_manage_url']``
-   Default value: ``node['supermarket']['chef_server_url']``.
+   The URL that is used to access Default value: ``node['supermarket']['chef_server_url']``.
 
 ``default['supermarket']['chef_profile_url']``
-   Default value: ``node['supermarket']['chef_server_url']``.
+   The URL that is used to log in to your Chef profile. Default value: ``node['supermarket']['chef_server_url']``.
 
 ``default['supermarket']['chef_sign_up_url']``
-   Default value: ``"#{node['supermarket']['chef_server_url']}/signup?ref=community"``.
+   The community signup URL. Default value: ``"#{node['supermarket']['chef_server_url']}/signup?ref=community"``.
 
 ``default['supermarket']['chef_www_url']``
-   Default value: ``"https://www.#{node['supermarket']['chef_domain']}"``.
+   The Chef website URL. Default value: ``"https://www.#{node['supermarket']['chef_domain']}"``.
 
 ``default['supermarket']['learn_chef_url']``
-   Default value: ``"https://learn.#{node['supermarket']['chef_domain']}"``.
+   The Learn Chef Rally URL. Default value: ``"https://learn.#{node['supermarket']['chef_domain']}"``.
