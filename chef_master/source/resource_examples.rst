@@ -2051,7 +2051,8 @@ Use the **dpkg_package** resource to manage packages for the dpkg platform. When
 
 .. code-block:: ruby
 
-   dpkg_package 'name of package' do
+   dpkg_package 'wget_1.13.4-2ubuntu1.4_amd64.deb' do
+     source '/foo/bar/wget_1.13.4-2ubuntu1.4_amd64.deb'
      action :install
    end
 
