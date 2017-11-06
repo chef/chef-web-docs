@@ -21,7 +21,7 @@ Resolved Issues
 * Security Fix: Removed RabbitMQ ``guest`` user. This change resolves a vulnerability that allowed remote access to the RabbitMQ data due to a system account with a weak default password.
 * Corrected an issue preventing adding nodes via the user interface in the beta compliance scan jobs.
 * Improved performance and stability of the compliance trend graph for larger data sets
-* Removed remnants of unused `census` phone home component; backup jobs using the ``--no-census`` flag now returns an info-level warning because the flag is no longer required
+* Removed remnants of unused ``census`` phone home component; backup jobs using the ``--no-census`` flag now returns an info-level warning because the flag is no longer required
 * The 30 day trial license for cloud marketplace images is now correctly verified.
 
 What's New in 1.7.27
