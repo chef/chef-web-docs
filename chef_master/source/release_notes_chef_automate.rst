@@ -5,6 +5,25 @@ Release Notes: Chef Automate
 
 Chef Automate provides a full suite of enterprise capabilities for workflow, visibility and compliance that allow you to manage and monitor application and cookbook deployments across a cluster of nodes in your environment.
 
+
+What's New in 1.7.39
+=====================================================
+
+New Features
+-----------------------------------------------------
+
+Removed Legacy Search Bar
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+This release removes the legacy search bar from Automate. This search bar had been accessible under the Nodes tab via the ``legacy`` feature flag since release of Chef Automate 1.6.87 in August. With this release the legacy search bar has been removed from the product.
+
+Resolved Issues
+-----------------------------------------------------
+* Security Fix: Removed RabbitMQ ``guest`` user. This change resolves a vulnerability that allowed remote access to the RabbitMQ data due to a system account with a weak default password.
+* Corrected an issue preventing adding nodes via the user interface in the beta compliance scan jobs.
+* Improved performance and stability of the compliance trend graph for larger data sets
+* Removed remnants of unused ``census`` phone home component; backup jobs using the ``--no-census`` flag now returns an info-level warning because the flag is no longer required
+* The 30 day trial license for cloud marketplace images is now correctly verified.
+
 What's New in 1.7.27
 =====================================================
 
