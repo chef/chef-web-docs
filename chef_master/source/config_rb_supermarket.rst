@@ -22,7 +22,7 @@ General
 This configuration file has the following general settings:
 
 ``default['enterprise']['name']``
-   The Chef Automate enterprise name. Default value: ``'supermarket'``.
+   The enterprise name that is used by the `enterprise-chef-common <https://github.com/chef-cookbooks/enterprise-chef-common>`__ cookbook. Default value: ``'supermarket'``.
 
 ``default['supermarket']['app_directory']``
    Default value: ``"#{node['supermarket']['install_directory']}/embedded/service/supermarket"``.
@@ -546,9 +546,6 @@ Use these settings to replace ``chef.io`` URLs with your own internal mirrors or
 
 ``default['supermarket']['chef_identity_url']``
    The URL that is used to interact with Chef Identity on the Chef server. Default value: ``"#{node['supermarket']['chef_server_url']}/id"``.
-
-``default['supermarket']['chef_manage_url']``
-   The URL that is used to access Default value: ``node['supermarket']['chef_server_url']``.
 
 ``default['supermarket']['chef_profile_url']``
    The URL that is used to log in to your Chef profile. Default value: ``node['supermarket']['chef_server_url']``.
