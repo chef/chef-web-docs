@@ -19,13 +19,15 @@ Automatic Node Run Data Collection with Chef Server
 
 Nodes can send their run data to Chef Automate through the Chef server automatically. To enable this functionality, you must perform the following steps:
 
- * Configure a Data Collector token in Chef Automate
- * Configure your Chef server to point to Chef Automate
+ * `Configure a Data Collector token in Chef Automate </data_collection.html#step-1-configure-a-data-collector-token-in-chef-automate>`__
+ * `Configure your Chef server to point to Chef Automate <https://docs.chef.io/data_collection.html#step-2-configure-your-chef-server-to-point-to-chef-automate>`__
+
+Multiple Chef servers can send data to a single Chef Automate server. 
 
 Step 1: Configure a Data Collector token in Chef Automate
 ------------------------------------------------------------
 
-All messages sent to Chef Automate are performed over HTTP and are authenticated with a pre-shared key called a ``token.`` Every Chef Automate installation configures a default token by default, but we strongly recommend that you create your own.
+All messages sent to Chef Automate are performed over HTTP and are authenticated with a pre-shared key called a ``token``. Every Chef Automate installation configures a token by default, but we strongly recommend that you create your own.
 
 To set your own token, add the following to your ``/etc/delivery/delivery.rb`` file:
 
@@ -160,13 +162,13 @@ a load-balancer or a third-party Elasticsearch-as-a-service offering.
 
 After saving the file, run ``sudo automate-ctl reconfigure``.
 
-An additional Elasticsearch-related configuration properties is ``elasticsearch['host_header']``. This is the HTTP ``Host`` header to send with the request.
+An additional Elasticsearch option is ``elasticsearch['host_header']``. This is the HTTP ``Host`` header to send with the request.
 When this attribute is unspecified, the default behavior is as follows:
 
  * If the ``urls`` parameter contains a single entry, the host of the supplied URI will be sent as the Host header.
  * If the ``urls`` parameter contains more than one entry, no Host header will be  sent.
 
-When this attribute *is* specified, the supplied string will be sent as the ``Host`` header on all requests. This may be required for some third-party Elasticsearch offerings.
+When this attribute **is** specified, the supplied string will be sent as the ``Host`` header on all requests. This may be required for some third-party Elasticsearch offerings.
 
 
 Troubleshooting: My data does not show up in the UI
