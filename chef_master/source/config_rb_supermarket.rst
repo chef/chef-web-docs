@@ -5,84 +5,75 @@ supermarket.rb Settings
 
 .. tag config_rb_supermarket_summary
 
-The supermarket.rb file contains all of the non-default configuration settings used by the Chef Supermarket. (The default settings are built-in to the Chef Supermarket configuration and should only be added to the supermarket.rb file to apply non-default values.) These configuration settings are processed when the ``supermarket-ctl reconfigure`` command is run, such as immediately after setting up Chef Supermarket or after making a change to the underlying configuration settings after the server has been deployed. The supermarket.rb file is a Ruby file, which means that conditional statements can be used in the configuration file.
+The supermarket.rb file contains all of the non-default configuration settings used by the Chef Supermarket. The default settings are built-in to the Chef Supermarket configuration, and should only be added to the supermarket.rb file to apply non-default values. These configuration settings are processed when the ``supermarket-ctl reconfigure`` command is run. The supermarket.rb file is a Ruby file, which means that conditional statements can be used in the configuration file.
 
 .. end_tag
 
-.. note:: The supermarket.rb file does not exist by default. To modify the settings for the Chef server, create a file named ``supermarket.rb`` in the ``/etc/supermarket/`` directory.
+.. note:: The ``supermarket.rb`` file does not exist by default. To modify the settings for the Supermarket server, create a file named ``supermarket.rb`` in the ``/etc/supermarket/`` directory.
 
 Settings
 =====================================================
-The following settings are may be configured in the supermarket.rb file.
+The following settings are available in the ``supermarket.rb`` file.
 
-.. note:: When changes are made to the chef-server.rb file the Chef server must be reconfigured by running the ``supermarket-ctl reconfigure`` command.
+.. note:: You must run ``supermarket-ctl reconfigure`` to apply any changes made in the ``supermarket.rb`` file.
 
 General
 -----------------------------------------------------
 This configuration file has the following general settings:
 
 ``default['enterprise']['name']``
-   Default value: ``'supermarket'``.
+   The enterprise name that is used by the `enterprise-chef-common <https://github.com/chef-cookbooks/enterprise-chef-common>`__ cookbook. Default value: ``'supermarket'``.
 
 ``default['supermarket']['app_directory']``
    Default value: ``"#{node['supermarket']['install_directory']}/embedded/service/supermarket"``.
 
 ``default['supermarket']['chef_server_url']``
-   The URL for the Chef server.
+   The URL of the Chef server.
 
 ``default['supermarket']['config_directory']``
-   Default value: ``'/etc/supermarket'``.
+   The directory that is used to store Supermarket configuration files. Default value: ``'/etc/supermarket'``.
 
 ``default['supermarket']['features']``
-   Use to enable announcments, CLA features, a service that reports on cookbook quality, GitHub integration, enable joining of corporate CLAs, and tools. Default value: ``'tools'``.
+     Use to enable additional features, such as announcements and GitHub integration. Default value: ``'tools'``.
+
+     Features currently available: ``tools``, ``fieri``, ``announcement``, ``github``, and ``no_crawl``.
 
 ``default['supermarket']['fqdn']``
-   Default value: ``node['fqdn']``.
+   The fully qualified domain name for the Supermarket server. Defaults to using the current FQDN for the machine.
+
+``default['supermarket']['from_email']``
+   The default sender address of all Supermarket mailers. Default value: ``nil``.
 
 ``default['supermarket']['group']``
-   Default value: ``'supermarket'``.
+   The system group that is used to manage Supermarket on the server. Default value: ``'supermarket'``.
 
 ``default['supermarket']['install_directory']``
-   Default value: ``'/opt/supermarket'``.
+   The directory where Supermarket is installed. Default value: ``'/opt/supermarket'``.
 
 ``default['supermarket']['install_path']``
    The directory in which Chef Supermarket is installed. Default value: ``node['supermarket']['install_directory']``.
 
 ``default['supermarket']['log_directory']``
-   Default value: ``'/var/log/supermarket'``.
+   The directory that Supermarket will use to store logs. Default value: ``'/var/log/supermarket'``.
 
 ``default['supermarket']['sysvinit_id']``
    Use to specify 1-4 characters that define a unique identifier for the file located in ``/etc/inittab``. Default value: ``SUP``.
 
 ``default['supermarket']['user']``
-   Default value: ``'supermarket'``.
+   The system user that is used to run Supermarket. Default value: ``'supermarket'``.
 
 ``default['supermarket']['var_directory']``
-   Default value: ``'/var/opt/supermarket'``.
+   The directory where data and cookbooks are installed. Default value: ``'/var/opt/supermarket'``.
 
-.. there are these as well:
-..
-.. default['supermarket']['fieri_url'] = nil
-.. default['supermarket']['fieri_key'] = nil
-.. default['supermarket']['from_email'] = nil
-.. default['supermarket']['github_access_token'] = nil
-.. default['supermarket']['github_key'] = nil
-.. default['supermarket']['github_secret'] = nil
-.. default['supermarket']['google_analytics_id'] = nil
-.. default['supermarket']['host'] = node['supermarket']['fqdn']
-.. default['supermarket']['newrelic_agent_enabled'] = 'false'
-.. default['supermarket']['newrelic_app_name'] = nil
-.. default['supermarket']['newrelic_license_key'] = nil
 .. default['supermarket']['port'] = node['supermarket']['nginx']['force_ssl'] ? node['supermarket']['nginx']['ssl_port'] : node['supermarket']['non_ssl_port']
 .. default['supermarket']['protocol'] = node['supermarket']['nginx']['force_ssl'] ? 'https' : 'http'
 .. default['supermarket']['pubsubhubbub_callback_url'] = nil
 .. default['supermarket']['pubsubhubbub_secret'] = nil
 .. default['supermarket']['redis_url'] = "redis://#{node['supermarket']['redis']['bind']}:#{node['supermarket']['redis']['port']}/0/supermarket"
-.. default['supermarket']['sentry_url'] = nil
 
 Amazon Simple Storage Service (S3)
 -----------------------------------------------------
-This configuration file has the following settings for uploading cookbooks to a specified Amazon Simple Storage Service (S3) bucket:
+Use these settings to upload cookbooks to an Amazon Simple Storage Service (S3) bucket:
 
 ``default['supermarket']['cdn_url']``
    The URL for the content delivery network. (optional)
@@ -94,7 +85,7 @@ This configuration file has the following settings for uploading cookbooks to a 
    The bucket name. (required to use S3)
 
 ``default['supermarket']['s3_path']``
-   Directory structure to prepend to the standard path to the directory containing cookbooks. Set this if you must store cookbooks in a deeper directory structure within a shared bucket, however, dedicated S3 buckets are recommended for cookbook storage and distribution. (optional)
+   **(Optional)** Directory structure to prepend to the standard path of the directory containing cookbooks. Set this if you must store cookbooks in a deeper directory structure within a shared bucket. However, keep in mind that dedicated S3 buckets are recommended for cookbook storage and distribution.
 
 ``default['supermarket']['s3_private_objects']``
    Whether cookbooks stored in S3 should be public or private. ``true/false`` Default: ``false``
@@ -105,127 +96,165 @@ This configuration file has the following settings for uploading cookbooks to a 
 ``default['supermarket']['s3_secret_access_key']``
    The access key identifier. (required to use S3)
 
-CLA
------------------------------------------------------
-This configuration file has the following settings for the Chef Supermarket Contributor License Agreement (CLA):
-
-``default['supermarket']['ccla_version']``
-
-``default['supermarket']['cla_report_email']``
-
-``default['supermarket']['cla_signature_notification_email']``
-
-``default['supermarket']['curry_cla_location']``
-
-``default['supermarket']['curry_success_label']``
-
-``default['supermarket']['icla_location']``
-
-``default['supermarket']['icla_version']``
-
-``default['supermarket']['seed_cla_data']``
-
 Database
 -----------------------------------------------------
-This configuration file has the following settings for database configurations:
+The following database options are available:
 
 ``default['supermarket']['database']['extensions']``
-   Default value: ``{ 'pgpsql' => true, 'pg_trgm' => 'true' }``.
+   Determines which PostgreSQL extensions are enabled. Default value: ``{ 'pgpsql' => true, 'pg_trgm' => 'true' }``.
 
 ``default['supermarket']['database']['host']``
-   Default value: ``node['supermarket']['postgresql']['listen_address']``.
+   The address PostgreSQL listens on. Default value: ``node['supermarket']['postgresql']['listen_address']``.
 
 ``default['supermarket']['database']['name']``
-   Default value: ``'supermarket'``.
+   The name of the Supermarket database. Default value: ``'supermarket'``.
 
 ``default['supermarket']['database']['pool']``
-   Default value: ``node['supermarket']['sidekiq']['concurrency']``.
+   The number of concurrent threads a database worker can create. Default value: ``node['supermarket']['sidekiq']['concurrency']``.
 
 ``default['supermarket']['database']['port']``
-   Default value: ``node['supermarket']['postgresql']['port']``.
+   The port that the database listens on. Default value: ``node['supermarket']['postgresql']['port']``.
 
 ``default['supermarket']['database']['user']``
-   Default value: ``node['supermarket']['postgresql']['username']``.
+   The database user. Default value: ``node['supermarket']['postgresql']['username']``.
+
+``default['supermarket']['postgresql']['username']``
+   The system user that runs PostgreSQL. By default, this uses the value of ``node['supermarket']['user']``.
+
+Fieri
+-----------------------------------------------------
+Use these settings to enable `Fieri </supermarket.html#fieri>`__, an optional service built into Supermarket that provides cookbook quality metrics.
+
+As a Supermarket feature, Fieri must be enabled via the ``default['supermarket']['features']`` option.
+
+``default['supermarket']['fieri_url']``
+   The full URL that is used to access Fieri. Default value: ``'http://localhost:13000/fieri/jobs'``
+
+``default['supermarket']['fieri_supermarket_endpoint']``
+   The URL of the Chef Supermarket that is using Fieri. Default value: ``'https://localhost:13000'``
+
+``default['supermarket']['fieri_key']``
+   A string that is used as a key to authenticate Fieri. Default value: ``nil``
+
+Github
+-----------------------------------------------------
+Use these settings to integrate Supermarket with Github.
+
+As a Supermarket feature, Github must be enabled via the ``default['supermarket']['features']`` option.
+
+``default['supermarket']['github_access_token']``
+   The access token created from your Github account. Default value: ``nil``.
+
+``default['supermarket']['github_key']``
+   The application client ID that is used to authenticate Supermarket to Github. Default value: ``nil``.
+
+``default['supermarket']['github_secret']``
+   The application client secret that is used to authenticate Supermarket to Github. Default value: ``nil``.
+
+Google Analytics
+-----------------------------------------------------
+Use this setting to set up `Google Analytics <https://analytics.google.com>`__ tracking for Supermarket:
+
+``default['supermarket']['google_analytics_id']``
+   The Google Analytics `tracking ID <https://support.google.com/analytics/answer/7372977?hl=en>`__ for Supermarket. Default value: ``nil``.
+
+New Relic
+-----------------------------------------------------
+Use these settings to integrate Supermarket with `New Relic <https://newrelic.com/>`__, a software analytics platform:
+
+``default['supermarket']['newrelic_agent_enabled']``
+   Determines whether or not the New Relic agent is enabled. Default value: ``'false'``.
+
+``default['supermarket']['newrelic_app_name']``
+   The name used by New Relic to identify the Supermarket installation. Default value: ``nil``.
+
+``default['supermarket']['newrelic_license_key']``
+   The New Relic license key. Default value: ``nil``.
 
 Nginx
 -----------------------------------------------------
-This configuration file has the following settings for Nginx:
+This configuration file has the following settings for nginx:
 
 ``default['supermarket']['nginx']['access_log_options']``
+   A string of `additional options <https://nginx.org/en/docs/http/ngx_http_log_module.html>`__ to be added to the nginx access log directive. Default value: ``nil``.
 
 ``default['supermarket']['nginx']['cache']['directory']``
-   Default value: ``"#{node['supermarket']['var_directory']}/nginx//cache"``.
+   The directory used by nginx for caching. Default value: ``"#{node['supermarket']['var_directory']}/nginx//cache"``.
 
 ``default['supermarket']['nginx']['cache']['enable']``
-   Default value: ``false``.
+   Determines whether or not nginx caching is enabled. Default value: ``false``.
 
 ``default['supermarket']['nginx']['client_body_buffer_size']``
+   The `client_body_buffer_size <https://nginx.org/en/docs/http/ngx_http_core_module.html#client_body_buffer_size>`__ used by nginx. Default value: ``nil``.
 
 ``default['supermarket']['nginx']['client_max_body_size']``
-   The maximum accepted body size for a client request, as indicated by the ``Content-Length`` request header. When the maximum accepted body size is greater than this value, a ``413 Request Entity Too Large`` error is returned. Default value: ``250m``.
+   The maximum accepted body size for a client request, as indicated by the ``Content-Length`` request header. When the maximum accepted body size is greater than this value, a ``413 Request Entity Too Large`` error is returned. Default value: ``250m``. See the `nginx documentation <https://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size>`__ for additional information.
 
 ``default['supermarket']['nginx']['daemon_disable']``
-   Default value: ``true``.
+   Determines whether or not nginx is daemonized. By default, this will be handled by the init system. Default value: ``true``.
 
 ``default['supermarket']['nginx']['default']['modules']``
-   Default value: ``[]``.
+   Determines which additional `nginx modules <https://www.nginx.com/resources/wiki/modules/>`__ should be included. Default value: ``[]``.
 
 ``default['supermarket']['nginx']['default_site_enabled']``
-   Default value: ``false``.
+   Determines whether or not the nginx default page is enabled. Default value: ``false``.
 
 ``default['supermarket']['nginx']['dir']``
    The working directory. The default value is the recommended value. Default value: ``node['supermarket']['nginx']['directory']``.
 
 ``default['supermarket']['nginx']['disable_access_log']``
-   Default value: ``false``.
+   Allows you to disable the nginx access log. Default value: ``false``.
 
 ``default['supermarket']['nginx']['error_log_options']``
+   A string of `additional options <https://nginx.org/en/docs/http/ngx_http_log_module.html>`__ to be added to the nginx access log directive. Default value: ``nil``.
 
 ``default['supermarket']['nginx']['enable']``
-   Enable a service. Default value: ``true``.
+   Enable the nginx service. Default value: ``true``.
 
 ``default['supermarket']['nginx']['event']``
+   Set the event-model. By default nginx looks for the most suitable method for your OS. Default value: ``nil``.
 
 ``default['supermarket']['nginx']['force_ssl']``
-   Default value: ``true``.
+   Force connections to use SSL. Default value: ``true``.
 
 ``default['supermarket']['nginx']['group']``
-   Default value: ``node['supermarket']['group']``.
+   The system group that is used to manage nginx. Default value: ``node['supermarket']['group']``.
 
 ``default['supermarket']['nginx']['gzip']``
-   Enable  gzip compression. Default value: ``on``.
+   Enable gzip compression. Default value: ``on``.
 
 ``default['supermarket']['gzip_buffers']``
+   Set the `gzip buffer <https://nginx.org/en/docs/http/ngx_http_gzip_module.html#gzip_buffers>` size. The nginx default is equal to one memory page. Default value: ``nil``.
 
 ``default['supermarket']['nginx']['gzip_comp_level']``
    The compression level used with gzip, from least amount of compression (``1``, fastest) to the most (``2``, slowest). Default value: ``2``.
 
 ``default['supermarket']['gzip_disable']``
-   Default value: ``'MSIE [1-6]\.'``.
+   Disables gzip compression when a ``User-Agent`` field is present in headers matching the specified regular expressions. Default value: ``'MSIE [1-6]\.'``.
 
 ``default['supermarket']['nginx']['gzip_http_version']``
    Enable gzip depending on the version of the HTTP request. Default value: ``1.0``.
 
 ``default['supermarket']['gzip_min_length']``
-   Default value: ``1000``.
+   The minimum reponse length that will be compressed by gzip, as determined by the ``Content-Length`` response header. Default value: ``1000``.
 
 ``default['supermarket']['nginx']['gzip_proxied']``
-   The type of compression used based on the request and response. Default value: ``any``.
+   Determines whether or not proxied requests are compressed with gzip, based on the presence of the ``Via`` request header field. Default value: ``any``.
 
 ``default['supermarket']['nginx']['gzip_static']``
-   Default value: ``'off'``.
+   Allows you to send precompressed files with the ``.gz`` file extension instead of regular files. Requires the `ngx_http_gzip_static_module <https://nginx.org/en/docs/http/ngx_http_gzip_static_module.html>`__ module. Default value: ``'off'``.
 
 ``default['supermarket']['nginx']['gzip_types']``
    Enable compression for the specified MIME-types. Default value: ``[ 'text/plain', 'text/css', 'application/x-javascript', 'text/xml', 'application/xml', 'application/xml+rss', 'application/atom+xml', 'text/javascript', 'application/javascript', 'application/json' ]``.
 
 ``default['supermarket']['gzip_vary']``
-   Default value: ``'off'``.
+   Determines whether or not the ``Vary: Accept-Encoding`` response header field is inserted when the following directives are active: ``gzip``,``gzip_static``, or ``gunzip``. Default value: ``'off'``.
 
 ``default['supermarket']['nginx']['keepalive']``
-   Use to enable Keepalived. Default value: ``'on'``.
+   Use to enable `Keepalived <http://www.keepalived.org/documentation.html>`__. Default value: ``'on'``.
 
 ``default['supermarket']['nginx']['keepalive_timeout']``
-   The amount of time (in seconds) to wait for requests on a Keepalived connection. Default value: ``65``.
+   The amount of time (in seconds) to wait for requests on a ``Keepalived`` connection. Default value: ``65``.
 
 ``default['supermarket']['nginx']['log_dir']``
    The directory in which log data is stored. The default value is the recommended value. Default value: ``node['supermarket']['nginx']['log_directory']``.
@@ -234,43 +263,46 @@ This configuration file has the following settings for Nginx:
    The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value: ``{ 'file_maxbytes' => 104857600, 'num_to_keep' => 10 }``
 
 ``default['supermarket']['nginx']['multi_accept']``
-   Default value: ``false``.
+   Determines whether a worker process accepts a single connection at a time, or all new connections at one time. The default value sets this to a single connection at a time. Default value: ``false``.
 
 ``default['supermarket']['nginx']['non_ssl_port']``
    The port on which the WebUI and API are bound for non-SSL connections. Default value: ``80``. Set to ``false`` to disable non-SSL connections.
 
 ``default['supermarket']['nginx']['pid']``
-   Default value: ``"#{node['supermarket']['nginx']['directory']}/nginx.pid"``.
+   The system process ID for the nginx service. Default value: ``"#{node['supermarket']['nginx']['directory']}/nginx.pid"``.
 
 ``default['supermarket']['nginx']['proxy_read_timeout']``
+   Defines a timeout between two successive read operations for reading a response from the proxied server. Default value: ``nil``.
 
 ``default['supermarket']['nginx']['redirect_to_canonical']``
-   Default value: ``true``.
+   Redirect requests to the Supermarket server FQDN. Default value: ``true``.
 
 ``default['supermarket']['nginx']['sendfile']``
    Copy data between file descriptors when ``sendfile()`` is used. Default value: ``on``.
 
 ``default['supermarket']['nginx']['server_names_hash_bucket_size']``
-   Default value: ``64``.
+   The size of the bucket that contains the server names hash tables. Default value: ``64``.
 
 ``default['supermarket']['nginx']['server_tokens']``
+   Determines whether or not the nginx version is included in error pages and the ``Server`` response header. Default value: ``nil``.
 
 ``default['supermarket']['nginx']['ssl_port']``
-   Default value: ``443``.
+   The port that is used by nginx to terminate SSL connections. Default value: ``443``.
 
 ``default['supermarket']['nginx']['types_hash_bucket_size']``
-   Default value: ``64``.
+   Determines the bucket size for the types hash tables. Default value: ``64``.
 
 ``default['supermarket']['nginx']['types_hash_max_size']``
-   Default value: ``2048``.
+   Sets the maximum size of the types hash table. Default value: ``2048``.
 
 ``default['supermarket']['nginx']['user']``
-   Default value: ``node['supermarket']['user']``.
+   The system user that is used to run nginx. Default value: ``node['supermarket']['user']``.
 
 ``default['supermarket']['nginx']['worker_connections']``
    The maximum number of simultaneous clients. Use with ``nginx['worker_processes']`` to determine the maximum number of allowed clients. Default value: ``1024``.
 
 ``default['supermarket']['nginx']['worker_rlimit_nofile']``
+   Determines the maximum number of open files allowed for worker processes. Default value: ``nil``.
 
 ``default['supermarket']['nginx']['worker_processes']``
    The number of allowed worker processes. Use with ``nginx['worker_connections']`` to determine the maximum number of allowed clients. Default value: ``node['cpu'] && node['cpu']['total'] ? node['cpu']['total'] : 1``.
@@ -280,14 +312,16 @@ Oauth2
 This configuration file has the following settings for the Chef server identity service:
 
 ``default['supermarket']['chef_oauth2_app_id']``
+   The `Chef Identity </install_supermarket.html#chef-identity>`__ application ID created for Supermarket on the Chef server. See the `Chef Identity configuration </install_supermarket.html#configure>`__ section of the Supermarket installation guide for additional details.
 
 ``default['supermarket']['chef_oauth2_secret']``
+   The `Chef Identity </install_supermarket.html#chef-identity>`__ application secret created for Supermarket on the Chef server. See the `Chef Identity configuration </install_supermarket.html#configure>`__ section of the Supermarket installation guide for additional details.
 
 ``default['supermarket']['chef_oauth2_url']``
-   Default value: ``node['supermarket']['chef_server_url']``.
+   The URL of the Chef server that Supermarket connects to. Default value: ``node['supermarket']['chef_server_url']``.
 
 ``default['supermarket']['chef_oauth2_verify_ssl']``
-   Default value: ``true``.
+   Determines whether or not Supermarket performs SSL verification. Default value: ``true``. If your Chef server is using a self-signed certificate without a properly configured certificate authority, this must be set to ``false``.
 
 PostgreSQL
 -----------------------------------------------------
@@ -389,15 +423,22 @@ This configuration file has the following settings for runit:
 ``default['supermarket']['runit']['svlogd_bin']``
    Default value: ``"#{node['supermarket']['install_directory']}/embedded/bin/svlogd"``.
 
+Sentry
+-----------------------------------------------------
+This option is used to integrate Supermarket with the `Sentry <https://sentry.io/welcome/>`__ error logging service:
+
+``default['supermarket']['sentry_url']``
+   The Sentry URL that is used to send error reports. Default value: ``nil``.
+
 Sidekiq
 -----------------------------------------------------
 This configuration file has the following settings for background processes that are managed by Sidekiq:
 
 ``default['supermarket']['sidekiq']['concurrency']``
-   Default value: ``25``.
+   Determines how many threads a Sidekiq process can spin up. Default value: ``25``.
 
 ``default['supermarket']['sidekiq']['enable']``
-   Enable a service. Default value: ``true``.
+   Enable the Sidekiq service. Default value: ``true``.
 
 ``default['supermarket']['sidekiq']['log_directory']``
    The directory in which log data is stored. The default value is the recommended value. Default value: ``"#{node['supermarket']['log_directory']}/sidekiq"``.
@@ -406,20 +447,26 @@ This configuration file has the following settings for background processes that
    The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value: ``{ 'file_maxbytes' => 104857600, 'num_to_keep' => 10 }``
 
 ``default['supermarket']['sidekiq']['timeout']``
-   Default value: ``30``.
+   The amount of time (in seconds) that Sidekiq should wait for a worker before it is terminated. Default value: ``30``.
 
 SMTP
 -----------------------------------------------------
 This configuration file has the following settings for SMTP:
 
 ``default['supermarket']['smtp_address']``
+   The SMTP server address that Supermarket will use to send mail.
 
 ``default['supermarket']['smtp_password']``
+   The SMTP server password.
 
 ``default['supermarket']['smtp_port']``
    The port on which the service is to listen.
 
 ``default['supermarket']['smtp_user_name']``
+   The user on the SMTP server.
+
+``default['supermarket']['from_email']``
+   The default sender address of all Supermarket mailers. Default value: ``nil``.
 
 SSL
 -----------------------------------------------------
@@ -476,89 +523,38 @@ StatsD
 This configuration file has the following settings for reporting to a StatsD server:
 
 ``default['supermarket']['statsd_port']``
-   The port on which the service is to listen.
+   The port on which the service is to listen. Default value: ``nil``.
 
 ``default['supermarket']['statsd_url']``
-   The URL to which reporting metrics are sent.
-
-Unicorn
------------------------------------------------------
-This configuration file has the following settings for Unicorn:
-
-``default['supermarket']['unicorn']['after_fork']``
-
-``default['supermarket']['unicorn']['copy_on_write']``
-   Default value: ``true``.
-
-``default['supermarket']['unicorn']['before_exec']``
-
-``default['supermarket']['unicorn']['before_fork']``
-
-``default['supermarket']['unicorn']['enable_stats']``
-   Default value: ``false``.
-
-``default['supermarket']['unicorn']['forked_group']``
-   Default value: ``node['supermarket']['group']``.
-
-``default['supermarket']['unicorn']['forked_user']``
-   Default value: ``node['supermarket']['user']``.
-
-``default['supermarket']['unicorn']['listen']``
-   The IP address on which the service is to listen. Default value: ``["127.0.0.1:#{node['supermarket']['rails']['port']}"]``.
-
-``default['supermarket']['unicorn']['name']``
-   Default value: ``'supermarket'``.
-
-``default['supermarket']['unicorn']['pid']``
-   Default value: ``"#{node['supermarket']['var_directory']}/rails/run/unicorn.pid"``.
-
-``default['supermarket']['unicorn']['preload_app']``
-   Default value: ``true``.
-
-``default['supermarket']['unicorn']['stderr_path']``
-
-``default['supermarket']['unicorn']['stdout_path']``
-
-``default['supermarket']['unicorn']['unicorn_command_line']``
-
-``default['supermarket']['unicorn']['worker_processes']``
-   The number of allowed worker processes. Default value: ``node['nginx']['worker_processes']``.
-
-``default['supermarket']['unicorn']['worker_timeout']``
-   The amount of time (in seconds) before a worker process times out. Default value: ``15``.
-
-``default['supermarket']['unicorn']['working_directory']``
+   The URL to which reporting metrics are sent. Default value: ``nil``.
 
 URLs
 -----------------------------------------------------
-This configuration file has the following settings for URLs:
+Use these settings to replace ``chef.io`` URLs with your own internal mirrors or alternatives.
 
 ``default['supermarket']['chef_blog_url']``
-   Default value: ``"https://www.#{node['supermarket']['chef_domain']}/blog"``.
+   The URL of the Chef blog. Default value: ``"https://www.#{node['supermarket']['chef_domain']}/blog"``.
 
 ``default['supermarket']['chef_docs_url']``
-   Default value: ``"https://docs.#{node['supermarket']['chef_domain']}"``.
+   The URL of the Chef Docs site. Default value: ``"https://docs.#{node['supermarket']['chef_domain']}"``.
 
 ``default['supermarket']['chef_downloads_url']``
-   Default value: ``"https://downloads.#{node['supermarket']['chef_domain']}"``.
+   The URL of the Chef downloads page. Default value: ``"https://downloads.#{node['supermarket']['chef_domain']}"``.
 
 ``default['supermarket']['chef_domain']``
-   Default value: ``'chef.io'``.
+   The root domain that is used by all Chef URLs. Most of the settings in this section rely upon this setting. Default value: ``'chef.io'``.
 
 ``default['supermarket']['chef_identity_url']``
-   Default value: ``"#{node['supermarket']['chef_server_url']}/id"``.
-
-``default['supermarket']['chef_manage_url']``
-   Default value: ``node['supermarket']['chef_server_url']``.
+   The URL that is used to interact with Chef Identity on the Chef server. Default value: ``"#{node['supermarket']['chef_server_url']}/id"``.
 
 ``default['supermarket']['chef_profile_url']``
-   Default value: ``node['supermarket']['chef_server_url']``.
+   The URL that is used to log in to your Chef profile. Default value: ``node['supermarket']['chef_server_url']``.
 
 ``default['supermarket']['chef_sign_up_url']``
-   Default value: ``"#{node['supermarket']['chef_server_url']}/signup?ref=community"``.
+   The community signup URL. Default value: ``"#{node['supermarket']['chef_server_url']}/signup?ref=community"``.
 
 ``default['supermarket']['chef_www_url']``
-   Default value: ``"https://www.#{node['supermarket']['chef_domain']}"``.
+   The Chef website URL. Default value: ``"https://www.#{node['supermarket']['chef_domain']}"``.
 
 ``default['supermarket']['learn_chef_url']``
-   Default value: ``"https://learn.#{node['supermarket']['chef_domain']}"``.
+   The Learn Chef Rally URL. Default value: ``"https://learn.#{node['supermarket']['chef_domain']}"``.
