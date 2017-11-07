@@ -1,11 +1,24 @@
 =====================================================
-Release Notes: chef-client 12.0 - 13.6
+Release Notes: chef-client 12.0 - 13.6.4
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes.rst>`__
 
 Chef client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef changelog <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
 
-What's new in 13.6:
+What's new in 13.6.4:
+=====================================================
+* **Resolved Debian / Ubuntu regression**
+    
+    This release resolves a regression in 13.6.0 that prevented the upgrading of packages on Debian or Ubuntu when the package name contained a tilde (``~``).
+
+* **Security Updates**
+  
+    * OpenSSL has been upgraded to 1.0.2m to resolve `CVE-2017-3735 <https://nvd.nist.gov/vuln/detail/CVE-2017-3735>`__ and `CVE-2017-3736 <https://nvd.nist.gov/vuln/detail/CVE-2017-3736>`__
+    * RubyGems has been upgraded to 2.6.14 to resolve `CVE-2017-0903 <https://nvd.nist.gov/vuln/detail/CVE-2017-0903>`__
+
+See the full `change log <https://github.com/chef/chef/blob/master/CHANGELOG.md#v1364-2017-11-06>`__ for additional details.
+
+What's new in 13.6.0:
 =====================================================
 
 * **The ``deploy`` resource is deprecated**
