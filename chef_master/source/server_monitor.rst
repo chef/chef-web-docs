@@ -307,9 +307,36 @@ System Checks
 =====================================================
 System-level checks should be done for the following components: ports, services, and high availability status.
 
+chef-backend-ctl status
+-----------------------------------------------------
+The ``chef-backend-ctl status`` subcommand is used to check the status of services running in the `Chef Backend server topology </install_server_ha.html>`__. This command will verify the status of the following services on the node it is run on:
+
+* ``leaderl`` 
+* ``postgresql`` 
+* ``etcd``
+*  ``epmd`` 
+* ``elasticsearch``
+
+It will also check on the status of other nodes in the cluster, from the current node's perspective. For example:
+
+.. code-block:: bash
+
+   $ chef-backend-ctl status 
+   Service Local Status Time in State Distributed Node Status 
+   leaderl running (pid 1191) 53d 15h 11m 12s leader: 1; waiting: 0; follower: 2;    total: 3 
+   epmd running (pid 1195) 53d 15h 11m 12s status: local-only 
+   etcd running (pid 1189) 53d 15h 11m 12s health: green; healthy nodes: 3/3 
+   postgresql running (pid 40686) 0d 12h 36m 23s leader: 1; offline: 0; syncing: 0;    synced: 2 
+   elasticsearch running (pid 47423) 0d 12h 18m 6s state: green; nodes online: 3/3
+   
+   System Local Status Distributed Node Status 
+   disks /var/log/chef-backend: OK; /var/opt/chef-backend: OK health: green; healthy    nodes: 3/3
+
+More information about each service can be found in the individual service logs in ``/var/opt/chef-backend/``. 
+
 ha-status
 -----------------------------------------------------
-The ``ha-status`` subcommand is used to check the status for services running in a high availability topology. This command will verify the following:
+The ``ha-status`` subcommand is used to check the status of services running in the (deprecated as of Chef Server 12.9.0) DRBD high availability topology. This command will verify the following:
 
        * The Keepalived daemon is enabled in the config
        * The DRBD process is enabled in the config
