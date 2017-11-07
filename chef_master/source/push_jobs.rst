@@ -55,7 +55,7 @@ The following table lists the commercially-supported platforms for the Chef push
      - ``14.04``
    * - Microsoft Windows
      - ``x86``, ``x86_64``
-     - ``2008r2``, ``2012``, ``2012r2``, ``7``, ``8``, ``8.1``, ``10``
+     - ``2008r2``, ``2012``, ``2012r2``, ``2016``, ``7``, ``8``, ``8.1``, ``10``
 
 .. end_tag
 
