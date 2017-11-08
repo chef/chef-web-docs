@@ -86,6 +86,8 @@ The following table lists knife plugins built by the Chef community.
      - Adds Linux support for KVM.
    * - `knife-lastrun <https://github.com/jgoulah/knife-lastrun>`_
      - Adds key metrics from the last chef-client run on a given node.
+   * - `knife-oci <https://github.com/oracle/knife-oci>`_
+     - Adds support for Oracle Cloud Infrastructure.
    * - `knife-ohno <https://github.com/lnxchk/Ohno>`_
      - Adds the ability to view nodes that haven't checked into the platform for N hours.
    * - `knife-oktawave <https://github.com/marek-siemdaj/knife-oktawave>`_
