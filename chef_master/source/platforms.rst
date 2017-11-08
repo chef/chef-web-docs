@@ -474,7 +474,7 @@ Versions and Status
 
 .. list-table::
    :header-rows: 1
-   :widths: 150, 450, 100, 100
+   :widths: 150, 250, 200, 200
 
    * - Product
      - Version
@@ -526,7 +526,7 @@ Versions and Status
 
 .. list-table::
    :header-rows: 1
-   :widths: 150, 450, 100, 100
+   :widths: 150, 250, 200, 200
 
    * - Product
      - Version
