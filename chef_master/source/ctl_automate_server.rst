@@ -116,7 +116,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ automate-ctl create-user ENT-NAME USER-NAME [--password PASSWORD] [--password-file FILE] [--roles "COMMA-SEPARATED-LIST"] [--ssh-pub-key-file=PATH-TO-PUBLIC-KEY-FILE]
+   $ automate-ctl create-user ENT-NAME USER-NAME --password [PASSWORD] --password-file [FILE] --roles ["COMMA-SEPARATED-LIST"]--ssh-pub-key-file=[PATH-TO-PUBLIC-KEY-FILE]
 
 **Example**
 
