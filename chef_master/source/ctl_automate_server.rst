@@ -116,7 +116,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ automate-ctl create-user ENT-NAME USER-NAME [--password PASSWORD] [--password-file FILE] [--roles "COMMA-SEPARATED-LIST"] [--ssh-pub-key-file=PATH-TO-PULIC-KEY-FILE]
+   $ automate-ctl create-user ENT-NAME USER-NAME --password [PASSWORD] --password-file [FILE] --roles ["COMMA-SEPARATED-LIST"]--ssh-pub-key-file=[PATH-TO-PUBLIC-KEY-FILE]
 
 **Example**
 
@@ -340,7 +340,7 @@ The ``delete-node`` subcommand is used to delete a node and it's corresponding h
 
 New in Chef Automate 1.6.87.
 
-**Hint:** You can also determine the UUID of nodes via the web browsers address bar:
+**Hint:** You can also determine the UUID of a node via the web browser address bar:
 
 .. image:: ../../images/chef_automate_node_uuid.png
 
@@ -794,7 +794,7 @@ This subcommand has the following syntax:
 telemetry
 =====================================================
 
-The ``telemetry`` subcommand is used in conjunction with additional subcommands to query the ``status`` of, ``enable`` or ``disable`` telemetry server wide.
+The ``telemetry`` subcommand is used in conjunction with additional subcommands to enable, disable, or show the status of telemetry on the server.
 
 This subcommand has the following syntax:
 
@@ -909,7 +909,7 @@ where ``name_of_service`` represents the name of any service that is listed afte
 
 restart
 -----------------------------------------------------
-The ``restart`` subcommand is used to restart all services enabled on the Chef Automate server or to restart an individual service by specifying the name of that service in the command.
+The ``restart`` subcommand is used to restart all services enabled on the Chef Automate server, or to restart an individual service by specifying the name of that service in the command.
 
 This subcommand has the following syntax:
 
