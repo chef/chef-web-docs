@@ -80,12 +80,6 @@ This resource has the following actions:
 ``:create``
    Default. Create a file. If a file already exists (but does not match), update that file to match.
 
-   .. warning:: .. tag notes_selinux_file_based_resources
-
-                For a machine on which SELinux is enabled, the chef-client will create files that correctly match the default policy settings only when the cookbook that defines the action also conforms to the same policy.
-
-                .. end_tag
-
 ``:create_if_missing``
    Create a file only if the file does not exist. When the file exists, nothing happens.
 

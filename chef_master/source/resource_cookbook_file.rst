@@ -325,12 +325,6 @@ This resource has the following properties:
 
 .. note:: Use the ``owner`` and ``right`` properties and avoid the ``group`` and ``mode`` properties whenever possible. The ``group`` and ``mode`` properties are not true Microsoft Windows concepts and are provided more for backward compatibility than for best practice.
 
-.. warning:: .. tag notes_selinux_file_based_resources
-
-             For a machine on which SELinux is enabled, the chef-client will create files that correctly match the default policy settings only when the cookbook that defines the action also conforms to the same policy.
-
-             .. end_tag
-
 Atomic File Updates
 -----------------------------------------------------
 .. tag resources_common_atomic_update
