@@ -15,11 +15,9 @@ This diagram shows how you develop, test, and deploy your Chef code.
 
 .. end_tag
 
-* The workstation is the location from which users interact with Chef. On the workstation users author and test `cookbooks </cookbooks.html>`__ using tools such as `Test Kitchen </kitchen.html>`__ and interact with the Chef server using the `knife </knife.html>`__ and `chef </ctl_chef.html>`__ command line tools.
-* Nodes are the machines---physical, virtual, cloud, and so on---that are under management by Chef. The chef-client is installed on each node and is what `performs the automation on that machine </chef_client.html#the-chef-client-run>`__.
-* Use the Chef server as your foundation to create and manage flexible, dynamic infrastructure whether you manage 50 or 500,000 nodes, across multiple datacenters, public and private clouds, and in heterogeneous environments.
-
-  The Chef server acts as `a hub for configuration data </server_components.html>`__. The Chef server stores cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is being managed by the chef-client. Nodes use the chef-client to ask the Chef server for configuration details, such as recipes, templates, and file distributions. The chef-client then does as much of the configuration work as possible on the nodes themselves (and not on the Chef server). This scalable approach distributes the configuration effort throughout the organization.
+* The **Chef DK workstation** is the location where users interact with Chef. On the workstation users author and test `cookbooks </cookbooks.html>`__ using tools such as `Test Kitchen </kitchen.html>`__ and interact with the Chef server using the `knife </knife.html>`__ and `chef </ctl_chef.html>`__ command line tools.
+* **Chef client nodes** are the machines that are managed by Chef. The Chef client is installed on each node and is used to configure the node to its desired state.
+* The **Chef server** acts as `a hub for configuration data </server_components.html>`__. The Chef server stores cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is being managed by Chef. Nodes use the Chef client to ask the Chef server for configuration details, such as recipes, templates, and file distributions.
 
 Chef Components
 =====================================================
