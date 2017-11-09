@@ -1516,7 +1516,7 @@ For example:
 .. code-block:: ruby
 
    edit_resource(:template, '/x/y.txy') do
-     cookbook_name: cookbook_name
+     cookbook 'cookbook_name'
    end
 
 and a resource block:
