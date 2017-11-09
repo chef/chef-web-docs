@@ -100,12 +100,6 @@ This resource has the following actions:
 ``:touch``
    Touch a file. This updates the access (atime) and file modification (mtime) times for a file. (This action may be used with this resource, but is typically only used with the **file** resource.)
 
-.. warning:: .. tag notes_selinux_file_based_resources
-
-             For a machine on which SELinux is enabled, the chef-client will create files that correctly match the default policy settings only when the cookbook that defines the action also conforms to the same policy.
-
-             .. end_tag
-
 Properties
 =====================================================
 This resource has the following properties:
