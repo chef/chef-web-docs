@@ -46,31 +46,3 @@ Existing documentation for pushing a change through Chef Automate is applicable 
    Port Range: 8989
    Source: 0.0.0.0/0
 
-Compliance profiles in AWS OpsWorks for Chef Automate
-=====================================================
-
-.. note:: This requires at least version 2.3.0 of the `audit cookbook <https://github.com/chef-cookbooks/audit>`_.
-
-Enabling the compliance profile storage service in AWS OpsWorks for Chef Automate requires changes to ``/etc/delivery/delivery.rb`` and ``/etc/opscode/chef-server.rb``.
-
-#. Enable the service in Chef Automate by adding
-
-   .. code-block:: ruby
-
-      compliance_profiles["enable"] = true
-
-   to ``delivery.rb`` and run ``sudo automate-ctl reconfigure``.
-
-#. Enable the authentication and forwarding through Chef server by adding
-
-   .. code-block:: ruby
-
-      profiles["root_url"] = "https://localhost/"
-
-   to ``chef-server.rb`` and run ``sudo chef-server-ctl reconfigure``.
-
-#. :ref:`Upload compliance profiles <compliance-profile-api>` to your Chef Automate instance.
-
-#. `Configure the audit cookbook <https://github.com/chef-cookbooks/audit#reporting-to-chef-visibility-via-chef-server>`_ to scan your nodes.
-
-.. note:: These instructions only detail what has to be added to the existing configuration as found in AWS OpsWorks for Chef Automate. For general instructions, see `Integrate Chef Compliance with Chef Automate </integrate_compliance_server_chef_automate.html>`_ (collector ``chef-server-visibility``) and `Install Chef Automate </install_chef_automate.html>`_.
