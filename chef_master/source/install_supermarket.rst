@@ -124,10 +124,11 @@ All of the keys under ``node['supermarket_omnibus']`` are written out as ``/etc/
 
 .. code-block:: ruby
 
-   default['supermarket_omnibus']['chef_server_url'] = 'https://chefserver.mycompany.com'
+   default['supermarket_omnibus']['chef_server_url'] = 'https://chefserver.mycompany.com:443'
    default['supermarket_omnibus']['chef_oauth2_app_id'] = '14dfcf186221781cff51eedd5ac1616'
    default['supermarket_omnibus']['chef_oauth2_secret'] = 'a49402219627cfa6318d58b13e90aca'
    default['supermarket_omnibus']['chef_oauth2_verify_ssl'] = false
+   default['supermarket_omnibus']['fqdn'] = 'supermarket.mycompany.com'
 
 On your workstation, generate a new cookbook using the ``chef`` command line interface:
 
@@ -290,6 +291,61 @@ When the bootstrap operation is finished, do the following:
    .. code-block:: bash
 
       $ sudo chef-client
+
+Install Supermarket Directly (without a cookbook)
+=====================================================
+While there are many benefits to using the cookbook method to install Supermarket, there are also cases where it's simpler to set up the Supermarket installation manually. These steps will walk you through the process of manually configuring your private Supermarket server.
+
+Before following these steps, be sure to complete the OAuth setup process detailed in the `Chef Identity </install_supermarket.html#chef-identity>`__ section of this guide.  
+
+#. `Download <https://downloads.chef.io/supermarket/>`__ the correct package for your operating system from ``downloads.chef.io``. 
+
+#. Install Supermarket using the appropriate package manager for your distribution:
+
+   * For Ubuntu:
+
+     .. code-block:: bash
+
+        dpkg -i /path/to/package/supermarket*.deb
+
+   * For RHEL / CentOS:
+
+     .. code-block:: bash
+
+        rpm -Uvh /path/to/package/supermarket*.rpm
+
+#. Run the ``reconfigure`` command to complete the initial installation:
+
+   .. code-block:: none
+
+      sudo supermarket-ctl reconfigure
+
+#. Create an ``/etc/supermarket/supermarket.json`` file and add the following information, substituting the values for each configuration option with the OAuth 2.0 client credentials that were created in the `previous section </install_supermarket.html#chef-identity>`__:
+
+   .. code-block:: ruby
+
+      {
+          "chef_server_url": "https://chefserver.mycompany.com",
+          "chef_oauth2_app_id": "0bad0f2eb04e935718e081fb71asdfec3681c81acb9968a8e1e32451d08b",
+          "chef_oauth2_secret": "17cf1141cc971a10ce307611beda7ffadstr4f1bc98d9f9ca76b9b127879",
+          "fqdn": "supermarket.mycompany.com",
+          "chef_oauth2_verify_ssl": false
+      }
+
+   Where:
+
+   * ``"chef_server_url"`` should contain the FQDN of your Chef server. Note that if you're using a non-standard SSL port, this much be appended to the URL. For example: ``https://chefserver.mycompany.com:65400``
+   * ``"chef_oauth2_app_id"`` should contain the ``"uid"`` value from your OAuth credentials
+   * ``"chef_oauth2_secret"`` should contain the ``"secret"`` value from your OAuth credentials
+   * ``chef_oauth2_verify_ssl`` is set to false, which is necessary when using a self-signed certificate without a properly configured certificate authority
+   * ``fqdn`` should contain the desired URL that will be used to access your private Supermarket. If not specified, this default to the FQDN of the machine
+
+ 
+#. Issue another ``reconfigure`` command to apply your changes:
+
+   .. code-block:: none
+
+      sudo supermarket-ctl reconfigure
 
 Connect to Supermarket
 =====================================================

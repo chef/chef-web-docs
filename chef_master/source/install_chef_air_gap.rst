@@ -18,7 +18,7 @@ Since a variety of different practices are used to create an air-gapped network,
     * Chef DK
     * Chef client
     * Chef Supermarket
-    * An `install script </#create-an-install-script>`__ for Chef client
+    * An `install script </install_chef_air_gap.html#create-an-install-script>`__ for Chef client
 
 Required cookbooks
 -----------------------------------------------------
