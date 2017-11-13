@@ -128,6 +128,7 @@ All of the keys under ``node['supermarket_omnibus']`` are written out as ``/etc/
    default['supermarket_omnibus']['chef_oauth2_app_id'] = '14dfcf186221781cff51eedd5ac1616'
    default['supermarket_omnibus']['chef_oauth2_secret'] = 'a49402219627cfa6318d58b13e90aca'
    default['supermarket_omnibus']['chef_oauth2_verify_ssl'] = false
+   default['supermarket_omnibus']['fqdn'] = 'supermarket.mycompany.com'
 
 On your workstation, generate a new cookbook using the ``chef`` command line interface:
 
@@ -327,6 +328,7 @@ Before following these steps, be sure to complete the OAuth setup process detail
           "chef_server_url": "https://chefserver.mycompany.com",
           "chef_oauth2_app_id": "0bad0f2eb04e935718e081fb71asdfec3681c81acb9968a8e1e32451d08b",
           "chef_oauth2_secret": "17cf1141cc971a10ce307611beda7ffadstr4f1bc98d9f9ca76b9b127879",
+          "fqdn": "supermarket.mycompany.com",
           "chef_oauth2_verify_ssl": false
       }
 
@@ -335,6 +337,9 @@ Before following these steps, be sure to complete the OAuth setup process detail
    * ``"chef_server_url"`` should contain the FQDN of your Chef server. Note that if you're using a non-standard SSL port, this much be appended to the URL. For example: ``https://chefserver.mycompany.com:65400``
    * ``"chef_oauth2_app_id"`` should contain the ``"uid"`` value from your OAuth credentials
    * ``"chef_oauth2_secret"`` should contain the ``"secret"`` value from your OAuth credentials
+   * ``chef_oauth2_verify_ssl`` is set to false, which is necessary when using a self-signed certificate without a properly configured certificate authority
+   * ``fqdn`` should contain the desired URL that will be used to access your private Supermarket. If not specified, this default to the FQDN of the machine
+
  
 #. Issue another ``reconfigure`` command to apply your changes:
 
