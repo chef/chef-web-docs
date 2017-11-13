@@ -69,7 +69,7 @@ Below is an example Amazon Web Services (AWS) instance profile policy with the r
          ],
          "Effect": "Allow",
          "Resource": [
-           "arn:aws:s3:::example-backups/\*"
+           "arn:aws:s3:::example-backups/*"
          ]
        }
      ],
