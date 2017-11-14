@@ -265,7 +265,7 @@ The following table lists the commercially-supported platforms for the Chef push
      - ``5.x``, ``6.x``, ``7.x``
    * - Ubuntu (LTS releases)
      - ``x86``, ``x86_64``
-     - ``14.04``
+     - ``14.04``, ``16.04``
    * - Microsoft Windows
      - ``x86``, ``x86_64``
      - ``2008r2``, ``2012``, ``2012r2``, ``2016``, ``7``, ``8``, ``8.1``, ``10``

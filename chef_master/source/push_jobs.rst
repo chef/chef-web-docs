@@ -25,40 +25,6 @@ Chef push jobs has the following requirements:
 
   .. end_tag
 
-Platforms
------------------------------------------------------
-.. tag adopted_platforms_push_jobs
-
-Commercial Support
-++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-The following table lists the commercially-supported platforms for the Chef push jobs client:
-
-.. list-table::
-   :widths: 280 100 120
-   :header-rows: 1
-
-   * - Platform
-     - Architecture
-     - Version
-   * - CentOS
-     - ``i386`` (5.x only), ``x86_64``
-     - ``5.x``, ``6.x``, ``7.x``
-   * - macOS
-     - ``x86_64``
-     - ``10.11``, ``10.12``, ``10.13``
-   * - Red Hat Enterprise Linux
-     - ``i386`` (5.x and 6.x only), ``x86_64``
-     - ``5.x``, ``6.x``, ``7.x``
-   * - Ubuntu (LTS releases)
-     - ``x86``, ``x86_64``
-     - ``14.04``
-   * - Microsoft Windows
-     - ``x86``, ``x86_64``
-     - ``2008r2``, ``2012``, ``2012r2``, ``2016``, ``7``, ``8``, ``8.1``, ``10``
-
-.. end_tag
-
 Components
 =====================================================
 Chef push jobs has three main components: jobs (managed by the Chef push jobs server), a client that is installed on every node in the organization, and one (or more) workstations from which job messages are initiated.
