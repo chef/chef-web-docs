@@ -249,8 +249,8 @@ To find the correct certificate, you can examine the assertions given by the IdP
 #. Select **Preserve Log** (2nd row), and **All** (3rd row).
 #. Try logging in via SAML again.
 #. Find the request to **consume** (Name column).
-#. In the **Header** tab, scroll down to **Form Data** and copy the `SAMLResponse` data.
-#. Go to https://www.samltool.com/decode.php and paste the SAMLResponse, click **decode and inflate XML**.
+#. In the **Header** tab, scroll down to **Form Data** and copy the ``SAMLResponse`` data.
+#. Go to https://www.samltool.com/decode.php and paste the ``SAMLResponse``, then click **decode and inflate XML**.
 #. Compare the certificate in the XML document (``ds:X509Certificate`` or a similar tag) to the certificate stored in the SAML Setup page.
 
 Case #2
