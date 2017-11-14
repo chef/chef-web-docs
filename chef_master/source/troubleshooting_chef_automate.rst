@@ -84,10 +84,10 @@ Recommended System Configuration
 Chef Automate's preflight checks give recommendations that are generally advisable for most hardware options. The following is a list of suggestions that we have found will positively impact performance.
 
 *   ``vm.swappiness`` should between ``1`` and ``20``
-    Most Chef Automate installations run several shared services on a single machine. We recommend having swap enabled as a failsafe. Without it we've seen services like Postgresql and Elasticsearch trigger the OOM-killer for other system and Automate services. Swappiness should be low to discourage the use of swap, because the increased disk I/O can adversely impact Elasticsearch and Postgresql.
+    Most Chef Automate installations run several shared services on a single machine. We recommend having swap enabled as a failsafe. Without it we've seen services like PostgreSQL and Elasticsearch trigger the OOM-killer for other system and Automate services. Swappiness should be low to discourage the use of swap, because the increased disk I/O can adversely impact Elasticsearch and PostgreSQL.
 
 *   ``fs.file-max`` should be at least ``64,000``
-    Elasticsearch, Postgresql, and nginx make extensive use of temporary files and require several thousand open file handles for normal operations.
+    Elasticsearch, PostgreSQL, and nginx make extensive use of temporary files and require several thousand open file handles for normal operations.
 
 *   ``vm.max_map_count`` should be at least ``256,000``
     Elasticsearch uses a mix of NioFS and MMapFS for open files, and requires many maps for normal operation.
@@ -101,7 +101,7 @@ Chef Automate's preflight checks give recommendations that are generally advisab
     Chef Automate has several services that utilize HTTP connections, each of which require ephemeral ports. Setting this too low can cause services to either fail or wait for open ports.
 
 *   ``/etc/fstab`` should mount the Chef Automate data directory with ``noatime`` if the disk is formatted with ``ext3`` or ``ext4``.
-    Failing to mount the disk that contains the Chef Automate data directory with `noatime` will cause every disk read operation an access time write operation. That adds quite a bit of disk I/O for very little use.
+    Without ``noatime`` enabled, every disk read will have a corresponding access time write operation. That adds quite a bit of disk I/O for very little use.
 
 *   ``blockdev --getra`` for the disk that contains the Chef Automate data directory should be at least ``4096``. This setting will vary greatly depending on hardware and can sometimes be set much higher. Elasticsearch utilizes large files for indices and increasing the read-ahead can improve performance when reading those long sequential files. You will normally see diminishing returns after ``64000``.
 
@@ -111,7 +111,7 @@ Chef Automate's preflight checks give recommendations that are generally advisab
 *   ``/sys/kernel/mm/transparent_hugepage/enabled`` should be ``never`` \
     ``/sys/kernel/mm/transparent_hugepage/defrag`` should be ``never`` \
 
-    The version of Postgresql that Chef Automate utilizes is not compatible with transparent hugepages.
+    The version of PostgreSQL that Chef Automate utilizes is not compatible with transparent hugepages.
 
 Build nodes/Runners
 =====================================================
@@ -245,23 +245,23 @@ If you see this error and the logs show ``Invalid assertion {assertion,{error,ce
 
 To find the correct certificate, you can examine the assertions given by the IdP on successful login:
 
-#. Open Chrome's "Developer Tools" (Alt+Cmd+i on macOS) > Network (4th tab).
-#. Select `Preserve Log` (2nd row) and `All` (3rd row).
+#. Open Chrome's **Developer Tools** (Alt+Cmd+i on macOS) and navigate to **Network** (4th tab).
+#. Select **Preserve Log** (2nd row), and **All** (3rd row).
 #. Try logging in via SAML again.
-#. Find the request to `consume` (Name column).
-#. In the`Header` tab, scroll down to `Form Data` and copy the `SAMLResponse` data.
-#. Go to https://www.samltool.com/decode.php and paste the SAMLResponse, click `decode and inflate XML`.
+#. Find the request to **consume** (Name column).
+#. In the **Header** tab, scroll down to **Form Data** and copy the ``SAMLResponse`` data.
+#. Go to https://www.samltool.com/decode.php and paste the ``SAMLResponse``, then click **decode and inflate XML**.
 #. Compare the certificate in the XML document (``ds:X509Certificate`` or a similar tag) to the certificate stored in the SAML Setup page.
 
 Case #2
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-If you see this error and the logs show ``[error] Invalid assertion bad_recipient``, then the "Assertion Consumption Service" (ACS)
+If you see this error and the logs show ``[error] Invalid assertion bad_recipient``, then the Assertion Consumption Service (ACS)
 endpoint configured with the IdP is incorrect.
 
-A configuration mismatch of this kind most likely breaks the interaction completely. Seeing this error hints at a minor mismatch -- most likely concerning the `api_proto` setting.
+A configuration mismatch of this kind most likely breaks the interaction completely. Seeing this error hints at a minor mismatch -- most likely concerning the ``api_proto`` setting.
 
-Follow the steps provided in Case #1 to examine the assertions returned from the IdP and verify that the recipient of the assertion response matches Chef Automate's saml/consume endpoint:
+Follow the steps provided in Case #1 to examine the assertions returned from the IdP and verify that the recipient of the assertion response matches Chef Automate's SAML/consume endpoint:
 
 .. code-block:: xml
 
@@ -292,8 +292,7 @@ If you see this error and the logs show ``[error] Invalid assertion bad_in_respo
         Version="2.0"
         xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-This can happen when either the IdP is not compliant to the SAML specs, or when the assertion is too late, that is, when the initiation of the SAML login process
-(the redirect to your IdP) has been longer than 15 minutes.
+This can happen when either the IdP is not compliant to the SAML specs, or when the initiation of the SAML login process (the redirect to your IdP) has been longer than 15 minutes.
 
 Issue: The browser shows the login UI with "Invalid user, login failed!"
 -------------------------------------------------------------------------
