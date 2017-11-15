@@ -73,8 +73,6 @@ Because the FQDN has already been configured, do the following:
 
 .. warning:: The FQDN for the Chef server should not exceed 64 characters when using OpenSSL. OpenSSL requires the ``CN`` in a certificate to be no longer than 64 characters.
 
-.. warning:: By default, the Chef server uses the FQDN to determine the common name (``CN``). If the FQDN of the Chef server is longer than 64 characters, the ``reconfigure`` command will not fail, but an empty certificate file will be created. Nginx will not start if a certificate file is empty.
-
 SSL Protocols
 -----------------------------------------------------
 .. tag server_tuning_nginx
