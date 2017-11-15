@@ -5,7 +5,7 @@ chef-server.rb Settings
 
 .. tag config_rb_server_summary
 
-The chef-server.rb file contains all of the non-default configuration settings used by the Chef server. The default settings are built-in to the Chef server configuration and should only be added to the chef-server.rb file to apply non-default values. These configuration settings are processed when the ``chef-server-ctl reconfigure`` command is run, such as immediately after setting up the Chef server or after making a change to the underlying configuration settings after the server has been deployed. The chef-server.rb file is a Ruby file, which means that conditional statements can be used in the configuration file.
+The ``/etc/opscode/chef-server.rb`` file contains all of the non-default configuration settings used by the Chef server. The default settings are built into the Chef server configuration and should only be added to the ``chef-server.rb`` file to apply non-default values. These configuration settings are processed when the ``chef-server-ctl reconfigure`` command is run. The ``chef-server.rb`` file is a Ruby file, which means that conditional statements can be used within it.
 
 .. end_tag
 
@@ -314,4 +314,3 @@ The following settings must be modified when the Chef Analytics server is config
    Chef Analytics uses the same RabbitMQ service that is configured on the Chef server. When the Chef Analytics server is configured as a standalone server, the default settings for ``rabbitmq['node_ip_address']`` and ``rabbitmq['vip']`` must be updated. When the Chef Analytics server is configured as a standalone server, change this value to the backend VIP address for the Chef server.
 
 .. end_tag
-
