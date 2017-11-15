@@ -135,6 +135,20 @@ A ``Policyfile.rb`` file may contain the following settings:
 
       named_run_list :update_app, "my_app_cookbook::default"
 
+``include_policy "NAME", *args``
+  Specify a policyfile lock to be merged with this policy. ChefDK supports pulling this lock from
+  a local file or from chef server.
+
+  ``include_policy "NAME", path: "."`` pulls the lock from ``./NAME.lock.json``.
+
+  ``include_policy "NAME", path: "./foo.lock.json"`` pulls the lock from ``./foo.lock.json``.
+
+  ``include_policy "NAME", policy_revision_id: "abcdabcdabcd", server: "http://example.com"`` pulls the policy ``NAME`` with revision id ``abcdabcdabcd`` from the ``http://example.com`` chef server.
+
+  ``include_policy "NAME", policy_name: "foo", policy_revision_id: "abcdabcdabcd", server: "http://example.com"`` pulls the policy ``foo`` with revision id ``abcdabcdabcd``.
+
+  ``include_policy "NAME", policy_name: "foo", policy_group: "prod", server: "http://example.com"`` pulls and locks the current revision for policy ``foo`` in policy group ``prod``.
+
 .. end_tag
 
 Example
