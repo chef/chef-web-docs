@@ -245,7 +245,7 @@ Submit Changes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 For an integrated GitHub Enterprise project or a project that is hosted at https://github.com/, users of Chef Automate should submit changes as follows:
 
-#. The standard GitHub process should be followed: clone the desired repo, make and test changes locally, submit the change (create a pull request) which initiates the Chef Automate review process.
+#. The standard GitHub process should be followed: clone the desired repo, make and test changes locally, submit the change with `delivery review` (create a pull request) which initiates the Chef Automate review process.
 
    The GitHub webui will display a **Delivery Status** box showing what part of the pipeline the pull request is at. When the pull request has passed the **Verify** stage, GitHub will message you in the GitHub webui that approval must be manually entered for the pipeline to proceed.
 
