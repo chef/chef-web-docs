@@ -15,6 +15,8 @@ The front-end for the Chef server is written using `Erlang <http://www.erlang.or
 
 .. end_tag
 
+.. note:: The Chef server can be configured via the ``/etc/opscode/chef-server.rb`` file. Whenever this file is modified, the ``chef-server-ctl reconfigure`` command must be run to apply the changes. See the `Chef server settings </config_rb_server.html>`__ guide for additional information.
+
 Server Components
 =====================================================
 The following diagram shows the various components that are part of a Chef server deployment and how they relate to one another.
