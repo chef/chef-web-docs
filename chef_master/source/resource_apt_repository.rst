@@ -13,9 +13,9 @@ An **apt_repository** resource specifies APT repository information and adds an 
 
 .. code-block:: ruby
 
-   apt_repository 'zenoss' do
-     uri        'http://dev.zenoss.org/deb'
-     components ['main', 'stable']
+   apt_repository 'nginx' do
+     uri        'http://nginx.org/packages/ubuntu/'
+     components ['nginx']
    end
 
 where
@@ -147,9 +147,9 @@ Examples
 
 .. code-block:: ruby
 
-   apt_repository 'zenoss' do
-     uri        'http://dev.zenoss.org/deb'
-     components ['main', 'stable']
+   apt_repository 'nginx' do
+     uri        'http://nginx.org/packages/ubuntu/'
+     components ['nginx']
    end
 
 **Enable Ubuntu multiverse repositories**
