@@ -394,3 +394,5 @@ Cookbook artifacts---tar.gz artifacts that are uploaded to Chef Supermarket when
    node.override['supermarket_omnibus']['config']['s3_bucket'] = 'all-our-awesome-cookbooks'
    node.override['supermarket_omnibus']['config']['s3_region'] = 'some-place-3'
    node.override['supermarket_omnibus']['config']['s3_secret_access_key'] = 'yoursecretaccesskey'
+
+.. note:: Encrypted S3 buckets are currently not supported. 

@@ -73,7 +73,9 @@ This configuration file has the following general settings:
 
 Amazon Simple Storage Service (S3)
 -----------------------------------------------------
-Use these settings to upload cookbooks to an Amazon Simple Storage Service (S3) bucket:
+Use these settings to upload cookbooks to an Amazon Simple Storage Service (S3) bucket. 
+
+.. note:: Encrypted S3 buckets are currently not supported.
 
 ``default['supermarket']['cdn_url']``
    The URL for the content delivery network. (optional)
