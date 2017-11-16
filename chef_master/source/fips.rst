@@ -59,7 +59,7 @@ How to enable FIPS mode for the Chef client
 Prerequisites
 ------------------------------------------------------------------
 * Supported Systems - CentOS or Red Hat Enterprise Linux 6 or 7
-* Chef Client ``12.19.36`` or greater
+* Chef Client 12.8 or greater
 
 Configuration
 ------------------------------------------------------------------
