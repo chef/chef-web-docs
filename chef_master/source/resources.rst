@@ -193,7 +193,7 @@ The following examples show how to use common properties in a recipe.
 .. code-block:: ruby
 
    service 'apache' do
-     action :start
+     action [ :enable, :start ]
      retries 3
    end
 
