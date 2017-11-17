@@ -397,7 +397,7 @@ The following examples demonstrate various approaches for using resources in rec
 .. code-block:: ruby
 
    service 'apache' do
-     action :start
+     action [ :enable, :start ]
      retries 3
    end
 

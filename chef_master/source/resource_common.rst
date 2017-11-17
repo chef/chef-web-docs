@@ -110,14 +110,15 @@ The following examples show how to use common properties in a recipe.
 
 **Use the provider common property**
 
-.. tag resource_package_use_provider_attribute
+.. tag resource_service_use_provider_attribute
 
 .. To use the ``:provider`` common attribute in a recipe:
 
 .. code-block:: ruby
 
-   package 'some_package' do
-     provider Chef::Provider::Package::Rubygems
+   service 'some_service' do
+     provider Chef::Provider::Service::Upstart
+     action [ :enable, :start ]
    end
 
 .. end_tag
@@ -131,7 +132,7 @@ The following examples show how to use common properties in a recipe.
 .. code-block:: ruby
 
    service 'apache' do
-     action :start
+     action [ :enable, :start ]
      retries 3
    end
 

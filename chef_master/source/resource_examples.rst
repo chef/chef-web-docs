@@ -61,7 +61,7 @@ The examples in this section show functionality that is common across all resour
 .. code-block:: ruby
 
    service 'apache' do
-     action :start
+     action [ :enable, :start ]
      retries 3
    end
 
@@ -5973,7 +5973,7 @@ Use the **service** resource to manage a service.
 .. code-block:: ruby
 
    service 'apache' do
-     action :start
+     action [ :enable, :start ]
      retries 3
    end
 
