@@ -136,18 +136,38 @@ A ``Policyfile.rb`` file may contain the following settings:
       named_run_list :update_app, "my_app_cookbook::default"
 
 ``include_policy "NAME", *args``
-  Specify a policyfile lock to be merged with this policy. ChefDK supports pulling this lock from
-  a local file or from chef server.
+   **New in Chef DK 2.5** Specify a policyfile lock to be merged with this policy. Chef DK supports pulling this lock from a local file or from Chef server. When the policyfile lock is included, its run-lists will appear before the current policyfile's run-list. This setting requires that the solved cookbooks appear as-is from the included policyfile lock. If conflicting attributes or cookbooks are provided, an error will be presented. See `RFC097 <https://github.com/chef/chef-rfc/blob/master/rfc097-policyfile-includes.md>`__ for the full specifications of this feature.
+   
 
-  ``include_policy "NAME", path: "."`` pulls the lock from ``./NAME.lock.json``.
+  Pull the policyfile lock from ``./NAME.lock.json``:
 
-  ``include_policy "NAME", path: "./foo.lock.json"`` pulls the lock from ``./foo.lock.json``.
+  .. code-block:: ruby
 
-  ``include_policy "NAME", policy_revision_id: "abcdabcdabcd", server: "http://example.com"`` pulls the policy ``NAME`` with revision id ``abcdabcdabcd`` from the ``http://example.com`` chef server.
+     include_policy "NAME", path: "."
 
-  ``include_policy "NAME", policy_name: "foo", policy_revision_id: "abcdabcdabcd", server: "http://example.com"`` pulls the policy ``foo`` with revision id ``abcdabcdabcd``.
+  Pull the policyfile lock from ``./foo.lock.json``.
 
-  ``include_policy "NAME", policy_name: "foo", policy_group: "prod", server: "http://example.com"`` pulls and locks the current revision for policy ``foo`` in policy group ``prod``.
+  .. code-block:: ruby
+
+     include_policy "NAME", path: "./foo.lock.json"
+
+  Pull the policy ``NAME`` with revision ID ``revision1`` from the ``http://chef-server.example`` Chef server:
+
+  .. code-block:: ruby
+
+     include_policy "NAME", policy_revision_id: "revision1", server: "http://chef-server.example"
+
+  Pull the policy ``foo`` with revision ID ``revision1``:
+
+  .. code-block:: ruby
+
+     include_policy "NAME", policy_name: "foo", policy_revision_id: "revision1", server: "http://chef-server.example"
+
+  Pull and lock the current revision for policy ``foo`` in policy group ``prod``:
+
+  .. code-block:: ruby
+
+     include_policy "NAME", policy_name: "foo", policy_group: "prod", server: "http://chef-server.example"
 
 .. end_tag
 
