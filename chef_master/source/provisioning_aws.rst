@@ -396,8 +396,6 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
-
 **Define a VPC, subnets, and security group for a cache cluster**
 
 .. tag resource_provisioning_aws_cache_cluster_create
@@ -581,8 +579,6 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
-
 **Manage replication groups for cache clusters in Amazon Web Services (AWS)**
 
 .. To manage replication groups for cache clusters:
@@ -690,8 +686,6 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
-
 **Define a cache subnet group for a cache cluster**
 
 .. tag resource_provisioning_aws_cache_cluster_create
@@ -760,7 +754,7 @@ The full syntax for all of the properties that are available to the ``aws_clouds
      access_policies               String
      index_fields                  Array
      instance_type                 String
-     mutli_az                      TrueClass, FalseClass
+     multi_az                      TrueClass, FalseClass
      partition_count               Integer
      replication_count             Integer
    end
@@ -769,7 +763,7 @@ where
 
 * ``aws_cloudsearch_domain`` is the resource
 * ``name`` is the name of the resource block
-* ``access_policies``, ``index_fields``, ``instance_type``, ``mutli_az``, ``partition_count``, and ``replication_count`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``access_policies``, ``index_fields``, ``instance_type``, ``multi_az``, ``partition_count``, and ``replication_count`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Properties
 -----------------------------------------------------
@@ -805,7 +799,7 @@ This Chef provisioning driver-specific resource has the following properties:
      - **Ruby Type:** Chef::Provisioning::ManagedEntryStore
 
        The managed entry store. For example: ``Chef::Provisioning.chef_managed_entry_store(self.chef_server)``.
-   * - ``mutli_az``
+   * - ``multi_az``
      - **Ruby Type:** TrueClass, FalseClass
 
        Specifies if the Amazon CloudSearch domain is deployed to multiple availability zones. Default value: ``false``.
