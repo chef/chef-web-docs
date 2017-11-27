@@ -202,8 +202,6 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
-
 **Define an auto scaling group**
 
 .. tag resource_provisioning_aws_launch_config_auto_scale
@@ -818,8 +816,6 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
-
 **Define a cloudsearch domain**
 
 .. To define a cloudsearch domain:
@@ -917,7 +913,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``evaluation_periods``
      - **Ruby Type:** Integer
 
-       The number of periods over which data is compared to the specified threshold. Valid Range: Minimum value of 1.
+       The number of periods over which data is compared to the specified threshold. Valid Range: Minimum value of ``1``.
    * - ``name``
      - **Ruby Type:** String
 
@@ -925,7 +921,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``period``
      - **Ruby Type:** Integer, Float
 
-       The period, in seconds, over which the statistic is applied. Valid Range: Minimum value of 1.
+       The period, in seconds, over which the statistic is applied. Valid Range: Minimum value of ``1``.
    * - ``statistic``
      - **Ruby Type:** String
 
@@ -961,8 +957,6 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
-
 **Define a cloudwatch alarm**
 
 .. To define a cloudwatch alarm:
@@ -1089,8 +1083,6 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
-
 **Create an option set**
 
 .. To create an option set:
@@ -1242,8 +1234,6 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
-
 **Manage EBS volume**
 
 .. To manage ebs volume:
@@ -1421,8 +1411,6 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
-
 **Associate elastic IP address**
 
 .. To associate an elastic IP address:
@@ -1467,7 +1455,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 aws_elasticsearch_domain
 =====================================================
-The ``aws_elasticsearch_domain`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_elasticsearch_domain`` resource to manage `an elastic search domain <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html>`__, an Amazon Elasticsearch Service (Amazon ES) domain that encapsulates the Amazon ES engine instances associated with an Amazon Web Services (AWS) account.
+The ``aws_elasticsearch_domain`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_elasticsearch_domain`` resource to manage `an Elasticsearch domain <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html>`__, an Amazon Elasticsearch Service (Amazon ES) domain that encapsulates the Amazon ES engine instances associated with an Amazon Web Services (AWS) account.
 
 Syntax
 -----------------------------------------------------
@@ -1498,7 +1486,7 @@ The full syntax for all of the properties that are available to the ``aws_elasti
 where
 
 * ``aws_elasticsearch_domain`` is the resource
-* ``name`` is the name of the resource block and also the name of an Amazon Elastic Search Domain
+* ``name`` is the name of the resource block and also the name of an Amazon Elasticsearch Domain
 * ``instance_type``, ``ebs_enabled``, ``volume_size``, ``automated_snapshot_start_hour`` and ``elasticsearch_version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Properties
@@ -1534,7 +1522,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``name``
      - **Ruby Type:** String
 
-       Use to specify the name of an elastic search domain.
+       Use to specify the name of an Elasticsearch domain.
    * - ``volume_size``
      - **Ruby Type:** Integer
 
@@ -1542,9 +1530,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
-
-**Create elastic search domain address**
+**Create Elasticsearch domain address**
 
 .. To create an elastic search domain address:
 
@@ -1601,7 +1587,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``path``
      - **Ruby Type:** String
 
-       If you are using the IAM API or AWS Command Line Interface (AWS CLI) to create IAM entities, you can also give the entity an optional path. For example, you could use the nested path /division_abc/subdivision_xyz/product_1234/engineering/ to match your company's organizational structure.
+       If you are using the IAM API or AWS Command Line Interface (AWS CLI) to create IAM entities, you can also give the entity an optional path. For example, you could use the nested path ``/division_abc/subdivision_xyz/product_1234/engineering/`` to match your company's organizational structure.
    * - ``chef_server``
      - **Ruby Type:** Hash
 
@@ -1623,8 +1609,6 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
-
 **Create IAM instance profile**
 
 .. To create IAM instance profile:
@@ -1681,7 +1665,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``path``
      - **Ruby Type:** String
 
-       If you are using the IAM API or AWS Command Line Interface (AWS CLI) to create IAM entities, you can also give the entity an optional path. For example, you could use the nested path /division_abc/subdivision_xyz/product_1234/engineering/ to match your company's organizational structure.
+       If you are using the IAM API or AWS Command Line Interface (AWS CLI) to create IAM entities, you can also give the entity an optional path. For example, you could use the nested path ``/division_abc/subdivision_xyz/product_1234/engineering/`` to match your company's organizational structure.
    * - ``chef_server``
      - **Ruby Type:** Hash
 
@@ -1704,12 +1688,10 @@ This Chef provisioning driver-specific resource has the following properties:
        The name of the resource block and also the name of the role to create.
    * - ``inline_policies``
      - **Ruby Type:** Hash
-       Inline policies which _only_ apply to this role, unlike managed_policies which can be shared between users, groups and roles.
+       Inline policies which **only** apply to this role, unlike managed policies which can be shared between users, groups and roles.
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
-
 **Create IAM role**
 
 .. To create IAM role:
@@ -1866,7 +1848,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
 
 **Create instance with default values, then create image from instance and delete the instance**
 
@@ -1876,7 +1858,7 @@ The following examples demonstrate various approaches for using resources in rec
 
    machine_image 'ref-machine_image'
 
-**Create image with provided image id and other values set**
+**Create image with provided image ID and other values set**
 
 .. To create image with provided options:
 
@@ -1995,7 +1977,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
 
 **Create instance with default values, and register with chef-server**
 
@@ -2132,7 +2114,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
 
 **Create an internet gateway**
 
@@ -2250,7 +2232,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
 
 **Create a private key, regenerate it if necessary**
 
@@ -2416,7 +2398,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
 
 **Define an AMI instance type**
 
@@ -2562,7 +2544,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
 
 **Define a load balancer**
 
@@ -2611,13 +2593,13 @@ The following examples demonstrate various approaches for using resources in rec
 
 aws_nat_gateway
 =====================================================
-The ``aws_nat_gateway`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_nat_gateway`` resource to configure a nat gateway for a defined virtual network within Amazon Virtual Private Cloud (VPC) (the networking layer of Amazon EC2).
+The ``aws_nat_gateway`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_nat_gateway`` resource to configure a NAT gateway for a defined virtual network within Amazon Virtual Private Cloud (VPC) (the networking layer of Amazon EC2).
 
 An AWS nat gateway, enable instances in a private subnet to connect to the Internet or other AWS services, but prevent the Internet from initiating a connection with those instances.
 
 Syntax
 -----------------------------------------------------
-A ``aws_nat_gateway`` resource block manages nat gateways. For example:
+A ``aws_nat_gateway`` resource block manages NAT gateways. For example:
 
 .. code-block:: ruby
 
@@ -2639,7 +2621,7 @@ The full syntax for all of the properties that are available to the ``aws_nat_ga
 where
 
 * ``aws_nat_gateway`` is the resource
-* ``name`` is the name of the resource block and also the name of a nat gateway for a defined virtual network within Amazon Virtual Private Cloud (VPC)
+* ``name`` is the name of the resource block and also the name of a NAT gateway for a defined virtual network within Amazon Virtual Private Cloud (VPC)
 * ``nat_gateway_id`` is a property of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Properties
@@ -2672,35 +2654,35 @@ This Chef provisioning driver-specific resource has the following properties:
        .. end_tag
 
    * - ``driver``
-     - **Ruby Type:** Chef::Provisioning::Driver
+     - **Ruby Type:** ``Chef::Provisioning::Driver``
 
        The Chef provisioning driver.
    * - ``nat_gateway_id``
      - **Ruby Type:** String
 
-       Use to specify the identifier for a nat gateway.
+       Use to specify the identifier for a NAT gateway.
    * - ``managed_entry_store``
-     - **Ruby Type:** Chef::Provisioning::ManagedEntryStore
+     - **Ruby Type:** ``Chef::Provisioning::ManagedEntryStore``
 
        The managed entry store. For example: ``Chef::Provisioning.chef_managed_entry_store(self.chef_server)``.
    * - ``name``
      - **Ruby Type:** String
 
-       Use to specify the name of the nat gateway.
+       Use to specify the name of the NAT gateway.
    * - ``eip_address``
-     - **Ruby Type:** String, ::Aws::OpsWorks::Types::ElasticIp, AwsEipAddress, nil
+     - **Ruby Type:** String
 
-       An elastic ip address for the nat gateway.
+       An elastic IP address for the NAT gateway. Options: ``::Aws::OpsWorks::Types::ElasticIp``, ``AwsEipAddress``, ``nil``
    * - ``subnet``
      - **Ruby Type:** String, AwsSubnet, ::Aws::EC2::Subnet
 
-       A subnet to attach to the nat gateway
+       A subnet to attach to the NAT gateway
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
 
-**Create a nat gateway**
+
+**Create a NAT gateway**
 
 .. To create a nat gateway:
 
@@ -2711,7 +2693,7 @@ The following examples demonstrate various approaches for using resources in rec
      eip_address '34.194.48.38'
    end
 
-**Delete a nat gateway**
+**Delete a NAT gateway**
 
 .. To delete a nat gateway:
 
@@ -2965,7 +2947,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
 
 **Define a network acl**
 
@@ -3107,7 +3089,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``machine``
      - **Ruby Type:** String, FalseClass, AwsInstance, AWS::EC2::Instance
 
-       Use to specify the name of the Amazon Web Services (AWS) instance for which this network interface is associated.
+       Use to specify the name of the Amazon Web Services (AWS) instance that this network interface is associated with.
    * - ``managed_entry_store``
      - **Ruby Type:** Chef::Provisioning::ManagedEntryStore
 
@@ -3135,7 +3117,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
 
 **Define a network interface**
 
@@ -3282,7 +3264,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
 
 **Manage remote database instances**
 
@@ -3369,7 +3351,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
 
 **Manage remote database parameter group**
 
@@ -3450,7 +3432,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
 
 **Manage subnets for relational databases**
 
@@ -3529,7 +3511,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
 
 **Manages hosted zone that route traffic on the internet for a domain**
 
@@ -3620,7 +3602,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
 
 **Manages resource record set on hosted zone that route traffic on the internet for a domain**
 
@@ -3754,7 +3736,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
 
 **Define a route table**
 
@@ -3890,7 +3872,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
 
 **Add an Amazon S3 bucket**
 
@@ -4162,7 +4144,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
 
 **Delete a security group**
 
@@ -4429,11 +4411,11 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
 
-**Create cerificate with certificate_body**
 
-.. To create cerificate with certificate_body:
+**Create certificate with certificate_body**
+
+.. To create certificate with certificate_body:
 
 .. code-block:: ruby
 
@@ -4494,9 +4476,9 @@ The following examples demonstrate various approaches for using resources in rec
             private_key private_key_string
           end
 
-**Create cerificate with certificate_chain**
+**Create certificate with certificate_chain**
 
-.. To create cerificate with certificate_chain:
+.. To create certificate with certificate_chain:
 
 .. code-block:: ruby
 
@@ -4586,7 +4568,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
 
 **Create an SNS topic**
 
@@ -4692,7 +4674,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
 
 **Create an SQS queue**
 
@@ -4828,7 +4810,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
 
 **Remove the default subnet**
 
@@ -5104,7 +5086,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
 
 **Add a defined virtual network (VPC)**
 
@@ -5290,7 +5272,7 @@ The ``aws_vpc_peering_connection`` resource is a driver-specific resource used b
 
 Syntax
 -----------------------------------------------------
-A ``aws_vpc_peering_connection`` resource block manages An AWS peering connection, specifying which VPC to peer. For example:
+A ``aws_vpc_peering_connection`` resource block manages an AWS peering connection by specifying which VPCs to peer. For example:
 
 .. code-block:: ruby
 
@@ -5372,16 +5354,16 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``peer_owner_id``
      - **Ruby Type:** String
 
-       Use to specify the target VPC account id to peer. If not specified, will be assumed that the target VPC belongs to the current account.
+       Use to specify the target VPC account ID to peer. If this value is not specified, it will be assumed that the target VPC belongs to the current account.
 
    * - ``vpc_peering_connection_id``
      - **Ruby Type:** String
 
-       Use to specify the VPC peering connection id.
+       Use to specify the VPC peering connection ID.
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
 
 **Manages An AWS peering connection, specifying which VPC to peer**
 
