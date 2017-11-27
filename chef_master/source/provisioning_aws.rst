@@ -36,20 +36,28 @@ The following driver-specific resources are available for Amazon Web Services (A
 * ``aws_cache_replication_group``
 * ``aws_cache_subnet_group``
 * ``aws_cloudsearch_domain``
+* ``aws_cloudwatch_alarm``
 * ``aws_dhcp_options``
 * ``aws_ebs_volume``
 * ``aws_eip_address``
+* ``aws_elasticsearch_domain``
+* ``aws_iam_instance_profile``
+* ``aws_iam_role``
 * ``aws_image``
 * ``aws_instance``
 * ``aws_internet_gateway``
 * ``aws_key_pair``
 * ``aws_launch_configuration``
 * ``aws_load_balancer``
+* ``aws_nat_gateway``
 * ``aws_network_acl``
 * ``aws_network_interface``
 * ``aws_rds_instance``
+* ``aws_rds_parameter_group``
 * ``aws_rds_subnet_group``
 * ``aws_route_table``
+* ``aws_route53_hosted_zone``
+* ``aws_route53_record_set``
 * ``aws_s3_bucket``
 * ``aws_security_group``
 * ``aws_server_certificate``
@@ -57,6 +65,7 @@ The following driver-specific resources are available for Amazon Web Services (A
 * ``aws_sqs_queue``
 * ``aws_subnet``
 * ``aws_vpc``
+* ``aws_vpc_peering_connection``
 
 Common Actions
 =====================================================
@@ -193,22 +202,20 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
-
 **Define an auto scaling group**
 
 .. tag resource_provisioning_aws_launch_config_auto_scale
 
 .. To define an auto scaling group:
 
-The following example uses the ``aws_launch_config`` resource to create an image and instance type, and then the ``aws_auto_scaling_group`` resource to build out a group of machines:
+The following example uses the ``aws_launch_configuration`` resource to create an image and instance type, and then the ``aws_auto_scaling_group`` resource to build out a group of machines:
 
 .. code-block:: ruby
 
    require 'chef/provisioning/aws_driver'
 
    with_driver 'aws::eu-west-1' do
-     aws_launch_config 'launch-config-name' do
+     aws_launch_configuration 'launch-config-name' do
        image 'ami-f0b11187'
        instance_type 't1.micro'
      end
@@ -217,7 +224,7 @@ The following example uses the ``aws_launch_config`` resource to create an image
        desired_capacity 3
        min_size 1
        max_size 5
-       launch_config 'launch-config-name'
+       launch_configuration 'launch-config-name'
      end
    end
 
@@ -240,7 +247,7 @@ The following example destroys an auto scaling group and the associated launch c
        action :destroy
      end
 
-     aws_launch_config 'my-sweet-launch-config' do
+     aws_launch_configuration 'my-sweet-launch-config' do
        action :destroy
      end
    end
@@ -387,8 +394,6 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
-
 **Define a VPC, subnets, and security group for a cache cluster**
 
 .. tag resource_provisioning_aws_cache_cluster_create
@@ -572,7 +577,25 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-None.
+**Manage replication groups for cache clusters in Amazon Web Services (AWS)**
+
+.. To manage replication groups for cache clusters:
+
+.. code-block:: ruby
+
+   aws_cache_replication_group 'name' do
+     automatic_failover true
+     engine 'name'
+     engine_version '1.2.3'
+     node_type 'cache.m3.large'
+     number_cache_clusters 3
+     preferred_availability_zones [
+       'PreferredAvailabilityZones.member.1=us-east-1a',
+       'PreferredAvailabilityZones.member.2=us-east-1c',
+       'PreferredAvailabilityZones.member.3=us-east-1d'
+     ]
+     subnet_group_name 'subnet-1'
+   end
 
 aws_cache_subnet_group
 =====================================================
@@ -661,8 +684,6 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
-
 **Define a cache subnet group for a cache cluster**
 
 .. tag resource_provisioning_aws_cache_cluster_create
@@ -729,10 +750,9 @@ The full syntax for all of the properties that are available to the ``aws_clouds
 
    aws_cloudsearch_domain 'name' do
      access_policies               String
-     cloudsearch_api_version       Integer
      index_fields                  Array
      instance_type                 String
-     mutli_az                      TrueClass, FalseClass
+     multi_az                      TrueClass, FalseClass
      partition_count               Integer
      replication_count             Integer
    end
@@ -741,7 +761,7 @@ where
 
 * ``aws_cloudsearch_domain`` is the resource
 * ``name`` is the name of the resource block
-* ``access_policies``, ``cloudsearch_api_version``, ``index_fields``, ``instance_type``, ``mutli_az``, ``partition_count``, and ``replication_count`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``access_policies``, ``index_fields``, ``instance_type``, ``multi_az``, ``partition_count``, and ``replication_count`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Properties
 -----------------------------------------------------
@@ -757,10 +777,6 @@ This Chef provisioning driver-specific resource has the following properties:
      - **Ruby Type:** String
 
        The `access policies <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-access.html>`__ for a domain.
-   * - ``cloudsearch_api_version``
-     - **Ruby Type:** Integer
-
-       The version of the Amazon CloudSearch API to use when communicating with Amazon Web Services (AWS). Default value: ``20130101``. This value may be changed to the ``20110201`` API version for domains that are not accessible using the ``20130101`` API version.
    * - ``chef_server``
      - **Ruby Type:** Hash
 
@@ -781,7 +797,7 @@ This Chef provisioning driver-specific resource has the following properties:
      - **Ruby Type:** Chef::Provisioning::ManagedEntryStore
 
        The managed entry store. For example: ``Chef::Provisioning.chef_managed_entry_store(self.chef_server)``.
-   * - ``mutli_az``
+   * - ``multi_az``
      - **Ruby Type:** TrueClass, FalseClass
 
        Specifies if the Amazon CloudSearch domain is deployed to multiple availability zones. Default value: ``false``.
@@ -800,7 +816,162 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-None.
+**Define a cloudsearch domain**
+
+.. To define a cloudsearch domain:
+
+.. code-block:: ruby
+
+   aws_cloudsearch_domain 'ref-cs-domain' do
+     instance_type 'search.m1.small'
+     partition_count 2
+     replication_count 2
+     index_fields [{:index_field_name => 'foo',
+                    :index_field_type => 'text'}]
+   end
+
+aws_cloudwatch_alarm
+=====================================================
+The ``aws_cloudwatch_alarm`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_cloudwatch_alarm`` resource to manage `CloudWatch alarm <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-createalarm.html/>`__ in Amazon CloudWatch.
+
+Syntax
+-----------------------------------------------------
+A ``aws_cloudwatch_alarm`` resource block manages an Amazon CloudWatch alarm. For example:
+
+.. code-block:: ruby
+
+    aws_cloudwatch_alarm 'my-test-alert' do
+      namespace 'AWS/EC2'
+      metric_name 'CPUUtilization'
+      comparison_operator 'GreaterThanThreshold'
+      evaluation_periods 1
+      period 60
+      statistic 'Average'
+      threshold 80
+    end
+
+The full syntax for all of the properties that are available to the ``aws_cloudwatch_alarm`` resource is:
+
+.. code-block:: ruby
+
+   aws_cloudwatch_alarm 'name' do
+     namespace                    String
+     metric_name                  String
+     comparison_operator          String
+     evaluation_periods           Integer
+     period                       Integer,Float
+     statistic                    String
+     threshold                    Integer, Float
+     insufficient_data_actions    Array
+     ok_actions                   Array
+     alarm_actions                Array
+     actions_enabled              TrueClass, FalseClass
+     alarm_description            String
+     unit                         String
+   end
+
+where
+
+* ``aws_cloudwatch_alarm`` is the resource
+* ``name`` is the name of the resource block
+* ``namespace``, ``metric_name``, ``comparison_operator``, ``evaluation_periods``, ``period``, ``statistic``, ``threshold``, ``insufficient_data_actions``, ``ok_actions``, ``alarm_actions``, ``actions_enabled``, ``alarm_description`` and ``unit`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+
+Properties
+-----------------------------------------------------
+This Chef provisioning driver-specific resource has the following properties:
+
+.. list-table::
+   :widths: 150 450
+   :header-rows: 1
+
+   * - Property
+     - Description
+   * - ``namespace``
+     - **Ruby Type:** String
+
+       The `namespace for  <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-namespaces.html>`__ for a cloudwatch.
+   * - ``chef_server``
+     - **Ruby Type:** Hash
+
+       The Chef server on which IDs are located.
+   * - ``driver``
+     - **Ruby Type:** Chef::Provisioning::Driver
+
+       The Chef provisioning driver.
+   * - ``metric_name``
+     - **Ruby Type:** String
+
+       The `metric for  <http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/working_with_metrics.html>`__ for a cloudwatch.
+   * - ``comparison_operator``
+     - **Ruby Type:** String
+
+       The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand. Valid values: ``GreaterThanOrEqualToThreshold``, ``GreaterThanThreshold``, ``LessThanThreshold`` and ``LessThanOrEqualToThreshold``.
+   * - ``managed_entry_store``
+     - **Ruby Type:** Chef::Provisioning::ManagedEntryStore
+
+       The managed entry store. For example: ``Chef::Provisioning.chef_managed_entry_store(self.chef_server)``.
+   * - ``evaluation_periods``
+     - **Ruby Type:** Integer
+
+       The number of periods over which data is compared to the specified threshold. Valid Range: Minimum value of ``1``.
+   * - ``name``
+     - **Ruby Type:** String
+
+       The name of the cloudwatch alarm.
+   * - ``period``
+     - **Ruby Type:** Integer, Float
+
+       The period, in seconds, over which the statistic is applied. Valid Range: Minimum value of ``1``.
+   * - ``statistic``
+     - **Ruby Type:** String
+
+       The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use ``ExtendedStatistic``. Valid Values: ``SampleCount``, ``Average``, ``Sum``, ``Minimum`` and ``Maximum``.
+   * - ``threshold``
+     - **Ruby Type:** Integer, Float
+
+       The value to compare with the specified statistic.
+   * - ``insufficient_data_actions``
+     - **Ruby Type:** Array
+
+       The actions to execute when this alarm transitions to the ``INSUFFICIENT_DATA`` state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+   * - ``ok_actions``
+     - **Ruby Type:** Array
+
+       The actions to execute when this alarm transitions to the ``OK`` state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+   * - ``alarm_actions``
+     - **Ruby Type:** Array
+
+       The actions to execute when this alarm transitions to the ``ALARM`` state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+   * - ``actions_enabled``
+     - **Ruby Type:** TrueClass, FalseClass
+
+       Indicates whether actions should be executed during any changes to the alarm state.
+   * - ``alarm_description``
+     - **Ruby Type:** String
+
+       The description of the alarm.
+   * - ``unit``
+     - **Ruby Type:** String
+
+       The unit of the metric associated with the alarm. Valid Values: ``Seconds``, ``Microseconds``, ``Milliseconds``, ``Bytes``, ``Kilobytes``, ``Megabytes``, ``Gigabytes``, ``Terabytes``, ``Bits``, ``Kilobits``, ``Megabits``, ``Gigabits``, ``Terabits``, ``Percent``, ``Count``, ``Bytes/Second``, ``Kilobytes/Second``, ``Megabytes/Second``, ``Gigabytes/Second``, ``Terabytes/Second``, ``Bits/Second`, ``Kilobits/Second``, ``Megabits/Second``, ``Gigabits/Second``, ``Terabits/Second``, ``Count/Second`` and ``None``.
+
+Examples
+-----------------------------------------------------
+**Define a cloudwatch alarm**
+
+.. To define a cloudwatch alarm:
+
+.. code-block:: ruby
+
+    aws_cloudwatch_alarm 'my-test-alert' do
+      namespace 'AWS/EC2'
+      metric_name 'CPUUtilization'
+      comparison_operator 'GreaterThanThreshold'
+      evaluation_periods 1
+      period 60
+      statistic 'Average'
+      threshold 80
+    end
 
 aws_dhcp_options
 =====================================================
@@ -912,8 +1083,6 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
-
 **Create an option set**
 
 .. To create an option set:
@@ -1065,11 +1234,9 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+**Manage EBS volume**
 
-**Create**
-
-.. To create a machine:
+.. To manage ebs volume:
 
 .. code-block:: ruby
 
@@ -1173,7 +1340,7 @@ The following example destroys an Amazon Elastic Block Store (EBS) volume for th
 
 aws_eip_address
 =====================================================
-The ``aws_eip_address`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_eip_address`` resource to manage an `an elastic IP address <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html>`__, a static IP address designed for dynamic cloud computing that is associated with an Amazon Web Services (AWS) account.
+The ``aws_eip_address`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_eip_address`` resource to manage `an elastic IP address <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html>`__, a static IP address designed for dynamic cloud computing that is associated with an Amazon Web Services (AWS) account.
 
 Syntax
 -----------------------------------------------------
@@ -1244,8 +1411,6 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
-
 **Associate elastic IP address**
 
 .. To associate an elastic IP address:
@@ -1288,17 +1453,332 @@ The following examples demonstrate various approaches for using resources in rec
      associate_to_vpc true
    end
 
-aws_image
+aws_elasticsearch_domain
 =====================================================
-The ``aws_image`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_image`` resource to manage Amazon Machine Images (AMI) `images <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html>`__ that exist in Amazon EC2. An image includes a template for the root volume of an instance (operating system, application server, application, for example), launch permissions, and a block mapping device that attaches volumes to the instance when it is launched.
+The ``aws_elasticsearch_domain`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_elasticsearch_domain`` resource to manage `an Elasticsearch domain <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html>`__, an Amazon Elasticsearch Service (Amazon ES) domain that encapsulates the Amazon ES engine instances associated with an Amazon Web Services (AWS) account.
 
 Syntax
 -----------------------------------------------------
-A ``aws_image`` resource block manages Amazon Web Services (AWS) images. For example:
+A ``aws_elasticsearch_domain`` resource block manages Amazon ES engine instances. For example:
 
 .. code-block:: ruby
 
-   aws_image 'name' do
+    aws_elasticsearch_domain "ref-es-domain" do
+      instance_type "t2.small.elasticsearch"
+      ebs_enabled true
+      volume_size 10
+      automated_snapshot_start_hour 2
+      elasticsearch_version '5.5'
+    end
+
+The full syntax for all of the properties that are available to the ``aws_elasticsearch_domain`` resource is:
+
+.. code-block:: ruby
+
+   aws_elasticsearch_domain 'name' do
+     instance_type                     String
+     ebs_enabled                       TrueClass, FalseClass
+     volume_size                       Integer
+     automated_snapshot_start_hour     Integer
+     elasticsearch_version             String, Integer
+   end
+
+where
+
+* ``aws_elasticsearch_domain`` is the resource
+* ``name`` is the name of the resource block and also the name of an Amazon Elasticsearch Domain
+* ``instance_type``, ``ebs_enabled``, ``volume_size``, ``automated_snapshot_start_hour`` and ``elasticsearch_version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+
+Properties
+-----------------------------------------------------
+This Chef provisioning driver-specific resource has the following properties:
+
+.. list-table::
+   :widths: 150 450
+   :header-rows: 1
+
+   * - Property
+     - Description
+   * - ``instance_type``
+     - **Ruby Type:** String
+
+       The instance type: ``t2.small.elasticsearch``, ``t2.medium.elasticsearch`` etc.
+   * - ``chef_server``
+     - **Ruby Type:** Hash
+
+       The Chef server on which IDs are located.
+   * - ``driver``
+     - **Ruby Type:** Chef::Provisioning::Driver
+
+       The Chef provisioning driver.
+   * - ``ebs_enabled``
+     - **Ruby Type:** TrueClass, FalseClass
+
+       Use to specify the elastic block size enable/disable.
+   * - ``managed_entry_store``
+     - **Ruby Type:** Chef::Provisioning::ManagedEntryStore
+
+       The managed entry store. For example: ``Chef::Provisioning.chef_managed_entry_store(self.chef_server)``.
+   * - ``name``
+     - **Ruby Type:** String
+
+       Use to specify the name of an Elasticsearch domain.
+   * - ``volume_size``
+     - **Ruby Type:** Integer
+
+       Use to specify the volume size to associate with a Chef resource.
+
+Examples
+-----------------------------------------------------
+**Create Elasticsearch domain address**
+
+.. To create an elastic search domain address:
+
+.. code-block:: ruby
+
+    aws_elasticsearch_domain "ref-es-domain" do
+      instance_type "t2.small.elasticsearch"
+      ebs_enabled true
+      volume_size 10
+      automated_snapshot_start_hour 2
+      elasticsearch_version '5.5'
+    end
+
+aws_iam_instance_profile
+=====================================================
+The ``aws_iam_instance_profile`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_iam_instance_profile`` resource to manage `an IAM instance profile <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html>`__, An instance profile is a container for an IAM role that you can use to pass role information to an EC2 instance when the instance starts.
+
+Syntax
+-----------------------------------------------------
+A ``aws_iam_instance_profile`` resource block manages Amazon IAM instance profile role. For example:
+
+.. code-block:: ruby
+
+    aws_iam_instance_profile 'test-profile' do
+      path "/"
+      role "test-role"
+    end
+
+The full syntax for all of the properties that are available to the ``aws_elasticsearch_domain`` resource is:
+
+.. code-block:: ruby
+
+   aws_iam_instance_profile 'name' do
+     path                     String
+     role                     String, AwsIamRole, ::Aws::IAM::Role
+   end
+
+where
+
+* ``aws_iam_instance_profile`` is the resource
+* ``name`` is the name of the resource block and also the name of an Amazon IAM instance profile
+* ``path`` and ``role`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+
+Properties
+-----------------------------------------------------
+This Chef provisioning driver-specific resource has the following properties:
+
+.. list-table::
+   :widths: 150 450
+   :header-rows: 1
+
+   * - Property
+     - Description
+   * - ``path``
+     - **Ruby Type:** String
+
+       If you are using the IAM API or AWS Command Line Interface (AWS CLI) to create IAM entities, you can also give the entity an optional path. For example, you could use the nested path ``/division_abc/subdivision_xyz/product_1234/engineering/`` to match your company's organizational structure.
+   * - ``chef_server``
+     - **Ruby Type:** Hash
+
+       The Chef server on which IDs are located.
+   * - ``driver``
+     - **Ruby Type:** Chef::Provisioning::Driver
+
+       The Chef provisioning driver.
+   * - ``role``
+     - **Ruby Type:** String, AwsIamRole, ::Aws::IAM::Role
+
+       A set of permissions that grant access to actions and resources in AWS. These permissions are attached to the role, not to an IAM user or group.
+   * - ``managed_entry_store``
+     - **Ruby Type:** Chef::Provisioning::ManagedEntryStore
+
+       The managed entry store. For example: ``Chef::Provisioning.chef_managed_entry_store(self.chef_server)``.
+   * - ``name``
+     - **Ruby Type:** String
+
+Examples
+-----------------------------------------------------
+**Create IAM instance profile**
+
+.. To create IAM instance profile:
+
+.. code-block:: ruby
+
+    aws_iam_instance_profile 'test-profile' do
+      path "/"
+      role "test-role"
+    end
+
+aws_iam_role
+=====================================================
+The ``aws_iam_role`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_iam_role`` resource to manage `an IAM Role <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html>`__, An IAM role is similar to a user, in that it is an AWS identity with permission policies that determine what the identity can and cannot do in AWS. However, instead of being uniquely associated with one person, a role is intended to be assumable by anyone who needs it. Also, a role does not have any credentials (password or access keys) associated with it. Instead, if a user is assigned to a role, access keys are created dynamically and provided to the user.
+
+Syntax
+-----------------------------------------------------
+A ``aws_iam_role`` resource block manages Amazon IAM role. For example:
+
+.. code-block:: ruby
+
+    aws_iam_role "iam-test" do
+      path "/"
+      assume_role_policy_document ec2_principal
+      inline_policies a: iam_role_policy, b: rds_role_policy
+    end
+
+The full syntax for all of the properties that are available to the ``aws_iam_role`` resource is:
+
+.. code-block:: ruby
+
+   aws_iam_role 'name' do
+     path                          String
+     assume_role_policy_document   String
+     inline_policies               Hash
+   end
+
+where
+
+* ``aws_iam_role`` is the resource
+* ``name`` is the name of the resource block and also the name of the role to create
+* ``path``, ``assume_role_policy_document`` and ``inline_policies`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+
+Properties
+-----------------------------------------------------
+This Chef provisioning driver-specific resource has the following properties:
+
+.. list-table::
+   :widths: 150 450
+   :header-rows: 1
+
+   * - Property
+     - Description
+   * - ``path``
+     - **Ruby Type:** String
+
+       If you are using the IAM API or AWS Command Line Interface (AWS CLI) to create IAM entities, you can also give the entity an optional path. For example, you could use the nested path ``/division_abc/subdivision_xyz/product_1234/engineering/`` to match your company's organizational structure.
+   * - ``chef_server``
+     - **Ruby Type:** Hash
+
+       The Chef server on which IDs are located.
+   * - ``driver``
+     - **Ruby Type:** Chef::Provisioning::Driver
+
+       The Chef provisioning driver.
+   * - ``assume_role_policy_document``
+     - **Ruby Type:** String
+
+       The policy that grants an entity permission to assume the role.
+   * - ``managed_entry_store``
+     - **Ruby Type:** Chef::Provisioning::ManagedEntryStore
+
+       The managed entry store. For example: ``Chef::Provisioning.chef_managed_entry_store(self.chef_server)``.
+   * - ``name``
+     - **Ruby Type:** String
+
+       The name of the resource block and also the name of the role to create.
+   * - ``inline_policies``
+     - **Ruby Type:** Hash
+       Inline policies which **only** apply to this role, unlike managed policies which can be shared between users, groups and roles.
+
+Examples
+-----------------------------------------------------
+**Create IAM role**
+
+.. To create IAM role:
+
+.. code-block:: ruby
+
+    ec2_principal = '{
+      "Version": "2012-10-17",
+      "Statement": [{
+        "Effect": "Allow",
+        "Principal": {"Service": "ec2.amazonaws.com"},
+        "Action": "sts:AssumeRole"
+      }]
+    }'
+
+    iam_role_policy = '{
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Effect": "Allow",
+          "Action": "iam:*",
+          "Resource": "*"
+        }
+      ]
+    }'
+
+    rds_role_policy = '{
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Sid": "Stmt1441787971000",
+          "Effect": "Allow",
+          "Action": [
+              "rds:*"
+          ],
+          "Resource": [
+              "*"
+          ]
+        }
+      ]
+    }'
+
+    aws_iam_role "iam-test" do
+      path "/"
+      assume_role_policy_document ec2_principal
+      inline_policies a: iam_role_policy, b: rds_role_policy
+    end
+
+    aws_iam_role "iam-test" do
+      path "/"
+      assume_role_policy_document ec2_principal
+      inline_policies a: iam_role_policy
+    end
+
+    aws_iam_role "iam-test" do
+      path "/"
+      assume_role_policy_document ec2_principal
+      inline_policies b: rds_role_policy
+    end
+
+    aws_iam_role "iam-test" do
+      path "/"
+      assume_role_policy_document ec2_principal
+      inline_policies Hash.new
+    end
+
+**Delete IAM role**
+
+.. To delete IAM role:
+
+.. code-block:: ruby
+
+    aws_iam_role "iam-test" do
+      action :destroy
+    end
+
+machine_image
+=====================================================
+The ``machine_image`` resource is a driver-specific resource used by Chef provisioning. Use the ``machine_image`` resource to manage Amazon Machine Images (AMI) `images <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html>`__ that exist in Amazon EC2. An image includes a template for the root volume of an instance (operating system, application server, application, for example), launch permissions, and a block mapping device that attaches volumes to the instance when it is launched.
+
+Syntax
+-----------------------------------------------------
+A ``machine_image`` resource block manages Amazon Web Services (AWS) images. For example:
+
+.. code-block:: ruby
+
+   machine_image 'name' do
      image_id 'image-1'
    end
 
@@ -1306,13 +1786,13 @@ The full syntax for all of the properties that are available to the ``aws_image`
 
 .. code-block:: ruby
 
-   aws_image 'name' do
+   machine_image 'name' do
      image_id                      String
    end
 
 where
 
-* ``aws_image`` is the resource
+* ``machine_image`` is the resource
 * ``name`` is the name of the resource block and also the name of an Amazon Machine Images (AMI) image
 * ``image_id`` is a property of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
@@ -1368,33 +1848,80 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-None.
 
-aws_instance
+
+**Create instance with default values, then create image from instance and delete the instance**
+
+.. To create instance and then create image from instance:
+
+.. code-block:: ruby
+
+   machine_image 'ref-machine_image'
+
+**Create image with provided image ID and other values set**
+
+.. To create image with provided options:
+
+.. code-block:: ruby
+
+   require 'chef/provisioning/aws_driver'
+
+   with_driver 'aws::us-west-2' do
+
+    machine_image 'ref-machine_image' do
+       machine_options bootstrap_options: {
+         subnet_id: 'subnet-c3c2f6e8',
+         security_group_ids: 'sg-b5f9ead2',
+         image_id: 'ami-695f587f',
+         instance_type: 't2.micro'
+       }
+    end
+
+**Create image from image-id**
+
+.. To create image from image id:
+
+.. code-block:: ruby
+
+   machine_image 'ref-machine_image2' do
+     from_image 'ami-695f587f'
+   end
+
+**Delete created image**
+
+.. To delete created image:
+
+.. code-block:: ruby
+
+    machine_image 'ref-machine_image' do
+        action :destroy
+    end
+
+machine
 =====================================================
-The ``aws_instance`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_instance`` resource to manage an instance in Amazon EC2.
+The ``machine`` resource is a driver-specific resource used by Chef provisioning. Use the ``machine`` resource to manage an instance in Amazon EC2.
 
 Syntax
 -----------------------------------------------------
-A ``aws_instance`` resource block manages Amazon Web Services (AWS) images. For example:
+A ``machine`` resource block manages Amazon Web Services (AWS) images. For example:
 
 .. code-block:: ruby
 
-   aws_instance 'name' do
+   machine 'name' do
      instance_id 'instance-1'
    end
 
-The full syntax for all of the properties that are available to the ``aws_instance`` resource is:
+The full syntax for all of the properties that are available to the ``machine`` resource is:
 
 .. code-block:: ruby
 
-   aws_instance 'name' do
+   machine 'name' do
      instance_id                   String
    end
 
 where
 
-* ``aws_instance`` is the resource
+* ``machine`` is the resource
 * ``name`` is the name of the resource block and also the name of an instance in Amazon EC2
 * ``instance_id`` is a property of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
@@ -1450,7 +1977,59 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-None.
+
+
+**Create instance with default values, and register with chef-server**
+
+.. To create instance:
+
+.. code-block:: ruby
+
+   machine 'ref-machine'
+
+**Create instance with provided options**
+
+.. To create instance with provided options:
+
+.. code-block:: ruby
+
+   require 'chef/provisioning/aws_driver'
+
+   with_driver 'aws::us-west-2' do
+
+    machine 'ref-machine' do
+       machine_options bootstrap_options: {
+         subnet_id: 'subnet-c3c2f6e8',
+         security_group_ids: 'sg-b5f9ead2',
+         image_id: 'ami-695f587f',
+         instance_type: 't2.micro'
+       }
+    end
+
+**Create instance from image-id**
+
+.. To create instance from image id:
+
+.. code-block:: ruby
+
+   machine 'ref-machine' do
+     from_image 'ami-695f587f'
+   end
+
+**Create instance with tag entries**
+
+.. To create instance with tags:
+
+.. code-block:: ruby
+
+    machine 'ref-machine-1' do
+      action :allocate
+    end
+
+    machine 'ref-machine-1' do
+      machine_options aws_tags: {:marco => 'polo', :happyhappy => 'joyjoy'}
+      converge false
+    end
 
 aws_internet_gateway
 =====================================================
@@ -1474,13 +2053,14 @@ The full syntax for all of the properties that are available to the ``aws_intern
 
    aws_internet_gateway 'name' do
      internet_gateway_id           String
+     vpc                           String, AwsVpc, ::Aws::EC2::Vpc
    end
 
 where
 
 * ``aws_internet_gateway`` is the resource
 * ``name`` is the name of the resource block and also the name of an internet gateway for a defined virtual network within Amazon Virtual Private Cloud (VPC)
-* ``internet_gateway_id`` is a property of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``internet_gateway_id`` and `vpc` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Properties
 -----------------------------------------------------
@@ -1519,6 +2099,10 @@ This Chef provisioning driver-specific resource has the following properties:
      - **Ruby Type:** String
 
        Use to specify the identifier for an internet gateway.
+   * - ``vpc``
+     - **Ruby Type:** String, AwsVpc, ::Aws::EC2::Vpc
+
+       Use to specify the identifier for a vpc.
    * - ``managed_entry_store``
      - **Ruby Type:** Chef::Provisioning::ManagedEntryStore
 
@@ -1530,7 +2114,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
 
 **Create an internet gateway**
 
@@ -1540,6 +2124,16 @@ The following examples demonstrate various approaches for using resources in rec
 
    aws_internet_gateway 'name' do
      internet_gateway_id '1234567890'
+   end
+
+**Create an internet gateway with VPC attached**
+
+.. To create an internet gateway within vpc:
+
+.. code-block:: ruby
+
+   aws_internet_gateway 'name' do
+     vpc 'vpc-1e9b5078'
    end
 
 aws_key_pair
@@ -1638,7 +2232,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
 
 **Create a private key, regenerate it if necessary**
 
@@ -1804,7 +2398,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
 
 **Define an AMI instance type**
 
@@ -1824,14 +2418,14 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. To define an auto scaling group:
 
-The following example uses the ``aws_launch_config`` resource to create an image and instance type, and then the ``aws_auto_scaling_group`` resource to build out a group of machines:
+The following example uses the ``aws_launch_configuration`` resource to create an image and instance type, and then the ``aws_auto_scaling_group`` resource to build out a group of machines:
 
 .. code-block:: ruby
 
    require 'chef/provisioning/aws_driver'
 
    with_driver 'aws::eu-west-1' do
-     aws_launch_config 'launch-config-name' do
+     aws_launch_configuration 'launch-config-name' do
        image 'ami-f0b11187'
        instance_type 't1.micro'
      end
@@ -1840,7 +2434,7 @@ The following example uses the ``aws_launch_config`` resource to create an image
        desired_capacity 3
        min_size 1
        max_size 5
-       launch_config 'launch-config-name'
+       launch_configuration 'launch-config-name'
      end
    end
 
@@ -1863,7 +2457,7 @@ The following example destroys an auto scaling group and the associated launch c
        action :destroy
      end
 
-     aws_launch_config 'my-sweet-launch-config' do
+     aws_launch_configuration 'my-sweet-launch-config' do
        action :destroy
      end
    end
@@ -1950,7 +2544,164 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-None.
+
+
+**Define a load balancer**
+
+.. To define a load balancer:
+
+.. code-block:: ruby
+
+    machine 'machine-1'
+
+    machine 'machine-2'
+
+    load_balancer "aws-loadbalancer" do
+        machines ['machine-1', "machine-2"]
+        load_balancer_options ({
+          security_groups: ['sec-group'],
+          :listeners => [
+            {
+              instance_port: 8080,
+              protocol: 'HTTPS',
+              instance_protocol: 'HTTP',
+              port: 443,
+              server_certificate: {arn: "arn:aws:iam::112368887283:server-certificate/test-cert1"}
+            },
+            {
+              :port => 8443,
+              :protocol => :https,
+              :instance_port => 80,
+              :instance_protocol => :http,
+              :server_certificate => {arn: "arn:aws:iam::112368887283:server-certificate/test-cert1"}
+            }
+          ],
+          sticky_sessions: {
+            cookie_name: 'app-cookie',
+            ports: [80]
+          },
+          health_check: {
+            healthy_threshold: 3,
+            unhealthy_threshold: 4,
+            interval: 12,
+            timeout: 5,
+            target: 'HTTPS:443/_status'
+          },
+          aws_tags: { name: "webserver", company: "chef" }
+        })
+    end
+
+aws_nat_gateway
+=====================================================
+The ``aws_nat_gateway`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_nat_gateway`` resource to configure a NAT gateway for a defined virtual network within Amazon Virtual Private Cloud (VPC) (the networking layer of Amazon EC2).
+
+An AWS nat gateway, enable instances in a private subnet to connect to the Internet or other AWS services, but prevent the Internet from initiating a connection with those instances.
+
+Syntax
+-----------------------------------------------------
+A ``aws_nat_gateway`` resource block manages NAT gateways. For example:
+
+.. code-block:: ruby
+
+    aws_nat_gateway 'nat-gateway' do
+      subnet 'subnet-9afc3fa7'
+      eip_address '34.194.48.38'
+    end
+
+The full syntax for all of the properties that are available to the ``aws_nat_gateway`` resource is:
+
+.. code-block:: ruby
+
+   aws_nat_gateway 'name' do
+     subnet           String, AwsSubnet, ::Aws::EC2::Subnet
+     eip_address      String, ::Aws::OpsWorks::Types::ElasticIp, AwsEipAddress, nil
+     nat_gateway_id   String
+   end
+
+where
+
+* ``aws_nat_gateway`` is the resource
+* ``name`` is the name of the resource block and also the name of a NAT gateway for a defined virtual network within Amazon Virtual Private Cloud (VPC)
+* ``nat_gateway_id`` is a property of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+
+Properties
+-----------------------------------------------------
+This Chef provisioning driver-specific resource has the following properties:
+
+.. list-table::
+   :widths: 150 450
+   :header-rows: 1
+
+   * - Property
+     - Description
+   * - ``aws_tags``
+     - **Ruby Type:** Hash
+
+       Specify a Hash of Amazon Web Services (AWS) tags.
+
+       .. tag resources_provisioning_aws_attributes_aws_tag_example
+
+       For example:
+
+       .. code-block:: ruby
+
+          aws_tags company: 'my_company', 'key_as_string' => :value_as_symbol
+
+       .. code-block:: ruby
+
+          aws_tags 'Name' => 'custom-vpc-name'
+
+       .. end_tag
+
+   * - ``driver``
+     - **Ruby Type:** ``Chef::Provisioning::Driver``
+
+       The Chef provisioning driver.
+   * - ``nat_gateway_id``
+     - **Ruby Type:** String
+
+       Use to specify the identifier for a NAT gateway.
+   * - ``managed_entry_store``
+     - **Ruby Type:** ``Chef::Provisioning::ManagedEntryStore``
+
+       The managed entry store. For example: ``Chef::Provisioning.chef_managed_entry_store(self.chef_server)``.
+   * - ``name``
+     - **Ruby Type:** String
+
+       Use to specify the name of the NAT gateway.
+   * - ``eip_address``
+     - **Ruby Type:** String
+
+       An elastic IP address for the NAT gateway. Options: ``::Aws::OpsWorks::Types::ElasticIp``, ``AwsEipAddress``, ``nil``
+   * - ``subnet``
+     - **Ruby Type:** String, AwsSubnet, ::Aws::EC2::Subnet
+
+       A subnet to attach to the NAT gateway
+
+Examples
+-----------------------------------------------------
+
+
+**Create a NAT gateway**
+
+.. To create a nat gateway:
+
+.. code-block:: ruby
+
+   aws_nat_gateway 'name' do
+     subnet 'subnet-9afc3fa7'
+     eip_address '34.194.48.38'
+   end
+
+**Delete a NAT gateway**
+
+.. To delete a nat gateway:
+
+.. code-block:: ruby
+
+    aws_nat_gateway 'nat-04aa0160019231f2e' do
+        action :destroy
+    end
 
 aws_network_acl
 =====================================================
@@ -2196,7 +2947,61 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-None.
+
+
+**Define a network acl**
+
+.. To define a network acl:
+
+.. code-block:: ruby
+
+   aws_network_acl 'test_net_acl_1' do
+      vpc 'vpc-40894c26'
+      inbound_rules(
+        [
+          { rule_number: 100, rule_action: :allow, protocol: "-1", cidr_block: '0.0.0.0/0' }
+        ]
+      )
+      outbound_rules(
+        [
+          { rule_number: 100, rule_action: :allow, protocol: "-1", cidr_block: '0.0.0.0/0' }
+        ]
+      )
+   end
+
+**Update network acl for outbound rule**
+
+.. To update a network acl outbound rule:
+
+.. code-block:: ruby
+
+   aws_network_acl 'test_net_acl_1' do
+      outbound_rules(
+        [
+          { rule_number: 100, rule_action: :allow, protocol: "-1", cidr_block: '0.0.0.0/0' },
+          { rule_number: 200,
+            rule_action: :allow,
+            protocol: "6",
+            port_range:
+              {
+                :from => 443,
+                :to => 443
+              },
+            cidr_block: '172.31.0.0/24'
+          }
+        ]
+      )
+   end
+
+**Delete network acl**
+
+.. To delete a network acl:
+
+.. code-block:: ruby
+
+   aws_network_acl 'test_net_acl_1' do
+     action: destroy
+   end
 
 aws_network_interface
 =====================================================
@@ -2284,7 +3089,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``machine``
      - **Ruby Type:** String, FalseClass, AwsInstance, AWS::EC2::Instance
 
-       Use to specify the name of the Amazon Web Services (AWS) instance for which this network interface is associated.
+       Use to specify the name of the Amazon Web Services (AWS) instance that this network interface is associated with.
    * - ``managed_entry_store``
      - **Ruby Type:** Chef::Provisioning::ManagedEntryStore
 
@@ -2312,7 +3117,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
 
 **Define a network interface**
 
@@ -2459,7 +3264,106 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-None.
+
+
+**Manage remote database instances**
+
+.. To manage remote database instances:
+
+.. code-block:: ruby
+
+   aws_rds_instance 'rds-instance' do
+     engine 'postgres'
+     publicly_accessible false
+     db_instance_class 'db.t1.micro'
+     master_username 'user'
+     master_user_password 'password'
+     multi_az false
+     db_subnet_group_name 'db-subnet-group'
+   end
+
+aws_rds_parameter_group
+=====================================================
+The ``aws_rds_parameter_group`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_rds_parameter_group`` resource to manage `a database parameter group <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html>`__ using Amazon Relational Database Service (RDS).
+
+Syntax
+-----------------------------------------------------
+A ``aws_rds_parameter_group`` resource block manages remote database parameter group. For example:
+
+.. code-block:: ruby
+
+   aws_rds_parameter_group "db-parameter-group-with-parameters" do
+     db_parameter_group_family "postgres9.4"
+     description "testing provisioning"
+     parameters [{:parameter_name => "max_connections", :parameter_value => "250", :apply_method => "pending-reboot"}]
+   end
+
+The full syntax for all of the properties that are available to the ``aws_rds_parameter_group`` resource is:
+
+.. code-block:: ruby
+
+   aws_rds_parameter_group 'name' do
+     db_parameter_group_family            String
+     description                          String
+     parameters                           Array
+   end
+
+where
+
+* ``aws_rds_parameter_group`` is the resource
+* ``name`` is the name of the resource block
+* ``db_parameter_group_family``, ``description`` and ``parameters`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+
+Properties
+-----------------------------------------------------
+This Chef provisioning driver-specific resource has the following properties:
+
+.. list-table::
+   :widths: 150 450
+   :header-rows: 1
+
+   * - Property
+     - Description
+   * - ``db_parameter_group_family``
+     - **Ruby Type:** String
+
+       The name of the DB parameter group family that this DB cluster parameter group is compatible with.
+   * - ``description``
+     - **Ruby Type:** String
+
+       The customer-specified description for this DB cluster parameter group.
+   * - ``chef_server``
+     - **Ruby Type:** Hash
+
+       The Chef server on which IDs are located.
+   * - ``driver``
+     - **Ruby Type:** Chef::Provisioning::Driver
+
+       The Chef provisioning driver.
+   * - ``managed_entry_store``
+     - **Ruby Type:** Chef::Provisioning::ManagedEntryStore
+
+       The managed entry store. For example: ``Chef::Provisioning.chef_managed_entry_store(self.chef_server)``.
+   * - ``name``
+     - **Ruby Type:** String
+
+       The name of the instance.
+
+Examples
+-----------------------------------------------------
+
+
+**Manage remote database parameter group**
+
+.. To manage remote database parameter group:
+
+.. code-block:: ruby
+
+   aws_rds_parameter_group 'db-parameter-group-with-parameters' do
+     db_parameter_group_family "postgres9.4"
+     description "testing provisioning"
+     parameters [{:parameter_name => "max_connections", :parameter_value => "250", :apply_method => "pending-reboot"}]
+   end
 
 aws_rds_subnet_group
 =====================================================
@@ -2473,7 +3377,7 @@ A ``aws_rds_subnet_group`` resource block manages subnets for relational databas
 
    aws_rds_subnet_group 'db-subnet-group' do
      db_subnet_group_description 'description'
-     subnets ['subnet', 'subnet2.aws_object.id' ]
+     subnets ['subnet', 'subnet2' ]
    end
 
 The full syntax for all of the properties that are available to the ``aws_rds_subnet_group`` resource is:
@@ -2528,7 +3432,194 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-None.
+
+
+**Manage subnets for relational databases**
+
+.. To manage subnets for relational databases:
+
+.. code-block:: ruby
+
+   aws_rds_subnet_group 'db-subnet-group' do
+     db_subnet_group_description 'description'
+     subnets [ 'subnet', 'subnet2' ]
+   end
+
+aws_route53_hosted_zone
+=====================================================
+The ``aws_route53_hosted_zone`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_route53_hosted_zone`` resource to manage `a route53 hosted zone <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/AboutHZWorkingWith.html>`__ for a domain (such as example.com), and then you create resource record sets to tell the Domain Name System how you want traffic to be routed for that domain.
+
+Syntax
+-----------------------------------------------------
+A ``aws_route53_hosted_zone`` resource block manages hosted zone that holds information about how you want to route traffic on the internet for a domain, such as example.com, and its subdomains (apex.example.com, acme.example.com).
+
+.. code-block:: ruby
+
+   aws_route53_hosted_zone "name" do
+      comment  "testcomment"
+   end
+
+The full syntax for all of the properties that are available to the ``aws_route53_hosted_zone`` resource is:
+
+.. code-block:: ruby
+
+   aws_route53_hosted_zone 'name' do
+     comment                   String
+     aws_route53_zone_id       String
+   end
+
+where
+
+* ``aws_route53_hosted_zone`` is the resource
+* ``name`` is the name of the resource block or the ``zone_name``
+* ``comment`` and ``aws_route53_zone_id`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+
+Properties
+-----------------------------------------------------
+This Chef provisioning driver-specific resource has the following properties:
+
+.. list-table::
+   :widths: 150 450
+   :header-rows: 1
+
+   * - Property
+     - Description
+   * - ``chef_server``
+     - **Ruby Type:** Hash
+
+       The Chef server on which IDs are located.
+   * - ``comment``
+     - **Ruby Type:** String
+
+       The comment included in the ``CreateHostedZoneRequest`` element. String <= 256 characters.
+   * - ``driver``
+     - **Ruby Type:** Chef::Provisioning::Driver
+
+       The Chef provisioning driver.
+   * - ``managed_entry_store``
+     - **Ruby Type:** Chef::Provisioning::ManagedEntryStore
+
+       The managed entry store. For example: ``Chef::Provisioning.chef_managed_entry_store(self.chef_server)``.
+   * - ``name``
+     - **Ruby Type:** String
+
+       The name of the domain.
+   * - ``aws_route53_zone_id``
+     - **Ruby Type:** String
+
+       The resource name and the AWS ID have to be related here, since they're tightly coupled elsewhere.
+
+Examples
+-----------------------------------------------------
+
+
+**Manages hosted zone that route traffic on the internet for a domain**
+
+.. To manage hosted zone that route traffic on the internet for a domain:
+
+.. code-block:: ruby
+
+   aws_route53_hosted_zone "name" do
+      comment  "testcomment"
+   end
+
+aws_route53_record_set
+=====================================================
+The ``aws_route53_record_set`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_route53_record_set`` resource to manage `a route53 record sets <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/rrsets-working-with.html>`__ for a hosted zone.
+
+Syntax
+-----------------------------------------------------
+A ``aws_route53_record_set`` resource block manages resource record set that contains information about how you want to route traffic for one domain (such as example.com) or subdomain (such as www.example.com or test.example.com). Resource record sets are stored in the hosted zone for your domain.
+
+.. code-block:: ruby
+
+    aws_route53_hosted_zone "feegle.com" do
+      record_sets {
+        aws_route53_record_set "some-hostname CNAME" do
+          rr_name "some-api-host.feegle.com"
+          type "CNAME"
+          ttl 3600
+          resource_records ["some-other-host"]
+        end
+      }
+    end
+
+The full syntax for all of the properties that are available to the ``aws_route53_record_set`` resource is:
+
+.. code-block:: ruby
+
+    aws_route53_hosted_zone "name" do
+      record_sets {
+        aws_route53_record_set "record-set-name" do
+          rr_name           String
+          type              String
+          ttl               Integer
+          resource_records  Array
+        end
+      }
+    end
+
+where
+
+* ``aws_route53_record_set`` is the resource under hosted zone.
+* ``name`` is the name of the resource block or the ``zone_name``
+* ``rr_name``, ``type``, ``ttl`` and ``resource_records`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+
+Properties
+-----------------------------------------------------
+This Chef provisioning driver-specific resource has the following properties:
+
+.. list-table::
+   :widths: 150 450
+   :header-rows: 1
+
+   * - Property
+     - Description
+   * - ``chef_server``
+     - **Ruby Type:** Hash
+
+       The Chef server on which IDs are located.
+   * - ``rr_name``
+     - **Ruby Type:** String
+
+       The resource record name.
+   * - ``driver``
+     - **Ruby Type:** Chef::Provisioning::Driver
+
+       The Chef provisioning driver.
+   * - ``managed_entry_store``
+     - **Ruby Type:** Chef::Provisioning::ManagedEntryStore
+
+       The managed entry store. For example: ``Chef::Provisioning.chef_managed_entry_store(self.chef_server)``.
+   * - ``name``
+     - **Ruby Type:** String
+
+       The name of the hosted zone.
+   * - ``aws_route53_zone_id``
+     - **Ruby Type:** String
+
+       The resource name and the AWS ID have to be related here, since they're tightly coupled elsewhere.
+
+Examples
+-----------------------------------------------------
+
+
+**Manages resource record set on hosted zone that route traffic on the internet for a domain**
+
+.. To manage resource record set on hosted zone that route traffic on the internet for a domain:
+
+.. code-block:: ruby
+
+    aws_route53_hosted_zone "feegle.com" do
+      record_sets {
+        aws_route53_record_set "some-hostname CNAME" do
+          rr_name "some-api-host.feegle.com"
+          type "CNAME"
+          ttl 3600
+          resource_records ["some-other-host"]
+        end
+      }
+    end
 
 aws_route_table
 =====================================================
@@ -2645,7 +3736,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
 
 **Define a route table**
 
@@ -2781,7 +3872,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
 
 **Add an Amazon S3 bucket**
 
@@ -3053,7 +4144,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
 
 **Delete a security group**
 
@@ -3320,7 +4411,82 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-None.
+
+
+**Create certificate with certificate_body**
+
+.. To create certificate with certificate_body:
+
+.. code-block:: ruby
+
+    require 'chef/provisioning/aws_driver'
+
+    with_driver 'aws::us-west-1'
+          cert_string = <<-CERT
+    -----BEGIN CERTIFICATE-----
+    MIICyjCCAbICAnyXMA0GCSqGSIb3DQEBDQUAMCcxJTAjBgNVBAMTHENoZWZQcm92
+    aXNpb25pbmdJbnRlcm1lZGlhdGUwHhcNMTcwODI0MTY0NTQyWhcNMjIwODIzMTY0
+    NTQyWjAuMQ4wDAYDVQQDEwVhbGljZTEcMBoGCSqGSIb3DQEJARYNYWxpY2VAY2hl
+    Zi5pbzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKxeXpigv/i4OWPB
+    kIBV3+HrKnEh05uEaq4UfJw0p6opKs4hyc92SvcFge4YBcLRbzhyMY5fUZAJXEla
+    csb6lEs2DMlW/KZGvfSMts2tVNbFVSsIsuSfhHVr9kemE42RPrtsO/0chOk2P/dl
+    P/KvXRF9AtEQe27/CWnJywCkP6tT6baZM6X+GGgAPUHvxN4BmJzz6uHpMVH+rBbb
+    t9ruLoSdX0zbaTRLesBC5Hc8uK2wzvDx0pUj+aKcWg5mtPBT6yReH6D5ePV2Jf10
+    9FGKMqPN6tOO6ZyAIWuKx3v09JzxmWGxNEyR65SNiI+ft092UFEKXYfgK58HZlWj
+    pBcOsHECAwEAATANBgkqhkiG9w0BAQ0FAAOCAQEAY1KXZv35hUER0WZz7JMKlvhI
+    -----END CERTIFICATE-----
+    CERT
+
+          private_key_string = <<-KEY
+    -----BEGIN RSA PRIVATE KEY-----
+    MIIEpAIBAAKCAQEArF5emKC/+Lg5Y8GQgFXf4esqcSHTm4RqrhR8nDSnqikqziHJ
+    z3ZK9wWB7hgFwtFvOHIxjl9RkAlcSVpyxvqUSzYMyVb8pka99Iy2za1U1sVVKwiy
+    5J+EdWv2R6YTjZE+u2w7/RyE6TY/92U/8q9dEX0C0RB7bv8JacnLAKQ/q1Pptpkz
+    pf4YaAA9Qe/E3gGYnPPq4ekxUf6sFtu32u4uhJ1fTNtpNEt6wELkdzy4rbDO8PHS
+    lSP5opxaDma08FPrJF4foPl49XYl/XT0UYoyo83q047pnIAha4rHe/T0nPGZYbE0
+    TJHrlI2Ij5+3T3ZQUQpdh+ArnwdmVaOkFw6wcQIDAQABAoIBAEz8TTXQPk3BQmiq
+    sHaRZFBML4Wd/RwttVQQ9GL0JZqbjnHIp5FQnUTdId4Mvq33yrwkTLvxGMXDWIOu
+    sSrsCkXZWzal8mv1lqveGVuduhG+yz5QQU5ZbNjhInt30q3dHG6rddOj5D0hLMq7
+    XyduaZwBALwNp4O4xySHq3Ka6ZEESpnY5o0hjclS7hAsiFnSW1/jI+yx
+    -----END RSA PRIVATE KEY-----
+    KEY
+
+          certificate_chain_string = <<-CHAIN
+    -----BEGIN CERTIFICATE-----
+    MIICuzCCAaMCAgh0MA0GCSqGSIb3DQEBDQUAMB8xHTAbBgNVBAMTFENoZWZQcm92
+    aXNpb25pbmdSb290MB4XDTE3MDgyNDE2NDUwNloXDTIyMDgyMzE2NDUwNlowJzEl
+    MCMGA1UEAxMcQ2hlZlByb3Zpc2lvbmluZ0ludGVybWVkaWF0ZTCCASIwDQYJKoZI
+    hvcNAQEBBQADggEPADCCAQoCggEBANl0H4XaW5iendZmf7r+QgztzwoEzuG1gyXO
+    SmO+gvrreo9C/lf6zA7x2tfWVs/bBIILpeJxOz1OzAid12o39bAREGxhcUNjQAcP
+    My82JmZpbu/xc6m2HoG9ycuM845MMp/dPO+iXZ6WEOHWTkdwu6u7HvxJAzMjvtOl
+    wLonJNlHDQ3toVLYb2PbiHxivqdTiNxdTATctKkzfU9An3XcPtBlPz2C6BVEjpIc
+    owlrA4UwTQLMFVCUhDKZvsO11UP2fhCjI0FIu7I1VEeWwEuZwdnhGsFg0IfH8YoE
+    VjioKcaKQm1Re517lePyLE3fw+sEH1+8osxE+xVT/5EMxqdU2jMCAwEAATANBgkq
+    hkiG9w0BAQ0FAAOCAQEAQIXWBs8m8U3Vp0rrGP5fIXqw680rf0Dhe9vz5ZnS7oJh
+    7/OWQtOG1YqsUNLMvbTUnilILgrckET280trfDg3/ucAwb5ScrBD3yja6CeGN5fo
+    gtw2MXUV3eA9ByAD4XKIWSvaROdHj+5wiCKWKMGvrSEPay5xEJm54VcALXHGk+Vf
+    jFNHTa/YFrlDXXupmI8HCYKwXrcooNcLuIkEmZIPX99s1vjFVT8oRdYLwFGt7AVC
+    ufkpMTlf/J9WjsabI5O+fzJYgdVm7QUq8Dg3tiM0RcZtO2cWus4DZl/KQkZx84f1
+    WGXzC2zbuS6DI9QPgkLeQ11O2kaeMqkNy6Tzr88XfA==
+    -----END CERTIFICATE-----
+    CHAIN
+
+          aws_server_certificate "test-cert" do
+            certificate_body cert_string
+            private_key private_key_string
+          end
+
+**Create certificate with certificate_chain**
+
+.. To create certificate with certificate_chain:
+
+.. code-block:: ruby
+
+    aws_server_certificate "test-cert1" do
+                certificate_body cert_string
+                private_key private_key_string
+                certificate_chain certificate_chain_string
+    end
 
 aws_sns_topic
 =====================================================
@@ -3402,7 +4568,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
 
 **Create an SNS topic**
 
@@ -3508,7 +4674,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
 
 **Create an SQS queue**
 
@@ -3644,7 +4810,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
 
 **Remove the default subnet**
 
@@ -3920,7 +5086,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
 
 **Add a defined virtual network (VPC)**
 
@@ -4100,3 +5266,122 @@ An Amazon Virtual Private Cloud (VPC) cannot be deleted when it has a non-main r
 
 .. end_tag
 
+aws_vpc_peering_connection
+=====================================================
+The ``aws_vpc_peering_connection`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_vpc_peering_connection`` resource to create a connection between two VPCs that enables you to route traffic between them using private IPv4 addresses or IPv6 addresses.
+
+Syntax
+-----------------------------------------------------
+A ``aws_vpc_peering_connection`` resource block manages an AWS peering connection by specifying which VPCs to peer. For example:
+
+.. code-block:: ruby
+
+  aws_vpc_peering_connection 'test_peering_connection' do
+    vpc 'test_vpc'
+    peer_vpc 'test_vpc_2'
+  end
+
+The full syntax for all of the properties that are available to the ``aws_vpc_peering_connection`` resource is:
+
+.. code-block:: ruby
+
+   aws_vpc_peering_connection 'name' do
+     vpc                           String, AwsVpc, ::Aws::EC2::Vpc
+     peer_vpc                      String, AwsVpc, ::Aws::EC2::Vpc
+     peer_owner_id                 String
+     vpc_peering_connection_id     String
+   end
+
+where
+
+* ``aws_vpc_peering_connection`` is the resource
+* ``name`` is the name of the resource block and also the name of this peering connection
+* ``vpc``, ``peer_vpc``, ``peer_owner_id`` and ``vpc_peering_connection_id`` are attributes of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+
+Properties
+-----------------------------------------------------
+This Chef provisioning driver-specific resource has the following properties:
+
+.. list-table::
+   :widths: 150 450
+   :header-rows: 1
+
+   * - Property
+     - Description
+   * - ``vpc``
+     - **Ruby Type:** String, AwsVpc, ::Aws::EC2::Vpc
+
+       Use to specify the local VPC to peer.
+   * - ``aws_tags``
+     - **Ruby Type:** Hash
+
+       Specify a Hash of Amazon Web Services (AWS) tags.
+
+       .. tag resources_provisioning_aws_attributes_aws_tag_example
+
+       For example:
+
+       .. code-block:: ruby
+
+          aws_tags company: 'my_company', 'key_as_string' => :value_as_symbol
+
+       .. code-block:: ruby
+
+          aws_tags 'Name' => 'custom-vpc-name'
+
+       .. end_tag
+
+   * - ``chef_server``
+     - **Ruby Type:** Hash
+
+       The Chef server on which IDs are located.
+   * - ``driver``
+     - **Ruby Type:** Chef::Provisioning::Driver
+
+       The Chef provisioning driver.
+   * - ``managed_entry_store``
+     - **Ruby Type:** Chef::Provisioning::ManagedEntryStore
+
+       The managed entry store. For example: ``Chef::Provisioning.chef_managed_entry_store(self.chef_server)``.
+   * - ``name``
+     - **Ruby Type:** String
+
+       The name of this peering connection.
+   * - ``peer_vpc``
+     - **Ruby Type:** String, AwsVpc, ::Aws::EC2::Vpc
+
+       Use to specify the VPC to peer
+   * - ``peer_owner_id``
+     - **Ruby Type:** String
+
+       Use to specify the target VPC account ID to peer. If this value is not specified, it will be assumed that the target VPC belongs to the current account.
+
+   * - ``vpc_peering_connection_id``
+     - **Ruby Type:** String
+
+       Use to specify the VPC peering connection ID.
+
+Examples
+-----------------------------------------------------
+
+
+**Manages An AWS peering connection, specifying which VPC to peer**
+
+.. To manage An AWS peering connection, specifying which VPC to peer:
+
+.. code-block:: ruby
+
+    aws_vpc_peering_connection 'test_peering_connection' do
+      vpc 'test_vpc'
+      peer_vpc 'test_vpc_2'
+    end
+
+**Delete a VPC peering connection**
+
+.. To delete a VPC peering connection:
+
+.. code-block:: ruby
+
+    aws_vpc_peering_connection 'test_peering_connection3' do
+      action :destroy
+    end
