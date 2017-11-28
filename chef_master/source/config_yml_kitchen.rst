@@ -115,6 +115,9 @@ This file uses Vagrant as the driver, which requires no additional configuration
 
 Provisioner Settings
 ==========================================================================
+Test Kitchen's provisioner settings will be changing in a future version. See `Chef RFC 091 <https://github.com/chef/chef-rfc/blob/master/rfc091-deprecate-kitchen-settings.md>`_
+for details. Settings that will be deprecated are listed in the descriptions below. The new recommended settings are listed in the `New Provisioner Settings </config_yml_kitchen.html#new-provisioner-settings>`__ table.
+
 Kitchen can configure the chef-zero provisioner with the following Chef-specific settings:
 
 .. list-table::
@@ -128,13 +131,14 @@ Kitchen can configure the chef-zero provisioner with the following Chef-specific
    * - ``chef_client_path``
      - chef-client provisioner only.
    * - ``chef_metadata_url``
-     -
+     - **This will be deprecated in a future version.**
    * - ``chef_omnibus_install_options``
-     - Use to specify the package to be installed. Possible values: ``-P chef`` (for the chef-client) and ``-P chefdk`` (for the chef-client that is packaged as part of the Chef development kit). Use ``-n`` to specify the nightly build. For example: ``-P chefdk`` or ``-n -P chefdk``.
+     - Use to specify the package to be installed. Possible values: ``-P chef`` (for the Chef client) and ``-P chefdk`` (for the Chef client that is packaged as part of the Chef DK). Use ``-n`` to specify the nightly build. For example: ``-P chefdk`` or ``-n -P chefdk``. **This will be deprecated in a future version.** See the ``product_name``, ``product_version``, and ``channel`` settings instead.
+
    * - ``chef_omnibus_root``
      - Default value: ``/etc/opt`` for UNIX and Linux, ``$env:systemdrive\\opscode\\chef`` on Microsoft Windows.
    * - ``chef_omnibus_url``
-     - The URL for an ``install.sh`` script that will install chef-client on the machine under test. Default value: ``https://www.chef.io/chef/install.sh``.
+     - The URL for an ``install.sh`` script that will install chef-client on the machine under test. Default value: ``https://www.chef.io/chef/install.sh``. **This will be deprecated in a future version.**
    * - ``chef_solo_path``
      - chef-solo provisioner only.
    * - ``chef_zero_host``
@@ -174,7 +178,7 @@ Kitchen can configure the chef-zero provisioner with the following Chef-specific
    * - ``no_proxy``
      - The comma-separated exception list of host patterns to exclude from proxying.
    * - ``install_msi_url``
-     - An alternate URL for a Windows MSI package that will install chef-client on the machine under test.
+     - An alternate URL for a Windows MSI package that will install chef-client on the machine under test. **This will be deprecated in a future version.** Use the ``download_url`` setting instead.
    * - ``json_attributes``
      - chef-client provisioner only.
    * - ``log_file``
@@ -184,7 +188,7 @@ Kitchen can configure the chef-zero provisioner with the following Chef-specific
    * - ``nodes_path``
      - The relative path to the directory in which node data is located. This data must be defined as JSON.
    * - ``require_chef_omnibus``
-     - Use to install the latest version of the chef-client in a node. Set to ``true`` to install the latest version, ``false`` to not install chef-client (assumes the box already has it installed), or a version specifier like ``12.19.36`` to install a particular version, or simply ``12`` to install the latest 12.x package. When set to ``true`` or a version number, the ``chef_omnibus_url`` may be used to specify the URL of the ``install.sh`` that installs the specified version of chef-client. Default value: ``true``.
+     - Use to install the latest version of Chef client on a node. Set to ``true`` to install the latest version, ``false`` to not install Chef client (assumes the box already has it installed), or a version specifier like ``12.19.36`` to install a particular version, or simply ``12`` to install the latest 12.x package. When set to ``true`` or a version number, the ``chef_omnibus_url`` may be used to specify the URL of the ``install.sh`` that installs the specified version of Chef client. Default value: ``true``. **This will be deprecated in a future version.**  See the ``product_version`` and ``install_strategy`` settings.
    * - ``roles_path``
      - The relative path to the directory in which role data is located. This data must be defined as JSON.
    * - ``root_path``
@@ -197,6 +201,54 @@ Kitchen can configure the chef-zero provisioner with the following Chef-specific
      - chef-solo provisioner only.
 
 These settings may be added to the ``provisioner`` section of the .kitchen.yml file when the provisioner is chef-zero or chef-solo.
+
+New Provisioner Settings
+--------------------------------------------------------------------------
+
+.. list-table::
+  :widths: 75 275 25 125
+  :header-rows: 1
+
+  * - New Setting
+    - Description
+    - Default
+    - Replaces
+  * - ``product_name``
+    - ``chef`` or ``chefdk``. This setting must be specified in order to use the new settings. Using this setting overrides Test Kitchen's default behavior based on the ``require_chef_omnibus`` setting.
+    -
+    - ``chef_omnibus_install_options``
+  * - ``product_version``
+    - Product version number. Supports partial version numbers.
+    - ``latest``
+    - ``require_chef_omnibus``
+  * - ``channel``
+    - Artifact repository name. ``stable``, ``current`` or ``unstable``.
+    - ``stable``
+    - ``chef_omnibus_install_options``
+  * - ``install_strategy``
+    - Product install strategy. ``once`` (Don't install if any product installation detected), ``always`` or ``skip``.
+    - ``once``
+    - ``require_chef_omnibus``
+  * - ``download_url``
+    - Direct package URL. Supports all platforms.
+    -
+    - ``install_msi_url``
+  * - ``checksum``
+    - Optional setting when using ``download_url``. Validates SHA256 checksum after download.
+    -
+    -
+  * - ``platform``
+    - Override platform.
+    - <auto detected>
+    -
+  * - ``platform_version``
+    - Override platform platform.
+    - <auto detected>
+    -
+  * - ``architecture``
+    - Override platform architecture.
+    - <auto detected>
+    -
 
 .. note:: There are two community provisioners for Kitchen: `kitchen-dsc <https://github.com/smurawski/kitchen-dsc>`__ and `kitchen-pester <https://github.com/smurawski/kitchen-pester>`__.
 
