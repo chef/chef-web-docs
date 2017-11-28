@@ -1,5 +1,6 @@
 cia_infra_static_site node['delivery']['change']['project'] do
   action :deploy
+  quiet true
   redirect_file File.join(node['delivery']['workspace']['repo'], 'config', 'redirects.json')
 end
 
