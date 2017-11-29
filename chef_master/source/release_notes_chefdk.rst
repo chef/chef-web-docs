@@ -1,9 +1,107 @@
 =====================================================
-Release Notes: Chef Development Kit 0.19 - 2.3.4
+Release Notes: Chef Development Kit 0.19 - 2.4.17
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_chefdk.rst>`__
 
 Chef Development Kit is released on a monthly schedule with new releases the third Monday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef DK on GitHub <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__
+
+What's New in 2.4.17
+=====================================================
+* **Improved performance downloading cookbooks from a Chef server**
+
+  Policyfile users who use a Chef server as a cookbook source will experience faster cookbook downloads when running ``chef install``. Chef server's API requires each file in a cookbook to be downloaded separately; ChefDK will now download the files in parallel. Additionally, HTTP keepalives are enabled to reduce connection overhead.
+
+* **Cookbook artifact source for policyfiles**
+
+  Policyfile users may now source cookbooks from the Chef server's cookbook artifact store. This is mainly intended to support the upcoming ``include_policy`` feature, but could be useful in some situations.
+
+  Given a cookbook that has been uploaded to the Chef server via ``chef push``, it can be used in another policy by adding code like the following to the ruby policyfile:
+
+  .. code-block:: ruby
+
+    cookbook "runit",
+      chef_server_artifact: "https://chef.example/organizations/myorg",
+      identifier: "09d43fad354b3efcc5b5836fef5137131f60f974"
+
+
+* **Added include_policy directive**
+
+  Policyfile can use the ``include_policy`` directive as described in `RFC097 <https://github.com/chef/chef-rfc/blob/master/rfc097-policyfile-includes.md>`__. This directive's purpose is to allow the inclusion policyfile locks to the current policyfile. In this iteration, we support sourcing lock files from a local path or a Chef server. Below is a simple example of how the ``include_policy`` directive can be used:
+
+  Given a policyfile ``base.rb``:
+
+  .. code-block:: ruby
+
+     name 'base'
+
+     default_source :supermarket
+
+     run_list 'motd'
+
+     cookbook 'motd', '~> 0.6.0'
+
+
+  Run:
+
+  .. code-block:: none
+
+      >> chef install ./base.rb
+
+      Building policy base
+      Expanded run list: recipe[motd]
+      Caching Cookbooks...
+      Using      motd         0.6.4
+      Using      chef_handler 3.0.2
+
+      Lockfile written to /home/jaym/workspace/chef-dk/base.lock.json
+      Policy revision id: 1238e7a353ec07a4df6636cdffd8805220a00789bace96d6d70268a4b0064023
+
+  This will produce the ``base.lock.json`` file that will be included in our next policy, ``users.rb``:
+
+  .. code-block:: ruby
+
+      name 'users'
+
+      default_source :supermarket
+
+      run_list 'user'
+
+      cookbook 'user', '~> 0.7.0'
+
+      include_policy 'base', path: './base.lock.json'
+
+
+  Run:
+
+  .. code-block:: none
+
+      >> chef install ./users.rb
+
+      Building policy users
+      Expanded run list: recipe[motd::default], recipe[user]
+      Caching Cookbooks...
+      Using      motd         0.6.4
+      Installing user         0.7.0
+      Using      chef_handler 3.0.2
+
+      Lockfile written to /home/jaym/workspace/chef-dk/users.lock.json
+      Policy revision id: 20fac68f987152f62a2761e1cfc7f1dc29b598303bfb2d84a115557e2a4a8f27
+
+
+  This will produce a ``users.lock.json`` file that has the ``base`` policyfile lock merged in.
+
+  More information can be found in `RFC097 <https://github.com/chef/chef-rfc/blob/master/rfc097-policyfile-includes.md>`__ and the `Policyfile documentation </policyfile.html>`__.
+
+* **New tools bundled**
+
+  We are are now shipping these tools as part of Chef DK:
+
+    * `kitchen-digitalocean <https://github.com/test-kitchen/kitchen-digitalocean>`__
+    * `kitchen-google <https://github.com/test-kitchen/kitchen-google>`__
+    * `knife-ec2 <https://github.com/chef/knife-ec2>`__
+    * `knife-google <https://github.com/chef/knife-google>`__
+
+See the detailed `change log <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md#v2417-2017-11-29>`__ for additional information.
 
 What's New in 2.3.4
 =====================================================
@@ -32,7 +130,7 @@ ChefDK 2.3 includes:
 * Test Kitchen 1.17.0
 * Stove 6.0
 
-Additionally, the cookbook generator now adds a ``LICENSE`` file when creating a new cookbook. 
+Additionally, the cookbook generator now adds a ``LICENSE`` file when creating a new cookbook.
 
 See the detailed `change log <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md#v231-2017-09-14>`__ for a complete list of changes.
 
