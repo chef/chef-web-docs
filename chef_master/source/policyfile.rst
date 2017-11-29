@@ -209,7 +209,7 @@ A ``Policyfile.rb`` file may contain the following settings:
       named_run_list :update_app, "my_app_cookbook::default"
 
 ``include_policy "NAME", *args``
-   **New in Chef DK 2.5** Specify a policyfile lock to be merged with this policy. Chef DK supports pulling this lock from a local file or from Chef server. When the policyfile lock is included, its run-lists will appear before the current policyfile's run-list. This setting requires that the solved cookbooks appear as-is from the included policyfile lock. If conflicting attributes or cookbooks are provided, an error will be presented. See `RFC097 <https://github.com/chef/chef-rfc/blob/master/rfc097-policyfile-includes.md>`__ for the full specifications of this feature.
+   **New in Chef DK 2.4** Specify a policyfile lock to be merged with this policy. Chef DK supports pulling this lock from a local file or from Chef server. When the policyfile lock is included, its run-lists will appear before the current policyfile's run-list. This setting requires that the solved cookbooks appear as-is from the included policyfile lock. If conflicting attributes or cookbooks are provided, an error will be presented. See `RFC097 <https://github.com/chef/chef-rfc/blob/master/rfc097-policyfile-includes.md>`__ for the full specifications of this feature.
 
 
   Pull the policyfile lock from ``./NAME.lock.json``:
