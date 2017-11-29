@@ -9,13 +9,13 @@ What's New in 2.4.17
 =====================================================
 * **Improved performance downloading cookbooks from a Chef server**
 
-  Policyfile users who use a Chef Server as a cookbook source will experience faster cookbook downloads when running ``chef install``. Chef Server's API requires each file in a cookbook to be downloaded separately; ChefDK will now download the files in parallel. Additionally, HTTP keepalives are enabled to reduce connection overhead.
+  Policyfile users who use a Chef server as a cookbook source will experience faster cookbook downloads when running ``chef install``. Chef server's API requires each file in a cookbook to be downloaded separately; ChefDK will now download the files in parallel. Additionally, HTTP keepalives are enabled to reduce connection overhead.
 
 * **Cookbook artifact source for policyfiles**
 
   Policyfile users may now source cookbooks from the Chef server's cookbook artifact store. This is mainly intended to support the upcoming ``include_policy`` feature, but could be useful in some situations.
 
-  Given a cookbook that has been uploaded to the Chef Server via ``chef push``, it can be used in another policy by adding code like the following to the ruby policyfile:
+  Given a cookbook that has been uploaded to the Chef server via ``chef push``, it can be used in another policy by adding code like the following to the ruby policyfile:
 
   .. code-block:: ruby
 
