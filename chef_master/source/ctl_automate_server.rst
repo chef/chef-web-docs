@@ -468,6 +468,7 @@ The ``install-runner`` subcommand configures a remote node as a job runner, whic
       -y, --yes                             Skip configuration confirmation and overwrite any existing Chef Server nodes of the same name as FQDN
       -e, --enterprise                      Legacy option, only required if you have more than one enterprise configured. Workflow enterprise to add the runner into
       --fips-custom-cert-filename FILENAME  If you have a self-signed or self-owned Certificate Authority (CA) and wish to operate in FIPS mode, pass this flag the path to a file containing your custom certificate chain on your Automate server. This file will be copied to the runner and used when running jobs in FIPS mode. If you have purchased a certificate from a known CA for Automate server, you can ignore this flag. Please see the Automate FIPS docs for details.
+      --full-ohai                           If `--full-ohai` flag set, Chef will run with full Ohai plugins.
 
 
 .. note:: The username provided must be a user who has sudo access on the remote node. If the user is a member of a domain, then the username value should be entered as ``user@domain``.
