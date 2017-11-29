@@ -228,6 +228,21 @@ Cookstyle 2.0
 -----------------------------------------------------
 Cookstyle 2.0 is based on Rubocop 0.49.1, which changed a large number of rule names.
 
+
+What's New in 1.6.11
+=====================================================
+This release contains only dependency updates, including several security fixes:
+
+* Ruby has been upgraded to 2.3.5 to address the following CVEs:
+
+  * `CVE-2017-0898 <https://www.ruby-lang.org/en/news/2017/09/14/sprintf-buffer-underrun-cve-2017-0898/>`__
+  * `CVE-2017-10784 <https://www.ruby-lang.org/en/news/2017/09/14/webrick-basic-auth-escape-sequence-injection-cve-2017-10784/>`__
+  * `CVE-2017-14033 <https://www.ruby-lang.org/en/news/2017/09/14/openssl-asn1-buffer-underrun-cve-2017-14033/>`__
+  * `CVE-2017-14064 <https://www.ruby-lang.org/en/news/2017/09/14/json-heap-exposure-cve-2017-14064/>`__
+
+* Chef Client has been upgraded to 12.21.26
+* Push Jobs Client has been upgraded to 2.4.5
+
 What's New in 1.5
 =====================================================
 
