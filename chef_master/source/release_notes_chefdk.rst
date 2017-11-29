@@ -25,6 +25,7 @@ What's New in 2.4.17
 
 
 * **Added include_policy directive**
+
   Policyfile can use the ``include_policy`` directive as described in `RFC097 <https://github.com/chef/chef-rfc/blob/master/rfc097-policyfile-includes.md>`__. This directive's purpose is to allow the inclusion policyfile locks to the current policyfile. In this iteration, we support sourcing lock files from a local path or a Chef server. Below is a simple example of how the ``include_policy`` directive can be used:
 
   Given a policyfile ``base.rb``:
