@@ -265,20 +265,12 @@ Concepts
 **Workflow**: `Workflow Overview </workflow.html>`__ | `Manage Dependencies </delivery_manage_dependencies.html>`__
 
 `Nodes Overview </visibility.html>`__ |
-`Compliance Overview </chef_automate_compliance.html>`__
+`Compliance Overview </chef_automate_compliance.html>`__ |
+`Administration Overview </automate_admin.html>`__ |
 
 Delivery CLI
 -----------------------------------------------------
 `Delivery CLI </delivery_cli.html>`__
-
-Integrations
------------------------------------------------------
-`Authentication w/LDAP </integrate_delivery_ldap.html>`__ |
-`Authentication w/SAML </integrate_chef_automate_saml.html>`__ |
-`Workflow w/Bitbucket </integrate_delivery_bitbucket.html>`__ |
-`Workflow w/Email (SMTP) </integrate_delivery_smtp.html>`__ |
-`Workflow w/GitHub </integrate_delivery_github.html>`__ |
-`Workflow w/Slack </integrate_delivery_slack.html>`__
 
 Nodes
 -----------------------------------------------------
@@ -293,6 +285,17 @@ Compliance
 `Profile Store </profile_store.html>`__|
 `Credentials </automate_compliance_credentials.html>`__
 
+Workflow
+-----------------------------------------------------
+`Workflow w/Bitbucket </integrate_delivery_bitbucket.html>`__ |
+`Workflow w/Email (SMTP) </integrate_delivery_smtp.html>`__ |
+`Workflow w/GitHub </integrate_delivery_github.html>`__ |
+`Workflow w/Slack </integrate_delivery_slack.html>`__
+
+Admin
+-----------------------------------------------------
+`Authentication w/LDAP </integrate_delivery_ldap.html>`__ |
+`Authentication w/SAML </integrate_chef_automate_saml.html>`__
 
 Cookbooks
 -----------------------------------------------------
@@ -463,6 +466,7 @@ Addenda
    automate_compliance_profile_store
    automate_compliance_credentials
    automate_nodes
+   automate_admin
    aws_marketplace
    aws_opsworks_chef_automate
    azure_portal
