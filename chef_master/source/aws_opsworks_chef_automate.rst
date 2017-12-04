@@ -25,8 +25,8 @@ Configuring AWS OpsWorks for Chef Automate with runners
 
 In order to add runners to your "AWS OpsWorks for Chef Automate" instance you need to do the following:
 
-#. Make sure you have selected ``Use an existing EC2 key pair`` in the ``Select an SSH key`` section while creating your AWS OpsWorks for Chef Automate instance. In order to add a runner, you need to SSH into your instance and run the :ref:`install-runner` subcommand.
-#. Your runner should be reachable via SSH from your Chef Automate instance. For this to succeed, you need to make sure its subnet, security groups, and SSH key pair are configured correctly. We also recommend setting up a dedicated SSH key pair in AWS and copying the private key to your Chef Automate instance and use it while running :ref:`install-runner` command.
+#. Make sure you have selected ``Use an existing EC2 key pair`` in the ``Select an SSH key`` section while creating your AWS OpsWorks for Chef Automate instance. In order to add a runner, you need to SSH into your instance and run the `install-runner </ctl_automate_server.html#install-runner>`__ subcommand.
+#. Your runner should be reachable via SSH from your Chef Automate instance. For this to succeed, you need to make sure its subnet, security groups, and SSH key pair are configured correctly. We also recommend setting up a dedicated SSH key pair in AWS and copying the private key to your Chef Automate instance and use it while running `install-runner </ctl_automate_server.html#install-runner>`__ command.
 #. You can find the FQDN of your "AWS OpsWorks for Chef Automate" instance in the OpsWorks console. You can use ``ec2-user`` as the username to SSH into your instance. Assuming you have configured the SSH keys correctly, the SSH command should look like ``ssh ec2-user@<instance-name>-<random-chars>.gamma.opsworks-cm.io``.
 
 .. warning:: Runners on AWS OpsWorks must use Chef DK version 1.5.0. Use ``automate-ctl`` to configure a runner with Chef DK 1.5.0:
@@ -38,7 +38,7 @@ In order to add runners to your "AWS OpsWorks for Chef Automate" instance you ne
 Pushing a change through AWS OpsWorks for Chef Automate
 ========================================================
 
-Existing documentation for pushing a change through Chef Automate is applicable for AWS OpsWorks for Chef Automate. The only extra configuration that you will need to do is to make sure you edit the security group of your AWS OpsWorks for Chef Automate instance to allow inbound Git traffic (using the SSH protocol). This is required so that you can create and approve changes in your Chef Automate instance. Once you :ref:`found your Chef Automate instance <find-opsworks-instance>` you can go to the linked security group and add a new inbound rule.
+Existing documentation for pushing a change through Chef Automate is applicable for AWS OpsWorks for Chef Automate. The only extra configuration that you will need to do is to make sure you edit the security group of your AWS OpsWorks for Chef Automate instance to allow inbound Git traffic (using the SSH protocol). This is required so that you can create and approve changes in your Chef Automate instance. Once you `find your Chef Automate instance </aws_opsworks_chef_automate.html#find-opsworks-instance>`__ you can go to the linked security group and add a new inbound rule.
 
 .. code-block:: text
 

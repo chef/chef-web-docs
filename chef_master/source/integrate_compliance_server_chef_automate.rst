@@ -62,7 +62,7 @@ To enable this use-case, add the following settings to ``/etc/opscode/chef-serve
 
 and run ``sudo chef-server-ctl reconfigure``.
 
-The profiles store service also needs to be enabled in Chef Automate. This is documented in :ref:`profiles`.
+The profiles store service also needs to be enabled in Chef Automate. This is documented in `Profiles </install_chef_automate.html#profiles>`__.
 Manage the profiles in profiles asset store using the `Chef Automate API </api_automate.html>`_.
 
 When using the ``audit`` cookbook, set the ``node['audit']['reporter']`` attribute to ``chef-server-automate``, and retrieve profiles from the following sources: ``Chef Automate`` ( via ``Chef Server`` ), ``Chef Supermarket``, ``local filesystem`` and ``git repository``.

@@ -181,7 +181,7 @@ Next, create a notification in Chef Analytics:
 
 #. Click on **Save**. The new notification will be displayed in the **Notifications** list.
 
-#. Follow the instructions in :ref:`analytics_rules_send_a_notification` to create a rule that will trigger the notification you've created.
+#. Follow the instructions in `Send a Notification </analytics_rules.html#analytics-rules-send-a-notification>`__ to create a rule that will trigger the notification you've created.
 
 Slack
 -----------------------------------------------------
@@ -347,7 +347,7 @@ Chef Analytics can be configured to send event notifications by email.
 
 #. Click on **Save**. The new notification will be displayed in the **Notifications** list.
 
-#. Follow the instructions in :ref:`analytics_rules_send_a_notification` to create a rule that will trigger the notification you've created.
+#. Follow the instructions in `Send a Notification </analytics_rules.html#analytics-rules-send-a-notification>`__ to create a rule that will trigger the notification you've created.
 
 Webhooks
 -----------------------------------------------------

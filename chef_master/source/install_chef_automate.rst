@@ -349,7 +349,7 @@ The following steps show how to set up a runner from a Chef Automate server. Whi
 
    If you require a specific version of the ChefDK to be downloaded and installed on your runners, you can specify it in the ``--chefdk-version`` option. This is useful if your cookbooks are not compatible the Chef client that comes with the latest version of the ChefDK.
 
-   For more ``install-runner`` usage examples, see :ref:`install-runner`, and for more information on runners and the SSH-based job dispatch system, see `Runners </runners.html>`_.
+   For more ``install-runner`` usage examples, see `install-runner </ctl_automate_server.html#install-runner>`__, and for more information on runners and the SSH-based job dispatch system, see `Runners </runners.html>`_.
 
    .. tag chef_automate_build_nodes
 
