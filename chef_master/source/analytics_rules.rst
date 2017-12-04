@@ -169,7 +169,7 @@ An expression defines a specific test in a rule and uses fields within the expre
 
    array:contains(run_list, 'role[opscode-reporting]')
 
-where both ``total_resource_count``, ``updated_resource_count``, and ``run_list`` are the :ref:`fields specific to a message type <analytics_rules-message-types>`.
+where both ``total_resource_count``, ``updated_resource_count``, and ``run_list`` are the `fields specific to a message type </analytics_rules.html#analytics-rules-message-types>`__.
 
 then
 -----------------------------------------------------
@@ -1081,7 +1081,7 @@ where:
 * ``notificationName`` is the name of the notification to trigger.
 * ``stringTemplate`` is an optional Mustache template that defines the notification. The template must evaluate to a valid JSON string.
 
-Field names in the Mustache template must be prefixed by ``message.``, e.g. ``{{message.reported_at}}`` using :ref:`a valid field name for the message type <analytics_rules-message-types>`. For more information on the Mustache template format, see https://mustache.github.io.
+Field names in the Mustache template must be prefixed by ``message.``, e.g. ``{{message.reported_at}}`` using `a valid field name for the message type </analytics_rules.html#analytics-rules-message-types>`__. For more information on the Mustache template format, see https://mustache.github.io.
 
 For example:
 

@@ -138,7 +138,7 @@ Version constraints are the second parameter:
 
    cookbook "library-cookbook", "~> 0.1.1"
 
-These are identical to the version constraints in a :ref:`cookbook metadata file <cookbook_version_constraints>`.
+These are identical to the version constraints in a `cookbook metadata file </config_rb_metadata.html#cookbook-version-constraints>`__.
 
 Source options are used to specify the location to acquire a cookbook from, or to place a cookbook in a group. By default, cookbooks are acquired from the default sources, but it's possible to override this on a case by case basis. Often this is used to get a development cookbook from Git, or to use another cookbook in a monolithic cookbook repository.
 

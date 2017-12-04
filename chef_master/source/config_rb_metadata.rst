@@ -90,7 +90,7 @@ This configuration file has the following settings:
 
    .. note:: This setting is not visible in Chef Supermarket.
 
-   A range of chef-client versions that are supported by this cookbook. All :ref:`version constraint operators <cookbook_version_constraints>` are applicable to this field.
+   A range of chef-client versions that are supported by this cookbook. All `version constraint operators </config_rb_metadata.html#cookbook-version-constraints>`__ are applicable to this field.
 
 
    .. tag config_rb_metadata_settings_example_chef_version
@@ -110,7 +110,7 @@ This configuration file has the following settings:
    .. end_tag
 
 ``depends``
-   This field requires that a cookbook with a matching name and version exists on the Chef server. When the match exists, the Chef server includes the dependency as part of the set of cookbooks that are sent to the node when the chef-client runs. It is very important that the ``depends`` field contain accurate data. If a dependency statement is inaccurate, the chef-client may not be able to complete the configuration of the system. All :ref:`version constraint operators <cookbook_version_constraints>` are applicable to this field.
+   This field requires that a cookbook with a matching name and version exists on the Chef server. When the match exists, the Chef server includes the dependency as part of the set of cookbooks that are sent to the node when the chef-client runs. It is very important that the ``depends`` field contain accurate data. If a dependency statement is inaccurate, the chef-client may not be able to complete the configuration of the system. All `version constraint operators </config_rb_metadata.html#cookbook-version-constraints>`__ are applicable to this field.
 
    For example, to set a dependency a cookbook named ``cats``:
 
@@ -255,7 +255,7 @@ This configuration file has the following settings:
    Changed in Chef Client 12.0 to required.
 
 ``ohai_version``
-   A range of Ohai versions that are supported by this cookbook. All :ref:`version constraint operators <cookbook_version_constraints>` are applicable to this field.
+   A range of Ohai versions that are supported by this cookbook. All `version constraint operators </config_rb_metadata.html#cookbook-version-constraints>`__ are applicable to this field.
 
    .. tag config_rb_metadata_settings_example_ohai_version
 
