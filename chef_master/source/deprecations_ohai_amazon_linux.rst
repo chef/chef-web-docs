@@ -14,7 +14,7 @@ Existing code only checking for rhel platform family:
 
 .. code-block:: ruby
 
-  if platform_family('rhel')
+  if platform_family?('rhel')
     service 'foo' do
       action :start
     end
@@ -25,7 +25,7 @@ Updated code to check for both rhel and amazon platform families:
 
 .. code-block:: ruby
 
-  if platform_family('rhel', 'amazon')
+  if platform_family?('rhel', 'amazon')
     service 'foo' do
       action :start
     end
