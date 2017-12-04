@@ -213,7 +213,7 @@ to join nodes in parallel the cluster may fail to become available):
 #. Install backend package on the node.
 
 #. If you added a ``postgresql.md5_auth_cidr_addresses`` line to the leader's ``/etc/chef-backend/chef-backend.rb``
-   in :ref:`step_1_create_cluster` then update this node's ``/etc/chef-backend/chef-backend.rb`` with the following
+   in `Step 1: Create Cluster </install_server_ha.html#step-1-create-cluster>`__ then update this node's ``/etc/chef-backend/chef-backend.rb`` with the following
    content where ``postgresql.md5_auth_cidr_addresses`` is set to the
    same value used in the leader's ``chef-backend.rb``.
    If all of the backends and frontends are in the same network then you don't need to

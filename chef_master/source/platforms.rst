@@ -3,7 +3,7 @@ Platforms and Supported Versions
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/platforms.rst>`__
 
-Chef software is supported on the various operating systems (platforms) listed below. To see which versions of our software we currently support, see the :ref:`versions` section.
+Chef software is supported on the various operating systems (platforms) listed below. To see which versions of our software we currently support, see the `Supported Versions </platforms.html#versions>`__ section.
 
 Platforms
 =====================================================
