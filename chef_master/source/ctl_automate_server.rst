@@ -124,6 +124,24 @@ This subcommand has the following syntax:
 
    $ automate-ctl create-user enterprise john_smith --password my_password --roles reviewer,committer
 
+create-users
+=====================================================
+The ``create-users`` subcommand is used to create one or more users from a TSV file. 
+
+**Syntax**
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ automate-ctl create-user TSV-FILE-PATH
+
+**Example**
+
+.. code-block:: bash
+
+   $ automate-ctl create-user MyUserList.TSV
+
 data-summary
 =====================================================
 New in Chef Automate 1.6.192.
@@ -306,7 +324,7 @@ This subcommand has the following syntax:
 
 delete-project
 =====================================================
-The ``delete-project`` subcommand is used to delete a Chef Automate project.
+The ``delete-project`` subcommand is used to delete a Chef Automate project. 
 
 **Syntax**
 
@@ -382,6 +400,18 @@ New in Chef Automate 1.6.87.
    Do you wish to proceed? (yes/no):
    $ yes
 
+doctor
+=====================================================
+The ``doctor`` command validates the configuration files.
+
+**Syntax**
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ automate-ctl doctor
+
 gather-logs
 =====================================================
 The ``gather-logs`` command is used to collect the logs from Chef Automate into a compressed file archive. It will create a tbz2 file in the current working directory, with the timestamp as the file name.
@@ -395,7 +425,7 @@ This subcommand has the following syntax:
 .. code-block:: bash
 
    $ automate-ctl gather-logs
-        --all-logs          Gather all of the logs, regardless of size or age.
+         --all-logs          Gather all of the logs, regardless of size or age.
 
 .. warning:: The ``--all-logs`` option can potentially take up a large amount of disk space.
 
@@ -432,6 +462,34 @@ This subcommand has the following syntax:
 .. code-block:: bash
 
    $ automate-ctl help
+
+install-build-node
+====================================================
+THe ``install-build-node`` subcommand configures a named node too act as a build node in a delivery cluster. For more information on delivery, please see the `Workflow Overview </workflow.html>`_. For more information on delivery commands, please see `Delivery CLI </delivery_cli.html>`_.
+
+**Syntax**
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ automate-ctl install-build-node [options]
+        -h, --help                       Prints this help
+        -I PATH_TO_INSTALLER,            The location of the ChefDK package for the build node (Required)
+        --installer
+        -f, --fqdn FQDN                  FQDN of the remote host that will be configured into a build node
+        -u, --username USERNAME          Username to use for authentication to the remote host
+        -P, --password PASSWORD          Password to use for authentication to the remote host
+        -p, --port PORT                  Port to connect to on the remote host
+        -i [IDENTITY_FILE],              The SSH identity file used for authentication -
+        --ssh-identity-file          will prompt if flag is specified but no filename is given
+        -o                               overwrite this node's entryin chef server if it's already registered
+        --[no-]overwrite-registration
+        -V VERSION,                      Job dispatch version to use(v1 [default] or v2)
+           --job-dispatch-version
+        -a, --admin-user NAME            Admin user name (necessary for job dispatch version or v2)
+        -t, --admin-token TOKEN          Admin token (necessary for job dispatch version or v2)
+        -e, --enterprise ENTERPRISE      Enterprise to use (necessary for job dispatch version or v2)
+
 
 .. _install-runner:
 
@@ -565,6 +623,31 @@ This subcommand has the following syntax:
 .. code-block:: bash
 
    $ automate-ctl migrate-change-description-dry-run ENT_NAME ORG_NAME PROJECT_NAME CHANGE
+
+migrate-compliance
+=====================================================
+The ``migrate-compliance`` subcommand is used to execute migration of Compliance data, if needed.
+
+**Syntax**
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ automate-ctl migrate-compliance [options]
+      -debug          Turn on debug logging
+
+migrate-github-project
+=====================================================
+The ``migrate-github-project`` subcommand is used to execute migration of a project to a new GitHub integration.
+
+**Syntax**
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ automate-ctl migrate-github-project (ENTERPRISE | ENTERPRISE ORG | ENTERPRISE ORG PROJECT)
 
 migrate-patchset-diffs
 =====================================================
@@ -785,17 +868,43 @@ show-config
 =====================================================
 The ``show-config`` subcommand is used to view the configuration that will be generated by the ``reconfigure`` subcommand. This command is most useful in the early stages of a deployment to ensure that everything is built properly prior to installation.
 
+**Syntax**
+
 This subcommand has the following syntax:
 
 .. code-block:: bash
 
    $ automate-ctl show-config
 
+setup
+=====================================================
+The ``setup`` subcommand is used to configure the Chef Automate Server.
+
+**Syntax**
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ automate-ctl setup [options]
+        -h, --help                       Prints this help
+        --minimal                    [Pre-Release] Set up Chef Automate with a minimal default configuration.
+        -l, --license LICENSE            Location of Chef Automate license file.
+        -f, --fqdn FQDN                  The external fully qualified domain name of this node (Already set in delivery.rb.  Do not set via flag.)
+        -k, --key CHEF_AUTOMATE_USER_KEY Location of Chef Automate user key (Already set in delivery.rb.  Do not set via flag.)
+        --server-url CHEF_SERVER_URL Chef Server URL (Already set in delivery.rb.  Do not set via flag.)
+        --supermarket-fqdn SUPERMARKET_FQDN
+                                     Internal Supermarket FQDN
+        -e CHEF_AUTOMATE_ENTERPRISE_NAME,
+        --enterprise                 Name of the Chef Automate Enterprise to create.
+        --[no-]build-node            Install a build node after Chef Automate Server setup completes.
+        --[no-]configure             Apply configuration changes automatically after Chef Automate Server setup completes.
+
 telemetry
 =====================================================
 
 The ``telemetry`` subcommand is used in conjunction with additional subcommands to enable, disable, or show the status of telemetry on the server.
 
+**Syntax**
 This subcommand has the following syntax:
 
 .. code-block:: bash
