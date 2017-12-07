@@ -139,6 +139,12 @@ This resource has the following properties:
 
    For ``:on_idle`` frequency, the time (in minutes) without user activity that must pass to trigger the task, from 1 - 999. 
 
+``execution_time_limit``
+   **Ruby Type:** String | **Default Value:** ``PT72H`` (72 hours)
+
+   The maximum time in seconds the task will run.
+
+
 Examples
 =====================================================
 
