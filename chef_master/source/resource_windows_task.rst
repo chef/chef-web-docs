@@ -41,29 +41,29 @@ where
 * ``'name'`` is the name of the resource block
 * ``command`` is the command to be executed by the windows scheduled task.
 * ``frequency`` is the frequency with which to run the task. (default is :hourly. Other valid values include :minute, :hourly, :daily, :weekly, :monthly, :none, :once, :on_logon, :onstart, :on_idle)
-* ``frequency_modifier`` Multiple for frequency. (15 minutes, 2 days). Monthly tasks may also use these values": ('FIRST', 'SECOND', 'THIRD', 'FOURTH', 'LAST', 'LASTDAY')
+* ``frequency_modifier`` Multiple for frequency. (15 minutes, 2 days). Monthly tasks may also use these values: ``('FIRST', 'SECOND', 'THIRD', 'FOURTH', 'LAST', 'LASTDAY')``
 
 Actions
 =====================================================
 This resource has the following actions:
 
 ``:create``
-   creates a task (or updates existing if any property has changed)
+   Creates a task, or updates an existing task if any property has changed.
 
 ``:delete``
-   deletes a task
+   Deletes a task.
 
 ``:run``
-   runs a task
+   Runs a task.
 
 ``:end``
-   ends a task
+   Ends a task.
 
 ``:enable``
-   enables a task
+   Enables a task.
 
 ``:disable``
-   disables a task
+   Disables a task.
 
 Properties
 =====================================================
@@ -72,7 +72,7 @@ This resource has the following properties:
 ``task_name``
    **Ruby Type:** String
 
-   Name attribute, The task name, such as ``"Task Name"`` or ``"/Task Name"``
+   The task name, such as ``"Task Name"`` or ``"/Task Name"``
 
 ``force``
    **Ruby Type:** TrueClass, FalseClass
@@ -85,9 +85,9 @@ This resource has the following properties:
    The directory the task will be run from.
 
 ``user``
-   **Ruby Type:** String | **Default Value:** 'SYSTEM'
+   **Ruby Type:** String | **Default Value:** ``'SYSTEM'``
 
-   The user to run the task as. 
+   The user to run the task as.
 
 ``password``
    **Ruby Type:** String
@@ -97,7 +97,7 @@ This resource has the following properties:
 ``run_level``
    **Ruby Type:** Symbol | **Default Value:** ``:limited``
 
-   Run with ``:limited`` or ``:highest`` privileges. 
+   Run with ``:limited`` or ``:highest`` privileges.
 
 ``frequency``
    **Ruby Type:** Symbol | **Default Value:** ``:hourly``
@@ -112,12 +112,12 @@ This resource has the following properties:
 ``start_day``
    **Ruby Type:** String
 
-   Specifies the first date on which the task runs in **MM/DD/YYYY** format. 
+   Specifies the first date on which the task runs in **MM/DD/YYYY** format.
 
 ``start_time``
    **Ruby Type:** String
 
-   Specifies the start time to run the task, in **HH:mm** format. 
+   Specifies the start time to run the task, in **HH:mm** format.
 
 ``interactive_enabled``
    **Ruby Type:** TrueClass, FalseClass
@@ -137,7 +137,7 @@ This resource has the following properties:
 ``idle_time``
    **Ruby Type:** Integer
 
-   For ``:on_idle`` frequency, the time (in minutes) without user activity that must pass to trigger the task, from 1 - 999. 
+   For ``:on_idle`` frequency, the time (in minutes) without user activity that must pass to trigger the task, from ``1`` - ``999``.
 
 ``execution_time_limit``
    **Ruby Type:** String | **Default Value:** ``PT72H`` (72 hours)
@@ -176,7 +176,7 @@ Examples
      frequency_modifier 2
    end
 
-**Create a scheduled to run on specific days of the week**
+**Create a scheduled task to run on specific days of the week**
 
 .. code-block:: ruby
 
@@ -189,7 +189,7 @@ Examples
      day 'Mon, Thu'
    end
 
-**Create a scheduled to run only once**
+**Create a scheduled task to run only once**
 
 .. code-block:: ruby
 
@@ -202,7 +202,7 @@ Examples
      start_time "16:10"
    end
 
-**Create a scheduled to run on current day every 3 weeks**
+**Create a scheduled task to run on current day every 3 weeks**
 
 .. code-block:: ruby
 
@@ -216,7 +216,7 @@ Examples
      random_delay '60'
    end
 
-**Create a scheduled to run every Monday, Friday every 2 weeks**
+**Create a scheduled task to run every Monday, Friday every 2 weeks**
 
 .. code-block:: ruby
 
@@ -230,7 +230,7 @@ Examples
      day 'Mon, Fri'
    end
 
-**Create a scheduled to to run when computer is idle with idle duration 20 min**
+**Create a scheduled task to run when computer is idle with idle duration 20 min**
 
 .. code-block:: ruby
 
@@ -243,7 +243,7 @@ Examples
      idle_time 20
    end
 
-**Delete a task named old task**
+**Delete a task named "old task"**
 
 .. code-block:: ruby
 
@@ -251,7 +251,7 @@ Examples
      action :delete
    end
 
-**Enable a task named chef-client**
+**Enable a task named "chef-client"**
 
 .. code-block:: ruby
 
@@ -259,7 +259,7 @@ Examples
      action :enable
    end
 
-**Disable a task named ProgramDataUpdater with TaskPath \\Microsoft\\Windows\\Application Experience\\**
+**Disable a task named "ProgramDataUpdater" with TaskPath "\\Microsoft\\Windows\\Application Experience\\ProgramDataUpdater"**
 
 .. code-block:: ruby
 
