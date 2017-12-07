@@ -615,9 +615,11 @@ Produce a summary of nodes known to Automate using the ``node-summary`` default 
 .. code-block:: bash
 
   $ automate-ctl node-summary
-  NAME         UUID                                  STATUS   LAST CHECKIN
-  chef-test-1  f44c40a4-a0bb-4120-bd75-079972d98072  success  2017-02-22T19:41:14.000Z
-  chef-test-2  8703593e-723a-4394-a36d-34da11a2f668  missing  2017-02-25T19:54:08.000Z
+  NAME                              UUID                                  STATUS            LAST CHECKIN
+  chef-test-1                       f44c40a4-a0bb-4120-bd75-079972d98072  success           2017-02-22T19:41:14.000Z
+  chef-test-2                       8703593e-723a-4394-a36d-34da11a2f668  missing           2017-02-25T19:54:08.000Z
+  agentless-scan-node1.example.com  63d49e04-f1f2-4d80-61a0-4f332d58b492  scan-unreachable  2017-12-05T20:29:39Z
+  agentless-scan-node2.example.com  825e90c1-cb23-4f6a-6c0e-35e5b2d12ea4  scan-passed       2017-12-07T18:50:57Z
 
 Produce a summary of nodes known to Automate in JSON.
 
@@ -670,6 +672,15 @@ Explanation of fields
    ``live`` if the liveness agent has successfully updated Chef Automate, but the Chef Client has not run within the expected check-in duration configured in Chef Automate (default is 12 hours).
 
    ``missing`` if Chef Client did not run within the expected check-in duration configured in Chef Automate (default is 12 hours).
+
+   ``scan-failed`` if a node set up for `ad-hoc scanning <automate_compliance_scanner.html>`__ failed its latest compliance scan.
+
+   ``scan-passed`` if a node set up for `ad-hoc scanning <automate_compliance_scanner.html>`__ passed its latest compliance scan.
+
+   ``scan-skipped`` if a node set up for `ad-hoc scanning <automate_compliance_scanner.html>`__ skipped its latest compliance scan.
+
+   ``scan-unreachable`` if a node set up for `ad-hoc scanning <automate_scanner.html>`__ either could not be reached for scanning or has not been scanned within the past hour.
+
 ``uuid``
    The universally unique identifier of the node in Chef Automate.
 ``chef_server_status``
