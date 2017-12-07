@@ -170,7 +170,7 @@ Examples
      frequency_modifier 2
    end
 
-**Create a scheduled to run on specific days**
+**Create a scheduled to run on specific days of the week**
 
 .. code-block:: ruby
 
@@ -179,7 +179,7 @@ Examples
      password 'Password'
      command 'chef-client'
      run_level :highest
-     frequency :daily
+     frequency :weekly
      day 'Mon, Thu'
    end
 
