@@ -216,7 +216,7 @@ Examples
      random_delay '60'
    end
 
-**Create a scheduled task to run on weekly starting on Dec 28th 2018**
+**Create a scheduled task to run weekly starting on Dec 28th 2018**
 
 .. code-block:: ruby
 
