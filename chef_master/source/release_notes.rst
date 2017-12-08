@@ -8,11 +8,11 @@ Chef client is released on a monthly schedule with new releases the first Wednes
 What's new in 13.6.4:
 =====================================================
 * **Resolved Debian / Ubuntu regression**
-    
+
     This release resolves a regression in 13.6.0 that prevented the upgrading of packages on Debian or Ubuntu when the package name contained a tilde (``~``).
 
 * **Security Updates**
-  
+
     * OpenSSL has been upgraded to 1.0.2m to resolve `CVE-2017-3735 <https://nvd.nist.gov/vuln/detail/CVE-2017-3735>`__ and `CVE-2017-3736 <https://nvd.nist.gov/vuln/detail/CVE-2017-3736>`__
     * RubyGems has been upgraded to 2.6.14 to resolve `CVE-2017-0903 <https://nvd.nist.gov/vuln/detail/CVE-2017-0903>`__
 
@@ -9388,7 +9388,7 @@ For example:
            end
 
            dir_resource = directory mount_spec[:location] do
-             mode 0755
+             mode '0755'
              owner 'root'
              group 'root'
              recursive true

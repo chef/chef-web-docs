@@ -450,7 +450,7 @@ To assign a value to a variable:
 
 .. code-block:: ruby
 
-   package_name = "apache2"
+   package_name = 'apache2'
 
 Use Case Statement
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -460,17 +460,17 @@ To select a package name based on platform:
 
 .. code-block:: ruby
 
-   package "apache2" do
-     case node["platform"]
-     when "centos","redhat","fedora","suse"
-       package_name "httpd"
-     when "debian","ubuntu"
-       package_name "apache2"
-     when "arch"
-       package_name "apache"
-     end
-     action :install
-   end
+  package 'apache2' do
+    case node['platform']
+    when 'centos', 'redhat', 'fedora', 'suse'
+      package_name 'httpd'
+    when 'debian', 'ubuntu'
+      package_name 'apache2'
+    when 'arch'
+      package_name 'apache'
+    end
+    action :install
+  end
 
 Check Conditions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -480,7 +480,7 @@ To check for condition only for Debian and Ubuntu platforms:
 
 .. code-block:: ruby
 
-   if platform?("debian", "ubuntu")
+   if platform?('debian', 'ubuntu')
      # do something if node['platform'] is debian or ubuntu
    else
      # do other stuff
@@ -494,9 +494,9 @@ To use an expression to execute when a condition returns a false value:
 
 .. code-block:: ruby
 
-   unless node["platform_version"] == "5.0"
-     # do stuff on everything but 5.0
-   end
+  unless node['platform_version'] == '5.0'
+    # do stuff on everything but 5.0
+  end
 
 Loop over Array
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -506,9 +506,9 @@ To loop over an array of package names by platform:
 
 .. code-block:: ruby
 
-   ["apache2", "apache2-mpm"].each do |p|
-     package p
-   end
+  ['apache2', 'apache2-mpm'].each do |p|
+    package p
+  end
 
 Loop over Hash
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -518,11 +518,11 @@ To loop over a hash of gem package names:
 
 .. code-block:: ruby
 
-   {"fog" => "0.6.0", "highline" => "1.6.0"}.each do |g,v|
-     gem_package g do
-       version v
-     end
-   end
+  { 'fog' => '0.6.0', 'highline' => '1.6.0' }.each do |g, v|
+    gem_package g do
+      version v
+    end
+  end
 
 Apply to Run-lists
 -----------------------------------------------------
@@ -617,7 +617,7 @@ A search query can be assigned to variables and then used elsewhere in a recipe.
 
    template '/tmp/list_of_webservers' do
      source 'list_of_webservers.erb'
-     variables(:webservers => webservers)
+     variables(webservers: webservers)
    end
 
 Use Tags
@@ -697,13 +697,13 @@ The ``return`` keyword can be used to stop processing a recipe based on a condit
      action :create
    end
 
-   return if node['platform'] == 'windows'
+   return if platform?('windows')
 
    package 'name_of_package' do
      action :install
    end
 
-where ``node['platform'] == 'windows'`` is the condition set on the ``return`` keyword. When the condition is met, stop processing the recipe. This approach is useful when there is no need to continue processing, such as when a package cannot be installed. In this situation, it's OK for a recipe to stop processing.
+where ``platform?('windows')`` is the condition set on the ``return`` keyword. When the condition is met, stop processing the recipe. This approach is useful when there is no need to continue processing, such as when a package cannot be installed. In this situation, it's OK for a recipe to stop processing.
 
 fail/raise Keywords
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -719,13 +719,13 @@ Use these keywords in a recipe---but outside of any resource blocks---to trigger
      action :create
    end
 
-   raise "message" if node['platform'] == 'windows'
+   raise "message" if platform?('windows')
 
    package 'name_of_package' do
      action :install
    end
 
-where ``node['platform'] == 'windows'`` is the condition that will trigger the unhandled exception.
+where ``platform?('windows')`` is the condition that will trigger the unhandled exception.
 
 Use these keywords in the **ruby_block** resource to trigger an unhandled exception during the execute phase. For example:
 
@@ -768,12 +768,12 @@ For example:
 
 .. code-block:: ruby
 
-   begin
-     dater = data_bag_item(:basket, "flowers")
-     rescue Net::HTTPServerException
-       # maybe some retry code here?
-     raise "message_to_be_raised"
-   end
+  begin
+    dater = data_bag_item(:basket, 'flowers')
+  rescue Net::HTTPServerException
+    # maybe some retry code here?
+    raise 'message_to_be_raised'
+  end
 
 where ``data_bag_item`` makes an HTTP request to the Chef server to get a data bag item named ``flowers``. If there is a problem, the request will return a ``Net::HTTPServerException``. The ``rescue`` block can be used to try to retry or otherwise handle the situation. If the ``rescue`` block is unable to handle the situation, then the ``raise`` keyword is used to specify the message to be raised.
 
