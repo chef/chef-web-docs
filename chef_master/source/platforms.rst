@@ -36,13 +36,13 @@ The following table lists the commercially-supported platforms and versions for 
      - Version
    * - AIX
      - ``ppc64``
-     - ``6.1`` (TL8 or higher, required), ``7.1`` (TL0 SP3 or higher, recommended), ``7.2``
+     - ``7.1`` (TL0 SP3 or higher, recommended), ``7.2``
    * - Amazon Linux
      -
      - current version
    * - CentOS
-     - ``i386`` (5.x only), ``x86_64``
-     - ``5``, ``6``, ``7``
+     - ``x86_64``
+     - ``6``, ``7``
    * - FreeBSD
      - ``amd64``
      - ``10``, ``11``
@@ -50,11 +50,11 @@ The following table lists the commercially-supported platforms and versions for 
      - ``x86_64``
      - ``10.11``, ``10.12``, ``10.13``
    * - Oracle Enterprise Linux
-     - ``i386`` (5.x only), ``x86_64``
-     - ``5.x``, ``6.x``, ``7.x``
+     - ``x86_64``
+     - ``6.x``, ``7.x``
    * - Red Hat Enterprise Linux
-     - ``i386`` (5.x only), ``x86_64``, ``s390x``, ``ppc64le`` (7.x only), ``ppc64`` (7.x only)
-     - ``5.x``, ``6.x``, ``7.x``
+     - ``x86_64``, ``s390x``, ``ppc64le`` (7.x only), ``ppc64`` (7.x only)
+     - ``6.x``, ``7.x``
    * - Solaris
      - ``sparc``, ``x86``
      - ``10 1/13`` (``"10U11"``), ``11.2``, ``11.3``
@@ -172,19 +172,19 @@ The following table lists the commercially-supported platforms and versions for 
      - Version
    * - CentOS
      - ``x86_64``
-     - ``5.x``, ``6.x``, ``7.x``
+     - ``6.x``, ``7.x``
    * - Oracle Enterprise Linux
      - ``x86_64``
-     - ``5.x``, ``6.x``, ``7.x``
+     - ``6.x``, ``7.x``
    * - Red Hat Enterprise Linux
      - ``x86_64``, ``ppc64le`` (7.x only), ``ppc64`` (7.x only)
-     - ``5.x``, ``6.x``, ``7.x``
+     - ``6.x``, ``7.x``
    * - SUSE Enterprise Linux Server
      - ``x86_64``
      - ``11 SP4``, ``12 SP1``
    * - Ubuntu
      - ``x86_64``, ``ppc64le`` (14.04 only)
-     - ``12.04``, ``14.04``, ``16.04``
+     - ``14.04``, ``16.04``
 
 .. end_tag
 
@@ -255,14 +255,14 @@ The following table lists the commercially-supported platforms for the Chef push
      - Architecture
      - Version
    * - CentOS
-     - ``i386`` (5.x only), ``x86_64``
-     - ``5.x``, ``6.x``, ``7.x``
+     - ``x86_64``
+     - ``6.x``, ``7.x``
    * - macOS
      - ``x86_64``
      - ``10.11``, ``10.12``, ``10.13``
    * - Red Hat Enterprise Linux
-     - ``i386`` (5.x and 6.x only), ``x86_64``
-     - ``5.x``, ``6.x``, ``7.x``
+     - ``x86_64``
+     - ``6.x``, ``7.x``
    * - Ubuntu (LTS releases)
      - ``x86``, ``x86_64``
      - ``14.04``, ``16.04``
@@ -289,10 +289,10 @@ The following table lists the commercially-supported platforms for the Chef push
      - Version
    * - CentOS
      - ``x86_64``
-     - ``5.x``, ``6.x``, ``7.x``
+     - ``6.x``, ``7.x``
    * - Red Hat Enterprise Linux
      - ``x86_64``
-     - ``5.x``, ``6.x``, ``7.x``
+     - ``6.x``, ``7.x``
    * - Ubuntu (LTS releases)
      - ``x86_64``
      - ``14.04``, ``16.04``
@@ -314,10 +314,10 @@ The following table lists the commercially-supported platforms for Chef Backend,
      - Version
    * - CentOS
      - ``x86_64``
-     - ``5.x``, ``6.x``, ``7.x``
+     - ``6.x``, ``7.x``
    * - Red Hat Enterprise Linux
      - ``x86_64``
-     - ``5.x``, ``6.x``, ``7.x``
+     - ``6.x``, ``7.x``
    * - Ubuntu (LTS releases)
      - ``x86_64``
      - ``14.04``, ``16.04``
@@ -364,10 +364,10 @@ The following table lists the commercially-supported platforms for Chef Manage:
      - Version
    * - CentOS
      - ``x86_64``
-     - ``5.x``, ``6.x``, ``7.x``
+     - ``6.x``, ``7.x``
    * - Red Hat Enterprise Linux
      - ``x86_64``
-     - ``5.x``, ``6.x``, ``7.x``
+     - ``6.x``, ``7.x``
    * - Ubuntu (LTS releases)
      - ``x86_64``
      - ``14.04``, ``16.04``
