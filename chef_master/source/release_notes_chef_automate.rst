@@ -21,7 +21,7 @@ New Features
 
 * **CIS Compliance Profile for Windows 2016**
 
-  This release also features our new CIS Compliance Profile for Windows Server 2016. It contains subprofiles for both the Member Server and Domain Controller, both in Level 1 and Level 2. They each feature up to 350 controls to help achieve compliance for modern Windows servers.
+  This release also features our new CIS Compliance Profile for Windows Server 2016. It contains subprofiles for the Member Server and Domain Controller, both in Level 1 and Level 2. They each feature up to 350 controls to help achieve compliance for modern Windows servers.
 
 * **RHEL6 STIG Compliance Profile**
 
@@ -45,12 +45,12 @@ New Features
 
 * **Data Retention Improvements for Reaper**
 
-  Chef Automate’s Reaper feature for managing archives and deletion of Elasticsearch data now supports configuration of `distinct retention periods <https://docs.chef.io/data_retention_chef_automate.html>`__ for compliance and Chef client run data.  As many organizations require that compliance data be stored for extended periods of time, this allows users to set the retention threshold without also requiring that Chef client run data be stored for the same period.
+  Chef Automate’s Reaper feature for managing archives and deletion of Elasticsearch data now supports configuration of `distinct retention periods <https://docs.chef.io/data_retention_chef_automate.html>`__ for compliance and Chef Client run data.  As many organizations require that compliance data be stored for extended periods of time, this allows users to set the retention threshold without also requiring that Chef client run data be stored for the same period.
 
 Resolved Issues
 -----------------------------------------------------
 
-* Fixed an issue that caused the umask check to incorrectly fail during the ``preflight-check``. The ``preflight-check`` currently checks on the return value of ``\su -c 'umask' -l root\`` and this can return values besides the raw int of the umask.
+* Fixed an issue that caused the umask check to incorrectly fail during the ``preflight-check``. The ``preflight-check`` currently checks on the return value of ``su -c 'umask' -l root`` and this can return values besides the raw ``int`` of the umask.
 * After an upgrade of the Automate package in all versions up to and including 1.7.10, the user was previously encouraged to run ``automate-ctl setup``, which is unnecessary for an existing system. Now the user is prompted to run ``automate-ctl reconfigure``.
 * Corrected an issue where Chef Automate only displayed up to 10 Chef Servers or organizations in the Nodes UI. All servers and orgs reporting data to Chef Automate are now visible and available for filtering.
 * Resolved an issue with invalid JSON in the workflow Slack notifications, which was impacting webhook integration with Mattermost.
@@ -62,7 +62,7 @@ Resolved Issues
 * RabbitMQ now listens on the loopback interface exclusively, and uses SSL for authentication and communication.
 * Searching for nodes by attribute or resource now properly supports spaces and special characters.
 * Testing a workflow runner from the Manage Runners page now correctly raises an error if the runner’s user account has an expired password.
-* Installing a runner now works on CentOS/RHEL when the remote user does not have ``/usr/sbin`` in their PATH.
+* Installing a runner now works on CentOS/RHEL when the remote user does not have ``/usr/sbin`` in their ``PATH``.
 * Installing a runner now works when the remote user’s shell is ``/bin/sh``.
 * Installing a runner now defaults to collecting only the minimum required Ohai attributes to avoid potential issues with Ohai plugins. You must now pass the ``--full-ohai`` argument to ``automate-ctl install-runner`` to run all plugins on runner installation.
 
