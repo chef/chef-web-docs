@@ -34,7 +34,7 @@ This configuration file has the following settings:
    .. code-block:: ruby
 
       knife[:authentication_protocol_version] = '1.3'
-      
+
    Note that authentication protocol 1.3 is only supported on Chef server versions 12.4.0 and above.
 
 ``automatic_attribute_blacklist``
@@ -410,6 +410,12 @@ If ``http_proxy``, ``https_proxy``, ``ftp_proxy``, or ``no_proxy`` is set in the
    http_proxy 'http://proxy.example.org:8080'
    http_proxy_user 'myself'
    http_proxy_pass 'Password1'
+
+Or an alternative way to define the proxy (if the previous version does not work):
+
+.. code-block:: ruby
+
+   http_proxy 'http://myself:Password1@proxy.example.org:8080'
 
 will be set to:
 
