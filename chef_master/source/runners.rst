@@ -41,7 +41,11 @@ Supported runner platforms are listed `here </platforms.html#runners>`_.
 Removing a Runner
 -----------------------------------------------------
 
-To remove a runner, you will need to use the `delivery api </delivery_cli.html#delivery-cli-api>`__ command.
+You can delete a runner via ``automate-ctl`` from your Chef Automate server. Log in to your Chef Automate server and run the :ref:`delete-runner` command.
+
+After the :ref:`delete-runner` command succeeds, the specified runner should be deleted from the UI under ``Workflow -> Runners -> Manage Runners``.
+
+Runner can also be removed using the :ref:`delivery-cli-api` command.
 
 To see a list of runners:
 
