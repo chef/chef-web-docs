@@ -3259,7 +3259,7 @@ The following example uses the **git** resource to upgrade packages:
    git '/opt/mysources/couch' do
      repository 'git://git.apache.org/couchdb.git'
      revision 'master'
-     environment  { 'VAR' => 'whatever' }
+     environment 'VAR' => 'whatever'
      action :sync
    end
 
