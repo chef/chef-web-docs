@@ -36,7 +36,7 @@ Reaper has a number of configuration parameters you may specify in your ``/etc/d
   If ``true`` Reaper will be enabled and run every 15 minutes. Default: ``false``.
 
 ``reaper['mode']``: string
-  This setting is **required** if ``reaper['enable']`` is set to ``true``. Valid options are ``'delete'`` or ``'archive'``. 
+  This setting is **required** if ``reaper['enable']`` is set to ``true``. Valid options are ``'delete'`` or ``'archive'``.
 
 ``reaper['mode']``: ``'delete'``
   Reaper will delete any indices older than the value specified in ``reaper['retention_period_in_days']``.
@@ -50,12 +50,22 @@ Reaper has a number of configuration parameters you may specify in your ``/etc/d
 ``reaper['retention_period_in_days']``: integer
   Any indices older than this value will reaped by Reaper. Default: ``14``.
 
+``reaper['compliance_retention_period_in_days']``: integer
+  Sets a retention period specifically for compliance data. Defaults to the value of ``reaper['retention_period_in_days']``. A retention period specified for this setting becomes the default for ``reaper['insights_retention_period_in_days']``, unless that retention period is also uniquely specified.
+
+  New in Chef Automate 1.7.114.
+
+``reaper['insights_retention_period_in_days']``: integer
+  Sets a retention period specifically for node data. Defaults to the value of ``reaper['retention_period_in_days']``. The retention period specified for this setting becomes the default for ``reaper['compliance_retention_period_in_days']``, unless that retention period is also uniquely specified.
+
+  New in Chef Automate 1.7.114.
+
 ``reaper['evasive_maneuvers_enabled']``: boolean
     If ``true``, Reaper will perform evasive maneuvers if they are necessary. The default setting depends on the Elasticsearch service in use.
-    Default: ``true`` if using Chef Automate's provided Elasticsearch service. 
+    Default: ``true`` if using Chef Automate's provided Elasticsearch service.
     Default: ``false`` if using an external Elasticsearch service.
 
-``reaper['free_space_threshold_percent']``: integer 
+``reaper['free_space_threshold_percent']``: integer
   The threshold for free space on any volume on any Elasticsearch node in your cluster. If the free space falls below this threshold, Reaper will perform evasive maneuvers. Default: ``10``.
 
 ``reaper[‘repository’]``: string
@@ -185,4 +195,3 @@ If both the workflow API and Elasticsearch are running locally, reaper can be in
   ruby /opt/delivery/embedded/service/reaper/bin/reaper \
   --config /var/opt/delivery/reaper/reaper_config.json \
   --log-file /var/log/delivery/reaper/reaper.log
-
