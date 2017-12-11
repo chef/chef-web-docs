@@ -35,6 +35,7 @@ The full syntax for all of the properties that are available to the **env** reso
      subscribes                 # see description
      value                      String
      action                     Symbol # defaults to :create if not specified
+     user                       String # defaults to SYSTEM
    end
 
 where
@@ -42,7 +43,7 @@ where
 * ``env`` is the resource
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``delim``, ``key_name``, ``provider``, and ``value`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``delim``, ``key_name``, ``provider``, ``value``, and ``user`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -193,6 +194,11 @@ This resource has the following properties:
    **Ruby Type:** String
 
    The value with which ``key_name`` is set.
+
+``user``
+   **Ruby Type:** String | **Default Value:** ``'SYSTEM'``
+
+   The user name with which ``key_name`` is set.
 
 .. end_tag
 
