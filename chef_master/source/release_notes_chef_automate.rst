@@ -17,7 +17,7 @@ New Features
 
   We have also improved the security of the secrets management system in the compliance scanner. It will no longer expose user secrets in the UI or API, and will instead retain them exclusively for internal calls to the compliance scanner. This increases the confidentiality of data while allowing the scanner to use secrets.
 
-  The compliance scanner is in open beta as we continue to respond to user feedback before releasing it as generally available. To activate it, type `beta` anywhere in the UI and enable the feature in the popup that appears.
+  The compliance scanner is in open beta as we continue to respond to user feedback before releasing it as generally available. To activate it, type ``beta`` anywhere in the UI and enable the feature in the popup that appears.
 
 * **CIS Compliance Profile for Windows 2016**
 
@@ -50,7 +50,7 @@ New Features
 Resolved Issues
 -----------------------------------------------------
 
-* Fixed an issue that caused the umask check to incorrectly fail during the ``preflight-check``. The ``preflight-check`` currently checks on the return value of ``su -c 'umask' -l root`` and this can return values besides the raw ``int`` of the umask.
+* Fixed an issue that caused the umask check to incorrectly fail during the ``preflight-check``. The ``preflight-check`` currently checks on the return value of ``su -c 'umask' -l root`` and this can return values besides the raw ``int``  of the umask.
 * After an upgrade of the Automate package in all versions up to and including 1.7.10, the user was previously encouraged to run ``automate-ctl setup``, which is unnecessary for an existing system. Now the user is prompted to run ``automate-ctl reconfigure``.
 * Corrected an issue where Chef Automate only displayed up to 10 Chef Servers or organizations in the Nodes UI. All servers and orgs reporting data to Chef Automate are now visible and available for filtering.
 * Resolved an issue with invalid JSON in the workflow Slack notifications, which was impacting webhook integration with Mattermost.
