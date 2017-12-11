@@ -352,6 +352,47 @@ This subcommand has the following syntax:
 
    $ automate-ctl delete-user ENT_NAME john_smith
 
+.. _delete-runner:
+
+delete-runner
+=====================================================
+The ``delete-runner`` subcommand deletes a remote node configured as a job runner, which was used by Chef Automate to run phase jobs. For more information on runners, please see the `Runners documentation </runners.html>`_.
+
+Added in Chef Automate version 1.7.114.
+
+**Syntax**
+
+.. code-block:: bash
+
+   $ automate-ctl delete-runner FQDN [options]
+
+     Arguments:
+       FQDN       Fully qualified domain name of the remote host that will be deleted as a runner
+
+     Options:
+      -h, --help                            Show the usage message
+      -e, --enterprise                      Legacy option, only required if you have more than one enterprise configured. Workflow enterprise to delete the runner from
+      -y, --yes                             Skip configuration confirmation and overwrite any existing Chef Server nodes of the same name as FQDN
+
+
+**Example**
+
+.. code-block:: bash
+
+   $ automate-ctl delete-runner
+
+Delete the runner runner-hostname.mydomain.co when there is only one enterprise configured.
+
+.. code-block:: bash
+
+   $ automate-ctl delete-runner runner-hostname.mydomain.co
+
+Delete the runner runner-hostname.mydomain.co when multiple enterprises are configured.
+
+.. code-block:: bash
+
+   $ automate-ctl install-runner runner-hostname.mydomain.co -e myenterprise
+
 delete-node
 =====================================================
 The ``delete-node`` subcommand is used to delete a node and it's corresponding history from Chef Automate. The user must provide some combination of the node's UUID, name, organization name, and chef server FQDN to determine which node to delete. In the event that multiple nodes are found, a list of matching nodes will displayed. Narrow the search by providing more search parameters or use the UUID to delete the node.
