@@ -130,9 +130,9 @@ This resource has the following properties:
    Microsoft Windows only. Whether a file inherits rights from its parent directory. Default value: ``true``.
 
 ``manage_symlink_source``
-   **Ruby Types:** TrueClass, FalseClass, NilClass
+   **Ruby Types:** TrueClass, FalseClass, NilClass | **Default Value:** ``nil``
 
-   Cause the chef-client to detect and manage the source file for a symlink. Possible values: ``nil``, ``true``, or ``false``. When this value is set to ``nil``, the chef-client will manage a symlink's source file and emit a warning. When this value is set to ``true``, the chef-client will manage a symlink's source file and not emit a warning. Default value: ``nil``. The default value will be changed to ``false`` in a future version.
+   Cause the Chef client to detect and manage the source file for a symlink. Possible values: ``nil``, ``true``, or ``false``. When this value is set to ``nil``, Chef client will manage a symlink's source file and emit a warning. When this value is set to ``true``, the Chef client will manage a symlink's source file and not emit a warning. When this value is set to ``false``, Chef will not manage the symlink source. The default value will be changed to ``false`` in a future version.
 
 ``mode``
    **Ruby Types:** Integer, String
