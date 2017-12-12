@@ -27,7 +27,7 @@ The Chef server supports using Active Directory or LDAP for any user that has an
 To configure the Chef server to use Active Directory or LDAP do the following:
 
 #. Install the Chef management console (if it is not already).
-#. Add the following settings to the ``chef-server.rb`` file. These settings must be added to the ``chef-server.rb`` file on each machine in the Chef server frontend deployment of a High Availability installation as well as on Chef servers in a standalone installation.
+#. Add the following settings to the ``/etc/opscode/chef-server.rb`` file. These settings must be added to the ``chef-server.rb`` file on each machine in the Chef server frontend deployment of a High Availability installation as well as on Chef servers in a standalone installation.
 
    .. tag config_rb_server_settings_ldap
 
@@ -121,7 +121,7 @@ To configure the Chef server to use Active Directory or LDAP do the following:
 
    .. end_tag
 
-   .. note:: If the chef-server.rb file does not exist, create a file called ``chef-server.rb`` and put it in the ``/etc/opscode/`` directory.
+   .. note:: If the chef-server.rb file does not exist, create a file called ``/etc/opscode/chef-server.rb`` and put it in the ``/etc/opscode/`` directory.
 
 #. .. tag install_chef_server_reconfigure
 
