@@ -372,9 +372,9 @@ gen-server-config
 =====================================================
 .. tag ctl_chef_backend_gen_server_config
 
-Use the ``gen-server-config`` subcommand to generate output for the ``/etc/opscode/chef-server.rb`` configuration file. This command may be run from any machine in the backend HA cluster, but must be run separately for each node that is part of the frontend group. This command will:
+Use the ``gen-server-config`` subcommand to generate output for the ``chef-server.rb`` configuration file. This command may be run from any machine in the backend HA cluster, but must be run separately for each node that is part of the frontend group. This command will:
 
-* Complete with an exit code of ``0`` if the ``/etc/opscode/chef-server.rb`` file is created successfully.
+* Complete with an exit code of ``0`` if the ``chef-server.rb`` file is created successfully.
 * Return an error message and a non-zero exit code if a node has  not been bootstrapped or joined or if a FQDN is not provided.
 
 .. end_tag
@@ -401,10 +401,10 @@ Configure the Front End
 
       $ chef-backend-ctl gen-server-config FQDN -f chef-server.rb.fqdn
 
-   where ``FQDN`` is the FQDN for the frontend machine. The generated ``/etc/opscode/chef-server.rb`` file will contain all of the values necessary for any frontend Chef server to connect to and bootstrap against the backend HA cluster.
+   where ``FQDN`` is the FQDN for the frontend machine. The generated ``chef-server.rb`` file will contain all of the values necessary for any frontend Chef server to connect to and bootstrap against the backend HA cluster.
 
 #. On each frontend machine, install the ``chef-server-core`` package (version 12.4.0 or higher).
-#. On each frontend machine, copy the generated ``/etc/opscode/chef-server.rb``.fqdn to ``/etc/opscode/chef-server.rb``.
+#. On each frontend machine, copy the generated ``chef-server.rb``.fqdn to ``/etc/opscode/chef-server.rb``.
 #. On each frontend machine, with root permission, run the following command:
 
    .. code-block:: bash

@@ -200,12 +200,12 @@ them via adding:
 
     opscode_solr4['enable_full_admin_api'] = true
 
-to ``/etc/opscode/chef-server.rb``.
+to ``chef-server.rb``.
 
 FIPS runtime flag exposed
 -----------------------------------------------------
 The Chef Server package now exposes a ``fips`` configuration flag in
-``/etc/opscode/chef-server.rb``. Setting ``fips true`` and reconfiguring will start the
+``chef-server.rb``. Setting ``fips true`` and reconfiguring will start the
 server in FIPS mode. The default value of this flag is ``false`` except
 on systems where FIPS is enabled at the Kernel where it defaults to ``true``.
 

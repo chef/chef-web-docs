@@ -50,7 +50,7 @@ If you have FIPS compliance enabled at the kernel level and install or
 reconfigure the Chef Server then it will default to running in FIPS mode.
 
 To enable FIPS manually for the Chef Server, can add ``fips true`` to the
-``/etc/opscode/chef-server.rb`` and reconfigure.  For more configuration information see `Chef
+``chef-server.rb`` and reconfigure.  For more configuration information see `Chef
 Server </config_rb_server_optional_settings.html>`_.
 
 How to enable FIPS mode for the Chef client
