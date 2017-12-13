@@ -11,44 +11,33 @@ This feature is in ``beta`` release. To access this feature, place your cursor a
 
 .. note:: Credentials are required to perform a compliance scan. See `Credentials <automate_compliance_credentials.html>`__.
 
-Create ad-hoc scan jobs of your system with the Chef Automate Compliance Scanner. Creating scan jobs is through the user interface allows you to target specific nodes with compliance profiles. From the Compliance Scanner view you can add and delete both nodes and jobs from the system.
+Create ad-hoc scan and scheduled scan jobs of your system with the Chef Automate Compliance Scanner. Creating scan jobs is through the user interface allows you to target specific nodes with compliance profiles. From the Compliance Scanner view you can add and delete both nodes and jobs from the system.
 
 .. image:: ../../images/automate_scanner_jobs.png
 
 Add Nodes
 ==============================================
-At this time, nodes can only be added manually. We will support the bulk import of nodes from CSV as well as connections to your fleet on Amazon Web Services, Google Cloud Platform, and Microsoft Azure in the future.
+From the Automate Compliance Scanner view select the **Add Nodes** button, which will open a form titled "Enter node detals to add nodes".
 
-If you have not already done so, you will need to move to the **Credentials** view and create the correct credential. If you leave the **Credentials** view, you will lose any unsaved data.
+.. image:: ../../images/automate_add_node.png
 
-1. Select the **Add Nodes** button on the upper right side of the interface.
-
-.. image:: ../../images/automate_scanner_add_tiles.png
-
-2. On the first page, select the "Manually add your nodes" tile.
-
-.. image:: ../../images/automate_scanner_import_node.png
-
-3. Enter the Public DNS or Public IP for the nodes separated by a comma into the "Import 
-4. Add an optional a prefix tag to the nodes created using this form. Prefixes are optional and reusable. 
-5. Select the **Next** button. 
-
-.. image:: ../../images/automate_scanner_add_node.png
-
-6. Select credentials for accessing nodes. 
-7. Customize the default port access setting, if needed.
-8. Dissable the ``sudo`` setting, if needed.
-9. The **Add Nodes** button displays the number of nodes added. Select the button to finish adding nodes.
+#. Enter the Public DNS or Public IP for the nodes separated by a comma or space into the first field, titled "Import multiple nodes by IP or hostname." Nodes will appear in the "Preview" section, which is on the right side of the form, as they are entered. (Required)
+#. Add an optional a prefix tag to the nodes created using this form. Prefixes are reusable and can assist in retrieving groups of nodes that have a shared prefix. (Optional) 
+#. In the "Add credentials to connect your nodes" section of the form, select either the type of credential, either SSH or WinRm, that you will use to connect to your nodes. (Reqiured)
+#. Select credentials fthat you will use to access your nodes. If you need to add a new credential, select the "Add new credentials" text, which will direct you to the **Credentials** view. Navigating away from the **Add Nodes** view will result in the loss of unsaved nodes.(Required)
+#. Customize the default port access setting, if needed. (Optional)
+#. Disable the ``sudo`` setting, if needed. (Optional)
+#. Select the **Add Nodes** button above the form button to finish adding nodes. This  button changes to display the number of nodes added. 
 
 Return to the Overview page and move to the **Nodes** view to examine your new nodes. These nodes are now available for use with jobs, and can be edited and deleted.
 
-Add Jobs
+Create a Job
 -------------------------------------------------
 If you have not already added compliance profiles to your user account from the **Profile Store** or by uploading custom profiles, you will need to move to the **Profile Store** to complete this step. If you leave the **Credentials** view, you will lose any unsaved data.
 
 .. image:: ../../images/automate_scanner_job_create.png
 
-#. Select the **Add New Job** button to create a new scan job.
+#. Select the **Create New Job** button to make a new scan job.
 #. From the **Scan Job Creation** form, enter a name for your new job.
 #. Select one or more nodes that will be scanned in this job from the list of nodes.
 #. Select one or more profiles to run against the nodes.
