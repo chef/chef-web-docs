@@ -46,7 +46,7 @@ The full syntax for all of the properties that are available to the **remote_fil
      group                      String, Integer
      headers                    Hash
      inherits                   TrueClass, FalseClass
-     manage_symlink_source      TrueClass, FalseClass, NilClass
+     manage_symlink_source      TrueClass, FalseClass
      mode                       String, Integer
      notifies                   # see description
      owner                      String, Integer
@@ -162,9 +162,11 @@ This resource has the following properties:
    Microsoft Windows only. Whether a file inherits rights from its parent directory. Default value: ``true``.
 
 ``manage_symlink_source``
-   **Ruby Types:** TrueClass, FalseClass, NilClass
+   **Ruby Types:** TrueClass, FalseClass | **Default Value:** ``true`` (with warning)
 
-   Cause the chef-client to detect and manage the source file for a symlink. Possible values: ``nil``, ``true``, or ``false``. When this value is set to ``nil``, the chef-client will manage a symlink's source file and emit a warning. When this value is set to ``true``, the chef-client will manage a symlink's source file and not emit a warning. Default value: ``nil``. The default value will be changed to ``false`` in a future version.
+   Change the behavior of the file resource if it is pointed at a symlink. When this value is set to ``true``, the Chef client will manage the symlink's permissions or will replace the symlink with a normal file if the resource has content. When this value is set to ``false``, Chef will follow the symlink and will manage the permissions and content of the symlink's target file.
+
+   The default behavior is ``true`` but emits a warning that the default value will be changed to ``false`` in a future version; setting this explicitly to ``true`` or ``false`` suppresses this warning.
 
 ``mode``
    **Ruby Types:** Integer, String
@@ -621,7 +623,7 @@ The desired approach just depends on the desired workflow. For example, if a nod
 Access a remote UNC path on Windows
 -----------------------------------------------------
 The ``remote_file`` resource on Windows supports accessing files from a remote SMB/CIFS share. The file name should be specified in the source property as a UNC path e.g. ``\\myserver\myshare\mydirectory\myfile.txt``. This
-allows access to the file at that path location even if the Chef client process identity does not have permission to access the file. Credentials for authenticating to the remote system can be specified using the ``remote_user``, ``remote_domain``, and ``remote_password`` properties when the user that the Chef client is running does not have access to the remote file. See the "Properties" section for more details on these options. 
+allows access to the file at that path location even if the Chef client process identity does not have permission to access the file. Credentials for authenticating to the remote system can be specified using the ``remote_user``, ``remote_domain``, and ``remote_password`` properties when the user that the Chef client is running does not have access to the remote file. See the "Properties" section for more details on these options.
 
 **Note**: This is primarily for accessing remote files when the user that the Chef client is running as does not have sufficient access, and alternative credentials need to be specified. If the user already has access, the credentials do not need to be specified.
 In a case where the local system and remote system are in the same domain, the ``remote_user`` and ``remote_password`` properties often do not need to be specified, as the user may already have access to the remote file share.
