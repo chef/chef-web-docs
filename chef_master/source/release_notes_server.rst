@@ -200,7 +200,7 @@ them via adding:
 
     opscode_solr4['enable_full_admin_api'] = true
 
-to ``chef-server.rb``.
+to ``/etc/opscode/chef-server.rb``.
 
 FIPS runtime flag exposed
 -----------------------------------------------------

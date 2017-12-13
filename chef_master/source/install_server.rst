@@ -214,7 +214,7 @@ To install Chef server 12:
 
 Update config for purchased nodes
 =====================================================
-When using more than 25 nodes, a configuration change to your Chef server needs to be made in order for your Chef server to be properly configured and recognize your purchased licenses. You will need to edit to your ``chef-server.rb`` file by following the process below:
+When using more than 25 nodes, a configuration change to your Chef server needs to be made in order for your Chef server to be properly configured and recognize your purchased licenses. You will need to edit to your ``/etc/opscode/chef-server.rb`` file by following the process below:
 
 #. On your Chef server, if the ``chef-server.rb`` file does not exist, create it.
 

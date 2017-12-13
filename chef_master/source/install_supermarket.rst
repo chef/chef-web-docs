@@ -96,7 +96,7 @@ To configure Chef Supermarket to use Chef Identity, do the following:
 
    The ``uid`` and ``secret`` values will be needed later on during the setup process for Chef Supermarket.
 
-.. note:: Add as many Chef Identity applications to the ``chef-server.rb`` configuration file as necessary. A JSON file is generated for each application added, which contains the authentication tokens for that application. The secrets are added to the Chef Identity database and are available to all nodes in the Chef server front end group. The generated JSON files do not need to be copied anywhere.
+.. note:: Add as many Chef Identity applications to the ``/etc/opscode/chef-server.rb`` configuration file as necessary. A JSON file is generated for each application added, which contains the authentication tokens for that application. The secrets are added to the Chef Identity database and are available to all nodes in the Chef server front end group. The generated JSON files do not need to be copied anywhere.
 
 .. note:: The redirect URL specified **MUST** match the FQDN of the Chef Supermarket server. The URI must also be correct: ``/auth/chef_oauth2/callback``. Otherwise, an error message similar to ``The redirect uri included is not valid.`` will be shown.
 

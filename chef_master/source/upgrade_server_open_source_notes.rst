@@ -9,7 +9,7 @@ Background
 =====================================================
 The following assumptions are made about all upgrades from Open Source Chef version 11.0.0 (or higher) to Chef server version 12.
 
-* An organization must be created. Add the organization name as the vaue for the ``default_orgname`` setting in the ``chef-server.rb`` file. This will ensure that API requests made to the server prior to the upgrade process can still be made after.
+* An organization must be created. Add the organization name as the vaue for the ``default_orgname`` setting in the ``/etc/opscode/chef-server.rb`` file. This will ensure that API requests made to the server prior to the upgrade process can still be made after.
 
 Standalone>>Standalone
 -----------------------------------------------------
