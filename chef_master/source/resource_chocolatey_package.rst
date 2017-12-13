@@ -301,3 +301,19 @@ The following examples demonstrate various approaches for using resources in rec
    end
 
 .. end_tag
+
+
+**Install a package with options**
+
+.. tag resource_chocolatey_package_install
+
+.. To install a package with options:
+
+.. code-block:: ruby
+
+   chocolatey_package 'name of package' do
+     options '--checksum 1234567890'
+     action :install
+   end
+
+.. end_tag
