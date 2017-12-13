@@ -16,10 +16,10 @@ The Chef server has the following prerequisites:
 * An x86_64 compatible system architecture; Red Hat Enterprise Linux and CentOS may require updates prior to installation
 * A resolvable hostname that is specified using a FQDN or an IP address
 * A connection to Network Time Protocol (NTP) to prevent clock drift
-* If host-based firewalls (iptables, ufw, etc.) are being used, ensure that ports 80 and 443 are open. See the `firewalls </install_server_pre.html#firewalls>`_ section of the install prerequisites for additional details. 
+* If host-based firewalls (iptables, ufw, etc.) are being used, ensure that ports 80 and 443 are open. See the `firewalls </install_server_pre.html#firewalls>`_ section of the install prerequisites for additional details.
 * A local mail transfer agent that allows the Chef server to send email notifications
 * Using cron and the ``/etc/cron.d`` directory for periodic maintenance tasks
-* Disabling the Apache Qpid daemon on CentOS and Red Hat systems. See the `Apache Qpid </install_server_pre.html#apache-qpid>`_ of the prerequisite documentation for detailed steps. 
+* Disabling the Apache Qpid daemon on CentOS and Red Hat systems. See the `Apache Qpid </install_server_pre.html#apache-qpid>`_ of the prerequisite documentation for detailed steps.
 * Optional. A local user account under which services will run, a local user account for PostgreSQL, and a group account under which services will run. See `UIDs and GIDs </install_server_pre.html#uids-and-gids>`__ for more information.
 
 .. note:: See the `expanded list of prerequisites </install_server_pre.html>`__ for a detailed list of software and hardware requirements.
@@ -214,7 +214,7 @@ To install Chef server 12:
 
 Update config for purchased nodes
 =====================================================
-When using more than 25 nodes, a configuration change to your Chef server needs to be made in order for your Chef server to be properly configured and recognize your purchased licenses. You will need to edit to your ``chef-server.rb`` file by following the process below:
+When using more than 25 nodes, a configuration change to your Chef server needs to be made in order for your Chef server to be properly configured and recognize your purchased licenses. You will need to edit your ``/etc/opscode/chef-server.rb`` file by following the process below:
 
 #. On your Chef server, if the ``chef-server.rb`` file does not exist, create it.
 
@@ -250,17 +250,15 @@ For more information on configuring your Chef server, see `chef-server.rb Settin
 
 High Availability
 =====================================================
-The following links describe how to configure the Chef server for high availability:
+The following links describe how to configure the Chef server for high availability. The **Backend Cluster** setup is strongly recommended for new installations:
 
-.. raw:: html
+* `High Availability using Backend Cluster </install_server_ha.html>`__
+* `High Availability using Amazon Web Services (DEPRECATED) </install_server_ha_aws.html>`__
+* `High Availability using DRBD (DEPRECATED) </install_server_ha_drbd.html>`__
 
-   &nbsp;&nbsp;&nbsp;   <a href="/install_server_ha_aws.html">High Availability using Amazon Web Services</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="/install_server_ha_drbd.html">High Availability using DRBD</a> </br>
 
 Tiered (Single Backend)
 =====================================================
-The following link describes how to configure the Chef server with a single backend machine and multiple frontend machines:
+The following link describes how to configure the Chef server with a single backend machine and multiple frontend machines. Note that this process has been deprecated in favor of a `Backend Cluster </install_server_ha.html>`__ setup:
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="/install_server_tiered.html">Tiered</a> </br>
+* `Tiered Installation (DEPRECATED) </install_server_tiered.html>`__

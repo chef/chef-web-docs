@@ -283,7 +283,7 @@ Adding More Frontends
 For each additional frontend node you wish to add to your cluster:
 
 #. Install the current chef-server-core package.
-#. Generate a new ``chef-server.rb`` from any of the backend nodes via
+#. Generate a new ``/etc/opscode/chef-server.rb`` from any of the backend nodes via
 
     .. code-block:: bash
 
