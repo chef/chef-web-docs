@@ -11,7 +11,7 @@ A cookbook template is an Embedded Ruby (ERB) template that is used to dynamical
 
 .. note:: .. tag notes_cookbook_template_erubis
 
-          The chef-client uses Erubis for templates, which is a fast, secure, and extensible implementation of embedded Ruby. Erubis should be familiar to members of the Ruby on Rails, Merb, or Puppet communities. For more information about Erubis, see: http://www.kuwata-lab.com/erubis/.
+          The Chef Client uses Erubis for templates, which is a fast, secure, and extensible implementation of embedded Ruby. Erubis should be familiar to members of the Ruby on Rails, Merb, or Puppet communities. For more information about Erubis, see: http://www.kuwata-lab.com/erubis/.
 
           .. end_tag
 
@@ -77,7 +77,7 @@ Variables
 =====================================================
 .. tag template_variables
 
-A template is an Embedded Ruby (ERB) template. An Embedded Ruby (ERB) template allows Ruby code to be embedded inside a text file within specially formatted tags. Ruby code can be embedded using expressions and statements. An expression is delimited by ``<%=`` and ``%>``. For example:
+An Embedded Ruby (ERB) template allows Ruby code to be embedded inside a text file within specially formatted tags. Ruby code can be embedded using expressions and statements. An expression is delimited by ``<%=`` and ``%>``. For example:
 
 .. code-block:: ruby
 
@@ -87,15 +87,15 @@ A statement is delimited by a modifier, such as ``if``, ``elseif``, and ``else``
 
 .. code-block:: ruby
 
-    if false
-    # this won't happen
-    elsif nil
+   if false
+   # this won't happen
+   elsif nil
          # this won't either
        end
 
 Using a Ruby expression is the most common approach for defining template variables because this is how all variables that are sent to a template are referenced. Whenever a template needs to use an ``each``, ``if``, or ``end``, use a Ruby statement.
 
-When a template is rendered, Ruby expressions and statements are evaluated by the chef-client. The variables listed in the **template** resource's ``variables`` parameter and in the node object are evaluated. The chef-client then passes these variables to the template, where they will be accessible as instance variables within the template. The node object can be accessed just as if it were part of a recipe, using the same syntax.
+When a template is rendered, Ruby expressions and statements are evaluated by the Chef Client. The variables listed in the **template** resource's ``variables`` parameter and in the node object are evaluated. The Chef Client then passes these variables to the template, where they will be accessible as instance variables within the template. The node object can be accessed just as if it were part of a recipe, using the same syntax.
 
 For example, a simple template resource like this:
 
@@ -135,11 +135,11 @@ A cookbook is frequently designed to work across many platforms and is often req
 
 The pattern for template specificity depends on two things: the lookup path and the source. The first pattern that matches is used:
 
-#. /host-$fqdn/$source
-#. /$platform-$platform_version/$source
-#. /$platform/$source
-#. /default/$source
-#. /$source
+#. ``/host-$fqdn/$source``
+#. ``/$platform-$platform_version/$source``
+#. ``/$platform/$source``
+#. ``/default/$source``
+#. ``/$source``
 
 Use an array with the ``source`` property to define an explicit lookup path. For example:
 
@@ -215,7 +215,7 @@ Transfer Frequency
 =====================================================
 .. tag template_transfer_frequency
 
-The chef-client caches a template when it is first requested. On each subsequent request for that template, the chef-client compares that request to the template located on the Chef server. If the templates are the same, no transfer occurs.
+The Chef Client caches a template when it is first requested. On each subsequent request for that template, the Chef Client compares that request to the template located on the Chef server. If the templates are the same, no transfer occurs.
 
 .. end_tag
 
