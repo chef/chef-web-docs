@@ -1262,6 +1262,17 @@ Use the **chocolatey_package** resource to manage packages using Chocolatey on t
      action :install
    end
 
+**Install a package with options**
+
+This example uses Chocolatey's ``--checksum`` option:
+
+.. code-block:: ruby
+
+   chocolatey_package 'name of package' do
+     options '--checksum 1234567890'
+     action :install
+   end
+
 .. end_tag
 
 cookbook_file

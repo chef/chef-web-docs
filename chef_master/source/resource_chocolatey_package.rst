@@ -9,7 +9,7 @@ Use the **chocolatey_package** resource to manage packages using Chocolatey on t
 
 .. end_tag
 
-*New in Chef Client 12.7.*
+**New in Chef Client 12.7**
 
 .. warning:: .. tag notes_resource_chocolatey_package
 
@@ -297,6 +297,17 @@ The following examples demonstrate various approaches for using resources in rec
 .. code-block:: ruby
 
    chocolatey_package 'name of package' do
+     action :install
+   end
+
+**Install a package with options**
+
+This example uses Chocolatey's ``--checksum`` option: 
+
+.. code-block:: ruby
+
+   chocolatey_package 'name of package' do
+     options '--checksum 1234567890'
      action :install
    end
 
