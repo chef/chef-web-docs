@@ -28,16 +28,14 @@ For example, the following template file and template resource settings can be u
 
 .. code-block:: ruby
 
-   template '/etc/sudoers' do
-     source 'sudoers.erb'
-     mode '0440'
-     owner 'root'
-     group 'root'
-     variables({
-       sudoers_groups: node['authorization']['sudo']['groups'],
-       sudoers_users: node['authorization']['sudo']['users']
-     })
-   end
+    template '/etc/sudoers' do
+      source 'sudoers.erb'
+      mode '0440'
+      owner 'root'
+      group 'root'
+      variables(sudoers_groups: node['authorization']['sudo']['groups'],
+                sudoers_users: node['authorization']['sudo']['users'])
+    end
 
 And then create a template called ``sudoers.erb`` and save it to ``templates/default/sudoers.erb``:
 
@@ -70,8 +68,8 @@ And then set the default attributes in ``attributes/default.rb``:
 
 .. code-block:: ruby
 
-   default['authorization']['sudo']['groups'] = [ 'sysadmin', 'wheel', 'admin' ]
-   default['authorization']['sudo']['users']  = [ 'jerry', 'greg']
+    default['authorization']['sudo']['groups'] = %w(sysadmin wheel admin)
+    default['authorization']['sudo']['users'] = %w(jerry greg)
 
 .. end_tag
 
@@ -89,13 +87,11 @@ A statement is delimited by a modifier, such as ``if``, ``elseif``, and ``else``
 
 .. code-block:: ruby
 
-   if false
-      # this won't happen
-   elsif nil
-      # this won't either
-   else
-      # code here will run though
-   end
+    if false
+    # this won't happen
+    elsif nil
+         # this won't either
+       end
 
 Using a Ruby expression is the most common approach for defining template variables because this is how all variables that are sent to a template are referenced. Whenever a template needs to use an ``each``, ``if``, or ``end``, use a Ruby statement.
 
@@ -108,9 +104,7 @@ For example, a simple template resource like this:
    node['fqdn'] = 'latte'
    template '/tmp/foo' do
      source 'foo.erb'
-     variables({
-       :x_men => 'are keen'
-     })
+     variables(x_men: 'are keen')
    end
 
 And a simple Embedded Ruby (ERB) template like this:
@@ -160,12 +154,12 @@ The following example emulates the entire file specificity pattern by defining i
 .. code-block:: ruby
 
    template '/test' do
-     source %W{
+     source %W(
        host-#{node['fqdn']}/test.erb
        #{node['platform']}-#{node['platform_version']}/test.erb
        #{node['platform']}/test.erb
        default/test.erb
-     }
+     )
    end
 
 .. end_tag
@@ -244,13 +238,13 @@ The ``variables`` property of the **template** resource can be used to reference
 
 .. code-block:: ruby
 
-    template '/file/name.txt' do
-      variables partials: {
-        'partial_name_1.txt.erb' => 'message',
-        'partial_name_2.txt.erb' => 'message',
-        'partial_name_3.txt.erb' => 'message'
-      }
-    end
+   template '/file/name.txt' do
+     variables partials: {
+       'partial_name_1.txt.erb' => 'message',
+       'partial_name_2.txt.erb' => 'message',
+       'partial_name_3.txt.erb' => 'message',
+     }
+   end
 
 where each of the partial template files can then be combined using normal Ruby template patterns within a template file, such as:
 
