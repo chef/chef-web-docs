@@ -134,6 +134,8 @@ Use an external Elasticsearch cluster (optional)
 Chef Automate uses Elasticsearch to store its data, and the default Chef Automate install includes a single Elasticsearch service.
 This is sufficient to run production workloads; however, for greater data retention, we recommend using a multi-node Elasticsearch cluster with replication and sharding to store and protect your data.
 
+As of Automate 1.7.114, the compliance service uses a ``compliance-latest`` Elasticsearch index to improves the performance of the reporting APIs at scale. Automate creates this index automatically as part of the upgrade to Automate 1.7.114. The index is updated with each new compliance report.  If the ``compliance-latest`` Elasticsearch index becomes out of sync with the time-series data, it can be regenerated using the ``automate-ctl migrate-compliance`` subcommand.  For more information, see `migrate-compliance </ctl_automate_server.html#migrate-compliance>`__.
+
 Prerequisites
 -----------------------------------------------------
 

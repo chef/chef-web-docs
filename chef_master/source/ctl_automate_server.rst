@@ -668,7 +668,9 @@ This subcommand has the following syntax:
 
 migrate-compliance
 =====================================================
-The ``migrate-compliance`` subcommand is used to execute migration of Compliance data, if needed.
+The ``migrate-compliance`` subcommand is used to execute the migration of compliance data for the purpose of synchronising the ``compliance-latest`` elasticsearch index with reporting times-series data, if needed.
+
+New in Automate 1.7.114
 
 **Syntax**
 
