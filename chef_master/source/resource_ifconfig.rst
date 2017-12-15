@@ -5,7 +5,7 @@ ifconfig
 
 .. tag resource_ifconfig_summary
 
-Use the **ifconfig** resource to manage interfaces.
+Use the **ifconfig** resource to manage interfaces on *nix systems
 
 .. end_tag
 
