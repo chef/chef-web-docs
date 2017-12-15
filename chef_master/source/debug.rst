@@ -67,7 +67,7 @@ Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_log_syntax
 
-A **log** resource block adds messages to the log file based on events that occur during the chef-client run:
+A **log** resource block adds messages to the log file based on events that occur during the Chef Client run:
 
 .. code-block:: ruby
 
@@ -94,7 +94,7 @@ where
 * ``log`` is the resource
 * ``name`` is the name of the resource block
 * ``message`` is the log message to write
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies the steps the Chef Client will take to bring the node into the desired state
 * ``level``, ``message``, and ``provider`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -108,7 +108,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the chef-client run.
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -124,14 +124,14 @@ Attributes
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** TrueClass, FalseClass | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``level``
-   **Ruby Type:** Symbol
+   **Ruby Type:** Symbol | **Default Value:** ``:info``
 
-   The level of logging that is to be displayed by the chef-client. The chef-client uses the ``mixlib-log`` (https://github.com/chef/mixlib-log) to handle logging behavior. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``. Default value: ``:info``.
+   The level of logging that is to be displayed by the Chef Client. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``.
 
 ``message``
    **Ruby Type:** String
@@ -149,13 +149,13 @@ This resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -178,14 +178,14 @@ This resource has the following properties:
    Optional. Explicitly specifies a provider.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -213,13 +213,13 @@ This resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -587,7 +587,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the chef-client run.
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
 

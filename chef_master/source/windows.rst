@@ -2212,7 +2212,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the chef-client run.
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -2290,13 +2290,13 @@ This resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -2359,13 +2359,13 @@ This resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -2576,13 +2576,13 @@ This resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -2717,13 +2717,13 @@ This resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -2949,7 +2949,7 @@ This resource has the following actions:
 
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the chef-client run.
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -3053,13 +3053,13 @@ This resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -3112,13 +3112,13 @@ This resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -3407,7 +3407,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the chef-client run.
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -3445,13 +3445,13 @@ This resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -3509,13 +3509,13 @@ This resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -3733,13 +3733,13 @@ This resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -3802,13 +3802,13 @@ This resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -4277,7 +4277,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the chef-client run.
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -4330,13 +4330,13 @@ This resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -4405,13 +4405,13 @@ This resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -4594,7 +4594,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the chef-client run.
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -4639,13 +4639,13 @@ This resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -4737,13 +4737,13 @@ This resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -4998,13 +4998,13 @@ This resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -5116,13 +5116,13 @@ This resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
