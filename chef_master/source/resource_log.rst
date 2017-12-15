@@ -79,7 +79,7 @@ This resource has the following properties:
 ``level``
    **Ruby Type:** Symbol
 
-   The level of logging that is to be displayed by the chef-client. The chef-client uses the ``mixlib-log`` (https://github.com/chef/mixlib-log) to handle logging behavior. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``. Default value: ``:info``.
+   The level of logging that is to be displayed by the chef-client. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``. Default value: ``:info``.
 
 ``message``
    **Ruby Type:** String
