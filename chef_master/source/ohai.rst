@@ -109,7 +109,7 @@ Attributes are blacklisted by attribute type, with each attribute type being bla
 
 .. warning:: The recommended practice is to use only ``automatic_attribute_blacklist`` for blacklisting attributes. This is primarily because automatic attributes generate the most data, but also that normal, default, and override attributes are typically much more important attributes and are more likely to cause issues if they are blacklisted incorrectly.
 
-For example, normal attribute data similar to:
+For example, automatic attribute data similar to:
 
 .. code-block:: javascript
 
@@ -134,9 +134,9 @@ To blacklist the ``filesystem`` attributes and allow the other attributes to be 
 
 .. code-block:: ruby
 
-   normal_attribute_blacklist ['filesystem']
+   automatic_attribute_blacklist ['filesystem']
 
-When a blacklist is defined, any attribute of that type that is not specified in that attribute blacklist **will** be saved. So based on the previous blacklist for normal attributes, the ``filesystem`` and ``map - autohome`` attributes will not be saved, but the ``network`` attributes will.
+When a blacklist is defined, any attribute of that type that is not specified in that attribute blacklist **will** be saved. So based on the previous blacklist for automatic attributes, the ``filesystem`` and ``map - autohome`` attributes will not be saved, but the ``network`` attributes will.
 
 For attributes that contain slashes (``/``) within the attribute value, such as the ``filesystem`` attribute ``'/dev/diskos2'``, use an array. For example:
 
@@ -173,7 +173,7 @@ Attributes are whitelisted by attribute type, with each attribute type being whi
 
 .. warning:: The recommended practice is to only use ``automatic_attribute_whitelist`` to whitelist attributes. This is primarily because automatic attributes generate the most data, but also that normal, default, and override attributes are typically much more important attributes and are more likely to cause issues if they are whitelisted incorrectly.
 
-For example, normal attribute data similar to:
+For example, automatic attribute data similar to:
 
 .. code-block:: javascript
 
@@ -198,15 +198,15 @@ To whitelist the ``network`` attributes and prevent the other attributes from be
 
 .. code-block:: ruby
 
-   normal_attribute_whitelist ['network/interfaces/']
+   automatic_attribute_whitelist ['network/interfaces/']
 
-When a whitelist is defined, any attribute of that type that is not specified in that attribute whitelist **will not** be saved. So based on the previous whitelist for normal attributes, the ``filesystem`` and ``map - autohome`` attributes will not be saved, but the ``network`` attributes will.
+When a whitelist is defined, any attribute of that type that is not specified in that attribute whitelist **will not** be saved. So based on the previous whitelist for automatic attributes, the ``filesystem`` and ``map - autohome`` attributes will not be saved, but the ``network`` attributes will.
 
 Leave the value empty to prevent all attributes of that attribute type from being saved:
 
 .. code-block:: ruby
 
-   normal_attribute_whitelist []
+   automatic_attribute_whitelist []
 
 For attributes that contain slashes (``/``) within the attribute value, such as the ``filesystem`` attribute ``'/dev/diskos2'``, use an array. For example:
 
