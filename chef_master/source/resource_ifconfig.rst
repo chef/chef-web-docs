@@ -5,13 +5,13 @@ ifconfig
 
 .. tag resource_ifconfig_summary
 
-Use the **ifconfig** resource to manage interfaces.
+Use the **ifconfig** resource to manage interfaces on \*nix systems.
 
 .. end_tag
 
 Syntax
 =====================================================
-A **ifconfig** resource block manages interfaces, such as a static IP address:
+An **ifconfig** resource block manages interfaces, such as a static IP address:
 
 .. code-block:: ruby
 
@@ -353,4 +353,3 @@ will update the interface from ``static`` to ``dhcp``:
      address 33.33.33.80
 
 .. end_tag
-
