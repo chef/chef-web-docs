@@ -4889,7 +4889,7 @@ windows_service
 -----------------------------------------------------
 .. tag resource_service_windows
 
-Use the **windows_service** resource to manage a service on the Microsoft Windows platform. New in Chef Client 12.0.
+Use the **windows_service** resource to manage a service on the Microsoft Windows platform.
 
 .. end_tag
 
