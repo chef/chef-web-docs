@@ -242,6 +242,7 @@ Chef Automate
 
 Overview
 -----------------------------------------------------
+
 `Chef Automate Overview </chef_automate.html>`__ |
 `Workflow Overview </workflow.html>`__ | 
 `Nodes Overview </visibility.html>`__ |
@@ -250,6 +251,7 @@ Overview
 
 Getting Started
 -----------------------------------------------------
+
 `Installation Guide </install_chef_automate.html>`__ |
 `Configure a Pipeline </delivery_pipeline.html>`__ |
 `Configure a Project </config_json_delivery.html>`__ |
@@ -261,16 +263,19 @@ Getting Started
 
 Release Notes
 -----------------------------------------------------
+
 `Release Notes </release_notes_chef_automate.html>`__
 
 Nodes
 -----------------------------------------------------
+
 `Node Notifications w/Slack </integrate_node_notifications_slack.html>`__ |
 `Node Notifications w/Webhooks </integrate_node_notifications_webhook.html>`__ |
 `Node Search Reference </search_query_chef_automate.html>`__
 
 Compliance
 -----------------------------------------------------
+
 `Reporting </automate_compliance_reporting.html>`__ |
 `Scanner </automate_compliance_scanner.html>`__ |
 `Profile Store </profile_store.html>`__ |
@@ -278,10 +283,11 @@ Compliance
 
 Workflow
 -----------------------------------------------------
+
 `build-cookbook (cookbook) </delivery_build_cookbook.html>`__ |
-`delivery-truck (cookbook) </delivery_truck.html>`__
-`Manage Dependencies </delivery_manage_dependencies.html>`__
-`Runners </runners.html>`__
+`delivery-truck (cookbook) </delivery_truck.html>`__ |
+`Manage Dependencies </delivery_manage_dependencies.html>`__ |
+`Runners </runners.html>`__ |
 `Workflow w/Bitbucket </integrate_delivery_bitbucket.html>`__ |
 `Workflow w/Email (SMTP) </integrate_delivery_smtp.html>`__ |
 `Workflow w/GitHub </integrate_delivery_github.html>`__ |
@@ -289,23 +295,13 @@ Workflow
 
 Admin
 -----------------------------------------------------
+
 `Authentication w/LDAP </integrate_delivery_ldap.html>`__ |
 `Authentication w/SAML </integrate_chef_automate_saml.html>`__
 
-Compliance scanner
------------------------------------------------------
-`Overview </chef_compliance.html>`__ |
-`Release Notes </release_notes_compliance.html>`__ |
-`Installation Guide </install_chef_compliance.html>`__ |
-`Integrate w/Chef Server </integrate_compliance_chef_server.html>`__ |
-`Integrate w/Chef Automate </integrate_compliance_server_chef_automate.html>`__ |
-`Upgrade Compliance </upgrade_compliance.html>`__ |
-`chef-compliance.rb </config_rb_compliance.html>`__ |
-
-`Profile Store </profile_store.html>`__
-
 Managing the Server
 -----------------------------------------------------
+
 `Backups </delivery_server_backup.html>`__ |
 `Capacity Planning </scaling_capacity_planning_chef_automate.html>`__ |
 `Disaster Recovery </delivery_server_disaster_recovery.html>`__ |
@@ -317,6 +313,7 @@ Managing the Server
 
 Reference
 -----------------------------------------------------
+
 `Chef Automate API </api_automate.html>`__ |
 `Automate CTL </ctl_automate_server.html>`__ |
 `Chef Compliance API </api_compliance.html>`__ |
@@ -333,6 +330,18 @@ Troubleshooting
 -----------------------------------------------------
 
 `Troubleshooting </troubleshooting_chef_automate.html>`__
+
+Compliance scanner
+-----------------------------------------------------
+
+`Overview </chef_compliance.html>`__ |
+`Release Notes </release_notes_compliance.html>`__ |
+`Installation Guide </install_chef_compliance.html>`__ |
+`Integrate w/Chef Server </integrate_compliance_chef_server.html>`__ |
+`Integrate w/Chef Automate </integrate_compliance_server_chef_automate.html>`__ |
+`Upgrade Compliance </upgrade_compliance.html>`__ |
+`chef-compliance.rb </config_rb_compliance.html>`__ |
+`Profile Store </profile_store.html>`__
 
 Legacy
 =====================================================
