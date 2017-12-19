@@ -280,9 +280,9 @@ Nodes
 
 Compliance
 -----------------------------------------------------
-`Reporting </automate_compliance_reporting.html>`__|
-`Scanner </automate_compliance_scanner.html>`__|
-`Profile Store </profile_store.html>`__|
+`Reporting </automate_compliance_reporting.html>`__ |
+`Scanner </automate_compliance_scanner.html>`__ |
+`Profile Store </profile_store.html>`__ |
 `Credentials </automate_compliance_credentials.html>`__
 
 Workflow
