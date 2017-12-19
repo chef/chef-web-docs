@@ -15,6 +15,8 @@ Use the **dnf_package** resource to install, upgrade, and remove packages with D
 
           .. end_tag
 
+**New in Chef Client 12.18.**
+
 Syntax
 =====================================================
 A **dnf_package** resource block manages a package on a node, typically by installing it. The simplest use of the **dnf_package** resource is:
