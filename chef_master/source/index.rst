@@ -169,7 +169,7 @@ Chef DK
 
 **knife opc**: `About knife opc </plugin_knife_opc.html>`__ | `knife.rb Configuration </plugin_knife_opc.html#plugin-knife-opc-knife-rb-configuration>`__ | `opc user list </plugin_knife_opc.html#plugin-knife-opc-opc-user-list>`__ | `opc user show </plugin_knife_opc.html#plugin-knife-opc-opc-user-show>`__ | `opc user create </plugin_knife_opc.html#plugin-knife-opc-opc-user-create>`__ | `opc user delete </plugin_knife_opc.html#plugin-knife-opc-opc-user-delete>`__ | `opc user delete </plugin_knife_opc.html#plugin-knife-opc-opc-user-edit>`__ |  | `opc org list </plugin_knife_opc.html#plugin-knife-opc-opc-org-list>`__ | `opc org show </plugin_knife_opc.html#plugin-knife-opc-opc-org-show>`__ | `opc org create </plugin_knife_opc.html#plugin-knife-opc-opc-org-create>`__ | `opc org delete </plugin_knife_opc.html#plugin-knife-opc-opc-org-delete>`__ | `opc org user add </plugin_knife_opc.html#plugin-knife-opc-opc-org-user-add>`__ | `opc org user remove </plugin_knife_opc.html#plugin-knife-opc-opc-org-user-remove>`__
 
-`knife spork </plugin_knife_spork.html>`__ |
+`knife spork </plugin_knife_spork.html>`__
 
 **knife supermarket**: `supermarket download </plugin_knife_supermarket.html#download>`__ | `supermarket install </plugin_knife_supermarket.html#install>`__ | `supermarket list </plugin_knife_supermarket.html#list>`__ | `supermarket search </plugin_knife_supermarket.html#search>`__ | `supermarket share </plugin_knife_supermarket.html#share>`__ | `supermarket show </plugin_knife_supermarket.html#show>`__ | `supermarket unshare </plugin_knife_supermarket.html#unshare>`__
 
@@ -179,7 +179,7 @@ Chef DK
 
 **Provisioning**: `About Provisioning </provisioning.html>`__ | `load_balancer resource </resource_load_balancer.html>`__ | `machine resource </resource_machine.html>`__ | `machine_batch resource </resource_machine_batch.html>`__ | `machine_execute resource </resource_machine_execute.html>`__ | `machine_file resource </resource_machine_file.html>`__ | `machine_image resource </resource_machine_image.html>`__ | `AWS Driver Resources </provisioning_aws.html>`__ | `Fog Driver Resources </provisioning_fog.html>`__ | `Vagrant Driver Resources </provisioning_vagrant.html>`__
 
-`push-jobs-client (executable) </ctl_push_jobs_client.html>`__ |
+`push-jobs-client (executable) </ctl_push_jobs_client.html>`__
 
 Managing the Server
 -----------------------------------------------------
@@ -376,7 +376,7 @@ Reporting
 `knife reporting </plugin_knife_reporting.html>`__ |
 `opscode-reporting-ctl </ctl_reporting.html>`__ |
 `opscode-reporting.rb </config_rb_reporting.html>`__ |
-`Reporting API </api_reporting.html>`__ 
+`Reporting API </api_reporting.html>`__
 
 Extension APIs
 =====================================================
