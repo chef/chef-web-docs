@@ -31,8 +31,6 @@ The following repositories are the preferred locations for the creation of issue
      - https://github.com/chef/chef-dk
    * - Chef Server
      - https://github.com/chef/chef-server
-   * - Chef Manage
-     - https://github.com/chef/chef-manage-issues
    * - Chef Push Jobs
      - https://github.com/chef/chef-push
    * - Chef Automate
