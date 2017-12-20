@@ -244,10 +244,10 @@ Overview
 -----------------------------------------------------
 
 `Chef Automate Overview </chef_automate.html>`__ |
-`Workflow Overview </workflow.html>`__ | 
+`Workflow Overview </workflow.html>`__ |
 `Nodes Overview </visibility.html>`__ |
 `Compliance Overview </chef_automate_compliance.html>`__ |
-`Administration Overview </automate_admin.html>`__ |
+`Administration Overview </automate_admin.html>`__
 
 Getting Started
 -----------------------------------------------------
@@ -309,7 +309,7 @@ Managing the Server
 `Secrets </delivery_manage_secrets.html>`__ |
 `Data Retention Management in Chef Automate </data_retention_chef_automate.html>`__ |
 `Tuning </delivery_server_tuning.html>`__ |
-`Users and Roles </delivery_users_and_roles.html>`__ |
+`Users and Roles </delivery_users_and_roles.html>`__
 
 Reference
 -----------------------------------------------------
@@ -365,7 +365,7 @@ Analytics
 `opscode-analytics.rb </config_rb_analytics.html>`__ |
 `knife-analytics </plugin_knife_analytics.html>`__ |
 `Analytics API </api_analytics.html>`__ |
-`Recipe DSL for Analytics </dsl_recipe_analytics.html>`__ |
+`Recipe DSL for Analytics </dsl_recipe_analytics.html>`__
 
 Reporting
 -----------------------------------------------------
@@ -376,7 +376,7 @@ Reporting
 `knife reporting </plugin_knife_reporting.html>`__ |
 `opscode-reporting-ctl </ctl_reporting.html>`__ |
 `opscode-reporting.rb </config_rb_reporting.html>`__ |
-`Reporting API </api_reporting.html>`__ |
+`Reporting API </api_reporting.html>`__ 
 
 Extension APIs
 =====================================================
