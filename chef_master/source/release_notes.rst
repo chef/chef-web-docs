@@ -1,9 +1,9 @@
 =====================================================
-Release Notes: chef-client 12.0 - 13.6.4
+Release Notes: Chef Client 12.0 - 13.6.4
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes.rst>`__
 
-Chef client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef changelog <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
+Chef Client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef changelog <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
 
 What's new in 13.6.4:
 =====================================================
@@ -611,6 +611,12 @@ When Chef Client is running as a forked process on unix systems, the standardize
 New deprecations included in this release
 -----------------------------------------------------
 * `Removal of support for Ohai version 6 plugins </deprecations_ohai_v6_plugins.html>`__
+
+What's New in 12.21.31
+=====================================================
+* **Support for AArch64 platform on Red Hat Enterprise Linux**
+* **mdadm support for arrays with more than 10 disks**
+* **OpenSSL updated to version 1.0.2**
 
 What's New in 12.21.26
 =====================================================
