@@ -18,13 +18,13 @@ Use the ``knife bootstrap`` subcommand to run a bootstrap operation that install
 
 .. end_tag
 
-.. note:: Starting with chef-client 12.0, use the `knife ssl_fetch </knife_ssl_fetch.html>`__ command to pull down the SSL certificates from the on-premises Chef server and add them to the ``/trusted_certs_dir`` on the workstation. These certificates are used during a ``knife bootstrap`` operation.
+**Considerations:**
 
-.. note:: To bootstrap the chef-client on Microsoft Windows machines, the `knife-windows </plugin_knife_windows.html>`__ plugins is required, which includes the necessary bootstrap scripts that are used to do the actual installation.
+* As of Chef 12.8 you can create a ``.chef/client.d`` directory on your workstation and the contents of that ``client.d`` directory will be copied to the system being bootstrapped by the ``knife bootstrap`` command. You can also set the ``client_d_dir`` option in ``knife.rb`` to point to an arbitrary directory instead of ``.chef/client.d``, and the contents of that directory will be copied to the system being bootstrapped. All config files inside ``client.d`` directory get copied into ``/etc/chef/client.d`` on the system being bootstrapped.
 
-New in 12.6, ``-i IDENTITY_FILE``, ``--json-attribute-file FILE``, ``--sudo-preserve-home``.  Changed in 12.4, validatorless bootstrap requires ``-N node_name``. Changed in 12.1, ``knife-bootstrap`` has the options --bootstrap-vault-file, --bootstrap-vault-item, and --bootstrap-vault-json options to specify item stored in chef-vault. New in 12.0, ``--[no-]node-verify-api-cert``, ``--node-ssl-verify-mode PEER_OR_NONE``, ``-t TEMPLATE``,
+* Starting with Chef 12.0, use the `knife ssl fetch </knife_ssl_fetch.html>`__ command to pull down the SSL certificates from the on-premises Chef server and add them to the ``/trusted_certs_dir`` on the workstation. These certificates are used during a ``knife bootstrap`` operation.
 
-As of Chef 12.8 you can create a ``.chef/client.d`` directory on your workstation and the contents of that `client.d </config_rb_client.html>`__ directory will be copied to the system being bootstrapped by the ``knife bootstrap`` command. You can also set the ``client_d_dir`` option in ``knife.rb`` to point to an arbitrary directory instead of ``.chef/client.d`` and the contents of that directory will be copied to the system being bootstrapped. All config files inside ``client.d`` directory get copied into ``/etc/chef/client.d`` on the system being bootstrapped.
+* To bootstrap the Chef Client on Microsoft Windows machines, the `knife-windows </plugin_knife_windows.html>`__ plugin is required.
 
 Syntax
 =====================================================
@@ -162,8 +162,8 @@ This subcommand has the following options:
 
    New in Chef Client 12.0.
 
-``--node-ssl-verify-mode PEER_OR_NONE``
-   Set the verify mode for HTTPS requests.
+``--node-ssl-verify-mode MODE``
+   Set the verify mode for HTTPS requests. Options: ``none`` or ``peer``.
 
    Use ``none`` to do no validation of SSL certificates.
 
