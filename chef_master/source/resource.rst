@@ -3,7 +3,7 @@ About Resources
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource.rst>`__
 
-.. note:: If you want to see all of the information about resources in a single document, see the `Resources reference </resources.html>`_. 
+.. note:: If you want to see all of the information about resources in a single document, see the `Resources reference </resources.html>`_.
 
 .. tag resources_common
 
@@ -94,21 +94,21 @@ All resources (including custom resources) share a set of common actions, proper
 
    * - Common Item
      - Description
-   * - :ref:`resource_common_actions`
+   * - `Actions </resource_common.html#resource-common-actions>`__
      - The ``:nothing`` action can be used with any resource or custom resource.
-   * - :ref:`resource_common_properties`
+   * - `Properties </resource_common.html#resource-common-properties>`__
      - The ``ignore_failure``, ``provider``, ``retries``, and ``retry_delay`` properties can be used with any resource or custom resources.
-   * - :ref:`resource_common_guards`
+   * - `Guards </resource_common.html#resource-common-guards>`__
      - The ``not_if`` and ``only_if`` conditional executions can be used to put additional guards around certain resources so that they are only run when the condition is met.
-   * - :ref:`resource_common_guard_interpreters`
+   * - `Guard Interpreters </resource_common.html#resource-common-guard-interpreters>`__
      - Evaluate a string command using a **script**-based resource: **bash**, **csh**, **perl**, **powershell_script**, **python**, or **ruby**.
-   * - :ref:`resource_common_notifications`
+   * - `Notifications </resource_common.html#resource-common-notifications>`__
      - The ``notifies`` and ``subscribes`` notifications can be used with any resource.
-   * - :ref:`resource_common_relative_paths`
+   * - `Relative Paths </resource_common.html#resource-common-relative-paths>`__
      - The ``#{ENV['HOME']}`` relative path can be used with any resource.
-   * - :ref:`resource_common_windows_file_security`
+   * - `Windows File Security </resource_common.html#resource-common-windows-file-security>`__
      - The **template**, **file**, **remote_file**, **cookbook_file**, **directory**, and **remote_directory** resources support the use of inheritance and access control lists (ACLs) within recipes.
-   * - :ref:`resource_common_run_in_compile_phase`
+   * - `Run in Recompile Phase </resource_common.html#resource-common-run-in-compile-phase>`__
      - Sometimes a resource needs to be run before every other resource or after all resources have been added to the resource collection.
 
 Resources
@@ -298,7 +298,7 @@ The following resources are platform resources (i.e. "are available from the che
    * - `ifconfig </resource_ifconfig.html>`__
      - .. tag resource_ifconfig_summary
 
-       Use the **ifconfig** resource to manage interfaces.
+       Use the **ifconfig** resource to manage interfaces on \*nix systems.
 
        .. end_tag
 
@@ -344,7 +344,7 @@ The following resources are platform resources (i.e. "are available from the che
    * - `mdadm </resource_mdadm.html>`__
      - .. tag resource_mdadm_summary
 
-       Use the **mdadm** resource to manage RAID devices in a Linux environment using the mdadm utility. The **mdadm** provider will create and assemble an array, but it will not create the config file that is used to persist the array upon reboot. If the config file is required, it must be done by specifying a template with the correct array layout, and then by using the **mount** provider to create a file systems table (fstab) entry.
+       Use the **mdadm** resource to manage RAID devices in a Linux environment using the mdadm utility. The **mdadm** resource will create and assemble an array, but it will not create the config file that is used to persist the array upon reboot. If the config file is required, it must be done by specifying a template with the correct array layout, and then by using the **mount** provider to create a file systems table (fstab) entry.
 
        .. end_tag
 
@@ -531,7 +531,7 @@ The following resources are platform resources (i.e. "are available from the che
    * - `windows_service </resource_windows_service.html>`__
      - .. tag resource_service_windows
 
-       Use the **windows_service** resource to manage a service on the Microsoft Windows platform. New in Chef Client 12.0.
+       Use the **windows_service** resource to manage a service on the Microsoft Windows platform.
 
        .. end_tag
 

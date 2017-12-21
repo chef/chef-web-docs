@@ -21,7 +21,23 @@ This feature is in ``beta`` release. To access this feature, place your cursor a
 
 .. end_tag
 
-Profile storage
+Different reporting perspectives
+=====================================================
+
+When analyzing compliance reports, Chef Automate provides the ability to pivot the data based on either nodes or profiles. The same detailed information is available in both views; however, depending on your role, you have the ability to drill down on the information that is important to you.
+
+.. image:: ../../images/automate_compliance_overview_profile.png
+
+Powerful filtering of report data
+=====================================================
+
+Chef Automate provides the ability to filter on the compliance status of the nodes in your cluster. You can filter your data on categories such as the profile used, platform of the node, environment, and so on. You can also chain these filters together to get precise results over your report data. 
+
+.. image:: ../../images/automate_compliance_filter.png
+
+See `Filter Compliance Scans in Chef Automate </filter_compliance_scan.html>`_ for more information.
+
+Profile Store
 =====================================================
 
 Chef Automate contains a collection of built-in profiles to help you perform security audits of the nodes in your Chef Automate cluster. These profiles exist for many scenarios, such as those created by the Center for Internet Security (CIS), to help you audit your nodes for security requirements based on governmental and business needs. 
@@ -68,18 +84,3 @@ Chef Automate also ships the following "baseline" profiles with controls that ch
 * Windows Security
 * Windows Patch
 
-Different reporting perspectives
-=====================================================
-
-When analyzing compliance reports, Chef Automate provides the ability to pivot the data based on either nodes or profiles. The same detailed information is available in both views; however, depending on your role, you have the ability to drill down on the information that is important to you.
-
-.. image:: ../../images/automate_compliance_overview_profile.png
-
-Powerful filtering of report data
-=====================================================
-
-Chef Automate provides the ability to filter on the compliance status of the nodes in your cluster. You can filter your data on categories such as the profile used, platform of the node, environment, and so on. You can also chain these filters together to get precise results over your report data. 
-
-.. image:: ../../images/automate_compliance_filter.png
-
-See `Filter Compliance Scans in Chef Automate </filter_compliance_scan.html>`_ for more information.

@@ -146,7 +146,7 @@ For example:
            end
 
            dir_resource = directory mount_spec[:location] do
-             mode 0755
+             mode '0755'
              owner 'root'
              group 'root'
              recursive true

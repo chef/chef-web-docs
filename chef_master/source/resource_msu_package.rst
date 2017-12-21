@@ -78,13 +78,13 @@ Generally, it's best to let the chef-client choose the provider, and this is (by
   .. code-block:: ruby
 
      pkg_resource = case node['platform_family']
-       when "debian"
+       when 'debian'
          :dpkg_package
-       when "fedora", "rhel", "amazon"
+       when 'fedora', 'rhel', 'amazon'
          :rpm_package
        end
 
-     pkg_path = ( pkg_resource == :dpkg_package ) ? "/tmp/foo.deb" : "/tmp/foo.rpm"
+     pkg_path = (pkg_resource == :dpkg_package) ? '/tmp/foo.deb' : '/tmp/foo.rpm'
 
      declare_resource(pkg_resource, pkg_path) do
        action :install

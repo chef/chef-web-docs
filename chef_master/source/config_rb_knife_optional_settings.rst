@@ -46,8 +46,8 @@ The following list describes all of the optional settings that can be added to t
    .. code-block:: ruby
 
       knife[:authentication_protocol_version] = '1.3'
-      
-   Note that authentication protocol 1.3 is only supported on Chef server versions 12.4.0 and above. 
+
+   Note that authentication protocol 1.3 is only supported on Chef server versions 12.4.0 and above.
 
 ``knife[:bare_directories]``
    Prevent a directory's children from showing when a directory matches a pattern.
@@ -457,7 +457,7 @@ configure
 The following ``knife configure`` settings can be added to the knife.rb file:
 
 ``knife[:admin_client_name]``
-   The name of the admin client that is passed as part of a the command itself.
+   The name of the admin client that is passed as part of the command itself.
 
 ``knife[:config_file]``
    Adds the the ``--config`` option.

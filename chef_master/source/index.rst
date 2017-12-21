@@ -167,7 +167,7 @@ Chef DK
 
 **Knife**: `About Knife </knife.html>`__ | `Common Options </knife_options.html>`__ | `Setting up Knife </knife_setup.html>`__ | `knife bootstrap </knife_bootstrap.html>`__ | `knife client </knife_client.html>`__ | `knife configure </knife_configure.html>`__ | `knife cookbook </knife_cookbook.html>`__ | `knife cookbook site </knife_cookbook_site.html>`__ | `knife data bag </knife_data_bag.html>`__ | `knife delete </knife_delete.html>`__ | `knife deps </knife_deps.html>`__ | `knife diff </knife_diff.html>`__ | `knife download </knife_download.html>`__ | `knife edit </knife_edit.html>`__ | `knife environment </knife_environment.html>`__ | `knife exec </knife_exec.html>`__ | `knife list </knife_list.html>`__ | `knife node </knife_node.html>`__ | `knife raw </knife_raw.html>`__ | `knife recipe list </knife_recipe_list.html>`__ | `knife role </knife_role.html>`__ | `knife search </knife_search.html>`__ | `knife serve </knife_serve.html>`__ | `knife show </knife_show.html>`__ | `knife ssh </knife_ssh.html>`__ | `knife ssl check </knife_ssl_check.html>`__ | `knife ssl fetch </knife_ssl_fetch.html>`__ | `knife status </knife_status.html>`__ | `knife tag </knife_tag.html>`__ | `knife upload </knife_upload.html>`__ | `knife user </knife_user.html>`__ | `knife xargs </knife_xargs.html>`__
 
-**knife opc**: `About knife opc </plugin_knife_opc.html>`__ | :ref:`plugin_knife_opc-knife-rb-configuration` | :ref:`plugin_knife_opc-opc-user-list` | :ref:`plugin_knife_opc-opc-user-show` | :ref:`plugin_knife_opc-opc-user-create` | :ref:`plugin_knife_opc-opc-user-delete` | :ref:`plugin_knife_opc-opc-user-edit` | :ref:`plugin_knife_opc-opc-user-password` | :ref:`plugin_knife_opc-opc-org-list` | :ref:`plugin_knife_opc-opc-org-show` | :ref:`plugin_knife_opc-opc-org-create` | :ref:`plugin_knife_opc-opc-org-delete` | :ref:`plugin_knife_opc-opc-org-user-add` | :ref:`plugin_knife_opc-opc-org-user-remove`
+**knife opc**: `About knife opc </plugin_knife_opc.html>`__ | `knife.rb Configuration </plugin_knife_opc.html#plugin-knife-opc-knife-rb-configuration>`__ | `opc user list </plugin_knife_opc.html#plugin-knife-opc-opc-user-list>`__ | `opc user show </plugin_knife_opc.html#plugin-knife-opc-opc-user-show>`__ | `opc user create </plugin_knife_opc.html#plugin-knife-opc-opc-user-create>`__ | `opc user delete </plugin_knife_opc.html#plugin-knife-opc-opc-user-delete>`__ | `opc user delete </plugin_knife_opc.html#plugin-knife-opc-opc-user-edit>`__ |  | `opc org list </plugin_knife_opc.html#plugin-knife-opc-opc-org-list>`__ | `opc org show </plugin_knife_opc.html#plugin-knife-opc-opc-org-show>`__ | `opc org create </plugin_knife_opc.html#plugin-knife-opc-opc-org-create>`__ | `opc org delete </plugin_knife_opc.html#plugin-knife-opc-opc-org-delete>`__ | `opc org user add </plugin_knife_opc.html#plugin-knife-opc-opc-org-user-add>`__ | `opc org user remove </plugin_knife_opc.html#plugin-knife-opc-opc-org-user-remove>`__
 
 `knife spork </plugin_knife_spork.html>`__ |
 
@@ -265,20 +265,12 @@ Concepts
 **Workflow**: `Workflow Overview </workflow.html>`__ | `Manage Dependencies </delivery_manage_dependencies.html>`__
 
 `Nodes Overview </visibility.html>`__ |
-`Compliance Overview </chef_automate_compliance.html>`__
+`Compliance Overview </chef_automate_compliance.html>`__ |
+`Administration Overview </automate_admin.html>`__ |
 
 Delivery CLI
 -----------------------------------------------------
 `Delivery CLI </delivery_cli.html>`__
-
-Integrations
------------------------------------------------------
-`Authentication w/LDAP </integrate_delivery_ldap.html>`__ |
-`Authentication w/SAML </integrate_chef_automate_saml.html>`__ |
-`Workflow w/Bitbucket </integrate_delivery_bitbucket.html>`__ |
-`Workflow w/Email (SMTP) </integrate_delivery_smtp.html>`__ |
-`Workflow w/GitHub </integrate_delivery_github.html>`__ |
-`Workflow w/Slack </integrate_delivery_slack.html>`__
 
 Nodes
 -----------------------------------------------------
@@ -288,11 +280,22 @@ Nodes
 
 Compliance
 -----------------------------------------------------
-`Reporting </automate_compliance_reporting.html>`__|
-`Scanner </automate_compliance_scanner.html>`__|
-`Profile Store </profile_store.html>`__|
+`Reporting </automate_compliance_reporting.html>`__ |
+`Scanner </automate_compliance_scanner.html>`__ |
+`Profile Store </profile_store.html>`__ |
 `Credentials </automate_compliance_credentials.html>`__
 
+Workflow
+-----------------------------------------------------
+`Workflow w/Bitbucket </integrate_delivery_bitbucket.html>`__ |
+`Workflow w/Email (SMTP) </integrate_delivery_smtp.html>`__ |
+`Workflow w/GitHub </integrate_delivery_github.html>`__ |
+`Workflow w/Slack </integrate_delivery_slack.html>`__
+
+Admin
+-----------------------------------------------------
+`Authentication w/LDAP </integrate_delivery_ldap.html>`__ |
+`Authentication w/SAML </integrate_chef_automate_saml.html>`__
 
 Cookbooks
 -----------------------------------------------------
@@ -463,6 +466,7 @@ Addenda
    automate_compliance_profile_store
    automate_compliance_credentials
    automate_nodes
+   automate_admin
    aws_marketplace
    aws_opsworks_chef_automate
    azure_portal

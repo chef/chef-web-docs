@@ -5,6 +5,66 @@ Release Notes: Chef Automate
 
 Chef Automate provides a full suite of enterprise capabilities for workflow, visibility and compliance that allow you to manage and monitor application and cookbook deployments across a cluster of nodes in your environment.
 
+What's New in 1.7.114
+=====================================================
+
+New Features
+-----------------------------------------------------
+
+* **Compliance Scanner, Job Scheduling and Improvements (Beta)**
+
+  This month’s release marks the addition of job scheduling to the compliance scanner and completes its core functionality. It allows for compliance scans to be scheduled for future or recurring runs. This enables users to fully automate their tests to run on a regular schedule.
+
+  We have also improved the security of the secrets management system in the compliance scanner. It will no longer expose user secrets in the UI or API, and will instead retain them exclusively for internal calls to the compliance scanner. This increases the confidentiality of data while allowing the scanner to use secrets.
+
+  The compliance scanner is in open beta as we continue to respond to user feedback before releasing it as generally available. To activate it, type ``beta`` anywhere in the UI and enable the feature in the popup that appears.
+
+* **CIS Compliance Profile for Windows 2016**
+
+  This release also features our new CIS Compliance Profile for Windows Server 2016. It contains subprofiles for the Member Server and Domain Controller, both in Level 1 and Level 2. They each feature up to 350 controls to help achieve compliance for modern Windows servers.
+
+* **RHEL6 STIG Compliance Profile**
+
+  The first set of STIG compliance profiles have been added to this release of Chef Automate. They include 261 controls for Red Hat Enterprise Linux 6 compliance. These controls also span category I - III and contain detailed information and references with every rule.
+
+* **Performance Improvements for Compliance Profiles**
+
+  Windows performance has been considerably improved with the release of `audit cookbook v6 <https://supermarket.chef.io/cookbooks/audit>`__, which leverages new mechanisms in InSpec and Train to speed up all tests. This is achieved with a caching approach that allows for considerably faster execution of all calls and resources on Microsoft Windows. On average, we found the CIS Windows benchmarks for execution time were reduced by 90%, allowing for a significant increase in speed. CIS for Linux benchmarks saw an average of 30% reduction in execution time.
+
+  By default, caching is now enabled with audit cookbook v6. Please update it alongside Chef Automate and InSpec on your nodes to fully leverage these performance gains.
+
+* **Performance Improvements for Compliance Reporting**
+
+  Large environments with thousands of nodes provide great insights, but have been somewhat slow to load in Chef Automate due to the sheer amount of data that requires processing. In this release, we introduced a number of improvements to the backend that will make both API calls and the UI experience much faster for large environments.
+
+  In the same cycle we improved the suggestions on all searches in Compliance Reporting. These now return more accurate results and have become noticeably faster.
+
+* **Delete Runner Command**
+
+  We’ve added the `delete-runner subcommand <https://docs.chef.io/runners.html#removing-a-runner>`__ to ``automate-ctl`` for easier management of runners used as part of a workflow pipeline.  Previously it was only possible to remove a runner by calling the ``delivery api``.
+
+* **Data Retention Improvements for Reaper**
+
+  Chef Automate’s Reaper feature for managing archives and deletion of Elasticsearch data now supports configuration of `distinct retention periods <https://docs.chef.io/data_retention_chef_automate.html>`__ for compliance and Chef Client run data.  As many organizations require that compliance data be stored for extended periods of time, this allows users to set the retention threshold without also requiring that Chef client run data be stored for the same period.
+
+Resolved Issues
+-----------------------------------------------------
+
+* Fixed an issue that caused the umask check to incorrectly fail during the ``preflight-check``. The ``preflight-check`` currently checks on the return value of ``su -c 'umask' -l root`` and this can return values besides the raw ``int``  of the umask.
+* After an upgrade of the Automate package in all versions up to and including 1.7.10, the user was previously encouraged to run ``automate-ctl setup``, which is unnecessary for an existing system. Now the user is prompted to run ``automate-ctl reconfigure``.
+* Corrected an issue where Chef Automate only displayed up to 10 Chef Servers or organizations in the Nodes UI. All servers and orgs reporting data to Chef Automate are now visible and available for filtering.
+* Resolved an issue with invalid JSON in the workflow Slack notifications, which was impacting webhook integration with Mattermost.
+* Chef Automate’s Reaper now works in archive mode when using a non-default location for the archive repo. In previous releases Reaper archive mode only operated correctly when using the default repo path of ``/var/opt/delivery/elastisearch_backups``.
+* Improved response time for ``automate-ctl help``.
+* Improved the startup performance of Chef Automate by speeding up the Compliance service.
+* The scanner no longer returns passwords via API calls.
+* Compliance APIs have had their timestamps unified to `RFC3339 <https://www.ietf.org/rfc/rfc3339.txt>`__.
+* RabbitMQ now listens on the loopback interface exclusively, and uses SSL for authentication and communication.
+* Searching for nodes by attribute or resource now properly supports spaces and special characters.
+* Testing a workflow runner from the Manage Runners page now correctly raises an error if the runner’s user account has an expired password.
+* Installing a runner now works on CentOS/RHEL when the remote user does not have ``/usr/sbin`` in their ``PATH``.
+* Installing a runner now works when the remote user’s shell is ``/bin/sh``.
+* Installing a runner now defaults to collecting only the minimum required Ohai attributes to avoid potential issues with Ohai plugins. You must now pass the ``--full-ohai`` argument to ``automate-ctl install-runner`` to run all plugins on runner installation.
 
 What's New in 1.7.39
 =====================================================
@@ -30,7 +90,7 @@ What's New in 1.7.27
 Resolved Issues
 -----------------------------------------------------
 
-* The Compliance API endpoints experienced an unexpected move in their paths as part of the new compliance scanner being added in 1.7.10. These endpoint changes were reverted and the current API around ``/compliance/nodes`` is now available again. All scanner endpoints moved to the ``/compliance/scanner`` subpath instead. 
+* The Compliance API endpoints experienced an unexpected move in their paths as part of the new compliance scanner being added in 1.7.10. These endpoint changes were reverted and the current API around ``/compliance/nodes`` is now available again. All scanner endpoints moved to the ``/compliance/scanner`` subpath instead.
 * By default, the workflow functionality in Chef Automate would previously only connect to external services like Elasticsearch over SSL when the number of certificates in the chain was two or less. The default has been increased to 20.
 * The ``automate-ctl install-runner`` command now works on nodes with an existing ``/etc/chef/validation.pem`` file.
 * The ``nginx['use_implicit_hosts']`` setting now defaults to false to avoid edge cases on systems where we cannot detect the local IP addresses. It is recommended to set this to true if ``nginx['strict_host_header']`` is set to true for security reasons.
@@ -47,9 +107,9 @@ New Features
 
 Compliance Scanner Open Beta
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
-Previously, the only way to orchestrate remote InSpec runs was through the use of Chef Compliance, a standalone application which does not report data to Chef Automate. The compliance scanner, now available as an open beta feature in Chef Automate, allows you to add nodes and execute ad hoc remote compliance scans from within Chef Automate. In a future release we will add the ability to set up scheduled scan jobs. 
+Previously, the only way to orchestrate remote InSpec runs was through the use of Chef Compliance, a standalone application which does not report data to Chef Automate. The compliance scanner, now available as an open beta feature in Chef Automate, allows you to add nodes and execute ad hoc remote compliance scans from within Chef Automate. In a future release we will add the ability to set up scheduled scan jobs.
 
-Remote scans provide an important capability for any systems that may not have an agent installed, as well as for other endpoints and devices. The scanner, combined with existing reporting capabilities and profiles, offers a major enhancement to remote compliance testing with Chef Automate. 
+Remote scans provide an important capability for any systems that may not have an agent installed, as well as for other endpoints and devices. The scanner, combined with existing reporting capabilities and profiles, offers a major enhancement to remote compliance testing with Chef Automate.
 
 A few of the new features introduced:
 

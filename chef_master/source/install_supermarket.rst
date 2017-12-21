@@ -83,7 +83,7 @@ To configure Chef Supermarket to use Chef Identity, do the following:
 
 #. Retrieve Supermarket's OAuth 2.0 client credentials:
 
-   Depending on your Chef server version and configuration (see :ref:`chef-server.rb <config_rb_server_insecure_addon_compat>`), this can be retrieved via :ref:`chef-server-ctl oc-id-show-app supermarket <ctl_chef_server_oc_id_show_app>` or is located in ``/etc/opscode/oc-id-applications/supermarket.json``:
+   Depending on your Chef server version and configuration (see `chef-server.rb </config_rb_server_optional_settings.html#config-rb-server-insecure-addon-compat>`__), this can be retrieved via `chef-server-ctl oc-id-show-app supermarket </ctl_chef_server.html#ctl-chef-server-oc-id-show-app>`__ or is located in ``/etc/opscode/oc-id-applications/supermarket.json``:
 
    .. code-block:: javascript
 
@@ -96,7 +96,7 @@ To configure Chef Supermarket to use Chef Identity, do the following:
 
    The ``uid`` and ``secret`` values will be needed later on during the setup process for Chef Supermarket.
 
-.. note:: Add as many Chef Identity applications to the ``chef-server.rb`` configuration file as necessary. A JSON file is generated for each application added, which contains the authentication tokens for that application. The secrets are added to the Chef Identity database and are available to all nodes in the Chef server front end group. The generated JSON files do not need to be copied anywhere.
+.. note:: Add as many Chef Identity applications to the ``/etc/opscode/chef-server.rb`` configuration file as necessary. A JSON file is generated for each application added, which contains the authentication tokens for that application. The secrets are added to the Chef Identity database and are available to all nodes in the Chef server front end group. The generated JSON files do not need to be copied anywhere.
 
 .. note:: The redirect URL specified **MUST** match the FQDN of the Chef Supermarket server. The URI must also be correct: ``/auth/chef_oauth2/callback``. Otherwise, an error message similar to ``The redirect uri included is not valid.`` will be shown.
 

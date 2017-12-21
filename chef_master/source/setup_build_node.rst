@@ -20,10 +20,17 @@ The following steps should be performed on a Chef Automate server:
                                       --password [$OPTIONAL_SSH_OR_SUDO_PASSWORD] \
                                       --installer $CHEF_DK_PACKAGE_PATH \
                                       --ssh-identity-file $SSH_IDENTITY_FILE \
-                                      --port $SSH_PORT            
+                                      --port $SSH_PORT \
+                                      --full-ohai
    .. tag chef_automate_build_nodes
 
    .. note:: Legacy build nodes created by ``delivery-cluster`` can be used with a Chef Automate server.  Some node visibility features are designed to only work with new build nodes and runners installed through the command line process, but the workflow feature in Chef Automate can use legacy, new, or mixed node pools; however, you cannot upgrade a legacy build node to the new build node or runner models.  If you would like to use new build nodes/runners, please use fresh hosts or completely wipe your legacy build nodes before attempting to run ``automate-ctl install-build-node`` or ``automate-ctl install-runner``.
+
+   .. end_tag
+
+   .. tag chef_automate_build_nodes_with_full_ohai
+
+   .. note:: If ``--full-ohai`` flag is set, Chef runs with full Ohai plugins. By default, Chef runs with bare Ohai plugins that are required for the node.
 
    .. end_tag
 

@@ -4,7 +4,7 @@ Data Collection with a Chef High Availability Cluster
 
 .. important:: Previous step: `Setup Data Collection </data_collection.html>`__
 
-To configure front-end servers in your HA cluster to send their object data, first configure a Chef server for `data collection </data_collection.html>`__ and ensure that the ``fqdn`` field in all of your front-end Chef server ``chef-server.rb`` files are the same.
+To configure front-end servers in your HA cluster to send their object data, first configure a Chef server for `data collection </data_collection.html>`__ and ensure that the ``fqdn`` field in all of your front-end Chef server ``/etc/opscode/chef-server.rb`` files are the same.
 
 The following example sets the ``fqdn`` field to ``"my-chef-server.mycompany.com"`` in two front-end servers.
 

@@ -162,7 +162,7 @@ To edit the Amazon Machine Images (AMI) instance size, do the following:
 
       $ ssh -i /path/to/ssh_key.pem ec2-user@<instance IP address>
 
-#. Follow the :ref:`instructions for changing the hostname <change-automate-hostname>`
+#. Follow the `instructions for changing the hostname </aws_marketplace.html#change-automate-hostname>`__
 
 #. Verify that you can login to Chef Automate webui by navigating to ``https://<YOUR NEW PUBLIC DNS>/e/default``.
 

@@ -124,6 +124,24 @@ This subcommand has the following syntax:
 
    $ automate-ctl create-user enterprise john_smith --password my_password --roles reviewer,committer
 
+create-users
+=====================================================
+The ``create-users`` subcommand is used to create one or more users from a TSV file. 
+
+**Syntax**
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ automate-ctl create-user TSV-FILE-PATH
+
+**Example**
+
+.. code-block:: bash
+
+   $ automate-ctl create-user MyUserList.TSV
+
 data-summary
 =====================================================
 New in Chef Automate 1.6.192.
@@ -306,7 +324,7 @@ This subcommand has the following syntax:
 
 delete-project
 =====================================================
-The ``delete-project`` subcommand is used to delete a Chef Automate project.
+The ``delete-project`` subcommand is used to delete a Chef Automate project. 
 
 **Syntax**
 
@@ -333,6 +351,47 @@ This subcommand has the following syntax:
 .. code-block:: bash
 
    $ automate-ctl delete-user ENT_NAME john_smith
+
+.. _delete-runner:
+
+delete-runner
+=====================================================
+The ``delete-runner`` subcommand deletes a remote node configured as a job runner, which was used by Chef Automate to run phase jobs. For more information on runners, please see the `Runners documentation </runners.html>`_.
+
+Added in Chef Automate version 1.7.114.
+
+**Syntax**
+
+.. code-block:: bash
+
+   $ automate-ctl delete-runner FQDN [options]
+
+     Arguments:
+       FQDN       Fully qualified domain name of the remote host that will be deleted as a runner
+
+     Options:
+      -h, --help                            Show the usage message
+      -e, --enterprise                      Legacy option, only required if you have more than one enterprise configured. Workflow enterprise to delete the runner from
+      -y, --yes                             Skip configuration confirmation and overwrite any existing Chef Server nodes of the same name as FQDN
+
+
+**Example**
+
+.. code-block:: bash
+
+   $ automate-ctl delete-runner
+
+Delete the runner runner-hostname.mydomain.co when there is only one enterprise configured.
+
+.. code-block:: bash
+
+   $ automate-ctl delete-runner runner-hostname.mydomain.co
+
+Delete the runner runner-hostname.mydomain.co when multiple enterprises are configured.
+
+.. code-block:: bash
+
+   $ automate-ctl install-runner runner-hostname.mydomain.co -e myenterprise
 
 delete-node
 =====================================================
@@ -382,6 +441,18 @@ New in Chef Automate 1.6.87.
    Do you wish to proceed? (yes/no):
    $ yes
 
+doctor
+=====================================================
+The ``doctor`` command validates the configuration files.
+
+**Syntax**
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ automate-ctl doctor
+
 gather-logs
 =====================================================
 The ``gather-logs`` command is used to collect the logs from Chef Automate into a compressed file archive. It will create a tbz2 file in the current working directory, with the timestamp as the file name.
@@ -395,7 +466,7 @@ This subcommand has the following syntax:
 .. code-block:: bash
 
    $ automate-ctl gather-logs
-        --all-logs          Gather all of the logs, regardless of size or age.
+         --all-logs          Gather all of the logs, regardless of size or age.
 
 .. warning:: The ``--all-logs`` option can potentially take up a large amount of disk space.
 
@@ -433,6 +504,34 @@ This subcommand has the following syntax:
 
    $ automate-ctl help
 
+install-build-node
+====================================================
+THe ``install-build-node`` subcommand configures a named node too act as a build node in a delivery cluster. For more information on delivery, please see the `Workflow Overview </workflow.html>`_. For more information on delivery commands, please see `Delivery CLI </delivery_cli.html>`_.
+
+**Syntax**
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ automate-ctl install-build-node [options]
+        -h, --help                       Prints this help
+        -I PATH_TO_INSTALLER,            The location of the ChefDK package for the build node (Required)
+        --installer
+        -f, --fqdn FQDN                  FQDN of the remote host that will be configured into a build node
+        -u, --username USERNAME          Username to use for authentication to the remote host
+        -P, --password PASSWORD          Password to use for authentication to the remote host
+        -p, --port PORT                  Port to connect to on the remote host
+        -i [IDENTITY_FILE],              The SSH identity file used for authentication -
+        --ssh-identity-file          will prompt if flag is specified but no filename is given
+        -o                               overwrite this node's entryin chef server if it's already registered
+        --[no-]overwrite-registration
+        -V VERSION,                      Job dispatch version to use(v1 [default] or v2)
+           --job-dispatch-version
+        -a, --admin-user NAME            Admin user name (necessary for job dispatch version or v2)
+        -t, --admin-token TOKEN          Admin token (necessary for job dispatch version or v2)
+        -e, --enterprise ENTERPRISE      Enterprise to use (necessary for job dispatch version or v2)
+
+
 .. _install-runner:
 
 install-runner
@@ -468,6 +567,7 @@ The ``install-runner`` subcommand configures a remote node as a job runner, whic
       -y, --yes                             Skip configuration confirmation and overwrite any existing Chef Server nodes of the same name as FQDN
       -e, --enterprise                      Legacy option, only required if you have more than one enterprise configured. Workflow enterprise to add the runner into
       --fips-custom-cert-filename FILENAME  If you have a self-signed or self-owned Certificate Authority (CA) and wish to operate in FIPS mode, pass this flag the path to a file containing your custom certificate chain on your Automate server. This file will be copied to the runner and used when running jobs in FIPS mode. If you have purchased a certificate from a known CA for Automate server, you can ignore this flag. Please see the Automate FIPS docs for details.
+      --full-ohai                           If `--full-ohai` flag set, Chef will run with full Ohai plugins.
 
 
 .. note:: The username provided must be a user who has sudo access on the remote node. If the user is a member of a domain, then the username value should be entered as ``user@domain``.
@@ -566,6 +666,33 @@ This subcommand has the following syntax:
 
    $ automate-ctl migrate-change-description-dry-run ENT_NAME ORG_NAME PROJECT_NAME CHANGE
 
+migrate-compliance
+=====================================================
+The ``migrate-compliance`` subcommand is used to execute the migration of compliance data for the purpose of synchronising the ``compliance-latest`` elasticsearch index with reporting times-series data, if needed.
+
+New in Automate 1.7.114
+
+**Syntax**
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ automate-ctl migrate-compliance [options]
+      -debug          Turn on debug logging
+
+migrate-github-project
+=====================================================
+The ``migrate-github-project`` subcommand is used to execute migration of a project to a new GitHub integration.
+
+**Syntax**
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ automate-ctl migrate-github-project (ENTERPRISE | ENTERPRISE ORG | ENTERPRISE ORG PROJECT)
+
 migrate-patchset-diffs
 =====================================================
 The ``migrate-patchset-diffs`` subcommand is used to update patchset diffs to include numstat.
@@ -615,9 +742,11 @@ Produce a summary of nodes known to Automate using the ``node-summary`` default 
 .. code-block:: bash
 
   $ automate-ctl node-summary
-  NAME         UUID                                  STATUS   LAST CHECKIN
-  chef-test-1  f44c40a4-a0bb-4120-bd75-079972d98072  success  2017-02-22T19:41:14.000Z
-  chef-test-2  8703593e-723a-4394-a36d-34da11a2f668  missing  2017-02-25T19:54:08.000Z
+  NAME                              UUID                                  STATUS            LAST CHECKIN
+  chef-test-1                       f44c40a4-a0bb-4120-bd75-079972d98072  success           2017-02-22T19:41:14.000Z
+  chef-test-2                       8703593e-723a-4394-a36d-34da11a2f668  missing           2017-02-25T19:54:08.000Z
+  agentless-scan-node1.example.com  63d49e04-f1f2-4d80-61a0-4f332d58b492  scan-unreachable  2017-12-05T20:29:39Z
+  agentless-scan-node2.example.com  825e90c1-cb23-4f6a-6c0e-35e5b2d12ea4  scan-passed       2017-12-07T18:50:57Z
 
 Produce a summary of nodes known to Automate in JSON.
 
@@ -670,6 +799,15 @@ Explanation of fields
    ``live`` if the liveness agent has successfully updated Chef Automate, but the Chef Client has not run within the expected check-in duration configured in Chef Automate (default is 12 hours).
 
    ``missing`` if Chef Client did not run within the expected check-in duration configured in Chef Automate (default is 12 hours).
+
+   ``scan-failed`` if a node set up for `ad-hoc scanning <automate_compliance_scanner.html>`__ failed its latest compliance scan.
+
+   ``scan-passed`` if a node set up for `ad-hoc scanning <automate_compliance_scanner.html>`__ passed its latest compliance scan.
+
+   ``scan-skipped`` if a node set up for `ad-hoc scanning <automate_compliance_scanner.html>`__ skipped its latest compliance scan.
+
+   ``scan-unreachable`` if a node set up for `ad-hoc scanning <automate_scanner.html>`__ either could not be reached for scanning or has not been scanned within the past hour.
+
 ``uuid``
    The universally unique identifier of the node in Chef Automate.
 ``chef_server_status``
@@ -785,17 +923,43 @@ show-config
 =====================================================
 The ``show-config`` subcommand is used to view the configuration that will be generated by the ``reconfigure`` subcommand. This command is most useful in the early stages of a deployment to ensure that everything is built properly prior to installation.
 
+**Syntax**
+
 This subcommand has the following syntax:
 
 .. code-block:: bash
 
    $ automate-ctl show-config
 
+setup
+=====================================================
+The ``setup`` subcommand is used to configure the Chef Automate Server.
+
+**Syntax**
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ automate-ctl setup [options]
+        -h, --help                       Prints this help
+        --minimal                    [Pre-Release] Set up Chef Automate with a minimal default configuration.
+        -l, --license LICENSE            Location of Chef Automate license file.
+        -f, --fqdn FQDN                  The external fully qualified domain name of this node (Already set in delivery.rb.  Do not set via flag.)
+        -k, --key CHEF_AUTOMATE_USER_KEY Location of Chef Automate user key (Already set in delivery.rb.  Do not set via flag.)
+        --server-url CHEF_SERVER_URL Chef Server URL (Already set in delivery.rb.  Do not set via flag.)
+        --supermarket-fqdn SUPERMARKET_FQDN
+                                     Internal Supermarket FQDN
+        -e CHEF_AUTOMATE_ENTERPRISE_NAME,
+        --enterprise                 Name of the Chef Automate Enterprise to create.
+        --[no-]build-node            Install a build node after Chef Automate Server setup completes.
+        --[no-]configure             Apply configuration changes automatically after Chef Automate Server setup completes.
+
 telemetry
 =====================================================
 
 The ``telemetry`` subcommand is used in conjunction with additional subcommands to enable, disable, or show the status of telemetry on the server.
 
+**Syntax**
 This subcommand has the following syntax:
 
 .. code-block:: bash

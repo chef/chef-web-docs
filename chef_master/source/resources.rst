@@ -15,31 +15,6 @@ A resource is a statement of configuration policy that:
 
 .. end_tag
 
-.. tag resources_common_provider
-
-Where a resource represents a piece of the system (and its desired state), a provider defines the steps that are needed to bring that piece of the system from its current state into the desired state.
-
-.. end_tag
-
-.. tag resources_common_provider_platform
-
-The ``Chef::Platform`` class maps providers to platforms (and platform versions). At the beginning of every chef-client run, Ohai verifies the ``platform`` and ``platform_version`` attributes on each node. The chef-client then uses those values to identify the correct provider, build an instance of that provider, identify the current state of the resource, do the specified action, and then mark the resource as updated (if changes were made).
-
-For example:
-
-.. code-block:: ruby
-
-   directory '/tmp/folder' do
-     owner 'root'
-     group 'root'
-     mode '0755'
-     action :create
-   end
-
-The chef-client will look up the provider for the ``directory`` resource, which happens to be ``Chef::Provider::Directory``, call ``load_current_resource`` to create a ``directory["/tmp/folder"]`` resource, and then, based on the current state of the directory, do the specified action, which in this case is to create a directory called ``/tmp/folder``. If the directory already exists, nothing will happen. If the directory was changed in any way, the resource is marked as updated.
-
-.. end_tag
-
 This reference describes each of the resources available to the chef-client, including a list of actions, a list of properties, (when applicable) a list of providers, and examples of using each resource.
 
 =====================================================
@@ -56,7 +31,7 @@ The following actions may be used with any resource:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the chef-client run.
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -137,13 +112,13 @@ Generally, it's best to let the chef-client choose the provider, and this is (by
   .. code-block:: ruby
 
      pkg_resource = case node['platform_family']
-       when "debian"
+       when 'debian'
          :dpkg_package
-       when "fedora", "rhel", "amazon"
+       when 'fedora', 'rhel', 'amazon'
          :rpm_package
        end
 
-     pkg_path = ( pkg_resource == :dpkg_package ) ? "/tmp/foo.deb" : "/tmp/foo.rpm"
+     pkg_path = (pkg_resource == :dpkg_package) ? '/tmp/foo.deb' : '/tmp/foo.rpm'
 
      declare_resource(pkg_resource, pkg_path) do
        action :install
@@ -620,13 +595,13 @@ Timers
 -----------------------------------------------------
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+   Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.

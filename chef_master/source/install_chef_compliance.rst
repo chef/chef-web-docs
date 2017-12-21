@@ -97,7 +97,7 @@ To install the Chef Compliance server:
 
 #. Access the Chef Compliance setup wizard.  Build the URL by prepending ``https://`` and appending ``/#/setup`` to the IP address or public hostname that was automatically assigned when the Amazon Machine Images (AMI) was launched.  For example, ``https://<fqdn>/#/setup``.
 
-#. Run through the setup wizard, and then log in to Chef Compliance webui ``https://<fqdn>``.
+#. Run through the setup wizard, and then log in to the Chef Compliance web interface at ``https://<fqdn>`` using a current Chrome or Firefox browser. Internet Explorer is currently not supported.
 
 AWS Marketplace
 =====================================================

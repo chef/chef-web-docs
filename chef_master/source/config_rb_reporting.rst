@@ -120,7 +120,7 @@ The following settings are typically added to the ``opscode-reporting.rb`` file:
 ``rabbitmq_password``
    The password for the RabbitMQ user. Default value: **generated**.
 
-   To override the default value, use ``chef-server-ctl set-secret opscode-reporting rabbitmq_password`` from the :ref:`ctl_chef_server_secrets_management` commands.
+   To override the default value, use ``chef-server-ctl set-secret opscode-reporting rabbitmq_password`` from the `Secrets Management </ctl_chef_server.html#ctl-chef-server-secrets-management>`__ commands.
 
 ``postgresql['enable']``
    Enable a service. Default value: ``true``.
@@ -134,7 +134,7 @@ The following settings are typically added to the ``opscode-reporting.rb`` file:
 ``postgresql['sql_password']``
    The password for the PostgreSQL user account. Default value: **generated**.
 
-   To override the default value, use ``chef-server-ctl set-secret opscode-reporting sql_password`` from the :ref:`ctl_chef_server_secrets_management` commands.
+   To override the default value, use ``chef-server-ctl set-secret opscode-reporting sql_password`` from the `Secrets Management </ctl_chef_server.html#ctl-chef-server-secrets-management>`__ commands.
 
 ``postgresql['sql_ro_user']``
    Default value: ``'opscode_reporting_ro'``.
@@ -142,7 +142,7 @@ The following settings are typically added to the ``opscode-reporting.rb`` file:
 ``postgresql['sql_ro_password']``
    Default value: **generated**.
 
-   To override the default value, use ``chef-server-ctl set-secret opscode-reporting sql_ro_password`` from the :ref:`ctl_chef_server_secrets_management` commands: .
+   To override the default value, use ``chef-server-ctl set-secret opscode-reporting sql_ro_password`` from the `Secrets Management </ctl_chef_server.html#ctl-chef-server-secrets-management>`__ commands: .
 
 ``postgresql['vip']``
    The virtual IP address. Default value: ``'127.0.0.1'``.

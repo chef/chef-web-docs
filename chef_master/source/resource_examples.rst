@@ -1262,6 +1262,17 @@ Use the **chocolatey_package** resource to manage packages using Chocolatey on t
      action :install
    end
 
+**Install a package with options**
+
+This example uses Chocolatey's ``--checksum`` option:
+
+.. code-block:: ruby
+
+   chocolatey_package 'name of package' do
+     options '--checksum 1234567890'
+     action :install
+   end
+
 .. end_tag
 
 cookbook_file
@@ -3259,7 +3270,7 @@ The following example uses the **git** resource to upgrade packages:
    git '/opt/mysources/couch' do
      repository 'git://git.apache.org/couchdb.git'
      revision 'master'
-     environment  { 'VAR' => 'whatever' }
+     environment 'VAR' => 'whatever'
      action :sync
    end
 
@@ -3434,7 +3445,7 @@ ifconfig
 =====================================================
 .. tag resource_ifconfig_summary
 
-Use the **ifconfig** resource to manage interfaces.
+Use the **ifconfig** resource to manage interfaces on \*nix systems.
 
 .. end_tag
 
@@ -3733,7 +3744,7 @@ mdadm
 =====================================================
 .. tag resource_mdadm_summary
 
-Use the **mdadm** resource to manage RAID devices in a Linux environment using the mdadm utility. The **mdadm** provider will create and assemble an array, but it will not create the config file that is used to persist the array upon reboot. If the config file is required, it must be done by specifying a template with the correct array layout, and then by using the **mount** provider to create a file systems table (fstab) entry.
+Use the **mdadm** resource to manage RAID devices in a Linux environment using the mdadm utility. The **mdadm** resource will create and assemble an array, but it will not create the config file that is used to persist the array upon reboot. If the config file is required, it must be done by specifying a template with the correct array layout, and then by using the **mount** provider to create a file systems table (fstab) entry.
 
 .. end_tag
 
@@ -7150,7 +7161,7 @@ windows_service
 =====================================================
 .. tag resource_service_windows
 
-Use the **windows_service** resource to manage a service on the Microsoft Windows platform. New in Chef Client 12.0.
+Use the **windows_service** resource to manage a service on the Microsoft Windows platform.
 
 .. end_tag
 

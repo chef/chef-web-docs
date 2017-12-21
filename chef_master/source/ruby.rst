@@ -444,7 +444,7 @@ Log Entries
 -----------------------------------------------------
 .. tag ruby_style_basics_chef_log
 
-``Chef::Log`` extends ``Mixlib::Log`` and will print log entries to the default logger that is configured for the machine on which the chef-client is running. (To create a log entry that is built into the resource collection, use the **log** resource instead of ``Chef::Log``.)
+``Chef::Log`` extends ``Mixlib::Log`` and will print log entries to the default logger that is configured for the machine on which the Chef Client is running. (To create a log entry that is built into the resource collection, use the **log** resource instead of ``Chef::Log``.)
 
 The following log levels are supported:
 

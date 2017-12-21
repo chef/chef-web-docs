@@ -14,7 +14,7 @@ A **cab_package** resource installs or removes a cabinet package from the specif
 .. code-block:: ruby
 
    cab_package 'name' do
-     source                  String
+     source String
    end
 
 where

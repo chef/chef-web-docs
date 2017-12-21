@@ -139,6 +139,12 @@ If ``http_proxy``, ``https_proxy``, ``ftp_proxy``, or ``no_proxy`` is set in the
    http_proxy_user 'myself'
    http_proxy_pass 'Password1'
 
+Or an alternative way to define the proxy (if the previous version does not work):
+
+.. code-block:: ruby
+
+   http_proxy 'http://myself:Password1@proxy.example.org:8080'
+
 will be set to:
 
 .. code-block:: ruby

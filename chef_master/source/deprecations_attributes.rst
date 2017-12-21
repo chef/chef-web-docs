@@ -56,7 +56,7 @@ Example
 Remediation
 -----------
 
-Choose the appropriate :ref:`precedence level <attribute-precedence>`, then replace ``set`` with that precedence level.
+Choose the appropriate `precedence level </attributes.html#attribute-precedence>`__, then replace ``set`` with that precedence level.
 
 .. code-block:: ruby
 
