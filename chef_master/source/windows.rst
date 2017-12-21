@@ -866,8 +866,8 @@ This subcommand has the following options:
 
    New in Chef Client 12.0.
 
-``--node-ssl-verify-mode PEER_OR_NONE``
-   Set the verify mode for HTTPS requests.
+``--node-ssl-verify-mode MODE``
+   Set the verify mode for HTTPS requests. Options: ``none`` or ``peer``.
 
    Use ``none`` to do no validation of SSL certificates.
 
