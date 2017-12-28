@@ -200,11 +200,11 @@ Kitchen can configure the chef-zero provisioner with the following Chef-specific
    * - ``solo_rb``
      - chef-solo provisioner only.
    * - ``retry_on_exit_code``
-     - Which takes an array of exit codes that can indicate that kitchen should retry the converge command. Default value: ``[35, 213]``.
+     - Takes an array of exit codes to indicate that kitchen should retry the converge command. Default value: ``[35, 213]``.
    * - ``max_retries``
-     -  Number of times to retry the converge before passing along the failed status. Defaults to 1.
+     -  Number of times to retry the converge before passing along the failed status. Defaults value: 1.
    * - ``wait_for_retry``
-     - Number of seconds to wait between converge attempts. Defaults to 30.
+     - Number of seconds to wait between converge attempts. Default value: 30.
 
 These settings may be added to the ``provisioner`` section of the .kitchen.yml file when the provisioner is chef-zero or chef-solo.
 
@@ -865,7 +865,7 @@ The following .kitchen.yml file sets up a simple tiered configuration of the Che
 
 Kitchen Converge On System Reboot
 --------------------------------------------------------------------------
-Test-Kitchen can now deal with reboots (when initiated from chef-client) by setting ``retry_on_exit_code``, ``max_retries`` and ``wait_for_retry`` attributes on the provisioner in ``.kitchen.yml`` file as follows :
+Test-Kitchen can handle reboots (when initiated from chef-client) by setting ``retry_on_exit_code``, ``max_retries`` and ``wait_for_retry`` attributes on the provisioner in ``.kitchen.yml`` file as follows :
 
 .. code-block:: yaml
 
