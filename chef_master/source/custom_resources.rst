@@ -17,7 +17,7 @@ For example, Chef includes built-in resources to manage files, packages, templat
 
 .. end_tag
 
-Custom resources were introduced in Chef version 12.5 and are now the preferred method of writing your own resources in Chef. If you are using an older version of the chef-client, please see our `legacy documentation <https://docs-archive.chef.io/release/12-4/custom_resources.html>`__, as well as the `compat_resource <https://github.com/chef-cookbooks/compat_resource>`__ cookbook for information on using custom resources with chef-client 12.1 - 12.4.
+Custom resources were introduced in Chef version 12.5 and are now the preferred method of writing your own resources in Chef. If you are using an older version of the chef-client, please see our `legacy documentation <https://docs-archive.chef.io/release/12-4/custom_resources.html>`__.
 
 As of Chef client 12.14, individual resource properties can be marked as ``sensitive: true``, which suppresses the value of that property when exporting the resource's state.
 
