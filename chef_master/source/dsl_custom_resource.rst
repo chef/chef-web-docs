@@ -19,48 +19,49 @@ Custom resources are new in Chef Client 12.5 and can be used on Chef 12.1 or lat
 
 action_class
 =====================================================
-.. tag dsl_custom_resource_block_action_class
+.. tag dsl_custom_resource_method_converge_if_changed
 
-Use the ``action_class`` block to make methods available to the actions in the custom resource. Modules with helper methods created as files in the cookbook library directory may be included. New action methods may also be defined directly in the ``action_class`` block. Code in the ``action_class`` block has access to the new_resource properties.
+Use the ``converge_if_changed`` method inside an ``action`` block in a custom resource to compare the desired property values against the current property values (as loaded by the ``load_current_value`` method). Use the ``converge_if_changed`` method to ensure that updates only occur when property values on the system are not the desired property values and to otherwise prevent a resource from being converged.
 
-Assume a helper module has been created in the cookbook ``libraries/helper.rb`` file.
-
-.. code-block:: ruby
-
-   module Sample
-     module Helper
-       def helper_method
-         # code
-       end
-     end
-   end
-
-Methods may be made available to the custom resource actions by using an ``action_class`` block.
+To use the ``converge_if_changed`` method, wrap it around the part of a recipe or custom resource that should only be converged when the current state is not the desired state:
 
 .. code-block:: ruby
 
-   property file, String
+   action :some_action do
 
-   action :delete do
-     helper_method
-     FileUtils.rm(new_resource.file) if file_ex
-   end
-
-   action_class do
-
-     def file_exist
-       ::File.exist?(new_resource.file)
+     converge_if_changed do
+       # some property
      end
 
-     def file_ex
-       ::File.exist?(new_resource.file)
-     end
-
-     require 'fileutils'
-
-     include Sample::Helper
-
    end
+
+For example, a custom resource defines two properties (``content`` and ``path``) and a single action (``:create``). Use the ``load_current_value`` method to load the property value to be compared, and then use the ``converge_if_changed`` method to tell the chef-client what to do if that value is not the desired value:
+
+.. code-block:: ruby
+
+   property :content, String
+   property :path, String, name_property: true
+
+   load_current_value do
+     if ::File.exist?(new_resource.path)
+       content IO.read(new_resource.path)
+     end
+   end
+
+   action :create do
+     converge_if_changed do
+       IO.write(new_resource.path, new_resource.content)
+     end
+   end
+
+When the file does not exist, the ``IO.write(path, content)`` code is executed and the chef-client output will print something similar to:
+
+.. code-block:: bash
+
+   Recipe: recipe_name::block
+     * resource_name[blah] action create
+       - update my_file[blah]
+       -   set content to "hola mundo" (was "hello world")
 
 .. end_tag
 

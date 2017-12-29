@@ -3633,7 +3633,6 @@ Use the Custom Resource DSL to define property behaviors within custom resources
 
 action_class
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag dsl_custom_resource_block_action_class
 
 Use the ``action_class`` block to make methods available to the actions in the custom resource. Modules with helper methods created as files in the cookbook library directory may be included. New action methods may also be defined directly in the ``action_class`` block. Code in the ``action_class`` block has access to the new_resource properties.
 
@@ -3676,7 +3675,6 @@ Methods may be made available to the custom resource actions by using an ``actio
 
    end
 
-.. end_tag
 
 converge_if_changed
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
