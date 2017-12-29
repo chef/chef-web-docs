@@ -274,14 +274,11 @@ Use the **template** resource to create an ``httpd.service`` on the node based o
 
 .. code-block:: ruby
 
-   template "/lib/systemd/system/httpd-#{instance_name}.service" do
+   template "/lib/systemd/system/httpd-#{new_resource.instance_name}.service" do
      source 'httpd.service.erb'
      variables(
        instance_name: new_resource.instance_name
      )
-     owner 'root'
-     group 'root'
-     mode '0644'
      action :create
    end
 
@@ -302,9 +299,6 @@ Use the **template** resource to configure httpd on the node based on the ``http
        instance_name: new_resource.instance_name,
        port: new_resource.port
      )
-     owner 'root'
-     group 'root'
-     mode '0644'
      action :create
    end
 
@@ -321,9 +315,6 @@ Use the **directory** resource to create the ``/var/www/vhosts`` directory on th
 
    directory "/var/www/vhosts/#{new_resource.instance_name}" do
      recursive true
-     owner 'root'
-     group 'root'
-     mode '0755'
      action :create
    end
 
@@ -422,9 +413,6 @@ Final Resource
        variables(
          instance_name: new_resource.instance_name
        )
-       owner 'root'
-       group 'root'
-       mode '0644'
        action :create
      end
 
@@ -434,17 +422,11 @@ Final Resource
          instance_name: new_resource.instance_name,
          port: new_resource.port
        )
-       owner 'root'
-       group 'root'
-       mode '0644'
        action :create
      end
 
      directory "/var/www/vhosts/#{new_resource.instance_name}" do
        recursive true
-       owner 'root'
-       group 'root'
-       mode '0755'
        action :create
      end
 
