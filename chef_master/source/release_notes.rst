@@ -3675,7 +3675,6 @@ Methods may be made available to the custom resource actions by using an ``actio
 
    end
 
-
 converge_if_changed
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag dsl_custom_resource_method_converge_if_changed
@@ -3726,7 +3725,6 @@ When the file does not exist, the ``IO.write(path, content)`` code is executed a
 
 Multiple Properties
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. tag dsl_custom_resource_method_converge_if_changed_multiple
 
 The ``converge_if_changed`` method may be used multiple times. The following example shows how to use the ``converge_if_changed`` method to compare the multiple desired property values against the current property values (as loaded by the ``load_current_value`` method).
 
@@ -3759,8 +3757,6 @@ where
 * A ``converge_if_changed`` block tests only ``mode``
 
 The chef-client will only update the property values that require updates and will not make changes when the property values are already in the desired state
-
-.. end_tag
 
 default_action
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

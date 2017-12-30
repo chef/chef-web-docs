@@ -19,49 +19,39 @@ Custom resources are new in Chef Client 12.5 and can be used on Chef 12.1 or lat
 
 action_class
 =====================================================
-.. tag dsl_custom_resource_method_converge_if_changed
+.. tag dsl_custom_resource_method_converge_if_changed_multiple
 
-Use the ``converge_if_changed`` method inside an ``action`` block in a custom resource to compare the desired property values against the current property values (as loaded by the ``load_current_value`` method). Use the ``converge_if_changed`` method to ensure that updates only occur when property values on the system are not the desired property values and to otherwise prevent a resource from being converged.
-
-To use the ``converge_if_changed`` method, wrap it around the part of a recipe or custom resource that should only be converged when the current state is not the desired state:
+The ``converge_if_changed`` method may be used multiple times. The following example shows how to use the ``converge_if_changed`` method to compare the multiple desired property values against the current property values (as loaded by the ``load_current_value`` method).
 
 .. code-block:: ruby
 
-   action :some_action do
-
-     converge_if_changed do
-       # some property
-     end
-
-   end
-
-For example, a custom resource defines two properties (``content`` and ``path``) and a single action (``:create``). Use the ``load_current_value`` method to load the property value to be compared, and then use the ``converge_if_changed`` method to tell the chef-client what to do if that value is not the desired value:
-
-.. code-block:: ruby
-
-   property :content, String
    property :path, String, name_property: true
+   property :content, String
+   property :mode, String
 
    load_current_value do
      if ::File.exist?(new_resource.path)
        content IO.read(new_resource.path)
+       mode ::File.stat(new_resource.path).mode
      end
    end
 
    action :create do
-     converge_if_changed do
+     converge_if_changed :content do
        IO.write(new_resource.path, new_resource.content)
+     end
+     converge_if_changed :mode do
+       ::File.chmod(new_resource.mode, new_resource.path)
      end
    end
 
-When the file does not exist, the ``IO.write(path, content)`` code is executed and the chef-client output will print something similar to:
+where
 
-.. code-block:: bash
+* ``load_current_value`` loads the property values for both ``content`` and ``mode``
+* A ``converge_if_changed`` block tests only ``content``
+* A ``converge_if_changed`` block tests only ``mode``
 
-   Recipe: recipe_name::block
-     * resource_name[blah] action create
-       - update my_file[blah]
-       -   set content to "hola mundo" (was "hello world")
+The chef-client will only update the property values that require updates and will not make changes when the property values are already in the desired state
 
 .. end_tag
 
