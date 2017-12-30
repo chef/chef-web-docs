@@ -3677,7 +3677,6 @@ Methods may be made available to the custom resource actions by using an ``actio
 
 converge_if_changed
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag dsl_custom_resource_method_converge_if_changed
 
 Use the ``converge_if_changed`` method inside an ``action`` block in a custom resource to compare the desired property values against the current property values (as loaded by the ``load_current_value`` method). Use the ``converge_if_changed`` method to ensure that updates only occur when property values on the system are not the desired property values and to otherwise prevent a resource from being converged.
 
@@ -3721,7 +3720,6 @@ When the file does not exist, the ``IO.write(path, content)`` code is executed a
        - update my_file[blah]
        -   set content to "hola mundo" (was "hello world")
 
-.. end_tag
 
 Multiple Properties
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

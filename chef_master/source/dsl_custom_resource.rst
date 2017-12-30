@@ -81,8 +81,8 @@ For example, a custom resource defines two properties (``content`` and ``path``)
    property :path, String, name_property: true
 
    load_current_value do
-     if ::File.exist?(new_resource.path)
-       content IO.read(new_resource.path)
+     if ::File.exist?(path)
+       content IO.read(path)
      end
    end
 
@@ -92,7 +92,7 @@ For example, a custom resource defines two properties (``content`` and ``path``)
      end
    end
 
-When the file does not exist, the ``IO.write(path, content)`` code is executed and the chef-client output will print something similar to:
+When the file does not exist, the ``IO.write(new_resource.path, new_resource.content)`` code is executed and the chef-client output will print something similar to:
 
 .. code-block:: bash
 
