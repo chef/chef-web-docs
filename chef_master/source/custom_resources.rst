@@ -502,16 +502,12 @@ Methods may be made available to the custom resource actions by using an ``actio
 
    action :delete do
      helper_method
-     FileUtils.rm(new_resource.file) if file_ex
+     FileUtils.rm(new_resource.file) if file_exist
    end
 
    action_class do
 
      def file_exist
-       ::File.exist?(new_resource.file)
-     end
-
-     def file_ex
        ::File.exist?(new_resource.file)
      end
 

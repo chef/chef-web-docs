@@ -19,48 +19,39 @@ Custom resources are new in Chef Client 12.5 and can be used on Chef 12.1 or lat
 
 action_class
 =====================================================
-.. tag dsl_custom_resource_block_action_class
+.. tag dsl_custom_resource_method_converge_if_changed_multiple
 
-Use the ``action_class`` block to make methods available to the actions in the custom resource. Modules with helper methods created as files in the cookbook library directory may be included. New action methods may also be defined directly in the ``action_class`` block. Code in the ``action_class`` block has access to the new_resource properties.
-
-Assume a helper module has been created in the cookbook ``libraries/helper.rb`` file.
+The ``converge_if_changed`` method may be used multiple times. The following example shows how to use the ``converge_if_changed`` method to compare the multiple desired property values against the current property values (as loaded by the ``load_current_value`` method).
 
 .. code-block:: ruby
 
-   module Sample
-     module Helper
-       def helper_method
-         # code
-       end
+   property :path, String, name_property: true
+   property :content, String
+   property :mode, String
+
+   load_current_value do
+     if ::File.exist?(new_resource.path)
+       content IO.read(new_resource.path)
+       mode ::File.stat(new_resource.path).mode
      end
    end
 
-Methods may be made available to the custom resource actions by using an ``action_class`` block.
-
-.. code-block:: ruby
-
-   property file, String
-
-   action :delete do
-     helper_method
-     FileUtils.rm(new_resource.file) if file_ex
+   action :create do
+     converge_if_changed :content do
+       IO.write(new_resource.path, new_resource.content)
+     end
+     converge_if_changed :mode do
+       ::File.chmod(new_resource.mode, new_resource.path)
+     end
    end
 
-   action_class do
+where
 
-     def file_exist
-       ::File.exist?(new_resource.file)
-     end
+* ``load_current_value`` loads the property values for both ``content`` and ``mode``
+* A ``converge_if_changed`` block tests only ``content``
+* A ``converge_if_changed`` block tests only ``mode``
 
-     def file_ex
-       ::File.exist?(new_resource.file)
-     end
-
-     require 'fileutils'
-
-     include Sample::Helper
-
-   end
+The chef-client will only update the property values that require updates and will not make changes when the property values are already in the desired state
 
 .. end_tag
 
