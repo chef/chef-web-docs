@@ -179,24 +179,21 @@ Examples
 
 .. code-block:: ruby
 
-   systemd_unit 'etcd' do
-     content({
-        Unit: {
-          Description: 'Etcd',
-          Documentation: 'https://coreos.com/etcd',
-          After: 'network.target',
-        },
-        Service: {
-          Type: 'notify',
-          ExecStart: '/usr/local/etcd',
-          Restart: 'always',
-        },
-        Install: {
-          WantedBy: 'multi-user.target',
-        },
-      })
+   systemd_unit 'etcd.service' do
+     content(Unit: {
+               Description: 'Etcd',
+               Documentation: 'https://coreos.com/etcd',
+               After: 'network.target',
+             },
+             Service: {
+               Type: 'notify',
+               ExecStart: '/usr/local/etcd',
+               Restart: 'always',
+             },
+             Install: {
+               WantedBy: 'multi-user.target',
+             })
      action :create
    end
 
 .. end_tag
-
