@@ -20,19 +20,19 @@ The following table lists the commercially-supported platforms and versions for 
      - Version
    * - CentOS
      - ``x86_64``
-     - ``5.x``, ``6.x``, ``7.x``
+     - ``6.x``, ``7.x``
    * - Oracle Enterprise Linux
      - ``x86_64``
-     - ``5.x``, ``6.x``, ``7.x``
+     - ``6.x``, ``7.x``
    * - Red Hat Enterprise Linux
      - ``x86_64``, ``ppc64le`` (7.x only), ``ppc64`` (7.x only)
-     - ``5.x``, ``6.x``, ``7.x``
+     - ``6.x``, ``7.x``
    * - SUSE Enterprise Linux Server
      - ``x86_64``
      - ``11 SP4``, ``12 SP1``
    * - Ubuntu
      - ``x86_64``, ``ppc64le`` (14.04 only)
-     - ``12.04``, ``14.04``, ``16.04``
+     - ``14.04``, ``16.04``
 
 .. end_tag
 
