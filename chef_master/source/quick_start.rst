@@ -5,7 +5,7 @@ Quick Start
 
 For the quickest way to get started using Chef:
 
-#. Download the Chef development kit: https://downloads.chef.io/chefdk/.
+#. Install the Chef development kit: https://downloads.chef.io/chefdk/.
 
 #. Generate a cookbook:
 
