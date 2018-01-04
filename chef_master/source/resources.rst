@@ -1303,6 +1303,8 @@ See below for more information about each of these resources, their related acti
 
 .. include:: resource_apt_package.rst
 
+.. include:: resource_apt_preference.rst
+
 .. include:: resource_apt_repository.rst
 
 .. include:: resource_apt_update.rst
@@ -1315,9 +1317,35 @@ See below for more information about each of these resources, their related acti
 
 .. include:: resource_breakpoint.rst
 
+.. include:: resource_cab_package.rst
+
+.. include:: resource_chef_acl.rst
+
+.. include:: resource_chef_client.rst
+
+.. include:: resource_chef_container.rst
+
+.. include:: resource_chef_data_bag.rst
+
+.. include:: resource_chef_data_bag_item.rst
+
+.. include:: resource_chef_environment.rst
+
 .. include:: resource_chef_gem.rst
 
+.. include:: resource_chef_group.rst
+
 .. include:: resource_chef_handler.rst
+
+.. include:: resource_chef_mirror.rst
+
+.. include:: resource_chef_node.rst
+
+.. include:: resource_chef_organization.rst
+
+.. include:: resource_chef_role.rst
+
+.. include:: resource_chef_user.rst
 
 .. include:: resource_chocolatey_package.rst
 
@@ -1330,6 +1358,8 @@ See below for more information about each of these resources, their related acti
 .. include:: resource_deploy.rst
 
 .. include:: resource_directory.rst
+
+.. include:: resource_dnf_package.rst
 
 .. include:: resource_dpkg_package.rst
 
@@ -1361,15 +1391,33 @@ See below for more information about each of these resources, their related acti
 
 .. include:: resource_ips_package.rst
 
+.. include:: resource_ksh.rst
+
+.. include:: resource_launchd.rst
+
 .. include:: resource_link.rst
 
+.. include:: resource_load_balancer.rst
+
 .. include:: resource_log.rst
+
+.. include:: resource_machine.rst
+
+.. include:: resource_machine_batch.rst
+
+.. include:: resource_machine_execute.rst
+
+.. include:: resource_machine_file.rst
+
+.. include:: resource_machine_image.rst
 
 .. include:: resource_macports_package.rst
 
 .. include:: resource_mdadm.rst
 
 .. include:: resource_mount.rst
+
+.. include:: resource_msu_package.rst
 
 .. include:: resource_ohai.rst
 
@@ -1387,7 +1435,13 @@ See below for more information about each of these resources, their related acti
 
 .. include:: resource_portage_package.rst
 
+.. include:: resource_powershell_package.rst
+
 .. include:: resource_powershell_script.rst
+
+.. include:: resource_private_key.rst
+
+.. include:: resource_public_key.rst
 
 .. include:: resource_python.rst
 
@@ -1425,10 +1479,16 @@ See below for more information about each of these resources, their related acti
 
 .. include:: resource_windows_package.rst
 
+.. include:: resource_windows_path.rst
+
 .. include:: resource_windows_service.rst
+
+.. include:: resource_windows_task.rst
 
 .. include:: resource_yum.rst
 
 .. include:: resource_yum_repository.rst
 
 .. include:: resource_zypper_package.rst
+
+.. include:: resource_zypper_repository.rst
