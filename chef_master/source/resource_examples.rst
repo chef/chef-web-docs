@@ -3,7 +3,7 @@ Resource Code Examples
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_examples.rst>`__
 
-This reference contains code examples for many of the core resources that are built in to the chef-client, sorted by resource. This topic is a subset of the topic that contains a `complete description of all resources </resources.html>`__, including actions, properties, and providers (in addition to these examples).
+This reference contains code examples for many of the core resources that are built in to the chef-client, sorted by resource. This topic is a subset of the topic that contains a `complete description of all resources </resource_reference.html>`__, including actions, properties, and providers (in addition to these examples).
 
 Common Examples
 =====================================================

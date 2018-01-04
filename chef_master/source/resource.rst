@@ -3,7 +3,7 @@ About Resources
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource.rst>`__
 
-.. note:: If you want to see all of the information about resources in a single document, see the `Resources reference </resources.html>`_.
+.. note:: If you want to see all of the information about resources in a single document, see the `Resources reference </resource_reference.html>`_.
 
 .. tag resources_common
 
@@ -82,4 +82,4 @@ In both cases, the chef-client will use the default action (``:install``) to ins
 
 Additional Information
 =====================================================
-See the `Common Properties </resource_common.html>`__ guide for a list of the common properties that are available in all resources. The `Resources reference </resources.html>`_ lists all of the individual and universal options for each resource.
+See the `Common Properties </resource_common.html>`__ guide for a list of the common properties that are available in all resources. The `Resources reference </resource_reference.html>`_ lists all of the individual and universal options for each resource.
