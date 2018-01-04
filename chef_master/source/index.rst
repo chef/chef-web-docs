@@ -774,7 +774,7 @@ Addenda
    resource_yum_repository
    resource_zypper_package
    resource_zypper_repository
-   resources
+   resource_reference
    roles
    ruby
    run_lists
