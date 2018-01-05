@@ -1,21 +1,9 @@
 *****************************************************
 Resources Reference
 *****************************************************
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resources.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_reference.rst>`__
 
-.. tag resources_common
-
-A resource is a statement of configuration policy that:
-
-* Describes the desired state for a configuration item
-* Declares the steps needed to bring that item to the desired state
-* Specifies a resource type---such as ``package``, ``template``, or ``service``
-* Lists additional details (also known as resource properties), as necessary
-* Are grouped into recipes, which describe working configurations
-
-.. end_tag
-
-This reference describes each of the resources available to the chef-client, including a list of actions, a list of properties, (when applicable) a list of providers, and examples of using each resource.
+This reference describes each of the resources available to the Chef Client, including a list of actions, properties, providers (when applicable), and usage examples.
 
 =====================================================
 Common Functionality
@@ -1230,78 +1218,11 @@ Because the ``inherits`` property is not specified, the chef-client will default
 =====================================================
 Resources
 =====================================================
-The following resources are built-in to the chef-client:
-
-* apt_package (based on the package resource)
-* apt_repository
-* apt_update
-* bash
-* batch
-* bff_package (based on the package resource)
-* breakpoint
-* chef_gem (based on the package resource)
-* chef_handler (available from the chef_handler cookbook)
-* chocolatey_package (based on the package resource)
-* cookbook_file
-* cron
-* csh
-* deploy (including git and Subversion)
-* directory
-* dpkg_package (based on the package resource)
-* dsc_resource
-* dsc_script
-* env
-* erl_call
-* execute
-* file
-* freebsd_package (based on the package resource)
-* gem_package (based on the package resource)
-* git
-* group
-* homebrew_package (based on the package resource)
-* http_request
-* ifconfig
-* ips_package (based on the package resource)
-* ksh
-* link
-* log
-* macports_package (based on the package resource)
-* mdadm
-* mount
-* ohai
-* openbsd_package (based on the package resource)
-* osx_profile
-* package
-* pacman_package (based on the package resource)
-* paludis_package (based on the package resource)
-* perl
-* portage_package (based on the package resource)
-* powershell_script
-* python
-* reboot
-* registry_key
-* remote_directory
-* remote_file
-* route
-* rpm_package (based on the package resource)
-* ruby
-* ruby_block
-* script
-* service
-* smartos_package (based on the package resource)
-* solaris_package (based on the package resource)
-* subversion
-* template
-* user
-* windows_package
-* windows_service
-* yum (based on the package resource)
-* yum_repository
-* zypper (based on the package resource)
-
-See below for more information about each of these resources, their related actions and properties, and examples of how these resources can be used in recipes.
+The following resources are built into the Chef Client:
 
 .. include:: resource_apt_package.rst
+
+.. include:: resource_apt_preference.rst
 
 .. include:: resource_apt_repository.rst
 
@@ -1315,9 +1236,35 @@ See below for more information about each of these resources, their related acti
 
 .. include:: resource_breakpoint.rst
 
+.. include:: resource_cab_package.rst
+
+.. include:: resource_chef_acl.rst
+
+.. include:: resource_chef_client.rst
+
+.. include:: resource_chef_container.rst
+
+.. include:: resource_chef_data_bag.rst
+
+.. include:: resource_chef_data_bag_item.rst
+
+.. include:: resource_chef_environment.rst
+
 .. include:: resource_chef_gem.rst
 
+.. include:: resource_chef_group.rst
+
 .. include:: resource_chef_handler.rst
+
+.. include:: resource_chef_mirror.rst
+
+.. include:: resource_chef_node.rst
+
+.. include:: resource_chef_organization.rst
+
+.. include:: resource_chef_role.rst
+
+.. include:: resource_chef_user.rst
 
 .. include:: resource_chocolatey_package.rst
 
@@ -1330,6 +1277,8 @@ See below for more information about each of these resources, their related acti
 .. include:: resource_deploy.rst
 
 .. include:: resource_directory.rst
+
+.. include:: resource_dnf_package.rst
 
 .. include:: resource_dpkg_package.rst
 
@@ -1361,15 +1310,33 @@ See below for more information about each of these resources, their related acti
 
 .. include:: resource_ips_package.rst
 
+.. include:: resource_ksh.rst
+
+.. include:: resource_launchd.rst
+
 .. include:: resource_link.rst
 
+.. include:: resource_load_balancer.rst
+
 .. include:: resource_log.rst
+
+.. include:: resource_machine.rst
+
+.. include:: resource_machine_batch.rst
+
+.. include:: resource_machine_execute.rst
+
+.. include:: resource_machine_file.rst
+
+.. include:: resource_machine_image.rst
 
 .. include:: resource_macports_package.rst
 
 .. include:: resource_mdadm.rst
 
 .. include:: resource_mount.rst
+
+.. include:: resource_msu_package.rst
 
 .. include:: resource_ohai.rst
 
@@ -1387,7 +1354,13 @@ See below for more information about each of these resources, their related acti
 
 .. include:: resource_portage_package.rst
 
+.. include:: resource_powershell_package.rst
+
 .. include:: resource_powershell_script.rst
+
+.. include:: resource_private_key.rst
+
+.. include:: resource_public_key.rst
 
 .. include:: resource_python.rst
 
@@ -1425,10 +1398,16 @@ See below for more information about each of these resources, their related acti
 
 .. include:: resource_windows_package.rst
 
+.. include:: resource_windows_path.rst
+
 .. include:: resource_windows_service.rst
+
+.. include:: resource_windows_task.rst
 
 .. include:: resource_yum.rst
 
 .. include:: resource_yum_repository.rst
 
 .. include:: resource_zypper_package.rst
+
+.. include:: resource_zypper_repository.rst

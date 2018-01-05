@@ -117,7 +117,7 @@ Cookbook Reference
 
 **Recipes**: `About Recipes </recipes.html>`__ | `Debug Recipes, Client Runs </debug.html>`__
 
-**Resources**: `About Resources </resource.html>`__ | `Common Functionality </resource_common.html>`__ | `Custom Resources </custom_resources.html>`__ | `All Resources (Single Page) </resources.html>`__ | `apt_package </resource_apt_package.html>`__ | `apt_preference </resource_apt_preference.html>`__ | `apt_repository </resource_apt_repository.html>`__ |
+**Resources**: `About Resources </resource.html>`__ | `Common Functionality </resource_common.html>`__ | `Custom Resources </custom_resources.html>`__ | `All Resources (Single Page) </resource_reference.html>`__ | `apt_package </resource_apt_package.html>`__ | `apt_preference </resource_apt_preference.html>`__ | `apt_repository </resource_apt_repository.html>`__ |
 `apt_update </resource_apt_update.html>`__ | `bash </resource_bash.html>`__ | `batch </resource_batch.html>`__ | `bff_package </resource_bff_package.html>`__ | `breakpoint </resource_breakpoint.html>`__ | `cab_package </resource_cab_package.html>`__ | `chef_acl </resource_chef_acl.html>`__ |
 `chef_client </resource_chef_client.html>`__ | `chef_container </resource_chef_container.html>`__ | `chef_data_bag </resource_chef_data_bag.html>`__ | `chef_data_bag_item </resource_chef_data_bag_item.html>`__ | `chef_environment </resource_chef_environment.html>`__ | `chef_gem </resource_chef_gem.html>`__ | `chef_group </resource_chef_group.html>`__ |
 `chef_handler </resource_chef_handler.html>`__ | `chef_mirror </resource_chef_mirror.html>`__ | `chef_node </resource_chef_node.html>`__ | `chef_organization </resource_chef_organization.html>`__ | `chef_role </resource_chef_role.html>`__ | `chef_user </resource_chef_user.html>`__ |  `chocolatey_package </resource_chocolatey_package.html>`__
@@ -774,7 +774,7 @@ Addenda
    resource_yum_repository
    resource_zypper_package
    resource_zypper_repository
-   resources
+   resource_reference
    roles
    ruby
    run_lists

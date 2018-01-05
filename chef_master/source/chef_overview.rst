@@ -307,7 +307,7 @@ Cookbooks are comprised of the following components:
 
        .. end_tag
 
-       Chef has `many built-in resources </resources.html>`__ that cover all of the most common actions across all of the most common platforms. You can `build your own resources </custom_resources.html>`__ to handle any situation that isn't covered by a built-in resource.
+       Chef has `many built-in resources </resource_reference.html>`__ that cover all of the most common actions across all of the most common platforms. You can `build your own resources </custom_resources.html>`__ to handle any situation that isn't covered by a built-in resource.
    * - .. image:: ../../images/icon_cookbook_templates.svg
           :width: 100px
           :align: center
