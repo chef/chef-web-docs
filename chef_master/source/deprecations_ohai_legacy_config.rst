@@ -9,4 +9,4 @@ Ohai 8.8.0 (Chef 12.6.0) introduced a new Ohai configuration system as defined i
 Remediation
 =============
 
-Previously Ohai configuration values in the Chef client.rb file need to be updated for the new configuration system format. For example to configuration the plugin_path value previously you would set ``Ohai::Config.ohai[:plugin_path] = "/etc/chef/ohai/plugins.local"`` where as you would now use ``ohai.plugin_path = "/etc/chef/ohai/plugins.local"``. See the `Ohai Configuration Documentation </ohai.html#ohai-settings-in-client-rb>`__ for additional usage information.
+Previously Ohai configuration values in the Chef client.rb file need to be updated for the new configuration system format. For example to configuration the plugin_path value previously you would set ``Ohai::Config[:plugin_path] = "/etc/chef/ohai/plugins.local"`` where as you would now use ``ohai.plugin_path = "/etc/chef/ohai/plugins.local"``. See the `Ohai Configuration Documentation </ohai.html#ohai-settings-in-client-rb>`__ for additional usage information.
