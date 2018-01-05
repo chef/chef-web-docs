@@ -127,7 +127,7 @@ This subcommand has the following options:
         'There is no snow here, and penguins like snow.'
       end
 
-   The default directory in which hint files are located is ``/etc/chef/ohai/hints/``. Use the ``Ohai::Config[:hints_path]`` setting in the client.rb file to customize this location.
+   Hint files are located in the ``/etc/chef/ohai/hints/`` directory by default. Use the ``Ohai.config[:hints_path]`` setting in the ``client.rb`` file to customize this location.
 
    .. end_tag
 
