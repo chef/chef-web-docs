@@ -23,7 +23,7 @@ Where a resource represents a piece of the system (and its desired state), a pro
 
 .. tag resources_common_provider_platform
 
-The ``Chef::Platform`` class maps providers to platforms (and platform versions). At the beginning of every chef-client run, Ohai verifies the ``platform`` and ``platform_version`` attributes on each node. The chef-client then uses those values to identify the correct provider, build an instance of that provider, identify the current state of the resource, do the specified action, and then mark the resource as updated (if changes were made).
+The ``Chef::Platform`` class maps providers to platforms (and platform versions). At the beginning of every Chef Client run, Ohai verifies the ``platform`` and ``platform_version`` attributes on each node. The Chef Client then uses those values to identify the correct provider, build an instance of that provider, identify the current state of the resource, do the specified action, and then mark the resource as updated (if changes were made).
 
 For example:
 
@@ -36,7 +36,7 @@ For example:
      action :create
    end
 
-The chef-client will look up the provider for the ``directory`` resource, which happens to be ``Chef::Provider::Directory``, call ``load_current_resource`` to create a ``directory["/tmp/folder"]`` resource, and then, based on the current state of the directory, do the specified action, which in this case is to create a directory called ``/tmp/folder``. If the directory already exists, nothing will happen. If the directory was changed in any way, the resource is marked as updated.
+The Chef Client will look up the provider for the ``directory`` resource, which happens to be ``Chef::Provider::Directory``, call ``load_current_resource`` to create a ``directory["/tmp/folder"]`` resource, and then, based on the current state of the directory, do the specified action, which in this case is to create a directory called ``/tmp/folder``. If the directory already exists, nothing will happen. If the directory was changed in any way, the resource is marked as updated.
 
 .. end_tag
 
@@ -76,8 +76,21 @@ and a resource block that installs a tar.gz package for version 1.6.1 like this:
      version '1.16.1'
    end
 
-In both cases, the chef-client will use the default action (``:install``) to install the ``tar`` package.
+In both cases, the Chef Client will use the default action (``:install``) to install the ``tar`` package.
 
 Additional Information
 =====================================================
-See the `Common Properties </resource_common.html>`__ guide for a list of the common properties that are available in all resources. The `Resource Reference </resource_reference.html>`_ guide lists all of the individual and common options for every resource that is bundled into Chef.
+See these guides for additional information about resources:
+
+.. list-table::
+   :widths: 150 450
+   :header-rows: 1
+
+   * - Topic
+     - Description
+   * - `Common Properties </resource_common.html>`__
+     - Provides a detailed list of the common properties that are available in all resources.
+   * - `Resource Reference </resource_reference.html>`_
+     - A reference guide that lists both the common and individual options available to every resource that is bundled into Chef.
+   * - `Custom Resources </custom_resources.html>`__
+     - Shows you how to create your own Chef resources.
