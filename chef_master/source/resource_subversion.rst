@@ -11,12 +11,6 @@ Use the **subversion** resource to manage source control resources that exist in
 
 .. warning:: The subversion resource has known bugs and may not work as expected. For more information see Chef GitHub issues, particularly `#4050 <https://github.com/chef/chef/issues/4050>`_ and `#4257 <https://github.com/chef/chef/issues/4257>`_.
 
-.. note:: .. tag notes_scm_resource_use_with_resource_deploy
-
-          This resource is often used in conjunction with the **deploy** resource.
-
-          .. end_tag
-
 Syntax
 =====================================================
 A **subversion** resource block manages source control resources that exist in a Subversion repository:

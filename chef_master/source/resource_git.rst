@@ -9,12 +9,6 @@ Use the **git** resource to manage source control resources that exist in a git 
 
 .. end_tag
 
-.. note:: .. tag notes_scm_resource_use_with_resource_deploy
-
-          This resource is often used in conjunction with the **deploy** resource.
-
-          .. end_tag
-
 Syntax
 =====================================================
 A **git** resource block manages source control resources that exist in a git repository:
