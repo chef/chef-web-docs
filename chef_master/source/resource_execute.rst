@@ -59,7 +59,6 @@ The full syntax for all of the properties that are available to the **execute** 
      group                      String, Integer
      live_stream                TrueClass, FalseClass
      notifies                   # see description
-     path                       Array
      provider                   Chef::Provider::Execute
      returns                    Integer, Array
      sensitive                  TrueClass, FalseClass
@@ -78,7 +77,7 @@ where
 * ``name`` is the name of the resource block
 * ``command`` is the command to be run
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``command``, ``creates``, ``cwd``, ``environment``, ``group``, ``live_stream``, ``path``, ``provider``, ``returns``, ``sensitive``, ``timeout``, ``user``, ``password``, ``domain`` and ``umask`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``command``, ``creates``, ``cwd``, ``environment``, ``group``, ``live_stream``,  ``provider``, ``returns``, ``sensitive``, ``timeout``, ``user``, ``password``, ``domain`` and ``umask`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -166,26 +165,6 @@ This resource has the following properties:
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-
-``path``
-   **Ruby Type:** Array
-
-   An array of paths to use when searching for a command. These paths are not added to the command's environment $PATH. The default value uses the system path.
-
-   .. warning::
-      .. tag resources_common_resource_execute_attribute_path
-
-      The ``path`` property has been deprecated and will throw an exception in Chef Client 12 or later. We recommend you use the ``environment`` property instead.
-
-      .. end_tag
-
-      For example:
-
-      .. code-block:: ruby
-
-         execute 'mycommand' do
-           environment 'PATH' => "/my/path/to/bin:#{ENV['PATH']}"
-         end
 
 ``provider``
    **Ruby Type:** Chef Class
