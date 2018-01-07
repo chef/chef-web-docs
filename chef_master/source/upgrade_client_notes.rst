@@ -5,14 +5,6 @@ Notes for chef-client Upgrades to Chef 12
 
 The following sections contain more information about the upgrade process from earlier versions of the chef-client to the chef-client 12 release.
 
-Notes About Cookbooks
-=====================================================
-The following cookbooks are being updated by Chef to ensure compatibility with chef-client 12:
-
-* ``minitest-chef-handler``
-* ``windows``
-* ``knife-windows``
-
 Verify Nodes and Cookbooks
 =====================================================
 .. tag upgrade_verify_nodes_and_cookbooks
