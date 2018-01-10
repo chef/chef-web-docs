@@ -711,9 +711,6 @@ This subcommand has the following options:
 
    New in Chef Client 12.0.
 
-``-o SORT``, ``--sort SORT``
-   The order in which search results are to be sorted.
-
 ``-q SEARCH_QUERY``, ``--query SEARCH_QUERY``
    Protect search queries that start with a hyphen (-). A ``-q`` query may be specified as an argument or an option, but not both.
 

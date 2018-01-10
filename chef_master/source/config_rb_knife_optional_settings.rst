@@ -323,11 +323,6 @@ The following list describes all of the optional settings that can be added to t
 ``knife[:server_name]``
    Same as node_name. Recommended configuration is to allow Ohai to collect this value during each chef-client run.
 
-``knife[:sort]``
-
-``knife[:sort_reverse]``
-   Sort a list by last run time, descending.
-
 ``knife[:ssh_attribute]``
    The attribute used when opening an SSH connection.
 
@@ -772,7 +767,7 @@ The following ``knife edit`` settings can be added to the knife.rb file:
 
 environment create
 -----------------------------------------------------
-The following ``knife environment create`` settings can be added to the knife.rb file:
+The following ``knife environment create`` settings can be added to the ``knife.rb`` file:
 
 ``knife[:description]``
    Adds the the ``--description`` option.
