@@ -220,20 +220,20 @@ For example:
        #An implementation of knife node delete
        banner 'knife my node delete [NODE_NAME]'
 
-     def run
-       if name_args.length < 1
-         show_usage
-         ui.fatal("You must specify a node name.")
-         exit 1
+       def run
+         if name_args.length < 1
+           show_usage
+           ui.fatal("You must specify a node name.")
+           exit 1
+         end
+         nodename = name_args[0]
+         api_endpoint = "nodes/#{nodename}"
+         # Again, we could just call rest.delete_rest
+         nodey = rest.get_rest(api_endpoint)
+         ui.confirm("Do you really want to delete #{nodey}")
+         nodey.destroy
        end
-       nodename = name_args[0]
-          api_endpoint = "nodes/#{nodename}"
-          # Again, we could just call rest.delete_rest
-          nodey = rest.get_rest(api_endpoint)
-          ui.confirm("Do you really want to delete #{nodey}")
-          nodey.destroy
-        end
-      end
+     end
    end
 
 .. end_tag
