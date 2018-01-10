@@ -131,7 +131,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife environment create ENVIRONMENT_NAME -d DESCRIPTION
+   $ knife environment create ENVIRONMENT_NAME -d --description ENVIRONMENT_DESCRIPTION
 
 Options
 -----------------------------------------------------
@@ -156,7 +156,7 @@ To create an environment named ``dev`` with a description of ``The development e
 
 .. code-block:: bash
 
-   $ knife environment create dev --description "The development environment."
+   $ knife environment create dev -d --description "The development environment."
 
 delete
 =====================================================
