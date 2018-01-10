@@ -4807,8 +4807,6 @@ This method has the following parameters:
      - The search query used to identify a list of items on a Chef server. This option uses the same syntax as the ``search`` subcommand.
    * - ``rows``
      - The number of rows to be returned.
-   * - ``sort``
-     - The order in which search results are to be sorted.
    * - ``start``
      - The row at which return results begin.
 
@@ -4905,8 +4903,6 @@ This method has the following parameters:
      - The search query used to identify a list of items on a Chef server. This option uses the same syntax as the ``search`` subcommand.
    * - ``rows``
      - The number of rows to be returned.
-   * - ``sort``
-     - The order in which search results are to be sorted.
    * - ``start``
      - The row at which return results begin.
 
