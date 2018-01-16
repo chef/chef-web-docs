@@ -22,12 +22,14 @@ Nodes can send their run data to Chef Automate through the Chef server automatic
  * `Configure a Data Collector token in Chef Automate </data_collection.html#step-1-configure-a-data-collector-token-in-chef-automate>`__
  * `Configure your Chef server to point to Chef Automate <https://docs.chef.io/data_collection.html#step-2-configure-your-chef-server-to-point-to-chef-automate>`__
 
-Multiple Chef servers can send data to a single Chef Automate server. 
+Multiple Chef servers can send data to a single Chef Automate server.
 
 Step 1: Configure a Data Collector token in Chef Automate
 ------------------------------------------------------------
 
 All messages sent to Chef Automate are performed over HTTP and are authenticated with a pre-shared key called a ``token``. Every Chef Automate installation configures a token by default, but we strongly recommend that you create your own.
+
+.. note:: The Data Collector token has no minimum or maximum character length restrictions. While the UTF-8 character set is supported, `US-ASCII <http://www.columbia.edu/kermit/ascii.html>`__ is recommended for best results.
 
 To set your own token, add the following to your ``/etc/delivery/delivery.rb`` file:
 
