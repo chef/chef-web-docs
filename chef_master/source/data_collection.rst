@@ -15,7 +15,7 @@ Configure Data Collection
 Automatic Node Run Data Collection with Chef Server
 =======================================================
 
-.. note:: New in Chef 12.16. Chef 12.16.42 or greater and Chef Server 12.11.0 or greater are required.
+.. note:: Requires Chef Client 12.16.42 or greater, and Chef server 12.11.0 or greater.
 
 Nodes can send their run data to Chef Automate through the Chef server automatically. To enable this functionality, you must perform the following steps:
 
