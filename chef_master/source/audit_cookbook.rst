@@ -105,7 +105,7 @@ Fetch From Automate via Chef Server
    * - Fetch From Automate via Chef Server and Report to Automate via Chef Server
      - .. code-block:: ruby
 
-          ['audit']['reporter'] = 'chef-server-compliance'
+          ['audit']['reporter'] = 'chef-server-automate'
           ['audit']['fetcher'] = 'chef-server'
           #Set in chef-server.rb:
           data_collector['root_url'] = 'https://chef-automate.test/data-collector/v0/'
