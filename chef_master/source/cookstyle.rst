@@ -13,8 +13,8 @@ Cookstyle is a linting tool based on the RuboCop Ruby linting tool. Cookstyle he
 
 * Enforcing style conventions and best practices
 * Evaluating the code in a cookbook against metrics like "line length" and "function size"
-* Helping every member of a team to author similary structured code
-* Estabilishing uniformity of source code
+* Helping every member of a team to author similarly structured code
+* Establishing uniformity of source code
 * Setting expectations for fellow (and future) project contributors
 
 Cookstyle vs. Rubocop
