@@ -26,6 +26,59 @@ The following sections describe how to install the Chef development kit on a wor
 
 See the following sections for more information about each step.
 
+macOS
+======================================================
+
+Prerequisites
+-----------------------------------------------------
+#. Apple Xcode is required. Install it via the Mac App Store.
+#. Git is required to create . Follow `these steps <https://git-scm.com/book/en/v2/Getting-Started-Installing-Git>`__ to install it, or do so via the package manager of your choice.
+
+Install
+-----------------------------------------------------
+#. Visit the `Chef DK downloads page <https://downloads.chef.io/chefdk>`_ and select the appropriate package for your macOS version. Click on the **Download** button.
+#. Follow the steps to accept the license and install the Chef development kit. You will have the option to change your install location; by default the installer uses the ``/opt/chefdk/`` directory.
+
+
+Windows
+======================================================
+
+Install
+-----------------------------------------------------
+#. Visit the `Chef DK downloads page <https://downloads.chef.io/chefdk>`_ and select the appropriate package for your Windows version. Click on the **Download** button.
+#. Follow the steps to accept the license and install the Chef development kit. You will have the option to change your install location; by default the installer uses the ``C:\opscode\chefdk\`` directory.
+#. **Optional:** Set the default shell. On Microsoft Windows it is strongly recommended to use Windows PowerShell and ``cmd.exe``.
+
+Considerations
+-----------------------------------------------------
+See the `Chef DK on Windows </dk_windows.html>`__ guide for additional caveats and configuration options. 
+
+Linux
+======================================================
+
+Install
+-----------------------------------------------------
+#. Visit the `Chef DK downloads page <https://downloads.chef.io/chefdk>`_ and download the appropriate package for your distribution:
+
+   .. code-block:: bash
+
+      wget https://packages.chef.io/files/stable/chefdk/2.4.17/ubuntu/16.04/chefdk_2.4.17-1_amd64.deb
+
+#. Use your distribution's package manager to install the Chef Development Kit:
+
+   * RHEL/CentOS:
+
+     .. code-block:: bash
+
+        rpm -Uvh https://packages.chef.io/files/stable/chefdk/2.4.17/el/7/chefdk-2.4.17-1.el7.x86_64.rpm
+
+   * Debian/Ubuntu:
+
+     .. code-block:: bash
+
+        dpkg -i https://packages.chef.io/files/stable/chefdk/2.4.17/ubuntu/16.04/chefdk_2.4.17-1_amd64.deb
+
+
 Review prerequisites
 -----------------------------------------------------
 Ensure that the workstation meets all of the software prerequisites and that it has access to a Chef server and to a machine that can host a node.
@@ -379,10 +432,10 @@ At a minimum, you must update the following settings with the appropriate values
 
 * ``client_key`` should point to the location of the Chef server user's ``.pem`` file on your workstation.
 * ``validation_client_name`` should be updated with the name of the desired organization that was created on the Chef server.
-* ``validation_key`` should point to the location of your organization's ``.pem`` file on your workstation. 
+* ``validation_key`` should point to the location of your organization's ``.pem`` file on your workstation.
 * ``chef_server_url`` must be updated with the domain or IP address used to access the Chef server.
 
-See the `knife documentation </config_rb_knife.html>`__ for more details. 
+See the `knife documentation </config_rb_knife.html>`__ for more details.
 
 Add Ruby to $PATH
 -----------------------------------------------------
@@ -467,7 +520,7 @@ The Chef development kit can be uninstalled using the steps below that are appro
 
 .. end_tag
 
-In Chef development kit versions prior to 1.0.3, you may need to complete uninstalling the program with the additional step of removing the directory ``~/.chefdk``.  
+In Chef development kit versions prior to 1.0.3, you may need to complete uninstalling the program with the additional step of removing the directory ``~/.chefdk``.
 
 .. code-block:: bash
 

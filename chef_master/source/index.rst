@@ -557,6 +557,7 @@ Addenda
    deprecations_run_command
    deprecations_supports_property
    deprecations_verify_file
+   dk_windows
    dsl_custom_resource
    dsl_delivery
    dsl_handler
