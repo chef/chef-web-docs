@@ -21,7 +21,7 @@ Chef Automate, you will be able to:
     using GitHub.
 
 *   Have the target branch (usually master) of your GitHub project
-    repository be managed by Chef Automate. When a change is approved in
+    repository managed by Chef Automate. When a change is approved in
     Chef Automate, it will perform the merge in GitHub.
 
 Chef Automate's GitHub integration is designed for use with GitHub.com and GitHub
@@ -58,7 +58,7 @@ To create a token, sign in to GitHub as your service account.
 
    .. image:: ../../images/personal_access_token.png
 
-#. Fill in a description of the purpose of this token, and choose the checkboxes for the following permissions: ``repo``, ``public_repo``, ``write:public_key``, and ``admin:repo_hook``.
+#. Fill in a description of the purpose of this token and select the checkboxes for the following permissions: ``repo``, ``public_repo``, ``write:public_key``, and ``admin:repo_hook``.
 
    .. image:: ../../images/new_token.png
 
@@ -71,7 +71,7 @@ Trusting a Self-Signed SSL Certificate
 
 This procedure is only needed when connecting to GitHub Enterprise, and when your GitHub Enterprise server uses a self-signed SSL certificate.
 
-.. note:: Even when trusted, self-signed certificates only work when the certificate subject is the same as the host running the service. For example, if the certificate subject is an IP address such as ``10.10.10.10``, but the GitHub Enterprise server is reachable at `github.example.com`, the URL ``https://github.example.com`` will fail SSL certificate validation while the URL ``https://10.10.10.10`` would work.
+.. note:: Even when trusted, self-signed certificates only work when the certificate subject is the same as the host running the service. For example, if the certificate subject is an IP address such as ``10.10.10.10``, but the GitHub Enterprise server is reachable at `github.example.com`, the URL ``https://github.example.com`` will fail SSL certificate validation while the URL ``https://10.10.10.10`` will pass.
 
 Debian
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -190,8 +190,8 @@ Initializing a new GitHub project in Chef Automate
    By default, Chef Automate will use the current directory name as the new project name. If you want to name the project something else,
    you may specify the project name as an argument (``--project=$AUTOMATE_PROJECT_NAME``).
 
-   After importing your code, this command will generate a `.delivery/config.json` file, create a build cookbook, and submit a change to
-   Chef Automate to initialize a pipeline for the project. Your browser will open to the change in Chef Automate.
+   After importing your code, this command generates a `.delivery/config.json` file, creates a build cookbook, and submits a change to
+   Chef Automate that initializes a pipeline for the project. Your browser will open to the change in Chef Automate.
    At this point, you should be able to see a corresponding pull request in GitHub.
 
    .. note:: You may also specify a different pipeline than the default (``master``) by specifying the argument ``--pipeline=$PIPELINE``; however, this will not update the ``.delivery/cli.toml`` file.
