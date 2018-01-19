@@ -2461,9 +2461,6 @@ This resource has the following actions:
 ``:remove``
    Remove a package.
 
-``:uninstall``
-   Uninstall a package.
-
 ``:upgrade``
    Install a package and/or ensure that a package is the latest version.
 
