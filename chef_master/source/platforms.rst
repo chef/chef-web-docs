@@ -66,7 +66,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``14.04``, ``16.04``
    * - Microsoft Windows
      - ``x86``, ``x86_64``
-     - ``2012``, ``2012r2``, ``2016``, ``8``, ``8.1``, ``10``
+     - ``2012``, ``2012r2``, ``2016``, ``10``
 
 Community Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -134,7 +134,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``14.04``, ``16.04``
    * - Microsoft Windows
      -
-     - ``8``, ``8.1``, ``10``, ``2012``, ``2012 R2``, ``2016``
+     - ``10``, ``2012``, ``2012 R2``, ``2016``
 
 Community Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -268,7 +268,7 @@ The following table lists the commercially-supported platforms for the Chef push
      - ``14.04``, ``16.04``
    * - Microsoft Windows
      - ``x86``, ``x86_64``
-     - ``2012``, ``2012r2``, ``2016``, ``8``, ``8.1``, ``10``
+     - ``2012``, ``2012r2``, ``2016``, ``10``
 
 .. end_tag
 
