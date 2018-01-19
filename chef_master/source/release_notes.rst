@@ -2461,6 +2461,11 @@ This resource has the following actions:
 ``:remove``
    Remove a package.
 
+``:uninstall``		
+   Uninstall a package.
+
+   Deprecated as of Chef 13.7
+
 ``:upgrade``
    Install a package and/or ensure that a package is the latest version.
 
