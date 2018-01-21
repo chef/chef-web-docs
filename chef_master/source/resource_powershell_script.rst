@@ -48,6 +48,7 @@ The full syntax for all of the properties that are available to the **powershell
      notifies                   # see description
      provider                   Chef::Provider::PowershellScript
      returns                    Integer, Array
+     sensitive                  TrueClass, FalseClass
      subscribes                 # see description
      timeout                    Integer, Float
      user                       String
@@ -63,7 +64,7 @@ where
 * ``name`` is the name of the resource block
 * ``command`` is the command to be run and ``cwd`` is the location from which the command is run
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``architecture``, ``code``, ``command``, ``convert_boolean_return``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``provider``, ``returns``, ``timeout``, ``user``, ``password``, ``domain`` and ``elevated`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``architecture``, ``code``, ``command``, ``convert_boolean_return``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``provider``, ``returns``, ``sensitive``, ``timeout``, ``user``, ``password``, ``domain`` and ``elevated`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -222,6 +223,11 @@ This resource has the following properties:
 
    Inherited from **execute** resource. The return value for a command. This may be an array of accepted values. An exception is raised when the return value(s) do not match. Default value: ``0``.
 
+``sensitive``
+   **Ruby Types:** TrueClass, FalseClass
+
+   Ensure that sensitive resource data is not logged by the chef-client. Default value: ``false``.
+   
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
