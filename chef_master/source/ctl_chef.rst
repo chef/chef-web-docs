@@ -945,7 +945,7 @@ Examples
 
 .. tag ruby_set_system_ruby_as_chefdk_ruby_windows
 
-You can use ``chef shell-init`` with Windows PowerShell.
+You can use the ``chef shell-init`` command with Windows PowerShell to add the appropriate variables to your environment.
 
 To try it in your current session:
 
@@ -965,7 +965,7 @@ To enable it permanently:
 
 .. tag ruby_set_system_ruby_as_chefdk_ruby_windows_admin
 
-For new Microsoft Windows machines, Windows PowerShell scripts will not work until an administrator runs the following command:
+On new Windows machines, PowerShell scripts will not work until an administrator runs the following command:
 
 .. code-block:: bash
 
@@ -977,7 +977,7 @@ For new Microsoft Windows machines, Windows PowerShell scripts will not work unt
 
 .. tag ruby_set_system_ruby_as_chefdk_ruby_windows_user_profile
 
-For new Microsoft Windows machines, commands cannot be appended to ``$PROFILE`` if the folder does not exist or if there is a new user profile, an error similar to the following may be returned:
+On new Windows machines, commands cannot be appended to ``$PROFILE`` if the folder does not exist, or if there is a new user profile. This will result in an error similar to the following:
 
 .. code-block:: bash
 
