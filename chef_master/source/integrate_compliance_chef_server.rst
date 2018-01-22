@@ -202,9 +202,9 @@ The example above is using audit cookbook version 2.0. Further information is av
 The audit cookbook and Chef client audit mode
 -----------------------------------------------------
 
-The "audit cookbook" and Chef's own "Audit Mode" are not compatible due to global state management done by RSpec which is used by both implementations. To prevent unexpected results, the audit cookbook will prevent Chef from continuing if Audit Mode is not disabled.
+The audit cookbook and Chef's own **Audit Mode** are not compatible due to global state management done by RSpec, which is used by both implementations. To prevent unexpected results, the audit cookbook will prevent Chef from continuing if Audit Mode is not disabled.
 
-You can use the `chef-client cookbook <https://supermarket.chef.io/cookbooks/chef-client>`_ to disable "Audit Mode" on all of your nodes to permit use of the audit cookbook. As an example, when using the chef-client cookbook you can add this configuration to ``default_attributes`` section of a role and add the chef-client cookbook to the run list.
+You can use the `chef-client cookbook <https://supermarket.chef.io/cookbooks/chef-client>`_ to disable Audit Mode on all of your nodes, which will permit use of the audit cookbook. As an example, when using the chef-client cookbook you can add this configuration to the ``default_attributes`` section of a role, and then add the chef-client cookbook to the run list:
 
 .. code-block:: bash
 
