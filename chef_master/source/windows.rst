@@ -4958,7 +4958,7 @@ This resource has the following actions:
    Configure a service based on the value of the ``startup_type`` property.
 
 ``:create``
-   Create the service based on the value of the ``binary_path_name``, ``service_name`` And/OR ``display_name`` property.
+   Create the service based on the value of the ``binary_path_name``, ``service_name`` and/or ``display_name`` property.
 
 ``:delete``
    Delete the service based on the value of the ``service_name`` property.
@@ -4993,24 +4993,24 @@ Attributes
 This resource has the following properties:
 
 ``binary_path_name``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
-   The fully qualified path to the service binary file. The path can also include arguments for an auto-start service. Required: true.
+   **Required** The fully qualified path to the service binary file. The path can also include arguments for an auto-start service.
 
 ``display_name``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
    The display name to be used by user interface programs to identify the service. This string has a maximum length of 256 characters.
 
 ``delayed_start``
-   **Ruby Types:** [Integer]
+   **Ruby Type:** Integer
 
-   This only applies if startup_type is ``:automatic``.
+   Set the startup type to delayed start. This only applies if ``startup_type`` is ``:automatic``.
 
 ``dependencies``
-   **Ruby Types:** [String, Array]
+   **Ruby Types:** String, Array
 
-   A pointer to a double null-terminated array of null-separated names of services or load ordering groups that the system must start before this service. Specify nil or an empty string if the service has no dependencies. Dependency on a group means that this service can run if at least one member of the group is running after an attempt to start all members of the group.
+   A pointer to a double null-terminated array of null-separated names of services or load ordering groups that the system must start before this service. Specify ``nil`` or an empty string if the service has no dependencies. Dependency on a group means that this service can run if at least one member of the group is running after an attempt to start all members of the group.
 
 ``description``
    **Ruby Types:** String
@@ -5030,7 +5030,7 @@ This resource has the following properties:
 ``load_order_group``
    **Ruby Types:** String
 
-   The names of the load ordering group of which this service is a member. Specify nil or an empty string if the service does not belong to a group.
+   The name of the service's load ordering group(s). Specify ``nil`` or an empty string if the service does not belong to a group.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -5113,7 +5113,7 @@ This resource has the following properties:
 ``service_name``
    **Ruby Type:** String
 
-   The name of the service. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
+   The name of the service. Default value: the ``name`` of the resource block. See the "Syntax" section above for more information.
 
 ``start_command``
    **Ruby Type:** String
