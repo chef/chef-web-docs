@@ -1,11 +1,77 @@
 =====================================================
-Release Notes: Chef Client 12.0 - 13.6.4
+Release Notes: Chef Client 12.0 - 13.7.16
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes.rst>`__
 
 Chef Client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef changelog <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
 
-What's new in 13.6.4:
+
+What's New in 13.7.16
+=====================================================
+* **The windows_task Resource should be better behaved**
+
+  We’ve spent a considerable amount of time testing and fixing the `windows_task </resource_windows_task.html>`__ resource to ensure that it is properly idempotent and correct in more situations.
+
+* **Credentials Handling**
+
+  Previously, Chef DK workstations used ``knife.rb`` or ``config.rb`` to handle credentials. This didn’t do a great job of interacting with multiple Chef servers, which lead to the need for tools like `knife_block <https://github.com/knife-block/knife-block>`__. We’ve added support for a credentials file that contains configuration information for many Chef servers / organizations, and we’ve made it easy to indicate which account you mean to use.
+
+* **Bug Fixes**
+
+  * Resolved a bug where knife commands that resulted in a prompt on Windows would never display the prompt
+  * Fixed a bug that affected the hiding of sensitive resources when `converge_if_changed </dsl_custom_resource.html#converge-if-changed>`__ was used
+  * Fixes to certain scenarios that would result in services failing to start on Solaris
+
+* **Security Updates**
+
+  * OpenSSL has been upgraded to 1.0.2n to resolve `CVE-2017-3738 <https://nvd.nist.gov/vuln/detail/CVE-2017-3738>`__, `CVE-2017-3737 <https://nvd.nist.gov/vuln/detail/CVE-2017-3737>`__, `CVE-2017-3736 <https://nvd.nist.gov/vuln/detail/CVE-2017-3736>`__, and `CVE-2017-3735 <https://nvd.nist.gov/vuln/detail/CVE-2017-3735>`__
+  * Ruby has been upgraded to 2.4.3 to resolve `CVE-2017-17405 <https://nvd.nist.gov/vuln/detail/CVE-2017-17405>`__
+
+
+New Deprecations
+-----------------------------------------------------
+
+* **erl_call Resource**
+
+  We introduced `erl_call </resource_erlang_call.html>`__ to help us to manage CouchDB servers back in the olden times of Chef. Since then we’ve noticed that no one uses it, and so ``erl_call`` will be removed in Chef 14. Foodcritic rule `FC105 <http://www.foodcritic.io/#FC105>`__ has been introduced to detect usage of ``erl_call``.
+
+* **epic_fail**
+
+  The original name for the ``ignore_failure`` property in resources was ``epic_fail``. Our documentation hasn’t referred to ``epic_fail`` for years and out of the 3500 cookbooks on the Supermarket only one uses ``epic_fail``. In Chef 14 we will remove the ``epic_fail`` property entirely. Foodcritic rule `FC107 <http://www.foodcritic.io/#FC107>`__ has been introduced to detect usage of ``epic_fail``.
+
+* **Legacy Mixins**
+
+  In Chef 14 several legacy mixins will be removed. Usage of these mixins has resulted in deprecation warnings for several years. They were traditionally used in some HWRPs, but are rarely found in code available on the Supermarket. Foodcritic rules `FC097 <http://www.foodcritic.io/#FC097>`__, `FC098 <http://www.foodcritic.io/#FC098>`__, `FC099 <http://www.foodcritic.io/#FC099>`__, `FC100 <http://www.foodcritic.io/#FC100>`__, and `FC102 <http://www.foodcritic.io/#FC102>`__ have been introduced to detect these mixins:
+
+  * ``Chef::Mixin::LanguageIncludeAttribute``
+  * ``Chef::Mixin::RecipeDefinitionDSLCore``
+  * ``Chef::Mixin::LanguageIncludeRecipe``
+  * ``Chef::Mixin::Language``
+  * ``Chef::DSL::Recipe::FullDSL``
+
+* **:uninstall Action in chocolatey_package**
+
+  The chocolatey cookbook’s ``chocolatey_package`` resource originally contained an ``:uninstall`` action. When `chocolatey_package </resource_chocolatey_package.html>`__ was moved into core Chef we made ``:uninstall`` an alias for ``:remove``. In Chef 14, ``:uninstall`` will no longer be a valid action. Foodcritic rule `FC103 <http://www.foodcritic.io/#FC103>`__ has been introduced to detect usage of the ``:uninstall`` action.
+
+Ohai 13.7
+-----------------------------------------------------
+* **Network Tunnel Information**
+
+  The Network plugin on Linux hosts now gathers additional information on tunnels.
+
+* **LsPci Plugin**
+
+  The new LsPci plugin provides a ``node[:pci]`` hash with information about the PCI bus based on lspci. Only runs on Linux.
+
+* **EC2 C5 Detection**
+
+  The EC2 plugin has been updated to properly detect the new AWS hypervisor used in the C5 instance types.
+
+* **mdadm**
+
+  The mdadm plugin has been updated to properly handle arrays with more than 10 disks, and to properly handle journal and spare drives in the disk counts.
+
+What's New in 13.6.4
 =====================================================
 * **Resolved Debian / Ubuntu regression**
 
@@ -18,7 +84,7 @@ What's new in 13.6.4:
 
 See the full `change log <https://github.com/chef/chef/blob/master/CHANGELOG.md#v1364-2017-11-06>`__ for additional details.
 
-What's new in 13.6.0:
+What's New in 13.6.0
 =====================================================
 
 * **The ``deploy`` resource is deprecated**
@@ -67,7 +133,7 @@ Deprecation Updates
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 In Ohai 13 we replaced the ``filesystem`` and ``cloud`` plugins with the ``filesystem2`` and ``cloud_v2`` plugins. In order to maintain compatibility with users of the previous V2 plugins, we write data to both locations. We had originally planned to continue writing data to both locations until Chef 15. Instead, due to the large amount of duplicate node data this introduces, we are updating the `OHAI-11 </deprecations_ohai_cloud_v2.html>`__ and `OHAI-12 </deprecations_ohai_filesystem_v2.html>`__ deprecations to remove ``node['cloud_v2']`` and ``node['filesystem2']`` with the release of Chef 14 in April 2018.
 
-What's new in 13.5.3
+What's New in 13.5.3
 =====================================================
 
 * **The mount resource's password property is now marked as sensitive** Passwords passed to mount won’t show up in logs.
@@ -81,7 +147,7 @@ Ohai 13.5
 * **Correctly detect IPv6 routes ending in ::** Previously, Ohai would ignore routes that ended with ``::``, but now they can be detected properly.
 * **Plugin run time is now measured** Debug logs will show the length of time each plugin takes to run, which makes it easier to debug long Ohai runs.
 
-What's new in 13.4.24
+What's New in 13.4.24
 =====================================================
 This release includes Ruby 2.4.2 to fix the following CVEs:
 
