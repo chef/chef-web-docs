@@ -84,6 +84,8 @@ This resource has the following actions:
 ``:uninstall``
    Uninstall a package.
 
+   Deprecated as of Chef 13.7
+
 ``:upgrade``
    Install a package and/or ensure that a package is the latest version.
 
@@ -302,7 +304,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Install a package with options**
 
-This example uses Chocolatey's ``--checksum`` option: 
+This example uses Chocolatey's ``--checksum`` option:
 
 .. code-block:: ruby
 

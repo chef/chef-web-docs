@@ -2504,7 +2504,7 @@ where
 
 Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_package_chocolatey_actions
+.. tag resource_package_chocolatey_actions_12_7
 
 This resource has the following actions:
 
