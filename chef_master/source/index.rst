@@ -531,6 +531,7 @@ Addenda
    deprecations_chef_gem_compile_time
    deprecations_chef_platform_methods
    deprecations_chef_rest
+   deprecations_chocolatey_uninstall
    deprecations_custom_resource_cleanups
    deprecations_deploy_resource
    deprecations_dnf_package_allow_downgrade

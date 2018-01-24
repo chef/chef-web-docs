@@ -106,6 +106,10 @@ All Deprecations
     - Deprecation of the ``deploy`` resource.
     - 13.6
     - 14.0
+  * - `CHEF-21 </deprecations_chocolatey_uninstall.html>`__
+    - Deprecation of the ``:uninstall`` action in the ``chocolatey_package`` resource.
+    - 13.7
+    - 14.0
   * - `CHEF-3694 </deprecations_resource_cloning.html>`__
     - Resource Cloning will no longer work.
     - 10.18
