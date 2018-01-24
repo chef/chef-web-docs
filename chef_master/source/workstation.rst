@@ -91,7 +91,7 @@ For many users of Chef, the Chef development kit version of Ruby that is include
 
 #. Run ``which ruby`` again. It should return ``/opt/chefdk/embedded/bin/ruby``.
 
-.. note:: Using the Chef development kit-provided Ruby as your system Ruby is optional. This just depends on how you are using Ruby on your system. For many users, Ruby is primarily used for authoring Chef cookbooks and recipes. If that's true for you, then using the Chef development kit-provided Ruby as your system Ruby is recommended. But for other users who are already using tools like rbenv to manage Ruby versions, then that's OK too.
+.. note:: Using the Chef development kit-provided Ruby as your system Ruby is optional. For many users, Ruby is primarily used for authoring Chef cookbooks and recipes. If that's true for you, then using the Chef Development Kit-provided Ruby is recommended.
 
 
 Add Ruby to $PATH
