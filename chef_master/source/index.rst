@@ -92,6 +92,7 @@ Concepts
 Setup
 -----------------------------------------------------
 `Proxies </proxies.html>`__ |
+`Chef DK on Windows </dk_windows.html>`__ |
 `Workstation </install_dk.html>`__
 
 **Nodes**:`Install via Bootstrap </install_bootstrap.html>`__ | `Install via URL </install_omnibus.html>`__ | `Install on Windows </install_windows.html>`__ | `Install on Junos OS </junos.html>`__ | `chef-client (executable) </ctl_chef_client.html>`__ | `client.rb </config_rb_client.html>`__ | `Upgrades </upgrade_client.html>`__ | `Security </chef_client_security.html>`__
@@ -105,6 +106,7 @@ Setup
 **Integrations**: `AWS Marketplace </aws_marketplace.html>`__ |  `Microsoft Azure </azure_portal.html>`__ | `Google Cloud Platform </google.html>`__ | `VMware </vmware.html>`__
 
 `Air-gapped Installation </install_chef_air_gap.html>`__ |
+`Microsoft Windows </windows.html>`__ |
 `Uninstall </uninstall.html>`__
 
 Cookbook Reference
@@ -557,6 +559,7 @@ Addenda
    deprecations_run_command
    deprecations_supports_property
    deprecations_verify_file
+   dk_windows
    dsl_custom_resource
    dsl_delivery
    dsl_handler
