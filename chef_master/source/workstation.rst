@@ -110,7 +110,7 @@ where ``configuration_file`` is the name of the configuration file for the speci
 
 .. warning:: On Microsoft Windows, ``C:/opscode/chefdk/bin`` must be before ``C:/opscode/chefdk/embedded/bin`` in the ``PATH``.
 
-Install git
+Install Git
 =====================================================
 An open source distributed version control system called Git must be installed before the chef-repo can be cloned to the workstation from GitHub.
 
