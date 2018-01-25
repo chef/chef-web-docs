@@ -117,7 +117,7 @@ This configuration file has the following settings for ``bookshelf``:
    Enable a service. Default value: ``true``.
 
 ``bookshelf['enable_request_logging']``
-   Use to configure request logging for bookshelf service. Default value: ``false``.
+   Use to configure request logging for the bookshelf service. Default value: ``false``.
 
 ``bookshelf['external_url']``
    The base URL to which the service is to return links to API resources. Use ``:host_header`` to ensure the URL is derived from the host header of the incoming HTTP request. Default value: ``:host_header``.
@@ -726,8 +726,8 @@ This configuration file has the following settings for ``oc_bifrost``:
 ``oc_bifrost['enable']``
    Enable a service. Default value: ``true``.
 
-``oc_biforst['enable_request_logging']``
-   Use to configure request logging for oc_bifrost service. Default value: ``true``.
+``oc_bifrost['enable_request_logging']``
+   Use to configure request logging for the ``oc_bifrost`` service. Default value: ``true``.
 
 ``oc_bifrost['extended_perf_log']``
    Default value: ``true``.
@@ -1064,7 +1064,7 @@ This configuration file has the following settings for ``opscode-erchef``:
    Use to enable Chef actions, a premium feature of the Chef server. Default value: ``false``.
 
 ``opscode_erchef['enable_request_logging']``
-   Use to configure request logging for opscode_erchef service. Default value: ``true``.
+   Use to configure request logging for the ``opscode_erchef`` service. Default value: ``true``.
 
 ``opscode_erchef['ha']``
    Run the Chef server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
