@@ -199,6 +199,12 @@ Kitchen can configure the chef-zero provisioner with the following Chef-specific
      -
    * - ``solo_rb``
      - chef-solo provisioner only.
+   * - ``retry_on_exit_code``
+     - Takes an array of exit codes to indicate that kitchen should retry the converge command. Default value: ``[35, 213]``.
+   * - ``max_retries``
+     -  Number of times to retry the converge before passing along the failed status. Defaults value: 1.
+   * - ``wait_for_retry``
+     - Number of seconds to wait between converge attempts. Default value: 30.
 
 These settings may be added to the ``provisioner`` section of the .kitchen.yml file when the provisioner is chef-zero or chef-solo.
 
@@ -856,3 +862,25 @@ The following .kitchen.yml file sets up a simple tiered configuration of the Che
          - recipe[chef-server::ntp]
          - recipe[chef-server::server]
          - recipe[chef-server::backend]
+
+Kitchen Converge On System Reboot
+--------------------------------------------------------------------------
+Test-Kitchen can handle reboots (when initiated from chef-client) by setting ``retry_on_exit_code``, ``max_retries`` and ``wait_for_retry`` attributes on the provisioner in ``.kitchen.yml`` file as follows :
+
+.. code-block:: yaml
+
+   ---
+   provisioner:
+      name: chef_zero
+      require_chef_omnibus: 12.11 # need the RFC 062 exit codes
+      retry_on_exit_code:
+        - 35 # 35 is the exit code signaling that the node is rebooting
+        - 1
+      max_retries: 1
+      client_rb:
+        exit_status: :enabled # Opt-in to the standardized exit codes
+        client_fork: false  # Forked instances don't return the real exit code
+
+**One note on linux nodes**: The shutdown command blocks (as opposed to the windows variant which registers the reboot and returns right away), so once the timeout period passes, chef-client and the node are in a race to see who can exit/shutdown first - so you may or may not get the exit code out of linux instances. In that case, you can add ``1`` to the ``retry_on_exit_code`` array and that should catch both cases.
+
+Please refer `YAML documentation <https://symfony.com/doc/current/components/yaml/yaml_format.html#collections>`__ to set ``retry_on_exit_code`` attribute.
