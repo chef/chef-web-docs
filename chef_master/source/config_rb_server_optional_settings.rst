@@ -700,6 +700,11 @@ This configuration file has the following settings for ``nginx``:
 
    New in Chef server 12.17
 
+``nginx['show_welcome_page']``
+   Determines whether or not the default nginx welcome page is shown. Default value: ``true``.
+
+   New in Chef server 12.17.15.
+
 ``nginx['worker_connections']``
    The maximum number of simultaneous clients. Use with ``nginx['worker_processes']`` to determine the maximum number of allowed clients. Default value: ``10240``.
 
