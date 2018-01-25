@@ -1,9 +1,31 @@
 =====================================================
-Release Notes: Chef Server 12.0 - 12.17.5
+Release Notes: Chef Server 12.0 - 12.17.15
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_server.rst>`__
 
 The Chef server acts as a hub for configuration data by storing cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is managed by the chef-client.
+
+What's New in 12.17.15
+=====================================================
+This release:
+
+* Fixes a regression in IPv6 address handling
+* Allows you to disable request logging via the following optional settings:
+
+  * ``opscode-erchef['enable_request_logging']``
+  * ``oc_bifrost['enable_request_logging']``
+  * ``bookshelf['enable_request_logging']``
+
+  See the `Chef server optional settings </config_rb_server_optional_settings.html>`__ guide for additional details
+
+* ``chef-server-ctl reconfigure`` fixes permissions on gems with an overly restrictive umask
+
+* Makes the display of the welcome page configurable via the ``nginx['show_welcome_page']`` setting. See the `Chef server optional settings </config_rb_server_optional_settings.html>`__ guide for additional details
+* Infers the current database migration level and necessary upgrades for ``chef-server-ctl upgrade``
+* Catches ``server_name`` resolution errors during ``chef-server-ctl reconfigure``, and continues with the reconfiguration
+* No longer creates the default RabbitMQ ``guest`` user
+
+See the detailed `change log <https://github.com/chef/chef-server/blob/master/CHANGELOG.md#121715-2017-12-21>`__ for a complete list of changes.
 
 What's New in 12.17.5
 =====================================================
@@ -37,7 +59,7 @@ Fixes for the PostgreSQL upgrade process
 Chef server 12.16.9 adds the following features to make the PostgreSQL upgrade process easier:
 
 * Ensures that your disk has the required space before starting the PostgreSQL upgrade
-* For users with large databases, ``pg_upgrade`` timeout is now configurable. The default timeout has been increased to 2 hours. 
+* For users with large databases, ``pg_upgrade`` timeout is now configurable. The default timeout has been increased to 2 hours.
 
 Remove unused authorization objects from bifrost database
 ----------------------------------------------------------
