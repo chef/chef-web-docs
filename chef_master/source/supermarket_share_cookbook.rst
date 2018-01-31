@@ -37,7 +37,7 @@ Share Cookbooks via Stove
 
    Create the ``Gemfile`` if it is not already present.
 
-#. Add your Hosted Chef credentials to Stove. Replace ``USER`` with your Hosted Chef user, and ``KEY.pem`` with your Hosted Chef private key:
+#. Add your Hosted Chef credentials to Stove. Replace ``USER`` with your Hosted Chef user, and ``KEY.pem`` with your the full path to Hosted Chef private key:
 
    .. code-block:: none
 
