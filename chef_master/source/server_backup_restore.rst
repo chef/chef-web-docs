@@ -94,6 +94,10 @@ This subcommand has the following syntax:
 
    $ chef-server-ctl restore /path/to/tar/archive.tar.gz
 
+DRBD High Availability
+=====================================================
+You can find this info in the archived docs for 11.x Enterprise Chef servers under https://docs-archive.chef.io
+If you are running a system this old, please contact your CSM or Support.
 
 Backup and restore a Chef Backend install
 =====================================================
