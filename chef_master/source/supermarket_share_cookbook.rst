@@ -5,9 +5,10 @@ Share Cookbooks on the Chef Supermarket
 
 This guide will show you how to share a cookbook on the public `Chef Supermarket <https://supermarket.chef.io/>`__. The public Supermarket uses `Hosted Chef <https://manage.chef.io>`__, the Chef-as-a-service provider, for user authentication. You will need a Hosted Chef account to share cookbooks.
 
-If you already use Hosted Chef as your Chef server, skip to the cookbook sharing method of your choice:
+.. note:: If you already use Hosted Chef as your Chef server, skip to the cookbook sharing method of your choice:
 
-* Share
+          * `Stove </supermarket_share_cookbook.html#share-cookbooks-via-stove>`__
+          * `Knife </supermarket_share_cookbook.html#share-cookbooks-via-knife>`__
 
 Create a Hosted Chef Account
 -----------------------------------------------------
@@ -16,13 +17,17 @@ Create a Hosted Chef Account
 
 #. You will receive a confirmation email. Use the link in the email to confirm your confirm your email address.
 
-#. Create a Hosted Chef organization
+#. Log in to Hosted Chef and click the **Create New Organization** button:
 
-#. Download and extract the Starter Kit.
+   .. image:: ../../images/hosted_chef_welcome.png
+
+#. Download and extract the Hosted Chef starter kit:
+
+   .. image:: ../../images/download_starter_kit.png
 
 Share Cookbooks via Stove
 -------------------------------------------------------
-`Stove <https://github.com/sethvargo/stove>`__ is a cookbook release utility that keeps the upload process localized to the cookbook itself, as opposed to the traditional (knife) method which requires a cookbook repository.
+`Stove <https://github.com/sethvargo/stove>`__ is a cookbook release utility that keeps the upload process localized to the cookbook itself, as opposed to the `Knife </supermarket_share_cookbook.html#share-cookbooks-via-knife>`__ method which requires a cookbook repository.
 
 #. Add the following line to the ``Gemfile`` within your project's repository:
 
@@ -38,7 +43,7 @@ Share Cookbooks via Stove
 
       stove login --username USER --key ~/chef-repo/.chef/KEY.pem
 
-   Stove will save this information to its configuration file under ``~/.stove``. Note that if you've just downloaded the Hosted Chef starter kit, your private key  will be located in the chef-repo that was created by the starter kit, under ``/chef-repo/.chef/USERNAME.pem``.
+   Stove will save this information to its configuration file under ``~/.stove``. Note that if you've downloaded the Hosted Chef starter kit, the private key is located within its chef-repo under ``/chef-repo/.chef/USERNAME.pem``.
 
 #. Navigate to the root of the cookbook that you want to upload, then initialize Stove:
 
@@ -46,7 +51,7 @@ Share Cookbooks via Stove
 
       stove
 
-   Stove will package the cookbook, tag the cookbook version, and publish it to the public Supermarket.
+   Stove will package the cookbook, tag the cookbook version, and publish it to the public Supermarket. By default, Stove will tag the current commit of the Git repo with the version number declared in the cookbook's metadata, and will push that tag to the Git remote; Use ``stove --no-git`` to disable this feature.
 
 Share Cookbooks via Knife
 -------------------------------------------------------
@@ -56,30 +61,30 @@ The `knife cookbook site  </knife_cookbook_site.html>`__ command is used to uplo
 
 #. The ``knife.rb`` file located under ``/chef-repo/.chef/knife.rb`` contains the basic information necessary to authenticate with Hosted Chef. It will look similar to the following:
 
-   ..code-block:: ruby
+   .. code-block:: ruby
 
-     current_dir = File.dirname(__FILE__)
-     log_level                :info
-     log_location             STDOUT
-     node_name                "brewn"
-     client_key               "#{current_dir}/brewn.pem"
-     chef_server_url          "https://api.chef.io/organizations/chfex"
-     cookbook_path            ["#{current_dir}/../cookbooks"]
+      current_dir = File.dirname(__FILE__)
+      log_level                :info
+      log_location             STDOUT
+      node_name                "brewn"
+      client_key               "#{current_dir}/brewn.pem"
+      chef_server_url          "https://api.chef.io/organizations/chfex"
+      cookbook_path            ["#{current_dir}/../cookbooks"]
 
-   However if you're not an existing Hosted Chef user, you've most likely created your cookbooks within another repository with its own Knife configuration. Instead of modifying your workstation setup, simply add the path to your cookbook repository under the ``cookbook_path`` setting in your Hosted Chef chef-repo. For example":
+   However if you're not an existing Hosted Chef user, you've most likely created your cookbooks within another repository with its own Knife configuration. Instead of modifying your workstation setup, simply add the path to your cookbook repository under the ``cookbook_path`` setting in your Hosted Chef chef-repo. For example:
 
-   ..code-block:: ruby
+   .. code-block:: ruby
 
-     cookbook_path
+      cookbook_path            ["~/my-repo/cookbooks"]
 
-#.
+#.  Use the ``knife cookbook site`` command to upload your cookbook to the Supermarket:
 
+    .. code-block:: none
 
+       knife cookbook site share example_cookbook
 
+    Alternatively, if you chose not to modify the location of your cookbook repository within your ``knife.rb``, you can specify the cookbook path in your ``knife`` command:
 
-Share the cookbook:
+    .. code-block:: none
 
-* `knife cookbook site share awesome_sauce` (if awesome_sauce is found in knife.rb's `cookbook_path`)
-* `knife cookbook site share awesome_sauce -o ~/path/to/where/awesome_sauce/is` (if somewhere else)
-* `stove` (while in the root of the cookbook)
-    * stove will perform some better-practice actions by default, like tagging the current commit of a git repo with the version number declared in the cookbook's metadata and pushing that tag to the git remote; use `stove --no-git` to disable this feature
+       knife cookbook site share example_cookbook -o ~/my-repo/cookbooks

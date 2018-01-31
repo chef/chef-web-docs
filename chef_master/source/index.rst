@@ -816,6 +816,7 @@ Addenda
    supermarket_backup_restore
    supermarket_logs
    supermarket_monitor
+   supermarket_share_cookbook
    templates
    troubleshooting_chef_automate
    uninstall
