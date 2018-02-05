@@ -516,10 +516,7 @@ The following examples are listed from low to high precedence.
 
 .. code-block:: ruby
 
-   node.set['apache']['dir'] = '/etc/apache2'
-
-   node.normal['apache']['dir'] = '/etc/apache2' # Same as above
-   node['apache']['dir'] = '/etc/apache2'       # Same as above
+   node.normal['apache']['dir'] = '/etc/apache2'
 
 **Override attribute in /attributes/default.rb**
 
