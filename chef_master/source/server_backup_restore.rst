@@ -1,4 +1,3 @@
-=====================================================
 Backup and Restore a Standalone or Frontend install
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_backup_restore.rst>`__
@@ -58,7 +57,7 @@ The ``restore`` subcommand is used to restore Chef server data from a backup tha
 * Requires a ``chef-server-ctl reconfigure`` prior to running the command
 * Should not be run in a Chef server configuration with an external PostgreSQL database; `use knife ec backup <https://github.com/chef/knife-ec-backup>`__ instead
 
-.. note :: The ``restore`` command does not support transferring backups across different versions of Chef server. Backups taken with the ``backup`` command must restore to the same version of Chef server that was in use when they were created. 
+.. note :: The ``restore`` command does not support transferring backups across different versions of Chef server. Backups taken with the ``backup`` command must restore to the same version of Chef server that was in use when they were created.
 
 .. end_tag
 
@@ -94,6 +93,9 @@ This subcommand has the following syntax:
 
    $ chef-server-ctl restore /path/to/tar/archive.tar.gz
 
+DRBD High Availability
+=====================================================
+You can find information on restoring legacy high availability Chef servers in the `Chef Docs archive <https://docs-archive.chef.io/release/server_12-8/server_backup_restore.html>`__. If you are still running Enterprise Chef server 11.x, please your CSM or Support.
 
 Backup and restore a Chef Backend install
 =====================================================
@@ -149,4 +151,3 @@ Verify
 -----------------------------------------------------
 
 We recommend periodically verifying your backup by restoring a single Chef backend node, a single Chef server node, and ensuring that various knife commands and chef-client runs can successfully complete against your backup.
-
