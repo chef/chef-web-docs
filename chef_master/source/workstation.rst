@@ -186,7 +186,7 @@ To create the ``.chef`` directory:
 
 Starter Kit
 -----------------------------------------------------
-If you have access to Chef server (hosted or on premises), you can download the starter kit. The starter kit will create the necessary configuration files: the ``.chef ``directory, ``knife.rb``, ``ORGANIZATION-validator.pem``, and ``USER.pem``. Simply download the starter kit and then move it to the desired location on your workstation.
+If you have access to Chef server (hosted or on premises), you can download the starter kit. The starter kit will create the necessary configuration files: the ``.chef`` directory, ``knife.rb``, ``ORGANIZATION-validator.pem``, and ``USER.pem``. Simply download the starter kit and then move it to the desired location on your workstation.
 
 Configure the Chef Repository
 =====================================================
