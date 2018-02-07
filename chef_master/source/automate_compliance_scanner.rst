@@ -39,7 +39,7 @@ As of Chef Automate 1.7.114, you have the option of creating ad-hoc and schedule
 
 #. Select the **Create New Job** button to make a new scan job. 
 #. From the **Scan Job Creation** form, enter a name for your new job.(Required)
-#. Toggle the ``Set Schedule`` option to determine a scan date and time. Toggle the ``Repeat Every`` option to define the repeat cycle. Toggle the ``End Time`` option to set a date and time for ending repeated scans. (Optional)
+#. Toggle the ``Set Schedule`` option to determine a scan date and time. Toggle the ``Repeat Every`` option to define the repeat cycle. Toggle the ``End Time`` option to set a date and time for ending repeated scans. The date picker will consider "end of day" in UTC. (Optional)
 #. Select one or more nodes that will be scanned in this job from the list of nodes.(Required)
 #. Select one or more profiles to run against the nodes. (Required)
 #. Select the **Create Job** button to save and launch the scan job.

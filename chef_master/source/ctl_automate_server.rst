@@ -291,6 +291,7 @@ Added in Chef Automate version 1.6.87.
    $ automate-ctl delete-elasticsearch-lock [options]
         --force                      Agree to all warnings and prompts
     -h, --help                       Show the usage message
+        --stale-lock-only            Cleans stale lock files 
 
 **Examples**
 
@@ -834,7 +835,7 @@ preflight-check
 
 reconfigure
 =====================================================
-The ``reconfigure`` subcommand is used to reconfigure the Chef Automate server after changes are made to the delivery configuration file, located at ``/etc/delivery/delivery.rb``. When changes are made to the delivery configuration file, they are not applied to the Chef Automate configuration until after this command is run. This subcommand also restarts any services for which the ``service_name['enabled']`` setting is set to ``true``.
+The ``reconfigure`` subcommand is used to reconfigure the Chef Automate server after changes are made to the delivery configuration file, located at ``/etc/delivery/delivery.rb``. When changes are made to the delivery configuration file, they are not applied to the Chef Automate configuration until after this command is run. This subcommand also restarts any services for which the ``service_name['enabled']`` setting is set to ``true``. This subcommand also reconfigures rubygems installed into Automate with an overly restrictive ``umask``. The default timeout is 60 seconds.
 
 This subcommand has the following syntax:
 
