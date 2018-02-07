@@ -11,6 +11,48 @@ What's New in 1.7.114
 New Features
 -----------------------------------------------------
 
+* **Compliance Scanner and Job Scheduling (General Availability)**
+
+  This month’s release extends your ability to assess and control the state of your system. 
+
+  We have expanded your ability to see your entire system with compliance scans of any node--even those not managed by Chef. 
+  
+  We have added the ability to schedule recurring job scans using the Job Scheduling feature. 
+
+* **Compliance Search Date-Range Support**
+  
+  Control the start and end dates for displaying compliance scans from the search bar date picker.
+
+* **The node’s platform version is now displayed in Compliance node lists**
+
+* **LDAP authentication now supports simple_tls encryption**
+
+Resolved Issues
+-----------------------------------------------------
+
+* Node scan history page now obeys profile filter set on compliance dashboard
+* Removed the sudo credentials option when creating or editing a node
+* Fixed a race condition preventing the ‘updates available’ notification for Compliance profiles from being displayed
+* Correctly displays platform versions in the Compliance nodes list
+* Fixed missing input validation on Compliance UI
+* Rubygems installed into Automate with an overly restrictive umask are now fixed when automate-ctl reconfigure is run
+* Passwords and keys fields no longer display values when editing a credential
+* The Compliance UI now displays a spinner when loading pages
+* Scan jobs are now nested inside their parent job
+* The date picker on the Compliance Reporting page now considers the ‘end of day’ in UTC
+* The Compliance ‘Failed Nodes’ icon now matches the node failure icon
+* The Elasticsearch timeout during an automate-ctl reconfigure has been increased to 60 seconds
+* Stale Elasticsearch lock files can be cleaned after a crash with automate-ctl delete-elasticsearch-lock --stale-lock-only
+* Fixed CA certificate path location on SuSE
+* The data collector API now returns a 503 when Automate is in maintenance mode
+* The Elasticsearch API now returns 400 if sent a HTML script tag to prevent XSS attacks
+
+What's New in 1.7.114
+=====================================================
+
+New Features
+-----------------------------------------------------
+
 * **Compliance Scanner, Job Scheduling and Improvements (Beta)**
 
   This month’s release marks the addition of job scheduling to the compliance scanner and completes its core functionality. It allows for compliance scans to be scheduled for future or recurring runs. This enables users to fully automate their tests to run on a regular schedule.
