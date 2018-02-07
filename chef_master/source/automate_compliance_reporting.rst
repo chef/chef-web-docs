@@ -29,7 +29,9 @@ Filters
 * **Platform:** You can run controls against a variety of platforms, such as AIX, Amazon Linux, Apache Tomcat, AppleOSX, CentOS, Oracle Linux, Oracle Solaris, RHEL, SUSE Linux, Ubuntu, and Microsoft Windows.
 * **Environment:** You can filter compliance reports by the environments in any stage of your workflow.
 * **Control:** Controls are the units of tests that constitute compliance profiles.
-* **Calendar:** You can limit the results of your report by calendar dates. While you can set the calendar to display up to 10 months of compliance data, it cannot display any data prior to your first Automate Compliance scan.
+* **Role** A role is a way to define certain patterns and processes that exist across nodes in an organization as belonging to a single job function. For more information, see `About Roles <roles.html>`__.
+* **Recipe** A recipe defines the configuration that is applied to a node. For more information, see `About Recipes <recipes.html>`__.
+* **Calendar:** You can limit the results of your report by selecting dates from the calendar in the search bar. 
 
 Add Filters
 ---------------------------------------------------------------
@@ -124,7 +126,7 @@ From the individual control, you can use the ``view source`` button to examine t
 
 Profiles
 ----------------------------------------------------
-The Profiles view of the Compliance Reporting tab lets you examine a table of compliance profiles that are installed under your individual user account.
+The Profiles view of the Compliance Reporting tab lets you examine the compliance profiles that are installed under your individual user account.
 
 .. image:: ../../images/automate_compliance_profiles_overview.png
 
