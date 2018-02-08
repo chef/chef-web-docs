@@ -29,13 +29,7 @@ Share Cookbooks via Stove
 -------------------------------------------------------
 `Stove <https://github.com/sethvargo/stove>`__ is a cookbook release utility that keeps the upload process localized to the cookbook itself, as opposed to the `Knife </supermarket_share_cookbook.html#share-cookbooks-via-knife>`__ method which requires a cookbook repository.
 
-#. Add the following line to the ``Gemfile`` within your project's repository:
-
-   .. code-block:: ruby
-
-      gem 'stove'
-
-   Create the ``Gemfile`` if it is not already present.
+.. note:: Stove is included in the Chef DK. If you are not using the Chef DK, follow the `Stove installation instructions <https://github.com/sethvargo/stove#installation>`__ to install Stove separately.
 
 #. Add your Hosted Chef credentials to Stove. Replace ``USER`` with your Hosted Chef user, and ``KEY.pem`` with your the full path to Hosted Chef private key:
 
