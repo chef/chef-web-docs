@@ -5,7 +5,7 @@ Release Notes: Chef Automate
 
 Chef Automate provides a full suite of enterprise capabilities for workflow, visibility and compliance that allow you to manage and monitor application and cookbook deployments across a cluster of nodes in your environment.
 
-What's New in 1.7.114
+What's New in 1.8.3
 =====================================================
 
 New Features
