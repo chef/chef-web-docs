@@ -280,6 +280,26 @@ to return something similar to:
    i-12345678
    rs-123456
 
+policy set
+=====================================================
+Use the ``policy set`` argument to set the policy group and policy name for a node.
+
+Syntax
+-----------------------------------------------------
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife node policy set NODE POLICY_GROUP POLICY_NAME (options)
+
+Options
+-----------------------------------------------------
+This command does not have any specific options.
+
+Examples
+-----------------------------------------------------
+None.
+
 run_list add
 =====================================================
 .. tag node_run_list
