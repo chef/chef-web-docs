@@ -290,15 +290,15 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife node policy set NODE POLICY_GROUP POLICY_NAME (options)
-
-Options
------------------------------------------------------
-This command does not have any specific options.
+   $ knife node policy set NODE POLICY_GROUP POLICY_NAME
 
 Examples
 -----------------------------------------------------
-None.
+Set the policy group and policy name for a node named ``test-node``:
+
+.. code-block:: bash
+
+   $ knife node policy set test-node 'test-group' 'test-name'
 
 run_list add
 =====================================================
@@ -676,7 +676,7 @@ This argument has the following options:
 
 ``-F json``, ``--format=json``
    Display output as JSON.
-   
+
 ``-l``, ``--long``
    Display all attributes in the output.
 
