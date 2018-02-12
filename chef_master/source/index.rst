@@ -446,6 +446,7 @@ Addenda
    aws_marketplace
    aws_opsworks_chef_automate
    azure_portal
+   backend_failure_recovery
    berkshelf
    chef_automate
    chef_automate_compliance
