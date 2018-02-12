@@ -56,9 +56,9 @@ To make this change you'll add the following configuration options to ``/etc/ops
 
 .. code-block:: ruby
 
-  opscode_erchef['max_request_size'] = '10000000' 
+  opscode_erchef['max_request_size'] = '10000000'
   nginx['client_max_body_size'] = '2500m'
-  
+
 After you have finished editing the file, run ``chef-server-ctl reconfigure`` to enable the changes.
 
 Add Profiles to Chef Automate
@@ -70,7 +70,9 @@ Before you can see if your nodes are compliant, you need to have the profiles yo
 
 #. Click the **Compliance** tab, then click **Profiles**. You now can now upload any profiles you have locally on your machine. Chef Automate also has a set of built-in profiles that you can use. The example in the next section will reference the baseline Linux Security and SSH profiles found in this set.
 
-#. To use one of the existing profiles, click **Available**, and then click a radial button corresponding to the name of the profile(s) you wish to use.
+#. To use one of the existing profiles, click **Profile Store**, located under the Reporting on the left hand side then and then click a radial button corresponding to the name of the profile(s) you wish to use.
+
+#. Click on **Available** to get a list of the profiles available to this Automate Server.
 
 #. Once you've made your selection, click **Get** to add the profiles to your profile collection. You will see them show up under **Profiles**.
 
@@ -189,4 +191,3 @@ When you go back to your Chef Automate UI under the **Compliance** tab, the **Re
 Next Steps
 ---------------------------------------------------------
 * `Audit Cookbook </audit_cookbook.html>`__
-
