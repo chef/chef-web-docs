@@ -91,7 +91,7 @@ Knife Commands
 =====================================================
 .. tag set_policy_group_and_name
 
-The following knife commands used to set the 'policy group' and 'policy name' on the Chef server. For example:
+The following knife commands used to set the policy group and policy name on the Chef server. For example:
 
 .. code-block:: bash
 
