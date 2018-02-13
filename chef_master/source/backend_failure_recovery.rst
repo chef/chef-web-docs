@@ -78,7 +78,7 @@ This procedure only works currently if the administrator can take action before 
 
 Promoting a Previous Leader
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-If it is the case that the recently deposed leader is likely the node with the most up-to-date data, you may want to reinstate its leadership. To ensure that the deposed leader can come up correctly, you will need to override the safety check that prevents deposed leaders from starting PostgreSQL.
+If a recently deposed leader is likely the node with the most up-to-date data, you may want to reinstate its leadership.
 
 #. To ensure that the deposed leader can come up correctly, you will need to override the safety check that prevents deposed leaders from starting PostgreSQL. On the deposed leader node that is being promoted, run the following command:
 
