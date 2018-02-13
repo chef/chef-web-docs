@@ -34,7 +34,7 @@ However if the failing node cannot be brought back online, it must be replaced:
 
       chef-backend-ctl join-cluster IP_OF_RUNNING_NODE -s PATH_TO_SHARED_SECRETS
 
-See the installation instructions for more details on joining nodes to the cluster.
+See the `installation instructions </install_server_ha.html#step-3-install-and-configure-remaining-backend-nodes>`__ for more details on joining nodes to the cluster.
 
 Two-node Failure
 -----------------------------------------------------
@@ -58,7 +58,7 @@ This procedure assumes that the remaining node has the most up-to-date copy of t
 
 Partitions
 =====================================================
-For the purpose of this section, a partition refers to the loss of network connectivity between two nodes. From the perspective of other nodes in the cluster, it is impossible to tell whether a node is down or has been partitioned. However, because a partition is often characterized by the node and the software on the node still being up, this section covers some special care to take when recovering a cluster that has been partitioned at the network level.
+For the purpose of this section, a **partition** refers to the loss of network connectivity between two nodes. From the perspective of other nodes in the cluster, it is impossible to tell whether a node is down or has been partitioned. However, because a partition is often characterized by the node and the software on the node still being up, this section covers some special care to take when recovering a cluster that has been partitioned at the network level.
 
 No Loss of Quorum
 -----------------------------------------------------
@@ -101,13 +101,13 @@ If a recently deposed leader is likely the node with the most up-to-date data, y
 
 Service Level Failures
 =====================================================
-This section covers the behavior when a single service fails. This currently extends to the service's process on the machine dying, not more complicated service failures where the process is up and taking requests but returning incorrect results.
+This section documents the expected behavior that occurs when a single service fails. This currently extends to the service's process on the machine dying, not more complicated service failures where the process is up and taking requests but returning incorrect results.
 
-Note that the number of service-level failures that a service can sustain assumes that the failure is happening in isolation. In general, an operator should assume that the cluster can sustain a failure on a single node and that a second failure is likely to cause a loss of availability if the first failure is not resolved.
+Note that the number of service-level failures that a service can sustain assumes that the failure is happening in isolation. In general an operator should assume that the cluster can sustain a failure on a single node, but a second failure is likely to cause a loss of availability if the first failure is not resolved.
 
 PostgreSQL
 -----------------------------------------------------
-The leader/follower state of PostgresSQL is managed by leaderl. Leaderl performs health checks on PostgreSQL and fails over to a follower if the health check fails.
+The leader/follower state of PostgresSQL is managed by Leaderl. Leaderl performs health checks on PostgreSQL and fails over to a follower if the health check fails.
 
 Assuming that ``etcd`` and ``leaderl`` are running properly, two of the three nodes can have service-level PostgreSQL failures. Once the root cause of the service-level problems have been solved, the two failed nodes can be resynced from the leader node.
 
