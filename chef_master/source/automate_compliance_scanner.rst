@@ -5,6 +5,8 @@ Scanner
 
 Automate allows you to define the configuration and security needs of your systems with compliance profiles. Use the compliance scanner to put the profile into action with an ad-hoc or scheduled scan. The Automate compliance scanner lets you add and edit nodes and scan jobs using the user interface.
 
+This Compliance Scanner is available in Chef Automate 1.8.3 or later. It can also be enabled in Chef Automate 1.7.114 by typing ``beta`` anywhere in the UI, and enabling the feature via the popup that appears.
+
 .. note:: Credentials are required to perform a compliance scan. See `Credentials <automate_compliance_credentials.html>`__.
 
 .. note:: Profiles must be installed from the Profile Store before performing a compliance scan. See `Profile Store <profile_store.html>`__.
