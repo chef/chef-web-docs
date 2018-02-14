@@ -11,7 +11,7 @@ automate-ctl (executable)
 
 .. end_tag
 
-The Chef Automate server includes a command-line utility named `automate-ctl`. Use this command-line tool to:
+The Chef Automate server includes a command-line utility named ``automate-ctl``. Use this command-line tool to:
 
 * Manage enterprises, users, and projects
 * Reconfigure the Chef Automate server
@@ -126,7 +126,7 @@ This subcommand has the following syntax:
 
 create-users
 =====================================================
-The ``create-users`` subcommand is used to create one or more users from a TSV file. 
+The ``create-users`` subcommand is used to create one or more users from a TSV file.
 
 **Syntax**
 
@@ -280,7 +280,7 @@ Deleting all backup archives and snapshots from October, 2016:
 
 delete-elasticsearch-lock
 =====================================================
-The ``delete-elasticsearch-lock`` subcommand is used to delete the exclusive Elasticsearch lock document that is used by several of Chef Automate's services to coordinate major operations. Each service should create and remove this lock automatically, but in the event of an issue an operator can use this command to manually free the lock.
+The ``delete-elasticsearch-lock`` subcommand is used to delete the exclusive Elasticsearch lock document that is used by several of Chef Automate's services to coordinate major operations. Each service should create and remove this lock automatically, but in the event of an issue an operator can use this command to manually free the lock. The ``--stale-lock-only`` option (added in Chef Automate 1.8.3) ensures that a lock is only deleted if it is older than the currently running Elasticsearch process.
 
 Added in Chef Automate version 1.6.87.
 
@@ -290,6 +290,7 @@ Added in Chef Automate version 1.6.87.
 
    $ automate-ctl delete-elasticsearch-lock [options]
         --force                      Agree to all warnings and prompts
+        --stale-lock-only            Only delete the lock if it is older than the Elasticsearch process
     -h, --help                       Show the usage message
         --stale-lock-only            Cleans stale lock files 
 
@@ -325,7 +326,7 @@ This subcommand has the following syntax:
 
 delete-project
 =====================================================
-The ``delete-project`` subcommand is used to delete a Chef Automate project. 
+The ``delete-project`` subcommand is used to delete a Chef Automate project.
 
 **Syntax**
 
