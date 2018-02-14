@@ -454,7 +454,6 @@ Change an existing service from automatic to manual startup:
      action :configure
      binary_path_name "C:\\opscode\\chef\\bin"
      startup_type :manual
-     delayed_start true
    end
 
 .. end_tag
