@@ -11,7 +11,7 @@ automate-ctl (executable)
 
 .. end_tag
 
-The Chef Automate server includes a command-line utility named `automate-ctl`. Use this command-line tool to:
+The Chef Automate server includes a command-line utility named ``automate-ctl``. Use this command-line tool to:
 
 * Manage enterprises, users, and projects
 * Reconfigure the Chef Automate server
@@ -280,7 +280,7 @@ Deleting all backup archives and snapshots from October, 2016:
 
 delete-elasticsearch-lock
 =====================================================
-The ``delete-elasticsearch-lock`` subcommand is used to delete the exclusive Elasticsearch lock document that is used by several of Chef Automate's services to coordinate major operations. Each service should create and remove this lock automatically, but in the event of an issue an operator can use this command to manually free the lock. The ``--stale-lock-only`` option ensures that a lock is only deleted if it is older than the currently running Elasticsearch process.
+The ``delete-elasticsearch-lock`` subcommand is used to delete the exclusive Elasticsearch lock document that is used by several of Chef Automate's services to coordinate major operations. Each service should create and remove this lock automatically, but in the event of an issue an operator can use this command to manually free the lock. The ``--stale-lock-only`` option (added in Chef Automate 1.8.3) ensures that a lock is only deleted if it is older than the currently running Elasticsearch process.
 
 Added in Chef Automate version 1.6.87.
 
