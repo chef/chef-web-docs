@@ -7,5 +7,4 @@ The ``deploy`` and ``deploy_revision`` resources have been deprecated as of Chef
 
 Remediation
 =============
-
-For users that require the ``deploy`` or ``deploy_revision`` resources they are now part of the `deploy_resource <https://supermarket.chef.io/cookbooks/deploy_resource>`__ backwards compatibility cookbook availabe on the Supermarket.
+For users that require the ``deploy`` or ``deploy_revision`` resources, they are now part of the `deploy_resource <https://supermarket.chef.io/cookbooks/deploy_resource>`__ backwards compatibility cookbook available on the Supermarket.
