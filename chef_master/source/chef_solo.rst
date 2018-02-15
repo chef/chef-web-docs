@@ -314,6 +314,8 @@ This command has the following options:
 ``--legacy-mode``
    Cause the chef-client to not use chef local mode, but rather the original chef-solo mode. This is not recommended unless really required.
 
+   Removed in Chef Client 14.
+
 ``--minimal-ohai``
    Run the Ohai plugins for name detection and resource/provider selection and no other Ohai plugins. Set to ``true`` during integration testing to speed up test cycles.
 
@@ -331,7 +333,9 @@ This command has the following options:
    New in Chef Client 12.0.
 
 ``-r RECIPE_URL``, ``--recipe-url RECIPE_URL``
-   The URL location from which a remote cookbook tar.gz is to be downloaded.
+   The URL of the remote cookbook ``tar.gz`` file that you want to download.
+
+   In Chef Client 14, the short ``-r`` form will be removed, as it conflicts with the ability to specify a run list.
 
 ``--run-lock-timeout SECONDS``
    The amount of time (in seconds) to wait for a chef-client lock file to be deleted. Default value: not set (indefinite). Set to ``0`` to cause a second chef-client to exit immediately.
@@ -401,8 +405,8 @@ chef-solo will look in the solo.rb file to determine the directory in which cook
 
 .. code-block:: bash
 
-   $ chef-solo -c ~/solo.rb -j http://www.example.com/node.json -r http://www.example.com/chef-solo.tar.gz
+   $ chef-solo -c ~/solo.rb -j http://www.example.com/node.json --recipe-url http://www.example.com/chef-solo.tar.gz
 
-where ``-r`` corresponds to ``recipe_url`` and ``-j`` corresponds to ``json_attribs``, both of which are configuration options in solo.rb.
+where ``--recipe-url`` corresponds to ``recipe_url`` and ``-j`` corresponds to ``json_attribs``, both of which are `configuration options </config_rb_solo.html>`__ in ``solo.rb``.
 
 .. end_tag

@@ -3,12 +3,6 @@ chef-solo (executable)
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ctl_chef_solo.rst>`__
 
-.. warning:: .. tag notes_chef_solo_use_local_mode
-
-             The chef-client `includes an option called local mode </ctl_chef_client.html#run-in-local-mode>`_ (``--local-mode`` or ``-z``), which runs the chef-client against the chef-repo on the local machine as if it were running against a Chef server. Local mode was added to the chef-client in the 11.8 release. If you are running that version of the chef-client (or later), you should consider using local mode instead of using chef-solo.
-
-             .. end_tag
-
 .. tag chef_solo_summary
 
 chef-solo is a command that executes chef-client in a way that does not require the Chef server in order to converge cookbooks. chef-solo uses chef-client's `Chef local mode </ctl_chef_client.html#run-in-local-mode>`_, and **does not support** the following functionality present in chef-client / server configurations:
@@ -156,6 +150,8 @@ This command has the following options:
 ``--legacy-mode``
    Cause the chef-client to not use chef local mode, but rather the original chef-solo mode. This is not recommended unless really required.
 
+   Removed in Chef Client 14.
+
 ``--minimal-ohai``
    Run the Ohai plugins for name detection and resource/provider selection and no other Ohai plugins. Set to ``true`` during integration testing to speed up test cycles.
 
@@ -173,7 +169,9 @@ This command has the following options:
    New in Chef Client 12.0.
 
 ``-r RECIPE_URL``, ``--recipe-url RECIPE_URL``
-   The URL location from which a remote cookbook tar.gz is to be downloaded.
+   The URL of the remote cookbook ``tar.gz`` file that you want to download.
+
+   In Chef Client 14, the short ``-r`` form will be removed, as it conflicts with the ability to specify a run list.
 
 ``--run-lock-timeout SECONDS``
    The amount of time (in seconds) to wait for a chef-client lock file to be deleted. Default value: not set (indefinite). Set to ``0`` to cause a second chef-client to exit immediately.
@@ -254,8 +252,8 @@ chef-solo will look in the solo.rb file to determine the directory in which cook
 
 .. code-block:: bash
 
-   $ chef-solo -c ~/solo.rb -j http://www.example.com/node.json -r http://www.example.com/chef-solo.tar.gz
+   $ chef-solo -c ~/solo.rb -j http://www.example.com/node.json --recipe-url http://www.example.com/chef-solo.tar.gz
 
-where ``-r`` corresponds to ``recipe_url`` and ``-j`` corresponds to ``json_attribs``, both of which are configuration options in solo.rb.
+where ``--recipe-url`` corresponds to ``recipe_url`` and ``-j`` corresponds to ``json_attribs``, both of which are `configuration options </config_rb_solo.html>`__ in ``solo.rb``.
 
 .. end_tag
