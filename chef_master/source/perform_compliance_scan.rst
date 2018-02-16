@@ -131,17 +131,17 @@ add the following code in mycompany_audit/attributes/default.rb:
   case node['os']
   when 'linux'
     default['audit']['profiles'] = [
-     {
-        'name': 'DevSec Linux Security Baseline',
-        'compliance': 'admin/linux-baseline'
-      }
+      {
+        name: 'DevSec Linux Security Baseline',
+        compliance: 'admin/linux-baseline',
+      },
     ]
-    when 'windows'
+  when 'windows'
     default['audit']['profiles'] = [
       {
         'name': 'DevSec Windows Security Baseline',
-        'compliance': 'admin/windows-baseline'
-      }
+        'compliance': 'admin/windows-baseline',
+      },
     ]
   end
 
