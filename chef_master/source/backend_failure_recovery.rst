@@ -109,19 +109,19 @@ PostgreSQL
 -----------------------------------------------------
 The leader/follower state of PostgresSQL is managed by Leaderl. Leaderl performs health checks on PostgreSQL and fails over to a follower if the health check fails.
 
-Assuming that ``etcd`` and ``leaderl`` are running properly, two of the three nodes can have service-level PostgreSQL failures. Once the root cause of the service-level problems have been solved, the two failed nodes can be resynced from the leader node.
+Assuming that ``etcd`` and ``leaderl`` are running properly, two of the three nodes can have service-level PostgreSQL failures. Once the service-level problems have been resolved, the two failed nodes can be resynced from the leader node.
 
 Elasticsearch
 -----------------------------------------------------
-* Elasticsearch manages its own availability. 1 of the 3 nodes can have a service-level Elasticsearch failures without affecting the availability of the cluster.
+* Elasticsearch manages its own availability. 1 of the 3 nodes can have a service-level Elasticsearch failure without affecting the availability of the cluster.
 
-* Elasticsearch failovers are independent of PostgreSQL failovers; however, since the Chef Server can only talk to a single Elasticsearch instance, if Elasticsearch fails on the leader  node, leaderl will failover (including a PostgreSQL failover) to another node.
+* Elasticsearch failovers are independent of PostgreSQL failovers; however, since the Chef Server can only talk to a single Elasticsearch instance, if Elasticsearch fails on the leader node, Leaderl will failover (including a PostgreSQL failover) to another node.
 
 * Once the root cause of the service-level problems has been identified and solved, the failed node should be able to rejoin the cluster.
 
 Etcd
 -----------------------------------------------------
-Etcd is used by Leaderl to elect a PostgreSQL leader and store status and cluster state information. Its availability is required for Leaderl to continue functioning properly. 1 of the 3 nodes can have service-level etcd failures and the cluster should remain available. If the etcd failure is on the current leader, a PostgreSQL failover will occur.
+Etcd is used by Leaderl to elect a PostgreSQL leader and store status and cluster state information. Its availability is required for Leaderl to continue functioning properly. 1 of the 3 nodes can have service-level etcd failures and the cluster should remain available. If the Etcd failure is on the current leader, a PostgreSQL failover will occur.
 
 Leaderl
 -----------------------------------------------------
