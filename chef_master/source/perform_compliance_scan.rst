@@ -72,7 +72,7 @@ Before you can see if your nodes are compliant, you need to have the profiles yo
 
 #. To use one of the existing profiles, click **Profile Store** within the **Compliance** tab, and click on **Available** to get a list of the profiles available to this Automate Server.
 
-#. Once you've made your selection, click **Get** to add the profiles to your profile collection. You will see them show up under **Profiles**.
+#. Once you've made your selection, click **Get** next to the profile you've chosen to add to your collection. You will see it show up under **Profiles**.
 
 #. (Optional) This description will use two profiles for demonstration.  To follow along, get the following profiles:
     - DevSec Linux Security Baseline
