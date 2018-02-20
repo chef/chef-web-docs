@@ -202,13 +202,13 @@ This configuration file has the following settings:
 
    .. code-block:: ruby
 
-      license 'Apache v2.0'
+      license 'Apache-2.0'
 
    or:
 
    .. code-block:: ruby
 
-      license 'GPL v3'
+      license 'GPL-3.0'
 
    or:
 
