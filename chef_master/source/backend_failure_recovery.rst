@@ -103,7 +103,7 @@ Service Level Failures
 =====================================================
 This section documents the expected behavior that occurs when a single service fails. This currently extends to the service's process on the machine dying, not more complicated service failures where the process is up and taking requests but returning incorrect results.
 
-Note that the number of service-level failures that a service can sustain assumes that the failure is happening in isolation. In general an operator should assume that the cluster can sustain a failure on a single node, but a second failure is likely to cause a loss of availability if the first failure is not resolved.
+Note that the number of service-level failures that a service can sustain depends upon whether or not the failure is happening in isolation. In general an operator should assume that the cluster can sustain a failure on a single node, but a second failure is likely to cause a loss of availability if the first failure is not resolved.
 
 PostgreSQL
 -----------------------------------------------------
