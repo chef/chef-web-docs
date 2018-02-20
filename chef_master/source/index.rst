@@ -187,6 +187,7 @@ Managing the Server
 -----------------------------------------------------
 
 `Runbook (Single Page) </runbook.html>`__ |
+`Backend Cluster Failure Recovery </backend_failure_recovery.html`__ |
 `Backup and Restore </server_backup_restore.html>`__ |
 `Data Storage </server_data.html>`__ |
 `Firewalls and Ports </server_firewalls_and_ports.html>`__ |
