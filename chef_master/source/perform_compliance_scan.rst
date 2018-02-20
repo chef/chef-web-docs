@@ -56,9 +56,9 @@ To make this change you'll add the following configuration options to ``/etc/ops
 
 .. code-block:: ruby
 
-  opscode_erchef['max_request_size'] = '10000000' 
+  opscode_erchef['max_request_size'] = '10000000'
   nginx['client_max_body_size'] = '2500m'
-  
+
 After you have finished editing the file, run ``chef-server-ctl reconfigure`` to enable the changes.
 
 Add Profiles to Chef Automate
@@ -139,8 +139,8 @@ add the following code in mycompany_audit/attributes/default.rb:
   when 'windows'
     default['audit']['profiles'] = [
       {
-        'name': 'DevSec Windows Security Baseline',
-        'compliance': 'admin/windows-baseline',
+        name: 'DevSec Windows Security Baseline',
+        compliance: 'admin/windows-baseline',
       },
     ]
   end
@@ -189,4 +189,3 @@ When you go back to your Chef Automate UI under the **Compliance** tab, the **Re
 Next Steps
 ---------------------------------------------------------
 * `Audit Cookbook </audit_cookbook.html>`__
-
