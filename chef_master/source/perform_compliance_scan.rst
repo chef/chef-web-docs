@@ -68,11 +68,9 @@ Before you can see if your nodes are compliant, you need to have the profiles yo
 
 #. Login to the Chef Automate UI as the ``admin`` user.
 
-#. Click the **Compliance** tab, then click **Profiles**. You now can now upload any profiles you have locally on your machine. Chef Automate also has a set of built-in profiles that you can use. The example in the next section will reference the baseline Linux Security and SSH profiles found in this set.
+#. Click the **Compliance** tab, then click **Profile Store**. You can use the **Upload** button on the right hand side of the page to upload profiles from your local machine. Chef Automate also has a set of built-in profiles that you can use. The example in the next section will reference the baseline Linux Security and SSH profiles found in this set.
 
-#. To use one of the existing profiles, click **Profile Store**, located under the Reporting on the left hand side then and then click a radial button corresponding to the name of the profile(s) you wish to use.
-
-#. Click on **Available** to get a list of the profiles available to this Automate Server.
+#. To use one of the existing profiles, click **Profile Store** within the **Compliance** tab, and click on **Available** to get a list of the profiles available to this Automate Server.
 
 #. Once you've made your selection, click **Get** to add the profiles to your profile collection. You will see them show up under **Profiles**.
 
