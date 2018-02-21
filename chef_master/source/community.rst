@@ -40,6 +40,7 @@ Learn
 =====================================================
 * `Chef training <https://training.chef.io/>`_
 * `Self-guided learning <https://learn.chef.io/>`_
+* `Chef Recipes [Video] [Packt Publishing] <https://www.packtpub.com/virtualization-and-cloud/chef-recipes-video>`_
 
 Listen
 =====================================================
