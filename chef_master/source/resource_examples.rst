@@ -2303,16 +2303,6 @@ The following example shows how to specify custom configuration data using the `
           PasswordChangeRequired = $false
         }
       EOH
-
-     configuration_data <<-EOH
-       @{
-         AllNodes = @(
-             @{
-             NodeName = "localhost";
-             PSDscAllowPlainTextPassword = $true
-             })
-         }
-       EOH
    end
 
 .. end_tag
