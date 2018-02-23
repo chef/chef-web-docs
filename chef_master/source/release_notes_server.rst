@@ -1,9 +1,17 @@
 =====================================================
-Release Notes: Chef Server 12.0 - 12.17.15
+Release Notes: Chef Server 12.0 - 12.17.33
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_server.rst>`__
 
 The Chef server acts as a hub for configuration data by storing cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is managed by the chef-client.
+
+What's New in 12.17.33
+=====================================================
+This release:
+
+* Upgrades the version of Ruby to 2.4.3
+* Adds FIPS support for PPC64 (big-endian)
+* Fixes an Elasticsearch invalid search query issue caused by forward slashes that were not escaped properly
 
 What's New in 12.17.15
 =====================================================
