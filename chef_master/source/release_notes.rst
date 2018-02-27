@@ -6,6 +6,22 @@ Release Notes: Chef Client 12.0 - 13.7.16
 Chef Client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef changelog <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
 
 
+What's New in 13.8
+=====================================================
+* **Fixes regression from 13.7.16**
+
+  This release fixes the `regression <https://discourse.chef.io/t/regression-in-chef-client-13-7-16/12518>`__ in how arrays and hashes were handled in Chef 13.7. Version 13.8 has reverted to the same code that was used in Chef 13.6.
+
+* **Continued windows_task Improvements**
+
+  Chef 13.8 has better validation for the ``idle_time`` property when using the ``on_idle`` frequency option.
+
+* **Security Updates**
+
+  Libxml2 has been updated to version 2.9.7 as a fix for `CVE-2017-15412 <https://access.redhat.com/security/cve/cve-2017-15412>`__.
+
+See the detailed `change log <https://github.com/chef/chef/blob/chef-13/CHANGELOG.md#v1380-2018-02-27>`__ for more information. 
+
 What's New in 13.7.16
 =====================================================
 * **The windows_task Resource should be better behaved**
