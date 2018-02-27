@@ -20,6 +20,8 @@ What's New in 13.8
 
   Libxml2 has been updated to version 2.9.7 as a fix for `CVE-2017-15412 <https://access.redhat.com/security/cve/cve-2017-15412>`__.
 
+See the detailed `change log <https://github.com/chef/chef/blob/chef-13/CHANGELOG.md#v1380-2018-02-27>`__ for more information. 
+
 What's New in 13.7.16
 =====================================================
 * **The windows_task Resource should be better behaved**
