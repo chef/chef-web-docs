@@ -23,14 +23,22 @@ You will only need to enable FIPS if you are a US non-military government agency
 
 Supported Products
 ==================================================================
+**Supported:**
 
-Supported
-------------------------------------------------------------------
-Chef Server and chef-client/chefDK both support FIPS mode.
+* `Chef Automate </fips.html#how-to-enable-fips-mode-for-the-chef-automate-server>`__
+* `Chef Client </fips.html#how-to-enable-fips-mode-for-the-chef-client>`__
+* `Chef DK </fips.html#how-to-enable-fips-mode-for-workstations>`__
+* `Chef server </fips.html#how-to-enable-fips-mode-for-the-chef-server>`__
 
-Unsupported
-------------------------------------------------------------------
-All Chef Server Add-ons do not support FIPS mode. The list includes Push Jobs, Manage, Reporting, Analytics, and standalone Compliance.
+**Unsupported:**
+
+FIPS mode is not supported for Chef Server add-ons. This includes:
+
+* Chef Compliance (standalone)
+* Chef Manage
+* Analytics
+* Push Jobs
+* Reporting
 
 How to enable FIPS mode in the Operating System
 ==================================================================
