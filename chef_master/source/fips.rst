@@ -21,6 +21,25 @@ Why might you not need to enable it?
 ------------------------------------------------------------------
 You will only need to enable FIPS if you are a US non-military government agency, or contracting with one, and you are contractually obligated to meet federal government security standards.  If you are not a US non-military governmental agency, or you are not contracting with one, and you are not contractually obligated to meet federal government security standards, then do not enable FIPS.  Chef products have robust security standards even without FIPS, and FIPS prevents the use of certain hashing algorithms you might want to use, so we only recommend enabling FIPS if it is contractually necessary.
 
+Supported Products
+==================================================================
+**Supported:**
+
+* `Chef Automate </fips.html#how-to-enable-fips-mode-for-the-chef-automate-server>`__
+* `Chef Client </fips.html#how-to-enable-fips-mode-for-the-chef-client>`__
+* `Chef DK </fips.html#how-to-enable-fips-mode-for-workstations>`__
+* `Chef server </fips.html#how-to-enable-fips-mode-for-the-chef-server>`__
+
+**Unsupported:**
+
+FIPS mode is not supported for Chef Server add-ons. This includes:
+
+* Chef Compliance (standalone)
+* Chef Manage
+* Analytics
+* Push Jobs
+* Reporting
+
 How to enable FIPS mode in the Operating System
 ==================================================================
 
