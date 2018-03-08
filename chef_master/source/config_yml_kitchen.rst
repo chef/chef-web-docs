@@ -109,7 +109,7 @@ For example, a very simple .kitchen.yml file:
       excludes:
         - debian-9
 
-This file uses Vagrant as the driver, which requires no additional configuration because it's the default driver used by Kitchen, chef-zero as the provisioner, and a single (default) test suite that runs on Ubuntu 12.04, and CentOS 6.4.
+This file uses Vagrant as the driver, which requires no additional configuration because it's the default driver used by Kitchen, chef-zero as the provisioner, and a single (default) test suite that runs on Ubuntu 16.04, and CentOS 7.
 
 .. end_tag
 
@@ -806,7 +806,7 @@ The following .kitchen.yml file sets up a simple tiered configuration of the Che
      name: chef_zero
 
    platforms:
-     - name: ubuntu-12.04
+     - name: ubuntu-16.04
        attributes:
          chef-server:
            api_fqdn: backend.chef-server.com
