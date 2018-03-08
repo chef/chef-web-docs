@@ -1,10 +1,20 @@
 =====================================================
-Release Notes: Chef Client 12.0 - 13.8
+Release Notes: Chef Client 12.0 - 13.8.5
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes.rst>`__
 
 Chef Client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef changelog <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
 
+What's New in 13.8.5
+=====================================================
+This is a small bug fix release to resolve two issues we found in the 13.8 release:
+
+* chef-client run failures due to a failure in a newer version of the FFI gem on RHEL 6.x and 7.x
+* knife failures when running ``knife cookbook site install`` to install a deprecated cookbook that has no replacement
+
+What's New in 13.8.3
+=====================================================
+This is a small bug fix release that updates Ohai to properly detect and poll SoftLayer metadata now that SoftLayer no longer supports TLS 1.0/1.1. This update is only necessary if you're running on Softlayer. 
 
 What's New in 13.8
 =====================================================
@@ -693,6 +703,20 @@ When Chef Client is running as a forked process on unix systems, the standardize
 New deprecations included in this release
 -----------------------------------------------------
 * `Removal of support for Ohai version 6 plugins </deprecations_ohai_v6_plugins.html>`__
+
+
+What's New in 12.22.1
+=====================================================
+* **Security Updates**
+
+  * Ruby has been updated to 2.3.6 to resolve `CVE-2017-17405 <https://nvd.nist.gov/vuln/detail/CVE-2017-17405>`__
+  * Libxml2 has been updated to 2.9.7 to resolve `CVE-2017-15412 <https://access.redhat.com/security/cve/cve-2017-15412>`__
+
+* **Ohai 8.26.1**
+
+  * Ohai now provides EC2 metadata configuration information on the new C5/M5 instance types running on Amazon’s new hypervisor
+  * The new LsPci plugin provides a ``node[:pci]`` hash with information about the PCI bus based on ``lspci``. Only runs on Linux.
+  * The virtualization plugin has been updated to properly detect Docker CE
 
 What's New in 12.21.31
 =====================================================
