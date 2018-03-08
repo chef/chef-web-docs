@@ -707,12 +707,8 @@ The following .kitchen.yml file is part of the ``chef-splunk`` cookbook and is u
    platforms:
      - name: ubuntu-14.04
      - name: ubuntu-16.04
-     - name: centos-6.8
-     - name: centos-7.2
-     - name: omnios-r151006c
-       driver:
-         box: omnios-r151006c
-         box_url: http://omnios.omniti.com/media/OmniOS_r151006c-r1.box
+     - name: centos-6
+     - name: centos-7
 
    suites:
      - name: client
