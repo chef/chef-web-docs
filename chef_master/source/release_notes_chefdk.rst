@@ -13,7 +13,7 @@ What's New in 2.5.3
 
 * **Chef 13.8.5**
 
-  Chef DK now ships with Chef 13.8.5. See the `Chef release notes </release_notes.html#what-s-new-in-13-7-16>`__ for more information.
+  Chef DK now ships with Chef 13.8.5. See the `Chef release notes </release_notes.html#what-s-new-in-13-8-5>`__ for more information.
 
 * **Updated chef_version in cookbook generator** 
 
