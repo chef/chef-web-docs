@@ -5,7 +5,7 @@ windows_service
 
 .. tag resource_service_windows
 
-Use the **windows_service** resource to create, delete, and manage a service on the Microsoft Windows platform.
+Use the **windows_service** resource to create, delete & manage a service on the Microsoft Windows platform.
 
 .. end_tag
 
@@ -364,7 +364,7 @@ The following examples demonstrate various approaches for using resources in rec
      binary_path_name "C:\\opscode\\chef\\bin"
    end
 
-Create service with 'service_name' and 'display_name':
+.. To create service with 'service_name' & 'display_name':
 
 .. code-block:: ruby
 
@@ -395,7 +395,7 @@ Create a service with the ``:disabled`` startup type:
      startup_type :disabled
    end
 
-Create service with the ``:automatic`` startup type and delayed start enabled:
+.. To create service with 'startup_type :automatic' & 'delayed_start true':
 
 .. code-block:: ruby
 
