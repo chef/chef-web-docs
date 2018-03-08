@@ -1,9 +1,49 @@
 =====================================================
-Release Notes: Chef Development Kit 0.19 - 2.4.17
+Release Notes: Chef Development Kit 0.19 - 2.5.3
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_chefdk.rst>`__
 
 Chef Development Kit is released on a monthly schedule with new releases the third Monday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef DK on GitHub <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__
+
+What's New in 2.5.3
+=====================================================
+* **Rename smoke tests to integration tests**
+
+  The cookbook, recipe, and app generators now name the test directory ``integration`` instead of ``smoke``. This will not impact existing cookbooks generated with older releases of ChefDK, but it does simplify the ``.kitchen.yml`` confiuguration for all new cookbooks.
+
+* **Chef 13.8.5**
+
+  Chef DK now ships with Chef 13.8.5. See the `Chef release notes </release_notes.html#what-s-new-in-13-8-5>`__ for more information.
+
+* **Updated chef_version in cookbook generator** 
+
+  When running ``chef generate cookbook`` the generated cookbook will now specify a minimum Chef release of 12.14 not 12.1.
+
+* **Security Updates**
+  
+  * Ruby has been updated to 2.4.3 to resolve `CVE-2017-17405 <https://nvd.nist.gov/vuln/detail/CVE-2017-17405>`__
+  * OpenSSL has been updated to 1.0.2n to resolve `CVE-2017-3738 <https://nvd.nist.gov/vuln/detail/CVE-2017-3738>`__, `CVE-2017-3737 <https://nvd.nist.gov/vuln/detail/CVE-2017-3737>`__, `CVE-2017-3736 <https://nvd.nist.gov/vuln/detail/CVE-2017-3736>`__, and `CVE-2017-3735 <https://nvd.nist.gov/vuln/detail/CVE-2017-3735>`__
+  * LibXML2 has been updated to 2.9.7 to fix `CVE-2017-15412 <https://access.redhat.com/security/cve/cve-2017-15412>`__
+  * minitar has been updated to 0.6.1 to resolve `CVE-2016-10173 <https://nvd.nist.gov/vuln/detail/CVE-2016-10173>`__
+
+* **Updated Components**
+
+  * chefspec 7.1.1 -> 7.1.2
+  * chef-api 0.7.1 -> 0.8.0
+  * chef-provisioning 2.6.0 -> 2.7.0
+  * chef-provisioning-aws 3.0.0 -> 3.0.2
+  * chef-sugar 3.6.0 -> 4.0.0
+  * foodcritic 12.2.1 -> 12.3.0
+  * inspec 1.45.13 -> 1.51.21
+  * kitchen-dokken 2.6.5 -> 2.6.7
+  * kitchen-ec2 1.3.2 -> 2.2.1
+  * kitchen-inspec 0.20.0 -> 0.23.1
+  * kitchen-vagrant 1.2.1 -> 1.3.1
+  * knife-ec2 0.16.0 -> 0.17.0
+  * knife-windows 1.9.0 -> 1.9.1
+  * test-kitchen 1.19.2 -> 1.20.0
+  * chef-provisioning-azure has been removed as it used deprecated Azure APIs
+
 
 What's New in 2.4.17
 =====================================================
