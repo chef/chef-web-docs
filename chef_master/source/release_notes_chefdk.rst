@@ -9,7 +9,7 @@ What's New in 2.5.3
 =====================================================
 * **Rename smoke tests to integration tests**
 
-  The cookbook, recipe, and app generators now name the test directory ``integration`` instead of ``smoke``. This will not impact existing cookbooks generated with older releases of ChefDK, but it does simplify the ``.kitchen.yml`` confiuguration for all new cookbooks.
+  The cookbook, recipe, and app generators now name the test directory ``integration`` instead of ``smoke``. This will not impact existing cookbooks generated with older releases of ChefDK, but it does simplify the ``.kitchen.yml`` configuration for all new cookbooks.
 
 * **Chef 13.8.5**
 
