@@ -5062,13 +5062,7 @@ This resource has the following properties:
 ``service_name``
    **Ruby Type:** String
 
-<<<<<<< HEAD
    The name of the service. Default value: the ``name`` of the resource block. See the "Syntax" section above for more information.
-
-   New in Chef Client 13.7.16.
-=======
-   The name of the service. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
->>>>>>> parent of f60d45dcd... dtags fix
 
 ``start_command``
    **Ruby Type:** String
