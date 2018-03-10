@@ -1,33 +1,54 @@
 =====================================================
-env
+windows_env
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_env.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_env.rst>`__
 
-.. tag resource_env_summary
+.. tag resource_windows_env_summary
 
-Use the **env** resource to manage environment keys in Microsoft Windows. After an environment key is set, Microsoft Windows must be restarted before the environment key will be available to the Task Scheduler.
+Use the **windows_env** resource to manage environment keys in Microsoft Windows. After an environment key is set, Microsoft Windows must be restarted before the environment key will be available to the Task Scheduler.
 
 .. end_tag
 
-.. note:: On UNIX-based systems, the best way to manipulate environment keys is with the ``ENV`` variable in Ruby; however, this approach does not have the same permanent effect as using the **env** resource.
+.. note:: On UNIX-based systems, the best way to manipulate environment keys is with the ``ENV`` variable in Ruby; however, this approach does not have the same permanent effect as using the **windows_env** resource.
+
+Deprecation: Deprecation of resource_env (CHEF-14 (14.0.55+))
+=====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_env.rst>`__
+
+.. tag deprecations_resource_env
+
+The old env resource has been replaced by windows_env resource.
+
+.. end_tag
 
 Syntax
 =====================================================
 .. tag resource_env_syntax
-
-A **env** resource block manages environment keys in Microsoft Windows:
+Previously a **env** resource block manages environment keys in Microsoft Windows:
 
 .. code-block:: ruby
 
    env 'ComSpec' do
      value 'C:\\Windows\\system32\\cmd.exe'
    end
+   
+.. end_tag
 
-The full syntax for all of the properties that are available to the **env** resource is:
+.. tag resource_windows_env_syntax
+
+A **windows_env** resource block manages environment keys in Microsoft Windows:
 
 .. code-block:: ruby
 
-   env 'name' do
+   windows_env 'ComSpec' do
+     value 'C:\\Windows\\system32\\cmd.exe'
+   end
+
+The full syntax for all of the properties that are available to the **windows_env** resource is:
+
+.. code-block:: ruby
+
+   windows_env 'name' do
      delim                      String
      key_name                   String # defaults to 'name' if not specified
      notifies                   # see description
@@ -39,7 +60,7 @@ The full syntax for all of the properties that are available to the **env** reso
 
 where
 
-* ``env`` is the resource
+* ``windows_env`` is the resource
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
 * ``delim``, ``key_name``, ``provider``, and ``value`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
@@ -48,7 +69,7 @@ where
 
 Actions
 =====================================================
-.. tag resource_env_actions
+.. tag resource_windows_env_actions
 
 This resource has the following actions:
 
@@ -72,7 +93,7 @@ This resource has the following actions:
 
 Properties
 =====================================================
-.. tag resource_env_attributes
+.. tag resource_windows_env_attributes
 
 This resource has the following properties:
 
@@ -280,7 +301,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. code-block:: ruby
 
-   env 'ComSpec' do
+   windows_env 'ComSpec' do
      value "C:\\Windows\\system32\\cmd.exe"
    end
 
