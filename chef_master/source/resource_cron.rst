@@ -48,7 +48,6 @@ The full syntax for all of the properties that are available to the **cron** res
      month                      String
      notifies                   # see description
      path                       String
-     provider                   Chef::Provider::Cron
      shell                      String
      subscribes                 # see description
      time                       Symbol
@@ -63,7 +62,7 @@ where
 * ``name`` is the name of the resource block
 * ``command`` is the command to be run
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``command``, ``day``, ``environment``, ``home``, ``hour``, ``mailto``, ``minute``, ``month``, ``path``, ``provider``, ``shell``, ``time``, ``user``, and ``weekday`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``command``, ``day``, ``environment``, ``home``, ``hour``, ``mailto``, ``minute``, ``month``, ``path``, ``shell``, ``time``, ``user``, and ``weekday`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -193,11 +192,6 @@ This resource has the following properties:
    **Ruby Type:** String
 
    Set the ``PATH`` environment variable.
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
 
 ``retries``
    **Ruby Type:** Integer

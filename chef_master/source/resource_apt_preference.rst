@@ -46,9 +46,9 @@ Properties
 This resource has the following properties:
 
 ``glob``
-**Ruby Type:** String
+   **Ruby Type:** String
 
-  Pin by ``glob()`` expression or with regular expressions surrounded by ``/``.
+   Pin by ``glob()`` expression or with regular expressions surrounded by ``/``.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
