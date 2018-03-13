@@ -114,7 +114,7 @@ Properties
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -185,7 +185,7 @@ This resource has the following properties:
         - ``Object[]``
       * - ``Chef::Util::Powershell:PSCredential``
         - ``PSCredential``
-      * - ``FalseClass``
+      * - ``False``
         - ``bool($false)``
       * - ``Fixnum``
         - ``Integer``
@@ -193,7 +193,7 @@ This resource has the following properties:
         - ``Double``
       * - ``Hash``
         - ``Hashtable``
-      * - ``TrueClass``
+      * - ``True``
         - ``bool($true)``
 
    These are converted into the corresponding Windows PowerShell type during the chef-client run.

@@ -37,7 +37,7 @@ The full syntax for all of the properties that are available to the **powershell
      architecture               Symbol
      code                       String
      command                    String, Array
-     convert_boolean_return     TrueClass, FalseClass
+     convert_boolean_return     True, False
      creates                    String
      cwd                        String
      environment                Hash
@@ -48,14 +48,14 @@ The full syntax for all of the properties that are available to the **powershell
      notifies                   # see description
      provider                   Chef::Provider::PowershellScript
      returns                    Integer, Array
-     sensitive                  TrueClass, FalseClass
+     sensitive                  True, False
      subscribes                 # see description
      timeout                    Integer, Float
      user                       String
      password                   String
      domain                     String
      action                     Symbol # defaults to :run if not specified
-     elevated                   TrueClass, FalseClass
+     elevated                   True, False
    end
 
 where
@@ -104,7 +104,7 @@ This resource has the following properties:
    The name of the command to be executed. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
 
 ``convert_boolean_return``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Return ``0`` if the last line of a command is evaluated to be true or to return ``1`` if the last line is evaluated to be false. Default value: ``false``.
 
@@ -160,7 +160,7 @@ This resource has the following properties:
    Changed in Chef Client 12.0 to default to the specified property.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -224,7 +224,7 @@ This resource has the following properties:
    Inherited from **execute** resource. The return value for a command. This may be an array of accepted values. An exception is raised when the return value(s) do not match. Default value: ``0``.
 
 ``sensitive``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Ensure that sensitive resource data is not logged by the chef-client. Default value: ``false``.
    
@@ -300,7 +300,7 @@ This resource has the following properties:
    Default value: `nil`. If not specified, the user name and password specified by the `user` and `password` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the `user` property.
 
 ``elevated``
-    **Ruby Type:**  TrueClass, FalseClass
+    **Ruby Type:**  True, False
 
     Determines whether the script will run with elevated permissions to circumvent User Access Control (UAC) interactively blocking the process. 
 

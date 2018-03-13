@@ -86,7 +86,7 @@ This resource has the following properties:
    New in Chef Client 12.4, changed in 12.6.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 

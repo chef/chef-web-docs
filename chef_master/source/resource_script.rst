@@ -139,7 +139,7 @@ This resource has the following attributes:
    The group name or group ID that must be changed before running a command.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 

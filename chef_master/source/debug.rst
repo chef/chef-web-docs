@@ -124,7 +124,7 @@ Attributes
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass | **Default Value:** ``false``
+   **Ruby Types:** True, False | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 

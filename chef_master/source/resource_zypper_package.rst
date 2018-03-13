@@ -30,7 +30,7 @@ The full syntax for all of the properties that are available to the **zypper_pac
 .. code-block:: ruby
 
    zypper_package 'name' do
-     gpg_check                  TrueClass, FalseClass
+     gpg_check                  True, False
      notifies                   # see description
      options                    String
      package_name               String, Array # defaults to 'name' if not specified
@@ -92,12 +92,12 @@ Properties
 This resource has the following properties:
 
 ``gpg_check``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Verify the package's GPG signature. Default value: ``true``. Can also be controlled site-wide using the ``zypper_check_gpg`` config option.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 

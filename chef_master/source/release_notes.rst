@@ -1454,12 +1454,12 @@ This resource has the following properties:
    A string or hash that contains a systemd `unit file <https://www.freedesktop.org/software/systemd/man/systemd.unit.html>`_ definition that describes the properties of systemd-managed entities, such as services, sockets, devices, and so on.
 
 ``triggers_reload``
-   **Ruby Type:** TrueClass, FalseClass
+   **Ruby Type:** True, False
 
    Specifies whether to trigger a daemon reload when creating or deleting a unit. Default is true.
 
 ``verify``
-   **Ruby Type:** TrueClass, FalseClass
+   **Ruby Type:** True, False
 
    Specifies if the unit will be verified before installation. Systemd can be overly strict when verifying units, so in certain cases it is preferable not to verify the unit. Defaults to true.
 
@@ -1939,33 +1939,33 @@ The full syntax for all of the properties that are available to the **launchd** 
 .. code-block:: ruby
 
    launchd 'name' do
-     abandon_process_group      TrueClass, FalseClass
-     backup                     Integer, FalseClass
+     abandon_process_group      True, False
+     backup                     Integer, False
      cookbook                   String
-     debug                      TrueClass, FalseClass
-     disabled                   TrueClass, FalseClass
-     enable_globbing            TrueClass, FalseClass
-     enable_transactions        TrueClass, FalseClass
+     debug                      True, False
+     disabled                   True, False
+     enable_globbing            True, False
+     enable_transactions        True, False
      environment_variables      Hash
      exit_timeout               Integer
      group                      String, Integer
      hard_resource_limits       Hash
      hash                       Hash
-     ignore_failure             TrueClass, FalseClass
+     ignore_failure             True, False
      inetd_compatibility        Hash
-     init_groups                TrueClass, FalseClass
-     keep_alive                 TrueClass, FalseClass
+     init_groups                True, False
+     keep_alive                 True, False
      label                      String
-     launch_only_once           TrueClass, FalseClass
+     launch_only_once           True, False
      limit_load_from_hosts      Array
      limit_load_to_hosts        Array
      limit_load_to_session_type String
-     low_priority_io            TrueClass, FalseClass
+     low_priority_io            True, False
      mach_services              Hash
      mode                       Integer, String
      nice                       Integer
      notifies                   # see description
-     on_demand                  TrueClass, FalseClass
+     on_demand                  True, False
      owner                      Integer, String
      path                       String
      process_type               String
@@ -1976,7 +1976,7 @@ The full syntax for all of the properties that are available to the **launchd** 
      retries                    Integer
      retry_delay                Integer
      root_directory             String
-     run_at_load                TrueClass, FalseClass
+     run_at_load                True, False
      sockets                    Hash
      soft_resource_limits       Array
      standard_error_path        String
@@ -1984,14 +1984,14 @@ The full syntax for all of the properties that are available to the **launchd** 
      standard_out_path          String
      start_calendar_interval    Hash
      start_interval             Integer
-     start_on_mount             TrueClass, FalseClass
+     start_on_mount             True, False
      subscribes                 # see description
      throttle_interval          Integer
      time_out                   Integer
      type                       String
      umask                      Integer
      username                   String
-     wait_for_debugger          TrueClass, FalseClass
+     wait_for_debugger          True, False
      watch_paths                Array
      working_directory          String
      action                     Symbol # defaults to :create if not specified
@@ -2039,7 +2039,7 @@ Properties
 This resource has the following properties:
 
 ``backup``
-   **Ruby Types:** Integer, FalseClass
+   **Ruby Types:** Integer, False
 
    The number of backups to be kept in ``/var/chef/backup``. Set to ``false`` to prevent backups from being kept.
 
@@ -2059,7 +2059,7 @@ This resource has the following properties:
    A Hash of key value pairs used to create the launchd property list.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -2210,27 +2210,27 @@ This resource has the following properties:
 The following resource properties may be used to define keys in the XML property list for a daemon or agent. Please refer to the Apple man page documentation for launchd for more information about these keys:
 
 ``abandon_process_group``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    If a job dies, all remaining processes with the same process ID may be kept running. Set to ``true`` to kill all remaining processes.
 
 ``debug``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Sets the log mask to ``LOG_DEBUG`` for this job.
 
 ``disabled``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Hints to ``launchctl`` to not submit this job to launchd. Default value: ``false``.
 
 ``enable_globbing``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Update program arguments before invocation.
 
 ``enable_transactions``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Track in-progress transactions; if none, then send the ``SIGKILL`` signal.
 
@@ -2255,19 +2255,19 @@ The following resource properties may be used to define keys in the XML property
    Specifies if a daemon expects to be run as if it were launched from ``inetd``. Set to ``wait => true`` to pass standard input, output, and error file descriptors. Set to ``wait => false`` to call the ``accept`` system call on behalf of the job, and then pass standard input, output, and error file descriptors.
 
 ``init_groups``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Specify if ``initgroups`` is called before running a job. Default value: ``true`` (starting with macOS 10.5).
 
 ``keep_alive``
-   **Ruby Types:** TrueClass, FalseClass, Hash
+   **Ruby Types:** True, False, Hash
 
    Keep a job running continuously (``true``) or allow demand and conditions on the node to determine if the job keeps running (``false``). Default value: ``false``.
 
    Hash type was added in Chef client 12.14.
 
 ``launch_only_once``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Specify if a job can be run only one time. Set this value to ``true`` if a job cannot be restarted without a full machine reboot.
 
@@ -2287,7 +2287,7 @@ The following resource properties may be used to define keys in the XML property
    The session type to which this configuration file applies.
 
 ``low_priority_io``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Specify if the kernel on the node should consider this daemon to be low priority during file system I/O.
 
@@ -2302,7 +2302,7 @@ The following resource properties may be used to define keys in the XML property
    The program scheduling priority value in the range ``-20`` to ``20``.
 
 ``on_demand``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Keep a job alive. Only applies to macOS version 10.4 (and earlier); use ``keep_alive`` instead for newer versions.
 
@@ -2332,7 +2332,7 @@ The following resource properties may be used to define keys in the XML property
    ``chroot`` to this directory, and then run the job.
 
 ``run_at_load``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Launch a job once (at the time it is loaded). Default value: ``false``.
 
@@ -2371,7 +2371,7 @@ The following resource properties may be used to define keys in the XML property
    The frequency (in seconds) at which a job is started.
 
 ``start_on_mount``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Start a job every time a file system is mounted.
 
@@ -2396,7 +2396,7 @@ The following resource properties may be used to define keys in the XML property
    When launchd is run as the root user, the user to run the job as.
 
 ``wait_for_debugger``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Specify if launchd has a job wait for a debugger to attach before executing code.
 
@@ -2582,7 +2582,7 @@ Properties
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -2813,7 +2813,7 @@ This resource has the following properties:
    Use to specify the identifier for the profile, such as ``com.company.screensaver``.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -3095,7 +3095,7 @@ This resource has the following properties:
    Determines how frequently (in seconds) APT repository updates are made. Use this property when the ``:periodic`` action is specified. Default value: ``86400``.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -3374,7 +3374,7 @@ This resource has the following properties:
    The group name or group ID that must be changed before running a command.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -5403,7 +5403,7 @@ Attributes
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -5464,7 +5464,7 @@ This resource has the following properties:
         - ``Object[]``
       * - ``Chef::Util::Powershell:PSCredential``
         - ``PSCredential``
-      * - ``FalseClass``
+      * - ``False``
         - ``bool($false)``
       * - ``Fixnum``
         - ``Integer``
@@ -5472,7 +5472,7 @@ This resource has the following properties:
         - ``Double``
       * - ``Hash``
         - ``Hashtable``
-      * - ``TrueClass``
+      * - ``True``
         - ``bool($true)``
 
    These are converted into the corresponding Windows PowerShell type during the chef-client run.
@@ -6927,7 +6927,7 @@ Attributes
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -7138,7 +7138,7 @@ Attributes
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -8154,7 +8154,7 @@ Properties
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -8409,7 +8409,7 @@ This resource has the following properties:
    .. end_tag
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -8666,7 +8666,7 @@ This resource has the following properties:
    The amount of time (in minutes) to delay a reboot request.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -8882,7 +8882,7 @@ Properties
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 

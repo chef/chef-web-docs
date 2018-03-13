@@ -53,7 +53,7 @@ Properties
 The following properties are common to every resource:
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -73,7 +73,7 @@ The following properties are common to every resource:
    The retry delay (in seconds). Default value: ``2``.
 
 ``sensitive``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Ensure that sensitive resource data is not logged by the chef-client. Default value: ``false``. This property only applies to the **execute**, **file** and **template** resources.
 

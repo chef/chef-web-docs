@@ -30,8 +30,8 @@ The full syntax for all of the properties that are available to the **git** reso
      checkout_branch            String
      depth                      Integer
      destination                String # defaults to 'name' if not specified
-     enable_checkout            TrueClass, FalseClass
-     enable_submodules          TrueClass, FalseClass
+     enable_checkout            True, False
+     enable_submodules          True, False
      environment                Hash
      group                      String, Integer
      notifies                   # see description
@@ -99,12 +99,12 @@ This resource has the following properties:
    The location path to which the source is to be cloned, checked out, or exported. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
 
 ``enable_checkout``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Check out a repo from master. Set to ``false`` when using the ``checkout_branch`` attribute to prevent the **git** resource from attempting to check out master from master. Default value: ``true``.
 
 ``enable_submodules``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Perform a sub-module initialization and update. Default value: ``false``.
 
@@ -123,7 +123,7 @@ This resource has the following properties:
    The system group that is responsible for the checked-out code.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 

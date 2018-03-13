@@ -34,14 +34,14 @@ The full syntax for all of the properties that are available to the **dnf_packag
    dnf_package 'name' do
      arch                       String, Array
      flush_cache                Array
-     ignore_failure             TrueClass, FalseClass # defaults to ``false``
+     ignore_failure             True, False # defaults to ``false``
      notifies                   # see description
      options                    String
      package_name               String, Array # defaults to 'name' if not specified
      provider                   Chef::Provider::Package::dnf
      retries                    Integer
      retry_delay                Integer
-     sensitive                  TrueClass, FalseClass # defaults to ``false``
+     sensitive                  True, False # defaults to ``false``
      source                     String
      subscribes                 # see description
      timeout                    String, Integer
@@ -128,7 +128,7 @@ This resource has the following properties:
    .. note:: The ``flush_cache`` property does not flush the local DNF cache! Use dnf tools---``dnf clean metadata``, ``dnf clean packages``, ``dnf clean all``---to clean the local DNF cache.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -192,7 +192,7 @@ This resource has the following properties:
    The retry delay (in seconds). Default value: ``2``.
 
 ``sensitive``
-  **Ruby Type** TrueClass, FalseClass
+  **Ruby Type** True, False
 
    Ensure that sensitive resource data is not logged by the chef-client. Default value: ``false``.
 

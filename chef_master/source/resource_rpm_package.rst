@@ -30,7 +30,7 @@ The full syntax for all of the properties that are available to the **rpm_packag
 .. code-block:: ruby
 
    rpm_package 'name' do
-     allow_downgrade            TrueClass, FalseClass
+     allow_downgrade            True, False
      notifies                   # see description
      options                    String
      package_name               String, Array # defaults to 'name' if not specified
@@ -74,12 +74,12 @@ Properties
 This resource has the following properties:
 
 ``allow_downgrade``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Downgrade a package to satisfy requested version requirements.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 

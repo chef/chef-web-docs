@@ -32,18 +32,18 @@ The full syntax for all of the properties that are available to the **user** res
 
    user 'name' do
      comment                    String
-     force                      TrueClass, FalseClass # see description
+     force                      True, False # see description
      gid                        String, Integer
      home                       String
      iterations                 Integer
-     manage_home                TrueClass, FalseClass
-     non_unique                 TrueClass, FalseClass
+     manage_home                True, False
+     non_unique                 True, False
      notifies                   # see description
      password                   String
      salt                       String
      shell                      String
      subscribes                 # see description
-     system                     TrueClass, FalseClass
+     system                     True, False
      uid                        String, Integer
      username                   String # defaults to 'name' if not specified
      action                     Symbol # defaults to :create if not specified
@@ -95,7 +95,7 @@ This resource has the following properties:
    One (or more) comments about the user.
 
 ``force``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Force the removal of a user. May be used only with the ``:remove`` action.
 
@@ -117,7 +117,7 @@ This resource has the following properties:
    The location of the home directory.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -129,7 +129,7 @@ This resource has the following properties:
    New in Chef Client 12.0.
 
 ``manage_home``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Manage a user's home directory.
 
@@ -138,7 +138,7 @@ This resource has the following properties:
    With the ``:modify`` action, a user's home directory is moved to ``HOME_DIR``. If the home directory is missing, it is created unless ``CREATE_HOME`` in ``/etc/login.defs`` is set to ``no``. The contents of the user's home directory are moved to the new location.
 
 ``non_unique``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Create a duplicate (non-unique) user account.
 
@@ -253,7 +253,7 @@ This resource has the following properties:
    .. end_tag
 
 ``system``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Create a system user. This property may be used with ``useradd`` as the provider to create a system user which passes the ``-r`` flag to ``useradd``.
 

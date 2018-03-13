@@ -203,7 +203,7 @@ This resource has the following properties:
    The name of the handler class. This can be module name-spaced.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 

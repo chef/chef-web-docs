@@ -80,7 +80,7 @@ This resource has the following properties:
    The amount of time (in minutes) to delay a reboot request.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
