@@ -119,11 +119,6 @@ This resource has the following properties:
 
    .. end_tag
 
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
-
 ``retries``
    **Ruby Type:** Integer
 
