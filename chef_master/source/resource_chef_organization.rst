@@ -73,7 +73,7 @@ This resource has the following properties:
    The full name must begin with a non-white space character and must be between 1 and 1023 characters. For example: ``Chef Software, Inc.``.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 

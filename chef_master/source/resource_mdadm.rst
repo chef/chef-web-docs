@@ -29,10 +29,10 @@ The full syntax for all of the properties that are available to the **mdadm** re
      bitmap                     String
      chunk                      Integer
      devices                    Array
-     exists                     TrueClass, FalseClass
+     exists                     True, False
      layout                     String
      level                      Integer
-     mdadm_defaults             TrueClass, FalseClass
+     mdadm_defaults             True, False
      metadata                   String
      notifies                   # see description
      provider                   Chef::Provider::Mdadm
@@ -88,12 +88,12 @@ This resource has the following properties:
    A comma-separated list of devices to be part of a RAID array. Default value: ``[]``.
 
 ``exists``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Indicates whether the RAID array exists. Default value: ``false``.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -110,7 +110,7 @@ This resource has the following properties:
    The RAID level. Default value: ``1``.
 
 ``mdadm_defaults``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    When ``true`` this property sets the default values for ``chunk`` and ``metadata`` to ``nil`` allowing mdadm to use its own default values. Default value: ``false``.
 

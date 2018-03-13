@@ -36,8 +36,8 @@ The full syntax for all of the properties that are available to the **gem_packag
 .. code-block:: ruby
 
    gem_package 'name' do
-     clear_sources              TrueClass, FalseClass
-     include_default_source     TrueClass, FalseClass
+     clear_sources              True, False
+     include_default_source     True, False
      gem_binary                 String
      notifies                   # see description
      options                    String
@@ -207,14 +207,14 @@ Properties
 This resource has the following properties:
 
 ``clear_sources``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Set to ``true`` to download a gem from the path specified by the ``source`` property (and not from RubyGems). Default value: ``false``.
 
    New in Chef Client 12.3.
 
 ``include_default_source``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Set to ``false`` to not include ``Chef::Config[:rubygems_url]`` in the sources. Default value: ``true``.
 
@@ -226,7 +226,7 @@ This resource has the following properties:
    A property for the ``gem_package`` provider that is used to specify a gems binary. By default, the same version of Ruby that is used by the chef-client will be installed.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 

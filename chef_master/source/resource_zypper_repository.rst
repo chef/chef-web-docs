@@ -30,19 +30,19 @@ The full syntax for all of the properties that are available to the **zypper_rep
 .. code-block:: ruby
 
    zypper_repository 'name' do
-      autorefresh           TrueClass, FalseClass
+      autorefresh           True, False
       baseurl               String
       description           String
-      enabled               TrueClass, FalseClass
-      gpgcheck              TrueClass, FalseClass
+      enabled               True, False
+      gpgcheck              True, False
       gpgkey                String
-      keeppackages          TrueClass, FalseClass
+      keeppackages          True, False
       mirrorlist            String
       mode                  String
       notifies              # see description
       path                  String
       priority              Integer
-      refresh_cache         TrueClass, FalseClass
+      refresh_cache         True, False
       repo_name             String
       subscribes            # see description
       type                  String
@@ -66,7 +66,7 @@ Properties
 This resource has the following properties:
 
 ``autorefresh``           
-   **Ruby Type:** TrueClass, FalseClass  |  **Default Value:** False
+   **Ruby Type:** True, False  |  **Default Value:** False
 
    Determines whether or not the repository should be refreshed automatically.
 
@@ -81,12 +81,12 @@ This resource has the following properties:
    The description of the repository that will be shown by the ``zypper repos`` command. 
 
 ``enabled``               
-   **Ruby Type:** TrueClass, FalseClass  |  **Default Value:** True
+   **Ruby Type:** True, False  |  **Default Value:** True
 
    Determines whether or not the repository should be enabled. 
 
 ``gpgcheck``             
-   **Ruby Type:** TrueClass, FalseClass  |  **Default Value:** True 
+   **Ruby Type:** True, False  |  **Default Value:** True 
    
    Determines whether or not to perform a GPG signature check on the repository. 
 
@@ -96,7 +96,7 @@ This resource has the following properties:
    The location of the repository key to be imported. 
 
 ``keeppackages``
-   **Ruby Type:** TrueClass, FalseClass  |  **Default Value:** False
+   **Ruby Type:** True, False  |  **Default Value:** False
 
    Determines whether or not packages should be saved. 
 
@@ -155,7 +155,7 @@ This resource has the following properties:
    Determines the priority of the Zypper repository. 
 
 ``refresh_cache``         
-   **Ruby Type:** TrueClass, FalseClass  |  **Default Value:** True
+   **Ruby Type:** True, False  |  **Default Value:** True
 
    Determines whether or not the package cache should be refreshed. 
 

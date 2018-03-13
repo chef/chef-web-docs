@@ -26,16 +26,16 @@ The full syntax for all of the properties that are available to the **group** re
 .. code-block:: ruby
 
    group 'name' do
-     append                     TrueClass, FalseClass
+     append                     True, False
      excluded_members           Array
      gid                        String, Integer
      group_name                 String # defaults to 'name' if not specified
      members                    Array
-     non_unique                 TrueClass, FalseClass
+     non_unique                 True, False
      notifies                   # see description
      provider                   Chef::Provider::Group
      subscribes                 # see description
-     system                     TrueClass, FalseClass
+     system                     True, False
      action                     Symbol # defaults to :create if not specified
    end
 
@@ -74,7 +74,7 @@ Properties
 This resource has the following properties:
 
 ``append``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    How members should be appended and/or removed from a group. When ``true``, ``members`` are appended and ``excluded_members`` are removed. When ``false``, group members are reset to the value of the ``members`` property. Default value: ``false``.
 
@@ -94,7 +94,7 @@ This resource has the following properties:
    The name of the group. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -104,7 +104,7 @@ This resource has the following properties:
    Which users should be set or appended to a group. When more than one group member is identified, the list of members should be an array: ``members ['user1', 'user2']``.
 
 ``non_unique``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Allow ``gid`` duplication. May only be used with the ``Groupadd`` provider. Default value: ``false``.
 
@@ -207,7 +207,7 @@ This resource has the following properties:
    .. end_tag
 
 ``system``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Show if a group belongs to a system group. Set to ``true`` if the group belongs to a system group.
 

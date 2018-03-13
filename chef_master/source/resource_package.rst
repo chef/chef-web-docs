@@ -64,7 +64,7 @@ The full syntax for all of the properties that are available to the **package** 
 .. code-block:: ruby
 
    package 'name' do
-     allow_downgrade            TrueClass, FalseClass # Yum, RPM packages only
+     allow_downgrade            True, False # Yum, RPM packages only
      arch                       String, Array # Yum packages only
      default_release            String # Apt packages only
      flush_cache                Array
@@ -239,7 +239,7 @@ Properties
 This resource has the following attributes:
 
 ``allow_downgrade``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    **yum_package** resource only. Downgrade a package to satisfy requested version requirements. Default value: ``false``.
 
@@ -297,7 +297,7 @@ This resource has the following attributes:
    **homebrew_package** resource only. The name of the Homebrew owner to be used by the chef-client when executing a command.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 

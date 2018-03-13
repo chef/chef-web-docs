@@ -32,7 +32,7 @@ The full syntax for all of the properties that are available to the **yum_packag
 .. code-block:: ruby
 
    yum_package 'name' do
-     allow_downgrade            TrueClass, FalseClass
+     allow_downgrade            True, False
      arch                       String, Array
      flush_cache                Array
      notifies                   # see description
@@ -93,7 +93,7 @@ Properties
 This resource has the following properties:
 
 ``allow_downgrade``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Downgrade a package to satisfy requested version requirements.
 
@@ -136,7 +136,7 @@ This resource has the following properties:
    .. note:: The ``flush_cache`` property does not flush the local Yum cache! Use Yum tools---``yum clean headers``, ``yum clean packages``, ``yum clean all``---to clean the local Yum cache.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 

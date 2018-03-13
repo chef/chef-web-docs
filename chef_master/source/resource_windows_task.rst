@@ -22,8 +22,8 @@ A **windows_task** resource creates, deletes or runs a Windows scheduled task.
      user                        String # defaults to SYSTEM
      password                    String
      run_level                   Symbol # defaults to :limited
-     force                       TrueClass, FalseClass # defaults to false
-     interactive_enabled         TrueClass, FalseClass # defaults to false
+     force                       True, False # defaults to false
+     interactive_enabled         True, False # defaults to false
      frequency_modifier          Integer, String # defaults to 1
      frequency                   Symbol # defaults to :hourly
      start_day                   String
@@ -75,7 +75,7 @@ This resource has the following properties:
    The task name, such as ``"Task Name"`` or ``"/Task Name"``
 
 ``force``
-   **Ruby Type:** TrueClass, FalseClass
+   **Ruby Type:** True, False
 
    When used with create, will update the task.
 
@@ -120,7 +120,7 @@ This resource has the following properties:
    Specifies the start time to run the task, in **HH:mm** format.
 
 ``interactive_enabled``
-   **Ruby Type:** TrueClass, FalseClass
+   **Ruby Type:** True, False
 
    Allow task to run interactively or non-interactively. Requires user and password.
 

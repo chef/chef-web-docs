@@ -30,7 +30,7 @@ The full syntax for all of the properties that are available to the **ips_packag
 .. code-block:: ruby
 
    ips_package 'name' do
-     accept_license             TrueClass, FalseClass
+     accept_license             True, False
      notifies                   # see description
      options                    String
      package_name               String, Array # defaults to 'name' if not specified
@@ -74,12 +74,12 @@ Properties
 This resource has the following properties:
 
 ``accept_license``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Accept an end-user license agreement, automatically. Default value: ``false``.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 

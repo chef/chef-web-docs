@@ -30,7 +30,7 @@ The full syntax for all of the properties that are available to the **erl_call**
    erl_call 'name' do
      code                       String
      cookie                     String
-     distributed                TrueClass, FalseClass
+     distributed                True, False
      name_type                  String
      node_name                  String
      notifies                   # see description
@@ -71,12 +71,12 @@ This resource has the following properties:
    The magic cookie for the node to which a connection is made.
 
 ``distributed``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    The node is a distributed Erlang node. Default value: ``false``.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 

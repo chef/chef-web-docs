@@ -35,20 +35,20 @@ The full syntax for all of the properties that are available to the **remote_dir
 
    remote_directory 'name' do
      cookbook                   String
-     files_backup               Integer, FalseClass
+     files_backup               Integer, False
      files_group                String
      files_mode                 String
      files_owner                String
      group                      String, Integer
-     inherits                   TrueClass, FalseClass
+     inherits                   True, False
      mode                       String, Integer
      notifies                   # see description
-     overwrite                  TrueClass, FalseClass
+     overwrite                  True, False
      owner                      String, Integer
      path                       String # defaults to 'name' if not specified
      provider                   Chef::Provider::Directory::RemoteDirectory
-     purge                      TrueClass, FalseClass
-     recursive                  TrueClass, FalseClass
+     purge                      True, False
+     recursive                  True, False
      rights                     Hash
      source                     String
      subscribes                 # see description
@@ -92,7 +92,7 @@ This resource has the following properties:
    The cookbook in which a file is located (if it is not located in the current cookbook). The default value is the current cookbook.
 
 ``files_backup``
-   **Ruby Types:** Integer, FalseClass
+   **Ruby Types:** Integer, False
 
    The number of backup copies to keep for files in the directory. Default value: ``5``.
 
@@ -121,12 +121,12 @@ This resource has the following properties:
    Use to configure permissions for directories. A string or ID that identifies the group owner by group name, including fully qualified group names such as ``domain\group`` or ``group@domain``. If this value is not specified, existing groups remain unchanged and new group assignments use the default ``POSIX`` group (if available).
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
 ``inherits``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Microsoft Windows only. Whether a file inherits rights from its parent directory. Default value: ``true``.
 
@@ -176,7 +176,7 @@ This resource has the following properties:
    .. end_tag
 
 ``overwrite``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Overwrite a file when it is different. Default value: ``true``.
 
@@ -196,12 +196,12 @@ This resource has the following properties:
    Optional. Explicitly specifies a provider.
 
 ``purge``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Purge extra files found in the target directory. Default value: ``false``.
 
 ``recursive``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Create or delete directories recursively. Default value: ``true``; the chef-client must be able to create the directory structure, including parent directories (if missing), as defined in ``COOKBOOK_NAME/files/default/REMOTE_DIRECTORY``.
 

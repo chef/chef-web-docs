@@ -38,15 +38,15 @@ The full syntax for all of the properties that are available to the **remote_fil
 .. code-block:: ruby
 
    remote_file 'name' do
-     atomic_update              TrueClass, FalseClass
-     backup                     FalseClass, Integer
+     atomic_update              True, False
+     backup                     False, Integer
      checksum                   String
-     force_unlink               TrueClass, FalseClass
-     ftp_active_mode            TrueClass, FalseClass
+     force_unlink               True, False
+     ftp_active_mode            True, False
      group                      String, Integer
      headers                    Hash
-     inherits                   TrueClass, FalseClass
-     manage_symlink_source      TrueClass, FalseClass
+     inherits                   True, False
+     manage_symlink_source      True, False
      mode                       String, Integer
      notifies                   # see description
      owner                      String, Integer
@@ -55,11 +55,11 @@ The full syntax for all of the properties that are available to the **remote_fil
      rights                     Hash
      source                     String, Array
      subscribes                 # see description
-     use_conditional_get        TrueClass, FalseClass
-     use_etag                   TrueClass, FalseClass
-     use_last_modified          TrueClass, FalseClass
+     use_conditional_get        True, False
+     use_etag                   True, False
+     use_last_modified          True, False
      verify                     String, Block
-     show_progress              TrueClass, FalseClass
+     show_progress              True, False
      remote_user                String
      remote_password            String
      remote_domain              String
@@ -101,12 +101,12 @@ Properties
 This resource has the following properties:
 
 ``atomic_update``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Perform atomic file updates on a per-resource basis. Set to ``true`` for atomic file updates. Set to ``false`` for non-atomic file updates. This setting overrides ``file_atomic_update``, which is a global setting found in the client.rb file. Default value: ``true``.
 
 ``backup``
-   **Ruby Types:** FalseClass, Integer
+   **Ruby Types:** False, Integer
 
    The number of backups to be kept in ``/var/chef/backup`` (for UNIX- and Linux-based platforms) or ``C:/chef/backup`` (for the Microsoft Windows platform). Set to ``false`` to prevent backups from being kept. Default value: ``5``.
 
@@ -116,12 +116,12 @@ This resource has the following properties:
    Optional, see ``use_conditional_get``. The SHA-256 checksum of the file. Use to prevent a file from being re-downloaded. When the local file matches the checksum, the chef-client does not download it.
 
 ``force_unlink``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    How the chef-client handles certain situations when the target file turns out not to be a file. For example, when a target file is actually a symlink. Set to ``true`` for the chef-client delete the non-file target and replace it with the specified file. Set to ``false`` for the chef-client to raise an error. Default value: ``false``.
 
 ``ftp_active_mode``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Whether the chef-client uses active or passive FTP. Set to ``true`` to use active FTP. Default value: ``false``.
 
@@ -152,17 +152,17 @@ This resource has the following properties:
       headers( "Authorization"=>"Basic #{ Base64.encode64("#{username}:#{password}").gsub("\n", "") }" )
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
 ``inherits``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Microsoft Windows only. Whether a file inherits rights from its parent directory. Default value: ``true``.
 
 ``manage_symlink_source``
-   **Ruby Types:** TrueClass, FalseClass | **Default Value:** ``true`` (with warning)
+   **Ruby Types:** True, False | **Default Value:** ``true`` (with warning)
 
    Change the behavior of the file resource if it is pointed at a symlink. When this value is set to ``true``, the Chef client will manage the symlink's permissions or will replace the symlink with a normal file if the resource has content. When this value is set to ``false``, Chef will follow the symlink and will manage the permissions and content of the symlink's target file.
 
@@ -377,22 +377,22 @@ This resource has the following properties:
    .. end_tag
 
 ``use_conditional_get``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Enable conditional HTTP requests by using a conditional ``GET`` (with the If-Modified-Since header) or an opaque identifier (ETag). To use If-Modified-Since headers, ``use_last_modified`` must also be set to ``true``. To use ETag headers, ``use_etag`` must also be set to ``true``. Default value: ``true``.
 
 ``use_etag``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Enable ETag headers. Set to ``false`` to disable ETag headers. To use this setting, ``use_conditional_get`` must also be set to ``true``. Default value: ``true``.
 
 ``use_last_modified``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Enable If-Modified-Since headers. Set to ``false`` to disable If-Modified-Since headers. To use this setting, ``use_conditional_get`` must also be set to ``true``. Default value: ``true``.
 
 ``show_progess``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Displays the progress of the file download. Set to ``true`` to enable this feature. Default value: ``false``.
 

@@ -35,9 +35,9 @@ The full syntax for all of the properties that are available to the **chef_gem**
 .. code-block:: ruby
 
    chef_gem 'name' do
-     clear_sources              TrueClass, FalseClass
-     include_default_source     TrueClass, FalseClass
-     compile_time               TrueClass, FalseClass
+     clear_sources              True, False
+     include_default_source     True, False
+     compile_time               True, False
      notifies                   # see description
      options                    String
      package_name               String # defaults to 'name' if not specified
@@ -87,7 +87,7 @@ Properties
 This resource has the following properties:
 
 ``clear_sources``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Set to ``true`` to download a gem from the path specified by the ``source`` property (and not from RubyGems). Default value: ``false``.
 
@@ -103,7 +103,7 @@ This resource has the following properties:
    New in Chef Client 12.3.
 
 ``compile_time``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Controls the phase during which a gem is installed on a node. Set to ``true`` to install a gem while the resource collection is being built (the "compile phase"). Set to ``false`` to install a gem while the chef-client is configuring the node (the "converge phase"). Possible values: ``nil`` (for verbose warnings), ``true`` (to warn once per chef-client run), or ``false`` (to remove all warnings). Recommended value: ``false``.
 
@@ -134,14 +134,14 @@ This resource has the following properties:
    New in Chef Client 12.1.
 
 ``include_default_source``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Set to ``false`` to not include ``Chef::Config[:rubygems_url]`` in the sources. Default value: ``true``.
 
    New in Chef Client 13.0
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 

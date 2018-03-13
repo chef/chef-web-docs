@@ -29,15 +29,15 @@ The full syntax for all of the properties that are available to the **mount** re
      device                     String
      device_type                Symbol
      domain                     String
-     dump                       Integer, FalseClass
-     enabled                    TrueClass, FalseClass
+     dump                       Integer, False
+     enabled                    True, False
      fsck_device                String
      fstype                     String
      mount_point                String # defaults to 'name' if not specified
-     mounted                    TrueClass, FalseClass
+     mounted                    True, False
      notifies                   # see description
      options                    Array, String
-     pass                       Integer, FalseClass
+     pass                       Integer, False
      password                   String
      provider                   Chef::Provider::Mount
      subscribes                 # see description
@@ -107,12 +107,12 @@ This resource has the following properties:
    Microsoft Windows only. Use to specify the domain in which the ``username`` and ``password`` are located.
 
 ``dump``
-   **Ruby Types:** Integer, FalseClass
+   **Ruby Types:** Integer, False
 
    The dump frequency (in days) used while creating a file systems table (fstab) entry. Default value: ``0``.
 
 ``enabled``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Use to specify if a mounted file system is enabled. Default value: ``false``.
 
@@ -129,7 +129,7 @@ This resource has the following properties:
    Required. The file system type (fstype) of the device.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -139,7 +139,7 @@ This resource has the following properties:
    The directory (or path) in which the device is to be mounted. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
 
 ``mounted``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Use to specify if a file system is already mounted. Default value: ``false``.
 
@@ -183,7 +183,7 @@ This resource has the following properties:
    An array or string that contains mount options. If this value is a string, it is converted to an array. Default value: ``defaults``.
 
 ``pass``
-   **Ruby Types:** Integer, FalseClass
+   **Ruby Types:** Integer, False
 
    The pass number used by the file system check (``fsck``) command while creating a file systems table (``fstab``) entry. Default value: ``2``.
 

@@ -59,7 +59,7 @@ The full syntax for all of the properties that are available to the **registry_k
      key                        String # defaults to 'name' if not specified
      notifies                   # see description
      provider                   Chef::Provider::Windows::Registry
-     recursive                  TrueClass, FalseClass
+     recursive                  True, False
      subscribes                 # see description
      values                     Hash, Array
      action                     Symbol # defaults to :create if not specified
@@ -379,7 +379,7 @@ This resource has the following properties:
              .. end_tag
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -429,7 +429,7 @@ This resource has the following properties:
    Optional. Explicitly specifies a provider.
 
 ``recursive``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    When creating a key, this value specifies that the required keys for the specified path are to be created. When using the ``:delete_key`` action in a recipe, and if the registry key has subkeys, then set the value for this property to ``true``.
 

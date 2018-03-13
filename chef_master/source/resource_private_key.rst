@@ -64,7 +64,7 @@ This resource has the following properties:
    Use to specify the format of a private key. Possible values: ``pem`` and ``der``. Default value: ``pem``.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 

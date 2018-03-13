@@ -68,12 +68,12 @@ The full syntax for all of the properties that are available to the **deploy** w
      create_dirs_before_symlink Array
      deploy_to                  String # defaults to 'name' if not specified
      depth                      Integer
-     enable_submodules          TrueClass, FalseClass
+     enable_submodules          True, False
      environment                Hash
      git_ssh_wrapper            String
      group                      String
      keep_releases              Integer
-     migrate                    TrueClass, FalseClass
+     migrate                    True, False
      migration_command          String
      notifies                   # see description
      provider                   Chef::Provider::Deploy
@@ -84,9 +84,9 @@ The full syntax for all of the properties that are available to the **deploy** w
      repository_cache           String
      restart_command            Proc, String
      revision                   String
-     rollback_on_error          TrueClass, FalseClass
+     rollback_on_error          True, False
      scm_provider               Chef::Provider::Git
-     shallow_clone              TrueClass, FalseClass
+     shallow_clone              True, False
      ssh_wrapper                String
      symlinks                   Hash
      symlink_before_migrate     Hash
@@ -110,7 +110,7 @@ and the full syntax for all of the properties that are available to the **deploy
      environment                Hash
      group                      String
      keep_releases              Integer
-     migrate                    TrueClass, FalseClass
+     migrate                    True, False
      migration_command          String
      notifies                   # see description
      provider                   Chef::Provider::Deploy
@@ -120,7 +120,7 @@ and the full syntax for all of the properties that are available to the **deploy
      repository_cache           String
      restart_command            Proc, String
      revision                   String
-     rollback_on_error          TrueClass, FalseClass
+     rollback_on_error          True, False
      scm_provider               Chef::Provider::Subversion
      subscribes                 # see description
      svn_arguments              String
@@ -330,7 +330,7 @@ This resource has the following properties:
    The system group that is responsible for the checked-out code.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -340,7 +340,7 @@ This resource has the following properties:
    The number of releases for which a backup is kept. Default value: ``5``.
 
 ``migrate``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Run a migration command. Default value: ``false``.
 
@@ -429,7 +429,7 @@ This resource has the following properties:
    A branch, tag, or commit to be synchronized with git. This can be symbolic, like ``HEAD`` or it can be a source control management-specific revision identifier. Default value: ``HEAD``.
 
 ``rollback_on_error``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Roll a resource back to a previously-deployed release if an error occurs when deploying a new release. Default value: ``false``.
 
@@ -517,7 +517,7 @@ The following properties are for use with git only:
    New in Chef Client 12.5.
 
 ``enable_submodules``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Perform a sub-module initialization and update. Default value: ``false``.
 
@@ -532,7 +532,7 @@ The following properties are for use with git only:
    The remote repository to use when synchronizing an existing clone. Default value: ``origin``.
 
 ``shallow_clone``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Set the clone depth to ``5``. If a depth other than ``5`` is required, use the ``depth`` property instead of ``shallow_clone``. Default value: ``false``.
 
