@@ -200,7 +200,7 @@ This resource has the following properties:
 ``salt``
    **Ruby Type:** String
 
-   macOS platform only, 10.7 or higher. The salt value for a password shadow hash. macOS version 10.7 uses SALTED-SHA512 and version 10.8 (and higher) uses SALTED-SHA512-PBKDF2 to calculate password shadow hashes.
+   A SALTED-SHA512-PBKDF2 hash.
 
    New in Chef Client 12.0.
 
@@ -400,29 +400,6 @@ The following example shows how to create a system user. In this instance, the `
      home user_home
      system true
      action :create
-   end
-
-.. end_tag
-
-**Use SALTED-SHA512 passwords**
-
-.. tag resource_user_password_shadow_hash_salted_sha512
-
-macOS 10.7 calculates the password shadow hash using SALTED-SHA512. The length of the shadow hash value is 68 bytes, the salt value is the first 4 bytes, with the remaining 64 being the shadow hash itself. The following code will calculate password shadow hashes for macOS 10.7:
-
-.. code-block:: ruby
-
-   password = 'my_awesome_password'
-   salt = OpenSSL::Random.random_bytes(4)
-   encoded_password = OpenSSL::Digest::SHA512.hexdigest(salt + password)
-   shadow_hash = salt.unpack('H*').first + encoded_password
-
-Use the calculated password shadow hash with the **user** resource:
-
-.. code-block:: ruby
-
-   user 'my_awesome_user' do
-     password 'c9b3bd....d843'  # Length: 136
    end
 
 .. end_tag
