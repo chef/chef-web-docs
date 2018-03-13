@@ -39,7 +39,6 @@ The full syntax for all of the properties that are available to the **ifconfig**
      notifies                   # see description
      onboot                     String
      onparent                   String
-     provider                   Chef::Provider::Ifconfig
      slave                      String
      subscribes                 # see description
      target                     String # defaults to 'name' if not specified
@@ -51,7 +50,7 @@ where
 * ``ifconfig`` is the resource
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``bcast``, ``bonding_opts``, ``bootproto``, ``device``, ``ethtool_opts``, ``hwaddr``, ``inet_addr``, ``mask``, ``master``, ``metric``, ``mtu``, ``network``, ``onboot``, ``onparent``, ``provider``, ``slave``,  and ``target`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``bcast``, ``bonding_opts``, ``bootproto``, ``device``, ``ethtool_opts``, ``hwaddr``, ``inet_addr``, ``mask``, ``master``, ``metric``, ``mtu``, ``network``, ``onboot``, ``onparent``, ``slave``,  and ``target`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -194,11 +193,6 @@ This resource has the following properties:
    **Ruby Type:** String
 
    Bring up the network interface when its parent interface is brought up.
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
 
 ``retries``
    **Ruby Type:** Integer
