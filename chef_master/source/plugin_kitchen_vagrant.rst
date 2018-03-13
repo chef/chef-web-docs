@@ -63,9 +63,9 @@ The ``kitchen-vagrant`` driver can predict the box name for Vagrant and the down
    platforms:
    - name: ubuntu-14.04
    - name: ubuntu-16.04
-   - name: centos-6.9
-   - name: centos-7.3
-   - name: debian-8.8
+   - name: centos-6
+   - name: centos-7
+   - name: debian-8
 
 which will generate a configuration file similar to:
 
