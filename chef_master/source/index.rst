@@ -676,7 +676,6 @@ Addenda
    release_notes
    release_notes_chef_automate
    release_notes_chefdk
-   release_notes_compliance
    release_notes_server
    release_notes_push_jobs
    release_notes_ohai
