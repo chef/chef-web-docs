@@ -425,7 +425,6 @@ The full syntax for all of the properties that are available to the **ohai** res
      name                       String
      notifies                   # see description
      plugin                     String
-     provider                   Chef::Provider::Ohai
      subscribes                 # see description
      action                     Symbol # defaults to :reload if not specified
    end
@@ -435,7 +434,7 @@ where
 * ``ohai`` is the resource
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``name``, ``plugin``,  and ``provider`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``name`` and ``plugin`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -511,11 +510,6 @@ This resource has the following properties:
    **Ruby Type:** String
 
    Optional. The name of an Ohai plugin to be reloaded. If this property is not specified, the chef-client will reload all plugins.
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
 
 ``retries``
    **Ruby Type:** Integer
