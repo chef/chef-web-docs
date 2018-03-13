@@ -51,7 +51,6 @@ The full syntax for all of the properties that are available to the **remote_fil
      notifies                   # see description
      owner                      String, Integer
      path                       String # defaults to 'name' if not specified
-     provider                   Chef::Provider::File::RemoteFile
      rights                     Hash
      source                     String, Array
      subscribes                 # see description
@@ -71,7 +70,7 @@ where
 * ``remote_file`` is the resource
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``atomic_update``, ``backup``, ``checksum``, ``force_unlink``, ``ftp_active_mode``, ``group``, ``headers``, ``inherits``, ``manage_symlink_source``, ``mode``, ``owner``, ``path``, ``provider``, ``remote_user``, ``remote_password``, ``remote_domain``, ``rights``, ``source``, ``use_conditional_get``, ``use_etag``, ``use_last_modified``, ```show_progress`` and ``verify`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``atomic_update``, ``backup``, ``checksum``, ``force_unlink``, ``ftp_active_mode``, ``group``, ``headers``, ``inherits``, ``manage_symlink_source``, ``mode``, ``owner``, ``path``, ``remote_user``, ``remote_password``, ``remote_domain``, ``rights``, ``source``, ``use_conditional_get``, ``use_etag``, ``use_last_modified``, ```show_progress`` and ``verify`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -222,11 +221,6 @@ This resource has the following properties:
    **Ruby Type:** String
 
    The full path to the file, including the file name and its extension. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
 
 ``remote_user``
    **Ruby Types:** String

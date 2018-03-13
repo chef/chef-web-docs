@@ -28,7 +28,6 @@ The full syntax for all of the properties that are available to the **http_reque
      headers                    Hash
      message                    Object # defaults to 'name' if not specified
      notifies                   # see description
-     provider                   Chef::Provider::HttpRequest
      subscribes                 # see description
      url                        String
      action                     Symbol # defaults to :get if not specified
@@ -39,7 +38,7 @@ where
 * ``http_request`` is the resource
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``headers``, ``message``, ``provider``, and ``url`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``headers``, ``message``, and ``url`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -126,11 +125,6 @@ This resource has the following properties:
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
 
 ``retries``
    **Ruby Type:** Integer

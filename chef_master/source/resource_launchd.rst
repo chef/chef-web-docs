@@ -60,7 +60,6 @@ The full syntax for all of the properties that are available to the **launchd** 
      process_type               String
      program                    String
      program_arguments          Array
-     provider                   Chef::Provider::Launchd
      queue_directories          Array
      retries                    Integer
      retry_delay                Integer
@@ -213,11 +212,6 @@ This resource has the following properties:
    A Hash of key value pairs used to create the launchd property list.
 
    New in Chef Client 12.19. Was previously named ``hash`` in earlier versions.
-
-``provider``
-   **Ruby Type:** Chef::Provider::Launchd
-
-   Optional. Explicitly specifies a provider. See "Providers" section below for more information.
 
 ``retries``
    **Ruby Type:** Integer

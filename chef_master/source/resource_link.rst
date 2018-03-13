@@ -42,7 +42,6 @@ The full syntax for all of the properties that are available to the **link** res
      mode                       Integer, String
      notifies                   # see description
      owner                      Integer, String
-     provider                   Chef::Provider::Link
      subscribes                 # see description
      target_file                String # defaults to 'name' if not specified
      to                         String
@@ -54,7 +53,7 @@ where
 * ``link`` is the resource
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``group``, ``link_type``, ``mode``, ``owner``, ``provider``, ``target_file``, and ``to`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``group``, ``link_type``, ``mode``, ``owner``, ``target_file``, and ``to`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -141,11 +140,6 @@ This resource has the following properties:
    **Ruby Types:** Integer, String
 
    The owner associated with a symbolic link.
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
 
 ``retries``
    **Ruby Type:** Integer
@@ -316,4 +310,3 @@ The following example shows installing a filter module on Apache. The package na
 For the entire recipe, see https://github.com/onehealth-cookbooks/apache2/blob/68bdfba4680e70b3e90f77e40223dd535bf22c17/recipes/mod_apreq2.rb.
 
 .. end_tag
-

@@ -29,7 +29,6 @@ The full syntax for all of the properties that are available to the **route** re
      gateway                    String
      netmask                    String
      notifies                   # see description
-     provider                   Chef::Provider::Route
      subscribes                 # see description
      target                     String # defaults to 'name' if not specified
      action                     Symbol # defaults to :add if not specified
@@ -40,7 +39,7 @@ where
 * ``route`` is the resource
 * ``name`` is the name of the resource block. When the name is ``default``, the default gateway is modified and added to a file under ``/etc/sysconfig/network``` on RHEL and CentOS nodes.
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``device``, ``gateway``, ``netmask``, ``provider`` and ``target`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``device``, ``gateway``, ``netmask``, and ``target`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -116,11 +115,6 @@ This resource has the following properties:
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
 
 ``retries``
    **Ruby Type:** Integer
@@ -233,4 +227,3 @@ The following examples demonstrate various approaches for using resources in rec
    end
 
 .. end_tag
-
