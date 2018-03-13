@@ -35,14 +35,14 @@ The full syntax for all of the properties that are available to the **apt_reposi
       distribution          String
       components            Array
       arch                  String
-      trusted               TrueClass, FalseClass
-      deb_src               TrueClass, FalseClass
+      trusted               True, False
+      deb_src               True, False
       keyserver             String
       key                   String, Array
       key_proxy             String
       cookbook              String
-      cache_rebuild         TrueClass, FalseClass
-      sensitive             TrueClass, FalseClass
+      cache_rebuild         True, False
+      sensitive             True, False
    end
 
 where
@@ -68,7 +68,7 @@ This resource has the following properties:
 ``repo_name``
    **Ruby Type:** String
 
-   The name of the channel to discover.
+   The name of the repository to configure.
 
 ``uri``
    **Ruby Type:** String
@@ -78,7 +78,7 @@ This resource has the following properties:
 ``distribution``
    **Ruby Type:** String
 
-   Usually a codename, such as something like karmic, lucid or maverick.
+   Usually a distribution's codename, such as trusty, xenial or bionic. Default value: the codename of the node's distro.
 
 ``components``
    **Ruby Type:** Array
@@ -91,12 +91,12 @@ This resource has the following properties:
    Constrain packages to a particular CPU architecture such as ``'i386'`` or ``'amd64'``. Default value: ``nil``.
 
 ``trusted``
-   **Ruby Type:** TrueClass, FalseClass
+   **Ruby Type:** True, False
 
    Determines whether you should treat all packages from this repository as authenticated regardless of signature. Default value: ``false``.
 
 ``deb_src``
-   **Ruby Type:** TrueClass, FalseClass
+   **Ruby Type:** True, False
 
    Determines whether or not to add the repository as a source repo as well. Default value: ``false``.
 
@@ -108,7 +108,7 @@ This resource has the following properties:
 ``key``
    **Ruby Type:** String, Array
 
-   If a keyserver is provided, this is assumed to be the fingerprint; otherwise it can be either the URI of GPG key for the repo, or a cookbook_file. Default value: ``nil``.
+   If a keyserver is provided, this is assumed to be the fingerprint; otherwise it can be either the URI of GPG key for the repo, or a cookbook_file. Default value: empty array.
 
    New in Chef client 13.4. 
 
@@ -123,22 +123,14 @@ This resource has the following properties:
    If ``key`` should be a cookbook_file, specify a cookbook where the key is located for files/default. Default value is ``nil``, so it will use the cookbook where the resource is used.
 
 ``cache_rebuild``
-   **Ruby Type:** TrueClass, FalseClass
+   **Ruby Type:** True, False
 
    Determines whether to rebuild the APT package cache. Default value: ``true``.
 
 ``sensitive``
-   **Ruby Type:** TrueClass, FalseClass
+   **Ruby Type:** True, False
 
    Determines whether sensitive resource data (such as key information) is not logged by the chef-client. Default value: ``false``.
-
-Providers
-=====================================================
-
-This resource has the following provider:
-
-``Chef::Provider::AptRepository``, ``apt_repository``
-   The default provider for all platforms.
 
 Examples
 =====================================================
@@ -169,7 +161,6 @@ Examples
 
    apt_repository 'nginx-php' do
      uri          'ppa:nginx/stable'
-     distribution node['lsb']['codename']
    end
 
 **Add the JuJu PPA, grab the key from the keyserver, and add source repo**
