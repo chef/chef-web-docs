@@ -3362,7 +3362,6 @@ The full syntax for all of the properties that are available to the **env** reso
      delim                      String
      key_name                   String # defaults to 'name' if not specified
      notifies                   # see description
-     provider                   Chef::Provider::Env
      subscribes                 # see description
      value                      String
      action                     Symbol # defaults to :create if not specified
@@ -3373,7 +3372,7 @@ where
 * ``env`` is the resource
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``delim``, ``key_name``, ``provider``, and ``value`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``delim``, ``key_name``, and ``value`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -3455,11 +3454,6 @@ This resource has the following properties:
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
 
 ``retries``
    **Ruby Type:** Integer
