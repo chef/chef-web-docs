@@ -3289,7 +3289,6 @@ The full syntax for all of the properties that are available to the **ksh** reso
      group                      String, Integer
      notifies                   # see description
      path                       Array
-     provider                   Chef::Provider::Script::Ksh
      returns                    Integer, Array
      subscribes                 # see description
      timeout                    Integer, Float
@@ -6860,7 +6859,6 @@ The full syntax for all of the properties that are available to the **paludis_pa
      notifies                   # see description
      options                    String
      package_name               String, Array # defaults to 'name' if not specified
-     provider                   Chef::Provider::Package::Paludis
      source                     String
      subscribes                 # see description
      timeout                    String, Integer
@@ -7069,7 +7067,6 @@ The full syntax for all of the properties that are available to the **openbsd_pa
      notifies                   # see description
      options                    String
      package_name               String, Array # defaults to 'name' if not specified
-     provider                   Chef::Provider::Package::Openbsd
      source                     String
      subscribes                 # see description
      timeout                    String, Integer
@@ -8077,7 +8074,6 @@ The full syntax for all of the properties that are available to the **bff_packag
      notifies                   # see description
      options                    String
      package_name               String, Array # defaults to 'name' if not specified
-     provider                   Chef::Provider::Package::Aix
      source                     String
      subscribes                 # see description
      timeout                    String, Integer
@@ -8313,7 +8309,6 @@ The full syntax for all of the properties that are available to the **homebrew_p
      notifies                   # see description
      options                    String
      package_name               String, Array # defaults to 'name' if not specified
-     provider                   Chef::Provider::Package::Homebrew
      source                     String
      subscribes                 # see description
      timeout                    String, Integer
