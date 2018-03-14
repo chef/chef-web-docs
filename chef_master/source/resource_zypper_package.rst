@@ -34,7 +34,7 @@ The full syntax for all of the properties that are available to the **zypper_pac
      notifies                   # see description
      options                    String
      package_name               String, Array # defaults to 'name' if not specified
-     provider                   Chef::Provider::Package::zypper
+     provider                   Chef::Provider::Package::Zypper
      source                     String
      subscribes                 # see description
      timeout                    String, Integer

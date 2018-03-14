@@ -125,11 +125,6 @@ This resource has the following properties:
 
    Use to specify the name of the profile, if different from the name of the resource block.
 
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
-
 ``retries``
    **Ruby Type:** Integer
 

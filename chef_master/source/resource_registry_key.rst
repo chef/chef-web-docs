@@ -58,7 +58,6 @@ The full syntax for all of the properties that are available to the **registry_k
      architecture               Symbol
      key                        String # defaults to 'name' if not specified
      notifies                   # see description
-     provider                   Chef::Provider::Windows::Registry
      recursive                  True, False
      subscribes                 # see description
      values                     Hash, Array
@@ -74,7 +73,7 @@ where
 
   .. warning:: ``:multi_string`` must be an array, even if there is only a single string.
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``architecture``, ``key``, ``provider``, ``recursive`` and ``values`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``architecture``, ``key``, ``recursive`` and ``values`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -422,11 +421,6 @@ This resource has the following properties:
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
 
 ``recursive``
    **Ruby Types:** True, False

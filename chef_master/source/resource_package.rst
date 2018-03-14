@@ -15,8 +15,10 @@ For more information about specific resources for specific platforms, see the fo
 
 * `apt_package </resource_apt_package.html>`__
 * `bff_package </resource_bff_package.html>`__
+* `cab_package </resource_cab_package.html>`__
 * `chef_gem </resource_chef_gem.html>`__
 * `chocolatey_package </resource_chocolatey_package.html>`__
+* `dnf_package </resource_dnf_package.html>`__
 * `dpkg_package </resource_dpkg_package.html>`__
 * `freebsd_package </resource_freebsd_package.html>`__
 * `gem_package </resource_gem_package.html>`__

@@ -21,9 +21,10 @@ A **mount** resource block manages a mounted file system:
      action :mount
    end
 
+
 The full syntax for all of the properties that are available to the **mount** resource is:
 
-.. code-block:: none
+.. code:: ruby
 
    mount 'name' do
      device                     String
@@ -39,20 +40,19 @@ The full syntax for all of the properties that are available to the **mount** re
      options                    Array, String
      pass                       Integer, False
      password                   String
-     provider                   Chef::Provider::Mount
      subscribes                 # see description
-     supports                   Hash # defaults to { :remount => false } (preferred)
-                                Array which defaults to { :remount => true } (non-preferred)
+     supports                   # see description
      username                   String
      action                     Symbol # defaults to :mount if not specified
    end
+
 
 where
 
 * ``mount`` is the resource
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``device``, ``device_type``, ``domain``, ``dump``, ``enabled``, ``fsck_device``, ``fstype``, ``mount_point``, ``mounted``, ``options``, ``pass``, ``password``, ``provider``, ``supports``, and ``username`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``device``, ``device_type``, ``domain``, ``dump``, ``enabled``, ``fsck_device``, ``fstype``, ``mount_point``, ``mounted``, ``options``, ``pass``, ``password``, ``supports``, and ``username`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -192,11 +192,6 @@ This resource has the following properties:
 
    Microsoft Windows only. Use to specify the password for ``username``.
 
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider. See "Providers" section below for more information.
-
 ``retries``
    **Ruby Type:** Integer
 
@@ -257,60 +252,14 @@ This resource has the following properties:
    .. end_tag
 
 ``supports``
-   **Ruby Type:** Hash
+   **Ruby Type:** Hash, Array
 
-   Specify a Hash of supported mount features. Default value: ``remount: false``.
+   Specify a Hash of supported mount features. Default value: ``remount: false`` (preferred). Array defaults to ``remount: true`` (non-preferred).
 
 ``username``
    **Ruby Type:** String
 
    Microsoft Windows only. Use to specify the user name.
-
-Providers
-=====================================================
-.. tag resources_common_provider
-
-Where a resource represents a piece of the system (and its desired state), a provider defines the steps that are needed to bring that piece of the system from its current state into the desired state.
-
-.. end_tag
-
-.. tag resources_common_provider_attributes
-
-The chef-client will determine the correct provider based on configuration data collected by Ohai at the start of the chef-client run. This configuration data is then mapped to a platform and an associated list of providers.
-
-Generally, it's best to let the chef-client choose the provider, and this is (by far) the most common approach. However, in some cases, specifying a provider may be desirable. There are two approaches:
-
-* Use a more specific short name---``yum_package "foo" do`` instead of ``package "foo" do``, ``script "foo" do`` instead of ``bash "foo" do``, and so on---when available
-* Use ``declare_resource``. This replaces all previous use cases where the provider class was passed in through the ``provider`` property:
-
-  .. code-block:: ruby
-
-     pkg_resource = case node['platform_family']
-       when 'debian'
-         :dpkg_package
-       when 'fedora', 'rhel', 'amazon'
-         :rpm_package
-       end
-
-     pkg_path = (pkg_resource == :dpkg_package) ? '/tmp/foo.deb' : '/tmp/foo.rpm'
-
-     declare_resource(pkg_resource, pkg_path) do
-       action :install
-     end
-
-.. end_tag
-
-.. tag resource_provider_list_note
-
-For reference, the providers available for this resource are listed below. However please note that specifying a provider via its long name (such as ``Chef::Provider::Package``) using the ``provider`` property is not recommended. If a provider needs to be called manually, use one of the two approaches detailed above.
-
-.. end_tag
-
-``Chef::Provider::Mount``, ``mount``
-   The default provider for all platforms, except for Microsoft Windows.
-
-``Chef::Provider::Mount::Windows``, ``mount``
-   The default provider for the Microsoft Windows platform.
 
 Examples
 =====================================================

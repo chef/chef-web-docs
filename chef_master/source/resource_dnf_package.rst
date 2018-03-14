@@ -38,7 +38,7 @@ The full syntax for all of the properties that are available to the **dnf_packag
      notifies                   # see description
      options                    String
      package_name               String, Array # defaults to 'name' if not specified
-     provider                   Chef::Provider::Package::dnf
+     provider                   Chef::Provider::Package::Dnf
      retries                    Integer
      retry_delay                Integer
      sensitive                  True, False # defaults to ``false``
@@ -366,7 +366,7 @@ For reference, the providers available for this resource are listed below. Howev
 ``Chef::Provider::Package``, ``package``
    When this short name is used, the chef-client will attempt to determine the correct provider during the chef-client run.
 
-``Chef::Provider::Package::dnf``, ``dnf_package``
+``Chef::Provider::Package::Dnf``, ``dnf_package``
    The provider for the dnf package provider.
 
 Examples
