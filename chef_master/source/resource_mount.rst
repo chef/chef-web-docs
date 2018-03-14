@@ -21,9 +21,10 @@ A **mount** resource block manages a mounted file system:
      action :mount
    end
 
+
 The full syntax for all of the properties that are available to the **mount** resource is:
 
-.. code-block:: ruby
+.. code:: ruby
 
    mount 'name' do
      device                     String
@@ -40,11 +41,11 @@ The full syntax for all of the properties that are available to the **mount** re
      pass                       Integer, False
      password                   String
      subscribes                 # see description
-     supports                   Hash # defaults to { :remount => false } (preferred)
-                                Array which defaults to { :remount => true } (non-preferred)
+     supports                   # see description
      username                   String
      action                     Symbol # defaults to :mount if not specified
    end
+
 
 where
 
@@ -251,9 +252,9 @@ This resource has the following properties:
    .. end_tag
 
 ``supports``
-   **Ruby Type:** Hash
+   **Ruby Type:** Hash, Array
 
-   Specify a Hash of supported mount features. Default value: ``remount: false``.
+   Specify a Hash of supported mount features. Default value: ``remount: false`` (preferred). Array defaults to ``remount: true`` (non-preferred).
 
 ``username``
    **Ruby Type:** String
