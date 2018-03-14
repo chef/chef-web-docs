@@ -75,7 +75,6 @@ The full syntax for all of the properties that are available to the **package** 
      notifies                   # see description
      options                    String
      package_name               String, Array # defaults to 'name' if not specified
-     provider                   Chef::Provider::Package
      response_file              String # Apt packages only
      response_file_variables    Hash # Apt packages only
      source                     String
@@ -90,7 +89,7 @@ where
 * ``package`` tells the chef-client to manage a package; the chef-client will determine the correct package provider to use based on the platform running on the node
 * ``'name'`` is the name of the package
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state
-* ``allow_downgrade``, ``arch``, ``default_release``, ``flush_cache``, ``gem_binary``, ``homebrew_user``, ``options``, ``package_name``, ``provider``, ``response_file``, ``response_file_variables``, ``source``, ``recursive``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``allow_downgrade``, ``arch``, ``default_release``, ``flush_cache``, ``gem_binary``, ``homebrew_user``, ``options``, ``package_name``, ``response_file``, ``response_file_variables``, ``source``, ``recursive``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Gem Package Options
 -----------------------------------------------------
@@ -347,11 +346,6 @@ This resource has the following attributes:
 
    The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
 
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider. See "Providers" section below for more information.
-
 ``response_file``
    **Ruby Type:** String
 
@@ -501,121 +495,6 @@ Notifications, via an implicit name:
 
 .. end_tag
 
-Providers
-=====================================================
-.. tag resources_common_provider
-
-Where a resource represents a piece of the system (and its desired state), a provider defines the steps that are needed to bring that piece of the system from its current state into the desired state.
-
-.. end_tag
-
-.. tag resources_common_provider_attributes
-
-The chef-client will determine the correct provider based on configuration data collected by Ohai at the start of the chef-client run. This configuration data is then mapped to a platform and an associated list of providers.
-
-Generally, it's best to let the chef-client choose the provider, and this is (by far) the most common approach. However, in some cases, specifying a provider may be desirable. There are two approaches:
-
-* Use a more specific short name---``yum_package "foo" do`` instead of ``package "foo" do``, ``script "foo" do`` instead of ``bash "foo" do``, and so on---when available
-* Use ``declare_resource``. This replaces all previous use cases where the provider class was passed in through the ``provider`` property:
-
-  .. code-block:: ruby
-
-     pkg_resource = case node['platform_family']
-       when 'debian'
-         :dpkg_package
-       when 'fedora', 'rhel', 'amazon'
-         :rpm_package
-       end
-
-     pkg_path = (pkg_resource == :dpkg_package) ? '/tmp/foo.deb' : '/tmp/foo.rpm'
-
-     declare_resource(pkg_resource, pkg_path) do
-       action :install
-     end
-
-.. end_tag
-
-.. tag resource_provider_list_note
-
-For reference, the providers available for this resource are listed below. However please note that specifying a provider via its long name (such as ``Chef::Provider::Package``) using the ``provider`` property is not recommended. If a provider needs to be called manually, use one of the two approaches detailed above.
-
-.. end_tag
-
-``Chef::Provider::Package``, ``package``
-   When this short name is used, the chef-client will attempt to determine the correct provider during the chef-client run.
-
-``Chef::Provider::Package::Aix``, ``bff_package``
-   The provider for the AIX platform. Can be used with the ``options`` attribute.
-
-``Chef::Provider::Package::Apt``, ``apt_package``
-   The provider for the Debian and Ubuntu platforms.
-
-``Chef::Provider::Package::Chocolatey``, ``chocolatey_package``
-   The provider for Chocolatey on the Microsoft Windows platform.
-
-   .. warning:: .. tag notes_resource_chocolatey_package
-
-                The **chocolatey_package** resource must be specified as ``chocolatey_package`` and cannot be shortened to ``package`` in a recipe.
-
-                .. end_tag
-
-``Chef::Provider::Package::Dpkg``, ``dpkg_package``
-   The provider for the dpkg platform. Can be used with the ``options`` attribute.
-
-``Chef::Provider::Package::Freebsd``, ``freebsd_package``
-   The provider for the FreeBSD platform.
-
-``Chef::Provider::Package::Homebrew``, ``homebrew_package``
-   The provider for the macOS platform.
-
-``Chef::Provider::Package::Ips``, ``ips_package``
-   The provider for the ips platform.
-
-``Chef::Provider::Package::Macports``, ``macports_package``
-   The provider for the macOS platform.
-
-``Chef::Provider::Package::Openbsd``, ``openbsd_package``
-   The provider for the OpenBSD platform.
-
-``Chef::Provider::Package::Pacman``, ``pacman_package``
-   The provider for the Arch Linux platform.
-
-``Chef::Provider::Package::Paludis``, ``paludis_package``
-   The provider for the Paludis platform.
-
-``Chef::Provider::Package::Portage``, ``portage_package``
-   The provider for the Gentoo platform. Can be used with the ``options`` attribute.
-
-``Chef::Provider::Package::Rpm``, ``rpm_package``
-   The provider for the RPM Package Manager platform. Can be used with the ``options`` attribute.
-
-``Chef::Provider::Package::Rubygems``, ``gem_package``
-   Can be used with the ``options`` attribute.
-
-   .. warning:: .. tag notes_resource_gem_package
-
-                The **gem_package** resource must be specified as ``gem_package`` and cannot be shortened to ``package`` in a recipe.
-
-                .. end_tag
-
-``Chef::Provider::Package::Rubygems``, ``chef_gem``
-   Can be used with the ``options`` attribute.
-
-``Chef::Provider::Package::Smartos``, ``smartos_package``
-   The provider for the SmartOS platform.
-
-``Chef::Provider::Package::Solaris``, ``solaris_package``
-   The provider for the Solaris platform.
-
-``Chef::Provider::Package::Windows``, ``package``
-   The provider for the Microsoft Windows platform.
-
-``Chef::Provider::Package::Yum``, ``yum_package``
-   The provider for the Yum package provider.
-
-``Chef::Provider::Package::Zypper``, ``package``
-   The provider for the openSUSE platform.
-
 Examples
 =====================================================
 The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
@@ -711,22 +590,6 @@ To install a package with a ``response_file``:
 
 .. end_tag
 
-**Install a package using a specific provider**
-
-.. tag resource_package_install_with_specific_provider
-
-.. To install a package using a specific provider:
-
-.. code-block:: ruby
-
-   package 'tar' do
-     action :install
-     source '/tmp/tar-1.16.1-1.rpm'
-     provider Chef::Provider::Package::Rpm
-   end
-
-.. end_tag
-
 **Install a specified architecture using a named provider**
 
 .. tag resource_package_install_with_yum
@@ -794,20 +657,6 @@ To install a package with a ``response_file``:
    gem_package 'syntax' do
      action :install
      ignore_failure true
-   end
-
-.. end_tag
-
-**Use the provider common attribute**
-
-.. tag resource_package_use_provider_attribute
-
-.. To use the ``:provider`` common attribute in a recipe:
-
-.. code-block:: ruby
-
-   package 'some_package' do
-     provider Chef::Provider::Package::Rubygems
    end
 
 .. end_tag

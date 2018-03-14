@@ -46,7 +46,6 @@ The full syntax for all of the properties that are available to the **powershell
      guard_interpreter          Symbol
      interpreter                String
      notifies                   # see description
-     provider                   Chef::Provider::PowershellScript
      returns                    Integer, Array
      sensitive                  True, False
      subscribes                 # see description
@@ -64,7 +63,7 @@ where
 * ``name`` is the name of the resource block
 * ``command`` is the command to be run and ``cwd`` is the location from which the command is run
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``architecture``, ``code``, ``command``, ``convert_boolean_return``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``provider``, ``returns``, ``sensitive``, ``timeout``, ``user``, ``password``, ``domain`` and ``elevated`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``architecture``, ``code``, ``command``, ``convert_boolean_return``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``returns``, ``sensitive``, ``timeout``, ``user``, ``password``, ``domain`` and ``elevated`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -203,11 +202,6 @@ This resource has the following properties:
 
    .. end_tag
 
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
-
 ``retries``
    **Ruby Type:** Integer
 
@@ -227,7 +221,7 @@ This resource has the following properties:
    **Ruby Types:** True, False
 
    Ensure that sensitive resource data is not logged by the chef-client. Default value: ``false``.
-   
+
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -302,7 +296,7 @@ This resource has the following properties:
 ``elevated``
     **Ruby Type:**  True, False
 
-    Determines whether the script will run with elevated permissions to circumvent User Access Control (UAC) interactively blocking the process. 
+    Determines whether the script will run with elevated permissions to circumvent User Access Control (UAC) interactively blocking the process.
 
     This will cause the process to be run under a batch login instead of an interactive login. The user running Chef needs the "Replace a process level token" and "Adjust Memory Quotas for a process" permissions. The user that is running the command needs the "Log on as a batch job" permission.
 

@@ -32,7 +32,6 @@ The full syntax for all of the properties that are available to the **subversion
      destination                String # defaults to 'name' if not specified
      group                      String, Integer
      notifies                   # see description
-     provider                   Chef::Provider::Scm::Subversion
      repository                 String
      revision                   String
      subscribes                 # see description
@@ -50,7 +49,7 @@ where
 * ``subversion`` is the resource
 * ``name`` is the name of the resource block and also (when the ``destination`` property is not specified) the location in which the source files will be placed and/or synchronized with the files under source control management
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``destination``, ``group``, ``provider``, ``repository``, ``revision``, ``svn_arguments``, ``svn_info_args``, ``svn_password``, ``svn_username``, ``timeout``, and ``user`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``destination``, ``group``, ``repository``, ``revision``, ``svn_arguments``, ``svn_info_args``, ``svn_password``, ``svn_username``, ``timeout``, and ``user`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -127,11 +126,6 @@ This resource has the following properties:
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
 
 ``repository``
    **Ruby Type:** String

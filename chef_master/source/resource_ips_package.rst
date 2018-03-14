@@ -34,7 +34,6 @@ The full syntax for all of the properties that are available to the **ips_packag
      notifies                   # see description
      options                    String
      package_name               String, Array # defaults to 'name' if not specified
-     provider                   Chef::Provider::Package::Ips
      source                     String
      subscribes                 # see description
      timeout                    String, Integer
@@ -47,7 +46,7 @@ where
 * ``ips_package`` tells the chef-client to manage a package
 * ``'name'`` is the name of the package
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state
-* ``accept_license``, ``options``, ``package_name``, ``provider``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``accept_license``, ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -126,11 +125,6 @@ This resource has the following properties:
    **Ruby Types:** String, Array
 
    The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider. See "Providers" section below for more information.
 
 ``retries``
    **Ruby Type:** Integer

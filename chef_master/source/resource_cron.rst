@@ -347,4 +347,3 @@ The following example shows a schedule that will run at 8:00 PM, every weekday (
    end
 
 .. end_tag
-

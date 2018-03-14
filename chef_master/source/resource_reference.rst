@@ -54,11 +54,6 @@ The following properties are common to every resource:
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. The chef-client will attempt to determine the correct provider during the chef-client run, and then choose the best/correct provider based on configuration data collected at the start of the chef-client run. In general, a provider does not need to be specified.
-
 ``retries``
    **Ruby Type:** Integer
 
@@ -156,22 +151,6 @@ The following examples show how to use common properties in a recipe.
 .. code-block:: ruby
 
    service 'apache' do
-     action [ :enable, :start ]
-     retries 3
-   end
-
-.. end_tag
-
-**Use the retries and providers common properties**
-
-.. tag resource_service_use_provider_and_supports_attributes
-
-.. To use the ``provider`` and ``retries`` common attributes in a recipe:
-
-.. code-block:: ruby
-
-   service 'some_service' do
-     provider Chef::Provider::Service::Upstart
      action [ :enable, :start ]
      retries 3
    end

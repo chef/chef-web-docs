@@ -14,7 +14,7 @@ This is a small bug fix release to resolve two issues we found in the 13.8 relea
 
 What's New in 13.8.3
 =====================================================
-This is a small bug fix release that updates Ohai to properly detect and poll SoftLayer metadata now that SoftLayer no longer supports TLS 1.0/1.1. This update is only necessary if you're running on Softlayer. 
+This is a small bug fix release that updates Ohai to properly detect and poll SoftLayer metadata now that SoftLayer no longer supports TLS 1.0/1.1. This update is only necessary if you're running on Softlayer.
 
 What's New in 13.8
 =====================================================
@@ -30,7 +30,7 @@ What's New in 13.8
 
   Libxml2 has been updated to version 2.9.7 as a fix for `CVE-2017-15412 <https://access.redhat.com/security/cve/cve-2017-15412>`__.
 
-See the detailed `change log <https://github.com/chef/chef/blob/chef-13/CHANGELOG.md#v1380-2018-02-27>`__ for more information. 
+See the detailed `change log <https://github.com/chef/chef/blob/chef-13/CHANGELOG.md#v1380-2018-02-27>`__ for more information.
 
 What's New in 13.7.16
 =====================================================
@@ -2123,11 +2123,6 @@ This resource has the following properties:
 
    The path to the directory. Using a fully qualified path is recommended, but is not always required. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
 
-``provider``
-   **Ruby Type:** Chef::Provider::Launchd
-
-   Optional. Explicitly specifies a provider. See "Providers" section below for more information.
-
 ``retries``
    **Ruby Type:** Integer
 
@@ -2525,7 +2520,6 @@ The full syntax for all of the properties that are available to the **chocolatey
      notifies                   # see description
      options                    String
      package_name               String, Array # defaults to 'name' if not specified
-     provider                   Chef::Provider::Package::Chocolatey
      source                     String
      subscribes                 # see description
      timeout                    String, Integer
@@ -2538,7 +2532,7 @@ where
 * ``chocolatey_package`` tells the chef-client to manage a package
 * ``'name'`` is the name of the package
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state
-* ``options``, ``package_name``, ``provider``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -2629,11 +2623,6 @@ This resource has the following properties:
    **Ruby Types:** String, Array
 
    The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider. See "Providers" section below for more information.
 
 ``retries``
    **Ruby Type:** Integer
@@ -3314,7 +3303,7 @@ where
 * ``ksh`` is the resource
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``code``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``path``, ``provider``, ``returns``, ``timeout``, ``user``, and ``umask`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``code``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``path``, ``returns``, ``timeout``, ``user``, and ``umask`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -3425,11 +3414,6 @@ This resource has the following properties:
          ksh 'mycommand' do
            environment 'PATH' => "/my/path/to/bin:#{ENV['PATH']}"
          end
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider. See "Providers" section below for more information.
 
 ``retries``
    **Ruby Type:** Integer
@@ -6889,7 +6873,7 @@ where
 * ``paludis_package`` tells the chef-client to manage a package
 * ``'name'`` is the name of the package
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state
-* ``options``, ``package_name``, ``provider``, ``source``, ``recursive``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``options``, ``package_name``, ``source``, ``recursive``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -6966,11 +6950,6 @@ This resource has the following properties:
    **Ruby Types:** String, Array
 
    The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider. See "Providers" section below for more information.
 
 ``retries``
    **Ruby Type:** Integer
@@ -7103,7 +7082,7 @@ where
 * ``openbsd_package`` tells the chef-client to manage a package
 * ``'name'`` is the name of the package
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state
-* ``options``, ``package_name``, ``provider``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -7177,11 +7156,6 @@ This resource has the following properties:
    **Ruby Types:** String, Array
 
    The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider. See "Providers" section below for more information.
 
 ``retries``
    **Ruby Type:** Integer
@@ -8116,7 +8090,7 @@ where
 * ``bff_package`` tells the chef-client to manage a package
 * ``'name'`` is the name of the package
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state
-* ``options``, ``package_name``, ``provider``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -8193,11 +8167,6 @@ This resource has the following properties:
    **Ruby Types:** String, Array
 
    The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider. See "Providers" section below for more information.
 
 ``retries``
    **Ruby Type:** Integer
@@ -8357,7 +8326,7 @@ where
 * ``homebrew_package`` tells the chef-client to manage a package
 * ``'name'`` is the name of the package
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state
-* ``homebrew_user``, ``options``, ``package_name``, ``provider``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``homebrew_user``, ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -8448,11 +8417,6 @@ This resource has the following properties:
    **Ruby Types:** String, Array
 
    The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider. See "Providers" section below for more information.
 
 ``retries``
    **Ruby Type:** Integer
@@ -8839,7 +8803,7 @@ where
 * ``windows_service`` is the resource
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``init_command``, ``pattern``, ``provider``, ``reload_command``, ``restart_command``, ``run_as_password``, ``run_as_user``, ``service_name``, ``start_command``, ``startup_type``, ``status_command``, ``stop_command``, ``supports``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``init_command``, ``pattern``, ``reload_command``, ``restart_command``, ``run_as_password``, ``run_as_user``, ``service_name``, ``start_command``, ``startup_type``, ``status_command``, ``stop_command``, ``supports``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 
 Actions
@@ -8921,11 +8885,6 @@ This resource has the following properties:
    **Ruby Type:** String
 
    The pattern to look for in the process table. Default value: ``service_name``.
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
 
 ``reload_command``
    **Ruby Type:** String
@@ -9037,15 +8996,6 @@ This resource has the following properties:
    **Ruby Type:** Integer
 
    The amount of time (in seconds) to wait before timing out. Default value: ``60``.
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-The **windows_service** resource does not have service-specific short names. This is because the chef-client identifies the platform at the start of every chef-client run based on data collected by Ohai. The chef-client looks up the platform, and then determines the correct provider for that platform. In certain situations, such as when more than one init system is available on a node, a specific provider may need to be identified by using the ``provider`` attribute and the long name for that provider.
-
-This resource has the following providers:
-
-``Chef::Provider::Service::Windows``, ``windows_service``
-   The provider that is used with the Microsoft Windows platform.
 
 Example
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
