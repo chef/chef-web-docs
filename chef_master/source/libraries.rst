@@ -87,15 +87,15 @@ After the custom namespace is created, it could then be used in a recipe, like t
 
    ISP.vhosts.each do |vhost|
      directory vhost[:documentroot] do
-       owner 'vhost[:uid]'
-       group 'vhost[:gid]'
+       owner vhost[:uid]
+       group vhost[:gid]
        mode '0755'
        action :create
      end
 
-     directory '#{vhost[:documentroot]}/#{vhost[:domainname]}' do
-       owner 'vhost[:uid]'
-       group 'vhost[:gid]'
+     directory "#{vhost[:documentroot]}/#{vhost[:domainname]}" do
+       owner vhost[:uid]
+       group vhost[:gid]
        mode '0755'
        action :create
      end
@@ -168,8 +168,8 @@ If there are many customer records in an environment, a simple recipe can be use
 
    all_customers do |name, info|
      directory info[:webdir] do
-       owner 'name'
-       group 'name'
+       owner name
+       group name
        action :create
      end
    end
