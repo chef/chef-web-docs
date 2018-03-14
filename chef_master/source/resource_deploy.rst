@@ -76,7 +76,6 @@ The full syntax for all of the properties that are available to the **deploy** w
      migrate                    True, False
      migration_command          String
      notifies                   # see description
-     provider                   Chef::Provider::Deploy
      purge_before_symlink       Array
      remote                     String
      repo                       String
@@ -113,7 +112,6 @@ and the full syntax for all of the properties that are available to the **deploy
      migrate                    True, False
      migration_command          String
      notifies                   # see description
-     provider                   Chef::Provider::Deploy
      purge_before_symlink       Array
      repo                       String
      repository                 String
@@ -382,11 +380,6 @@ This resource has the following properties:
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider. See "Providers" section below for more information.
 
 ``purge_before_symlink``
    **Ruby Type:** Array

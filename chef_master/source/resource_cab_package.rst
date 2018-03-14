@@ -44,13 +44,6 @@ source
 
    Changed in Chef Client 12.19 to allow URLs as valid source values.
 
-Providers
-=====================================================
-This resource has the following provider:
-
-``Chef::Provider::Package::Cab``, ``cab_package``
-   The provider for the Microsoft Windows platform.
-
 Examples
 =====================================================
 
@@ -85,4 +78,3 @@ Examples
      source 'https://s3.amazonaws.com/my_bucket/Temp\Windows6.1-KB958488-x64.cab'
      action :remove
    end
-

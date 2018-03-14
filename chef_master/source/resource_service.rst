@@ -31,7 +31,6 @@ The full syntax for all of the properties that are available to the **service** 
      options                    Array, String
      pattern                    String
      priority                   Integer, String, Hash
-     provider                   Chef::Provider::Service
      reload_command             String
      restart_command            String
      service_name               String # defaults to 'name' if not specified
@@ -46,10 +45,10 @@ The full syntax for all of the properties that are available to the **service** 
 
 where
 
-* ``service`` is the resource; depending on the platform, more specific providers are run: ``Chef::Provider::Service``, ``Chef::Provider::Service::Debian``, ``Chef::Provider::Service::Upstart``, ``Chef::Provider::Service::Freebsd``, ``Chef::Provider::Service::Gentoo``, ``Chef::Provider::Service::Redhat``, ``Chef::Provider::Service::Solaris``, ``Chef::Provider::Service::Windows``, or ``Chef::Provider::Service::Macosx``
+* ``service`` is the resource
 * ``name`` is the name of the resource block; when the ``path`` property is not specified, ``name`` is also the path to the directory, from the root
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``init_command``, ``options``, ``pattern``, ``priority``, ``provider``, ``reload_command``, ``restart_command``, ``service_name``, ``start_command``, ``status_command``, ``stop_command``, ``supports``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``init_command``, ``options``, ``pattern``, ``priority``, ``reload_command``, ``restart_command``, ``service_name``, ``start_command``, ``status_command``, ``stop_command``, ``supports``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -140,11 +139,6 @@ This resource has the following properties:
    **Ruby Types:** Integer, String, Hash
 
    Debian platform only. The relative priority of the program for start and shutdown ordering. May be an integer or a Hash. An integer is used to define the start run levels; stop run levels are then 100-integer. A Hash is used to define values for specific run levels. For example, ``{ 2 => [:start, 20], 3 => [:stop, 55] }`` will set a priority of twenty for run level two and a priority of fifty-five for run level three.
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider. See "Providers" section below for more information.
 
 ``reload_command``
    **Ruby Type:** String
@@ -245,87 +239,6 @@ This resource has the following properties:
 
    Microsoft Windows platform only. The amount of time (in seconds) to wait before timing out. Default value: ``60``.
 
-Providers
-=====================================================
-.. tag resources_common_provider
-
-Where a resource represents a piece of the system (and its desired state), a provider defines the steps that are needed to bring that piece of the system from its current state into the desired state.
-
-.. end_tag
-
-.. tag resources_common_provider_attributes
-
-The chef-client will determine the correct provider based on configuration data collected by Ohai at the start of the chef-client run. This configuration data is then mapped to a platform and an associated list of providers.
-
-Generally, it's best to let the chef-client choose the provider, and this is (by far) the most common approach. However, in some cases, specifying a provider may be desirable. There are two approaches:
-
-* Use a more specific short name---``yum_package "foo" do`` instead of ``package "foo" do``, ``script "foo" do`` instead of ``bash "foo" do``, and so on---when available
-* Use ``declare_resource``. This replaces all previous use cases where the provider class was passed in through the ``provider`` property:
-
-  .. code-block:: ruby
-
-     pkg_resource = case node['platform_family']
-       when 'debian'
-         :dpkg_package
-       when 'fedora', 'rhel', 'amazon'
-         :rpm_package
-       end
-
-     pkg_path = (pkg_resource == :dpkg_package) ? '/tmp/foo.deb' : '/tmp/foo.rpm'
-
-     declare_resource(pkg_resource, pkg_path) do
-       action :install
-     end
-
-.. end_tag
-
-The **service** resource does not have service-specific short names. This is because the chef-client identifies the platform at the start of every chef-client run based on data collected by Ohai. The chef-client looks up the platform, and then determines the correct provider for that platform.
-
-.. tag resource_provider_list_note
-
-For reference, the providers available for this resource are listed below. However please note that specifying a provider via its long name (such as ``Chef::Provider::Package``) using the ``provider`` property is not recommended. If a provider needs to be called manually, use one of the two approaches detailed above.
-
-.. end_tag 
-
-``Chef::Provider::Service``, ``service``
-   When this short name is used, the chef-client will determine the correct provider during the chef-client run.
-
-``Chef::Provider::Service::Aix``, ``service``
-   Default on the AIX platform. The provider that is used to start, stop, and restart services with System Resource Controller (SRC).
-
-``Chef::Provider::Service::AixInit``
-   Use the long name---``Chef::Provider::Service::AixInit``---in a recipe to manage services with BSD-based init systems on the AIX platform.
-
-``Chef::Provider::Service::Debian``, ``service``
-   The provider for the Debian and Ubuntu platforms.
-
-``Chef::Provider::Service::Freebsd``, ``service``
-   The provider for the FreeBSD platform.
-
-``Chef::Provider::Service::Gentoo``, ``service``
-   The provider for the Gentoo platform.
-
-``Chef::Provider::Service::Redhat``, ``service``
-   The provider for the Red Hat and CentOS platforms.
-
-``Chef::Provider::Service::Simple``
-   A provider that is used to create custom service providers by defining the custom provider as a sub-class of this provider. This provider should not be used in recipes as a value of the ``provider`` attribute.
-
-``Chef::Provider::Service::Solaris``, ``service``
-   The provider for the Solaris platform.
-
-``Chef::Provider::Service::Systemd``, ``systemd``
-   The provider that is used when systemd is available on the platform.
-
-``Chef::Provider::Service::Upstart``, ``service``
-   The provider that is used when Upstart is available on the platform.
-
-``Chef::Provider::Service::Windows``, ``service``
-   The provider for the Microsoft Windows platform.
-
-``Chef::Provider::Service::Macosx``, ``service``
-   The provider for the macOS platform.
-
 Examples
 =====================================================
 The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
@@ -397,22 +310,6 @@ The following examples demonstrate various approaches for using resources in rec
 .. code-block:: ruby
 
    service 'apache' do
-     action [ :enable, :start ]
-     retries 3
-   end
-
-.. end_tag
-
-**Use the retries and providers common attributes**
-
-.. tag resource_service_use_provider_and_supports_attributes
-
-.. To use the ``provider`` and ``retries`` common attributes in a recipe:
-
-.. code-block:: ruby
-
-   service 'some_service' do
-     provider Chef::Provider::Service::Upstart
      action [ :enable, :start ]
      retries 3
    end

@@ -34,7 +34,6 @@ The full syntax for all of the properties that are available to the **erl_call**
      name_type                  String
      node_name                  String
      notifies                   # see description
-     provider                   Chef::Provider::ErlCall
      subscribes                 # see description
      action                     Symbol # defaults to :run if not specified
    end
@@ -44,7 +43,7 @@ where
 * ``erl_call`` is the resource
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``code``, ``cookie``, ``distributed``, ``name_type``, ``node_name``, and ``provider`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``code``, ``cookie``, ``distributed``, ``name_type``, and ``node_name`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -123,11 +122,6 @@ This resource has the following properties:
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
 
 ``retries``
    **Ruby Type:** Integer
@@ -279,4 +273,3 @@ The following examples demonstrate various approaches for using resources in rec
    end
 
 .. end_tag
-

@@ -57,11 +57,6 @@ The following properties are common to every resource:
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. The chef-client will attempt to determine the correct provider during the chef-client run, and then choose the best/correct provider based on configuration data collected at the start of the chef-client run. In general, a provider does not need to be specified.
-
 ``retries``
    **Ruby Type:** Integer
 
