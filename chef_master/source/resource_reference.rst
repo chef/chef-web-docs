@@ -3,7 +3,7 @@ Resources Reference
 *****************************************************
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_reference.rst>`__
 
-This reference describes each of the resources available to the Chef Client, including a list of actions, properties, providers (when applicable), and usage examples.
+This reference describes each of the resources available to the Chef Client, including a list of actions, properties, and usage examples.
 
 =====================================================
 Common Functionality
@@ -54,11 +54,6 @@ The following properties are common to every resource:
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. The chef-client will attempt to determine the correct provider during the chef-client run, and then choose the best/correct provider based on configuration data collected at the start of the chef-client run. In general, a provider does not need to be specified.
-
 ``retries``
    **Ruby Type:** Integer
 
@@ -72,7 +67,7 @@ The following properties are common to every resource:
 ``sensitive``
    **Ruby Types:** True, False
 
-   Ensure that sensitive resource data is not logged by the chef-client. Default value: ``false``. This property only applies to the **execute**, **file** and **template** resources.
+   Ensure that sensitive resource data is not logged by the chef-client. Default value: ``false``.
 
 ``supports``
    .. warning:: This property was deprecated in Chef 12.14; it will generate a warning when used in Chef 12 versions 12.14 and above, and it was entirely removed in Chef 13. See the `deprecation notice </deprecations_supports_property.html>`_ for details and remediation.
@@ -133,20 +128,6 @@ The following examples show how to use common properties in a recipe.
 
 .. end_tag
 
-**Use the provider common property**
-
-.. tag resource_package_use_provider_attribute
-
-.. To use the ``:provider`` common attribute in a recipe:
-
-.. code-block:: ruby
-
-   package 'some_package' do
-     provider Chef::Provider::Package::Rubygems
-   end
-
-.. end_tag
-
 **Use the retries common property**
 
 .. tag resource_service_use_supports_attribute
@@ -156,22 +137,6 @@ The following examples show how to use common properties in a recipe.
 .. code-block:: ruby
 
    service 'apache' do
-     action [ :enable, :start ]
-     retries 3
-   end
-
-.. end_tag
-
-**Use the retries and providers common properties**
-
-.. tag resource_service_use_provider_and_supports_attributes
-
-.. To use the ``provider`` and ``retries`` common attributes in a recipe:
-
-.. code-block:: ruby
-
-   service 'some_service' do
-     provider Chef::Provider::Service::Upstart
      action [ :enable, :start ]
      retries 3
    end
@@ -265,7 +230,7 @@ The following example shows how to use the ``not_if`` condition to create a file
    template '/tmp/somefile' do
      mode '0755'
      source 'somefile.erb'
-     not_if { node[:some_value] }
+     not_if { node['some_value'] }
    end
 
 .. end_tag
@@ -299,7 +264,7 @@ The following example shows how to use the ``not_if`` condition to create a file
    template '/tmp/somefile' do
      mode '0755'
      source 'somefile.erb'
-     not_if { File.exist?('/etc/passwd' )}
+     not_if { File.exist?('/etc/passwd') }
    end
 
 .. end_tag
@@ -381,7 +346,7 @@ The following example shows how to use the ``only_if`` condition to create a fil
    template '/tmp/somefile' do
      mode '0755'
      source 'somefile.erb'
-     only_if { node[:some_value] }
+     only_if { node['some_value'] }
    end
 
 .. end_tag
