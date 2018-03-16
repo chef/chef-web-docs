@@ -70,7 +70,7 @@ The following properties are common to every resource:
 ``sensitive``
    **Ruby Types:** True, False
 
-   Ensure that sensitive resource data is not logged by the chef-client. Default value: ``false``. This property only applies to the **execute**, **file** and **template** resources.
+   Ensure that sensitive resource data is not logged by the chef-client. Default value: ``false``.
 
 ``supports``
    .. warning:: This property was deprecated in Chef 12.14; it will generate a warning when used in Chef 12 versions 12.14 and above, and it was entirely removed in Chef 13. See the `deprecation notice </deprecations_supports_property.html>`_ for details and remediation.
