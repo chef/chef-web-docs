@@ -5,7 +5,7 @@ windows_service
 
 .. tag resource_service_windows
 
-Use the **windows_service** resource to create, delete, and manage a service on the Microsoft Windows platform.
+Use the **windows_service** resource to manage a service on the Microsoft Windows platform.
 
 .. end_tag
 
@@ -29,15 +29,7 @@ The full syntax for all of the properties that are available to the **windows_se
 .. code-block:: ruby
 
    windows_service 'name' do
-     binary_path_name           String
-     display_name               String
-     desired_access             Integer
-     delayed_start              [Integer] # This only applies if startup_type is :automatic
-     dependencies               [String, Array]
-     description                String
-     error_control              Integer
      init_command               String
-     load_order_group           String
      notifies                   # see description
      pattern                    String
      reload_command             String
@@ -45,7 +37,6 @@ The full syntax for all of the properties that are available to the **windows_se
      run_as_password            String
      run_as_user                String
      service_name               String # defaults to 'name' if not specified
-     service_type               Integer # defaults to 'SERVICE_WIN32_OWN_PROCESS'
      start_command              String
      startup_type               Symbol
      status_command             String
@@ -61,7 +52,7 @@ where
 * ``windows_service`` is the resource
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``binary_path_name``, ``display_name``, ``desired_access``, ``delayed_start``, ``dependencies``, ``description``, ``error_control``, ``init_command``, ``load_order_group``, ``pattern``, ``reload_command``, ``restart_command``, ``run_as_password``, ``run_as_user``, ``service_name``, ``service_type``, ``start_command``, ``startup_type``, ``status_command``, ``stop_command``, ``supports``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``init_command``, ``pattern``, ``provider``, ``reload_command``, ``restart_command``, ``run_as_password``, ``run_as_user``, ``service_name``, ``start_command``, ``startup_type``, ``status_command``, ``stop_command``, ``supports``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -73,16 +64,6 @@ This resource has the following actions:
 
 ``:configure_startup``
    Configure a service based on the value of the ``startup_type`` property.
-
-``:create``
-   Create the service based on the value of the ``binary_path_name``, ``service_name`` and/or ``display_name`` property.
-
-   New in Chef Client 13.7.16.
-
-``:delete``
-   Delete the service based on the value of the ``service_name`` property.
-
-   New in Chef Client 13.7.16.
 
 ``:disable``
    Disable a service. This action is equivalent to a ``Disabled`` startup type on the Microsoft Windows platform.
@@ -113,41 +94,6 @@ Properties
 
 This resource has the following properties:
 
-``binary_path_name``
-   **Ruby Type:** String
-
-   **Required** The fully qualified path to the service binary file. The path can also include arguments for an auto-start service.
-
-   New in Chef Client 13.7.16.
-
-``display_name``
-   **Ruby Type:** String
-
-   The display name to be used by user interface programs to identify the service. This string has a maximum length of 256 characters.
-
-   New in Chef Client 13.7.16.
-
-``delayed_start``
-   **Ruby Type:** Integer
-
-   Set the startup type to delayed start. This only applies if ``startup_type`` is ``:automatic``.
-
-   New in Chef Client 13.7.16.
-
-``dependencies``
-   **Ruby Types:** String, Array
-
-   A pointer to a double null-terminated array of null-separated names of services or load ordering groups that the system must start before this service. Specify ``nil`` or an empty string if the service has no dependencies. Dependency on a group means that this service can run if at least one member of the group is running after an attempt to start all members of the group.
-
-   New in Chef Client 13.7.16.
-
-``description``
-   **Ruby Types:** String
-
-   Description of the service.
-
-   New in Chef Client 13.7.16.
-
 ``ignore_failure``
    **Ruby Types:** True, False
 
@@ -157,13 +103,6 @@ This resource has the following properties:
    **Ruby Type:** String
 
    The path to the init script that is associated with the service. This is typically ``/etc/init.d/SERVICE_NAME``. The ``init_command`` property can be used to prevent the need to specify  overrides for the ``start_command``, ``stop_command``, and ``restart_command`` attributes. Default value: ``nil``.
-
-``load_order_group``
-   **Ruby Types:** String
-
-   The name of the service's load ordering group(s). Specify ``nil`` or an empty string if the service does not belong to a group.
-
-   New in Chef Client 13.7.16.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -241,9 +180,7 @@ This resource has the following properties:
 ``service_name``
    **Ruby Type:** String
 
-   The name of the service. Default value: the ``name`` of the resource block. See the "Syntax" section above for more information.
-
-   New in Chef Client 13.7.16.
+   The name of the service. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
 
 ``start_command``
    **Ruby Type:** String
@@ -345,109 +282,3 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. end_tag
 
-**Create a service**
-
-.. tag resource_service_windows_create
-
-.. To create service with 'name':
-
-.. code-block:: ruby
-
-   windows_service 'chef-client' do
-     action :create
-     binary_path_name "C:\\opscode\\chef\\bin"
-   end
-
-Create service with 'service_name' and 'display_name':
-
-.. code-block:: ruby
-
-   windows_service 'Create chef client as service' do
-     action :create
-     display_name "CHEF-CLIENT"
-     service_name "chef-client"
-     binary_path_name "C:\\opscode\\chef\\bin"
-   end
-
-Create service with the ``:manual`` startup type:
-
-.. code-block:: ruby
-
-   windows_service 'chef-client' do
-     action :create
-     binary_path_name "C:\\opscode\\chef\\bin"
-     startup_type :manual
-   end
-
-Create a service with the ``:disabled`` startup type:
-
-.. code-block:: ruby
-
-   windows_service 'chef-client' do
-     action :create
-     binary_path_name "C:\\opscode\\chef\\bin"
-     startup_type :disabled
-   end
-
-Create service with the ``:automatic`` startup type and delayed start enabled:
-
-.. code-block:: ruby
-
-   windows_service 'chef-client' do
-     action :create
-     binary_path_name "C:\\opscode\\chef\\bin"
-     startup_type :automatic
-     delayed_start true
-   end
-
-Create service with a description:
-
-.. code-block:: ruby
-
-   windows_service 'chef-client' do
-     action :create
-     binary_path_name "C:\\opscode\\chef\\bin"
-     startup_type :automatic
-     description "Chef client as service"
-   end
-
-.. end_tag
-
-**Delete a service**
-
-.. tag resource_service_windows_delete
-
-Deelete service with the ``'name'`` of ``chef-client``:
-
-.. code-block:: ruby
-
-   windows_service 'chef-client' do
-     action :delete
-   end
-
-Delete service with ``'service_name'``:
-
-.. code-block:: ruby
-
-   windows_service 'Delete chef client' do
-     action :delete
-     service_name "chef-client"
-   end
-
-.. end_tag
-
-**Configure a service**
-
-.. tag resource_service_windows_configure
-
-Change an existing service from automatic to manual startup:
-
-.. code-block:: ruby
-
-   windows_service 'chef-client' do
-     action :configure
-     binary_path_name "C:\\opscode\\chef\\bin"
-     startup_type :manual
-   end
-
-.. end_tag
