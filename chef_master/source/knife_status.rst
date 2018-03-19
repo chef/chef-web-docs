@@ -30,9 +30,16 @@ This subcommand has the following options:
 ``QUERY``
    The search query used to identify a list of items on a Chef server. This option uses the same syntax as the ``search`` subcommand.
 
+``--hide-by-mins``
+   Hide nodes that have performed a successful chef-client run within the last specified number of minutes. The number of minutes to hide is provided as an integer, such as ``--hide-by-mins 10``. 
+
+   New in Chef Client 12.6
+
 ``-H``, ``--hide-healthy``
    Hide nodes on which a chef-client run has occurred within the previous hour.
 
+   Deprecated in favor of the ``--hide-by-mins`` option in Chef Client 12.6 and above.
+   
 ``-l``, ``--long``
    Display all attributes in the output and show the output as JSON.
 
@@ -79,9 +86,22 @@ to return something like:
 
 .. end_tag
 
-**View status using a date range**
+**View status using a time range**
 
-To show the status for nodes on which the chef-client did not run successfully within the past hour, enter:
+To show the status of nodes on which the chef-client did not run successfully within the past hour, enter:
+
+.. code-block:: bash 
+
+# knife status --hide-by-mins 60
+
+to return something like:
+
+.. code-block:: bash 
+
+422492 hours ago, runner-1-432.lxc, centos 6.8.
+27 hours ago, union-3-432.lxc, centos 7.3.1611.
+
+On systems running Chef Client 12.5 or prior:
 
 .. code-block:: bash
 
