@@ -104,12 +104,7 @@ This resource has the following properties:
 ``gid``
    **Ruby Types:** String, Integer
 
-   The identifier for the group.
-
-``group``
-   **Ruby Types:** String, Integer
-
-   The ``group`` property is an alias of the ``gid`` property.
+   The identifier for the group. This property was previously named ``group`` and both continue to function.
 
 ``home``
    **Ruby Type:** String
@@ -124,7 +119,7 @@ This resource has the following properties:
 ``iterations``
    **Ruby Type:** Integer
 
-   macOS platform only, 10.8 (or higher). The number of iterations for a password with a SALTED-SHA512-PBKDF2 shadow hash.
+   macOS platform only. The number of iterations for a password with a SALTED-SHA512-PBKDF2 shadow hash.
 
    New in Chef Client 12.0.
 
@@ -133,9 +128,9 @@ This resource has the following properties:
 
    Manage a user's home directory.
 
-   With the ``:create`` action, a user's home directory is created based on ``HOME_DIR``. If the home directory is missing, it is created unless ``CREATE_HOME`` in ``/etc/login.defs`` is set to ``no``. When created, a skeleton set of files and sub-directories is also created in the home directory.
+   When used with the ``:create`` action, a user's home directory is created based on ``HOME_DIR``. If the home directory is missing, it is created unless ``CREATE_HOME`` in ``/etc/login.defs`` is set to ``no``. When created, a skeleton set of files and subdirectories are included within the home directory.
 
-   With the ``:modify`` action, a user's home directory is moved to ``HOME_DIR``. If the home directory is missing, it is created unless ``CREATE_HOME`` in ``/etc/login.defs`` is set to ``no``. The contents of the user's home directory are moved to the new location.
+   When used with the ``:modify`` action, a user's home directory is moved to ``HOME_DIR``. If the home directory is missing, it is created unless ``CREATE_HOME`` in ``/etc/login.defs`` is set to ``no``. The contents of the user's home directory are moved to the new location.
 
 ``non_unique``
    **Ruby Types:** True, False
