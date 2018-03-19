@@ -127,7 +127,7 @@ Kitchen can configure the chef-zero provisioner with the following Chef-specific
    * - Setting
      - Description
    * - ``attributes``
-     -
+     - Chef attributes for use in the suite
    * - ``chef_client_path``
      - chef-client provisioner only.
    * - ``chef_metadata_url``
