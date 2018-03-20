@@ -63,7 +63,7 @@ To set up the Reporting server:
 
       $ chef-server-ctl reconfigure
 
-#. Reconfigure Reporting services on each server:
+#. Complete the installation:
 
    .. code-block:: bash
 
