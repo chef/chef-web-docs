@@ -506,7 +506,7 @@ This can be resolved by running the command as root. There are a few ways this c
 
    .. code-block:: bash
 
-      $ chef-client
+      # chef-client
 
 * Use the sudo utility
 
