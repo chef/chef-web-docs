@@ -456,7 +456,7 @@ This resource has the following actions:
 
 .. end_tag
 
-Attributes
+Properties
 -----------------------------------------------------
 .. tag resource_ohai_attributes
 
