@@ -322,6 +322,12 @@ The Chef management console provides ways for users to `configure the timeframe 
 
 .. image:: ../../images/step_manage_webui_reports.png
 
+.. note:: .. tag reports_tab
+
+          Reporting requires in the installation of the Chef Reporting add-on on your Chef Server. Reporting tab won't be shown in Chef Manage if it is not installed.
+
+          .. end_tag
+
 Policy
 =====================================================
 .. tag policy_summary
