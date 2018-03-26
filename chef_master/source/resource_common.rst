@@ -72,15 +72,6 @@ The following properties are common to every resource:
 
    Ensure that sensitive resource data is not logged by the chef-client. Default value: ``false``.
 
-``supports``
-   .. warning:: This property was deprecated in Chef 12.14; it will generate a warning when used in Chef 12 versions 12.14 and above, and it was entirely removed in Chef 13. See the `deprecation notice </deprecations_supports_property.html>`_ for details and remediation.
-
-   .. note:: This property is not the same as the ``supports`` property that was previously available for the `user </resource_user.html>`_ resource, or that which is currently available for the `service </resource_service.html>`_ resource. These resources use entirely separate implementations of the ``supports`` property.
-
-   **Ruby Type:** Hash
-
-   A hash of options that contains hints about the capabilities of a resource. The chef-client may use these hints to help identify the correct provider.
-
 
 .. end_tag
 
