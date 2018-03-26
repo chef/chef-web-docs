@@ -724,6 +724,7 @@ Addenda
    resource_git
    resource_group
    resource_homebrew_package
+   resource_hostname
    resource_http_request
    resource_ifconfig
    resource_ips_package
