@@ -769,6 +769,7 @@ Addenda
    resource_subversion
    resource_sudo
    resource_swap_file
+   resource_sysctl
    resource_systemd_unit
    resource_template
    resource_user
