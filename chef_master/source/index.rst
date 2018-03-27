@@ -742,6 +742,7 @@ Addenda
    resource_mount
    resource_msu_package
    resource_ohai
+   resource_ohai_hint
    resource_openbsd_package
    resource_osx_profile
    resource_package
