@@ -3,7 +3,7 @@ hostname
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_hostname.rst>`__
 
-The **hostname** resource sets systems hostname, ensures that the hostname persists after a reboot, and then re-runs the Ohai plugin so the hostname will be available in subsequent cookbooks. 
+The **hostname** resource sets the system's hostname, ensures that the hostname persists after a reboot, and then re-runs the Ohai plugin so the hostname will be available in subsequent cookbooks. 
 
 New in Chef Client 14.0
 
@@ -44,18 +44,22 @@ This resource has the following properties:
 
 ``aliases``
    **Ruby Types**: Array, nil | **Default Value:** ``nil``
+
    An array of hostname aliases to use when configuring the hosts file.
 
 ``compile_time``
    **Ruby Types:** True, False | **Default Value:** ``true``
+
    Determines whether or not the resource shoul be run at compile time.
 
 ``hostname``
-   **Ruby Type:** String | **Default Value:** The resource name
+   **Ruby Type:** String | **Default Value:** ``'name'``
+
    Used to specify the hostname if it is different than the resource's name.
 
 ``ipaddress``
    **Ruby Type:** String | **Default Value:** ``lazy { node["ipaddress"] }``
+
    The IP address to use when configuring the hosts file. By default, this uses ``node["ipaddress"]`` information collected by Ohai.
 
 ``notifies``
@@ -143,6 +147,7 @@ This resource has the following properties:
   
 ``windows_reboot``
    **Ruby Types:** True, False | **Default Value:** ``true``
+
    Determines whether or not Windows should be reboot after changing the hostname, as this is required for the change to take effect. 
 
 Examples
@@ -153,7 +158,7 @@ Examples
 
    hostname 'example' do
 
-The example above sets the hostname to ``example`` for the IP address as detected by Ohai.
+The example above sets the hostname to ``example`` for the IP address, as detected by Ohai.
 
 **Manually specify the hostname and IP address** 
 
