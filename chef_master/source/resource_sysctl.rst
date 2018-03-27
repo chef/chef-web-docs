@@ -3,7 +3,7 @@ sysctl
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_sysctl.rst>`__
 
-Use the **sysctl** resource to set or remove kernel parameters using the ``sysctl`` command line tool and configuration files in the system's ``sysctl.d`` directory. Configuration files managed by this resource are named ``99-chef-KEYNAME.conf``. If an existing value was already set it will be backed up to the node and restored if the ``:remove`` action is used later. 
+Use the **sysctl** resource to set or remove kernel parameters using the ``sysctl`` command line tool and configuration files in the system's ``sysctl.d`` directory. Configuration files managed by this resource are named ``99-chef-KEYNAME.conf``. If an existing value was already set, it will be backed up to the node and restored if the ``:remove`` action is used later. 
 
 New in Chef Client 14.0.
 
@@ -49,7 +49,7 @@ Properties
 ``conf_dir``
    **Ruby Type:** String | **Default Value:** ``/etc/sysctl.d``
 
-   The configuration directoryu to write the config to. 
+   The configuration directory to write the config to. 
 
 ``ignore_error`` 
    **Ruby Type:** True, False | **Default Value:** ``false``
