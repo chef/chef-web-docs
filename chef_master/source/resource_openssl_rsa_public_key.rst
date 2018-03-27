@@ -29,7 +29,7 @@ This resource has the following syntax:
 where:
 
 * ``openssl_rsa_public_key`` is the name of the resource
-* ``name`` is the name of the resource block
+* ``name`` is the path to the public key file that is to be created, or the name of the resource block
 * ``group``, ``mode``, ``notifies``, ``owner``, ``path``, ``private_key_content``, ``private_key_pass``, ``private_key_path``, and ``subscribes`` are the properties available to this resource
 
 Actions
@@ -181,13 +181,3 @@ Examples
    openssl_rsa_public_key '/etc/example/key.pub' do
      private_key_content File.read('/home/example/key.pem')
    end
-
-
-
-
-
-
-
-
-
-
