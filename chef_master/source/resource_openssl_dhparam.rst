@@ -12,19 +12,21 @@ This resource has the following syntax:
 .. code-block:: ruby
 
    openssl_dhparam 'name' do
-     generator             Integer # default value: '2'
-     group                 String, nil
-     key_length            Integer # default value: '2048'
-     mode                  Integer, String # default value: '0640'
-     owner                 String, nil
-     path                  String # default value: 'name'
-     action                Symbol # defaults to :create if not specified
+     generator                  Integer # default value: '2'
+     group                      String, nil
+     key_length                 Integer # default value: '2048'
+     mode                       Integer, String # default value: '0640'
+     notifies                   # see description
+     owner                      String, nil
+     path                       String # default value: 'name'
+     subscribes                 # see description
+     action                     Symbol # defaults to :create if not specified
 
 where:
 
 * ``openssl_dhparam`` is the name of the resource
-* ``'name'`` is the name of the resource block
-* ``generator``, ``group``, ``key_length``, ``mode``, ``owner``, and ``path`` are the properties available to this resource
+* ``'name'`` is the path where the dhparam file will be written, or the name of the resource block
+* ``generator``, ``group``, ``key_length``, ``mode``, ``notifies``, ``owner``, and ``path``, and ``subscribes`` are the properties available to this resource
 
 Actions
 =====================================================
@@ -185,10 +187,3 @@ Examples
    openssl_dhparam 'httpd_dhparam' do
      path '/etc/httpd/ssl/dhparam.pem'
    end
-
-   
-
-
-
-
-
