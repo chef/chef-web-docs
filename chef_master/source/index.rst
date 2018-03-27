@@ -737,6 +737,7 @@ Addenda
    resource_machine_execute
    resource_machine_file
    resource_machine_image
+   resource_macos_userdefaults
    resource_macports_package
    resource_mdadm
    resource_mount
