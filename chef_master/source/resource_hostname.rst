@@ -170,17 +170,3 @@ The example above sets the hostname to ``example`` for the IP address, as detect
      hostname 'example'
      ipaddress '198.51.100.2'
    end
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
