@@ -54,6 +54,8 @@ Properties
 ``mode``
    **Ruby Types:** Integer, String | **Default Value:** ``0640``
 
+   The permission mode of all files created by the resource.
+
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
