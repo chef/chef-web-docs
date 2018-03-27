@@ -758,6 +758,7 @@ Addenda
    resource_registry_key
    resource_remote_directory
    resource_remote_file
+   resource_rhsm_errata
    resource_route
    resource_rpm_package
    resource_ruby
