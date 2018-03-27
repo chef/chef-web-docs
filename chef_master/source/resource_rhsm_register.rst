@@ -1,9 +1,9 @@
 =====================================================
-rhsm_repo
+rhsm_register
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_rhsm_repo.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_rhsm_register.rst>`__
 
-Use the **rhsm_repo** resource to enable or disable Red Hat Subscription Manager repositories that are made available via attached subscriptions.
+Use the **rhsm_register** resource to register a node with the Red Hat Subscription Manager or a local Red Hat Satellite server. 
 
 New in Chef Client 14.0.
 
@@ -13,26 +13,33 @@ This resource has the following syntax:
 
 .. code-block:: ruby
 
-   rhsm_repo 'name' do
-     repo_name                  String # default value: 'name'
+   rhsm_register 'name' do
+     activation_key             String, Array
+     auto_attach                True, False # default value: 'false'
+     environment                String
+     force                      True, False # default value: 'false'
+     install_katello_agent      True, False # default value: 'true'
      notifies                   # see description
+     organization               String
+     password                   String
+     satellite_host             String
      subscribes                 # see description
-     action                     Symbol # defaults to :enable if not specified
+     action                     Symbol # defaults to :register if not specified
    end
 
 where:
 
-* ``rhsm_repo`` is the resource
+* ``rhsm_register`` is the resource
 * ``'name'`` is the RHSM repository name, or the resource name
-* ``repo_name``, ``notifies``, and ``subscribes`` are the properties available to this resource
+* ``activation_key``, ``auto_attach``, ``environment``, ``force``, ``install_katello_agent``, ``notifies``, ``organization``, ``password``, ``satellite_host``, and ``subscribes`` are the properties available to this resource
 
 Actions
 =====================================================
-``:enable``
-   Default. Enable an RHSM repository. 
+``:register``
+   Default. Register the node with RHSM. 
 
-``:disable``
-   Disable an RHSM repository.
+``:unregister``
+   Unregister the node from RHSM.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -43,10 +50,30 @@ Actions
 
 Properties
 =====================================================
-``repo_name``
+``activation_key``
+   **Ruby Types:** String, Array
+
+   A string or array of  activation keys to use when registering; you must also specify the ``organization`` property when using this.
+   
+``auto_attach``
+   **Ruby Type:** True, False | **Default Value:** ``false``
+
+   If ``true``, RHSM will attempt to automatically attach the host to applicable subscriptions. It is generally better to use an activation key with the subscriptions predefined.
+
+``environment``
    **Ruby Type:** String
 
-   An optional property for specifying the repository name if it differs from the resource's name.
+   The environment to use when registering; required when using the ``username`` and ``password`` properties.
+
+``force``
+   **Ruby Type:** True, False | **Default Value:** ``false``
+
+   If true, the system will be registered even if it is already registered. Normally, any register operations will fail if the machine has already been registered. 
+
+``install_katello_agent``
+   **Ruby Type:** True, False | **Default Value:** ``true``
+
+   If true, the ``katello-agent`` RPM will be installed. 
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -81,6 +108,21 @@ Properties
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
+
+``organization``
+   **Ruby Type:** String
+
+   The organization to use when registering; required when using the ``activation_key`` property.
+
+``password``
+   **Ruby Type:** String
+
+   The password to use when registering. This property is not applicable if using an activation key. If specified, ``username`` and ``environment`` are also required.
+
+``satellite_host``
+   **Ruby Type:** String
+
+   The FQDN of the Satellite host to register with. If this property is not specified, the host will register with Red Hat's public RHSM service.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -129,22 +171,8 @@ Properties
 
       subscribes :action, 'resource[name]', :timer
 
-   .. end_tag 
+   .. end_tag
 
-Examples
-=====================================================
-**Enable an RHSM repository**
 
-.. code-block:: ruby
-
-   rhsm_repo 'rhel-7-server-extras-rpms'
-
-**Disable an RHSM repository**
-
-.. code-block:: ruby
-
-   rhsm_repo 'rhel-7-server-extras-rpms' do
-     action :disable
-   end
-
+   
 

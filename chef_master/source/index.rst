@@ -760,6 +760,8 @@ Addenda
    resource_remote_file
    resource_rhsm_errata
    resource_rhsm_errata_level
+   resource_rhsm_register
+   resource_rhsm_repo
    resource_route
    resource_rpm_package
    resource_ruby
