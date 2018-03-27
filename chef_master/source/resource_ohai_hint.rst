@@ -14,16 +14,18 @@ This resource has the following syntax:
 .. code-block:: ruby
 
    ohai_hint 'name' do
-     compile_time              True, False # default value: 'true'
-     content                   Hash
-     hint_name                 String # defaults to 'name'
+     compile_time               True, False # default value: 'true'
+     content                    Hash
+     hint_name                  String # defaults to 'name'
+     notifies                   # see description
+     subscribes                 # see description
      action                    Symbol # default to :create if not specified
 
 where:
 
 * ``ohai_hint`` is the name of the resource
-* ``'name'`` is the name of the resource block
-* ``compile_time``, ``content``, and ``hint_name`` are the properties available to the resource
+* ``'name'`` is the name of the hint file, or the name of the resource block
+* ``compile_time``, ``content``, ``hint_name``, ``notifies``, and ``subscribes`` are the properties available to the resource
 
 Actions
 =====================================================
