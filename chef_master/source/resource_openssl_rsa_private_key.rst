@@ -32,7 +32,7 @@ This resource has the following syntax:
 where:
 
 * ``openssl_rsa_private_key_file`` is the name of the resource
-* ``'name'`` is the name of the resource block
+* ``'name'`` is the path to the private key file that is to be created, or the name of the resource block
 * ``force``, ``group``, ``key_cipher``, ``key_length``, ``key_pass``, ``mode``, ``notifies``, ``owner``, ``path``, and ``subscribes`` are the properties available to this resource
 
 Actions
@@ -171,5 +171,3 @@ Properties
       subscribes :action, 'resource[name]', :timer
 
    .. end_tag
-
-
