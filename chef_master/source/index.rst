@@ -762,6 +762,7 @@ Addenda
    resource_rhsm_errata_level
    resource_rhsm_register
    resource_rhsm_repo
+   resource_rhsm_subscription
    resource_route
    resource_rpm_package
    resource_ruby

@@ -30,7 +30,7 @@ This resource has the following syntax:
 where:
 
 * ``rhsm_register`` is the resource
-* ``'name'`` is the RHSM repository name, or the resource name
+* ``'name'`` is the RHSM Satellite server name, or the resource name
 * ``activation_key``, ``auto_attach``, ``environment``, ``force``, ``install_katello_agent``, ``notifies``, ``organization``, ``password``, ``satellite_host``, and ``subscribes`` are the properties available to this resource
 
 Actions
