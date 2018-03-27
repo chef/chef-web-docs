@@ -14,17 +14,19 @@ Here's the full syntax of this resource's properties and actions:
 .. code-block:: ruby
 
    hostname 'name' do
-     aliases                      Array, nil # defaults to 'nil'
-     compile_time                 True, False # default to 'true'
-     hostname                     String
-     ipaddress                    String # see description
-     windows_reboot               True, False # defaults to 'true'
-     action                       Symbol # defaults to :set if not specified
+     aliases                    Array, nil # defaults to 'nil'
+     compile_time               True, False # default to 'true'
+     hostname                   String # default value: 'name'
+     ipaddress                  String # see description
+     notifies                   # see description
+     subscribes                 # see description
+     windows_reboot             True, False # defaults to 'true'
+     action                     Symbol # defaults to :set if not specified
 
 where:
 
 * ``hostname`` is the name of the resource
-* ``'name'`` is the name of the resource block
+* ``'name'`` is the desired hostname, or name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node to the desired state
 * ``aliases``, ``compile_time``, ``hostname``, ``ipaddress``, and ``windows_reboot`` are the properties available to this resource
 
