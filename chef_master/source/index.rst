@@ -743,6 +743,7 @@ Addenda
    resource_msu_package
    resource_ohai
    resource_openbsd_package
+   resource_openssl_rsa_private_key
    resource_osx_profile
    resource_package
    resource_pacman_package
