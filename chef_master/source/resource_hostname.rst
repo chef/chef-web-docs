@@ -3,7 +3,7 @@ hostname
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_hostname.rst>`__
 
-The **hostname** resource sets the system's hostname, ensures that the hostname persists after a reboot, and then re-runs the Ohai plugin so the hostname will be available in subsequent cookbooks. 
+The **hostname** resource sets the system's hostname and hosts configuration, ensures that the hostname persists after a reboot, and then re-run the Ohai plugin so the hostname will be available in subsequent cookbooks. 
 
 New in Chef Client 14.0
 
