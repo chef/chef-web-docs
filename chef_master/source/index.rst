@@ -771,6 +771,7 @@ Addenda
    resource_template
    resource_user
    resource_windows_ad_join
+   resource_windows_auto_run
    resource_windows_package
    resource_windows_path
    resource_windows_service
