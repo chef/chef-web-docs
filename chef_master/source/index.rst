@@ -775,6 +775,7 @@ Addenda
    resource_windows_feature
    resource_windows_feature_dism
    resource_windows_feature_powershell
+   resource_windows_font
    resource_windows_package
    resource_windows_path
    resource_windows_service
