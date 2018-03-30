@@ -781,6 +781,7 @@ Addenda
    resource_windows_printer
    resource_windows_printer_port
    resource_windows_service
+   resource_windows_shortcut
    resource_windows_task
    resource_yum
    resource_yum_repository

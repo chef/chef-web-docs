@@ -1,9 +1,9 @@
 =====================================================
-windows_font
+windows_shortcut
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_font.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_shortcut.rst>`__
 
-Use the **windows_font** resource to install font files on Windows. By default, the font is sourced from the cookbook using the resource, but a URI source can be specified as well.
+Use the **windows_shortcut** resource to create shortcut files on Windows.
 
 **New in Chef Client 14.0.**
 
@@ -13,24 +13,28 @@ This resource has the following syntax:
 
 .. code-block:: ruby
 
-   windows_font 'name' do
-     font_name                  String # default value: 'name'
+   windows_shortcut 'name' do
+     arguments                  String
+     description                String
+     cwd                        String
+     iconlocation               String
      notifies                   # see description
-     source                     String
+     shortcut_name              String # default value: 'name'
      subscribes                 # see description
-     action                     Symbol # defaults to :install if not specified
+     target                     String
+     action                     Symbol # defaults to :create if not specified
    end
 
 where:
 
-* ``windows_font`` is the resource
-* ``'name'`` is the name of the font file, or the name of the resource block
-* ``font_name``, ``notifies``, ``source``, and ``subscribes`` are the properties available to this resource
+* ``windows_shortcut`` is the resource
+* ``'name'`` is the name of the shortcut, or the name of the resource block
+* ``arguments``, ``description``, ``cwd``, ``iconlocation``, ``notifies``, ``shortcut_name``, ``subscribes``, and ``target`` are the properties available to this resource
 
 Actions
 =====================================================
-``:install``
-   Default. Install the font to the system fonts directory. 
+``:create``
+   Default. Create or modify a Windows shortcut. 
    
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -41,10 +45,25 @@ Actions
    
 Properties
 =====================================================
-``font_name``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+``arguments``
+   **Ruby Type:** String
    
-   The name of the font file to install, if it differs from the resource name.
+   Arguments to pass to the target when the shortcut is executed.
+
+``description``
+   **Ruby Type:** String
+   
+   A description of the shortcut.
+   
+``cwd``
+   **Ruby Type:** String
+   
+   Working directory to use when the target is executed.
+   
+``iconlocation``
+   **Ruby Type:** String
+   
+   Icon to use for the shortcut. Accepts the format of ``'path, index'``, where index is the icon file to use. See Microsoft's `documentation <https://msdn.microsoft.com/en-us/library/3s9bx7at.aspx>`__ for details.
    
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -80,11 +99,11 @@ Properties
 
    .. end_tag
    
-``source``
-   **Ruby Type:** String
+``shortcut_name``
+   **Ruby Type:** String | **Default Value:** ``'name'``
    
-   A local filesystem path or URI that is used to source the font file.
-
+   The name for the shortcut, if it differs from the resource name.
+   
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -133,4 +152,8 @@ Properties
       subscribes :action, 'resource[name]', :timer
 
    .. end_tag
-
+   
+``target``
+   **Ruby Type:** String
+   
+   The destination that the shortcut links to.
