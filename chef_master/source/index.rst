@@ -724,6 +724,7 @@ Addenda
    resource_git
    resource_group
    resource_homebrew_package
+   resource_hostname
    resource_http_request
    resource_ifconfig
    resource_ips_package
@@ -742,8 +743,11 @@ Addenda
    resource_mount
    resource_msu_package
    resource_ohai
+   resource_ohai_hint
    resource_openbsd_package
    resource_openssl_rsa_private_key
+   resource_openssl_rsa_public_key
+   resource_openssl_dhparam
    resource_osx_profile
    resource_package
    resource_pacman_package
@@ -759,6 +763,11 @@ Addenda
    resource_registry_key
    resource_remote_directory
    resource_remote_file
+   resource_rhsm_errata
+   resource_rhsm_errata_level
+   resource_rhsm_register
+   resource_rhsm_repo
+   resource_rhsm_subscription
    resource_route
    resource_rpm_package
    resource_ruby
@@ -768,12 +777,24 @@ Addenda
    resource_smartos_package
    resource_solaris_package
    resource_subversion
+   resource_sudo
+   resource_swap_file
+   resource_sysctl
    resource_systemd_unit
    resource_template
    resource_user
+   resource_windows_ad_join
+   resource_windows_auto_run
+   resource_windows_feature
+   resource_windows_feature_dism
+   resource_windows_feature_powershell
+   resource_windows_font
    resource_windows_package
    resource_windows_path
+   resource_windows_printer
+   resource_windows_printer_port
    resource_windows_service
+   resource_windows_shortcut
    resource_windows_task
    resource_yum
    resource_yum_repository
