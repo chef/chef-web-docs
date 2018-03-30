@@ -124,55 +124,51 @@ Properties
    
    The name used to identify the shared printer.
    
-   ``subscribes``
-      **Ruby Type:** Symbol, 'Chef::Resource[String]'
+``subscribes``
+   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
-      .. tag resources_common_notification_subscribes
+   .. tag resources_common_notification_subscribes
 
-      A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
+   A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
 
-      Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
+   Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
 
-      .. code-block:: ruby
+   .. code-block:: ruby
 
-        file '/etc/nginx/ssl/example.crt' do
-           mode '0600'
-           owner 'root'
-        end
+     file '/etc/nginx/ssl/example.crt' do
+        mode '0600'
+        owner 'root'
+     end
 
-        service 'nginx' do
-           subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
-        end
+     service 'nginx' do
+        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+     end
 
-      In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
+   In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
 
-      .. end_tag
+   .. end_tag
 
-      .. tag resources_common_notification_timers
+   .. tag resources_common_notification_timers
 
-      A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
-      ``:before``
-         Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
+   ``:before``
+      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
-      ``:delayed``
-         Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+   ``:delayed``
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
-      ``:immediate``, ``:immediately``
-         Specifies that a notification should be run immediately, per resource notified.
+   ``:immediate``, ``:immediately``
+      Specifies that a notification should be run immediately, per resource notified.
 
-      .. end_tag
+   .. end_tag
 
-      .. tag resources_common_notification_subscribes_syntax
+   .. tag resources_common_notification_subscribes_syntax
 
-      The syntax for ``subscribes`` is:
+   The syntax for ``subscribes`` is:
 
-      .. code-block:: ruby
+   .. code-block:: ruby
 
-         subscribes :action, 'resource[name]', :timer
+      subscribes :action, 'resource[name]', :timer
 
-      .. end_tag
-   
-
-   
-
+   .. end_tag

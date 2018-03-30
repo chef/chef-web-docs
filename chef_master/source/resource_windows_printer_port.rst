@@ -1,9 +1,9 @@
 =====================================================
-windows_font
+windows_printer_port
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_font.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_printer.rst>`__
 
-Use the **windows_font** resource to install font files on Windows. By default, the font is sourced from the cookbook using the resource, but a URI source can be specified as well.
+Use the **windows_printer_port** resource to create and delete TCP/IPv4 printer ports on Windows.
 
 **New in Chef Client 14.0.**
 
@@ -13,24 +13,31 @@ This resource has the following syntax:
 
 .. code-block:: ruby
 
-   windows_f 'name' do
-     font_name                  String # default value: 'name'
+   windows_printer_port 'name' do
+     ipv4_address               String # default value: 'name'
      notifies                   # see description
-     source                     String
+     port_description           String
+     port_name                  String
+     port_number                Integer # default value: '9100'
+     port_protocol              Integer # default value: '1'
+     snmp_enabled               True, False # default value: 'false'
      subscribes                 # see description
-     action                     Symbol # defaults to :install if not specified
+     action                     Symbol # defaults to :create if not specified
    end
 
 where:
 
-* ``windows_font`` is the resource
-* ``'name'`` is the name of the font file, or the name of the resource block
-* ``font_name``, ``notifies``, ``source``, and ``subscribes`` are the properties available to this resource
+* ``windows_printer_port`` is the resource
+* ``'name'`` is the IP address of the printer, or the name of the resource block
+*  and ``subscribes`` are the properties available to this resource
 
 Actions
 =====================================================
-``:install``
-   Default. Install the font to the system fonts directory. 
+``:create``
+   Default. Create the printer port, if one doesn't already exist.
+   
+``:delete``
+   Delete an existing printer port.
    
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -41,10 +48,10 @@ Actions
    
 Properties
 =====================================================
-``font_name``
+``ipv4_address``
    **Ruby Type:** String | **Default Value:** ``'name'``
    
-   The name of the font file to install, if it differs from the resource name.
+   The IPv4 address of the printer, if it differs from the resource block name.
    
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -80,10 +87,30 @@ Properties
 
    .. end_tag
    
-``source``
+``port_description``
    **Ruby Type:** String
    
-   A local filesystem path or URI that is used to source the font file.
+   A description of the port.
+
+``port_name``
+   **Ruby Type:** String
+   
+   The port name.
+             
+``port_number``
+   **Ruby Type:** Integer | **Default Value:** ``9100``
+   
+   The port number.
+
+``port_protocol``
+   **Ruby Type:** Integer | **Default Value:** ``1``
+   
+   The printer port protocol; ``1`` (RAW) or ``2`` (LPR).
+
+``snmp_enabled``
+   **Ruby Type:** True, False | **Default Value:** ``false``
+   
+   Determines ig SNMP is enabled on the port.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -133,4 +160,3 @@ Properties
       subscribes :action, 'resource[name]', :timer
 
    .. end_tag
-
