@@ -781,9 +781,18 @@ Addenda
    resource_systemd_unit
    resource_template
    resource_user
+   resource_windows_ad_join
+   resource_windows_auto_run
+   resource_windows_feature
+   resource_windows_feature_dism
+   resource_windows_feature_powershell
+   resource_windows_font
    resource_windows_package
    resource_windows_path
+   resource_windows_printer
+   resource_windows_printer_port
    resource_windows_service
+   resource_windows_shortcut
    resource_windows_task
    resource_yum
    resource_yum_repository
