@@ -745,6 +745,7 @@ Addenda
    resource_ohai
    resource_ohai_hint
    resource_openbsd_package
+   resource_openssl_rsa_private_key
    resource_openssl_rsa_public_key
    resource_openssl_dhparam
    resource_osx_profile
