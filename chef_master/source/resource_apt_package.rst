@@ -144,6 +144,8 @@ This resource has the following properties:
    **Ruby Type:** True, False | **Default Value:** ``false``
    
    Overwrite existing configuration files with those supplied by the package, if prompted by APT.
+   
+   New in Chef Client 14.0.
 
 ``package_name``
    **Ruby Types:** String, Array
