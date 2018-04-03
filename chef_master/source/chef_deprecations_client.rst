@@ -97,7 +97,7 @@ All Deprecations
   * - `CHEF-18 </deprecations_local_listen.html>`__
     - Deprecation of local mode listening.
     - 13.1
-    - 14.0
+    - 15.0
   * - `CHEF-19 </deprecations_namespace_collisions.html>`__
     - Deprecation of ``property_name`` within actions.
     - 13.2
