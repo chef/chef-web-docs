@@ -26,7 +26,7 @@ This resource has the following syntax:
 where:
 
 * ``windows_feature_dism`` is the resource
-* ``'name'`` is the name of the startup program, or the name of the resource block
+* ``'name'`` is the name of the Windows feature / role, or the name of the resource block
 * ``all``, ``feature_name``, ``notifies``, ``source``, ``subscribes``, and ``timeout`` are the properties available to this resource
 
 Actions
