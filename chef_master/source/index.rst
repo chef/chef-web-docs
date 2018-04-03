@@ -688,6 +688,7 @@ Addenda
    resource_batch
    resource_bff_package
    resource_breakpoint
+   resource_build_essential
    resource_cab_package
    resource_chef_acl
    resource_chef_client
