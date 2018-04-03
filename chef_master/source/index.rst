@@ -725,6 +725,7 @@ Addenda
    resource_group
    resource_homebrew_cask
    resource_homebrew_package
+   resource_homebrew_tap
    resource_hostname
    resource_http_request
    resource_ifconfig
