@@ -710,6 +710,7 @@ Addenda
    resource_csh
    resource_deploy
    resource_directory
+   resource_dmg_package
    resource_dnf_package
    resource_dpkg_package
    resource_dsc_resource
