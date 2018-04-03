@@ -1,9 +1,357 @@
 =====================================================
-Release Notes: Chef Client 12.0 - 13.8.5
+Release Notes: Chef Client 12.0 - 14.0
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes.rst>`__
 
 Chef Client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef changelog <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
+
+
+What's New in 14.0
+=====================================================
+
+New Resources
+-----------------------------------------------------
+Chef 14 includes a large number of resources ported from community cookbooks. These resources have been tested, improved, and had their functionality expanded. With these new resources in the Chef Client itself, the need for external cookbook dependencies and dependency management has been greatly reduced.
+
+* **build_essential**
+     Use the `build_essential </resource_build_essential.html>`__ resource to install packages required for compiling C software from source. This resource was ported from the build-essential community cookbook.
+
+     .. note:: This resource no longer configures msys2 on Windows systems.
+
+* **chef_handler**
+     Use the `chef_handler </resource_chef_handler.html>`__ resource to install or uninstall Chef reporting/exception handlers. This resource was ported from the chef_handler community cookbook.
+
+* **dmg_package**
+     Use the `dmg_package </resource_dmg_package.html>`__ resource to install a dmg 'package'. The resource will retrieve the dmg file from a remote URL, mount it using hdiutil, copy the application (.app directory) to the specified destination (/Applications), and detach the image using hdiutil. The dmg file will be stored in the ``Chef::Config[:file_cache_path]``. This resource was ported from the dmg community cookbook.
+
+* **homebrew_cask**
+     Use the `homebrew_cask </resource_homebrew_cask.html>`__ resource to install binaries distributed via the Homebrew package manager. This resource was ported from the homebrew community cookbook.
+
+* **homebrew_tap**
+     Use the `homebrew_tap </resource_homebrew_tap.html>`__ resource to add formula repositories to the Homebrew package manager. This resource was ported from the homebrew community cookbook.
+
+* **hostname**
+     Use the `hostname </resource_hostname.html>`__ resource to set the system's hostname, configure the hostname and hosts configuration file, and re-run the Ohai hostname plugin so the hostname will be available in subsequent cookbooks. This resource was ported from the chef_hostname community cookbook.
+
+* **macos_userdefaults**
+     Use the `macos_userdefaults </resource_macos_userdefaults.html>`__ resource to manage the macOS user defaults system. The properties of this resource are passed to the defaults command, and the parameters follow the convention of that command. See the ``defaults`` man page for details on how the tool works. This resource was ported from the mac_os_x community cookbook.
+
+* **ohai_hint**
+     Use the `ohai_hint </resource_ohai_hint.html>`__ resource to pass hint data to Ohai to aid in configuration detection. This resource was ported from the ohai community cookbook.
+
+* **openssl_dhparam**
+     Use the `openssl_dhparam </resource_openssl_dhparam.html>`__ resource to generate ``dhparam.pem`` files. If a valid ``dhparam.pem`` file is found at the specified location, no new file will be created. If a file is found at the specified location but it is not a valid dhparam file, it will be overwritten. This resource was ported from the openssl community cookbook.
+
+* **openssl_rsa_private_key**
+     Use the `openssl_rsa_private_key </resource_openssl_rsa_private_key.html>`__ resource to generate RSA private key files. If a valid RSA key file can be opened at the specified location, no new file will be created. If the RSA key file cannot be opened, either because it does not exist or because the password to the RSA key file does not match the password in the recipe, it will be overwritten. This resource was ported from the openssl community cookbook.
+
+* **openssl_rsa_public_key**
+     Use the `openssl_rsa_public_key </resource_openssl_rsa_public_key.html>`__ resource to generate RSA public key files given an RSA private key. This resource was ported from the openssl community cookbook.
+
+* **rhsm_errata**
+     Use the `rhsm_errata </resource_rhsm_errata.html>`__ resource to install packages associated with a given Red Hat Subscription Manager Errata ID. This is helpful if packages to mitigate a single vulnerability must be installed on your hosts. This resource was ported from the redhat_subscription_manager community cookbook.
+
+* **rhsm_errata_level**
+     Use the `rhsm_errata_level </resource_rhsm_errata_level.html>`__ resource to install all packages of a specified errata level from the Red Hat Subscription Manager. For example, you can ensure that all packages associated with errata marked at a 'Critical' security level are installed. This resource was ported from the redhat_subscription_manager community cookbook.
+
+* **rhsm_register**
+     Use the `rhsm_register </resource_rhsm_register.html>`__ resource to register a node with the Red Hat Subscription Manager, or a local Red Hat Satellite server. This resource was ported from the redhat_subscription_manager community cookbook.
+
+* **rhsm_repo**
+     Use the `rhsm_repo </resource_rhsm_repo.html>`__ resource to enable or disable Red Hat Subscription Manager repositories that are made available via attached subscriptions. This resource was ported from the redhat_subscription_manager community cookbook.
+
+* **rhsm_subscription**
+     Use the `rhsm_subscription </resource_rhsm_subscription.html>`__ resource to add or remove Red Hat Subscription Manager subscriptions for your host. This can be used when a host's activation_key does not attach all necessary subscriptions to your host. This resource was ported from the redhat_subscription_manager community cookbook.
+
+* **sudo**
+     Use the `sudo </resource_sudo.html>`__ resource to add or remove individual sudo entries using ``sudoers.d`` files. Sudo version 1.7.2 or newer is required to use the sudo resource, as it relies on the ``#includedir`` directive introduced in version 1.7.2. This resource does not enforce installation of the required sudo version. Supported releases of Ubuntu, Debian, SuSE, and RHEL (6+) all support this feature. This resource was ported from the sudo community cookbook.
+
+* **swap_file**
+     Use the `swap_file </resource_swap_file.html>`__ resource to create or delete swap files on Linux systems, and optionally to manage the swappiness configuration for a host. This resource was ported from the swap community cookbook.
+
+* **sysctl**
+     Use the `sysctl </resource_sysctl.html>`__ resource to set kernel parameters using the ``sysctl`` command line tool and configuration files in the system's ``sysctl.d`` directory. Configuration files managed by this resource are named ``99-chef-KEYNAME.conf``. If an existing value was already set for the value it will be backed up to the node, and restored if the ``:remove`` action is used later. This resource was ported from the sysctl community cookbook.
+
+     .. note:: This resource no longer backs up existing key values to the node when changing values as we have done in the sysctl cookbook previously. The resource has also been renamed from ``sysctl_param`` to ``sysctl`` with backwards compatibility for the previous name.
+
+* **windows_ad_join**
+     Use the `windows_ad_join </resource_windows_ad_join.html>`__ resource to join a Windows Active Directory domain and reboot the node. This resource is based on the ``win_ad_client`` resource in the win_ad community cookbook, but is not backwards compatible with that resource.
+
+* **windows_auto_run**
+     Use the `windows_auto_run </resource_windows_auto_run.html>`__ resource to set applications to run at logon. This resource was ported from the windows community cookbook.
+
+* **windows_feature**
+     Use the `windows_feature </resource_windows_feature.html>`__ resource to add, remove or entirely delete Windows features and roles. This resource calls the `windows_feature_dism </resource_windows_feature_dism.html>`__ or `windows_feature_powershell </resource_windows_feature_powershell.html>`__ resources depending on the specified installation method, and defaults to DISM, which is available on both Workstation and Server editions of Windows. This resource was ported from the windows community cookbook.
+
+* **windows_font**
+     Use the `windows_font </resource_windows_font.html>`__ resource to install or remove font files on Windows. By default, the font is sourced from the cookbook using the resource, but a URI source can be specified as well. This resource was ported from the windows community cookbook.
+
+* **windows_printer**
+     Use the `windows_printer </resource_windows_printer.html>`__ resource to set up Windows printers. Note that currently this resource does not install a printer driver; you must already have the driver installed on the system. This resource was ported from the windows community cookbook.
+
+* **windows_printer_port**
+     Use the `windows_printer_port </resource_windows_printer_port.html>`__ resource to create and delete TCP/IPv4 printer ports on Windows. This resource was ported from the windows community cookbook.
+
+* **windows_shortcut**
+     Use the `windows_shortcut </resource_windows_shortcut.html>`__ resource to create shortcut files on Windows. This resource was ported from the windows community cookbook.
+
+Custom Resource Improvements
+-----------------------------------------------------
+We've expanded the DSL for custom resources with new functionality to better document your resources and help users with errors and upgrades. Many resources in Chef itself are now using this new functionality, and you'll see more updated to take advantage of this it in the future.
+
+Deprecations in Cookbook Resources
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Chef 14 provides new primitives that allow you to deprecate resources or properties with the same functionality used for deprecations in Chef Client resources. This allows you make breaking changes to enterprise or community cookbooks with friendly notifications to downstream cookbook consumers directly in the Chef run.
+
+**Deprecate the foo_bar resource in a cookbook:**
+
+.. code-block:: ruby
+
+    deprecated "The foo_bar resource has been deprecated and will be removed in the next major release of this cookbook scheduled for 12/25/2018!"
+
+    property :thing, String, name_property: true
+
+    action :create do
+     # you'd probably have some actual chef code here
+    end
+    
+**Deprecate the thing2 property in a resource:**
+
+.. code-block:: ruby
+
+   property :thing2, String, deprecated: 'The thing2 property has been deprecated and will be removed in the next major release of this cookbook scheduled for 12/25/2018!'
+
+**Rename a property with a deprecation warning for users of the old property name:**
+
+.. code-block:: ruby
+
+    deprecated_property_alias 'thing2', 'the_second_thing', 'The thing2 property was renamed the_second_thing in the 2.0 release of this cookbook. Please update your cookbooks to use the new property name.'
+
+validation_message
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Validation messages allow you give the user a friendly error message when any validation on a property fails.
+
+Provide a friendly message when a regex fails:
+
+.. code-block:: ruby
+
+   property :repo_name, String, regex: [/^[^\/]+$/], validation_message: "The repo_name property cannot contain a forward slash '/'",
+
+Resource Documentation
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+You can now include documentation that describes how a resource is to be used. Expect this data to be consumed by Chef and other tooling in future releases.
+
+A resource which includes description and introduced values in the resource, actions, and properties:
+
+.. code-block:: ruby
+
+    description 'The apparmor_policy resource is used to add or remove policy files from a cookbook file'
+    introduced '14.1'
+
+    property :source_cookbook, String,
+             description: 'The cookbook to source the policy file from'
+    property :source_filename, String,
+             description: 'The name of the source file if it differs from the apparmor.d file being created'
+
+    action :add do
+      description 'Adds an apparmor policy'
+
+      # you'd probably have some actual chef code here
+    end
+
+Improved Resources
+-----------------------------------------------------
+Many existing resources now include new actions and properties that expand their functionality.
+
+* **apt_package**
+     apt_package includes a new overwrite_config_files property. Setting this new property to true is equivalent to passing ``-o Dpkg::Options::="--force-confnew"`` to ``apt``, and allows you to install packages that prompt the user to overwrite config files. Thanks @ccope for this new property.
+
+* **env**
+     The env resource has been renamed to windows_env as it only supports the Windows platform. Existing cookbooks using env will continue to function, but should be updated to use the new name.
+
+* **ifconfig**
+     The ifconfig resource includes a new family property for setting the network family on Debian systems. Thanks @martinisoft for this new property.
+
+* **registry_key**
+     The ``sensitive`` property can now be used in registry_key to suppress the output of the key's data from logs and error messages. Thanks @shoekstra for implementing this.
+
+* **powershell_package**
+     powershell_package includes a new ``source`` property to allow specifying the source of the package. Thanks @Happycoil for this new property.
+
+* **systemd_unit**
+     systemd_unit includes the following new actions:
+
+     * ``preset`` - Restore the preset enable/disable configuration for a unit
+     * ``revert`` - Revert to a vendor's version of a unit file
+     * ``reenable`` - Reenable a unit file
+     
+     Thanks @nathwill for these new actions.
+
+* **windows_service**
+     windows_service now includes actions for fully managing services on Windows, in addition to the previous actions for starting/stopping/enabling services:
+
+     * ``create`` - Create a new service
+     * ``delete`` - Delete an existing service
+     * ``configure`` - Reconfigure an existing service
+     
+     Thanks @jasonwbarnett for these new actions
+
+* **route**
+     route includes a new ``comment`` property.
+
+     Thanks Thomas Doherty for adding this new property.
+
+Expanded Configuration Detection
+-----------------------------------------------------
+Ohai has been expanded to collect more information than ever. This should make writing cross-platform and cross-cloud cookbooks simpler.
+
+Windows Kernel information
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+The kernel plugin now reports the following information on Windows:
+
+* ``node['kernel']['product_type']`` - Workstation vs. Server editions of Windows
+* ``node['kernel']['system_type']`` - What kind of hardware are we installed on (Desktop, Mobile, Workstation, Enterprise Server, etc.)
+* ``node['kernel']['server_core']`` - Are we on Windows Server Core edition?
+
+Cloud Detection
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ohai now detects the Scaleway cloud and provides additional configuration information for systems running on Azure.
+
+Virtualization / Container Detection
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+In addition to detecting if a system is a Docker host, we now provide a large amount of Docker configuration information available at ``node['docker']``. This includes the release of Docker, installed plugins, network configuration, and the number of running containers.
+
+Ohai also now properly detects LXD containers and macOS guests running on VirtualBox / VMware. This data is available in ``node['virtualization']['systems']``.
+
+Optional Ohai Plugins
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Ohai now includes the ability to mark plugins as optional, which skips those plugins by default. This allows us to ship additional plugins which some users may find useful, that not all users want collected in the node object on a Chef server. The change introduces two new configuration options: ``run_all_plugins``, which runs everything including optional plugins, and ``optional_plugins``, which allows you to run plugins marked as ``optional``.
+
+By default we will now be marking the lspci, sessions shard and passwd plugins as optional. Passwd has been particularly problematic for nodes attached to LDAP or AD where it attempts to write the entire directory's contents to the node. If you previously disabled this plugin via Ohai config, you no longer need to. Hurray!
+
+Other Changes
+-----------------------------------------------------
+* **Ruby 2.5**
+     Ruby has been updated to version 2.5 bringing a 10% performance improvement and improved functionality.
+
+* **InSpec 2.0**
+     InSpec has been updated to the 2.0 release. InSpec 2.0 brings compliance automation to the cloud, with new resource types specifically built for AWS and Azure clouds. Along with these changes are major speed improvements and quality of life updates. Please visit https://www.inspec.io/ for more information.
+
+* **Policyfile Hoisting**
+     Many users of Policyfiles rely on "hoisting" to provide group specific attributes. This approach was formalized in the poise-hoist extension, and is now included in Chef 14.
+
+     To hoist an attribute, the user provides a default attribute structure in their Policyfile similar to:
+     
+     .. code-block:: ruby
+
+        default['staging']['myapp']['title'] = "My Staging App" default['production']['myapp']['title'] = "My App"
+        
+    
+     and then accesses the node attribute in their cookbook as:
+     
+     .. code-block:: ruby
+        
+        node['myapp']['title']
+        
+     The correct attribute is then provided based on the ``policy_group`` of the node, so with a ``policy_group`` of ``staging`` the attribute would contain "My Staging App".
+
+* **yum_package rewrite**
+     yum_package received a ground up rewrite that greatly improves both the performance and functionality while also resolving a dozen existing issues. It introduces a new caching method that runs for the duration of the chef-client process. This caching method speeds up each package install and takes 1/2 the memory of the previous ``yum-dump.py`` process.
+
+     yum_package should now take any argument that ``yum install`` does and operate the same way, including version constraints ,(``foo < 1.2.3``), globs (``foo-1.2*``), and arches (``foo.i386``), in combinations.
+
+     Package with a version constraint:
+     
+     .. code-block:: ruby
+
+        yum_package "foo < 1.2.3"
+        
+     Installing a package via what it provides:
+     
+     .. code-block:: ruby 
+
+        yum_package "perl(Git)"
+        
+* **powershell_exec Mixin**
+     Since our supported Windows platforms can all run .NET Framework 4.0 and PowerShell 4.0, we have taken time to add a new helper that will allow for faster and safer interactions with the system PowerShell. You will be able to use the ``powershell_exe``c mixin in most places where you would have previously used ``powershell_out``. For comparison, a basic benchmark test to return the ``$PSVersionTable`` 100 times completed 7.3X faster compared to the ``powershell_out`` method. The majority of the time difference is because of less time spent in invocation. We believe it has great potential where multiple calls to PowerShell are required inside (for example) a custom resource. Many core Chef resources will be updated to use this new mixin in future releases.
+
+* **Logging Improvements**
+     Chef now includes a new log level of ``:trace`` in addition to the existing ``:info``, ``:warn``, and ``:debug`` levels. With the introduction of trace-level logging we've moved a large amount of logging that is more useful for Chef developers from debug to trace. This makes it easier for Chef Cookbook developers to use debug level to get useful information.
+
+Security Updates
+-----------------------------------------------------
+* **OpenSSL**
+     OpenSSL has been updated to 1.0.2o to resolve `CVE-2018-0739 <https://nvd.nist.gov/vuln/detail/CVE-2018-0739>`__
+
+* **Ruby**
+     Ruby has been updated to 2.5.1 to resolve the following vulnerabilities:
+
+     * `CVE-2017-17742 <https://www.ruby-lang.org/en/news/2018/03/28/http-response-splitting-in-webrick-cve-2017-17742/>`__
+     * `CVE-2018-6914 <https://www.ruby-lang.org/en/news/2018/03/28/unintentional-file-and-directory-creation-with-directory-traversal-cve-2018-6914/>`__
+     * `CVE-2018-8777 <https://www.ruby-lang.org/en/news/2018/03/28/large-request-dos-in-webrick-cve-2018-8777/>`__
+     * `CVE-2018-8778 <https://www.ruby-lang.org/en/news/2018/03/28/buffer-under-read-unpack-cve-2018-8778/>`__
+     * `CVE-2018-8779 <https://www.ruby-lang.org/en/news/2018/03/28/poisoned-nul-byte-unixsocket-cve-2018-8779/>`__
+     * `CVE-2018-8780 <https://www.ruby-lang.org/en/news/2018/03/28/poisoned-nul-byte-dir-cve-2018-8780/>`__
+     * https://www.ruby-lang.org/en/news/2018/02/17/multiple-vulnerabilities-in-rubygems/
+     
+Breaking Changes
+-----------------------------------------------------
+This release completes the deprecation process for many of the deprecations that were warnings throughout the Chef 12 and Chef 13 releases.
+
+* **erl_call Resource**
+     The erl_call resource was deprecated in Chef 13.7 and has been removed.
+
+* **deploy Resource**
+     The deploy resource was deprecated in Chef 13.6 and been removed. If you still require this resource, it is available in the new deploy_resource cookbook at https://supermarket.chef.io/cookbooks/deploy_resource
+
+* **Windows 2003 Support**
+     Support for Windows 2003 has been removed from both Chef and Ohai, improving the performance of Chef on Windows hosts.
+
+* **knife bootstrap options --distro and --template_file**
+     The --distro and --template_file knife bootstrap flags were deprecated in Chef 12.0 and have now been removed.
+
+* **knife help**
+     The ``knife help`` functionality that read legacy Chef manpages has been removed. These manpages had not been updated in many years and were often quite wrong. Running ``knife help`` will now simply show the help menu.
+
+* **chocolatey_package :uninstall Action**
+     The chocolatey_package resource in the chocolatey cookbook supported an ``:uninstall`` action. When this resource was moved into the Chef Client we allowed this action with a deprecation warning. This action is now removed.
+
+* **Property names not using new_resource.NAME**
+     Previously if a user wrote a custom resource with a property named ``foo`` they could reference it throughout the resource using the name ``foo``. This caused multiple edge cases where the property name could conflict with resources or methods in Chef. Properties now must be referenced as ``new_resource.foo``. This was already the case when writing LWRPs.
+
+* **epic_fail**
+     The original name for the ``ignore_failure`` property in resource was ``epic_fail``. The legacy name has been removed.
+
+* **Legacy Mixins**
+     Several legacy mixins mostly used in older HWRPs have been removed. Usage of these mixins has resulted in deprecation warnings for several years and they are rarely used in cookbooks available on the Supermarket.
+
+     * ``Chef::Mixin::LanguageIncludeAttribute``
+     * ``Chef::Mixin::RecipeDefinitionDSLCore``
+     * ``Chef::Mixin::LanguageIncludeRecipe``
+     * ``Chef::Mixin::Language``
+     * ``Chef::DSL::Recipe::FullDSL``
+     
+* **cloud_v2 and filesystem2 Ohai Plugins**
+     In Chef 13 the ``cloud_v2`` plugin replaced data at ``node['cloud']`` and ``filesystem2`` replaced data at ``node['filesystem']``. For compatibility with cookbooks that were previously using the "v2" data we continued to write data to both locations (ie: both ``node['filesystem']`` and ``node['filesystem2']``). We now no longer write data to the "v2" locations which greatly reduces the amount of data we need to store on the Chef server.
+
+* **Ipscopes Ohai Plugin Removed**
+     The ipscopes plugin has been removed as it duplicated data already present in the network plugins and required the user to install an additional gem into the Chef installation.
+
+* **Ohai libvirt attributes moved**
+     The libvirt Ohai plugin now writes data to ``node['libvirt']`` instead of writing to various locations in ``node['virtualization']``. This plugin required installing an additional gem into the Chef installation and thus was infrequently used.
+
+* **Ohai Plugin V6 Support Removed**
+     In 2014 we introduced Ohai v7 with a greatly improved plugin format. With Chef 14 we no longer support loading of the legacy "v6" plugin format.
+
+* **Newly-disabled Ohai Plugins**
+     As mentioned above we now support an optional flag for Ohai plugins and have marked the sessions, lspci, and passwd plugins as optional, which disables them by default. If you need one of these plugins you can include them using ``optional_plugins``.
+
+     optional_plugins in the client.rb file:
+     
+     .. code-block:: ruby
+
+        optional_plugins [ "lspci", "passwd" ]
 
 What's New in 13.8.5
 =====================================================
