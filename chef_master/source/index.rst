@@ -688,6 +688,7 @@ Addenda
    resource_batch
    resource_bff_package
    resource_breakpoint
+   resource_build_essential
    resource_cab_package
    resource_chef_acl
    resource_chef_client
@@ -710,6 +711,7 @@ Addenda
    resource_csh
    resource_deploy
    resource_directory
+   resource_dmg_package
    resource_dnf_package
    resource_dpkg_package
    resource_dsc_resource
@@ -723,7 +725,9 @@ Addenda
    resource_gem_package
    resource_git
    resource_group
+   resource_homebrew_cask
    resource_homebrew_package
+   resource_homebrew_tap
    resource_hostname
    resource_http_request
    resource_ifconfig
