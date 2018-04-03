@@ -723,6 +723,7 @@ Addenda
    resource_gem_package
    resource_git
    resource_group
+   resource_homebrew_cask
    resource_homebrew_package
    resource_hostname
    resource_http_request
