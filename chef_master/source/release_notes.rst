@@ -28,7 +28,7 @@ Chef 14 includes a large number of resources ported from community cookbooks. Th
      Use the `homebrew_cask </resource_homebrew_cask.html>`__ resource to install binaries distributed via the Homebrew package manager. This resource was ported from the homebrew community cookbook.
 
 * **homebrew_tap**
-     Use the `<homebrew_tap </resource_homebrew_tap.html>`__ resource to add formula repositories to the Homebrew package manager. This resource was ported from the homebrew community cookbook.
+     Use the `homebrew_tap </resource_homebrew_tap.html>`__ resource to add formula repositories to the Homebrew package manager. This resource was ported from the homebrew community cookbook.
 
 * **hostname**
      Use the `hostname </resource_hostname.html>`__ resource to set the system's hostname, configure the hostname and hosts configuration file, and re-run the Ohai hostname plugin so the hostname will be available in subsequent cookbooks. This resource was ported from the chef_hostname community cookbook.
