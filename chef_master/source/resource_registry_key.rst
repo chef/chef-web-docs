@@ -59,6 +59,7 @@ The full syntax for all of the properties that are available to the **registry_k
      key                        String # defaults to 'name' if not specified
      notifies                   # see description
      recursive                  True, False
+     sensitive                  True, False # default value: 'false'
      subscribes                 # see description
      values                     Hash, Array
      action                     Symbol # defaults to :create if not specified
@@ -442,6 +443,13 @@ This resource has the following properties:
    **Ruby Type:** Integer
 
    The retry delay (in seconds). Default value: ``2``.
+   
+``sensitive``
+   **Ruby Type:** True, False | **Default value:** False
+   
+   Determines whether or not sensitive resource data (such as key information) is logged by Chef Client.
+   
+   New in Chef Client 14.0.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'

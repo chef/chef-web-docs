@@ -1736,8 +1736,6 @@ where
 
 Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_systemd_unit_actions
-
 This resource has the following actions:
 
 ``:create``
@@ -1781,8 +1779,6 @@ This resource has the following actions:
 
 ``:reload_or_try_restart``
    For units that are services, this action reloads the configuration of the service without restarting, if possible; otherwise, it will try to restart the service so the new configuration is applied.
-
-.. end_tag
 
 Properties
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
