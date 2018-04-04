@@ -61,7 +61,9 @@ Properties
 ``source``
    **Ruby Types:** String
    
-   The source where the package is installed from.
+   Specify the source of the package.
+   
+   New in Chef Client 14.0.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
