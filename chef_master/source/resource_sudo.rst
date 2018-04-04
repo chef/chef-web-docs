@@ -90,7 +90,7 @@ Properties
    An array of strings to remove from ``env_keep``.
 
 ``filename``
-   **Ruby Type:** String | **Default Value:** ``The resource's name``
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
    Optional. The name of the ``sudoers.d`` file, if it differs from the name of the resource block. 
 
