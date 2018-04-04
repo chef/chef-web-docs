@@ -111,9 +111,11 @@ This resource has the following properties:
    New in Chef Client 13.4
 
 ``family``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``inet``
 
-   Networking family option for Debian based systems. For example: `inet` or `inet6`. Default value: `inet`.
+   Networking family option for Debian-based systems; for example: ``inet`` or ``inet6``.
+   
+   New in Chef Client 14.0.
 
 ``hwaddr``
    **Ruby Type:** String
