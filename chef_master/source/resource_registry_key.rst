@@ -448,6 +448,8 @@ This resource has the following properties:
    **Ruby Type:** True, False | **Default value:** False
    
    Determines whether or not sensitive resource data (such as key information) is logged by Chef Client.
+   
+   New in Chef Client 14.0.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
