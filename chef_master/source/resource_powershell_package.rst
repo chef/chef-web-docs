@@ -26,6 +26,7 @@ The full syntax for all of the properties that are available to the **powershell
      package_name               String, Array # defaults to 'name' if not specified
      version                    String, Array
      notifies                   # see description
+     source                     String
      subscribes                 # see description
      action                     Symbol # defaults to :install if not specified
    end
@@ -90,6 +91,11 @@ Properties
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
+   
+``source``
+   **Ruby Type:** String
+   
+   Specify a package source.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
