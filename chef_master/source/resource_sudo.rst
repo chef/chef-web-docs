@@ -14,25 +14,25 @@ This resource has the following syntax:
 .. code-block:: ruby
 
    sudo 'name' do
-     commands                   Array # default value: "ALL"
-     command_aliases            Array # default value: lazy { [] }
+     commands                   Array # default value: 'ALL'
+     command_aliases            Array # default value: []
      config_prefix              String # see description
-     defaults                   Array # default value: lazy { [] }
-     env_keep_add               Array # default value: lazy { [] }
-     env_keep_subtract          Array # default value: lazy { [] }
-     filename                   String # default value: 'name'
-     groups                     String, Array # default value: lazy { [] }
-     host                       String # default value: "ALL"
+     defaults                   Array # default value: []
+     env_keep_add               Array # default value: []
+     env_keep_subtract          Array # default value: []
+     filename                   String # default value: The resource's name
+     groups                     String, Array # default value: []
+     host                       String # default value: 'ALL'
      noexec                     True, False # default value: 'false'
      nopasswd                   True, False #default value: 'false'
      notifies                   # see description
-     runas                      String # default value: "ALL"
+     runas                      String # default value: 'ALL'
      setenv                     True, False # default value: 'false'
      subscribes                 # see description
      template                   String
-     users                      String, Array # default value: lazy { [] }
+     users                      String, Array # default value: []
      variables                  Hash, nil # default value: nil
-     visudo_binary              String # default value: "/usr/bin/visudo"
+     visudo_binary              String # default value: '/usr/bin/visudo'
      action                     Symbol # defaults to :create if not specified              
   end
 
@@ -65,27 +65,27 @@ Properties
    An array of commands this sudoer can execute. 
 
 ``command_aliases``
-   **Ruby Type:** Array | **Default Value:** ``lazy { [] }``
+   **Ruby Type:** Array | **Default Value:** ``[]``
 
    Command aliases that can be used as allowed commands later in the configuration. 
 
 ``config_prefix``
-   **Ruby Type:** String | **Default Value:** ``lazy { platform_config_prefix }``
+   **Ruby Type:** String | **Default Value:** ``Prefix values based on the node's platform``
 
    The directory that contains the sudoers configuration file. 
 
 ``defaults``
-   **Ruby Type:** Array | **Default Value:** ``lazy { [] }``
+   **Ruby Type:** Array | **Default Value:** ``[]``
 
    An array of defaults for the user/group. 
 
 ``env_keep_add``
-   **Ruby Type:** Array | **Default Value:** ``lazy { [] }``
+   **Ruby Type:** Array | **Default Value:** ``[]``
 
    An array of strings to add to ``env_keep``. 
 
 ``env_keep_subtract``
-   **Ruby Type:** Array | **Default Value:** ``lazy { [] }``
+   **Ruby Type:** Array | **Default Value:** ``[]``
 
    An array of strings to remove from ``env_keep``.
 
@@ -95,7 +95,7 @@ Properties
    Optional. The name of the ``sudoers.d`` file, if it differs from the name of the resource block. 
 
 ``groups``
-   **Ruby Type:** String, Array | **Default Value:** ``lazy { [] }``
+   **Ruby Type:** String, Array | **Default Value:** ``[]``
 
    Group(s) to provide sudo privileges to. This accepts either an array or a comma-separated list. Leading % on group names is optional.
 
@@ -213,7 +213,7 @@ Properties
    The name of the ``.erb`` template in your cookbook, if you wish to supply your own template. 
 
 ``users``
-   **Ruby Type:** String, Array | **Default Value:** ``lazy { [] }``
+   **Ruby Type:** String, Array | **Default Value:** ``[]``
 
    User(s) to provide sudo privileges to. This property accepts either an array or a comma-separated list.
 
