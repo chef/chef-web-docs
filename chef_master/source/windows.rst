@@ -3332,7 +3332,9 @@ env
 -----------------------------------------------------
 .. tag resource_env_summary
 
-Use the **env** resource to manage environment keys in Microsoft Windows. After an environment key is set, Microsoft Windows must be restarted before the environment key will be available to the Task Scheduler.
+Use the **windows_env** resource to manage environment keys in Microsoft Windows. After an environment key is set, Microsoft Windows must be restarted before the environment key will be available to the Task Scheduler.
+
+This resource was previously called the **env** resource; its name was updated in Chef Client 14.0 to reflect the fact that only Windows is supported. Existing cookbooks using ``env`` will continue to function, but should be updated to use the new name.
 
 .. end_tag
 
@@ -3340,11 +3342,11 @@ Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_env_syntax
 
-A **env** resource block manages environment keys in Microsoft Windows:
+A **windows_env** resource block manages environment keys in Microsoft Windows:
 
 .. code-block:: ruby
 
-   env 'ComSpec' do
+   windows_env 'ComSpec' do
      value 'C:\\Windows\\system32\\cmd.exe'
    end
 
@@ -3352,7 +3354,7 @@ The full syntax for all of the properties that are available to the **env** reso
 
 .. code-block:: ruby
 
-   env 'name' do
+   windows_env 'name' do
      delim                      String
      key_name                   String # defaults to 'name' if not specified
      notifies                   # see description
@@ -3363,7 +3365,7 @@ The full syntax for all of the properties that are available to the **env** reso
 
 where
 
-* ``env`` is the resource
+* ``windows_env`` is the resource
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
 * ``delim``, ``key_name``, and ``value`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
@@ -3527,7 +3529,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. code-block:: ruby
 
-   env 'ComSpec' do
+   windows_env 'ComSpec' do
      value "C:\\Windows\\system32\\cmd.exe"
    end
 
@@ -3965,6 +3967,7 @@ The full syntax for all of the properties that are available to the **registry_k
      key                        String # defaults to 'name' if not specified
      notifies                   # see description
      recursive                  True, False
+     sensitive                  True, False # default value: 'false'
      subscribes                 # see description
      values                     Hash, Array
      action                     Symbol # defaults to :create if not specified
@@ -4348,6 +4351,11 @@ This resource has the following properties:
    **Ruby Type:** Integer
 
    The retry delay (in seconds). Default value: ``2``.
+
+``sensitive``
+   **Ruby Type:** True, False | **Default value:** False
+
+   Determines whether or not sensitive resource data (such as key information) is logged by Chef Client.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
