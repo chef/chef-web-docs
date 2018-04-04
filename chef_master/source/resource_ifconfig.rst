@@ -29,7 +29,6 @@ The full syntax for all of the properties that are available to the **ifconfig**
      bootproto                  String
      device                     String
      ethtool_opts               String
-     family                     String # default value: 'inet'
      hwaddr                     String
      inet_addr                  String
      mask                       String
@@ -108,13 +107,6 @@ This resource has the following properties:
    Options to be passed to ethtool(8). For example: ``-A eth0 autoneg off rx off tx off``
 
    New in Chef Client 13.4
-   
-``family``
-   **Ruby Type:** String | **Default Value:** ``inet``
-   
-   Specify the address family on Debian systems.
-   
-   New in Chef Client 14.0.
 
 ``hwaddr``
    **Ruby Type:** String
