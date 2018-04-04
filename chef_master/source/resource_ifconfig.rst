@@ -112,7 +112,7 @@ This resource has the following properties:
 ``family``
    **Ruby Type:** String | **Default Value:** ``inet``
    
-   Specify the address family.
+   Specify the address family on Debian systems.
    
    New in Chef Client 14.0.
 
