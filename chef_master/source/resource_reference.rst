@@ -1214,7 +1214,7 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_dsc_script.rst
 
-.. include:: resource_env.rst
+.. include:: resource_windows_env.rst
 
 .. include:: resource_erlang_call.rst
 
