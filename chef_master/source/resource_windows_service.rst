@@ -77,12 +77,12 @@ This resource has the following actions:
 ``:create``
    Create the service based on the value of the ``binary_path_name``, ``service_name`` and/or ``display_name`` property.
 
-   New in Chef Client 13.7.16.
+   New in Chef Client 14.0.
 
 ``:delete``
    Delete the service based on the value of the ``service_name`` property.
 
-   New in Chef Client 13.7.16.
+   New in Chef Client 14.0.
 
 ``:disable``
    Disable a service. This action is equivalent to a ``Disabled`` startup type on the Microsoft Windows platform.
@@ -118,35 +118,35 @@ This resource has the following properties:
 
    **Required** The fully qualified path to the service binary file. The path can also include arguments for an auto-start service.
 
-   New in Chef Client 13.7.16.
+   New in Chef Client 14.0.
 
 ``display_name``
    **Ruby Type:** String
 
    The display name to be used by user interface programs to identify the service. This string has a maximum length of 256 characters.
 
-   New in Chef Client 13.7.16.
+   New in Chef Client 14.0.
 
 ``delayed_start``
    **Ruby Type:** Integer
 
    Set the startup type to delayed start. This only applies if ``startup_type`` is ``:automatic``.
 
-   New in Chef Client 13.7.16.
+   New in Chef Client 14.0.
 
 ``dependencies``
    **Ruby Types:** String, Array
 
    A pointer to a double null-terminated array of null-separated names of services or load ordering groups that the system must start before this service. Specify ``nil`` or an empty string if the service has no dependencies. Dependency on a group means that this service can run if at least one member of the group is running after an attempt to start all members of the group.
 
-   New in Chef Client 13.7.16.
+   New in Chef Client 14.0.
 
 ``description``
    **Ruby Types:** String
 
    Description of the service.
 
-   New in Chef Client 13.7.16.
+   New in Chef Client 14.0.
 
 ``ignore_failure``
    **Ruby Types:** True, False
@@ -163,7 +163,7 @@ This resource has the following properties:
 
    The name of the service's load ordering group(s). Specify ``nil`` or an empty string if the service does not belong to a group.
 
-   New in Chef Client 13.7.16.
+   New in Chef Client 14.0.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -242,8 +242,6 @@ This resource has the following properties:
    **Ruby Type:** String
 
    The name of the service. Default value: the ``name`` of the resource block. See the "Syntax" section above for more information.
-
-   New in Chef Client 13.7.16.
 
 ``start_command``
    **Ruby Type:** String
