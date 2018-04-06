@@ -13,7 +13,7 @@ Install
 macOS
 -----------------------------------------------------
 
-.. note:: Apple Xcode is required to install the Chef DK on macOS. Install it via the Mac App Store.
+.. note:: Apple Xcode is required to install the Chef DK on macOS. Install Xcode via the Mac App Store.
 
 #. Visit the `Chef DK downloads page <https://downloads.chef.io/chefdk>`_ and select the appropriate package for your macOS version. Click on the **Download** button.
 #. Follow the steps to accept the license and install the Chef development kit. You will have the option to change your install location; by default the installer uses the ``/opt/chefdk/`` directory.
