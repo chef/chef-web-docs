@@ -80,10 +80,6 @@ To get a sense of how the InSpec language works, here are some examples. This In
 Chef Automate
 =====================================================
 
-.. image:: ../../images/chef_automate_full.png
-   :width: 40px
-   :height: 17px
-
 Chef Automate provides a full suite of enterprise capabilities for workflow, node visibility and compliance. Chef Automate integrates with the open-source products Chef, InSpec and Habitat. Chef Automate comes with comprehensive 24x7 support services for the entire platform, including open source components.
 
 Chef Automate gives you a full-stack continuous deployment pipeline, automated testing for compliance and security, as well as visibility into everything that's happening as you move your applications and infrastructure through the pipeline and then when they're in production.
