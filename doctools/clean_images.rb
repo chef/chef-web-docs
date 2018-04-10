@@ -6,8 +6,9 @@
 require 'set'
 require 'fileutils'
 
+## Set the environment to your path
 DIRECTORY = ENV.fetch('CHEFWEBDOCS',
-                      '/Users/kimberlygarmoe/repos/chef-web-docs/')
+                      '~/Users/[username]/[directory]/chef-web-docs/')
 # initialize set
 used = Set.new
 images = Set.new
