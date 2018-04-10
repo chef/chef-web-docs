@@ -317,7 +317,7 @@ This release completes the deprecation process for many of the deprecations that
      The ``knife help`` functionality that read legacy Chef manpages has been removed. These manpages had not been updated in many years and were often quite wrong. Running ``knife help`` will now simply show the help menu.
      
 * **knife index rebuild**
-     The ``knife index rebuild`` command has been removed, as reindexing Chef Server was only necessary on release prior to Chef Server 11.
+     The ``knife index rebuild`` command has been removed, as reindexing Chef Server was only necessary on releases prior to Chef Server 11.
      
 * **knife ssh --identity-file**
      The ``--identity-file`` option for ``knife ssh`` was deprecated, and has been removed. Users should use the ``--ssh_identity_file`` flag instead.
