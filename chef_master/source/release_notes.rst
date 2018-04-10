@@ -1052,6 +1052,13 @@ New deprecations included in this release
 -----------------------------------------------------
 * `Removal of support for Ohai version 6 plugins </deprecations_ohai_v6_plugins.html>`__
 
+What's New in 12.22.3
+=====================================================
+This release fixes an issue in our Windows security support code that would occasionally cause heap corruption on Windows. This would manifest as Chef Client runs that terminated without any logging or errors. Since the issue was located within the common ``get_account_right`` method, this could affect a number of different recipes, but was most often seen when using the windows_service resource.
+
+This issue is also fixed in the recent Chef 14.0.190 release, and will be included in the next Chef 13 release expected by the end of the month.
+
+This is the final planned Chef 12 release, which is currently deprecated and will become End of Life on April 30th. For additional information on that process, please see our `Chef 12 and Chef DK 1 EOL information <https://www.chef.io/eol-chef12-and-chefdk1>`__.
 
 What's New in 12.22.1
 =====================================================
