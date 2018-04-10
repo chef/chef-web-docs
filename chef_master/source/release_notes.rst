@@ -82,6 +82,8 @@ Chef 14 includes a large number of resources ported from community cookbooks. Th
 
 * **windows_feature**
      Use the `windows_feature </resource_windows_feature.html>`__ resource to add, remove or entirely delete Windows features and roles. This resource calls the `windows_feature_dism </resource_windows_feature_dism.html>`__ or `windows_feature_powershell </resource_windows_feature_powershell.html>`__ resources depending on the specified installation method, and defaults to DISM, which is available on both Workstation and Server editions of Windows. This resource was ported from the windows community cookbook.
+     
+     .. note:: These resources received significant refactoring in the 4.0 version of the windows cookbook (March 2018). windows_feature resources will now fail if the installation of invalid features is requested, and support for installation via server `servermanagercmd.exe` has been removed. If you are using a windows_cookbook version less than 4.0 you may need to update cookbooks for Chef 14.
 
 * **windows_font**
      Use the `windows_font </resource_windows_font.html>`__ resource to install or remove font files on Windows. By default, the font is sourced from the cookbook using the resource, but a URI source can be specified as well. This resource was ported from the windows community cookbook.
@@ -313,6 +315,21 @@ This release completes the deprecation process for many of the deprecations that
 
 * **knife help**
      The ``knife help`` functionality that read legacy Chef manpages has been removed. These manpages had not been updated in many years and were often quite wrong. Running ``knife help`` will now simply show the help menu.
+     
+* **knife index rebuild**
+     The ``knife index rebuild`` command has been removed, as reindexing Chef Server was only necessary on release prior to Chef Server 11.
+     
+* **knife ssh --identity-file**
+     The ``--identity-file`` option for ``knife ssh`` was deprecated, and has been removed. Users should use the ``--ssh_identity_file`` flag instead.
+     
+* **knife ssh csshx**
+     ``knife ssh csshx`` was deprecated in Chef 10, and has been removed. Users should use ``knife ssh cssh`` instead.
+     
+* **Chef Solo -r flag**
+     The ``-r`` flag for Chef Solo was deprecated, and has been removed. Users should instead use the ``--recipe-url`` flag, which was introduced in Chef 12.
+     
+* **node.set and node.set_unless**
+     The ``node.set`` and ``node.set_unless`` attribute levels were deprecated in Chef 12, and have been removed in Chef 14. To replicate this functionality, users should use ``node.normal`` and ``node.normal_unless``; however we highly recommend reading our `attribute documentation <https://docs.chef.io/attributes.html>`__ to ensure that ``normal`` is in fact your desired attribute level.
 
 * **chocolatey_package :uninstall Action**
      The chocolatey_package resource in the chocolatey cookbook supported an ``:uninstall`` action. When this resource was moved into the Chef Client we allowed this action with a deprecation warning. This action is now removed.
