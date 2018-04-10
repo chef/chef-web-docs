@@ -1166,33 +1166,9 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_cab_package.rst
 
-.. include:: resource_chef_acl.rst
-
-.. include:: resource_chef_client.rst
-
-.. include:: resource_chef_container.rst
-
-.. include:: resource_chef_data_bag.rst
-
-.. include:: resource_chef_data_bag_item.rst
-
-.. include:: resource_chef_environment.rst
-
 .. include:: resource_chef_gem.rst
 
-.. include:: resource_chef_group.rst
-
 .. include:: resource_chef_handler.rst
-
-.. include:: resource_chef_mirror.rst
-
-.. include:: resource_chef_node.rst
-
-.. include:: resource_chef_organization.rst
-
-.. include:: resource_chef_role.rst
-
-.. include:: resource_chef_user.rst
 
 .. include:: resource_chocolatey_package.rst
 
@@ -1244,19 +1220,7 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_link.rst
 
-.. include:: resource_load_balancer.rst
-
 .. include:: resource_log.rst
-
-.. include:: resource_machine.rst
-
-.. include:: resource_machine_batch.rst
-
-.. include:: resource_machine_execute.rst
-
-.. include:: resource_machine_file.rst
-
-.. include:: resource_machine_image.rst
 
 .. include:: resource_macports_package.rst
 
@@ -1285,10 +1249,6 @@ The following resources are built into the Chef Client:
 .. include:: resource_powershell_package.rst
 
 .. include:: resource_powershell_script.rst
-
-.. include:: resource_private_key.rst
-
-.. include:: resource_public_key.rst
 
 .. include:: resource_python.rst
 
