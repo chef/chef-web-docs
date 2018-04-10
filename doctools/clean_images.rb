@@ -4,7 +4,7 @@
 
 # require set
 require 'set'
-require 'FileUtils'
+require 'fileutils'
 
 DIRECTORY = ENV.fetch('CHEFWEBDOCS',
                       '/Users/kimberlygarmoe/repos/chef-web-docs/')
@@ -55,9 +55,19 @@ puts "number of used: #{used.length}\n\n"
 
 # Used images that are used but do not exist
 unused = images - used
-puts "#\n# UNUSED\n#\n"
+puts "#\n# UNUSED\n#\n" 
 puts unused.to_a.sort!
 puts "number of unused: #{unused.length}\n"
 puts "difference between images and used: #{images.length - used.length}\n\n"
 
 puts (images.count - used.count)
+
+Dir.mkdir('image_archive') unless File.exists?('image_archive')
+
+
+unused.each do |u|
+  FileUtils.mv("#{DIRECTORY}/images/#{u}", "image_archive/")
+end
+
+# unused = unused.to_a.join(",");
+# FileUtils.mv(unused, '/image_archive/')
