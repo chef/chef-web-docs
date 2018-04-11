@@ -110,6 +110,18 @@ All Deprecations
     - Deprecation of the ``:uninstall`` action in the ``chocolatey_package`` resource.
     - 13.7
     - 14.0
+  * - CHEF-22
+    - Deprecation of the ``erl_call`` resource.
+    - 13.7
+    - 14.0
+  * - CHEF-23
+    - Deprecation of legacy HWRP mixins.
+    - 12.X
+    - 14.0
+  * - CHEF-24
+    - Deprecation of epic_fail in favor of allow_failure
+    - 13.7
+    - 14.0  
   * - `CHEF-3694 </deprecations_resource_cloning.html>`__
     - Resource Cloning will no longer work.
     - 10.18
