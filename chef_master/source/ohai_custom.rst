@@ -72,8 +72,8 @@ For example, the following plugin looks up data on virtual machines hosted in Am
 
      def create_objects
        cloud Mash.new
-       cloud[:public_ips] = Array.new
-       cloud[:private_ips] = Array.new
+       cloud[:public_ips] = []
+       cloud[:private_ips] = []
      end
 
      ...
