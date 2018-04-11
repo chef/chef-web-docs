@@ -7,6 +7,11 @@ Ohai Custom Plugins
 
 Custom Ohai plugins describe additional configuration attributes to be collected by Ohai and provided to the chef-client during chef runs.
 
+Ohai plugins are written in Ruby with a plugin DSL documented below. Being written in Ruby provides access to all of Ruby's built-in functionality as well as 3rd party gem functionality. Plugins can parse the output of any local command on the node or they can fetch data from external APIs. Examples of plugins that users have written:
+- A plugin to gather node information including datacenter, rack, and rack position from an inventory server
+- A plugin to gather additional RAID array information from a controller utility
+- A plugin to gather hardware warranty information from a vendor API
+
 .. end_tag
 
 See `About Ohai </ohai.html>`__ for information on Ohai configuration and usage.
