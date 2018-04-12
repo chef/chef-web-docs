@@ -1308,7 +1308,7 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_swap_file.rst
 
-.. include:: resource_syctl.rst
+.. include:: resource_sysctl.rst
 
 .. include:: resource_systemd_unit.rst
 
