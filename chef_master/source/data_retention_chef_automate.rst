@@ -70,6 +70,12 @@ Reaper has a number of configuration parameters you may specify in your ``/etc/d
 
 ``reaper[‘repository’]``: string
   The name of the repository set up in Elasticsearch, defaults to ``'reaper[‘archive_destination’]-chef-automate'``
+  
+  New in Chef Automate 1.8.38.
+
+``reaper[‘insights_clean_missing_nodes’]``: boolean
+    If ``true``, Reaper will delete nodes that are missing and haven't checked in since ``reaper[’insights_retention_period_in_days’]`` or if that's not set ``reaper[’retention_period_in_days’]``.
+    Default: ``false``
 
 How Reaper Operates
 =====================================================
