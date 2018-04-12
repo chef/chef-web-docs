@@ -124,6 +124,8 @@ Cookbook Reference
 `Common Functionality </resource_common.html>`__ |
 `Custom Resources </custom_resources.html>`__ | 
 `All Resources (Single Page) </resource_reference.html>`__ |
+`Examples (by Resource) </resource_examples.html>`__
+
 `apt_package </resource_apt_package.html>`__ |
 `apt_preference </resource_apt_preference.html>`__ |
 `apt_repository </resource_apt_repository.html>`__ |
@@ -238,8 +240,8 @@ Cookbook Reference
 `yum_repository </resource_yum_repository.html>`__ | 
 `dnf_package </resource_dnf_package.html>`__ | 
 `zypper_package </resource_zypper_package.html>`__ | 
-`zypper_repository </resource_zypper_repository.html>`__ | 
-`Examples (by Resource) </resource_examples.html>`__
+`zypper_repository </resource_zypper_repository.html>`__  
+
 
 `Templates </templates.html>`__ |
 `Cookbook Repo </cookbook_repo.html>`__ |
