@@ -1182,6 +1182,8 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_directory.rst
 
+.. include:: resource_dmg_package.rst
+
 .. include:: resource_dnf_package.rst
 
 .. include:: resource_dpkg_package.rst
@@ -1189,8 +1191,6 @@ The following resources are built into the Chef Client:
 .. include:: resource_dsc_resource.rst
 
 .. include:: resource_dsc_script.rst
-
-.. include:: resource_windows_env.rst
 
 .. include:: resource_erlang_call.rst
 
@@ -1206,7 +1206,13 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_group.rst
 
+.. include:: resource_homebrew_cask.rst
+
 .. include:: resource_homebrew_package.rst
+
+.. include:: resource_homebrew_tap.rst
+
+.. include:: resource_hostname.rst
 
 .. include:: resource_http_request.rst
 
@@ -1222,6 +1228,8 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_log.rst
 
+.. include:: resource_macos_userdefaults.rst
+
 .. include:: resource_macports_package.rst
 
 .. include:: resource_mdadm.rst
@@ -1232,7 +1240,15 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_ohai.rst
 
+.. include:: resource_ohai_hint.rst
+
 .. include:: resource_openbsd_package.rst
+
+.. include:: resource_openssl_dhparam.rst
+
+.. include:: resource_openssl_rsa_public_key.rst
+
+.. include:: resource_openssl_rsa_private_key.rst
 
 .. include:: resource_osx_profile.rst
 
@@ -1260,6 +1276,16 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_remote_file.rst
 
+.. include:: resource_rhsm_errata_level.rst
+
+.. include:: resource_rhsm_errata.rst
+
+.. include:: resource_rhsm_register.rst
+
+.. include:: resource_rhsm_repo.rst
+
+.. include:: resource_rhsm_subscription.rst
+
 .. include:: resource_route.rst
 
 .. include:: resource_rpm_package.rst
@@ -1278,17 +1304,43 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_subversion.rst
 
+.. include:: resource_sudo.rst
+
+.. include:: resource_swap_file.rst
+
+.. include:: resource_sysctl.rst
+
 .. include:: resource_systemd_unit.rst
 
 .. include:: resource_template.rst
 
 .. include:: resource_user.rst
 
+.. include:: resource_windows_ad_join.rst
+
+.. include:: resource_windows_auto_run.rst
+
+.. include:: resource_windows_env.rst
+
+.. include:: resource_windows_feature.rst
+
+.. include:: resource_windows_feature_dism.rst
+
+.. include:: resource_windows_feature_powershell.rst
+
+.. include:: resource_windows_font.rst
+
 .. include:: resource_windows_package.rst
 
 .. include:: resource_windows_path.rst
 
+.. include:: resource_windows_printer.rst
+
+.. include:: resource_windows_printer_port.rst
+
 .. include:: resource_windows_service.rst
+
+.. include:: resource_windows_shortcut.rst
 
 .. include:: resource_windows_task.rst
 
