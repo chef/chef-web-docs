@@ -1,0 +1,7 @@
+- label: "build"
+  command:
+    - pip install -r requirements
+    - make docs
+  plugins:
+    docker#v1.1.1:
+      image: "chefes/buildkite"
