@@ -1212,6 +1212,8 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_homebrew_tap.rst
 
+.. include:: resource_hostname.rst
+
 .. include:: resource_http_request.rst
 
 .. include:: resource_ifconfig.rst
