@@ -40,7 +40,7 @@ where:
 * ``<CHANNEL>`` is the release channel to install from. See `Chef Software Inc Packages </packages.html>`__ for full details on the available channels.
 * ``<PRODUCT>`` is the Chef Software Inc product to install. A list of valid product keys can be found at https://omnitruck.chef.io/products
 * ``p`` is the platform. Possible values: ``debian``, ``el`` (for CentOS), ``freebsd``, ``mac_os_x``, ``solaris2``, ``sles``, ``suse``, ``ubuntu`` or ``windows``.
-* ``pv`` is the platform version. Possible values depend on the platform. For example, Ubuntu: ``10.10``, ``11.04``, ``11.10``, ``12.04``, or ``12.10`` or for macOS: ``10.6`` or ``10.7``.
+* ``pv`` is the platform version. Possible values depend on the platform. For example, Ubuntu: ``14.04``, or ``16.04`` or for macOS: ``10.12`` or ``10.13``.
 * ``m`` is the machine architecture for the machine on which the product will be installed. Possible values depend on the platform. For example, for Ubuntu or Debian: ``i386`` or ``x86_64`` or for macOS: ``x86_64``.
 * ``v`` is the version of the product to be installed. A version always takes the form x.y.z, where x, y, and z are decimal numbers that are used to represent major (x), minor (y), and patch (z) versions. One-part (x) and two-part (x.y) versions are allowed. For more information about application versioning, see http://semver.org/. Default value: ``latest``.
 
@@ -67,7 +67,7 @@ Omnitruck accepts the following platforms:
    * - Debian
      - ``debian``
      - ``x86_64``
-     - ``6``, ``7``, ``8``
+     - ``6``, ``7``, ``8``, ``9``
    * -
      -
      - ``i386``
@@ -95,7 +95,7 @@ Omnitruck accepts the following platforms:
    * - macOS
      - ``mac_os_x``
      - ``x86_64``
-     - ``10.6``, ``10.7``, ``10.8``, ``10.9``, ``10.10``, ``10.11``, ``10.12``
+     - ``10.6``, ``10.7``, ``10.8``, ``10.9``, ``10.10``, ``10.11``, ``10.12``, ``10.13``
    * - Solaris
      - ``solaris2``
      - ``i386``
@@ -107,11 +107,11 @@ Omnitruck accepts the following platforms:
    * - Ubuntu
      - ``ubuntu``
      - ``x86_64``
-     - ``10.04``, ``10.10``, ``11.04``, ``11.10``, ``12.04``, ``12.10``, ``13.04``, ``13.10``, ``14.04``,``14.10``, ``16.04``, ``16.10``
+     - ``10.04``, ``10.10``, ``11.04``, ``11.10``, ``12.04``, ``12.10``, ``13.04``, ``13.10``, ``14.04``, ``14.10``, ``16.04``, ``16.10``, ``17.04``, ``17.10``, ``18.04``
    * -
      -
      - ``i386``
-     - ``10.04``, ``10.10``, ``11.04``, ``11.10``, ``12.04``, ``12.10``, ``13.04``, ``13.10``, ``14.04``,``14.10`, ``16.04``, ``16.10``
+     - ``10.04``, ``10.10``, ``11.04``, ``11.10``, ``12.04``, ``12.10``, ``13.04``, ``13.10``, ``14.04``, ``14.10``, ``16.04``, ``16.10``, ``17.04``, ``17.10``, ``18.04``
    * - Microsoft Windows
      - ``windows``
      - ``x86_64``
@@ -126,20 +126,21 @@ Examples
 
 **Get the Latest Build**
 
-To get the latest supported build for Ubuntu 12.04, enter the following:
+To get the latest supported build for Ubuntu 16.04, enter the following:
 
 .. code-block:: none
 
-   https://omnitruck.chef.io/stable/chef/metadata?p=ubuntu&pv=12.04&m=x86_64
+   https://omnitruck.chef.io/stable/chef/metadata?p=ubuntu&pv=16.04&m=x86_64
 
 to return something like:
 
 .. code-block:: none
 
-   sha1    99f26627718a3ea4464ab48f534fb24e3e3e4719
-   sha256  255c065a9d23f3dd0df3090206fe4d48451c7d0af0035c237bd21a7d28133f2f
-   url     https://packages.chef.io/stable/ubuntu/12.04/chef_12.9.38-1_amd64.deb
-   version 12.9.38
+
+   sha1 1e8019cf630e8a7c6287e1b950ddeecbe042d554 
+   sha256 26c31070a71309709ed1d19b796ad0b47a283c5c21930906f19e0771a5dd1c1b 
+   url https://packages.chef.io/files/stable/chef/14.0.190/ubuntu/16.04/chef_14.0.190-1_amd64.deb 
+   version 14.0.190
 
 **Download Directly**
 
