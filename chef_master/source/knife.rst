@@ -95,7 +95,7 @@ Built-in Subcommands
 
        .. end_tag
 
-   * - :`knife data bag </knife_data_bag.html>`_
+   * - `knife data bag </knife_data_bag.html>`_
      - .. tag knife_data_bag_summary
 
        The ``knife data bag`` subcommand is used to manage arbitrary stores of globally available JSON data.
