@@ -95,7 +95,11 @@ Remediation
 Don't use the updated method
 =============================
 
-The ``updated=(true_or_false)`` method is deprecated and will be removed from Chef 13.
+The ``updated=(true_or_false)`` method is deprecated and will be removed from Chef 13.  This method never worked to do its intended job, notifications from the
+resource would not fire and its use has always been buggy.  The chef-client notifications code actually checks ``updated_by_last_action?`` instead, so setting
+that instead is preferred (as it works).  Note also that even setting ``updated_by_last_action`` is almost always unnecessary, and that the correct use of
+``use_inline_resources`` (which is the default in Chef >= 13) makes setting ``updated_by_last_action`` redundant.  Simply deleting this code
+is very likely to be the correct course of action in nearly all cases.
 
 Example
 --------
@@ -112,7 +116,7 @@ Remediation
 .. code-block:: ruby
 
   action :foo do
-    updated_by_last_action true
+    new_resource.updated_by_last_action true
   end
 
 Don't use the dsl_name method
