@@ -5,7 +5,7 @@ windows_task
 
 Use the **windows_task** resource to create, delete or run a Windows scheduled task. Requires Windows Server 2008 or later due to API usage.
 
-**New in Chef Client 14.1**
+**New in Chef Client 13**
 
 .. note:: The ``windows_task`` resource that was provided as part of the ``windows`` cookbook included the ``:change`` action, which has been removed from ``windows_task`` in Chef client. The ``:create`` action can be used instead to update an existing task.
 
@@ -105,7 +105,7 @@ This resource has the following properties:
    **Ruby Type:** Symbol
 
    * Frequency with which to run the task.
-   * This is a mandatory property.
+   * This is a mandatory property in Chef 14.1
    * Valid values: ``:minute``, ``:hourly``, ``:daily``, ``:weekly``, ``:monthly``, ``:none``, ``:once``, ``:on_logon``, ``:onstart``, ``:on_idle``.
    * The ``:once`` value requires the ``start_time`` property.
    * The ``:none`` frequency requires Chef 13.6 or later.
