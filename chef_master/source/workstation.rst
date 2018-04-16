@@ -202,7 +202,7 @@ For a workstation that will interact with the Chef server (including the hosted 
 
 * ``knife.rb``. This configuration file can be downloaded from the **Organizations** page.
 * ``ORGANIZATION-validator.pem``. This private key can be downloaded from the **Organizations** page.
-* ``USER.pem``. This private key an be downloaded from the **Change Password** section of the **Account Management** page.
+* ``USER.pem``. This private key can be downloaded from the **Change Password** section of the **Account Management** page.
 
 Move Config Files
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
