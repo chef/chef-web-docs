@@ -7,3 +7,9 @@ github:
 pipelines:
   - verify:
       description: Pull Request validation tests
+      definition: .expeditor/verify.pipeline.yml
+  # - deploy/acceptance:
+  #     description: Deploy changes to acceptance environment
+  #     definition: .expeditor/deploy.pipeline.yml
+  #     env:
+  #       - ENVIRONMENT: acceptance

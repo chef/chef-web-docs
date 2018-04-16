@@ -1,7 +1,16 @@
-- label: "build"
+- label: "Build"
   command:
     - make clean
     - make docs
+  plugins:
+    docker#v1.1.1:
+      image: "chefes/buildkite"
+
+- label: "Terraform"
+  commands:
+    - cd terraform
+    - terraform fmt -check=true -list=true -diff=true
+    - terraform validate -check-variables=false
   plugins:
     docker#v1.1.1:
       image: "chefes/buildkite"
