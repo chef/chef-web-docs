@@ -2,7 +2,7 @@ BUILDDIR = build
 BUILD_COMMAND = sphinx-build -a -W
 BUILD_COMMAND_AND_ARGS = $(BUILD_COMMAND)
 
-# if we are in CI we need to add python's binpath:
+# if we are in CI we need to add the habitat build container's python binpath
 export PATH := $(shell hab pkg path core/python2)/bin:$(PATH)
 
 prepare:

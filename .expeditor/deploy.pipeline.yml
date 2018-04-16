@@ -1,0 +1,24 @@
+steps:
+  - label: "Terraform"
+    command: .expeditor/buildkite/terraform.sh
+    concurrency: 1
+    plugins:
+      docker#v1.1.1:
+        image: "chefes/buildkite"
+        environment:
+          - CHEF_CD_AWS_ACCESS_KEY_ID
+          - CHEF_CD_AWS_SECRET_ACCESS_KEY
+
+  - wait
+
+  - label: "Deploy"
+    command:
+      - .expeditor/buildkite/build_docs.sh
+      - .expeditor/buildkite/deploy_docs.sh
+    concurrency: 1
+    plugins:
+      docker#v1.1.1:
+        image: "chefes/buildkite"
+        environment:
+          - CHEF_CD_AWS_ACCESS_KEY_ID
+          - CHEF_CD_AWS_SECRET_ACCESS_KEY

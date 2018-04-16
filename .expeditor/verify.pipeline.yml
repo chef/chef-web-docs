@@ -1,7 +1,5 @@
 - label: "Build"
-  command:
-    - make clean
-    - make docs
+  command: .expeditor/buildkite/build_docs.sh
   plugins:
     docker#v1.1.1:
       image: "chefes/buildkite"
