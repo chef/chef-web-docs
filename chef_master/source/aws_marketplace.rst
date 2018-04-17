@@ -3,7 +3,7 @@ AWS Marketplace
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/aws_marketplace.rst>`__
 
-Chef provides Amazon Machine Images (AMI's) for Chef Automate and Chef server that can be launched from the `AWS Marketplace <https://aws.amazon.com/marketplace/seller-profile/ref=srh_res_product_vendor?ie=UTF8&id=e7b7691e-634a-4d35-b729-a8b576175e8c>`__. Hourly metered billing and Bring Your Own License (BYOL) options are available.
+Chef provides Amazon Machine Images (AMIs) for Chef Automate and Chef server that can be launched from the `AWS Marketplace <https://aws.amazon.com/marketplace/seller-profile/ref=srh_res_product_vendor?ie=UTF8&id=e7b7691e-634a-4d35-b729-a8b576175e8c>`__. Hourly metered billing and Bring Your Own License (BYOL) options are available.
 
 Metered AMI
 -----------------------------------------------------
