@@ -236,6 +236,15 @@ Examples
    sudo 'admin' do
      user 'admin'
    end
+   
+**Grant a user and groups sudo privileges for any command**
+
+.. code-block:: ruby
+
+   sudo 'admins' do
+     users 'bob'
+     groups 'sysadmins, superusers'
+   end
 
 **Grant passwordless sudo privileges for specific commands**
 
