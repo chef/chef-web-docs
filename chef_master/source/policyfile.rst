@@ -335,6 +335,22 @@ or globally:
      name: policyfile_zero
      named_run_list: integration_test_run_list
 
+or testing with policies per-suite, once the Policyfile files are available in your repo:
+
+.. code-block:: yaml
+
+   suites:
+      - name: defaultmega
+         provisioner:
+            policyfile: policies/default.rb
+         attributes:
+      - name: defaultultra
+         provisioner:
+            policyfile: policies/defaulttwo.rb
+         attributes
+	 
+.. note:: As ``policyfile_zero`` explicitly tests outside the context of a Chef server, the ``policy_groups`` concept is not applicable.
+
 chef Commands
 =====================================================
 .. tag policyfile_chef_commands
