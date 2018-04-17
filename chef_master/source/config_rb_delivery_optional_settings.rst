@@ -404,7 +404,7 @@ This configuration file has the following settings for ``delivery``:
    The password for the binding user. Default value: ``"secret123"``.
 
 ``delivery['ldap_encryption']``
-   Default value: ``"start_tls"``.
+   ``"start_tls"``, ``"simple_tls"``, or ``"no_tls"``. Default value: ``"no_tls"``.
 
 ``delivery['ldap_hosts']``
    The name (or IP address) of the LDAP server. Default value: ``[]``.
