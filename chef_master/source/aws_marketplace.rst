@@ -151,7 +151,7 @@ Launch the BYOL AMI
 
 Install the Chef DK
 -----------------------------------------------------
-While the Amazon Machine Images (AMI) for Chef Automate is being provisioned, download and install the `Chef development kit </install_dk.html>`__.  The Chef development kit is a collection of tools ---Test Kitchen, ChefSpec, knife, delivery-cli, chef, chef-vault, Foodcritic, and more--- and libraries that are all packaged together to get your started with the Chef Automate workflow. You'll need this to interact with Chef Automate and Chef server from the command line.
+While the Amazon Machine Images (AMI) for Chef Automate is provisioning, download and install the `Chef development kit </install_dk.html>`__.  The Chef development kit is a collection of tools and libraries that are packaged together to make it easy to develop cookbooks and resources for a Chef / Chef Automate environment. You'll need this to interact with Chef Automate and Chef server from the command line.
 
 Configure Chef Automate
 -----------------------------------------------------
