@@ -3,11 +3,11 @@ AWS Marketplace
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/aws_marketplace.rst>`__
 
-Chef provides Amazon Machine Images (AMI's) for Chef Automate and Chef server that can be launched from the `AWS Marketplace <https://aws.amazon.com/marketplace/seller-profile/ref=srh_res_product_vendor?ie=UTF8&id=e7b7691e-634a-4d35-b729-a8b576175e8c>`__. Hourly metered billing and Bring Your Own License (BYOL) options are available. When using the metered billing AMI, an hourly aggregate of your Chef Automate usage is calculated and billed through your Amazon Web Services (AWS) account.
+Chef provides Amazon Machine Images (AMI's) for Chef Automate and Chef server that can be launched from the `AWS Marketplace <https://aws.amazon.com/marketplace/seller-profile/ref=srh_res_product_vendor?ie=UTF8&id=e7b7691e-634a-4d35-b729-a8b576175e8c>`__. Hourly metered billing and Bring Your Own License (BYOL) options are available.
 
-Launch the Metered AMI
+Metered AMI
 -----------------------------------------------------
-The Chef Automate Amazon Machine Image (AMI) is preinstalled with Chef Automate and Chef server on a single instance. Follow the steps in the sections below to use the Chef Automate metered billing AMI:
+The Chef Automate Amazon Machine Image (AMI) is preinstalled with Chef Automate and Chef server on a single instance. When using the metered billing AMI, an hourly aggregate of your Chef Automate usage is calculated and billed through your Amazon Web Services (AWS) account. Follow the steps in the sections below to use the Chef Automate metered billing AMI:
 
 Accept software terms
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -64,7 +64,7 @@ If you wish to use Chef Automate's built-in S3 backup support, or if you want to
 #. Create an IAM role for your instance.
 #. Attach the S3 bucket access policy to the role.
 
-Launch the AMI
+Launch the Metered AMI
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 #. Navigate back to the Chef Automate `product page <https://aws.amazon.com/marketplace/pp/B01AMIH01Q>`__ and continue to the launch wizard.
 #. Click the 'Launch with EC2 Console' button next to the desired region.
@@ -73,7 +73,7 @@ Launch the AMI
 #. Launch the Amazon Machine Image (AMI).
 #. `Install the ChefDK <aws_marketplace.html#install-the-chef-dk>`__.
 
-Launch the BYOL AMI
+Bring Your Own License (BYOL) AMI
 -----------------------------------------------------
 The Chef Automate Amazon Machine Image (AMI) is preinstalled with Chef Automate and Chef server on a single instance. The BYOL image includes a 30 day trial license, but it can also be configured to use an existing Chef Automate license that you have procured from Chef.  Follow the steps in the sections below to use the Chef Automate metered billing AMI:
 
@@ -136,7 +136,7 @@ If you wish to use Chef Automate's built-in S3 backup support, or if you want to
 #. Create an IAM role for your instance.
 #. Attach the S3 bucket access policy to the role.
 
-Launch BYOL AMI
+Launch the BYOL AMI
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 #. Navigate back to the Chef Automate `product page <https://aws.amazon.com/marketplace/pp/B01AMIH01Q>`__ and continue to the launch wizard.
 #. If you're using your own license, create and copy a pre-signed link with the AWS command line tools and save it. For example:
