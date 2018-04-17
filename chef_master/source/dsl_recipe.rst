@@ -1580,8 +1580,6 @@ The following parameters can be used with this method:
      - FreeBSD. All platform variants of FreeBSD return ``freebsd``.
    * - ``gentoo``
      - Gentoo
-   * - ``hpux``
-     - HP-UX. All platform variants of HP-UX return ``hpux``.
    * - ``mac_os_x``
      - macOS
    * - ``netbsd``
