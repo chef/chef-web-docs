@@ -1,10 +1,18 @@
 =====================================================
-Release Notes: Chef Client 12.0 - 14.0
+Release Notes: Chef Client 12.0 - 14.0.202
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes.rst>`__
 
 Chef Client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef changelog <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
 
+What's New in 14.0.202
+=====================================================
+This release fixes a handful of regressions that were present in the 14.0 release:
+
+* Resources contained in cookbooks would be used instead of built-in Chef Client resources, which resulted in older resources running
+* Resources failed due to missing ``property_is_set?`` and ``resources`` methods
+* yum_package changed the order of ``disablerepo`` and ``enablerepo`` options
+* Depsolving large numbers of cookbooks with Chef zero/local took a very long time
 
 What's New in 14.0
 =====================================================
