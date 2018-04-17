@@ -21,9 +21,9 @@ Accept software terms
 
 Create S3 bucket and access role
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-If you wish to use Chef Automate's built-in S3 backup support or if you want to bring your own license, do the following steps:
+If you wish to use Chef Automate's built-in S3 backup support, or if you want to bring your own license, complete the following steps:
 
-#. Navigate to the `S3 Console <https://s3.console.aws.amazon.com/s3/home>`__ and create an S3 bucket in the region you intend to launch the Chef Automate AMI.
+#. Navigate to the `S3 Console <https://s3.console.aws.amazon.com/s3/home>`__ and create an S3 bucket in the region where you intend to launch the Chef Automate AMI.
 #. Copy the S3 bucket ARN.
 #. Navigate to the `IAM Role section in the AWS console <https://console.aws.amazon.com/iam/home#roles>`__.
 #. Create an access policy for your bucket that allows listing, getting, putting, deleting and multi-part uploads to your bucket ARN. You can use the following example with your bucket ARN in the Resource arrays:
@@ -75,7 +75,7 @@ Launch the AMI
 
 Launch the BYOL AMI
 -----------------------------------------------------
-The Chef Automate Amazon Machine Image (AMI) is preinstalled with Chef Automate and Chef server on a single instance. The BYOL image includes a 30 day trial license but can also be configured to use an existing Chef Automate license that you have procured from Chef.  Follow the steps in the sections below to use the Chef Automate metered billing AMI:
+The Chef Automate Amazon Machine Image (AMI) is preinstalled with Chef Automate and Chef server on a single instance. The BYOL image includes a 30 day trial license, but it can also be configured to use an existing Chef Automate license that you have procured from Chef.  Follow the steps in the sections below to use the Chef Automate metered billing AMI:
 
 Accept software terms
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -89,10 +89,10 @@ Accept software terms
 
 Create S3 bucket and access role
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-If you wish to use Chef Automate's built-in S3 backup support or if you want to bring your own license, do the following steps:
+If you wish to use Chef Automate's built-in S3 backup support, or if you want to bring your own license, complete the following steps:
 
-#. Navigate to the `S3 Console <https://s3.console.aws.amazon.com/s3/home>`__ and create an S3 bucket in the region you intend to launch the Chef Automate AMI.
-#. Select your bucket in the console and upload your Chef Automate ``delivery.license`` file. Ensure that you've restricted the access to file and that it is not publicly readable. If you do not have a license skip this step.
+#. Navigate to the `S3 Console <https://s3.console.aws.amazon.com/s3/home>`__ and create an S3 bucket in the region where you intend to launch the Chef Automate AMI.
+#. Select your bucket in the console and upload your Chef Automate ``delivery.license`` file. Ensure that you've restricted access to the file, and that it is not publicly readable. If you do not have a license, skip this step.
 
    .. note:: Placing your license file in S3 is not a requirement for using the BYOL functionality, the instance just needs a fully-qualified URL to the license file. For the sake of these instructions we're using S3 to safely store the file and make it accessible to the Chef Automate instance.
 
@@ -139,13 +139,13 @@ If you wish to use Chef Automate's built-in S3 backup support or if you want to 
 Launch BYOL AMI
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 #. Navigate back to the Chef Automate `product page <https://aws.amazon.com/marketplace/pp/B01AMIH01Q>`__ and continue to the launch wizard.
-#. If you're using your own license, create and copy a presigned link with the AWS command line tools and save it. For example:
+#. If you're using your own license, create and copy a pre-signed link with the AWS command line tools and save it. For example:
 
    .. code-block:: bash
 
       $ aws s3 presign yourbucket/delivery.license
 
-#. Configure all fields in the CloudFormation template. Use the presigned license URL for the ``LicenseUrl`` field.
+#. Configure all fields in the CloudFormation template. Use the pre-signed license URL for the ``LicenseUrl`` field.
 #. Associate the IAM role for backup access.
 #. Run the CloudFormation template to create the Chef Automate instance.
 
@@ -157,7 +157,7 @@ Configure Chef Automate
 -----------------------------------------------------
 After the instance has been provisioned and initial configuration has completed (usually 10 to 13 minutes) finish configuring Chef Automate and Chef server.
 
-#. Access the intial configuration page by loading ``/biscotti/setup`` route. Build the URL by prepending ``https://`` and appending ``/biscotti/setup`` to the IP address or public hostname that was automatically assigned to the instance when the Amazon Machine Images (AMI) was launched.  For example, ``https://<fqdn>/biscotti/setup``. If you used the BYOL image the CloudFormation stack will have the setup URL in the ``Outputs`` section.
+#. Access the intial configuration page by loading ``/biscotti/setup`` route. Build the URL by prepending ``https://`` and appending ``/biscotti/setup`` to the IP address or public hostname that was automatically assigned to the instance when the Amazon Machine Images (AMI) was launched.  For example, ``https://<fqdn>/biscotti/setup``. If you used the BYOL image, the CloudFormation stack will have the setup URL in the ``Outputs`` section.
 
    .. note:: .. tag notes_chef_aws_ssl
 
