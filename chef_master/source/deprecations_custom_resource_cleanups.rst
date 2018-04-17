@@ -94,12 +94,10 @@ Remediation
 
 Don't use the updated method
 =============================
+The ``updated=(true_or_false)`` method is deprecated and will be removed from Chef 13.  This method never performed its intended job, as notifications from the
+resource would not fire, and in general its use has always been buggy.  The Chef Client notification code checks ``updated_by_last_action?`` instead, so setting that is recommended as a substitute. See the `updated_by_last_action </custom_resources_notes.html#updated-by-last-action>`__ documentation for more information. 
 
-The ``updated=(true_or_false)`` method is deprecated and will be removed from Chef 13.  This method never worked to do its intended job, notifications from the
-resource would not fire and its use has always been buggy.  The chef-client notifications code actually checks ``updated_by_last_action?`` instead, so setting
-that instead is preferred (as it works).  Note also that even setting ``updated_by_last_action`` is almost always unnecessary, and that the correct use of
-``use_inline_resources`` (which is the default in Chef >= 13) makes setting ``updated_by_last_action`` redundant.  Simply deleting this code
-is very likely to be the correct course of action in nearly all cases.
+.. note:: Setting ``updated_by_last_action`` is almost always unnecessary, and correct use of ``use_inline_resources`` (which is the default in Chef 13 and above) makes the ``updated_by_last_action`` setting redundant.  Simply deleting this code is very likely to be the correct course of action in nearly all cases.
 
 Example
 --------
