@@ -251,6 +251,7 @@ The following list shows the type of plugins that are included with Ohai. See th
      virtualization.rb
    digital_ocean.rb
    dmi.rb
+   docker.rb
    dragonflybsd
     cpu.rb
     memory.rb
@@ -273,12 +274,12 @@ The following list shows the type of plugins that are included with Ohai. See th
    haskell.rb
    hostname.rb
    init_package.rb
-   ip_scopes.rb
    java.rb
    joyent.rb
    kernel.rb
    keys.rb
    languages.rb
+   libvirt.rb
    linode.rb
    linux
      block_device.rb
@@ -325,6 +326,8 @@ The following list shows the type of plugins that are included with Ohai. See th
    ruby.rb
    rust.rb
    scala.rb
+   scaleway.rb
+   scsi.rb
    shard.rb
    shells.rb
    softlayer.rb
@@ -336,13 +339,11 @@ The following list shows the type of plugins that are included with Ohai. See th
      network.rb
      platform.rb
      virtualization.rb
-     zpools.rb
    ssh_host_key.rb
    sysconf.rb
    timezone.rb
    uptime.rb
    virtualbox.rb
-   virtualization.rb
    vmware.rb
    windows
      cpu.rb
@@ -353,6 +354,7 @@ The following list shows the type of plugins that are included with Ohai. See th
      network.rb
      platform.rb
      virtualization.rb
+   zpools.rb
 
 Custom Plugins
 =====================================================
