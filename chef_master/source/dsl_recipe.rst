@@ -11,8 +11,6 @@ The Recipe DSL is a Ruby DSL that is primarily used to declare resources from wi
 
 Because the Recipe DSL is a Ruby DSL, then anything that can be done using Ruby can also be done in a recipe, including ``if`` and ``case`` statements, using the ``include?`` Ruby method, including recipes in recipes, and checking for dependencies.
 
-New in Chef Client 12.10 ``declare_resource``, ``delete_resource``, ``edit_resource``, ``find_resource``, ``delete_resource!``, ``edit_resource!`` and ``find_resource!``. New in 12.1, ``control_group`` method added. New in 12.0, ``data_bag``, ``data_bag_item``, ``:filter_result``, ``platform?``, ``shell_out!``, ``shell_out_with_systems_locale``, ``tag``, ``tagged?``, ``untag``.
-
 Use Ruby
 =====================================================
 Common Ruby techniques can be used with the Recipe DSL methods.
