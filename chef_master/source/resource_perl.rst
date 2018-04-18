@@ -17,19 +17,14 @@ A **perl** resource block executes scripts Perl:
 
 .. code-block:: ruby
 
-   perl 'extract_module' do
-     cwd ::File.dirname(src_filepath)
+   perl 'hello world' do
      code <<-EOH
-       mkdir -p #{extract_path}
-       tar xzf #{src_filename} -C #{extract_path}
-       mv #{extract_path}/*/* #{extract_path}/
+       print "Hello world! From Chef and Perl.";
        EOH
-     not_if { ::File.exist?(extract_path) }
    end
 
 where
 
-* ``cwd`` specifies the directory from which the command is run
 * ``code`` specifies the command to run
 
 The full syntax for all of the properties that are available to the **perl** resource is:
