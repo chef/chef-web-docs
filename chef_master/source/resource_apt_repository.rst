@@ -21,7 +21,7 @@ An **apt_repository** resource specifies APT repository information and adds an 
 where
 
 * ``apt_repository`` is the resource
-* ``name`` is the name of the resource block
+* ``name`` is the name of the resource block and should be spaceless
 * ``uri`` is a base URI for the distribution where the APT packages are located at
 * ``components`` is an array of package groupings in the repository
 
@@ -110,7 +110,7 @@ This resource has the following properties:
 
    If a keyserver is provided, this is assumed to be the fingerprint; otherwise it can be either the URI of GPG key for the repo, or a cookbook_file. Default value: empty array.
 
-   New in Chef client 13.4. 
+   New in Chef client 13.4.
 
 ``key_proxy``
    **Ruby Type:** String
