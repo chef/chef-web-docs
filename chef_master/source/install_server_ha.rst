@@ -319,6 +319,8 @@ Upgrading Chef Server on the Frontend Machines
 
 #. On each of the remaining frontends, copy ``/var/opt/opscode/upgrades/migration-level`` from first upgraded frontend to ``/var/opt/opscode/upgrades/migration-level`` on the current box.
 
+#. On each of the remaining frontends follow documentation from `</upgrade_server.html#standalone>`_ to upgrade.
+
 Configuring Frontend and Backend Members on Different Networks
 ----------------------------------------------------------------
 
