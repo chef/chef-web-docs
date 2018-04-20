@@ -14,6 +14,8 @@ else
   exit 1
 fi
 
+configure-github-account chef-ci
+
 aws-configure chef-cd
 
 cd terraform

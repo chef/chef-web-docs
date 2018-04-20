@@ -9,6 +9,7 @@ steps:
         environment:
           - CHEF_CD_AWS_ACCESS_KEY_ID
           - CHEF_CD_AWS_SECRET_ACCESS_KEY
+          - CHEF_CI_GITHUB_TOKEN
 
   - wait
 
@@ -24,3 +25,4 @@ steps:
         environment:
           - CHEF_CD_AWS_ACCESS_KEY_ID
           - CHEF_CD_AWS_SECRET_ACCESS_KEY
+          - CHEF_CI_GITHUB_TOKEN
