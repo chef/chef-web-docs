@@ -89,6 +89,29 @@ This configuration file has the following settings:
 ``verbose_logging``
    Set the log level. Options: ``true``, ``nil``, and ``false``. When this is set to ``false``, notifications about individual resources being processed are suppressed (and are output at the ``:info`` logging level). Setting this to ``false`` can be useful when a chef-client is run as a daemon. Default value: ``nil``.
 
+Example 
+=====================================================
+A sample solo.rb file for use with Chef Client installs at or newer than 12.11.18.
+This solo.rb features the use of the data_collector properties to send data to an available Automate Visibility system.
+You will need the trusted_certs_dir property as well with a cert populated from your Automate system.
+
+.. code-block:: ruby
+
+   chef_server_url  "https://localhost:8989"
+   log_location   STDOUT
+   node_name "YOUR_NODES_FQDN"
+   trusted_certs_dir "/etc/chef/trusted_certs"
+   
+   data_collector.server_url "https://YOUR_AUTOMATE_FQDN/data-collector/v0"
+   data_collector.mode       :both
+   data_collector.token = "YOURTOKEN"
+
+You can run it like this
+
+.. code-block:: ruby
+
+   chef-solo -c solo.rb
+
 Example
 =====================================================
 A sample solo.rb file that contains all possible settings (listed alphabetically):
