@@ -62,7 +62,7 @@ Chef Automate deployments have the following hardware requirements:
        - 4
        - 16GB\*
        - 80GB
-     * - Chef server (must be v12). See additional information in note, below.
+     * - Chef server version 12.11.1 or above.
        - 4
        - 8GB
        - 80GB
