@@ -15,7 +15,7 @@ Syntax
 =====================================================
 A **perl** resource block executes scripts Perl:
 
-.. code-block:: ruby
+.. code-block:: perl
 
    perl 'hello world' do
      code <<-EOH
