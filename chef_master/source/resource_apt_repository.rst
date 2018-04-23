@@ -21,7 +21,7 @@ An **apt_repository** resource specifies APT repository information and adds an 
 where
 
 * ``apt_repository`` is the resource
-* ``name`` is the name of the resource block and should be spaceless
+* ``name`` is the name of the APT repository, or the name of the resource block. Must not contain spaces. 
 * ``uri`` is a base URI for the distribution where the APT packages are located at
 * ``components`` is an array of package groupings in the repository
 
@@ -68,7 +68,7 @@ This resource has the following properties:
 ``repo_name``
    **Ruby Type:** String
 
-   The name of the repository to configure.
+   The name of the repository to configure, if it differs from the name of the resource block. The value of this setting must not contain spaces.
 
 ``uri``
    **Ruby Type:** String
