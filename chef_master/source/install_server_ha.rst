@@ -315,9 +315,11 @@ For each additional frontend node you wish to add to your cluster:
 Upgrading Chef Server on the Frontend Machines
 ----------------------------------------------------------------
 
-#. On any of the frontends follow documentation from `</upgrade_server.html#standalone>`_ to upgrade.
+#. On one frontend server, follow the  `standalone upgrade process </upgrade_server.html#standalone>`_.
 
-#. On each of the remaining frontends, copy ``/var/opt/opscode/upgrades/migration-level`` from first upgraded frontend to ``/var/opt/opscode/upgrades/migration-level`` on the current box.
+#. Copy ``/var/opt/opscode/upgrades/migration-level`` from the first upgraded frontend to ``/var/opt/opscode/upgrades/migration-level`` on each of the remaining frontends.
+
+#. Once the updated file has been copied to each of the remaining frontends, perform the `<standalone upgrade process /upgrade_server.html#standalone>`_ on each of the frontend servers.
 
 Configuring Frontend and Backend Members on Different Networks
 ----------------------------------------------------------------
