@@ -342,7 +342,7 @@ The following resource properties may be used to define keys in the XML property
 ``init_groups``
    **Ruby Types:** True, False
 
-   Specify if ``initgroups`` is called before running a job. Default value: ``true`` (starting with macOS 10.5).
+   Specify if ``initgroups`` is called before running a job. Default value: ``true``.
 
 ``keep_alive``
    **Ruby Types:** True, False, Hash
