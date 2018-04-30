@@ -2047,30 +2047,6 @@ This resource was previously called the **env** resource; its name was updated i
 
 .. end_tag
 
-erl_call
-=====================================================
-.. tag resource_erlang_call_summary
-
-Use the **erl_call** resource to connect to a node located within a distributed Erlang system. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
-
-.. end_tag
-
-**Run a command**
-
-.. tag resource_erlang_call_run_command_on_node
-
-.. To run a command on an Erlang node:
-
-.. code-block:: ruby
-
-   erl_call 'list names' do
-     code 'net_adm:names().'
-     distributed true
-     node_name 'chef@latte'
-   end
-
-.. end_tag
-
 execute
 =====================================================
 .. tag resource_execute_summary
