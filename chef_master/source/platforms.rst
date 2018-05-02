@@ -492,7 +492,7 @@ Versions and Status
      - April 30, 2018
    * - Chef Client
      - 13.x
-     - GA
+     - Deprecated
      - n/a
    * - Chef DK
      - 1.x
