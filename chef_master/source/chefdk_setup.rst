@@ -1,72 +1,15 @@
 =====================================================
-Workstations
+Configuring the ChefDK
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/workstation.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chefdk_setup.rst>`__
 
-.. tag workstation_summary
-
-A workstation is a computer running the `Chef Development Kit </about_chefdk.html>`__ (Chef DK) that is used to author cookbooks, interact with the Chef server, and interact with nodes.
-
-The workstation is where users do most of their work, including:
-
-* Developing and testing cookbooks and recipes
-* Testing Chef code
-* Keeping the Chef repository synchronized with version source control
-* Configuring organizational policy, including defining roles and environments, and ensuring that critical data is stored in data bags
-* Interacting with nodes, as (or when) required, such as performing a bootstrap operation
-
-.. end_tag
-
-Some important components of workstations include:
-
-.. list-table::
-   :widths: 60 420
-   :header-rows: 1
-
-   * - Feature
-     - Description
-   * - `Knife </knife.html>`__
-     - .. tag knife_summary
-
-       knife is a command-line tool that provides an interface between a local chef-repo and the Chef server. knife helps users to manage:
-
-       * Nodes
-       * Cookbooks and recipes
-       * Roles, Environments, and Data Bags
-       * Resources within various cloud environments
-       * The installation of the chef-client onto nodes
-       * Searching of indexed data on the Chef server
-
-       .. end_tag
-
-   * - `The chef-repo </chef_repo.html>`__
-     - .. tag chef_repo_summary
-
-       The chef-repo is the repository structure in which cookbooks are authored, tested, and maintained:
-
-       * Cookbooks contain recipes, attributes, custom resources, libraries, files, templates, tests, and metadata
-       * The chef-repo should be synchronized with a version control system (such as git), and then managed as if it were source code
-
-       .. end_tag
-
-       .. tag chef_repo_structure
-
-       The directory structure within the chef-repo varies. Some organizations prefer to keep all of their cookbooks in a single chef-repo, while other organizations prefer to use a chef-repo for every cookbook.
-
-       .. end_tag
-
-   * - `knife.rb </config_rb_knife.html>`__
-     - .. tag config_rb_knife_summary
-
-       A knife.rb file is used to specify configuration details for knife.
-
-       .. end_tag
+This guide contains common configuration options used when setting up a new ChefDK installation. If you do not have the ChefDK installed, see its  `installation guide </install_dk.html>`__ before proceeding further. 
 
 Configure Ruby Environment
 =====================================================
-For many users of Chef, the Chef development kit version of Ruby that is included in the Chef development kit should be configured as the default version of Ruby.
+For many users of Chef, the version of Ruby that is included in the Chef development kit should be configured as the default version of Ruby.
 
-.. note:: These instructions are intended for macOS and Linux users. For instructions on setting up your Ruby enviroment on Windows, see `Chef DK on Windows </dk_windows.html#configure-environment>`__.
+.. note:: These instructions are intended for macOS and Linux users. For instructions on setting up your Ruby enviroment on Windows, see `ChefDK on Windows </dk_windows.html#configure-environment>`__.
 
 #. Open a command window and enter the following:
 
@@ -96,7 +39,7 @@ For many users of Chef, the Chef development kit version of Ruby that is include
 
 Add Ruby to $PATH
 =====================================================
-The chef-client includes a stable version of Ruby as part of the omnibus installer. The path to this version of Ruby must be added to the ``$PATH`` environment variable and saved in the configuration file for the command shell (Bash, csh, and so on) that is used on the workstation. In a command window, type the following:
+The Chef Client includes a stable version of Ruby as part of its installer. The path to this version of Ruby must be added to the ``$PATH`` environment variable and saved in the configuration file for the command shell (Bash, csh, and so on) that is used on the machine running the ChefDK. In a command window, type the following:
 
 .. code-block:: bash
 
@@ -112,7 +55,7 @@ where ``configuration_file`` is the name of the configuration file for the speci
 
 Install Git
 =====================================================
-An open source distributed version control system called Git must be installed before the chef-repo can be cloned to the workstation from GitHub.
+An open source distributed version control system called Git must be installed before the chef-repo can be cloned to the ChefDK machine from GitHub.
 
 To install Git:
 
@@ -153,7 +96,7 @@ The ``.chef`` directory is used to store three files:
 * ``ORGANIZATION-validator.pem``
 * ``USER.pem``
 
-Where ``ORGANIZATION`` and ``USER`` represent strings that are unique to each organization. These files must be present in the ``.chef`` directory in order for a workstation to be able to connect to a Chef server.
+Where ``ORGANIZATION`` and ``USER`` represent strings that are unique to each organization. These files must be present in the ``.chef`` directory in order for the ChefDK to be able to connect to a Chef server.
 
 To create the ``.chef`` directory:
 
@@ -186,7 +129,7 @@ To create the ``.chef`` directory:
 
 Starter Kit
 -----------------------------------------------------
-If you have access to Chef server (hosted or on premises), you can download the starter kit. The starter kit will create the necessary configuration files: the ``.chef`` directory, ``knife.rb``, ``ORGANIZATION-validator.pem``, and ``USER.pem``. Simply download the starter kit and then move it to the desired location on your workstation.
+If you have access to Chef server (hosted or on premises), you can download the starter kit. The starter kit will create the necessary configuration files: the ``.chef`` directory, ``knife.rb``, ``ORGANIZATION-validator.pem``, and ``USER.pem``. Simply download the starter kit and then move it to the desired location on your ChefDK machine.
 
 Configure the Chef Repository
 =====================================================
@@ -198,7 +141,7 @@ Use the following steps to manually set up the chef-repo and to use the Chef man
 Get Config Files
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-For a workstation that will interact with the Chef server (including the hosted Chef server), log on and download the following files:
+For a ChefDK installation that will interact with the Chef server (including the hosted Chef server), log on and download the following files:
 
 * ``knife.rb``. This configuration file can be downloaded from the **Organizations** page.
 * ``ORGANIZATION-validator.pem``. This private key can be downloaded from the **Organizations** page.
@@ -321,9 +264,9 @@ The ``knife.rb`` file must be created in the ``.chef`` folder. It should look si
 
 At a minimum, you must update the following settings with the appropriate values:
 
-* ``client_key`` should point to the location of the Chef server user's ``.pem`` file on your workstation.
+* ``client_key`` should point to the location of the Chef server user's ``.pem`` file on your ChefDK machine.
 * ``validation_client_name`` should be updated with the name of the desired organization that was created on the Chef server.
-* ``validation_key`` should point to the location of your organization's ``.pem`` file on your workstation.
+* ``validation_key`` should point to the location of your organization's ``.pem`` file on your ChefDK machine.
 * ``chef_server_url`` must be updated with the domain or IP address used to access the Chef server.
 
 See the `knife documentation </config_rb_knife.html>`__ for more details.
@@ -342,9 +285,9 @@ See `SSL Certificates </chef_client_security.html#ssl-certificates>`__ for more 
 
 Verify Install
 =====================================================
-A workstation is installed correctly when it is able to use knife to communicate with the Chef server.
+The ChefDK is installed correctly when it is able to use ``knife`` to communicate with the Chef server.
 
-To verify that a workstation can connect to the Chef server:
+To verify that the ChefDK can connect to the Chef server:
 
 #. In a command window, navigate to the Chef repository:
 
@@ -358,9 +301,9 @@ To verify that a workstation can connect to the Chef server:
 
       knife client list
 
-   to return a list of clients (registered nodes and workstations) that have access to the Chef server. For example:
+   to return a list of clients (registered nodes and ChefDK installations) that have access to the Chef server. For example:
 
    .. code-block:: bash
 
-      workstation
+      chefdk_machine
       registered_node

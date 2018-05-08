@@ -1,4 +1,5 @@
 {
+  "workstation.html": "/chefdk_setup.html",
   "resource_env.html": "/resource_windows_env.html",
   "resources.html": "/resource_reference.html",
   "openstack.html": "https://github.com/openstack/openstack-chef-repo",

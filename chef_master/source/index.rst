@@ -562,6 +562,7 @@ Addenda
    chef_client_overview
    chef_client_security
    chef_deprecations_client
+   chefdk_setup
    chef_license
    chef_overview
    chef_private_keys
@@ -968,7 +969,6 @@ Addenda
    vmware
    windows
    workflow
-   workstation
    actions
    analytics
    analytics_monitor
