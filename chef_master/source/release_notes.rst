@@ -425,7 +425,7 @@ This release also includes the `custom resource improvements </release_notes.htm
 Ohai 13.9
 -----------------------------------------------------
 * Fixes uptime parsing on AIX
-* Fix esSoftlayer cloud detection
+* Fixes Softlayer cloud detection
 * Uses the current Azure metadata endpoint
 * Correctly detects macOS guests on VMware and VirtualBox
 
