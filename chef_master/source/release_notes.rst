@@ -24,8 +24,8 @@ This release of Chef Client 14 resolves a number of regressions in 14.0:
 * On Windows, the installer now correctly re-extracts files during repair mode
 * Fixes a number of issues related to Red Hat Satellite
 * ``git fetch`` now prunes remotes before running
-* Fixwa locking and unlocking packages with APT and Zypper
-* Ensure we don’t request every remote file when running with lazy loading enabled
+* Fixes locking and unlocking packages with APT and Zypper
+* Chef no longers requests every remote file when running with lazy loading enabled
 * The ``sysctl`` resource correctly handles missing keys when used with ``ignore_error``
 * ``–recipe-url`` works with Windows with local files. 
 
