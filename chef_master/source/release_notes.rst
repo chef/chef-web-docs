@@ -1,9 +1,44 @@
 =====================================================
-Release Notes: Chef Client 12.0 - 14.0.202
+Release Notes: Chef Client 12.0 - 14.1.1
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes.rst>`__
 
 Chef Client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef changelog <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
+
+What's New in 14.1.1
+=====================================================
+* **windows_task**
+     The ``windows_task`` resource has been entirely rewritten. This resolves a large number of bugs by allowing Chef to correctly set the start time of tasks, adding proper creation and deletion of tasks, and improving Chef’s validation of tasks. The rewrite will also solve the idempotency problems that users have reported.
+
+* **Ubuntu 18.04**
+     We’re testing Chef on Ubuntu 18.04, which means it's now available on the `downloads <https://downloads.chef.io/chef/14.1.1>`__ page.
+
+* **build_essential**
+     The ``build_essential`` resource no longer requires a name, similar to the ``apt_update`` resource.
+
+* **ignore_failure**
+     The ignore_failure property now accept the ``:quiet`` argument to suppress the error output when a resource fails.
+
+This release of Chef Client 14 resolves a number of regressions in 14.0:
+
+* On Windows, the installer now correctly re-extracts files during repair mode
+* Fixes a number of issues related to Red Hat Satellite
+* ``git fetch`` now prunes remotes before running
+* Fixes locking and unlocking packages with APT and Zypper
+* Chef no longers requests every remote file when running with lazy loading enabled
+* The ``sysctl`` resource correctly handles missing keys when used with ``ignore_error``
+* ``–recipe-url`` works with Windows with local files. 
+
+Ohai 14.1
+-----------------------------------------------------
+* **Configurable DMI Whitelist**
+     The whitelist of DMI IDs is now user-configurable via the ``additional_dmi_ids`` configuration setting, which accepts an array.
+
+* **Shard plugin**
+     The Shard plugin has been restored as a default plugin, rather than an optional one. The plugin will use SHA256 instead of MD5 in FIPS environments.
+
+* **SCSI plugin**
+     An optional plugin to enumerate SCSI devices.
 
 What's New in 14.0.202
 =====================================================
@@ -377,6 +412,22 @@ This release completes the deprecation process for many of the deprecations that
      .. code-block:: ruby
 
         optional_plugins [ "lspci", "passwd" ]
+        
+What's New in 13.9.1
+=====================================================
+* On Windows, the installer now correctly re-extracts files during repair mode
+* The ``mount`` resource will not create duplicate entries when the device type differs
+* Chef no longers requests every remote file when running with lazy loading enabled
+* Fixes a bug that caused Chef to crash when retrieving access rights for Windows system accounts
+
+This release also includes the `custom resource improvements </release_notes.html#custom-resource-improvements>`__ that were introduced in Chef 14. 
+
+Ohai 13.9
+-----------------------------------------------------
+* Fixes uptime parsing on AIX
+* Fix esSoftlayer cloud detection
+* Uses the current Azure metadata endpoint
+* Correctly detects macOS guests on VMware and VirtualBox
 
 What's New in 13.8.5
 =====================================================
