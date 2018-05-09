@@ -560,8 +560,8 @@ Versions and Status
      - TBD
    * - Reporting
      - 1.5.5 or later
-     - GA
-     - n/a
+     - Deprecated
+     - TBD
    * - Analytics
      - 1.5.0 or later
      - Deprecated
