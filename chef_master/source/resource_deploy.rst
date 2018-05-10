@@ -11,6 +11,8 @@ Use the **deploy** resource to manage and control deployments. This is a popular
 
 The **deploy** resource is modeled after Capistrano, a utility and framework for executing commands in parallel on multiple remote machines via SSH. The **deploy** resource is designed to behave in a way that is similar to the ``deploy`` and ``deploy:migration`` tasks in Capistrano.
 
+.. note:: The **deploy** resource was removed from Chef 14.0. The resource is now part of the `deploy_resource <https://supermarket.chef.io/cookbooks/deploy_resource>`__ backwards compatibility cookbook available on the Supermarket.
+
 Syntax
 =====================================================
 A **deploy** resource block manages and controls deployments:
