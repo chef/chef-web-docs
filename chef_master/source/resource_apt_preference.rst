@@ -24,7 +24,7 @@ The full syntax for all of the properties that are available to the **apt_prefer
    apt_preference 'name' do
      glob                       String
      notifies                   # see description
-     package_name               String, Array # defaults to 'name' if not specified
+     package_name               String # defaults to 'name' if not specified
      pin                        String
      pin_priority               String
      subscribes                 # see description
@@ -85,7 +85,7 @@ This resource has the following properties:
    .. end_tag
 
 ``package_name``
-   **Ruby Types:** String, Array
+   **Ruby Types:** String
 
    The name of the package. Default value: ``name``. 
 
