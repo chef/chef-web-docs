@@ -1130,8 +1130,6 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_csh.rst
 
-.. include:: resource_deploy.rst
-
 .. include:: resource_directory.rst
 
 .. include:: resource_dmg_package.rst
@@ -1143,8 +1141,6 @@ The following resources are built into the Chef Client:
 .. include:: resource_dsc_resource.rst
 
 .. include:: resource_dsc_script.rst
-
-.. include:: resource_erlang_call.rst
 
 .. include:: resource_execute.rst
 
