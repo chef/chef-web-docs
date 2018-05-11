@@ -28,7 +28,6 @@ The full syntax for all of the properties that are available to the **apt_prefer
      pin                        String
      pin_priority               String
      subscribes                 # see description
-
    end
 
 Actions
