@@ -422,9 +422,9 @@ On the Chef end-of-life date, Chef discontinues building software for that platf
 +--------------------------------------------------------------+-------------------------+-----------------------+
 | Microsoft Windows Server 2008 (RTM) Service Pack 2           | January 13, 2015        | January 13, 2015      |
 +--------------------------------------------------------------+-------------------------+-----------------------+
-| Microsoft Windows Server 2008 R2 Service Pack 1               | January 13, 2015        | January 31, 2020      |
+| Microsoft Windows Server 2008 R2 Service Pack 1               | January 13, 2015        | January 31, 2020     |
 +--------------------------------------------------------------+-------------------------+-----------------------+
-| Microsoft Windows Server 2012/2012 R2                         | October 9, 2018         | October 10, 2023      |
+| Microsoft Windows Server 2012/2012 R2                         | October 9, 2018         | October 10, 2023     |
 +--------------------------------------------------------------+-------------------------+-----------------------+
 | Oracle Enterprise Linux 5                                    | June 30, 2017           | December 31, 2017     |
 +--------------------------------------------------------------+-------------------------+-----------------------+
