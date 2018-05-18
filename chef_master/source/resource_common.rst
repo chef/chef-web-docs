@@ -296,14 +296,14 @@ The following example shows how to use ``only_if`` to ensure that the chef-clien
    aspnet_regiis = "#{ENV['WinDir']}\\Microsoft.NET\\Framework\\v4.0.30319\\aspnet_regiis.exe"
    execute 'Register ASP.NET v4' do
      command "#{aspnet_regiis} -i"
-     only_if { File.exist?(aspnet_regiis) }
+     only_if { ::File.exist?(aspnet_regiis) }
      action :nothing
    end
 
    aspnet_regiis64 = "#{ENV['WinDir']}\\Microsoft.NET\\Framework64\\v4.0.30319\\aspnet_regiis.exe"
    execute 'Register ASP.NET v4 (x64)' do
      command "#{aspnet_regiis64} -i"
-     only_if { File.exist?(aspnet_regiis64) }
+     only_if { ::File.exist?(aspnet_regiis64) }
      action :nothing
    end
 
@@ -727,7 +727,7 @@ With the ``:before`` notification, the action specified for the ``nginx`` resour
      message ''
      url 'http://couchdb.apache.org/img/sketch.png'
      action :head
-     if File.exist?('/tmp/couch.png')
+     if ::File.exist?('/tmp/couch.png')
        headers 'If-Modified-Since' => File.mtime('/tmp/couch.png').httpdate
      end
      notifies :create, 'remote_file[/tmp/couch.png]', :immediately
