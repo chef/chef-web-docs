@@ -149,7 +149,7 @@ The default action in a custom resource is, by default, the first action listed 
 
 .. code-block:: ruby
 
-   property :name, RubyType, default: 'value'
+   property :property_name, RubyType, default: 'value'
 
    ...
 
@@ -165,7 +165,7 @@ The ``default_action`` method may also be used to specify the default action. Fo
 
 .. code-block:: ruby
 
-   property :name, RubyType, default: 'value'
+   property :property_name, RubyType, default: 'value'
 
    default_action :aaaaa
 
@@ -302,11 +302,11 @@ Use the ``property`` method to define properties for the custom resource. The sy
 
 .. code-block:: ruby
 
-   property :name, ruby_type, default: 'value', parameter: 'value'
+   property :property_name, ruby_type, default: 'value', parameter: 'value'
 
 where
 
-* ``:name`` is the name of the property
+* ``:property_name`` is the name of the property
 * ``ruby_type`` is the optional Ruby type or array of types, such as ``String``, ``Integer``, ``true``, or ``false``
 * ``default: 'value'`` is the optional default value loaded into the resource
 * ``parameter: 'value'`` optional parameters
@@ -328,31 +328,31 @@ The property ruby_type is a positional parameter. Use to ensure a property value
 
        .. code-block:: ruby
 
-          property :name, String
+          property :aaaa, String
 
        .. code-block:: ruby
 
-          property :name, Integer
+          property :bbbb, Integer
 
        .. code-block:: ruby
 
-          property :name, Hash
+          property :cccc, Hash
 
        .. code-block:: ruby
 
-          property :name, [true, false]
+          property :dddd, [true, false]
 
        .. code-block:: ruby
 
-          property :name, [String, nil]
+          property :eeee, [String, nil]
 
        .. code-block:: ruby
 
-          property :name, [Class, String, Symbol]
+          property :ffff, [Class, String, Symbol]
 
        .. code-block:: ruby
 
-          property :name, [Array, Hash]
+          property :gggg, [Array, Hash]
 
 .. end_tag
 
