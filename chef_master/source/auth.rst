@@ -1,5 +1,5 @@
 =====================================================
-Authentication, Authorization 
+Authentication, Authorization
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/auth.rst>`__
 
@@ -61,7 +61,7 @@ API Requests
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag plugin_knife_summary
 
-A knife plugin is a set of one (or more) subcommands that can be added to knife to support additional functionality that is not built-in to the base set of knife subcommands. Many of the knife plugins are built by members of the Chef community and several of them are built and maintained by Chef. A knife plugin is installed to the ``~/.chef/plugins/knife/`` directory, from where it can be run just like any other knife subcommand.
+A knife plugin is a set of one (or more) subcommands that can be added to knife to support additional functionality that is not built-in to the base set of knife subcommands. Many of the knife plugins are built by members of the Chef community and several of them are built and maintained by Chef.
 
 .. end_tag
 
@@ -93,20 +93,20 @@ For example:
        #An implementation of knife node delete
        banner 'knife my node delete [NODE_NAME]'
 
-     def run
-       if name_args.length < 1
-         show_usage
-         ui.fatal("You must specify a node name.")
-         exit 1
+       def run
+         if name_args.length < 1
+           show_usage
+           ui.fatal("You must specify a node name.")
+           exit 1
+         end
+         nodename = name_args[0]
+         api_endpoint = "nodes/#{nodename}"
+         # Again, we could just call rest.delete_rest
+         nodey = rest.get_rest(api_endpoint)
+         ui.confirm("Do you really want to delete #{nodey}")
+         nodey.destroy
        end
-       nodename = name_args[0]
-          api_endpoint = "nodes/#{nodename}"
-          # Again, we could just call rest.delete_rest
-          nodey = rest.get_rest(api_endpoint)
-          ui.confirm("Do you really want to delete #{nodey}")
-          nodey.destroy
-        end
-      end
+     end
    end
 
 .. end_tag
@@ -352,7 +352,7 @@ In some cases, the chef-client may receive a 401 response to the authentication 
 
 .. code-block:: bash
 
-   [Wed, 05 Oct 2011 15:43:34 -0700] INFO: HTTP Request Returned 401 
+   [Wed, 05 Oct 2011 15:43:34 -0700] INFO: HTTP Request Returned 401
    Unauthorized: Failed to authenticate as node_name. Ensure that your node_name and client key are correct.
 
 To debug authentication problems, determine which chef-client is attempting to authenticate. This is often found in the log messages for that chef-client. Debug logging can be enabled on a chef-client using the following command:
@@ -418,7 +418,7 @@ The Chef server uses organizations, groups, and users to define role-based acces
           :width: 100px
           :align: center
 
-     - A user is any non-administrator human being who will manage data that is uploaded to the Chef server from a workstation or who will log on to the Chef management console web user interface. The Chef server includes a single default user that is defined during setup and is automatically assigned to the ``admins`` group. 
+     - A user is any non-administrator human being who will manage data that is uploaded to the Chef server from a workstation or who will log on to the Chef management console web user interface. The Chef server includes a single default user that is defined during setup and is automatically assigned to the ``admins`` group.
    * - .. image:: ../../images/icon_chef_client.svg
           :width: 100px
           :align: center
@@ -436,7 +436,7 @@ The Chef server uses organizations, groups, and users to define role-based acces
 When a user makes a request to the Chef server using the Chef server API, permission to perform that action is determined by the following process:
 
 #. Check if the user has permission to the object type
-#. If no, recursively check if the user is a member of a security group that has permission to that object 
+#. If no, recursively check if the user is a member of a security group that has permission to that object
 #. If yes, allow the user to perform the action
 
 Permissions are managed using the Chef management console add-on in the Chef server web user interface.
@@ -508,6 +508,7 @@ Use the following code to set the correct permissions:
    #!/usr/bin/env ruby
    require 'rubygems'
    require 'chef/knife'
+   require 'chef/rest'
 
    Chef::Config.from_file(File.join(Chef::Knife.chef_config_dir, 'knife.rb'))
 
@@ -578,9 +579,11 @@ Using multiple organizations within the Chef server ensures that the same toolse
 
 Many Users, Same Repo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. tag chef_repo_many_users_same_repo
+.. tag chef_repo_many_users_same_knife
 
-It is possible for multiple users to access the Chef server using the same knife.rb file. (A user can even access multiple organizations if, for example, each instance of the chef-repo contained the same copy of the knife.rb file.) This can be done by adding the knife.rb file to the chef-repo, and then using environment variables to handle the user-specific credential details and/or sensitive values. For example:
+The knife.rb configuration can include arbitrary Ruby code to extend configuration beyond static values. This can be used to load environmental variables from the workstation. This makes it possible to write a single knife.rb file that can be used by all users within your organization. This single file can also be checked into your chef-repo, allowing users to load different knife.rb files based on which chef-repo they execute the commands from. This can be especially useful when each chef-repo points to a different chef server or organization.
+
+Example knife.rb:
 
 .. code-block:: none
 
@@ -600,11 +603,6 @@ It is possible for multiple users to access the Chef server using the same knife
      # Amazon AWS
      knife[:aws_access_key_id] = ENV['AWS_ACCESS_KEY_ID']
      knife[:aws_secret_access_key] = ENV['AWS_SECRET_ACCESS_KEY']
-
-     # Rackspace Cloud
-     knife[:rackspace_api_username] = ENV['RACKSPACE_USERNAME']
-     knife[:rackspace_api_key] = ENV['RACKSPACE_API_KEY']
-
 .. end_tag
 
 Chef server API
@@ -629,7 +627,7 @@ Header Format
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag api_chef_server_headers_format
 
-All hashing is done using SHA-1 and encoded in Base64. Base64 encoding should have line breaks every 60 characters. Each canonical header should be encoded in the following format:
+By default, all hashing is done using SHA-1 and encoded in Base64. Base64 encoding should have line breaks every 60 characters. Each canonical header should be encoded in the following format:
 
 .. code-block:: none
 
@@ -646,6 +644,20 @@ where:
 * The private key must be an RSA key in the SSL .pem file format. This signature is then broken into character strings (of not more than 60 characters per line) and placed in the header.
 
 The Chef server decrypts this header and ensures its content matches the content of the non-encrypted headers that were in the request. The timestamp of the message is checked to ensure the request was received within a reasonable amount of time. One approach generating the signed headers is to use `mixlib-authentication <https://github.com/chef/mixlib-authentication>`_, which is a class-based header signing authentication object similar to the one used by the chef-client.
+
+Enable SHA-256
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Chef server versions 12.4.0 and above support signing protocol version 1.3, which adds support for SHA-256 algorithms. It can be enabled on Chef client via the ``client.rb`` file:
+
+.. code-block:: ruby
+
+   authentication_protocol_version = '1.3'
+
+And on Chef knife via ``knife.rb``:
+
+.. code-block:: ruby
+
+   knife[:authentication_protocol_version] = '1.3'
 
 .. end_tag
 
@@ -757,5 +769,4 @@ where ``ORG_NAME`` is the name of the organization.
 
 .. end_tag
 
-For more information about the Chef server API endpoints see :doc:`api_chef_server`.
-
+For more information about the Chef server API endpoints see the `Chef server API </api_chef_server.html>`_ documentation.

@@ -35,20 +35,19 @@ The full syntax for all of the properties that are available to the **remote_dir
 
    remote_directory 'name' do
      cookbook                   String
-     files_backup               Integer, FalseClass
+     files_backup               Integer, False
      files_group                String
      files_mode                 String
      files_owner                String
      group                      String, Integer
-     inherits                   TrueClass, FalseClass
+     inherits                   True, False
      mode                       String, Integer
      notifies                   # see description
-     overwrite                  TrueClass, FalseClass
+     overwrite                  True, False
      owner                      String, Integer
      path                       String # defaults to 'name' if not specified
-     provider                   Chef::Provider::Directory::RemoteDirectory
-     purge                      TrueClass, FalseClass
-     recursive                  TrueClass, FalseClass
+     purge                      True, False
+     recursive                  True, False
      rights                     Hash
      source                     String
      subscribes                 # see description
@@ -59,8 +58,8 @@ where
 
 * ``remote_directory`` is the resource
 * ``name`` is the name of the resource block; when the ``path`` property is not specified, ``name`` is also the path to the directory, from the root
-* ``:action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``cookbook``, ``files_backup``, ``files_group``, ``files_mode``, ``files_owner``, ``group``, ``inherits``, ``mode``, ``overwrite``, ``owner``, ``path``, ``provider``, ``recursive``, ``rights``, and ``source`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``cookbook``, ``files_backup``, ``files_group``, ``files_mode``, ``files_owner``, ``group``, ``inherits``, ``mode``, ``overwrite``, ``owner``, ``path``, ``recursive``, ``rights``, and ``source`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -78,7 +77,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the chef-client run.
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -92,7 +91,7 @@ This resource has the following properties:
    The cookbook in which a file is located (if it is not located in the current cookbook). The default value is the current cookbook.
 
 ``files_backup``
-   **Ruby Types:** Integer, FalseClass
+   **Ruby Types:** Integer, False
 
    The number of backup copies to keep for files in the directory. Default value: ``5``.
 
@@ -121,12 +120,12 @@ This resource has the following properties:
    Use to configure permissions for directories. A string or ID that identifies the group owner by group name, including fully qualified group names such as ``domain\group`` or ``group@domain``. If this value is not specified, existing groups remain unchanged and new group assignments use the default ``POSIX`` group (if available).
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
 ``inherits``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Microsoft Windows only. Whether a file inherits rights from its parent directory. Default value: ``true``.
 
@@ -146,19 +145,19 @@ This resource has the following properties:
 
    .. tag resources_common_notification_notifies
 
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
 
    .. end_tag
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -176,7 +175,7 @@ This resource has the following properties:
    .. end_tag
 
 ``overwrite``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Overwrite a file when it is different. Default value: ``true``.
 
@@ -190,18 +189,13 @@ This resource has the following properties:
 
    The path to the directory. Using a fully qualified path is recommended, but is not always required. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
 
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
-
 ``purge``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Purge extra files found in the target directory. Default value: ``false``.
 
 ``recursive``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Create or delete directories recursively. Default value: ``true``; the chef-client must be able to create the directory structure, including parent directories (if missing), as defined in ``COOKBOOK_NAME/files/default/REMOTE_DIRECTORY``.
 
@@ -232,17 +226,32 @@ This resource has the following properties:
 
    A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
 
+   Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
+
+   .. code-block:: ruby
+
+     file '/etc/nginx/ssl/example.crt' do
+        mode '0600'
+        owner 'root'
+     end
+
+     service 'nginx' do
+        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+     end
+
+   In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
+
    .. end_tag
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -455,7 +464,7 @@ or:
 Some other important things to know when using the ``rights`` attribute:
 
 * Only inherited rights remain. All existing explicit rights on the object are removed and replaced.
-* If rights are not specified, nothing will be changed. The chef-client does not clear out the rights on a file or directory if rights are not specified. 
+* If rights are not specified, nothing will be changed. The chef-client does not clear out the rights on a file or directory if rights are not specified.
 * Changing inherited rights can be expensive. Microsoft Windows will propagate rights to all children recursively due to inheritance. This is a normal aspect of Microsoft Windows, so consider the frequency with which this type of action is necessary and take steps to control this type of action if performance is the primary consideration.
 
 Use the ``deny_rights`` property to deny specific rights to specific users. The ordering is independent of using the ``rights`` property. For example, it doesn't matter if rights are granted to everyone is placed before or after ``deny_rights :read, ['Julian', 'Lewis']``, both Julian and Lewis will be unable to read the document. For example:
@@ -526,16 +535,6 @@ Because the ``inherits`` property is not specified, the chef-client will default
 
 .. end_tag
 
-.. 
-.. Providers
-.. =====================================================
-.. .. include:: ../../includes_resources_common/includes_resources_common_provider.rst
-.. 
-.. .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
-.. 
-.. .. include:: ../../includes_resources/includes_resource_remote_directory_providers.rst
-..
-
 Examples
 =====================================================
 The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
@@ -589,4 +588,3 @@ The following example shows how to use the **remote_directory** resource and the
    end
 
 .. end_tag
-

@@ -3,6 +3,14 @@ Reporting API
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/api_reporting.rst>`__
 
+.. tag reporting_legacy
+
+.. note:: This documentation is meant to support existing Chef customers using Reporting.
+
+          Are you a new Chef customer, or looking to gain better insight into your fleet? Take advantage of `Chef Automate </chef_automate.html>`__. You'll get a graphical interface and query language that gives you insight into operational, compliance, and workflow events. You can `download Chef Automate here <https://downloads.chef.io/automate>`__.
+
+.. end_tag
+
 .. tag api_reporting_summary
 
 The Reporting API is a REST API that provides access to Reporting data that is collected during a chef-client run. Reporting data is collected only for nodes that have permission to publish Reporting data to the Chef server and only for organizations that have Reporting enabled.
@@ -21,12 +29,14 @@ Requirements
 
 The Chef server API has the following requirements:
 
-* Access to a Chef server running version 0.10.x or above
-* The ``Accept`` header must be set to ``application/json``
-* For ``PUT`` and ``POST`` requests, the ``Content-Type`` header must be set to ``application/json``
-* The ``X-Chef-Version`` header must be set to the version of the Chef server API that is being used
-* A request must be signed using ``Mixlib::Authentication``
-* A request must be well-formatted. The easiest way to ensure a well-formatted request is to use the ``Chef::REST`` library
+* Access to a Chef server running version 0.10.x or above.
+* The ``Accept`` header must be set to ``application/json``.
+* For ``PUT`` and ``POST`` requests, the ``Content-Type`` header must be set to ``application/json``.
+* The ``X-Chef-Version`` header must be set to the version of the Chef server API that is being used.
+* A request must be signed using ``Mixlib::Authentication``.
+* A request must be well-formatted. The easiest way to ensure a well-formatted request is to use the ``Chef::REST`` library.
+
+Changed in Chef Client 12.7, now code that uses ``Chef::Rest`` must use ``require 'chef/rest'``
 
 .. end_tag
 
@@ -44,7 +54,7 @@ Header Format
 -----------------------------------------------------
 .. tag api_chef_server_headers_format
 
-All hashing is done using SHA-1 and encoded in Base64. Base64 encoding should have line breaks every 60 characters. Each canonical header should be encoded in the following format:
+By default, all hashing is done using SHA-1 and encoded in Base64. Base64 encoding should have line breaks every 60 characters. Each canonical header should be encoded in the following format:
 
 .. code-block:: none
 
@@ -61,6 +71,20 @@ where:
 * The private key must be an RSA key in the SSL .pem file format. This signature is then broken into character strings (of not more than 60 characters per line) and placed in the header.
 
 The Chef server decrypts this header and ensures its content matches the content of the non-encrypted headers that were in the request. The timestamp of the message is checked to ensure the request was received within a reasonable amount of time. One approach generating the signed headers is to use `mixlib-authentication <https://github.com/chef/mixlib-authentication>`_, which is a class-based header signing authentication object similar to the one used by the chef-client.
+
+Enable SHA-256
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Chef server versions 12.4.0 and above support signing protocol version 1.3, which adds support for SHA-256 algorithms. It can be enabled on Chef client via the ``client.rb`` file:
+
+.. code-block:: ruby
+
+   authentication_protocol_version = '1.3'
+
+And on Chef knife via ``knife.rb``:
+
+.. code-block:: ruby
+
+   knife[:authentication_protocol_version] = '1.3'
 
 .. end_tag
 
@@ -122,7 +146,7 @@ The following authentication headers are required:
        Use to specify the protocol version for the Reporting API. This header must be set to ``0.1.0``.
 
        * A request to the Chef server API that does not include this header and the correct value will return a 404 response code.
-       * A request to the Chef server API that includes this header with an incorrect value will return a 406 reponse code.
+       * A request to the Chef server API that includes this header with an incorrect value will return a 406 response code.
 
        If the protocol version is incorrect (or unspecified), the chef-client run will proceed normally, but Reporting data will not be collected for that chef-client run unless the ``enable_reporting_url_fatals`` setting is ``true`` in the client.rb file for that node.
 
@@ -578,7 +602,7 @@ GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag api_reporting_endpoint_reports_runs_durations_get
 
-The ``GET`` method is used to return the frequency of chef-client runs that occured within a specified range.
+The ``GET`` method is used to return the frequency of chef-client runs that occurred within a specified range.
 
 This method has the following parameters:
 

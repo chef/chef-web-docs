@@ -85,21 +85,21 @@ Options
 =====================================================
 .. note:: .. tag knife_common_see_common_options_link
 
-          Review the list of :doc:`common options </knife_common_options>` available to this (and all) knife subcommands and plugins.
+          Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
           .. end_tag
 
 This subcommand has the following options:
 
 ``-E CODE``, ``--exec CODE``
-   A string of code that to be executed.
+   A string of code to be executed.
 
 ``-p PATH:PATH``, ``--script-path PATH:PATH``
    A colon-separated path at which Ruby scripts are located. Use to override the default location for scripts. When this option is not specified, knife will look for scripts located in ``chef-repo/.chef/scripts`` directory.
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 

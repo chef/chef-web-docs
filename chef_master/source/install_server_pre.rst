@@ -9,7 +9,7 @@ Platforms
 =====================================================
 .. tag adopted_platforms_server
 
-The following table lists the Foundational platforms for the Chef server:
+The following table lists the commercially-supported platforms and versions for the Chef Server:
 
 .. list-table::
    :widths: 280 100 120
@@ -19,17 +19,20 @@ The following table lists the Foundational platforms for the Chef server:
      - Architecture
      - Version
    * - CentOS
-     - 
-     - ``5.x``, ``6.x``, ``7.x``
-   * - Oracle Linux
-     - 
-     - ``5.x``, ``6.x``
+     - ``x86_64``
+     - ``6.x``, ``7.x``
+   * - Oracle Enterprise Linux
+     - ``x86_64``
+     - ``6.x``, ``7.x``
    * - Red Hat Enterprise Linux
-     - 
-     - ``5.x``, ``6.x``, ``7.x``
+     - ``x86_64``, ``ppc64le`` (7.x only), ``ppc64`` (7.x only)
+     - ``6.x``, ``7.x``
+   * - SUSE Enterprise Linux Server
+     - ``x86_64``
+     - ``11 SP4``, ``12 SP1``
    * - Ubuntu
-     - 
-     - ``12.04 LTS``, ``14.04 LTS``, ``16.04 LTS``
+     - ``x86_64``, ``ppc64le`` (14.04 only)
+     - ``14.04``, ``16.04``
 
 .. end_tag
 
@@ -47,15 +50,61 @@ The following platforms are not tested by Chef Software:
 
 Capacity Planning
 =====================================================
-Read the `guidance around capacity planning <https://docs.chef.io/server_components.html#capacity-planning>`__ for information about how to choose the right toplogy for the Chef server.
+Read the `guidance around capacity planning </server_components.html#capacity-planning>`__ for information about how to choose the right toplogy for the Chef server.
+
+Hardware Requirements
+=====================================================
+.. tag system_requirements_server_hardware
+
+All machines in a Chef server deployment have the following hardware requirements. Disk space for standalone and backend servers should scale up with the number of nodes that the servers are managing. A good rule to follow is to allocate 2 MB per node. The disk values listed below should be a good default value that you will want to modify later if/when your node count grows. Fast, redundant storage (SSD/RAID-based solution either on-prem or in a cloud environment) is preferred.
+
+For all deployments:
+
+* 64-bit architecture
+
+For a standalone deployment:
+
+* 4 total cores (physical or virtual)
+* 8 GB of RAM or more
+* 5 GB of free disk space in ``/opt``
+* 5 GB of free disk space in ``/var``
+
+.. note:: The RAM requirement can be lowered down to a minimum of 4 GB of RAM if the number of Chef client runs (CCRs) per minute are low (i.e. less than 33 CCRs/min). See `Capacity Planning </server_components.html#capacity-planning>`_ for more information on how this metric affects scalability.
+
+For a high availability deployment:
+
+General requirements
+
+* Three backend servers; as many frontend servers as required
+* 1 x GigE NIC interface (if on premises)
+
+.. tag system_requirements_ha
+
+Frontend requirements
+
+* 4 cores (physical or virtual)
+* 4GB RAM
+* 20 GB of free disk space (SSD if on premises, Premium Storage in Microsoft Azure, EBS-Optimized GP2 in AWS)
+
+Backend requirements
+
+* 2 cores (physical or virtual)
+* 8GB RAM
+* 50 GB/backend server (SSD if on premises, Premium Storage in Microsoft Azure, EBS-Optimized GP2 in AWS)
+
+.. warning:: The Chef server MUST NOT use a network file system of any type---virtual or physical---for backend storage. The Chef server database operates quickly. The behavior of operations, such as the writing of log files, will be unpredictable when run over a network file system.
+
+.. end_tag
+
+.. end_tag
 
 Software Requirements
 =====================================================
-.. tag system_requirements_server_etc
+.. tag system_requirements_server_software
 
 Before installing the Chef server, ensure that each machine has the following installed and configured properly:
 
-* **Hostnames** --- Ensure that all systems have properly configured hostnames. The hostname for the Chef server must be a FQDN, including the domain suffix, and must be resolvable. See `Hostnames, FQDNs <https://docs.chef.io/install_server_pre.html#hostnames>`_ for more information
+* **Hostnames** --- Ensure that all systems have properly configured hostnames. The hostname for the Chef server must be a FQDN, including the domain suffix, and must be resolvable. See `Hostnames, FQDNs </install_server_pre.html#hostnames>`_ for more information
 * **FQDNs** --- Ensure that all systems have a resolvable FQDN
 * **NTP** --- Ensure that every server is connected to NTP; the Chef server is sensitive to clock drift
 * **Mail Relay** --- The Chef server uses email to send notifications for various events; a local mail transfer agent should be installed and available to the Chef server
@@ -65,7 +114,7 @@ Before installing the Chef server, ensure that each machine has the following in
 * **Apache Qpid** --- This daemon must be disabled on CentOS and Red Hat systems
 * **Required users** --- If the environment in which the Chef server will run has restrictions on the creation of local user and group accounts, ensure that the correct users and groups exist before reconfiguring
 * **Firewalls and ports** --- If host-based firewalls (iptables, ufw, etc.) are being used, ensure that ports 80 and 443 are open. These ports are used by the **nginx** service
-* **Hostname** --- The hostname for the Chef server must be a FQDN, including the domain suffix, and must be resolvable. See `Hostnames, FQDNs <https://docs.chef.io/install_server_pre.html#hostnames>`_ for more information
+* **Hostname** --- The hostname for the Chef server must be a FQDN, including the domain suffix, and must be resolvable. See `Hostnames, FQDNs </install_server_pre.html#hostnames>`_ for more information
 
 In addition:
 
@@ -112,8 +161,41 @@ The installation process for the Chef server requires the use of at least two us
 
    If the ``opscode`` and ``opscode-pgsql`` user and group identifiers exist prior to installing the Chef server, the Chef server installation process will use the existing identifiers instead of creating them.
 
-SELinux
+
+Firewalls
 -----------------------------------------------------
+
+iptables
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+To allow access to your Chef server on ports 80 and 443 via the iptables firewall, issue the following command with root privileges:
+
+.. code-block:: bash
+
+   $ iptables -A INPUT -p tcp -m multiport --destination-ports 80,443 -j ACCEPT
+
+Note that you will need to make use of a tool such as `iptables-persistent <https://packages.ubuntu.com/xenial/admin/iptables-persistent>`_ to restore your iptables rules upon reboot. 
+
+FirewallD
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+On RHEL and CentOS versions 7 and above, the FirewallD firewall is enabled by default. Issue the following command with root privileges to open ports 80 and 443:
+
+.. code-block:: bash
+
+   $ firewall-cmd --permanent --zone public --add-service http && firewall-cmd --permanent --zone public --add-service https && firewall-cmd --reload
+
+UFW
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+While UFW is installed on Ubuntu, it is not enabled by default. However, if you wish to use a UFW-based firewall on your Chef server, issue the following command with root privileges to open ports 80 and 443:
+
+.. code-block:: bash
+
+   $ ufw allow proto tcp from any to any port 80,443
+
+Security Modules
+-----------------------------------------------------
+
+SELinux
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 On CentOS and Red Hat Enterprise Linux systems, SELinux is enabled in enforcing mode by default. The Chef server does not have a profile available to run under SELinux. In order for the Chef server to run, SELinux must be disabled or set to ``Permissive`` mode.
 
 To determine if SELinux is installed, run the following command:
@@ -137,7 +219,7 @@ and then check the status:
    $ getenforce
 
 AppArmor
------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 On Ubuntu systems, AppArmor is enabled in enforcing mode by default. Chef products do not have a profile available to run under AppArmor. In order for the Chef products to run, AppArmor must set to ``Complaining`` mode or disabled.
 
 To determine if AppArmor is installed, run the following command:
@@ -212,6 +294,12 @@ Periodic maintenance tasks are performed on the Chef server servers via cron and
 Enterprise Linux Updates
 -----------------------------------------------------
 The Chef server requires an x86_64 compatible systems architecture. When the Chef server is installed on Red Hat Enterprise Linux or CentOS, run ``yum update`` prior to installing the Chef server. This will ensure those platforms are fully compatible with this requirement.
+
+IP Addresses
+-----------------------------------------------------
+Unless you intend to operate the Chef server in IPv6 mode, you should disable ipv6 in the system's ``/etc/hosts`` file by commenting out or removing all references to IPv6 addresses like "::1" or "fe80:db8:85a3:8d3:1319:8a2e:370:7348".
+
+Without these changes, a Chef server install intended to run in ipv4 mode will mistakenly only start the postgres service on the ipv6 loopback address of "::1" rather than the ipv4 loopback address of 127.0.0.1. This will make further progress through an initial reconfiguration impossible.
 
 Hostnames
 -----------------------------------------------------
@@ -354,7 +442,7 @@ The Chef server server requires that every node that is under management by Chef
 
    [Tue, 01 Nov 2011 16:55:23 -0700] INFO: *** Chef 11.X.X ***
    [Tue, 01 Nov 2011 16:55:23 -0700] INFO: Client key /etc/chef/client.pem is not present - registering
-   [Tue, 01 Nov 2011 16:55:24 -0700] INFO: HTTP Request Returned 401 Unauthorized: 
+   [Tue, 01 Nov 2011 16:55:24 -0700] INFO: HTTP Request Returned 401 Unauthorized:
        Failed to authenticate as ORGANIZATION-validator. Synchronize the clock on your host.
    [Tue, 01 Nov 2011 16:55:24 -0700] FATAL: Stacktrace dumped to /var/chef/cache/chef-stacktrace.out
    [Tue, 01 Nov 2011 16:55:24 -0700] FATAL: Net::HTTPServerException: 401 "Unauthorized"

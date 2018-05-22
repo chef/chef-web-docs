@@ -34,6 +34,7 @@ Disallow: /release/12-9/
 Disallow: /release/12-10/
 Disallow: /release/12-11/
 Disallow: /release/12-12/
+Disallow: /release/12-13/
 Disallow: /release/push_jobs_1-0/
 Disallow: /release/push_jobs_2-1/
 Disallow: /enterprise/
@@ -76,7 +77,6 @@ Disallow: /config_rb_chef_server_enterprise.html
 Disallow: /config_rb_chef_server_optional_settings.html
 Disallow: /config_rb_chef_sync.html
 Disallow: /ctl_chef_backend.html
-Disallow: /config_rb_delivery_optional_settings.html
 Disallow: /ctl_chef_backend.html
 Disallow: /ctl_chef_init.html
 Disallow: /ctl_chef_sync.html
@@ -131,7 +131,6 @@ Disallow: /install_server_scenario_vm.html
 Disallow: /install_server_standalone.html
 Disallow: /install_server_users.html
 Disallow: /install_workstation.html
-Disallow: /integrate_delivery_bitbucket.html
 Disallow: /list_resources.html
 Disallow: /lwrp_common_inline_compile.html
 Disallow: /lwrp_apt.html
@@ -177,15 +176,11 @@ Disallow: /server_deploy_be.html
 Disallow: /server_deploy_fe.html
 Disallow: /server_deploy_febe.html
 Disallow: /server_deploy_standalone.html
-Disallow: /server_replication.html
 Disallow: /server_types.html
-Disallow: /platforms.html
 Disallow: /upgrade_server_ha_notes.html
 Disallow: /upgrade_server_ha.html
 Disallow: /upgrade_server_open_source.html
 Disallow: /upgrade_server_standalone_notes.html
 Disallow: /upgrade_server_standalone.html
 Disallow: /verify_packages.html
-Disallow: /ctl_analytics.html
-Disallow: /upgrade_analytics.html
 

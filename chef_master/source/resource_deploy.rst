@@ -11,19 +11,7 @@ Use the **deploy** resource to manage and control deployments. This is a popular
 
 The **deploy** resource is modeled after Capistrano, a utility and framework for executing commands in parallel on multiple remote machines via SSH. The **deploy** resource is designed to behave in a way that is similar to the ``deploy`` and ``deploy:migration`` tasks in Capistrano.
 
-.. Kept, but commented out.
-.. .. list-table::
-..    :widths: 200 300
-..    :header-rows: 1
-.. 
-..    * - Task
-..      - Description
-..    * - ``deploy``
-..      - The ``deploy`` task is used to deploy a project. This task first calls ``update``, which calls ``update_code`` to copy the project to its deployed location, which calls ``finalize_update`` to touch up the released code. After ``update`` is finished, ``create_symlink`` is called to update symlinks. And then ``restart`` is called to restart the application. 
-..    * - ``deploy:migrations``
-..      - The ``deploy:migrations`` task is used to deploy and run migrations. This task is similar to the ``deploy`` task, but with the ``migrate`` task running between ``update_code`` and ``create_symlink``.
-..  
-.. .. note:: In Capistrano, the ``deploy:cleanup`` task is used to define the cleanup steps; in Chef, cleanup is handled automatically.
+.. note:: The **deploy** resource was removed from Chef 14.0. The resource is now part of the `deploy_resource <https://supermarket.chef.io/cookbooks/deploy_resource>`__ backwards compatibility cookbook available on the Supermarket.
 
 Syntax
 =====================================================
@@ -82,15 +70,14 @@ The full syntax for all of the properties that are available to the **deploy** w
      create_dirs_before_symlink Array
      deploy_to                  String # defaults to 'name' if not specified
      depth                      Integer
-     enable_submodules          TrueClass, FalseClass
+     enable_submodules          True, False
      environment                Hash
      git_ssh_wrapper            String
      group                      String
      keep_releases              Integer
-     migrate                    TrueClass, FalseClass
+     migrate                    True, False
      migration_command          String
      notifies                   # see description
-     provider                   Chef::Provider::Deploy
      purge_before_symlink       Array
      remote                     String
      repo                       String
@@ -98,9 +85,9 @@ The full syntax for all of the properties that are available to the **deploy** w
      repository_cache           String
      restart_command            Proc, String
      revision                   String
-     rollback_on_error          TrueClass, FalseClass
+     rollback_on_error          True, False
      scm_provider               Chef::Provider::Git
-     shallow_clone              TrueClass, FalseClass
+     shallow_clone              True, False
      ssh_wrapper                String
      symlinks                   Hash
      symlink_before_migrate     Hash
@@ -124,17 +111,16 @@ and the full syntax for all of the properties that are available to the **deploy
      environment                Hash
      group                      String
      keep_releases              Integer
-     migrate                    TrueClass, FalseClass
+     migrate                    True, False
      migration_command          String
      notifies                   # see description
-     provider                   Chef::Provider::Deploy
      purge_before_symlink       Array
      repo                       String
      repository                 String
      repository_cache           String
      restart_command            Proc, String
      revision                   String
-     rollback_on_error          TrueClass, FalseClass
+     rollback_on_error          True, False
      scm_provider               Chef::Provider::Subversion
      subscribes                 # see description
      svn_arguments              String
@@ -151,7 +137,7 @@ where
 
 * ``deploy`` is the resource
 * ``name`` is the name of the resource block
-* ``:action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
 * ``after_restart``, ``before_migrate``, ``before_restart``, ``before_symlink``, ``branch``, ``create_dirs_before_symlink``, ``deploy_to``, ``depth``, ``enable_submodules``, ``environment``, ``git_ssh_wrapper``, ``group``, ``keep_releases``, ``migrate``, ``migration_command``, ``provider``, ``purge_before_symlink``, ``remote``, ``repo``, ``repository``, ``repository_cache``, ``restart_command``, ``revision``, ``rollback_on_error``, ``scm_provider``, ``shallow_clone``, ``ssh_wrapper``, ``svn_arguments``, ``svn_password``, ``svn_username``, ``symlinks``, ``symlink_before_migrate``, ``timeout``, and ``user`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Deploy Strategies
@@ -245,7 +231,7 @@ The **deploy** resource expects an application to be structured like a Ruby on R
    * - ``create_dirs_before_symlink``
      - Create directories in the release directory before symbolic links are created. This property runs after ``purge_before_symlink`` and before ``symlink``.
    * - ``purge_before_symlink``
-     - An array of directories (relative to the application root) to be removed from a checkout before symbolic links are created. This attribute runs before ``create_dirs_before_symlink`` and before ``symlink``. 
+     - An array of directories (relative to the application root) to be removed from a checkout before symbolic links are created. This attribute runs before ``create_dirs_before_symlink`` and before ``symlink``.
    * - ``symlink_before_migrate``
      - Map files in a shared directory to the current release directory. The symbolic links for these files are created before any migration is run. Use parentheses ``( )`` around curly braces ``{ }`` to ensure the contents within the curly braces are interpreted as a block and not as an empty Hash. Set to ``symlink_before_migrate({})`` to prevent the creation of symbolic links.
    * - ``symlinks``
@@ -264,7 +250,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the chef-client run.
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -344,7 +330,7 @@ This resource has the following properties:
    The system group that is responsible for the checked-out code.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -354,7 +340,7 @@ This resource has the following properties:
    The number of releases for which a backup is kept. Default value: ``5``.
 
 ``migrate``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Run a migration command. Default value: ``false``.
 
@@ -368,19 +354,19 @@ This resource has the following properties:
 
    .. tag resources_common_notification_notifies
 
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
 
    .. end_tag
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -396,11 +382,6 @@ This resource has the following properties:
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider. See "Providers" section below for more information.
 
 ``purge_before_symlink``
    **Ruby Type:** Array
@@ -443,7 +424,7 @@ This resource has the following properties:
    A branch, tag, or commit to be synchronized with git. This can be symbolic, like ``HEAD`` or it can be a source control management-specific revision identifier. Default value: ``HEAD``.
 
 ``rollback_on_error``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Roll a resource back to a previously-deployed release if an error occurs when deploying a new release. Default value: ``false``.
 
@@ -459,17 +440,32 @@ This resource has the following properties:
 
    A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
 
+   Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
+
+   .. code-block:: ruby
+
+     file '/etc/nginx/ssl/example.crt' do
+        mode '0600'
+        owner 'root'
+     end
+
+     service 'nginx' do
+        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+     end
+
+   In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
+
    .. end_tag
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -513,8 +509,10 @@ The following properties are for use with git only:
 
    The depth of a git repository, truncated to the specified number of revisions. See ``shallow_clone``.
 
+   New in Chef Client 12.5.
+
 ``enable_submodules``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Perform a sub-module initialization and update. Default value: ``false``.
 
@@ -529,7 +527,7 @@ The following properties are for use with git only:
    The remote repository to use when synchronizing an existing clone. Default value: ``origin``.
 
 ``shallow_clone``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Set the clone depth to ``5``. If a depth other than ``5`` is required, use the ``depth`` property instead of ``shallow_clone``. Default value: ``false``.
 
@@ -570,11 +568,30 @@ The chef-client will determine the correct provider based on configuration data 
 Generally, it's best to let the chef-client choose the provider, and this is (by far) the most common approach. However, in some cases, specifying a provider may be desirable. There are two approaches:
 
 * Use a more specific short name---``yum_package "foo" do`` instead of ``package "foo" do``, ``script "foo" do`` instead of ``bash "foo" do``, and so on---when available
-* Use the ``provider`` property within the resource block to specify the long name of the provider as a property of a resource. For example: ``provider Chef::Provider::Long::Name``
+* Use ``declare_resource``. This replaces all previous use cases where the provider class was passed in through the ``provider`` property:
+
+  .. code-block:: ruby
+
+     pkg_resource = case node['platform_family']
+       when 'debian'
+         :dpkg_package
+       when 'fedora', 'rhel', 'amazon'
+         :rpm_package
+       end
+
+     pkg_path = (pkg_resource == :dpkg_package) ? '/tmp/foo.deb' : '/tmp/foo.rpm'
+
+     declare_resource(pkg_resource, pkg_path) do
+       action :install
+     end
 
 .. end_tag
 
-This resource has the following providers:
+.. tag resource_provider_list_note
+
+For reference, the providers available for this resource are listed below. However please note that specifying a provider via its long name (such as ``Chef::Provider::Package``) using the ``provider`` property is not recommended. If a provider needs to be called manually, use one of the two approaches detailed above.
+
+.. end_tag
 
 ``Chef::Provider::Deploy``, ``deploy``
    When this short name is used, the chef-client will determine the correct provider during the chef-client run.
@@ -634,13 +651,13 @@ The layout of the **deploy** resource matches a Ruby on Rails app by default, bu
      restart_command 'touch tmp/restart.txt'
      create_dirs_before_symlink  %w{tmp public config deploy}
 
-     # You can use this to customize if your app has extra configuration files 
+     # You can use this to customize if your app has extra configuration files
      # such as amqp.yml or app_config.yml
      symlink_before_migrate  'config/database.yml' => 'config/database.yml'
 
      # If your app has extra files in the shared folder, specify them here
-     symlinks  'system' => 'public/system', 
-               'pids' => 'tmp/pids', 
+     symlinks  'system' => 'public/system',
+               'pids' => 'tmp/pids',
                'log' => 'log',
                'deploy/before_migrate.rb' => 'deploy/before_migrate.rb',
                'deploy/before_symlink.rb' => 'deploy/before_symlink.rb',
@@ -787,7 +804,7 @@ To pass a block of Python code before a migration is run:
      # ...
 
      before_migrate do
-       # release_path is the path to the timestamp dir 
+       # release_path is the path to the timestamp dir
        # for the current release
        current_release = release_path
 
@@ -880,8 +897,8 @@ Using the default property values for the various resources is the recommended s
      symlink_before_migrate       {'config/database.yml' => 'config/database.yml'}
      create_dirs_before_symlink   %w{tmp public config}
      purge_before_symlink         %w{log tmp/pids public/system}
-     symlinks                     { 'system' => 'public/system', 
-                                    'pids' => 'tmp/pids', 
+     symlinks                     { 'system' => 'public/system',
+                                    'pids' => 'tmp/pids',
                                     'log' => 'log'
                                   }
      ...
@@ -918,4 +935,3 @@ To clear the default values for a layout modifier:
 In general, use this approach carefully and only after it is determined that nil or empty values won't provide the expected result.
 
 .. end_tag
-

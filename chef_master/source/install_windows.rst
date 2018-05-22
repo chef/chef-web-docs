@@ -7,7 +7,7 @@ Install the chef-client on Microsoft Windows
 
 The chef-client can be installed on machines running Microsoft Windows in the following ways:
 
-* By using the `knife windows <https://docs.chef.io/plugin_knife_windows.html>`_ plugin to bootstrap the chef-client; this process requires the target node be available via SSH (port 22) or by using the HTTP or HTTPS ports that are required by WinRM
+* By using the `knife windows </plugin_knife_windows.html>`__ plugin to bootstrap the chef-client; this process requires the target node be available via SSH (port 22) or by using the HTTP or HTTPS ports that are required by WinRM
 * By downloading the chef-client to the target node, and then running the Microsoft Installer Package (MSI) locally
 * By using an existing process already in place for managing Microsoft Windows machines, such as System Center
 
@@ -48,6 +48,7 @@ where ``/qn`` is used to set the user interface level to "No UI", ``/i`` is used
 ADDLOCAL Options
 -----------------------------------------------------
 .. tag windows_msiexec_addlocal
+.. note:: ``ChefSchTaskFeature`` is New in Chef Client 12.18.
 
 The ``ADDLOCAL`` parameter adds two setup options that are specific to the chef-client. These options can be passed along with an Msiexec.exe command:
 
@@ -59,12 +60,20 @@ The ``ADDLOCAL`` parameter adds two setup options that are specific to the chef-
      - Description
    * - ``ChefClientFeature``
      - Use to install the chef-client.
+   * - ``ChefSchTaskFeature``
+     - Use to configure the chef-client as a scheduled task in Microsoft Windows.
    * - ``ChefServiceFeature``
      - Use to configure the chef-client as a service in Microsoft Windows.
    * - ``ChefPSModuleFeature``
      - Used to install the chef PowerShell module. This will enable chef command line utilities within PowerShell.
 
-First install the chef-client, and then enable it to run as a service. For example:
+First install the chef-client, and then enable it to run as a scheduled task (recommended) or as a service. For example:
+
+.. code-block:: bash
+
+   $ msiexec /qn /i C:\inst\chef-client-12.4.3-1.windows.msi ADDLOCAL="ChefClientFeature,ChefSchTaskFeature,ChefPSModuleFeature"
+
+OR
 
 .. code-block:: bash
 
@@ -80,7 +89,7 @@ A Microsoft Installer Package (MSI) is available for installing the chef-client 
 
 To install the chef-client on Microsoft Windows, do the following:
 
-#. Go to http://www.chef.io/chef/install.
+#. Go to https://downloads.chef.io/chef.
 
 #. Click the **Chef Client** tab.
 
@@ -102,7 +111,7 @@ then:
 
    .. image:: ../../images/step_install_windows_03.png
 
-   .. note:: The chef-client must be run as a service for it to be able to regularly check in with the Chef server. Select the **Chef Client Service** option to have the MSI configure the chef-client as a service.
+   .. note:: The MSI can either configure the chef-client to run as a scheduled task or as a service for it to be able to regularly check in with the Chef server. Using a scheduled task is a recommended approach. Select the **Chef Unattended Execution Options** option to have the MSI configure the chef-client as a scheduled task or as a service.
 
 then:
 
@@ -116,13 +125,17 @@ then:
 
    .. image:: ../../images/step_install_windows_06.png
 
+then:
+
+   .. image:: ../../images/step_install_windows_07.png
+
 .. end_tag
 
 Run as a Service
 -----------------------------------------------------
 .. tag install_chef_client_windows_as_service
 
-To run the chef-client at periodic intervals (so that it can check in with the Chef server automatically), configure the chef-client to run as a service or as a scheduled task. This can be done via the MSI, by selecting the **Chef Client Service** option on the **Custom Setup** page or by running the following command after the chef-client is installed:
+To run the chef-client at periodic intervals (so that it can check in with the Chef server automatically), configure the chef-client to run as a service. This can be done via the MSI, by selecting the **Chef Unattended Execution Options** --> **Chef Client Service** option on the **Custom Setup** page or by running the following command after the chef-client is installed:
 
 .. code-block:: bash
 
@@ -146,6 +159,26 @@ The chef-client can be run as a scheduled task. On the Microsoft Windows platfor
 * Does not have an indeterminate status, such as a service for which only the watcher is "running"
 * Prevents insufficient permissions related to service context
 * Prevents issues related to a system reboot
+
+Scheduled Task Options
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. tag install_chef_client_windows_as_scheduled_task
+
+To run the chef-client at periodic intervals (so that it can check in with the Chef server automatically), configure the chef-client to run as a scheduled task. This can be done via the MSI, by selecting the **Chef Unattended Execution Options** --> **Chef Client Scheduled Task** option on the **Custom Setup** page or by running the following command after the chef-client is installed:
+
+For example:
+
+.. code-block:: none
+
+   $ SCHTASKS.EXE /CREATE /TN ChefClientSchTask /SC MINUTE /MO 30 /F /RU "System" /RP /RL HIGHEST /TR "cmd /c \"C:\opscode\chef\embedded\bin\ruby.exe C:\opscode\chef\bin\chef-client -L C:\chef\chef-client.log -c C:\chef\client.rb\""
+
+Refer `Schedule a Task <https://technet.microsoft.com/en-us/library/cc748993%28v=ws.11%29.aspx>`_ for more details.
+
+After the chef-client is configured to run as a scheduled task, the default file path is: ``c:\chef\chef-client.log``.
+
+Using a scheduled task is a recommended approach. Refer to `Should I run chef-client on Windows as a 'service' or a 'scheduled task'? <https://getchef.zendesk.com/hc/en-us/articles/205233360-Should-I-run-chef-client-on-Windows-as-a-service-or-a-scheduled-task->`_ for additional information on the differences between the two approaches.
+
+.. end_tag
 
 Use an Existing Process
 =====================================================
@@ -198,4 +231,3 @@ This value can be set from a recipe. For example, from the ``php`` cookbook:
    ...
 
 .. end_tag
-

@@ -3,11 +3,11 @@ opscode-reporting-ctl (executable)
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ctl_reporting.rst>`__
 
-.. tag chef_automate_mark
+.. tag reporting_legacy
 
-.. image:: ../../images/chef_automate_full.png
-   :width: 40px
-   :height: 17px
+.. note:: This documentation is meant to support existing Chef customers using Reporting.
+
+          Are you a new Chef customer, or looking to gain better insight into your fleet? Take advantage of `Chef Automate </chef_automate.html>`__. You'll get a graphical interface and query language that gives you insight into operational, compliance, and workflow events. You can `download Chef Automate here <https://downloads.chef.io/automate>`__.
 
 .. end_tag
 

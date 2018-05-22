@@ -5,21 +5,24 @@ Install the Chef Server
 
 There are three configuration scenarios for the Chef server:
 
-* `Standalone <https://docs.chef.io/server/install_server.html#standalone>`__ (everything on a single machine)
-* `High availability <https://docs.chef.io/server/install_server.html#high-availability>`__ (machines configured for front-end and back-end, allowing for failover on the back-end and load-balancing on the front-end, as required)
-* `Tiered <https://docs.chef.io/server/install_server.html#tiered-single-backend>`__ (machines configured for front-end and back-end, with a single back-end and load-balancing on the front-end, as required)
+* `Standalone <install_server.html#standalone>`__ (everything on a single machine)
+* `High availability <install_server.html#high-availability>`__ (machines configured for front-end and back-end, allowing for failover on the back-end and load-balancing on the front-end, as required)
+* `Tiered <install_server.html#tiered-single-backend>`__ (machines configured for front-end and back-end, with a single back-end and load-balancing on the front-end, as required)
 
 Prerequisites
 =====================================================
-The Chef server has the :doc:`following prerequisites </install_server_pre>`:
+The Chef server has the following prerequisites:
 
 * An x86_64 compatible system architecture; Red Hat Enterprise Linux and CentOS may require updates prior to installation
 * A resolvable hostname that is specified using a FQDN or an IP address
 * A connection to Network Time Protocol (NTP) to prevent clock drift
+* If host-based firewalls (iptables, ufw, etc.) are being used, ensure that ports 80 and 443 are open. See the `firewalls </install_server_pre.html#firewalls>`_ section of the install prerequisites for additional details.
 * A local mail transfer agent that allows the Chef server to send email notifications
 * Using cron and the ``/etc/cron.d`` directory for periodic maintenance tasks
-* Disabling the Apache Qpid daemon on CentOS and Red Hat systems
-* Optional. A local user account under which services will run, a local user account for PostgreSQL, and a group account under which services will run. See https://docs.chef.io/install_server_pre.html#uids-and-gids for more information.
+* Disabling the Apache Qpid daemon on CentOS and Red Hat systems. See the `Apache Qpid </install_server_pre.html#apache-qpid>`_ of the prerequisite documentation for detailed steps.
+* Optional. A local user account under which services will run, a local user account for PostgreSQL, and a group account under which services will run. See `UIDs and GIDs </install_server_pre.html#uids-and-gids>`__ for more information.
+
+.. note:: See the `expanded list of prerequisites </install_server_pre.html>`__ for a detailed list of software and hardware requirements.
 
 Standalone
 =====================================================
@@ -27,24 +30,24 @@ The standalone installation of Chef server creates a working installation on a s
 
 To install Chef server 12:
 
-#. Download the package from http://downloads.chef.io/chef-server/.
+#. Download the package from https://downloads.chef.io/chef-server/.
 #. Upload the package to the machine that will run the Chef server, and then record its location on the file system. The rest of these steps assume this location is in the ``/tmp`` directory.
 
 #. .. tag install_chef_server_install_package
 
    .. This topic is hooked in globally to install topics for Chef server applications.
 
-   As a root user, install the Chef server package on the server, using the name of the package provided by Chef. For Red Hat and CentOS 6:
+   As a root user, install the Chef server package on the server, using the name of the package provided by Chef. For Red Hat Enterprise Linux and CentOS:
 
    .. code-block:: bash
 
-      $ rpm -Uvh /tmp/chef-server-core-<version>.rpm
+      $ sudo rpm -Uvh /tmp/chef-server-core-<version>.rpm
 
    For Ubuntu:
 
    .. code-block:: bash
 
-      $ dpkg -i /tmp/chef-server-core-<version>.deb
+      $ sudo dpkg -i /tmp/chef-server-core-<version>.deb
 
    After a few minutes, the Chef server will be installed.
 
@@ -66,7 +69,7 @@ To install Chef server 12:
 
       $ chef-server-ctl user-create USER_NAME FIRST_NAME LAST_NAME EMAIL 'PASSWORD' --filename FILE_NAME
 
-   An RSA private key is generated automatically. This is the user's private key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to a specified path.
+   An RSA private key is generated automatically. This is the user's private key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to the specified absolute path.
 
    For example:
 
@@ -90,7 +93,7 @@ To install Chef server 12:
 
    The ``--association_user`` option will associate the ``user_name`` with the ``admins`` security group on the Chef server.
 
-   An RSA private key is generated automatically. This is the chef-validator key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to a specified path.
+   An RSA private key is generated automatically. This is the chef-validator key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to the specified absolute path.
 
    For example:
 
@@ -141,7 +144,7 @@ To install Chef server 12:
 
           .. note:: .. tag chef_license_reconfigure_manage
 
-                    Starting with the Chef management console 2.3.0, the `Chef MLSA <https://docs.chef.io/chef_license.html>`__ must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
+                    Starting with the Chef management console 2.3.0, the `Chef MLSA </chef_license.html>`__ must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
 
                     .. end_tag
 
@@ -211,7 +214,7 @@ To install Chef server 12:
 
 Update config for purchased nodes
 =====================================================
-When using more than 25 nodes, a configuration change to your Chef server needs to be made in order for your Chef server to be properly configured and recognize your purchased licenses. You will need to edit to your ``chef-server.rb`` file by following the process below:
+When using more than 25 nodes, a configuration change to your Chef server needs to be made in order for your Chef server to be properly configured and recognize your purchased licenses. You will need to edit your ``/etc/opscode/chef-server.rb`` file by following the process below:
 
 #. On your Chef server, if the ``chef-server.rb`` file does not exist, create it.
 
@@ -243,21 +246,19 @@ When using more than 25 nodes, a configuration change to your Chef server needs 
 
       sudo chef-server-ctl reconfigure
 
-For more information on configuring your Chef server, see :doc:`chef-server.rb Settings </config_rb_server>` and :doc:`chef-server.rb Optional Settings </config_rb_server_optional_settings>`.
+For more information on configuring your Chef server, see `chef-server.rb Settings </config_rb_server.html>`__ and `chef-server.rb Optional Settings </config_rb_server_optional_settings.html>`__.
 
 High Availability
 =====================================================
-The following links describe how to configure the Chef server for high availability:
+The following links describe how to configure the Chef server for high availability. The **Backend Cluster** setup is strongly recommended for new installations:
 
-.. raw:: html
+* `High Availability using Backend Cluster </install_server_ha.html>`__
+* `High Availability using Amazon Web Services (DEPRECATED) </install_server_ha_aws.html>`__
+* `High Availability using DRBD (DEPRECATED) </install_server_ha_drbd.html>`__
 
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/install_server_ha_aws.html">High Availability using Amazon Web Services</a> </br>
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/install_server_ha_drbd.html">High Availability using DRBD</a> </br>
 
 Tiered (Single Backend)
 =====================================================
-The following link describes how to configure the Chef server with a single backend machine and multiple frontend machines:
+The following link describes how to configure the Chef server with a single backend machine and multiple frontend machines. Note that this process has been deprecated in favor of a `Backend Cluster </install_server_ha.html>`__ setup:
 
-.. raw:: html
-
-   &nbsp;&nbsp;&nbsp;   <a href="https://docs.chef.io/install_server_tiered.html">Tiered</a> </br>
+* `Tiered Installation (DEPRECATED) </install_server_tiered.html>`__

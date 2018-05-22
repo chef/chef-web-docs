@@ -5,7 +5,7 @@ apt_package
 
 .. tag resource_package_apt
 
-Use the **apt_package** resource to manage packages for the Debian and Ubuntu platforms.
+Use the **apt_package** resource to manage packages on Debian and Ubuntu platforms.
 
 .. end_tag
 
@@ -33,8 +33,8 @@ The full syntax for all of the properties that are available to the **apt_packag
      default_release            String
      notifies                   # see description
      options                    String
+     overwrite_config_files     True, False # default value: 'false'
      package_name               String, Array # defaults to 'name' if not specified
-     provider                   Chef::Provider::Package::Apt
      source                     String
      subscribes                 # see description
      timeout                    String, Integer
@@ -46,8 +46,10 @@ where
 
 * ``apt_package`` tells the chef-client to manage a package
 * ``'name'`` is the name of the package
-* ``:action`` identifies which steps the chef-client will take to bring the node into the desired state
-* ``default_release``, ``options``, ``package_name``, ``provider``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``default_release``, ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+
+Changed in Chef Client 12.1 to support specifying multiple packages and/or versions.
 
 Actions
 =====================================================
@@ -56,10 +58,15 @@ This resource has the following actions:
 ``:install``
    Default. Install a package. If a version is specified, install the specified version of the package.
 
+``:lock``
+   Locks the apt package to a specific version.
+
+   New in Chef Client 12.16.
+
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the chef-client run.
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -71,6 +78,11 @@ This resource has the following actions:
 
 ``:remove``
    Remove a package.
+
+``:unlock``
+   Unlocks the apt package so that it can be upgraded to a newer version.
+
+   New in Chef Client 12.16.
 
 ``:upgrade``
    Install a package and/or ensure that a package is the latest version.
@@ -85,7 +97,7 @@ This resource has the following properties:
    The default release. For example: ``stable``.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -94,19 +106,19 @@ This resource has the following properties:
 
    .. tag resources_common_notification_notifies
 
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
 
    .. end_tag
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -126,17 +138,19 @@ This resource has the following properties:
 ``options``
    **Ruby Type:** String
 
-   One (or more) additional options that are passed to the command. For example, common apt-get directives, such as ``--no-install-recommends``. See the `apt-get man page <http://manpages.debian.net/cgi-bin/man.cgi?query=apt-get>`_ for the full list.
+   One (or more) additional options that are passed to the command. For example, common apt-get directives, such as ``--no-install-recommends``. See the `apt-get man page <http://manpages.ubuntu.com/manpages/zesty/man8/apt-get.8.html>`_ for the full list.
+
+``overwrite_config_files``
+   **Ruby Type:** True, False | **Default Value:** ``false``
+   
+   Overwrite existing configuration files with those supplied by the package, if prompted by APT.
+   
+   New in Chef Client 14.0.
 
 ``package_name``
    **Ruby Types:** String, Array
 
    The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider. See "Providers" section below for more information.
 
 ``retries``
    **Ruby Type:** Integer
@@ -160,17 +174,32 @@ This resource has the following properties:
 
    A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
 
+   Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
+
+   .. code-block:: ruby
+
+     file '/etc/nginx/ssl/example.crt' do
+        mode '0600'
+        owner 'root'
+     end
+
+     service 'nginx' do
+        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+     end
+
+   In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
+
    .. end_tag
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -201,7 +230,7 @@ Multiple Packages
 -----------------------------------------------------
 .. tag resources_common_multiple_packages
 
-A resource may specify multiple packages and/or versions for platforms that use Yum, Apt, Zypper, or Chocolatey package managers. Specifing multiple packages and/or versions allows a single transaction to:
+A resource may specify multiple packages and/or versions for platforms that use Yum, DNF, Apt, Zypper, or Chocolatey package managers. Specifing multiple packages and/or versions allows a single transaction to:
 
 * Download the specified packages and versions via a single HTTP transaction
 * Update or install multiple packages with a single resource during the chef-client run
@@ -210,13 +239,21 @@ For example, installing multiple packages:
 
 .. code-block:: ruby
 
-   package ['package1', 'package2']
+   package %w(package1 package2)
+
+Installing multiple packages with versions:
+
+.. code-block:: ruby
+
+   package %w(package1 package2) do
+     version [ '1.3.4-2', '4.3.6-1']
+   end
 
 Upgrading multiple packages:
 
 .. code-block:: ruby
 
-   package ['package1', 'package2']  do
+   package %w(package1 package2)  do
      action :upgrade
    end
 
@@ -224,7 +261,7 @@ Removing multiple packages:
 
 .. code-block:: ruby
 
-   package ['package1', 'package2']  do
+   package %w(package1 package2)  do
      action :remove
    end
 
@@ -232,7 +269,7 @@ Purging multiple packages:
 
 .. code-block:: ruby
 
-   package ['package1', 'package2']  do
+   package %w(package1 package2)  do
      action :purge
    end
 
@@ -240,7 +277,7 @@ Notifications, via an implicit name:
 
 .. code-block:: ruby
 
-   package ['package1', 'package2']  do
+   package %w(package1 package2)  do
      action :nothing
    end
 
@@ -252,40 +289,10 @@ Notifications, via an implicit name:
 
 .. end_tag
 
-Providers
-=====================================================
-.. tag resources_common_provider
-
-Where a resource represents a piece of the system (and its desired state), a provider defines the steps that are needed to bring that piece of the system from its current state into the desired state.
-
-.. end_tag
-
-.. tag resources_common_provider_attributes
-
-The chef-client will determine the correct provider based on configuration data collected by Ohai at the start of the chef-client run. This configuration data is then mapped to a platform and an associated list of providers.
-
-Generally, it's best to let the chef-client choose the provider, and this is (by far) the most common approach. However, in some cases, specifying a provider may be desirable. There are two approaches:
-
-* Use a more specific short name---``yum_package "foo" do`` instead of ``package "foo" do``, ``script "foo" do`` instead of ``bash "foo" do``, and so on---when available
-* Use the ``provider`` property within the resource block to specify the long name of the provider as a property of a resource. For example: ``provider Chef::Provider::Long::Name``
-
-.. end_tag
-
-This resource has the following providers:
-
-``Chef::Provider::Package``, ``package``
-   When this short name is used, the chef-client will attempt to determine the correct provider during the chef-client run.
-
-``Chef::Provider::Package::Apt``, ``apt_package``
-   The provider for the Debian and Ubuntu platforms.
-
 Examples
 =====================================================
-.. tag resources_common_examples_intro
 
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
-
-.. end_tag
+The following examples demonstrate various approaches for using apt_update in recipes.
 
 **Install a package using package manager**
 
@@ -309,7 +316,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. code-block:: ruby
 
-   apt_package 'jwhois' do    
+   apt_package 'jwhois' do
      action :install
      source '/path/to/jwhois.deb'
    end
@@ -329,4 +336,3 @@ The following examples demonstrate various approaches for using resources in rec
    end
 
 .. end_tag
-

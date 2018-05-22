@@ -3,7 +3,7 @@ Tiered Installation (DEPRECATED)
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_server_tiered.rst>`__
 
-.. warning:: This topic is deprecated as of the 12.9 release of the Chef servver. For the latest information on high availability and how to set up a highly-available server cluster, see `High Availability: Backend Cluster <https://docs.chef.io/install_server_ha.html>`_.
+.. warning:: This topic is deprecated as of the 12.9 release of the Chef server. For the latest information on high availability and how to set up a highly-available server cluster, see `High Availability: Backend Cluster </install_server_ha.html>`__.
 
 This topic describes how to set up the Chef server with a single back end and multiple load-balanced frontend servers.
 
@@ -15,21 +15,32 @@ Before installing the Chef server software, perform the following steps:
 
 * The backend server must be accessible from each frontend server. A virtual IP address is created and managed by the Chef server, but will also need to be added to the DNS so that all machines in the tiered configuration may access it.
 * Persistent data on the backend Chef server is primarily composed of cookbook files and directories. Separate disks should be dedicated entirely to storing this data prior to installing the Chef server.
-* Load-balancing should be used with frontend servers, along with a DNS entry for the virtual IP address used for load balancing. This virtual IP address is added to the chef-server.rb file as the ``api_fqdn``. 
+* Load-balancing should be used with frontend servers, along with a DNS entry for the virtual IP address used for load balancing. This virtual IP address is added to the chef-server.rb file as the ``api_fqdn``.
 * All required ports must be open. See the Firewalls section (below) for the list of ports. All connections to and from the Chef server are accomplished via TCP. Refer to the operating system's manual or your systems administrators for instructions on how to configure to ports, if necessary.
-* The hostname for the Chef server must be an FQDN, including the domain suffix, and must be resolvable by the backend and frontend servers. See `Hostnames, FQDNs <https://docs.chef.io/install_server_pre.html#hostnames>`_ for more information.
+* The hostname for the Chef server must be an FQDN, including the domain suffix, and must be resolvable by the backend and frontend servers. See `Hostnames, FQDNs </install_server_pre.html#hostnames>`_ for more information.
 * ``chef-server-ctl reconfigure`` will not bind the ``backend_vip`` to the backend server. The easiest thing to do is just define ``backend_vip`` as the already configured main IP address of the backend system. If you need to use an additional address, it will need to be configured and bound on the system before ``chef-server-ctl reconfigure`` is run.
+
+Basic Hardware Requirements
+=====================================================
+For a tiered deployment, your backend server should support the following hardware requirements:
+
+* 64-bit architecture
+* 8 total cores (physical or virtual)
+* 16GB RAM
+* Fast, redundant storage (SSD/RAID-based solution)
+
+  * 50 GB/backend server (SSD if on premises, Premium Storage in Microsoft Azure, EBS-Optimized GP2 in AWS)
+
+* 1 GigE NIC interface
+* A back-end server; all other systems will be front-end servers.
+
+.. note: Tiered deployments are deprecated as of Chef server 12.9. You are encouraged to set up a high availability server cluster instead. See see `High Availability: Backend Cluster </install_server_ha.html>`__ for more details.
 
 Disk Configuration
 =====================================================
-Persistent data on the backend server of the Chef server is primarily composed of cookbook files and directories. Separate disks should be dedicated entirely to storing this data prior to installing the Chef server. These disks should:
+Persistent data on the backend server of the Chef server is primarily composed of cookbook files and directories. Separate disks should be dedicated entirely to storing this data prior to installing the Chef server. These disks should be part of a SSD or hardware RAID-based solution that ensure redundancy and high IOPS. This configuration guide assumes that:
 
-* Utilize hardware RAID
-* Be configured in either RAID1
-
-This assumes that:
-
-* ~300GB of raw, unpartitioned disk space is available
+* ~50GB of raw, unpartitioned disk space is available. Disk space should scale up with the number of nodes that the backend server is managing. A good rule to follow is to allocate 2 MB per node.
 * The disk space presents as a single device. For example: ``/dev/sdb``.
 * The storage is added to a volume group named ``opscode`` and is presented to the Chef server by mounting on ``/var/opt/opscode`` before a reconfiguration
 
@@ -77,7 +88,7 @@ Backend
 =====================================================
 Use the following steps to set up the backend Chef server:
 
-#. Download the packages from http://downloads.chef.io/chef-server/. For Red Hat and CentOS 6:
+#. Download the packages from https://downloads.chef.io/chef-server/. For Red Hat and CentOS 6:
 
    .. code-block:: bash
 
@@ -155,8 +166,7 @@ Add the following settings to the chef-server.rb file:
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl reconfigure
-      $ sudo chef-manage-ctl reconfigure
+      $ chef-server-ctl reconfigure
 
    .. end_tag
 
@@ -189,8 +199,7 @@ For each frontend server, use the following steps to set up the Chef server:
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl reconfigure
-      $ sudo chef-manage-ctl reconfigure
+      $ chef-server-ctl reconfigure
 
    .. end_tag
 
@@ -202,9 +211,11 @@ For each frontend server, use the following steps to set up the Chef server:
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl start
+      $ chef-server-ctl start
 
    .. end_tag
+
+On a single frontend server, create an administrator and an organization:
 
 #. .. tag ctl_chef_server_user_create_admin
 
@@ -214,7 +225,7 @@ For each frontend server, use the following steps to set up the Chef server:
 
       $ chef-server-ctl user-create USER_NAME FIRST_NAME LAST_NAME EMAIL 'PASSWORD' --filename FILE_NAME
 
-   An RSA private key is generated automatically. This is the user's private key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to a specified path.
+   An RSA private key is generated automatically. This is the user's private key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to the specified absolute path.
 
    For example:
 
@@ -238,27 +249,13 @@ For each frontend server, use the following steps to set up the Chef server:
 
    The ``--association_user`` option will associate the ``user_name`` with the ``admins`` security group on the Chef server.
 
-   An RSA private key is generated automatically. This is the chef-validator key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to a specified path.
+   An RSA private key is generated automatically. This is the chef-validator key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to the specified absolute path.
 
    For example:
 
    .. code-block:: bash
 
       $ chef-server-ctl org-create 4thcoffee 'Fourth Coffee, Inc.' --association_user stevedanno --filename /path/to/4thcoffee-validator.pem
-
-   .. end_tag
-
-#. .. tag install_chef_server_reconfigure
-
-   .. This topic is hooked in globally to install topics for Chef server applications.
-
-   Reconfigure the Chef server and the Chef management console (standalone and frontend group members
-     of a High Availabilty installation):
-
-   .. code-block:: bash
-
-      $ sudo chef-server-ctl reconfigure
-      $ sudo chef-manage-ctl reconfigure
 
    .. end_tag
 
@@ -301,7 +298,7 @@ Chef Manage
 
    .. note:: .. tag chef_license_reconfigure_manage
 
-             Starting with the Chef management console 2.3.0, the `Chef MLSA <https://docs.chef.io/chef_license.html>`__ must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
+             Starting with the Chef management console 2.3.0, the `Chef MLSA </chef_license.html>`__ must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
 
              .. end_tag
 
@@ -353,7 +350,7 @@ To set up the Reporting server:
 
    .. note:: .. tag chef_license_reconfigure_reporting
 
-             Starting with Reporting 1.6.0, the `Chef MLSA <https://docs.chef.io/chef_license.html>`__ must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``opscode-reporting-ctl reconfigure --accept-license`` to automatically accept the license.
+             Starting with Reporting 1.6.0, the `Chef MLSA </chef_license.html>`__ must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``opscode-reporting-ctl reconfigure --accept-license`` to automatically accept the license.
 
              .. end_tag
 
@@ -405,7 +402,7 @@ A completed chef-server.rb configuration file for a four server tiered Chef serv
      - Real IP Address
      - Role
    * - be1.example.com
-     - 192.168.4.1
+     - 192.0.2.0
      - backend
    * - fe1.example.com
      - 192.168.4.2
@@ -417,7 +414,7 @@ A completed chef-server.rb configuration file for a four server tiered Chef serv
      - 192.168.4.4
      - frontend
    * - chef.example.com
-     - 
+     -
      - load balanced frontend VIP
    * - be.example.com
      - 192.168.4.7
@@ -430,7 +427,7 @@ Looks like this:
    topology "tier"
 
    server "be1.example.com",
-     :ipaddress => "192.168.4.1",
+     :ipaddress => "192.0.2.0",
      :role => "backend",
      :bootstrap => true
 
@@ -509,7 +506,7 @@ For back-end servers in a tiered Chef server installation, ensure that ports mar
 
        .. end_tag
 
-     - 
+     -
    * - 8983
      - **opscode-solr4**
 
@@ -519,7 +516,7 @@ For back-end servers in a tiered Chef server installation, ensure that ports mar
 
        .. end_tag
 
-     - 
+     -
    * - 5432
      - **postgresql**
 
@@ -529,17 +526,17 @@ For back-end servers in a tiered Chef server installation, ensure that ports mar
 
        .. end_tag
 
-     - 
+     -
    * - 5672, 15672
      - **rabbitmq**
 
        .. tag server_services_rabbitmq
 
-       The **rabbitmq** service is used to provide the message queue that is used by the Chef server to get search data to Apache Solr so that it can be indexed for search. When Chef Analytics is confiugred, the **rabbitmq** service is also used to send data from the Chef server to the Chef Analytics server.
+       The **rabbitmq** service is used to provide the message queue that is used by the Chef server to get search data to Apache Solr so that it can be indexed for search. When Chef Analytics is configured, the **rabbitmq** service is also used to send data from the Chef server to the Chef Analytics server.
 
        .. end_tag
 
-     - 
+     -
    * - 16379
      - **redis_lb**
 
@@ -549,7 +546,7 @@ For back-end servers in a tiered Chef server installation, ensure that ports mar
 
        .. end_tag
 
-     - 
+     -
    * - 4321
      - **bookshelf**
 
@@ -559,7 +556,7 @@ For back-end servers in a tiered Chef server installation, ensure that ports mar
 
        .. end_tag
 
-     - 
+     -
    * - 8000
      - **opscode-erchef**
 
@@ -614,7 +611,7 @@ For front-end servers, ensure that ports marked as external (marked as ``yes`` i
 
        .. end_tag
 
-     - 
+     -
    * - 9090
      - **oc-id**
 
@@ -624,7 +621,7 @@ For front-end servers, ensure that ports marked as external (marked as ``yes`` i
 
        .. end_tag
 
-     - 
+     -
    * - 8000
      - **opscode-erchef**
 
@@ -645,4 +642,3 @@ For front-end servers, ensure that ports marked as external (marked as ``yes`` i
      -
 
 .. end_tag
-

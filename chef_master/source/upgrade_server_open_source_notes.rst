@@ -1,5 +1,5 @@
 =====================================================
-Notes for Open Source Chef Upgrades 
+Notes for Open Source Chef Upgrades
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/upgrade_server_open_source_notes.rst>`__
 
@@ -9,7 +9,7 @@ Background
 =====================================================
 The following assumptions are made about all upgrades from Open Source Chef version 11.0.0 (or higher) to Chef server version 12.
 
-* An organization must be created. Add the organization name as the vaue for the ``default_orgname`` setting in the ``chef-server.rb`` file. This will ensure that API requests made to the server prior to the upgrade process can still be made after.
+* An organization must be created. Add the organization name as the vaue for the ``default_orgname`` setting in the ``/etc/opscode/chef-server.rb`` file. This will ensure that API requests made to the server prior to the upgrade process can still be made after.
 
 Standalone>>Standalone
 -----------------------------------------------------
@@ -44,7 +44,7 @@ Validation Keys
 -----------------------------------------------------
 The Open Source Chef server does not have the concept of organizations. The Chef server version 12 upgrade process will require an organization to be created.
 
-The Open Source Chef uses a validation key and validation client name to ensure that clients can validate to the Open Source Chef server. In Open Source Chef, this is a generic validation client and key. These two settings in the the client.rb and/or knife.rb files specifiy the generic client and key:
+The Open Source Chef uses a validation key and validation client name to ensure that clients can validate to the Open Source Chef server. In Open Source Chef, this is a generic validation client and key. These two settings in the the client.rb and/or knife.rb files specify the generic client and key:
 
 .. list-table::
    :widths: 200 300
@@ -53,13 +53,13 @@ The Open Source Chef uses a validation key and validation client name to ensure 
    * - Setting
      - Description
    * - ``validation_client_name``
-     - The name of the chef-validator key that is used by the chef-client to access the Chef server during the initial chef-client run. 
+     - The name of the chef-validator key that is used by the chef-client to access the Chef server during the initial chef-client run.
    * - ``validation_key``
      - The location of the file that contains the key used when a chef-client is registered with a Chef server. A validation key is signed using the ``validation_client_name`` for authentication. Default value: ``/etc/chef/validation.pem``.
 
 In Chef server version 12, the server supports multiple organizations and each organization has a unique validation client and key. The upgrade process will create a new validation client and key and will associate their names with the newly-created organization.
 
-The ``default_orgname`` setting will ensure that the existing generic validation client and key will work with the newly-created organization. Post-upgrate, there will be TWO validation clients and validation keys. The organization-specific client and key is not required; in some cases, it may be necessary to reset that validation key through the Chef management console web user interface.
+The ``default_orgname`` setting will ensure that the existing generic validation client and key will work with the newly-created organization. Post-upgrade, there will be TWO validation clients and validation keys. The organization-specific client and key is not required; in some cases, it may be necessary to reset that validation key through the Chef management console web user interface.
 
 .. note:: The Chef management console web user interface will not be able to reset the generic validation client and key that was migrated from Open Source Chef.
 
@@ -262,21 +262,20 @@ If this error occurs, re-run the upgrade process, adding the ``--upload-threads`
 
    $ chef-server-ctl upgrade --upload-threads 1
 
-This option will ensure that only one cookbook is uploaded at a time. This approach will be slower, but will prevent a race condition (and this error) from occuring. It may also be helpful to run each stage of the upgrade process separately. See the section "Subcommands Reference" below for more information about the individual commands.
+This option will ensure that only one cookbook is uploaded at a time. This approach will be slower, but will prevent a race condition (and this error) from occurring. It may also be helpful to run each stage of the upgrade process separately. See the section "Subcommands Reference" below for more information about the individual commands.
 
-Verify Nodes and Cookbooks 
+Verify Nodes and Cookbooks
 =====================================================
 .. tag upgrade_verify_nodes_and_cookbooks
 
 Install the latest version of the chef-client on a small number of test nodes. Download all cookbooks, and then and check the following:
 
-* Run ``knife cookbook test``. Do they all pass validation with the version of the chef-client you plan on using?
-* Run ``egrep -L ^name */metadata.rb``. Do they all have a metadata.rb file? 
+* Run ``egrep -L ^name */metadata.rb``. Do they all have a metadata.rb file?
 * Does the cookbook name in the metadata.rb file match the name in the run-list? (Some older versions of the chef-client used the cookbook name for the run-list based on the directory name of the cookbook and not the value of the ``cookbook_name`` setting in the metadata.rb file.)
 * Do all cookbooks have a metadata.rb file or metadata.json file?
 * Do all cookbooks used in the organization also exist in source control?
 * Do unused cookbooks (or cookbook versions) exist in source control? Run ``knife cookbook list`` to view a list of cookbooks, and then for each cookbook run ``knife cookbook show COOKBOOK_NAME`` to view its versions. Delete unused cookbook versions with ``knife cookbook delete -v VERSION_NAME``.
-* How large is a cookbook? Most cookbooks are quite small, under ~200 KB. Sometimes cookbooks need to be larger than that. For larger cookbooks, consider why they are that large. Do they contain unecessary binary files? Do they have a long git history? Mitigate the size of large cookbooks where possible.
+* How large is a cookbook? Most cookbooks are quite small, under ~200 KB. Sometimes cookbooks need to be larger than that. For larger cookbooks, consider why they are that large. Do they contain unnecessary binary files? Do they have a long git history? Mitigate the size of large cookbooks where possible.
 
 Verify the nodes and clients that are in use:
 

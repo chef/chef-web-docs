@@ -53,7 +53,7 @@
 
 
 <url>
-<loc>https://docs.chef.io/api_cookbooks_site.html</loc>
+<loc>https://docs.chef.io/supermarket_api.html</loc>
 </url>
 
 
@@ -1866,5 +1866,8 @@
 <loc>https://docs.chef.io/workstation.html</loc>
 </url>
 
+<url>
+<loc>https://docs.chef.io/data_retention_chef_automate.html</loc>
+</url>
 
 </urlset>

@@ -3,7 +3,7 @@ High Availability: AWS (DEPRECATED)
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_server_ha_aws.rst>`__
 
-.. warning:: This topic is deprecated as of the 12.9 release of the Chef servver. For the latest information on high availability and how to set up a highly-available server cluster, see `High Availability: Backend Cluster <https://docs.chef.io/install_server_ha.html>`_.
+.. warning:: This topic is deprecated as of the 12.9 release of the Chef server. For the latest information on high availability and how to set up a highly-available server cluster, see `High Availability: Backend Cluster </install_server_ha.html>`__.
 
 This topic describes how to set up the Chef server for high availability in Amazon Web Services (AWS).
 
@@ -34,7 +34,7 @@ Primary Backend
 Use the following steps to set up the primary backend Chef server:
 
 #. Create an Amazon Elastic Block Store (EBS) volume and attach it to the primary backend.
-#. Download the packages from http://downloads.chef.io/chef-server/ and http://downloads.chef.io/chef-ha/.
+#. Download https://downloads.chef.io/chef-server/. You will also need the chef-ha package; however, that can no longer be downloaded from https://downloads.chef.io.
 #. Install the ``chef-server-core`` package. For Red Hat and CentOS 6:
 
    .. code-block:: bash
@@ -119,8 +119,7 @@ Use the following steps to set up the primary backend Chef server:
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl reconfigure
-      $ sudo chef-manage-ctl reconfigure
+      $ chef-server-ctl reconfigure
 
    .. end_tag
 
@@ -144,7 +143,7 @@ Use the following steps to set up the primary backend Chef server:
 
 chef-server.rb
 =====================================================
-Each Chef server in a high availabilty configuration must have an identical chef-server.rb file that is located in the ``/etc/opscode/`` directory on each server. This file describes the topology of the high availability configuration. On the primary backend server, create a file named chef-server.rb and save it in the ``/etc/opscode/`` directory.
+Each Chef server in a high availability configuration must have an identical chef-server.rb file that is located in the ``/etc/opscode/`` directory on each server. This file describes the topology of the high availability configuration. On the primary backend server, create a file named chef-server.rb and save it in the ``/etc/opscode/`` directory.
 
 Add the following settings to the chef-server.rb file:
 
@@ -216,8 +215,7 @@ Add the following settings to the chef-server.rb file:
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl reconfigure
-      $ sudo chef-manage-ctl reconfigure
+      $ chef-server-ctl reconfigure
 
    .. end_tag
 
@@ -273,8 +271,7 @@ Use the following steps to set up the secondary backend Chef server:
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl reconfigure
-      $ sudo chef-manage-ctl reconfigure
+      $ chef-server-ctl reconfigure
 
    .. end_tag
 
@@ -345,8 +342,7 @@ Use the following steps to set up each frontend Chef server:
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl reconfigure
-      $ sudo chef-manage-ctl reconfigure
+      $ chef-server-ctl reconfigure
 
    .. end_tag
 
@@ -364,7 +360,7 @@ Use the following steps to set up each frontend Chef server:
 
       $ chef-server-ctl user-create USER_NAME FIRST_NAME LAST_NAME EMAIL 'PASSWORD' --filename FILE_NAME
 
-   An RSA private key is generated automatically. This is the user's private key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to a specified path.
+   An RSA private key is generated automatically. This is the user's private key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to the specified absolute path.
 
    For example:
 
@@ -388,7 +384,7 @@ Use the following steps to set up each frontend Chef server:
 
    The ``--association_user`` option will associate the ``user_name`` with the ``admins`` security group on the Chef server.
 
-   An RSA private key is generated automatically. This is the chef-validator key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to a specified path.
+   An RSA private key is generated automatically. This is the chef-validator key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to the specified absolute path.
 
    For example:
 
@@ -407,8 +403,7 @@ Use the following steps to set up each frontend Chef server:
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl reconfigure
-      $ sudo chef-manage-ctl reconfigure
+      $ chef-server-ctl reconfigure
 
    .. end_tag
 
@@ -451,7 +446,7 @@ Chef Manage
 
    .. note:: .. tag chef_license_reconfigure_manage
 
-             Starting with the Chef management console 2.3.0, the `Chef MLSA <https://docs.chef.io/chef_license.html>`__ must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
+             Starting with the Chef management console 2.3.0, the `Chef MLSA </chef_license.html>`__ must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
 
              .. end_tag
 
@@ -503,7 +498,7 @@ To set up the Reporting server:
 
    .. note:: .. tag chef_license_reconfigure_reporting
 
-             Starting with Reporting 1.6.0, the `Chef MLSA <https://docs.chef.io/chef_license.html>`__ must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``opscode-reporting-ctl reconfigure --accept-license`` to automatically accept the license.
+             Starting with Reporting 1.6.0, the `Chef MLSA </chef_license.html>`__ must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``opscode-reporting-ctl reconfigure --accept-license`` to automatically accept the license.
 
              .. end_tag
 

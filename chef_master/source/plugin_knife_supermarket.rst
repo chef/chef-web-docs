@@ -3,11 +3,11 @@ knife supermarket
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/plugin_knife_supermarket.rst>`__
 
-.. warning:: Only use knife supermarket if you are using a Chef 12.12 or earlier. If you are using Chef 12.13 or later, you should use the `knife cookbook site <https://docs.chef.io/knife_cookbook_site.html>`_ commands.
+.. warning:: Only use knife supermarket if you are using a Chef 12.12 or earlier. If you are using Chef 12.13 or later, you should use the `knife cookbook site </knife_cookbook_site.html>`__ commands.
 
-.. tag api_cookbooks_site_summary
+.. tag supermarket_api_summary
 
-The Cookbooks Site API is used to provide access to the cookbooks community hosted at |url community_cookbooks|. All of the cookbooks in the community are accessible through a RESTful API located at |url api_cookbooks| by using any of the supported endpoints. In most cases, using knife is the best way to interact with these cookbooks; in some cases, using the Cookbooks Site API directly is necessary.
+The Supermarket API is used to provide access to cookbooks, tools, and users on the `Chef Supermarket <https://supermarket.chef.io>`__. All of the cookbooks, tools, and users on the Supermarket are accessible through a RESTful API by accessing ``supermarket.chef.io/api/v1/`` via the supported endpoints. In most cases, knife is the best way to interact with the Supermarket; however in some cases, direct use of the Supermarket API is necessary.
 
 .. end_tag
 
@@ -20,11 +20,11 @@ The ``knife supermarket`` subcommand is used to interact with cookbooks that are
 
 .. note:: .. tag notes_knife_cookbook_site_use_devkit_berkshelf
 
-          Please consider managing community cookbooks using the version of Berkshelf that ships with the Chef development kit. For more information about the Chef development kit, see https://docs.chef.io/devkit/.
+          Please consider managing community cookbooks using the version of Berkshelf that ships with the Chef development kit. For more information about the Chef development kit, see `About the Chef DK </about_chefdk.html>`__.
 
           .. end_tag
 
-.. note:: Review the list of `common options <https://docs.chef.io/knife_common_options.html>`_ available to this (and all) knife subcommands and plugins.
+.. note:: Review the list of `common options </knife_options>`_ available to this (and all) knife subcommands and plugins.
 
 download
 =====================================================
@@ -148,7 +148,7 @@ The following examples show how to use this knife subcommand:
 
 **View a list of cookbooks**
 
-To view a list of cookbooks at |url community_cookbooks| server, enter:
+To view a list of cookbooks at the `Chef Supermarket <https://supermarket.chef.io/cookbooks>`__ server, enter:
 
 .. code-block:: bash
 
@@ -229,15 +229,17 @@ where ``mysql`` is the search term. This will return something similar to:
 
 share
 =====================================================
-Use the ``share`` argument to add a cookbook to Chef Supermarket. This action will require a user account and a certificate for |url community|. By default, knife will use the user name and API key that is identified in the configuration file used during the upload; otherwise these values must be specified on the command line or in an alternate configuration file. If a cookbook already exists in Chef Supermarket, then only an owner or maintainer of that cookbook can make updates.
+Use the ``share`` argument to add a cookbook to Chef Supermarket. This action will require a user account and a certificate for `Chef Supermarket <https://supermarket.chef.io/>`__. By default, knife will use the user name and API key that is identified in the configuration file used during the upload; otherwise these values must be specified on the command line or in an alternate configuration file. If a cookbook already exists in Chef Supermarket, then only an owner or maintainer of that cookbook can make updates.
 
 Syntax
 -----------------------------------------------------
 This argument has the following syntax:
 
+
 .. code-block:: bash
 
    $ knife supermarket share COOKBOOK_NAME CATEGORY (options)
+
 
 Options
 -----------------------------------------------------

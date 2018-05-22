@@ -1,5 +1,5 @@
 =====================================================
-knife data bag 
+knife data bag
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_data_bag.rst>`__
 
@@ -13,6 +13,8 @@ A data bag is a global variable that is stored as JSON data and is accessible fr
 
 A data bag item may be encrypted using `shared secret encryption <https://en.wikipedia.org/wiki/Symmetric-key_algorithm>`_. This allows each data bag item to store confidential information (such as a database password) or to be managed in a source control system (without plain-text data appearing in revision history). Each data bag item may be encrypted individually; if a data bag contains multiple encrypted data bag items, these data bag items are not required to share the same encryption keys.
 
+.. note:: Because the contents of encrypted data bag items are not visible to the chef-server, search queries against data bags with encrypted items will not return any results.
+
 .. end_tag
 
 .. tag knife_data_bag_summary
@@ -23,7 +25,7 @@ The ``knife data bag`` subcommand is used to manage arbitrary stores of globally
 
 .. note:: .. tag knife_common_see_common_options_link
 
-          Review the list of :doc:`common options </knife_common_options>` available to this (and all) knife subcommands and plugins.
+          Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
           .. end_tag
 
@@ -44,19 +46,17 @@ Options
 This argument has the following options:
 
 ``DATA_BAG_ITEM``
-   The name of a specific item within a data bag.
+   The name of a specific item within a data bag. ``DATA_BAG_NAME`` may not be ``client``, ``environment``, ``node`` or ``role``, as these are reserved words for `knife search </knife_search.html>`__.
 
 ``--secret SECRET``
-   The encryption key that is used for values contained within a data bag item. If ``secret`` is not specified, the chef-client looks for a secret at the path specified by the ``encrypted_data_bag_secret`` setting in the client.rb file.
+   The encryption key that is used for values contained within a data bag item. If ``secret`` is not specified, the chef-client looks for a secret at the path specified by the ``encrypted_data_bag_secret`` setting in the client.rb file. For encrypted data bag items, use **either** ``--secret`` or ``--secret-file``, not both.
 
 ``--secret-file FILE``
    The path to the file that contains the encryption key.
 
-.. note:: For encrypted data bag items, use *either* ``--secret`` or ``--secret-file``, not both.
-
 .. note:: .. tag knife_common_see_all_config_options
 
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 
@@ -148,11 +148,11 @@ This argument has the following options:
 ``--secret-file FILE``
    The path to the file that contains the encryption key.
 
-.. note::  For encrypted data bag items, use *either* ``--secret`` or ``--secret-file``, not both.
+.. note:: For encrypted data bag items, use *either* ``--secret`` or ``--secret-file``, not both.
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 
@@ -235,7 +235,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife data bag from file DATA_BAG_NAME_or_PATH
+   $ knife data bag from file DATA_BAG_NAME_or_PATH JSON_FILE
 
 Options
 -----------------------------------------------------
@@ -254,7 +254,7 @@ This argument has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 
@@ -354,7 +354,7 @@ This argument has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 
@@ -439,4 +439,3 @@ To view information in JSON format, use the ``-F`` common option as part of the 
    $ knife data bag show admins -F json
 
 Other formats available include ``text``, ``yaml``, and ``pp``.
-

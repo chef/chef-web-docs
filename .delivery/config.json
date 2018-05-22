@@ -5,9 +5,22 @@
       "path": ".delivery/build-cookbook"
   },
   "skip_phases": [
+    "unit",
+    "lint",
     "quality",
-    "security"
+    "security",
+    "functional"
   ],
+  "job_dispatch": {
+    "version": "v2",
+    "filters": {
+      "default": {
+        "os": ["linux"],
+        "platform": ["ubuntu"],
+        "platform_version": ["14.04"]
+      }
+    }
+  },
   "delivery-truck":{
     "publish": {
       "github": "chef/chef-web-docs"

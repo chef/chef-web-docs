@@ -15,7 +15,7 @@ A value passed via the command line will override a value in the knife.rb file; 
 
 .. end_tag
 
-.. warning:: Many optional settings should not be added to the knife.rb file. The reasons for not adding them can vary. For example, using ``--yes`` as a default in the knife.rb file will cause knife to always assume that "Y" is the response to any prompt, which may lead to undesirable outcomes. Other settings, such as ``--hide-healthy`` (used only with the ``knife status`` subcommand) or ``--bare-directories`` (used only with the ``knife list`` subcommand) probably aren't used often enough (and in the same exact way) to justify adding them to the knife.rb file. In general, if the optional settings are not listed on `the main knife.rb topic <https://docs.chef.io/config_rb_knife.html>`_, then add settings only after careful consideration. Do not use optional settings in a production environment until after the setting's performance has been validated in a safe testing environment.
+.. warning:: Many optional settings should not be added to the knife.rb file. The reasons for not adding them can vary. For example, using ``--yes`` as a default in the knife.rb file will cause knife to always assume that "Y" is the response to any prompt, which may lead to undesirable outcomes. Other settings, such as ``--hide-healthy`` (used only with the ``knife status`` subcommand) or ``--bare-directories`` (used only with the ``knife list`` subcommand) probably aren't used often enough (and in the same exact way) to justify adding them to the knife.rb file. In general, if the optional settings are not listed on `the main knife.rb topic </config_rb_knife.html>`__, then add settings only after careful consideration. Do not use optional settings in a production environment until after the setting's performance has been validated in a safe testing environment.
 
 The following list describes all of the optional settings that can be added to the configuration file:
 
@@ -41,6 +41,13 @@ The following list describes all of the optional settings that can be added to t
 ``knife[:attribute_from_cli]``
 
 ``knife[:authentication_protocol_version]``
+   Sets the authentication protocol that is used to communicate with Chef server. For example, specify protocol version 1.3 to enable support for SHA-256 algorithms:
+
+   .. code-block:: ruby
+
+      knife[:authentication_protocol_version] = '1.3'
+
+   Note that authentication protocol 1.3 is only supported on Chef server versions 12.4.0 and above.
 
 ``knife[:bare_directories]``
    Prevent a directory's children from showing when a directory matches a pattern.
@@ -316,11 +323,6 @@ The following list describes all of the optional settings that can be added to t
 ``knife[:server_name]``
    Same as node_name. Recommended configuration is to allow Ohai to collect this value during each chef-client run.
 
-``knife[:sort]``
-
-``knife[:sort_reverse]``
-   Sort a list by last run time, descending.
-
 ``knife[:ssh_attribute]``
    The attribute used when opening an SSH connection.
 
@@ -339,6 +341,9 @@ The following list describes all of the optional settings that can be added to t
    The SSH user name.
 
 ``knife[:start]``
+
+``knife[:supermarket_site]``
+   The URL at which the Chef Supermarket is located. Default value: https://supermarket.chef.io.
 
 ``knife[:template_file]``
 
@@ -447,7 +452,7 @@ configure
 The following ``knife configure`` settings can be added to the knife.rb file:
 
 ``knife[:admin_client_name]``
-   The name of the admin client that is passed as part of a the command itself.
+   The name of the admin client that is passed as part of the command itself.
 
 ``knife[:config_file]``
    Adds the the ``--config`` option.
@@ -553,6 +558,8 @@ The following ``knife cookbook test`` settings can be added to the knife.rb file
 ``knife[:all]``
    Adds the the ``--all`` option.
 
+.. warning:: This feature is deprecated in favor of `Cookstyle </cookstyle.html>`__ and `ChefSpec </chefspec.html>`__
+
 cookbook upload
 -----------------------------------------------------
 The following ``knife cookbook upload`` settings can be added to the knife.rb file:
@@ -582,6 +589,9 @@ The following ``knife cookbook site download`` settings can be added to the knif
 ``knife[:force]``
    Adds the the ``--force`` option.
 
+``knife[:supermarket_site]``
+   The URL at which the Chef Supermarket is located. Default value: https://supermarket.chef.io.
+
 cookbook site install
 -----------------------------------------------------
 The following ``knife cookbook site install`` settings can be added to the knife.rb file:
@@ -598,12 +608,18 @@ The following ``knife cookbook site install`` settings can be added to the knife
 ``knife[:use_current_branch]``
    Adds the the ``--use-current-branch`` option.
 
+``knife[:supermarket_site]``
+   The URL at which the Chef Supermarket is located. Default value: https://supermarket.chef.io.
+
 cookbook site share
 -----------------------------------------------------
 The following ``knife cookbook site share`` settings can be added to the knife.rb file:
 
 ``knife[:cookbook_path]``
    Adds the the ``--cookbook-path`` option.
+
+``knife[:supermarket_site]``
+   The URL at which the Chef Supermarket is located. Default value: https://supermarket.chef.io.
 
 data bag create
 -----------------------------------------------------
@@ -751,7 +767,7 @@ The following ``knife edit`` settings can be added to the knife.rb file:
 
 environment create
 -----------------------------------------------------
-The following ``knife environment create`` settings can be added to the knife.rb file:
+The following ``knife environment create`` settings can be added to the ``knife.rb`` file:
 
 ``knife[:description]``
    Adds the the ``--description`` option.
@@ -967,6 +983,8 @@ The following ``knife delete`` settings can be added to the knife.rb file:
 
 ``knife[:dry_run]``
    Adds the the ``--dry-run`` option.
+
+   New in Chef Client 12.0.
 
 ``knife[:force]``
    Adds the the ``--force`` option.

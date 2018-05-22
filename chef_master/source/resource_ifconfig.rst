@@ -5,13 +5,13 @@ ifconfig
 
 .. tag resource_ifconfig_summary
 
-Use the **ifconfig** resource to manage interfaces.
+Use the **ifconfig** resource to manage interfaces on \*nix systems.
 
 .. end_tag
 
 Syntax
 =====================================================
-A **ifconfig** resource block manages interfaces, such as a static IP address:
+An **ifconfig** resource block manages interfaces, such as a static IP address:
 
 .. code-block:: ruby
 
@@ -25,18 +25,22 @@ The full syntax for all of the properties that are available to the **ifconfig**
 
    ifconfig 'name' do
      bcast                      String
+     bonding_opts               String
      bootproto                  String
      device                     String
+     ethtool_opts               String
+     family                     String # defaults to 'inet' if not specified
      hwaddr                     String
      inet_addr                  String
      mask                       String
+     master                     String
      metric                     String
      mtu                        String
      network                    String
      notifies                   # see description
      onboot                     String
      onparent                   String
-     provider                   Chef::Provider::Ifconfig
+     slave                      String
      subscribes                 # see description
      target                     String # defaults to 'name' if not specified
      action                     Symbol # defaults to :create if not specified
@@ -46,8 +50,8 @@ where
 
 * ``ifconfig`` is the resource
 * ``name`` is the name of the resource block
-* ``:action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``bcast``, ``bootproto``, ``device``, ``hwaddr``, ``inet_addr``, ``mask``, ``metric``, ``mtu``, ``network``, ``onboot``, ``onparent``, ``provider``,  and ``target`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``bcast``, ``bonding_opts``, ``bootproto``, ``device``, ``ethtool_opts``, ``hwaddr``, ``inet_addr``, ``mask``, ``master``, ``metric``, ``mtu``, ``network``, ``onboot``, ``onparent``, ``slave``,  and ``target`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -68,7 +72,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the chef-client run.
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -81,6 +85,13 @@ This resource has the following properties:
 
    The broadcast address for a network interface. On some platforms this property is not set using ifconfig, but instead is added to the startup configuration file for the network interface.
 
+``bonding_opts``
+   **Ruby Type:** String
+
+   Bonding options to pass via ``BONDING_OPTS`` on RHEL and CentOS. For example: ``mode=active-backup miimon=100``
+
+   New in Chef Client 13.4
+
 ``bootproto``
    **Ruby Type:** String
 
@@ -91,13 +102,27 @@ This resource has the following properties:
 
    The network interface to be configured.
 
+``ethtool_opts``
+   **Ruby Type:** String
+
+   Options to be passed to ethtool(8). For example: ``-A eth0 autoneg off rx off tx off``
+
+   New in Chef Client 13.4
+
+``family``
+   **Ruby Type:** String | **Default Value:** ``inet``
+
+   Networking family option for Debian-based systems; for example: ``inet`` or ``inet6``.
+   
+   New in Chef Client 14.0.
+
 ``hwaddr``
    **Ruby Type:** String
 
    The hardware address for the network interface.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -110,6 +135,13 @@ This resource has the following properties:
    **Ruby Type:** String
 
    The decimal representation of the network mask. For example: ``255.255.255.0``.
+
+``master``
+   **Ruby Type:** String
+
+   Specifies the channel bonding interface to which the Ethernet interface is linked.
+
+   New in Chef Client 13.4
 
 ``metric``
    **Ruby Type:** String
@@ -131,19 +163,19 @@ This resource has the following properties:
 
    .. tag resources_common_notification_notifies
 
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
 
    .. end_tag
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -170,11 +202,6 @@ This resource has the following properties:
 
    Bring up the network interface when its parent interface is brought up.
 
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
-
 ``retries``
    **Ruby Type:** Integer
 
@@ -192,17 +219,32 @@ This resource has the following properties:
 
    A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
 
+   Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
+
+   .. code-block:: ruby
+
+     file '/etc/nginx/ssl/example.crt' do
+        mode '0600'
+        owner 'root'
+     end
+
+     service 'nginx' do
+        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+     end
+
+   In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
+
    .. end_tag
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -219,20 +261,17 @@ This resource has the following properties:
 
    .. end_tag
 
+``slave``
+   **Ruby Type:** String
+
+   When set to ``yes``, this device is controlled by the channel bonding interface that is specified via the ``master`` property.
+
+   New in Chef Client 13.4
+
 ``target``
    **Ruby Type:** String
 
    The IP address that is to be assigned to the network interface. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
-
-.. 
-.. Providers
-.. =====================================================
-.. .. include:: ../../includes_resources_common/includes_resources_common_provider.rst
-.. 
-.. .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
-.. 
-.. .. include:: ../../includes_resources/includes_resource_ifconfig_providers.rst
-..
 
 Examples
 =====================================================
@@ -255,7 +294,7 @@ will create the following interface:
 
 .. code-block:: none
 
-   vagrant@default-ubuntu-1204:~$ cat /etc/network/interfaces.d/ifcfg-eth1 
+   vagrant@default-ubuntu-1204:~$ cat /etc/network/interfaces.d/ifcfg-eth1
    iface eth1 inet dhcp
 
 .. end_tag
@@ -316,4 +355,3 @@ will update the interface from ``static`` to ``dhcp``:
      address 33.33.33.80
 
 .. end_tag
-

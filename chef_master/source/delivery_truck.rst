@@ -180,7 +180,7 @@ and so on for all of the recipes. This ensures that all of the default behavior 
 Read the Tutorial
 =====================================================
 
-To learn more about how to set up a project pipeline for a single cookbook and simple application, follow the steps outlined in the `Build a continuous deployment pipeline with Chef Automate <https://learn.chef.io/tutorials/#chef-automate>`__ tutorial on https://learn.chef.io/tutorials/.
+To learn more about how to set up a project pipeline for a single cookbook and basic web application, follow the steps outlined in the `Deploy infrastructure changes with Chef Automate <https://learn.chef.io/modules/deploy-infrastructure#/>`__ module on Learn Chef.
 
 Project Cookbooks
 =====================================================
@@ -310,7 +310,7 @@ A project may be a binary, a package, or some other set of arbitrary information
 
 Configure Project Application
 -----------------------------------------------------
-Project applications are defined in the ``pubish.rb`` recipe in a ``build-cookbook`` using the ``define_project_application`` helper method, and then in the ``deploy.rb`` recipe using the ``get_projet_application`` method. The publish phase happens at the end of the build stage. It is at this point where the project application version is pinned, uploaded to the Chef server as a data bag item, and then used through the remaining stages.
+Project applications are defined in the ``publish.rb`` recipe in a ``build-cookbook`` using the ``define_project_application`` helper method, and then in the ``deploy.rb`` recipe using the ``get_project_application`` method. The publish phase happens at the end of the build stage. It is at this point where the project application version is pinned, uploaded to the Chef server as a data bag item, and then used through the remaining stages.
 
 .. note:: The ``define_project_application`` helper method is available from the ``delivery-sugar`` cookbook, which is a dependency of the ``delivery-truck`` cookbook. This helper is available when the ``publish.rb`` recipe has ``include_recipe 'delivery-truck::publish'`` defined.
 
@@ -399,12 +399,6 @@ This example shows how to use project applications to deploy a package into a ``
 
    When the publish phase is run, an application is created, versioned by timestamp, and including all of the information needed to install that version of the application. The provisioning code in ``delivery-truck`` will automatically pin based on this version.
 
-#. Configure the ``build-cookbook`` to know about the application. Add the following to ``.delivery/build-cookbook/attributes/default.rb``:
-
-   .. code-block:: ruby
-
-      default['delivery']['project_apps'] = ["<APPLICATION_NAME>"]
-
 #. Configure the ``build-cookbook`` to know how to install the application. Add the following to ``.delivery/build-cookbook/deploy.rb``:
 
    .. code-block:: ruby
@@ -491,7 +485,7 @@ The following example shows how to create a cookbook, with project and pipeline,
 Using ``delivery-truck`` in air-gapped environment
 ========================================================
 
-Chef Automate can be set up to deploy cookbooks and applications in an air-gapped environment and this section describes 
+Chef Automate can be set up to deploy cookbooks and applications in an air-gapped environment and this section describes
 how to set up a basic cookbook to be delivered through Chef Automate using the `delivery-truck cookbook <https://github.com/chef-cookbooks/delivery-truck>`__
 in that environment.
 
@@ -500,10 +494,10 @@ in that environment.
 Prerequisites
 -----------------------------------------------------
 
-* Ensure you have a private Supermarket installed, setup, and running. See `Install Private Supermarket <https://docs.chef.io/install_supermarket.html>`__ for more information.
-* Ensure you have a Chef server with the Chef identify authentication/authorization service configured, a Chef Automate server setup that references your private Supermarket, and at least one Chef Automate build node installed, setup, and running. See `Install Chef Automate <https://docs.chef.io/install_chef_automate.html>`__ and `Chef Identify <https://docs.chef.io/install_supermarket.html#chef-identify>`__ for more information.
-* Ensure you have created a project in Chef Automate. Follow these instructions to `Set Up Projects <https://docs.chef.io/delivery_build_cookbook.html#set-up-projects>`__.
-* Ensure you have `ChefDK <https://downloads.chef.io/chef-dk/>`__ installed on your `workstation <https://docs.chef.io/workstation.html>`__.
+* Ensure you have a private Supermarket installed, setup, and running. See `Install Private Supermarket </install_supermarket.html>`__ for more information.
+* Ensure you have a Chef server with the Chef Identity authentication/authorization service configured, a Chef Automate server setup that references your private Supermarket, and at least one Chef Automate build node/runner installed, setup, and running. See `Install Chef Automate </install_chef_automate.html>`__ and `Chef Identity </install_supermarket.html#chef-identity.html>`__ for more information.
+* Ensure you have created a project in Chef Automate. Follow these instructions to `Set Up Projects </delivery_build_cookbook.html#set-up-projects>`__.
+* Ensure you have `ChefDK <https://downloads.chef.io/chefdk/.html>`__ installed on your `workstation </workstation.html>`__.
 
 Share cookbooks with your private Supermarket
 -----------------------------------------------------
@@ -537,7 +531,7 @@ To use ``delivery-truck`` and its dependency, ``delivery-sugar``, you must first
 
       supermarket-ctl reconfigure
 
-#. Share the ``delivery-truck`` and ``delivery-sugar`` cookbooks with your private Supermarket using the ``knife`` command-line tool. If you have not configured ``knife`` to share cookbooks with your private Supermarket, see `Upload a Cookbook <https://docs.chef.io/supermarket.html#upload-a-cookbook>`__ before running the following ``knife`` subcommands.
+#. Share the ``delivery-truck`` and ``delivery-sugar`` cookbooks with your private Supermarket using the ``knife`` command-line tool. If you have not configured ``knife`` to share cookbooks with your private Supermarket, see `Upload a Cookbook </supermarket.html#upload-a-cookbook>`__ before running the following ``knife`` subcommands.
 
    .. code-block::bash
 
@@ -547,7 +541,7 @@ To use ``delivery-truck`` and its dependency, ``delivery-sugar``, you must first
 Generate a cookbook
 -----------------------------------------------------
 
-#. On your workstation, use ChefDK's `cookbook generator command <https://docs.chef.io/ctl_chef.html#chef-generate-cookbook>`__ to create a default cookbook directory structure called ``my_cookbook``.
+#. On your workstation, use ChefDK's `cookbook generator command </ctl_chef.html#chef-generate-cookbook>`__ to create a default cookbook directory structure called ``my_cookbook``.
 
    .. code-block:: bash
 

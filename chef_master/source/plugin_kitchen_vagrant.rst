@@ -5,7 +5,7 @@ kitchen-vagrant
 
 .. tag test_kitchen_driver_vagrant
 
-The ``kitchen-vagrant`` driver for Kitchen generates a single Vagrantfile for each instance of Kitchen in a sandboxed directory. The ``kitchen-vagrant`` driver supports VirtualBox and VMware Fusion, requires Vagrant 1.1.0 (or higher), and is the default driver for Kitchen.
+The ``kitchen-vagrant`` driver for Kitchen generates a single Vagrantfile for each instance of Kitchen in a sandboxed directory. The ``kitchen-vagrant`` driver supports VirtualBox and VMware Fusion, requires Vagrant 1.1.0 (or higher), and is the default driver for Test Kitchen.
 
 .. end_tag
 
@@ -22,7 +22,7 @@ The following attributes are used to configure ``kitchen-vagrant`` for Chef:
    * - ``box``
      - Required. Use to specify the box on which Vagrant will run. Default value: computed from the platform name of the instance.
    * - ``box_check_update``
-     - Use to check for box updates. Default value: ``false``. 
+     - Use to check for box updates. Default value: ``false``.
    * - ``box_url``
      - Use to specify the URL at which the configured box is located. Default value: computed from the platform name of the instance, but only when the Vagrant provider is VirtualBox- or VMware-based.
    * - ``communicator``
@@ -61,27 +61,23 @@ The ``kitchen-vagrant`` driver can predict the box name for Vagrant and the down
 .. code-block:: ruby
 
    platforms:
-   - name: ubuntu-12.04
-   - name: ubuntu-12.10
-   - name: ubuntu-13.04
-   - name: centos-5.9
-   - name: centos-6.4
-   - name: debian-7.1.0
+   - name: ubuntu-14.04
+   - name: ubuntu-16.04
+   - name: centos-6
+   - name: centos-7
+   - name: debian-8
 
 which will generate a configuration file similar to:
 
 .. code-block:: ruby
 
    platforms:
-   - name: ubuntu-12.04
+   - name: ubuntu-14.04
      driver:
-       box: opscode-ubuntu-12.04
-       box_url: https://opscode-vm-bento.s3.amazonaws.com/vagrant/opscode_ubuntu-12.04_provisionerless.box
-   - name: ubuntu-12.10
+       box: bento/ubuntu-14.04
+   - name: ubuntu-16.04
      driver:
-       box: opscode-ubuntu-12.10
-       box_url: ...
+       box: bento/ubuntu-16.04
    # ...
 
 .. end_tag
-

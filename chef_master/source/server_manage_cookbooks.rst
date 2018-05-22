@@ -21,7 +21,7 @@ A cookbook is the fundamental unit of configuration and policy distribution. A c
 * Attribute values
 * File distributions
 * Templates
-* Extensions to Chef, such as libraries, definitions, and custom resources
+* Extensions to Chef, such as custom resources and libraries
 
 .. end_tag
 
@@ -71,11 +71,11 @@ A cookbook can contain the following types of files:
        * May not notify resources in the resource collection because a definition is loaded **before** the resource collection itself is created; however, a resource in a definition **may** notify a resource that exists within the same definition
        * Automatically supports why-run mode, unlike custom resources
 
-       Use a defintion when repeating patterns exist across resources and/or when a simple, direct approach is desired. There is no limit to the number of resources that may be included in a definition: use as many built-in chef-client resources as necessary.
+       Use a definition when repeating patterns exist across resources and/or when a simple, direct approach is desired. There is no limit to the number of resources that may be included in a definition: use as many built-in chef-client resources as necessary.
 
        .. end_tag
 
-       .. warning:: Starting with chef-client 12.5, it is recommended to `build custom resources <https://docs.chef.io/custom_resources.html>`__ instead of definitions and to `migrate existing definitions to be custom resources <https://docs.chef.io/definitions.html>`__.
+       .. warning:: Starting with chef-client 12.5, it is recommended to `build custom resources </custom_resources.html>`__ instead of definitions and to `migrate existing definitions to be custom resources </definitions.html>`__.
 
    * - Files
      - .. tag resource_cookbook_file_summary
@@ -116,7 +116,7 @@ A cookbook can contain the following types of files:
 
        * Describes the desired state for a configuration item
        * Declares the steps needed to bring that item to the desired state
-       * Specifies a resource type---such as ``package``, ``template``, or ``service`` 
+       * Specifies a resource type---such as ``package``, ``template``, or ``service``
        * Lists additional details (also known as resource properties), as necessary
        * Are grouped into recipes, which describe working configurations
 

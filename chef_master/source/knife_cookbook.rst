@@ -1,5 +1,5 @@
 =====================================================
-knife cookbook 
+knife cookbook
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_cookbook.rst>`__
 
@@ -11,7 +11,7 @@ A cookbook is the fundamental unit of configuration and policy distribution. A c
 * Attribute values
 * File distributions
 * Templates
-* Extensions to Chef, such as libraries, definitions, and custom resources
+* Extensions to Chef, such as custom resources and libraries
 
 .. end_tag
 
@@ -23,7 +23,7 @@ The ``knife cookbook`` subcommand is used to interact with cookbooks that are lo
 
 .. note:: .. tag knife_common_see_common_options_link
 
-          Review the list of :doc:`common options </knife_common_options>` available to this (and all) knife subcommands and plugins.
+          Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
           .. end_tag
 
@@ -48,7 +48,7 @@ This argument has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 
@@ -66,7 +66,7 @@ Use a regular expression to define the pattern used to bulk delete cookbooks:
 
 create
 =====================================================
-.. note:: This command was deprecated in Chef client 12.12 and will be removed in a future release. Use the `chef generate cookbook <https://docs.chef.io/ctl_chef.html#chef-generate-cookbook>`_ command instead.
+.. note:: This command was removed in Chef Client 13.0. Use the `chef generate cookbook </ctl_chef.html#chef-generate-cookbook>`_ command instead.
 
 .. note:: .. tag ruby_style_patterns_hyphens
 
@@ -103,11 +103,11 @@ This argument has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 
-Examples 
+Examples
 -----------------------------------------------------
 The following examples show how to use this knife subcommand:
 
@@ -154,7 +154,7 @@ This argument has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 
@@ -205,7 +205,7 @@ This argument has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 
@@ -245,7 +245,7 @@ This argument has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 
@@ -285,7 +285,7 @@ This argument has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 
@@ -368,7 +368,7 @@ This argument has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 
@@ -448,6 +448,8 @@ test
 =====================================================
 Use the ``test`` argument to test a cookbook for syntax errors. This argument uses Ruby syntax checking to verify every file in a cookbook that ends in .rb and Embedded Ruby (ERB). This argument will respect chefignore files when determining which cookbooks to test for syntax errors.
 
+.. warning:: This feature is deprecated in favor of `Cookstyle </cookstyle.html>`__ and `ChefSpec </chefspec.html>`__
+
 Syntax
 -----------------------------------------------------
 This argument has the following syntax:
@@ -468,7 +470,7 @@ This argument has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 
@@ -527,7 +529,7 @@ This argument has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 

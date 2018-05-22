@@ -129,12 +129,12 @@ The **chef-client** cookbook can be configured to automatically install and conf
 
 .. code-block:: ruby
 
-   node.set['chef_client']['load_gems']['chef-reporting'] = {
+   node.normal['chef_client']['load_gems']['chef-reporting'] = {
      :require_name => 'chef_reporting',
      :action => :install
    }
 
-   node.set['chef_client']['config']['start_handlers'] = [
+   node.normal['chef_client']['config']['start_handlers'] = [
      {
        :class => 'Chef::Reporting::StartHandler',
        :arguments => []
@@ -381,6 +381,8 @@ The following table describes the events that may occur during a chef-client run
      - The chef-client run has completed.
    * - ``:run_failed``
      - The chef-client run has failed.
+   * - ``:attribute_changed``
+     - Prints out all the attribute changes in cookbooks or sets a policy that override attributes should never be used.
 
 .. end_tag
 
@@ -399,8 +401,6 @@ Use the ``on`` method to create an event handler that sends email when the chef-
 * A way to trigger the exception and test the behavior of the event handler
 
 .. end_tag
-
-.. note:: Read this scenario as an HTML presentation at https://docs.chef.io/decks/event_handlers.html.
 
 **Define How Email is Sent**
 
@@ -424,7 +424,7 @@ Use a library to define the code that sends email when a chef-client run fails. 
          message << "Chef run failed on #{node_name}\n"
          Net::SMTP.start('localhost', 25) do |smtp|
            smtp.send_message message, 'chef@chef.io', 'grantmc@chef.io'
-         end    
+         end
        end
      end
    end
@@ -630,7 +630,7 @@ The `error_report <https://github.com/chef/chef/blob/master/lib/chef/handler/err
 
    class Chef
      class Handler
-       class ErrorReport < ::Chef::Handler 
+       class ErrorReport < ::Chef::Handler
          def report
            Chef::FileCache.store('failed-run-data.json', Chef::JSONCompat.to_json_pretty(data), 0640)
            Chef::Log.fatal("Saving node information to #{Chef::FileCache.load('failed-run-data.json', false)}")
@@ -671,7 +671,7 @@ The `json_file <https://github.com/chef/chef/blob/master/lib/chef/handler/json_f
            end
          end
          def build_report_dir
-           unless File.exists?(config[:path])
+           unless File.exist?(config[:path])
              FileUtils.mkdir_p(config[:path])
              File.chmod(00700, config[:path])
            end
@@ -836,7 +836,7 @@ This recipe will generate report output similar to the following:
 .. code-block:: ruby
 
    [2013-11-26T03:11:06+00:00] INFO: Chef Run complete in 0.300029878 seconds
-   [2013-11-26T03:11:06+00:00] INFO: Running report handlers 
+   [2013-11-26T03:11:06+00:00] INFO: Running report handlers
    [2013-11-26T03:11:06+00:00] INFO: Cookbooks and versions run: ["chef_handler 1.1.4", "cookbook_versions_handler 1.0.0"]
    [2013-11-26T03:11:06+00:00] INFO: Report handlers complete
 
@@ -914,7 +914,7 @@ After it has run, the run status data can be loaded and inspected via Interactiv
 .. code-block:: ruby
 
    irb(main):001:0> require 'rubygems' => true
-   irb(main):002:0> require 'json' => true 
+   irb(main):002:0> require 'json' => true
    irb(main):003:0> require 'chef' => true
    irb(main):004:0> r = JSON.parse(IO.read('/var/chef/reports/chef-run-report-20110322060731.json')) => ... output truncated
    irb(main):005:0> r.keys => ['end_time', 'node', 'updated_resources', 'exception', 'all_resources', 'success', 'elapsed_time', 'start_time', 'backtrace']
@@ -936,7 +936,7 @@ By adding the following lines of Ruby code to either the client.rb file or the s
    report_handlers << Chef::Handler::ErrorReport.new()
    exception_handlers << Chef::Handler::ErrorReport.new()
 
-By using the `chef_handler <https://docs.chef.io/resource_chef_handler.html>`_ resource in a recipe, similar to the following:
+By using the `chef_handler </resource_chef_handler.html>`__ resource in a recipe, similar to the following:
 
 .. code-block:: ruby
 
@@ -965,8 +965,6 @@ The following open source handlers are available from the Chef community:
      - A handler that asynchronously pushes exception and report handler data to a STOMP queue, from which data can be processed into data storage.
    * - `Campfire <https://github.com/ampledata/chef-handler-campfire>`_
      - A handler that collects exception and report handler data and reports it to Campfire, a web-based group chat tool.
-   * - `Cloudkick <https://github.com/ampledata/chef-handler-campfire>`_
-     - A handler that collects exception and report handler data and sends it to Cloudkick, a set of cloud server monitoring and management tools.
    * - `Datadog <https://github.com/DataDog/chef-handler-datadog>`_
      - A handler that collects chef-client stats and sends them into a DATADOG newsfeed.
    * - `Flowdock <https://github.com/mmarschall/chef-handler-flowdock>`_
@@ -1003,4 +1001,3 @@ The following open source handlers are available from the Chef community:
      - A Chef report handler to send Chef run notifications to ZooKeeper.
 
 .. end_tag
-

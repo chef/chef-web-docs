@@ -14,6 +14,8 @@ A client.rb file is used to specify the configuration details for the chef-clien
 
 .. end_tag
 
+New in Chef Client 13.0, attributes may be blacklisted or whitelisted. Changed in Chef Client 12.11 to support standard ``exit-status`` codes. Changed in 12.9 to support new ``:win_evt`` and ``:syslog`` output locations. Changed in 12.8 to support ``.d`` setting. Changed in 12.4 to support the Windows Event Logger and the daemon facility, see ``log_location``; stable audit-mode introduced. Changed in 12.3, ``listen`` can be used in socketless mode. Changed in 12.1 to run chef-client in audit_mode. Changed in 12.1, ``windows_service.watchdog_timeout`` defaults to ``2 * (60 * 60)``. Changed in 12.0 to set the ``disable_event_logger`` to send events to the Microsoft Windows "Application" event log by default, file_staging_uses_destdir creates temporary files in the directory in which the files will reside by default, ``local_key_generation`` is enabled by default, ``no_lazy_load`` defaults to ``true``, ``interval`` and ``splay`` are applied before the chef-client run, unforked interval runs are no longer allowed.
+
 Settings
 =====================================================
 This configuration file has the following settings:
@@ -24,8 +26,26 @@ This configuration file has the following settings:
 ``audit_mode``
    Enable audit-mode. Set to ``audit-only`` to skip the converge phase of the chef-client run and only perform audits. Possible values: ``audit-only``, ``disabled``, and ``enabled``. Default value: ``disabled``.
 
+   Changed in Chef Client 12.4 to "stable", changed in 12.1 to run chef-client in audit_mode.
+
+``authentication_protocol_version``
+  Sets the authentication protocol that is used to communicate with Chef server. For example, specify protocol version 1.3 to enable support for SHA-256 algorithms:
+
+   .. code-block:: ruby
+
+      knife[:authentication_protocol_version] = '1.3'
+
+   Note that authentication protocol 1.3 is only supported on Chef server versions 12.4.0 and above.
+
+``automatic_attribute_blacklist``
+   A hash  that blacklists ``automatic`` attributes, preventing blacklisted attributes from being saved.
+
+   New in Chef Client 13.0.
+
 ``automatic_attribute_whitelist``
-   A Hash that whitelists ``automatic`` attributes, preventing non-whitelisted attributes from being saved.
+   A hash  that whitelists ``automatic`` attributes, preventing non-whitelisted attributes from being saved.
+
+   New in Chef Client 13.0.
 
 ``cache_path``
    Optional. The home directory for the user that is running the chef-client as a non-root user.
@@ -48,6 +68,9 @@ This configuration file has the following settings:
 
 ``chef_zero.port``
    The port on which chef-zero is to listen. This value may be specified as a range; the chef-client will take the first available port in the range. For example ``10,20,30`` or ``10000-20000``. Default value: ``8889-9999``.
+
+``client_fork``
+   Contain the chef-client run in a secondary process with dedicated RAM. When the chef-client run is complete, the RAM is returned to the master process. This setting helps ensure that a chef-client uses a steady amount of RAM over time because the master process does not run recipes. This setting also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Set to ``false`` to disable running the chef-client in fork node. Default value: ``true``.
 
 ``client_key``
    The location of the file that contains the client key. Default value: ``/etc/chef/client.pem``.
@@ -72,6 +95,11 @@ This configuration file has the following settings:
 
              .. end_tag
 
+``client_d_dir``
+   A directory that contains additional configuration scripts to load for chef-client.
+
+   New in Chef client 12.8.
+
 ``cookbook_path``
    The sub-directory for cookbooks on the chef-client. This value can be a string or an array of file system locations, processed in the specified order. The last cookbook is considered to override local modifications.
 
@@ -84,20 +112,27 @@ This configuration file has the following settings:
 ``data_bag_path``
    The location from which a data bag is loaded. Default value: ``/var/chef/data_bags``.
 
-``data_collector_server_url``
+``data_collector.server_url``
    The fully qualified URL to the data collector server API.
 
-``data_collector_token``
+``data_collector.token``
    The shared data collector security token. When configured, the token will be passed as an HTTP header named ``x-data-collector-token`` which the server can choose to accept or reject.
 
-``data_collector_mode``
+``data_collector.mode``
    The chef-client mode in which the Data Collector will be enabled. Possible values: ``:solo``, ``:client``, or ``:both``. The ``:solo`` value is used for Chef operating in Chef Solo Mode or Chef Solo Legacy Mode. Default value: ``both``.
 
-``data_collector_raise_on_failure``
+``data_collector.raise_on_failure``
    When enabled the chef-client will raise an error if it is unable to successfully POST to the data collector server. Default value: ``false``.
 
+``default_attribute_blacklist``
+   A hash  that blacklists ``default`` attributes, preventing blacklisted attributes from being saved.
+
+   New in Chef Client 13.0.
+
 ``default_attribute_whitelist``
-   A Hash that whitelists ``default`` attributes, preventing non-whitelisted attributes from being saved.
+   A hash  that whitelists ``default`` attributes, preventing non-whitelisted attributes from being saved.
+
+   New in Chef Client 13.0.
 
 ``diff_disabled``
    Cause the chef-client to create a diff when changes are made to a file. Default value: ``false``.
@@ -109,7 +144,9 @@ This configuration file has the following settings:
    The maximum size (in bytes) of a diff file created by the chef-client. Default value: ``1000000``.
 
 ``disable_event_logger``
-   Enable or disable sending events to the Microsoft Windows "Application" event log. When ``false``, events are sent to the Microsoft Windows "Application" event log at the start and end of a chef-client run, and also if a chef-client run fails. Set to ``true`` to disable event logging. Default value: ``true``.
+   Enable or disable sending events to the Microsoft Windows "Application" event log. When ``false``, events are sent to the Microsoft Windows "Application" event log at the start and end of a chef-client run, and also if a chef-client run fails. Set to ``true`` to disable event logging. Default value: ``false``.
+
+   Changed in Chef Client 12.0 to send events to the Microsoft Windows "Application" event log by default.
 
 ``enable_reporting``
    Cause the chef-client to send data to the Chef server for use with Reporting.
@@ -130,11 +167,11 @@ This configuration file has the following settings:
    The path to the environment. Default value: ``/var/chef/environments``.
 
 ``exit_status``
-   When set to ``:enabled``, chef-client will use |url exit codes| for Chef client run status, and any non-standard exit codes will be converted to ``1`` or ``GENERIC_FAILURE``. This setting can also be set to ``:disabled`` which preserves the old behavior of using non-standardized exit codes and skips the deprecation warnings. Default value: ``nil``.
+   When set to ``:enabled``, chef-client will use `standardized exit codes <https://github.com/chef/chef-rfc/blob/master/rfc062-exit-status.md#exit-codes-in-use>`_ for Chef client run status, and any non-standard exit codes will be converted to ``1`` or ``GENERIC_FAILURE``. This setting can also be set to ``:disabled`` which preserves the old behavior of using non-standardized exit codes and skips the deprecation warnings. Default value: ``nil``.
 
    .. note:: The behavior with the default value consists of a warning on the use of deprecated and non-standard exit codes. In a future release of Chef client, using standardized exit codes will be the default behavior.
 
-   *New in Chef Client 12.11.*
+   Changed in Chef Client 12.11 to support standard exit codes.
 
 ``file_atomic_update``
    Apply atomic file updates to all resources. Set to ``true`` for global atomic file updates. Set to ``false`` for global non-atomic file updates. (Use the ``atomic_update`` setting on a per-resource basis to override this setting.) Default value: ``true``.
@@ -150,8 +187,12 @@ This configuration file has the following settings:
 ``file_staging_uses_destdir``
    How file staging (via temporary files) is done. When ``true``, temporary files are created in the directory in which files will reside. When ``false``, temporary files are created under ``ENV['TMP']``. Default value: ``true``.
 
+   Changed in Chef Client 12.0.
+
 ``fips``
   Allows OpenSSL to enforce FIPS-validated security during the chef-client run. Set to ``true`` to enable FIPS-validated security.
+
+  Changed in Chef server 12.13 to expose FIPS runtime flag on RHEL.
 
 ``ftp_proxy``
    The proxy server for FTP connections.
@@ -192,14 +233,20 @@ This configuration file has the following settings:
 ``interval``
    The frequency (in seconds) at which the chef-client runs. Default value: ``1800``.
 
+   Changed in Chef Client 12.0, unforked intervals are no longer allowed.
+
 ``json_attribs``
    The path to a file that contains JSON data.
 
 ``listen``
    Run chef-zero in socketless mode. Set to ``false`` to disable port binding and HTTP requests on localhost.
 
+   Changed in Chef Client 12.3.
+
 ``local_key_generation``
    Whether the Chef server or chef-client generates the private/public key pair. When ``true``, the chef-client generates the key pair, and then sends the public key to the Chef server. Default value: ``true``.
+
+   Changed in Chef Client 12.0.
 
 ``local_mode``
    Run the chef-client in local mode. This allows all commands that work against the Chef server to also work against the local chef-repo.
@@ -213,6 +260,8 @@ This configuration file has the following settings:
 ``log_location``
    The location of the log file. Possible values: ``/path/to/log_location``, ``STDOUT``, ``STDERR``, ``:win_evt`` (Windows Event Logger), or ``:syslog`` (writes to the syslog daemon facility with the originator set as ``chef-client``). The application log will specify the source as ``Chef``. Default value: ``STDOUT``.
 
+   Changed in Chef Client 12.9 to support new ``:win_evt`` and ``:syslog`` output locations.  Changed in 12.4 to support the Windows Event Logger and configuration with the daemon facility.
+
 ``minimal_ohai``
    Run the Ohai plugins for name detection and resource/provider selection and no other Ohai plugins. Set to ``true`` during integration testing to speed up test cycles.
 
@@ -221,6 +270,8 @@ This configuration file has the following settings:
 
 ``no_lazy_load``
    Download all cookbook files and templates at the beginning of the chef-client run. Default value: ``true``.
+
+   Changed in Chef Client 12.0.
 
 ``no_proxy``
    A comma-separated list of URLs that do not need a proxy. Default value: ``nil``.
@@ -231,11 +282,25 @@ This configuration file has the following settings:
 ``node_path``
    The location in which nodes are stored when the chef-client is run in local mode. Default value: ``/var/chef/node``.
 
+``normal_attribute_blacklist``
+   A hash  that blacklists ``normal`` attributes, preventing blacklisted attributes from being saved.
+
+   New in Chef Client 13.0.
+
+``override_attribute_blacklist``
+   A hash  that blacklists ``override`` attributes, preventing blacklisted attributes from being saved.
+
+   New in Chef Client 13.0.
+
 ``normal_attribute_whitelist``
-   A Hash that whitelists ``normal`` attributes, preventing non-whitelisted attributes from being saved.
+   A hash  that whitelists ``normal`` attributes, preventing non-whitelisted attributes from being saved.
+
+   New in Chef Client 13.0.
 
 ``override_attribute_whitelist``
-   A Hash that whitelists ``override`` attributes, preventing non-whitelisted attributes from being saved.
+   A hash  that whitelists ``override`` attributes, preventing non-whitelisted attributes from being saved.
+
+   New in Chef Client 13.0.
 
 ``pid_file``
    The location in which a process identification number (pid) is saved. An executable, when started as a daemon, writes the pid to the specified file. Default value: ``/tmp/name-of-executable.pid``.
@@ -252,11 +317,18 @@ This configuration file has the following settings:
 ``role_path``
    The location in which role files are located. Default value: ``/var/chef/roles``.
 
+``rubygems_url``
+    The location to source rubygems. It can be set to a string or array of strings for URIs to set as rubygems sources. This allows individuals to setup an internal mirror of rubygems for "airgapped" environments. Default value: ``https://www.rubygems.org``.
+
+   Changed in Chef Client 13.0.
+
 ``run_lock_timeout``
    The amount of time (in seconds) to wait for a chef-client lock file to be deleted. A chef-client run will not start when a lock file is present. If a lock file is not deleted before this time expires, the pending chef-client run will exit. Default value: not set (indefinite). Set to ``0`` to cause a second chef-client to exit immediately.
 
 ``splay``
-   A random number between zero and ``splay`` that is added to ``interval``. Use splay to help balance the load on the Chef server by ensuring that many chef-client runs are not occuring at the same interval. Default value: ``nil``.
+   A random number between zero and ``splay`` that is added to ``interval``. Use splay to help balance the load on the Chef server by ensuring that many chef-client runs are not occurring at the same interval. Default value: ``nil``.
+
+   Changed in Chef Client 12.0.
 
 ``ssl_ca_file``
    The file in which the OpenSSL key is saved. This setting is generated automatically by the chef-client and most users do not need to modify it.
@@ -303,7 +375,7 @@ This configuration file has the following settings:
    Verify the SSL certificate on the Chef server. When ``true``, the chef-client always verifies the SSL certificate. When ``false``, the chef-client uses the value of ``ssl_verify_mode`` to determine if the SSL certificate requires verification. Default value: ``false``.
 
 ``whitelist``
-   A Hash that contains the whitelist used by Chef push jobs. For example:
+   A hash that contains the whitelist used by Chef push jobs. For example:
 
    .. code-block:: ruby
 
@@ -317,8 +389,12 @@ This configuration file has the following settings:
 
    .. warning:: The ``whitelist`` setting is available only when using Chef push jobs, a tool that runs jobs against nodes in an organization.
 
+New in Chef Client 13.0.
+
 ``windows_service.watchdog_timeout``
    The maximum amount of time (in seconds) available to the chef-client run when the chef-client is run as a service on the Microsoft Windows platform. If the chef-client run does not complete within the specified timeframe, the chef-client run is terminated. Default value: ``2 * (60 * 60)``.
+
+   New in Chef Client 12.1.
 
 ``yum_lock_timeout``
    The amount of time (in seconds) after which a Yum lock request is to time out. Default value: ``30``.
@@ -327,13 +403,19 @@ Automatic Proxy Config
 -----------------------------------------------------
 .. tag proxy_env
 
-If ``http_proxy``, ``https_proxy``, ``ftp_proxy``, or ``no_proxy`` is set in the client.rb file, the chef-client will configure the ``ENV`` variable based on these (and related) settings. For example:
+If ``http_proxy``, ``https_proxy``, ``ftp_proxy``, or ``no_proxy`` is set in the client.rb file and is not already set in the ``ENV``, the chef-client will configure the ``ENV`` variable based on these (and related) settings. For example:
 
 .. code-block:: ruby
 
    http_proxy 'http://proxy.example.org:8080'
    http_proxy_user 'myself'
    http_proxy_pass 'Password1'
+
+Or an alternative way to define the proxy (if the previous version does not work):
+
+.. code-block:: ruby
+
+   http_proxy 'http://myself:Password1@proxy.example.org:8080'
 
 will be set to:
 
@@ -354,7 +436,6 @@ The chef-client supports reading multiple configuration files by putting them in
 * ``/etc/chef/client.d``
 * ``/etc/chef/config.d``
 * ``~/chef/solo.d``
-* ``c:/chef/config.d``
 
 (There is no support for a ``knife.d`` directory; use ``config.d`` instead.)
 
@@ -369,6 +450,8 @@ The ``old_settings.rb.bak`` file is ignored because it's not a configuration fil
 
 .. note:: If multiple configuration files exists in a ``.d`` directory, ensure that the same setting has the same value in all files.
 
+New in Chef Client 12.8.
+
 .. end_tag
 
 Ohai Settings
@@ -382,15 +465,15 @@ Ohai configuration settings can be added to the client.rb file.
 
 .. tag config_rb_ohai_settings
 
-``Ohai.directory``
+``ohai.directory``
    The directory in which Ohai plugins are located.
 
-``Ohai.disabled_plugins``
+``ohai.disabled_plugins``
    An array of Ohai plugins to be disabled on a node. The list of plugins included in Ohai can be found in the ``ohai/lib/ohai/plugins`` directory. For example, disabling a single plugin:
 
    .. code-block:: ruby
 
-      Ohai.disabled_plugins = [
+      ohai.disabled_plugins = [
         :MyPlugin
       ]
 
@@ -398,9 +481,9 @@ Ohai configuration settings can be added to the client.rb file.
 
    .. code-block:: ruby
 
-      Ohai.disabled_plugins = [
-        :MyPlugin, 
-        :MyPlugin, 
+      ohai.disabled_plugins = [
+        :MyPlugin,
+        :MyPlugin,
         :MyPlugin
       ]
 
@@ -408,9 +491,9 @@ Ohai configuration settings can be added to the client.rb file.
 
    .. code-block:: ruby
 
-      Ohai.disabled_plugins = [
-		:MyPlugin, 
-        :MyPlugin, 
+      ohai.disabled_plugins = [
+		:MyPlugin,
+        :MyPlugin,
         'my_ohai_6_plugin'
       ]
 
@@ -420,32 +503,32 @@ Ohai configuration settings can be added to the client.rb file.
 
       [2014-06-13T23:49:12+00:00] DEBUG: Skipping disabled plugin MyPlugin
 
-``Ohai.hints_path``
+``ohai.hints_path``
    The path to the file that contains hints for Ohai.
 
-``Ohai.log_level``
+``ohai.log_level``
    The level of logging to be stored in a log file.
 
-``Ohai.log_location``
+``ohai.log_location``
    The location of the log file.
 
-``Ohai.plugin_path``
+``ohai.plugin_path``
    An array of paths at which Ohai plugins are located. Default value: ``[<CHEF_GEM_PATH>/ohai-9.9.9/lib/ohai/plugins]``. When custom Ohai plugins are added, the paths must be added to the array. For example, a single plugin:
 
    .. code-block:: ruby
 
-      Ohai.plugin_path << '/etc/chef/ohai_plugins'
+      ohai.plugin_path << '/etc/chef/ohai_plugins'
 
    and for multiple plugins:
 
    .. code-block:: ruby
 
-      Ohai.plugin_path += [
+      ohai.plugin_path += [
         '/etc/chef/ohai_plugins',
         '/path/to/other/plugins'
         ]
 
-``Ohai.version``
+``ohai.version``
    The version of Ohai.
 
 .. note:: The Ohai executable ignores settings in the client.rb file when Ohai is run independently of the chef-client.
@@ -460,7 +543,7 @@ A sample client.rb file that contains the most simple way to connect to https://
 
    log_level        :info
    log_location     STDOUT
-   chef_server_url  'https://api.opscode.com/organizations/<orgname>'
+   chef_server_url  'https://api.chef.io/organizations/<orgname>'
    validation_client_name '<orgname>-validator'
    validation_key '/etc/chef/validator.pem'
    client_key '/etc/chef/client.pem'

@@ -5,15 +5,9 @@ chef-server.rb Settings
 
 .. tag config_rb_server_summary
 
-The chef-server.rb file contains all of the non-default configuration settings used by the Chef server. (The default settings are built-in to the Chef server configuration and should only be added to the chef-server.rb file to apply non-default values.) These configuration settings are processed when the ``chef-server-ctl reconfigure`` command is run, such as immediately after setting up the Chef server or after making a change to the underlying configuration settings after the server has been deployed. The chef-server.rb file is a Ruby file, which means that conditional statements can be used in the configuration file.
+The ``/etc/opscode/chef-server.rb`` file contains all of the non-default configuration settings used by the Chef server. The default settings are built into the Chef server configuration and should only be added to the ``chef-server.rb`` file to apply non-default values. These configuration settings are processed when the ``chef-server-ctl reconfigure`` command is run. The ``chef-server.rb`` file is a Ruby file, which means that conditional statements can be used within it.
 
 .. end_tag
-
-.. note:: .. tag notes_config_rb_server_does_not_exist_by_default
-
-          The chef-server.rb file does not exist by default. To modify the settings for the Chef server, create a file named ``chef-server.rb`` in the ``/etc/opscode/`` directory.
-
-          .. end_tag
 
 .. note:: .. tag notes_config_rb_server_was_private_chef_rb
 
@@ -115,7 +109,7 @@ The following settings are often used for performance tuning of the Chef server 
 
           .. end_tag
 
-.. note:: Review the full list of :doc:`optional settings </config_rb_server_optional_settings>` that can be added to the chef-server.rb file. Many of these optional settings should not be added without first consulting with Chef support.
+.. note:: Review the full list of `optional settings </config_rb_server_optional_settings.html>`__ that can be added to the chef-server.rb file. Many of these optional settings should not be added without first consulting with Chef support.
 
 bookshelf
 -----------------------------------------------------
@@ -130,7 +124,7 @@ The following setting is often modified from the default as part of the tuning e
 
 .. warning:: .. tag notes_server_aws_cookbook_storage
 
-             To `configure the server for external cookbook storage <https://docs.chef.io/server_components.html#aws-settings>`_, updates are made to settings for both the **bookshelf** and **opscode-erchef** services.
+             To `configure the server for external cookbook storage </server_components.html#aws-settings>`_, updates are made to settings for both the **bookshelf** and **opscode-erchef** services.
 
              .. end_tag
 
@@ -220,27 +214,33 @@ The maximum field length setting for Apache Solr should be greater than any expe
 
 and
 
-``opscode-erchef']['max_request_size']``
-   Default value: ``1000000``.
+``opscode_erchef['max_request_size']``
+   When the request body size is greater than this value, a 413 Request Entity Too Large error is returned. Default value: ``1000000``.
 
 to ensure that those settings are not part of the reasons for incomplete indexing, and then update the following setting so that its value is greater than the expected node file sizes:
 
 ``opscode_solr4['max_field_length']``
    The maximum field length (in number of tokens/terms). If a field length exceeds this value, Apache Solr may not be able to complete building the index. Default value: ``100000`` (increased from the Apache Solr default value of ``10000``).
 
-Use the ``wc`` command to get the character count of a large node object file. For example:
+Use the ``wc`` command to get the byte count of a large node object file. For example:
 
 .. code-block:: bash
 
-   $ wc -w NODE_NAME.json
+   $ wc -c NODE_NAME.json
 
 and then ensure there is a buffer beyond that value. For example, verify the size of the largest node object file:
 
 .. code-block:: bash
 
-   $ wc -w nodebsp2016.json
+   $ wc -c nodebsp2016.json
 
 which returns ``154516``. Update the ``opscode_solr4['max_field_length']`` setting to have a value greater than the returned value. For example: ``180000``.
+
+If you don't have a node object file available then you can get an approximate size of the node data by running the following command on a node.
+
+.. code-block:: bash
+
+   $ ohai | wc -c
 
 .. end_tag
 
@@ -314,4 +314,3 @@ The following settings must be modified when the Chef Analytics server is config
    Chef Analytics uses the same RabbitMQ service that is configured on the Chef server. When the Chef Analytics server is configured as a standalone server, the default settings for ``rabbitmq['node_ip_address']`` and ``rabbitmq['vip']`` must be updated. When the Chef Analytics server is configured as a standalone server, change this value to the backend VIP address for the Chef server.
 
 .. end_tag
-

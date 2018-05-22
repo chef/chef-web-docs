@@ -96,6 +96,54 @@ to return something similar to:
 
    chef-dk (0.1.0)
 
+**List all local gems**
+
+To list all of the installed gems on your development environment, use the ``list`` command without any arguments:
+
+.. code-block:: bash
+
+   $ chef gem list
+
+**Search for local gems**
+
+The ``list`` command can also be used to search for locally installed gems. For example, to list all of the gems with ``knife`` in their title:
+
+.. code-block:: bash
+
+   $ chef gem list knife
+
+which returns the following output:
+
+.. code-block:: bash
+
+   *** LOCAL GEMS ***
+
+   knife-opc (0.3.2)
+   knife-push (1.0.2)
+   knife-spork (1.6.3)
+   knife-windows (1.9.0)
+
+**Search remote gems**
+
+Use the ``search`` command to search for remote gems available for installation:
+
+.. code-block:: bash
+
+   $ chef gem search kitchen
+
+to return something similar to:
+
+.. code-block:: bash
+
+   *** REMOTE GEMS ***
+
+   chefkitchen_cli (0.0.1)
+   gst-kitchen (0.9.0)
+   guard-kitchen (0.0.2)
+   jackal-kitchen (0.1.2)
+   jackal-kitchen-slack (0.1.2)
+   kitchen (0.0.3)
+
 **Install a gem**
 
 To install a gem, run a command similar to:
@@ -110,6 +158,20 @@ to return something similar to:
 
    Successfully installed knife-config-1.1.0
    1 gem installed
+
+**Uninstall a gem**
+
+To uninstall a gem from the Chef development kit environment:
+
+.. code-block:: bash
+
+   $ chef gem uninstall knife-config
+
+to return something similar to:
+
+.. code-block:: bash
+
+   Successfully uninstalled knife-config-1.1.0
 
 **View the contents of a gem**
 
@@ -135,7 +197,7 @@ chef generate app
 Use the ``chef generate app`` subcommand to generate a cookbook structure that:
 
 * Supports multiple cookbooks (as many as needed to support an "application")
-* Supports a top-level instance of Kitchen that can be used to test each cookbook in the appication
+* Supports a top-level instance of Kitchen that can be used to test each cookbook in the application
 * Supports a single Policyfile.rb, which is an upcoming feature of the Chef development kit that defines a workflow around a set of cookbooks and related policy (such as roles, environments, and so on); for more information about Policyfile.rb, see the chef.lists discussions (search for "policyfile")
 
 .. note:: .. tag ruby_style_patterns_hyphens
@@ -281,6 +343,8 @@ will return something similar to:
 
 chef generate cookbook
 =====================================================
+Changed in Chef DK 1.3, ``chef generate cookbook`` requires Chef client 12.1+, includes the chef_version metadata, and uses SPDX standard license strings.
+
 Use the ``chef generate cookbook`` subcommand to generate a cookbook.
 
 .. note:: .. tag ruby_style_patterns_hyphens
@@ -311,7 +375,7 @@ This subcommand has the following options:
    Specify the copyright holder for copyright notices in generated files. Default value: ``The Authors``
 
 ``-d``, ``--delivery``
-   Generate a delivery config file and build cookbook inside the new cookbook. Default value: disabled.
+   Generate a delivery config file and build cookbook inside the new cookbook. Default value: disabled.  This option is disabled. It has no effect and exists only for compatibility with past releases
 
 ``-m EMAIL``, ``--email EMAIL``
    Specify the email address of the author. Default value: ``you@example.com``.
@@ -392,7 +456,7 @@ and which creates a directory structure similar to::
 
 **Create a cookbook using a custom skeleton cookbook**
 
-If a custom skeleton cookbook is located on a Mac OS X desktop (and in this example, the ``chef_generator`` cookbook is simply a copy of the same cookbook that ships in the Chef development kit), the following command will use the skeleton cookbook at the custom location to generate a cookbook into the repository from which the ``chef`` command is run:
+If a custom skeleton cookbook is located on a macOS desktop (and in this example, the ``chef_generator`` cookbook is simply a copy of the same cookbook that ships in the Chef development kit), the following command will use the skeleton cookbook at the custom location to generate a cookbook into the repository from which the ``chef`` command is run:
 
 .. code-block:: bash
 
@@ -654,11 +718,11 @@ Use the ``chef provision`` subcommand to invoke an embedded chef-client run to p
 
 The ``chef provision`` subcommand is intended to:
 
-* Provide a provisioning mechamism that supports using Policyfile.rb files
-* Supporting naming conventions within Chef provisioning
-* Integreate Chef provisioning steps with the command-line tools that are packaged with the Chef development kit
+* Provide a provisioning mechanism that supports using ``Policyfile.rb`` files
+* Support naming conventions within Chef provisioning
+* Integrate Chef provisioning steps with the command-line tools that are packaged with the Chef development kit
 * Separate the configuration of provisioned machines from running Chef provisioning
-* Allow provisioing to be managed as code and versioned (via Policyfile.rb files), as opposed to the legacy ``knife bootstrap`` behavior, which is primarily driven by command-line options
+* Allow provisioning to be managed as code and versioned (via ``Policyfile.rb`` files), as opposed to the legacy ``knife bootstrap`` behavior, which is primarily driven by command-line options
 
 .. end_tag
 
@@ -668,19 +732,19 @@ Syntax
 
 This subcommand has the following syntax:
 
-To create machines that operate using only a local Policyfile.rb:
+To create machines that operate using only a local ``Policyfile.rb``:
 
 .. code-block:: bash
 
    $ chef provision POLICY_GROUP --policy-name POLICY_NAME (options)
 
-To create machines that operate using a Policyfile.rb that is synchronized with the Chef server before each chef-client run:
+To create machines that operate using a ``Policyfile.rb`` that is synchronized with the Chef server before each chef-client run:
 
 .. code-block:: bash
 
    $ chef provision POLICY_GROUP --sync PATH (options)
 
-To create machines that will not use a Policyfile.rb file:
+To create machines that will not use a ``Policyfile.rb`` file:
 
 .. code-block:: bash
 
@@ -728,16 +792,16 @@ This subcommand has the following options:
                 ChefDK::ProvisioningData.context.extra_chef_config = 'log_level :debug'
 
 ``-p POLICY_NAME``, ``--policy-name POLICY_NAME``
-   Set the policy name for one (or more) machines that are managed by this Policyfile.rb file.
+   Set the policy name for one (or more) machines that are managed by this ``Policyfile.rb`` file.
 
 ``--[no-]policy``
-   Use ``--policy`` to enable one (or more) machines to be managed by a Policyfile.rb file. Default value: ``--policy``.
+   Use ``--policy`` to enable one (or more) machines to be managed by a ``Policyfile.rb`` file. Default value: ``--policy``.
 
 ``-r RECIPE``, ``--recipe RECIPE``
    Specify the name of the recipe to be run. This recipe must be located in the ``policyfile`` cookbook at the path specified by the ``--cookbook`` option.
 
 ``-s PATH``, ``--sync PATH``
-   Push a Policyfile.rb file to the Chef server before running the chef-client on a node. The ``PATH`` is the location of the Policyfile.rb file to be synchronized.
+   Push a ``Policyfile.rb`` file to the Chef server before running the chef-client on a node. The ``PATH`` is the location of the ``Policyfile.rb`` file to be synchronized.
 
 ``-t REMOTE_HOST``, ``--target REMOTE_HOST``
    Set the hostname or IP address of the host on which the chef-client run will occur. (This value may be overridden by the cookbook that is used to provision the node.)
@@ -782,7 +846,8 @@ and then to provision the machine, run the following:
 
    $ chef provision test123 --sync -n aar-dev
 
-This will synchronize the Policyfile.lock.json file to the Chef server, and then run the chef-client on the node.
+This will synchronize the ``Policyfile.lock.json`` file to the Chef server, and then run the Chef client on the node.
+
 .. code-block:: bash
 
    Recipe: code_generator::cookbook
@@ -880,7 +945,7 @@ Examples
 
 .. tag ruby_set_system_ruby_as_chefdk_ruby_windows
 
-You can use ``chef shell-init`` with Windows PowerShell.
+You can use the ``chef shell-init`` command with Windows PowerShell to add the appropriate variables to your environment.
 
 To try it in your current session:
 
@@ -900,7 +965,7 @@ To enable it permanently:
 
 .. tag ruby_set_system_ruby_as_chefdk_ruby_windows_admin
 
-For new Microsoft Windows machines, Windows PowerShell scripts will not work until an administrator runs the following command:
+On new Windows machines, PowerShell scripts will not work until an administrator runs the following command:
 
 .. code-block:: bash
 
@@ -912,7 +977,7 @@ For new Microsoft Windows machines, Windows PowerShell scripts will not work unt
 
 .. tag ruby_set_system_ruby_as_chefdk_ruby_windows_user_profile
 
-For new Microsoft Windows machines, commands cannot be appended to ``$PROFILE`` if the folder does not exist or if there is a new user profile, an error similar to the following may be returned:
+On new Windows machines, commands cannot be appended to ``$PROFILE`` if the folder does not exist, or if there is a new user profile. This will result in an error similar to the following:
 
 .. code-block:: bash
 
@@ -932,35 +997,6 @@ In this situation, run the following ``chef shell-init`` command instead:
    if(Test-Path $PROFILE){ chef shell-init powershell | Add-Content $PROFILE } else { New-Item -Force -ItemType File $PROFILE; chef shell-init powershell | Add-Content $PROFILE }
 
 .. end_tag
-
-chef verify
-=====================================================
-Use the ``chef verify`` subcommand to verify that components in the Chef development kit are installed correctly.
-
-Syntax
------------------------------------------------------
-This subcommand has the following syntax:
-
-.. code-block:: bash
-
-   $ chef verify [APPLICATION]
-
-Options
------------------------------------------------------
-This subcommand has the following options:
-
-``APPLICATION``
-   Use to verify a single, named application: ``berkshelf``, ``test-kitchen``, ``chef-client``, ``chef-dk``, ``chefspec``, ``rubocop``, ``fauxhai``, ``knife-spork``, ``kitchen-vagrant``. If an application is not specified, the subcommand will verify all applications.
-
-``-h``, ``--help``
-   Show help for the command.
-
-``-v``, ``--version``
-   The version of the chef-client.
-
-Examples
------------------------------------------------------
-None.
 
 Policyfile Commands
 =====================================================
@@ -1181,16 +1217,16 @@ This subcommand has the following options:
    Enable stack traces and other debug output. Default value: ``false``.
 
 ``-g GIT_REF``, ``--git GIT_REF``
-   Compare the specified git reference against the current revision of a Policyfile.lock.json file or against another git reference.
+   Compare the specified git reference against the current revision of a ``Policyfile.lock.json`` file or against another git reference.
 
 ``-h``, ``--help``
    Show help for the command.
 
 ``--head``
-   A shortcut for ``chef diff --git HEAD``. When a git-specific flag is not provided, the on-disk Policyfile.lock.json file is compared to one on the Chef server or (if a Policyfile.lock.json file is not present on-disk) two Policyfile.lock.json files in the specified policy group on the Chef server are compared.
+   A shortcut for ``chef diff --git HEAD``. When a git-specific flag is not provided, the on-disk ``Policyfile.lock.json`` file is compared to one on the Chef server or (if a ``Policyfile.lock.json`` file is not present on-disk) two ``Policyfile.lock.json`` files in the specified policy group on the Chef server are compared.
 
 ``--[no-]pager``
-   Use ``--pager`` to enable paged output for a Policyfile.lock.json file. Default value: ``--pager``.
+   Use ``--pager`` to enable paged output for a ``Policyfile.lock.json`` file. Default value: ``--pager``.
 
 ``-v``, ``--version``
    The version of the chef-client.
@@ -1288,7 +1324,7 @@ chef export
 -----------------------------------------------------
 .. tag ctl_chef_export
 
-Use the ``chef export`` subcommand to create a chef-zero-compatible chef-repo that contains the cookbooks described by a Policyfile.lock.json file. After a chef-zero-compatible chef-repo is copied to a node, the policy can be applied locally on that machine by running ``chef-client -z`` (local mode).
+Use the ``chef export`` subcommand to create a chef-zero-compatible chef-repo that contains the cookbooks described by a ``Policyfile.lock.json`` file. After a chef-zero-compatible chef-repo is copied to a node, the policy can be applied locally on that machine by running ``chef-client -z`` (local mode).
 
 .. end_tag
 
@@ -1393,7 +1429,7 @@ chef install
 -----------------------------------------------------
 .. tag ctl_chef_install
 
-Use the ``chef install`` subcommand to evaluate a policy file and find a compatible set of cookbooks, build a run-list, cache it locally, and then emit a Policyfile.lock.json file that describes the locked policy set. The Policyfile.lock.json file may be used to install the locked policy set to other machines and may be pushed to a policy group on the Chef server to apply that policy to a group of nodes that are under management by Chef.
+Use the ``chef install`` subcommand to evaluate a policy file and find a compatible set of cookbooks, build a run-list, cache it locally, and then emit a ``Policyfile.lock.json`` file that describes the locked policy set. The ``Policyfile.lock.json`` file may be used to install the locked policy set to other machines and may be pushed to a policy group on the Chef server to apply that policy to a group of nodes that are under management by Chef.
 
 .. end_tag
 
@@ -1430,19 +1466,19 @@ Policyfile.lock.json
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag policyfile_lock_json
 
-When the ``chef install`` command is run, the Chef development kit caches any necessary cookbooks and emits a Policyfile.lock.json file that describes:
+When the ``chef install`` command is run, the Chef development kit caches any necessary cookbooks and emits a ``Policyfile.lock.json`` file that describes:
 
 * The versions of cookbooks in use
 * A Hash of cookbook content
 * The source for all cookbooks
 
-A Policyfile.lock.json file is associated with a specific policy group, i.e. is associated with one (or more) nodes that use the same revision of a given policy.
+A ``Policyfile.lock.json`` file is associated with a specific policy group, i.e. is associated with one (or more) nodes that use the same revision of a given policy.
 
 .. end_tag
 
 .. tag policyfile_lock_json_example
 
-A Policyfile.lock.json file is similar to:
+A ``Policyfile.lock.json`` file is similar to:
 
 .. code-block:: javascript
 
@@ -1491,11 +1527,11 @@ Use the ``chef provision`` subcommand to invoke an embedded chef-client run to p
 
 The ``chef provision`` subcommand is intended to:
 
-* Provide a provisioning mechamism that supports using Policyfile.rb files
-* Supporting naming conventions within Chef provisioning
-* Integreate Chef provisioning steps with the command-line tools that are packaged with the Chef development kit
+* Provide a provisioning mechanism that supports using ``Policyfile.rb`` files
+* Support naming conventions within Chef provisioning
+* Integrate Chef provisioning steps with the command-line tools that are packaged with the Chef development kit
 * Separate the configuration of provisioned machines from running Chef provisioning
-* Allow provisioing to be managed as code and versioned (via Policyfile.rb files), as opposed to the legacy ``knife bootstrap`` behavior, which is primarily driven by command-line options
+* Allow provisioning to be managed as code and versioned (via ``Policyfile.rb`` files), as opposed to the legacy ``knife bootstrap`` behavior, which is primarily driven by command-line options
 
 .. end_tag
 
@@ -1505,19 +1541,19 @@ Syntax
 
 This subcommand has the following syntax:
 
-To create machines that operate using only a local Policyfile.rb:
+To create machines that operate using only a local ``Policyfile.rb``:
 
 .. code-block:: bash
 
    $ chef provision POLICY_GROUP --policy-name POLICY_NAME (options)
 
-To create machines that operate using a Policyfile.rb that is synchronized with the Chef server before each chef-client run:
+To create machines that operate using a ``Policyfile.rb`` that is synchronized with the Chef server before each chef-client run:
 
 .. code-block:: bash
 
    $ chef provision POLICY_GROUP --sync PATH (options)
 
-To create machines that will not use a Policyfile.rb file:
+To create machines that will not use a ``Policyfile.rb`` file:
 
 .. code-block:: bash
 
@@ -1565,16 +1601,16 @@ This subcommand has the following options:
                 ChefDK::ProvisioningData.context.extra_chef_config = 'log_level :debug'
 
 ``-p POLICY_NAME``, ``--policy-name POLICY_NAME``
-   Set the policy name for one (or more) machines that are managed by this Policyfile.rb file.
+   Set the policy name for one (or more) machines that are managed by this ``Policyfile.rb`` file.
 
 ``--[no-]policy``
-   Use ``--policy`` to enable one (or more) machines to be managed by a Policyfile.rb file. Default value: ``--policy``.
+   Use ``--policy`` to enable one (or more) machines to be managed by a ``Policyfile.rb`` file. Default value: ``--policy``.
 
 ``-r RECIPE``, ``--recipe RECIPE``
    Specify the name of the recipe to be run. This recipe must be located in the ``policyfile`` cookbook at the path specified by the ``--cookbook`` option.
 
 ``-s PATH``, ``--sync PATH``
-   Push a Policyfile.rb file to the Chef server before running the chef-client on a node. The ``PATH`` is the location of the Policyfile.rb file to be synchronized.
+   Push a ``Policyfile.rb`` file to the Chef server before running the chef-client on a node. The ``PATH`` is the location of the ``Policyfile.rb`` file to be synchronized.
 
 ``-t REMOTE_HOST``, ``--target REMOTE_HOST``
    Set the hostname or IP address of the host on which the chef-client run will occur. (This value may be overridden by the cookbook that is used to provision the node.)
@@ -1619,7 +1655,8 @@ and then to provision the machine, run the following:
 
    $ chef provision test123 --sync -n aar-dev
 
-This will synchronize the Policyfile.lock.json file to the Chef server, and then run the chef-client on the node.
+This will synchronize the ``Policyfile.lock.json`` file to the Chef server, and then run the Chef client on the node.
+
 .. code-block:: bash
 
    Recipe: code_generator::cookbook
@@ -1690,7 +1727,7 @@ chef push
 -----------------------------------------------------
 .. tag ctl_chef_push
 
-Use the ``chef push`` subcommand to upload an existing Policyfile.lock.json file to the Chef server, along with all of the cookbooks that are contained in the Policyfile.lock.json file. The Policyfile.lock.json file will be applied to the specified policy group, which is a set of nodes that share the same run-list and cookbooks.
+Use the ``chef push`` subcommand to upload an existing ``Policyfile.lock.json`` file to the Chef server, along with all of the cookbooks that are contained in the file. The ``Policyfile.lock.json`` file will be applied to the specified policy group, which is a set of nodes that share the same run-list and cookbooks.
 
 .. end_tag
 
@@ -1734,7 +1771,7 @@ chef push-archive
 -----------------------------------------------------
 .. tag ctl_chef_push_archive
 
-The ``chef push-archive`` subcommand is used to publish a policy archive file to the Chef server. (A policy archive is created using the ``chef export`` subcommand.) The policy archive is assigned to the speciified policy group, which is a set of nodes that share the same run-list and cookbooks.
+The ``chef push-archive`` subcommand is used to publish a policy archive file to the Chef server. (A policy archive is created using the ``chef export`` subcommand.) The policy archive is assigned to the specified policy group, which is a set of nodes that share the same run-list and cookbooks.
 
 .. end_tag
 
@@ -1778,7 +1815,7 @@ chef show-policy
 -----------------------------------------------------
 .. tag ctl_chef_show_policy
 
-Use the ``chef show-policy`` subcommand to display revisions for every Policyfile.rb file that is on the Chef server. By default, only active policy revisions are shown. When both a policy and policy group are specified, the contents of the active Policyfile.lock.json file for the policy group is returned.
+Use the ``chef show-policy`` subcommand to display revisions for every ``Policyfile.rb`` file that is on the Chef server. By default, only active policy revisions are shown. When both a policy and policy group are specified, the contents of the active ``Policyfile.lock.json`` file for the policy group is returned.
 
 .. end_tag
 
@@ -1813,7 +1850,7 @@ This subcommand has the following options:
    Show policy revisions that are not currently assigned to any policy group.
 
 ``--[no-]pager``
-   Use ``--pager`` to enable paged output for a Policyfile.lock.json file. Default value: ``--pager``.
+   Use ``--pager`` to enable paged output for a ``Policyfile.lock.json`` file. Default value: ``--pager``.
 
 ``-v``, ``--version``
    The version of the chef-client.
@@ -1887,7 +1924,7 @@ chef update
 -----------------------------------------------------
 .. tag ctl_chef_update
 
-Use the ``chef update`` subcommand to read the Policyfile.rb file, and then apply any changes. This will resolve dependencies and will create a Policyfile.lock.json file. The locked policy will reflect any changes to the run-list and will pull in any cookbook updates that are compatible with any version constraints defined in the Policyfile.rb file.
+Use the ``chef update`` subcommand to read the ``Policyfile.rb`` file, and then apply any changes. This will resolve dependencies and will create a ``Policyfile.lock.json`` file. The locked policy will reflect any changes to the run-list and will pull in any cookbook updates that are compatible with any version constraints defined in the ``Policyfile.rb`` file.
 
 .. end_tag
 

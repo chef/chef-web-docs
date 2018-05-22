@@ -5,12 +5,7 @@ Quick Start
 
 For the quickest way to get started using Chef:
 
-#. Download the Chef development kit: http://downloads.chef.io/chef-dk/.
-#. Set your system Ruby to this path:
-
-   .. code-block:: bash
-
-      $ /opt/chefdk/embedded/bin/ruby
+#. Install the Chef development kit: https://downloads.chef.io/chefdk/.
 
 #. Generate a cookbook:
 
@@ -22,7 +17,7 @@ For the quickest way to get started using Chef:
 
 #. Change into the ``first_cookbook`` directory.
 
-#. Update the ``default.rb`` recipe in the generated cookbook to contain:
+#. Update the ``cookbooks/first_cookbook/recipes/default.rb`` recipe in the generated cookbook to contain:
 
    .. code-block:: ruby
 
@@ -44,6 +39,6 @@ This will create a file named ``test.txt`` at the home path on your machine. Ope
 
 There's a lot more that Chef can do, obviously, but that was super easy!
 
-* See https://learn.chef.io/tutorials/ for more detailed setup scenarios.
-* Try `running Chef in the AWS Marketplace <https://docs.chef.io/aws_marketplace.html>`_.
-* Keep reading https://docs.chef.io for more information about setting up a workstation, configuring Kitchen to run virtual environments, setting up a more detailed cookbook, resources, and more.
+* See https://learn.chef.io/ for more detailed setup scenarios.
+* Try `running Chef in the AWS Marketplace </aws_marketplace.html>`__.
+* Keep reading  for more information about setting up a workstation, configuring Kitchen to run virtual environments, setting up a more detailed cookbook, resources, and more.

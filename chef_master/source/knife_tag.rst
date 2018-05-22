@@ -1,5 +1,5 @@
 =====================================================
-knife tag 
+knife tag
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_tag.rst>`__
 
@@ -17,7 +17,7 @@ The ``knife tag`` subcommand is used to apply tags to nodes on a Chef server.
 
 .. note:: .. tag knife_common_see_common_options_link
 
-          Review the list of :doc:`common options </knife_common_options>` available to this (and all) knife subcommands and plugins.
+          Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
           .. end_tag
 

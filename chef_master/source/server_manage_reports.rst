@@ -3,11 +3,11 @@ Manage Reports
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_manage_reports.rst>`__
 
-.. tag chef_automate_mark
+.. tag reporting_legacy
 
-.. image:: ../../images/chef_automate_full.png
-   :width: 40px
-   :height: 17px
+.. note:: This documentation is meant to support existing Chef customers using Reporting.
+
+          Are you a new Chef customer, or looking to gain better insight into your fleet? Take advantage of `Chef Automate </chef_automate.html>`__. You'll get a graphical interface and query language that gives you insight into operational, compliance, and workflow events. You can `download Chef Automate here <https://downloads.chef.io/automate>`__.
 
 .. end_tag
 
@@ -139,7 +139,7 @@ To view chef-client details:
       * - ``Step``
         - The order in which resources were executed during the chef-client run.
       * - ``Type``
-        - The type of resource. https://docs.chef.io/resource.html#resources
+        - The type of resource. /resource.html#resources
       * - ``Name``
         - A string that describes the action taken. For example, a log entry or the name of the service that is enabled.
       * - ``Action``

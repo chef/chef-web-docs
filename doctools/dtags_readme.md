@@ -279,7 +279,12 @@ Oops, we just overwrote our changes with the old text! This isn't a
 problem. We can fix that glitch by "unstaging" `A.rst` and putting
 `A.rst` back in the index:
 
-``` git reset HEAD A.rst git add A.rst dtags replicate -- A.rst ```
+```
+git reset HEAD A.rst
+git add A.rst
+dtags replicate -- A.rst
+```
+
 All fixed! The `--` value is a placeholder that says to replicate all
 tags found in the given topic.
 

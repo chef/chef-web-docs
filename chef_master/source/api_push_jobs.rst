@@ -26,7 +26,7 @@ For example: ``/organizations/organization_name/pushy/jobs/ID`` or ``/organizati
 
           where ``RAW`` is a boolean indicating whether you want the raw body returned, or JSON inflated. For Push Jobs API endpoints, we recommend ``false``.
 
-          See `knife exec <https://docs.chef.io/knife_exec.html>`_ for detailed information on usage.
+          See `knife exec </knife_exec.html>`__ for detailed information on usage.
 
 connect/NODE_NAME
 -----------------------------------------------------
@@ -57,8 +57,8 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     "node_name": "FIONA", 
-     "status": "down", 
+     "node_name": "FIONA",
+     "status": "down",
      "updated_at": "Tue, 04 Sep 2012 23:17:56 GMT"
    }
 
@@ -591,18 +591,18 @@ The response is similar to:
 
    {
      {
-       "node_name": "FARQUAD", 
-       "status": "up", 
+       "node_name": "FARQUAD",
+       "status": "up",
        "updated_at": "Tue, 04 Sep 2012 23:17:56 GMT"
      }
      {
-       "node_name": "DONKEY", 
-       "status": "up", 
+       "node_name": "DONKEY",
+       "status": "up",
        "updated_at": "Tue, 04 Sep 2012 23:17:56 GMT"
      }
      {
-       "node_name": "FIONA", 
-       "status": "down", 
+       "node_name": "FIONA",
+       "status": "down",
        "updated_at": "Tue, 04 Sep 2012 23:17:56 GMT"
      }
    }
@@ -657,8 +657,8 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     "node_name": "FIONA", 
-     "status": "down", 
+     "node_name": "FIONA",
+     "status": "down",
      "updated_at": "Tue, 04 Sep 2012 23:17:56 GMT"
    }
 

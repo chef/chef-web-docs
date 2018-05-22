@@ -5,7 +5,7 @@ systemd_unit
 
 Use the **systemd_unit** resource to create, manage, and run `systemd units <https://www.freedesktop.org/software/systemd/man/systemd.html#Concepts>`_.
 
-*New in Chef Client 12.11.*
+New in Chef Client 12.11. Changed in 12.19 to verify systemd unit-files before installation (using the external ``systemd-analyze verify`` command).
 
 Syntax
 =====================================================
@@ -16,28 +16,33 @@ A **systemd_unit** resource describes the configuration behavior for systemd uni
 .. code-block:: ruby
 
    systemd_unit 'sysstat-collect.timer' do
-     enabled true
-     content '[Unit]\nDescription=Run system activity accounting tool every 10 minutes\n\n[Timer]\nOnCalendar=*:00/10\n\n[Install]\nWantedBy=sysstat.service'
+     content <<-EOU.gsub(/^\s+/, '')
+     [Unit]
+     Description=Run system activity accounting tool every 10 minutes
+
+     [Timer]
+     OnCalendar=*:00/10
+
+     [Install]
+     WantedBy=sysstat.service
+     EOU
+
+     action [:create, :enable]
    end
 
 The full syntax for all of the properties that are available to the **systemd_unit** resource is:
 
 .. code-block:: ruby
 
-   systemd_unit 'name' do
-     enabled                Boolean
-     active                 Boolean
-     masked                 Boolean
-     static                 Boolean
-     user                   String
+   systemd_unit 'name.service' do
      content                String or Hash
+     user                   String
      triggers_reload        Boolean
    end
 
 where
 
-* ``name`` is the name of the unit 
-* ``active`` specifies if the service unit type should be started
+* ``name`` is the name of the unit. Must include the type/suffix (e.g. `name.socket` or `name.service`).
 * ``user`` is the user account that systemd units run under. If not specified, systemd units will run under the system account.
 * ``content`` describes the behavior of the unit
 
@@ -69,6 +74,21 @@ This resource has the following actions:
 
 ``:unmask``
    Stop the unit from being masked and cause it to start as specified.
+   
+``:preset``
+   Restore the preset "enable/disable" configuration for a unit.
+   
+   New in Chef Client 14.0.
+
+``:reenable``
+   Reenable a unit file.
+   
+   New in Chef Client 14.0.
+   
+``:revert``
+   Revet to a vendor's version of a unit file. 
+   
+   New in Chef Client 14.0.
 
 ``:start``
    Start a unit based in its systemd unit file.
@@ -99,30 +119,10 @@ Properties
 
 This resource has the following properties:
 
-``enabled``
-   **Ruby Types:** TrueClass, FalseClass
-
-   Specifies whether the unit is enabled or disabled.
-
-``active``
-   **Ruby Type:** TrueClass, FalseClass
-
-   Specifies whether the unit is started or stopped.
-
-``masked``
-   **Ruby Type:** TrueClass, FalseClass
-
-   Specifies whether the unit is masked or not.
-
-``static``
-   **Ruby Type:** TrueClass, FalseClass
-
-   Specifies whether the unit is static or not. Static units cannot be enabled or disabled.
-
 ``user``
    **Ruby Type:** String
 
-   The user account that the systemd unit process is run under. The path to the unit for that user would be something like 
+   The user account that the systemd unit process is run under. The path to the unit for that user would be something like
    ``/etc/systemd/user/sshd.service``. If no user account is specified, the systemd unit will run under a ``system`` account, with the path to the unit being something like ``/etc/systemd/system/sshd.service``.
 
 ``content``
@@ -131,37 +131,41 @@ This resource has the following properties:
    A string or hash that contains a systemd `unit file <https://www.freedesktop.org/software/systemd/man/systemd.unit.html>`_ definition that describes the properties of systemd-managed entities, such as services, sockets, devices, and so on.
 
 ``triggers_reload``
-   **Ruby Type:** TrueClass, FalseClass
+   **Ruby Type:** True, False
 
    Specifies whether to trigger a daemon reload when creating or deleting a unit. Default is true.
 
+``verify``
+   **Ruby Type:** True, False
+
+   Specifies if the unit will be verified before installation. Systemd can be overly strict when verifying units, so in certain cases it is preferable not to verify the unit. Defaults to true.
+
 .. end_tag
 
-Providers
+Examples
 =====================================================
-.. tag resources_common_provider
 
-Where a resource represents a piece of the system (and its desired state), a provider defines the steps that are needed to bring that piece of the system from its current state into the desired state.
+.. tag systemd_unit_examples
+
+**Create etcd systemd service unit file**
+
+.. code-block:: ruby
+
+   systemd_unit 'etcd.service' do
+     content(Unit: {
+               Description: 'Etcd',
+               Documentation: 'https://coreos.com/etcd',
+               After: 'network.target',
+             },
+             Service: {
+               Type: 'notify',
+               ExecStart: '/usr/local/etcd',
+               Restart: 'always',
+             },
+             Install: {
+               WantedBy: 'multi-user.target',
+             })
+     action :create
+   end
 
 .. end_tag
-
-.. tag resources_common_provider_attributes
-
-The chef-client will determine the correct provider based on configuration data collected by Ohai at the start of the chef-client run. This configuration data is then mapped to a platform and an associated list of providers.
-
-Generally, it's best to let the chef-client choose the provider, and this is (by far) the most common approach. However, in some cases, specifying a provider may be desirable. There are two approaches:
-
-* Use a more specific short name---``yum_package "foo" do`` instead of ``package "foo" do``, ``script "foo" do`` instead of ``bash "foo" do``, and so on---when available
-* Use the ``provider`` property within the resource block to specify the long name of the provider as a property of a resource. For example: ``provider Chef::Provider::Long::Name``
-
-.. end_tag
-
-This resource has the following providers:
-
-``Chef::Provider::SystemdUnit``, ``systemd_unit``
-   The provider for systemd_unit.
-
-.. 
-.. Examples
-.. =====================================================
-.. 

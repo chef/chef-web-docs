@@ -9,8 +9,134 @@ The Chef Supermarket installations that are done using the omnibus installer inc
 
 .. end_tag
 
-cleanse
+make-admin
 =====================================================
+The ``make-admin`` subcommand is used to make the named Chef Supermarket user an administrator.
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ sudo -u supermarket supermarket-ctl make-admin USER_NAME
+
+where ``USER_NAME`` represents the name of the user to be granted administrator priviliges.
+
+Quality Metrics
+=====================================================
+
+qm-flip-admin-only
+-----------------------------------------------------
+
+The ``qm-flip-admin-only`` command is used to make a single named quality metric visible
+only to admins.
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ sudo -u supermarket supermarket-ctl qm-flip-admin-only "METRIC_NAME"
+
+where ``METRIC_NAME`` is the name of the quality metric to make admin only.
+Names containing spaces must be surrounded by quotes.
+
+qm-flip-all-admin-only
+-----------------------------------------------------
+
+The ``qm-flip-all-admin-only`` command is used to make all quality metrics visible only
+to admins.
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ sudo -u supermarket supermarket-ctl qm-flip-all-admin-only
+
+qm-flip-all-public
+-----------------------------------------------------
+
+The ``qm-flip-all-public`` command is used to make all quality metrics visible to all
+users.
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ sudo -u supermarket supermarket-ctl qm-flip-all-public
+
+qm-flip-public
+-----------------------------------------------------
+
+The ``qm-flip-public`` command is used to make a single named quality metric visible
+to all users.
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ sudo -u supermarket supermarket-ctl qm-flip-public "METRIC_NAME"
+
+where ``METRIC_NAME`` is the name of the quality metric to make public. Names
+containing spaces must be surrounded by quotes.
+
+qm-list
+-----------------------------------------------------
+
+The ``qm-list`` command is used to list the names of quality metrics defined
+currently in a Supermarket.
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ sudo -u supermarket supermarket-ctl qm-list
+
+qm-run-all-the-latest
+-----------------------------------------------------
+
+The ``qm-run-all-the-latest`` command is used to run all quality metrics on the
+latest versions of all cookbooks.
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ sudo -u supermarket supermarket-ctl qm-run-all-the-latest
+
+qm-run-on-latest
+-----------------------------------------------------
+
+The ``qm-run-on-latest`` command is used to run all quality metrics on the
+latest version of a named cookbook.
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ sudo -u supermarket supermarket-ctl qm-run-on-version COOKBOOK_NAME
+
+where ``COOKBOOK_NAME`` is the name of the cookbook on which to run all quality
+metrics on its latest version.
+
+qm-run-on-version
+-----------------------------------------------------
+
+The ``qm-run-on-version`` command is used to run all quality metrics on a given
+version of a named cookbook.
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ sudo -u supermarket supermarket-ctl qm-run-on-version COOKBOOK_NAME VERSION
+
+where ``COOKBOOK_NAME`` and ``VERSION`` are respectively the name and version of
+the cookbook on which to run all quality metrics.
+
+General Commands
+=====================================================
+
+cleanse
+-----------------------------------------------------
 The ``cleanse`` subcommand is used to re-set the server to the state it was in before the first time the ``reconfigure`` subcommand is run to destroy all data, configuration files, and logs.
 
 This subcommand has the following syntax:
@@ -20,7 +146,7 @@ This subcommand has the following syntax:
    $ supermarket-ctl cleanse
 
 help
-=====================================================
+-----------------------------------------------------
 The ``help`` subcommand is used to print a list of all available supermarket-ctl commands.
 
 This subcommand has the following syntax:
@@ -29,20 +155,8 @@ This subcommand has the following syntax:
 
    $ supermarket-ctl help
 
-make-admin
-=====================================================
-The ``make-admin`` subcommand is used to make the named Chef Supermarket user an administrator.
-
-This subcommand has the following syntax:
-
-.. code-block:: bash
-
-   $ supermarket-ctl make-admin USER_NAME
-
-where ``USER_NAME`` represents the name of the user to be granted administrator priviliges.
-
 reconfigure
-=====================================================
+-----------------------------------------------------
 The ``reconfigure`` subcommand is used when changes are made to the supermarket.rb file to reconfigure the server. When changes are made to the supermarket.rb file, they will not be applied to the Chef Supermarket configuration until after this command is run. This subcommand will also restart any services for which the ``service_name['enabled']`` setting is set to ``true``.
 
 This subcommand has the following syntax:
@@ -52,7 +166,7 @@ This subcommand has the following syntax:
    $ supermarket-ctl reconfigure
 
 show-config
-=====================================================
+-----------------------------------------------------
 The ``show-config`` subcommand is used to view the configuration that will be generated by the ``reconfigure`` subcommand. This command is most useful in the early stages of a deployment to ensure that everything is built properly prior to installation.
 
 This subcommand has the following syntax:
@@ -62,7 +176,7 @@ This subcommand has the following syntax:
    $ supermarket-ctl show-config
 
 uninstall
-=====================================================
+-----------------------------------------------------
 The ``uninstall`` subcommand is used to remove the Chef Supermarket application, but without removing any of the data. This subcommand will shut down all services (including the ``runit`` process supervisor).
 
 This subcommand has the following syntax:
@@ -299,4 +413,3 @@ This subcommand has the following syntax:
    $ supermarket-ctl term name_of_service
 
 where ``name_of_service`` represents the name of any service that is listed after running the ``service-list`` subcommand.
-

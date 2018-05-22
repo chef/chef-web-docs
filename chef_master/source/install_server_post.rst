@@ -27,9 +27,18 @@ The Chef server supports using Active Directory or LDAP for any user that has an
 To configure the Chef server to use Active Directory or LDAP do the following:
 
 #. Install the Chef management console (if it is not already).
-#. Add the following settings to the chef-server.rb file. These settings must be added to the chef-server.rb file on each machine in the Chef server frontend deployment of a High Availability installation as well as on Chef servers in a standalone installation.
+#. Add the following settings to the ``/etc/opscode/chef-server.rb`` file. These settings must be added to the ``chef-server.rb`` file on each machine in the Chef server frontend deployment of a High Availability installation as well as on Chef servers in a standalone installation.
 
    .. tag config_rb_server_settings_ldap
+
+   .. warning:: The following settings **MUST** be in the config file for LDAP authentication to Active Directory to work:
+
+      - ``base_dn``
+      - ``bind_dn``
+      - ``group_dn``
+      - ``host``
+
+      If those settings are missing, you will get authentication errors and be unable to proceed.
 
    This configuration file has the following settings for ``ldap``:
 
@@ -49,17 +58,37 @@ To configure the Chef server to use Active Directory or LDAP do the following:
 
          'CN=user,OU=Employees,OU=Domainuser,DC=example,DC=com'
 
+      .. note:: If you need to escape characters in a distinguished name, such as when using Active Directory, they must be `escaped with a backslash escape character <https://social.technet.microsoft.com/wiki/contents/articles/5312.active-directory-characters-to-escape.aspx>`_.
+
+         .. code-block:: ruby
+
+            'CN=example\\user,OU=Employees,OU=Domainuser,DC=example,DC=com'
+
       Default value: ``nil``.
 
    ``ldap['bind_password']``
-      The password for the binding user. The password for the user specified by ``ldap['bind_dn']``. Leave this value and ``ldap['bind_dn']`` unset if anonymous bind is sufficient. Default value: ``nil``.
+      Legacy configuration for the password of the binding user. The password for the user specified by ``ldap['bind_dn']``. Leave this value and ``ldap['bind_dn']`` unset if anonymous bind is sufficient. Default value: ``nil``. As of Chef server 12.14, this is no longer the preferred command.
+
+      Please use ``chef-server-ctl set-secret ldap bind_password`` from the `Secrets Management </ctl_chef_server.html#ctl-chef-server-secrets-management>`__ commands.
+
+      .. code-block:: bash
+
+         $ chef-server-ctl set-secret ldap bind_password
+         Enter ldap bind_password:    (no terminal output)
+         Re-enter ldap bind_password: (no terminal output)
+
+      Remove a set password via
+
+      .. code-block:: bash
+
+         $ chef-server-ctl remove-secret ldap bind_password
 
    ``ldap['group_dn']``
       The distinguished name for a group. When set to the distinguished name of a group, only members of that group can log in. This feature filters based on the ``memberOf`` attribute and only works with LDAP servers that provide such an attribute. In OpenLDAP, the ``memberOf`` overlay provides this attribute. For example, if the value of the ``memberOf`` attribute is ``CN=abcxyz,OU=users,DC=company,DC=com``, then use:
 
       .. code-block:: ruby
 
-         ldap['group_dn'] = 'CN=user,OU=Employees,DC=example,DC=com'
+         ldap['group_dn'] = 'CN=abcxyz,OU=users,DC=company,DC=com'
 
    ``ldap['host']``
       The name (or IP address) of the LDAP server. The hostname of the LDAP or Active Directory server. Be sure the Chef server is able to resolve any host names. Default value: ``ldap-server-host``.
@@ -72,6 +101,8 @@ To configure the Chef server to use Active Directory or LDAP do the following:
 
    ``ldap['ssl_enabled']``
       Cause the Chef server to connect to the LDAP server using SSL. Default value: ``false``. Must be ``false`` when ``ldap['tls_enabled']`` is ``true``.
+
+      .. note:: It's recommended that you enable SSL for Active Directory.
 
       .. note:: Previous versions of the Chef server used the ``ldap['ssl_enabled']`` setting to first enable SSL, and then the ``ldap['encryption']`` setting to specify the encryption type. These settings are deprecated.
 
@@ -101,8 +132,7 @@ To configure the Chef server to use Active Directory or LDAP do the following:
 
    .. code-block:: bash
 
-      $ sudo chef-server-ctl reconfigure
-      $ sudo chef-manage-ctl reconfigure
+      $ chef-server-ctl reconfigure
 
    .. end_tag
 
@@ -199,4 +229,3 @@ Set the following in ``/etc/opscode/chef-server.rb``:
 And set the Keepalived unicast addresses to the GRE tunnel addresses.
 
 .. end_tag
-

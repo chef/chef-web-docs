@@ -11,9 +11,11 @@ Use the **execute** resource to execute a single command. Commands that are exec
 
 .. note:: Use the **script** resource to execute a script using a specific interpreter (Ruby, Python, Perl, csh, or Bash).
 
+Changed in 12.19 to support windows alternate user identity in execute resources.
+
 Syntax
 =====================================================
-A **execute** resource block typically executes a single command that is unique to the environment in which a recipe will run. Some **execute** resource commands are run by themselves, but often they are run in combination with other Chef resources. For example, a single command that is run by itself:
+An **execute** resource block typically executes a single command that is unique to the environment in which a recipe will run. Some **execute** resource commands are run by themselves, but often they are run in combination with other Chef resources. For example, a single command that is run by itself:
 
 .. code-block:: ruby
 
@@ -53,18 +55,18 @@ The full syntax for all of the properties that are available to the **execute** 
      command                    String, Array # defaults to 'name' if not specified
      creates                    String
      cwd                        String
-     environment                Hash
+     environment                Hash # env is an alias for environment
      group                      String, Integer
-     live_stream                TrueClass, FalseClass
+     live_stream                True, False
      notifies                   # see description
-     path                       Array
-     provider                   Chef::Provider::Execute
      returns                    Integer, Array
-     sensitive                  TrueClass, FalseClass
+     sensitive                  True, False
      subscribes                 # see description
      timeout                    Integer, Float
      umask                      String, Integer
-     user                       String, Integer
+     user                       String
+     password                   String
+     domain                     String
      action                     Symbol # defaults to :run if not specified
    end
 
@@ -73,8 +75,8 @@ where
 * ``execute`` is the resource
 * ``name`` is the name of the resource block
 * ``command`` is the command to be run
-* ``:action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``command``, ``creates``, ``cwd``, ``environment``, ``group``, ``live_stream``, ``path``, ``provider``, ``returns``, ``sensitive``, ``timeout``, ``user``, and ``umask`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``command``, ``creates``, ``cwd``, ``environment``, ``group``, ``live_stream``, ``returns``, ``sensitive``, ``timeout``, ``user``, ``password``, ``domain`` and ``umask`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -118,33 +120,35 @@ This resource has the following properties:
    The group name or group ID that must be changed before running a command.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
 ``live_stream``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Send the output of the command run by this **execute** resource block to the chef-client event stream. Default value: ``false``.
+
+   New in Chef Client 12.6.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
    .. tag resources_common_notification_notifies
 
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
 
    .. end_tag
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -160,30 +164,6 @@ This resource has the following properties:
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-
-``path``
-   **Ruby Type:** Array
-
-   An array of paths to use when searching for a command. These paths are not added to the command's environment $PATH. The default value uses the system path.
-
-   .. warning:: .. tag resources_common_resource_execute_attribute_path
-
-                The ``path`` property is not implemented by any provider in any version of the chef-client. Starting with chef-client 12, using the ``path`` property will return a warning. Starting with chef-client 13, the ``path`` property is deprecated and using it will return an exception. Cookbooks that currently use the ``path`` property should be updated to use the ``environment`` property instead.
-
-                .. end_tag
-
-      For example:
-
-      .. code-block:: ruby
-
-         execute 'mycommand' do
-           environment 'PATH' => "/my/path/to/bin:#{ENV['PATH']}"
-         end
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
 
 ``retries``
    **Ruby Type:** Integer
@@ -201,7 +181,7 @@ This resource has the following properties:
    The return value for a command. This may be an array of accepted values. An exception is raised when the return value(s) do not match. Default value: ``0``.
 
 ``sensitive``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Ensure that sensitive resource data is not logged by the chef-client. Default value: ``false``.
 
@@ -212,17 +192,32 @@ This resource has the following properties:
 
    A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
 
+   Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
+
+   .. code-block:: ruby
+
+     file '/etc/nginx/ssl/example.crt' do
+        mode '0600'
+        owner 'root'
+     end
+
+     service 'nginx' do
+        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+     end
+
+   In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
+
    .. end_tag
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -245,9 +240,21 @@ This resource has the following properties:
    The amount of time (in seconds) a command is to wait before timing out. Default value: ``3600``.
 
 ``user``
-   **Ruby Types:** String, Integer
+   **Ruby Types:** String
 
-   The user name or user ID that should be changed before running a command.
+   The user name of the user identity with which to launch the new process. Default value: `nil`. The user name may optionally be specifed with a domain, i.e. `domain\user` or `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can also be specified without a domain simply as user if the domain is instead specified using the `domain` attribute. On Windows only, if this property is specified, the `password` property must be specified.
+
+``password``
+   **Ruby Types:** String
+
+   *Windows only*: The password of the user specified by the `user` property.
+   Default value: `nil`. This property is mandatory if `user` is specified on Windows and may only be specified if `user` is specified. The `sensitive` property for this resource will automatically be set to true if password is specified.
+
+``domain``
+   **Ruby Types:** String
+
+   *Windows only*: The domain of the user user specified by the `user` property.
+   Default value: `nil`. If not specified, the user name and password specified by the `user` and `password` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the `user` property.
 
 ``umask``
    **Ruby Types:** String, Integer
@@ -269,13 +276,13 @@ A guard property is useful for ensuring that a resource is idempotent by allowin
 
 .. note:: .. tag resources_common_guards_execute_resource
 
-          When using the ``not_if`` and ``only_if`` guards with the **execute** resource, the current working directory property (``cwd``) is **not** inherited from the resource. For example:
+          When using the ``not_if`` and ``only_if`` guards with the **execute** resource, the guard's environment is inherited from the resource's environment. For example:
 
           .. code-block:: ruby
 
              execute 'bundle install' do
                cwd '/myapp'
-               not_if 'bundle check' # This is not run inside /myapp
+               not_if 'bundle check' # This is run from /myapp
              end
 
           .. end_tag
@@ -319,8 +326,8 @@ The following arguments can be used with the ``not_if`` or ``only_if`` guard pro
 
    .. code-block:: ruby
 
-      not_if 'grep adam /etc/passwd', :environment => { 
-        'HOME' => '/home/adam' 
+      not_if 'grep adam /etc/passwd', :environment => {
+        'HOME' => '/home/adam'
       }
 
 ``:cwd``
@@ -338,16 +345,6 @@ The following arguments can be used with the ``not_if`` or ``only_if`` guard pro
       not_if 'sleep 10000', :timeout => 10
 
 .. end_tag
-
-.. 
-.. Providers
-.. =====================================================
-.. .. include:: ../../includes_resources_common/includes_resources_common_provider.rst
-.. 
-.. .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
-.. 
-.. .. include:: ../../includes_resources/includes_resource_execute_providers.rst
-..
 
 Examples
 =====================================================
@@ -432,7 +429,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Install repositories from a file, trigger a command, and force the internal cache to reload**
 
-.. tag resource_yum_package_install_yum_repo_from_file
+.. tag resource_package_install_yum_repo_from_file
 
 The following example shows how to install new Yum repositories from a file, where the installation of the repository triggers a creation of the Yum cache that forces the internal cache for the chef-client to reload:
 
@@ -463,7 +460,7 @@ The following example shows how to install new Yum repositories from a file, whe
 
 .. tag resource_execute_subscribes_prevent_restart_and_reconfigure
 
-Use the ``:nothing`` action (common to all resources) to prevent an application from restarting, and then use the ``subscribes`` notification to ask the broken configuration to be reconfigured immediately:
+Use the ``:nothing`` action (common to all resources) to prevent the test from starting automatically, and then use the ``subscribes`` notification to run a configuration test when a change to the template is detected:
 
 .. code-block:: ruby
 
@@ -538,11 +535,11 @@ The following example shows how to add a rule named ``test_rule`` to an IP table
 .. code-block:: ruby
 
    execute 'test_rule' do
-     command 'command_to_run 
-       --option value 
+     command 'command_to_run
+       --option value
        ...
-       --option value 
-       --source #{node[:name_of_node][:ipsec][:local][:subnet]} 
+       --option value
+       --source #{node[:name_of_node][:ipsec][:local][:subnet]}
        -j test_rule'
      action :nothing
    end
@@ -638,7 +635,7 @@ The following is an example of using the ``platform_family?`` method in the Reci
      command <<-EOF
        # command for installing Python goes here
        EOF
-     not_if { File.exists?(pip_binary) }
+     not_if { File.exist?(pip_binary) }
    end
 
 where a command for installing Python might look something like:
@@ -728,20 +725,20 @@ The following example shows how to use the ``search`` method in the Recipe DSL t
 where
 
 * the search will use both of the **execute** resources, unless the condition specified by the ``not_if`` commands are met
-* the ``environments`` property in the first **execute** resource is being used to define values that appear as variables in the OpenVPN configuration 
+* the ``environments`` property in the first **execute** resource is being used to define values that appear as variables in the OpenVPN configuration
 * the **template** resource tells the chef-client which template to use
 
 .. end_tag
 
-**Enable remote login for Mac OS X**
+**Enable remote login for macOS**
 
 .. tag resource_execute_enable_remote_login
 
-.. To enable remote login on Mac OS X:
+.. To enable remote login on macOS:
 
 .. code-block:: ruby
 
-   execute 'enable ssh' do 
+   execute 'enable ssh' do
      command '/usr/sbin/systemsetup -setremotelogin on'
      not_if '/usr/sbin/systemsetup -getremotelogin | /usr/bin/grep On'
      action :run
@@ -854,3 +851,55 @@ The following example shows how to run ``bundle install`` from a chef-client run
 
 .. end_tag
 
+**Run a command as an alternate user**
+
+.. tag resource_execute_alternate_user
+
+*Note*: When Chef is running as a service, this feature requires that the user that Chef runs as has 'SeAssignPrimaryTokenPrivilege' (aka 'SE_ASSIGNPRIMARYTOKEN_NAME') user right. By default only LocalSystem and NetworkService have this right when running as a service. This is necessary even if the user is an Administrator.
+
+This right can be added and checked in a recipe using this example:
+
+.. code-block:: ruby
+
+    # Add 'SeAssignPrimaryTokenPrivilege' for the user
+    Chef::ReservedNames::Win32::Security.add_account_right('<user>', 'SeAssignPrimaryTokenPrivilege')
+
+    # Check if the user has 'SeAssignPrimaryTokenPrivilege' rights
+    Chef::ReservedNames::Win32::Security.get_account_right('<user>').include?('SeAssignPrimaryTokenPrivilege')
+
+The following example shows how to run ``mkdir test_dir`` from a chef-client run as an alternate user.
+
+.. code-block:: ruby
+
+   # Passing only username and password
+   execute 'mkdir test_dir' do
+    cwd Chef::Config[:file_cache_path]
+    user "username"
+    password "password"
+   end
+
+   # Passing username and domain
+   execute 'mkdir test_dir' do
+    cwd Chef::Config[:file_cache_path]
+    domain "domain-name"
+    user "user"
+    password "password"
+   end
+
+   # Passing username = 'domain-name\\username'. No domain is passed
+   execute 'mkdir test_dir' do
+    cwd Chef::Config[:file_cache_path]
+    user "domain-name\\username"
+    password "password"
+   end
+
+   # Passing username = 'username@domain-name'. No domain is passed
+   execute 'mkdir test_dir' do
+    cwd Chef::Config[:file_cache_path]
+    user "username@domain-name"
+    password "password"
+   end
+
+.. end_tag
+
+New in Chef Client 12.19.

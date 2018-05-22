@@ -3,18 +3,6 @@ Debug Recipes, chef-client Runs
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/debug.rst>`__
 
-.. tag chef
-
-Chef is a powerful automation platform that transforms infrastructure into code. Whether you’re operating in the cloud, on-premises, or in a hybrid environment, Chef automates how infrastructure is configured, deployed, and managed across your network, no matter its size.
-
-This diagram shows how you develop, test, and deploy your Chef code.
-
-.. image:: ../../images/start_chef.svg
-   :width: 700px
-   :align: center
-
-.. end_tag
-
 Elements of good approaches to building cookbooks and recipes that are reliable include:
 
 * A consistent syntax pattern when constructing recipes
@@ -24,7 +12,7 @@ Elements of good approaches to building cookbooks and recipes that are reliable 
 
 Ideally, the best way to debug a recipe is to not have to debug it in the first place. That said, the following sections discuss various approaches to debugging recipes and failed chef-client runs.
 
-Basic 
+Basic
 =====================================================
 Some simple ways to quickly identify common issues that can trigger recipe and/or chef-client run failures include:
 
@@ -73,11 +61,13 @@ Use the **log** resource to create log entries. The **log** resource behaves lik
 
 .. end_tag
 
+New in 12.0, ``-o RUN_LIST_ITEM``. Changed in 12.0 ``-f`` no longer allows unforked intervals, ``-i SECONDS`` is applied before the chef-client run.
+
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_log_syntax
 
-A **log** resource block adds messages to the log file based on events that occur during the chef-client run:
+A **log** resource block adds messages to the log file based on events that occur during the Chef Client run:
 
 .. code-block:: ruby
 
@@ -94,7 +84,6 @@ The full syntax for all of the properties that are available to the **log** reso
      level                      Symbol
      message                    String # defaults to 'name' if not specified
      notifies                   # see description
-     provider                   Chef::Provider::ChefLog
      subscribes                 # see description
      action                     Symbol # defaults to :write if not specified
    end
@@ -104,8 +93,8 @@ where
 * ``log`` is the resource
 * ``name`` is the name of the resource block
 * ``message`` is the log message to write
-* ``:action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``level``, ``message``, and ``provider`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``action`` identifies the steps the Chef Client will take to bring the node into the desired state
+* ``level`` and ``message`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -118,7 +107,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the chef-client run.
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -134,14 +123,14 @@ Attributes
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``level``
-   **Ruby Type:** Symbol
+   **Ruby Type:** Symbol | **Default Value:** ``:info``
 
-   The level of logging that is to be displayed by the chef-client. The chef-client uses the ``mixlib-log`` (https://github.com/chef/mixlib-log) to handle logging behavior. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``. Default value: ``:info``.
+   The level of logging that is to be displayed by the Chef Client. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``.
 
 ``message``
    **Ruby Type:** String
@@ -153,19 +142,19 @@ This resource has the following properties:
 
    .. tag resources_common_notification_notifies
 
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
 
    .. end_tag
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -182,20 +171,15 @@ This resource has the following properties:
 
    .. end_tag
 
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
-
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -204,17 +188,32 @@ This resource has the following properties:
 
    A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
 
+   Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
+
+   .. code-block:: ruby
+
+     file '/etc/nginx/ssl/example.crt' do
+        mode '0600'
+        owner 'root'
+     end
+
+     service 'nginx' do
+        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+     end
+
+   In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
+
    .. end_tag
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -305,7 +304,7 @@ Some more complex ways to debug issues with a chef-client run include:
 
 * Using the **chef_handler** cookbook
 * Using the chef-shell and the **breakpoint** resource to add breakpoints to recipes, and to then step through the recipes using the breakpoints
-* Using the ``debug_value`` method from chef-shell to indentify the location(s) from which attribute values are being set
+* Using the ``debug_value`` method from chef-shell to identify the location(s) from which attribute values are being set
 * Using the ``ignore_failure`` method in a recipe to force the chef-client to move past an error to see what else is going on in the recipe, outside of a known failure
 * Using chef-solo to run targeted chef-client runs for specific scenarios
 
@@ -336,25 +335,17 @@ There are three types of handlers:
 
 .. end_tag
 
-Read more :doc:`about exception, report, and start handlers </handlers>`.
+Read more `about exception, report, and start handlers </handlers.html>`__.
 
 chef-shell
 -----------------------------------------------------
 .. tag chef_shell_summary
 
-.. This file describes a command or a subcommand for Knife.
-.. This file should not be changed in a way that hinders its ability to appear in multiple documentation sets.
-
 chef-shell is a recipe debugging tool that allows the use of breakpoints within recipes. chef-shell runs as an Interactive Ruby (IRb) session. chef-shell supports both recipe and attribute file syntax, as well as interactive debugging features.
 
 .. end_tag
 
-.. note:: chef-shell is the new name for Shef as of chef-client version 11.0. chef-shell is backwards compatible and aside from the name change, has the same set of functionality as with previous releases.
-
 .. tag chef_shell_modes
-
-.. This file describes a command or a subcommand for Knife.
-.. This file should not be changed in a way that hinders its ability to appear in multiple documentation sets.
 
 chef-shell is tool that is run using an Interactive Ruby (IRb) session. chef-shell currently supports recipe and attribute file syntax, as well as interactive debugging features. chef-shell has three run modes:
 
@@ -377,9 +368,6 @@ Configure
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag chef_shell_config
 
-.. This file describes a command or a subcommand for Knife.
-.. This file should not be changed in a way that hinders its ability to appear in multiple documentation sets.
-
 chef-shell determines which configuration file to load based on the following:
 
 #. If a configuration file is specified using the ``-c`` option, chef-shell will use the specified configuration file
@@ -393,9 +381,6 @@ chef-shell determines which configuration file to load based on the following:
 chef-shell.rb
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag chef_shell_config_rb
-
-.. This file describes a command or a subcommand for Knife.
-.. This file should not be changed in a way that hinders its ability to appear in multiple documentation sets.
 
 The chef-shell.rb file can be used to configure chef-shell in the same way as the client.rb file is used to configure the chef-client. For example, to configure chef-shell to authenticate to the Chef server, copy the ``node_name``, ``client_key``, and ``chef_server_url`` settings from the knife.rb file:
 
@@ -413,9 +398,6 @@ Run as a chef-client
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag chef_shell_run_as_chef_client
 
-.. This file describes a command or a subcommand for Knife.
-.. This file should not be changed in a way that hinders its ability to appear in multiple documentation sets.
-
 By default, chef-shell loads in standalone mode and does not connect to the Chef server. The chef-shell can be run as a chef-client to verify functionality that is only available when the chef-client connects to the Chef server, such as search functionality or accessing data stored in data bags.
 
 chef-shell can use the same credentials as knife when connecting to a Chef server. Make sure that the settings in chef-shell.rb are the same as those in knife.rb, and then use the ``-z`` option as part of the command. For example:
@@ -430,20 +412,24 @@ Manage
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag chef_shell_manage
 
-.. This file describes a command or a subcommand for Knife.
-.. This file should not be changed in a way that hinders its ability to appear in multiple documentation sets.
-
 When chef-shell is configured to access a Chef server, chef-shell can list, show, search for and edit cookbooks, clients, nodes, roles, environments, and data bags.
 
 The syntax for managing objects on the Chef server is as follows:
 
 .. code-block:: bash
 
-   $ chef (named_configuration) > items.command
+   $ chef-shell -z named_configuration
 
 where:
 
-* ``named_configuration`` is a named configuration, such as ``production``, ``staging``, or ``test``
+* ``named_configuration`` is an existing configuration file in ``~/.chef/named_configuration/chef_shell.rb``, such as ``production``, ``staging``, or ``test``
+
+Once in chef-shell, commands can be run against objects as follows:
+
+.. code-block:: bash
+
+   $ chef (preprod) > items.command
+
 * ``items`` is the type of item to search for: ``cookbooks``, ``clients``, ``nodes``, ``roles``, ``environments`` or a data bag
 * ``command`` is the command: ``list``, ``show``, ``find``, or ``edit``
 
@@ -457,16 +443,16 @@ to return something similar to:
 
 .. code-block:: bash
 
-   $ => [node[i-f09a939b], node[i-049a936f], node[i-eaaaa581], node[i-9154b1fb], 
-        node[i-6a213101], node[i-c2687aa9], node[i-7abeaa11], node[i-4eb8ac25], 
-        node[i-9a2030f1], node[i-a06875cb], node[i-145f457f], node[i-e032398b], 
-        node[i-dc8c98b7], node[i-6afdf401], node[i-f49b119c], node[i-5abfab31], 
-        node[i-78b8ac13], node[i-d99678b3], node[i-02322269], node[i-feb4a695], 
-        node[i-9e2232f5], node[i-6e213105], node[i-cdde3ba7], node[i-e8bfb083], 
-        node[i-743c2c1f], node[i-2eaca345], node[i-aa7f74c1], node[i-72fdf419], 
-        node[i-140e1e7f], node[i-f9d43193], node[i-bd2dc8d7], node[i-8e7f70e5], 
-        node[i-78f2e213], node[i-962232fd], node[i-4c322227], node[i-922232f9], 
-        node[i-c02728ab], node[i-f06c7b9b]]
+   => [node[i-f09a939b], node[i-049a936f], node[i-eaaaa581], node[i-9154b1fb],
+       node[i-6a213101], node[i-c2687aa9], node[i-7abeaa11], node[i-4eb8ac25],
+       node[i-9a2030f1], node[i-a06875cb], node[i-145f457f], node[i-e032398b],
+       node[i-dc8c98b7], node[i-6afdf401], node[i-f49b119c], node[i-5abfab31],
+       node[i-78b8ac13], node[i-d99678b3], node[i-02322269], node[i-feb4a695],
+       node[i-9e2232f5], node[i-6e213105], node[i-cdde3ba7], node[i-e8bfb083],
+       node[i-743c2c1f], node[i-2eaca345], node[i-aa7f74c1], node[i-72fdf419],
+       node[i-140e1e7f], node[i-f9d43193], node[i-bd2dc8d7], node[i-8e7f70e5],
+       node[i-78f2e213], node[i-962232fd], node[i-4c322227], node[i-922232f9],
+       node[i-c02728ab], node[i-f06c7b9b]]
 
 The ``list`` command can take a code block, which will applied (but not saved) to each object that is returned from the server. For example:
 
@@ -478,11 +464,11 @@ to return something similar to:
 
 .. code-block:: bash
 
-   $ => i-f09a939b: role[lb], role[preprod], recipe[aws]
-        i-049a936f: role[lb], role[preprod], recipe[aws]
-        i-9154b1fb: recipe[erlang], role[base], role[couchdb], role[preprod],
-        i-6a213101: role[chef], role[preprod]
-        # more...
+   => i-f09a939b: role[lb], role[preprod], recipe[aws]
+      i-049a936f: role[lb], role[preprod], recipe[aws]
+      i-9154b1fb: recipe[erlang], role[base], role[couchdb], role[preprod],
+      i-6a213101: role[chef], role[preprod]
+      # more...
 
 The ``show`` command can be used to display a specific node. For example:
 
@@ -494,7 +480,7 @@ to return something similar to:
 
 .. code-block:: bash
 
-   $ => node[i-f09a939b]
+   => node[i-f09a939b]
 
 or:
 
@@ -506,7 +492,7 @@ to return something similar to:
 
 .. code-block:: bash
 
-   $ => "ec2-111-22-333-44.compute-1.amazonaws.com"
+   => "ec2-111-22-333-44.compute-1.amazonaws.com"
 
 The ``find`` command can be used to search the Chef server from the chef-shell. For example:
 
@@ -524,39 +510,36 @@ to return something similar to:
 
 .. code-block:: bash
 
-   $ => ["ami-f8927a91",
-         "ami-f8927a91",
-         "ami-a89870c1",
-         "ami-a89870c1",
-         "ami-a89870c1",
-         "ami-a89870c1",
-         "ami-a89870c1"
-         # and more...
+   => ["ami-f8927a91",
+       "ami-f8927a91",
+       "ami-a89870c1",
+       "ami-a89870c1",
+       "ami-a89870c1",
+       "ami-a89870c1",
+       "ami-a89870c1"
+       # and more...
 
 Or:
 
 .. code-block:: bash
 
-   chef (preprod) > amis = nodes.find(:ec2_public_hostname => 'ec2*') {|n| n.ec2.ami_id }
-   chef (preprod) > puts amis.uniq.sort
+   $ chef (preprod) > amis = nodes.find(:ec2_public_hostname => 'ec2*') {|n| n.ec2.ami_id }
+   $ chef (preprod) > puts amis.uniq.sort
 
 to return something similar to:
 
 .. code-block:: bash
 
-   $ => ami-4b4ba522
-        ami-a89870c1
-        ami-eef61587
-        ami-f8927a91
+   => ami-4b4ba522
+      ami-a89870c1
+      ami-eef61587
+      ami-f8927a91
 
 .. end_tag
 
 breakpoint Resource
 -----------------------------------------------------
 .. tag chef_shell_breakpoints
-
-.. This file describes a command or a subcommand for Knife.
-.. This file should not be changed in a way that hinders its ability to appear in multiple documentation sets.
 
 chef-shell allows the current position in a run-list to be manipulated during a chef-client run. Add breakpoints to a recipe to take advantage of this functionality.
 
@@ -598,7 +581,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the chef-client run.
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -651,8 +634,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. tag resource_breakpoint_yes
 
-.. A resource with breakpoints:
-
 .. code-block:: ruby
 
    breakpoint "before yum_key node['yum']['repo_name']['key']" do
@@ -692,9 +673,6 @@ where the name of each breakpoint is an arbitrary string. In the previous exampl
 Step Through Run-list
 -----------------------------------------------------
 .. tag chef_shell_step_through_run_list
-
-.. This file describes a command or a subcommand for Knife.
-.. This file should not be changed in a way that hinders its ability to appear in multiple documentation sets.
 
 To explore how using the **breakpoint** to manually step through a chef-client run, create a simple recipe in chef-shell:
 
@@ -736,7 +714,7 @@ The chef-client run can also be rewound, and then stepped through.
 .. code-block:: bash
 
    $ chef:recipe > Chef::Log.level = :debug # debug logging won't turn on automatically in this case
-       => :debug 
+       => :debug
      chef:recipe > chef_run.rewind
        => 0
      chef:recipe > chef_run.step
@@ -781,27 +759,23 @@ Debug Existing Recipe
 -----------------------------------------------------
 .. tag chef_shell_debug_existing_recipe
 
-.. This file describes a command or a subcommand for Knife.
-.. This file should not be changed in a way that hinders its ability to appear in multiple documentation sets.
-
 chef-shell can be used to debug existing recipes. The recipe first needs to be added to a run-list for the node, so that it is cached when starting chef-shell and then used for debugging. chef-shell will report which recipes are being cached when it is started:
 
 .. code-block:: bash
 
-   Loading....[Fri, 18 May 2012 11:30:08 -0700] INFO: Run List is [recipe[getting-started]]
-   [Fri, 18 May 2012 11:30:08 -0700] INFO: Run List expands to [getting-started]
-   [Fri, 18 May 2012 11:30:09 -0700] INFO: Loading cookbooks [getting-started]
-   done.
+    loading configuration: none (standalone session)
+    Session type: standalone
+    Loading..............done.
 
-   This is chef-shell, the Chef shell.
-    Chef Version: 0.10.10
-    http://www.opscode.com/chef
-    docs.opscode.com
+    This is the chef-shell.
+     Chef Version: 12.17.44
+     https://www.chef.io/
+     /
 
-   run `help' for help, `exit' or ^D to quit.
+    run `help' for help, `exit' or ^D to quit.
 
-   Ohai2u NODENAME!
-   chef >
+    Ohai2u YOURNAME@!
+    chef (12.17.44)>
 
 To just load one recipe from the run-list, go into the recipe and use the ``include_recipe`` command. For example:
 
@@ -827,9 +801,6 @@ After the recipes that are to be debugged have been loaded, use the ``run_chef``
 Advanced Debugging
 -----------------------------------------------------
 .. tag chef_shell_advanced_debug
-
-.. This file describes a command or a subcommand for Knife.
-.. This file should not be changed in a way that hinders its ability to appear in multiple documentation sets.
 
 In chef-shell, it is possible to get extremely verbose debugging using the tracing feature in Interactive Ruby (IRb). chef-shell provides a shortcut for turning tracing on and off. For example:
 
@@ -936,7 +907,7 @@ chef-solo
 -----------------------------------------------------
 .. tag chef_solo_summary
 
-chef-solo is an open source version of the chef-client that allows using cookbooks with nodes without requiring access to a Chef server. chef-solo uses `Chef local mode <https://docs.chef.io/ctl_chef_client.html#run-in-local-mode>`_, and **does not support** the following:
+chef-solo is a command that executes chef-client in a way that does not require the Chef server in order to converge cookbooks. chef-solo uses chef-client's `Chef local mode </ctl_chef_client.html#run-in-local-mode>`_, and **does not support** the following functionality present in chef-client / server configurations:
 
 * Centralized distribution of cookbooks
 * A centralized API that interacts with and integrates infrastructure components
@@ -976,6 +947,8 @@ This command has the following options:
 ``-f``, ``--[no-]fork``
    Contain the chef-client run in a secondary process with dedicated RAM. When the chef-client run is complete, the RAM is returned to the master process. This option helps ensure that a chef-client uses a steady amount of RAM over time because the master process does not run recipes. This option also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Use ``--no-fork`` to disable running the chef-client in fork node. Default value: ``--fork``.
 
+   Changed in Chef Client 12.0, unforked interval runs are no longer allowed.
+
 ``-F FORMAT``, ``--format FORMAT``
    .. tag ctl_chef_client_options_format
 
@@ -1010,8 +983,6 @@ This command has the following options:
 
    .. tag node_ctl_run_list
 
-   .. This file documents specifc behavior related to the -j option in the chef-client, chef-solo, and chef-shell executables.
-
    Use this option to define a ``run_list`` object. For example, a JSON file similar to:
 
    .. code-block:: javascript
@@ -1031,38 +1002,36 @@ This command has the following options:
 
    .. warning:: .. tag node_ctl_attribute
 
-                .. This file documents specifc behavior related to the -j option in the chef-client, chef-solo, and chef-shell executables.
-
-                Any other attribute type that is contained in this JSON file will be treated as a ``normal`` attribute. For example, attempting to update ``override`` attributes using the ``-j`` option:
+                Any other attribute type that is contained in this JSON file will be treated as a ``normal`` attribute. Setting attributes at other precedence levels is not possible. For example, attempting to update ``override`` attributes using the ``-j`` option:
 
                 .. code-block:: javascript
 
-                   { 
+                   {
                      "name": "dev-99",
                      "description": "Install some stuff",
                      "override_attributes": {
                        "apptastic": {
                          "enable_apptastic": "false",
                          "apptastic_tier_name": "dev-99.bomb.com"
-                       }  
-                     }  
+                       }
+                     }
                    }
 
                 will result in a node object similar to:
 
                 .. code-block:: javascript
 
-                   { 
+                   {
                      "name": "maybe-dev-99",
                      "normal": {
-                     "name": "dev-99",
+                       "name": "dev-99",
                        "description": "Install some stuff",
                        "override_attributes": {
                          "apptastic": {
                            "enable_apptastic": "false",
                            "apptastic_tier_name": "dev-99.bomb.com"
-                         }  
-                       }  
+                         }
+                       }
                      }
                    }
 
@@ -1083,11 +1052,15 @@ This command has the following options:
 ``-o RUN_LIST_ITEM``, ``--override-runlist RUN_LIST_ITEM``
    Replace the current run-list with the specified items.
 
+   New in Chef Client 12.0.
+
 ``-r RECIPE_URL``, ``--recipe-url RECIPE_URL``
    The URL location from which a remote cookbook tar.gz is to be downloaded.
 
 ``-s SECONDS``, ``--splay SECONDS``
-   A random number between zero and ``splay`` that is added to ``interval``. Use splay to help balance the load on the Chef server by ensuring that many chef-client runs are not occuring at the same interval. When the chef-client is run at intervals, ``--splay`` values are applied first, then the chef-client run occurs, and then ``--interval`` values are applied.
+   A random number between zero and ``splay`` that is added to ``interval``. Use splay to help balance the load on the Chef server by ensuring that many chef-client runs are not occurring at the same interval. When the chef-client is run at intervals, ``--splay`` values are applied first, then the chef-client run occurs, and then ``--interval`` values are applied.
+
+   Changed in Chef Client 12.0 to be applied before the chef-client run.
 
 ``-u USER``, ``--user USER``
    The user that owns a process. This is required when starting any executable as a daemon.
@@ -1137,9 +1110,9 @@ chef-solo will look in the solo.rb file to determine the directory in which cook
 
 .. code-block:: bash
 
-   $ chef-solo -c ~/solo.rb -j http://www.example.com/node.json -r http://www.example.com/chef-solo.tar.gz
+   $ chef-solo -c ~/solo.rb -j http://www.example.com/node.json --recipe-url http://www.example.com/chef-solo.tar.gz
 
-where ``-r`` corresponds to ``recipe_url`` and ``-j`` corresponds to ``json_attribs``, both of which are configuration options in solo.rb.
+where ``--recipe-url`` corresponds to ``recipe_url`` and ``-j`` corresponds to ``json_attribs``, both of which are `configuration options </config_rb_solo.html>`__ in ``solo.rb``.
 
 .. end_tag
 
@@ -1147,29 +1120,26 @@ where ``-r`` corresponds to ``recipe_url`` and ``-j`` corresponds to ``json_attr
 
 .. tag chef_shell_example_hello_world
 
-.. This file describes a command or a subcommand for Knife.
-.. This file should not be changed in a way that hinders its ability to appear in multiple documentation sets.
-
 This example shows how to run chef-shell in standalone mode. (For chef-solo or chef-client modes, you would need to run chef-shell using the ``-s`` or ``-z`` command line options, and then take into consideration the necessary configuration settings.)
 
 When the chef-client is installed using RubyGems or a package manager, chef-shell should already be installed. When the chef-client is run from a git clone, it will be located in ``chef/bin/chef shell``. To start chef-shell, just run it without any options. You'll see the loading message, then the banner, and then the chef-shell prompt:
 
 .. code-block:: bash
 
-   $ bin/shef 
-     ./bin/../lib/chef.rb:30: warning: already initialized constant VERSION
-     loading configuration: none (standalone shef session)
-     Loading.......done.
+   $ bin/chef-shell
+     loading configuration: none (standalone session)
+     Session type: standalone
+     Loading..............done.
 
-     This is shef, the Chef shell.
-      Chef Version: 0.10.4
-      http://www.opscode.com/chef
-      http://wiki.opscode.com/display/chef/Home
+     This is the chef-shell.
+      Chef Version: 12.17.44
+      https://www.chef.io/
+      /
 
-   run `help' for help, `exit' or ^D to quit.
+     run `help' for help, `exit' or ^D to quit.
 
-   Ohai2u danielsdeleo@eigenstate.local!
-   chef >
+     Ohai2u YOURNAME@!
+     chef (12.17.44)>
 
 (Use the help command to print a list of supported commands.) Use the recipe_mode command to switch to recipe context:
 
@@ -1183,32 +1153,32 @@ Typing is evaluated in the same context as recipes. Create a file resource:
 .. code-block:: bash
 
    $ chef:recipe_mode > file "/tmp/ohai2u_shef"
-       => #<Chef::Resource::File:0x1b691ac 
-          @enclosing_provider=nil, 
-          @resource_name=:file, 
-          @before=nil, 
-          @supports={}, 
-          @backup=5, 
+       => #<Chef::Resource::File:0x1b691ac
+          @enclosing_provider=nil,
+          @resource_name=:file,
+          @before=nil,
+          @supports={},
+          @backup=5,
           @allowed_actions=[:nothing, :create, :delete, :touch, :create_if_missing],
-          @only_if=nil, 
-          @noop=nil, 
-          @collection=#<Chef::ResourceCollection:0x1b9926c 
+          @only_if=nil,
+          @noop=nil,
+          @collection=#<Chef::ResourceCollection:0x1b9926c
           @insert_after_idx=nil,
-          @resources_by_name={"file[/tmp/ohai2u_shef]"=>0}, 
-          @resources=[#<Chef::Resource::File:0x1b691ac ...>]>, 
-          @updated=false, 
-          @provider=nil, 
-          @node=<Chef::Node:0xdeeaae 
-          @name="eigenstate.local">, 
-          @recipe_name=nil, 
-          @not_if=nil, 
-          @name="/tmp/ohai2u_shef", 
-          @action="create", 
-          @path="/tmp/ohai2u_shef", 
-          @source_line="/Users/danielsdeleo/ruby/chef/chef/(irb#1) line 1", 
-          @params={}, 
-          @actions={}, 
-          @cookbook_name=nil, 
+          @resources_by_name={"file[/tmp/ohai2u_shef]"=>0},
+          @resources=[#<Chef::Resource::File:0x1b691ac ...>]>,
+          @updated=false,
+          @provider=nil,
+          @node=<Chef::Node:0xdeeaae
+          @name="eigenstate.local">,
+          @recipe_name=nil,
+          @not_if=nil,
+          @name="/tmp/ohai2u_shef",
+          @action="create",
+          @path="/tmp/ohai2u_shef",
+          @source_line="/Users/danielsdeleo/ruby/chef/chef/(irb#1) line 1",
+          @params={},
+          @actions={},
+          @cookbook_name=nil,
           @ignore_failure=false>
 
 (The previous example was formatted for presentation.) At this point, chef-shell has created the resource and put it in the run-list, but not yet created the file. To initiate the chef-client run, use the ``run_chef`` command:
@@ -1235,7 +1205,7 @@ Switch back to recipe_mode context and use the attributes:
 .. code-block:: bash
 
    $ chef:attributes > recipe_mode
-       => :attributes 
+       => :attributes
      chef:recipe_mode > file "/tmp/#{node.hello}"
 
 Now, run the chef-client again:
@@ -1256,7 +1226,7 @@ Because the first resource (``file[/tmp/ohai2u_shef]``) is still in the run-list
 .. code-block:: bash
 
    $ chef:recipe_mode > ls("/tmp").grep(/ohai/)
-       => ["ohai2u-again", "ohai2u_shef"] 
+       => ["ohai2u-again", "ohai2u_shef"]
 	 Shell Tutorial
 
 .. end_tag
@@ -1264,9 +1234,6 @@ Because the first resource (``file[/tmp/ohai2u_shef]``) is still in the run-list
 **Get Specific Nodes**
 
 .. tag chef_shell_example_get_specific_nodes
-
-.. This file describes a command or a subcommand for Knife.
-.. This file should not be changed in a way that hinders its ability to appear in multiple documentation sets.
 
 To get a list of nodes using a recipe named ``postfix`` use ``search(:node,"recipe:postfix")``. To get a list of nodes using a sub-recipe named ``delivery``, use chef-shell. For example:
 
@@ -1277,4 +1244,3 @@ To get a list of nodes using a recipe named ``postfix`` use ``search(:node,"reci
 .. note:: Single (' ') vs. double (" ") is important. This is because a backslash (\) needs to be included in the string, instead of having Ruby interpret it as an escape.
 
 .. end_tag
-

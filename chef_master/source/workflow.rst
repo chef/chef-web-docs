@@ -22,7 +22,7 @@ Chef Automate handles many types of software systems. Use it to:
 * Release source code or build artifacts to a repository such as GitHub
 * Push build artifacts to production servers in real time
 
-.. note:: If you are new to Chef Automate, you can see it in action in the self-paced tutorial `Get started with Chef Automate on AWS <https://learn.chef.io/tutorials/#chef-automate>`__. In the tutorial, you'll set up your own Chef Automate cluster and a sample application to experiment with.
+.. note:: If you are new to Chef Automate, you can see it in action in the self-paced `Continuous Automation <https://learn.chef.io/tracks/continuous-automation#/>`__ track on Learn Chef. There, you'll set up your own Chef Automate installation and a sample application to experiment with.
 
 Pipelines
 =====================================================
@@ -88,7 +88,7 @@ During the Acceptance stage, infrastructure is provisioned (if needed), and the 
 
 When you click the Deliver button, the change begins its final journey into production. This journey consists of three stages: Union, Rehearsal, and Delivered. These three stages are special for two reasons.
 
-#. The first reason is that they are fully automated. Once you ship a change into Union, it will automatically move through the Rehearsal and Delivered stages if all of the automated checks are successful. 
+#. The first reason is that they are fully automated. Once you ship a change into Union, it will automatically move through the Rehearsal and Delivered stages if all of the automated checks are successful.
 #. The second reason is that Union, Rehearsal, and Delivered form the shared pipeline. In these stages you evaluate a change in the context of your system as a whole. Ultimately, it is the health of the entire system—not a particular application—that matters. The Union stage gives you a place to evaluate the impact of a change on the consumers of the application being shipped. Each stage in the shared pipeline has the same set of phases: provision, deploy, smoke, and functional.
 
 How stages of the pipeline are associated with actual infrastructure environments is flexible. For example, you can have dedicated infrastructure for each stage. This allows each stage to operate independently.
@@ -163,19 +163,19 @@ Components
 =====================================================
 The following diagram shows the servers that are involved in a Chef Automate installation.
 
-.. image:: ../../images/delivery_architecture.svg
+.. image:: ../../images/automate_architecture_workflow.svg
    :width: 600px
    :align: center
 
-The build cookbook, hosted on the Chef server, determines what happens during each phase job. Build nodes, under control of the Chef server, run the phase jobs. It's a good idea to have at least three build nodes so that the lint, syntax and unit phases can run in parallel.
+The build cookbook, hosted on the Chef server, determines what happens during each phase job. Runners, under control of the Chef server, run the phase jobs. It's a good idea to have at least three runners so that the lint, syntax and unit phases can run in parallel.
 
-Environments 
+Environments
 =====================================================
 As changes flow through the Chef Automate pipeline, they are tested in a series of runtime environments that are increasingly similar to the final runtime target environment.
 
 Chef Automate allows you to define the infrastructure that participates in each stage.  How you map infrastructure environments to pipeline phases is controlled by the build cookbook. In other words, whether a given phase job distributes work to other infrastructure is up to you. There are many ways to map infrastructure environments to pipeline phases, but here are some possible approaches.
 
-Because they test source code, the Verify and Build stages ordinarily run exclusively on the build nodes and don't involve other infrastructure. The necessary runtime environments are created and destroyed during the execution of the stage. For example, they can be established using virtual machines created by testing frameworks such as Kitchen.
+Because they test source code, the Verify and Build stages ordinarily run exclusively on the runners and don't involve other infrastructure. The necessary runtime environments are created and destroyed during the execution of the stage. For example, they can be established using virtual machines created by testing frameworks such as Kitchen.
 
 The stages that test artifacts---Acceptance, Union, Rehearsal and Delivered---almost always need access to additional infrastructure to perform their tests.
 
@@ -187,4 +187,4 @@ You can set up the infrastructure environments either manually or by using autom
 
 .. note:: Currently, Chef Automate manages cookbook version and application attribute version pins using environment objects of the Chef server. The names of the environments in the Chef server correspond to the stages of a pipeline. (This doesn't mean, however, that the nodes that participate in a given stage need to remain fixed over time.)
 
-It is also possible to share infrastructure among pipeline stages. For example, you can provision infrastructure needed for performing acceptance tests while relying on enterprise services provided by another pipeline stage or even a production environment. Another possibility is to reserve a portion of infrastructure from production to run acceptance testing. 
+It is also possible to share infrastructure among pipeline stages. For example, you can provision infrastructure needed for performing acceptance tests while relying on enterprise services provided by another pipeline stage or even a production environment. Another possibility is to reserve a portion of infrastructure from production to run acceptance testing.

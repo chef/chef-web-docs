@@ -1,5 +1,5 @@
 =====================================================
-knife search 
+knife search
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_search.rst>`__
 
@@ -123,7 +123,7 @@ Consider the following snippet of JSON data:
              "f8:1e:df:d8:63:a2": {
                "family": "lladdr"
              },
-             "192.168.0.195": {
+             "192.0.2.0": {
                "netmask": "255.255.255.0",
                "broadcast": "192.168.0.255",
                "family": "inet"
@@ -183,26 +183,26 @@ This data is also flattened into various compound fields, which follow the same 
 .. code-block:: none
 
      # ...snip...
-     "network_interfaces_en1_addresses_192.168.0.195_broadcast" => "192.168.0.255",
+     "network_interfaces_en1_addresses_192.0.2.0_broadcast" => "192.168.0.255",
      "network_interfaces_en1_addresses_fe80::fa1e:tldr_family"  => "inet6",
-     "network_interfaces_en1_addresses"                         => ["fe80::fa1e:tldr","f8:1e:df:tldr","192.168.0.195"]
+     "network_interfaces_en1_addresses"                         => ["fe80::fa1e:tldr","f8:1e:df:tldr","192.0.2.0"]
      # ...snip...
 
 which allows searches like the following to find data that is present in this node:
 
 .. code-block:: ruby
 
-   node "network_interfaces_en1_addresses:192.168.0.195"
+   node "network_interfaces_en1_addresses:192.0.2.0"
 
 This flattened data structure also supports using wildcard compound fields, which allow searches to omit levels within the JSON data structure that are not important to the search query. In the following example, an asterisk (``*``) is used to show where the wildcard can exist when searching for a nested field:
 
 .. code-block:: ruby
 
    "network_interfaces_*_flags"     => ["UP", "BROADCAST", "SMART", "RUNNING", "SIMPLEX", "MULTICAST"]
-   "network_interfaces_*_addresses" => ["fe80::fa1e:dfff:fed8:63a2", "192.168.0.195", "f8:1e:df:d8:63:a2"]
+   "network_interfaces_*_addresses" => ["fe80::fa1e:dfff:fed8:63a2", "192.0.2.0", "f8:1e:df:d8:63:a2"]
    "network_interfaces_en0_media_*" => ["autoselect", "none", "1000baseT", "10baseT/UTP", "100baseTX"]
    "network_interfaces_en1_*"       => ["1", "UP", "BROADCAST", "SMART", "RUNNING", "SIMPLEX", "MULTICAST",
-                                        "fe80::fa1e:dfff:fed8:63a2", "f8:1e:df:d8:63:a2", "192.168.0.195",
+                                        "fe80::fa1e:dfff:fed8:63a2", "f8:1e:df:d8:63:a2", "192.0.2.0",
                                         "1500", "supported", "selected", "en", "active", "Ethernet"]
 
 For each of the wildcard examples above, the possible values are shown contained within the brackets. When running a search query, the query syntax for wildcards is to simply omit the name of the node (while preserving the underscores), similar to:
@@ -255,7 +255,7 @@ To find all IP address that are on the same network, enter the following:
 
 .. code-block:: bash
 
-   $ knife search node 'network_interfaces__addresses:192.168*'
+   $ knife search node 'ipaddress:192.168*'
 
 where ``192.168*`` is the network address for which the search will be run.
 
@@ -267,9 +267,9 @@ To use a range search to find IP addresses within a subnet, enter the following:
 
 .. code-block:: bash
 
-   $ knife search node 'network_interfaces_X_addresses:[192.168.0.* TO 192.168.127.*]'
+   $ knife search node 'ipaddress:[192.168.0.* TO 192.0.2.*]'
 
-where ``192.168.0.* TO 192.168.127.*`` defines the subnet range.
+where ``192.168.0.* TO 192.0.2.*`` defines the subnet range.
 
 .. end_tag
 
@@ -505,7 +505,7 @@ Operators must be in ALL CAPS. Parentheses can be used to group clauses and to f
    .. code-block:: bash
 
       ERROR: knife search failed: invalid search query:
-      'datacenter%3A123%20AND%20NOT%20hostname%3Adev-%20AND%20NOT%20hostanem%3Asyslog-' 
+      'datacenter%3A123%20AND%20NOT%20hostname%3Adev-%20AND%20NOT%20hostanem%3Asyslog-'
       Parse error at offset: 38 Reason: Expected one of \ at line 1, column 42 (byte 42) after AND
 
    Use ``-`` instead of ``NOT``. For example:
@@ -614,7 +614,7 @@ to return something like:
          "id": "qux",
          "animal", "penguin"
        }
-     ] 
+     ]
    }
 
 .. end_tag
@@ -656,11 +656,11 @@ Special Characters
 -----------------------------------------------------
 .. tag search_special_characters
 
-A special character can be used to fine-tune a search query and to increase the accuracy of the search results. The following characters can be included within the search query syntax, but each occurrence of a special character must be escaped with a backslash (``\``):
+A special character can be used to fine-tune a search query and to increase the accuracy of the search results. The following characters can be included within the search query syntax, but each occurrence of a special character must be escaped with a backslash (``\``), also (``/``) must be escaped against the Elasticsearch:
 
 .. code-block:: ruby
 
-   +  -  &&  | |  !  ( )  { }  [ ]  ^  "  ~  *  ?  :  \
+   +  -  &&  | |  !  ( )  { }  [ ]  ^  "  ~  *  ?  :  \  /
 
 For example:
 
@@ -674,7 +674,7 @@ Options
 =====================================================
 .. note:: .. tag knife_common_see_common_options_link
 
-          Review the list of :doc:`common options </knife_common_options>` available to this (and all) knife subcommands and plugins.
+          Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
           .. end_tag
 
@@ -704,11 +704,12 @@ This subcommand has the following options:
 ``-l``, ``--long``
    Display all attributes in the output and show the output as JSON.
 
+   New in Chef Client 12.0.
+
 ``-m``, ``--medium``
    Display normal attributes in the output and to show the output as JSON.
 
-``-o SORT``, ``--sort SORT``
-   The order in which search results are to be sorted.
+   New in Chef Client 12.0.
 
 ``-q SEARCH_QUERY``, ``--query SEARCH_QUERY``
    Protect search queries that start with a hyphen (-). A ``-q`` query may be specified as an argument or an option, but not both.
@@ -885,4 +886,3 @@ To test a search query that will be used in a ``knife ssh`` subcommand:
 where the query in the previous example will search all servers that have the ``web`` role, but not on the server named ``web03``.
 
 .. end_tag
-

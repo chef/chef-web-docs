@@ -34,27 +34,41 @@ few days. The important part is submitting your change.
 ## The next fastest way
 
 If your change involves edits to multiple topics, or if you contribute
-frequently, you'll want to fork this repo in GitHib, clone it on your
+frequently, you'll want to fork this repo in GitHub, clone it on your
 workstation, and make pull requests from commits you push to your
 forked repo. After you fork `chef/chef-web-docs` using the GitHub web
 interface, clone the forked repo to your workstation, following these [instructions](https://docs.chef.io/community_contributions.html#use-git).
 
-After making your changes but before submitting a PR, run the shell
-command `make master` to check for errors and build a local version of
-the doc set in HTML for testing. The docs build in a minute or two. To
-view the local version you built, open the file `build/index.html` in
-your browser.
+Contributing this way requires some set-up, but once you're done, you can contribute 
+frequently and from the comfort of your own GitHub repo. Our docs have three major dependencies: 
 
-Before running `make master` for the first time, you'll need to
+  1. We currently require version 1.6.2 of [Sphinx](http://sphinx-doc.org/). 
+  2. The requirements.txt file referenced below pins Sphinx and its dependencies to versions that are compatible with each other. 
+  3. You may also need to install Python, depending on your system.
+  4. You may also need to install Ruby, depending on your system.
+
+After making your changes but before submitting a PR, run the shell
+command `make` at the root of your local `chef-web-docs` repo to check for errors and build a local version of
+the doc set in HTML for testing. Before running `make` for the first time, you'll need to
 install Sphinx, the documentation generator, possibly using `sudo`:
 
 ```bash
-  pip install sphinx==1.2.3
+  pip install -r requirements.txt
 ```
 
-We currently require version 1.2.3 of
-[Sphinx](http://sphinx-doc.org/). You may also need to install Python,
-depending on your system.
+> Note: The default `make` target is `docs`. This is the target that creates the appropriate `build` directory on your local machine and references in the source files in the `chef_master/source` directory of your local repo.
+
+
+The docs build in a minute or two. To
+view the local version you built, you have two options:
+
+* Open the file `build/<filename>` in your browser 
+* Use a local web server like the `SimpleHTTPServer` python module
+
+Viewing your content using the `SimpleHTTPServer` module allows you to navigate through the documentation as if you were browsing it on https://docs.chef.io. To use the `SimpleHTTPServer` module:
+
+1. Navigate to the `build` directory.
+2. Run `python -m SimpleHTTPServer`. After the server starts up, connect to your docs through your loopback IP address (http://127.0.0.1:8000).
 
 If you need tips on the source language for the docs, check out the
 [instructions](https://docs.chef.io/style_guide.html). We use a subset
@@ -95,6 +109,13 @@ We love getting feedback. You can use:
 ## License
 
 [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/)
+
+## Documentation snapshots
+
+The previous scoped doc sets that were found off of https://docs.chef.io/release/ are no longer available in this repo. Instead, 
+those doc sets are located at https://docs-archive.chef.io/. The index page on the docs archive site provides links to them. The doc sets retain their unique
+left nav and can be used to view content at a particular point in time for a given release. In the future, snapshots 
+will be added for major releases of products/projects or for products/projects/components that are no longer supported.
 
 ## Archive of pre-2016 commit history
 

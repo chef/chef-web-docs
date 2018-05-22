@@ -14,7 +14,7 @@ delivery.rb Settings
 
 .. end_tag
 
-The ``delivery.rb`` file contains all of the non-default configuration settings used by the Chef Automate. (The default settings are built-in to the Chef Automate configuration and should only be added to the ``delivery.rb`` file to apply non-default values.) These configuration settings are processed when the ``delivery-server-ctl reconfigure`` command is run, such as immediately after setting up Chef Automate or after making a change to the underlying configuration settings after the server has been deployed. The ``delivery.rb`` file is a Ruby file, which means that conditional statements can be used in the configuration file.
+The ``delivery.rb`` file, located at ``/etc/delivery/delivery.rb``, contains all of the non-default configuration settings used by the Chef Automate. (The default settings are built-in to the Chef Automate configuration and should only be added to the ``delivery.rb`` file to apply non-default values.) These configuration settings are processed when the ``delivery-server-ctl reconfigure`` command is run, such as immediately after setting up Chef Automate or after making a change to the underlying configuration settings after the server has been deployed. The ``delivery.rb`` file is a Ruby file, which means that conditional statements can be used in the configuration file.
 
 Recommended Settings
 =====================================================
@@ -86,6 +86,25 @@ For example, after copying the SSL certificate files to the Chef Automate server
    nginx['ssl_ciphers'] = "HIGH:MEDIUM:!LOW:!kEDH:!aNULL:!ADH:!eNULL:!EXP:!SSLv2:!SEED:!CAMELLIA:!PSK"
    nginx['ssl_protocols'] = "TLSv1 TLSv1.1 TLSv1.2"
 
+Proxy Settings
+=====================================================
+If you wish to operate your Chef Automate server from behind a proxy, you may specify you proxy host name and configuration using these options.
+
+``delivery['proxy']['host']``
+    The hostname to your proxy server such as ``foo.bar.com`` or ``192.0.2.00``.
+
+``delivery['proxy']['port']``
+    The port to connect on. This will be used for all connections (http and https).
+
+``delivery['proxy']['user']``
+   Optional authentication user name when contacting the proxy server.
+
+``delivery['proxy']['password']``
+    Optional authentication password when contacting the proxy server.
+
+``delivery['proxy']['no_proxy']``
+    A list of hostnames that are blacklisted from using the proxy. Chef Automate will attempt to connect directly to these hosts. By default, this is set to ``["localhost", "127.0.0.1"]``.
+
 Optional Settings
 =====================================================
 Additional settings are available for performance tuning of the Chef Automate server.
@@ -96,4 +115,4 @@ Additional settings are available for performance tuning of the Chef Automate se
 
              $ delivery-server-ctl reconfigure
 
-.. note:: Review the full list of :doc:`optional settings </config_rb_delivery_optional_settings>` that can be added to the ``delivery.rb`` file. Many of these optional settings should not be added without first consulting with Chef support.
+.. note:: Review the full list of `optional settings </config_rb_delivery_optional_settings.html>`__ that can be added to the ``delivery.rb`` file. Many of these optional settings should not be added without first consulting with Chef support.

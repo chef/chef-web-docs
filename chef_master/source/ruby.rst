@@ -17,6 +17,10 @@ Ruby is also a powerful and complete programming language:
 
 .. end_tag
 
+Changed in Chef Client 12.14 to recommend Ruby 2.3.1; 12.13 recommended Ruby 2.1.9; 12.0 recommended Ruby 2.0.
+
+As of Chef Client 12.0, Chef does not support Ruby versions prior to 2.0.
+
 Ruby Basics
 =====================================================
 This section covers the basics of Ruby.
@@ -43,36 +47,6 @@ Use a comment to explain code that exists in a cookbook or recipe. Anything afte
 
    # This is a comment.
 
-.. 
-.. 
-.. Ideally, a comment explains why the code exists, while the code itself describes how Chef will apply it. For example:
-.. 
-.. .. code-block:: ruby
-.. 
-..    action :restart do
-..    
-..    # With Upstart, restarting the service doesn't behave "as expected".
-..    # We want the post-start stanzas, which wait until the service is
-..    # available before returning.
-..    #
-..    # http://upstart.ubuntu.com/cookbook/#restart
-..    
-..      service "#{new_resource.name} :restart stop #{mysql_name}" do
-..        service_name mysql_name
-..        provider Chef::Provider::Service::Upstart
-..        action :stop
-..      end
-..    
-..      service "#{new_resource.name} :restart start #{mysql_name}" do
-..        service_name mysql_name
-..        provider Chef::Provider::Service::Upstart
-..        action :start
-..      end
-..    
-..    end
-.. 
-..
-
 Local Variables
 -----------------------------------------------------
 Assign a local variable:
@@ -91,7 +65,7 @@ Do some basic arithmetic:
    2 * 7           # => 14
    5 / 2           # => 2   (because both arguments are whole numbers)
    5 / 2.0         # => 2.5 (because one of the numbers had a decimal place)
-   1 + (2 * 3)     # => 7   (you can use parens to group expressions)
+   1 + (2 * 3)     # => 7   (you can use parentheses to group expressions)
 
 Strings
 -----------------------------------------------------
@@ -223,18 +197,9 @@ For example:
 
 .. code-block:: ruby
 
-   if %w{debian ubuntu}.include?(node['platform'])
-     # do debian/ubuntu things with the Ruby array %w{} shortcut
+   if %w(debian ubuntu).include?(node['platform'])
+     # do debian/ubuntu things with the Ruby array %w() shortcut
    end
-
-.. 
-.. The ``%w`` array will use single-quotes, will not have access to code interpolation, and may only use a limited set of escape characters: ``\``.
-.. 
-.. .. note:: Use an upper-case W---``%W``---to create an array with double-quotes, access to code interpolation, and access to all escape characters.
-..
-
-.. future example: step_resource_package_use_whitespace_array
-.. future example: step_resource_template_use_whitespace_array
 
 .. end_tag
 
@@ -246,7 +211,7 @@ Right:
 
 .. code-block:: ruby
 
-   %w{openssl.cnf pkitool vars Rakefile}.each do |foo|
+   %w(openssl.cnf pkitool vars Rakefile).each do |foo|
      template "/etc/openvpn/easy-rsa/#{foo}" do
        source "#{foo}.erb"
        ...
@@ -257,7 +222,7 @@ Wrong:
 
 .. code-block:: ruby
 
-   %w{openssl.cnf pkitool vars Rakefile}.each do |foo|
+   %w(openssl.cnf pkitool vars Rakefile).each do |foo|
      template '/etc/openvpn/easy-rsa/#{foo}' do
        source '#{foo}.erb'
        ...
@@ -268,7 +233,7 @@ Wrong:
 
 **Example**
 
-WiX includes serveral tools -- such as ``candle`` (preprocesses and compiles source files into object files), ``light`` (links and binds object files to an installer database), and ``heat`` (harvests files from various input formats). The following example uses a whitespace array and the InSpec ``file`` audit resource to verify if these three tools are present:
+WiX includes several tools -- such as ``candle`` (preprocesses and compiles source files into object files), ``light`` (links and binds object files to an installer database), and ``heat`` (harvests files from various input formats). The following example uses a whitespace array and the InSpec ``file`` audit resource to verify if these three tools are present:
 
 .. code-block:: ruby
 
@@ -284,13 +249,13 @@ WiX includes serveral tools -- such as ``candle`` (preprocesses and compiles sou
 
 Hash
 -----------------------------------------------------
-A Hash is a list with keys and values. Sometimes they don't have a set order:
+A Hash is a list with keys and values. Sometimes hashes don't have a set order:
 
 .. code-block:: ruby
 
    h = {
-     'first_name' => "Bob",
-     'last_name'  => "Jones"
+     'first_name' => 'Bob',
+     'last_name'  => 'Jones'
    }
 
 And sometimes they do. For example, first name then last name:
@@ -428,7 +393,7 @@ Define a method (or a function, if you like):
    # => "You gave me apple and banana"
    do_something_useless 1, 2
    # => "You gave me 1 and 2"
-   # see how the parens are optional if there's no confusion about what to do
+   # see how the parentheses are optional if there's no confusion about what to do
 
 Ruby Class
 -----------------------------------------------------
@@ -461,7 +426,7 @@ The ``include?`` method can be used to ensure that a specific parameter is inclu
 
 .. code-block:: ruby
 
-   if ['debian', 'ubuntu'].include?(node['platform'])
+   if %w(debian ubuntu).include?(node['platform'])
      # do debian/ubuntu things
    end
 
@@ -479,7 +444,7 @@ Log Entries
 -----------------------------------------------------
 .. tag ruby_style_basics_chef_log
 
-``Chef::Log`` extends ``Mixlib::Log`` and will print log entries to the default logger that is configured for the machine on which the chef-client is running. (To create a log entry that is built into the resource collection, use the **log** resource instead of ``Chef::Log``.)
+``Chef::Log`` extends ``Mixlib::Log`` and will print log entries to the default logger that is configured for the machine on which the Chef Client is running. (To create a log entry that is built into the resource collection, use the **log** resource instead of ``Chef::Log``.)
 
 The following log levels are supported:
 
@@ -489,16 +454,16 @@ The following log levels are supported:
 
    * - Log Level
      - Syntax
-   * - Debug
-     - ``Chef::Log.debug('string')``
-   * - Error
-     - ``Chef::Log.error('string')``
    * - Fatal
      - ``Chef::Log.fatal('string')``
-   * - Info
-     - ``Chef::Log.info('string')``
+   * - Error
+     - ``Chef::Log.error('string')``
    * - Warn
      - ``Chef::Log.warn('string')``
+   * - Info
+     - ``Chef::Log.info('string')``
+   * - Debug
+     - ``Chef::Log.debug('string')``
 
 .. note:: The parentheses are optional, e.g. ``Chef::Log.info 'string'`` may be used instead of ``Chef::Log.info('string')``.
 
@@ -521,8 +486,7 @@ The following example shows a series of fatal ``Chef::Log`` entries:
 
    service 'splunk_stop' do
      service_name 'splunk'
-     supports :status => true
-     provider Chef::Provider::Service::Init
+     supports status: true
      action :stop
    end
 
@@ -610,10 +574,10 @@ Cookbook Patterns
 -----------------------------------------------------
 Good cookbook examples:
 
-* https://github.com/chef-cookbooks/yum
+* https://github.com/chef-cookbooks/tomcat
+* https://github.com/chef-cookbooks/apparmor
 * https://github.com/chef-cookbooks/mysql
 * https://github.com/chef-cookbooks/httpd
-* https://github.com/chef-cookbooks/php
 
 Naming
 -----------------------------------------------------
@@ -647,7 +611,7 @@ For example:
      group  'somegroup'
      mode   '0644'
      variables(
-       :foo => 'bar'
+       foo: 'bar'
      )
      notifies :reload, 'service[whatever]'
      action :create
@@ -665,9 +629,11 @@ Always specify the file mode with a quoted 3-5 character string that defines the
 
    mode '0755'
 
+Wrong:
+
 .. code-block:: ruby
 
-   mode 00755
+   mode 755
 
 Specify Resource Action?
 -----------------------------------------------------
@@ -717,7 +683,7 @@ Right:
 
 .. code-block:: ruby
 
-   %w{openssl.cnf pkitool vars Rakefile}.each do |foo|
+   %w(openssl.cnf pkitool vars Rakefile).each do |foo|
      template "/etc/openvpn/easy-rsa/#{foo}" do
        source "#{foo}.erb"
        ...
@@ -728,7 +694,7 @@ Wrong:
 
 .. code-block:: ruby
 
-   %w{openssl.cnf pkitool vars Rakefile}.each do |foo|
+   %w(openssl.cnf pkitool vars Rakefile).each do |foo|
      template '/etc/openvpn/easy-rsa/#{foo}' do
        source '#{foo}.erb'
        ...
@@ -743,7 +709,7 @@ Always use ``mixlib-shellout`` to shell out. Never use backticks, Process.spawn,
 
 The `mixlib-shellout module <https://github.com/chef/mixlib-shellout/blob/master/README.md>`__ provides a simplified interface to shelling out while still collecting both standard out and standard error and providing full control over environment, working directory, uid, gid, etc.
 
-Starting with chef-client version 12.0 you can use the ``shell_out``, ``shell_out!`` and ``shell_out_with_system_locale`` :doc:`Recipe DSL methods </dsl_recipe>` to interface directly with ``mixlib-shellout``.
+New in Chef Client 12.0 you can use the ``shell_out``, ``shell_out!`` and ``shell_out_with_system_locale`` `Recipe DSL methods </dsl_recipe.html>`__ to interface directly with ``mixlib-shellout``.
 
 Constructs to Avoid
 -----------------------------------------------------
@@ -813,10 +779,6 @@ A recipe should be clean and well-commented. For example:
    # Php resources
    ###############
 
-   # php_runtime 'default' do
-   #   action :install
-   # end
-
    package 'php-gd' do
      action :install
    end
@@ -859,7 +821,7 @@ A recipe should be clean and well-commented. For example:
    end
 
    directory '/srv/wordpress_demo/wp-content' do
-     user 'apache'  
+     user 'apache'
      action :create
    end
 
@@ -905,13 +867,13 @@ node.set
 -----------------------------------------------------
 Use ``node.default`` (or maybe ``node.override``) instead of ``node.set`` because ``node.set`` is an alias for ``node.normal``. Normal data is persisted on the node object. Therefore, using ``node.set`` will persist data in the node object. If the code that uses ``node.set`` is later removed, if that data has already been set on the node, it will remain.
 
-Normal and override attributes are cleared at the start of the chef-client run, and are then rebuilt as part of the run based on the code in the cookbooks and recipes at that time.
+Default and override attributes are cleared at the start of the chef-client run, and are then rebuilt as part of the run based on the code in the cookbooks and recipes at that time.
 
 ``node.set`` (and ``node.normal``) should only be used to do something like generate a password for a database on the first chef-client run, after which it's remembered (instead of persisted). Even this case should be avoided, as using a data bag is the recommended way to store this type of data.
 
-Use the Chef DK
+Cookbook Linting with ChefDK Tools
 =====================================================
-This section covers best practices for cookbook and recipe authoring.
+ChefDK includes Foodcritic for linting the Chef specific portion of your cookbook code, and Cookstyle for linting the Ruby specific portion of your code.
 
 Foodcritic Linting
 -----------------------------------------------------
@@ -919,16 +881,24 @@ All cookbooks should pass Foodcritic rules before being uploaded.
 
 .. code-block:: bash
 
-   $ foodcritic -f all your-cookbook
+   $ foodcritic -P -f all your-cookbook
 
 should return nothing.
+
+Cookstyle Linting
+-----------------------------------------------------
+All cookbooks should pass Cookstyle rules before being uploaded.
+
+.. code-block:: bash
+
+   $ cookstyle your-cookbook
+
+should return ``no offenses detected``
 
 More about Ruby
 =====================================================
 To learn more about Ruby, see the following:
 
-* |url ruby_lang_org|
-* |url ruby_power_of_chef|
-* |url codeacademy|
-* |url ruby_doc_org|
-
+* `Ruby Documentation <https://www.ruby-lang.org/en/documentation/>`_
+* `Ruby Standard Library Documentation <http://www.ruby-doc.org/stdlib/>`_
+* `Codeacademy <https://www.codecademy.com/tracks/ruby>`_

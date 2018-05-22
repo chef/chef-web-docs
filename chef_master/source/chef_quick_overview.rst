@@ -37,16 +37,14 @@ Workstations
 =====================================================
 .. tag workstation_summary
 
-.. This file is included in Chef Automate docs
+A workstation is a computer running the `Chef Development Kit </about_chefdk.html>`__ (Chef DK) that is used to author cookbooks, interact with the Chef server, and interact with nodes.
 
-A workstation is a computer that is configured to run various Chef command-line tools that synchronize with a chef-repo, author cookbooks, interact with the Chef server, and interact with nodes.
+The workstation is where users do most of their work, including:
 
-The workstation is the location from which most users do most of their work, including:
-
-* Developing cookbooks and recipes (and authoring them using Ruby syntax and patterns)
-* Keeping the chef-repo synchronized with version source control
-* Using command-line tools
-* Configuring organizational policy, including defining roles and environments and ensuring that critical data is stored in data bags
+* Developing and testing cookbooks and recipes
+* Testing Chef code
+* Keeping the Chef repository synchronized with version source control
+* Configuring organizational policy, including defining roles and environments, and ensuring that critical data is stored in data bags
 * Interacting with nodes, as (or when) required, such as performing a bootstrap operation
 
 .. end_tag
@@ -59,11 +57,9 @@ knife is a command-line tool that provides an interface between a local chef-rep
 
 * Nodes
 * Cookbooks and recipes
-* Roles
-* Stores of JSON data (data bags), including encrypted data
-* Environments
-* Cloud resources, including provisioning
-* The installation of the chef-client on management workstations
+* Roles, Environments, and Data Bags
+* Resources within various cloud environments
+* The installation of the chef-client onto nodes
 * Searching of indexed data on the Chef server
 
 .. end_tag
@@ -74,7 +70,7 @@ Repository
 
 The chef-repo is the repository structure in which cookbooks are authored, tested, and maintained:
 
-* Cookbooks contain recipes, attributes, custom resources, libraries, definitions, files, templates, tests, and metadata
+* Cookbooks contain recipes, attributes, custom resources, libraries, files, templates, tests, and metadata
 * The chef-repo should be synchronized with a version control system (such as git), and then managed as if it were source code
 
 .. end_tag
@@ -107,7 +103,7 @@ A cookbook is the fundamental unit of configuration and policy distribution. A c
 * Attribute values
 * File distributions
 * Templates
-* Extensions to Chef, such as libraries, definitions, and custom resources
+* Extensions to Chef, such as custom resources and libraries
 
 .. end_tag
 
@@ -120,4 +116,3 @@ Conclusion
 Chef is a thin DSL (domain-specific language) built on top of Ruby. This approach allows Chef to provide just enough abstraction to make reasoning about your infrastructure easy. Chef includes a built-in taxonomy of all the basic resources one might configure on a system, plus a defined mechanism to extend that taxonomy using the full power of the Ruby language. Ruby was chosen because it provides the flexibility to use both the simple built-in taxonomy, as well as being able to handle any customization path your organization requires.
 
 .. end_tag
-

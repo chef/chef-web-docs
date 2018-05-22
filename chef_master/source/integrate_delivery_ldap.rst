@@ -1,5 +1,5 @@
 =====================================================
-Integrate Chef Automate with LDAP
+Integrate Chef Automate with LDAP for Authentication
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/integrate_delivery_ldap.rst>`__
 
@@ -30,7 +30,7 @@ The following table describes the LDAP attributes that may be used with Chef Aut
    * - Setting
      - Description
    * - ``ldap_attr_fullname``
-     - The full user name for an LDAP user. Default value: ``nil``.     
+     - The full user name for an LDAP user. Default value: ``nil``.
    * - ``ldap_attr_login``
      - The login user name for an LDAP user. Default value: ``sAMAccountName``.
    * - ``ldap_attr_mail``
@@ -40,7 +40,7 @@ The following table describes the LDAP attributes that may be used with Chef Aut
    * - ``ldap_bind_dn``
      - The user Chef Automate will use to perform LDAP searches. This is often the administrator or manager user. This user needs to have read access to all LDAP users that require authentication. The Chef Automate server must do an LDAP search before any user can log in. Many LDAP systems do not allow an anonymous bind. If anonymous bind is allowed, leave the ``bind_dn`` and ``bind_dn_password`` settings blank. If anonymous bind is not allowed, a user with ``READ`` access to the directory is required. This user must be specified as an LDAP distinguished name (``dn``). Default value: ``nil``.
    * - ``ldap_bind_dn_password``
-     - The password for the user specified by ``ldap['bind_dn']``. Leave this value and ``ldap['bind_dn']`` unset if anonymous bind is sufficient. Default value: ``secret123``.
+     - The password for the user specified by ``ldap['bind_dn']``. Leave this value and ``ldap['bind_dn']`` unset if anonymous bind is sufficient. Default value: ``secret123``. We do not recommend using a backslash (``\``) in the password, but if the password needs to have a backslash, please contact support.
    * - ``ldap_encryption``
      - The type of encryption used to communicate with Chef Automate. Default value: ``start_tls``. If tls is not in use, set to ``no_tls``.
    * - ``ldap_hosts``
@@ -77,7 +77,7 @@ To configure LDAP for Chef Automate:
 
    .. code-block:: bash
 
-      $ sudo delivery-ctl reconfigure
+      $ sudo automate-ctl reconfigure
 
 Once Chef Automate is set up, you will have a usable **LDAP** option in the Chef Automate **Users** page that allows you to find users through your LDAP database.
 
@@ -91,7 +91,7 @@ Integrating Chef Automate with your LDAP system allows you to automatically add 
 
 .. end_tag
 
-Add 
+Add
 -----------------------------------------------------
 .. tag delivery_integration_ldap_users_add
 
@@ -103,7 +103,7 @@ To add or edit a user to Chef Automate:
 #. Select **Users** from the drop-down menu on the upper right.
 
    The **Users** list page opens. You can use the search filter in the upper right corner to make sure that the user is not already added.
-#. Click the plus sign (**+**) next to **Add a New User**.  
+#. Click the plus sign (**+**) next to **Add a New User**.
 #. In the Add New a User text area, select one of two types for the new user. The selection box is grey for the active selection.
 
    * **Internal** means you are manually adding the user to the Chef Automate database.
@@ -125,7 +125,7 @@ To check that the user was added properly when using LDAP, click **Edit** and ve
 
 .. end_tag
 
-Edit 
+Edit
 -----------------------------------------------------
 .. tag delivery_integration_ldap_users_edit
 
@@ -137,7 +137,7 @@ To edit LDAP details for a user:
 #. Select **Users** from the drop-down menu on the upper right.
 
    The **Users** list page opens. You can use the search filter in the upper right corner to make sure that the user is not already added.
-#. Click the plus sign (**+**) next to **Add a New User**. 
+#. Click the plus sign (**+**) next to **Add a New User**.
 #. In the **Add New a User** text area, select one of two types for the new user. The selection box is grey for the active selection.
 
    **Internal** means you are manually adding the user to the Delivery database.

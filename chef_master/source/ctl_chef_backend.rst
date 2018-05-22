@@ -214,7 +214,7 @@ This command will:
 
 * Run the ``chef-backend-ctl cluster-status`` subcommand to determine if a leader exists.
 
-  .. warning:: Nodes in the backend HA cluster may not be visible to each other when they are located in network parititions. This may prevent a cluster status check from discovering that a leader exists. If nodes exist on network parititions, to prevent this scenario, first run ``chef-backend-ctl cluster-status``, and then verify the expected number of nodes in the backend HA cluster as healthy and ``waiting_for_leader`` before running this command. 
+  .. warning:: Nodes in the backend HA cluster may not be visible to each other when they are located in network partitions. This may prevent a cluster status check from discovering that a leader exists. If nodes exist on network partitions, to prevent this scenario, first run ``chef-backend-ctl cluster-status``, and then verify the expected number of nodes in the backend HA cluster as healthy and ``waiting_for_leader`` before running this command.
 * Complete with an exit code of ``0`` if the node from which the command is run becomes the leader.
 * Return an error message and a non-zero exit code if a leader already exists.
 
@@ -372,7 +372,7 @@ gen-server-config
 =====================================================
 .. tag ctl_chef_backend_gen_server_config
 
-Use the ``gen-server-config`` subcommand to generate output for the ``chef-server.rb`` configuration file. This command may be run from any machine in the backend HA cluster, but must be run separately for each node that is part of the frontend group. This command will:
+Use the ``gen-server-config`` subcommand to generate output for the ``/etc/opscode/chef-server.rb`` configuration file. This command may be run from any machine in the backend HA cluster, but must be run separately for each node that is part of the frontend group. This command will:
 
 * Complete with an exit code of ``0`` if the ``chef-server.rb`` file is created successfully.
 * Return an error message and a non-zero exit code if a node has  not been bootstrapped or joined or if a FQDN is not provided.
@@ -423,11 +423,11 @@ The following example shows the results of running the ``chef-backend-ctl gen-se
 
    fqdn "frontend1.chef-demo.com"
    postgresql['external'] = true
-   postgresql['vip'] = '192.168.33.220'
+   postgresql['vip'] = '192.0.2.0'
    postgresql['db_superuser'] = 'chef_pgsql'
    postgresql['db_superuser_password'] = '...6810e52a01e562'
    opscode_solr4['external'] = true
-   opscode_solr4['external_url'] = 'http://192.168.33.220:9200'
+   opscode_solr4['external_url'] = 'http://192.0.2.0:9200'
    opscode_erchef['search_provider'] = 'elasticsearch'
    opscode_erchef['search_queue_mode'] = 'batch'
    bookshelf['storage_type'] = :sql
@@ -734,13 +734,13 @@ is similar to:
 
 .. code-block:: bash
 
-   Service        Local Status        Time in State  Distributed Node Status 
+   Service        Local Status        Time in State  Distributed Node Status
    elasticsearch  running (pid 6661)  1d 5h 59m 41s  state: green; nodes online: 3/3
-   etcd           running (pid 6742)  1d 5h 59m 39s  health: green; healthy nodes: 3/3 
+   etcd           running (pid 6742)  1d 5h 59m 39s  health: green; healthy nodes: 3/3
    leaderl        running (pid 6788)  1d 5h 59m 35s  leader: 1; waiting: 0; follower: 2; total: 3
    postgresql     running (pid 6640)  1d 5h 59m 43s  leader: 1; offline: 0; syncing: 0; synced: 2
 
-which shows status for a healthy backend HA cluster. The first three columns--``Service``, ``Local Status``, and ``Time in State`` summarize the local state. The ``Distributed Node Status`` columm shows:
+which shows status for a healthy backend HA cluster. The first three columns--``Service``, ``Local Status``, and ``Time in State`` summarize the local state. The ``Distributed Node Status`` column shows:
 
 * A three node cluster
 * All nodes healthy and online
@@ -979,4 +979,3 @@ This subcommand has the following syntax:
 where ``SERVICE_NAME`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
 .. end_tag
-

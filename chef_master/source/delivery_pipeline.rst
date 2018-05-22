@@ -11,9 +11,9 @@ About Chef Automate Pipelines
 
 .. end_tag
 
-Each project contains a configuration file in its source repository, located at ``.delivery/config.json``, that specifies the build cookbook to use for the project, and in turn, the build cookbook contains recipes that control what happens in the pipeline phases. The config file also allows customization of the behavior of Chef Automate and the build cookbook.  You can create a config file (as well as a build cookbook) using the Chef Automate CLI tool and the init subcommand: `delivery init` or `delivery init --local`.
+Each project contains a configuration file in its source repository, located at ``.delivery/config.json``, that specifies the build cookbook to use for the project, and in turn, the build cookbook contains recipes that control what happens in the pipeline phases. The config file also allows customization of the behavior of Chef Automate and the build cookbook.  You can create a config file (as well as a build cookbook) using the Chef Automate CLI tool and the init subcommand: ``delivery init`` or ``delivery init --local``.
 
-When Chef Automate executes a phase, it selects a build node to run the job. On the build node, the project's source is fetched and synchronized to the revision matching the head of the feature branch for the change. The build node reads the project's ``config.json`` file and uses this information to fetch the appropriate build cookbook. Finally, the build node runs a local chef-zero run to execute the appropriate phase.
+When Chef Automate executes a phase, it selects a build node or runner to run the job. On the build node/runner, the project's source is fetched and synchronized to the revision matching the head of the feature branch for the change. The build node/runner reads the project's ``config.json`` file and uses this information to fetch the appropriate build cookbook. Finally, the build node/runner runs a local chef-zero run to execute the appropriate phase.
 
 If you are using Chef Automate to manage changes in Chef cookbooks, you can wrap, or use directly, ``delivery-truck``, a build cookbook for building and testing cookbooks. The ``delivery-truck`` and ``delivery-sugar`` cookbooks contain helpers that can be used for non-cookbook workflows as well.  You can wrap or modify the ``delivery-truck`` cookbook to suit your own needs.
 
@@ -60,7 +60,7 @@ where:
 
 * ``ignore_rules`` is set to ignore Foodcritic rules ``FC009``, ``FC057``, ``FC058``
 * ``only_rules`` is set to run only Foodcritic rule ``FC002``; omit this setting to specify all rules not specified by ``ignore_rules``
-* ``excludes`` prevents Foodcritic rules from running if they are present in a cookbook's ``/spec`` and/or ``/test`` diretories
+* ``excludes`` prevents Foodcritic rules from running if they are present in a cookbook's ``/spec`` and/or ``/test`` directories
 * ``fail_tags`` states which rules should cause the run to fail; omit this setting to specify ``correctness``
 
 .. end_tag
@@ -89,12 +89,13 @@ The behavior of pipeline phases can be customized using the project's ``config.j
 
    .. tag delivery_config_json_setting_build_cookbook
 
-   The ``build_cookbook`` setting specifies the location of the ``build-cookbook`` used by this project. A ``build-cookbook`` may be fetched from four locations:
+   The ``build_cookbook`` setting specifies the location of the ``build-cookbook`` used by this project. A ``build-cookbook`` may be fetched from five locations:
 
    * A local directory within the project
    * A git repository
    * A Chef Supermarket instance (public or private)
    * A Chef server
+   * A Chef Automate server
 
    .. end_tag
 
@@ -104,6 +105,8 @@ The behavior of pipeline phases can be customized using the project's ``config.j
    .. tag delivery_config_json_setting_build_nodes
 
    The ``build_nodes`` setting specifies which build nodes to use for specific phases in the Chef Automate pipeline. The build node may be defined as well as queried via wildcard search.
+
+   .. note:: This setting should only be used with build nodes that use the previous push job-based dispatch system. Use the ``job_dispatch`` setting when using the new ssh-based job dispatch system.
 
    .. end_tag
 
@@ -226,6 +229,22 @@ The following examples show how to specify the location of the ``build-cookbook`
    "build_cookbook": {
       "name": "delivery-truck",
       "server": "true"
+   }
+
+.. end_tag
+
+**A Chef Automate server**
+
+.. tag delivery_config_example_build_cookbook_automate_server
+
+.. To specify a build-cookbook located on a Chef Automate server:
+
+.. code-block:: javascript
+
+   "build_cookbook": {
+      "name": "delivery-truck",
+      "enterprise": "chef",
+      "organization": "chef-cookbooks"
    }
 
 .. end_tag

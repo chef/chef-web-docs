@@ -32,13 +32,12 @@ The full syntax for all of the properties that are available to the **yum_packag
 .. code-block:: ruby
 
    yum_package 'name' do
-     allow_downgrade            TrueClass, FalseClass
+     allow_downgrade            True, False
      arch                       String, Array
      flush_cache                Array
      notifies                   # see description
      options                    String
      package_name               String, Array # defaults to 'name' if not specified
-     provider                   Chef::Provider::Package::Yum
      source                     String
      subscribes                 # see description
      timeout                    String, Integer
@@ -50,8 +49,10 @@ where
 
 * ``yum_package`` tells the chef-client to manage a package
 * ``'name'`` is the name of the package
-* ``:action`` identifies which steps the chef-client will take to bring the node into the desired state
-* ``allow_downgrade``, ``arch``, ``flush_cache``, ``options``, ``package_name``, ``provider``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``allow_downgrade``, ``arch``, ``flush_cache``, ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+
+Changed in Chef Client 12.1 to support specifying multiple packages and/or versions.
 
 Actions
 =====================================================
@@ -60,10 +61,15 @@ This resource has the following actions:
 ``:install``
    Default. Install a package. If a version is specified, install the specified version of the package.
 
+``:lock``
+   Locks the yum package to a specific version.
+
+   New in Chef Client 12.16.
+
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the chef-client run.
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -73,6 +79,11 @@ This resource has the following actions:
 ``:remove``
    Remove a package.
 
+``:unlock``
+   Unlocks the yum package so that it can be upgraded to a newer version.
+
+   New in Chef Client 12.16.
+
 ``:upgrade``
    Install a package and/or ensure that a package is the latest version. This action will ignore the ``version`` attribute.
 
@@ -81,7 +92,7 @@ Properties
 This resource has the following properties:
 
 ``allow_downgrade``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Downgrade a package to satisfy requested version requirements.
 
@@ -124,7 +135,7 @@ This resource has the following properties:
    .. note:: The ``flush_cache`` property does not flush the local Yum cache! Use Yum tools---``yum clean headers``, ``yum clean packages``, ``yum clean all``---to clean the local Yum cache.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -133,19 +144,19 @@ This resource has the following properties:
 
    .. tag resources_common_notification_notifies
 
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
 
    .. end_tag
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -172,11 +183,6 @@ This resource has the following properties:
 
    One of the following: the name of a package, the name of a package and its architecture, the name of a dependency. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
 
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider. See "Providers" section below for more information.
-
 ``retries``
    **Ruby Type:** Integer
 
@@ -199,17 +205,32 @@ This resource has the following properties:
 
    A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
 
+   Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
+
+   .. code-block:: ruby
+
+     file '/etc/nginx/ssl/example.crt' do
+        mode '0600'
+        owner 'root'
+     end
+
+     service 'nginx' do
+        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+     end
+
+   In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
+
    .. end_tag
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -240,7 +261,7 @@ Multiple Packages
 -----------------------------------------------------
 .. tag resources_common_multiple_packages
 
-A resource may specify multiple packages and/or versions for platforms that use Yum, Apt, Zypper, or Chocolatey package managers. Specifing multiple packages and/or versions allows a single transaction to:
+A resource may specify multiple packages and/or versions for platforms that use Yum, DNF, Apt, Zypper, or Chocolatey package managers. Specifing multiple packages and/or versions allows a single transaction to:
 
 * Download the specified packages and versions via a single HTTP transaction
 * Update or install multiple packages with a single resource during the chef-client run
@@ -249,13 +270,21 @@ For example, installing multiple packages:
 
 .. code-block:: ruby
 
-   package ['package1', 'package2']
+   package %w(package1 package2)
+
+Installing multiple packages with versions:
+
+.. code-block:: ruby
+
+   package %w(package1 package2) do
+     version [ '1.3.4-2', '4.3.6-1']
+   end
 
 Upgrading multiple packages:
 
 .. code-block:: ruby
 
-   package ['package1', 'package2']  do
+   package %w(package1 package2)  do
      action :upgrade
    end
 
@@ -263,7 +292,7 @@ Removing multiple packages:
 
 .. code-block:: ruby
 
-   package ['package1', 'package2']  do
+   package %w(package1 package2)  do
      action :remove
    end
 
@@ -271,7 +300,7 @@ Purging multiple packages:
 
 .. code-block:: ruby
 
-   package ['package1', 'package2']  do
+   package %w(package1 package2)  do
      action :purge
    end
 
@@ -279,7 +308,7 @@ Notifications, via an implicit name:
 
 .. code-block:: ruby
 
-   package ['package1', 'package2']  do
+   package %w(package1 package2)  do
      action :nothing
    end
 
@@ -290,33 +319,6 @@ Notifications, via an implicit name:
 .. note:: Notifications and subscriptions do not need to be updated when packages and versions are added or removed from the ``package_name`` or ``version`` properties.
 
 .. end_tag
-
-Providers
-=====================================================
-.. tag resources_common_provider
-
-Where a resource represents a piece of the system (and its desired state), a provider defines the steps that are needed to bring that piece of the system from its current state into the desired state.
-
-.. end_tag
-
-.. tag resources_common_provider_attributes
-
-The chef-client will determine the correct provider based on configuration data collected by Ohai at the start of the chef-client run. This configuration data is then mapped to a platform and an associated list of providers.
-
-Generally, it's best to let the chef-client choose the provider, and this is (by far) the most common approach. However, in some cases, specifying a provider may be desirable. There are two approaches:
-
-* Use a more specific short name---``yum_package "foo" do`` instead of ``package "foo" do``, ``script "foo" do`` instead of ``bash "foo" do``, and so on---when available
-* Use the ``provider`` property within the resource block to specify the long name of the provider as a property of a resource. For example: ``provider Chef::Provider::Long::Name``
-
-.. end_tag
-
-This resource has the following providers:
-
-``Chef::Provider::Package``, ``package``
-   When this short name is used, the chef-client will attempt to determine the correct provider during the chef-client run.
-
-``Chef::Provider::Package::Yum``, ``yum_package``
-   The provider for the Yum package provider.
 
 Examples
 =====================================================
@@ -435,9 +437,9 @@ or:
 
 **Handle cookbook_file and yum_package resources in the same recipe**
 
-.. tag resource_yum_package_handle_cookbook_file_and_yum_package
+.. tag resource_package_handle_cookbook_file_and_yum_package
 
-.. To handle cookbook_file and yum_package when both called in the same recipe
+.. To handle cookbook_file and package when both called in the same recipe
 
 When a **cookbook_file** resource and a **yum_package** resource are both called from within the same recipe, use the ``flush_cache`` attribute to dump the in-memory Yum cache, and then use the repository immediately to ensure that the correct package is installed:
 
@@ -454,4 +456,3 @@ When a **cookbook_file** resource and a **yum_package** resource are both called
    end
 
 .. end_tag
-

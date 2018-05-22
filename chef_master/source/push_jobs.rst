@@ -11,7 +11,7 @@ Chef push jobs uses the Chef server API and a Ruby client to initiate all connec
 
 .. end_tag
 
-Install `Push Jobs <https://docs.chef.io/install_push_jobs.html>`_ using the **push-jobs** cookbook and a chef-client run on each of the target nodes.
+Install `Push Jobs </install_push_jobs.html>`__ using the **push-jobs** cookbook and a chef-client run on each of the target nodes.
 
 Requirements
 =====================================================
@@ -24,43 +24,6 @@ Chef push jobs has the following requirements:
   TCP protocol ports 10000 and 10002. TCP/10000 is the default heartbeat port. TCP/10002 is the command port. It may be configured in the Chef push jobs configuration file . This port allows Chef push jobs clients to communicate with the Chef push jobs server. In a configuration with both front and back ends, this port only needs to be open on the back end servers. The Chef push jobs server waits for connections from the Chef push jobs client, and never initiates a connection to a Chef push jobs client.
 
   .. end_tag
-
-Platforms
------------------------------------------------------
-.. tag adopted_platforms_push_jobs
-
-The following table lists the Foundational platforms for the Chef push jobs:
-
-.. list-table::
-   :widths: 280 100 120
-   :header-rows: 1
-
-   * - Platform
-     - Architecture
-     - Version
-   * - CentOS
-     - ``i386``
-     - ``5``, ``6``
-   * -
-     - ``x86_64``
-     - ``5``, ``6``, ``7``
-   * - Debian
-     - ``i386``, ``x86_64``
-     - ``7``
-   * - Red Hat Enterprise Linux
-     - ``i386``
-     - ``5``, ``6``
-   * -
-     - ``x86_64``
-     - ``5``, ``6``, ``7``
-   * - Ubuntu
-     - ``x86``, ``x86_64``
-     - ``12.04``, ``14.04``
-   * - Microsoft Windows
-     - ``x86``, ``x86_64``
-     - ``2008r2``, ``2012``, ``2012r2``, ``7``, ``8``, ``8.1``, ``10``
-
-.. end_tag
 
 Components
 =====================================================
@@ -105,7 +68,7 @@ A whitelist is a list of jobs and commands that are used by Chef push jobs. A wh
      'job_name' => 'command',
    }
 
-The whitelist is accessed from a recipe using the ``node['push_jobs']['whitelist]`` attribute. For example:
+The whitelist is accessed from a recipe using the ``node['push_jobs']['whitelist']`` attribute. For example:
 
 .. code-block:: ruby
 
@@ -131,21 +94,6 @@ where ``["ntpdate"] = "ntpdate -u time"`` is added to the whitelist:
      "ntpdate" => "ntpdate -u time",
    }
 
-.. 
-.. Commented out, probably move to new file(s)
-.. 
-.. Messages
-.. =====================================================
-.. xxxxx sends two types of messages: heartbeat and job.
-.. 
-.. Heartbeat Messages
-.. -----------------------------------------------------
-.. .. include:: ../../includes_push_jobs/includes_push_jobs_messages_heartbeat.rst
-.. 
-.. Job Messages
-.. -----------------------------------------------------
-.. .. include:: ../../includes_push_jobs/includes_push_jobs_messages_jobs.rst
-
 Reference
 =====================================================
 The following sections describe the knife subcommands, the Push Jobs API, and configuration settings used by Chef push jobs.
@@ -158,11 +106,7 @@ The ``knife push jobs`` subcommand is used by Chef push jobs to start jobs, view
 
 .. end_tag
 
-.. note:: Review the list of `common options <https://docs.chef.io/knife_common_options.html>`_ available to this (and all) knife subcommands and plugins.
-
-.. Install this plugin
-.. -----------------------------------------------------
-.. .. include:: ../../step_plugin_knife/step_plugin_knife_push_jobs_install_rubygem.rst
+.. note:: Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
 job list
 -----------------------------------------------------
@@ -281,7 +225,31 @@ job status
 -----------------------------------------------------
 .. tag plugin_knife_push_jobs_job_status
 
-Use the ``job status`` argument to view the status of Chef push jobs jobs. Each job is always in one of the following states: ``new``, ``voting``, ``running``, ``complete``, ``quorum_failed``, ``crashed``, ``aborted``, or ``timed_out``.
+Use the ``job status`` argument to view the status of Chef push jobs jobs. Each job is always in one of the following states:
+
+``new``
+  New job status.
+
+``voting``
+  Waiting for nodes to commit or refuse to run the command.
+
+``running``
+  Running the command on the nodes.
+
+``complete``
+  Ran the command. Check individual node statuses to see if they completed or had issues.
+
+``quorum_failed``
+  Did not run the command on any nodes.
+
+``crashed``
+  Crashed while running the job.
+
+``timed_out``
+  Timed out while running the job.
+
+``aborted``
+  Job aborted by user.
 
 .. end_tag
 
@@ -293,7 +261,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife job status
+   $ knife job status <job id>
 
 .. end_tag
 
@@ -327,7 +295,40 @@ node status
 -----------------------------------------------------
 .. tag plugin_knife_push_jobs_node_status
 
-Use the ``node status`` argument to identify nodes that Chef push jobs may interact with. Each node is always in one of the following states: ``new``, ``ready``, ``running``, ``succeeded``, ``failed``, ``aborted``, ``unavailable``, ``nacked``, ``crashed``, ``was_ready``, or ``timed_out``.
+Use the ``node status`` argument to identify nodes that Chef push jobs may interact with. Each node is always in one of the following states:
+
+``new``
+  Node has neither committed nor refused to run the command.
+
+``ready``
+  Node has committed to run the command but has not yet run it.
+
+``running``
+  Node is presently running the command.
+
+``succeeded``
+  Node successfully ran the command (an exit code of 0 was returned).
+
+``failed``
+  Node failed to run the command (an exit code of non-zero was returned).
+
+``aborted``
+  Node ran the command but stopped before completion.
+
+``crashed``
+  Node went down after it started running the job.
+
+``nacked``
+  Node was busy when asked to be part of the job.
+
+``unavailable``
+  Node went down before it started running.
+
+``was_ready``
+  Node was ready but quorum failed.
+
+``timed_out``
+  Node timed out.
 
 .. end_tag
 
@@ -339,7 +340,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife node status
+   $ knife node status [<node> <node> ...]
 
 .. end_tag
 
@@ -382,8 +383,8 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     "node_name": "FIONA", 
-     "status": "down", 
+     "node_name": "FIONA",
+     "status": "down",
      "updated_at": "Tue, 04 Sep 2012 23:17:56 GMT"
    }
 
@@ -477,8 +478,8 @@ with a request body similar to:
 .. code-block:: javascript
 
    {
-     "command": "chef-client", 
-     "run_timeout": 300, 
+     "command": "chef-client",
+     "run_timeout": 300,
      "nodes": ["NODE1", "NODE2", "NODE3", "NODE4", "NODE5", "NODE6"]
    }
 
@@ -538,8 +539,8 @@ with a request body similar to:
 .. code-block:: javascript
 
    {
-     "command": "chef-client", 
-     "run_timeout": 300, 
+     "command": "chef-client",
+     "run_timeout": 300,
      "nodes": ["NODE1", "NODE2", "NODE3", "NODE4", "NODE5", "NODE6"]
    }
 
@@ -583,15 +584,15 @@ The response will return something similar to:
 .. code-block:: javascript
 
    {
-     "id": "aaaaaaaaaaaa25fd67fa8715fd547d3d", 
-     "command": "chef-client", 
-     "run_timeout": 300, 
+     "id": "aaaaaaaaaaaa25fd67fa8715fd547d3d",
+     "command": "chef-client",
+     "run_timeout": 300,
      "status": "running",
-     "created_at": "Tue, 04 Sep 2012 23:01:02 GMT", 
-     "updated_at": "Tue, 04 Sep 2012 23:17:56 GMT", 
+     "created_at": "Tue, 04 Sep 2012 23:01:02 GMT",
+     "updated_at": "Tue, 04 Sep 2012 23:17:56 GMT",
      "nodes": {
-       "running": ["NODE1", "NODE5"], 
-       "complete": ["NODE2", "NODE3", "NODE4"], 
+       "running": ["NODE1", "NODE5"],
+       "complete": ["NODE2", "NODE3", "NODE4"],
        "crashed": ["NODE6"]
      }
    }
@@ -649,18 +650,18 @@ The response is similar to:
 
    {
      {
-       "node_name": "FARQUAD", 
-       "status": "up", 
+       "node_name": "FARQUAD",
+       "status": "up",
        "updated_at": "Tue, 04 Sep 2012 23:17:56 GMT"
      }
      {
-       "node_name": "DONKEY", 
-       "status": "up", 
+       "node_name": "DONKEY",
+       "status": "up",
        "updated_at": "Tue, 04 Sep 2012 23:17:56 GMT"
      }
      {
-       "node_name": "FIONA", 
-       "status": "down", 
+       "node_name": "FIONA",
+       "status": "down",
        "updated_at": "Tue, 04 Sep 2012 23:17:56 GMT"
      }
    }
@@ -715,8 +716,8 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     "node_name": "FIONA", 
-     "status": "down", 
+     "node_name": "FIONA",
+     "status": "down",
      "updated_at": "Tue, 04 Sep 2012 23:17:56 GMT"
    }
 

@@ -1,25 +1,25 @@
 =====================================================
-Custom Resources 
+Custom Resources
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/custom_resources.rst>`__
 
-.. warning:: This approach to building custom resources was introduced in chef-client, version 12.5. It is the recommended approach for all custom resources starting with that version of the chef-client. Refer to the `notes about custom resources <https://docs.chef.io/custom_resources_notes.html>`_ if you're curious about other approaches that use the older styles. If you are using an older version of the chef-client, please use the version picker (in the top left of the navigation) to select your version, and then choose the same topic from the navigation tree ("Extend Chef > Custom Resources"). See also https://github.com/chef-cookbooks/compat_resource for using this features with previous versions of the chef-client.
-
 .. tag custom_resources_summary
-
-.. This file is hooked into a slide deck
 
 A custom resource:
 
-* Is a simple extension of Chef
-* Is implemented as part of a cookbook
+* Is a simple extension of Chef that adds your own resources
+* Is implemented and shipped as part of a cookbook
 * Follows easy, repeatable syntax patterns
-* Effectively leverages resources that are built into Chef
+* Effectively leverages resources that are built into Chef and/or custom Ruby code
 * Is reusable in the same way as resources that are built into Chef
 
 For example, Chef includes built-in resources to manage files, packages, templates, and services, but it does not include a resource that manages websites.
 
 .. end_tag
+
+Custom resources were introduced in Chef version 12.5 and are now the preferred method of writing your own resources in Chef. If you are using an older version of the chef-client, please see our `legacy documentation <https://docs-archive.chef.io/release/12-4/custom_resources.html>`__.
+
+As of Chef client 12.14, individual resource properties can be marked as ``sensitive: true``, which suppresses the value of that property when exporting the resource's state.
 
 Syntax
 =====================================================
@@ -28,24 +28,24 @@ Syntax
 A custom resource is defined as a Ruby file and is located in a cookbook's ``/resources`` directory. This file
 
 * Declares the properties of the custom resource
-* Loads current properties, if the resource already exists
+* Loads current state of properties, if the resource already exists
 * Defines each action the custom resource may take
 
 The syntax for a custom resource is. For example:
 
 .. code-block:: ruby
 
-   property :name, RubyType, default: 'value'
+   property :property_name, RubyType, default: 'value'
 
    load_current_value do
-     # some Ruby
+     # some Ruby for loading the current state of the resource
    end
 
-   action :name do
+   action :action_name do
     # a mix of built-in Chef resources and Ruby
    end
 
-   action :name do
+   action :another_action_name do
     # a mix of built-in Chef resources and Ruby
    end
 
@@ -57,17 +57,11 @@ Example
 -----------------------------------------------------
 .. tag custom_resources_syntax_example
 
-For example, the ``site.rb`` file in the ``exampleco`` cookbook could be similar to:
+This example ``site`` utilizes Chef's built in ``file``, ``service`` and ``package`` resources, and includes ``:create`` and ``:delete`` actions. Since it uses built in Chef resources, besides defining the property and actions, the code is very similar to that of a recipe.
 
 .. code-block:: ruby
 
    property :homepage, String, default: '<h1>Hello world!</h1>'
-
-   load_current_value do
-     if ::File.exist?('/var/www/html/index.html')
-       homepage IO.read('/var/www/html/index.html')
-     end
-   end
 
    action :create do
      package 'httpd'
@@ -90,18 +84,15 @@ For example, the ``site.rb`` file in the ``exampleco`` cookbook could be similar
 where
 
 * ``homepage`` is a property that sets the default HTML for the ``index.html`` file with a default value of ``'<h1>Hello world!</h1>'``
-* the (optional) ``load_current_value`` block loads the current values for all specified properties, in this example there is just a single property: ``homepage``
-* the ``if`` statement checks to see if the ``index.html`` file is already present on the node. If that file is already present, its contents are loaded **instead** of the default value for ``homepage`` 
 * the ``action`` block uses the built-in collection of resources to tell the chef-client how to install Apache, start the service, and then create the contents of the file located at ``/var/www/html/index.html``
-* ``action :create`` is the default resource; ``action :delete`` must be called specifically (because it is not the default resource)
+* ``action :create`` is the default resource, because it is listed first; ``action :delete`` must be called specifically (because it is not the default resource)
 
-Once built, the custom resource may be used in a recipe just like the any of the resources that are built into Chef. The resource gets its name from the cookbook and from the file name in the ``/resources`` directory, with an underscore (``_``) separating them. For example, a cookbook named ``exampleco`` with a custom resource named ``site.rb`` is used in a recipe like this:
+Once built, the custom resource may be used in a recipe just like any of the resources that are built into Chef. The resource gets its name from the cookbook and from the file name in the ``/resources`` directory, with an underscore (``_``) separating them. For example, a cookbook named ``exampleco`` with a custom resource named ``site.rb`` is used in a recipe like this:
 
 .. code-block:: ruby
 
    exampleco_site 'httpd' do
      homepage '<h1>Welcome to the Example Co. website!</h1>'
-     action :create
    end
 
 and to delete the exampleco website, do the following:
@@ -150,12 +141,6 @@ For example, the ``httpd.rb`` file in the ``website`` cookbook could be assigned
 
    property :homepage, String, default: '<h1>Hello world!</h1>'
 
-   load_current_value do
-     if ::File.exist?('/var/www/html/index.html')
-       homepage IO.read('/var/www/html/index.html')
-     end
-   end
-
    action :create do
      package 'httpd'
 
@@ -181,8 +166,6 @@ and is then usable in a recipe like this:
 
 Scenario: website Resource
 =====================================================
-.. This file is hooked into a slide deck
-
 Create a resource that configures Apache httpd for Red Hat Enterprise Linux 7 and CentOS 7.
 
 This scenario covers the following:
@@ -194,12 +177,8 @@ This scenario covers the following:
 #. Creating two templates that support the custom resource
 #. Adding the resource to a recipe
 
-.. note:: Read this scenario as an HTML presentation at https://docs.chef.io/decks/custom_resources.html.
-
 Create a Cookbook
 -----------------------------------------------------
-.. This file is hooked into a slide deck
-
 This article assumes that a cookbook directory named ``website`` exists in a chef-repo with (at least) the following directories:
 
 .. code-block:: text
@@ -211,12 +190,10 @@ This article assumes that a cookbook directory named ``website`` exists in a che
 
 You may use a cookbook that already exists or you may create a new cookbook.
 
-See https://docs.chef.io/ctl_chef.html for more information about how to use the ``chef`` command-line tool that is packaged with the Chef development kit to build the chef-repo, plus related cookbook sub-directories.
+See /ctl_chef.html for more information about how to use the ``chef`` command-line tool that is packaged with the Chef development kit to build the chef-repo, plus related cookbook sub-directories.
 
 Objectives
 -----------------------------------------------------
-.. This file is hooked into a slide deck
-
 Define a custom resource!
 
 A custom resource typically contains:
@@ -227,8 +204,6 @@ A custom resource typically contains:
 
 What is needed?
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. This file is hooked into a slide deck
-
 This custom resource requires:
 
 * Two template files
@@ -237,8 +212,6 @@ This custom resource requires:
 
 Define Properties
 -----------------------------------------------------
-.. This file is hooked into a slide deck
-
 Custom properties are defined in the resource. This custom resource needs two:
 
 * ``instance_name``
@@ -246,26 +219,22 @@ Custom properties are defined in the resource. This custom resource needs two:
 
 These properties are defined as variables in the ``httpd.conf.erb`` file. A **template** block in recipes will tell the chef-client how to apply these variables.
 
-.. This file is hooked into a slide deck
-
 In the custom resource, add the following custom properties:
 
 .. code-block:: ruby
 
    property :instance_name, String, name_property: true
-   property :port, Fixnum, required: true
+   property :port, Integer, required: true
 
 where
 
-* ``String`` and ``Fixnum`` are Ruby types (all custom properties must have an assigned Ruby type)
+* ``String`` and ``Integer`` are Ruby types (all custom properties must have an assigned Ruby type)
 * ``name_property: true`` allows the value for this property to be equal to the ``'name'`` of the resource block
 
 The ``instance_name`` property is then used within the custom resource in many locations, including defining paths to configuration files, services, and virtual hosts.
 
 Define Actions
 -----------------------------------------------------
-.. This file is hooked into a slide deck
-
 Each custom resource must have at least one action that is defined within an ``action`` block:
 
 .. code-block:: ruby
@@ -287,14 +256,10 @@ For example, the ``action`` appears as a property when this custom resource is u
 
 Define Resource
 -----------------------------------------------------
-.. This file is hooked into a slide deck
-
-Use the **package**, **template** (two times), **directory**, and **service** resources to define the ``website`` resource. Remember: `order matters <https://docs.chef.io/decks/recipe_order_matters.html>`_!
+Use the **package**, **template** (two times), **directory**, and **service** resources to define the ``website`` resource. Remember: order matters!
 
 package
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. This file is hooked into a slide deck
-
 Use the **package** resource to install httpd:
 
 .. code-block:: ruby
@@ -305,20 +270,15 @@ Use the **package** resource to install httpd:
 
 template, httpd.service
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. This file is hooked into a slide deck
-
 Use the **template** resource to create an ``httpd.service`` on the node based on the ``httpd.service.erb`` template located in the cookbook:
 
 .. code-block:: ruby
 
-   template "/lib/systemd/system/httpd-#{instance_name}.service" do
+   template "/lib/systemd/system/httpd-#{new_resource.instance_name}.service" do
      source 'httpd.service.erb'
      variables(
-       :instance_name => instance_name
+       instance_name: new_resource.instance_name
      )
-     owner 'root'
-     group 'root'
-     mode '0644'
      action :create
    end
 
@@ -329,21 +289,16 @@ where
 
 template, httpd.conf
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. This file is hooked into a slide deck
-
 Use the **template** resource to configure httpd on the node based on the ``httpd.conf.erb`` template located in the cookbook:
 
 .. code-block:: ruby
 
-   template "/etc/httpd/conf/httpd-#{instance_name}.conf" do
+   template "/etc/httpd/conf/httpd-#{new_resource.instance_name}.conf" do
      source 'httpd.conf.erb'
      variables(
-       :instance_name => instance_name,
-       :port => port
+       instance_name: new_resource.instance_name,
+       port: new_resource.port
      )
-     owner 'root'
-     group 'root'
-     mode '0644'
      action :create
    end
 
@@ -354,36 +309,27 @@ where
 
 directory
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. This file is hooked into a slide deck
-
 Use the **directory** resource to create the ``/var/www/vhosts`` directory on the node:
 
 .. code-block:: ruby
 
-   directory "/var/www/vhosts/#{instance_name}" do
+   directory "/var/www/vhosts/#{new_resource.instance_name}" do
      recursive true
-     owner 'root'
-     group 'root'
-     mode '0755'
      action :create
    end
 
 service
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. This file is hooked into a slide deck
-
 Use the **service** resource to enable, and then start the service:
 
 .. code-block:: ruby
 
-   service "httpd-#{instance_name}" do
+   service "httpd-#{new_resource.instance_name}" do
      action [:enable, :start]
    end
 
 Create Templates
 -----------------------------------------------------
-.. This file is hooked into a slide deck
-
 The ``/templates`` directory must contain two templates:
 
 * ``httpd.conf.erb`` to configure Apache httpd
@@ -391,8 +337,6 @@ The ``/templates`` directory must contain two templates:
 
 httpd.conf.erb
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. This file is hooked into a slide deck
-
 ``httpd.conf.erb`` stores information about the website and is typically located under the ``/etc/httpd``:
 
 .. code-block:: ruby
@@ -407,16 +351,14 @@ httpd.conf.erb
      Require all denied
    </Directory>
    DocumentRoot "/var/www/vhosts/<%= @instance_name %>"
-   <IfModule mime_module> 
+   <IfModule mime_module>
      TypesConfig /etc/mime.types
    </IfModule>
 
-Copy it as shown, add it under ``/templates/default``, and then name the file ``httpd.conf.erb``.
+Copy it as shown, add it under ``/templates``, and then name the file ``httpd.conf.erb``.
 
 Template Variables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. This file is hooked into a slide deck
-
 The ``httpd.conf.erb`` template has two variables:
 
 * ``<%= @instance_name %>``
@@ -431,8 +373,6 @@ They are:
 
 httpd.service.erb
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. This file is hooked into a slide deck
-
 ``httpd.service.erb`` tells systemd how to start and stop the website:
 
 .. code-block:: none
@@ -454,55 +394,43 @@ httpd.service.erb
    [Install]
    WantedBy=multi-user.target
 
-Copy it as shown, add it under ``/templates/default``, and then name it ``httpd.service.erb``.
+Copy it as shown, add it under ``/templates``, and then name it ``httpd.service.erb``.
 
 Final Resource
 -----------------------------------------------------
-.. This file is hooked into a slide deck
-.. This is the consolidated version of includes_custom_resources_slide_website_final_resource_part1, includes_custom_resources_slide_website_final_resource_part2, includes_custom_resources_slide_website_final_resource_part3
-
 .. code-block:: ruby
 
    property :instance_name, String, name_property: true
-   property :port, Fixnum, required: true
+   property :port, Integer, required: true
 
    action :create do
      package 'httpd' do
        action :install
      end
 
-     template "/lib/systemd/system/httpd-#{instance_name}.service" do
+     template "/lib/systemd/system/httpd-#{new_resource.instance_name}.service" do
        source 'httpd.service.erb'
        variables(
-         :instance_name => instance_name
+         instance_name: new_resource.instance_name
        )
-       owner 'root'
-       group 'root'
-       mode '0644'
        action :create
      end
 
-     template "/etc/httpd/conf/httpd-#{instance_name}.conf" do
+     template "/etc/httpd/conf/httpd-#{new_resource.instance_name}.conf" do
        source 'httpd.conf.erb'
        variables(
-         :instance_name => instance_name,
-         :port => port
+         instance_name: new_resource.instance_name,
+         port: new_resource.port
        )
-       owner 'root'
-       group 'root'
-       mode '0644'
        action :create
      end
 
-     directory "/var/www/vhosts/#{instance_name}" do
+     directory "/var/www/vhosts/#{new_resource.instance_name}" do
        recursive true
-       owner 'root'
-       group 'root'
-       mode '0755'
        action :create
      end
 
-     service "httpd-#{instance_name}" do
+     service "httpd-#{new_resource.instance_name}" do
        action [:enable, :start]
      end
 
@@ -510,8 +438,6 @@ Final Resource
 
 Final Cookbook Directory
 -----------------------------------------------------
-.. This file is hooked into a slide deck
-
 When finished adding the templates and building the custom resource, the cookbook directory structure should look like this:
 
 .. code-block:: text
@@ -524,15 +450,12 @@ When finished adding the templates and building the custom resource, the cookboo
      /resources
        httpd.rb
      /templates
-       /default
-         httpd.conf.erb
-         httpd.service.erb
+       httpd.conf.erb
+       httpd.service.erb
 
 Recipe
 -----------------------------------------------------
-.. This file is hooked into a slide deck
-
-The custom resource name is inferred from the name of the cookbook (``website``), the name of the recipe (``httpd``), and is separated by an underscore(``_``): ``website_httpd``.
+The custom resource name is inferred from the name of the cookbook (``website``), the name of the resource file (``httpd``), and is separated by an underscore(``_``): ``website_httpd``.  The custom resource may be used in a recipe.
 
 .. code-block:: ruby
 
@@ -552,6 +475,49 @@ which does the following:
 Custom Resource DSL
 =====================================================
 The following sections describe additional Custom Resource DSL methods that were not used in the preceding scenario:
+
+action_class
+-----------------------------------------------------
+.. tag dsl_custom_resource_block_action_class
+
+Use the ``action_class`` block to make methods available to the actions in the custom resource. Modules with helper methods created as files in the cookbook library directory may be included. New action methods may also be defined directly in the ``action_class`` block. Code in the ``action_class`` block has access to the new_resource properties.
+
+Assume a helper module has been created in the cookbook ``libraries/helper.rb`` file.
+
+.. code-block:: ruby
+
+   module Sample
+     module Helper
+       def helper_method
+         # code
+       end
+     end
+   end
+
+Methods may be made available to the custom resource actions by using an ``action_class`` block.
+
+.. code-block:: ruby
+
+   property file, String
+
+   action :delete do
+     helper_method
+     FileUtils.rm(new_resource.file) if file_exist
+   end
+
+   action_class do
+
+     def file_exist
+       ::File.exist?(new_resource.file)
+     end
+
+     require 'fileutils'
+
+     include Sample::Helper
+
+   end
+
+.. end_tag
 
 converge_if_changed
 -----------------------------------------------------
@@ -579,18 +545,18 @@ For example, a custom resource defines two properties (``content`` and ``path``)
    property :path, String, name_property: true
 
    load_current_value do
-     if File.exist?(path)
+     if ::File.exist?(path)
        content IO.read(path)
      end
    end
 
    action :create do
      converge_if_changed do
-       IO.write(path, content)
+       IO.write(new_resource.path, new_resource.content)
      end
    end
 
-When the file does not exist, the ``IO.write(path, content)`` code is executed and the chef-client output will print something similar to:
+When the file does not exist, the ``IO.write(new_resource.path, new_resource.content)`` code is executed and the chef-client output will print something similar to:
 
 .. code-block:: bash
 
@@ -614,18 +580,18 @@ The ``converge_if_changed`` method may be used multiple times. The following exa
    property :mode, String
 
    load_current_value do
-     if File.exist?(path)
-       content IO.read(path)
-       mode File.stat(path).mode
+     if ::File.exist?(new_resource.path)
+       content IO.read(new_resource.path)
+       mode ::File.stat(new_resource.path).mode
      end
    end
 
    action :create do
      converge_if_changed :content do
-       IO.write(path, content)
+       IO.write(new_resource.path, new_resource.content)
      end
      converge_if_changed :mode do
-       File.chmod(mode, path)
+       ::File.chmod(new_resource.mode, new_resource.path)
      end
    end
 
@@ -647,7 +613,7 @@ The default action in a custom resource is, by default, the first action listed 
 
 .. code-block:: ruby
 
-   property :name, RubyType, default: 'value'
+   property :property_name, RubyType, default: 'value'
 
    ...
 
@@ -663,7 +629,7 @@ The ``default_action`` method may also be used to specify the default action. Fo
 
 .. code-block:: ruby
 
-   property :name, RubyType, default: 'value'
+   property :property_name, RubyType, default: 'value'
 
    default_action :aaaaa
 
@@ -692,10 +658,10 @@ Use the ``load_current_value`` method to guard against property values being rep
    action :some_action do
 
      load_current_value do
-       if File.exist?('/var/www/html/index.html')
+       if ::File.exist?('/var/www/html/index.html')
          homepage IO.read('/var/www/html/index.html')
        end
-       if File.exist?('/var/www/html/404.html')
+       if ::File.exist?('/var/www/html/404.html')
          page_not_found IO.read('/var/www/html/404.html')
        end
      end
@@ -716,14 +682,14 @@ Custom resources are designed to use core resources that are built into Chef. In
 
    resource_name :node_execute
 
-   property :command, kind_of: String, name_property: true
-   property :version, kind_of: String
+   property :command, String, name_property: true
+   property :version, String
 
    # Useful properties from the `execute` resource
-   property :cwd, kind_of: String
-   property :environment, kind_of: Hash, default: {}
-   property :user, kind_of: [String, Integer]
-   property :sensitive, kind_of: [TrueClass, FalseClass], default: false
+   property :cwd, String
+   property :environment, Hash, default: {}
+   property :user, [String, Integer]
+   property :sensitive, [true, false], default: false
 
    prefix = '/opt/languages/node'
 
@@ -740,7 +706,7 @@ Custom resources are designed to use core resources that are built into Chef. In
        sensitive sensitive
        # gsub replaces 10+ spaces at the beginning of the line with nothing
        command <<-CODE.gsub(/^ {10}/, '')
-         #{prefix}/#{version}/#{command}
+         #{prefix}/#{new_resource.version}/#{command}
        CODE
      end
    end
@@ -759,14 +725,14 @@ To prevent this behavior, use ``new_resource.`` to tell the chef-client to proce
 
    resource_name :node_execute
 
-   property :command, kind_of: String, name_property: true
-   property :version, kind_of: String
+   property :command, String, name_property: true
+   property :version, String
 
    # Useful properties from the `execute` resource
-   property :cwd, kind_of: String
-   property :environment, kind_of: Hash, default: {}
-   property :user, kind_of: [String, Integer]
-   property :sensitive, kind_of: [TrueClass, FalseClass], default: false
+   property :cwd, String
+   property :environment, Hash, default: {}
+   property :user, [String, Integer]
+   property :sensitive, [true, false], default: false
 
    prefix = '/opt/languages/node'
 
@@ -800,13 +766,14 @@ Use the ``property`` method to define properties for the custom resource. The sy
 
 .. code-block:: ruby
 
-   property :name, ruby_type, default: 'value'
+   property :property_name, ruby_type, default: 'value', parameter: 'value'
 
 where
 
-* ``:name`` is the name of the property
-* ``ruby_type`` is the Ruby type, such as ``String``, ``Integer``, ``TrueClass``, or ``FalseClass``
-* ``default: 'value'`` is the default value loaded into the resource
+* ``:property_name`` is the name of the property
+* ``ruby_type`` is the optional Ruby type or array of types, such as ``String``, ``Integer``, ``true``, or ``false``
+* ``default: 'value'`` is the optional default value loaded into the resource
+* ``parameter: 'value'`` optional parameters
 
 For example, the following properties define ``username`` and ``password`` properties with no default values specified:
 
@@ -817,22 +784,146 @@ For example, the following properties define ``username`` and ``password`` prope
 
 .. end_tag
 
+ruby_type
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. tag dsl_custom_resource_method_property_ruby_type
+
+The property ruby_type is a positional parameter. Use to ensure a property value is of a particular ruby class, such as ``true``, ``false``, ``nil``, ``String``, ``Array``, ``Hash``, ``Integer``, ``Symbol``. Use an array of ruby classes to allow a value to be of more than one type. For example:
+
+       .. code-block:: ruby
+
+          property :aaaa, String
+
+       .. code-block:: ruby
+
+          property :bbbb, Integer
+
+       .. code-block:: ruby
+
+          property :cccc, Hash
+
+       .. code-block:: ruby
+
+          property :dddd, [true, false]
+
+       .. code-block:: ruby
+
+          property :eeee, [String, nil]
+
+       .. code-block:: ruby
+
+          property :ffff, [Class, String, Symbol]
+
+       .. code-block:: ruby
+
+          property :gggg, [Array, Hash]
+
+.. end_tag
+
+validators
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. tag dsl_custom_resource_method_property_validation_parameter
+
+A validation parameter is used to add zero (or more) validation parameters to a property.
+
+.. list-table::
+   :widths: 150 450
+   :header-rows: 1
+
+   * - Parameter
+     - Description
+   * - ``:callbacks``
+     - Use to define a collection of unique keys and values (a ruby hash) for which the key is the error message and the value is a lambda to validate the parameter. For example:
+
+       .. code-block:: ruby
+
+          callbacks: {
+                       'should be a valid non-system port' => lambda {
+                         |p| p > 1024 && p < 65535
+                       }
+                     }
+
+   * - ``:default``
+     - Use to specify the default value for a property. For example:
+
+       .. code-block:: ruby
+
+          default: 'a_string_value'
+
+       .. code-block:: ruby
+
+          default: 123456789
+
+       .. code-block:: ruby
+
+          default: []
+
+       .. code-block:: ruby
+
+          default: ()
+
+       .. code-block:: ruby
+
+          default: {}
+   * - ``:equal_to``
+     - Use to match a value with ``==``. Use an array of values to match any of those values with ``==``. For example:
+
+       .. code-block:: ruby
+
+          equal_to: [true, false]
+
+       .. code-block:: ruby
+
+          equal_to: ['php', 'perl']
+   * - ``:regex``
+     - Use to match a value to a regular expression. For example:
+
+       .. code-block:: ruby
+
+          regex: [ /^([a-z]|[A-Z]|[0-9]|_|-)+$/, /^\d+$/ ]
+   * - ``:required``
+     - Indicates that a property is required. For example:
+
+       .. code-block:: ruby
+
+          required: true
+   * - ``:respond_to``
+     - Use to ensure that a value has a given method. This can be a single method name or an array of method names. For example:
+
+       .. code-block:: ruby
+
+          respond_to: valid_encoding?
+
+Some examples of combining validation parameters:
+
+.. code-block:: ruby
+
+   property :spool_name, String, regex: /$\w+/
+
+.. code-block:: ruby
+
+   property :enabled, equal_to: [true, false, 'true', 'false'], default: true
+
+.. end_tag
+
 desired_state
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag dsl_custom_resource_method_property_desired_state
 
-Add ``desired_state:`` to get or set the list of desired state properties for a resource, which describe the desired state of the node, such as permissions on an existing file. This value may be ``true`` or ``false``.
+Add ``desired_state:`` to set the desired state property for a resource. This value may be ``true`` or ``false``, and all properties default to true.
 
-* When ``true``, the state of the system will determine the value.
-* When ``false``, the values defined by the recipe or custom resource will determine the value, i.e. "the desired state of this system includes setting the value defined in this custom resource or recipe"
+* When ``true``, the state of the property is determined by the state of the system
+* When ``false``, the value of the property impacts how the resource executes, but it is not determined by the state of the system.
 
-For example, the following properties define the ``owner``, ``group``, and ``mode`` properties for a file that already exists on the node, and with ``desired_state`` set to ``false``:
+For example, if you were to write a resource to create volumes on a cloud provider you would need define properties such as ``volume_name``, ``volume_size``, and ``volume_region``. The state of these properties would determine if your resource needed to converge or not. For the resource to function you would also need to define properties such as ``cloud_login`` and ``cloud_password``. These are necessary properties for interacting with the cloud provider, but their state has no impact on decision to converge the resource or not, so you would set ``desired_state`` to ``false`` for these properties.
 
 .. code-block:: ruby
 
-   property :owner, String, default: 'root', desired_state: false
-   property :group, String, default: 'root', desired_state: false
-   property :mode, String, default: '0755', desired_state: false
+   property :volume_name, String
+   property :volume_size, Integer
+   property :volume_region, String
+   property :cloud_login, String, desired_state: false
+   property :cloud_password, String, desired_state: false
 
 .. end_tag
 
@@ -857,7 +948,7 @@ For example, the following properties define ``username`` and ``password`` prope
 .. end_tag
 
 Block Arguments
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 .. tag dsl_custom_resource_method_property_block_argument
 
 Any properties that are marked ``identity: true`` or ``desired_state: false`` will be available from ``load_current_value``. If access to other properties of a resource is needed, use a block argument that contains all of the properties of the requested resource. For example:
@@ -888,17 +979,19 @@ For example, the following custom resource creates and/or updates user propertie
 
 .. code-block:: ruby
 
-   action :create do
-     converge_if_changed do
-       system("rabbitmqctl create_or_update_user #{username} --prop1 #{prop1} ... ")
-     end
+  action :create do
+    converge_if_changed do
+      shell_out!("rabbitmqctl create_or_update_user #{username} --prop1 #{prop1} ... ")
+    end
 
-     if property_is_set?(:password)
-       if system("rabbitmqctl authenticate_user #{username} #{password}") != 0 do
-         converge_by "Updating password for user #{username} ..." do
-       system("rabbitmqctl update_user #{username} --password #{password}")
-     end
-   end
+    if property_is_set?(:password)
+      if shell_out("rabbitmqctl authenticate_user #{username} #{password}").error?
+        converge_by "Updating password for user #{username} ..." do
+          shell_out!("rabbitmqctl update_user #{username} --password #{password}")
+        end
+      end
+    end
+  end
 
 .. end_tag
 
@@ -976,3 +1069,13 @@ Use the ``reset_property`` method to clear the value for a property as if it had
 
 .. end_tag
 
+coerce
+-----------------------------------------------------
+
+``coerce`` is used to transform user input into a canonical form. The value is passed in, and the transformed value returned as output. Lazy values will **not** be passed to this method until after they are evaluated.
+
+``coerce`` is run in the context of the instance, which gives it access to other properties.
+
+.. code-block:: ruby
+    
+    property :mode, coerce: proc { |m| m.is_a?(String) ? m.to_s(8) : m }

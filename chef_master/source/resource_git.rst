@@ -9,12 +9,6 @@ Use the **git** resource to manage source control resources that exist in a git 
 
 .. end_tag
 
-.. note:: .. tag notes_scm_resource_use_with_resource_deploy
-
-          This resource is often used in conjunction with the **deploy** resource.
-
-          .. end_tag
-
 Syntax
 =====================================================
 A **git** resource block manages source control resources that exist in a git repository:
@@ -36,12 +30,11 @@ The full syntax for all of the properties that are available to the **git** reso
      checkout_branch            String
      depth                      Integer
      destination                String # defaults to 'name' if not specified
-     enable_checkout            TrueClass, FalseClass
-     enable_submodules          TrueClass, FalseClass
+     enable_checkout            True, False
+     enable_submodules          True, False
      environment                Hash
      group                      String, Integer
      notifies                   # see description
-     provider                   Chef::Provider::Scm::Git
      reference                  String
      remote                     String
      repository                 String
@@ -57,8 +50,8 @@ where
 
 * ``git`` is the resource
 * ``name`` is the name of the resource block and also (when the ``destination`` property is not specified) the location in which the source files will be placed and/or synchronized with the files under source control management
-* ``:action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``additional_remotes``, ``checkout_branch``, ``depth``, ``destination``, ``enable_checkout``, ``enable_submodules``, ``environment``, ``group``, ``provider``, ``reference``, ``remote``, ``repository``, ``revision``, ``ssh_wrapper``, ``timeout``, and ``user`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``additional_remotes``, ``checkout_branch``, ``depth``, ``destination``, ``enable_checkout``, ``enable_submodules``, ``environment``, ``group``, ``reference``, ``remote``, ``repository``, ``revision``, ``ssh_wrapper``, ``timeout``, and ``user`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -73,7 +66,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the chef-client run.
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -105,12 +98,12 @@ This resource has the following properties:
    The location path to which the source is to be cloned, checked out, or exported. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
 
 ``enable_checkout``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Check out a repo from master. Set to ``false`` when using the ``checkout_branch`` attribute to prevent the **git** resource from attempting to check out master from master. Default value: ``true``.
 
 ``enable_submodules``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Perform a sub-module initialization and update. Default value: ``false``.
 
@@ -121,13 +114,15 @@ This resource has the following properties:
 
    .. note:: The **git** provider automatically sets the ``ENV['HOME']`` and ``ENV['GIT_SSH']`` environment variables. To override this behavior and provide different values, add ``ENV['HOME']`` and/or ``ENV['GIT_SSH']`` to the ``environment`` Hash.
 
+   New in Chef Client 12.0.
+
 ``group``
    **Ruby Types:** String, Integer
 
    The system group that is responsible for the checked-out code.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -136,19 +131,19 @@ This resource has the following properties:
 
    .. tag resources_common_notification_notifies
 
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
 
    .. end_tag
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -164,11 +159,6 @@ This resource has the following properties:
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
 
 ``reference``
    **Ruby Type:** String
@@ -224,17 +214,32 @@ This resource has the following properties:
 
    A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
 
+   Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
+
+   .. code-block:: ruby
+
+     file '/etc/nginx/ssl/example.crt' do
+        mode '0600'
+        owner 'root'
+     end
+
+     service 'nginx' do
+        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+     end
+
+   In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
+
    .. end_tag
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -260,16 +265,6 @@ This resource has the following properties:
    **Ruby Types:** String, Integer
 
    The system user that is responsible for the checked-out code. Default value: the home directory of this user, as indicated by the ``HOME`` environment variable.
-
-.. 
-.. Providers
-.. =====================================================
-.. .. include:: ../../includes_resources_common/includes_resources_common_provider.rst
-.. 
-.. .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
-.. 
-.. .. include:: ../../includes_resources/includes_resource_scm_git_providers.rst
-..
 
 Examples
 =====================================================
@@ -305,12 +300,12 @@ To use different branches, depending on the environment of the node:
       branch_name = 'master'
    end
 
-   git '/home/user/deployment' do                            
+   git '/home/user/deployment' do
       repository 'git@github.com:gitsite/deployment.git'
-      revision branch_name                                   
-      action :sync                                     
-      user 'user'                                    
-      group 'test'                                      
+      revision branch_name
+      action :sync
+      user 'user'
+      group 'test'
    end
 
 where the ``branch_name`` variable is set to ``staging`` or ``master``, depending on the environment of the node. Once this is determined, the ``branch_name`` variable is used to set the revision for the repository. If the ``git status`` command is used after running the example above, it will return the branch name as ``deploy``, as this is the default value. Run the chef-client in debug mode to verify that the correct branches are being checked out:
@@ -381,9 +376,8 @@ The following example uses the **git** resource to upgrade packages:
    git '/opt/mysources/couch' do
      repository 'git://git.apache.org/couchdb.git'
      revision 'master'
-     environment  { 'VAR' => 'whatever' }
+     environment 'VAR' => 'whatever'
      action :sync
    end
 
 .. end_tag
-

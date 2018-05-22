@@ -11,7 +11,7 @@ A cookbook template is an Embedded Ruby (ERB) template that is used to dynamical
 
 .. note:: .. tag notes_cookbook_template_erubis
 
-          The chef-client uses Erubis for templates, which is a fast, secure, and extensible implementation of embedded Ruby. Erubis should be familiar to members of the Ruby on Rails, Merb, or Puppet communities. For more information about Erubis, see: http://www.kuwata-lab.com/erubis/.
+          The Chef Client uses Erubis for templates, which is a fast, secure, and extensible implementation of embedded Ruby. Erubis should be familiar to members of the Ruby on Rails, Merb, or Puppet communities. For more information about Erubis, see: http://www.kuwata-lab.com/erubis/.
 
           .. end_tag
 
@@ -45,23 +45,22 @@ The full syntax for all of the properties that are available to the **template**
 .. code-block:: ruby
 
    template 'name' do
-     atomic_update              TrueClass, FalseClass
-     backup                     FalseClass, Integer
+     atomic_update              True, False
+     backup                     False, Integer
      cookbook                   String
-     force_unlink               TrueClass, FalseClass
+     force_unlink               True, False
      group                      String, Integer
      helper(:method)            Method { String } # see Helpers below
      helpers(module)            Module # see Helpers below
-     inherits                   TrueClass, FalseClass
-     local                      TrueClass, FalseClass
-     manage_symlink_source      TrueClass, FalseClass, NilClass
+     inherits                   True, False
+     local                      True, False
+     manage_symlink_source      True, False
      mode                       String, Integer
      notifies                   # see description
      owner                      String, Integer
      path                       String # defaults to 'name' if not specified
-     provider                   Chef::Provider::File::Template
      rights                     Hash
-     sensitive                  TrueClass, FalseClass
+     sensitive                  True, False
      source                     String, Array
      subscribes                 # see description
      variables                  Hash
@@ -74,8 +73,8 @@ where
 * ``template`` is the resource
 * ``name`` is the name of the resource block, typically the path to the location in which a file is created *and also* the name of the file to be managed. For example: ``/var/www/html/index.html``, where ``/var/www/html/`` is the fully qualified path to the location and ``index.html`` is the name of the file
 * ``source`` is the template file that will be used to create the file on the node, for example: ``index.html.erb``; the template file is located in the ``/templates`` directory of a cookbook
-* ``:action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``atomic_update``, ``backup``, ``cookbook``, ``force_unlink``, ``group``, ``helper``, ``helpers``, ``inherits``, ``local``, ``manage_symlink_source``, ``mode``, ``owner``, ``path``, ``provider``, ``rights``, ``sensitive``, ``source``, ``variables``, and ``verify`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``atomic_update``, ``backup``, ``cookbook``, ``force_unlink``, ``group``, ``helper``, ``helpers``, ``inherits``, ``local``, ``manage_symlink_source``, ``mode``, ``owner``, ``path``, ``rights``, ``sensitive``, ``source``, ``variables``, and ``verify`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -93,30 +92,24 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the chef-client run.
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
 
 ``:touch``
    Touch a file. This updates the access (atime) and file modification (mtime) times for a file. (This action may be used with this resource, but is typically only used with the **file** resource.)
 
-.. warning:: .. tag notes_selinux_file_based_resources
-
-             For a machine on which SELinux is enabled, the chef-client will create files that correctly match the default policy settings only when the cookbook that defines the action also conforms to the same policy.
-
-             .. end_tag
-
 Properties
 =====================================================
 This resource has the following properties:
 
 ``atomic_update``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Perform atomic file updates on a per-resource basis. Set to ``true`` for atomic file updates. Set to ``false`` for non-atomic file updates. This setting overrides ``file_atomic_update``, which is a global setting found in the client.rb file. Default value: ``true``.
 
 ``backup``
-   **Ruby Types:** FalseClass, Integer
+   **Ruby Types:** False, Integer
 
    The number of backups to be kept in ``/var/chef/backup`` (for UNIX- and Linux-based platforms) or ``C:/chef/backup`` (for the Microsoft Windows platform). Set to ``false`` to prevent backups from being kept. Default value: ``5``.
 
@@ -126,7 +119,7 @@ This resource has the following properties:
    The cookbook in which a file is located (if it is not located in the current cookbook). The default value is the current cookbook.
 
 ``force_unlink``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    How the chef-client handles certain situations when the target file turns out not to be a file. For example, when a target file is actually a symlink. Set to ``true`` for the chef-client delete the non-file target and replace it with the specified file. Set to ``false`` for the chef-client to raise an error. Default value: ``false``.
 
@@ -146,24 +139,26 @@ This resource has the following properties:
    Define a helper module inline or in a library. For example, an inline module: ``helpers do``, which is then followed by a block of Ruby code. And for a library module: ``helpers(MyHelperModule)``. Default value: ``[]``.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
 ``inherits``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Microsoft Windows only. Whether a file inherits rights from its parent directory. Default value: ``true``.
 
 ``local``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Load a template from a local path. By default, the chef-client loads templates from a cookbook's ``/templates`` directory. When this property is set to ``true``, use the ``source`` property to specify the path to a template on the local node. Default value: ``false``.
 
 ``manage_symlink_source``
-   **Ruby Types:** TrueClass, FalseClass, NilClass
+   **Ruby Types:** True, False | **Default Value:** ``true`` (with warning)
 
-   Cause the chef-client to detect and manage the source file for a symlink. Possible values: ``nil``, ``true``, or ``false``. When this value is set to ``nil``, the chef-client will manage a symlink's source file and emit a warning. When this value is set to ``true``, the chef-client will manage a symlink's source file and not emit a warning. Default value: ``nil``. The default value will be changed to ``false`` in a future version.
+   Change the behavior of the file resource if it is pointed at a symlink. When this value is set to ``true``, the Chef client will manage the symlink's permissions or will replace the symlink with a normal file if the resource has content. When this value is set to ``false``, Chef will follow the symlink and will manage the permissions and content of the symlink's target file.
+
+   The default behavior is ``true`` but emits a warning that the default value will be changed to ``false`` in a future version; setting this explicitly to ``true`` or ``false`` suppresses this warning.
 
 ``mode``
    **Ruby Types:** Integer, String
@@ -181,19 +176,19 @@ This resource has the following properties:
 
    .. tag resources_common_notification_notifies
 
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
 
    .. end_tag
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -222,11 +217,6 @@ This resource has the following properties:
 
    Microsoft Windows: A path that begins with a forward slash (``/``) will point to the root of the current working directory of the chef-client process. This path can vary from system to system. Therefore, using a path that begins with a forward slash (``/``) is not recommended.
 
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
-
 ``retries``
    **Ruby Type:** Integer
 
@@ -243,7 +233,7 @@ This resource has the following properties:
    Microsoft Windows only. The permissions for users and groups in a Microsoft Windows environment. For example: ``rights <permissions>, <principal>, <options>`` where ``<permissions>`` specifies the rights granted to the principal, ``<principal>`` is the group or user name, and ``<options>`` is a Hash with one (or more) advanced rights options.
 
 ``sensitive``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Ensure that sensitive resource data is not logged by the chef-client. Default value: ``false``.
 
@@ -259,17 +249,32 @@ This resource has the following properties:
 
    A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
 
+   Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
+
+   .. code-block:: ruby
+
+     file '/etc/nginx/ssl/example.crt' do
+        mode '0600'
+        owner 'root'
+     end
+
+     service 'nginx' do
+        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+     end
+
+   In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
+
    .. end_tag
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -298,10 +303,10 @@ This resource has the following properties:
    .. code-block:: ruby
 
       template '/file/name.txt' do
-        variables :partials => {
+        variables partials: {
           'partial_name_1.txt.erb' => 'message',
           'partial_name_2.txt.erb' => 'message',
-          'partial_name_3.txt.erb' => 'message'
+          'partial_name_3.txt.erb' => 'message',
         }
       end
 
@@ -380,6 +385,8 @@ This resource has the following properties:
    If a string or a block return ``false``, the chef-client run will stop and an error is returned.
 
    .. end_tag
+
+   New in Chef Client 12.1.
 
 Atomic File Updates
 -----------------------------------------------------
@@ -461,7 +468,7 @@ or:
 Some other important things to know when using the ``rights`` attribute:
 
 * Only inherited rights remain. All existing explicit rights on the object are removed and replaced.
-* If rights are not specified, nothing will be changed. The chef-client does not clear out the rights on a file or directory if rights are not specified. 
+* If rights are not specified, nothing will be changed. The chef-client does not clear out the rights on a file or directory if rights are not specified.
 * Changing inherited rights can be expensive. Microsoft Windows will propagate rights to all children recursively due to inheritance. This is a normal aspect of Microsoft Windows, so consider the frequency with which this type of action is necessary and take steps to control this type of action if performance is the primary consideration.
 
 Use the ``deny_rights`` property to deny specific rights to specific users. The ordering is independent of using the ``rights`` property. For example, it doesn't matter if rights are granted to everyone is placed before or after ``deny_rights :read, ['Julian', 'Lewis']``, both Julian and Lewis will be unable to read the document. For example:
@@ -532,16 +539,6 @@ Because the ``inherits`` property is not specified, the chef-client will default
 
 .. end_tag
 
-.. 
-.. Providers
-.. =====================================================
-.. .. include:: ../../includes_resources_common/includes_resources_common_provider.rst
-.. 
-.. .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
-.. 
-.. .. include:: ../../includes_resources/includes_resource_template_providers.rst
-..
-
 Using Templates
 =====================================================
 .. tag template_requirements
@@ -555,16 +552,14 @@ For example, the following template file and template resource settings can be u
 
 .. code-block:: ruby
 
-   template '/etc/sudoers' do
-     source 'sudoers.erb'
-     mode '0440'
-     owner 'root'
-     group 'root'
-     variables({
-        :sudoers_groups => node[:authorization][:sudo][:groups],
-        :sudoers_users => node[:authorization][:sudo][:users]
-     })
-   end
+    template '/etc/sudoers' do
+      source 'sudoers.erb'
+      mode '0440'
+      owner 'root'
+      group 'root'
+      variables(sudoers_groups: node['authorization']['sudo']['groups'],
+                sudoers_users: node['authorization']['sudo']['users'])
+    end
 
 And then create a template called ``sudoers.erb`` and save it to ``templates/default/sudoers.erb``:
 
@@ -573,7 +568,7 @@ And then create a template called ``sudoers.erb`` and save it to ``templates/def
    #
    # /etc/sudoers
    #
-   # Generated by Chef for <%= node[:fqdn] %> 
+   # Generated by Chef for <%= node['fqdn'] %>
    #
 
    Defaults        !lecture,tty_tickets,!fqdn
@@ -597,8 +592,8 @@ And then set the default attributes in ``attributes/default.rb``:
 
 .. code-block:: ruby
 
-   default['authorization']['sudo']['groups'] = [ 'sysadmin', 'wheel', 'admin' ]
-   default['authorization']['sudo']['users']  = [ 'jerry', 'greg']
+    default['authorization']['sudo']['groups'] = %w(sysadmin wheel admin)
+    default['authorization']['sudo']['users'] = %w(jerry greg)
 
 .. end_tag
 
@@ -614,18 +609,18 @@ A cookbook is frequently designed to work across many platforms and is often req
 
 The pattern for template specificity depends on two things: the lookup path and the source. The first pattern that matches is used:
 
-#. /host-$fqdn/$source
-#. /$platform-$platform_version/$source
-#. /$platform/$source
-#. /default/$source
-#. /$source
+#. ``/host-$fqdn/$source``
+#. ``/$platform-$platform_version/$source``
+#. ``/$platform/$source``
+#. ``/default/$source``
+#. ``/$source``
 
 Use an array with the ``source`` property to define an explicit lookup path. For example:
 
 .. code-block:: ruby
 
    template '/test' do
-     source ['#{node.chef_environment}.erb', 'default.erb']
+     source ["#{node.chef_environment}.erb", 'default.erb']
    end
 
 The following example emulates the entire file specificity pattern by defining it as an explicit path:
@@ -633,12 +628,12 @@ The following example emulates the entire file specificity pattern by defining i
 .. code-block:: ruby
 
    template '/test' do
-     source %W{
+     source %W(
        host-#{node['fqdn']}/test.erb
        #{node['platform']}-#{node['platform_version']}/test.erb
        #{node['platform']}/test.erb
        default/test.erb
-     }
+     )
    end
 
 .. end_tag
@@ -679,6 +674,8 @@ This resource would be matched in the same order as the ``/templates`` directory
      default/text_file.txt
 
 .. end_tag
+
+Changed in Chef Client 12.0.
 
 Helpers
 -----------------------------------------------------
@@ -832,7 +829,7 @@ Transfer Frequency
 -----------------------------------------------------
 .. tag template_transfer_frequency
 
-The chef-client caches a template when it is first requested. On each subsequent request for that template, the chef-client compares that request to the template located on the Chef server. If the templates are the same, no transfer occurs.
+The Chef Client caches a template when it is first requested. On each subsequent request for that template, the Chef Client compares that request to the template located on the Chef server. If the templates are the same, no transfer occurs.
 
 .. end_tag
 
@@ -840,7 +837,7 @@ Variables
 -----------------------------------------------------
 .. tag template_variables
 
-A template is an Embedded Ruby (ERB) template. An Embedded Ruby (ERB) template allows Ruby code to be embedded inside a text file within specially formatted tags. Ruby code can be embedded using expressions and statements. An expression is delimited by ``<%=`` and ``%>``. For example:
+An Embedded Ruby (ERB) template allows Ruby code to be embedded inside a text file within specially formatted tags. Ruby code can be embedded using expressions and statements. An expression is delimited by ``<%=`` and ``%>``. For example:
 
 .. code-block:: ruby
 
@@ -851,27 +848,23 @@ A statement is delimited by a modifier, such as ``if``, ``elseif``, and ``else``
 .. code-block:: ruby
 
    if false
-      # this won't happen
+   # this won't happen
    elsif nil
-      # this won't either
-   else
-      # code here will run though
-   end
+         # this won't either
+       end
 
 Using a Ruby expression is the most common approach for defining template variables because this is how all variables that are sent to a template are referenced. Whenever a template needs to use an ``each``, ``if``, or ``end``, use a Ruby statement.
 
-When a template is rendered, Ruby expressions and statements are evaluated by the chef-client. The variables listed in the **template** resource's ``variables`` parameter and in the node object are evaluated. The chef-client then passes these variables to the template, where they will be accessible as instance variables within the template. The node object can be accessed just as if it were part of a recipe, using the same syntax.
+When a template is rendered, Ruby expressions and statements are evaluated by the Chef Client. The variables listed in the **template** resource's ``variables`` parameter and in the node object are evaluated. The Chef Client then passes these variables to the template, where they will be accessible as instance variables within the template. The node object can be accessed just as if it were part of a recipe, using the same syntax.
 
 For example, a simple template resource like this:
 
 .. code-block:: ruby
 
-   node[:fqdn] = 'latte'
+   node['fqdn'] = 'latte'
    template '/tmp/foo' do
      source 'foo.erb'
-     variables({
-       :x_men => 'are keen'
-     })
+     variables(x_men: 'are keen')
    end
 
 And a simple Embedded Ruby (ERB) template like this:
@@ -951,7 +944,7 @@ The following example shows how to use the ``not_if`` condition to create a file
    template '/tmp/somefile' do
      mode '0755'
      source 'somefile.erb'
-     not_if { node[:some_value] }
+     not_if { node['some_value'] }
    end
 
 .. end_tag
@@ -981,7 +974,7 @@ The following example shows how to use the ``not_if`` condition to create a file
    template '/tmp/somefile' do
      mode '0755'
      source 'somefile.erb'
-     not_if { File.exist?('/etc/passwd' )}
+     not_if { File.exist?('/etc/passwd') }
    end
 
 .. end_tag
@@ -1011,7 +1004,7 @@ The following example shows how to use the ``only_if`` condition to create a fil
    template '/tmp/somefile' do
      mode '0755'
      source 'somefile.erb'
-     only_if { node[:some_value] }
+     only_if { node['some_value'] }
    end
 
 .. end_tag
@@ -1268,11 +1261,11 @@ The following example shows how to add a rule named ``test_rule`` to an IP table
 .. code-block:: ruby
 
    execute 'test_rule' do
-     command 'command_to_run 
-       --option value 
+     command 'command_to_run
+       --option value
        ...
-       --option value 
-       --source #{node[:name_of_node][:ipsec][:local][:subnet]} 
+       --option value
+       --source #{node[:name_of_node][:ipsec][:local][:subnet]}
        -j test_rule'
      action :nothing
    end
@@ -1427,4 +1420,3 @@ The recipe then uses the ``variables`` attribute to find the values for ``splunk
 This example can be found in the ``client.rb`` recipe and the ``outputs.conf.erb`` template files that are located in the `chef-splunk cookbook <https://github.com/chef-cookbooks/chef-splunk/>`_  that is maintained by Chef.
 
 .. end_tag
-

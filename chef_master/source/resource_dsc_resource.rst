@@ -5,9 +5,11 @@ dsc_resource
 
 .. tag resources_common_powershell
 
-Windows PowerShell is a task-based command-line shell and scripting language developed by Microsoft. Windows PowerShell uses a document-oriented approach for managing Microsoft Windows-based machines, similar to the approach that is used for managing UNIX- and Linux-based machines. Windows PowerShell is `a tool-agnostic platform <http://technet.microsoft.com/en-us/library/bb978526.aspx>`_ that supports using Chef for configuration management.
+Windows PowerShell is a task-based command-line shell and scripting language developed by Microsoft. Windows PowerShell uses a document-oriented approach for managing Microsoft Windows-based machines, similar to the approach that is used for managing Unix and Linux-based machines. Windows PowerShell is `a tool-agnostic platform <http://technet.microsoft.com/en-us/library/bb978526.aspx>`_ that supports using Chef for configuration management.
 
 .. end_tag
+
+New in Chef Client 12.2.  Changed in Chef Client 12.6.
 
 .. tag resources_common_powershell_dsc
 
@@ -44,7 +46,7 @@ Syntax
 =====================================================
 .. tag resource_dsc_resource_syntax
 
-A **dsc_resource** resource block allows DSC resourcs to be used in a Chef recipe. For example, the DSC ``Archive`` resource:
+A **dsc_resource** resource block allows DSC resources to be used in a Chef recipe. For example, the DSC ``Archive`` resource:
 
 .. code-block:: powershell
 
@@ -71,6 +73,7 @@ The full syntax for all of the properties that are available to the **dsc_resour
 
    dsc_resource 'name' do
      module_name                String
+     module_version             String
      notifies                   # see description
      property                   Symbol
      resource                   String
@@ -82,7 +85,7 @@ where
 * ``dsc_resource`` is the resource
 * ``name`` is the name of the resource block
 * ``property`` is zero (or more) properties in the DSC resource, where each property is entered on a separate line, ``:dsc_property_name`` is the case-insensitive name of that property, and ``"property_value"`` is a Ruby value to be applied by the chef-client
-* ``module_name``, ``property``, and ``resource`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``module_name``, ``module_version``, ``property``, and ``resource`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -95,12 +98,14 @@ This resource has the following actions:
 
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the chef-client run.
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
 
 ``:reboot_action``
    Use to request an immediate reboot or to queue a reboot using the ``:reboot_now`` (immediate reboot) or ``:request_reboot`` (queued reboot) actions built into the **reboot** resource.
+
+   New in Chef Client 12.6.
 
 Properties
 =====================================================
@@ -109,7 +114,7 @@ Properties
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -118,24 +123,31 @@ This resource has the following properties:
 
    The name of the module from which a DSC resource originates. If this property is not specified, it will be inferred.
 
+``module_version``
+   **Ruby Type:** String
+
+   The version number of the module to use. Powershell 5.0.10018.0 (or higher) supports having multiple versions of a module installed. This should be specified along with the ``module_name``.
+
+   New in Chef Client 12.19.
+
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
    .. tag resources_common_notification_notifies
 
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
 
    .. end_tag
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -173,7 +185,7 @@ This resource has the following properties:
         - ``Object[]``
       * - ``Chef::Util::Powershell:PSCredential``
         - ``PSCredential``
-      * - ``FalseClass``
+      * - ``False``
         - ``bool($false)``
       * - ``Fixnum``
         - ``Integer``
@@ -181,7 +193,7 @@ This resource has the following properties:
         - ``Double``
       * - ``Hash``
         - ``Hashtable``
-      * - ``TrueClass``
+      * - ``True``
         - ``bool($true)``
 
    These are converted into the corresponding Windows PowerShell type during the chef-client run.
@@ -251,17 +263,32 @@ This resource has the following properties:
 
    A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
 
+   Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
+
+   .. code-block:: ruby
+
+     file '/etc/nginx/ssl/example.crt' do
+        mode '0600'
+        owner 'root'
+     end
+
+     service 'nginx' do
+        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+     end
+
+   In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
+
    .. end_tag
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -331,6 +358,30 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. end_tag
 
+**Create and register a windows service**
+
+.. tag resource_dsc_resource_windows_service
+
+.. To create a windows service:
+
+The following example creates a windows service, defines it's execution path, and prevents windows from starting the service
+in case the executable is not at the defined location:
+
+.. code-block:: ruby
+
+  dsc_resource 'NAME' do
+    resource :service
+    property :name, 'NAME'
+    property :startuptype, 'Disabled'
+    property :path, 'D:\\Sites\\Site_name\file_to_run.exe'
+    property :ensure, 'Present'
+    property :state, 'Stopped'
+  end
+
+.. end_tag
+
+New in Chef Client 12.0.
+
 **Create a test message queue**
 
 .. tag resource_dsc_resource_manage_msmq
@@ -370,6 +421,25 @@ The following example creates a file on a node (based on one that is located in 
      property :name, 'Test_Queue_Permissions'
      property :QueueNames, 'Test_Queue'
      property :ReadUsers, node['msmq']['read_user']
+   end
+
+.. end_tag
+
+**Example to show usage of module properties**
+
+.. tag resource_dsc_resource_module_properties_usage
+
+.. To show usage of module properties:
+
+.. code-block:: ruby
+
+   dsc_resource 'test-cluster' do
+     resource :xCluster
+     module_name 'xFailOverCluster'
+     module_version '1.6.0.0'
+     property :name, 'TestCluster'
+     property :staticipaddress, '10.0.0.3'
+     property :domainadministratorcredential, ps_credential('abcd')
    end
 
 .. end_tag

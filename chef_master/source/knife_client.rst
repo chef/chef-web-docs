@@ -1,5 +1,5 @@
 =====================================================
-knife client 
+knife client
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_client.rst>`__
 
@@ -11,9 +11,11 @@ The ``knife client`` subcommand is used to manage an API client list and their a
 
 .. note:: .. tag knife_common_see_common_options_link
 
-          Review the list of :doc:`common options </knife_common_options>` available to this (and all) knife subcommands and plugins.
+          Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
           .. end_tag
+
+Changed in Chef Client 12.4 to support public key management for users and clients.
 
 bulk delete
 =====================================================
@@ -84,7 +86,7 @@ This argument has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 
@@ -110,7 +112,7 @@ When running the ``create`` argument, be sure to omit the ``-a`` option:
 
 delete
 =====================================================
-Use the ``delete`` argument to delete a registered API client.
+Use the ``delete`` argument to delete a registered API client. If using Chef client 12.17 or later, you can delete multiple clients using this subcommand.
 
 Syntax
 -----------------------------------------------------
@@ -388,7 +390,7 @@ to return something similar to:
    i-12345678
    rs-123456
 
-To verify that an API client can authenticate to the 
+To verify that an API client can authenticate to the
 Chef server correctly, try getting a list of clients using ``-u`` and ``-k`` options to specify its name and private key:
 
 .. code-block:: bash
@@ -418,7 +420,7 @@ This argument has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 

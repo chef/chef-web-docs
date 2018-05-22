@@ -27,7 +27,7 @@ To configure proxy settings in Microsoft Windows:
 
 Linux
 =====================================================
-To determine the current proxy server on the Mac OS X and Linux platforms, check the environment variables. Run the following:
+To determine the current proxy server on the macOS and Linux platforms, check the environment variables. Run the following:
 
 .. code-block:: bash
 
@@ -131,13 +131,19 @@ ENV
 -----------------------------------------------------
 .. tag proxy_env
 
-If ``http_proxy``, ``https_proxy``, ``ftp_proxy``, or ``no_proxy`` is set in the client.rb file, the chef-client will configure the ``ENV`` variable based on these (and related) settings. For example:
+If ``http_proxy``, ``https_proxy``, ``ftp_proxy``, or ``no_proxy`` is set in the client.rb file and is not already set in the ``ENV``, the chef-client will configure the ``ENV`` variable based on these (and related) settings. For example:
 
 .. code-block:: ruby
 
    http_proxy 'http://proxy.example.org:8080'
    http_proxy_user 'myself'
    http_proxy_pass 'Password1'
+
+Or an alternative way to define the proxy (if the previous version does not work):
+
+.. code-block:: ruby
+
+   http_proxy 'http://myself:Password1@proxy.example.org:8080'
 
 will be set to:
 

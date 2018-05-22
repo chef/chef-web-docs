@@ -30,7 +30,7 @@ An attribute can be defined in a cookbook (or a recipe) and then used to overrid
 
 .. note:: .. tag notes_see_attributes_overview
 
-          Attributes can be configured in cookbooks (attribute files and recipes), roles, and environments. In addition, Ohai collects attribute data about each node at the start of the chef-client run. See |url docs_attributes| for more information about how all of these attributes fit together.
+          Attributes can be configured in cookbooks (attribute files and recipes), roles, and environments. In addition, Ohai collects attribute data about each node at the start of the chef-client run. See `Attributes </attributes.html>`__ for more information about how all of these attributes fit together.
 
           .. end_tag
 
@@ -84,7 +84,7 @@ Attribute Persistence
 -----------------------------------------------------
 .. tag node_attribute_persistence
 
-At the beginning of a chef-client run, all attributes are reset. The chef-client rebuilds them using automatic attributes collected by Ohai at the beginning of the chef-client run and then using default and override attributes that are specified in cookbooks or by roles and environments. Normal attributes are never reset. All attributes are then merged and applied to the node according to attribute precedence. At the conclusion of the chef-client run, the attributes that were applied to the node are saved to the Chef server as part of the node object.
+At the beginning of a chef-client run, all attributes except for normal attributes are reset. The chef-client rebuilds them using automatic attributes collected by Ohai at the beginning of the chef-client run and then using default and override attributes that are specified in cookbooks or by roles and environments. All attributes are then merged and applied to the node according to attribute precedence. At the conclusion of the chef-client run, the attributes that were applied to the node are saved to the Chef server as part of the node object.
 
 .. end_tag
 
@@ -124,13 +124,80 @@ Attribute precedence, when viewed as a table:
 
 .. end_tag
 
+Changed in Chef Client 12.0, so that attributes may be modified for named precedence levels, all precedence levels, and be fully assigned.
+
+Blacklist Attributes
+-----------------------------------------------------
+.. tag node_attribute_blacklist
+
+.. warning:: When attribute blacklist settings are used, any attribute defined in a blacklist will not be saved and any attribute that is not defined in a blacklist will be saved. Each attribute type is blacklisted independently of the other attribute types. For example, if ``automatic_attribute_blacklist`` defines attributes that will not be saved, but ``normal_attribute_blacklist``, ``default_attribute_blacklist``, and ``override_attribute_blacklist`` are not defined, then all normal attributes, default attributes, and override attributes will be saved, as well as the automatic attributes that were not specifically excluded through blacklisting.
+
+Attributes that should not be saved by a node may be blacklisted in the client.rb file. The blacklist is a Hash of keys that specify each attribute to be filtered out.
+
+Attributes are blacklisted by attribute type, with each attribute type being blacklisted independently. Each attribute type---``automatic``, ``default``, ``normal``, and ``override``---may define blacklists by using the following settings in the client.rb file:
+
+.. list-table::
+   :widths: 200 300
+   :header-rows: 1
+
+
+   * - Setting
+     - Description
+   * - ``automatic_attribute_blacklist``
+     - A hash that blacklists ``automatic`` attributes, preventing blacklisted attributes from being saved. For example: ``['network/interfaces/eth0']``. Default value: ``nil``, all attributes are saved. If the array is empty, all attributes are saved.
+   * - ``default_attribute_blacklist``
+     - A hash that blacklists ``default`` attributes, preventing blacklisted attributes from being saved. For example: ``['filesystem/dev/disk0s2/size']``. Default value: ``nil``, all attributes are saved. If the array is empty, all attributes are saved.
+   * - ``normal_attribute_blacklist``
+     - A hash that blacklists ``normal`` attributes, preventing blacklisted attributes from being saved. For example: ``['filesystem/dev/disk0s2/size']``. Default value: ``nil``, all attributes are saved. If the array is empty, all attributes are saved.
+   * - ``override_attribute_blacklist``
+     - A hash that blacklists ``override`` attributes, preventing blacklisted attributes from being saved. For example: ``['map - autohome/size']``. Default value: ``nil``, all attributes are saved. If the array is empty, all attributes are saved.
+
+.. warning:: The recommended practice is to use only ``automatic_attribute_blacklist`` for blacklisting attributes. This is primarily because automatic attributes generate the most data, but also that normal, default, and override attributes are typically much more important attributes and are more likely to cause issues if they are blacklisted incorrectly.
+
+For example, automatic attribute data similar to:
+
+.. code-block:: javascript
+
+   {
+     "filesystem" => {
+       "/dev/disk0s2" => {
+         "size" => "10mb"
+       },
+       "map - autohome" => {
+         "size" => "10mb"
+       }
+     },
+     "network" => {
+       "interfaces" => {
+         "eth0" => {...},
+         "eth1" => {...},
+       }
+     }
+   }
+
+To blacklist the ``filesystem`` attributes and allow the other attributes to be saved, update the client.rb file:
+
+.. code-block:: ruby
+
+   automatic_attribute_blacklist ['filesystem']
+
+When a blacklist is defined, any attribute of that type that is not specified in that attribute blacklist **will** be saved. So based on the previous blacklist for automatic attributes, the ``filesystem`` and ``map - autohome`` attributes will not be saved, but the ``network`` attributes will.
+
+For attributes that contain slashes (``/``) within the attribute value, such as the ``filesystem`` attribute ``'/dev/diskos2'``, use an array. For example:
+
+.. code-block:: ruby
+
+   automatic_attribute_blacklist [['filesystem','/dev/diskos2']]
+
+.. end_tag
+
 Whitelist Attributes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag node_attribute_whitelist
 
-.. warning:: When these settings are used, any attribute not defined in a whitelist will not be saved. Each attribute type is whitelisted independently of the other attribute types. For example, if ``automatic_attribute_whitelist`` defines attributes to be saved, but ``normal_attribute_whitelist``, ``default_attribute_whitelist``, and ``override_attribute_whitelist`` are not defined, then all normal, default and override attributes are saved, along with only the specified automatic attributes.
+.. warning:: When attribute whitelist settings are used, only the attributes defined in a whitelist will be saved and any attribute that is not defined in a whitelist will not be saved. Each attribute type is whitelisted independently of the other attribute types. For example, if ``automatic_attribute_whitelist`` defines attributes to be saved, but ``normal_attribute_whitelist``, ``default_attribute_whitelist``, and ``override_attribute_whitelist`` are not defined, then all normal attributes, default attributes, and override attributes are saved, as well as the automatic attributes that were specifically included through whitelisting.
 
-Attributes that should be saved by a node may be whitelisted in the client.rb file. The whitelist is a Hash of keys that specify each attribute to be saved.
+Attributes that should be saved by a node may be whitelisted in the client.rb file. The whitelist is a hash of keys that specifies each attribute to be saved.
 
 Attributes are whitelisted by attribute type, with each attribute type being whitelisted independently. Each attribute type---``automatic``, ``default``, ``normal``, and ``override``---may define whitelists by using the following settings in the client.rb file:
 
@@ -141,17 +208,17 @@ Attributes are whitelisted by attribute type, with each attribute type being whi
    * - Setting
      - Description
    * - ``automatic_attribute_whitelist``
-     - A Hash that whitelists ``automatic`` attributes, preventing non-whitelisted attributes from being saved. For example: ``['network/interfaces/eth0']``. Default value: all attributes are saved. If the Hash is empty, no attributes are saved.
+     - A hash that whitelists ``automatic`` attributes, preventing non-whitelisted attributes from being saved. For example: ``['network/interfaces/eth0']``. Default value: ``nil``, all attributes are saved. If the hash is empty, no attributes are saved.
    * - ``default_attribute_whitelist``
-     - A Hash that whitelists ``default`` attributes, preventing non-whitelisted attributes from being saved. For example: ``['filesystem/dev/disk0s2/size']``. Default value: all attributes are saved. If the Hash is empty, no attributes are saved.
+     - A hash that whitelists ``default`` attributes, preventing non-whitelisted attributes from being saved. For example: ``['filesystem/dev/disk0s2/size']``. Default value: ``nil``, all attributes are saved. If the hash is empty, no attributes are saved.
    * - ``normal_attribute_whitelist``
-     - A Hash that whitelists ``normal`` attributes, preventing non-whitelisted attributes from being saved. For example: ``['filesystem/dev/disk0s2/size']``. Default value: all attributes are saved. If the Hash is empty, no attributes are saved.
+     - A hash that whitelists ``normal`` attributes, preventing non-whitelisted attributes from being saved. For example: ``['filesystem/dev/disk0s2/size']``. Default value: ``nil``, all attributes are saved. If the hash is empty, no attributes are saved.
    * - ``override_attribute_whitelist``
-     - A Hash that whitelists ``override`` attributes, preventing non-whitelisted attributes from being saved. For example: ``['map - autohome/size']``. Default value: all attributes are saved. If the Hash is empty, no attributes are saved.
+     - A hash that whitelists ``override`` attributes, preventing non-whitelisted attributes from being saved. For example: ``['map - autohome/size']``. Default value: ``nil``, all attributes are saved. If the hash is empty, no attributes are saved.
 
-.. warning:: It is recommended that only ``automatic_attribute_whitelist`` be used to whitelist attributes. This is primarily because automatic attributes generate the most data, but also that normal, default, and override attributes are typically much more important attributes and are more likely to cause issues if they are whitelisted incorrectly.
+.. warning:: The recommended practice is to only use ``automatic_attribute_whitelist`` to whitelist attributes. This is primarily because automatic attributes generate the most data, but also that normal, default, and override attributes are typically much more important attributes and are more likely to cause issues if they are whitelisted incorrectly.
 
-For example, normal attribute data similar to:
+For example, automatic attribute data similar to:
 
 .. code-block:: javascript
 
@@ -176,15 +243,15 @@ To whitelist the ``network`` attributes and prevent the other attributes from be
 
 .. code-block:: ruby
 
-   normal_attribute_whitelist ['network/interfaces/']
+   automatic_attribute_whitelist ['network/interfaces/']
 
-When a whitelist is defined, any attribute of that type that is not specified in that attribute whitelist **will not** be saved. So based on the previous whitelist for normal attributes, the ``filesystem`` and ``map - autohome`` attributes will not be saved, but the ``network`` attributes will.
+When a whitelist is defined, any attribute of that type that is not specified in that attribute whitelist **will not** be saved. So based on the previous whitelist for automatic attributes, the ``filesystem`` and ``map - autohome`` attributes will not be saved, but the ``network`` attributes will.
 
 Leave the value empty to prevent all attributes of that attribute type from being saved:
 
 .. code-block:: ruby
 
-   normal_attribute_whitelist []
+   automatic_attribute_whitelist []
 
 For attributes that contain slashes (``/``) within the attribute value, such as the ``filesystem`` attribute ``'/dev/diskos2'``, use an array. For example:
 
@@ -328,7 +395,7 @@ Include Recipes
 -----------------------------------------------------
 .. tag cookbooks_recipe_include_in_recipe
 
-A recipe can include one (or more) recipes located in external cookbooks by using the ``include_recipe`` method. When a recipe is included, the resources found in that recipe will be inserted (in the same exact order) at the point where the ``include_recipe`` keyword is located.
+A recipe can include one (or more) recipes from cookbooks by using the ``include_recipe`` method. When a recipe is included, the resources found in that recipe will be inserted (in the same exact order) at the point where the ``include_recipe`` keyword is located.
 
 The syntax for including a recipe is like this:
 
@@ -342,7 +409,15 @@ For example:
 
    include_recipe 'apache2::mod_ssl'
 
-If the ``include_recipe`` method is used more than once to include a recipe, only the first inclusion is processed and any subsequent inclusions are ignored.
+Multiple recipes can be included within a recipe. For example:
+
+.. code-block:: ruby
+
+   include_recipe 'cookbook::setup'
+   include_recipe 'cookbook::install'
+   include_recipe 'cookbook::configure'
+
+If a specific recipe is included more than once with the ``include_recipe`` method or elsewhere in the run_list directly, only the first instance is processed and subsequent inclusions are ignored.
 
 .. end_tag
 
@@ -375,7 +450,7 @@ To assign a value to a variable:
 
 .. code-block:: ruby
 
-   package_name = "apache2"
+   package_name = 'apache2'
 
 Use Case Statement
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -385,17 +460,17 @@ To select a package name based on platform:
 
 .. code-block:: ruby
 
-   package "apache2" do
-     case node[:platform]
-     when "centos","redhat","fedora","suse"
-       package_name "httpd"
-     when "debian","ubuntu"
-       package_name "apache2"
-     when "arch"
-       package_name "apache"
-     end 
-     action :install
-   end
+  package 'apache2' do
+    case node['platform']
+    when 'centos', 'redhat', 'fedora', 'suse'
+      package_name 'httpd'
+    when 'debian', 'ubuntu'
+      package_name 'apache2'
+    when 'arch'
+      package_name 'apache'
+    end
+    action :install
+  end
 
 Check Conditions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -405,7 +480,7 @@ To check for condition only for Debian and Ubuntu platforms:
 
 .. code-block:: ruby
 
-   if platform?("debian", "ubuntu")
+   if platform?('debian', 'ubuntu')
      # do something if node['platform'] is debian or ubuntu
    else
      # do other stuff
@@ -419,9 +494,9 @@ To use an expression to execute when a condition returns a false value:
 
 .. code-block:: ruby
 
-   unless node[:platform_version] == "5.0"
-     # do stuff on everything but 5.0
-   end
+  unless node['platform_version'] == '5.0'
+    # do stuff on everything but 5.0
+  end
 
 Loop over Array
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -431,9 +506,9 @@ To loop over an array of package names by platform:
 
 .. code-block:: ruby
 
-   ["apache2", "apache2-mpm"].each do |p|
-     package p
-   end
+  ['apache2', 'apache2-mpm'].each do |p|
+    package p
+  end
 
 Loop over Hash
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -443,11 +518,11 @@ To loop over a hash of gem package names:
 
 .. code-block:: ruby
 
-   {"fog" => "0.6.0", "highline" => "1.6.0"}.each do |g,v|
-     gem_package g do
-       version v
-     end
-   end
+  { 'fog' => '0.6.0', 'highline' => '1.6.0' }.each do |g, v|
+    gem_package g do
+      version v
+    end
+  end
 
 Apply to Run-lists
 -----------------------------------------------------
@@ -542,7 +617,7 @@ A search query can be assigned to variables and then used elsewhere in a recipe.
 
    template '/tmp/list_of_webservers' do
      source 'list_of_webservers.erb'
-     variables(:webservers => webservers)
+     variables(webservers: webservers)
    end
 
 Use Tags
@@ -581,33 +656,33 @@ For example:
 
    tag('machine')
 
-   if tagged?('machine') 
-      Chef::Log.info('Hey I'm #{node[:tags]}') 
+   if tagged?('machine')
+      Chef::Log.info("Hey I'm #{node[:tags]}")
    end
 
    untag('machine')
 
-   if not tagged?('machine') 
-      Chef::Log.info('I has no tagz') 
+   if not tagged?('machine')
+      Chef::Log.info('I has no tagz')
    end
 
 Will return something like this:
 
 .. code-block:: none
 
-   [Thu, 22 Jul 2010 18:01:45 +0000] INFO: Hey I'm machine 
+   [Thu, 22 Jul 2010 18:01:45 +0000] INFO: Hey I'm machine
    [Thu, 22 Jul 2010 18:01:45 +0000] INFO: I has no tagz
 
 .. end_tag
 
-End chef-client Run 
+End chef-client Run
 -----------------------------------------------------
 Sometimes it may be necessary to stop processing a recipe and/or stop processing the entire chef-client run. There are a few ways to do this:
 
-* Use the ``return`` keyword to stop processing a recipe based on a condition, but continue processing the chef-client run 
+* Use the ``return`` keyword to stop processing a recipe based on a condition, but continue processing the chef-client run
 * Use the ``raise`` keyword to stop a chef-client run by triggering an unhandled exception
 * Use a ``rescue`` block in Ruby code
-* Use an `exception handler <https://docs.chef.io/handlers.html>`_
+* Use an `exception handler </handlers.html>`__
 * Use ``Chef::Application.fatal!`` to log a fatal message to the logger and ``STDERR``, and then stop the chef-client run
 
 The following sections show various approaches to ending a chef-client run.
@@ -622,13 +697,13 @@ The ``return`` keyword can be used to stop processing a recipe based on a condit
      action :create
    end
 
-   return if node['platform'] == 'windows'
+   return if platform?('windows')
 
    package 'name_of_package' do
      action :install
    end
 
-where ``node['platform'] == 'windows'`` is the condition set on the ``return`` keyword. When the condition is met, stop processing the recipe. This approach is useful when there is no need to continue processing, such as when a package cannot be installed. In this situation, it's OK for a recipe to stop processing.
+where ``platform?('windows')`` is the condition set on the ``return`` keyword. When the condition is met, stop processing the recipe. This approach is useful when there is no need to continue processing, such as when a package cannot be installed. In this situation, it's OK for a recipe to stop processing.
 
 fail/raise Keywords
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -644,13 +719,13 @@ Use these keywords in a recipe---but outside of any resource blocks---to trigger
      action :create
    end
 
-   raise "message" if node['platform'] == 'windows'
+   raise "message" if platform?('windows')
 
    package 'name_of_package' do
      action :install
    end
 
-where ``node['platform'] == 'windows'`` is the condition that will trigger the unhandled exception.
+where ``platform?('windows')`` is the condition that will trigger the unhandled exception.
 
 Use these keywords in the **ruby_block** resource to trigger an unhandled exception during the execute phase. For example:
 
@@ -693,12 +768,12 @@ For example:
 
 .. code-block:: ruby
 
-   begin
-     dater = data_bag_item(:basket, "flowers")
-     rescue Net::HTTPServerException
-       # maybe some retry code here?
-     raise "message_to_be_raised"
-   end
+  begin
+    dater = data_bag_item(:basket, 'flowers')
+  rescue Net::HTTPServerException
+    # maybe some retry code here?
+    raise 'message_to_be_raised'
+  end
 
 where ``data_bag_item`` makes an HTTP request to the Chef server to get a data bag item named ``flowers``. If there is a problem, the request will return a ``Net::HTTPServerException``. The ``rescue`` block can be used to try to retry or otherwise handle the situation. If the ``rescue`` block is unable to handle the situation, then the ``raise`` keyword is used to specify the message to be raised.
 
@@ -759,4 +834,3 @@ When this recipe runs, the chef-client will print something like the following:
 
    * package[scripting_language] action install
     - install version 5.3.3-27.el6_5 of package php
-

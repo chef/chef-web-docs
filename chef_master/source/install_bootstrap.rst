@@ -5,9 +5,9 @@ Bootstrap a Node
 
 .. tag chef_client_bootstrap_node
 
-A node is any physical, virtual, or cloud machine that is configured to be maintained by a chef-client. A bootstrap is a process that installs the chef-client on a target system so that it can run as a chef-client and communicate with a Chef server. There are two ways to do this:
+A node is any physical, virtual, or cloud machine that is configured to be maintained by a chef-client. In order to bootstrap a node, you will first need a working installation of the `Chef software package </packages.html>`__. A bootstrap is a process that installs the chef-client on a target system so that it can run as a chef-client and communicate with a Chef server. There are two ways to do this:
 
-* Use the ``knife bootstrap`` subcommand to :doc:`bootstrap a node using the omnibus installer </install_bootstrap>`
+* Use the ``knife bootstrap`` subcommand to `bootstrap a node using the omnibus installer </install_bootstrap.html>`__
 * Use an unattended install to bootstrap a node from itself, without using SSH or WinRM
 
 .. end_tag
@@ -38,40 +38,40 @@ The ``knife bootstrap`` subcommand is used to run a bootstrap operation that ins
 
       $ knife bootstrap 123.45.6.789 -x username -P password --sudo
 
-   where ``123.45.6.789`` is the IP address or the FQDN for the node. Use the ``--distro`` option to specify a non-default distribution. For more information about the options available to the ``knife bootstrap`` command for Ubuntu- and Linux-based platforms, see `knife bootstrap <https://docs.chef.io/knife_bootstrap.html>`_. For Microsoft Windows, the ``knife windows`` plugin is required, see `knife windows <https://docs.chef.io/plugin_knife_windows.html>`_.
+   where ``123.45.6.789`` is the IP address or the FQDN for the node. Use the ``--distro`` option to specify a non-default distribution. For more information about the options available to the ``knife bootstrap`` command for Ubuntu- and Linux-based platforms, see `knife bootstrap </knife_bootstrap.html>`__. For Microsoft Windows, the ``knife windows`` plugin is required, see `knife windows </plugin_knife_windows.html>`__.
 
    And then while the bootstrap operation is running, the command window will show something like the following:
 
    .. code-block:: bash
 
       Bootstrapping Chef on 123.45.6.789
-      123.45.6.789 knife sudo password: 
-      Enter your password: 
-      123.45.6.789 
+      123.45.6.789 knife sudo password:
+      Enter your password:
+      123.45.6.789
       123.45.6.789 [Fri, 07 Sep 2012 11:05:05 -0700] INFO: *** Chef 10.12.0 ***
-      123.45.6.789 
+      123.45.6.789
       123.45.6.789 [Fri, 07 Sep 2012 11:05:07 -0700] INFO: Client key /etc/chef/client.pem is not present - registering
-      123.45.6.789 
+      123.45.6.789
       123.45.6.789 [Fri, 07 Sep 2012 11:05:15 -0700] INFO: Setting the run_list to [] from JSON
-      123.45.6.789 
+      123.45.6.789
       123.45.6.789 [Fri, 07 Sep 2012 11:05:15 -0700] INFO: Run List is []
-      123.45.6.789 
+      123.45.6.789
       123.45.6.789 [Fri, 07 Sep 2012 11:05:15 -0700] INFO: Run List expands to []
-      123.45.6.789 
+      123.45.6.789
       123.45.6.789 [Fri, 07 Sep 2012 11:05:15 -0700] INFO: Starting Chef Run for name_of_node
-      123.45.6.789 
+      123.45.6.789
       123.45.6.789 [Fri, 07 Sep 2012 11:05:15 -0700] INFO: Running start handlers
-      123.45.6.789 
+      123.45.6.789
       123.45.6.789 [Fri, 07 Sep 2012 11:05:15 -0700] INFO: Start handlers complete.
-      123.45.6.789 
+      123.45.6.789
       123.45.6.789 [Fri, 07 Sep 2012 11:05:17 -0700] INFO: Loading cookbooks []
-      123.45.6.789 
+      123.45.6.789
       123.45.6.789 [Fri, 07 Sep 2012 11:05:17 -0700] WARN: Node name_of_node has an empty run list.
-      123.45.6.789 
+      123.45.6.789
       123.45.6.789 [Fri, 07 Sep 2012 11:05:19 -0700] INFO: Chef Run complete in 3.986283452 seconds
-      123.45.6.789 
+      123.45.6.789
       123.45.6.789 [Fri, 07 Sep 2012 11:05:19 -0700] INFO: Running report handlers
-      123.45.6.789 
+      123.45.6.789
       123.45.6.789 [Fri, 07 Sep 2012 11:05:19 -0700] INFO: Report handlers complete
       123.45.6.789
 
@@ -113,7 +113,7 @@ Validatorless Bootstrap
 =====================================================
 .. tag knife_bootstrap_no_validator
 
-The ORGANIZATION-validator.pem is typically added to the .chef directory on the workstation. When a node is bootstrapped from that workstation, the ORGANIZATION-validator.pem is used to authenticate the newly-created node to the Chef server during the initial chef-client run. Starting with chef-client version 12.1, it is possible to bootstrap a node using the USER.pem file instead of the ORGANIZATION-validator.pem file. This is known as a "validatorless bootstrap".
+The ORGANIZATION-validator.pem is typically added to the .chef directory on the workstation. When a node is bootstrapped from that workstation, the ORGANIZATION-validator.pem is used to authenticate the newly-created node to the Chef server during the initial chef-client run. Starting with Chef client 12.1, it is possible to bootstrap a node using the USER.pem file instead of the ORGANIZATION-validator.pem file. This is known as a "validatorless bootstrap".
 
 To create a node via the USER.pem file, simply delete the ORGANIZATION-validator.pem file on the workstation. For example:
 
@@ -144,6 +144,8 @@ When running a validatorless ``knife bootstrap`` operation, the output is simila
    [....etc...]
 
 .. end_tag
+
+New in Chef Client 12.1.
 
 knife bootstrap Options
 -----------------------------------------------------
@@ -201,7 +203,7 @@ At this time, only the users ``sean_horn`` and ``angle`` are authorized to read 
      angle
    clients:
    id:           power
-   search_query: 
+   search_query:
    some:         content for them
 
 It is definitely an encrypted databag, see?
@@ -381,9 +383,98 @@ When the chef-client is installed using an unattended bootstrap, remember that t
 * Must be able to access the chef-validator.pem so that it may create a new identity on the Chef server
 * Must have a unique node name; the chef-client will use the FQDN for the host system by default
 
-When the chef-client is installed using an unattended bootstrap, it is typically built into an image that starts the chef-client on boot. The type of image used depends on the platform on which the unattended bootstrap will take place.
+When the chef-client is installed using an unattended bootstrap, it may be built into an image that starts the chef-client on boot, or installed using User Data or some other kind of post-deployment script. The type of image or User Data used depends on the platform on which the unattended bootstrap will take place.
 
-Use settings in the `client.rb file <https://docs.chef.io/config_rb_client.html>`_---``chef_server_url``, ``http_proxy``, and so on---to ensure that configuration details are built into the unattended bootstrap process.
+Bootstrapping with User Data
+-----------------------------------------------------
+The method used to inject a user data script into a server will vary depending on the infrastructure platform being used. For example, on AWS you can pass this data in as a text file using the command line tool.
+
+The following user data examples demonstrate the process of bootstrapping Windows and Linux nodes.
+
+Powershell User Data
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+   ## Set host file so the instance knows where to find chef-server
+   $hosts = "1.2.3.4 hello.example.com"
+   $file = "C:\Windows\System32\drivers\etc\hosts"
+   $hosts | Add-Content $file
+
+   ## Download the Chef client
+   $clientURL = "https://packages.chef.io/files/stable/chef/12.19.36/windows/2012/chef-client-<version-here>.msi"
+   $clientDestination = "C:\chef-client.msi"
+   Invoke-WebRequest $clientURL -OutFile $clientDestination
+
+   ## Install the chef-client
+   Start-Process msiexec.exe -ArgumentList @('/qn', '/lv C:\Windows\Temp\chef-log.txt', '/i C:\chef-client.msi', 'ADDLOCAL="ChefClientFeature,ChefSchTaskFeature,ChefPSModuleFeature"') -Wait
+
+   ## Create first-boot.json
+   $firstboot = @{
+      "run_list" = @("role[base]")
+   }
+   Set-Content -Path c:\chef\first-boot.json -Value ($firstboot | ConvertTo-Json -Depth 10)
+
+   ## Create client.rb
+   $nodeName = "lab-win-{0}" -f (-join ((65..90) + (97..122) | Get-Random -Count 4 | % {[char]$_}))
+
+   $clientrb = @"
+   chef_server_url        'https://chef-server/organizations/my-org'
+   validation_client_name 'validator'
+   validation_key         'C:\chef\validator.pem'
+   node_name              '{0}'
+   "@ -f $nodeName
+
+   Set-Content -Path c:\chef\client.rb -Value $clientrb
+
+   ## Run Chef
+   C:\opscode\chef\bin\chef-client.bat -j C:\chef\first-boot.json
+
+Bash User Data
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   #!/bin/bash -xev
+
+   # Do some chef pre-work
+   /bin/mkdir -p /etc/chef
+   /bin/mkdir -p /var/lib/chef
+   /bin/mkdir -p /var/log/chef
+
+   # Setup hosts file correctly
+   cat > "/etc/hosts" << EOF
+   10.0.0.5    compliance-server compliance-server.automate.com
+   10.0.0.6    chef-server chef-server.automate.com
+   10.0.0.7    automate-server automate-server.automate.com
+   EOF
+
+   cd /etc/chef/
+
+   # Install chef
+   curl -L https://omnitruck.chef.io/install.sh | bash || error_exit 'could not install chef'
+
+   # Create first-boot.json
+   cat > "/etc/chef/first-boot.json" << EOF
+   {
+      "run_list" :[
+      "role[base]"
+      ]
+   }
+   EOF
+
+   NODE_NAME=node-$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 4 | head -n 1)
+
+   # Create client.rb
+   /bin/echo 'log_location     STDOUT' >> /etc/chef/client.rb
+   /bin/echo -e "chef_server_url  \"https://aut-chef-server/organizations/my-org\"" >> /etc/chef/client.rb
+   /bin/echo -e "validation_client_name \"my-org-validator\"" >> /etc/chef/client.rb
+   /bin/echo -e "validation_key \"/etc/chef/my_org_validator.pem\"" >> /etc/chef/client.rb
+   /bin/echo -e "node_name  \"${NODE_NAME}\"" >> /etc/chef/client.rb
+
+   sudo chef-client -j /etc/chef/first-boot.json
+
+It is important that settings in the `client.rb file </config_rb_client.html>`__---``chef_server_url``, ``http_proxy``, and so on are used---to ensure that configuration details are built into the unattended bootstrap process.
 
 **Setting the initial run-list**
 
@@ -409,7 +500,6 @@ where ``file.json`` is similar to:
 
 and where ``_default`` is the name of the environment that is assigned to the node.
 
-.. warning:: This approach may be used to update ``normal`` attributes, but should never be used to update any other attribute type, as all attributes updated using this option are treated as ``normal`` attributes.
+.. warning:: This approach may be used to update `normal </attributes.html#attribute-types>`__ attributes, but should never be used to update any other attribute type, as all attributes updated using this option are treated as ``normal`` attributes.
 
 .. end_tag
-

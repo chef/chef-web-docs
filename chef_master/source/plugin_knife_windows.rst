@@ -9,10 +9,10 @@ The ``knife windows`` subcommand is used to configure and interact with nodes th
 
 .. end_tag
 
-.. note:: Review the list of `common options <http://docs.chef.io/knife_common_options.html>`_ available to this (and all) knife subcommands and plugins.
+.. note:: Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
-Install this plugin		
-=====================================================		
+Install this plugin
+=====================================================
 .. tag plugin_knife_windows_install_rubygem
 
 To install the ``knife windows`` plugin using RubyGems, run the following command:
@@ -25,8 +25,8 @@ where ``/opt/chef/embedded/bin/`` is the path to the location where the chef-cli
 
 .. end_tag
 
-Requirements		
-=====================================================		
+Requirements
+=====================================================
 .. tag plugin_knife_windows_winrm_requirements
 
 This subcommand requires WinRM to be installed, and then configured correctly, including ensuring the correct ports are open. For more information, see: http://msdn.microsoft.com/en-us/library/aa384372(v=vs.85).aspx and/or http://support.microsoft.com/kb/968930. Use the quick configuration option in WinRM to allow outside connections and the entire network path from knife (and the workstation):
@@ -47,10 +47,6 @@ The following WinRM configuration settings should be updated:
      - The chef-client and Ohai typically require more memory than the default setting allows. Increase this value to ``300MB``. Only required on Windows Server 2008 R2 Standard and older. The default in Windows Server 2012 was increased to ``1024MB``.
    * - ``MaxTimeoutms``
      - A bootstrap command can take longer than allowed by the default setting. Increase this value to ``1800000`` (30 minutes).
-   * - ``AllowUnencrypted``
-     - Set this value to ``true`` for development and testing purposes.
-   * - ``Basic``
-     - Set this value to ``true`` for development and testing purposes. The ``knife windows`` subcommand supports Kerberos and Basic authentication schemes.
 
 To update these settings, run the following commands:
 
@@ -58,23 +54,11 @@ To update these settings, run the following commands:
 
    $ winrm set winrm/config/winrs '@{MaxMemoryPerShellMB="300"}'
 
-and:
-
-.. code-block:: bash
-
-   $ winrm set winrm/config '@{MaxTimeoutms="1800000"}'
-
-and:
-
-.. code-block:: bash
-
-   $ winrm set winrm/config/service '@{AllowUnencrypted="true"}'
-
 and then:
 
 .. code-block:: bash
 
-   $ winrm set winrm/config/service/auth '@{Basic="true"}'
+   $ winrm set winrm/config '@{MaxTimeoutms="1800000"}'
 
 Ensure that the Windows Firewall is configured to allow WinRM connections between the workstation and the Chef server. For example:
 
@@ -84,8 +68,8 @@ Ensure that the Windows Firewall is configured to allow WinRM connections betwee
 
 .. end_tag
 
-Negotiate, NTLM		
------------------------------------------------------		
+Negotiate, NTLM
+-----------------------------------------------------
 .. tag plugin_knife_windows_winrm_requirements_nltm
 
 When knife is executed from a Microsoft Windows system, it is no longer necessary to make additional configuration of the WinRM listener on the target node to enable successful authentication from the workstation. It is sufficient to have a WinRM listener on the remote node configured to use the default configuration for ``winrm quickconfig``. This is because ``knife windows`` supports the Microsoft Windows negotiate protocol, including NTLM authentication, which matches the authentication requirements for the default configuration of the WinRM listener.
@@ -106,8 +90,8 @@ and:
 
 .. end_tag
 
-Domain Authentication		
-=====================================================		
+Domain Authentication
+=====================================================
 .. tag plugin_knife_windows_winrm_domain_authentication
 
 The ``knife windows`` plugin supports Microsoft Windows domain authentication. This requires:
@@ -137,16 +121,16 @@ and then run a command similar to the following:
 
 .. end_tag
 
-bootstrap windows ssh		
-=====================================================		
+bootstrap windows ssh
+=====================================================
 .. tag plugin_knife_windows_bootstrap_windows_ssh
 
 Use the ``bootstrap windows ssh`` argument to bootstrap chef-client installations in a Microsoft Windows environment, using a command shell that is native to Microsoft Windows.
 
 .. end_tag
 
-Syntax		
------------------------------------------------------		
+Syntax
+-----------------------------------------------------
 .. tag plugin_knife_windows_bootstrap_windows_ssh_syntax
 
 This argument has the following syntax:
@@ -175,8 +159,8 @@ This argument has the following syntax:
 
              .. end_tag
 
-Options		
------------------------------------------------------		
+Options
+-----------------------------------------------------
 .. tag plugin_knife_windows_bootstrap_windows_ssh_options
 
 This argument has the following options:
@@ -217,6 +201,8 @@ This argument has the following options:
 
    .. end_tag
 
+   Deprecated in Chef Client 12.0.
+
 ``-G GATEWAY``, ``--ssh-gateway GATEWAY``
    The SSH tunnel or gateway that is used to run a bootstrap action on a machine that is not accessible from the workstation.
 
@@ -253,17 +239,19 @@ This argument has the following options:
 ``--template-file TEMPLATE``
    The path to a template file to be used during a bootstrap operation.
 
+   Deprecated in Chef Client 12.0.
+
 ``-x USER_NAME``, ``--ssh-user USER_NAME``
    The SSH user name.
 
 .. end_tag
 
-bootstrap windows winrm		
-=====================================================		
+bootstrap windows winrm
+=====================================================
 Use the ``bootstrap windows winrm`` argument to bootstrap chef-client installations in a Microsoft Windows environment, using WinRM and the WS-Management protocol for communication. This argument requires the FQDN of the host machine to be specified. The Microsoft Installer Package (MSI) run silently during the bootstrap operation (using the ``/qn`` option).
 
-Syntax		
------------------------------------------------------		
+Syntax
+-----------------------------------------------------
 This argument has the following syntax:
 
 .. code-block:: bash
@@ -288,8 +276,8 @@ This argument has the following syntax:
 
              .. end_tag
 
-Options		
------------------------------------------------------		
+Options
+-----------------------------------------------------
 This argument has the following options:
 
 ``--auth-timeout MINUTES``,
@@ -328,6 +316,11 @@ This argument has the following options:
 
    .. end_tag
 
+   Deprecated in Chef Client 12.0
+
+``--install-as-service``
+   Indicates the client should be installed as a Windows Service.
+
 ``-j JSON_ATTRIBS``, ``--json-attributes JSON_ATTRIBS``
    A JSON string that is added to the first run of a chef-client.
 
@@ -349,20 +342,20 @@ This argument has the following options:
 ``--template-file TEMPLATE``
    The path to a template file to be used during a bootstrap operation.
 
-cert generate		
-=====================================================		
+cert generate
+=====================================================
 Use the ``cert generate`` argument to generate certificates for use with WinRM SSL listeners. This argument also generates a related public key file (in .pem format) to validate communication between listeners that are configured to use the generated certificate.
 
-Syntax		
------------------------------------------------------		
+Syntax
+-----------------------------------------------------
 This argument has the following syntax:
 
 .. code-block:: bash
 
    $ knife windows cert generate FILE_PATH (options)
 
-Options		
------------------------------------------------------		
+Options
+-----------------------------------------------------
 This argument has the following options:
 
 ``-cp PASSWORD``, ``--cert-passphrase PASSWORD``
@@ -380,41 +373,41 @@ This argument has the following options:
 ``-o PATH``, ``--output-file PATH``
    The location in which the ``winrmcert.b64``, ``winrmcert.pem``, and ``winrmcert.pfx`` files are generated. For example: ``--output-file /home/.winrm/server_cert`` will create ``server_cert.b64``, ``server_cert.pem``, and ``server_cert.pfx`` in the ``server_cert`` directory. Default location: ``current_directory/winrmcert``.
 
-cert install		
-=====================================================		
+cert install
+=====================================================
 Use the ``cert install`` argument to install a certificate (such as one generated by the ``cert generate`` argument) into the Microsoft Windows certificate store so that it may be used as the SSL certificate by a WinRM listener.
 
-Syntax		
------------------------------------------------------		
+Syntax
+-----------------------------------------------------
 This argument has the following syntax:
 
 .. code-block:: bash
 
    $ knife windows cert install CERT [CERT] (options)
 
-Options		
------------------------------------------------------		
+Options
+-----------------------------------------------------
 This argument has the following options:
 
 ``-cp PASSWORD``, ``--cert-passphrase PASSWORD``
    The password for the SSL certificate.
 
-listener create		
-=====================================================		
+listener create
+=====================================================
 Use the ``listener create`` argument to create a WinRM listener on the Microsoft Windows platform.
 
 .. note:: This command may only be used on the Microsoft Windows platform.
 
-Syntax		
------------------------------------------------------		
+Syntax
+-----------------------------------------------------
 This argument has the following syntax:
 
 .. code-block:: bash
 
    $ knife windows listener create (options)
 
-Options		
------------------------------------------------------		
+Options
+-----------------------------------------------------
 This argument has the following options:
 
 ``-c CERT_PATH``, ``--cert-install CERT_PATH``
@@ -432,8 +425,8 @@ This argument has the following options:
 ``-t THUMBPRINT``, ``--cert-thumbprint THUMBPRINT``
    The thumbprint of the SSL certificate. Required when the ``--cert-install`` option is not part of a command.
 
-winrm		
-=====================================================		
+winrm
+=====================================================
 .. tag plugin_knife_windows_winrm
 
 Use the ``winrm`` argument to create a connection to one or more remote machines. As each connection is created, a password must be provided. This argument uses the same syntax as the ``search`` subcommand.
@@ -446,8 +439,8 @@ WinRM requires that a target node be accessible via the ports configured to supp
 
 .. end_tag
 
-Syntax		
------------------------------------------------------		
+Syntax
+-----------------------------------------------------
 .. tag plugin_knife_windows_winrm_syntax
 
 This argument has the following syntax:
@@ -458,8 +451,8 @@ This argument has the following syntax:
 
 .. end_tag
 
-Options		
------------------------------------------------------		
+Options
+-----------------------------------------------------
 .. tag plugin_knife_windows_winrm_options
 
 This argument has the following options:
@@ -469,6 +462,10 @@ This argument has the following options:
 
 ``-f CA_TRUST_FILE``, ``--ca-trust-file CA_TRUST_FILE``
    Optional. The certificate authority (CA) trust file used for SSL transport.
+
+``-C NUM``, ``--concurrency NUM``
+   Changed in knife-windows 1.9.0.
+   The number of allowed concurrent connections. Defaults to 1.
 
 ``-i IDENTITY_FILE``, ``--identity-file IDENTITY_FILE``
    The keytab file that contains the encryption key required by Kerberos-based authentication.
@@ -509,6 +506,9 @@ This argument has the following options:
 ``--winrm-authentication-protocol PROTOCOL``
    The authentication protocol to be used during WinRM communication. Possible values: ``basic``, ``kerberos`` or ``negotiate``. Default value: ``negotiate``.
 
+``--winrm-shell SHELL``
+   The WinRM shell type. Valid choices are ``cmd``, ``powershell`` or ``elevated``. Default value: ``cmd``. The ``elevated`` shell is similar to the ``powershell`` option, but runs the powershell command from a scheduled task.
+
 ``--winrm-ssl-verify-mode MODE``
    The peer verification mode that is used during WinRM communication. Possible values: ``verify_none`` or ``verify_peer``. Default value: ``verify_peer``.
 
@@ -517,7 +517,7 @@ This argument has the following options:
 
 .. end_tag
 
-Examples		
+Examples
 =====================================================
 
 **Find Uptime for Web Servers**

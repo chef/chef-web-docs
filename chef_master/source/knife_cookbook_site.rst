@@ -1,31 +1,41 @@
 =====================================================
-knife cookbook site 
+knife cookbook site
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_cookbook_site.rst>`__
 
-.. tag api_cookbooks_site_summary
+.. tag supermarket_api_summary
 
-The Cookbooks Site API is used to provide access to the cookbooks community hosted at |url community_cookbooks|. All of the cookbooks in the community are accessible through a RESTful API located at |url api_cookbooks| by using any of the supported endpoints. In most cases, using knife is the best way to interact with these cookbooks; in some cases, using the Cookbooks Site API directly is necessary.
+The Supermarket API is used to provide access to cookbooks, tools, and users on the `Chef Supermarket <https://supermarket.chef.io>`__. All of the cookbooks, tools, and users on the Supermarket are accessible through a RESTful API by accessing ``supermarket.chef.io/api/v1/`` via the supported endpoints. In most cases, knife is the best way to interact with the Supermarket; however in some cases, direct use of the Supermarket API is necessary.
 
 .. end_tag
 
 .. tag knife_site_cookbook
 
-The ``knife cookbook site`` subcommand is used to interact with cookbooks that are located at |url community|. A user account is required for any community actions that write data to this site. The following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
+The ``knife cookbook site`` subcommand is used to interact with cookbooks that are available in the `Chef Supermarket <https://supermarket.chef.io/>`__. A user account is required for any community actions that write data to this site. The following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
 
 .. end_tag
 
 .. warning:: .. tag notes_knife_cookbook_site_use_devkit_berkshelf
 
-             Please consider managing community cookbooks using the version of Berkshelf that ships with the Chef development kit. For more information about the Chef development kit, see https://docs.chef.io/devkit/.
+             Please consider managing community cookbooks using the version of Berkshelf that ships with the Chef development kit. For more information about the Chef development kit, see `About the Chef DK </about_chefdk.html>`__.
 
              .. end_tag
 
 .. note:: .. tag knife_common_see_common_options_link
 
-          Review the list of :doc:`common options </knife_common_options>` available to this (and all) knife subcommands and plugins.
+          Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
           .. end_tag
+
+Private Supermarket
+=====================================================
+To use the ``knife cookbook site`` command with a private Supermarket installation, you must first add the URL of your Supermarket to your ``knife.rb`` file:
+
+.. code-block:: ruby 
+
+   knife[:supermarket_site] = 'https://supermarket.example.com'
+
+If this value is not specified, knife will use ``https://supermarket.chef.io`` by default. 
 
 download
 =====================================================
@@ -52,9 +62,12 @@ This argument has the following options:
 ``--force``
    Overwrite an existing directory.
 
+``-m SUPERMARKET_SITE``, ``--supermarket-site SUPERMARKET_SITE``
+   The URL at which the Chef Supermarket is located. Default value: https://supermarket.chef.io.
+
 .. note:: .. tag knife_common_see_all_config_options
 
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 
@@ -80,11 +93,11 @@ to return something like:
 
 install
 =====================================================
-Use the ``install`` argument to install a cookbook that has been downloaded from the community site to a local git repository . This action uses the git version control system in conjunction with the |url community_cookbooks| site to install community-contributed cookbooks to the local chef-repo. Using this argument does the following:
+Use the ``install`` argument to install a cookbook that has been downloaded from the community site to a local git repository . This action uses the git version control system in conjunction with the the `Chef Supermarket <https://supermarket.chef.io/cookbooks>`__ site to install community-contributed cookbooks to the local chef-repo. Using this argument does the following:
 
   #. A new "pristine copy" branch is created in git for tracking the upstream.
   #. All existing versions of a cookbook are removed from the branch.
-  #. The cookbook is downloaded from |url community_cookbooks| in the tar.gz format.
+  #. The cookbook is downloaded from the `Chef Supermarket <https://supermarket.chef.io/cookbooks>`__ in the tar.gz format.
   #. The downloaded cookbook is untarred and its contents are committed to git and a tag is created.
   #. The "pristine copy" branch is merged into the master branch.
 
@@ -114,12 +127,15 @@ This argument has the following options:
 ``-D``, ``--skip-dependencies``
    Ensure that all cookbooks to which the installed cookbook has a dependency are not installed.
 
+``-m SUPERMARKET_SITE``, ``--supermarket-site SUPERMARKET_SITE``
+   The URL at which the Chef Supermarket is located. Default value: https://supermarket.chef.io.
+
 ``-o PATH:PATH``, ``--cookbook-path PATH:PATH``
    The directory in which cookbooks are created. This can be a colon-separated path.
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 
@@ -153,7 +169,7 @@ to return something like:
    Checking out the master branch.
    Updating 4d44b5b..b4c32f2
    Fast-forward
-    cookbooks/getting-started/README.rdoc              |    4 +++  
+    cookbooks/getting-started/README.rdoc              |    4 +++
     cookbooks/getting-started/attributes/default.rb    |    1 +
     cookbooks/getting-started/metadata.json            |   29 ++++++++++++++++++++
     cookbooks/getting-started/metadata.rb              |    6 ++++
@@ -170,7 +186,7 @@ to return something like:
 
 list
 =====================================================
-Use the ``list`` argument to view a list of cookbooks that are currently available at |url community_cookbooks|.
+Use the ``list`` argument to view a list of cookbooks that are currently available at the `Chef Supermarket <https://supermarket.chef.io/cookbooks>`__.
 
 Syntax
 -----------------------------------------------------
@@ -184,6 +200,9 @@ Options
 -----------------------------------------------------
 This argument has the following options:
 
+``-m SUPERMARKET_SITE``, ``--supermarket-site SUPERMARKET_SITE``
+   The URL at which the Chef Supermarket is located. Default value: https://supermarket.chef.io.
+
 ``-w``, ``--with-uri``
    Show the corresponding URIs.
 
@@ -193,7 +212,7 @@ The following examples show how to use this knife subcommand:
 
 **View a list of cookbooks**
 
-To view a list of cookbooks at |url community_cookbooks| server, enter:
+To view a list of cookbooks at the `Chef Supermarket <https://supermarket.chef.io/cookbooks>`__ server, enter:
 
 .. code-block:: bash
 
@@ -217,7 +236,7 @@ to return a list similar to:
 
 search
 =====================================================
-Use the ``search`` argument to search for a cookbook at |url community_cookbooks|. A search query is used to return a list of cookbooks at |url community_cookbooks| and uses the same syntax as the ``knife search`` subcommand.
+Use the ``search`` argument to search for a cookbook at the `Chef Supermarket <https://supermarket.chef.io/cookbooks>`__. A search query is used to return a list of cookbooks at the `Chef Supermarket <https://supermarket.chef.io/cookbooks>`__ and uses the same syntax as the ``knife search`` subcommand.
 
 Syntax
 -----------------------------------------------------
@@ -229,7 +248,10 @@ This argument has the following syntax:
 
 Options
 -----------------------------------------------------
-This command does not have any specific options.
+This argument has the following options:
+
+``-m SUPERMARKET_SITE``, ``--supermarket-site SUPERMARKET_SITE``
+   The URL at which the Chef Supermarket is located. Default value: https://supermarket.chef.io.
 
 Examples
 -----------------------------------------------------
@@ -249,7 +271,7 @@ to return something like:
 
    apache2:
      cookbook:              https://supermarket.chef.io/api/v1/cookbooks/apache2
-     cookbook_description:  Installs and configures apache2 using Debian symlinks 
+     cookbook_description:  Installs and configures apache2 using Debian symlinks
                             with helper definitions
      cookbook_maintainer:   chef
      cookbook_name:         apache2
@@ -268,7 +290,7 @@ to return something like:
 
 share
 =====================================================
-Use the ``share`` argument to add a cookbook to |url community_cookbooks|. This action will require a user account and a certificate for |url community|. By default, knife will use the user name and API key that is identified in the configuration file used during the upload; otherwise these values must be specified on the command line or in an alternate configuration file. If a cookbook already exists on |url community_cookbooks|, then only an owner or maintainer of that cookbook can make updates.
+Use the ``share`` argument to add a cookbook to the `Chef Supermarket <https://supermarket.chef.io/cookbooks>`__. This action will require a user account and a certificate for `Chef Supermarket <https://supermarket.chef.io/>`__. By default, knife will use the user name and API key that is identified in the configuration file used during the upload; otherwise these values must be specified on the command line or in an alternate configuration file. If a cookbook already exists on the `Chef Supermarket <https://supermarket.chef.io/cookbooks>`__, then only an owner or maintainer of that cookbook can make updates.
 
 Syntax
 -----------------------------------------------------
@@ -285,15 +307,20 @@ This argument has the following options:
 ``CATEGORY``
    The cookbook category: ``"Databases"``, ``"Web Servers"``, ``"Process Management"``, ``"Monitoring & Trending"``, ``"Programming Languages"``, ``"Package Management"``, ``"Applications"``, ``"Networking"``, ``"Operating Systems & Virtualization"``, ``"Utilities"``, or ``"Other"``.
 
+``-m SUPERMARKET_SITE``, ``--supermarket-site SUPERMARKET_SITE``
+   The URL at which the Chef Supermarket is located. Default value: https://supermarket.chef.io.
+
 ``-n``, ``--dry-run``
    Take no action and only print out results. Default: ``false``.
+
+   New in Chef Client 12.0.
 
 ``-o PATH:PATH``, ``--cookbook-path PATH:PATH``
    The directory in which cookbooks are created. This can be a colon-separated path.
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 
@@ -311,7 +338,7 @@ To share a cookbook named ``apache2``:
 
 show
 =====================================================
-Use the ``show`` argument to view information about a cookbook on |url community_cookbooks|.
+Use the ``show`` argument to view information about a cookbook on the `Chef Supermarket <https://supermarket.chef.io/cookbooks>`__.
 
 Syntax
 -----------------------------------------------------
@@ -327,6 +354,9 @@ This argument has the following options:
 
 ``COOKBOOK_VERSION``
    The version of a cookbook to be shown. If a cookbook has only one version, this option does not need to be specified. If a cookbook has more than one version and this option is not specified, a list of cookbook versions is returned.
+
+``-m SUPERMARKET_SITE``, ``--supermarket-site SUPERMARKET_SITE``
+   The URL at which the Chef Supermarket is located. Default value: https://supermarket.chef.io.
 
 Examples
 -----------------------------------------------------
@@ -374,7 +404,7 @@ Other formats available include ``text``, ``yaml``, and ``pp``.
 
 unshare
 =====================================================
-Use the ``unshare`` argument to stop the sharing of a cookbook at |url community_cookbooks|. Only the maintainer of a cookbook may perform this action.
+Use the ``unshare`` argument to stop the sharing of a cookbook at the `Chef Supermarket <https://supermarket.chef.io/cookbooks>`__. Only the maintainer of a cookbook may perform this action.
 
 .. note:: Unsharing a cookbook will break a cookbook that has set a dependency on that cookbook or cookbook version.
 
@@ -388,7 +418,10 @@ This argument has the following syntax:
 
 Options
 -----------------------------------------------------
-This command does not have any specific options.
+This argument has the following options:
+
+``-m SUPERMARKET_SITE``, ``--supermarket-site SUPERMARKET_SITE``
+   The URL at which the Chef Supermarket is located. Default value: https://supermarket.chef.io.
 
 Examples
 -----------------------------------------------------

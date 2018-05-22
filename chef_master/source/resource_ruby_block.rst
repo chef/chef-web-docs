@@ -30,7 +30,6 @@ The full syntax for all of the properties that are available to the **ruby_block
      block                      Block
      block_name                 String # defaults to 'name' if not specified
      notifies                   # see description
-     provider                   Chef::Provider::RubyBlock
      subscribes                 # see description
      action                     Symbol # defaults to :run if not specified
    end
@@ -40,8 +39,8 @@ where
 * ``ruby_block`` is the resource
 * ``name`` is the name of the resource block
 * ``block`` is the block of Ruby code to be executed
-* ``:action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``block``, ``block_name``, and ``provider`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``block`` and ``block_name`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -53,7 +52,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the chef-client run.
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -75,7 +74,7 @@ This resource has the following properties:
    The name of the Ruby block. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -84,19 +83,19 @@ This resource has the following properties:
 
    .. tag resources_common_notification_notifies
 
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
 
    .. end_tag
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -112,11 +111,6 @@ This resource has the following properties:
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
 
 ``retries``
    **Ruby Type:** Integer
@@ -135,17 +129,32 @@ This resource has the following properties:
 
    A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
 
+   Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
+
+   .. code-block:: ruby
+
+     file '/etc/nginx/ssl/example.crt' do
+        mode '0600'
+        owner 'root'
+     end
+
+     service 'nginx' do
+        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+     end
+
+   In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
+
    .. end_tag
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -161,16 +170,6 @@ This resource has the following properties:
       subscribes :action, 'resource[name]', :timer
 
    .. end_tag
-
-.. 
-.. Providers
-.. =====================================================
-.. .. include:: ../../includes_resources_common/includes_resources_common_provider.rst
-.. 
-.. .. include:: ../../includes_resources_common/includes_resources_common_provider_attributes.rst
-.. 
-.. .. include:: ../../includes_resources/includes_resource_ruby_block_providers.rst
-..
 
 Examples
 =====================================================
@@ -195,7 +194,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Install repositories from a file, trigger a command, and force the internal cache to reload**
 
-.. tag resource_yum_package_install_yum_repo_from_file
+.. tag resource_package_install_yum_repo_from_file
 
 The following example shows how to install new Yum repositories from a file, where the installation of the repository triggers a creation of the Yum cache that forces the internal cache for the chef-client to reload:
 
@@ -237,7 +236,7 @@ The following example shows how an if statement can be used with the ``platform?
      ruby_block 'copy libmysql.dll into ruby path' do
        block do
          require 'fileutils'
-         FileUtils.cp "#{node['mysql']['client']['lib_dir']}\\libmysql.dll", 
+         FileUtils.cp "#{node['mysql']['client']['lib_dir']}\\libmysql.dll",
            node['mysql']['client']['ruby_dir']
        end
        not_if { File.exist?("#{node['mysql']['client']['ruby_dir']}\\libmysql.dll") }
@@ -292,7 +291,7 @@ The following example shows how the **ruby_block** resource can be used to updat
    ruby_block 'edit etc hosts' do
      block do
        rc = Chef::Util::FileEdit.new('/etc/hosts')
-       rc.search_file_replace_line(/^127\.0\.0\.1 localhost$/, 
+       rc.search_file_replace_line(/^127\.0\.0\.1 localhost$/,
           '127.0.0.1 #{new_fqdn} #{new_hostname} localhost')
        rc.write_file
      end
@@ -308,8 +307,8 @@ The following example shows how to use variables within a Ruby block to set envi
 
 .. code-block:: ruby
 
-   node.set[:rbenv][:root] = rbenv_root
-   node.set[:ruby_build][:bin_path] = rbenv_binary_path
+   node.override[:rbenv][:root] = rbenv_root
+   node.override[:ruby_build][:bin_path] = rbenv_binary_path
 
    ruby_block 'initialize' do
      block do
@@ -361,7 +360,7 @@ The following example shows how the ``platform?`` method and an if statement can
            jdk_home = Dir.glob("#{java_home_parent}/java*#{version}*openjdk{,[-\.]#{arch}}")[0]
            Chef::Log.debug("jdk_home is #{jdk_home}")
 
-           if File.exists? java_home
+           if File.exist? java_home
              FileUtils.rm_f java_home
            end
            FileUtils.ln_sf jdk_home, java_home
@@ -414,4 +413,3 @@ The following example shows how to reload the configuration of a chef-client usi
    end
 
 .. end_tag
-

@@ -58,7 +58,8 @@ The ``restore`` subcommand is used to restore Chef server data from a backup tha
 * Requires rsync to be installed on the Chef server prior to running the command
 * Requires a ``chef-server-ctl reconfigure`` prior to running the command
 * Should not be run in a Chef server configuration with an external PostgreSQL database; `use knife ec backup <https://github.com/chef/knife-ec-backup>`__ instead
-* May restore backed up data to any version of the Chef server that supports this command, starting with Chef server 12.2 (which is the first version of the Chef server in which the ``chef-server-ctl restore`` command is available)
+
+.. note :: The ``restore`` command does not support transferring backups across different versions of Chef server. Backups taken with the ``backup`` command must restore to the same version of Chef server that was in use when they were created.
 
 .. end_tag
 
@@ -227,9 +228,9 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl install name_of_premium_feature (options)
+   $ chef-server-ctl install name_of_addon (options)
 
-where ``name_of_premium_feature`` represents the command line value associated with the premium feature.
+where ``name_of_addon`` represents the command line value associated with the add-on or premium feature.
 
 .. end_tag
 
@@ -279,7 +280,7 @@ The ``install`` subcommand downloads packages from https://packages.chef.io/ by 
 
        .. note:: .. tag chef_license_reconfigure_manage
 
-                 Starting with the Chef management console 2.3.0, the `Chef MLSA <https://docs.chef.io/chef_license.html>`__ must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
+                 Starting with the Chef management console 2.3.0, the `Chef MLSA </chef_license.html>`__ must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
 
                  .. end_tag
 
@@ -630,15 +631,178 @@ Returns:
 
 .. end_tag
 
-Credential Rotation
+.. _ctl_chef_server_secrets_management:
+
+Secrets Management
 =====================================================
-Use the following commands to manage and rotate shared secrets and service credentials. The secrets file used for credential rotation is located 
-at ``/etc/opscode/private-chef-secrets.json`` on your Chef server.
+Use the following commands to manage and rotate shared secrets and service credentials.
+The secrets file used for storing these is located at ``/etc/opscode/private-chef-secrets.json`` on your Chef server.
+It should be owned and readable only by ``root``.
+
+
+.. _ctl_chef_server_set_secret:
+
+set-secret
+-----------------------------------------------------
+The ``set-secret`` subcommand allows storing shared secrets and service credentials.
+Only secrets known to Chef server can be stored.
+
+*New in Chef server 12.14*
+
+**Syntax**
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ chef-server-ctl set-secret GROUP NAME
+
+There are various ways to pass the secret to this command:
+
+#. as a third argument:
+
+   .. code-block:: bash
+
+      $ chef-server-ctl set-secret ldap bind_password secretpassword
+
+#. via an environment variable:
+
+   .. code-block:: bash
+
+      $ export LDAP.BIND_PASSWORD="secretpassword"
+      $ chef-server-ctl set-secret ldap bind_password
+
+#. via an interactive prompt:
+
+   .. code-block:: bash
+
+      $ chef-server-ctl set-secret ldap bind_password
+      Enter ldap bind_password:    (no terminal output)
+      Re-enter ldap bind_password: (no terminal output)
+
+**Options**
+
+.. tag ctl_chef_server_set_secret_options
+
+This subcommand has the following options:
+
+``--with-restart``
+    If any services depend on the secret being changed, attempt to restart them
+    after changing the secret. Added in Chef server 12.16.2.
+
+.. end_tag
+
+.. _ctl_chef_server_remove_secret:
+
+remove-secret
+-----------------------------------------------------
+The ``remove-secret`` subcommand allows removing a stored shared secret and service credential.
+
+*New in Chef server 12.14*
+
+**Syntax**
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ chef-server-ctl remove-secret GROUP NAME
+
+
+**Example**
+
+.. code-block:: bash
+
+   $ chef-server-ctl remove-secret ldap bind_password
+
+
+.. _ctl_chef_server_show_secret:
+
+show-secret
+-----------------------------------------------------
+The ``show-secret`` subcommand allows viewing a stored shared secret and service credential.
+
+*New in Chef server 12.14*
+
+**Syntax**
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ chef-server-ctl show-secret GROUP NAME
+
+
+.. _ctl_chef_server_set_db_superuser_password:
+
+set-db-superuser-password
+-----------------------------------------------------
+The ``set-db-superuser-password`` subcommand allows storing the database superuser password.
+
+*New in Chef server 12.14*
+
+**Syntax**
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ chef-server-ctl set-db-superuser-password
+
+Similar to ``set-secret``, the superuser password can also be provided via the environment variable ``DB_PASSWORD``.
+
+
+.. _ctl_chef_server_set_actions_password:
+
+set-actions-password
+-----------------------------------------------------
+The ``set-actions-password`` subcommand allows storing the RabbitMQ Actions password.
+
+*New in Chef server 12.14*
+
+**Syntax**
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ chef-server-ctl set-actions-password
+
+Similar to ``set-secret``, the action password can also be provided via the environment variable ``ACTIONS_PASSWORD``.
+
+.. _ctl_chef_server_oc_id_show_app:
+
+oc-id-show-app
+-----------------------------------------------------
+The ``oc-id-show-app`` subcommand allows for retrieving the client ID and client secret for applications known to **oc-id**.
+Note that with ``insecure_addon_compat`` _disabled_, this data will no longer be written to ``/etc/opscode/oc-id-applications/APP.json``.
+
+*New in Chef server 12.14*
+
+**Syntax**
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ chef-server-ctl oc-id-show-app APP
+
+**Example**
+
+.. code-block:: bash
+
+   $ chef-server-ctl oc-id-show-app supermarket
+   {
+     "name": "supermarket",
+     "uid": "0bad0f2eb04e935718e081fb71asdfec3681c81acb9968a8e1e32451d08b",
+     "secret": "17cf1141cc971a10ce307611beda7ffadstr4f1bc98d9f9ca76b9b127879",
+     "redirect_uri": "https://supermarket.mycompany.com/auth/chef_oauth2/callback"
+   }
 
 require-credential-rotation
 -----------------------------------------------------
-The ``require-credential-rotation`` subcommand takes the Chef server offline and requires a complete service credential rotation before the Chef server(s) in your cluster can restart again. 
-Run ``rotate-shared-secrets`` to create a new shared secret, salt, and generate the new service credentials. Then copy the secrets file to each Chef server and run ``sudo chef-server-ctl reconfigure`` on them to complete the rotation process.
+The ``require-credential-rotation`` subcommand takes the Chef server offline and requires a complete service credential rotation before the Chef server(s) in your cluster can restart again.
+Run ``rotate-shared-secrets`` to create a new shared secret, salt, and generate the new service credentials. Then copy the secrets file to each Chef server and run ``sudo chef-server-ctl reconfigure`` on each server to complete the rotation process.
 
 .. note:: Credential rotation does not rotate the pivotal, user, or client keys, or remove any Chef server policy or cookbooks that have been uploaded.
 
@@ -675,7 +839,7 @@ This subcommand has the following syntax:
 
 rotate-credentials
 -----------------------------------------------------
-The ``rotate-credentials`` subcommand generates new credential values for all credentials for a given service by incrementing 
+The ``rotate-credentials`` subcommand generates new credential values for all credentials for a given service by incrementing
 the value and creating a new hash value. You can choose whether to copy the updated secrets file to each node in the cluster and reconfiguring or by running this subcommand for that specific service on all the nodes.
 
 *New in Chef server 12.7*
@@ -686,12 +850,12 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef-server-ctl rotate-credentials $SERVICE_NAME
+   $ chef-server-ctl rotate-credentials SERVICE_NAME
 
 rotate-shared-secrets
 -----------------------------------------------------
-The ``rotate-shared-secrets`` subcommand creates a new shared secret and salt, in addition to generating new service credentials. It also resets 
-the ``credential_version`` number for the services to 0. After you have run this subcommand, a new shared secret has been created, so you must copy the secrets file to 
+The ``rotate-shared-secrets`` subcommand creates a new shared secret and salt, in addition to generating new service credentials. It also resets
+the ``credential_version`` number for the services to 0. After you have run this subcommand, a new shared secret has been created, so you must copy the secrets file to
 each Chef server and run ``sudo chef-server-ctl reconfigure`` on them to complete the rotation process.
 
 *New in Chef server 12.7*
@@ -717,6 +881,33 @@ This subcommand has the following syntax:
 .. code-block:: bash
 
    $ chef-server-ctl show-service-credentials
+
+cleanup-bifrost
+-----------------------------------------------------
+The ``cleanup-bifrost`` subcommand removes unused authorization objects from the authorization database (called bifrost).  These unused objects can accumulate on long-running Chef servers as a result of failed object creation requests.  For most users, the unused authorization objects do not substantially affect the performance of Chef server; however in certain situations it can be helpful to clean them up.  This command is primarily intended for use by Chef support.
+
+New in Chef Server 12.16.9
+
+**Syntax**
+
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ chef-server-ctl cleanup-bifrost OPTIONS
+
+**Options**
+
+This subcommand has the following options:
+
+``--estimate-only``
+   Provides an estimate of the number of unused objects that will be deleted, without deleting anything.
+``--wait-time SECONDS``
+   The number of seconds to wait for in-flight requests to complete.  Only decrease this value if you are running the command when the Chef server is not taking requests.
+``--force-cleanup``
+   Removes internal tracking tables used during the cleanup process.  Manual cleanup of these tables is only required if the cleanup command is killed unexpectedly.
+``--batch-size`` 
+   The number of orphaned authorization actors to delete at a time.
 
 master-recover
 =====================================================
@@ -1095,7 +1286,7 @@ This subcommand has the following options:
    Use to print timing information for the reindex processes.
 
 ``-w``, ``--wait``
-   Use to wait for the reindexing queue to clear before exiting.
+   Use to wait for the reindexing queue to clear before exiting. This option only works when run on a standalone Chef server, or on a primary backend Chef server within a legacy tier or DRBD HA system. This option should not be used on a HA frontend.
 
 .. end_tag
 
@@ -1314,18 +1505,6 @@ This subcommand has the following syntax:
 .. code-block:: bash
 
    $ chef-server-ctl show-config
-
-..
-..
-.. Uncomment when https://github.com/chef/chef-server/issues/35 is available.
-..
-.. show-versions
-.. =====================================================
-.. .. warning:: This command will be added to the Chef server in an upcoming release.
-..
-.. .. include:: ../../includes_ctl_chef_server/includes_ctl_chef_server_show-versions.rst
-..
-..
 
 uninstall
 =====================================================
@@ -1879,4 +2058,3 @@ This subcommand has the following syntax:
 where ``SERVICE_NAME`` represents the name of any service that is listed after running the ``service-list`` subcommand.
 
 .. end_tag
-

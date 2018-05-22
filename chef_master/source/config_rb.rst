@@ -16,6 +16,8 @@ Settings
 =====================================================
 This configuration file has the following settings:
 
+.. tag config_rb_knife_settings
+
 ``bootstrap_template``
    The path to a template file to be used during a bootstrap operation.
 
@@ -40,6 +42,11 @@ This configuration file has the following settings:
 
       chef_zero[:port] 8889
 
+``client_d_dir``
+   A directory that contains additional configuration scripts to load for chef-client.
+
+   New in Chef client 12.8.
+
 ``client_key``
    The location of the file that contains the client key. Default value: ``/etc/chef/client.pem``. For example:
 
@@ -61,9 +68,9 @@ This configuration file has the following settings:
 
    .. code-block:: ruby
 
-      cookbook_path [ 
-        '/var/chef/cookbooks', 
-        '/var/chef/site-cookbooks' 
+      cookbook_path [
+        '/var/chef/cookbooks',
+        '/var/chef/site-cookbooks'
       ]
 
 ``data_bag_encrypt_version``
@@ -73,6 +80,22 @@ This configuration file has the following settings:
 
       data_bag_encrypt_version 2
 
+``fips``
+  Allows OpenSSL to enforce FIPS-validated security during the chef-client run. Set to ``true`` to enable FIPS-validated security. 
+  
+  FIPS support is available in Chef client versions 12.8 and above. The following operating systems are supported:
+  
+  * Red Hat Enterprise Linux
+  * Oracle Enterprise Linux
+  * CentOS
+  * Windows
+
+  Support for FIPS was introduced in Chef server version 12.13. The following operating systems are supported:
+
+  * Red Hat Enterprise Linux
+  * Oracle Enterprise Linux
+  * CentOS
+
 ``local_mode``
    Run the chef-client in local mode. This allows all commands that work against the Chef server to also work against the local chef-repo. For example:
 
@@ -81,18 +104,27 @@ This configuration file has the following settings:
       local_mode true
 
 ``node_name``
-   The name of the node. This is typically also the same name as the computer from which knife is run. For example:
+   The name of the node. This may be a username with permission to authenticate to the Chef server or it may be the name of the machine from which knife is run. For example:
 
    .. code-block:: ruby
 
-      node_name 'node_name'
+      node_name 'user_name'
+
+   or:
+
+   .. code-block:: ruby
+
+      node_name 'machine_name'
 
 ``no_proxy``
    A comma-separated list of URLs that do not need a proxy. Default value: ``nil``. For example:
 
    .. code-block:: ruby
 
-      no_proxy 'localhost, 10.*, *.example.com, *.dev.example.com'
+      no_proxy 'localhost, 10.0.1.35, *.example.com, *.dev.example.com'
+
+``ssh_timeout``
+   The amount of time (in seconds) to wait for an SSH connection time out.
 
 ``ssl_verify_mode``
    Set the verify mode for HTTPS requests.
@@ -104,6 +136,9 @@ This configuration file has the following settings:
 
 ``syntax_check_cache_path``
    All files in a cookbook must contain valid Ruby syntax. Use this setting to specify the location in which knife caches information about files that have been checked for valid Ruby syntax.
+
+``tmux_split``
+   Split the Tmux window. Default value: ``false``.
 
 ``validation_client_name``
    The name of the chef-validator key that is used by the chef-client to access the Chef server during the initial chef-client run. For example:
@@ -128,6 +163,24 @@ This configuration file has the following settings:
    .. code-block:: ruby
 
       versioned_cookbooks true
+
+``config_log_level``
+   New in Chef DK 1.2.
+   Sets the default value of ``log_level`` in the client.rb file of the node being bootstrapped. Possible values are ``:debug``, ``:info``, ``:warn``, ``:error`` and ``:fatal``. For example:
+
+   .. code-block:: ruby
+
+      config_log_level :debug
+
+``config_log_location``
+   New in Chef DK 1.2.
+   Sets the default value of ``log_location`` in the client.rb file of the node being bootstrapped. Possible values are ``/path/to/log_location``, ``STDOUT``, ``STDERR``, ``:win_evt`` and ``:syslog``. For example:
+
+   .. code-block:: ruby
+
+      config_log_location "/path/to/log_location"   # Please make sure that the path exists
+
+.. end_tag
 
 Proxy Settings
 -----------------------------------------------------
@@ -179,7 +232,6 @@ The chef-client supports reading multiple configuration files by putting them in
 * ``/etc/chef/client.d``
 * ``/etc/chef/config.d``
 * ``~/chef/solo.d``
-* ``c:/chef/config.d``
 
 (There is no support for a ``knife.d`` directory; use ``config.d`` instead.)
 
@@ -193,6 +245,8 @@ For example, when using knife, the following configuration files would be loaded
 The ``old_settings.rb.bak`` file is ignored because it's not a configuration file. The ``config.rb``, ``company_settings.rb``, and ``ec2_configuration`` files are merged together as if they are a single configuration file.
 
 .. note:: If multiple configuration files exists in a ``.d`` directory, ensure that the same setting has the same value in all files.
+
+New in Chef Client 12.8.
 
 .. end_tag
 

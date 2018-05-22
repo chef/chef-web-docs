@@ -1,5 +1,5 @@
 =====================================================
-Common Functionality 
+Common Functionality
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_common.rst>`__
 
@@ -20,7 +20,7 @@ The following actions may be used with any resource:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the chef-client run.
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -40,7 +40,6 @@ The following examples show how to use common actions in a recipe.
 
    service 'memcached' do
      action :nothing
-     supports :status => true, :start => true, :stop => true, :restart => true
    end
 
 .. end_tag
@@ -54,14 +53,9 @@ Properties
 The following properties are common to every resource:
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. The chef-client will attempt to determine the correct provider during the chef-client run, and then choose the best/correct provider based on configuration data collected at the start of the chef-client run. In general, a provider does not need to be specified.
 
 ``retries``
    **Ruby Type:** Integer
@@ -74,14 +68,10 @@ The following properties are common to every resource:
    The retry delay (in seconds). Default value: ``2``.
 
 ``sensitive``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
-   Ensure that sensitive resource data is not logged by the chef-client. Default value: ``false``. This property only applies to the **execute**, **file** and **template** resources.
+   Ensure that sensitive resource data is not logged by the chef-client. Default value: ``false``.
 
-``supports``
-   **Ruby Type:** Hash
-
-   A hash of options that contains hints about the capabilities of a resource. The chef-client may use these hints to help identify the correct provider. This property is only used by a small number of providers, including **user** and **service**.
 
 .. end_tag
 
@@ -104,47 +94,17 @@ The following examples show how to use common properties in a recipe.
 
 .. end_tag
 
-**Use the provider common property**
-
-.. tag resource_package_use_provider_attribute
-
-.. To use the ``:provider`` common attribute in a recipe:
-
-.. code-block:: ruby
-
-   package 'some_package' do
-     provider Chef::Provider::Package::Rubygems
-   end
-
-.. end_tag
-
-**Use the supports common property**
+**Use the retries common property**
 
 .. tag resource_service_use_supports_attribute
 
-.. To use the ``supports`` common attribute in a recipe:
+.. To use the ``retries`` common attribute in a recipe:
 
 .. code-block:: ruby
 
    service 'apache' do
-     supports :restart => true, :reload => true
-     action :enable
-   end
-
-.. end_tag
-
-**Use the supports and providers common properties**
-
-.. tag resource_service_use_provider_and_supports_attributes
-
-.. To use the ``provider`` and ``supports`` common attributes in a recipe:
-
-.. code-block:: ruby
-
-   service 'some_service' do
-     provider Chef::Provider::Service::Upstart
-     supports :status => true, :restart => true, :reload => true
      action [ :enable, :start ]
+     retries 3
    end
 
 .. end_tag
@@ -166,13 +126,13 @@ A guard property is useful for ensuring that a resource is idempotent by allowin
 
 .. note:: .. tag resources_common_guards_execute_resource
 
-          When using the ``not_if`` and ``only_if`` guards with the **execute** resource, the current working directory property (``cwd``) is **not** inherited from the resource. For example:
+          When using the ``not_if`` and ``only_if`` guards with the **execute** resource, the guard's environment is inherited from the resource's environment. For example:
 
           .. code-block:: ruby
 
              execute 'bundle install' do
                cwd '/myapp'
-               not_if 'bundle check' # This is not run inside /myapp
+               not_if 'bundle check' # This is run from /myapp
              end
 
           .. end_tag
@@ -216,8 +176,8 @@ The following arguments can be used with the ``not_if`` or ``only_if`` guard pro
 
    .. code-block:: ruby
 
-      not_if 'grep adam /etc/passwd', :environment => { 
-        'HOME' => '/home/adam' 
+      not_if 'grep adam /etc/passwd', :environment => {
+        'HOME' => '/home/adam'
       }
 
 ``:cwd``
@@ -248,7 +208,7 @@ The following example shows how to use ``not_if`` to guard against running the `
    execute "apt-get-update" do
      command "apt-get update"
      ignore_failure true
-     not_if do ::File.exists?('/var/lib/apt/periodic/update-success-stamp') end
+     not_if { ::File.exist?('/var/lib/apt/periodic/update-success-stamp') }
    end
 
 **Ensure a node can resolve a host**
@@ -336,14 +296,14 @@ The following example shows how to use ``only_if`` to ensure that the chef-clien
    aspnet_regiis = "#{ENV['WinDir']}\\Microsoft.NET\\Framework\\v4.0.30319\\aspnet_regiis.exe"
    execute 'Register ASP.NET v4' do
      command "#{aspnet_regiis} -i"
-     only_if { File.exists?(aspnet_regiis) }
+     only_if { File.exist?(aspnet_regiis) }
      action :nothing
    end
 
    aspnet_regiis64 = "#{ENV['WinDir']}\\Microsoft.NET\\Framework64\\v4.0.30319\\aspnet_regiis.exe"
    execute 'Register ASP.NET v4 (x64)' do
      command "#{aspnet_regiis64} -i"
-     only_if { File.exists?(aspnet_regiis64) }
+     only_if { File.exist?(aspnet_regiis64) }
      action :nothing
    end
 
@@ -356,6 +316,8 @@ Guard Interpreters
 Any resource that passes a string command may also specify the interpreter that will be used to evaluate that string command. This is done by using the ``guard_interpreter`` property to specify a **script**-based resource.
 
 .. end_tag
+
+Changed in Chef Client 12.0 to default to the specified property.
 
 Attributes
 -----------------------------------------------------
@@ -444,7 +406,7 @@ Examples
 -----------------------------------------------------
 .. tag resources_common_guard_interpreter_example_default
 
-For example, the following code block will ensure the command is evaluated using the default intepreter as identified by the chef-client:
+For example, the following code block will ensure the command is evaluated using the default interpreter as identified by the chef-client:
 
 .. code-block:: ruby
 
@@ -496,9 +458,7 @@ The following example shows how to use lazy evaluation with template variables:
    template '/tmp/canvey_island.txt' do
      source 'canvey_island.txt.erb'
      variables(
-       lazy {
-         { :canvey_island => node.run_state['sea_power'] }
-       }
+       canvey_island: lazy { node.run_state['sea_power'] }
      )
    end
 
@@ -518,13 +478,13 @@ Timers
 -----------------------------------------------------
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+   Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.
@@ -535,7 +495,7 @@ Notifies
 -----------------------------------------------------
 .. tag resources_common_notification_notifies
 
-A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
 
 .. end_tag
 
@@ -548,6 +508,8 @@ The syntax for ``notifies`` is:
    notifies :action, 'resource[name]', :timer
 
 .. end_tag
+
+Changed in Chef Client 12.6 to use ``:before`` timer with the ``notifies`` and ``subscribes`` properties to specify that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -724,11 +686,25 @@ The following example shows how start a service named ``example_service`` and im
 
    service 'example_service' do
      action :start
-     provider Chef::Provider::Service::Init
      notifies :restart, 'service[nginx]', :immediately
    end
 
-where by using the default ``provider`` for the **service**, the recipe is telling the chef-client to determine the specific provider to be used during the chef-client run based on the platform of the node on which the recipe will run.
+.. end_tag
+
+**Restart one service before restarting another**
+
+.. tag resource_before_notification_restart
+
+This example uses the ``:before`` notification to restart the ``php-fpm`` service before restarting ``nginx``:
+
+.. code-block:: ruby
+
+   service `nginx` do
+     action :restart
+     notifies :restart, `service[php-fpm]`, :before
+   end
+
+With the ``:before`` notification, the action specified for the ``nginx`` resource will not run until action has been taken on the notified resource (``php-fpm``).
 
 .. end_tag
 
@@ -765,6 +741,21 @@ Subscribes
 
 A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
 
+Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
+
+.. code-block:: ruby
+
+  file '/etc/nginx/ssl/example.crt' do
+     mode '0600'
+     owner 'root'
+  end
+
+  service 'nginx' do
+     subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+  end
+
+In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
+
 .. end_tag
 
 .. tag resources_common_notification_subscribes_syntax
@@ -781,11 +772,11 @@ Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The following examples show how to use the ``subscribes`` notification in a recipe.
 
-**Prevent restart and reconfigure if configuration is broken**
+**Verify a configuration update**
 
 .. tag resource_execute_subscribes_prevent_restart_and_reconfigure
 
-Use the ``:nothing`` action (common to all resources) to prevent an application from restarting, and then use the ``subscribes`` notification to ask the broken configuration to be reconfigured immediately:
+Use the ``:nothing`` action (common to all resources) to prevent the test from starting automatically, and then use the ``subscribes`` notification to run a configuration test when a change to the template is detected:
 
 .. code-block:: ruby
 
@@ -797,11 +788,11 @@ Use the ``:nothing`` action (common to all resources) to prevent an application 
 
 .. end_tag
 
-**Reload a service using a template**
+**Reload a service when a template is updated**
 
 .. tag resource_service_subscribes_reload_using_template
 
-To reload a service based on a template, use the **template** and **service** resources together in the same recipe, similar to the following:
+To reload a service that is based on a template, use the **template** and **service** resources together in the same recipe, similar to the following:
 
 .. code-block:: ruby
 
@@ -811,44 +802,11 @@ To reload a service based on a template, use the **template** and **service** re
    end
 
    service 'apache' do
-     supports :restart => true, :reload => true
      action :enable
      subscribes :reload, 'template[/tmp/somefile]', :immediately
    end
 
-where the ``subscribes`` notification is used to reload the service using the template specified by the **template** resource.
-
-.. end_tag
-
-**Stash a file in a data bag**
-
-.. tag resource_ruby_block_stash_file_in_data_bag
-
-The following example shows how to use the **ruby_block** resource to stash a BitTorrent file in a data bag so that it can be distributed to nodes in the organization.
-
-.. code-block:: ruby
-
-   # the following code sample comes from the ``seed`` recipe
-   # in the following cookbook: https://github.com/mattray/bittorrent-cookbook
-
-   ruby_block 'share the torrent file' do
-     block do
-       f = File.open(node['bittorrent']['torrent'],'rb')
-       #read the .torrent file and base64 encode it
-       enc = Base64.encode64(f.read)
-       data = {
-         'id'=>bittorrent_item_id(node['bittorrent']['file']),
-         'seed'=>node.ipaddress,
-         'torrent'=>enc
-       }
-       item = Chef::DataBagItem.new
-       item.data_bag('bittorrent')
-       item.raw_data = data
-       item.save
-     end
-     action :nothing
-     subscribes :create, "bittorrent_torrent[#{node['bittorrent']['torrent']}]", :immediately
-   end
+where the ``subscribes`` notification is used to reload the service whenever the template is modified.
 
 .. end_tag
 
@@ -861,7 +819,7 @@ Relative Paths
 The following relative paths can be used with any resource:
 
 ``#{ENV['HOME']}``
-   Use to return the ``~`` path in Linux and Mac OS X or the ``%HOMEPATH%`` in Microsoft Windows.
+   Use to return the ``~`` path in Linux and macOS or the ``%HOMEPATH%`` in Microsoft Windows.
 
 .. end_tag
 
@@ -889,7 +847,7 @@ Run in Compile Phase
 The chef-client processes recipes in two phases:
 
 #. First, each resource in the node object is identified and a resource collection is built. All recipes are loaded in a specific order, and then the actions specified within each of them are identified. This is also referred to as the "compile phase".
-#. Next, the chef-client configures the system based on the order of the resources in the resource collection. Each resource is mapped to a provider, which then examines the node and performs the necessary steps to complete the action. This is also referred to as the "execution phase".
+#. Next, the chef-client configures the system based on the order of the resources in the resource collection. Each resource then examines the node and performs the necessary steps to complete the action. This is also referred to as the "execution phase".
 
 Typically, actions are processed during the execution phase of the chef-client run. However, sometimes it is necessary to run an action during the compile phase. For example, a resource can be configured to install a package during the compile phase to ensure that application is available to other resources during the execution phase.
 
@@ -1043,7 +1001,7 @@ or:
 Some other important things to know when using the ``rights`` attribute:
 
 * Only inherited rights remain. All existing explicit rights on the object are removed and replaced.
-* If rights are not specified, nothing will be changed. The chef-client does not clear out the rights on a file or directory if rights are not specified. 
+* If rights are not specified, nothing will be changed. The chef-client does not clear out the rights on a file or directory if rights are not specified.
 * Changing inherited rights can be expensive. Microsoft Windows will propagate rights to all children recursively due to inheritance. This is a normal aspect of Microsoft Windows, so consider the frequency with which this type of action is necessary and take steps to control this type of action if performance is the primary consideration.
 
 Use the ``deny_rights`` property to deny specific rights to specific users. The ordering is independent of using the ``rights`` property. For example, it doesn't matter if rights are granted to everyone is placed before or after ``deny_rights :read, ['Julian', 'Lewis']``, both Julian and Lewis will be unable to read the document. For example:
@@ -1113,4 +1071,3 @@ but then not use the ``inherits`` property to deny those rights on a child direc
 Because the ``inherits`` property is not specified, the chef-client will default it to ``true``, which will ensure that security settings for existing files remain unchanged.
 
 .. end_tag
-

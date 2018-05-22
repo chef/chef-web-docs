@@ -9,7 +9,7 @@ Use the **yum_repository** resource to manage a Yum repository configuration fil
 
 .. end_tag
 
-New in Chef client 12.14.
+*New in Chef Client 12.14.*
 
 Syntax
 ==========================================
@@ -34,55 +34,55 @@ The full syntax for all of the properties that are available to the **yum_reposi
 .. code-block:: ruby
 
    yum_repository 'name' do
-      baseurl                 String
+      baseurl                 String, Array
       cost                    String
-      clean_headers           TrueClass, FalseClass 
-      clean_metadata          TrueClass, FalseClass 
-      description             String 
-      enabled                 TrueClass, FalseClass
-      enablegroups            TrueClass, FalseClass
+      clean_headers           True, False
+      clean_metadata          True, False
+      description             String
+      enabled                 True, False
+      enablegroups            True, False
       exclude                 String
       failovermethod          String
-      fastestmirror_enabled   TrueClass, FalseClass
-      gpgcheck                TrueClass, FalseClass
-      gpgkey                  String, Array 
-      http_caching            String 
-      include_config          String 
-      includepkgs             String 
-      keepalive               TrueClass, FalseClass 
-      make_cache              TrueClass, FalseClass 
-      max_retries             String, Integer 
-      metadata_expire         String 
-      mirrorexpire            String 
-      mirrorlist              String 
-      mirror_expire           String 
+      fastestmirror_enabled   True, False
+      gpgcheck                True, False
+      gpgkey                  String, Array
+      http_caching            String
+      include_config          String
+      includepkgs             String
+      keepalive               True, False
+      make_cache              True, False
+      max_retries             String, Integer
+      metadata_expire         String
+      mirrorexpire            String
+      mirrorlist              String
+      mirror_expire           String
       mirrorlist_expire       String
-      options                 Hash 
-      priority                String 
-      proxy                   String 
-      proxy_username          String 
-      proxy_password          String 
-      username                String 
-      password                String 
-      repo_gpgcheck           TrueClass, FalseClass 
-      report_instanceid       TrueClass, FalseClass 
-      repositoryid            String 
-      sensitive               TrueClass, FalseClass 
-      skip_if_unavailable     TrueClass, FalseClass 
-      source                  String 
-      sslcacert               String 
-      sslclientcert           String 
-      sslclientkey            String 
-      sslverify               TrueClass, FalseClass 
-      timeout                 String 
+      options                 Hash
+      priority                String
+      proxy                   String
+      proxy_username          String
+      proxy_password          String
+      username                String
+      password                String
+      repo_gpgcheck           True, False
+      report_instanceid       True, False
+      repositoryid            String
+      sensitive               True, False
+      skip_if_unavailable     True, False
+      source                  String
+      sslcacert               String
+      sslclientcert           String
+      sslclientkey            String
+      sslverify               True, False
+      timeout                 String
       action                  Symbol # default is :create if not specified
    end
 
 where
 
-* ``yum_repository`` is the resource 
+* ``yum_repository`` is the resource
 * ``name`` is the name of the resource block
-* ``:action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
 *  ``baseurl``, ``cost``, ``clean_headers``, ``clean_metadata``, ``description``, ``enabled``, ``enablegroups``, ``exclude``, ``failovermethod``, ``fastestmirror_enabled``, ``gpgcheck``, ``gpgkey``, ``http_caching``, ``include_config``, ``includepkgs``, ``keepalive``, ``make_cache``, ``max_retries``, ``metadata_expire``, ``mirrorexpire``, ``mirrorlist``, ``mirror_expire``, ``mirrorlist_expire``, ``options``, ``priority``, ``proxy``, ``proxy_username``, ``proxy_password``, ``username``, ``password``, ``repo_gpgcheck``, ``report_instanceid``, ``repositoryid``, ``sensitive``, ``skip_if_unavailable``, ``source``, ``sslcacert``, ``sslclientcert``, ``sslclientkey``, ``sslverify``, ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
@@ -115,9 +115,9 @@ This resource has the following properties:
 .. Refer to http://linux.die.net/man/5/yum.conf as the source for these descriptions.
 
 baseurl
-   **Ruby Type:** String
+   **Ruby Type:** String, Array
 
-   URL to the directory where the Yum repository's 'repodata' directory lives. Can be an http://, https:// or ftp:// URL. You can specify multiple URLs in one baseurl statement.
+   URL to the directory where the Yum repository's 'repodata' directory lives. Can be an http://, https:// or a ftp:// URL. You can specify multiple URLs in one baseurl statement. Arrays are supported in Chef client 12.18 or later.
 
 cost
    **Ruby Type:** String
@@ -125,12 +125,12 @@ cost
    Relative cost of accessing this repository. Useful for weighing one repo's packages as greater/less than any other. Default is '1000'.
 
 clean_headers
-   **Ruby Type:** TrueClass, FalseClass
+   **Ruby Type:** True, False
 
    Specifies whether you want to purge the package data files that are downloaded from a Yum repository and held in a cache directory.  Default is ``false``. (Deprecated)
 
 clean_metadata
-   **Ruby Type:** TrueClass, FalseClass
+   **Ruby Type:** True, False
 
    Specifies whether you want to purge all of the packages downloaded from a Yum repository and held in a cache directory. Default is ``true``.
 
@@ -140,12 +140,12 @@ description
    Descriptive name for the repository channel and maps to the 'name' parameter in a repository .conf. This value must be specified.
 
 enabled
-   **Ruby Type:** TrueClass, FalseClass
+   **Ruby Type:** True, False
 
    Specifies whether or not Yum should use this repository.
 
 enablegroups
-   **Ruby Type:** TrueClass, FalseClass
+   **Ruby Type:** True, False
 
    Specifies whether Yum will allow the use of package groups for this repository. Default is ``true``.
 
@@ -160,14 +160,14 @@ failovermethod
    Method to determine how to switch to a new server if the current one fails, which can either be ``roundrobin`` or ``priority``. ``roundrobin`` randomly selects a URL out of the list of URLs to start with and proceeds through each of them as it encounters a failure contacting the host. ``priority`` starts from the first ``baseurl`` listed and reads through them sequentially.
 
 fastestmirror_enabled
-   **Ruby Type:** TrueClass, FalseClass
+   **Ruby Type:** True, False
 
    Specifies whether to use the fastest mirror from a repository configuration when more than one mirror is listed in that configuration.
 
 gpgcheck
-   **Ruby Type:** TrueClass, FalseClass
+   **Ruby Type:** True, False
 
-   Specifies whether or not Yum should perform a GPG signature check on the packages received from a repository. Default is ``true`` in Chef client 12.15.
+   Specifies whether or not Yum should perform a GPG signature check on the packages received from a repository. As of Chef client 12.15, the default is set to ``true``.
 
 gpgkey
    **Ruby Type:** String, Array
@@ -200,12 +200,12 @@ includepkgs
    Inverse of exclude property. This is a list of packages you want to use from a repository. If this option lists only one package then that is all Yum will ever see from the repository. Default is an empty list.
 
 keepalive
-   **Ruby Type:** TrueClass, FalseClass
+   **Ruby Type:** True, False
 
    Determines whether or not HTTP/1.1 ``keep-alive`` should be used with this repository.
 
 make_cache
-   **Ruby Type:** TrueClass, FalseClass
+   **Ruby Type:** True, False
 
    Determines whether package files downloaded by Yum stay in cache directories. By using cached data, you can carry out certain operations without a network connection. Default is ``true``.
 
@@ -280,27 +280,27 @@ password
    Password to use with the username for basic authentication.
 
 repo_gpgcheck
-   **Ruby Type:** TrueClass, FalseClass
+   **Ruby Type:** True, False
 
   Determines whether or not Yum should perform a GPG signature check on the repodata from this repository.
 
 report_instanceid
-   **Ruby Type:** TrueClass, FalseClass
+   **Ruby Type:** True, False
 
    Determines whether to report the instance ID when using Amazon Linux AMIs and repositories.
 
 repositoryid
-   **Ruby Type:** TrueClass, FalseClass
+   **Ruby Type:** String
 
    Specifies a unique name for each repository, one word. Defaults to name attribute.
 
 sensitive
-   **Ruby Type:** TrueClass, FalseClass
+   **Ruby Type:** True, False
 
    Determines whether the content of repository file is hidden from chef run output. Default is ``false``.
 
 skip_if_unavailable
-   **Ruby Type:** TrueClass, FalseClass
+   **Ruby Type:** True, False
 
    Determines whether Yum will continue running if this repository cannot be contacted for any reason. This should be set carefully as all repos are consulted for any given command. Default is ``false``.
 
@@ -325,7 +325,7 @@ sslclientkey
    Path to the SSL client key Yum should use to connect to repos/remote sites. Defaults to 'none'.
 
 sslverify
-   **Ruby Type:** TrueClass, FalseClass
+   **Ruby Type:** True, False
 
    Determines whether Yum will verify SSL certificates/hosts. Defaults to ``true``.
 

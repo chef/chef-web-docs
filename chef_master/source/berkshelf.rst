@@ -3,7 +3,233 @@ About Berkshelf
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/berkshelf.rst>`__
 
-Berkshelf is a dependency manager for certain cookbook workflows that is included in the Chef development kit. Berkshelf stores every version of a cookbook that has ever been installed. By default, the local disk repository for Berkshelf is located at ``~/.berkshelf``, but this may be modified by setting the ``BERKSHELF_PATH`` environment variable.
+.. tag berkshelf_summary
+
+Berkshelf is a dependency manager for Chef cookbooks. With it, you can easily depend on community cookbooks and have them safely included in your workflow. You can also ensure that your CI systems reproducibly select the same cookbook versions, and can upload and bundle cookbook dependencies without needing a locally maintained copy. Berkshelf is included in the Chef Development Kit.
+
+.. note:: For new users, we strongly recommend using `Policyfiles </policyfile.html>`__ rather than Berkshelf. Policyfiles provide more predictability, since dependencies are only resolved once, and a much improved way of promoting cookbooks from dev to testing, and then to production. Note that Policyfile is not supported as part of a Chef Automate workflow.
+
+.. end_tag
+
+Quick Start
+===============
+
+Running ``chef generate cookbook`` will, by default, create a ``Berksfile`` in the root of the cookbook, alongside the cookbook's ``metadata.rb``. As usual, add your cookbook's dependencies to the metadata:
+
+.. code-block:: ruby
+
+   name 'my_first_cookbook'
+   version '0.1.0'
+   depends 'apt', '~> 5.0'
+
+The default ``Berksfile`` will contain the following:
+
+.. code-block:: ruby
+
+   source 'https://supermarket.chef.io'
+   metadata
+
+Now, when you run ``berks install``, the apt cookbook will be downloaded from Supermarket into the cache:
+
+.. code-block:: shell
+
+   $ berks install
+   Resolving cookbook dependencies...
+   Fetching 'my_first_cookbook' from source at .
+   Fetching cookbook index from https://supermarket.chef.io...
+   Installing apt (5.0.0)
+   Using my_first_cookbook (0.1.0) from source at .
+   Installing compat_resource (12.16.2)
+
+In this example, the ``compat_resource`` cookbook is also installed since it's a dependency of the ``apt`` cookbook. Running the install command also creates a ``Berksfile.lock``, which represents exactly which cookbook versions Berkshelf installed. This file ensures that someone else can check the cookbook out of git and get exactly the same dependencies as you.
+
+You can now upload all cookbooks to your Chef server with ``berks upload``:
+
+.. code-block:: shell
+
+   $ berks upload
+   Uploaded apt (5.0.0) to: 'https://api.chef.io:443/organizations/example'
+   Uploaded compat_resource (12.16.2) to: 'https://api.chef.io:443/organizations/example'
+   Uploaded my_first_cookbook (0.1.0) to: 'https://api.chef.io:443/organizations/example'
+
+
+The Berksfile
+==============
+
+.. tag berksfile_summary
+
+A Berksfile describes the set of sources and dependencies needed to use a cookbook. It is used in conjunction with the ``berks`` command.
+
+.. end_tag
+
+Syntax
+-------
+A Berksfile is a Ruby file, in which sources, dependencies, and options may be specified. Berksfiles are modelled closely on Bundler's Gemfile. The syntax is as follows:
+
+.. code-block:: ruby
+
+   source "https://supermarket.chef.io"
+   metadata
+   cookbook "NAME" [, "VERSION_CONSTRAINT"] [, SOURCE_OPTIONS]
+
+
+Source Keyword
++++++++++++++++
+
+A source defines where Berkshelf should look for cookbooks. Sources are processed in the order that they are defined in, and processing stops as soon as a suitable cookbook is found. Locations include a private or public `Supermarket </supermarket.html>`__, Chef Server, or local Chef repository.
+
+By default, a Berksfile has a source for Chef's public supermarket:
+
+.. code-block:: ruby
+
+   source "https://supermarket.chef.io"
+
+To add a private supermarket, which will be preferred:
+
+.. code-block:: ruby
+
+   source "https://supermarket.example.com"
+   source "https://supermarket.chef.io"
+
+To add a Chef Server:
+
+.. code-block:: ruby
+
+   source "https://supermarket.chef.io"
+   source :chef_server
+
+To add a local Chef repository:
+
+.. code-block:: ruby
+
+   source "https://supermarket.chef.io"
+   source chef_repo: ".."
+
+The location and authentication details for the Chef Server will be taken from the user's ``knife.rb``.
+
+Metadata Keyword
++++++++++++++++++
+
+The ``metadata`` keyword causes Berkshelf to process the local cookbook metadata.
+This ensures that the dependencies of the cookbook are resolved by Berkshelf. Using the ``metadata`` keyword requires that the Berksfile be placed in the root of the cookbook, next to ``metadata.rb``.
+
+Cookbook Keyword
+++++++++++++++++++
+
+The ``cookbook`` keyword allows the user to define where a cookbook is installed from, or to set additional version constraints. It can also be used to install additional cookbooks, for example to use during testing.
+
+The format of a ``cookbook`` stanza is as follows:
+
+.. code-block:: ruby
+
+   cookbook "NAME" [, "VERSION_CONSTRAINT"] [, SOURCE_OPTIONS]
+
+The simplest form is:
+
+.. code-block:: ruby
+
+   cookbook "library-cookbook"
+
+This ensures that a cookbook named ``library-cookbook`` is installed by berkshelf.
+
+Version constraints are the second parameter:
+
+.. code-block:: ruby
+
+   cookbook "library-cookbook", "~> 0.1.1"
+
+These are identical to the version constraints in a `cookbook metadata file </config_rb_metadata.html#cookbook-version-constraints>`__.
+
+Source options are used to specify the location to acquire a cookbook from, or to place a cookbook in a group. By default, cookbooks are acquired from the default sources, but it's possible to override this on a case by case basis. Often this is used to get a development cookbook from Git, or to use another cookbook in a monolithic cookbook repository.
+
+**Path Location**
+
+The path location enables Berkshelf to use a cookbook located on the same system. It does not cache the target cookbook, ensuring that the latest version is always used. The target must be a single cookbook with a ``metadata.rb``.
+
+.. code-block:: ruby
+
+   cookbook "library-cookbook", "~> 0.1.1", path: "../library-cookbook"
+
+**Git Location**
+
+The git location enables Berkshelf to use acquire a cookbook from a git repository.
+
+.. code-block:: ruby
+
+   cookbook "library-cookbook", "~> 0.1.1", git: "https://github.com/example/library-cookbook.git"
+
+The user can specify a git branch or a tag (the options are synonymous) using an optional argument:
+
+.. code-block:: ruby
+
+   cookbook "library-cookbook", "~> 0.1.1", git: "https://github.com/example/library-cookbook.git", branch: "smartos-dev"
+   cookbook "library-cookbook", "~> 0.1.1", git: "https://github.com/example/library-cookbook.git", tag: "1.2.3"
+
+The user can also specify a revision:
+
+.. code-block:: ruby
+
+   cookbook "library-cookbook", "~> 0.1.1", git: "https://github.com/example/library-cookbook.git", ref: "eef7e65806e7ff3bdbe148e27c447ef4a8bc3881"
+
+If a git repository contains many cookbooks, the user can specify the path to the desired cookbook using the ``rel`` option:
+
+.. code-block:: ruby
+
+   cookbook "library-cookbook", "~> 0.1.1", git: "https://github.com/example/cookbook-repo.git", rel: "library-cookbook"
+
+**GitHub Location**
+
+If a cookbook is in GitHub, you can use the ``github:`` shorthand to refer to it:
+
+.. code-block:: ruby
+
+   cookbook "library-cookbook", "~> 0.1.1", github: "example/library-cookbook"
+
+Any other git options are valid for a GitHub location.
+
+Groups
++++++++
+
+Adding cookbooks to a group is useful should you wish to exclude certain cookbooks from upload or vendoring.
+
+Groups can be defined via blocks:
+
+.. code-block:: ruby
+
+   group :test do
+     cookbook "test-cookbook", path: "test/fixtures/test"
+   end
+
+Groups can also be specified inline:
+
+.. code-block:: ruby
+
+   cookbook "test-cookbook", path: "test/fixtures/test", group: :test
+
+To exclude a group when using ``berks``, use the ``--except`` flag:
+
+.. code-block:: bash
+
+   $ berks install --except test
+
+Solver Keyword
++++++++++++++++
+
+It is possible to configure which engine to use for the `solve <https://github.com/berkshelf/solve>`__ dependency resolution system.
+
+By default, the solver selection depends on your environment. When the ``dep_selector`` gem is installed, as in the case of Chef DK, the ``gecode`` solver is used. Otherwise, the ``ruby`` solver is utilized by default.
+
+The ``gecode`` solver matches the engine used by the Chef Server, so will more closely reflect the behavior of the Chef Server in selecting cookbooks:
+
+.. code-block:: ruby
+
+   solver :gecode
+
+The ``ruby`` solver can give better results in some situations, notably when Berkshelf times out when trying to build a dependency set.
+
+.. code-block:: ruby
+
+   solver :ruby
 
 Berkshelf CLI
 =====================================================
@@ -72,7 +298,7 @@ berks cookbook
 -----------------------------------------------------
 Use ``berks cookbook`` to create a skeleton for a new cookbook.
 
-.. warning:: This command is deprecated in favor of ``chef generate cookbook``.
+.. warning:: This command is deprecated. Please use ``chef generate cookbook`` instead.
 
 berks info
 -----------------------------------------------------
@@ -97,13 +323,32 @@ berks init
 -----------------------------------------------------
 Use ``berks init`` to initialize Berkshelf to the specified directory.
 
-.. warning:: This command is deprecated in favor of ``chef generate cookbook``.
+.. warning:: This command is deprecated. Please use ``chef generate cookbook`` instead.
 
 berks install
 -----------------------------------------------------
-Use ``berks install`` to install cookbooks to the named Berksfile.
+Use ``berks install`` to install cookbooks into the cache. This command generates the Berkshelf lock file that ensures consistency.
 
-.. warning:: This command is deprecated. Run ``berks vendor`` instead.
+Syntax
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ berks install (options)
+
+Options
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+This command has the following options:
+
+``-b PATH``, ``--berksfile PATH``
+   The path to the Berksfile in which the cookbook is located.
+
+``-e [GROUP, GROUP, ...]``, ``--except [GROUP, GROUP, ...]``
+   An array of cookbook groups that will not be listed.
+
+``-o [GROUP, GROUP, ...]``, ``--only [GROUP, GROUP, ...]``
+   An array of cookbook groups to be listed. When this option is used, cookbooks that exist in groups not listed will not be listed.
 
 berks list
 -----------------------------------------------------
@@ -201,7 +446,7 @@ This command has the following options:
 
 berks test
 -----------------------------------------------------
-Use ``berks test`` to run Kitchen from within Berkshelf.
+Use ``berks test`` to run Test Kitchen from within Berkshelf.
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -215,15 +460,15 @@ Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 This command may run any Kitchen CLI command, such as:
 
-* `kitchen create <https://docs.chef.io/ctl_kitchen.html#kitchen-create>`__
-* `kitchen converge <https://docs.chef.io/ctl_kitchen.html#kitchen-converge>`__
-* `kitchen destroy <https://docs.chef.io/ctl_kitchen.html#kitchen-destroy>`__
-* `kitchen exec <https://docs.chef.io/ctl_kitchen.html#kitchen-exec>`__
-* `kitchen list <https://docs.chef.io/ctl_kitchen.html#kitchen-list>`__
-* `kitchen test <https://docs.chef.io/ctl_kitchen.html#kitchen-test>`__
-* `kitchen verify <https://docs.chef.io/ctl_kitchen.html#kitchen-verify>`__
+* `kitchen create </ctl_kitchen.html#kitchen-create>`__
+* `kitchen converge </ctl_kitchen.html#kitchen-converge>`__
+* `kitchen destroy </ctl_kitchen.html#kitchen-destroy>`__
+* `kitchen exec </ctl_kitchen.html#kitchen-exec>`__
+* `kitchen list </ctl_kitchen.html#kitchen-list>`__
+* `kitchen test </ctl_kitchen.html#kitchen-test>`__
+* `kitchen verify </ctl_kitchen.html#kitchen-verify>`__
 
-See :doc:`kitchen (executable) </ctl_kitchen>` for descriptions of every Kitchen subcommand.
+See `kitchen (executable) </ctl_kitchen.html>`__ for descriptions of every Test Kitchen subcommand.
 
 berks show
 -----------------------------------------------------
@@ -362,7 +607,7 @@ Use ``berks version`` to display the version of Berkshelf.
 
 berks viz
 -----------------------------------------------------
-Use ``berks viz`` to show the dependency graph.
+Use ``berks viz`` to generate a dependency graph image file.
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -381,10 +626,3 @@ This command has the following options:
 
 ``-o NAME``, ``--outfile NAME``
    The name of the file to which output is saved. Default value: ``graph.png``.
-
-For more information ...
-=====================================================
-For more information about Berkshelf:
-
-* `Berkshelf Documentation <http://berkshelf.com>`_
-* `How Can I Combine Berks and Local Cookbooks? <https://coderwall.com/p/j72egw/organise-your-site-cookbooks-with-berkshelf-and-this-trick>`_

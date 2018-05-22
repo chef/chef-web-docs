@@ -83,7 +83,7 @@ The ``include?`` method can be used to ensure that a specific parameter is inclu
 
 .. code-block:: ruby
 
-   if ['debian', 'ubuntu'].include?(node['platform'])
+   if %w(debian ubuntu).include?(node['platform'])
      # do debian/ubuntu things
    end
 
@@ -107,18 +107,9 @@ For example:
 
 .. code-block:: ruby
 
-   if %w{debian ubuntu}.include?(node['platform'])
-     # do debian/ubuntu things with the Ruby array %w{} shortcut
+   if %w(debian ubuntu).include?(node['platform'])
+     # do debian/ubuntu things with the Ruby array %w() shortcut
    end
-
-.. 
-.. The ``%w`` array will use single-quotes, will not have access to code interpolation, and may only use a limited set of escape characters: ``\``.
-.. 
-.. .. note:: Use an upper-case W---``%W``---to create an array with double-quotes, access to code interpolation, and access to all escape characters.
-..
-
-.. future example: step_resource_package_use_whitespace_array
-.. future example: step_resource_template_use_whitespace_array
 
 .. end_tag
 
@@ -126,7 +117,7 @@ Include Recipes
 =====================================================
 .. tag cookbooks_recipe_include_in_recipe
 
-A recipe can include one (or more) recipes located in external cookbooks by using the ``include_recipe`` method. When a recipe is included, the resources found in that recipe will be inserted (in the same exact order) at the point where the ``include_recipe`` keyword is located.
+A recipe can include one (or more) recipes from cookbooks by using the ``include_recipe`` method. When a recipe is included, the resources found in that recipe will be inserted (in the same exact order) at the point where the ``include_recipe`` keyword is located.
 
 The syntax for including a recipe is like this:
 
@@ -140,7 +131,15 @@ For example:
 
    include_recipe 'apache2::mod_ssl'
 
-If the ``include_recipe`` method is used more than once to include a recipe, only the first inclusion is processed and any subsequent inclusions are ignored.
+Multiple recipes can be included within a recipe. For example:
+
+.. code-block:: ruby
+
+   include_recipe 'cookbook::setup'
+   include_recipe 'cookbook::install'
+   include_recipe 'cookbook::configure'
+
+If a specific recipe is included more than once with the ``include_recipe`` method or elsewhere in the run_list directly, only the first instance is processed and subsequent inclusions are ignored.
 
 .. end_tag
 
@@ -912,6 +911,8 @@ where:
 
 .. end_tag
 
+New in Chef Client 12.1.
+
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -1222,6 +1223,8 @@ The ``id`` for each data bag item will be returned as a string.
 
 .. end_tag
 
+New in Chef Client 12.0.
+
 data_bag_item
 -----------------------------------------------------
 .. tag data_bag
@@ -1296,6 +1299,8 @@ The following example shows how to use the ``data_bag`` and ``data_bag_item`` me
 
 For a more complete version of the previous example, see the default recipe in the https://github.com/hw-cookbooks/apt-mirror community cookbook.
 
+New in Chef Client 12.0.
+
 declare_resource
 -----------------------------------------------------
 .. tag dsl_recipe_method_declare_resource
@@ -1310,7 +1315,7 @@ The syntax for the ``declare_resource`` method is as follows:
 
 where:
 
-* ``:resource_type`` is the resource type, such as ``:file ``(for the **file** resource), ``:template`` (for the **template** resource), and so on. Any resource available to Chef may be declared.
+* ``:resource_type`` is the resource type, such as ``:file`` (for the **file** resource), ``:template`` (for the **template** resource), and so on. Any resource available to Chef may be declared.
 * ``resource_name`` the property that is the default name of the resource, typically the string that appears in the ``resource 'name' do`` block of a resource (but not always); see the Syntax section for the resource to be declared to verify the default name property.
 * ``resource_attrs_block`` is a block in which properties of the instantiated resource are declared.
 
@@ -1330,6 +1335,8 @@ is equivalent to:
      action :delete
    end
 
+New in Chef Client 12.10.
+
 .. end_tag
 
 delete_resource
@@ -1346,7 +1353,7 @@ The syntax for the ``delete_resource`` method is as follows:
 
 where:
 
-* ``:resource_type`` is the resource type, such as ``:file ``(for the **file** resource), ``:template`` (for the **template** resource), and so on. Any resource available to Chef may be declared.
+* ``:resource_type`` is the resource type, such as ``:file`` (for the **file** resource), ``:template`` (for the **template** resource), and so on. Any resource available to Chef may be declared.
 * ``resource_name`` the property that is the default name of the resource, typically the string that appears in the ``resource 'name' do`` block of a resource (but not always); see the Syntax section for the resource to be declared to verify the default name property.
 
 For example:
@@ -1354,6 +1361,8 @@ For example:
 .. code-block:: ruby
 
    delete_resource(:template, '/x/y.erb')
+
+New in Chef Client 12.10.
 
 .. end_tag
 
@@ -1371,7 +1380,7 @@ The syntax for the ``delete_resource!`` method is as follows:
 
 where:
 
-* ``:resource_type`` is the resource type, such as ``:file ``(for the **file** resource), ``:template`` (for the **template** resource), and so on. Any resource available to Chef may be declared.
+* ``:resource_type`` is the resource type, such as ``:file`` (for the **file** resource), ``:template`` (for the **template** resource), and so on. Any resource available to Chef may be declared.
 * ``resource_name`` the property that is the default name of the resource, typically the string that appears in the ``resource 'name' do`` block of a resource (but not always); see the Syntax section for the resource to be declared to verify the default name property.
 
 For example:
@@ -1379,6 +1388,8 @@ For example:
 .. code-block:: ruby
 
    delete_resource!(:file, '/x/file.txt')
+
+New in Chef Client 12.10.
 
 .. end_tag
 
@@ -1399,7 +1410,7 @@ The syntax for the ``edit_resource`` method is as follows:
 
 where:
 
-* ``:resource_type`` is the resource type, such as ``:file ``(for the **file** resource), ``:template`` (for the **template** resource), and so on. Any resource available to Chef may be declared.
+* ``:resource_type`` is the resource type, such as ``:file`` (for the **file** resource), ``:template`` (for the **template** resource), and so on. Any resource available to Chef may be declared.
 * ``resource_name`` the property that is the default name of the resource, typically the string that appears in the ``resource 'name' do`` block of a resource (but not always); see the Syntax section for the resource to be declared to verify the default name property.
 * ``resource_attrs_block`` is a block in which properties of the instantiated resource are declared.
 
@@ -1408,19 +1419,21 @@ For example:
 .. code-block:: ruby
 
    edit_resource(:template, '/x/y.txy') do
-     cookbook_name: cookbook_name
+     cookbook 'cookbook_name'
    end
 
 and a resource block:
 
 .. code-block:: ruby
 
-   edit_resource(template: '/etc/aliases') do
+   edit_resource(:template, '/etc/aliases') do
      source 'aliases.erb'
      cookbook 'aliases'
      variables({:aliases => {} })
      notifies :run, 'execute[newaliases]'
    end
+
+New in Chef Client 12.10.
 
 .. end_tag
 
@@ -1443,7 +1456,7 @@ The syntax for the ``edit_resource!`` method is as follows:
 
 where:
 
-* ``:resource_type`` is the resource type, such as ``:file ``(for the **file** resource), ``:template`` (for the **template** resource), and so on. Any resource available to Chef may be declared.
+* ``:resource_type`` is the resource type, such as ``:file`` (for the **file** resource), ``:template`` (for the **template** resource), and so on. Any resource available to Chef may be declared.
 * ``resource_name`` the property that is the default name of the resource, typically the string that appears in the ``resource 'name' do`` block of a resource (but not always); see the Syntax section for the resource to be declared to verify the default name property.
 * ``resource_attrs_block`` is a block in which properties of the instantiated resource are declared.
 
@@ -1452,6 +1465,8 @@ For example:
 .. code-block:: ruby
 
    edit_resource!(:file, '/x/y.rst')
+
+New in Chef Client 12.10.
 
 .. end_tag
 
@@ -1472,7 +1487,7 @@ The syntax for the ``find_resource`` method is as follows:
 
 where:
 
-* ``:resource_type`` is the resource type, such as ``:file ``(for the **file** resource), ``:template`` (for the **template** resource), and so on. Any resource available to Chef may be declared.
+* ``:resource_type`` is the resource type, such as ``:file`` (for the **file** resource), ``:template`` (for the **template** resource), and so on. Any resource available to Chef may be declared.
 * ``resource_name`` the property that is the default name of the resource, typically the string that appears in the ``resource 'name' do`` block of a resource (but not always); see the Syntax section for the resource to be declared to verify the default name property.
 
 For example:
@@ -1485,12 +1500,14 @@ and a resource block:
 
 .. code-block:: ruby
 
-   find_resource(template: '/etc/seapower') do
+   find_resource(:template, '/etc/seapower') do
      source 'seapower.erb'
      cookbook 'seapower'
      variables({:seapower => {} })
      notifies :run, 'execute[newseapower]'
    end
+
+New in Chef Client 12.10.
 
 .. end_tag
 
@@ -1508,7 +1525,7 @@ The syntax for the ``find_resource!`` method is as follows:
 
 where:
 
-* ``:resource_type`` is the resource type, such as ``:file ``(for the **file** resource), ``:template`` (for the **template** resource), and so on. Any resource available to Chef may be declared.
+* ``:resource_type`` is the resource type, such as ``:file`` (for the **file** resource), ``:template`` (for the **template** resource), and so on. Any resource available to Chef may be declared.
 * ``resource_name`` the property that is the default name of the resource, typically the string that appears in the ``resource 'name' do`` block of a resource (but not always); see the Syntax section for the resource to be declared to verify the default name property.
 
 For example:
@@ -1516,6 +1533,8 @@ For example:
 .. code-block:: ruby
 
    find_resource!(:template, '/x/y.erb')
+
+New in Chef Client 12.10.
 
 .. end_tag
 
@@ -1559,10 +1578,8 @@ The following parameters can be used with this method:
      - FreeBSD. All platform variants of FreeBSD return ``freebsd``.
    * - ``gentoo``
      - Gentoo
-   * - ``hpux``
-     - HP-UX. All platform variants of HP-UX return ``hpux``.
    * - ``mac_os_x``
-     - Mac OS X
+     - macOS
    * - ``netbsd``
      - NetBSD. All platform variants of NetBSD return ``netbsd``.
    * - ``openbsd``
@@ -1609,7 +1626,7 @@ The following example shows how an if statement can be used with the ``platform?
      ruby_block 'copy libmysql.dll into ruby path' do
        block do
          require 'fileutils'
-         FileUtils.cp "#{node['mysql']['client']['lib_dir']}\\libmysql.dll", 
+         FileUtils.cp "#{node['mysql']['client']['lib_dir']}\\libmysql.dll",
            node['mysql']['client']['ruby_dir']
        end
        not_if { File.exist?("#{node['mysql']['client']['ruby_dir']}\\libmysql.dll") }
@@ -1648,14 +1665,6 @@ or:
    if platform_family?('debian', 'rhel')
      # do things on debian and rhel families
    end
-
-.. future example: step_resource_remote_file_use_platform_family
-
-.. 
-.. Parameters
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_dsl_recipe/includes_dsl_recipe_method_platform_family_parameters.rst
-..
 
 For example:
 
@@ -1700,7 +1709,7 @@ The following is an example of using the ``platform_family?`` method in the Reci
      command <<-EOF
        # command for installing Python goes here
        EOF
-     not_if { File.exists?(pip_binary) }
+     not_if { File.exist?(pip_binary) }
    end
 
 where a command for installing Python might look something like:
@@ -1857,6 +1866,8 @@ For example:
 
 .. end_tag
 
+New in Chef Client 12.0.
+
 Query Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag search_query_syntax
@@ -1914,7 +1925,7 @@ Consider the following snippet of JSON data:
              "f8:1e:df:d8:63:a2": {
                "family": "lladdr"
              },
-             "192.168.0.195": {
+             "192.0.2.0": {
                "netmask": "255.255.255.0",
                "broadcast": "192.168.0.255",
                "family": "inet"
@@ -1974,26 +1985,26 @@ This data is also flattened into various compound fields, which follow the same 
 .. code-block:: none
 
      # ...snip...
-     "network_interfaces_en1_addresses_192.168.0.195_broadcast" => "192.168.0.255",
+     "network_interfaces_en1_addresses_192.0.2.0_broadcast" => "192.168.0.255",
      "network_interfaces_en1_addresses_fe80::fa1e:tldr_family"  => "inet6",
-     "network_interfaces_en1_addresses"                         => ["fe80::fa1e:tldr","f8:1e:df:tldr","192.168.0.195"]
+     "network_interfaces_en1_addresses"                         => ["fe80::fa1e:tldr","f8:1e:df:tldr","192.0.2.0"]
      # ...snip...
 
 which allows searches like the following to find data that is present in this node:
 
 .. code-block:: ruby
 
-   node "network_interfaces_en1_addresses:192.168.0.195"
+   node "network_interfaces_en1_addresses:192.0.2.0"
 
 This flattened data structure also supports using wildcard compound fields, which allow searches to omit levels within the JSON data structure that are not important to the search query. In the following example, an asterisk (``*``) is used to show where the wildcard can exist when searching for a nested field:
 
 .. code-block:: ruby
 
    "network_interfaces_*_flags"     => ["UP", "BROADCAST", "SMART", "RUNNING", "SIMPLEX", "MULTICAST"]
-   "network_interfaces_*_addresses" => ["fe80::fa1e:dfff:fed8:63a2", "192.168.0.195", "f8:1e:df:d8:63:a2"]
+   "network_interfaces_*_addresses" => ["fe80::fa1e:dfff:fed8:63a2", "192.0.2.0", "f8:1e:df:d8:63:a2"]
    "network_interfaces_en0_media_*" => ["autoselect", "none", "1000baseT", "10baseT/UTP", "100baseTX"]
    "network_interfaces_en1_*"       => ["1", "UP", "BROADCAST", "SMART", "RUNNING", "SIMPLEX", "MULTICAST",
-                                        "fe80::fa1e:dfff:fed8:63a2", "f8:1e:df:d8:63:a2", "192.168.0.195",
+                                        "fe80::fa1e:dfff:fed8:63a2", "f8:1e:df:d8:63:a2", "192.0.2.0",
                                         "1500", "supported", "selected", "en", "active", "Ethernet"]
 
 For each of the wildcard examples above, the possible values are shown contained within the brackets. When running a search query, the query syntax for wildcards is to simply omit the name of the node (while preserving the underscores), similar to:
@@ -2086,11 +2097,11 @@ Special Characters
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. tag search_special_characters
 
-A special character can be used to fine-tune a search query and to increase the accuracy of the search results. The following characters can be included within the search query syntax, but each occurrence of a special character must be escaped with a backslash (``\``):
+A special character can be used to fine-tune a search query and to increase the accuracy of the search results. The following characters can be included within the search query syntax, but each occurrence of a special character must be escaped with a backslash (``\``), also (``/``) must be escaped against the Elasticsearch:
 
 .. code-block:: ruby
 
-   +  -  &&  | |  !  ( )  { }  [ ]  ^  "  ~  *  ?  :  \
+   +  -  &&  | |  !  ( )  { }  [ ]  ^  "  ~  *  ?  :  \  /
 
 For example:
 
@@ -2155,7 +2166,7 @@ The following example shows how to use the ``search`` method in the Recipe DSL t
 where
 
 * the search will use both of the **execute** resources, unless the condition specified by the ``not_if`` commands are met
-* the ``environments`` property in the first **execute** resource is being used to define values that appear as variables in the OpenVPN configuration 
+* the ``environments`` property in the first **execute** resource is being used to define values that appear as variables in the OpenVPN configuration
 * the **template** resource tells the chef-client which template to use
 
 .. end_tag
@@ -2176,6 +2187,8 @@ where ``command_args`` is the command that is run against the node.
 
 .. end_tag
 
+New in Chef Client 12.0.
+
 shell_out!
 -----------------------------------------------------
 .. tag dsl_recipe_method_shell_out_bang
@@ -2192,6 +2205,8 @@ where ``command_args`` is the command that is run against the node. This method 
 
 .. end_tag
 
+New in Chef Client 12.0.
+
 shell_out_with_systems_locale
 -----------------------------------------------------
 .. tag dsl_recipe_method_shell_out_with_systems_locale
@@ -2207,6 +2222,8 @@ The syntax for the ``shell_out_with_systems_locale`` method is as follows:
 where ``command_args`` is the command that is run against the node.
 
 .. end_tag
+
+New in Chef Client 12.0.
 
 tag, tagged?, untag
 -----------------------------------------------------
@@ -2244,21 +2261,21 @@ For example:
 
    tag('machine')
 
-   if tagged?('machine') 
-      Chef::Log.info('Hey I'm #{node[:tags]}') 
+   if tagged?('machine')
+      Chef::Log.info("Hey I'm #{node[:tags]}")
    end
 
    untag('machine')
 
-   if not tagged?('machine') 
-      Chef::Log.info('I has no tagz') 
+   if not tagged?('machine')
+      Chef::Log.info('I has no tagz')
    end
 
 Will return something like this:
 
 .. code-block:: none
 
-   [Thu, 22 Jul 2010 18:01:45 +0000] INFO: Hey I'm machine 
+   [Thu, 22 Jul 2010 18:01:45 +0000] INFO: Hey I'm machine
    [Thu, 22 Jul 2010 18:01:45 +0000] INFO: I has no tagz
 
 .. end_tag
@@ -2299,6 +2316,8 @@ When each value has more than one platform, the syntax changes to:
        'version' => 'value'
      },
    )
+
+Changed in Chef Client 12.0 to support version constraints.
 
 Operators
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2371,11 +2390,11 @@ The syntax for the ``value_for_platform_family`` method is as follows:
 
 .. code-block:: ruby
 
-   value_for_platform_family( 'platform_family' => { 'version' => 'value' }, ... )
+   value_for_platform_family( 'platform_family' => 'value', ... )
 
 where:
 
-* ``'platform_family' => { 'version' => 'value' }, ...`` is a comma-separated list of platforms, such as Fedora, openSUSE, or Red Hat Enterprise Linux
+* ``'platform_family' => 'value', ...`` is a comma-separated list of platforms, such as Fedora, openSUSE, or Red Hat Enterprise Linux
 * ``value`` specifies the value that will be used if the node's platform family matches the ``value_for_platform_family`` method
 
 When each value only has a single platform, use the following syntax:
@@ -2383,8 +2402,8 @@ When each value only has a single platform, use the following syntax:
 .. code-block:: ruby
 
    value_for_platform_family(
-     'platform_family' => { 'version' => 'value' },
-     'platform_family' => { 'version' => 'value' },
+     'platform_family' => 'value',
+     'platform_family' => 'value',
      'platform_family' => 'value'
    )
 
@@ -2444,351 +2463,6 @@ For example:
 
 .. end_tag
 
-Event Handlers
-=====================================================
-.. note:: Event handlers are not specifically part of the Recipe DSL. An event handler is declared using the ``Chef.event_hander`` method, which declares the event handler within recipes in a similar manner to other Recipe DSL methods.
-
-.. tag dsl_handler_summary
-
-Use the Handler DSL to attach a callback to an event. If the event occurs during the chef-client run, the associated callback is executed. For example:
-
-* Sending email if a chef-client run fails
-* Sending a notification to chat application if an audit run fails
-* Aggregating statistics about resources updated during a chef-client runs to StatsD
-
-.. end_tag
-
-on Method
------------------------------------------------------
-.. tag dsl_handler_method_on
-
-Use the ``on`` method to associate an event type with a callback. The callback defines what steps are taken if the event occurs during the chef-client run and is defined using arbitrary Ruby code. The syntax is as follows:
-
-.. code-block:: ruby
-
-   Chef.event_handler do
-     on :event_type do
-       # some Ruby
-     end
-   end
-
-where
-
-* ``Chef.event_handler`` declares a block of code within a recipe that is processed when the named event occurs during a chef-client run
-* ``on`` defines the block of code that will tell the chef-client how to handle the event
-* ``:event_type`` is a valid exception event type, such as ``:run_start``, ``:run_failed``, ``:converge_failed``, ``:resource_failed``, or ``:recipe_not_found``
-
-For example:
-
-.. code-block:: bash
-
-   Chef.event_handler do
-     on :converge_start do
-       puts "Ohai! I have started a converge."
-     end
-   end
-
-.. end_tag
-
-Event Types
------------------------------------------------------
-.. tag dsl_handler_event_types
-
-The following table describes the events that may occur during a chef-client run. Each of these events may be referenced in an ``on`` method block by declaring it as the event type.
-
-.. list-table::
-   :widths: 100 420
-   :header-rows: 1
-
-   * - Event
-     - Description
-   * - ``:run_start``
-     - The start of the chef-client run.
-   * - ``:run_started``
-     - The chef-client run has started.
-   * - ``:ohai_completed``
-     - The Ohai run has completed.
-   * - ``:skipping_registration``
-     - The chef-client is not registering with the Chef server because it already has a private key or because it does not need one.
-   * - ``:registration_start``
-     - The chef-client is attempting to create a private key with which to register to the Chef server.
-   * - ``:registration_completed``
-     - The chef-client created its private key successfully.
-   * - ``:registration_failed``
-     - The chef-client encountered an error and was unable to register with the Chef server.
-   * - ``:node_load_start``
-     - The chef-client is attempting to load node data from the Chef server.
-   * - ``:node_load_failed``
-     - The chef-client encountered an error and was unable to load node data from the Chef server.
-   * - ``:run_list_expand_failed``
-     - The chef-client failed to expand the run-list.
-   * - ``:node_load_completed``
-     - The chef-client successfully loaded node data from the Chef server. Default and override attributes for roles have been computed, but are not yet applied.
-   * - ``:policyfile_loaded``
-     - The policy file was loaded.
-   * - ``:cookbook_resolution_start``
-     - The chef-client is attempting to pull down the cookbook collection from the Chef server.
-   * - ``:cookbook_resolution_failed``
-     - The chef-client failed to pull down the cookbook collection from the Chef server.
-   * - ``:cookbook_resolution_complete``
-     - The chef-client successfully pulled down the cookbook collection from the Chef server.
-   * - ``:cookbook_clean_start``
-     - The chef-client is attempting to remove unneeded cookbooks.
-   * - ``:removed_cookbook_file``
-     - The chef-client removed a file from a cookbook.
-   * - ``:cookbook_clean_complete``
-     - The chef-client is done removing cookbooks and/or cookbook files.
-   * - ``:cookbook_sync_start``
-     - The chef-client is attempting to synchronize cookbooks.
-   * - ``:synchronized_cookbook``
-     - The chef-client is attempting to synchronize the named cookbook.
-   * - ``:updated_cookbook_file``
-     - The chef-client updated the named file in the named cookbook.
-   * - ``:cookbook_sync_failed``
-     - The chef-client was unable to synchronize cookbooks.
-   * - ``:cookbook_sync_complete``
-     - The chef-client is finished synchronizing cookbooks.
-   * - ``:library_load_start``
-     - The chef-client is loading library files.
-   * - ``:library_file_loaded``
-     - The chef-client successfully loaded the named library file.
-   * - ``:library_file_load_failed``
-     - The chef-client was unable to load the named library file.
-   * - ``:library_load_complete``
-     - The chef-client is finished loading library files.
-   * - ``:lwrp_load_start``
-     - The chef-client is loading custom resources.
-   * - ``:lwrp_file_loaded``
-     - The chef-client successfully loaded the named custom resource.
-   * - ``:lwrp_file_load_failed``
-     - The chef-client was unable to load the named custom resource.
-   * - ``:lwrp_load_complete``
-     - The chef-client is finished loading custom resources.
-   * - ``:attribute_load_start``
-     - The chef-client is loading attribute files.
-   * - ``:attribute_file_loaded``
-     - The chef-client successfully loaded the named attribute file.
-   * - ``:attribute_file_load_failed``
-     - The chef-client was unable to load the named attribute file.
-   * - ``:attribute_load_complete``
-     - The chef-client is finished loading attribute files.
-   * - ``:definition_load_start``
-     - The chef-client is loading definitions.
-   * - ``:definition_file_loaded``
-     - The chef-client successfully loaded the named definition.
-   * - ``:definition_file_load_failed``
-     - The chef-client was unable to load the named definition.
-   * - ``:definition_load_complete``
-     - The chef-client is finished loading definitions.
-   * - ``:recipe_load_start``
-     - The chef-client is loading recipes.
-   * - ``:recipe_file_loaded``
-     - The chef-client successfully loaded the named recipe.
-   * - ``:recipe_file_load_failed``
-     - The chef-client was unable to load the named recipe.
-   * - ``:recipe_not_found``
-     - The chef-client was unable to find the named recipe.
-   * - ``:recipe_load_complete``
-     - The chef-client is finished loading recipes.
-   * - ``:converge_start``
-     - The chef-client run converge phase has started.
-   * - ``:converge_complete``
-     - The chef-client run converge phase is complete.
-   * - ``:converge_failed``
-     - The chef-client run converge phase has failed.
-   * - ``:audit_phase_start``
-     - The chef-client run audit phase has started.
-   * - ``:audit_phase_complete``
-     - The chef-client run audit phase is finished.
-   * - ``:audit_phase_failed``
-     - The chef-client run audit phase has failed.
-   * - ``:control_group_started``
-     - The named control group is being processed.
-   * - ``:control_example_success``
-     - The named control group has been processed.
-   * - ``:control_example_failure``
-     - The named control group's processing has failed.
-   * - ``:resource_action_start``
-     - A resource action is starting.
-   * - ``:resource_skipped``
-     - A resource action was skipped.
-   * - ``:resource_current_state_loaded``
-     - A resource's current state was loaded.
-   * - ``:resource_current_state_load_bypassed``
-     - A resource's current state was not loaded because the resource does not support why-run mode.
-   * - ``:resource_bypassed``
-     - A resource action was skipped because the resource does not support why-run mode.
-   * - ``:resource_update_applied``
-     - A change has been made to a resource. (This event occurs for each change made to a resource.)
-   * - ``:resource_failed_retriable``
-     - A resource action has failed and will be retried.
-   * - ``:resource_failed``
-     - A resource action has failed and will not be retried.
-   * - ``:resource_updated``
-     - A resource requires modification.
-   * - ``:resource_up_to_date``
-     - A resource is already correct.
-   * - ``:resource_completed``
-     - All actions for the resource are complete.
-   * - ``:stream_opened``
-     - A stream has opened.
-   * - ``:stream_closed``
-     - A stream has closed.
-   * - ``:stream_output``
-     - A chunk of data from a single named stream.
-   * - ``:handlers_start``
-     - The handler processing phase of the chef-client run has started.
-   * - ``:handler_executed``
-     - The named handler was processed.
-   * - ``:handlers_completed``
-     - The handler processing phase of the chef-client run is complete.
-   * - ``:provider_requirement_failed``
-     - An assertion declared by a provider has failed.
-   * - ``:whyrun_assumption``
-     - An assertion declared by a provider has failed, but execution is allowed to continue because the chef-client is running in why-run mode.
-   * - ``:run_completed``
-     - The chef-client run has completed.
-   * - ``:run_failed``
-     - The chef-client run has failed.
-
-.. end_tag
-
-Examples
------------------------------------------------------
-The following examples show ways to use the Handler DSL.
-
-Send Email
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag dsl_handler_slide_send_email
-
-Use the ``on`` method to create an event handler that sends email when the chef-client run fails. This will require:
-
-* A way to tell the chef-client how to send email
-* An event handler that describes what to do when the ``:run_failed`` event is triggered
-* A way to trigger the exception and test the behavior of the event handler
-
-.. end_tag
-
-**Define How Email is Sent**
-
-.. tag dsl_handler_slide_send_email_library
-
-Use a library to define the code that sends email when a chef-client run fails. Name the file ``helper.rb`` and add it to a cookbook's ``/libraries`` directory:
-
-.. code-block:: ruby
-
-   require 'net/smtp'
-
-   module HandlerSendEmail
-     class Helper
-
-       def send_email_on_run_failure(node_name)
-
-         message = "From: Chef <chef@chef.io>\n"
-         message << "To: Grant <grantmc@chef.io>\n"
-         message << "Subject: Chef run failed\n"
-         message << "Date: #{Time.now.rfc2822}\n\n"
-         message << "Chef run failed on #{node_name}\n"
-         Net::SMTP.start('localhost', 25) do |smtp|
-           smtp.send_message message, 'chef@chef.io', 'grantmc@chef.io'
-         end    
-       end
-     end
-   end
-
-.. end_tag
-
-**Add the Handler**
-
-.. tag dsl_handler_slide_send_email_handler
-
-Invoke the library helper in a recipe:
-
-.. code-block:: ruby
-
-   Chef.event_handler do
-     on :run_failed do
-       HandlerSendEmail::Helper.new.send_email_on_run_failure(
-         Chef.run_context.node.name
-       )
-     end
-   end
-
-* Use ``Chef.event_handler`` to define the event handler
-* Use the ``on`` method to specify the event type
-
-Within the ``on`` block, tell the chef-client how to handle the event when it's triggered.
-
-.. end_tag
-
-**Test the Handler**
-
-.. tag dsl_handler_slide_send_email_test
-
-Use the following code block to trigger the exception and have the chef-client send email to the specified email address:
-
-.. code-block:: ruby
-
-   ruby_block 'fail the run' do
-     block do
-       fail 'deliberately fail the run'
-     end
-   end
-
-.. end_tag
-
-etcd Locks
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag dsl_handler_example_etcd_lock
-
-The following example shows how to prevent concurrent chef-client runs from both holding a lock on etcd:
-
-.. code-block:: ruby
-
-   lock_key = "#{node.chef_environment}/#{node.name}"
-
-   Chef.event_handler do
-     on :converge_start do |run_context|
-       Etcd.lock_acquire(lock_key)
-     end
-   end
-
-   Chef.event_handler do
-     on :converge_complete do
-       Etcd.lock_release(lock_key)
-     end
-   end
-
-.. end_tag
-
-HipChat Notifications
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag dsl_handler_example_hipchat
-
-Event messages can be sent to a team communication tool like HipChat. For example, if a chef-client run fails:
-
-.. code-block:: ruby
-
-   Chef.event_handler do
-     on :run_failed do |exception|
-       hipchat_notify exception.message
-     end
-   end
-
-or send an alert on a configuration change:
-
-.. code-block:: ruby
-
-   Chef.event_handler do
-     on :resource_updated do |resource, action|
-       if resource.to_s == 'template[/etc/nginx/nginx.conf]'
-         Helper.hipchat_message("#{resource} was updated by chef")
-       end
-     end
-   end
-
-.. end_tag
-
 Windows Platform
 =====================================================
 .. tag dsl_recipe_method_windows_methods
@@ -2820,16 +2494,16 @@ The syntax for the ``registry_data_exists?`` method is as follows:
 .. code-block:: ruby
 
    registry_data_exists?(
-     KEY_PATH, 
-     { :name => 'NAME', :type => TYPE, :data => DATA }, 
+     KEY_PATH,
+     { name: 'NAME', type: TYPE, data: DATA },
      ARCHITECTURE
    )
 
 where:
 
 * ``KEY_PATH`` is the path to the registry key value. The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
-* ``{ :name => 'NAME', :type => TYPE, :data => DATA }`` is a hash that contains the expected name, type, and data of the registry key value
-* ``:type`` represents the values available for registry keys in Microsoft Windows. Use ``:binary`` for REG_BINARY, ``:string`` for REG_SZ, ``:multi_string`` for REG_MULTI_SZ, ``:expand_string`` for REG_EXPAND_SZ, ``:dword`` for REG_DWORD, ``:dword_big_endian`` for REG_DWORD_BIG_ENDIAN, or ``:qword`` for REG_QWORD.
+* ``{ name: 'NAME', type: TYPE, data: DATA }`` is a hash that contains the expected name, type, and data of the registry key value
+* ``type:`` represents the values available for registry keys in Microsoft Windows. Use ``:binary`` for REG_BINARY, ``:string`` for REG_SZ, ``:multi_string`` for REG_MULTI_SZ, ``:expand_string`` for REG_EXPAND_SZ, ``:dword`` for REG_DWORD, ``:dword_big_endian`` for REG_DWORD_BIG_ENDIAN, or ``:qword`` for REG_QWORD.
 * ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
 
 This method will return ``true`` or ``false``.
@@ -2991,16 +2665,16 @@ The syntax for the ``registry_value_exists?`` method is as follows:
 .. code-block:: ruby
 
    registry_value_exists?(
-     KEY_PATH, 
-     { :name => 'NAME' }, 
+     KEY_PATH,
+     { name: 'NAME' },
      ARCHITECTURE
    )
 
 where:
 
 * ``KEY_PATH`` is the path to the registry key. The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
-* ``{ :name => 'NAME' }`` is a hash that contains the name of the registry key value; if either ``:type`` or ``:value`` are specified in the hash, they are ignored
-* ``:type`` represents the values available for registry keys in Microsoft Windows. Use ``:binary`` for REG_BINARY, ``:string`` for REG_SZ, ``:multi_string`` for REG_MULTI_SZ, ``:expand_string`` for REG_EXPAND_SZ, ``:dword`` for REG_DWORD, ``:dword_big_endian`` for REG_DWORD_BIG_ENDIAN, or ``:qword`` for REG_QWORD.
+* ``{ name: 'NAME' }`` is a hash that contains the name of the registry key value; if either ``type:`` or ``:value`` are specified in the hash, they are ignored
+* ``type:`` represents the values available for registry keys in Microsoft Windows. Use ``:binary`` for REG_BINARY, ``:string`` for REG_SZ, ``:multi_string`` for REG_MULTI_SZ, ``:expand_string`` for REG_EXPAND_SZ, ``:dword`` for REG_DWORD, ``:dword_big_endian`` for REG_DWORD_BIG_ENDIAN, or ``:qword`` for REG_QWORD.
 * ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
 
 This method will return ``true`` or ``false``.
@@ -3155,4 +2829,3 @@ The following example installs Windows PowerShell 2.0 on systems that do not alr
 The previous example is from the `ms_dotnet2 cookbook <https://github.com/juliandunn/ms_dotnet2>`_, created by community member ``juliandunn``.
 
 .. end_tag
-

@@ -16,7 +16,6 @@
 ..
 
 .. |url api_chef_server| replace:: https://api.opscode.com
-.. |url api_cookbooks| replace:: https://supermarket.chef.io/api/v1/cookbooks
 .. |url azure_preview| replace:: https://portal.azure.com
 .. |url azure_production| replace:: https://portal.azure.com/
 .. |url azure_marketplace| replace:: https://azure.microsoft.com/en-us/marketplace/partners/chef-software/chef-server/
@@ -26,8 +25,6 @@
 .. |url chef_install| replace:: https://downloads.chef.io/
 .. |url chef_install_oec| replace:: https://www.chef.io/chef/
 .. |url chef_repo| replace:: https://github.com/chef/chef-repo
-.. |url community| replace:: https://supermarket.chef.io
-.. |url community_cookbooks| replace:: https://supermarket.chef.io/cookbooks
 .. |url community_lists| replace:: https://discourse.chef.io/
 .. |url download_delivery| replace:: https://s3.amazonaws.com/delivery-packages/cli/delivery-cli-latest.dmg
 .. |url download_delivery_windows| replace:: https://s3.amazonaws.com/delivery-packages/cli/delivery-cli-latest.msi
@@ -38,9 +35,9 @@
 .. |url docs_knife_png| replace:: https://github.com/chef/quick-reference/blob/master/qr_knife_web.png
 .. |url docs_repo| replace:: https://github.com/chef/quick-reference
 .. |url docs_repo_qr| replace:: https://github.com/chef/quick-reference
-.. |url exit codes| raw:: html 
+.. |url exit codes| raw:: html
 
-    <a href="https://github.com/chef/chef-rfc/blob/master/rfc062-exit-status.#exit-codes-in-use" target="_blank">stardardized exit codes</a>
+    <a href="https://github.com/chef/chef-rfc/blob/master/rfc062-exit-status.md#exit-codes-in-use" target="_blank">stardardized exit codes</a>
 
 .. |url get_chef| replace:: https://www.chef.io/chef/choose-your-version/
 .. |url msdn_registry_key| replace:: http://msdn.microsoft.com/en-us/library/windows/desktop/aa384235(v=vs.85).aspx
@@ -53,6 +50,8 @@
 .. |url ruby_power_of_chef| replace:: http://blog.loftninjas.org/2011/02/16/the-power-of-chef-and-ruby/
 .. |url rabbitmqssl| replace:: https://www.rabbitmq.com/ssl.html
 .. |url supermarket| replace:: https://supermarket.chef.io
+.. |url supermarket_api| replace:: https://supermarket.chef.io/api/v1
+.. |url supermarket_cookbooks| replace:: https://supermarket.chef.io/cookbooks
 
 .. URLs that exist in slide decks ONLY.
 ..

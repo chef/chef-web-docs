@@ -1,5 +1,5 @@
 =====================================================
-knife download 
+knife download
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_download.rst>`__
 
@@ -21,7 +21,7 @@ Options
 =====================================================
 .. note:: .. tag knife_common_see_common_options_link
 
-          Review the list of :doc:`common options </knife_common_options>` available to this (and all) knife subcommands and plugins.
+          Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
           .. end_tag
 
@@ -38,6 +38,8 @@ This subcommand has the following options:
 
 ``-n``, ``--dry-run``
    Take no action and only print out results. Default: ``false``.
+
+   New in Chef Client 12.0.
 
 ``--[no-]diff``
    Download only new and modified files. Set to ``false`` to download all files. Default: ``--diff``.
@@ -56,7 +58,7 @@ This subcommand has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 
@@ -136,3 +138,17 @@ To download all cookbooks that start with "apache" and belong to the "webserver"
 
    $  knife download cookbooks/apache\* roles/webserver.json
 
+**Download data bags**
+
+To download all data bags from the Chef server, browse to the top level of the chef-repo and enter:
+
+.. code-block:: bash
+
+   $  knife download data_bags
+
+or from anywhere in the chef-repo, enter:
+
+.. code-block:: bash
+
+   $ knife download /data_bags
+   

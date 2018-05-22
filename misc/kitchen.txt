@@ -160,7 +160,7 @@ Preparing...                #####  ########################################### [
         -server 1.centos.pool.ntp.org
         -server 2.centos.pool.ntp.org
         -
-        -#broadcast 192.168.1.255 autokey	# broadcast server
+        -#broadcast 192.0.2.055 autokey	# broadcast server
         -#broadcastclient			# broadcast client
         -#broadcast 224.0.1.1 autokey		# multicast server
         -#multicastclient 224.0.1.1		# multicast client

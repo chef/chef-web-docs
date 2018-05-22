@@ -1,5 +1,5 @@
 =====================================================
-knife show 
+knife show
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_show.rst>`__
 
@@ -21,7 +21,7 @@ Options
 =====================================================
 .. note:: .. tag knife_common_see_common_options_link
 
-          Review the list of :doc:`common options </knife_common_options>` available to this (and all) knife subcommands and plugins.
+          Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
           .. end_tag
 
@@ -41,6 +41,11 @@ This subcommand has the following options:
 
 ``--repo-mode MODE``
    The layout of the local chef-repo. Possible values: ``static``, ``everything``, or ``hosted_everything``. Use ``static`` for just roles, environments, cookbooks, and data bags. By default, ``everything`` and ``hosted_everything`` are dynamically selected depending on the server type. Default: ``everything`` / ``hosted_everything``.
+   
+``-S SEPARATOR``, ``--field-separator SEPARATOR``
+   Character separator used to delineate nesting in --attribute filters. For example, to use a colon as the delimiter, specify ``-S:`` in your ``knife node show`` subcommand. Default is ``.``
+
+   New in Chef Client 12.16.
 
 Examples
 =====================================================

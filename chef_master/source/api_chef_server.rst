@@ -15,12 +15,14 @@ Requirements
 
 The Chef server API has the following requirements:
 
-* Access to a Chef server running version 0.10.x or above
-* The ``Accept`` header must be set to ``application/json``
-* For ``PUT`` and ``POST`` requests, the ``Content-Type`` header must be set to ``application/json``
-* The ``X-Chef-Version`` header must be set to the version of the Chef server API that is being used
-* A request must be signed using ``Mixlib::Authentication``
-* A request must be well-formatted. The easiest way to ensure a well-formatted request is to use the ``Chef::REST`` library
+* Access to a Chef server running version 0.10.x or above.
+* The ``Accept`` header must be set to ``application/json``.
+* For ``PUT`` and ``POST`` requests, the ``Content-Type`` header must be set to ``application/json``.
+* The ``X-Chef-Version`` header must be set to the version of the Chef server API that is being used.
+* A request must be signed using ``Mixlib::Authentication``.
+* A request must be well-formatted. The easiest way to ensure a well-formatted request is to use the ``Chef::REST`` library.
+
+Changed in Chef Client 12.7, now code that uses ``Chef::Rest`` must use ``require 'chef/rest'``
 
 .. end_tag
 
@@ -38,7 +40,7 @@ Header Format
 -----------------------------------------------------
 .. tag api_chef_server_headers_format
 
-All hashing is done using SHA-1 and encoded in Base64. Base64 encoding should have line breaks every 60 characters. Each canonical header should be encoded in the following format:
+By default, all hashing is done using SHA-1 and encoded in Base64. Base64 encoding should have line breaks every 60 characters. Each canonical header should be encoded in the following format:
 
 .. code-block:: none
 
@@ -55,6 +57,20 @@ where:
 * The private key must be an RSA key in the SSL .pem file format. This signature is then broken into character strings (of not more than 60 characters per line) and placed in the header.
 
 The Chef server decrypts this header and ensures its content matches the content of the non-encrypted headers that were in the request. The timestamp of the message is checked to ensure the request was received within a reasonable amount of time. One approach generating the signed headers is to use `mixlib-authentication <https://github.com/chef/mixlib-authentication>`_, which is a class-based header signing authentication object similar to the one used by the chef-client.
+
+Enable SHA-256
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Chef server versions 12.4.0 and above support signing protocol version 1.3, which adds support for SHA-256 algorithms. It can be enabled on Chef client via the ``client.rb`` file:
+
+.. code-block:: ruby
+
+   authentication_protocol_version = '1.3'
+
+And on Chef knife via ``knife.rb``:
+
+.. code-block:: ruby
+
+   knife[:authentication_protocol_version] = '1.3'
 
 .. end_tag
 
@@ -172,7 +188,7 @@ Knife API Requests
 -----------------------------------------------------
 .. tag plugin_knife_summary
 
-A knife plugin is a set of one (or more) subcommands that can be added to knife to support additional functionality that is not built-in to the base set of knife subcommands. Many of the knife plugins are built by members of the Chef community and several of them are built and maintained by Chef. A knife plugin is installed to the ``~/.chef/plugins/knife/`` directory, from where it can be run just like any other knife subcommand.
+A knife plugin is a set of one (or more) subcommands that can be added to knife to support additional functionality that is not built-in to the base set of knife subcommands. Many of the knife plugins are built by members of the Chef community and several of them are built and maintained by Chef.
 
 .. end_tag
 
@@ -204,20 +220,20 @@ For example:
        #An implementation of knife node delete
        banner 'knife my node delete [NODE_NAME]'
 
-     def run
-       if name_args.length < 1
-         show_usage
-         ui.fatal("You must specify a node name.")
-         exit 1
+       def run
+         if name_args.length < 1
+           show_usage
+           ui.fatal("You must specify a node name.")
+           exit 1
+         end
+         nodename = name_args[0]
+         api_endpoint = "nodes/#{nodename}"
+         # Again, we could just call rest.delete_rest
+         nodey = rest.get_rest(api_endpoint)
+         ui.confirm("Do you really want to delete #{nodey}")
+         nodey.destroy
        end
-       nodename = name_args[0]
-          api_endpoint = "nodes/#{nodename}"
-          # Again, we could just call rest.delete_rest
-          nodey = rest.get_rest(api_endpoint)
-          ui.confirm("Do you really want to delete #{nodey}")
-          nodey.destroy
-        end
-      end
+     end
    end
 
 .. end_tag
@@ -590,6 +606,28 @@ This method has no parameters.
 
    POST /users
 
+with a request body similar to:
+
+.. code-block:: javascript
+
+   {
+     "name": "robert-forster",
+     "display_name": "robert",
+     "email": "robert@noreply.com",
+     "first_name": "robert",
+     "last_name": "robert",
+     "middle_name": "",
+     "password": "yeahpass",
+     "public_key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoYyN0AIhUh7Fw1+gQtR+ \n0/HY3625IUlVheoUeUz3WnsTrUGSSS4fHvxUiCJlNni1sQvcJ0xC9Bw3iMz7YVFO\nWz5SeKmajqKEnNywN8/NByZhhlLdBxBX/UN04/7aHZMoZxrrjXGLcyjvXN3uxyCO\nyPY989pa68LJ9jXWyyfKjCYdztSFcRuwF7tWgqnlsc8pve/UaWamNOTXQnyrQ6Dp\ndn+1jiNbEJIdxiza7DJMH/9/i/mLIDEFCLRPQ3RqW4T8QrSbkyzPO/iwaHl9U196\n06Ajv1RNnfyHnBXIM+I5mxJRyJCyDFo/MACc5AgO6M0a7sJ/sdX+WccgcHEVbPAl\n1wIDAQAB \n-----END PUBLIC KEY-----\n\n"
+   }
+
+
+where:
+
+* ``name`` must begin with a lower-case letter or digit, may only contain lower-case letters, digits, hyphens, and underscores. For example: ``chef``.
+* ``email``, ``name``, and ``password`` are all required to be present and have a value.
+* During the POST, the ``public_key`` value will be broken out and resubmitted to the keys portion of the API in the latest Chef Server versions.
+
 **Response**
 
 The response is similar to:
@@ -763,11 +801,9 @@ PUT
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The ``PUT`` method is used to update a specific user. If values are not specified for the ``PUT`` method, the Chef server will use the existing values rather than assign default values.
 
-``PUT`` accepts a boolean: ``{ "private_key": "true" }``. If this is specified, a new private key is generated.
-
-If values are missing, they will not be overwritten. If ``public_key`` is null, the public key will not be overwritten.
-
 .. note:: ``PUT`` supports renames. If ``PUT /users/foo`` is requested with ``{ "name: "bar""}``, then it will rename ``foo`` to ``bar`` and all of the content previously associated with ``foo`` will be associated with ``bar``.
+
+.. note:: As of 12.1.0, the ``"public_key"``, ``"private_key"``, and ``"create_key"`` parameters in PUT requests to clients/users will cause a 400 response.
 
 This method has no parameters.
 
@@ -1274,7 +1310,7 @@ This method has no response body.
 -----------------------------------------------------
 .. tag api_chef_server_endpoint_keys_clients
 
-The ``/client/CLIENT/keys`` endpoint has the following methods: ``GET`` and ``POST``.
+The ``/clients/CLIENT/keys`` endpoint has the following methods: ``GET`` and ``POST``.
 
 .. end_tag
 
@@ -1582,6 +1618,8 @@ POST
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The ``POST`` method is used to create a new API client.
 
+.. note:: As of 12.1.0, the ``"admin"`` parameter is no longer supported in client/user creation and support.  If used in the ``POST`` or ``PUT`` of a client or user, then it is ignored.
+
 This method has no parameters.
 
 **Request**
@@ -1596,7 +1634,6 @@ with a request body similar to:
 
    {
      "name": "name_of_API_client",
-     "admin": false,
      "create_key": true
    }
 
@@ -1731,7 +1768,9 @@ The ``PUT`` method is used to update a specific API client. If values are not sp
 
 .. note:: ``PUT`` supports renames. If ``PUT /user/foo`` is requested with ``{ "name: "bar""}``, then it will rename ``foo`` to ``bar`` and all of the content previously associated with ``foo`` will be associated with ``bar``.
 
-This method has no parameters.
+.. note:: As of 12.1.0, the ``"admin"`` parameter is no longer supported in client/user creation and support.  If used in the ``POST`` or ``PUT`` of a client or user, then it is ignored.
+
+.. note:: As of 12.1.0, including ''"public_key"``, ``"private_key"``, or ``"create_key"`` in PUT requests requests to clients/users will cause a 400 response.
 
 **Request**
 
@@ -1745,11 +1784,7 @@ with a request body similar to:
 
    {
      "name": "monkeypants",
-     "private_key": true,
-     "admin": false
    }
-
-where ``private_key`` (when ``true``) will generate a new RSA private key for the API client. If ``admin`` is set to ``true`` the API client will be promoted to an admin API client.
 
 **Response**
 
@@ -1845,7 +1880,7 @@ A cookbook is the fundamental unit of configuration and policy distribution. A c
 * Attribute values
 * File distributions
 * Templates
-* Extensions to Chef, such as libraries, definitions, and custom resources
+* Extensions to Chef, such as custom resources and libraries
 
 .. end_tag
 
@@ -3992,7 +4027,7 @@ The response is similar to:
      "automatic": { ... },
      "normal": { "tags": [ ] },
      "default": { },
-     "override": { } 
+     "override": { }
    }
 
 **Response Codes**
@@ -4772,8 +4807,6 @@ This method has the following parameters:
      - The search query used to identify a list of items on a Chef server. This option uses the same syntax as the ``search`` subcommand.
    * - ``rows``
      - The number of rows to be returned.
-   * - ``sort``
-     - The order in which search results are to be sorted.
    * - ``start``
      - The row at which return results begin.
 
@@ -4826,18 +4859,16 @@ POST
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 A partial search query allows a search query to be made against specific attribute keys that are stored on the Chef server. A partial search query can search the same set of objects on the Chef server as a full search query, including specifying an object index and providing a query that can be matched to the relevant index. While a full search query will return an array of objects that match (each object containing a full set of attributes for the node), a partial search query will return only the values for the attributes that match. One primary benefit of using a partial search query is that it requires less memory and network bandwidth while the chef-client processes the search results.
 
-.. note:: To use the ``partial_search`` method in a recipe, that recipe must contain a dependency on the ``partial_search`` cookbook.
-
-To create a partial search query, use the ``partial_search`` method, and then specify the key paths for the attributes to be returned. Each key path should be specified as an array of strings and is mapped to an arbitrary short name. For example:
+To create a partial search query, use the ``search`` method, and then specify the key paths for the attributes to be returned. Each key path should be specified as an array of strings and is mapped to an arbitrary short name. For example:
 
 .. code-block:: ruby
 
-   partial_search(:node, 'role:web',
-     :keys => { 'name' => [ 'name' ],
+   search(:node, 'role:web',
+     :filter_result => { 'name' => [ 'name' ],
                 'ip'   => [ 'ipaddress' ],
                 'kernel_version' => [ 'kernel', 'version' ]
               }
-   ).each do |result|
+   ) do |result|
      puts result['name']
      puts result['ip']
      puts result['kernel_version']
@@ -4849,8 +4880,8 @@ The ``POST`` method is used to return partial search results. For example, if a 
 
 .. code-block:: none
 
-   { 
-     'x' => 'foo', 
+   {
+     'x' => 'foo',
      'kernel' => { 'a' => 1, 'foo' => 'bar', 'version' => [ 1, 2, 3 ] }
    }
 
@@ -4872,8 +4903,6 @@ This method has the following parameters:
      - The search query used to identify a list of items on a Chef server. This option uses the same syntax as the ``search`` subcommand.
    * - ``rows``
      - The number of rows to be returned.
-   * - ``sort``
-     - The order in which search results are to be sorted.
    * - ``start``
      - The row at which return results begin.
 
@@ -4881,16 +4910,16 @@ This method has the following parameters:
 
 .. code-block:: none
 
-   GET /organizations/NAME/search
+   POST /organizations/NAME/search
 
 with a request body similar to:
 
 .. code-block:: none
 
    {
-     'name' => [ 'name' ],
-     'ip'   => [ 'ipaddress' ],
-     'kernel_version' => [ 'kernel', 'version' ]
+     "name": [ "name" ],
+     "ip": [ "ipaddress" ],
+     "kernel_version": [ "kernel", "version" ]
    }
 
 **Response**
@@ -4943,11 +4972,11 @@ The response will return something like the following:
 .. code-block:: javascript
 
    {
-     "status": "pong", 
-     "upstreams": 
+     "status": "pong",
+     "upstreams":
        {
-         "service_name": "pong", 
-         "service_name": "pong", 
+         "service_name": "pong",
+         "service_name": "pong",
          ...
        }
     }
@@ -4961,7 +4990,7 @@ The response will return something like the following:
    * - Response Code
      - Description
    * - ``200``
-     - All communications are OK. 
+     - All communications are OK.
    * - ``500``
      - One (or more) services are down. For example:
 
@@ -5153,14 +5182,14 @@ Run the following from a ``.chef`` directory that contains a ``pivotal.rb`` file
      puts user
    end
 
-An examle of a ``.chef/pivotal.rb`` file is shown below:
+An example of a ``.chef/pivotal.rb`` file is shown below:
 
 .. code-block:: ruby
 
    current_dir = File.dirname(__FILE__)
    node_name "pivotal"
-   chef_server_url "https://192.168.1.2:443"
-   chef_server_root "https://192.168.1.2:443"
+   chef_server_url "https://192.0.2.0:443"
+   chef_server_root "https://192.0.2.0:443"
    client_key "#{current_dir}/pivotal.pem"
 
 .. note:: The ``pivotal.pem`` file must exist in the specified location and the IP addresses must be correct for the Chef server.

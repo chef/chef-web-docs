@@ -101,6 +101,12 @@ To set up a Yum package repository for Enterprise Linux platforms:
 
    .. code-block:: bash
 
+      $ sudo yum-config-manager --add-repo chef-stable.repo
+
+   Note that the ``yum-config-manager`` command requires the ``yum-utils`` package, which is not installed on CentOS by default. You can install the package by running ``sudo yum install yum-utils``, or you can use the ``mv`` command to add the repository to the ``/etc/yum.repos.d/`` directory:
+
+   .. code-block:: bash		     
+  		  
       $ sudo mv chef-stable.repo /etc/yum.repos.d/
 
 Omnitruck Install Scripts
@@ -177,19 +183,19 @@ Examples
 -----------------------------------------------------
 .. tag packages_install_script_examples
 
-The following examples show how to use the Omnitruck install script.
+The following examples show how to use the install script.
 
-To install chef-client version 12.0.2:
+To install chef-client version 13.2.20:
 
 .. code-block:: bash
 
-   $ curl -LO https://omnitruck.chef.io/install.sh && sudo bash ./install.sh -v 12.0.2 && rm install.sh
+   $ curl -LO https://omnitruck.chef.io/install.sh && sudo bash ./install.sh -v 13.2.20 && rm install.sh
 
 and/or:
 
 .. code-block:: bash
 
-   $ curl -L https://omnitruck.chef.io/install.sh | sudo bash -s -- -v 12.0.2
+   $ curl -L https://omnitruck.chef.io/install.sh | sudo bash -s -- -v 13.2.20
 
 To install the latest version of the Chef development kit on Microsoft Windows from the ``current`` channel:
 
@@ -198,4 +204,3 @@ To install the latest version of the Chef development kit on Microsoft Windows f
    . { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install -channel current -project chefdk
 
 .. end_tag
-

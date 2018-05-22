@@ -1,13 +1,15 @@
 =====================================================
-knife ssh 
+knife ssh
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_ssh.rst>`__
 
 .. tag knife_ssh_summary
 
-Use the ``knife ssh`` subcommand to invoke SSH commands (in parallel) on a subset of nodes within an organization, based on the results of a `search query <https://docs.chef.io/essentials_search.html>`_ made to the Chef server.
+Use the ``knife ssh`` subcommand to invoke SSH commands (in parallel) on a subset of nodes within an organization, based on the results of a `search query </chef_search.html>`__ made to the Chef server.
 
 .. end_tag
+
+Changed in Chef Client 12.19 to support ed25519 keys for ssh connections. 
 
 Syntax
 =====================================================
@@ -21,7 +23,7 @@ Options
 =====================================================
 .. note:: .. tag knife_common_see_common_options_link
 
-          Review the list of :doc:`common options </knife_common_options>` available to this (and all) knife subcommands and plugins.
+          Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
           .. end_tag
 
@@ -39,14 +41,21 @@ This subcommand has the following options:
 ``-e``, ``--exit-on-error``
    Use to exit immediately upon error.
 
+   New in Chef Client 12.2.
+
 ``-G GATEWAY``, ``--ssh-gateway GATEWAY``
    The SSH tunnel or gateway that is used to run a bootstrap action on a machine that is not accessible from the workstation.
+
+``--ssh-gateway-identity SSH_GATEWAY_IDENTITY``
+   The SSH identity file used to connect to the SSH gateway.
+
+   New in Chef Client 13.0.
 
 ``-i IDENTITY_FILE``, ``--identity-file IDENTIFY_FILE``
    The SSH identity file used for authentication. Key-based authentication is recommended.
 
 ``-m``, ``--manual-list``
-   Define a search query as a space-separated list of servers. If there is more than one item in the list, put quotes around the entire list. For example: ``--manual-list "server01 server 02 server 03"``
+   Define a search query as a space-separated list of servers. If there is more than one item in the list, put quotes around the entire list. For example: ``--manual-list "server01 server02 server03"``
 
 ``--[no-]host-key-verify``
    Use ``--no-host-key-verify`` to disable host key verification. Default setting: ``--host-key-verify``.
@@ -60,14 +69,29 @@ This subcommand has the following options:
 ``-P PASSWORD``, ``--ssh-password PASSWORD``
    The SSH password. This can be used to pass the password directly on the command line. If this option is not specified (and a password is required) knife prompts for the password.
 
+   New in Chef Client 12.15.
+
 ``SEARCH_QUERY``
    The search query used to return a list of servers to be accessed using SSH and the specified ``SSH_COMMAND``. This option uses the same syntax as the search subcommand.
+   If the ``SEARCH_QUERY`` does not contain a colon character (``:``), then the default query pattern is ``tags:*#{@query}* OR roles:*#{@query}* OR fqdn:*#{@query}* OR addresses:*#{@query}*``, which means the following two search queries are effectively the same:
+
+.. code-block:: bash
+
+   $ knife search ubuntu
+
+or:
+
+.. code-block:: bash
+
+   $ knife search node "tags:*ubuntu* OR roles:*ubuntu* OR fqdn:*ubuntu* (etc.)"
 
 ``SSH_COMMAND``
    The command to be run against the results of a search query.
 
 ``-t SECONDS``, ``--ssh-timeout SECONDS``
    The amount of time (in seconds) to wait for an SSH connection time out.
+
+   New in Chef Client 12.9.
 
 ``--tmux-split``
    Split the Tmux window. Default value: ``false``.
@@ -77,7 +101,7 @@ This subcommand has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 
@@ -177,7 +201,6 @@ where ``screen`` is one of the following values: ``cssh``, ``interactive``, ``ma
 
 .. code-block:: bash
 
-   you need the rb-appscript gem to use knife ssh macterm. 
+   you need the rb-appscript gem to use knife ssh macterm.
    `(sudo) gem    install rb-appscript` to install
    ERROR: LoadError: cannot load such file -- appscript
-

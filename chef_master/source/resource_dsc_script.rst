@@ -5,9 +5,11 @@ dsc_script
 
 .. tag resources_common_powershell
 
-Windows PowerShell is a task-based command-line shell and scripting language developed by Microsoft. Windows PowerShell uses a document-oriented approach for managing Microsoft Windows-based machines, similar to the approach that is used for managing UNIX- and Linux-based machines. Windows PowerShell is `a tool-agnostic platform <http://technet.microsoft.com/en-us/library/bb978526.aspx>`_ that supports using Chef for configuration management.
+Windows PowerShell is a task-based command-line shell and scripting language developed by Microsoft. Windows PowerShell uses a document-oriented approach for managing Microsoft Windows-based machines, similar to the approach that is used for managing Unix and Linux-based machines. Windows PowerShell is `a tool-agnostic platform <http://technet.microsoft.com/en-us/library/bb978526.aspx>`_ that supports using Chef for configuration management.
 
 .. end_tag
+
+New in Chef Client 12.2.  Changed in Chef Client 12.6.
 
 .. tag resources_common_powershell_dsc
 
@@ -26,6 +28,8 @@ Many DSC resources are comparable to built-in Chef resources. For example, both 
 .. note:: The WinRM service must be enabled. (Use ``winrm quickconfig`` to enable the service.)
 
 .. warning:: The **dsc_script** resource  may not be used in the same run-list with the **dsc_resource**. This is because the **dsc_script** resource requires that ``RefreshMode`` in the Local Configuration Manager be set to ``Push``, whereas the **dsc_resource** resource requires it to be set to ``Disabled``.
+
+Changed in Chef Client 12.5 to include ``ps_credential`` helper.
 
 Syntax
 =====================================================
@@ -72,7 +76,7 @@ where
 
 * ``dsc_script`` is the resource
 * ``name`` is the name of the resource block
-* ``:action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
 * ``code``, ``command``, ``configuration_data``, ``configuration_data_script``, ``configuration_name``, ``cwd``, ``environment``, ``flags``, ``imports``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -87,7 +91,7 @@ This resource has the following actions:
 
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the chef-client run.
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -143,7 +147,7 @@ This resource has the following properties:
    Pass parameters to the DSC script that is specified by the ``command`` property. Parameters are defined as key-value pairs, where the value of each key is the parameter to pass. This property may not be used in the same recipe as the ``code`` property. For example: ``flags ({ :EditorChoice => 'emacs', :EditorFlags => '--maximized' })``. Default value: ``nil``.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -178,24 +182,26 @@ This resource has the following properties:
 
       imports 'cRDPEnabled', 'PSHOrg_cRDPEnabled'
 
+   New in Chef Client 12.1.
+
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
    .. tag resources_common_notification_notifies
 
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
 
    .. end_tag
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -229,17 +235,32 @@ This resource has the following properties:
 
    A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
 
+   Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
+
+   .. code-block:: ruby
+
+     file '/etc/nginx/ssl/example.crt' do
+        mode '0600'
+        owner 'root'
+     end
+
+     service 'nginx' do
+        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+     end
+
+   In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
+
    .. end_tag
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -267,7 +288,7 @@ ps_credential Helper
 -----------------------------------------------------
 .. tag resource_dsc_script_helper_ps_credential
 
-Use the ``ps_credential`` helper to embed a ``PSCredential`` object---`a set of security credentials, such as a user name or password <https://technet.microsoft.com/en-us/magazine/ff714574.aspx>`__---within a script, which allows that script to be run using security credentials.
+Use the ``ps_credential`` helper to embed a ``PSCredential`` object--- `a set of security credentials, such as a user name or password <https://technet.microsoft.com/en-us/magazine/ff714574.aspx>`__ ---within a script, which allows that script to be run using security credentials.
 
 For example, assuming the ``CertificateID`` is configured in the local configuration manager, the ``SeaPower1@3`` object is created and embedded within the ``seapower-user`` script:
 
@@ -294,6 +315,8 @@ For example, assuming the ``CertificateID`` is configured in the local configura
   end
 
 .. end_tag
+
+New in Chef Client 12.5.
 
 Examples
 =====================================================
@@ -327,7 +350,7 @@ Use the ``command`` property to specify the path to a Windows PowerShell data fi
 
 .. code-block:: powershell
 
-   Configuration 'DefaultEditor'  
+   Configuration 'DefaultEditor'
    {
      Environment 'texteditor'
        {
@@ -355,7 +378,7 @@ If a DSC script contains configuration data that takes parameters, those paramet
 .. code-block:: powershell
 
    $choices = @{'emacs' = 'c:\emacs\bin\emacs';'vi' = 'c:\vim\vim.exe';'powershell' = 'powershell_ise.exe'}
-     Configuration 'DefaultEditor' 
+     Configuration 'DefaultEditor'
        {
          [CmdletBinding()]
          param
@@ -425,16 +448,6 @@ The following example shows how to specify custom configuration data using the `
           PasswordChangeRequired = $false
         }
       EOH
-
-     configuration_data <<-EOH
-       @{
-         AllNodes = @(
-             @{
-             NodeName = "localhost";
-             PSDscAllowPlainTextPassword = $true
-             })
-         }
-       EOH
    end
 
 .. end_tag
@@ -445,7 +458,7 @@ The following example shows how to specify custom configuration data using the `
 
 .. code-block:: powershell
 
-   Configuration 'emacs'  
+   Configuration 'emacs'
      {
        Environment 'TextEditor'
        {
@@ -454,7 +467,7 @@ The following example shows how to specify custom configuration data using the `
        }
    }
 
-   Configuration 'vi'   
+   Configuration 'vi'
    {
        Environment 'TextEditor'
        {
@@ -498,4 +511,3 @@ The **dsc_script** resource can be used with other resources. The following exam
    end
 
 .. end_tag
-

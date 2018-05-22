@@ -2,7 +2,7 @@
 .. THIS PAGE IS LOCATED AT THE /delivery/ PATH.
 
 =====================================================
-Integrate Chef Automate with Slack
+Integrate Chef Automate Workflow with Slack
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/integrate_delivery_slack.rst>`__
 
@@ -25,7 +25,7 @@ Chef Automate may be configured to allow projects to send Slack notifications to
 
 Integrating Chef Automate with Slack requires a webhook to be created in Slack, and then saving that webhook in Chef Automate. A webhook may be specified at two levels:
 
-* By organization. A webhook that is specified at the organization level enables Slack notifications for all projects that belong to that organization. 
+* By organization. A webhook that is specified at the organization level enables Slack notifications for all projects that belong to that organization.
 * By project. A webhook that is specified at the project level enables Slack notifications only for that project.
 
 .. note:: Notifications sent to Slack by Chef Automate do not support retries. Therefore, notifications sent while Slack is experiencing API issues, outages, or some other unplanned downtime may never be received by the channel. Undelivered notifications are not re-sent.

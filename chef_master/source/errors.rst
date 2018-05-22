@@ -59,7 +59,7 @@ When the values for certain settings in the client.rb file---``node_name`` and `
 
 * If there's no client.rb file, regenerate it and ensure the values for the ``node_name`` and ``client_key`` settings are correct.
 
-Organization not found 
+Organization not found
 -----------------------------------------------------
 If you see this error when trying to recreate the ORGANIZATION-validator.pem, it's possible that the chef-client itself was deleted. In this situation, the ORGANIZATION-validator.pem will need to be recreated. In these directions, ``ORGANIZATION`` should be replaced with the name of your organization.
 
@@ -204,9 +204,9 @@ To fix object permissions:
 
 500 (Unexpected)
 =====================================================
-HTTP 500 is a non-speciﬁc error message. The full error message for the error the chef-client is receiving can be found in one of the following log ﬁles:
+HTTP 500 is a non-specific error message. The full error message for the error the chef-client is receiving can be found in one of the following log ﬁles:
 
-* ``/var/log/opscode/opscode-account/current`` 
+* ``/var/log/opscode/opscode-account/current``
 * ``/var/log/opscode/opscode-erchef/current``
 
 The error will likely found in a stacktrace from the application error. In some cases the error message will clearly indicate a problem with another service which can be investigated further. For non-obvious errors, please contact Chef and attach the log files.
@@ -248,7 +248,7 @@ If you're seeing an error like:
 .. code-block:: bash
 
    Client key /etc/chef/client.pem is notresent - registering
-   WARN: Failed to read the private key /etc/che/validation.pem: #<Errno::ENOENT: No such file or directory - /etc/chef/validaton.pem>
+   WARN: Failed to read the private key /etc/che/validation.pem: #<Errno::ENOENT: No such file or directory - /etc/chef/validation.pem>
    FATAL: Stacktrace dumped to /etc/chef/cache/chef-stacktrace.out
    FATAL: Chef::Exceptions::PrivateKeyMissing: I cannot read /etc/chef/validation.pem, which you told me to use to sign requests
 

@@ -3,7 +3,7 @@ delivery.rb Optional Settings
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_delivery_optional_settings.rst>`__
 
-.. warning:: The configuration settings in the ``delivery.rb`` file should not be modified before discussing those changes with Chef. Some of these settings should be considered for tuning (see :doc:`Automate Server Tuning </delivery_server_tuning>`), but many of them should be left as default values.
+.. warning:: The configuration settings in the ``delivery.rb`` file should not be modified before discussing those changes with Chef. Some of these settings should be considered for tuning (see `Automate Server Tuning </delivery_server_tuning.html>`__), but many of them should be left as default values.
 
 Settings
 =====================================================
@@ -31,6 +31,9 @@ This configuration file has the following general settings:
 
 ``dir``
    The working directory. The default value is the recommended value. Default value: ``"/opt/delivery"``.
+
+``fips['enable']``
+  Set to `true` to run the server in FIPS compliance mode. Set to `false` to force the server to run without FIPS compliance mode. Default value is whatever the kernel is configured to. See `Fips kernel settings </fips.html#FIPS-kernel-settings>`_.
 
 ``install_path``
    Default value: ``"/opt/delivery"``.
@@ -64,22 +67,13 @@ backup
 -----------------------------------------------------
 This configuration file has the following settings for ``backup``:
 
-``backup['cron']['enabled']``
-   Create a cron job that manages backups. Default value: ``false``.
-
-``backup['cron']['max_archives']``
-   Maximum number of backup archives to be kept. Default value: ``7``.
-
-``backup['cron']['max_snapshots']``
-   Maximum number of backup snapshots to be kept. Default value: ``7``.
-
-``backup['cron']['notation']``
-   Time notation for backup cron job. Default value: ``'0 0 * * *'``.
-
 ``backup['access_key_id']``
    Amazon Web Services (AWS) Access Key ID for uploading Chef Automate backup archives to S3.
    Only use this if you cannot configure the machine with an instance profile,
    shared credentials, or environment variables. Default value: ``nil``.
+
+``backup['create_bucket']``
+   Create an S3 bucket for backup archives if it does not exist. Default value: ``true``.
 
 ``backup['bucket']``
    S3 bucket for storing Chef Automate backup archives. Default value: ``nil``.
@@ -96,11 +90,45 @@ This configuration file has the following settings for ``backup``:
    when Chef Automate and Chef server are installed on a single node. Default
    value: ``false``.
 
+``backup['compliance_profiles']['enabled']``
+   Back up the Chef Automate compliance profiles. Default value: ``true``.
+
 ``backup['config']['enabled']``
    Back up the Chef Automate configuration directory. Default value: ``true``.
 
+``backup['cron']['enabled']``
+   Create a cron job that manages backups. Default value: ``false``.
+
+``backup['cron']['max_archives']``
+   Maximum number of backup archives to be kept. Default value: ``7``.
+
+``backup['cron']['max_snapshots']``
+   Maximum number of backup snapshots to be kept. Default value: ``7``.
+
+``backup['cron']['notation']``
+   Time notation for backup cron job. Default value: ``'0 0 * * *'``.
+
 ``backup['db']['enabled']``
    Back up the Chef Automate PostgreSQL database. Default value: ``true``.
+
+``backup['delete']['pattern']``
+   The pattern to match when deleting backup archives and Elasticsearch
+   snapshots. Default value: ``nil``.
+
+``backup['delete']['max_archives']``
+   The maximum number of backup archives to keep. Default value: ``nil``.
+
+``backup['delete']['max_snapshots']``
+   The maximum number of Elasticsearch snapshots to keep. Default value:
+   ``nil``.
+
+``backup['digest']['enabled']``
+   Output the SHA digest of the backup archive to STDOUT. Default value:
+   ``true``.
+
+``backup['digest']['length']``
+   The SHA digest length to use. Valid options are ``256``, ``384``, and
+   ``512``.  Default value: ``256``.
 
 ``backup['elasticsearch']['access_key_id']``
    Amazon Web Services (AWS) Access Key ID for uploading Chef Automate Elasticsearch snapshots
@@ -132,22 +160,41 @@ This configuration file has the following settings for ``backup``:
    Maximum snapshot speed when creating shared filesystem Elasticsearch
    snaphots. Default value: ``40mb``.
 
+``backup['elasticsearch']['poll_interval']``
+   How many seconds to wait between polling requests while waiting for
+   Elasticsearch operations.  Default value ``5``.
+
 ``backup['elasticsearch']['region']``
    Amazon Web Services (AWS) region to use for Chef Automate S3 Elasticsearch snapshots.
    Default value ``nil``.
+
+``backup['elasticsearch']['request_timeout']``
+   Maximum seconds an Elasticsearch request can wait before timing out.
+   Default value ``'300'``.
+
+``backup['elasticsearch']['retry_limit']``
+   Maximum number of times to retry failed Elasticsearch requests. Default value ``3``.
 
 ``backup['elasticsearch']['secret_access_key']``
    Amazon Web Services (AWS) Secret Key for uploading Chef Automate Elasticsearch snapshots in
    S3. Only use this if you cannot configure the machine with an instance
    profile, shared credentials, or environment variables. Default value: ``nil``.
 
+``backup['elasticsearch']['server_side_encryption']``
+   Enable Amazon Web Services (AWS) SSE-S3 AES256 Server Side Encryption for
+   Elasticsearch snapshots in S3. Default value: ``true``.
+
 ``backup['elasticsearch']['type']``
    Which backup type to use for Chef Automate Elasticsearch snapshots. Shared
    filesystem and S3 backups are currently supported by using the ``fs`` and
    ``s3`` types. Default value: ``fs``.
 
+``backup['elasticsearch']['wait_for_lock']``
+   Enable or disable waiting for the Chef Automate exclusive Elasticsearch lock
+   when performing major operations. Default value: ``true``.
+
 ``backup['force']``
-   Agree to any prompts or warnings during the Chef Automate backup precedure.
+   Agree to any prompts or warnings during the Chef Automate backup procedure.
    Default value: ``false``.
 
 ``backup['git']['enabled']``
@@ -157,12 +204,12 @@ This configuration file has the following settings for ``backup``:
    Back up the Chef Automate license file. Default value: ``true``.
 
 ``backup['list']['types']``
-   Types to list when running the ``delivery-ctl list-backups`` command.
+   Types to list when running the ``automate-ctl list-backups`` command.
    Options are ``all``, ``automate``, and ``elasticsearch``. Default value:
    ``all``.
 
 ``backup['list']['format']``
-   Format to return when running the ``delivery-ctl list-backups`` command.
+   Format to return when running the ``automate-ctl list-backups`` command.
    Options are ``text`` and ``json``.  Default value: ``text``.
 
 ``backup['location']``
@@ -172,6 +219,9 @@ This configuration file has the following settings for ``backup``:
 ``backup['name']``
    Name to use for Chef Automate backup archives and snapshots. When omitted
    a default will used automatically. Default value: ``nil``.
+
+``backup['notifications']['enable']``
+   Back up the Chef Automate notification rules. Default value: ``true``.
 
 ``backup['quiet']``
    Silence non-error information during the Chef Automate backup procedure.
@@ -187,16 +237,20 @@ This configuration file has the following settings for ``backup``:
    Amazon Web Services (AWS) region to use when storing Chef Automate backup archives in S3.
    Default value ``nil``.
 
-``backup['type']``
-   Which backup type to use for Chef Automate backup archives. Local filesystem and
-   S3 backups are currently supported by using the ``fs`` and ``s3`` types.
-   Default value: ``fs``.
-
 ``backup['secret_access_key']``
    Amazon Web Services (AWS) Secret Key for uploading Chef Automate backup archives to S3.
    Only use this if you cannot configure the machine with an instance profile,
    shared credentials, or environment variables.
    Default value: ``nil``.
+
+``backup['server_side_encryption']``
+   Enable Amazon Web Services (AWS) SSE-S3 AES256 Server Side Encryption for
+   backup archives in S3. To use SSE-KMS set the value to ``aws:kms``.
+   Default value: ``AES256``.
+
+.. note:: While the backup utility currently supports encrypting backups with
+   with SSE-S3, SSE-KMS, and SSE-C, only SSE-S3 is currently supported for
+   restoration.
 
 ``backup['staging_dir']``
    A local directory to use for temporary files when creating a backup archive.
@@ -205,6 +259,31 @@ This configuration file has the following settings for ``backup``:
    use a default Ruby temporary directory which is usually nested in ``/tmp`` on
    linux but will also honor the value of the ``TMPDIR`` environment variable.
    Default value: ``nil``.
+
+``backup['sse_customer_algorithm']``
+   The SSE-C algorithm to use for customer Server Side Encryption. Default
+   value: ``nil``.
+
+``backup['sse_customer_key']``
+   The SSE-C key to use for customer Server Side Encryption. Default value
+   ``nil``.
+
+``backup['sse_customer_key_md5']``
+   The MD5 hash of the customer key for customer Server Side Encryption. Default
+   value: ``nil``.
+
+``backup['ssekms_key_id']``
+   The SSE-KMS key id to use for customer Server Side Encryption. Default value:
+   ``nil``
+
+``backup['type']``
+   Which backup type to use for Chef Automate backup archives. Local filesystem and
+   S3 backups are currently supported by using the ``fs`` and ``s3`` types.
+   Default value: ``fs``.
+
+``backup['retry_limit']``
+   The maximum of times to retry when uploading backup archives to a remote
+   repository like Amazon Web Services (AWS) S3. Default value: ``5``.
 
 ``backup['wait']``
    Wait for non-blocking steps during the backup procedure. Useful if you'd like
@@ -325,7 +404,7 @@ This configuration file has the following settings for ``delivery``:
    The password for the binding user. Default value: ``"secret123"``.
 
 ``delivery['ldap_encryption']``
-   Default value: ``"start_tls"``.
+   ``"start_tls"``, ``"simple_tls"``, or ``"no_tls"``. Default value: ``"no_tls"``.
 
 ``delivery['ldap_hosts']``
    The name (or IP address) of the LDAP server. Default value: ``[]``.
@@ -404,6 +483,13 @@ This configuration file has the following settings for ``delivery``:
         }
       }
 
+``delivery['no_ssl_verification']``
+   An array of hostnames that are whitelisted from requiring SSL verification. For example:
+
+   .. code-block:: ruby
+
+      delivery['no_ssl_verification'] = ['self-signed.badssl.com', 'untrusted-root.badssl.com']
+
 ``delivery['standby_ip']``
    The IP address for the cold standby Chef Automate server. Default value: ``nil``.
 
@@ -417,35 +503,6 @@ This configuration file has the following settings for ``delivery``:
 
 ``delivery['vip']``
    The virtual IP address. Default value: ``'127.0.0.1'``.
-
-delivery_web
------------------------------------------------------
-This configuration file has the following settings for ``delivery_web``:
-
-``delivery_web['api_version']``
-   Default value: ``"v0"``.
-
-``delivery_web['build_version']``
-   Default value: ``"0.0.1"``.
-
-``delivery_web['embedly_api_key']``
-   Default value: ``"e0435c6ccfd74dfaacf7dfc987c9a7fa"``.
-
-``delivery_web['etc_dir']``
-   The working directory. The default value is the recommended value. Default value: ``"/var/opt/delivery/delivery_web/etc"``.
-
-``delivery_web['external_auth']``
-   Default value: ``false``.
-
-``delivery_web['password_recovery_url']``
-   Default value: ``"http://google.com"``.
-
-``delivery_web['root']``
-   A hook to re-home the web ui for development and testing. Default value:
-
-   .. code-block:: ruby
-
-      "#{node['delivery']['install_path']}/embedded/service/delivery_web"
 
 elasticsearch
 -----------------------------------------------------
@@ -470,11 +527,66 @@ This configuration file has the following settings for ``elasticsearch``:
    The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value: ``10``.
 
 ``elasticsearch['memory']``
-   Default value:
+   The Elasticsearch JVM's heap size. Default value:
 
    .. code-block:: ruby
 
       "#{(node.memory.total.to_i * 0.4 ).floor / 1024}m"
+
+**The following Elasticsearch options require Chef Automate 0.8.46 or later:**
+
+``elasticsearch['max_open_file']``
+   The maximum number of files Elasticsearch may open simultaneously. The default value is ``65536``. Setting this to a lower value may lead to data loss and is highly discouraged.
+
+``elasticsearch['max_map_count']``
+   The maximum number of memory map areas the Elasticsearch process may have. The default value is ``262144``. Setting this to a lower value may cause Elasticsearch to fail with out-of-memory errors.
+
+``elasticsearch['config']['bootstrap']['memory_lock']``
+   When set to ``true``, locks the memory allocated by Elasticsearch so that it may not be swapped to disk by the OS. Enabling this will cause Elasticsearch to fail on start if there is not enough memory available for the configured heap size. On systems where swap is disabled, this setting has no effect. Default value: ``false``.  This flag was named ``elasticsearch['config']['bootstrap']['mlockall']`` in Chef Automate 1.5.x and below.
+
+``elasticsearch['config']['indices']['breaker']['fielddata']['limit']``
+   The maximum amount of heap memory that may be consumed by fielddata. Any query that would result in this limit being exceeded will be aborted. Default value: ``'60%'``.
+
+``elasticsearch['config']['indices']['breaker']['request']['limit']``
+   The maximum amount of heap memory, excluding fielddata, that may be consumed by a request. Any query that would result in this limit being exceeded will be aborted. Default value: ``'40%'``.
+
+``elasticsearch['config']['indices']['breaker']['total']['limit']``
+   The maximum amount of combined heap memory that may be consumed by a single request. Any query that would result in this limit being exceeded will be aborted. Default value: ``'70%'``.
+
+``elasticsearch['config']['indices']['store']['throttle']['max_bytes_per_sec']``
+   The maximum throughput allowed for creating and optimizing Elasticsearch search indexes. When this limit is reached, Elasticsearch logs a message containing ``now throttling indexing`` at the ``INFO`` log level. If you see evidence of index throttling and have sufficient disk I/O capacity, you can increase this setting. Default value: ``'100mb'``.
+
+**The following Elasticsearch options require Chef Automate 1.6.87 or later:**
+
+``elasticsearch['new_memory_size']``
+   The 'new generation' heap size of the JVM running Elasticsearch. Default value:
+
+   .. code-block:: ruby
+
+      "#{elasticsearch['memory'].to_i / 16}m"
+
+``elasticsearch['jvm_opts']``
+   A list of other JVM-related options to pass along. Note that this should not contain the heap memory size and the new generation memory size from above. Default value: ``[]``. Example:
+
+   .. code-block:: ruby
+
+      elasticsearch['jvm_opts'] = [
+        "-xoption1",
+        "-xoption2",
+        ...
+        "optionN"
+      ]
+
+``elasticsearch['enable_gc_log']``
+   Enable garbage-collection logging on the JVM. Only set this to ``true`` if you are debugging a garbage collection-related performance issue. Default value: ``false``.
+
+**The following Elasticsearch options require Chef Automate 1.6.179 or later:**
+
+``elasticsearch['auth_user']``
+   The username that Chef Automate will use if you have Elasticsearch X-Pack Basic Authentication enabled on your Elasticsearch cluster. Default value: ``nil``.
+
+``elasticsearch['auth_password']``
+   The password that Chef Automate will use if you have Elasticsearch X-Pack Basic Authentication enabled on your Elasticsearch cluster. Default value: ``nil``.
 
 git
 -----------------------------------------------------
@@ -508,10 +620,17 @@ This configuration file has the following settings for ``java``:
 
 kibana
 -----------------------------------------------------
+
+.. tag kibana_note
+
+.. note:: As of Chef Automate 1.6.87, Kibana is no longer enabled by default. To enable it, see the `Kibana setup documentation <https://www.elastic.co/guide/en/kibana/current/setup.html>`_. In prior versions of Chef Automate, Kibana and its authentication are enabled by default.
+
+.. end_tag
+
 This configuration file has the following settings for ``kibana``:
 
 ``kibana['enable']``
-   Enable a service. Only enabled if ``insights`` is also enabled. The default value is the recommended value. Default value: ``'true'``
+   Enable the Kibana service. This is disabled by default. If you choose to enable it, you must have at least 2GB of extra RAM for Kibana to perform well. Default value: ``'true'``.
 
 ``kibana['conf_dir']``
    The working directory. The default value is the recommended value. Default value: ``'/var/opt/delivery/kibana/'``.
@@ -556,6 +675,9 @@ This configuration file has the following settings for ``logstash``:
 
 ``logstash['port']``
    The port on which the service is to listen. Default value: ``8080``.
+
+``logstash['heap_size']``
+   The amount of memory allocated to the logstash heap. Default value: 10% of system memory or 128 megabytes, whichever is larger. Requires Automate 0.8.46 or above.
 
 lsyncd
 -----------------------------------------------------
@@ -656,12 +778,6 @@ This configuration file has the following settings for ``nginx``:
 ``nginx['server_name']``
    The FQDN for the server. Default value: ``node['delivery']['fqdn']``.
 
-``nginx['ssl_certificate']``
-   The SSL certificate used to verify communication over HTTPS. Default value: created automatically during setup.
-
-``nginx['ssl_certificate_key']``
-   The certificate key used for SSL communication. Default value: created automatically during setup.
-
 ``nginx['ssl_ciphers']``
    The list of supported cipher suites that are used to establish a secure connection. To favor AES256 with ECDHE forward security, drop the ``RC4-SHA:RC4-MD5:RC4:RSA`` prefix. See `this link <https://wiki.mozilla.org/Security/Server_Side_TLS>`__ for more information. Default value:
 
@@ -699,17 +815,53 @@ This configuration file has the following settings for ``nginx``:
 ``nginx['ssl_state_name']``
    The state, province, or region in which your company is located. Default value: "WA".
 
+``nginx['strict_host_header']``
+   Whether nginx should only respond to requests where the Host header matches one of the configured FQDNs. Default value: ``false``.
+  
+   New in Automate version 1.7
+
 ``nginx['tcp_nodelay']``
    Enable the Nagle buffering algorithm. Possible values: ``on`` or ``off``. Default value: ``'on'``.
 
 ``nginx['tcp_nopush']``
    Enable TCP/IP transactions. Possible values: ``on`` or ``off``. Default value: ``'on'``.
 
+``nginx['use_implicit_hosts']``
+   Automatically add `localhost` and any local IP addresses to the configured FQDNs. Useful in combination with ``nginx['strict_host_header']``. Default value: ``true``.
+
+   New in Automate version 1.7
+
 ``nginx['worker_connections']``
    The maximum number of simultaneous clients. Use with ``nginx['worker_processes']`` to determine the maximum number of allowed clients. Default value: ``10240``.
 
 ``nginx['worker_processes']``
    The number of allowed worker processes. Use with ``nginx['worker_connections']`` to determine the maximum number of allowed clients. Default value: ``node['cpu']['total'].to_i``.
+
+notifications
+-----------------------------------------------------
+The following settings allow you to customize the behavior of the event notifications engine in Chef Automate:
+
+``notifications['enable']``
+   Set to ``true`` to enable the addition, deletion, processing and dispatch of notifications. Default value: ``true``.
+
+``notifications['port']``
+   The internal network port on which the notifications service listens. Only change this if you encounter port collisions with other services. Default value: ``9603``.
+
+``notifications['conf_dir']``
+   The working directory. The default value is the recommended value. Default value: ``'/var/opt/delivery/notifications'``.
+
+``notifications['rule_store_file']``
+   Path to the file where the notification rules are stored. Default value: ``'/var/opt/delivery/notifications/rule_store'``.
+
+``notifications['log_directory']``
+   The directory in which log data is stored. The default value is the recommended value. Default value: ``'/var/log/delivery/notifications'``.
+
+``notifications['log_rotation']['file_maxbytes']``
+   The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value: ``1024 * 1000 * 10``.
+
+``notifications['log_rotation']['num_to_keep']``
+   The log rotation policy for this service. Log files are rotated when they exceed ``file_maxbytes``. The maximum number of log files in the rotation is defined by ``num_to_keep``. Default value: ``10``.
+
 
 postgresql
 -----------------------------------------------------
@@ -757,7 +909,7 @@ This configuration file has the following settings for ``postgresql``:
    The home directory for PostgreSQL. Default value: ``"/var/opt/delivery/postgresql"``.
 
 ``postgresql['listen_address']``
-   The connection source to which PostgreSQL is to respond. Default value: ``'localhost'``. In a disaster recovery configuration, this value is similar to: ``'localhost,192.168.10.11'``.
+   The connection source to which PostgreSQL is to respond. Default value: ``'localhost'``. In a disaster recovery configuration, this value is similar to: ``'localhost,192.0.2.0'``.
 
 ``postgresql['log_directory']``
    The directory in which log data is stored. The default value is the recommended value. Default value:
@@ -904,6 +1056,28 @@ This configuration file has the following settings for ``ssh_git``:
 
 ``ssh_git['port']``
    The port on which the service is to listen. Default value: ``8989``.
+
+statistics
+-----------------------------------------------------
+This configuration file has the following settings for ``statistics``:
+
+``statistics['enable']``
+   Whether or not to enable the statistics service. Default value: ``true``.
+
+``statistics['port']``
+   The listen port of the statistics service. Default value: ``7676``.
+
+``statistics['bind_address']``
+   The listen bind address of the statistics service. Default value: ``127.0.0.1``.
+
+``statistics['log_directory']``
+   The statistics log file location. Default value: ``/var/log/delivery/statistics``.
+
+``statistics['log_rotation']['file_maxbytes']``
+   The statistics log file max bytes. Default value: ``104857600``.
+
+``statistics['log_rotation']['num_to_keep']``
+   The maxiumum number of statistics log files. Default value: ``10``.
 
 user
 -----------------------------------------------------

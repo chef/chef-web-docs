@@ -15,6 +15,46 @@ Use the Custom Resource DSL to define property behaviors within custom resources
 
 .. end_tag
 
+Custom resources are new in Chef Client 12.5 and can be used on Chef 12.1 or later by depending on the compat_resource cookbook.
+
+action_class
+=====================================================
+.. tag dsl_custom_resource_method_converge_if_changed_multiple
+
+The ``converge_if_changed`` method may be used multiple times. The following example shows how to use the ``converge_if_changed`` method to compare the multiple desired property values against the current property values (as loaded by the ``load_current_value`` method).
+
+.. code-block:: ruby
+
+   property :path, String, name_property: true
+   property :content, String
+   property :mode, String
+
+   load_current_value do
+     if ::File.exist?(new_resource.path)
+       content IO.read(new_resource.path)
+       mode ::File.stat(new_resource.path).mode
+     end
+   end
+
+   action :create do
+     converge_if_changed :content do
+       IO.write(new_resource.path, new_resource.content)
+     end
+     converge_if_changed :mode do
+       ::File.chmod(new_resource.mode, new_resource.path)
+     end
+   end
+
+where
+
+* ``load_current_value`` loads the property values for both ``content`` and ``mode``
+* A ``converge_if_changed`` block tests only ``content``
+* A ``converge_if_changed`` block tests only ``mode``
+
+The chef-client will only update the property values that require updates and will not make changes when the property values are already in the desired state
+
+.. end_tag
+
 converge_if_changed
 =====================================================
 .. tag dsl_custom_resource_method_converge_if_changed
@@ -41,18 +81,18 @@ For example, a custom resource defines two properties (``content`` and ``path``)
    property :path, String, name_property: true
 
    load_current_value do
-     if File.exist?(path)
+     if ::File.exist?(path)
        content IO.read(path)
      end
    end
 
    action :create do
      converge_if_changed do
-       IO.write(path, content)
+       IO.write(new_resource.path, new_resource.content)
      end
    end
 
-When the file does not exist, the ``IO.write(path, content)`` code is executed and the chef-client output will print something similar to:
+When the file does not exist, the ``IO.write(new_resource.path, new_resource.content)`` code is executed and the chef-client output will print something similar to:
 
 .. code-block:: bash
 
@@ -76,18 +116,18 @@ The ``converge_if_changed`` method may be used multiple times. The following exa
    property :mode, String
 
    load_current_value do
-     if File.exist?(path)
-       content IO.read(path)
-       mode File.stat(path).mode
+     if ::File.exist?(new_resource.path)
+       content IO.read(new_resource.path)
+       mode ::File.stat(new_resource.path).mode
      end
    end
 
    action :create do
      converge_if_changed :content do
-       IO.write(path, content)
+       IO.write(new_resource.path, new_resource.content)
      end
      converge_if_changed :mode do
-       File.chmod(mode, path)
+       ::File.chmod(new_resource.mode, new_resource.path)
      end
    end
 
@@ -109,7 +149,7 @@ The default action in a custom resource is, by default, the first action listed 
 
 .. code-block:: ruby
 
-   property :name, RubyType, default: 'value'
+   property :property_name, RubyType, default: 'value'
 
    ...
 
@@ -125,7 +165,7 @@ The ``default_action`` method may also be used to specify the default action. Fo
 
 .. code-block:: ruby
 
-   property :name, RubyType, default: 'value'
+   property :property_name, RubyType, default: 'value'
 
    default_action :aaaaa
 
@@ -154,10 +194,10 @@ Use the ``load_current_value`` method to guard against property values being rep
    action :some_action do
 
      load_current_value do
-       if File.exist?('/var/www/html/index.html')
+       if ::File.exist?('/var/www/html/index.html')
          homepage IO.read('/var/www/html/index.html')
        end
-       if File.exist?('/var/www/html/404.html')
+       if ::File.exist?('/var/www/html/404.html')
          page_not_found IO.read('/var/www/html/404.html')
        end
      end
@@ -178,14 +218,14 @@ Custom resources are designed to use core resources that are built into Chef. In
 
    resource_name :node_execute
 
-   property :command, kind_of: String, name_property: true
-   property :version, kind_of: String
+   property :command, String, name_property: true
+   property :version, String
 
    # Useful properties from the `execute` resource
-   property :cwd, kind_of: String
-   property :environment, kind_of: Hash, default: {}
-   property :user, kind_of: [String, Integer]
-   property :sensitive, kind_of: [TrueClass, FalseClass], default: false
+   property :cwd, String
+   property :environment, Hash, default: {}
+   property :user, [String, Integer]
+   property :sensitive, [true, false], default: false
 
    prefix = '/opt/languages/node'
 
@@ -202,7 +242,7 @@ Custom resources are designed to use core resources that are built into Chef. In
        sensitive sensitive
        # gsub replaces 10+ spaces at the beginning of the line with nothing
        command <<-CODE.gsub(/^ {10}/, '')
-         #{prefix}/#{version}/#{command}
+         #{prefix}/#{new_resource.version}/#{command}
        CODE
      end
    end
@@ -221,14 +261,14 @@ To prevent this behavior, use ``new_resource.`` to tell the chef-client to proce
 
    resource_name :node_execute
 
-   property :command, kind_of: String, name_property: true
-   property :version, kind_of: String
+   property :command, String, name_property: true
+   property :version, String
 
    # Useful properties from the `execute` resource
-   property :cwd, kind_of: String
-   property :environment, kind_of: Hash, default: {}
-   property :user, kind_of: [String, Integer]
-   property :sensitive, kind_of: [TrueClass, FalseClass], default: false
+   property :cwd, String
+   property :environment, Hash, default: {}
+   property :user, [String, Integer]
+   property :sensitive, [true, false], default: false
 
    prefix = '/opt/languages/node'
 
@@ -262,13 +302,14 @@ Use the ``property`` method to define properties for the custom resource. The sy
 
 .. code-block:: ruby
 
-   property :name, ruby_type, default: 'value'
+   property :property_name, ruby_type, default: 'value', parameter: 'value'
 
 where
 
-* ``:name`` is the name of the property
-* ``ruby_type`` is the Ruby type, such as ``String``, ``Integer``, ``TrueClass``, or ``FalseClass``
-* ``default: 'value'`` is the default value loaded into the resource
+* ``:property_name`` is the name of the property
+* ``ruby_type`` is the optional Ruby type or array of types, such as ``String``, ``Integer``, ``true``, or ``false``
+* ``default: 'value'`` is the optional default value loaded into the resource
+* ``parameter: 'value'`` optional parameters
 
 For example, the following properties define ``username`` and ``password`` properties with no default values specified:
 
@@ -279,22 +320,146 @@ For example, the following properties define ``username`` and ``password`` prope
 
 .. end_tag
 
+ruby_type
+-----------------------------------------------------
+.. tag dsl_custom_resource_method_property_ruby_type
+
+The property ruby_type is a positional parameter. Use to ensure a property value is of a particular ruby class, such as ``true``, ``false``, ``nil``, ``String``, ``Array``, ``Hash``, ``Integer``, ``Symbol``. Use an array of ruby classes to allow a value to be of more than one type. For example:
+
+       .. code-block:: ruby
+
+          property :aaaa, String
+
+       .. code-block:: ruby
+
+          property :bbbb, Integer
+
+       .. code-block:: ruby
+
+          property :cccc, Hash
+
+       .. code-block:: ruby
+
+          property :dddd, [true, false]
+
+       .. code-block:: ruby
+
+          property :eeee, [String, nil]
+
+       .. code-block:: ruby
+
+          property :ffff, [Class, String, Symbol]
+
+       .. code-block:: ruby
+
+          property :gggg, [Array, Hash]
+
+.. end_tag
+
+validators
+-----------------------------------------------------
+.. tag dsl_custom_resource_method_property_validation_parameter
+
+A validation parameter is used to add zero (or more) validation parameters to a property.
+
+.. list-table::
+   :widths: 150 450
+   :header-rows: 1
+
+   * - Parameter
+     - Description
+   * - ``:callbacks``
+     - Use to define a collection of unique keys and values (a ruby hash) for which the key is the error message and the value is a lambda to validate the parameter. For example:
+
+       .. code-block:: ruby
+
+          callbacks: {
+                       'should be a valid non-system port' => lambda {
+                         |p| p > 1024 && p < 65535
+                       }
+                     }
+
+   * - ``:default``
+     - Use to specify the default value for a property. For example:
+
+       .. code-block:: ruby
+
+          default: 'a_string_value'
+
+       .. code-block:: ruby
+
+          default: 123456789
+
+       .. code-block:: ruby
+
+          default: []
+
+       .. code-block:: ruby
+
+          default: ()
+
+       .. code-block:: ruby
+
+          default: {}
+   * - ``:equal_to``
+     - Use to match a value with ``==``. Use an array of values to match any of those values with ``==``. For example:
+
+       .. code-block:: ruby
+
+          equal_to: [true, false]
+
+       .. code-block:: ruby
+
+          equal_to: ['php', 'perl']
+   * - ``:regex``
+     - Use to match a value to a regular expression. For example:
+
+       .. code-block:: ruby
+
+          regex: [ /^([a-z]|[A-Z]|[0-9]|_|-)+$/, /^\d+$/ ]
+   * - ``:required``
+     - Indicates that a property is required. For example:
+
+       .. code-block:: ruby
+
+          required: true
+   * - ``:respond_to``
+     - Use to ensure that a value has a given method. This can be a single method name or an array of method names. For example:
+
+       .. code-block:: ruby
+
+          respond_to: valid_encoding?
+
+Some examples of combining validation parameters:
+
+.. code-block:: ruby
+
+   property :spool_name, String, regex: /$\w+/
+
+.. code-block:: ruby
+
+   property :enabled, equal_to: [true, false, 'true', 'false'], default: true
+
+.. end_tag
+
 desired_state
 -----------------------------------------------------
 .. tag dsl_custom_resource_method_property_desired_state
 
-Add ``desired_state:`` to get or set the list of desired state properties for a resource, which describe the desired state of the node, such as permissions on an existing file. This value may be ``true`` or ``false``.
+Add ``desired_state:`` to set the desired state property for a resource. This value may be ``true`` or ``false``, and all properties default to true.
 
-* When ``true``, the state of the system will determine the value.
-* When ``false``, the values defined by the recipe or custom resource will determine the value, i.e. "the desired state of this system includes setting the value defined in this custom resource or recipe"
+* When ``true``, the state of the property is determined by the state of the system
+* When ``false``, the value of the property impacts how the resource executes, but it is not determined by the state of the system.
 
-For example, the following properties define the ``owner``, ``group``, and ``mode`` properties for a file that already exists on the node, and with ``desired_state`` set to ``false``:
+For example, if you were to write a resource to create volumes on a cloud provider you would need define properties such as ``volume_name``, ``volume_size``, and ``volume_region``. The state of these properties would determine if your resource needed to converge or not. For the resource to function you would also need to define properties such as ``cloud_login`` and ``cloud_password``. These are necessary properties for interacting with the cloud provider, but their state has no impact on decision to converge the resource or not, so you would set ``desired_state`` to ``false`` for these properties.
 
 .. code-block:: ruby
 
-   property :owner, String, default: 'root', desired_state: false
-   property :group, String, default: 'root', desired_state: false
-   property :mode, String, default: '0755', desired_state: false
+   property :volume_name, String
+   property :volume_size, Integer
+   property :volume_region, String
+   property :cloud_login, String, desired_state: false
+   property :cloud_password, String, desired_state: false
 
 .. end_tag
 
@@ -319,7 +484,7 @@ For example, the following properties define ``username`` and ``password`` prope
 .. end_tag
 
 Block Arguments
------------------------------------------------------
+=====================================================
 .. tag dsl_custom_resource_method_property_block_argument
 
 Any properties that are marked ``identity: true`` or ``desired_state: false`` will be available from ``load_current_value``. If access to other properties of a resource is needed, use a block argument that contains all of the properties of the requested resource. For example:
@@ -350,17 +515,19 @@ For example, the following custom resource creates and/or updates user propertie
 
 .. code-block:: ruby
 
-   action :create do
-     converge_if_changed do
-       system("rabbitmqctl create_or_update_user #{username} --prop1 #{prop1} ... ")
-     end
+  action :create do
+    converge_if_changed do
+      shell_out!("rabbitmqctl create_or_update_user #{username} --prop1 #{prop1} ... ")
+    end
 
-     if property_is_set?(:password)
-       if system("rabbitmqctl authenticate_user #{username} #{password}") != 0 do
-         converge_by "Updating password for user #{username} ..." do
-       system("rabbitmqctl update_user #{username} --password #{password}")
-     end
-   end
+    if property_is_set?(:password)
+      if shell_out("rabbitmqctl authenticate_user #{username} #{password}").error?
+        converge_by "Updating password for user #{username} ..." do
+          shell_out!("rabbitmqctl update_user #{username} --password #{password}")
+        end
+      end
+    end
+  end
 
 .. end_tag
 
@@ -395,6 +562,8 @@ For example:
 This allows you to use multiple custom resources files that provide the same resource to the user, but for different operating systems or operation system versions. With this you can eliminate the need for platform or platform version logic within your resources.
 
 .. end_tag
+
+New in Chef Client 12.0.
 
 override
 -----------------------------------------------------
@@ -474,12 +643,6 @@ For example, the ``httpd.rb`` file in the ``website`` cookbook could be assigned
 
    property :homepage, String, default: '<h1>Hello world!</h1>'
 
-   load_current_value do
-     if ::File.exist?('/var/www/html/index.html')
-       homepage IO.read('/var/www/html/index.html')
-     end
-   end
-
    action :create do
      package 'httpd'
 
@@ -502,4 +665,3 @@ and is then usable in a recipe like this:
    end
 
 .. end_tag
-

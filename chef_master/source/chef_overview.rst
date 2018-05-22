@@ -15,11 +15,9 @@ This diagram shows how you develop, test, and deploy your Chef code.
 
 .. end_tag
 
-* The workstation is the location from which all of Chef is managed, including :doc:`installing the Chef DK </install_dk>`, :doc:`authoring cookbooks </cookbooks>`, and using tools like :doc:`Kitchen </kitchen>`, `chef-zero (a command-line tool that runs locally as if it were connected to a real Chef server) <https://docs.chef.io/ctl_chef_client.html#run-in-local-mode>`__, command-line tools like :doc:`Knife (for interacting with the Chef server) </knife>` and :doc:`chef (for interacting with your local chef-repo) </ctl_chef>`, and resources like :doc:`core Chef resources (for building recipes) </resources>` and `InSpec (for building security and compliance checks into your workflow) <http://inspec.io>`__.
-* Nodes are the machines---physical, virtual, cloud, and so on---that are under management by Chef. The chef-client is installed on each node and is what `performs the automation on that machine <https://docs.chef.io/chef_client.html#the-chef-client-run>`__.
-* Use the Chef server as your foundation to create and manage flexible, dynamic infrastructure whether you manage 50 or 500,000 nodes, across multiple datacenters, public and private clouds, and in heterogeneous environments.
-
-  The Chef server acts as :doc:`a hub for configuration data </server_components>`. The Chef server stores cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is being managed by the chef-client. Nodes use the chef-client to ask the Chef server for configuration details, such as recipes, templates, and file distributions. The chef-client then does as much of the configuration work as possible on the nodes themselves (and not on the Chef server). This scalable approach distributes the configuration effort throughout the organization.
+* The **Chef DK workstation** is the location where users interact with Chef. On the workstation users author and test `cookbooks </cookbooks.html>`__ using tools such as `Test Kitchen </kitchen.html>`__ and interact with the Chef server using the `knife </knife.html>`__ and `chef </ctl_chef.html>`__ command line tools.
+* **Chef client nodes** are the machines that are managed by Chef. The Chef client is installed on each node and is used to configure the node to its desired state.
+* The **Chef server** acts as `a hub for configuration data </server_components.html>`__. The Chef server stores cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is being managed by Chef. Nodes use the Chef client to ask the Chef server for configuration details, such as recipes, templates, and file distributions.
 
 Chef Components
 =====================================================
@@ -53,7 +51,7 @@ Chef has the following major components:
 
        Ruby is the programming language that is the authoring syntax for cookbooks. Most recipes are simple patterns (blocks that define properties and values that map to specific configuration items like packages, files, services, templates, and users). The full power of Ruby is available for when you need a programming language.
 
-       Often, a workstation is configured to use the Chef development kit as the development toolkit. The Chef development kit is a package from Chef that provides an optional (but recommended) set of tooling, including Chef itself, the chef command line tool, Kitchen, ChefSpec, Berkshelf, and more.
+       Often, a workstation is configured to use the Chef Development Kit as the development toolkit. The Chef Development Kit is a package from Chef that provides a recommended set of tooling, including Chef itself, the chef command line tool, Test Kitchen, ChefSpec, Berkshelf, and more.
 
    * - .. image:: ../../images/icon_node.svg
           :width: 100px
@@ -76,18 +74,16 @@ Chef has the following major components:
 
      - The Chef server acts as a hub of information. Cookbooks and policy settings are uploaded to the Chef server by users from workstations. (Policy settings may also be maintained from the Chef server itself, via the Chef management console web user interface.)
 
-       The chef-client accesses the Chef server from the node on which it's installed to get configuration data, perform searches of historical chef-client run data, and then pull down the necessary configuration data. After the chef-client run is finished, the chef-client uploads updated run data to the Chef server as the updated node object.
+       The chef-client accesses the Chef server from the node on which it's installed to get configuration data, performs searches of historical chef-client run data, and then pulls down the necessary configuration data. After the chef-client run is finished, the chef-client uploads updated run data to the Chef server.
 
        Chef management console is the user interface for the Chef server. It is used to manage data bags, attributes, run-lists, roles, environments, and cookbooks, and also to configure role-based access for users and groups.
    * - .. image:: ../../images/icon_chef_supermarket.svg
           :width: 100px
           :align: center
 
-     - Chef Supermarket is the location in which community cookbooks are authored and maintained. Cookbooks that are part of the Chef Supermarket may be used by any Chef user. How community cookbooks are used varies from organization to organization.
+     - Chef Supermarket is the location in which community cookbooks are shared and managed. Cookbooks that are part of the Chef Supermarket may be used by any Chef user. How community cookbooks are used varies from organization to organization.
 
 Chef management console, chef-client run reporting, high availability configurations, and Chef server replication are available as part of Chef Automate.
-
-.. note:: The capabilities of Chef replication can be reproduced using the features of Chef Automate workflow and we encourage customers to adopt Chef Automate going forward.
 
 The following sections discuss these elements (and their various components) in more detail.
 
@@ -95,25 +91,23 @@ Workstations
 =====================================================
 .. tag workstation_summary
 
-.. This file is included in Chef Automate docs
+A workstation is a computer running the `Chef Development Kit </about_chefdk.html>`__ (Chef DK) that is used to author cookbooks, interact with the Chef server, and interact with nodes.
 
-A workstation is a computer that is configured to run various Chef command-line tools that synchronize with a chef-repo, author cookbooks, interact with the Chef server, and interact with nodes.
+The workstation is where users do most of their work, including:
 
-The workstation is the location from which most users do most of their work, including:
-
-* Developing cookbooks and recipes (and authoring them using Ruby syntax and patterns)
-* Keeping the chef-repo synchronized with version source control
-* Using command-line tools
-* Configuring organizational policy, including defining roles and environments and ensuring that critical data is stored in data bags
+* Developing and testing cookbooks and recipes
+* Testing Chef code
+* Keeping the Chef repository synchronized with version source control
+* Configuring organizational policy, including defining roles and environments, and ensuring that critical data is stored in data bags
 * Interacting with nodes, as (or when) required, such as performing a bootstrap operation
 
 .. end_tag
 
-While Chef includes tooling like the Chef development kit, encourages integration and unit testing, and defines workflow around cookbook authoring and policy, it's important to note that you know best about how your infrastructure should be put together. Therefore, Chef makes as few decisions on its own as possible. When a decision must be made, the chef-client uses a reasonable default setting that can be easily changed. While Chef encourages the use of the tooling packaged in the Chef development kit, none of these tools should be seen as a requirement or pre-requisite for being successful using Chef.
+The Chef Development Kit tooling encourages integration and unit testing, and defines workflow around cookbook authoring and policy, but it's important to note that you know best about how your infrastructure should be put together. Therefore, Chef makes as few decisions on its own as possible. When a decision must be made tools uses a reasonable default setting that can be easily changed. While Chef encourages the use of the tooling packaged in the Chef DK, none of these tools should be seen as a requirement or pre-requisite for being successful using Chef.
 
-Tools
+Workstation Components and Tools
 -----------------------------------------------------
-Some important components of workstations include:
+Some important tools and components of Chef workstations include:
 
 .. list-table::
    :widths: 100 420
@@ -127,15 +121,12 @@ Some important components of workstations include:
 
      - .. tag chef_dk
 
-       The Chef development kit is a package that contains everything that is needed to start using Chef:
+       The Chef Development Kit is a package that contains everything that is needed to start using Chef:
 
-       * chef-client
-       * chef
-       * Ohai
-       * chef-zero
-       * Testing tools like Kitchen, ChefSpec, and Foodcritic
-       * Policy, including policy files
-       * Chef provisioning
+       * chef-client and ohai
+       * chef and knife command line tools
+       * Testing tools such as Test Kitchen, ChefSpec, Cookstyle, and Foodcritic
+       * InSpec
        * Everything else needed to author cookbooks and upload them to the Chef server
 
        .. end_tag
@@ -148,10 +139,10 @@ Some important components of workstations include:
           :width: 100px
           :align: center
 
-     - Chef includes two important command-line tools:
+     - ChefDK includes two important command-line tools:
 
-       * Use the chef command-line tool to work with items in a chef-repo, which is the primary location in which cookbooks are authored, tested, and maintained, and from which policy is uploaded to the Chef server
-       * Use the knife command-line tool to interact with nodes or work with objects on the Chef server
+       * Chef: Use the chef command-line tool to work with items in a chef-repo, which is the primary location in which cookbooks are authored, tested, and maintained, and from which policy is uploaded to the Chef server
+       * Knife: Use the knife command-line tool to interact with nodes or work with objects on the Chef server
 
    * - .. image:: ../../images/icon_repository.svg
           :width: 100px
@@ -161,7 +152,7 @@ Some important components of workstations include:
 
        The chef-repo is the repository structure in which cookbooks are authored, tested, and maintained:
 
-       * Cookbooks contain recipes, attributes, custom resources, libraries, definitions, files, templates, tests, and metadata
+       * Cookbooks contain recipes, attributes, custom resources, libraries, files, templates, tests, and metadata
        * The chef-repo should be synchronized with a version control system (such as git), and then managed as if it were source code
 
        .. end_tag
@@ -178,9 +169,9 @@ Some important components of workstations include:
 
      - .. tag test_kitchen
 
-       Use `Kitchen <http://kitchen.ci>`_  to automatically test cookbook data across any combination of platforms and test suites:
+       Use `Test Kitchen <http://kitchen.ci>`_  to automatically test cookbook data across any combination of platforms and test suites:
 
-       * Defined in a .kitchen.yml file
+       * Defined in a .kitchen.yml file. See the `configuration </config_yml_kitchen.html>`_ documentation for options and syntax information.
        * Uses a driver plugin architecture
        * Supports cookbook testing across many cloud providers and virtualization technologies
        * Supports all common testing frameworks that are used by the Ruby community
@@ -196,8 +187,6 @@ Some important components of workstations include:
 
        Use ChefSpec to simulate the convergence of resources on a node:
 
-       * Runs the chef-client on a local machine
-       * Uses chef-zero or chef-solo
        * Is an extension of RSpec, a behavior-driven development (BDD) framework for Ruby
        * Is the fastest way to test resources and recipes
 
@@ -213,7 +202,7 @@ A cookbook is the fundamental unit of configuration and policy distribution. A c
 * Attribute values
 * File distributions
 * Templates
-* Extensions to Chef, such as libraries, definitions, and custom resources
+* Extensions to Chef, such as custom resources and libraries
 
 .. end_tag
 
@@ -236,26 +225,6 @@ Cookbooks are comprised of the following components:
      - .. tag cookbooks_attribute
 
        An attribute can be defined in a cookbook (or a recipe) and then used to override the default settings on a node. When a cookbook is loaded during a chef-client run, these attributes are compared to the attributes that are already present on the node. Attributes that are defined in attribute files are first loaded according to cookbook order. For each cookbook, attributes in the ``default.rb`` file are loaded first, and then additional attribute files (if present) are loaded in lexical sort order. When the cookbook attributes take precedence over the default attributes, the chef-client will apply those new settings and values during the chef-client run on the node.
-
-       .. end_tag
-
-   * - .. image:: ../../images/icon_cookbook_definitions.svg
-          :width: 100px
-          :align: center
-
-     - .. tag 4
-
-       A definition is code that is reused across recipes, similar to a compile-time macro. A definition is created using arbitrary code wrapped around built-in chef-client resources---**file**, **execute**, **template**, and so on---by declaring those resources into the definition as if they were declared in a recipe. A definition is then used in one (or more) recipes as if it were a resource.
-
-       Though a definition behaves like a resource, some key differences exist. A definition:
-
-       * Is not a resource or a custom resource
-       * Is defined from within the ``/definitions`` directory of a cookbook
-       * Is loaded before resources during the chef-client run; this ensures the definition is available to all of the resources that may need it
-       * May not notify resources in the resource collection because a definition is loaded **before** the resource collection itself is created; however, a resource in a definition **may** notify a resource that exists within the same definition
-       * Automatically supports why-run mode, unlike custom resources
-
-       Use a defintion when repeating patterns exist across resources and/or when a simple, direct approach is desired. There is no limit to the number of resources that may be included in a definition: use as many built-in chef-client resources as necessary.
 
        .. end_tag
 
@@ -326,29 +295,19 @@ Cookbooks are comprised of the following components:
           :width: 100px
           :align: center
 
-       .. image:: ../../images/icon_cookbook_providers.svg
-          :width: 100px
-          :align: center
-
      - .. tag resources_common
 
        A resource is a statement of configuration policy that:
 
        * Describes the desired state for a configuration item
        * Declares the steps needed to bring that item to the desired state
-       * Specifies a resource type---such as ``package``, ``template``, or ``service`` 
+       * Specifies a resource type---such as ``package``, ``template``, or ``service``
        * Lists additional details (also known as resource properties), as necessary
        * Are grouped into recipes, which describe working configurations
 
        .. end_tag
 
-       .. tag resources_common_provider
-
-       Where a resource represents a piece of the system (and its desired state), a provider defines the steps that are needed to bring that piece of the system from its current state into the desired state.
-
-       .. end_tag
-
-       Chef has `many built-in resources <https://docs.chef.io/resources.html>`__ that cover all of the most common actions across all of the most common platforms. You can `build your own resources <https://docs.chef.io/lwrp.html>`__ to handle any situation that isn't covered by a built-in resource.
+       Chef has `many built-in resources </resource_reference.html>`__ that cover all of the most common actions across all of the most common platforms. You can `build your own resources </custom_resources.html>`__ to handle any situation that isn't covered by a built-in resource.
    * - .. image:: ../../images/icon_cookbook_templates.svg
           :width: 100px
           :align: center
@@ -363,7 +322,7 @@ Cookbooks are comprised of the following components:
           :width: 100px
           :align: center
 
-     - Testing cookbooks improves the quality of those cookbooks by ensuring they are doing what they are supposed to do and that they are authored in a consistent manner. Unit and integration testing validates the recipes in cookbooks. Syntax testing---often called linting---validates the quality of the code itself. The following tools are popular tools used for testing Chef recipes: Kitchen, ChefSpec, and Foodcritic.
+     - Testing cookbooks improves the quality of those cookbooks by ensuring they are doing what they are supposed to do and that they are authored in a consistent manner. Unit and integration testing validates the recipes in cookbooks. Syntax testing---often called linting---validates the quality of the code itself. The following tools are popular tools used for testing Chef recipes: Test Kitchen, ChefSpec, and Foodcritic.
 
 Nodes
 =====================================================
@@ -454,20 +413,22 @@ The key components of nodes that are under management by Chef include:
 
      - .. tag ohai_summary
 
-       Ohai is a tool that is used to detect attributes on a node, and then provide these attributes to the chef-client at the start of every chef-client run. Ohai is required by the chef-client and must be present on a node. (Ohai is installed on a node as part of the chef-client install process.)
+       Ohai is a tool that is used to collect system configuration data, which is provided to the chef-client for use within cookbooks. Ohai is run by the chef-client at the beginning of every Chef run to determine system state. Ohai includes many built-in plugins to detect common configuration details as well as a plugin model for writing custom plugins.
 
-       The types of attributes Ohai collects include (but are not limited to):
+       The types of attributes Ohai collects include but are not limited to:
 
-       * Platform details
-       * Network usage
-       * Memory usage
-       * CPU data
-       * Kernel data
+       * Operating System
+       * Network
+       * Memory
+       * Disk
+       * CPU
+       * Kernel
        * Host names
        * Fully qualified domain names
-       * Other configuration details
+       * Virtualization
+       * Cloud provider metadata
 
-       Attributes that are collected by Ohai are automatic attributes, in that these attributes are used by the chef-client to ensure that these attributes remain unchanged after the chef-client is done configuring the node.
+       Attributes that are collected by Ohai are automatic level attributes, in that these attributes are used by the chef-client to ensure that these attributes remain unchanged after the chef-client is done configuring the node.
 
        .. end_tag
 
@@ -595,7 +556,7 @@ Some important aspects of policy include:
        * An ordered list of roles and/or recipes that are run in the exact order defined in the run-list; if a recipe appears more than once in the run-list, the chef-client will not run it twice
        * Always specific to the node on which it runs; nodes may have a run-list that is identical to the run-list used by other nodes
        * Stored as part of the node object on the Chef server
-       * Maintained using knife, and then uploaded from the workstation to the Chef server, or is maintained using the Chef management console
+       * Maintained using knife and then uploaded from the workstation to the Chef server, or maintained using Chef Automate
 
        .. end_tag
 
@@ -606,4 +567,3 @@ Conclusion
 Chef is a thin DSL (domain-specific language) built on top of Ruby. This approach allows Chef to provide just enough abstraction to make reasoning about your infrastructure easy. Chef includes a built-in taxonomy of all the basic resources one might configure on a system, plus a defined mechanism to extend that taxonomy using the full power of the Ruby language. Ruby was chosen because it provides the flexibility to use both the simple built-in taxonomy, as well as being able to handle any customization path your organization requires.
 
 .. end_tag
-

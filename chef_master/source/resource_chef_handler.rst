@@ -9,7 +9,7 @@ Use the **chef_handler** resource to enable handlers during a chef-client run. T
 
 The **chef_handler** resource is typically defined early in a node's run-list (often being the first item). This ensures that all of the handlers will be available for the entire chef-client run.
 
-The **chef_handler** resource `is included with the chef_handler cookbook <https://github.com/chef-cookbooks/chef_handler>`__. This cookbook defines the the resource itself and also provides the location in which the chef-client looks for custom handlers. All custom handlers should be added to the ``files/default/handlers`` directory in the **chef_handler** cookbook.
+**New in Chef Client 14.0.**
 
 .. end_tag
 
@@ -101,12 +101,12 @@ The **chef-client** cookbook can be configured to automatically install and conf
 
 .. code-block:: ruby
 
-   node.set['chef_client']['load_gems']['chef-reporting'] = {
+   node.normal['chef_client']['load_gems']['chef-reporting'] = {
      :require_name => 'chef_reporting',
      :action => :install
    }
 
-   node.set['chef_client']['config']['start_handlers'] = [
+   node.normal['chef_client']['config']['start_handlers'] = [
      {
        :class => 'Chef::Reporting::StartHandler',
        :arguments => []
@@ -158,7 +158,7 @@ where
 
 * ``chef_handler`` is the resource
 * ``name`` is the name of the resource block
-* ``:action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
 * ``arguments``, ``class_name``, ``source``, and ``supports`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
@@ -174,7 +174,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the chef-client run.
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -203,7 +203,7 @@ This resource has the following properties:
    The name of the handler class. This can be module name-spaced.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -212,19 +212,19 @@ This resource has the following properties:
 
    .. tag resources_common_notification_notifies
 
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
 
    .. end_tag
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -263,17 +263,32 @@ This resource has the following properties:
 
    A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
 
+   Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
+
+   .. code-block:: ruby
+
+     file '/etc/nginx/ssl/example.crt' do
+        mode '0600'
+        owner 'root'
+     end
+
+     service 'nginx' do
+        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+     end
+
+   In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
+
    .. end_tag
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -291,9 +306,20 @@ This resource has the following properties:
    .. end_tag
 
 ``supports``
+
+   .. warning:: This property has been deprecated, and will be removed in the future. Use the ``type`` property instead.
+
    **Ruby Type:** Hash
 
-   The type of handler. Possible values: ``:exception``, ``:report``, or ``:start``. Default value: ``{ :report => true, :exception => true }``.
+   The type of handler. Possible values: ``:exception``, ``:report``, or ``:start``. Default value: ``{ report: true, exception: true }``.
+
+``type``
+
+  **Ruby Type:** Hash
+
+   The type of handler. Possible values: ``:exception``, ``:report``, or ``:start``. Default value: ``{ report: true, exception: true }``.
+
+  
 
 Custom Handlers
 =====================================================
@@ -391,7 +417,7 @@ The `error_report <https://github.com/chef/chef/blob/master/lib/chef/handler/err
 
    class Chef
      class Handler
-       class ErrorReport < ::Chef::Handler 
+       class ErrorReport < ::Chef::Handler
          def report
            Chef::FileCache.store('failed-run-data.json', Chef::JSONCompat.to_json_pretty(data), 0640)
            Chef::Log.fatal("Saving node information to #{Chef::FileCache.load('failed-run-data.json', false)}")
@@ -432,7 +458,7 @@ The `json_file <https://github.com/chef/chef/blob/master/lib/chef/handler/json_f
            end
          end
          def build_report_dir
-           unless File.exists?(config[:path])
+           unless File.exist?(config[:path])
              FileUtils.mkdir_p(config[:path])
              File.chmod(00700, config[:path])
            end
@@ -646,7 +672,7 @@ This recipe will generate report output similar to the following:
 .. code-block:: ruby
 
    [2013-11-26T03:11:06+00:00] INFO: Chef Run complete in 0.300029878 seconds
-   [2013-11-26T03:11:06+00:00] INFO: Running report handlers 
+   [2013-11-26T03:11:06+00:00] INFO: Running report handlers
    [2013-11-26T03:11:06+00:00] INFO: Cookbooks and versions run: ["chef_handler 1.1.4", "cookbook_versions_handler 1.0.0"]
    [2013-11-26T03:11:06+00:00] INFO: Report handlers complete
 
@@ -681,7 +707,7 @@ After it has run, the run status data can be loaded and inspected via Interactiv
 .. code-block:: ruby
 
    irb(main):001:0> require 'rubygems' => true
-   irb(main):002:0> require 'json' => true 
+   irb(main):002:0> require 'json' => true
    irb(main):003:0> require 'chef' => true
    irb(main):004:0> r = JSON.parse(IO.read('/var/chef/reports/chef-run-report-20110322060731.json')) => ... output truncated
    irb(main):005:0> r.keys => ['end_time', 'node', 'updated_resources', 'exception', 'all_resources', 'success', 'elapsed_time', 'start_time', 'backtrace']
@@ -719,7 +745,7 @@ By adding the following lines of Ruby code to either the client.rb file or the s
    report_handlers << Chef::Handler::ErrorReport.new()
    exception_handlers << Chef::Handler::ErrorReport.new()
 
-By using the `chef_handler <https://docs.chef.io/resource_chef_handler.html>`_ resource in a recipe, similar to the following:
+By using the `chef_handler </resource_chef_handler.html>`__ resource in a recipe, similar to the following:
 
 .. code-block:: ruby
 

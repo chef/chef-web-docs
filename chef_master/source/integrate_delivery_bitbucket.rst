@@ -1,5 +1,5 @@
 =====================================================
-Integrate Chef Automate with Bitbucket
+Integrate Chef Automate Workflow with Bitbucket
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/integrate_delivery_bitbucket.rst>`__
 
@@ -150,7 +150,7 @@ You can repeat these steps for each Bitbucket project to be added to Chef Automa
 
 #. Run ``delivery init`` to push the code to the empty project in Chef Automate (as created above). After importing the code, this command will generate a ``.delivery/config.json`` file, create a build cookbook, and submit a change to Chef Automate to initialize a pipeline for the project. Changes are opened in the Chef Automate web UI. At this point, a corresponding pull request is shown in Bitbucket.
 
-   .. tag ctl_delivery_init_bitbucket_project
+   .. tag delivery_cli_init_bitbucket_project
 
    To initialize a project using a Bitbucket repository, run a command similar to:
 
@@ -185,7 +185,7 @@ You can repeat these steps for each Bitbucket project to be added to Chef Automa
       Generating build cookbook skeleton
       Using cached copy of build-cookbook generator "/Users/justinc/.delivery/cache/generator-cookbooks/pcb"
       Build-cookbook generated: "chef" "generate" "cookbook" ".delivery/build-cookbook" "-g" "/Users/justinc/.delivery/cache/generator-cookbooks/pcb"
-      Adding and commiting build-cookbook: done
+      Adding and committing build-cookbook: done
       Writing configuration to /Users/justinc/chef/delivery/organizations/sandbox/anagrams/.delivery/config.json
       New delivery configuration
       --------------------------
@@ -250,7 +250,7 @@ Delivery CLI
 -----------------------------------------------------
 Perform the following steps to install the Delivery CLI and setup your project:
 
-#. `Install the Delivery CLI <https://docs.chef.io/ctl_delivery.html#install-delivery-cli>`__.
+#. `Install the Delivery CLI </delivery_cli.html#install-delivery-cli>`__.
 #. In the command shell, create or navigate to the directory in which project repositories are located.
 #. Use the ``delivery setup`` command with the following arguments to create the ``.delivery/cli.toml`` file:
 

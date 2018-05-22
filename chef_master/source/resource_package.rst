@@ -13,26 +13,28 @@ This resource is the base resource for several other resources used for package 
 
 For more information about specific resources for specific platforms, see the following topics:
 
-* :doc:`apt_package </resource_apt_package>`
-* :doc:`bff_package </resource_bff_package>`
-* :doc:`chef_gem </resource_chef_gem>`
-* :doc:`chocolatey_package </resource_chocolatey_package>`
-* :doc:`dpkg_package </resource_dpkg_package>`
-* :doc:`easy_install_package </resource_easy_install_package>`
-* :doc:`freebsd_package </resource_freebsd_package>`
-* :doc:`gem_package </resource_gem_package>`
-* :doc:`homebrew_package </resource_homebrew_package>`
-* :doc:`ips_package </resource_ips_package>`
-* :doc:`macports_package </resource_macports_package>`
-* :doc:`openbsd_package </resource_openbsd_package>`
-* :doc:`pacman_package </resource_pacman_package>`
-* :doc:`paludis_package </resource_paludis_package>`
-* :doc:`portage_package </resource_portage_package>`
-* :doc:`rpm_package </resource_rpm_package>`
-* :doc:`smartos_package </resource_smartos_package>`
-* :doc:`solaris_package </resource_solaris_package>`
-* :doc:`windows_package </resource_windows_package>`
-* :doc:`yum_package </resource_yum>`
+* `apt_package </resource_apt_package.html>`__
+* `bff_package </resource_bff_package.html>`__
+* `cab_package </resource_cab_package.html>`__
+* `chef_gem </resource_chef_gem.html>`__
+* `chocolatey_package </resource_chocolatey_package.html>`__
+* `dnf_package </resource_dnf_package.html>`__
+* `dpkg_package </resource_dpkg_package.html>`__
+* `freebsd_package </resource_freebsd_package.html>`__
+* `gem_package </resource_gem_package.html>`__
+* `homebrew_package </resource_homebrew_package.html>`__
+* `ips_package </resource_ips_package.html>`__
+* `macports_package </resource_macports_package.html>`__
+* `openbsd_package </resource_openbsd_package.html>`__
+* `pacman_package </resource_pacman_package.html>`__
+* `paludis_package </resource_paludis_package.html>`__
+* `portage_package </resource_portage_package.html>`__
+* `rpm_package </resource_rpm_package.html>`__
+* `smartos_package </resource_smartos_package.html>`__
+* `solaris_package </resource_solaris_package.html>`__
+* `windows_package </resource_windows_package.html>`__
+* `yum_package </resource_yum.html>`__
+* `zypper_package </resource_zypper_package.html>`__
 
 Syntax
 =====================================================
@@ -64,7 +66,7 @@ The full syntax for all of the properties that are available to the **package** 
 .. code-block:: ruby
 
    package 'name' do
-     allow_downgrade            TrueClass, FalseClass # Yum, RPM packages only
+     allow_downgrade            True, False # Yum, RPM packages only
      arch                       String, Array # Yum packages only
      default_release            String # Apt packages only
      flush_cache                Array
@@ -73,7 +75,6 @@ The full syntax for all of the properties that are available to the **package** 
      notifies                   # see description
      options                    String
      package_name               String, Array # defaults to 'name' if not specified
-     provider                   Chef::Provider::Package
      response_file              String # Apt packages only
      response_file_variables    Hash # Apt packages only
      source                     String
@@ -87,8 +88,8 @@ where
 
 * ``package`` tells the chef-client to manage a package; the chef-client will determine the correct package provider to use based on the platform running on the node
 * ``'name'`` is the name of the package
-* ``:action`` identifies which steps the chef-client will take to bring the node into the desired state
-* ``allow_downgrade``, ``arch``, ``default_release``, ``flush_cache``, ``gem_binary``, ``homebrew_user``, ``options``, ``package_name``, ``provider``, ``response_file``, ``response_file_variables``, ``source``, ``recursive``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``allow_downgrade``, ``arch``, ``default_release``, ``flush_cache``, ``gem_binary``, ``homebrew_user``, ``options``, ``package_name``, ``response_file``, ``response_file_variables``, ``source``, ``recursive``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Gem Package Options
 -----------------------------------------------------
@@ -218,7 +219,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the chef-client run.
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -239,7 +240,7 @@ Properties
 This resource has the following attributes:
 
 ``allow_downgrade``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    **yum_package** resource only. Downgrade a package to satisfy requested version requirements. Default value: ``false``.
 
@@ -297,7 +298,7 @@ This resource has the following attributes:
    **homebrew_package** resource only. The name of the Homebrew owner to be used by the chef-client when executing a command.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -306,19 +307,19 @@ This resource has the following attributes:
 
    .. tag resources_common_notification_notifies
 
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
 
    .. end_tag
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -344,11 +345,6 @@ This resource has the following attributes:
    **Ruby Types:** String, Array
 
    The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider. See "Providers" section below for more information.
 
 ``response_file``
    **Ruby Type:** String
@@ -384,17 +380,32 @@ This resource has the following attributes:
 
    A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
 
+   Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
+
+   .. code-block:: ruby
+
+     file '/etc/nginx/ssl/example.crt' do
+        mode '0600'
+        owner 'root'
+     end
+
+     service 'nginx' do
+        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+     end
+
+   In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
+
    .. end_tag
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -425,7 +436,7 @@ Multiple Packages
 -----------------------------------------------------
 .. tag resources_common_multiple_packages
 
-A resource may specify multiple packages and/or versions for platforms that use Yum, Apt, Zypper, or Chocolatey package managers. Specifing multiple packages and/or versions allows a single transaction to:
+A resource may specify multiple packages and/or versions for platforms that use Yum, DNF, Apt, Zypper, or Chocolatey package managers. Specifing multiple packages and/or versions allows a single transaction to:
 
 * Download the specified packages and versions via a single HTTP transaction
 * Update or install multiple packages with a single resource during the chef-client run
@@ -434,13 +445,21 @@ For example, installing multiple packages:
 
 .. code-block:: ruby
 
-   package ['package1', 'package2']
+   package %w(package1 package2)
+
+Installing multiple packages with versions:
+
+.. code-block:: ruby
+
+   package %w(package1 package2) do
+     version [ '1.3.4-2', '4.3.6-1']
+   end
 
 Upgrading multiple packages:
 
 .. code-block:: ruby
 
-   package ['package1', 'package2']  do
+   package %w(package1 package2)  do
      action :upgrade
    end
 
@@ -448,7 +467,7 @@ Removing multiple packages:
 
 .. code-block:: ruby
 
-   package ['package1', 'package2']  do
+   package %w(package1 package2)  do
      action :remove
    end
 
@@ -456,7 +475,7 @@ Purging multiple packages:
 
 .. code-block:: ruby
 
-   package ['package1', 'package2']  do
+   package %w(package1 package2)  do
      action :purge
    end
 
@@ -464,7 +483,7 @@ Notifications, via an implicit name:
 
 .. code-block:: ruby
 
-   package ['package1', 'package2']  do
+   package %w(package1 package2)  do
      action :nothing
    end
 
@@ -475,105 +494,6 @@ Notifications, via an implicit name:
 .. note:: Notifications and subscriptions do not need to be updated when packages and versions are added or removed from the ``package_name`` or ``version`` properties.
 
 .. end_tag
-
-Providers
-=====================================================
-.. tag resources_common_provider
-
-Where a resource represents a piece of the system (and its desired state), a provider defines the steps that are needed to bring that piece of the system from its current state into the desired state.
-
-.. end_tag
-
-.. tag resources_common_provider_attributes
-
-The chef-client will determine the correct provider based on configuration data collected by Ohai at the start of the chef-client run. This configuration data is then mapped to a platform and an associated list of providers.
-
-Generally, it's best to let the chef-client choose the provider, and this is (by far) the most common approach. However, in some cases, specifying a provider may be desirable. There are two approaches:
-
-* Use a more specific short name---``yum_package "foo" do`` instead of ``package "foo" do``, ``script "foo" do`` instead of ``bash "foo" do``, and so on---when available
-* Use the ``provider`` property within the resource block to specify the long name of the provider as a property of a resource. For example: ``provider Chef::Provider::Long::Name``
-
-.. end_tag
-
-This resource has the following providers:
-
-``Chef::Provider::Package``, ``package``
-   When this short name is used, the chef-client will attempt to determine the correct provider during the chef-client run.
-
-``Chef::Provider::Package::Aix``, ``bff_package``
-   The provider for the AIX platform. Can be used with the ``options`` attribute.
-
-``Chef::Provider::Package::Apt``, ``apt_package``
-   The provider for the Debian and Ubuntu platforms.
-
-``Chef::Provider::Package::Chocolatey``, ``chocolatey_package``
-   The provider for Chocolatey on the Microsoft Windows platform.
-
-   .. warning:: .. tag notes_resource_chocolatey_package
-
-                The **chocolatey_package** resource must be specified as ``chocolatey_package`` and cannot be shortened to ``package`` in a recipe.
-
-                .. end_tag
-
-``Chef::Provider::Package::Dpkg``, ``dpkg_package``
-   The provider for the dpkg platform. Can be used with the ``options`` attribute.
-
-``Chef::Provider::Package::EasyInstall``, ``easy_install_package``
-   The provider for Python.
-
-``Chef::Provider::Package::Freebsd``, ``freebsd_package``
-   The provider for the FreeBSD platform.
-
-``Chef::Provider::Package::Homebrew``, ``homebrew_package``
-   The provider for the Mac OS X platform.
-
-``Chef::Provider::Package::Ips``, ``ips_package``
-   The provider for the ips platform.
-
-``Chef::Provider::Package::Macports``, ``macports_package``
-   The provider for the Mac OS X platform.
-
-``Chef::Provider::Package::Openbsd``, ``openbsd_package``
-   The provider for the OpenBSD platform.
-
-``Chef::Provider::Package::Pacman``, ``pacman_package``
-   The provider for the Arch Linux platform.
-
-``Chef::Provider::Package::Paludis``, ``paludis_package``
-   The provider for the Paludis platform.
-
-``Chef::Provider::Package::Portage``, ``portage_package``
-   The provider for the Gentoo platform. Can be used with the ``options`` attribute.
-
-``Chef::Provider::Package::Rpm``, ``rpm_package``
-   The provider for the RPM Package Manager platform. Can be used with the ``options`` attribute.
-
-``Chef::Provider::Package::Rubygems``, ``gem_package``
-   Can be used with the ``options`` attribute.
-
-   .. warning:: .. tag notes_resource_gem_package
-
-                The **gem_package** resource must be specified as ``gem_package`` and cannot be shortened to ``package`` in a recipe.
-
-                .. end_tag
-
-``Chef::Provider::Package::Rubygems``, ``chef_gem``
-   Can be used with the ``options`` attribute.
-
-``Chef::Provider::Package::Smartos``, ``smartos_package``
-   The provider for the SmartOS platform.
-
-``Chef::Provider::Package::Solaris``, ``solaris_package``
-   The provider for the Solaris platform.
-
-``Chef::Provider::Package::Windows``, ``package``
-   The provider for the Microsoft Windows platform.
-
-``Chef::Provider::Package::Yum``, ``yum_package``
-   The provider for the Yum package provider.
-
-``Chef::Provider::Package::Zypper``, ``package``
-   The provider for the openSUSE platform.
 
 Examples
 =====================================================
@@ -670,22 +590,6 @@ To install a package with a ``response_file``:
 
 .. end_tag
 
-**Install a package using a specific provider**
-
-.. tag resource_package_install_with_specific_provider
-
-.. To install a package using a specific provider:
-
-.. code-block:: ruby
-
-   package 'tar' do
-     action :install
-     source '/tmp/tar-1.16.1-1.rpm'
-     provider Chef::Provider::Package::Rpm
-   end
-
-.. end_tag
-
 **Install a specified architecture using a named provider**
 
 .. tag resource_package_install_with_yum
@@ -753,20 +657,6 @@ To install a package with a ``response_file``:
    gem_package 'syntax' do
      action :install
      ignore_failure true
-   end
-
-.. end_tag
-
-**Use the provider common attribute**
-
-.. tag resource_package_use_provider_attribute
-
-.. To use the ``:provider`` common attribute in a recipe:
-
-.. code-block:: ruby
-
-   package 'some_package' do
-     provider Chef::Provider::Package::Rubygems
    end
 
 .. end_tag
@@ -1005,4 +895,3 @@ where ``|pkg|`` is used to define the name of the resource, but also to ensure t
    end
 
 .. end_tag
-

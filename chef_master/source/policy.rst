@@ -24,7 +24,7 @@ A cookbook version is maintained just like a cookbook, with regard to source con
 
 .. end_tag
 
-.. note:: For more information about cookbook versions, see :doc:`About Cookbook Versions </cookbook_versions>`
+.. note:: For more information about cookbook versions, see `About Cookbook Versions </cookbook_versions.html>`__
 
 Data Bags (Secrets)
 =====================================================
@@ -34,7 +34,7 @@ A data bag is a global variable that is stored as JSON data and is accessible fr
 
 .. end_tag
 
-.. note:: For more information about data bags, see :doc:`About Data Bags </data_bags>`
+.. note:: For more information about data bags, see `About Data Bags </data_bags.html>`__
 
 Environments
 =====================================================
@@ -44,7 +44,7 @@ An environment is a way to map an organization's real-life workflow to what can 
 
 .. end_tag
 
-.. note:: For more information about environments, see :doc:`About Environments </environments>`
+.. note:: For more information about environments, see `About Environments </environments.html>`__
 
 Roles
 =====================================================
@@ -54,18 +54,19 @@ A role is a way to define certain patterns and processes that exist across nodes
 
 .. end_tag
 
-.. note:: For more information about roles, see :doc:`About Roles </roles>`
+.. note:: For more information about roles, see `About Roles </roles.html>`__
 
 Policyfile
 =====================================================
 .. tag policyfile_summary
 
-.. note:: Policyfile file is an optional way to manage role, environment, and community cookbook data.
+A Policyfile is an optional way to manage role, environment, and community cookbook data with a single document that is uploaded to the Chef server. The file is associated with a group of nodes, cookbooks, and settings. When these nodes perform a Chef client run, they utilize recipes specified in the Policyfile run-list.
 
-Policyfile is a single document that is uploaded to the Chef server. It is associated with a group of nodes, cookbooks, and settings. When these nodes run, they run the recipes specified in the Policyfile run-list.
+.. note:: Consider the following before using Policyfiles:
 
-.. warning:: Policyfile is not integrated with Chef Automate and is not supported as part of a Chef Automate workflow.
+   * Policyfile is not supported as part of a Chef Automate workflow
+   * Policyfile is intended to be used with Chef server 12.3 or above, and Chef client 12.8 or above
 
 .. end_tag
 
-.. note:: For more information about Policyfile, see :doc:`About Policyfile </policyfile>`
+.. note:: For more information about Policyfile, see `About Policyfile </policyfile.html>`__

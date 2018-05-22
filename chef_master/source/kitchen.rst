@@ -5,9 +5,9 @@ Kitchen
 
 .. tag test_kitchen
 
-Use `Kitchen <http://kitchen.ci>`_  to automatically test cookbook data across any combination of platforms and test suites:
+Use `Test Kitchen <http://kitchen.ci>`_  to automatically test cookbook data across any combination of platforms and test suites:
 
-* Defined in a .kitchen.yml file
+* Defined in a .kitchen.yml file. See the `configuration </config_yml_kitchen.html>`_ documentation for options and syntax information.
 * Uses a driver plugin architecture
 * Supports cookbook testing across many cloud providers and virtualization technologies
 * Supports all common testing frameworks that are used by the Ruby community
@@ -20,7 +20,7 @@ The key concepts in Kitchen are:
 * A platform is the operating system or target environment on which a cookbook is to be tested
 * A suite is the chef-client configuration, a run-list, and (optionally) node attributes
 * An instance is the combination of a specific platform and a specific suite, with each instance being assigned an auto-generated name
-* A driver is the lifecycle that implements the actions associated with a specific instance---create the instance, do what is needed to converge on that instance (such as installing the chef-client, uploading cookbooks, starting the chef-client run, and so on), setup anything else needed for testing, verify one (or more) suites post-converge, and then destroy that instance 
+* A driver is the lifecycle that implements the actions associated with a specific instance---create the instance, do what is needed to converge on that instance (such as installing the chef-client, uploading cookbooks, starting the chef-client run, and so on), setup anything else needed for testing, verify one (or more) suites post-converge, and then destroy that instance
 * A provisioner is the component on which the chef-client code will be run, either using chef-zero or chef-solo via the ``chef_zero`` and ``chef_solo`` provisioners, respectively
 
 Bento
@@ -48,7 +48,7 @@ The following frameworks are good options for building integration tests with Ki
    * - `Minitest <https://github.com/seattlerb/minitest>`_
      - A small, fast, testing framework.
    * - `Rspec <http://rspec.info>`_
-     - The primary testing framework for Ruby, using the words ``describe`` and ``it`` to express tests as conversation. bats, Minitest, Serverspec are all based on RSpec. 
+     - The primary testing framework for Ruby, using the words ``describe`` and ``it`` to express tests as conversation. bats, Minitest, Serverspec are all based on RSpec.
    * - `Serverspec <http://serverspec.org>`_
      - RSpec-based tests for servers.
 
@@ -146,6 +146,8 @@ Some popular drivers:
      - A driver for Hyper-V Server.
    * - `kitchen-joyent <https://github.com/test-kitchen/kitchen-joyent>`__
      - A driver for Joyent.
+   * - `kitchen-linode <https://github.com/ssplatt/kitchen-linode>`__
+     - A driver for Linode.
    * - `kitchen-opennebula <https://github.com/test-kitchen/kitchen-opennebula>`__
      - A driver for OpenNebula.
    * - `kitchen-openstack <https://github.com/test-kitchen/kitchen-openstack>`__
@@ -154,6 +156,8 @@ Some popular drivers:
      - A driver for Pester, a testing framework for Microsoft Windows.
    * - `kitchen-rackspace <https://github.com/test-kitchen/kitchen-rackspace>`__
      - A driver for Rackspace.
+   * - `kitchen-terraform <https://github.com/newcontext-oss/kitchen-terraform>`__
+     - A driver for Terraform.
    * - `kitchen-vagrant <https://github.com/test-kitchen/kitchen-vagrant>`__
      - A driver for Vagrant. The default driver packaged with the Chef development kit.
 
@@ -169,7 +173,7 @@ kitchen is the command-line tool for Kitchen, an integration testing tool used b
 
 .. end_tag
 
-.. note:: For more information about the ``kitchen`` command line tool, see :doc:`kitchen </ctl_kitchen>`.
+.. note:: For more information about the ``kitchen`` command line tool, see `kitchen </ctl_kitchen.html>`__.
 
 .kitchen.yml
 =====================================================
@@ -179,7 +183,7 @@ Use a .kitchen.yml file to define what is required to run Kitchen, including dri
 
 .. end_tag
 
-.. note:: For more information about the .kitchen.yml file, see :doc:`kitchen.yml </config_yml_kitchen>`.
+.. note:: For more information about the .kitchen.yml file, see `kitchen.yml </config_yml_kitchen.html>`__.
 
 Syntax
 -----------------------------------------------------
@@ -189,7 +193,7 @@ The basic structure of a .kitchen.yml file is as follows:
 
 .. code-block:: yaml
 
-   driver: 
+   driver:
      name: driver_name
 
    provisioner:
@@ -229,7 +233,7 @@ where:
 * ``provisioner_name`` specifies how the chef-client will be simulated during testing. ``chef_zero``  and ``chef_solo`` are the most common provisioners used for testing cookbooks
 * ``verifier_name`` specifies which application to use when running tests, such as ``inspec``
 * ``transport_name`` specifies which transport to use when executing commands remotely on the test instance. ``winrm`` is the default transport on Windows. The ``ssh`` transport is the default on all other operating systems.
-* ``platform-version`` is a the name of a platform on which Kitchen will perform cookbook testing, for example, ``ubuntu-12.04`` or ``centos-6.4``; depending on the platform, additional driver details---for example, instance names and URLs used with cloud platforms like OpenStack or Amazon EC2---may be required
+* ``platform-version`` is the name of a platform on which Kitchen will perform cookbook testing, for example, ``ubuntu-16.04`` or ``centos-7``; depending on the platform, additional driver details---for example, instance names and URLs used with cloud platforms like OpenStack or Amazon EC2---may be required
 * ``platforms`` may define Chef server attributes that are common to the collection of test suites
 * ``suites`` is a collection of test suites, with each ``suite_name`` grouping defining an aspect of a cookbook to be tested. Each ``suite_name`` must specify a run-list, for example:
 
@@ -252,25 +256,25 @@ For example, a very simple .kitchen.yml file:
 
 .. code-block:: yaml
 
-   driver: 
+   driver:
      name: vagrant
 
-   provisioner: 
+   provisioner:
      name: chef_zero
 
    platforms:
-     - name: ubuntu-12.04
-     - name: centos-6.4
-     - name: debian-7.1.0
+     - name: ubuntu-16.04
+     - name: centos-7
+     - name: debian-9
 
   suites:
     - name: default
       run_list:
         - recipe[apache::httpd]
       excludes:
-        - debian-7.1.0
+        - debian-9
 
-This file uses Vagrant as the driver, which requires no additional configuration because it's the default driver used by Kitchen, chef-zero as the provisioner, and a single (default) test suite that runs on Ubuntu 12.04, and CentOS 6.4.
+This file uses Vagrant as the driver, which requires no additional configuration because it's the default driver used by Kitchen, chef-zero as the provisioner, and a single (default) test suite that runs on Ubuntu 16.04, and CentOS 7.
 
 .. end_tag
 
@@ -311,6 +315,4 @@ For more information about test-driven development and Kitchen:
 
 * `kitchen.ci <http://kitchen.ci>`_
 * `Getting Started with Kitchen <http://kitchen.ci/docs/getting-started/>`_
-* `Test-Driven Infrastructure with Chef, 2nd Edition <http://shop.oreilly.com/product/0636920030973.do>`_, by Stephen Nelson-Smith (O'Reilly Media)
 * `How Can I Combine Berks and Local Cookbooks? <https://coderwall.com/p/j72egw/organise-your-site-cookbooks-with-berkshelf-and-this-trick>`_
-

@@ -11,7 +11,7 @@ Customize the Config File
 =====================================================
 .. tag config_rb_server_summary
 
-The chef-server.rb file contains all of the non-default configuration settings used by the Chef server. (The default settings are built-in to the Chef server configuration and should only be added to the chef-server.rb file to apply non-default values.) These configuration settings are processed when the ``chef-server-ctl reconfigure`` command is run, such as immediately after setting up the Chef server or after making a change to the underlying configuration settings after the server has been deployed. The chef-server.rb file is a Ruby file, which means that conditional statements can be used in the configuration file.
+The ``/etc/opscode/chef-server.rb`` file contains all of the non-default configuration settings used by the Chef server. The default settings are built into the Chef server configuration and should only be added to the ``chef-server.rb`` file to apply non-default values. These configuration settings are processed when the ``chef-server-ctl reconfigure`` command is run. The ``chef-server.rb`` file is a Ruby file, which means that conditional statements can be used within it.
 
 .. end_tag
 
@@ -192,27 +192,33 @@ The maximum field length setting for Apache Solr should be greater than any expe
 
 and
 
-``opscode-erchef']['max_request_size']``
-   Default value: ``1000000``.
+``opscode_erchef['max_request_size']``
+   When the request body size is greater than this value, a 413 Request Entity Too Large error is returned. Default value: ``1000000``.
 
 to ensure that those settings are not part of the reasons for incomplete indexing, and then update the following setting so that its value is greater than the expected node file sizes:
 
 ``opscode_solr4['max_field_length']``
    The maximum field length (in number of tokens/terms). If a field length exceeds this value, Apache Solr may not be able to complete building the index. Default value: ``100000`` (increased from the Apache Solr default value of ``10000``).
 
-Use the ``wc`` command to get the character count of a large node object file. For example:
+Use the ``wc`` command to get the byte count of a large node object file. For example:
 
 .. code-block:: bash
 
-   $ wc -w NODE_NAME.json
+   $ wc -c NODE_NAME.json
 
 and then ensure there is a buffer beyond that value. For example, verify the size of the largest node object file:
 
 .. code-block:: bash
 
-   $ wc -w nodebsp2016.json
+   $ wc -c nodebsp2016.json
 
 which returns ``154516``. Update the ``opscode_solr4['max_field_length']`` setting to have a value greater than the returned value. For example: ``180000``.
+
+If you don't have a node object file available then you can get an approximate size of the node data by running the following command on a node.
+
+.. code-block:: bash
+
+   $ ohai | wc -c
 
 .. end_tag
 
@@ -269,8 +275,6 @@ The following setting is often modified from the default as part of the tuning e
 
 rabbitmq
 -----------------------------------------------------
-
-.. note:: Chef Analytics has been replaced by Chef Automate.
 
 .. tag server_tuning_rabbitmq
 
@@ -363,7 +367,7 @@ The following settings may be used for tuning RabbitMQ queues used by Chef Analy
    The timeout for the HTTP connection pool that is used by the rabbitmq-management plugin. Default value: ``30000``.
 
 ``rabbitmq['ssl_versions']``
-   The SSL versions used by the rabbitmq-management plugin. (See also |url rabbitmqssl|.) Default value: ``['tlsv1.2', 'tlsv1.1']``.
+   The SSL versions used by the rabbitmq-management plugin. (See `RabbitMQ TLS Support <https://www.rabbitmq.com/ssl.html>`_ for more details.) Default value: ``['tlsv1.2', 'tlsv1.1']``.
 
 .. end_tag
 

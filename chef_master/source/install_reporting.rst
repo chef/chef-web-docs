@@ -3,11 +3,11 @@ Install Reporting
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_reporting.rst>`__
 
-.. tag chef_automate_mark
+.. tag reporting_legacy
 
-.. image:: ../../images/chef_automate_full.png
-   :width: 40px
-   :height: 17px
+.. note:: This documentation is meant to support existing Chef customers using Reporting.
+
+          Are you a new Chef customer, or looking to gain better insight into your fleet? Take advantage of `Chef Automate </chef_automate.html>`__. You'll get a graphical interface and query language that gives you insight into operational, compliance, and workflow events. You can `download Chef Automate here <https://downloads.chef.io/automate>`__.
 
 .. end_tag
 
@@ -63,7 +63,7 @@ To set up the Reporting server:
 
       $ chef-server-ctl reconfigure
 
-#. Reconfigure Reporting services on each server:
+#. Complete the installation:
 
    .. code-block:: bash
 
@@ -71,7 +71,7 @@ To set up the Reporting server:
 
    .. note:: .. tag chef_license_reconfigure_reporting
 
-             Starting with Reporting 1.6.0, the `Chef MLSA <https://docs.chef.io/chef_license.html>`__ must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``opscode-reporting-ctl reconfigure --accept-license`` to automatically accept the license.
+             Starting with Reporting 1.6.0, the `Chef MLSA </chef_license.html>`__ must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``opscode-reporting-ctl reconfigure --accept-license`` to automatically accept the license.
 
              .. end_tag
 
@@ -100,9 +100,9 @@ Reporting is automatically enabled in the chef-client (version 11.6.0 or later).
    Chef Client finished, 2 resources updated
    [date] INFO: Sending resource update report (run-id: 51ceb817-ba7e-47e5-9bca-096fe9ef9740)
 
-This includes the run identifier of the chef-client run, which can be used in the `knife reporting plugin <https://docs.chef.io/plugin_knife_reporting.html>`_ or the Chef management console to access the reporting information generated during the chef-client run.
+This includes the run identifier of the chef-client run, which can be used in the `knife reporting plugin </plugin_knife_reporting.html>`__ or the Chef management console to access the reporting information generated during the chef-client run.
 
 Install the Workstation
 =====================================================
-To set up the Reporting workstation, install the `knife reporting plugin <https://docs.chef.io/plugin_knife_reporting.html>`_. Once
+To set up the Reporting workstation, install the `knife reporting plugin </plugin_knife_reporting.html>`__. Once
 installed, the following subcommands will be available: ``knife runs list``, ``knife runs show``.

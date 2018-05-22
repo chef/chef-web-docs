@@ -3,15 +3,9 @@ chef-solo (executable)
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ctl_chef_solo.rst>`__
 
-.. warning:: .. tag notes_chef_solo_use_local_mode
-
-             The chef-client `includes an option called local mode <https://docs.chef.io/ctl_chef_client.html#run-in-local-mode>`_ (``--local-mode`` or ``-z``), which runs the chef-client against the chef-repo on the local machine as if it were running against a Chef server. Local mode was added to the chef-client in the 11.8 release. If you are running that version of the chef-client (or later), you should consider using local mode instead of using chef-solo.
-
-             .. end_tag
-
 .. tag chef_solo_summary
 
-chef-solo is an open source version of the chef-client that allows using cookbooks with nodes without requiring access to a Chef server. chef-solo uses `Chef local mode <https://docs.chef.io/ctl_chef_client.html#run-in-local-mode>`_, and **does not support** the following:
+chef-solo is a command that executes chef-client in a way that does not require the Chef server in order to converge cookbooks. chef-solo uses chef-client's `Chef local mode </ctl_chef_client.html#run-in-local-mode>`_, and **does not support** the following functionality present in chef-client / server configurations:
 
 * Centralized distribution of cookbooks
 * A centralized API that interacts with and integrates infrastructure components
@@ -26,6 +20,8 @@ chef-solo is an open source version of the chef-client that allows using cookboo
 The chef-solo executable is run as a command-line tool.
 
 .. end_tag
+
+New in Chef Client 12.3, ``--minimal-ohai``. New in 12.0, ``-o RUN_LIST_ITEM``. Changed in 12.0 ``-f`` no longer allows unforked intervals, ``-i SECONDS`` is applied before the chef-client run.
 
 Options
 =====================================================
@@ -52,6 +48,8 @@ This command has the following options:
 
 ``-f``, ``--[no-]fork``
    Contain the chef-client run in a secondary process with dedicated RAM. When the chef-client run is complete, the RAM is returned to the master process. This option helps ensure that a chef-client uses a steady amount of RAM over time because the master process does not run recipes. This option also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Use ``--no-fork`` to disable running the chef-client in fork node. Default value: ``--fork``. This option may not be used in the same command with the ``--daemonize`` and ``--interval`` options.
+
+   Changed in Chef Client 12.0, unforked interval runs are no longer allowed.
 
 ``-F FORMAT``, ``--format FORMAT``
    .. tag ctl_chef_client_options_format
@@ -82,12 +80,12 @@ This command has the following options:
 ``-i SECONDS``, ``--interval SECONDS``
    The frequency (in seconds) at which the chef-client runs. When the chef-client is run at intervals, ``--splay`` and ``--interval`` values are applied before the chef-client run. This option may not be used in the same command with the ``--[no-]fork`` option.
 
+   Changed in Chef Client 12.0 to be applied before the chef-client run.
+
 ``-j PATH``, ``--json-attributes PATH``
    The path to a file that contains JSON data.
 
    .. tag node_ctl_run_list
-
-   .. This file documents specifc behavior related to the -j option in the chef-client, chef-solo, and chef-shell executables.
 
    Use this option to define a ``run_list`` object. For example, a JSON file similar to:
 
@@ -108,38 +106,36 @@ This command has the following options:
 
    .. warning:: .. tag node_ctl_attribute
 
-                .. This file documents specifc behavior related to the -j option in the chef-client, chef-solo, and chef-shell executables.
-
-                Any other attribute type that is contained in this JSON file will be treated as a ``normal`` attribute. For example, attempting to update ``override`` attributes using the ``-j`` option:
+                Any other attribute type that is contained in this JSON file will be treated as a ``normal`` attribute. Setting attributes at other precedence levels is not possible. For example, attempting to update ``override`` attributes using the ``-j`` option:
 
                 .. code-block:: javascript
 
-                   { 
+                   {
                      "name": "dev-99",
                      "description": "Install some stuff",
                      "override_attributes": {
                        "apptastic": {
                          "enable_apptastic": "false",
                          "apptastic_tier_name": "dev-99.bomb.com"
-                       }  
-                     }  
+                       }
+                     }
                    }
 
                 will result in a node object similar to:
 
                 .. code-block:: javascript
 
-                   { 
+                   {
                      "name": "maybe-dev-99",
                      "normal": {
-                     "name": "dev-99",
+                       "name": "dev-99",
                        "description": "Install some stuff",
                        "override_attributes": {
                          "apptastic": {
                            "enable_apptastic": "false",
                            "apptastic_tier_name": "dev-99.bomb.com"
-                         }  
-                       }  
+                         }
+                       }
                      }
                    }
 
@@ -154,8 +150,12 @@ This command has the following options:
 ``--legacy-mode``
    Cause the chef-client to not use chef local mode, but rather the original chef-solo mode. This is not recommended unless really required.
 
+   Removed in Chef Client 14.
+
 ``--minimal-ohai``
    Run the Ohai plugins for name detection and resource/provider selection and no other Ohai plugins. Set to ``true`` during integration testing to speed up test cycles.
+
+   New in Chef Client 12.3.
 
 ``--[no-]color``
    View colored output. Default setting: ``--color``.
@@ -166,14 +166,18 @@ This command has the following options:
 ``-o RUN_LIST_ITEM``, ``--override-runlist RUN_LIST_ITEM``
    Replace the current run-list with the specified items.
 
+   New in Chef Client 12.0.
+
 ``-r RECIPE_URL``, ``--recipe-url RECIPE_URL``
-   The URL location from which a remote cookbook tar.gz is to be downloaded.
+   The URL of the remote cookbook ``tar.gz`` file that you want to download.
+
+   In Chef Client 14, the short ``-r`` form will be removed, as it conflicts with the ability to specify a run list.
 
 ``--run-lock-timeout SECONDS``
    The amount of time (in seconds) to wait for a chef-client lock file to be deleted. Default value: not set (indefinite). Set to ``0`` to cause a second chef-client to exit immediately.
 
 ``-s SECONDS``, ``--splay SECONDS``
-   A random number between zero and ``splay`` that is added to ``interval``. Use splay to help balance the load on the Chef server by ensuring that many chef-client runs are not occuring at the same interval. When the chef-client is run at intervals, ``--splay`` and ``--interval`` values are applied before the chef-client run.
+   A random number between zero and ``splay`` that is added to ``interval``. Use splay to help balance the load on the Chef server by ensuring that many chef-client runs are not occurring at the same interval. When the chef-client is run at intervals, ``--splay`` and ``--interval`` values are applied before the chef-client run.
 
 ``-u USER``, ``--user USER``
    The user that owns a process. This is required when starting any executable as a daemon.
@@ -248,9 +252,8 @@ chef-solo will look in the solo.rb file to determine the directory in which cook
 
 .. code-block:: bash
 
-   $ chef-solo -c ~/solo.rb -j http://www.example.com/node.json -r http://www.example.com/chef-solo.tar.gz
+   $ chef-solo -c ~/solo.rb -j http://www.example.com/node.json --recipe-url http://www.example.com/chef-solo.tar.gz
 
-where ``-r`` corresponds to ``recipe_url`` and ``-j`` corresponds to ``json_attribs``, both of which are configuration options in solo.rb.
+where ``--recipe-url`` corresponds to ``recipe_url`` and ``-j`` corresponds to ``json_attribs``, both of which are `configuration options </config_rb_solo.html>`__ in ``solo.rb``.
 
 .. end_tag
-

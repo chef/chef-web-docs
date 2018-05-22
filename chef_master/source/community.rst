@@ -11,10 +11,9 @@ Read
 =====================================================
 Recommended reading:
 
-* `Effective DevOps (Building a Culture of Collaboration, Affinity, and Tooling at Scale) -- Early Release <http://shop.oreilly.com/product/0636920039846.do>`_
+* `Effective DevOps (Building a Culture of Collaboration, Affinity, and Tooling at Scale) <http://shop.oreilly.com/product/0636920039846.do>`_
 * `Learning Chef (A Guide to Configuration Management and Automation) <http://shop.oreilly.com/product/0636920032397.do>`_
 * `Customizing Chef (Getting the Most Out of Your Infrastructure Automation) <http://shop.oreilly.com/product/0636920032984.do>`_
-* `Test-Driven Infrastructure with Chef, 2nd Edition <http://shop.oreilly.com/product/0636920030973.do>`_
 
 More books about Chef:
 
@@ -26,18 +25,21 @@ More books about Chef:
 * `Mastering Chef [Packt Publishing] <https://www.packtpub.com/networking-and-servers/mastering-chef/?utm_source=GC-chef.io&utm_medium=pod&utm_campaign=1783981563>`_
 * `Mastering Chef Provisioning [Packt Publishing] <https://www.packtpub.com/networking-and-servers/mastering-chef-provisioning>`_
 * `Managing Windows Servers with Chef <https://www.packtpub.com/networking-and-servers/managing-windows-servers-chef>`_
+* `Test-Driven Infrastructure with Chef, 2nd Edition <http://shop.oreilly.com/product/0636920030973.do>`_
+* `Chef Cookbook - Third Edition [Packt Publishing] <https://www.packtpub.com/networking-and-servers/chef-cookbook-third-edition>`_
+* `Chef: Powerful Infrastructure Automation [Packt Publishing] <https://www.packtpub.com/virtualization-and-cloud/chef-powerful-infrastructure-automation>`_
 
 Meet
 =====================================================
-* `Chef events <http://chef.io/events>`_
-* `Chef meetups <http://opscode.meetup.com>`_
-* `Continuous delivery meetups <http://continuous-delivery.meetup.com>`_
-* `DevOps meetups <http://devops.meetup.com>`_
+* `Chef events <https://chef.io/events>`_
+* `Chef meetups <https://www.meetup.com/topics/opscode/>`_
+* `Continuous delivery meetups <https://www.meetup.com/topics/continuous-delivery/>`_
+* `DevOps meetups <https://www.meetup.com/topics/devops/>`_
 
 Learn
 =====================================================
-* `Chef training <https://www.chef.io/training>`_
-* `Self-guided learning <https://learn.chef.io>`_
+* `Chef training <https://training.chef.io/>`_
+* `Self-guided learning <https://learn.chef.io/>`_
 
 Listen
 =====================================================
@@ -52,14 +54,14 @@ Listen
 
 Interact
 =====================================================
-* :doc:`Community Guidelines </community_guidelines>`
+* `Community Guidelines </community_guidelines.html>`__
 * `@chef <https://twitter.com/chef>`_
 * `@chef-docs <https://twitter.com/chefdocs>`_
 * `@opscode_status <https://twitter.com/opscode_status>`_
 * `Facebook <https://www.facebook.com/getchefdotcom>`_
 * `Chef Community Slack <https://community-slack.chef.io/>`_
 * Join the "Chef Users Group" on LinkedIn
-* `https://discourse.chef.io <https://discourse.chef.io>`_ (for discussion among users, developers, and other interested parties)
+* `Chef Mailing List <https://discourse.chef.io>`_ (for discussion among users, developers, and other interested parties)
 
 Contribute
 =====================================================
@@ -71,7 +73,7 @@ Contribute
 
 Supermarket
 =====================================================
-* `About Supermarket <https://docs.chef.io/supermarket.html>`_
+* `About Supermarket </supermarket.html>`__
 * `Visit Supermarket <https://supermarket.chef.io>`_
 * `Cookbooks available on Supermarket <https://supermarket.chef.io/cookbooks-directory>`_
 

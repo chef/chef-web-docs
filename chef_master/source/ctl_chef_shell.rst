@@ -5,9 +5,6 @@ chef-shell (executable)
 
 .. tag chef_shell_summary
 
-.. This file describes a command or a subcommand for Knife.
-.. This file should not be changed in a way that hinders its ability to appear in multiple documentation sets.
-
 chef-shell is a recipe debugging tool that allows the use of breakpoints within recipes. chef-shell runs as an Interactive Ruby (IRb) session. chef-shell supports both recipe and attribute file syntax, as well as interactive debugging features.
 
 .. end_tag
@@ -17,9 +14,6 @@ The chef-shell executable is run as a command-line tool.
 Modes
 =====================================================
 .. tag chef_shell_modes
-
-.. This file describes a command or a subcommand for Knife.
-.. This file should not be changed in a way that hinders its ability to appear in multiple documentation sets.
 
 chef-shell is tool that is run using an Interactive Ruby (IRb) session. chef-shell currently supports recipe and attribute file syntax, as well as interactive debugging features. chef-shell has three run modes:
 
@@ -62,8 +56,6 @@ This command has the following options:
 
    .. tag node_ctl_run_list
 
-   .. This file documents specifc behavior related to the -j option in the chef-client, chef-solo, and chef-shell executables.
-
    Use this option to define a ``run_list`` object. For example, a JSON file similar to:
 
    .. code-block:: javascript
@@ -83,38 +75,36 @@ This command has the following options:
 
    .. warning:: .. tag node_ctl_attribute
 
-                .. This file documents specifc behavior related to the -j option in the chef-client, chef-solo, and chef-shell executables.
-
-                Any other attribute type that is contained in this JSON file will be treated as a ``normal`` attribute. For example, attempting to update ``override`` attributes using the ``-j`` option:
+                Any other attribute type that is contained in this JSON file will be treated as a ``normal`` attribute. Setting attributes at other precedence levels is not possible. For example, attempting to update ``override`` attributes using the ``-j`` option:
 
                 .. code-block:: javascript
 
-                   { 
+                   {
                      "name": "dev-99",
                      "description": "Install some stuff",
                      "override_attributes": {
                        "apptastic": {
                          "enable_apptastic": "false",
                          "apptastic_tier_name": "dev-99.bomb.com"
-                       }  
-                     }  
+                       }
+                     }
                    }
 
                 will result in a node object similar to:
 
                 .. code-block:: javascript
 
-                   { 
+                   {
                      "name": "maybe-dev-99",
                      "normal": {
-                     "name": "dev-99",
+                       "name": "dev-99",
                        "description": "Install some stuff",
                        "override_attributes": {
                          "apptastic": {
                            "enable_apptastic": "false",
                            "apptastic_tier_name": "dev-99.bomb.com"
-                         }  
-                       }  
+                         }
+                       }
                      }
                    }
 

@@ -15,6 +15,8 @@ Use the Handler DSL to attach a callback to an event. If the event occurs during
 
 .. end_tag
 
+New in Chef Client 12.5
+
 on Method
 =====================================================
 .. tag dsl_handler_method_on
@@ -207,8 +209,12 @@ The following table describes the events that may occur during a chef-client run
      - The chef-client run has completed.
    * - ``:run_failed``
      - The chef-client run has failed.
+   * - ``:attribute_changed``
+     - Prints out all the attribute changes in cookbooks or sets a policy that override attributes should never be used.
 
 .. end_tag
+
+   New in Chef Client 12.16, ``:attribute_changed``
 
 Examples
 =====================================================
@@ -225,8 +231,6 @@ Use the ``on`` method to create an event handler that sends email when the chef-
 * A way to trigger the exception and test the behavior of the event handler
 
 .. end_tag
-
-.. note:: Read this scenario as an HTML presentation at https://docs.chef.io/decks/event_handlers.html.
 
 Define How Email is Sent
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -250,7 +254,7 @@ Use a library to define the code that sends email when a chef-client run fails. 
          message << "Chef run failed on #{node_name}\n"
          Net::SMTP.start('localhost', 25) do |smtp|
            smtp.send_message message, 'chef@chef.io', 'grantmc@chef.io'
-         end    
+         end
        end
      end
    end
@@ -348,3 +352,25 @@ or send an alert on a configuration change:
 
 .. end_tag
 
+``attribute_changed`` event hook
+-----------------------------------------------------
+
+In a cookbook library file, you can add this in order to print out all attribute changes in cookbooks:
+
+.. code-block:: ruby
+
+   Chef.event_handler do
+     on :attribute_changed do |precedence, key, value|
+       puts "setting attribute #{precedence}#{key.map {|n| "[\"#{n}\"]" }.join} = #{value}"
+     end
+   end
+
+If you want to setup a policy that override attributes should never be used:
+
+.. code-block:: ruby
+
+   Chef.event_handler do
+     on :attribute_changed do |precedence, key, value|
+       raise "override policy violation" if precedence == :override
+     end
+   end

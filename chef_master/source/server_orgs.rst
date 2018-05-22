@@ -40,7 +40,7 @@ The Chef server uses organizations, groups, and users to define role-based acces
           :width: 100px
           :align: center
 
-     - A user is any non-administrator human being who will manage data that is uploaded to the Chef server from a workstation or who will log on to the Chef management console web user interface. The Chef server includes a single default user that is defined during setup and is automatically assigned to the ``admins`` group. 
+     - A user is any non-administrator human being who will manage data that is uploaded to the Chef server from a workstation or who will log on to the Chef management console web user interface. The Chef server includes a single default user that is defined during setup and is automatically assigned to the ``admins`` group.
    * - .. image:: ../../images/icon_chef_client.svg
           :width: 100px
           :align: center
@@ -58,7 +58,7 @@ The Chef server uses organizations, groups, and users to define role-based acces
 When a user makes a request to the Chef server using the Chef server API, permission to perform that action is determined by the following process:
 
 #. Check if the user has permission to the object type
-#. If no, recursively check if the user is a member of a security group that has permission to that object 
+#. If no, recursively check if the user is a member of a security group that has permission to that object
 #. If yes, allow the user to perform the action
 
 Permissions are managed using the Chef management console add-on in the Chef server web user interface.
@@ -163,6 +163,7 @@ Use the following code to set the correct permissions:
    #!/usr/bin/env ruby
    require 'rubygems'
    require 'chef/knife'
+   require 'chef/rest'
 
    Chef::Config.from_file(File.join(Chef::Knife.chef_config_dir, 'knife.rb'))
 
@@ -336,11 +337,11 @@ public_key_read_access
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag server_rbac_permissions_default_public_key_read_access
 
-The ``public_key_read_access`` group controls which users and clients have :doc:`read permissions to the following endpoints </api_chef_server>`:
+The ``public_key_read_access`` group controls which users and clients have `read permissions to the following endpoints </api_chef_server.html>`__:
 
 * GET /clients/CLIENT/keys
 * GET /clients/CLIENT/keys/KEY
-* GET /users/USER/keys 
+* GET /users/USER/keys
 * GET /users/USER/keys/
 
 By default, the ``public_key_read_access`` assigns all members of the ``users`` and ``clients`` group permission to these endpoints:

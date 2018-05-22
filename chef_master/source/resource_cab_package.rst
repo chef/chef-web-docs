@@ -5,7 +5,7 @@ cab_package
 
 Use the **cab_package** resource to install or remove Microsoft Windows cabinet (.cab) packages.
 
-New in Chef Client 12.15.
+*New in Chef Client 12.15.*
 
 Syntax
 ==========================================
@@ -14,14 +14,14 @@ A **cab_package** resource installs or removes a cabinet package from the specif
 .. code-block:: ruby
 
    cab_package 'name' do
-     source                  String
+     source String
    end
 
 where
 
 * ``cab_package`` is the resource
 * ``name`` is the name of the resource block
-* ``source`` is the location of the cabinet package
+* ``source`` is the local path or URL for the cabinet package
 
 Actions
 =====================================================
@@ -40,19 +40,14 @@ This resource has the following properties:
 source
    **Ruby Type:** String
 
-   File path where the cabinet file is located. URLs are not supported.
+   The local file path or URL for the CAB package.
 
-Providers
-=====================================================
-This resource has the following provider:
-
-``Chef::Provider::Package::Cab``, ``cab_package``
-   The provider for the Microsoft Windows platform.
+   Changed in Chef Client 12.19 to allow URLs as valid source values.
 
 Examples
 =====================================================
 
-**Installing a cabinet package**
+**Using local path in source**
 
 .. code-block:: ruby
 
@@ -61,8 +56,6 @@ Examples
      action :install
    end
 
-**Removing a cabinet package**
-
 .. code-block:: ruby
 
    cab_package 'Remove .NET 3.5 sp1 via KB958488' do
@@ -70,3 +63,18 @@ Examples
      action :remove
    end
 
+**Using URL in source**
+
+.. code-block:: ruby
+
+   cab_package 'Install .NET 3.5 sp1 via KB958488' do
+     source 'https://s3.amazonaws.com/my_bucket/Windows6.1-KB958488-x64.cab'
+     action :install
+   end
+
+.. code-block:: ruby
+
+   cab_package 'Remove .NET 3.5 sp1 via KB958488' do
+     source 'https://s3.amazonaws.com/my_bucket/Temp\Windows6.1-KB958488-x64.cab'
+     action :remove
+   end

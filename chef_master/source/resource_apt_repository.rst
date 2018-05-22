@@ -3,9 +3,9 @@ apt_repository
 ==========================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_apt_repository.rst>`__
 
-Use the **apt_repository** resource to additional APT repositories. Adding a new repository will notify running the ``execute[apt-get-update]`` resource immediately.
+Use the **apt_repository** resource to specify additional APT repositories. Adding a new repository will update APT package cache immediately.
 
-New in Chef Client 12.9.
+**New in Chef Client 12.9.**
 
 Syntax
 ==========================================
@@ -13,16 +13,16 @@ An **apt_repository** resource specifies APT repository information and adds an 
 
 .. code-block:: ruby
 
-   apt_repository 'zenoss' do
-     uri        'http://dev.zenoss.org/deb'
-     components ['main', 'stable']
+   apt_repository 'nginx' do
+     uri        'http://nginx.org/packages/ubuntu/'
+     components ['nginx']
    end
 
 where
 
 * ``apt_repository`` is the resource
-* ``name`` is the name of the resource block
-* ``uri`` is a base URI for the distribution where the apt packages are located at
+* ``name`` is the name of the APT repository, or the name of the resource block. Must not contain spaces. 
+* ``uri`` is a base URI for the distribution where the APT packages are located at
 * ``components`` is an array of package groupings in the repository
 
 The full syntax for all of the properties that are available to the **apt_repository** resource is:
@@ -35,14 +35,14 @@ The full syntax for all of the properties that are available to the **apt_reposi
       distribution          String
       components            Array
       arch                  String
-      trusted               TrueClass, FalseClass
-      deb_src               TrueClass, FalseClass
+      trusted               True, False
+      deb_src               True, False
       keyserver             String
-      key                   String
+      key                   String, Array
       key_proxy             String
       cookbook              String
-      cache_rebuild         TrueClass, FalseClass
-      sensitive             TrueClass, FalseClass
+      cache_rebuild         True, False
+      sensitive             True, False
    end
 
 where
@@ -55,88 +55,82 @@ Actions
 =====================================================
 This resource has the following actions:
 
-:add
+``:add``
    Default. Creates a repository file at ``/etc/apt/sources.list.d/`` and builds the repository listing.
 
-:remove
+``:remove``
    Removes the repository listing.
 
 Properties
 =====================================================
 This resource has the following properties:
 
-repo_name
+``repo_name``
    **Ruby Type:** String
 
-   The name of the channel to discover.
+   The name of the repository to configure, if it differs from the name of the resource block. The value of this setting must not contain spaces.
 
-uri
+``uri``
    **Ruby Type:** String
 
    The base of the Debian distribution.
 
-distribution
+``distribution``
    **Ruby Type:** String
 
-   Usually a codename, such as something like karmic, lucid or maverick.
+   Usually a distribution's codename, such as trusty, xenial or bionic. Default value: the codename of the node's distro.
 
-components
+``components``
    **Ruby Type:** Array
 
    Package groupings, such as 'main' and 'stable'. Default value: empty array.
 
-arch
+``arch``
    **Ruby Type:** String
 
    Constrain packages to a particular CPU architecture such as ``'i386'`` or ``'amd64'``. Default value: ``nil``.
 
-trusted
-   **Ruby Type:** TrueClass, FalseClass
+``trusted``
+   **Ruby Type:** True, False
 
    Determines whether you should treat all packages from this repository as authenticated regardless of signature. Default value: ``false``.
 
-deb_src
-   **Ruby Type:** TrueClass, FalseClass
+``deb_src``
+   **Ruby Type:** True, False
 
    Determines whether or not to add the repository as a source repo as well. Default value: ``false``.
 
-keyserver
+``keyserver``
    **Ruby Type:** String
 
    The GPG keyserver where the key for the repo should be retrieved. Default value: "keyserver.ubuntu.com".
 
-key
-   **Ruby Type:** String
+``key``
+   **Ruby Type:** String, Array
 
-   If a keyserver is provided, this is assumed to be the fingerprint; otherwise it can be either the URI to the GPG key for the repo, or a cookbook_file. Default value: ``nil``.
+   If a keyserver is provided, this is assumed to be the fingerprint; otherwise it can be either the URI of GPG key for the repo, or a cookbook_file. Default value: empty array.
 
-key_proxy
+   New in Chef client 13.4.
+
+``key_proxy``
    **Ruby Type:** String
 
    If set, a specified proxy is passed to GPG via ``http-proxy=``. Default value: ``nil``.
 
-cookbook
+``cookbook``
    **Ruby Type:** String
 
    If ``key`` should be a cookbook_file, specify a cookbook where the key is located for files/default. Default value is ``nil``, so it will use the cookbook where the resource is used.
 
-cache_rebuild
-   **Ruby Type:** TrueClass, FalseClass
+``cache_rebuild``
+   **Ruby Type:** True, False
 
-   Determines whether to rebuild the apt package cache. Default value: ``true``.
+   Determines whether to rebuild the APT package cache. Default value: ``true``.
 
-sensitive
-   **Ruby Type:** TrueClass, FalseClass
+``sensitive``
+   **Ruby Type:** True, False
 
    Determines whether sensitive resource data (such as key information) is not logged by the chef-client. Default value: ``false``.
-
-Providers
-=====================================================
-
-This resource has the following provider:
-
-``Chef::Provider::AptRepository``, ``apt_repository``
-   The default provider for all platforms.
 
 Examples
 =====================================================
@@ -145,9 +139,9 @@ Examples
 
 .. code-block:: ruby
 
-   apt_repository 'zenoss' do
-     uri        'http://dev.zenoss.org/deb'
-     components ['main', 'stable']
+   apt_repository 'nginx' do
+     uri        'http://nginx.org/packages/ubuntu/'
+     components ['nginx']
    end
 
 **Enable Ubuntu multiverse repositories**
@@ -167,7 +161,6 @@ Examples
 
    apt_repository 'nginx-php' do
      uri          'ppa:nginx/stable'
-     distribution node['lsb']['codename']
    end
 
 **Add the JuJu PPA, grab the key from the keyserver, and add source repo**
@@ -182,6 +175,18 @@ Examples
      keyserver 'keyserver.ubuntu.com'
      action :add
      deb_src true
+   end
+
+**Add repository that requires multiple keys to authenticate packages**
+
+.. code-block:: ruby
+
+   apt_repository 'rundeck' do
+     uri 'https://dl.bintray.com/rundeck/rundeck-deb'
+     distribution '/'
+     key ['379CE192D401AB61', 'http://rundeck.org/keys/BUILD-GPG-KEY-Rundeck.org.key']
+     keyserver 'keyserver.ubuntu.com'
+     action :add
    end
 
 **Add the Cloudera Repo of CDH4 packages for Ubuntu 12.04 on AMD64**
@@ -203,4 +208,3 @@ Examples
    apt_repository 'zenoss' do
      action :remove
    end
-

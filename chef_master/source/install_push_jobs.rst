@@ -11,7 +11,7 @@ Chef push jobs is installed to the following locations:
 
 Install the Server
 =====================================================
-Use the `chef-server-ctl install <https://docs.chef.io/server/ctl_chef_server.html#install>`_ command to add Chef push jobs.
+Use the `chef-server-ctl install </ctl_chef_server.html#install>`_ command to add Chef push jobs.
 
 Install the Client
 =====================================================
@@ -60,9 +60,9 @@ The whitelist is defined using the ``node['push_jobs']['whitelist']`` attribute 
 
 .. code-block:: ruby
 
-   default['push_jobs']['whitelist']   = { 
-        "job_name" => "command", 
-        "job_name" => "command", 
+   default['push_jobs']['whitelist']   = {
+        "job_name" => "command",
+        "job_name" => "command",
         "chef-client" => "chef-client" }
 
 where ``job_name`` represents each of the jobs that are defined in the whitelist and ``command`` is the command line that will be run on the target node. The ``chef-client`` job is the only job in the whitelist after the initial installation of Chef push jobs.
@@ -71,19 +71,19 @@ After the whitelist is defined, add the jobs to the client.rb file on each node 
 
 .. code-block:: ruby
 
-   whitelist({ "job_name" => "command", 
-               "job_name" => "command", 
-               "chef-client" => "chef-client" 
+   whitelist({ "job_name" => "command",
+               "job_name" => "command",
+               "chef-client" => "chef-client"
              })
 
 For example:
 
 .. code-block:: ruby
 
-   { 
-     "chef-client": "sudo chef-client", 
+   {
+     "chef-client": "sudo chef-client",
      "chef_client_with_special_run_list": "sudo chef-client -o recipe[special_recipe]",
-     "sv restart apache" 
+     "sv restart apache"
    }
 
 By default, any attempt to run a Chef push jobs command other than ``chef-client`` will be rejected with ``nack``. For example:
@@ -149,7 +149,7 @@ Chef push jobs uses the Chef server API and a Ruby client to initiate all connec
 
 .. end_tag
 
-.. note:: The Chef server uses role-based access control to define the :doc:`organizations, groups, and users </server_orgs>`, including those needed by Chef push jobs.
+.. note:: The Chef server uses role-based access control to define the `organizations, groups, and users </server_orgs.html>`__, including those needed by Chef push jobs.
 
 .. tag server_rbac_groups_push_jobs
 

@@ -3,7 +3,7 @@ Resource Code Examples
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_examples.rst>`__
 
-This reference contains code examples for many of the core resources that are built in to the chef-client, sorted by resource. This topic is a subset of the topic that contains a `complete description of all resources <https://docs.chef.io/chef/resources.html>`_, including actions, properties, and providers (in addition to these examples).
+This reference contains code examples for many of the core resources that are built in to the chef-client, sorted by resource. This topic is a subset of the topic that contains a `complete description of all resources </resource_reference.html>`__, including actions, properties, and providers (in addition to these examples).
 
 Common Examples
 =====================================================
@@ -19,7 +19,6 @@ The examples in this section show functionality that is common across all resour
 
    service 'memcached' do
      action :nothing
-     supports :status => true, :start => true, :stop => true, :restart => true
    end
 
 .. end_tag
@@ -39,47 +38,17 @@ The examples in this section show functionality that is common across all resour
 
 .. end_tag
 
-**Use the provider common attribute**
-
-.. tag resource_package_use_provider_attribute
-
-.. To use the ``:provider`` common attribute in a recipe:
-
-.. code-block:: ruby
-
-   package 'some_package' do
-     provider Chef::Provider::Package::Rubygems
-   end
-
-.. end_tag
-
-**Use the supports common attribute**
+**Use the retries common attribute**
 
 .. tag resource_service_use_supports_attribute
 
-.. To use the ``supports`` common attribute in a recipe:
+.. To use the ``retries`` common attribute in a recipe:
 
 .. code-block:: ruby
 
    service 'apache' do
-     supports :restart => true, :reload => true
-     action :enable
-   end
-
-.. end_tag
-
-**Use the supports and providers common attributes**
-
-.. tag resource_service_use_provider_and_supports_attributes
-
-.. To use the ``provider`` and ``supports`` common attributes in a recipe:
-
-.. code-block:: ruby
-
-   service 'some_service' do
-     provider Chef::Provider::Service::Upstart
-     supports :status => true, :restart => true, :reload => true
      action [ :enable, :start ]
+     retries 3
    end
 
 .. end_tag
@@ -95,7 +64,7 @@ The following example shows how to use the ``not_if`` condition to create a file
    template '/tmp/somefile' do
      mode '0755'
      source 'somefile.erb'
-     not_if { node[:some_value] }
+     not_if { node['some_value'] }
    end
 
 .. end_tag
@@ -129,7 +98,7 @@ The following example shows how to use the ``not_if`` condition to create a file
    template '/tmp/somefile' do
      mode '0755'
      source 'somefile.erb'
-     not_if { File.exist?('/etc/passwd' )}
+     not_if { File.exist?('/etc/passwd') }
    end
 
 .. end_tag
@@ -187,11 +156,11 @@ The following is an example of how to install the ``foo123`` module for Nginx. T
    bash 'extract_module' do
      cwd ::File.dirname(src_filepath)
      code <<-EOH
-       mkdir -p #{extract_path} 
+       mkdir -p #{extract_path}
        tar xzf #{src_filename} -C #{extract_path}
        mv #{extract_path}/*/* #{extract_path}/
        EOH
-     not_if { ::File.exists?(extract_path) }
+     not_if { ::File.exist?(extract_path) }
    end
 
 .. end_tag
@@ -207,7 +176,7 @@ The following example shows how to use the ``only_if`` condition to create a fil
    template '/tmp/somefile' do
      mode '0755'
      source 'somefile.erb'
-     only_if { node[:some_value] }
+     only_if { node['some_value'] }
    end
 
 .. end_tag
@@ -430,11 +399,25 @@ The following example shows how start a service named ``example_service`` and im
 
    service 'example_service' do
      action :start
-     provider Chef::Provider::Service::Init
      notifies :restart, 'service[nginx]', :immediately
    end
 
-where by using the default ``provider`` for the **service**, the recipe is telling the chef-client to determine the specific provider to be used during the chef-client run based on the platform of the node on which the recipe will run.
+.. end_tag
+
+**Restart one service before restarting another**
+
+.. tag resource_before_notification_restart
+
+This example uses the ``:before`` notification to restart the ``php-fpm`` service before restarting ``nginx``:
+
+.. code-block:: ruby
+
+   service `nginx` do
+     action :restart
+     notifies :restart, `service[php-fpm]`, :before
+   end
+
+With the ``:before`` notification, the action specified for the ``nginx`` resource will not run until action has been taken on the notified resource (``php-fpm``).
 
 .. end_tag
 
@@ -469,7 +452,7 @@ where by using the default ``provider`` for the **service**, the recipe is telli
 
 .. tag resource_execute_subscribes_prevent_restart_and_reconfigure
 
-Use the ``:nothing`` action (common to all resources) to prevent an application from restarting, and then use the ``subscribes`` notification to ask the broken configuration to be reconfigured immediately:
+Use the ``:nothing`` action (common to all resources) to prevent the test from starting automatically, and then use the ``subscribes`` notification to run a configuration test when a change to the template is detected:
 
 .. code-block:: ruby
 
@@ -485,7 +468,7 @@ Use the ``:nothing`` action (common to all resources) to prevent an application 
 
 .. tag resource_service_subscribes_reload_using_template
 
-To reload a service based on a template, use the **template** and **service** resources together in the same recipe, similar to the following:
+To reload a service that is based on a template, use the **template** and **service** resources together in the same recipe, similar to the following:
 
 .. code-block:: ruby
 
@@ -495,12 +478,11 @@ To reload a service based on a template, use the **template** and **service** re
    end
 
    service 'apache' do
-     supports :restart => true, :reload => true
      action :enable
      subscribes :reload, 'template[/tmp/somefile]', :immediately
    end
 
-where the ``subscribes`` notification is used to reload the service using the template specified by the **template** resource.
+where the ``subscribes`` notification is used to reload the service whenever the template is modified.
 
 .. end_tag
 
@@ -555,7 +537,7 @@ apt_package
 =====================================================
 .. tag resource_package_apt
 
-Use the **apt_package** resource to manage packages for the Debian and Ubuntu platforms.
+Use the **apt_package** resource to manage packages on Debian and Ubuntu platforms.
 
 .. end_tag
 
@@ -581,7 +563,7 @@ Use the **apt_package** resource to manage packages for the Debian and Ubuntu pl
 
 .. code-block:: ruby
 
-   apt_package 'jwhois' do    
+   apt_package 'jwhois' do
      action :install
      source '/path/to/jwhois.deb'
    end
@@ -606,7 +588,7 @@ apt_update
 =====================================================
 .. tag resource_apt_update_summary
 
-Use the **apt_update** resource to manage Apt repository updates on Debian and Ubuntu platforms.
+Use the **apt_update** resource to manage APT repository updates on Debian and Ubuntu platforms.
 
 .. end_tag
 
@@ -633,9 +615,7 @@ Use the **apt_update** resource to manage Apt repository updates on Debian and U
 
 .. code-block:: ruby
 
-   apt_update if node['platform_family'] == 'debian' do
-     action :update
-   end
+   apt_update 'update'
 
 .. end_tag
 
@@ -709,11 +689,11 @@ The following is an example of how to install the ``foo123`` module for Nginx. T
    bash 'extract_module' do
      cwd ::File.dirname(src_filepath)
      code <<-EOH
-       mkdir -p #{extract_path} 
+       mkdir -p #{extract_path}
        tar xzf #{src_filename} -C #{extract_path}
        mv #{extract_path}/*/* #{extract_path}/
        EOH
-     not_if { ::File.exists?(extract_path) }
+     not_if { ::File.exist?(extract_path) }
    end
 
 .. end_tag
@@ -785,7 +765,7 @@ and then the methods in the recipe may refer to these values. A recipe that is u
      source "#{node['python']['url']}/#{version}/Python-#{version}.tar.bz2"
      checksum node['python']['checksum']
      mode '0755'
-     not_if { ::File.exists?(install_path) }
+     not_if { ::File.exist?(install_path) }
    end
 
    bash 'build-and-install-python' do
@@ -795,7 +775,7 @@ and then the methods in the recipe may refer to these values. A recipe that is u
        (cd Python-#{version} && ./configure #{configure_options})
        (cd Python-#{version} && make && make install)
      EOF
-     not_if { ::File.exists?(install_path) }
+     not_if { ::File.exist?(install_path) }
    end
 
 .. end_tag
@@ -804,7 +784,7 @@ batch
 =====================================================
 .. tag resource_batch_summary
 
-Use the **batch** resource to execute a batch script using the cmd.exe interpreter. The **batch** resource creates and executes a temporary file (similar to how the **script** resource behaves), rather than running the command inline. This resource inherits actions (``:run`` and ``:nothing``) and properties (``creates``, ``cwd``, ``environment``, ``group``, ``path``, ``timeout``, and ``user``) from the **execute** resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
+Use the **batch** resource to execute a batch script using the cmd.exe interpreter on Windows. The **batch** resource creates and executes a temporary file (similar to how the **script** resource behaves), rather than running the command inline. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
 
 .. end_tag
 
@@ -818,7 +798,7 @@ To run a batch file that unzips and then moves Ruby, do something like:
 
    batch 'unzip_and_move_ruby' do
      code <<-EOH
-       7z.exe x #{Chef::Config[:file_cache_path]}/ruby-1.8.7-p352-i386-mingw32.7z  
+       7z.exe x #{Chef::Config[:file_cache_path]}/ruby-1.8.7-p352-i386-mingw32.7z
          -oC:\\source -r -y
        xcopy C:\\source\\ruby-1.8.7-p352-i386-mingw32 C:\\ruby /e /y
        EOH
@@ -839,7 +819,7 @@ or:
 
    batch 'unzip_and_move_ruby' do
      code <<-EOH
-       7z.exe x #{Chef::Config[:file_cache_path]}/ruby-1.8.7-p352-i386-mingw32.7z  
+       7z.exe x #{Chef::Config[:file_cache_path]}/ruby-1.8.7-p352-i386-mingw32.7z
          -oC:\\source -r -y
        xcopy C:\\source\\ruby-1.8.7-p352-i386-mingw32 C:\\ruby /e /y
        EOH
@@ -860,6 +840,8 @@ Use the **bff_package** resource to manage packages for the AIX platform using t
 .. note:: A Backup File Format (BFF) package may not have a ``.bff`` file extension. The chef-client will still identify the correct provider to use based on the platform, regardless of the file extension.
 
 .. end_tag
+
+New in Chef Client 12.0.
 
 **Install a package**
 
@@ -925,8 +907,6 @@ Use the **breakpoint** resource to add breakpoints to recipes. Run the chef-shel
 
 .. tag resource_breakpoint_yes
 
-.. A resource with breakpoints:
-
 .. code-block:: ruby
 
    breakpoint "before yum_key node['yum']['repo_name']['key']" do
@@ -967,7 +947,7 @@ chef_gem
 =====================================================
 .. tag resource_package_chef_gem
 
-Use the **chef_gem** resource to install a gem only for the instance of Ruby that is dedicated to the chef-client. When a package is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources.
+Use the **chef_gem** resource to install a gem only for the instance of Ruby that is dedicated to the chef-client. When a gem is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources.
 
 The **chef_gem** resource works with all of the same properties and options as the **gem_package** resource, but does not accept the ``gem_binary`` property because it always uses the ``CurrentGemEnvironment`` under which the chef-client is running. In addition to performing actions similar to the **gem_package** resource, the **chef_gem** resource does the following:
 
@@ -1002,6 +982,8 @@ To install a gem while the resource collection is being built (the “compile ph
 
 .. end_tag
 
+New in Chef Client 12.1.
+
 **Install MySQL for Chef**
 
 .. tag resource_chef_gem_install_mysql
@@ -1010,12 +992,9 @@ To install a gem while the resource collection is being built (the “compile ph
 
 .. code-block:: ruby
 
-   execute 'apt-get update' do
-     ignore_failure true
-     action :nothing
-   end.run_action(:run) if node['platform_family'] == 'debian'
+   apt_update
 
-   node.set['build_essential']['compiletime'] = true
+   node.override['build_essential']['compiletime'] = true
    include_recipe 'build-essential'
    include_recipe 'mysql::client'
 
@@ -1035,7 +1014,7 @@ Use the **chef_handler** resource to enable handlers during a chef-client run. T
 
 The **chef_handler** resource is typically defined early in a node's run-list (often being the first item). This ensures that all of the handlers will be available for the entire chef-client run.
 
-The **chef_handler** resource `is included with the chef_handler cookbook <https://github.com/chef-cookbooks/chef_handler>`__. This cookbook defines the the resource itself and also provides the location in which the chef-client looks for custom handlers. All custom handlers should be added to the ``files/default/handlers`` directory in the **chef_handler** cookbook.
+**New in Chef Client 14.0.**
 
 .. end_tag
 
@@ -1147,7 +1126,7 @@ This recipe will generate report output similar to the following:
 .. code-block:: ruby
 
    [2013-11-26T03:11:06+00:00] INFO: Chef Run complete in 0.300029878 seconds
-   [2013-11-26T03:11:06+00:00] INFO: Running report handlers 
+   [2013-11-26T03:11:06+00:00] INFO: Running report handlers
    [2013-11-26T03:11:06+00:00] INFO: Cookbooks and versions run: ["chef_handler 1.1.4", "cookbook_versions_handler 1.0.0"]
    [2013-11-26T03:11:06+00:00] INFO: Report handlers complete
 
@@ -1182,7 +1161,7 @@ After it has run, the run status data can be loaded and inspected via Interactiv
 .. code-block:: ruby
 
    irb(main):001:0> require 'rubygems' => true
-   irb(main):002:0> require 'json' => true 
+   irb(main):002:0> require 'json' => true
    irb(main):003:0> require 'chef' => true
    irb(main):004:0> r = JSON.parse(IO.read('/var/chef/reports/chef-run-report-20110322060731.json')) => ... output truncated
    irb(main):005:0> r.keys => ['end_time', 'node', 'updated_resources', 'exception', 'all_resources', 'success', 'elapsed_time', 'start_time', 'backtrace']
@@ -1220,7 +1199,7 @@ By adding the following lines of Ruby code to either the client.rb file or the s
    report_handlers << Chef::Handler::ErrorReport.new()
    exception_handlers << Chef::Handler::ErrorReport.new()
 
-By using the `chef_handler <https://docs.chef.io/resource_chef_handler.html>`_ resource in a recipe, similar to the following:
+By using the `chef_handler </resource_chef_handler.html>`__ resource in a recipe, similar to the following:
 
 .. code-block:: ruby
 
@@ -1235,7 +1214,7 @@ chocolatey_package
 =====================================================
 .. tag resource_package_chocolatey
 
-Use the **chocolatey_package** resource to manage packages using Chocolatey for the Microsoft Windows platform.
+Use the **chocolatey_package** resource to manage packages using Chocolatey on the Microsoft Windows platform.
 
 .. end_tag
 
@@ -1248,6 +1227,17 @@ Use the **chocolatey_package** resource to manage packages using Chocolatey for 
 .. code-block:: ruby
 
    chocolatey_package 'name of package' do
+     action :install
+   end
+
+**Install a package with options**
+
+This example uses Chocolatey's ``--checksum`` option:
+
+.. code-block:: ruby
+
+   chocolatey_package 'name of package' do
+     options '--checksum 1234567890'
      action :install
    end
 
@@ -1277,11 +1267,11 @@ Use the **cookbook_file** resource to transfer files from a sub-directory of ``C
 
 **Handle cookbook_file and yum_package resources in the same recipe**
 
-.. tag resource_yum_package_handle_cookbook_file_and_yum_package
+.. tag resource_package_handle_cookbook_file_and_package
 
-.. To handle cookbook_file and yum_package when both called in the same recipe
+.. To handle cookbook_file and package when both called in the same recipe
 
-When a **cookbook_file** resource and a **yum_package** resource are both called from within the same recipe, use the ``flush_cache`` attribute to dump the in-memory Yum cache, and then use the repository immediately to ensure that the correct package is installed:
+When a **cookbook_file** resource and a **package** resource are both called from within the same recipe, use the ``flush_cache`` attribute to dump the in-memory Yum cache, and then use the repository immediately to ensure that the correct package is installed:
 
 .. code-block:: ruby
 
@@ -1290,7 +1280,7 @@ When a **cookbook_file** resource and a **yum_package** resource are both called
      mode '0755'
    end
 
-   yum_package 'only-in-custom-repo' do
+   package 'only-in-custom-repo' do
      action :install
      flush_cache [ :before ]
    end
@@ -1299,7 +1289,7 @@ When a **cookbook_file** resource and a **yum_package** resource are both called
 
 **Install repositories from a file, trigger a command, and force the internal cache to reload**
 
-.. tag resource_yum_package_install_yum_repo_from_file
+.. tag resource_package_install_yum_repo_from_file
 
 The following example shows how to install new Yum repositories from a file, where the installation of the repository triggers a creation of the Yum cache that forces the internal cache for the chef-client to reload:
 
@@ -1433,10 +1423,10 @@ Use the **cron** resource to manage cron entries for time-based job scheduling. 
 .. code-block:: ruby
 
    cron 'ganglia_tomcat_thread_max' do
-     command "/usr/bin/gmetric 
-       -n 'tomcat threads max' 
-       -t uint32 
-       -v '/usr/local/bin/tomcat-stat 
+     command "/usr/bin/gmetric
+       -n 'tomcat threads max'
+       -t uint32
+       -v '/usr/local/bin/tomcat-stat
        --thread-max'"
      only_if do File.exist?('/home/jboss') end
    end
@@ -1491,318 +1481,6 @@ Use the **csh** resource to execute scripts using the csh interpreter. This reso
 .. end_tag
 
 No examples.
-
-deploy
-=====================================================
-.. tag resource_deploy_summary
-
-Use the **deploy** resource to manage and control deployments. This is a popular resource, but is also complex, having the most properties, multiple providers, the added complexity of callbacks, plus four attributes that support layout modifications from within a recipe.
-
-.. end_tag
-
-**Modify the layout of a Ruby on Rails application**
-
-.. tag resource_deploy_custom_application_layout
-
-The layout of the **deploy** resource matches a Ruby on Rails app by default, but this can be customized. To customize the layout, do something like the following:
-
-.. code-block:: ruby
-
-   deploy '/my/apps/dir/deploy' do
-     # Use a local repo if you prefer
-     repo '/path/to/gitrepo/typo/'
-     environment 'RAILS_ENV' => 'production'
-     revision 'HEAD'
-     action :deploy
-     migration_command 'rake db:migrate --trace'
-     migrate true
-     restart_command 'touch tmp/restart.txt'
-     create_dirs_before_symlink  %w{tmp public config deploy}
-
-     # You can use this to customize if your app has extra configuration files 
-     # such as amqp.yml or app_config.yml
-     symlink_before_migrate  'config/database.yml' => 'config/database.yml'
-
-     # If your app has extra files in the shared folder, specify them here
-     symlinks  'system' => 'public/system', 
-               'pids' => 'tmp/pids', 
-               'log' => 'log',
-               'deploy/before_migrate.rb' => 'deploy/before_migrate.rb',
-               'deploy/before_symlink.rb' => 'deploy/before_symlink.rb',
-               'deploy/before_restart.rb' => 'deploy/before_restart.rb',
-               'deploy/after_restart.rb' => 'deploy/after_restart.rb'
-   end
-
-.. end_tag
-
-**Use resources within callbacks**
-
-.. tag resource_deploy_embedded_recipes_for_callbacks
-
-Using resources from within your callbacks as blocks or within callback files distributed with your application's source code. To use embedded recipes for callbacks:
-
-.. code-block:: ruby
-
-   deploy "#{node['tmpdir']}/deploy" do
-     repo "#{node['tmpdir']}/gitrepo/typo/"
-     environment 'RAILS_ENV' => 'production'
-     revision 'HEAD'
-     action :deploy
-     migration_command 'rake db:migrate --trace'
-     migrate true
-
-     # Callback awesomeness:
-     before_migrate do
-       current_release = release_path
-
-       directory "#{current_release}/deploy" do
-         mode '0755'
-       end
-
-       # creates a callback for before_symlink
-       template "#{current_release}/deploy/before_symlink_callback.rb" do
-         source 'embedded_recipe_before_symlink.rb.erb'
-         mode '0755'
-       end
-
-     end
-
-     # This file can contain Chef recipe code, plain ruby also works
-     before_symlink 'deploy/before_symlink_callback.rb'
-
-     restart do
-       current_release = release_path
-       file "#{release_path}/tmp/restart.txt" do
-         mode '0755'
-       end
-     end
-
-   end
-
-.. end_tag
-
-**Deploy from a private git repository without using the application cookbook**
-
-.. tag resource_deploy_private_git_repo_using_application_cookbook
-
-To deploy from a private git repository without using the ``application`` cookbook, first ensure that:
-
-* the private key does not have a passphrase, as this will pause a chef-client run to wait for input
-* an SSH wrapper is being used
-* a private key has been added to the node
-
-and then remove a passphrase from a private key by using code similar to:
-
-.. code-block:: bash
-
-   ssh-keygen -p -P 'PASSPHRASE' -N '' -f id_deploy
-
-.. end_tag
-
-**Use an SSH wrapper**
-
-.. tag resource_deploy_recipe_uses_ssh_wrapper
-
-To write a recipe that uses an SSH wrapper:
-
-#. Create a file in the ``cookbooks/COOKBOOK_NAME/files/default`` directory that is named ``wrap-ssh4git.sh`` and which contains the following:
-
-   .. code-block:: ruby
-
-      #!/usr/bin/env bash
-      /usr/bin/env ssh -o "StrictHostKeyChecking=no" -i "/tmp/private_code/.ssh/id_deploy" $1 $2
-
-#. Set up the cookbook file.
-
-#. Add a recipe to the cookbook file similar to the following:
-
-   .. code-block:: ruby
-
-      directory '/tmp/private_code/.ssh' do
-        owner 'ubuntu'
-        recursive true
-      end
-
-      cookbook_file '/tmp/private_code/wrap-ssh4git.sh' do
-        source 'wrap-ssh4git.sh'
-        owner 'ubuntu'
-        mode '0755'
-      end
-
-      deploy 'private_repo' do
-        repo 'git@github.com:acctname/private-repo.git'
-        user 'ubuntu'
-        deploy_to '/tmp/private_code'
-        action :deploy
-        ssh_wrapper '/tmp/private_code/wrap-ssh4git.sh'
-      end
-
-   This will deploy the git repository at ``git@github.com:acctname/private-repo.git`` in the ``/tmp/private_code`` directory.
-
-.. end_tag
-
-**Use a callback to include a file that will be passed as a code block**
-
-.. tag resource_deploy_use_callback_to_include_code_from_file
-
-The code in a file that is included in a recipe using a callback is evaluated exactly as if the code had been put in the recipe as a block. Files are searched relative to the current release.
-
-To specify a file that contains code to be used as a block:
-
-.. code-block:: ruby
-
-   deploy '/deploy/dir/' do
-     # ...
-
-     before_migrate 'callbacks/do_this_before_migrate.rb'
-   end
-
-.. end_tag
-
-**Use a callback to pass a code block**
-
-.. tag resource_deploy_use_callback_to_pass_python
-
-To pass a block of Python code before a migration is run:
-
-.. code-block:: ruby
-
-   deploy_revision '/deploy/dir/' do
-     # other attributes
-     # ...
-
-     before_migrate do
-       # release_path is the path to the timestamp dir 
-       # for the current release
-       current_release = release_path
-
-       # Create a local variable for the node so we'll have access to
-       # the attributes
-       deploy_node = node
-
-       # A local variable with the deploy resource.
-       deploy_resource = new_resource
-
-       python do
-         cwd current_release
-         user 'myappuser'
-         code<<-PYCODE
-           # Woah, callbacks in python!
-           # ...
-           # current_release, deploy_node, and deploy_resource are all available
-           # within the deploy hook now.
-         PYCODE
-       end
-     end
-   end
-
-.. end_tag
-
-**Use the same API for all recipes using the same gem**
-
-.. tag resource_deploy_use_same_api_as_gitdeploy_gems
-
-Any recipes using the ``git-deploy`` gem can continue using the same API. To include this behavior in a recipe, do something like the following:
-
-.. code-block:: ruby
-
-   deploy "/srv/#{appname}" do
-     repo 'git://github.com/radiant/radiant.git'
-     revision 'HEAD'
-     user 'railsdev'
-     enable_submodules false
-     migrate true
-     migration_command 'rake db:migrate'
-     # Giving a string for environment sets RAILS_ENV, MERB_ENV, RACK_ENV
-     environment 'production'
-     shallow_clone true
-     action :deploy
-     restart_command 'touch tmp/restart.txt'
-   end
-
-.. end_tag
-
-**Deploy without creating symbolic links to a shared folder**
-
-.. tag resource_deploy_without_symlink_to_shared
-
-To deploy without creating symbolic links to a shared folder:
-
-.. code-block:: ruby
-
-   deploy '/my/apps/dir/deploy' do
-     symlinks {}
-   end
-
-When deploying code that is not Ruby on Rails and symbolic links to a shared folder are not wanted, use parentheses ``()`` or ``Hash.new`` to avoid ambiguity. For example, using parentheses:
-
-.. code-block:: ruby
-
-   deploy '/my/apps/dir/deploy' do
-     symlinks({})
-   end
-
-or using ``Hash.new``:
-
-.. code-block:: ruby
-
-   deploy '/my/apps/dir/deploy' do
-     symlinks Hash.new
-   end
-
-.. end_tag
-
-**Clear a layout modifier attribute**
-
-.. tag resource_deploy_clear_layout_modifiers
-
-Using the default property values for the various resources is the recommended starting point when working with recipes. Then, depending on what each node requires, these default values can be overridden with node-, role-, environment-, and cookbook-specific values. The **deploy** resource has four layout modifiers: ``create_dirs_before_symlink``, ``purge_before_symlink``, ``symlink_before_migrate``, and ``symlinks``. Each of these is a Hash that behaves as a property of the **deploy** resource. When these layout modifiers are used in a recipe, they appear similar to the following:
-
-.. code-block:: ruby
-
-   deploy 'name' do
-     ...
-     symlink_before_migrate       {'config/database.yml' => 'config/database.yml'}
-     create_dirs_before_symlink   %w{tmp public config}
-     purge_before_symlink         %w{log tmp/pids public/system}
-     symlinks                     { 'system' => 'public/system', 
-                                    'pids' => 'tmp/pids', 
-                                    'log' => 'log'
-                                  }
-     ...
-   end
-
-and then what these layout modifiers look like if they were empty:
-
-.. code-block:: ruby
-
-   deploy 'name' do
-     ...
-     symlink_before_migrate       nil
-     create_dirs_before_symlink   []
-     purge_before_symlink         []
-     symlinks                     nil
-     ...
-   end
-
-In most cases, using the empty values for the layout modifiers will prevent the chef-client from passing symbolic linking information to a node during the chef-client run. However, in some cases, it may be preferable to ensure that one (or more) of these layout modifiers do not pass any symbolic linking information to a node during the chef-client run at all. Because each of these layout modifiers are a Hash, the ``clear`` instance method can be used to clear out these values.
-
-To clear the default values for a layout modifier:
-
-.. code-block:: ruby
-
-   deploy 'name' do
-     ...
-     symlink_before_migrate.clear
-     create_dirs_before_symlink.clear
-     purge_before_symlink.clear
-     symlinks.clear
-     ...
-   end
-
-In general, use this approach carefully and only after it is determined that nil or empty values won't provide the expected result.
-
-.. end_tag
 
 directory
 =====================================================
@@ -2040,7 +1718,8 @@ Use the **dpkg_package** resource to manage packages for the dpkg platform. When
 
 .. code-block:: ruby
 
-   dpkg_package 'name of package' do
+   dpkg_package 'wget_1.13.4-2ubuntu1.4_amd64.deb' do
+     source '/foo/bar/wget_1.13.4-2ubuntu1.4_amd64.deb'
      action :install
    end
 
@@ -2152,6 +1831,8 @@ Many DSC resources are comparable to built-in Chef resources. For example, both 
 
 .. end_tag
 
+New in Chef Client 12.2.  Changed in Chef Client 12.6.
+
 **Specify DSC code directly**
 
 .. tag resource_dsc_script_code
@@ -2180,7 +1861,7 @@ Use the ``command`` property to specify the path to a Windows PowerShell data fi
 
 .. code-block:: powershell
 
-   Configuration 'DefaultEditor'  
+   Configuration 'DefaultEditor'
    {
      Environment 'texteditor'
        {
@@ -2208,7 +1889,7 @@ If a DSC script contains configuration data that takes parameters, those paramet
 .. code-block:: powershell
 
    $choices = @{'emacs' = 'c:\emacs\bin\emacs';'vi' = 'c:\vim\vim.exe';'powershell' = 'powershell_ise.exe'}
-     Configuration 'DefaultEditor' 
+     Configuration 'DefaultEditor'
        {
          [CmdletBinding()]
          param
@@ -2278,16 +1959,6 @@ The following example shows how to specify custom configuration data using the `
           PasswordChangeRequired = $false
         }
       EOH
-
-     configuration_data <<-EOH
-       @{
-         AllNodes = @(
-             @{
-             NodeName = "localhost";
-             PSDscAllowPlainTextPassword = $true
-             })
-         }
-       EOH
    end
 
 .. end_tag
@@ -2298,7 +1969,7 @@ The following example shows how to specify custom configuration data using the `
 
 .. code-block:: powershell
 
-   Configuration 'emacs'  
+   Configuration 'emacs'
      {
        Environment 'TextEditor'
        {
@@ -2307,7 +1978,7 @@ The following example shows how to specify custom configuration data using the `
        }
    }
 
-   Configuration 'vi'   
+   Configuration 'vi'
    {
        Environment 'TextEditor'
        {
@@ -2352,33 +2023,13 @@ The **dsc_script** resource can be used with other resources. The following exam
 
 .. end_tag
 
-easy_install_package
-=====================================================
-.. tag resource_package_easy_install
-
-Use the **easy_install_package** resource to manage packages for the Python platform.
-
-.. end_tag
-
-**Install a package**
-
-.. tag resource_easy_install_package_install
-
-.. To install a package:
-
-.. code-block:: ruby
-
-   easy_install_package 'name of package' do
-     action :install
-   end
-
-.. end_tag
-
 env
 =====================================================
 .. tag resource_env_summary
 
-Use the **env** resource to manage environment keys in Microsoft Windows. After an environment key is set, Microsoft Windows must be restarted before the environment key will be available to the Task Scheduler.
+Use the **windows_env** resource to manage environment keys in Microsoft Windows. After an environment key is set, Microsoft Windows must be restarted before the environment key will be available to the Task Scheduler.
+
+This resource was previously called the **env** resource; its name was updated in Chef Client 14.0 to reflect the fact that only Windows is supported. Existing cookbooks using ``env`` will continue to function, but should be updated to use the new name.
 
 .. end_tag
 
@@ -2390,32 +2041,8 @@ Use the **env** resource to manage environment keys in Microsoft Windows. After 
 
 .. code-block:: ruby
 
-   env 'ComSpec' do
+   windows_env 'ComSpec' do
      value "C:\\Windows\\system32\\cmd.exe"
-   end
-
-.. end_tag
-
-erl_call
-=====================================================
-.. tag resource_erlang_call_summary
-
-Use the **erl_call** resource to connect to a node located within a distributed Erlang system. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
-
-.. end_tag
-
-**Run a command**
-
-.. tag resource_erlang_call_run_command_on_node
-
-.. To run a command on an Erlang node:
-
-.. code-block:: ruby
-
-   erl_call 'list names' do
-     code 'net_adm:names().'
-     distributed true
-     node_name 'chef@latte'
    end
 
 .. end_tag
@@ -2507,7 +2134,7 @@ Use the **execute** resource to execute a single command. Commands that are exec
 
 **Install repositories from a file, trigger a command, and force the internal cache to reload**
 
-.. tag resource_yum_package_install_yum_repo_from_file
+.. tag resource_package_install_yum_repo_from_file
 
 The following example shows how to install new Yum repositories from a file, where the installation of the repository triggers a creation of the Yum cache that forces the internal cache for the chef-client to reload:
 
@@ -2538,7 +2165,7 @@ The following example shows how to install new Yum repositories from a file, whe
 
 .. tag resource_execute_subscribes_prevent_restart_and_reconfigure
 
-Use the ``:nothing`` action (common to all resources) to prevent an application from restarting, and then use the ``subscribes`` notification to ask the broken configuration to be reconfigured immediately:
+Use the ``:nothing`` action (common to all resources) to prevent the test from starting automatically, and then use the ``subscribes`` notification to run a configuration test when a change to the template is detected:
 
 .. code-block:: ruby
 
@@ -2613,11 +2240,11 @@ The following example shows how to add a rule named ``test_rule`` to an IP table
 .. code-block:: ruby
 
    execute 'test_rule' do
-     command 'command_to_run 
-       --option value 
+     command 'command_to_run
+       --option value
        ...
-       --option value 
-       --source #{node[:name_of_node][:ipsec][:local][:subnet]} 
+       --option value
+       --source #{node[:name_of_node][:ipsec][:local][:subnet]}
        -j test_rule'
      action :nothing
    end
@@ -2713,7 +2340,7 @@ The following is an example of using the ``platform_family?`` method in the Reci
      command <<-EOF
        # command for installing Python goes here
        EOF
-     not_if { File.exists?(pip_binary) }
+     not_if { File.exist?(pip_binary) }
    end
 
 where a command for installing Python might look something like:
@@ -2803,20 +2430,20 @@ The following example shows how to use the ``search`` method in the Recipe DSL t
 where
 
 * the search will use both of the **execute** resources, unless the condition specified by the ``not_if`` commands are met
-* the ``environments`` property in the first **execute** resource is being used to define values that appear as variables in the OpenVPN configuration 
+* the ``environments`` property in the first **execute** resource is being used to define values that appear as variables in the OpenVPN configuration
 * the **template** resource tells the chef-client which template to use
 
 .. end_tag
 
-**Enable remote login for Mac OS X**
+**Enable remote login for macOS**
 
 .. tag resource_execute_enable_remote_login
 
-.. To enable remote login on Mac OS X:
+.. To enable remote login on macOS:
 
 .. code-block:: ruby
 
-   execute 'enable ssh' do 
+   execute 'enable ssh' do
      command '/usr/sbin/systemsetup -setremotelogin on'
      not_if '/usr/sbin/systemsetup -getremotelogin | /usr/bin/grep On'
      action :run
@@ -3191,12 +2818,12 @@ To use different branches, depending on the environment of the node:
       branch_name = 'master'
    end
 
-   git '/home/user/deployment' do                            
+   git '/home/user/deployment' do
       repository 'git@github.com:gitsite/deployment.git'
-      revision branch_name                                   
-      action :sync                                     
-      user 'user'                                    
-      group 'test'                                      
+      revision branch_name
+      action :sync
+      user 'user'
+      group 'test'
    end
 
 where the ``branch_name`` variable is set to ``staging`` or ``master``, depending on the environment of the node. Once this is determined, the ``branch_name`` variable is used to set the revision for the repository. If the ``git status`` command is used after running the example above, it will return the branch name as ``deploy``, as this is the default value. Run the chef-client in debug mode to verify that the correct branches are being checked out:
@@ -3267,7 +2894,7 @@ The following example uses the **git** resource to upgrade packages:
    git '/opt/mysources/couch' do
      repository 'git://git.apache.org/couchdb.git'
      revision 'master'
-     environment  { 'VAR' => 'whatever' }
+     environment 'VAR' => 'whatever'
      action :sync
    end
 
@@ -3317,9 +2944,11 @@ homebrew_package
 =====================================================
 .. tag resource_package_homebrew
 
-Use the **homebrew_package** resource to manage packages for the Mac OS X platform.
+Use the **homebrew_package** resource to manage packages for the macOS platform.
 
 .. end_tag
+
+New in Chef Client 12.0.
 
 **Install a package**
 
@@ -3387,6 +3016,8 @@ The message is sent as ``http://example.com/check_in?message=some_message``.
 
 .. end_tag
 
+Changed in Chef Client 12.0 to deprecate the hard-coded query string from earlier versions. Cookbooks that rely on this string need to be updated to manually add it to the URL as it is passed to the resource.
+
 **Send a POST request**
 
 .. tag resource_http_request_send_post
@@ -3438,7 +3069,7 @@ ifconfig
 =====================================================
 .. tag resource_ifconfig_summary
 
-Use the **ifconfig** resource to manage interfaces.
+Use the **ifconfig** resource to manage interfaces on \*nix systems.
 
 .. end_tag
 
@@ -3459,7 +3090,7 @@ will create the following interface:
 
 .. code-block:: none
 
-   vagrant@default-ubuntu-1204:~$ cat /etc/network/interfaces.d/ifcfg-eth1 
+   vagrant@default-ubuntu-1204:~$ cat /etc/network/interfaces.d/ifcfg-eth1
    iface eth1 inet dhcp
 
 .. end_tag
@@ -3547,7 +3178,7 @@ ksh
 =====================================================
 .. tag resource_script_ksh
 
-Use the **ksh** resource to execute scripts using the Korn shell (ksh) interpreter. This resource may also use any of the actions and properties that are available to the **execute** resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
+Use the **ksh** resource to execute scripts using the Korn shell (ksh) interpreter. This resource may also use any of the actions and properties that are available to the **execute** resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence. New in Chef Client 12.6.
 
 .. note:: The **ksh** script resource (which is based on the **script** resource) is different from the **ruby_block** resource because Ruby code that is run with this resource is created as a temporary file and executed like other script resources, rather than run inline.
 
@@ -3715,7 +3346,7 @@ macports_package
 =====================================================
 .. tag resource_package_macports
 
-Use the **macports_package** resource to manage packages for the Mac OS X platform.
+Use the **macports_package** resource to manage packages for the macOS platform.
 
 .. end_tag
 
@@ -3737,7 +3368,7 @@ mdadm
 =====================================================
 .. tag resource_mdadm_summary
 
-Use the **mdadm** resource to manage RAID devices in a Linux environment using the mdadm utility. The **mdadm** provider will create and assemble an array, but it will not create the config file that is used to persist the array upon reboot. If the config file is required, it must be done by specifying a template with the correct array layout, and then by using the **mount** provider to create a file systems table (fstab) entry.
+Use the **mdadm** resource to manage RAID devices in a Linux environment using the mdadm utility. The **mdadm** resource will create and assemble an array, but it will not create the config file that is used to persist the array upon reboot. If the config file is required, it must be done by specifying a template with the correct array layout, and then by using the **mount** resource to create a file systems table (fstab) entry.
 
 .. end_tag
 
@@ -4051,11 +3682,13 @@ Use the **openbsd_package** resource to manage packages for the OpenBSD platform
 
 .. end_tag
 
+New in Chef Client 12.1.
+
 osx_profile
 =====================================================
 .. tag resource_osx_profile_summary
 
-Use the **osx_profile** resource to manage configuration profiles (``.mobileconfig`` files) on the Mac OS X platform. The **osx_profile** resource installs profiles by using the ``uuidgen`` library to generate a unique ``ProfileUUID``, and then using the ``profiles`` command to install the profile on the system.
+Use the **osx_profile** resource to manage configuration profiles (``.mobileconfig`` files) on the macOS platform. The **osx_profile** resource installs profiles by using the ``uuidgen`` library to generate a unique ``ProfileUUID``, and then using the ``profiles`` command to install the profile on the system.
 
 .. end_tag
 
@@ -4639,6 +4272,8 @@ Use the **paludis_package** resource to manage packages for the Paludis platform
 
 .. end_tag
 
+New in Chef Client 12.1.
+
 perl
 =====================================================
 .. tag resource_script_perl
@@ -4835,7 +4470,7 @@ The following example shows how to rename a computer, join a domain, and then re
      EOH
      not_if <<-EOH
        $ComputerSystem = gwmi win32_computersystem
-       ($ComputerSystem.Name -like '#{node['some_attribute_that_has_the_new_name']}') -and 
+       ($ComputerSystem.Name -like '#{node['some_attribute_that_has_the_new_name']}') -and
          $ComputerSystem.partofdomain)
      EOH
      notifies :reboot_now, 'reboot[Restart Computer]', :immediately
@@ -4866,7 +4501,7 @@ reboot
 =====================================================
 .. tag resource_service_reboot
 
-Use the **reboot** resource to reboot a node, a necessary step with some installations on certain platforms. This resource is supported for use on the Microsoft Windows, Mac OS X, and Linux platforms.
+Use the **reboot** resource to reboot a node, a necessary step with some installations on certain platforms. This resource is supported for use on the Microsoft Windows, macOS, and Linux platforms.  New in Chef Client 12.0.
 
 .. end_tag
 
@@ -4940,7 +4575,7 @@ The following example shows how to rename a computer, join a domain, and then re
      EOH
      not_if <<-EOH
        $ComputerSystem = gwmi win32_computersystem
-       ($ComputerSystem.Name -like '#{node['some_attribute_that_has_the_new_name']}') -and 
+       ($ComputerSystem.Name -like '#{node['some_attribute_that_has_the_new_name']}') -and
          $ComputerSystem.partofdomain)
      EOH
      notifies :reboot_now, 'reboot[Restart Computer]', :immediately
@@ -4975,9 +4610,9 @@ Use a double-quoted string:
 
    registry_key "HKEY_LOCAL_MACHINE\\path-to-key\\Policies\\System" do
      values [{
-       :name => 'EnableLUA',
-       :type => :dword,
-       :data => 0
+       name: 'EnableLUA',
+       type: :dword,
+       data: 0
      }]
      action :create
    end
@@ -4988,9 +4623,9 @@ or a single-quoted string:
 
    registry_key 'HKEY_LOCAL_MACHINE\path-to-key\Policies\System' do
      values [{
-       :name => 'EnableLUA',
-       :type => :dword,
-       :data => 0
+       name: 'EnableLUA',
+       type: :dword,
+       data: 0
      }]
      action :create
    end
@@ -5009,9 +4644,9 @@ Use a double-quoted string:
 
    registry_key "HKEY_LOCAL_MACHINE\\SOFTWARE\\path\\to\\key\\AU" do
      values [{
-       :name => 'NoAutoRebootWithLoggedOnUsers',
-       :type => :dword,
-       :data => ''
+       name: 'NoAutoRebootWithLoggedOnUsers',
+       type: :dword,
+       data: ''
        }]
      action :delete
    end
@@ -5022,14 +4657,14 @@ or a single-quoted string:
 
    registry_key 'HKEY_LOCAL_MACHINE\SOFTWARE\path\to\key\AU' do
      values [{
-       :name => 'NoAutoRebootWithLoggedOnUsers',
-       :type => :dword,
-       :data => ''
+       name: 'NoAutoRebootWithLoggedOnUsers',
+       type: :dword,
+       data: ''
        }]
      action :delete
    end
 
-.. note:: If ``:data`` is not specified, you get an error: ``Missing data key in RegistryKey values hash``
+.. note:: If ``data:`` is not specified, you get an error: ``Missing data key in RegistryKey values hash``
 
 .. end_tag
 
@@ -5131,9 +4766,9 @@ Use a double-quoted string:
 
    proxy = URI.parse(Chef::Config[:http_proxy])
    registry_key "HKCU\Software\Microsoft\path\to\key\Internet Settings" do
-     values [{:name => 'ProxyEnable', :type => :reg_dword, :data => 1},
-             {:name => 'ProxyServer', :data => "#{proxy.host}:#{proxy.port}"},
-             {:name => 'ProxyOverride', :type => :reg_string, :data => <local>},
+     values [{name: 'ProxyEnable', type: :reg_dword, data: 1},
+             {name: 'ProxyServer', data: "#{proxy.host}:#{proxy.port}"},
+             {name: 'ProxyOverride', type: :reg_string, data: <local>},
             ]
      action :create
    end
@@ -5144,9 +4779,9 @@ or a single-quoted string:
 
    proxy = URI.parse(Chef::Config[:http_proxy])
    registry_key 'HKCU\Software\Microsoft\path\to\key\Internet Settings' do
-     values [{:name => 'ProxyEnable', :type => :reg_dword, :data => 1},
-             {:name => 'ProxyServer', :data => "#{proxy.host}:#{proxy.port}"},
-             {:name => 'ProxyOverride', :type => :reg_string, :data => <local>},
+     values [{name: 'ProxyEnable', type: :reg_dword, data: 1},
+             {name: 'ProxyServer', data: "#{proxy.host}:#{proxy.port}"},
+             {name: 'ProxyOverride', type: :reg_string, data: <local>},
             ]
      action :create
    end
@@ -5164,11 +4799,11 @@ Use a double-quoted string:
 .. code-block:: ruby
 
    registry_key 'Set (Default) value' do
-     action :create
      key "HKLM\\Software\\Test\\Key\\Path"
      values [
-       {:name => '', :type => :string, :data => 'test'},
+       {name: '', type: :string, data: 'test'},
      ]
+     action :create
    end
 
 or a single-quoted string:
@@ -5176,14 +4811,14 @@ or a single-quoted string:
 .. code-block:: ruby
 
    registry_key 'Set (Default) value' do
-     action :create
      key 'HKLM\Software\Test\Key\Path'
      values [
-       {:name => '', :type => :string, :data => 'test'},
+       {name: '', type: :string, data: 'test'},
      ]
+     action :create
    end
 
-where ``:name => ''`` contains an empty string, which will set the name of the registry key to ``(Default)``.
+where ``name: ''`` contains an empty string, which will set the name of the registry key to ``(Default)``.
 
 .. end_tag
 
@@ -5306,11 +4941,11 @@ The following is an example of how to install the ``foo123`` module for Nginx. T
    bash 'extract_module' do
      cwd ::File.dirname(src_filepath)
      code <<-EOH
-       mkdir -p #{extract_path} 
+       mkdir -p #{extract_path}
        tar xzf #{src_filename} -C #{extract_path}
        mv #{extract_path}/*/* #{extract_path}/
        EOH
-     not_if { ::File.exists?(extract_path) }
+     not_if { ::File.exist?(extract_path) }
    end
 
 .. end_tag
@@ -5354,7 +4989,7 @@ and then the methods in the recipe may refer to these values. A recipe that is u
      source "#{node['python']['url']}/#{version}/Python-#{version}.tar.bz2"
      checksum node['python']['checksum']
      mode '0755'
-     not_if { ::File.exists?(install_path) }
+     not_if { ::File.exist?(install_path) }
    end
 
    bash 'build-and-install-python' do
@@ -5364,7 +4999,7 @@ and then the methods in the recipe may refer to these values. A recipe that is u
        (cd Python-#{version} && ./configure #{configure_options})
        (cd Python-#{version} && make && make install)
      EOF
-     not_if { ::File.exists?(install_path) }
+     not_if { ::File.exist?(install_path) }
    end
 
 .. end_tag
@@ -5394,7 +5029,7 @@ The following is an example of using the ``platform_family?`` method in the Reci
      command <<-EOF
        # command for installing Python goes here
        EOF
-     not_if { File.exists?(pip_binary) }
+     not_if { File.exist?(pip_binary) }
    end
 
 where a command for installing Python might look something like:
@@ -5519,7 +5154,7 @@ Use the **ruby_block** resource to execute Ruby code during a chef-client run. R
 
 **Install repositories from a file, trigger a command, and force the internal cache to reload**
 
-.. tag resource_yum_package_install_yum_repo_from_file
+.. tag resource_package_install_yum_repo_from_file
 
 The following example shows how to install new Yum repositories from a file, where the installation of the repository triggers a creation of the Yum cache that forces the internal cache for the chef-client to reload:
 
@@ -5561,7 +5196,7 @@ The following example shows how an if statement can be used with the ``platform?
      ruby_block 'copy libmysql.dll into ruby path' do
        block do
          require 'fileutils'
-         FileUtils.cp "#{node['mysql']['client']['lib_dir']}\\libmysql.dll", 
+         FileUtils.cp "#{node['mysql']['client']['lib_dir']}\\libmysql.dll",
            node['mysql']['client']['ruby_dir']
        end
        not_if { File.exist?("#{node['mysql']['client']['ruby_dir']}\\libmysql.dll") }
@@ -5616,7 +5251,7 @@ The following example shows how the **ruby_block** resource can be used to updat
    ruby_block 'edit etc hosts' do
      block do
        rc = Chef::Util::FileEdit.new('/etc/hosts')
-       rc.search_file_replace_line(/^127\.0\.0\.1 localhost$/, 
+       rc.search_file_replace_line(/^127\.0\.0\.1 localhost$/,
           '127.0.0.1 #{new_fqdn} #{new_hostname} localhost')
        rc.write_file
      end
@@ -5632,8 +5267,8 @@ The following example shows how to use variables within a Ruby block to set envi
 
 .. code-block:: ruby
 
-   node.set[:rbenv][:root] = rbenv_root
-   node.set[:ruby_build][:bin_path] = rbenv_binary_path
+   node.override[:rbenv][:root] = rbenv_root
+   node.override[:ruby_build][:bin_path] = rbenv_binary_path
 
    ruby_block 'initialize' do
      block do
@@ -5807,11 +5442,11 @@ The following is an example of how to install the ``foo123`` module for Nginx. T
    bash 'extract_module' do
      cwd ::File.dirname(src_filepath)
      code <<-EOH
-       mkdir -p #{extract_path} 
+       mkdir -p #{extract_path}
        tar xzf #{src_filename} -C #{extract_path}
        mv #{extract_path}/*/* #{extract_path}/
        EOH
-     not_if { ::File.exists?(extract_path) }
+     not_if { ::File.exist?(extract_path) }
    end
 
 .. end_tag
@@ -5883,7 +5518,7 @@ and then the methods in the recipe may refer to these values. A recipe that is u
      source "#{node['python']['url']}/#{version}/Python-#{version}.tar.bz2"
      checksum node['python']['checksum']
      mode '0755'
-     not_if { ::File.exists?(install_path) }
+     not_if { ::File.exist?(install_path) }
    end
 
    bash 'build-and-install-python' do
@@ -5893,7 +5528,7 @@ and then the methods in the recipe may refer to these values. A recipe that is u
        (cd Python-#{version} && ./configure #{configure_options})
        (cd Python-#{version} && make && make install)
      EOF
-     not_if { ::File.exists?(install_path) }
+     not_if { ::File.exist?(install_path) }
    end
 
 .. end_tag
@@ -5960,38 +5595,37 @@ Use the **service** resource to manage a service.
 
    service 'memcached' do
      action :nothing
-     supports :status => true, :start => true, :stop => true, :restart => true
    end
 
 .. end_tag
 
-**Use the supports common attribute**
+**Use the retries common attribute**
 
 .. tag resource_service_use_supports_attribute
 
-.. To use the ``supports`` common attribute in a recipe:
+.. To use the ``retries`` common attribute in a recipe:
 
 .. code-block:: ruby
 
    service 'apache' do
-     supports :restart => true, :reload => true
-     action :enable
+     action [ :enable, :start ]
+     retries 3
    end
 
 .. end_tag
 
-**Use the supports and providers common attributes**
+**Use the retries and provider common attributes**
 
 .. tag resource_service_use_provider_and_supports_attributes
 
-.. To use the ``provider`` and ``supports`` common attributes in a recipe:
+.. To use the ``provider`` and ``retries`` common attributes in a recipe:
 
 .. code-block:: ruby
 
    service 'some_service' do
      provider Chef::Provider::Service::Upstart
-     supports :status => true, :restart => true, :reload => true
      action [ :enable, :start ]
+     retries 3
    end
 
 .. end_tag
@@ -6041,7 +5675,7 @@ Use the **service** resource to manage a service.
 
 .. tag resource_service_subscribes_reload_using_template
 
-To reload a service based on a template, use the **template** and **service** resources together in the same recipe, similar to the following:
+To reload a service that is based on a template, use the **template** and **service** resources together in the same recipe, similar to the following:
 
 .. code-block:: ruby
 
@@ -6051,12 +5685,11 @@ To reload a service based on a template, use the **template** and **service** re
    end
 
    service 'apache' do
-     supports :restart => true, :reload => true
      action :enable
      subscribes :reload, 'template[/tmp/somefile]', :immediately
    end
 
-where the ``subscribes`` notification is used to reload the service using the template specified by the **template** resource.
+where the ``subscribes`` notification is used to reload the service whenever the template is modified.
 
 .. end_tag
 
@@ -6177,11 +5810,8 @@ The following example shows how start a service named ``example_service`` and im
 
    service 'example_service' do
      action :start
-     provider Chef::Provider::Service::Init
      notifies :restart, 'service[nginx]', :immediately
    end
-
-where by using the default ``provider`` for the **service**, the recipe is telling the chef-client to determine the specific provider to be used during the chef-client run based on the platform of the node on which the recipe will run.
 
 .. end_tag
 
@@ -6282,15 +5912,15 @@ The following example shows how to install a service:
 .. code-block:: ruby
 
    execute "install #{node['chef_client']['svc_name']} in SRC" do
-     command "mkssys -s #{node['chef_client']['svc_name']} 
-                     -p #{node['chef_client']['bin']} 
-                     -u root 
-                     -S 
-                     -n 15 
-                     -f 9 
-                     -o #{node['chef_client']['log_dir']}/client.log 
+     command "mkssys -s #{node['chef_client']['svc_name']}
+                     -p #{node['chef_client']['bin']}
+                     -u root
+                     -S
+                     -n 15
+                     -f 9
+                     -o #{node['chef_client']['log_dir']}/client.log
                      -e #{node['chef_client']['log_dir']}/client.log -a '
-                     -i #{node['chef_client']['interval']} 
+                     -i #{node['chef_client']['interval']}
                      -s #{node['chef_client']['splay']}'"
      not_if "lssrc -s #{node['chef_client']['svc_name']}"
      action :run
@@ -6301,7 +5931,7 @@ and then enable it using the ``mkitab`` command:
 .. code-block:: ruby
 
    execute "enable #{node['chef_client']['svc_name']}" do
-     command "mkitab '#{node['chef_client']['svc_name']}:2:once:/usr/bin/startsrc 
+     command "mkitab '#{node['chef_client']['svc_name']}:2:once:/usr/bin/startsrc
                      -s #{node['chef_client']['svc_name']} > /dev/console 2>&1'"
      not_if "lsitab #{node['chef_client']['svc_name']}"
    end
@@ -6347,6 +5977,7 @@ The **solaris_package** resource is used to manage packages for the Solaris plat
 .. code-block:: ruby
 
    solaris_package 'name of package' do
+     source '/packages_directory'
      action :install
    end
 
@@ -6442,7 +6073,7 @@ The following example shows how to use the ``not_if`` condition to create a file
    template '/tmp/somefile' do
      mode '0755'
      source 'somefile.erb'
-     not_if { node[:some_value] }
+     not_if { node['some_value'] }
    end
 
 .. end_tag
@@ -6472,7 +6103,7 @@ The following example shows how to use the ``not_if`` condition to create a file
    template '/tmp/somefile' do
      mode '0755'
      source 'somefile.erb'
-     not_if { File.exist?('/etc/passwd' )}
+     not_if { File.exist?('/etc/passwd') }
    end
 
 .. end_tag
@@ -6502,7 +6133,7 @@ The following example shows how to use the ``only_if`` condition to create a fil
    template '/tmp/somefile' do
      mode '0755'
      source 'somefile.erb'
-     only_if { node[:some_value] }
+     only_if { node['some_value'] }
    end
 
 .. end_tag
@@ -6759,11 +6390,11 @@ The following example shows how to add a rule named ``test_rule`` to an IP table
 .. code-block:: ruby
 
    execute 'test_rule' do
-     command 'command_to_run 
-       --option value 
+     command 'command_to_run
+       --option value
        ...
-       --option value 
-       --source #{node[:name_of_node][:ipsec][:local][:subnet]} 
+       --option value
+       --source #{node[:name_of_node][:ipsec][:local][:subnet]}
        -j test_rule'
      action :nothing
    end
@@ -6925,7 +6556,7 @@ user
 
 Use the **user** resource to add users, update existing users, remove users, and to lock/unlock user passwords.
 
-.. note:: System attributes are collected by Ohai at the start of every chef-client run. By design, the actions available to the **user** resource are processed **after** the start of the chef-client run. This means that system attributes added or modified by the **user** resource during the chef-client run must be reloaded before they can be available to the chef-client. These system attributes can be reloaded in two ways: by picking up the values at the start of the (next) chef-client run or by using the `ohai resource <https://docs.chef.io/resource_ohai.html>`_ to reload the system attributes during the current chef-client run.
+.. note:: System attributes are collected by Ohai at the start of every chef-client run. By design, the actions available to the **user** resource are processed **after** the start of the chef-client run. This means that system attributes added or modified by the **user** resource during the chef-client run must be reloaded before they can be available to the chef-client. These system attributes can be reloaded in two ways: by picking up the values at the start of the (next) chef-client run or by using the `ohai resource </resource_ohai.html>`__ to reload the system attributes during the current chef-client run.
 
 .. end_tag
 
@@ -6989,7 +6620,7 @@ The following example shows how to create a system user. In this instance, the `
 
 .. tag resource_user_password_shadow_hash_salted_sha512
 
-Mac OS X 10.7 calculates the password shadow hash using SALTED-SHA512. The length of the shadow hash value is 68 bytes, the salt value is the first 4 bytes, with the remaining 64 being the shadow hash itself. The following code will calculate password shadow hashes for Mac OS X 10.7:
+macOS 10.7 calculates the password shadow hash using SALTED-SHA512. The length of the shadow hash value is 68 bytes, the salt value is the first 4 bytes, with the remaining 64 being the shadow hash itself. The following code will calculate password shadow hashes for macOS 10.7:
 
 .. code-block:: ruby
 
@@ -7008,11 +6639,13 @@ Use the calculated password shadow hash with the **user** resource:
 
 .. end_tag
 
+New in Chef Client 12.0.
+
 **Use SALTED-SHA512-PBKDF2 passwords**
 
 .. tag resource_user_password_shadow_hash_salted_sha512_pbkdf2
 
-Mac OS X 10.8 (and higher) calculates the password shadow hash using SALTED-SHA512-PBKDF2. The length of the shadow hash value is 128 bytes, the salt value is 32 bytes, and an integer specifies the number of iterations. The following code will calculate password shadow hashes for Mac OS X 10.8 (and higher):
+macOS 10.8 (and higher) calculates the password shadow hash using SALTED-SHA512-PBKDF2. The length of the shadow hash value is 128 bytes, the salt value is 32 bytes, and an integer specifies the number of iterations. The following code will calculate password shadow hashes for macOS 10.8 (and higher):
 
 .. code-block:: ruby
 
@@ -7040,6 +6673,8 @@ Use the calculated password shadow hash with the **user** resource:
    end
 
 .. end_tag
+
+New in Chef Client 12.0.
 
 windows_package
 =====================================================
@@ -7097,7 +6732,7 @@ Use the **windows_package** resource to manage Microsoft Installer Package (MSI)
 
 .. tag resource_package_windows_source_remote_file_attributes
 
-The **windows_package** resource may specify a package at a remote location using the ``remote_file_attributes`` property. This uses the **remote_file** resource to download the contents at the specified URL and passes in a Hash that modifes the properties of the `remote_file resource <https://docs.chef.io/resource_remote_file.html>`__.
+The **windows_package** resource may specify a package at a remote location using the ``remote_file_attributes`` property. This uses the **remote_file** resource to download the contents at the specified URL and passes in a Hash that modifes the properties of the `remote_file resource </resource_remote_file.html>`__.
 
 For example:
 
@@ -7148,7 +6783,7 @@ windows_service
 =====================================================
 .. tag resource_service_windows
 
-Use the **windows_service** resource to manage a service on the Microsoft Windows platform.
+Use the **windows_service** resource to create, delete, and manage a service on the Microsoft Windows platform.
 
 .. end_tag
 
@@ -7288,11 +6923,11 @@ or:
 
 **Handle cookbook_file and yum_package resources in the same recipe**
 
-.. tag resource_yum_package_handle_cookbook_file_and_yum_package
+.. tag resource_package_handle_cookbook_file_and_package
 
-.. To handle cookbook_file and yum_package when both called in the same recipe
+.. To handle cookbook_file and package when both called in the same recipe
 
-When a **cookbook_file** resource and a **yum_package** resource are both called from within the same recipe, use the ``flush_cache`` attribute to dump the in-memory Yum cache, and then use the repository immediately to ensure that the correct package is installed:
+When a **cookbook_file** resource and a **package** resource are both called from within the same recipe, use the ``flush_cache`` attribute to dump the in-memory Yum cache, and then use the repository immediately to ensure that the correct package is installed:
 
 .. code-block:: ruby
 
@@ -7301,10 +6936,9 @@ When a **cookbook_file** resource and a **yum_package** resource are both called
      mode '0755'
    end
 
-   yum_package 'only-in-custom-repo' do
+   package 'only-in-custom-repo' do
      action :install
      flush_cache [ :before ]
    end
 
 .. end_tag
-

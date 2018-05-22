@@ -1,5 +1,5 @@
 =====================================================
-knife user 
+knife user
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_user.rst>`__
 
@@ -11,23 +11,25 @@ The ``knife user`` subcommand is used to manage the list of users and their asso
 
 .. warning:: In versions of the chef-client prior to version 12.0, this subcommand ONLY works when run against the open source Chef server; it does not run against Enterprise Chef (including hosted Enterprise Chef), or Private Chef.
 
-             Starting with Chef server 12.0, this functionality is built into the `chef-server-ctl <https://docs.chef.io/ctl_chef_server.html>`_ command-line tool as part of the following arguments:
+             Starting with Chef server 12.0, this functionality is built into the `chef-server-ctl </ctl_chef_server.html>`__ command-line tool as part of the following arguments:
 
-             * `user-create <https://docs.chef.io/ctl_chef_server.html#user-create>`_
-             * `user-delete <https://docs.chef.io/ctl_chef_server.html#user-delete>`_
-             * `user-edit <https://docs.chef.io/ctl_chef_server.html#user-edit>`_
-             * `user-list <https://docs.chef.io/ctl_chef_server.html#user-list>`_
-             * `user-show <https://docs.chef.io/ctl_chef_server.html#user-show>`_
+             * `user-create </ctl_chef_server.html#user-create>`_
+             * `user-delete </ctl_chef_server.html#user-delete>`_
+             * `user-edit </ctl_chef_server.html#user-edit>`_
+             * `user-list </ctl_chef_server.html#user-list>`_
+             * `user-show </ctl_chef_server.html#user-show>`_
 
              Starting with chef-client version 12.4.1, the ``knife user`` functionality is restored for the following arguments: ``user-edit``, ``user-list``, and ``user-show`` for Chef server version 12.0 (and higher).
 
-             Starting with Chef server 12.4.1, `users who are members of the server-admins group <https://docs.chef.io/ctl_chef_server.html#server-admins>`_ may use the ``user-create``, ``user-delete``, ``user-edit``, ``user-list``, and ``user-show`` arguements to manage user accounts on the Chef server via the ``knife user`` subcommand.
+             Starting with Chef server 12.4.1, `users who are members of the server-admins group </ctl_chef_server.html#server-admins>`_ may use the ``user-create``, ``user-delete``, ``user-edit``, ``user-list``, and ``user-show`` arguments to manage user accounts on the Chef server via the ``knife user`` subcommand.
 
 .. note:: .. tag knife_common_see_common_options_link
 
-          Review the list of :doc:`common options </knife_common_options>` available to this (and all) knife subcommands and plugins.
+          Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
           .. end_tag
+
+Changed in Chef Client 12.4 to support public key management for users and clients.
 
 create
 =====================================================
@@ -62,7 +64,7 @@ This argument has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 
@@ -352,7 +354,7 @@ This argument has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 

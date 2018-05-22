@@ -28,9 +28,9 @@ The full syntax for all of the properties that are available to the **service** 
    service 'name' do
      init_command               String
      notifies                   # see description
+     options                    Array, String
      pattern                    String
      priority                   Integer, String, Hash
-     provider                   Chef::Provider::Service
      reload_command             String
      restart_command            String
      service_name               String # defaults to 'name' if not specified
@@ -45,10 +45,10 @@ The full syntax for all of the properties that are available to the **service** 
 
 where
 
-* ``service`` is the resource; depending on the platform, more specific providers are run: ``Chef::Provider::Service::Init``, ``Chef::Provider::Service::Init::Debian``, ``Chef::Provider::Service::Upstart``, ``Chef::Provider::Service::Init::Freebsd``, ``Chef::Provider::Service::Init::Gentoo``, ``Chef::Provider::Service::Init::Redhat``, ``Chef::Provider::Service::Solaris``, ``Chef::Provider::Service::Windows``, or ``Chef::Provider::Service::Macosx``
+* ``service`` is the resource
 * ``name`` is the name of the resource block; when the ``path`` property is not specified, ``name`` is also the path to the directory, from the root
-* ``:action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``init_command``, ``pattern``, ``priority``, ``provider``, ``reload_command``, ``restart_command``, ``service_name``, ``start_command``, ``status_command``, ``stop_command``, ``supports``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``init_command``, ``options``, ``pattern``, ``priority``, ``reload_command``, ``restart_command``, ``service_name``, ``start_command``, ``status_command``, ``stop_command``, ``supports``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -75,14 +75,14 @@ This resource has the following actions:
 ``:stop``
    Stop a service.
 
-.. note:: To mange a Microsoft Windows service with a ``Manual`` startup type, the **windows_service** resource must be used.
+.. note:: To manage a Microsoft Windows service with a ``Manual`` startup type, the **windows_service** resource must be used.
 
 Properties
 =====================================================
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -96,19 +96,19 @@ This resource has the following properties:
 
    .. tag resources_common_notification_notifies
 
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notifiy more than one resource; use a ``notifies`` statement for each resource to be notified.
+   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
 
    .. end_tag
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -125,6 +125,11 @@ This resource has the following properties:
 
    .. end_tag
 
+``options``
+   **Ruby Type:** Array, String
+
+   Solaris platform only. Options to pass to the service command. See the ``svcadm`` manual for details of possible options.
+
 ``pattern``
    **Ruby Type:** String
 
@@ -134,11 +139,6 @@ This resource has the following properties:
    **Ruby Types:** Integer, String, Hash
 
    Debian platform only. The relative priority of the program for start and shutdown ordering. May be an integer or a Hash. An integer is used to define the start run levels; stop run levels are then 100-integer. A Hash is used to define values for specific run levels. For example, ``{ 2 => [:start, 20], 3 => [:stop, 55] }`` will set a priority of twenty for run level two and a priority of fifty-five for run level three.
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider. See "Providers" section below for more information.
 
 ``reload_command``
    **Ruby Type:** String
@@ -187,17 +187,32 @@ This resource has the following properties:
 
    A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
 
+   Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
+
+   .. code-block:: ruby
+
+     file '/etc/nginx/ssl/example.crt' do
+        mode '0600'
+        owner 'root'
+     end
+
+     service 'nginx' do
+        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+     end
+
+   In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
+
    .. end_tag
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the chef-client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the chef-client run.
+      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -217,74 +232,12 @@ This resource has the following properties:
 ``supports``
    **Ruby Type:** Hash
 
-   A list of properties that controls how the chef-client is to attempt to manage a service: ``:restart``, ``:reload``, ``:status``. For ``:restart``, the init script or other service provider can use a restart command; if ``:restart`` is not specified, the chef-client attempts to stop and then start a service. For ``:reload``, the init script or other service provider can use a reload command. For ``:status``, the init script or other service provider can use a status command to determine if the service is running; if ``:status`` is not specified, the chef-client attempts to match the ``service_name`` against the process table as a regular expression, unless a pattern is specified as a parameter property. Default value: ``{ :restart => false, :reload => false, :status => false }`` for all platforms (except for the Red Hat platform family, which defaults to ``{ :restart => false, :reload => false, :status => true }``.)
+   A list of properties that controls how the chef-client is to attempt to manage a service: ``:restart``, ``:reload``, ``:status``. For ``:restart``, the init script or other service provider can use a restart command; if ``:restart`` is not specified, the chef-client attempts to stop and then start a service. For ``:reload``, the init script or other service provider can use a reload command. For ``:status``, the init script or other service provider can use a status command to determine if the service is running; if ``:status`` is not specified, the chef-client attempts to match the ``service_name`` against the process table as a regular expression, unless a pattern is specified as a parameter property. Default value: ``{ restart: false, reload: false, status: false }`` for all platforms (except for the Red Hat platform family, which defaults to ``{ restart: false, reload: false, status: true }``.)
 
 ``timeout``
    **Ruby Type:** Integer
 
    Microsoft Windows platform only. The amount of time (in seconds) to wait before timing out. Default value: ``60``.
-
-Providers
-=====================================================
-.. tag resources_common_provider
-
-Where a resource represents a piece of the system (and its desired state), a provider defines the steps that are needed to bring that piece of the system from its current state into the desired state.
-
-.. end_tag
-
-.. tag resources_common_provider_attributes
-
-The chef-client will determine the correct provider based on configuration data collected by Ohai at the start of the chef-client run. This configuration data is then mapped to a platform and an associated list of providers.
-
-Generally, it's best to let the chef-client choose the provider, and this is (by far) the most common approach. However, in some cases, specifying a provider may be desirable. There are two approaches:
-
-* Use a more specific short name---``yum_package "foo" do`` instead of ``package "foo" do``, ``script "foo" do`` instead of ``bash "foo" do``, and so on---when available
-* Use the ``provider`` property within the resource block to specify the long name of the provider as a property of a resource. For example: ``provider Chef::Provider::Long::Name``
-
-.. end_tag
-
-The **service** resource does not have service-specific short names. This is because the chef-client identifies the platform at the start of every chef-client run based on data collected by Ohai. The chef-client looks up the platform, and then determines the correct provider for that platform. In certain situations, such as when more than one init system is available on a node, a specific provider may need to be identified by using the ``provider`` attribute and the long name for that provider.
-
-This resource has the following providers:
-
-``Chef::Provider::Service::Init``, ``service``
-   When this short name is used, the chef-client will determine the correct provider during the chef-client run.
-
-``Chef::Provider::Service::Aix``, ``service``
-   Default on the AIX platform. The provider that is used to start, stop, and restart services with System Resource Controller (SRC).
-
-``Chef::Provider::Service::AixInit``
-   Use the long name---``Chef::Provider::Service::AixInit``---in a recipe to manage services with BSD-based init systems on the AIX platform.
-
-``Chef::Provider::Service::Init::Debian``, ``service``
-   The provider for the Debian and Ubuntu platforms.
-
-``Chef::Provider::Service::Init::Freebsd``, ``service``
-   The provider for the FreeBSD platform.
-
-``Chef::Provider::Service::Init::Gentoo``, ``service``
-   The provider for the Gentoo platform.
-
-``Chef::Provider::Service::Init::Redhat``, ``service``
-   The provider for the Red Hat and CentOS platforms.
-
-``Chef::Provider::Service::Simple``
-   A provider that is used to create custom service providers by defining the custom provider as a sub-class of this provider. This provider should not be used in recipes as a value of the ``provider`` attribute.
-
-``Chef::Provider::Service::Solaris``, ``service``
-   The provider for the Solaris platform.
-
-``Chef::Provider::Service::Systemd``, ``systemd``
-   The provider that is used when systemd is available on the platform.
-
-``Chef::Provider::Service::Upstart``, ``service``
-   The provider that is used when Upstart is available on the platform.
-
-``Chef::Provider::Service::Windows``, ``service``
-   The provider for the Microsoft Windows platform.
-
-``Chef::Provider::Service::Macosx``, ``service``
-   The provider for the Mac OS X platform.
 
 Examples
 =====================================================
@@ -344,38 +297,21 @@ The following examples demonstrate various approaches for using resources in rec
 
    service 'memcached' do
      action :nothing
-     supports :status => true, :start => true, :stop => true, :restart => true
    end
 
 .. end_tag
 
-**Use the supports common attribute**
+**Use the retries common attribute**
 
 .. tag resource_service_use_supports_attribute
 
-.. To use the ``supports`` common attribute in a recipe:
+.. To use the ``retries`` common attribute in a recipe:
 
 .. code-block:: ruby
 
    service 'apache' do
-     supports :restart => true, :reload => true
-     action :enable
-   end
-
-.. end_tag
-
-**Use the supports and providers common attributes**
-
-.. tag resource_service_use_provider_and_supports_attributes
-
-.. To use the ``provider`` and ``supports`` common attributes in a recipe:
-
-.. code-block:: ruby
-
-   service 'some_service' do
-     provider Chef::Provider::Service::Upstart
-     supports :status => true, :restart => true, :reload => true
      action [ :enable, :start ]
+     retries 3
    end
 
 .. end_tag
@@ -425,7 +361,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. tag resource_service_subscribes_reload_using_template
 
-To reload a service based on a template, use the **template** and **service** resources together in the same recipe, similar to the following:
+To reload a service that is based on a template, use the **template** and **service** resources together in the same recipe, similar to the following:
 
 .. code-block:: ruby
 
@@ -435,12 +371,11 @@ To reload a service based on a template, use the **template** and **service** re
    end
 
    service 'apache' do
-     supports :restart => true, :reload => true
      action :enable
      subscribes :reload, 'template[/tmp/somefile]', :immediately
    end
 
-where the ``subscribes`` notification is used to reload the service using the template specified by the **template** resource.
+where the ``subscribes`` notification is used to reload the service whenever the template is modified.
 
 .. end_tag
 
@@ -561,11 +496,25 @@ The following example shows how start a service named ``example_service`` and im
 
    service 'example_service' do
      action :start
-     provider Chef::Provider::Service::Init
      notifies :restart, 'service[nginx]', :immediately
    end
 
-where by using the default ``provider`` for the **service**, the recipe is telling the chef-client to determine the specific provider to be used during the chef-client run based on the platform of the node on which the recipe will run.
+.. end_tag
+
+**Restart one service before restarting another**
+
+.. tag resource_before_notification_restart
+
+This example uses the ``:before`` notification to restart the ``php-fpm`` service before restarting ``nginx``:
+
+.. code-block:: ruby
+
+   service `nginx` do
+     action :restart
+     notifies :restart, `service[php-fpm]`, :before
+   end
+
+With the ``:before`` notification, the action specified for the ``nginx`` resource will not run until action has been taken on the notified resource (``php-fpm``).
 
 .. end_tag
 
@@ -666,15 +615,15 @@ The following example shows how to install a service:
 .. code-block:: ruby
 
    execute "install #{node['chef_client']['svc_name']} in SRC" do
-     command "mkssys -s #{node['chef_client']['svc_name']} 
-                     -p #{node['chef_client']['bin']} 
-                     -u root 
-                     -S 
-                     -n 15 
-                     -f 9 
-                     -o #{node['chef_client']['log_dir']}/client.log 
+     command "mkssys -s #{node['chef_client']['svc_name']}
+                     -p #{node['chef_client']['bin']}
+                     -u root
+                     -S
+                     -n 15
+                     -f 9
+                     -o #{node['chef_client']['log_dir']}/client.log
                      -e #{node['chef_client']['log_dir']}/client.log -a '
-                     -i #{node['chef_client']['interval']} 
+                     -i #{node['chef_client']['interval']}
                      -s #{node['chef_client']['splay']}'"
      not_if "lssrc -s #{node['chef_client']['svc_name']}"
      action :run
@@ -685,10 +634,9 @@ and then enable it using the ``mkitab`` command:
 .. code-block:: ruby
 
    execute "enable #{node['chef_client']['svc_name']}" do
-     command "mkitab '#{node['chef_client']['svc_name']}:2:once:/usr/bin/startsrc 
+     command "mkitab '#{node['chef_client']['svc_name']}:2:once:/usr/bin/startsrc
                      -s #{node['chef_client']['svc_name']} > /dev/console 2>&1'"
      not_if "lsitab #{node['chef_client']['svc_name']}"
    end
 
 .. end_tag
-

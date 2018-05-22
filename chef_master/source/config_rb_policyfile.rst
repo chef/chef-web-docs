@@ -5,11 +5,12 @@ Policyfile.rb
 
 .. tag policyfile_summary
 
-.. note:: Policyfile file is an optional way to manage role, environment, and community cookbook data.
+A Policyfile is an optional way to manage role, environment, and community cookbook data with a single document that is uploaded to the Chef server. The file is associated with a group of nodes, cookbooks, and settings. When these nodes perform a Chef client run, they utilize recipes specified in the Policyfile run-list.
 
-Policyfile is a single document that is uploaded to the Chef server. It is associated with a group of nodes, cookbooks, and settings. When these nodes run, they run the recipes specified in the Policyfile run-list.
+.. note:: Consider the following before using Policyfiles:
 
-.. warning:: Policyfile is not integrated with Chef Automate and is not supported as part of a Chef Automate workflow.
+   * Policyfile is not supported as part of a Chef Automate workflow
+   * Policyfile is intended to be used with Chef server 12.3 or above, and Chef client 12.8 or above
 
 .. end_tag
 
@@ -19,13 +20,13 @@ A Policyfile file allows you to specify in a single document the cookbook revisi
 
 .. end_tag
 
-.. note:: For more information about Policyfile, see :doc:`About Policyfile </policyfile>`
+.. note:: For more information about Policyfile, see `About Policyfile </policyfile.html>`__
 
 Syntax
 =====================================================
 .. tag policyfile_rb_syntax
 
-A Policyfile.rb is a Ruby file, in which a run-list and cookbook locations are specified. The syntax is as follows:
+A ``Policyfile.rb`` is a Ruby file in which run-list and cookbook locations are specified. The syntax is as follows:
 
 .. code-block:: ruby
 
@@ -40,7 +41,7 @@ Settings
 =====================================================
 .. tag policyfile_rb_settings
 
-A Policyfile.rb file may contain the following settings:
+A ``Policyfile.rb`` file may contain the following settings:
 
 ``name "name"``
    Required. The name of the policy. Use a name that reflects the purpose of the machines against which the policy will run.
@@ -49,11 +50,13 @@ A Policyfile.rb file may contain the following settings:
    Required. The run-list the chef-client will use to apply the policy to one (or more) nodes.
 
 ``default_source :SOURCE_TYPE, *args``
-   The location in which any cookbooks not specified by ``cookbook`` are located. Possible values: ``chef_repo``, ``:community``, and ``:supermarket``. Use more than one ``default_source`` to specify more than one location for cookbooks.
+   The location in which any cookbooks not specified by ``cookbook`` are located. Possible values: ``chef_repo``, ``chef_server``, ``:community``, and ``:supermarket``. Use more than one ``default_source`` to specify more than one location for cookbooks.
 
    ``default_source :supermarket`` pulls cookbooks from the public Chef Supermarket.
 
    ``default_source :supermarket, "https://mysupermarket.example"`` pulls cookbooks from a named private Chef Supermarket.
+
+   ``default_source :chef_server, "https://chef-server.example/organizations/example"`` pulls cookbooks from the Chef Server.
 
    ``default_source :community`` is an alias for ``:supermarket``.
 
@@ -132,6 +135,40 @@ A Policyfile.rb file may contain the following settings:
 
       named_run_list :update_app, "my_app_cookbook::default"
 
+``include_policy "NAME", *args``
+   **New in Chef DK 2.4** Specify a policyfile lock to be merged with this policy. Chef DK supports pulling this lock from a local file or from Chef server. When the policyfile lock is included, its run-lists will appear before the current policyfile's run-list. This setting requires that the solved cookbooks appear as-is from the included policyfile lock. If conflicting attributes or cookbooks are provided, an error will be presented. See `RFC097 <https://github.com/chef/chef-rfc/blob/master/rfc097-policyfile-includes.md>`__ for the full specifications of this feature.
+
+
+  Pull the policyfile lock from ``./NAME.lock.json``:
+
+  .. code-block:: ruby
+
+     include_policy "NAME", path: "."
+
+  Pull the policyfile lock from ``./foo.lock.json``.
+
+  .. code-block:: ruby
+
+     include_policy "NAME", path: "./foo.lock.json"
+
+  Pull the policy ``NAME`` with revision ID ``revision1`` from the ``http://chef-server.example`` Chef server:
+
+  .. code-block:: ruby
+
+     include_policy "NAME", policy_revision_id: "revision1", server: "http://chef-server.example"
+
+  Pull the policy ``foo`` with revision ID ``revision1``:
+
+  .. code-block:: ruby
+
+     include_policy "NAME", policy_name: "foo", policy_revision_id: "revision1", server: "http://chef-server.example"
+
+  Pull and lock the current revision for policy ``foo`` in policy group ``prod``:
+
+  .. code-block:: ruby
+
+     include_policy "NAME", policy_name: "foo", policy_group: "prod", server: "http://chef-server.example"
+
 .. end_tag
 
 Example
@@ -150,4 +187,3 @@ For example:
    cookbook "mysql", github: "chef-cookbooks/mysql", branch: "master"
 
 .. end_tag
-

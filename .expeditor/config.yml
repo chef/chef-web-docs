@@ -1,0 +1,9 @@
+slack:
+  notify_channel: releng-notify
+
+github:
+  delete_branch_on_merge: true
+
+pipelines:
+  - verify:
+      description: Pull Request validation tests

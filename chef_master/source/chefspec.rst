@@ -7,20 +7,12 @@ ChefSpec
 
 Use ChefSpec to simulate the convergence of resources on a node:
 
-* Runs the chef-client on a local machine
-* Uses chef-zero or chef-solo
 * Is an extension of RSpec, a behavior-driven development (BDD) framework for Ruby
 * Is the fastest way to test resources and recipes
 
 .. end_tag
 
 ChefSpec is a framework that tests resources and recipes as part of a simulated chef-client run. ChefSpec tests execute very quickly. When used as part of the cookbook authoring workflow, ChefSpec tests are often the first indicator of problems that may exist within a cookbook.
-
-.. 
-.. The following topic needs to be better before it can be uncommented, along with an H1 (=====) header added.
-..
-.. .. include:: ../../includes_chefspec/includes_chefspec_compare_to_resource.rst
-..
 
 Run ChefSpec
 =====================================================
@@ -435,7 +427,7 @@ Guards
    describe 'guards::default' do
      let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '16.04').converge(described_recipe) }
 
-     it 'includes resource that have guards that evalute to true' do
+     it 'includes resource that have guards that evaluate to true' do
        expect(chef_run).to start_service('true_guard')
      end
 
@@ -510,6 +502,6 @@ For more information ...
 =====================================================
 For more information about ChefSpec:
 
-* `ChefSpec GitHub Repo <https://github.com/sethvargo/chefspec>`_
+* `ChefSpec GitHub Repo <https://github.com/chefspec/chefspec>`_
 
 .. * `RSpec Documentation <https://relishapp.com/rspec/rspec-core/v/3-4/docs/command-line>`_

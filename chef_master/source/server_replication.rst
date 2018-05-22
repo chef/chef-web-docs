@@ -3,7 +3,7 @@ Chef Replication (DEPRECATED)
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_replication.rst>`__
 
-.. warning:: This topic is deprecated as of the 12.9 release of the Chef servver.
+.. warning:: This topic is deprecated as of the 12.9 release of the Chef server.
 
 .. note:: This topic is meant to support existing customers using Chef replication. The capabilities of Chef replication can be reproduced using the features of Chef Automate workflow and we encourage customers to adopt Chef Automate going forward.
 

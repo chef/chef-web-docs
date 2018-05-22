@@ -31,7 +31,7 @@ A node is any machine---physical, virtual, cloud, network device, etc.---that is
 
 .. end_tag
 
-The Chef management console provides ways for users to `delete nodes and reset their private keys <https://docs.chef.io/server_manage_nodes.html#manage>`_, `edit node attributes <https://docs.chef.io/server_manage_nodes.html#node-attributes>`_, `manage the run-lists <https://docs.chef.io/server_manage_nodes.html#run-lists>`_, `configure user and group permissions <https://docs.chef.io/server_manage_nodes.html#permissions>`_, and `manage tags <https://docs.chef.io/server_manage_nodes.html#manage-tags>`_.
+The Chef management console provides ways for users to `delete nodes and reset their private keys </server_manage_nodes.html#manage>`_, `edit node attributes </server_manage_nodes.html#node-attributes>`_, `manage the run-lists </server_manage_nodes.html#run-lists>`_, `configure user and group permissions </server_manage_nodes.html#permissions>`_, and `manage tags </server_manage_nodes.html#manage-tags>`_.
 
 .. image:: ../../images/step_manage_webui_nodes.png
 
@@ -102,7 +102,7 @@ Consider the following snippet of JSON data:
              "f8:1e:df:d8:63:a2": {
                "family": "lladdr"
              },
-             "192.168.0.195": {
+             "192.0.2.0": {
                "netmask": "255.255.255.0",
                "broadcast": "192.168.0.255",
                "family": "inet"
@@ -162,26 +162,26 @@ This data is also flattened into various compound fields, which follow the same 
 .. code-block:: none
 
      # ...snip...
-     "network_interfaces_en1_addresses_192.168.0.195_broadcast" => "192.168.0.255",
+     "network_interfaces_en1_addresses_192.0.2.0_broadcast" => "192.168.0.255",
      "network_interfaces_en1_addresses_fe80::fa1e:tldr_family"  => "inet6",
-     "network_interfaces_en1_addresses"                         => ["fe80::fa1e:tldr","f8:1e:df:tldr","192.168.0.195"]
+     "network_interfaces_en1_addresses"                         => ["fe80::fa1e:tldr","f8:1e:df:tldr","192.0.2.0"]
      # ...snip...
 
 which allows searches like the following to find data that is present in this node:
 
 .. code-block:: ruby
 
-   node "network_interfaces_en1_addresses:192.168.0.195"
+   node "network_interfaces_en1_addresses:192.0.2.0"
 
 This flattened data structure also supports using wildcard compound fields, which allow searches to omit levels within the JSON data structure that are not important to the search query. In the following example, an asterisk (``*``) is used to show where the wildcard can exist when searching for a nested field:
 
 .. code-block:: ruby
 
    "network_interfaces_*_flags"     => ["UP", "BROADCAST", "SMART", "RUNNING", "SIMPLEX", "MULTICAST"]
-   "network_interfaces_*_addresses" => ["fe80::fa1e:dfff:fed8:63a2", "192.168.0.195", "f8:1e:df:d8:63:a2"]
+   "network_interfaces_*_addresses" => ["fe80::fa1e:dfff:fed8:63a2", "192.0.2.0", "f8:1e:df:d8:63:a2"]
    "network_interfaces_en0_media_*" => ["autoselect", "none", "1000baseT", "10baseT/UTP", "100baseTX"]
    "network_interfaces_en1_*"       => ["1", "UP", "BROADCAST", "SMART", "RUNNING", "SIMPLEX", "MULTICAST",
-                                        "fe80::fa1e:dfff:fed8:63a2", "f8:1e:df:d8:63:a2", "192.168.0.195",
+                                        "fe80::fa1e:dfff:fed8:63a2", "f8:1e:df:d8:63:a2", "192.0.2.0",
                                         "1500", "supported", "selected", "en", "active", "Ethernet"]
 
 For each of the wildcard examples above, the possible values are shown contained within the brackets. When running a search query, the query syntax for wildcards is to simply omit the name of the node (while preserving the underscores), similar to:
@@ -279,7 +279,7 @@ Operators must be in ALL CAPS. Parentheses can be used to group clauses and to f
    .. code-block:: bash
 
       ERROR: knife search failed: invalid search query:
-      'datacenter%3A123%20AND%20NOT%20hostname%3Adev-%20AND%20NOT%20hostanem%3Asyslog-' 
+      'datacenter%3A123%20AND%20NOT%20hostname%3Adev-%20AND%20NOT%20hostanem%3Asyslog-'
       Parse error at offset: 38 Reason: Expected one of \ at line 1, column 42 (byte 42) after AND
 
    Use ``-`` instead of ``NOT``. For example:
@@ -294,11 +294,11 @@ Special Characters
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag search_special_characters
 
-A special character can be used to fine-tune a search query and to increase the accuracy of the search results. The following characters can be included within the search query syntax, but each occurrence of a special character must be escaped with a backslash (``\``):
+A special character can be used to fine-tune a search query and to increase the accuracy of the search results. The following characters can be included within the search query syntax, but each occurrence of a special character must be escaped with a backslash (``\``), also (``/``) must be escaped against the Elasticsearch:
 
 .. code-block:: ruby
 
-   +  -  &&  | |  !  ( )  { }  [ ]  ^  "  ~  *  ?  :  \
+   +  -  &&  | |  !  ( )  { }  [ ]  ^  "  ~  *  ?  :  \  /
 
 For example:
 
@@ -310,17 +310,15 @@ For example:
 
 Reports
 =====================================================
-.. tag reporting_summary
-
 Use Reporting to keep track of what happens during the execution of chef-client runs across all of the machines that are under management by Chef. Reports can be generated for the entire organization and they can be generated for specific nodes.
 
-Reporting data is collected during the chef-client run and the results are posted to the Chef server at the end of the chef-client run at the same time the node object is uploaded to the Chef server.
+.. note:: The **Reports** tab requires the `Chef Reporting <https://docs.chef.io/reporting.html>`__ add-on.
 
-.. end_tag
+Reporting data is collected during the chef-client run, and the results are posted to the Chef server at the end of the chef-client run, at the same time the node object is uploaded to the Chef server.
 
-The Chef management console provides ways for users to `configure the timeframe <https://docs.chef.io/server_manage_reports.html#configure-reports>`_ around which a report is built, and then to `review the reports <https://docs.chef.io/server_manage_reports.html#view-reports>`_ that are available for that timeframe.
+The Chef management console provides ways for users to `configure the timeframe </server_manage_reports.html#configure-reports>`_ around which a report is built, and then to `review the reports </server_manage_reports.html#view-reports>`_ that are available for that timeframe.
 
-.. image:: ../../images/step_manage_webui_reports.png
+.. image:: ../../images/step_manage_webui_reports.png          
 
 Policy
 =====================================================
@@ -335,7 +333,7 @@ Policy maps business and operational requirements, process, and workflow to sett
 
 .. end_tag
 
-The Chef management console provides ways for users to manage `data bags <https://docs.chef.io/server_manage_data_bags.html>`_, `environments <https://docs.chef.io/server_manage_environments.html>`_, `roles <https://docs.chef.io/server_manage_roles.html>`_, `cookbooks <https://docs.chef.io/server_manage_cookbooks.html>`_, `clients <https://docs.chef.io/server_manage_clients.html>`_, and `managing tags <https://docs.chef.io/server_manage_nodes.html#manage-tags>`_.
+The Chef management console provides ways for users to manage `data bags </server_manage_data_bags.html>`__, `environments </server_manage_environments.html>`__, `roles </server_manage_roles.html>`__, `cookbooks </server_manage_cookbooks.html>`__, `clients </server_manage_clients.html>`__, and `managing tags </server_manage_nodes.html#manage-tags.html>`__.
 
 .. image:: ../../images/step_manage_webui_policy.png
 

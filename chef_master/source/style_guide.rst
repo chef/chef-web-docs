@@ -7,9 +7,9 @@ Chef reference documentation is written using restructuredText (reST) and built 
 
 We recommend that you use the conventions described in this guide when contributing to Chef reference documentation.
 
-The HTML version of the doc set can be found at |url docs|.
+The HTML version of the doc set can be found at `docs.chef.io <https://docs.chef.io>`__.
 
-Building 
+Building
 =====================================================
 
 Run the command
@@ -173,27 +173,11 @@ Links
 =====================================================
 Chef docs can contain and internal and external links.
 
-Internal
------------------------------------------------------
-An internal link is one that resolves to another topic that is built by Sphinx::
-
-   :doc:`essentials_nodes`
-
-where ``:doc:`` tells Sphinx that what follows is a file name that Sphinx will encounter during the build process.
-
-Internal w/short names
------------------------------------------------------
-Sometimes it's better to have the name of the link that displays be as short as possible (and different from the actual title of the topic)::
-
-   :doc:`Actions </resource_common_actions>`
-
-where ``:doc:`` tells Sphinx that what follows is a file name that Sphinx will encounter during the build process. ``Actions`` represents the short name that will display on the page in which this internal link is located, and then ``resource_common_actions`` is the filename and is contained within brackets (< >).
-
 External
 -----------------------------------------------------
-An external link points to something that does not live on |url docs|. An external link requires an HTTP address. In general, it's better to spell out the HTTP address fully, in case the topic is printed out::
+An external link points to something that does not reside within `docs.chef.io <https://docs.chef.io>`__. An external link requires an HTTP address. In general, it's better to spell out the HTTP address fully, in case the topic is printed out:
 
-   http://www.codecademy.com/tracks/ruby
+   ``http://www.codecademy.com/tracks/ruby``
 
 Code Blocks
 =====================================================
@@ -258,7 +242,7 @@ Chef docs uses tags to indicate text that is used in more than one topic::
 
    .. end_tag
 
-The docs will only build if all tagged regions with the same tag name have the same content. The ``dtags`` utility is included to help synchronize tagged regions. Refer to the ``README.md`` file in the ``chef/chef-web-docs`` repo for more information.
+The docs will only build if all tagged regions with the same tag name have the same content. The ``dtags`` utility is included to help synchronize tagged regions. Refer to the `README.md <https://github.com/chef/chef-web-docs/blob/master/README.md>`__ file in the `chef/chef-web-docs <https://github.com/chef/chef-web-docs>`__ repo for more information.
 
 Here are some guidelines for using tags:
 
@@ -316,8 +300,8 @@ The Chef reference documentation is found at
 
 https://github.com/chef/chef-web-docs
 
-* The chef-web-docs repo contains a ``chef_master/source`` directory which holds most the reST files in the doc set. 
-* The ``images`` directory stores the image files used in the docs. 
+* The chef-web-docs repo contains a ``chef_master/source`` directory which holds most the reST files in the doc set.
+* The ``images`` directory stores the image files used in the docs.
 * The ``conf.py`` tells Sphinx what to do when it's asked to build Chef docs. Don't modify this file.
 
 The ``build`` directory contains the output of the ``make`` command.

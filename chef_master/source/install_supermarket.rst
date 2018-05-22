@@ -9,8 +9,8 @@ Chef Supermarket is the site for community cookbooks. It provides an easily sear
 
 There are two ways to use Chef Supermarket:
 
-* The public Chef Supermarket is hosted by Chef and is located at |url supermarket|. Contributing to cookbooks on Chef Supermarket :doc:`requires signing a license </community_contributions>`.
-* A private Chef Supermarket may be installed on-premise behind the firewall on the internal network. Cookbook retrieval from a private Chef Supermarket is often faster than from the public Chef Supermarket because of closer proximity and fewer cookbooks to resolve. A private cookbook can also help formalize internal cookbook release management processes (e.g. "a cookbook is not released until it's published on Chef Supermarket").
+* The public Chef Supermarket is hosted by Chef and is located at `Chef Supermarket <https://supermarket.chef.io/>`__.
+* A private Chef Supermarket may be installed on-premise behind the firewall on the internal network. Cookbook retrieval from a private Chef Supermarket is often faster than from the public Chef Supermarket because of closer proximity and fewer cookbooks to resolve. A private Chef Supermarket can also help formalize internal cookbook release management processes (e.g. "a cookbook is not released until it's published on the private Chef Supermarket").
 
 .. end_tag
 
@@ -26,7 +26,7 @@ The private Chef Supermarket is installed behind the firewall on the internal ne
 
           * The application itself: https://github.com/chef/supermarket. Report issues to: https://github.com/chef/supermarket/issues.
           * The code that builds Chef Supermarket as an omnibus package: https://github.com/chef/omnibus-supermarket. Use a Kitchen-based environment to build your own omnibus packages.
-          * The cookbook that is run by the ``supermarket-ctl reconfigure`` command: https://github.com/chef/omnibus-supermarket/tree/master/cookbooks/omnibus-supermarket
+          * The cookbook that is run by the ``supermarket-ctl reconfigure`` command: https://github.com/chef/supermarket/tree/master/omnibus/cookbooks/omnibus-supermarket
 
           .. end_tag
 
@@ -35,20 +35,29 @@ Requirements
 A private Chef Supermarket has the following requirements:
 
 * An operational Chef server (version 12.0 or higher) to act as the OAuth 2.0 provider
-* A user account on the Chef server with ``admins`` priviliges
+* A user account on the Chef server with ``admins`` privileges
 * A key for the user account on the Chef server
 * An x86_64 compatible Linux host with at least 1 GB memory
-* Sufficient disk space to meet project cookbook storage capacity or credentials to store cookbooks in an Amazon Simple Storage Service (S3) bucket
+* System clocks synchronized on the Chef server and Supermarket hosts
+* Sufficient disk space on host to meet project cookbook storage capacity **or** credentials to store cookbooks in an Amazon Simple Storage Service (S3) bucket
 
-Chef Identify
+**Considerations with regard to storage capacity:**
+
+* PostgreSQL database size will grow linearly based on the number of cookbooks and the number of cookbook versions published
+* Redis database size is negligible as it is used only for background job queuing, and to cache a small number of API responses
+* Cookbook storage growth is entirely dependent on the size of the cookbooks published. Cookbooks that include binaries or other large files will consume more space than code-only cookbooks
+* Opting to run a private Supermarket with off-host PostgreSQL, Redis, and cookbook store is less a decision about storage sizing; it is about data service uptime, backup, and restore procedure for your organization
+* As a point of reference: as of September 2017 after three years of operation, the public Supermarket has approx 70,000 users, 3,300 cookbooks with a total of 20,000 versions published. The PostgreSQL database weighs in at 310 MB (50 MB when exported with ``pg_dump``), and the S3 bucket containing all of the published community cookbooks weighs in at 2.7 GB
+
+Chef Identity
 =====================================================
-Chef identify is an OAuth 2.0 authentication and authorization service packaged with the Chef server. Chef Supermarket uses Chef identify must be configured to run with a private Chef Supermarket, after which users may use their same credentials to access the Chef Supermarket as they do to access the Chef server.
+Chef Identity (also referred to as **oc-id**) is an OAuth 2.0 authentication and authorization service packaged with the Chef server. Chef Identity must be configured to run with a private Chef Supermarket, after which users may use the same credentials to access the Chef Supermarket as they do to access the Chef server.
 
 .. note:: The Chef Supermarket server must be able to reach (via HTTPS) the specified ``chef_server_url`` during OAuth 2.0 negotiation. This type of issue is typically with name resolution and firewall rules.
 
 Configure
 -----------------------------------------------------
-To configure Chef Supermarket to use Chef identify, do the following:
+To configure Chef Supermarket to use Chef Identity, do the following:
 
 #. Log on to the Chef server via SSH and elevate to an admin-level user. If running a multi-node Chef server cluster, log on to the node acting as the primary node in the cluster.
 #. Update the ``/etc/opscode/chef-server.rb`` configuration file.
@@ -72,7 +81,9 @@ To configure Chef Supermarket to use Chef identify, do the following:
 
       $ sudo chef-server-ctl reconfigure
 
-#. OAuth 2.0 data is located in ``/etc/opscode/oc-id-applications/supermarket.json``:
+#. Retrieve Supermarket's OAuth 2.0 client credentials:
+
+   Depending on your Chef server version and configuration (see `chef-server.rb </config_rb_server_optional_settings.html#config-rb-server-insecure-addon-compat>`__), this can be retrieved via `chef-server-ctl oc-id-show-app supermarket </ctl_chef_server.html#ctl-chef-server-oc-id-show-app>`__ or is located in ``/etc/opscode/oc-id-applications/supermarket.json``:
 
    .. code-block:: javascript
 
@@ -85,9 +96,9 @@ To configure Chef Supermarket to use Chef identify, do the following:
 
    The ``uid`` and ``secret`` values will be needed later on during the setup process for Chef Supermarket.
 
-.. note:: Add as many Chef identify applications to the chef-server.rb configuration file as necessary. A JSON file is generated for each application added, which contains the authentication tokens for that application. The secrets are added to the Chef identify database and are available to all nodes in the Chef server front end group. The generated JSON files do not need to be copied anywhere.
+.. note:: Add as many Chef Identity applications to the ``/etc/opscode/chef-server.rb`` configuration file as necessary. A JSON file is generated for each application added, which contains the authentication tokens for that application. The secrets are added to the Chef Identity database and are available to all nodes in the Chef server front end group. The generated JSON files do not need to be copied anywhere.
 
-.. note:: The redirect URL specified for Chef identify **MUST** match the fqdn hostname of the Chef Supermarket server. The URI must also be correct: ``/auth/chef_oauth2/callback``. Otherwise, an error message similar to ``The redirect uri included is not valid.`` will be shown.
+.. note:: The redirect URL specified **MUST** match the FQDN of the Chef Supermarket server. The URI must also be correct: ``/auth/chef_oauth2/callback``. Otherwise, an error message similar to ``The redirect uri included is not valid.`` will be shown.
 
 Install Supermarket
 =====================================================
@@ -109,14 +120,15 @@ A wrapper cookbook is used to define project- and/or organization-specific requi
 
 In the case of installing a private Chef Supermarket, Chef recommends the use of a wrapper cookbook to specify certain attributes that are unique to your organization, while enabling the use of the generic installer cookbook which, in turn, installs the Chef Supermarket package behind your firewall.
 
-All of the keys under ``node['supermarket_omnibus']`` are written out as ``/etc/supermarket/supermarket.json``. Add other keys as needed to override the default attributes specified in the Chef Supermarket `omnibus package <https://github.com/chef/omnibus-supermarket/blob/master/cookbooks/omnibus-supermarket/attributes/default.rb>`__. For example:
+All of the keys under ``node['supermarket_omnibus']`` are written out as ``/etc/supermarket/supermarket.json``. Add other keys as needed to override the default attributes specified in the Chef Supermarket `omnibus package <https://github.com/chef/supermarket/blob/master/omnibus/cookbooks/omnibus-supermarket/attributes/default.rb>`__. For example:
 
 .. code-block:: ruby
 
-   default['supermarket_omnibus']['chef_server_url'] = 'https://chefserver.mycompany.com'
+   default['supermarket_omnibus']['chef_server_url'] = 'https://chefserver.mycompany.com:443'
    default['supermarket_omnibus']['chef_oauth2_app_id'] = '14dfcf186221781cff51eedd5ac1616'
    default['supermarket_omnibus']['chef_oauth2_secret'] = 'a49402219627cfa6318d58b13e90aca'
    default['supermarket_omnibus']['chef_oauth2_verify_ssl'] = false
+   default['supermarket_omnibus']['fqdn'] = 'supermarket.mycompany.com'
 
 On your workstation, generate a new cookbook using the ``chef`` command line interface:
 
@@ -155,18 +167,18 @@ Define the attributes for the Chef Supermarket installation and how it connects 
 The following attribute values must be defined:
 
 * ``chef_server_url``
-* ``chef_oauth2_app``
+* ``chef_oauth2_app_id``
 * ``chef_oauth2_secret``
 
-You can get the chef_oauth2_app and chef_oauth2_secret values from your Chef server (which you configured earlier in this process) in ``/etc/opscode/oc-id-applications/supermarket.json``:
+Once configured, you can get the ``chef_oauth2_app_id`` and ``chef_oauth2_secret`` values from your Chef server within ``/etc/opscode/oc-id-applications/supermarket.json``:
 
 For ``chef_server_url``, enter in the url for your chef server.
-For ``chef_oauth2_app``, enter in the uid from ``/etc/opscode/oc-id-applications/supermarket.json``
+For ``chef_oauth2_app_id``, enter in the uid from ``/etc/opscode/oc-id-applications/supermarket.json``
 For ``chef_oauth2_secret``, enter in the secret from ``/etc/opscode/oc-id-applications/supermarket.json``
 
 To define these attributes, do the following:
 
-#. Open the ``/recipes/default.rb`` file and add the following, BEFORE the `include_recipe` line that was added in the previous step, (assuming a data bag named ``apps`` and a data bag item named ``supermarket``):
+#. Open the ``/recipes/default.rb`` file and add the following, BEFORE the ``include_recipe`` line that was added in the previous step. This example uses a data bag named ``apps`` and a data bag item named ``supermarket``:
 
    .. code-block:: ruby
 
@@ -176,9 +188,9 @@ To define these attributes, do the following:
 
    .. code-block:: ruby
 
-      node.set['supermarket_omnibus']['chef_server_url'] = app['chef_server_url']
-      node.set['supermarket_omnibus']['chef_oauth2_app'] = app['chef_oauth2_app']
-      node.set['supermarket_omnibus']['chef_oauth2_secret'] = app['chef_oauth2_secret']
+      node.override['supermarket_omnibus']['chef_server_url'] = app['chef_server_url']
+      node.override['supermarket_omnibus']['chef_oauth2_app_id'] = app['chef_oauth2_app_id']
+      node.override['supermarket_omnibus']['chef_oauth2_secret'] = app['chef_oauth2_secret']
 
    When finished, the ``/recipes/default.rb`` file should have code similar to:
 
@@ -186,15 +198,19 @@ To define these attributes, do the following:
 
       app = data_bag_item('apps', 'supermarket')
 
-      node.set['supermarket_omnibus']['chef_server_url'] = app['chef_server_url']
-      node.set['supermarket_omnibus']['chef_oauth2_app'] = app['chef_oauth2_app']
-      node.set['supermarket_omnibus']['chef_oauth2_secret'] = app['chef_oauth2_secret']
+      node.override['supermarket_omnibus']['chef_server_url'] = app['chef_server_url']
+      node.override['supermarket_omnibus']['chef_oauth2_app_id'] = app['chef_oauth2_app_id']
+      node.override['supermarket_omnibus']['chef_oauth2_secret'] = app['chef_oauth2_secret']
 
       include_recipe 'supermarket-omnibus-cookbook'
 
 #. Save and close the ``/recipes/default.rb`` file.
 
-.. note:: If you are running your private Supermarket in AWS, you may need to set an additional attribute for the node's public ip.  i.e. node node.set['supermarket_omnibus']['config']['fqdn'] = your_node_public_ip
+.. note:: If you are running your private Supermarket in AWS, you may need to set an additional attribute for the node's public IP address:
+
+   .. code-block:: ruby
+
+      node.override['supermarket_omnibus']['config']['fqdn'] = your_node_public_ip
 
 Upload the Wrapper
 -----------------------------------------------------
@@ -234,7 +250,7 @@ To upload the cookbooks necessary to install Chef Supermarket, do the following:
 
 Bootstrap Supermarket
 -----------------------------------------------------
-Bootstrap the node on which Chef Supermarket is to be installed. For example, to bootstrap a node runnnig Ubuntu on Amazon Web Services (AWS), the command is similar to:
+Bootstrap the node on which Chef Supermarket is to be installed. For example, to bootstrap a node running Ubuntu on Amazon Web Services (AWS), the command is similar to:
 
 .. code-block:: bash
 
@@ -242,8 +258,8 @@ Bootstrap the node on which Chef Supermarket is to be installed. For example, to
 
 where
 
-* ``-N`` defines the name of the Chef Supermarket node
-* ``-x`` defines the user name: ``supermarket-node``
+* ``-N`` defines the name of the Chef Supermarket node: ``supermarket-node``
+* ``-x`` defines the (ssh) user name: ``ubuntu``
 * ``--sudo`` ensures that sudo is used while running commands on the node during the bootstrap operation
 
 When the bootstrap operation is finished, do the following:
@@ -276,6 +292,61 @@ When the bootstrap operation is finished, do the following:
 
       $ sudo chef-client
 
+Install Supermarket Directly (without a cookbook)
+=====================================================
+While there are many benefits to using the cookbook method to install Supermarket, there are also cases where it's simpler to set up the Supermarket installation manually. These steps will walk you through the process of manually configuring your private Supermarket server.
+
+Before following these steps, be sure to complete the OAuth setup process detailed in the `Chef Identity </install_supermarket.html#chef-identity>`__ section of this guide.  
+
+#. `Download <https://downloads.chef.io/supermarket/>`__ the correct package for your operating system from ``downloads.chef.io``. 
+
+#. Install Supermarket using the appropriate package manager for your distribution:
+
+   * For Ubuntu:
+
+     .. code-block:: bash
+
+        dpkg -i /path/to/package/supermarket*.deb
+
+   * For RHEL / CentOS:
+
+     .. code-block:: bash
+
+        rpm -Uvh /path/to/package/supermarket*.rpm
+
+#. Run the ``reconfigure`` command to complete the initial installation:
+
+   .. code-block:: none
+
+      sudo supermarket-ctl reconfigure
+
+#. Create an ``/etc/supermarket/supermarket.json`` file and add the following information, substituting the values for each configuration option with the OAuth 2.0 client credentials that were created in the `previous section </install_supermarket.html#chef-identity>`__:
+
+   .. code-block:: ruby
+
+      {
+          "chef_server_url": "https://chefserver.mycompany.com",
+          "chef_oauth2_app_id": "0bad0f2eb04e935718e081fb71asdfec3681c81acb9968a8e1e32451d08b",
+          "chef_oauth2_secret": "17cf1141cc971a10ce307611beda7ffadstr4f1bc98d9f9ca76b9b127879",
+          "fqdn": "supermarket.mycompany.com",
+          "chef_oauth2_verify_ssl": false
+      }
+
+   Where:
+
+   * ``"chef_server_url"`` should contain the FQDN of your Chef server. Note that if you're using a non-standard SSL port, this much be appended to the URL. For example: ``https://chefserver.mycompany.com:65400``
+   * ``"chef_oauth2_app_id"`` should contain the ``"uid"`` value from your OAuth credentials
+   * ``"chef_oauth2_secret"`` should contain the ``"secret"`` value from your OAuth credentials
+   * ``chef_oauth2_verify_ssl`` is set to false, which is necessary when using a self-signed certificate without a properly configured certificate authority
+   * ``fqdn`` should contain the desired URL that will be used to access your private Supermarket. If not specified, this default to the FQDN of the machine
+
+ 
+#. Issue another ``reconfigure`` command to apply your changes:
+
+   .. code-block:: none
+
+      sudo supermarket-ctl reconfigure
+
 Connect to Supermarket
 =====================================================
 To reach the newly spun up private Chef Supermarket, the hostname must be resolvable from a workstation. For production use, the hostname should have a DNS entry in an appropriate domain that is trusted by each user's workstation.
@@ -284,7 +355,7 @@ To reach the newly spun up private Chef Supermarket, the hostname must be resolv
 #. If an SSL notice is shown while connecting to Chef Supermarket via a web browser, accept the SSL certificate. A trusted SSL certificate should be used for  private Chef Supermarket that is used in production.
 #. After opening Chef Supermarket in a web browser, click the **Create Account** link. A prompt to log in to the Chef server is shown, but only if the user is not already logged in. Authorize the Chef Supermarket to use the Chef server account for authentication.
 
-.. note:: The redirect URL specified for Chef identify **MUST** match the fqdn hostname of the Chef Supermarket server. The URI must also be correct: ``/auth/chef_oauth2/callback``. Otherwise, an error message similar to ``The redirect uri included is not valid.`` will be shown.
+.. note:: The redirect URL specified for Chef Identity **MUST** match the fqdn hostname of the Chef Supermarket server. The URI must also be correct: ``/auth/chef_oauth2/callback``. Otherwise, an error message similar to ``The redirect uri included is not valid.`` will be shown.
 
 Customize Supermarket
 =====================================================
@@ -296,13 +367,13 @@ A Chef Supermarket installation can use an external database running PostgreSQL 
 
 .. code-block:: ruby
 
-   node.set['supermarket_omnibus']['config']['postgresql']['enable'] = false
-   node.set['supermarket_omnibus']['config']['database']['user'] = 'supermarket'
-   node.set['supermarket_omnibus']['config']['database']['name'] = 'supermarket'
-   node.set['supermarket_omnibus']['config']['database']['host'] = 'yourcompany...rds.amazon.com'
-   node.set['supermarket_omnibus']['config']['database']['port'] = '5432'
-   node.set['supermarket_omnibus']['config']['database']['pool'] = '25'
-   node.set['supermarket_omnibus']['config']['database']['password'] = 'topsecretneverguessit'
+   node.override['supermarket_omnibus']['config']['postgresql']['enable'] = false
+   node.override['supermarket_omnibus']['config']['database']['user'] = 'supermarket'
+   node.override['supermarket_omnibus']['config']['database']['name'] = 'supermarket'
+   node.override['supermarket_omnibus']['config']['database']['host'] = 'yourcompany...rds.amazon.com'
+   node.override['supermarket_omnibus']['config']['database']['port'] = '5432'
+   node.override['supermarket_omnibus']['config']['database']['pool'] = '25'
+   node.override['supermarket_omnibus']['config']['database']['password'] = 'topsecretneverguessit'
 
 External Cache
 -----------------------------------------------------
@@ -310,8 +381,8 @@ Chef Supermarket installations can also use an external cache store. The public 
 
 .. code-block:: ruby
 
-   node.set['supermarket_omnibus']['config']['redis']['enable'] = false
-   node.set['supermarket_omnibus']['config']['redis_url'] = 'redis://your-redis-instance:6379'
+   node.override['supermarket_omnibus']['config']['redis']['enable'] = false
+   node.override['supermarket_omnibus']['config']['redis_url'] = 'redis://your-redis-instance:6379'
 
 External Cookbook Storage
 -----------------------------------------------------
@@ -319,149 +390,9 @@ Cookbook artifacts---tar.gz artifacts that are uploaded to Chef Supermarket when
 
 .. code-block:: ruby
 
-   node.set['supermarket_omnibus']['config']['s3_access_key_id'] = false
-   node.set['supermarket_omnibus']['config']['s3_bucket'] = 'supermarket'
-   node.set['supermarket_omnibus']['config']['s3_access_key_id'] = 'yoursecretaccesskey'
+   node.override['supermarket_omnibus']['config']['s3_access_key_id'] = 'yourkeyid'
+   node.override['supermarket_omnibus']['config']['s3_bucket'] = 'all-our-awesome-cookbooks'
+   node.override['supermarket_omnibus']['config']['s3_region'] = 'some-place-3'
+   node.override['supermarket_omnibus']['config']['s3_secret_access_key'] = 'yoursecretaccesskey'
 
-Run Supermarket in Kitchen
-=====================================================
-To run Chef Supermarket in Kitchen, do the following:
-
-#. Download the ``supermarket-omnibus-cookbook`` cookbook from:
-
-   .. code-block:: bash
-
-      $ git clone https://github.com/irvingpop/supermarket-omnibus-cookbook.git supermarket-omnibus-cookbook
-
-      and then:
-
-      $ cd supermarket-omnibus-cookbook
-
-#. Create a .kitchen.yml file that is local to the repo: ``.kitchen.local.yml`` and then add the following:
-
-   .. code-block:: yaml
-
-      ---
-      suites:
-        - name: default
-          run_list:
-          - recipe[supermarket-omnibus-cookbook::default]
-          attributes:
-            supermarket_omnibus:
-              chef_server_url: https://chefserver.mycompany.com
-              chef_oauth2_app_id: 0bad0f2eb04e935718e081fb71e3b7bb47dc3681c81acb9968a8e1e32451d08b
-              chef_oauth2_secret: 17cf1141cc971a10ce307611beda7f4dc6633bb54f1bc98d9f9ca76b9b127879
-              chef_oauth2_verify_ssl: false
-
-#. Install the ``vagrant-hostupdater`` plugin. This plugin enables automatically adding the names of machines to the ``/etc/hosts`` file. This is important when using OAuth 2.0, which cares about host names. The ``redirect_uri`` value in the Chef identify configuration reflects this name.
-
-   .. code-block:: bash
-
-      $ vagrant plugin install vagrant-hostsupdater
-
-#. Start the Chef Supermarket, and then test it:
-
-   .. code-block:: bash
-
-      $ kitchen converge default-centos-66 && kitchen verify default-centos-66
-
-#. Go to Chef Supermarket, and then log on as a Chef user:
-
-   .. code-block:: html
-
-      https://default-centos-66
-
-#. After logon, the following should be shown:
-
-   .. image:: ../../images/supermarket_onpremises.png
-
-Proxies
------------------------------------------------------
-If Kitchen fails due to being behind a proxy, update the .kitchen.yml file:
-
-.. code-block:: yaml
-
-   ---
-   provisioner:
-     name: chef_zero
-     solo_rb:
-       http_proxy: http://192.168.1.1
-       https_proxy: http://192.168.2.2
-
-Kitchen Runs Slowly
------------------------------------------------------
-If Kitchen has to download and install the chef-client omnibus package every time, do the following to speed that process up:
-
-#. Update the .kitchen.yml file so that Kitchen can cache the omnibus installer:
-
-   .. code-block:: yaml
-
-      ---
-      provisioner:
-        name: chef_zero
-        chef_omnibus_install_options: -d /tmp/vagrant-cache/vagrant_omnibus
-
-#. Cache the Yum repos using the ``vagrant-cachier`` plugin:
-
-   .. code-block:: bash
-
-      $ vagrant plugin install vagrant-cachier
-
-   and then create a ``$VAGRANT_HOME/Vagrantfile``:
-
-   .. code-block:: ruby
-
-      Vagrant.configure("2") do The configuration file to use.
-        config.vm.box = 'some-box'
-        if Vagrant.has_plugin?("vagrant-cachier")
-          config.cache.scope = :box
-          config.cache.enable :chef
-          config.cache.enable :apt
-          config.cache.enable :yum
-          config.cache.enable :gem
-        end
-      end
-
-   and then:
-
-   .. code-block:: bash
-
-      $ cd supermarket-omnibus-cookbook
-
-#. Create a .kitchen.yml file that is local to the repo: ``.kitchen.local.yml`` and then add the following:
-
-   .. code-block:: yaml
-
-      ---
-      suites:
-        - name: default
-          run_list:
-          - recipe[supermarket-omnibus-cookbook::default]
-          attributes:
-            supermarket_omnibus:
-              chef_server_url: https://chefserver.mycompany.com
-              chef_oauth2_app_id: 0bad0f2eb04e935718e081fb71e3b7bb47dc3681c81acb9968a8e1e32451d08b
-              chef_oauth2_secret: 17cf1141cc971a10ce307611beda7f4dc6633bb54f1bc98d9f9ca76b9b127879
-              chef_oauth2_verify_ssl: false
-
-#. Install the ``vagrant-hostupdater`` plugin. This plugin enables automatically adding the names of machines to the ``/etc/hosts`` file. This is important when using OAuth 2.0, which cares about host names. The ``redirect_uri`` value in the Chef identify configuration reflects this name.
-
-   .. code-block:: bash
-
-      $ vagrant plugin install vagrant-hostsupdater
-
-#. Start the Chef Supermarket, and then test it:
-
-   .. code-block:: bash
-
-      $ kitchen converge default-centos-66 && kitchen verify default-centos-66
-
-#. Go to Chef Supermarket, and then log on as a Chef user:
-
-   .. code-block:: html
-
-      https://default-centos-66
-
-#. After logon, the following should be shown:
-
-   .. image:: ../../images/supermarket_onpremises.png
+.. note:: Encrypted S3 buckets are currently not supported. 

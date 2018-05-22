@@ -79,11 +79,23 @@ This configuration file has the following settings:
 ``platform.user``
    The name of the privileged user that manages requests to the Chef server. Default value: ``'pivotal'``.
 
-``platform.key_file``
-   The key file used by the privileged user. Default value: ``'/etc/opscode/webui_priv.pem'``.
-
 ``public_port``
    The port on which the external load balancer will listen. Default value: ``443``.
+
+``recaptcha.enabled``
+   Enable reCAPTCHA for the sign-up page. Default value: ``false``.
+
+``recaptcha.fail_open``
+   If the reCAPTCHA service cannot be reached, allow to sign-up? Default value: ``true``.
+
+``recaptcha.verify_url``
+   Verify-URL of reCAPTCHA service to be used. Default value: ``https://www.google.com/recaptcha/api/siteverify``.
+
+``recaptcha.site_key``
+   The Site Key received from reCAPTCHA.
+
+``recaptcha.secret_key``
+   The Secret Key received from reCAPTCHA.
 
 ``redis.host``
    The host on which Redis runs. Default value: ``localhost``.
@@ -98,7 +110,9 @@ This configuration file has the following settings:
    The amount of time (in seconds) to wait before timing out. Default value: ``30``.
 
 ``secret_token``
-   The secret token used by Ruby on Rails to prevent session tampering. See: http://guides.rubyonrails.org/security.html#session-storage. Default value: (a token).
+   The secret token used by Ruby on Rails to prevent session tampering. See: http://guides.rubyonrails.org/security.html#session-storage. Default value: **generated**.
+
+   To override the default value, use the `Secrets Management </ctl_chef_server.html#ctl-chef-server-secrets-management>`__ commands: ``chef-server-ctl set-secret manage secret_token``.
 
 ``services['opscode-manage-events'].enable``
    Use to enable the ``opscode-manage-events`` service. Default value: ``true``.
@@ -145,26 +159,43 @@ This configuration file has the following settings:
 ``webapp.worker_timeout``
    The amount of time (in seconds) that a worker can be silent before it is killed and restarted. Default value: ``3600``.
 
+Web UI Private Key
+==========================================================================
+Chef Manage uses the Web UI private key for signing requests sent to the Chef server.
+The key is subject to Chef server's `Secrets Management </ctl_chef_server.html#ctl-chef-server-secrets-management>`__, and will be stored in ``/etc/opscode/private-chef-secrets.json``.
+
+Any run of ``chef-server-ctl reconfigure`` will ensure the key exists and is stored without any additional steps.
+
+To verify that the key is stored and ready to use by manage, run:
+
+.. code-block:: bash
+
+   $ chef-server-ctl show-secret chef-server webui_key
+   -----BEGIN RSA PRIVATE KEY-----
+   MIIEpgIBAAKCAQEA3fJ+U+5prsJ8PtnbYzWAq+J2cE48u+iT7t/M9JS+3tlEgf3r
+   1PTl70cW9jOI+kGGvayTKb8Dzqtm0tpQJo7Bv+XX42OylyVF2SN4WvMusT+jtJuF
+   ...
+   -----END RSA PRIVATE KEY-----
+
+
 Example
 ==========================================================================
 The following example shows how the settings look when added to the configuration file:
 
 .. code-block:: ruby
 
-   chef_documentation_url 'https://docs.chef.io'
+   chef_documentation_url ''
    disable_sign_up false
    events.port 11001
    logging.chef_log_level 'info'
    logging.log_level 'info'
    nginx_addon_prefix 30
    platform.user 'pivotal'
-   platform.key_file '/etc/opscode/webui_priv.pem'
    public_port 443
    redis.host 'localhost'
    redis.port 11002
    # redis.url derived from redis.host and redis.port
    runit_timeout 30
-   secret_token 'abcdefghij1234567890KLMNOPQRST1234567890uvwxyzabcd'
    services['opscode-manage-events'].enable true
    services['opscode-manage-webapp'].enable true
    services['opscode-manage-worker'].enable true

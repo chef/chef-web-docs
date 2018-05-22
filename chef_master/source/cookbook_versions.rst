@@ -25,75 +25,6 @@ A version constraint is a string that combines the cookbook version syntax with 
 
 .. note:: Single digit cookbook versions are not allowed. Cookbook versions must specify at least the major and minor version. For example, use ``1.0`` or ``1.0.1``; do not use ``1``.
 
-The following operators can be used with cookbook versions:
-
-.. list-table::
-   :widths: 200 300
-   :header-rows: 1
-
-   * - Operator
-     - Description
-   * - ``=``
-     - equal to
-   * - ``>``
-     - greater than
-   * - ``<``
-     - less than
-   * - ``>=``
-     - greater than or equal to; also known as "optimistically greater than", or "optimistic"
-   * - ``<=``
-     - less than or equal to
-   * - ``~>``
-     - approximately greater than; also known as "pessimistically greater than", or "pessimistic"
-
-For example, a version constraint for "equals version 1.0.7" is expressed like this:
-
-.. code-block:: ruby
-
-   = 1.0.7
-
-A version constraint for "greater than version 1.0.2" is expressed like this:
-
-.. code-block:: ruby
-
-   > 1.0.2
-
-An optimistic version constraint is one that looks for versions greater than or equal to the specified version. For example:
-
-.. code-block:: ruby
-
-   >= 2.6.5
-
-will match cookbooks greater than or equal to 2.6.5, such as 2.6.5, 2.6.7 or 3.1.1.
-
-A pessimistic version constraint is one that will find the upper limit version number within the range specified by the minor version number or patch version number. For example, a pessimistic version constraint for minor version numbers:
-
-.. code-block:: ruby
-
-   ~> 2.6
-
-will match cookbooks that are greater than or equal to version 2.6, but less than version 3.0.
-
-Or, a pessimistic version constraint for patch version numbers:
-
-.. code-block:: ruby
-
-   ~> 2.6.5
-
-will match cookbooks that are greater than or equal to version 2.6.5, but less than version 2.7.0.
-
-Or, a pessimistic version constraint that matches cookbooks less than a version number:
-
-.. code-block:: ruby
-
-   < 2.3.4
-
-or will match cookbooks less than or equal to a specific version number:
-
-.. code-block:: ruby
-
-   <= 2.6.5
-
 .. tag cookbooks_version_constraints_operators
 
 The following operators may be used:
@@ -183,19 +114,6 @@ Versions and version constraints can be specified in a cookbook's metadata.rb fi
 
    * - Function
      - Description
-   * - ``conflicts``
-     - A cookbook conflicts with another cookbook or cookbook version. Use a version constraint to define constraints for cookbook versions: ``<`` (less than), ``<=`` (less than or equal to), ``=`` (equal to), ``>=`` (greater than or equal to), ``~>`` (approximately greater than), or ``>`` (greater than). This field requires that a cookbook with a matching name and version does not exist on the Chef server. When the match exists, the Chef server ensures that any conflicted cookbooks are not included with the set of cookbooks that are sent to the node when the chef-client runs. For example:
-
-       .. code-block:: ruby
-
-          conflicts 'apache2', '< 3.0'
-
-       or:
-
-       .. code-block:: ruby
-
-          conflicts 'daemon-tools'
-
    * - ``depends``
      - Show that a cookbook has a dependency on another cookbook. Use a version constraint to define dependencies for cookbook versions: ``<`` (less than), ``<=`` (less than or equal to), ``=`` (equal to), ``>=`` (greater than or equal to; also known as "optimistically greater than", or "optimistic"), ``~>`` (approximately greater than; also known as "pessimistically greater than", or "pessimistic"), or ``>`` (greater than). This field requires that a cookbook with a matching name and version exists on the Chef server. When the match exists, the Chef server includes the dependency as part of the set of cookbooks that are sent to the node when the chef-client runs. It is very important that the ``depends`` field contain accurate data. If a dependency statement is inaccurate, the chef-client may not be able to complete the configuration of the system. For example:
 
@@ -216,13 +134,7 @@ Versions and version constraints can be specified in a cookbook's metadata.rb fi
           depends 'runit', '~> 1.2.3'
 
    * - ``provides``
-     - Add a recipe, definition, or resource that is provided by this cookbook, should the auto-populated list be insufficient.
-   * - ``recommends``
-     - Add a dependency on another cookbook that is recommended, but not required. A cookbook will still work even if recommended dependencies are not available.
-   * - ``replaces``
-     - Whether this cookbook should replace another (and can be used in-place of that cookbook).
-   * - ``suggests``
-     - Add a dependency on another cookbook that is suggested, but not required. This field is weaker than ``recommends``; a cookbook will still work even when suggested dependencies are not available.
+     - Add a recipe, definition, or resource that is provided by this cookbook, should the auto-populated list be insufficient. New in Chef Client 12.0.
    * - ``supports``
      - Show that a cookbook has a supported platform. Use a version constraint to define dependencies for platform versions: ``<`` (less than), ``<=`` (less than or equal to), ``=`` (equal to), ``>=`` (greater than or equal to), ``~>`` (approximately greater than), or ``>`` (greater than). To specify more than one platform, use more than one ``supports`` field, once for each platform.
 

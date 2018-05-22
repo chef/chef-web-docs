@@ -21,7 +21,7 @@ Options
 =====================================================
 .. note:: .. tag knife_common_see_common_options_link
 
-          Review the list of :doc:`common options </knife_common_options>` available to this (and all) knife subcommands and plugins.
+          Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
           .. end_tag
 
@@ -41,6 +41,8 @@ This subcommand has the following options:
 
 ``--dry-run``
    Prevent changes from being uploaded to the Chef server. Default: ``false``.
+
+   New in Chef Client 12.0.
 
 ``--[no-]force``
    Force the upload of files even if they haven't been changed. Default: ``--no-force``.
@@ -71,7 +73,7 @@ This subcommand has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 

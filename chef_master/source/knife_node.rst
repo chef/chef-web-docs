@@ -1,5 +1,5 @@
 =====================================================
-knife node 
+knife node
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_node.rst>`__
 
@@ -17,7 +17,7 @@ The ``knife node`` subcommand is used to manage the nodes that exist on a Chef s
 
 .. note:: .. tag knife_common_see_common_options_link
 
-          Review the list of :doc:`common options </knife_common_options>` available to this (and all) knife subcommands and plugins.
+          Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
           .. end_tag
 
@@ -105,7 +105,7 @@ When finished, save it.
 
 delete
 =====================================================
-Use the ``delete`` argument to delete a node from the Chef server.
+Use the ``delete`` argument to delete a node from the Chef server. If using Chef client 12.17 or later, you can delete multiple nodes using this subcommand.
 
 .. note:: Deleting a node will not delete any corresponding API clients.
 
@@ -257,7 +257,7 @@ This argument has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 
@@ -280,6 +280,26 @@ to return something similar to:
    i-12345678
    rs-123456
 
+policy set
+=====================================================
+Use the ``policy set`` argument to set the policy group and policy name for a node.
+
+Syntax
+-----------------------------------------------------
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife node policy set NODE POLICY_GROUP POLICY_NAME
+
+Examples
+-----------------------------------------------------
+Set the policy group and policy name for a node named ``test-node``:
+
+.. code-block:: bash
+
+   $ knife node policy set test-node 'test-group' 'test-name'
+
 run_list add
 =====================================================
 .. tag node_run_list
@@ -289,7 +309,7 @@ A run-list defines all of the information necessary for Chef to configure a node
 * An ordered list of roles and/or recipes that are run in the exact order defined in the run-list; if a recipe appears more than once in the run-list, the chef-client will not run it twice
 * Always specific to the node on which it runs; nodes may have a run-list that is identical to the run-list used by other nodes
 * Stored as part of the node object on the Chef server
-* Maintained using knife, and then uploaded from the workstation to the Chef server, or is maintained using the Chef management console
+* Maintained using knife and then uploaded from the workstation to the Chef server, or maintained using Chef Automate
 
 .. end_tag
 
@@ -415,7 +435,7 @@ This argument has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 
@@ -509,7 +529,7 @@ This command does not have any specific options.
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See :doc:`knife.rb </config_rb_knife_optional_settings>` for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 
@@ -654,11 +674,18 @@ This argument has the following options:
 ``-a ATTR``, ``--attribute ATTR``
    The attribute (or attributes) to show.
 
+``-F json``, ``--format=json``
+   Display output as JSON.
+
 ``-l``, ``--long``
-   Display all attributes in the output and show the output as JSON.
+   Display all attributes in the output.
+
+   New in Chef Client 12.0.
 
 ``-m``, ``--medium``
-   Display normal attributes in the output and to show the output as JSON.
+   Display normal attributes in the output.
+
+   New in Chef Client 12.0.
 
 ``-r``, ``--run-list``
    Show only the run-list.

@@ -3,7 +3,7 @@ Custom Resources Notes
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/custom_resources_notes.rst>`__
 
-.. warning:: This page mentions multiple ways of building custom resources. Chef recommends you try the approach outlined at https://docs.chef.io/custom_resources.html first before trying the resource/provider pair (older approach), or library type (pure Ruby) approaches. If you run into issues while designing 12.5-style custom resources, please ask for help in https://discourse.chef.io or file a bug with the chef-client https://github.com/chef/chef.
+.. warning:: This page mentions multiple ways of building custom resources. Chef recommends you try the approach outlined in the `Custom Resource documentation </custom_resources.html>`__ first, before trying the resource/provider pair (older approach) or library type (pure Ruby) approaches. If you run into issues while designing 12.5-style custom resources, please ask for help in the `Chef Mailing List <https://discourse.chef.io>`__ or `file a bug <https://github.com/chef/chef/issues/new>`__ for the Chef Client.
 
 .. adapted literally from this gist: https://gist.github.com/lamont-granquist/8cda474d6a31fadd3bb3b47a66b0ae78
 
@@ -11,8 +11,7 @@ Custom Resources 12.5-style
 =====================================================
 This is the recommended way of writing resources for all users. There are two gotchas which we're working through:
 
-#. For helper functions that you used to write in your provider code or used to mixin to your provider code, you have to use an ``action_class do ... end`` block.
-#. The 12.5 resources allow for a shorthand notation in provider code where you can refer to properties by their bare name ``my_property`` and it works most of the time.  Since it does not work all the time (because of the way Ruby scopes things), its recommended to stick to referring to properties by ``new_resource.my_property``.
+#. For helper functions that you used to write in your provider code or used to mixin to your provider code, you have to use an ``action_class.class_eval do ... end`` block.
 
 You cannot subclass, and must use mixins for code-sharing (which is really a best practice anyway -- e.g. see languages like rust which do not support subclassing).
 
@@ -26,13 +25,6 @@ in ``resources/whatever.rb``:
    property :foo, String, name_property: true
    extend MyResourceHelperFunctions  # probably only used for common properties which is why you extend with class methods
 
-   action_class do
-     include MyProviderHelperFunctions
-
-     def a_helper
-     end
-   end
-
    action :run do
      # helpers must be defined inside the action_class block
      a_helper()
@@ -42,9 +34,16 @@ in ``resources/whatever.rb``:
      puts new_resource.foo
    end
 
+   action_class.class_eval do
+     include MyProviderHelperFunctions
+
+     def a_helper
+     end
+   end
+
 "Old school" LWRPS
 =====================================================
-This method is preferable to writing library providers. It has the same functionality as library providers, only you cannot subclass and must use mixins for code sharing (which is good).
+This method is not recommended, but is preferable to writing library resources/providers (as described below). It has the same functionality as library providers, only you cannot subclass and must use mixins for code sharing (which is good).
 
 in ``resources/my_resource.rb``:
 
@@ -59,8 +58,6 @@ in ``resources/my_resource.rb``:
 in ``providers/my_resource.rb``:
 
 .. code-block:: ruby
-
-   use_inline_resources  # you still have to do this, if you don't notifications off of this resource will be broken
 
    # you have to worry about this
    def whyrun_supported?
@@ -108,8 +105,6 @@ in ``libraries/resource_my_resource.rb``:
      class Resource
        class MyProvider < Chef::Provider::LWRPBase  # it is very important to inherit from LWRPBase
 
-         use_inline_resources  # you still have to do this, if you don't notifications off of this resource will be broken
-
          # you have to worry about this
          def whyrun_supported?
            true
@@ -156,8 +151,6 @@ THIS IS CORRECT:
 
 .. code-block:: ruby
 
-   use_inline_resources
-
    def whyrun_supported?
      true
    end
@@ -176,8 +169,6 @@ If you do need to write code which mutates the system through pure-Ruby then you
 
 .. code-block:: ruby
 
-   use_inline_resources
-
    def whyrun_supported?
      true
    end
@@ -190,9 +181,11 @@ If you do need to write code which mutates the system through pure-Ruby then you
      end
    end
 
-The ``converge_by`` block gets why-run correct and will just touch "/tmp/foo" instead of actually doing it. The ``converge_by`` block is also responsible for setting ``update_by_last_action``.
+When the ``converge_by`` block is run in why-run mode, it will only log ``touch "/tmp/foo"`` and will not run the code inside the block. 
 
-In order to use ``converge_by`` correctly you must ensure that you wrap the ``converge_by`` with an idempotency check otherwise your resource will be updated every time it is used and will always fire notifications on every run.
+A ``converge_by`` block that is not wrapped in an idempotency check will always cause the resource to be updated,
+and will always cause notifications to fire.  To prevent this, a properly written resource should wrap all
+``converge_by`` checks with an  idempotency check.  The [``converge_if_changed``](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/custom_resources.rst#converge_if_changed) block may be used instead  which will wrap a ``converge_by`` block with an idempotency check for you.
 
 .. code-block:: ruby
 
@@ -231,4 +224,3 @@ You may see a lot of ``converge_by`` and ``updated_by_last_action`` in the core 
 compat_resources Cookbook
 =====================================================
 Use the ``compat_resources`` cookbook (https://github.com/chef-cookbooks/compat_resource) to assist in converting cookbooks that use the pre-12.5 custom resource model to the new one. Please see the readme in that cookbook for the steps needed.
-

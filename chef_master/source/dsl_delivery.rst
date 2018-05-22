@@ -254,8 +254,8 @@ The following Chef Automate-specific helpers can be used in recipes:
         }
       }
 
-   This ``publish`` option requires the ``supermarket_user`` and ``supermarket_key`` credentials to be available from the 
-   ``delivery-secrets`` data bag on the Chef server that is part of this Chef Automate configuration. For more information on the ``delivery-secrets`` data bag, 
+   This ``publish`` option requires the ``supermarket_user`` and ``supermarket_key`` credentials to be available from the
+   ``delivery-secrets`` data bag on the Chef server that is part of this Chef Automate configuration. For more information on the ``delivery-secrets`` data bag,
    see `Handling Secrets <https://github.com/chef-cookbooks/delivery-sugar#handling-secrets-alpha>`_ in the ``delivery-sugar`` cookbook README file.
 
    .. end_tag
@@ -303,7 +303,7 @@ Use attributes from the ``node['delivery']['change']`` namespace to get details 
 
 Project Configuration
 -----------------------------------------------------
-Use attributes from the ``node['delivery']['config']`` namespace to get :doc:`configuration settings from the .delivery/config.json file </config_json_delivery>`.
+Use attributes from the ``node['delivery']['config']`` namespace to get `configuration settings from the .delivery/config.json file </config_json_delivery.html>`__.
 
 ``['build-cookbook']``
    Use ``node['delivery']['config']['build-cookbook']`` for the contents of the ``"build-cookbook"`` configuration setting.
@@ -328,7 +328,7 @@ Use attributes from the ``node['delivery']['config']`` namespace to get :doc:`co
 
 Workspace
 -----------------------------------------------------
-Use attributes from the ``node['delivery']['workspace']`` namespace to get paths to workspace directories on a build node.
+Use attributes from the ``node['delivery']['workspace']`` namespace to get paths to workspace directories on a build node/runner.
 
 ``cache``
    Use ``node['delivery']['workspace']['cache']`` for the ``/cache`` directory.

@@ -13,16 +13,14 @@ knife is a command-line tool that provides an interface between a local chef-rep
 
 * Nodes
 * Cookbooks and recipes
-* Roles
-* Stores of JSON data (data bags), including encrypted data
-* Environments
-* Cloud resources, including provisioning
-* The installation of the chef-client on management workstations
+* Roles, Environments, and Data Bags
+* Resources within various cloud environments
+* The installation of the chef-client onto nodes
 * Searching of indexed data on the Chef server
 
 .. end_tag
 
-knife plugins for cloud hosting platforms--- `knife azure <https://docs.chef.io/plugin_knife_azure.html>`_, `knife bluebox <https://docs.chef.io/plugin_knife_bluebox.html>`_, `knife ec2 <https://docs.chef.io/plugin_knife_ec2.html>`_, `knife eucalyptus <https://docs.chef.io/plugin_knife_eucalyptus.html>`_, `knife google <https://docs.chef.io/plugin_knife_google.html>`_, `knife linode <https://docs.chef.io/plugin_knife_linode.html>`_, `knife openstack <https://docs.chef.io/plugin_knife_openstack.html>`_, `knife rackspace <https://docs.chef.io/plugin_knife_rackspace.html>`_, and `knife terremark <https://docs.chef.io/plugin_knife_terremark.html>`_ ---are built and maintained by Chef.
+knife plugins for cloud hosting platforms--- `knife azure <https://github.com/chef/knife-azure>`_, `knife bluebox <https://github.com/chef-boneyard/knife-bluebox>`_, `knife ec2 <https://github.com/chef/knife-ec2>`_, `knife eucalyptus <https://github.com/chef-boneyard/knife-eucalyptus>`_, `knife google <https://github.com/chef/knife-google>`_, `knife linode <https://github.com/chef/knife-linode>`_, `knife openstack <https://github.com/chef/knife-openstack>`_, and `knife rackspace <https://github.com/chef/knife-rackspace>`_, ---are built and maintained by Chef.
 
 The following table lists knife plugins built by the Chef community.
 
@@ -88,6 +86,8 @@ The following table lists knife plugins built by the Chef community.
      - Adds Linux support for KVM.
    * - `knife-lastrun <https://github.com/jgoulah/knife-lastrun>`_
      - Adds key metrics from the last chef-client run on a given node.
+   * - `knife-oci <https://github.com/oracle/knife-oci>`_
+     - Adds support for Oracle Cloud Infrastructure.
    * - `knife-ohno <https://github.com/lnxchk/Ohno>`_
      - Adds the ability to view nodes that haven't checked into the platform for N hours.
    * - `knife-oktawave <https://github.com/marek-siemdaj/knife-oktawave>`_
@@ -115,7 +115,7 @@ The following table lists knife plugins built by the Chef community.
    * - `knife-santoku <https://github.com/knuckolls/knife-santoku>`_
      - Adds the ability to build processes around the chef-client.
    * - `knife-select <https://github.com/hpcloud/knife-select>`_
-     - Adds the ability for selecting the chef server or organisation to interact with.
+     - Adds the ability for selecting the chef server or organization to interact with.
    * - `knife-server <https://github.com/fnichol/knife-server>`_
      - Adds the ability to manage a Chef server, including bootstrapping a Chef server on Amazon EC2 or a standalone server and backing up and/or restoring node, role, data bag, and environment data.
    * - `knife-set-environment <https://gist.github.com/961827>`_
@@ -145,20 +145,22 @@ Ohai
 =====================================================
 .. tag ohai_summary
 
-Ohai is a tool that is used to detect attributes on a node, and then provide these attributes to the chef-client at the start of every chef-client run. Ohai is required by the chef-client and must be present on a node. (Ohai is installed on a node as part of the chef-client install process.)
+Ohai is a tool that is used to collect system configuration data, which is provided to the chef-client for use within cookbooks. Ohai is run by the chef-client at the beginning of every Chef run to determine system state. Ohai includes many built-in plugins to detect common configuration details as well as a plugin model for writing custom plugins.
 
-The types of attributes Ohai collects include (but are not limited to):
+The types of attributes Ohai collects include but are not limited to:
 
-* Platform details
-* Network usage
-* Memory usage
-* CPU data
-* Kernel data
+* Operating System
+* Network
+* Memory
+* Disk
+* CPU
+* Kernel
 * Host names
 * Fully qualified domain names
-* Other configuration details
+* Virtualization
+* Cloud provider metadata
 
-Attributes that are collected by Ohai are automatic attributes, in that these attributes are used by the chef-client to ensure that these attributes remain unchanged after the chef-client is done configuring the node.
+Attributes that are collected by Ohai are automatic level attributes, in that these attributes are used by the chef-client to ensure that these attributes remain unchanged after the chef-client is done configuring the node.
 
 .. end_tag
 
@@ -170,12 +172,8 @@ The following Ohai plugins are available from the open source community:
 
    * - Plugin
      - Description
-   * - `chef-ohai-mdadm <https://github.com/tas50/chef-ohai-mdadm>`_
-     - Adds output for mdadm software RAID volumes.
    * - `dell.rb <https://github.com/demonccc/chef-ohai-plugins/blob/master/dell.rb>`_
      - Adds some useful Dell server information to Ohai. For example: service tag, express service code, storage info, RAC info, and so on. To use this plugin, OMSA and SMBIOS applications need to be installed.
-   * - `dpkg.rb <https://github.com/demonccc/chef-ohai-plugins/blob/master/linux/dpkg.rb>`_
-     - Adds dpkg info to Ohai so that information about the status of Debian packages and various installed packages can be collected.
    * - `ipmi.rb <https://bitbucket.org/retr0h/ohai>`_
      - Adds a MAC address and an IP address to Ohai, where available.
    * - `kvm_extensions.rb <https://github.com/albertsj1/ohai-plugins/blob/master/kvm_extensions.rb>`_
@@ -229,8 +227,6 @@ The following open source handlers are available from the Chef community:
      - A handler that asynchronously pushes exception and report handler data to a STOMP queue, from which data can be processed into data storage.
    * - `Campfire <https://github.com/ampledata/chef-handler-campfire>`_
      - A handler that collects exception and report handler data and reports it to Campfire, a web-based group chat tool.
-   * - `Cloudkick <https://github.com/ampledata/chef-handler-campfire>`_
-     - A handler that collects exception and report handler data and sends it to Cloudkick, a set of cloud server monitoring and management tools.
    * - `Datadog <https://github.com/DataDog/chef-handler-datadog>`_
      - A handler that collects chef-client stats and sends them into a DATADOG newsfeed.
    * - `Flowdock <https://github.com/mmarschall/chef-handler-flowdock>`_
@@ -294,19 +290,15 @@ The following plugins are available for the chef-client:
      - Adds the ability to use Jenkins to drive continuous deployment and synchronization of environments from a git repository.
    * - `chef-rundeck <http://rubygems.org/gems/chef-rundeck>`_
      - Adds a resource endpoint for Rundeck.
-   * - `chef-solo-search <https://github.com/edelight/chef-solo-search>`_
-     - Adds a cookbook library that enables searching of data bags when using chef-solo.
    * - `chef-trac-hacks <http://trac-hacks.org/wiki/CloudPlugin>`_
      - Adds the ability to fill a coordination gap between Amazon Web Services (AWS) and the chef-client.
    * - `chef-vim <https://github.com/t9md/vim-chef>`_
      - Adds a plugin that makes cookbook navigation quick and easy.
    * - `chef-vpc-toolkit <https://github.com/rackerlabs/chef_vpc_toolkit>`_
      - Adds a set of Rake tasks that provide a framework that helps automate the creation and configuration of identical virtual server groups in the cloud.
-   * - `ironfan <https://github.com/infochimps-labs/ironfan>`_
-     - Adds the ability to orchestrate complete clusters of machines using an expressive toolset that helps construct scalable and resilient architectures.
    * - `jclouds-chef <https://github.com/jclouds/jclouds-chef>`_
      - Adds Java and Clojure components to the Chef server API REST API.
    * - `kitchenplan <https://github.com/kitchenplan/kitchenplan>`_
-     - A utility for automating the installation and configuration of a workstation on Mac OS X.
+     - A utility for automating the installation and configuration of a workstation on macOS.
    * - `stove <https://github.com/sethvargo/stove>`_
      - A utility for releasing and managing cookbooks.

@@ -9,11 +9,11 @@ Submitting Issues
 =====================================================
 Not every contribution comes in the form of code. Submitting, confirming, and triaging issues is an important task for any project. At Chef we use GitHub to track all project issues.
 
-If you are familiar with Chef and know the component, that is causing you a problem, you can file an issue in the corresponding GitHub project. All of our Open Source Software can be found in our GitHub organization at <https://github.com/chef>. All projects include GitHub issue templates to help gather information needed for a thorough review.
+If you are familiar with Chef and know the component, that is causing you a problem, you can file an issue in the corresponding GitHub project. All of our Open Source Software can be found in our GitHub organization at https://github.com/chef. All projects include GitHub issue templates to help gather information needed for a thorough review.
 
-We ask you not to submit security concerns via GitHub. For details on submitting potential security issues please see <https://www.chef.io/security/>
+We ask you not to submit security concerns via GitHub. For details on submitting potential security issues please see https://www.chef.io/security/.
 
-In addition to GitHub issues, we also utilize a feedback site that helps our product team track and rank feature requests. If you have a feature request, this is an excellent place to start <https://feedback.chef.io>
+In addition to GitHub issues, we also utilize a feedback site that helps our product team track and rank feature requests. If you have a feature request, this is an excellent place to start: https://feedback.chef.io.
 
 The following repositories are the preferred locations for the creation of issues and bug reports:
 
@@ -31,8 +31,6 @@ The following repositories are the preferred locations for the creation of issue
      - https://github.com/chef/chef-dk
    * - Chef Server
      - https://github.com/chef/chef-server
-   * - Chef Manage
-     - https://github.com/chef/chef-manage-issues
    * - Chef Push Jobs
      - https://github.com/chef/chef-push
    * - Chef Automate
@@ -42,13 +40,13 @@ For additional support about Chef products, including documentation, learning, a
 
 .. warning:: If you require a response from Chef per the terms of a support level agreement (SLA), please contact `Chef Support <https://www.chef.io/support/>`_ directly.
 
-.. note:: Questions on how to use Chef should be sent as Support Tickets if you have an SLA, or asked on the `Chef Mailing List <https://discourse.chef.io/>`_, `Stack Overflow <http://stackoverflow.com/questions/tagged/chef>`_, or `Slack <https://community-slack.chef.io/>`_. Bug Trackers are not appropriate for general purpose questions that are not bugs.
+.. note:: Questions on how to use Chef should be sent as Support Tickets if you have an SLA, or asked on the `Chef Mailing List <https://discourse.chef.io/>`_, or `Chef Community Slack <https://community-slack.chef.io/>`_. Bug Trackers are not appropriate for general purpose questions that are not bugs.
 
 Contribution Process
 =====================================================
 We have a 3 step process for contributions:
 
-#. Commit changes to a git branch, making sure to sign-off those changes for the Developer Certificate of Origin.
+#. Commit changes to a git branch, making sure to sign-off those changes for the Developer Certificate of Origin with ``git commit -s``
 #. Create a GitHub Pull Request for your change, following the instructions in the pull request template.
 #. Perform a Code Review with the project maintainers on the pull request.
 
@@ -83,9 +81,9 @@ Developer Certification of Origin (DCO)
 
 To make a good faith effort to ensure the criteria of the Apache License are met, Chef requires the Developer Certificate of Origin (DCO) process to be followed.
 
-The DCO is an attestation attached to every contribution made by every developer. In the commit message of the contribution, the developer simply adds a Signed-off-by statement and thereby agrees to the DCO, which you can find below or at <http://developercertificate.org/>.
+The DCO is an attestation attached to every contribution made by every developer. In the commit message of the contribution, the developer simply adds a Signed-off-by statement and thereby agrees to the DCO, which you can find below or at http://developercertificate.org/.
 
-.. code-block:: bash
+.. code-block:: console
 
     Developer's Certificate of Origin 1.1
 
@@ -114,7 +112,11 @@ The DCO is an attestation attached to every contribution made by every developer
         consistent with this project or the open source license(s)
         involved.
 
-Chef does not merge any pull requests made against an Chef-managed open source repository until each commit has been signed for the DCO, with two exceptions: "Obvious Fixes" and pull requests made against the documentation repository (https://github.com/chef/chef-web-docs).
+Chef does not merge any pull requests made against an Chef-managed open source repository until each commit has been signed for the DCO, with three exceptions:
+
+* "Obvious Fixes" (as described below)
+* Pull requests made against the docs.chef.io documentation repository (https://github.com/chef/chef-web-docs)
+* Pull requests that contain only documentation updates made against projects where the documentation is embedded in the project's repository (i.e. the ``docs`` directory in the ``chef/inspec`` repository)
 
 The "Obvious Fix" Rule
 =====================================================
@@ -164,7 +166,7 @@ As a rule of thumb, changes are obvious fixes if they do not introduce any new f
 * Changes to words or phrases isolated from their context;
 * Changes to typeface.
 
-Things that would still require signing a CLA before submitting would likely include stuff like the following:
+Things that would still require a DCO sign-off before submitting would likely include stuff like the following:
 
 * Any of the above actions that result in a change in functionality;
 * A new feature;
@@ -173,16 +175,10 @@ Things that would still require signing a CLA before submitting would likely inc
 
 Use git
 =====================================================
-.. tag chef_repo_git
-
 Chef is maintained on GitHub. To contribute to Chef, such as submitting a pull request, requires using GitHub and git. The sections below describe how to use git to set up the Chef repository, keep it current and synchronized, and how to use branches to submit pull requests.
-
-.. end_tag
 
 Set Up Repo
 -----------------------------------------------------
-.. tag chef_repo_git_master_setup
-
 Use the following steps to set up a development repository for Chef:
 
 #. Set up a GitHub account.
@@ -237,12 +233,8 @@ Use the following steps to set up a development repository for Chef:
 
       $ git config branch.master.remote chef
 
-.. end_tag
-
 Keep Master Current
 -----------------------------------------------------
-.. tag chef_repo_git_master_keep_current
-
 Use the following steps to keep the master branch up to date.
 
 #. Run:
@@ -274,12 +266,8 @@ The following ``rakefile`` can be used to update Chef, Ohai, and cookbooks. Edit
      end
    end
 
-.. end_tag
-
 Sync Master
 -----------------------------------------------------
-.. tag chef_repo_git_master_sync
-
 Use the following steps to synchronize the master branch.
 
 #. Run:
@@ -296,17 +284,13 @@ Use the following steps to synchronize the master branch.
 
    .. note:: Use ``rebase`` instead of ``merge`` to ensure that a linear history is maintained that does not include unnecessary merge commits. ``rebase`` will also rewind, apply, and then reapply commits to the ``master`` branch.
 
-.. end_tag
-
 Use Branch
 -----------------------------------------------------
-.. tag chef_repo_git_branch
-
 Commits to the Chef repositories should never be made against the master branch. Use a topic branch instead. A topic branch solves a single and unique problem and often maps closely to an issue being tracked in the repository. For example, a topic branch to add support for a new init system or a topic branch to resolve a bug that occurs in a specific version of CentOS. Ideally, a topic branch is named in a way that associates it closely with the issue it is attempting to resolve. This helps ensure that others may easily find it.
 
 Use the following steps to create a topic branch:
 
-#. For a brand new clone of the Chef repository (that was created using the steps listed earlier), fetch the ``opscode`` remote:
+#. For a brand new clone of the Chef repository (that was created using the steps listed earlier), fetch the ``chef`` remote:
 
    .. code-block:: bash
 
@@ -330,7 +314,7 @@ Use the following steps to create a topic branch:
 
    .. code-block:: bash
 
-      $ git commit <filespec>
+      $ git commit -s <filespec>
 
 #. Rebase the commits against ``chef/master``. After work in the topic branch is finished, rebase these commits against the upstream master. Do this manually with ``git fetch`` followed by a ``git rebase`` or use ``git pull --rebase``.
 
@@ -362,12 +346,8 @@ Use the following steps to create a topic branch:
 
 #. Send a GitHub pull request for the changes, and then update the Chef ticket with the appropriate information.
 
-.. end_tag
-
 Delete Branch
 -----------------------------------------------------
-.. tag chef_repo_git_branch_delete
-
 After work has been merged by the branch maintainer, the topic branch is no longer necessary and should be removed.
 
 #. Synchronize the local master:
@@ -403,5 +383,4 @@ After work has been merged by the branch maintainer, the topic branch is no long
 
       $ git push origin :CHEF-XX
 
-.. end_tag
 

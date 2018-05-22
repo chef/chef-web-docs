@@ -1,5 +1,5 @@
 =====================================================
-knife recipe list 
+knife recipe list
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_recipe_list.rst>`__
 
@@ -21,7 +21,7 @@ Options
 =====================================================
 .. note:: .. tag knife_common_see_common_options_link
 
-          Review the list of :doc:`common options </knife_common_options>` available to this (and all) knife subcommands and plugins.
+          Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
           .. end_tag
 
@@ -46,4 +46,4 @@ to return:
    couchdb::main_monitors
    couchdb::master
    couchdb::default
-   couchdb::org_cleanu
+   couchdb::org_cleanup

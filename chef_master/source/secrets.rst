@@ -171,6 +171,8 @@ Encrypt a Data Bag Item
 
 A data bag item may be encrypted using `shared secret encryption <https://en.wikipedia.org/wiki/Symmetric-key_algorithm>`_. This allows each data bag item to store confidential information (such as a database password) or to be managed in a source control system (without plain-text data appearing in revision history). Each data bag item may be encrypted individually; if a data bag contains multiple encrypted data bag items, these data bag items are not required to share the same encryption keys.
 
+.. note:: Because the contents of encrypted data bag items are not visible to the chef-server, search queries against data bags with encrypted items will not return any results.
+
 .. end_tag
 
 Encryption Versions
@@ -312,12 +314,6 @@ that will return JSON output similar to:
    }
 
 .. end_tag
-
-.. 
-.. Store Keys on Nodes
-.. +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. .. include:: ../../includes_data_bag/includes_data_bag_encryption_store_on_nodes.rst
-..
 
 Edit a Data Bag Item
 -----------------------------------------------------
@@ -463,7 +459,7 @@ The following recipe can be used to create a user for each administrator by load
        uid       admin['uid']
        gid       admin['gid']
        shell     admin['shell']
-       comment   admin['comment'] 
+       comment   admin['comment']
        home      home
        manage_home true
      end
@@ -523,7 +519,7 @@ When using the data bag in a recipe, that data can be accessed from a recipe usi
 
 .. code-block:: ruby
 
-   bag_item[node.chef_environment]['some_other_key']
+   data_bag_item[node.chef_environment]['some_other_key']
 
 The other approach is to use separate items for each environment. Depending on the amount of data, it may all fit nicely within a single item. If this is the case, then creating different items for each environment may be a simple approach to providing per-environment values within a data bag. However, this approach is more time-consuming and may not scale to very large environments or when the data must be stored in many data bag items.
 
@@ -559,7 +555,7 @@ To load the secret from a file:
 
    data_bag_item('bag', 'item', IO.read('secret_file'))
 
-To load a single data bag item named ``justin``:
+To load a single data bag item named ``admins``:
 
 .. code-block:: ruby
 
@@ -611,7 +607,7 @@ To create a data bag item from a recipe:
    }
    databag_item = Chef::DataBagItem.new
    databag_item.data_bag('users')
-   databag_item.raw_data = sam 
+   databag_item.raw_data = sam
    databag_item.save
 
 To edit the contents of a data bag item from a recipe:

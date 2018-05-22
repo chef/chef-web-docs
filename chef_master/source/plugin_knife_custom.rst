@@ -5,7 +5,7 @@ Custom Knife Plugins
 
 .. tag plugin_knife_summary
 
-A knife plugin is a set of one (or more) subcommands that can be added to knife to support additional functionality that is not built-in to the base set of knife subcommands. Many of the knife plugins are built by members of the Chef community and several of them are built and maintained by Chef. A knife plugin is installed to the ``~/.chef/plugins/knife/`` directory, from where it can be run just like any other knife subcommand.
+A knife plugin is a set of one (or more) subcommands that can be added to knife to support additional functionality that is not built-in to the base set of knife subcommands. Many of the knife plugins are built by members of the Chef community and several of them are built and maintained by Chef.
 
 .. end_tag
 
@@ -533,7 +533,7 @@ The ``ui`` object provides a set of methods that can be used to define user inte
    * - Method
      - Description
    * - ``ui.ask(*args, &block)``
-     - 
+     -
    * - ``ui.ask_question(question, opts={})``
      - Use to ask a user the question contained in ``question``. If ``:default => default_value`` is passed as the second argument, ``default_value`` will be used if the user does not provide an answer. This method will respect the ``--default`` command-line option.
    * - ``ui.color(string, *colors)``
@@ -569,7 +569,7 @@ The ``ui`` object provides a set of methods that can be used to define user inte
    * - ``ui.edit_data(data, parse_output=true)``
      - Use to edit data. This opens the $EDITOR.
    * - ``ui.edit_object(klass, name)``
-     - 
+     -
    * - ``ui.error``
      - Use to present an error to the user.
    * - ``ui.fatal``
@@ -581,7 +581,7 @@ The ``ui`` object provides a set of methods that can be used to define user inte
    * - ``ui.interchange``
      - Use to determine if the output is a data interchange format such as JSON or YAML.
    * - ``ui.list(*args)``
-     - 
+     -
    * - ``ui.msg(message)``
      - Use to present a message to the user.
    * - ``ui.output(data)``
@@ -635,4 +635,3 @@ To install a knife plugin from a file, do one of the following:
 * Copy the file to the ``~/.chef/plugins/knife`` directory; the file's extension must be ``.rb``
 * Add the file to the chef-repo at the ``CHEF_REPO/.chef/plugins/knife``; the file's extension must be ``.rb``
 * Install the plugin from RubyGems
-

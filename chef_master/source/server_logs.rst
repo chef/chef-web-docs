@@ -51,7 +51,7 @@ Another common approach to tailing the log files for a service is to use the sys
 
 Supervisor
 =====================================================
-Supervisor logs are created and managed directly by the service supervisor, and are automatically rotated when a the current log file reaches 1,000,000 bytes. 10 log files are kept. The latest supervisor log is always located in ``/var/log/chef-server/service_name/current`` and rotated logs have a filename starting with ``@`` followed by a precise ``tai64n`` timestamp based on when the file was rotated.
+Supervisor logs are created and managed directly by the service supervisor, and are automatically rotated when the current log file reaches 1,000,000 bytes. 10 log files are kept. The latest supervisor log is always located in ``/var/log/chef-server/service_name/current`` and rotated logs have a filename starting with ``@`` followed by a precise ``tai64n`` timestamp based on when the file was rotated.
 
 Supervisor logs are available for the following services:
 
@@ -72,11 +72,11 @@ Nginx is an important entry point for data on the Chef server, which means that 
 
 .. code-block:: none
 
-   175.185.9.6 - - [12/Jul/2013:15:56:54 +0000] "GET 
-   /organizations/exampleorg/data/firewall/nova_api HTTP/1.1" 200 
-   "0.850" 452 "-" "Chef Client/0.10.2 (ruby-1.8.7-p302; ohai-0.6.4; 
-   x86_64-linux; +http://opscode.com)" "127.0.0.1:9460" "200" 
-   "0.849" "0.10.2" "version=1.0" "some_node.example.com" 
+   175.185.9.6 - - [12/Jul/2013:15:56:54 +0000] "GET
+   /organizations/exampleorg/data/firewall/nova_api HTTP/1.1" 200
+   "0.850" 452 "-" "Chef Client/0.10.2 (ruby-1.8.7-p302; ohai-0.6.4;
+   x86_64-linux; +http://opscode.com)" "127.0.0.1:9460" "200"
+   "0.849" "0.10.2" "version=1.0" "some_node.example.com"
    "2013-07-12T15:56:40Z" "2jmj7l5rSw0yVb/vlWAYkK/YBwk=" 985
 
 where important fields in this log include:
@@ -185,16 +185,16 @@ A sample log line:
 
 .. code-block:: bash
 
-   192.168.4.1 - - [17/Feb/2012:16:02:42 -0800]  
-     "GET /organizations/nginx/cookbooks HTTP/1.1" 200 
-     "0.346" 12 "-" 
-     "Chef Knife/0.10.4 (ruby-1.9.3-p0; 
-                         ohai-0.6.10; 
-                         x86_64-darwin11.2.0; 
+   192.0.2.0 - - [17/Feb/2012:16:02:42 -0800]
+     "GET /organizations/nginx/cookbooks HTTP/1.1" 200
+     "0.346" 12 "-"
+     "Chef Knife/0.10.4 (ruby-1.9.3-p0;
+                         ohai-0.6.10;
+                         x86_64-darwin11.2.0;
                          +http://opscode.com
-                         )" 
-     "127.0.0.1:9460" "200" "0.339" "0.10.4" 
-     "version=1.0" "adam" "2012-02-18T00:02:42Z" 
+                         )"
+     "127.0.0.1:9460" "200" "0.339" "0.10.4"
+     "version=1.0" "adam" "2012-02-18T00:02:42Z"
      "2jmj7l5rSw0yVb/vlWAYkK/YBwk=" 871
 
 Field descriptions:
