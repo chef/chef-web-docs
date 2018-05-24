@@ -51,7 +51,7 @@ Step 2: Configure your Chef server to point to Chef Automate
 -----------------------------------------------------------------
 In addition to forwarding Chef run data to Automate, Chef server will send messages to Chef Automate whenever an action is taken on a Chef server object, such as when a cookbook is uploaded to the Chef server or when a user edits a role.
 
-.. warning:: Please disable the Ohai Passwd and Sessions plugins on your nodes in ``/etc/chef/client.rb`` or using the chef-client cookbook to keep the data being sent to your Automate system to a minimum. This will improve search performance and significantly reduce the disk space requirements.
+.. warning:: Please disable the Ohai Passwd and Sessions plugins on your nodes in ``/etc/chef/client.rb`` or using the chef-client cookbook to keep the data sent to your Automate system to a minimum. This improves search performance and reduces disk space requirements.
 
    .. code-block:: shell
 
