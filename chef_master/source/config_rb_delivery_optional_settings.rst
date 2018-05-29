@@ -1045,6 +1045,17 @@ This configuration file has the following settings for ``rabbitmq``:
 ``rabbitmq['vip']``
    The virtual IP address. Default value: ``'127.0.0.1'``.
 
+``rabbitmq['use_ssl']``
+   Whether or not to enable the ssl service. Default value: ``true``.
+
+``rabbitmq['ssl_certificate']`` and ``rabbitmq['ssl_certificate_key']``
+  SSL certificate used for rabbitmq communication only if ``rabbitmq['use_ssl']`` is ``true``.
+  Certificates provide by user will be readable by the `delivery` user.
+  If both of these are nil, we generate a self-signed certificate. Default value: ``nil``.
+
+``rabbitmq['ssl_versions']``
+   The version for the ssl service. Default value: ``[ 'tlsv1.2', 'tlsv1.1' ]``.
+
 ssh_git
 -----------------------------------------------------
 This configuration file has the following settings for ``ssh_git``:
