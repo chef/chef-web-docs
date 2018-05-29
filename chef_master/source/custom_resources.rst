@@ -19,8 +19,6 @@ For example, Chef includes built-in resources to manage files, packages, templat
 
 Custom resources were introduced in Chef version 12.5 and are now the preferred method of writing your own resources in Chef. If you are using an older version of the chef-client, please see our `legacy documentation <https://docs-archive.chef.io/release/12-4/custom_resources.html>`__.
 
-As of Chef client 12.14, individual resource properties can be marked as ``sensitive: true``, which suppresses the value of that property when exporting the resource's state.
-
 Syntax
 =====================================================
 .. tag custom_resources_syntax
@@ -819,6 +817,13 @@ The property ruby_type is a positional parameter. Use to ensure a property value
           property :gggg, [Array, Hash]
 
 .. end_tag
+
+sensitive
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+A property can be marked sensitive by specifying ``sensitive: true`` on the property. This prevents the contents of the property from being exported to data collection and sent to an Automate server.
+
+Note: This feature was introduced in Chef 12.14.
 
 validators
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
