@@ -149,7 +149,7 @@ The default action in a custom resource is, by default, the first action listed 
 
 .. code-block:: ruby
 
-   property :name, RubyType, default: 'value'
+   property :property_name, RubyType, default: 'value'
 
    ...
 
@@ -165,7 +165,7 @@ The ``default_action`` method may also be used to specify the default action. Fo
 
 .. code-block:: ruby
 
-   property :name, RubyType, default: 'value'
+   property :property_name, RubyType, default: 'value'
 
    default_action :aaaaa
 
@@ -302,11 +302,11 @@ Use the ``property`` method to define properties for the custom resource. The sy
 
 .. code-block:: ruby
 
-   property :name, ruby_type, default: 'value', parameter: 'value'
+   property :property_name, ruby_type, default: 'value', parameter: 'value'
 
 where
 
-* ``:name`` is the name of the property
+* ``:property_name`` is the name of the property
 * ``ruby_type`` is the optional Ruby type or array of types, such as ``String``, ``Integer``, ``true``, or ``false``
 * ``default: 'value'`` is the optional default value loaded into the resource
 * ``parameter: 'value'`` optional parameters
@@ -328,31 +328,31 @@ The property ruby_type is a positional parameter. Use to ensure a property value
 
        .. code-block:: ruby
 
-          property :name, String
+          property :aaaa, String
 
        .. code-block:: ruby
 
-          property :name, Integer
+          property :bbbb, Integer
 
        .. code-block:: ruby
 
-          property :name, Hash
+          property :cccc, Hash
 
        .. code-block:: ruby
 
-          property :name, [true, false]
+          property :dddd, [true, false]
 
        .. code-block:: ruby
 
-          property :name, [String, nil]
+          property :eeee, [String, nil]
 
        .. code-block:: ruby
 
-          property :name, [Class, String, Symbol]
+          property :ffff, [Class, String, Symbol]
 
        .. code-block:: ruby
 
-          property :name, [Array, Hash]
+          property :gggg, [Array, Hash]
 
 .. end_tag
 
@@ -446,18 +446,20 @@ desired_state
 -----------------------------------------------------
 .. tag dsl_custom_resource_method_property_desired_state
 
-Add ``desired_state:`` to get or set the list of desired state properties for a resource, which describe the desired state of the node, such as permissions on an existing file. This value may be ``true`` or ``false``.
+Add ``desired_state:`` to set the desired state property for a resource. This value may be ``true`` or ``false``, and all properties default to true.
 
-* When ``true``, the state of the system will determine the value.
-* When ``false``, the values defined by the recipe or custom resource will determine the value, i.e. "the desired state of this system includes setting the value defined in this custom resource or recipe"
+* When ``true``, the state of the property is determined by the state of the system
+* When ``false``, the value of the property impacts how the resource executes, but it is not determined by the state of the system.
 
-For example, the following properties define the ``owner``, ``group``, and ``mode`` properties for a file that already exists on the node, and with ``desired_state`` set to ``false``:
+For example, if you were to write a resource to create volumes on a cloud provider you would need define properties such as ``volume_name``, ``volume_size``, and ``volume_region``. The state of these properties would determine if your resource needed to converge or not. For the resource to function you would also need to define properties such as ``cloud_login`` and ``cloud_password``. These are necessary properties for interacting with the cloud provider, but their state has no impact on decision to converge the resource or not, so you would set ``desired_state`` to ``false`` for these properties.
 
 .. code-block:: ruby
 
-   property :owner, String, default: 'root', desired_state: false
-   property :group, String, default: 'root', desired_state: false
-   property :mode, String, default: '0755', desired_state: false
+   property :volume_name, String
+   property :volume_size, Integer
+   property :volume_region, String
+   property :cloud_login, String, desired_state: false
+   property :cloud_password, String, desired_state: false
 
 .. end_tag
 

@@ -11,6 +11,8 @@ Use the **erl_call** resource to connect to a node located within a distributed 
 
 .. note:: The ``erl_call`` command needs to be on the path for this resource to work properly.
 
+**Removed from Chef Client 14.0**
+
 Syntax
 =====================================================
 A **erl_call** resource block connects to a node located within a distributed Erlang system:

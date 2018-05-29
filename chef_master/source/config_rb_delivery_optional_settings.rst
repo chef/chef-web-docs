@@ -404,7 +404,7 @@ This configuration file has the following settings for ``delivery``:
    The password for the binding user. Default value: ``"secret123"``.
 
 ``delivery['ldap_encryption']``
-   Default value: ``"start_tls"``.
+   ``"start_tls"``, ``"simple_tls"``, or ``"no_tls"``. Default value: ``"no_tls"``.
 
 ``delivery['ldap_hosts']``
    The name (or IP address) of the LDAP server. Default value: ``[]``.
@@ -510,6 +510,11 @@ This configuration file has the following settings for ``elasticsearch``:
 
 ``elasticsearch['urls']``
    The fully qualified domain name(s) of your Elasticsearch cluster. If not specified a local elasticsearch cluster will be utilized. Default value: ``"http://127.0.0.1:9200"``.
+
+``elasticsearch['role_arn']``
+   The Amazon Resource Names(ARN) of IAM policies role for Amazon Elasticsearch Service. Default value: ``nil``.
+
+    .. note:: If ``elasticsearch['urls']`` is specified with Amazon elasticsearch url then ``elasticsearch['role_arn']`` value will be required.
 
 ``elasticsearch['config_directory']``
    The working directory. The default value is the recommended value. Default value: ``"/var/opt/delivery/elasticsearch/conf"``.

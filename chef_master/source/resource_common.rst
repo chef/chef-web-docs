@@ -72,15 +72,6 @@ The following properties are common to every resource:
 
    Ensure that sensitive resource data is not logged by the chef-client. Default value: ``false``.
 
-``supports``
-   .. warning:: This property was deprecated in Chef 12.14; it will generate a warning when used in Chef 12 versions 12.14 and above, and it was entirely removed in Chef 13. See the `deprecation notice </deprecations_supports_property.html>`_ for details and remediation.
-
-   .. note:: This property is not the same as the ``supports`` property that was previously available for the `user </resource_user.html>`_ resource, or that which is currently available for the `service </resource_service.html>`_ resource. These resources use entirely separate implementations of the ``supports`` property.
-
-   **Ruby Type:** Hash
-
-   A hash of options that contains hints about the capabilities of a resource. The chef-client may use these hints to help identify the correct provider.
-
 
 .. end_tag
 
@@ -103,21 +94,6 @@ The following examples show how to use common properties in a recipe.
 
 .. end_tag
 
-**Use the provider common property**
-
-.. tag resource_service_use_provider_attribute
-
-.. To use the ``:provider`` common attribute in a recipe:
-
-.. code-block:: ruby
-
-   service 'some_service' do
-     provider Chef::Provider::Service::Upstart
-     action [ :enable, :start ]
-   end
-
-.. end_tag
-
 **Use the retries common property**
 
 .. tag resource_service_use_supports_attribute
@@ -127,22 +103,6 @@ The following examples show how to use common properties in a recipe.
 .. code-block:: ruby
 
    service 'apache' do
-     action [ :enable, :start ]
-     retries 3
-   end
-
-.. end_tag
-
-**Use the retries and provider common properties**
-
-.. tag resource_service_use_provider_and_supports_attributes
-
-.. To use the ``provider`` and ``retries`` common attributes in a recipe:
-
-.. code-block:: ruby
-
-   service 'some_service' do
-     provider Chef::Provider::Service::Upstart
      action [ :enable, :start ]
      retries 3
    end
@@ -729,8 +689,6 @@ The following example shows how start a service named ``example_service`` and im
      notifies :restart, 'service[nginx]', :immediately
    end
 
-where by using the default ``provider`` for the **service**, the recipe is telling the chef-client to determine the specific provider to be used during the chef-client run based on the platform of the node on which the recipe will run.
-
 .. end_tag
 
 **Restart one service before restarting another**
@@ -889,7 +847,7 @@ Run in Compile Phase
 The chef-client processes recipes in two phases:
 
 #. First, each resource in the node object is identified and a resource collection is built. All recipes are loaded in a specific order, and then the actions specified within each of them are identified. This is also referred to as the "compile phase".
-#. Next, the chef-client configures the system based on the order of the resources in the resource collection. Each resource is mapped to a provider, which then examines the node and performs the necessary steps to complete the action. This is also referred to as the "execution phase".
+#. Next, the chef-client configures the system based on the order of the resources in the resource collection. Each resource then examines the node and performs the necessary steps to complete the action. This is also referred to as the "execution phase".
 
 Typically, actions are processed during the execution phase of the chef-client run. However, sometimes it is necessary to run an action during the compile phase. For example, a resource can be configured to install a package during the compile phase to ensure that application is available to other resources during the execution phase.
 

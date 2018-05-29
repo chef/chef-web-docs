@@ -5,6 +5,31 @@ Release Notes: Chef Automate
 
 Chef Automate provides a full suite of enterprise capabilities for workflow, visibility and compliance that allow you to manage and monitor application and cookbook deployments across a cluster of nodes in your environment.
 
+What's New in 1.8.38
+=====================================================
+
+New Features
+-----------------------------------------------------
+* ``automate-ctl install-runner`` supports use of a non-standard SSH port via the ``-p`` or ``-port`` options
+* The **RHEL7 Server CIS**, **Windows 2012 DC**, and **Member Server CIS** Compliance profiles have been refactored to improve overall testing methods and effectiveness
+* The `Reaper service </data_retention_chef_automate.html>`__ can now be configured to remove missing nodes from the **Nodes** tab on a schedule, by setting the ``reaper['insights_clean_missing_nodes']`` setting to ``true`` alongside the ``reaper['insights_retention_period_in_days']`` setting
+* The Compliance Scanner feature is available in the `Chef Automate Pilot <https://blog.chef.io/2017/07/05/chef-automate-pilot-try-chef-automate-using-docker/>`__ demo environment
+
+Resolved Issues
+-----------------------------------------------------
+* More than 100 nodes are now displayed on the scan job creation page
+* The cron job for the Reaper service runs on schedule again
+* The sudo checkbox on the Scanner Node configuration page is now correctly labeled as **Enable Sudo**
+
+* **RHEL7 CIS Compliance Profile fixes:**
+
+    * Corrected control 1.6.1.1 “Ensure SELinux is not disabled in bootloader configuration”
+    * Corrected control 5.2.14 “Ensure SSH LoginGraceTime is set to one minute or less”
+    * Corrected control 3.6.2 “Ensure default deny firewall policy”
+    * Corrected control 5.2.11 “Ensure only approved ciphers are used”
+    * Corrected control 5.1.1 “Ensure cron daemon is enabled”
+    * Corrected control 1.3.2 “Ensure file system integrity is regularly checked”
+
 What's New in 1.8.3
 =====================================================
 

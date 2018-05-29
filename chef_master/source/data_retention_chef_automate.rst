@@ -1,7 +1,7 @@
 =====================================================
 Data Retention Management in Chef Automate
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/manage_indices_chef_automate.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/data_retention_chef_automate.rst>`__
 
 .. tag chef_automate_mark
 
@@ -69,7 +69,13 @@ Reaper has a number of configuration parameters you may specify in your ``/etc/d
   The threshold for free space on any volume on any Elasticsearch node in your cluster. If the free space falls below this threshold, Reaper will perform evasive maneuvers. Default: ``10``.
 
 ``reaper[‘repository’]``: string
-  The name of the repository set up in Elasticsearch, defaults to ``'reaper[‘archive_destination’]-chef-automate'``
+  The name of the repository set up in Elasticsearch, defaults to ``'reaper[‘archive_destination’]-chef-automate'``.
+
+``reaper[‘insights_clean_missing_nodes’]``: boolean
+    If ``true``, Reaper will delete nodes that are missing and haven't checked in since ``reaper[’insights_retention_period_in_days’]``; if that is not set, it will use ``reaper[’retention_period_in_days’]`` instead.
+    Default: ``false``
+    
+    New in Chef Automate 1.8.38.
 
 How Reaper Operates
 =====================================================

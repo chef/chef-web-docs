@@ -5,7 +5,7 @@ windows_task
 
 Use the **windows_task** resource to create, delete or run a Windows scheduled task. Requires Windows Server 2008 or later due to API usage.
 
-**New in Chef Client 13.**
+**New in Chef Client 13**
 
 .. note:: The ``windows_task`` resource that was provided as part of the ``windows`` cookbook included the ``:change`` action, which has been removed from ``windows_task`` in Chef client. The ``:create`` action can be used instead to update an existing task.
 
@@ -24,24 +24,26 @@ A **windows_task** resource creates, deletes or runs a Windows scheduled task.
      run_level                   Symbol # defaults to :limited
      force                       True, False # defaults to false
      interactive_enabled         True, False # defaults to false
+     frequency                   Symbol
      frequency_modifier          Integer, String # defaults to 1
-     frequency                   Symbol # defaults to :hourly
      start_day                   String
      start_time                  String
      day                         String, Integer
      months                      String
      idle_time                   Integer
-     random_delay                String
-     execution_time_limit        String
+     random_delay                String, Integer
+     execution_time_limit        String, Integer
+     action                      Symbol #defaults to :create
    end
 
 where
 
-* ``windows_task`` is the resource
-* ``'name'`` is the name of the resource block
+* ``windows_task`` is the resource.
+* ``name`` is the name of the resource block.
+* ``task_name`` is the name of the task.
 * ``command`` is the command to be executed by the windows scheduled task.
-* ``frequency`` is the frequency with which to run the task. (default is :hourly. Other valid values include :minute, :hourly, :daily, :weekly, :monthly, :none, :once, :on_logon, :onstart, :on_idle)
-* ``frequency_modifier`` Multiple for frequency. (15 minutes, 2 days). Monthly tasks may also use these values: ``('FIRST', 'SECOND', 'THIRD', 'FOURTH', 'LAST', 'LASTDAY')``
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``cwd``, ``user``, ``password``, ``run_level``, ``force``, ``interactive_enabled``, ``frequency``, ``frequency_modifier``, ``start_day``, ``start_time``, ``day``, ``months``, ``idle_time`` etc. are the properties of this resource, with the Ruby type shown. See the “Properties” section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -100,14 +102,25 @@ This resource has the following properties:
    Run with ``:limited`` or ``:highest`` privileges.
 
 ``frequency``
-   **Ruby Type:** Symbol | **Default Value:** ``:hourly``
+   **Ruby Type:** Symbol
 
-   Frequency with which to run the task. Values include: ``:minute``, ``:hourly``, ``:daily``, ``:weekly``, ``:monthly``, ``:none``, ``:once``, ``:on_logon``, ``:onstart``, ``:on_idle``. The ``:once`` value requires the ``start_time`` property. The ``:none`` frequency requires Chef 13.6 or later.
+   * Frequency with which to run the task.
+   * This is a mandatory property in Chef 14.1
+   * Valid values: ``:minute``, ``:hourly``, ``:daily``, ``:weekly``, ``:monthly``, ``:none``, ``:once``, ``:on_logon``, ``:onstart``, ``:on_idle``.
+   * The ``:once`` value requires the ``start_time`` property.
+   * The ``:none`` frequency requires Chef 13.6 or later.
 
 ``frequency_modifier``
-   **Ruby Type:** Integer, String
+   **Ruby Type:** Integer, String | **Default Value:** ``1``
 
-   Multiple for frequency, such as 15 minutes or 2 days. Monthly tasks may also use these values: ``'FIRST'``, ``'SECOND'``, ``'THIRD'``, ``'FOURTH'``, ``'LAST'``, ``'LASTDAY'``.
+   * For frequency ``:minute`` valid values are 1 to 1439
+   * For frequency ``:hourly`` valid values are 1 to 23
+   * For frequency ``:daily`` valid values are 1 to 365
+   * For frequency ``:weekly`` valid values are 1 to 52
+   * For frequency ``:monthly`` valid values are ``('FIRST', 'SECOND', 'THIRD', 'FOURTH', 'LAST')`` OR ``1-12``.
+      * e.g. If user want to run the task on ``second week of the month`` use ``frequency_modifier`` value as ``SECOND``. Multiple values for weeks of the month should be comma seperated e.g. ``"FIRST, THIRD, LAST"``.
+      * To run task every (n) months user values '1-12'.
+
 
 ``start_day``
    **Ruby Type:** String
@@ -120,19 +133,24 @@ This resource has the following properties:
    Specifies the start time to run the task, in **HH:mm** format.
 
 ``interactive_enabled``
-   **Ruby Type:** True, False
+   **Ruby Type:** True, False | **Default Value:** ``False``
 
    Allow task to run interactively or non-interactively. Requires user and password.
 
 ``day``
-   **Ruby Type:** String
+   **Ruby Type:** Integer, String
 
-   For monthly or weekly tasks, the day(s) on which the task runs, such as: ``MON - SUN``, ``\*``, ``1 - 31``.
+   The day(s) on which the task runs.
+    * Use with frequency ``:monthly`` and ``:weekly`` tasks,
+    * Valid values with frequency ``:weekly`` are ``MON-SUN`` or ``\*``.
+    * Valid values with frequency ``:monthly`` are ``1-31 `` or ``MON`` to ``SUN`` and ``LASTDAY``.
+       * Use ``MON-SUN`` or ``LASTDAY`` if you are setting ``frequency_modiifer`` as ``"FIRST, SECOND, THIRD etc."`` else use ``1-31``.
+       * Multiple days should be comma seprated. e.g ``"1, 2, 3"`` or ``"MON, WEN, FRI"``.
 
 ``months``
    **Ruby Type:** String
 
-   The Months of the year on which the task runs, such as: ``JAN, FEB`` or ``\*``. Multiple months should be comma delimited.
+   The Months of the year on which the task runs, such as: ``"JAN, FEB"`` or ``"\*"``. Multiple months should be comma delimited. e.g. ``"Jan, Feb, Mar, Dec"``
 
 ``idle_time``
    **Ruby Type:** Integer
@@ -142,7 +160,12 @@ This resource has the following properties:
 ``execution_time_limit``
    **Ruby Type:** String | **Default Value:** ``PT72H`` (72 hours)
 
-   The maximum time in seconds the task will run.
+   The maximum time (in seconds) the task will run.
+
+``random_delay``
+   **Ruby Type:** Integer, String
+
+   Delays the task upto given time (in seconds).
 
 
 Examples
@@ -196,7 +219,7 @@ Examples
      start_time "16:10"
    end
 
-**Create a scheduled task to run on current day every 3 weeks**
+**Create a scheduled task to run on current day every 3 weeks and delay upto 1 min**
 
 .. code-block:: ruby
 

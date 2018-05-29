@@ -154,13 +154,7 @@ This resource has the following properties:
 ``mode``
    **Ruby Types:** Integer, String
 
-   A quoted 3-5 character string that defines the octal mode. For example: ``'755'``, ``'0755'``, or ``00755``. If ``mode`` is not specified and if the directory already exists, the existing mode on the directory is used. If ``mode`` is not specified, the directory does not exist, and the ``:create`` action is specified, the chef-client assumes a mask value of ``'0777'``, and then applies the umask for the system on which the directory is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, the chef-client uses the default value of ``'0755'``.
-
-   The behavior is different depending on the platform.
-
-   UNIX- and Linux-based systems: A quoted 3-5 character string that defines the octal mode that is passed to chmod. For example: ``'755'``, ``'0755'``, or ``00755``. If the value is specified as a quoted string, it works exactly as if the ``chmod`` command was passed. If the value is specified as an integer, prepend a zero (``0``) to the value to ensure that it is interpreted as an octal number. For example, to assign read, write, and execute rights for all users, use ``'0777'`` or ``'777'``; for the same rights, plus the sticky bit, use ``01777`` or ``'1777'``.
-
-   Microsoft Windows: A quoted 3-5 character string that defines the octal mode that is translated into rights for Microsoft Windows security. For example: ``'755'``, ``'0755'``, or ``00755``. Values up to ``'0777'`` are allowed (no sticky bits) and mean the same in Microsoft Windows as they do in UNIX, where ``4`` equals ``GENERIC_READ``, ``2`` equals ``GENERIC_WRITE``, and ``1`` equals ``GENERIC_EXECUTE``. This property cannot be used to set ``:full_control``. This property has no effect if not specified, but when it and ``rights`` are both specified, the effects are cumulative.
+   A quoted 3-5 character string that defines the octal mode. For example: ``'755'``, ``'0755'``, or ``00755``. Default value: ``'0755'``
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -342,7 +336,7 @@ The following resource properties may be used to define keys in the XML property
 ``init_groups``
    **Ruby Types:** True, False
 
-   Specify if ``initgroups`` is called before running a job. Default value: ``true`` (starting with macOS 10.5).
+   Specify if ``initgroups`` is called before running a job. Default value: ``true``.
 
 ``keep_alive``
    **Ruby Types:** True, False, Hash

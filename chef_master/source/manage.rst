@@ -310,17 +310,15 @@ For example:
 
 Reports
 =====================================================
-.. tag reporting_summary
-
 Use Reporting to keep track of what happens during the execution of chef-client runs across all of the machines that are under management by Chef. Reports can be generated for the entire organization and they can be generated for specific nodes.
 
-Reporting data is collected during the chef-client run and the results are posted to the Chef server at the end of the chef-client run at the same time the node object is uploaded to the Chef server.
+.. note:: The **Reports** tab requires the `Chef Reporting <https://docs.chef.io/reporting.html>`__ add-on.
 
-.. end_tag
+Reporting data is collected during the chef-client run, and the results are posted to the Chef server at the end of the chef-client run, at the same time the node object is uploaded to the Chef server.
 
 The Chef management console provides ways for users to `configure the timeframe </server_manage_reports.html#configure-reports>`_ around which a report is built, and then to `review the reports </server_manage_reports.html#view-reports>`_ that are available for that timeframe.
 
-.. image:: ../../images/step_manage_webui_reports.png
+.. image:: ../../images/step_manage_webui_reports.png          
 
 Policy
 =====================================================

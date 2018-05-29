@@ -25,6 +25,7 @@ The full syntax for all of the properties that are available to the **route** re
 .. code-block:: ruby
 
    route 'name' do
+     comment                    String
      device                     String
      gateway                    String
      netmask                    String
@@ -61,6 +62,13 @@ This resource has the following actions:
 Properties
 =====================================================
 This resource has the following properties:
+
+``comment``
+   **Ruby Type:** String
+   
+   Add a comment.
+   
+   New in Chef Client 14.0.
 
 ``device``
    **Ruby Type:** String

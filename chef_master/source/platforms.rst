@@ -63,10 +63,10 @@ The following table lists the commercially-supported platforms and versions for 
      - ``11 SP4``, ``12 SP1``
    * - Ubuntu (LTS releases)
      - ``x86``, ``x86_64``, ``ppc64le`` (14.04 only)
-     - ``14.04``, ``16.04``
+     - ``14.04``, ``16.04``, ``18.04``
    * - Microsoft Windows
      - ``x86``, ``x86_64``
-     - ``2012``, ``2012r2``, ``2016``, ``10``
+     - ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10``
 
 Community Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -128,13 +128,13 @@ The following table lists the commercially-supported platforms and versions for 
      - ``6.x``, ``7.x``
    * - SUSE Enterprise Linux Server
      -
-     - ``11 SP4``, ``12 SP1``
+     - ``11 SP4``, ``12 SP1+``
    * - Ubuntu
      -
-     - ``14.04``, ``16.04``
+     - ``14.04``, ``16.04``, ``18.04``
    * - Microsoft Windows
      -
-     - ``10``, ``2012``, ``2012 R2``, ``2016``
+     - ``10``, ``2008 R2``, ``2012``, ``2012 R2``, ``2016``
 
 Community Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -268,7 +268,7 @@ The following table lists the commercially-supported platforms for the Chef push
      - ``14.04``, ``16.04``
    * - Microsoft Windows
      - ``x86``, ``x86_64``
-     - ``2012``, ``2012r2``, ``2016``, ``10``
+     - ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10``
 
 .. end_tag
 
@@ -390,7 +390,7 @@ terms:
 +------------------------------------------------------------------------------------+----------------------------+
 | FreeBSD                                                                            | End of Life                |
 +------------------------------------------------------------------------------------+----------------------------+
-| Microsoft Windows                                                                  | Mainstream End of Support  |
+| Microsoft Windows                                                                  | End of Extended Support    |
 +------------------------------------------------------------------------------------+----------------------------+
 | Oracle Enterprise Linux                                                            | Premier Support Ends       |
 +------------------------------------------------------------------------------------+----------------------------+
@@ -422,9 +422,9 @@ On the Chef end-of-life date, Chef discontinues building software for that platf
 +--------------------------------------------------------------+-------------------------+-----------------------+
 | Microsoft Windows Server 2008 (RTM) Service Pack 2           | January 13, 2015        | January 13, 2015      |
 +--------------------------------------------------------------+-------------------------+-----------------------+
-| Microsoft Windows Server 2008R2 Service Pack 1               | January 13, 2015        | January 13, 2018      |
+| Microsoft Windows Server 2008 R2 Service Pack 1               | January 13, 2015        | January 31, 2020     |
 +--------------------------------------------------------------+-------------------------+-----------------------+
-| Microsoft Windows Server 2012 and 2012R2                     | October 9, 2018         | October 9, 2018       |
+| Microsoft Windows Server 2012/2012 R2                         | October 9, 2018         | October 10, 2023     |
 +--------------------------------------------------------------+-------------------------+-----------------------+
 | Oracle Enterprise Linux 5                                    | June 30, 2017           | December 31, 2017     |
 +--------------------------------------------------------------+-------------------------+-----------------------+
@@ -492,7 +492,7 @@ Versions and Status
      - April 30, 2018
    * - Chef Client
      - 13.x
-     - GA
+     - Deprecated
      - n/a
    * - Chef DK
      - 1.x
@@ -560,8 +560,8 @@ Versions and Status
      - TBD
    * - Reporting
      - 1.5.5 or later
-     - GA
-     - n/a
+     - Deprecated
+     - TBD
    * - Analytics
      - 1.5.0 or later
      - Deprecated

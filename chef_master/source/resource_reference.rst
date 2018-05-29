@@ -69,43 +69,6 @@ The following properties are common to every resource:
 
    Ensure that sensitive resource data is not logged by the chef-client. Default value: ``false``.
 
-``supports``
-   .. warning:: This property was deprecated in Chef 12.14; it will generate a warning when used in Chef 12 versions 12.14 and above, and it was entirely removed in Chef 13. See the `deprecation notice </deprecations_supports_property.html>`_ for details and remediation.
-
-   .. note:: This property is not the same as the ``supports`` property that was previously available for the `user </resource_user.html>`_ resource, or that which is currently available for the `service </resource_service.html>`_ resource. These resources use entirely separate implementations of the ``supports`` property.
-
-   **Ruby Type:** Hash
-
-   A hash of options that contains hints about the capabilities of a resource. The chef-client may use these hints to help identify the correct provider.
-
-
-.. end_tag
-
-Provider
------------------------------------------------------
-.. tag resources_common_provider_attributes
-
-The chef-client will determine the correct provider based on configuration data collected by Ohai at the start of the chef-client run. This configuration data is then mapped to a platform and an associated list of providers.
-
-Generally, it's best to let the chef-client choose the provider, and this is (by far) the most common approach. However, in some cases, specifying a provider may be desirable. There are two approaches:
-
-* Use a more specific short name---``yum_package "foo" do`` instead of ``package "foo" do``, ``script "foo" do`` instead of ``bash "foo" do``, and so on---when available
-* Use ``declare_resource``. This replaces all previous use cases where the provider class was passed in through the ``provider`` property:
-
-  .. code-block:: ruby
-
-     pkg_resource = case node['platform_family']
-       when 'debian'
-         :dpkg_package
-       when 'fedora', 'rhel', 'amazon'
-         :rpm_package
-       end
-
-     pkg_path = (pkg_resource == :dpkg_package) ? '/tmp/foo.deb' : '/tmp/foo.rpm'
-
-     declare_resource(pkg_resource, pkg_path) do
-       action :install
-     end
 
 .. end_tag
 
@@ -281,52 +244,6 @@ The following example shows how to use the ``not_if`` condition to create a file
      mode '0755'
      source 'somefile.erb'
      not_if 'test -f /etc/passwd'
-   end
-
-.. end_tag
-
-**Install a file from a remote location using bash**
-
-.. tag resource_remote_file_install_with_bash
-
-The following is an example of how to install the ``foo123`` module for Nginx. This module adds shell-style functionality to an Nginx configuration file and does the following:
-
-* Declares three variables
-* Gets the Nginx file from a remote location
-* Installs the file using Bash to the path specified by the ``src_filepath`` variable
-
-.. code-block:: ruby
-
-   # the following code sample is similar to the ``upload_progress_module``
-   # recipe in the ``nginx`` cookbook:
-   # https://github.com/chef-cookbooks/nginx
-
-   src_filename = "foo123-nginx-module-v#{
-     node['nginx']['foo123']['version']
-   }.tar.gz"
-   src_filepath = "#{Chef::Config['file_cache_path']}/#{src_filename}"
-   extract_path = "#{
-     Chef::Config['file_cache_path']
-     }/nginx_foo123_module/#{
-     node['nginx']['foo123']['checksum']
-   }"
-
-   remote_file 'src_filepath' do
-     source node['nginx']['foo123']['url']
-     checksum node['nginx']['foo123']['checksum']
-     owner 'root'
-     group 'root'
-     mode '0755'
-   end
-
-   bash 'extract_module' do
-     cwd ::File.dirname(src_filepath)
-     code <<-EOH
-       mkdir -p #{extract_path}
-       tar xzf #{src_filename} -C #{extract_path}
-       mv #{extract_path}/*/* #{extract_path}/
-       EOH
-     not_if { ::File.exist?(extract_path) }
    end
 
 .. end_tag
@@ -757,8 +674,6 @@ The following example shows how start a service named ``example_service`` and im
      notifies :restart, 'service[nginx]', :immediately
    end
 
-where by using the default ``provider`` for the **service**, the recipe is telling the chef-client to determine the specific provider to be used during the chef-client run based on the platform of the node on which the recipe will run.
-
 .. end_tag
 
 **Restart one service before restarting another**
@@ -945,7 +860,7 @@ Run in Compile Phase
 The chef-client processes recipes in two phases:
 
 #. First, each resource in the node object is identified and a resource collection is built. All recipes are loaded in a specific order, and then the actions specified within each of them are identified. This is also referred to as the "compile phase".
-#. Next, the chef-client configures the system based on the order of the resources in the resource collection. Each resource is mapped to a provider, which then examines the node and performs the necessary steps to complete the action. This is also referred to as the "execution phase".
+#. Next, the chef-client configures the system based on the order of the resources in the resource collection. Each resource then examines the node and performs the necessary steps to complete the action. This is also referred to as the "execution phase".
 
 Typically, actions are processed during the execution phase of the chef-client run. However, sometimes it is necessary to run an action during the compile phase. For example, a resource can be configured to install a package during the compile phase to ensure that application is available to other resources during the execution phase.
 
@@ -1203,33 +1118,9 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_cab_package.rst
 
-.. include:: resource_chef_acl.rst
-
-.. include:: resource_chef_client.rst
-
-.. include:: resource_chef_container.rst
-
-.. include:: resource_chef_data_bag.rst
-
-.. include:: resource_chef_data_bag_item.rst
-
-.. include:: resource_chef_environment.rst
-
 .. include:: resource_chef_gem.rst
 
-.. include:: resource_chef_group.rst
-
 .. include:: resource_chef_handler.rst
-
-.. include:: resource_chef_mirror.rst
-
-.. include:: resource_chef_node.rst
-
-.. include:: resource_chef_organization.rst
-
-.. include:: resource_chef_role.rst
-
-.. include:: resource_chef_user.rst
 
 .. include:: resource_chocolatey_package.rst
 
@@ -1239,9 +1130,9 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_csh.rst
 
-.. include:: resource_deploy.rst
-
 .. include:: resource_directory.rst
+
+.. include:: resource_dmg_package.rst
 
 .. include:: resource_dnf_package.rst
 
@@ -1250,10 +1141,6 @@ The following resources are built into the Chef Client:
 .. include:: resource_dsc_resource.rst
 
 .. include:: resource_dsc_script.rst
-
-.. include:: resource_env.rst
-
-.. include:: resource_erlang_call.rst
 
 .. include:: resource_execute.rst
 
@@ -1267,7 +1154,13 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_group.rst
 
+.. include:: resource_homebrew_cask.rst
+
 .. include:: resource_homebrew_package.rst
+
+.. include:: resource_homebrew_tap.rst
+
+.. include:: resource_hostname.rst
 
 .. include:: resource_http_request.rst
 
@@ -1281,19 +1174,9 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_link.rst
 
-.. include:: resource_load_balancer.rst
-
 .. include:: resource_log.rst
 
-.. include:: resource_machine.rst
-
-.. include:: resource_machine_batch.rst
-
-.. include:: resource_machine_execute.rst
-
-.. include:: resource_machine_file.rst
-
-.. include:: resource_machine_image.rst
+.. include:: resource_macos_userdefaults.rst
 
 .. include:: resource_macports_package.rst
 
@@ -1305,7 +1188,15 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_ohai.rst
 
+.. include:: resource_ohai_hint.rst
+
 .. include:: resource_openbsd_package.rst
+
+.. include:: resource_openssl_dhparam.rst
+
+.. include:: resource_openssl_rsa_public_key.rst
+
+.. include:: resource_openssl_rsa_private_key.rst
 
 .. include:: resource_osx_profile.rst
 
@@ -1323,10 +1214,6 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_powershell_script.rst
 
-.. include:: resource_private_key.rst
-
-.. include:: resource_public_key.rst
-
 .. include:: resource_python.rst
 
 .. include:: resource_reboot.rst
@@ -1336,6 +1223,16 @@ The following resources are built into the Chef Client:
 .. include:: resource_remote_directory.rst
 
 .. include:: resource_remote_file.rst
+
+.. include:: resource_rhsm_errata_level.rst
+
+.. include:: resource_rhsm_errata.rst
+
+.. include:: resource_rhsm_register.rst
+
+.. include:: resource_rhsm_repo.rst
+
+.. include:: resource_rhsm_subscription.rst
 
 .. include:: resource_route.rst
 
@@ -1355,17 +1252,43 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_subversion.rst
 
+.. include:: resource_sudo.rst
+
+.. include:: resource_swap_file.rst
+
+.. include:: resource_sysctl.rst
+
 .. include:: resource_systemd_unit.rst
 
 .. include:: resource_template.rst
 
 .. include:: resource_user.rst
 
+.. include:: resource_windows_ad_join.rst
+
+.. include:: resource_windows_auto_run.rst
+
+.. include:: resource_windows_env.rst
+
+.. include:: resource_windows_feature.rst
+
+.. include:: resource_windows_feature_dism.rst
+
+.. include:: resource_windows_feature_powershell.rst
+
+.. include:: resource_windows_font.rst
+
 .. include:: resource_windows_package.rst
 
 .. include:: resource_windows_path.rst
 
+.. include:: resource_windows_printer.rst
+
+.. include:: resource_windows_printer_port.rst
+
 .. include:: resource_windows_service.rst
+
+.. include:: resource_windows_shortcut.rst
 
 .. include:: resource_windows_task.rst
 

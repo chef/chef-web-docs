@@ -25,6 +25,7 @@ The full syntax for all of the properties that are available to the **powershell
 
      package_name               String, Array # defaults to 'name' if not specified
      version                    String, Array
+     source                     String
      notifies                   # see description
      subscribes                 # see description
      action                     Symbol # defaults to :install if not specified
@@ -35,7 +36,7 @@ where:
 * ``powershell_package`` tells the chef-client to manage a package
 * ``'name'`` is the name of the package
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state
-* ``package_name``, ``version``, ``notifies``, and ``subscribes`` are properties of this resource, with the Ruby type shown. See the "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``package_name``, ``version``, ``source``, ``notifies``, and ``subscribes`` are properties of this resource, with the Ruby type shown. See the "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -56,6 +57,13 @@ Properties
    **Ruby Types:** String, Array
 
    The version of a package to be installed or upgraded.
+
+``source``
+   **Ruby Types:** String
+   
+   Specify the source of the package.
+   
+   New in Chef Client 14.0.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -158,6 +166,15 @@ Examples
    powershell_package 'Install Multiple Packages' do
      action :install
      package_name %w(xCertificate xNetworking)
+   end
+   
+**Install a package from a custom source:**
+
+.. code-block:: ruby
+
+   powershell_package 'xCertificate' do
+     action :install
+     source 'MyGallery'
    end
 
 **Install multiple packages, and specify package versions:**

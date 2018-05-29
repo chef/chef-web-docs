@@ -106,30 +106,6 @@ This resource has the following properties:
 
    Controls the phase during which a gem is installed on a node. Set to ``true`` to install a gem while the resource collection is being built (the "compile phase"). Set to ``false`` to install a gem while the chef-client is configuring the node (the "converge phase"). Possible values: ``nil`` (for verbose warnings), ``true`` (to warn once per chef-client run), or ``false`` (to remove all warnings). Recommended value: ``false``.
 
-   .. tag resource_package_chef_gem_attribute_compile_time
-
-   .. This topic is hooked into client.rb topics, starting with 12.1, in addition to the resource reference pages.
-
-   To suppress warnings for cookbooks authored prior to chef-client 12.1, use a ``respond_to?`` check to ensure backward compatibility. For example:
-
-   .. code-block:: ruby
-
-      chef_gem 'aws-sdk' do
-        compile_time false if respond_to?(:compile_time)
-      end
-
-   .. end_tag
-
-   .. warning:: If you are using ``chef-sugar``---a `community cookbook <https://supermarket.chef.io/cookbooks/chef-sugar>`__---it must be version 3.0.1 (or higher) to use the previous example. If you are using an older version of ``chef-sugar``, the following workaround is required:
-
-                .. code-block:: ruby
-
-                   chef_gem 'gem_name' do
-                     compile_time true if Chef::Resource::ChefGem.instance_methods(false).include?(:compile_time)
-                   end
-
-                See this `blog post <http://jtimberman.housepub.org/blog/2015/03/20/chef-gem-compile-time-compatibility/>`__ for more background on this behavior.
-
    New in Chef Client 12.1.
 
 ``include_default_source``

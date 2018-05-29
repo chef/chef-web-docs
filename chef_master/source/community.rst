@@ -61,7 +61,7 @@ Interact
 * `Facebook <https://www.facebook.com/getchefdotcom>`_
 * `Chef Community Slack <https://community-slack.chef.io/>`_
 * Join the "Chef Users Group" on LinkedIn
-* `https://discourse.chef.io <https://discourse.chef.io>`_ (for discussion among users, developers, and other interested parties)
+* `Chef Mailing List <https://discourse.chef.io>`_ (for discussion among users, developers, and other interested parties)
 
 Contribute
 =====================================================

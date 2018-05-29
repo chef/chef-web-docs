@@ -33,6 +33,7 @@ The full syntax for all of the properties that are available to the **apt_packag
      default_release            String
      notifies                   # see description
      options                    String
+     overwrite_config_files     True, False # default value: 'false'
      package_name               String, Array # defaults to 'name' if not specified
      source                     String
      subscribes                 # see description
@@ -138,6 +139,13 @@ This resource has the following properties:
    **Ruby Type:** String
 
    One (or more) additional options that are passed to the command. For example, common apt-get directives, such as ``--no-install-recommends``. See the `apt-get man page <http://manpages.ubuntu.com/manpages/zesty/man8/apt-get.8.html>`_ for the full list.
+
+``overwrite_config_files``
+   **Ruby Type:** True, False | **Default Value:** ``false``
+   
+   Overwrite existing configuration files with those supplied by the package, if prompted by APT.
+   
+   New in Chef Client 14.0.
 
 ``package_name``
    **Ruby Types:** String, Array
@@ -283,11 +291,8 @@ Notifications, via an implicit name:
 
 Examples
 =====================================================
-.. tag resources_common_examples_intro
 
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
-
-.. end_tag
+The following examples demonstrate various approaches for using apt_update in recipes.
 
 **Install a package using package manager**
 

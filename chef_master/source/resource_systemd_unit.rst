@@ -74,6 +74,21 @@ This resource has the following actions:
 
 ``:unmask``
    Stop the unit from being masked and cause it to start as specified.
+   
+``:preset``
+   Restore the preset "enable/disable" configuration for a unit.
+   
+   New in Chef Client 14.0.
+
+``:reenable``
+   Reenable a unit file.
+   
+   New in Chef Client 14.0.
+   
+``:revert``
+   Revet to a vendor's version of a unit file. 
+   
+   New in Chef Client 14.0.
 
 ``:start``
    Start a unit based in its systemd unit file.
