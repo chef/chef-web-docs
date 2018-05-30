@@ -17,12 +17,11 @@ Recommended reading:
 
 More books about Chef:
 
-* `Chef Essentials <https://www.packtpub.com/chef-essentials/book>`_
-* `Chef Infrastructure Automation Cookbook <http://www.packtpub.com/chef-infrastructure-automation-cookbook/book>`_
-* `Instant Chef Starter <http://www.packtpub.com/chef-starter/book>`_
-* `Learning Chef [Packt Publishing] <https://www.packtpub.com/networking-and-servers/learning-chef/?utm_source=GC-chef.io&utm_medium=pod&utm_campaign=1783285214>`_
-* `Chef Infrastructure Automation Cookbook - Second Edition [Packt Publishing] <https://www.packtpub.com/networking-and-servers/chef-infrastructure-automation-cookbook-second-edition/?utm_source=GC-chef.io&utm_medium=pod&utm_campaign=178528794X>`_
-* `Mastering Chef [Packt Publishing] <https://www.packtpub.com/networking-and-servers/mastering-chef/?utm_source=GC-chef.io&utm_medium=pod&utm_campaign=1783981563>`_
+* `Chef Essentials <https://www.packtpub.com/networking-and-servers/chef-essentials>`_
+* `Instant Chef Starter <https://www.packtpub.com/application-development/instant-chef-starter-instant>`_
+* `Learning Chef [Packt Publishing] <https://www.packtpub.com/networking-and-servers/learning-chef>`_
+* `Chef Infrastructure Automation Cookbook - Second Edition [Packt Publishing] <https://www.packtpub.com/networking-and-servers/chef-infrastructure-automation-cookbook-second-edition/>`_
+* `Mastering Chef [Packt Publishing] <https://www.packtpub.com/networking-and-servers/mastering-chef/>`_
 * `Mastering Chef Provisioning [Packt Publishing] <https://www.packtpub.com/networking-and-servers/mastering-chef-provisioning>`_
 * `Managing Windows Servers with Chef <https://www.packtpub.com/networking-and-servers/managing-windows-servers-chef>`_
 * `Test-Driven Infrastructure with Chef, 2nd Edition <http://shop.oreilly.com/product/0636920030973.do>`_
@@ -31,7 +30,7 @@ More books about Chef:
 
 Meet
 =====================================================
-* `Chef events <https://chef.io/events>`_
+* `Chef events <https://events.chef.io/>`_
 * `Chef meetups <https://www.meetup.com/topics/opscode/>`_
 * `Continuous delivery meetups <https://www.meetup.com/topics/continuous-delivery/>`_
 * `DevOps meetups <https://www.meetup.com/topics/devops/>`_
