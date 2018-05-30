@@ -9,7 +9,7 @@ A knife.rb file:
 
 * Is loaded every time this executable is run
 * Is not created by default
-* Is located by default at ``~/.chef/knife.rb`` (UNIX and Linux platforms) or ``c:\Users\username\.chef`` (Microsoft Windows platform, starting with Chef development kit version 0.7.0); use the ``--config`` option from the command line to change this location
+* Is located by default at ``~/.chef/knife.rb`` (UNIX and Linux platforms) or ``c:\Users\username\.chef`` (Microsoft Windows platform, use the ``--config`` option from the command line to change this location
 * Will override the default configuration when a knife.rb file exists at the default path or the path specified by the ``--config`` option
 
 .. note:: When running Microsoft Windows, the knife.rb file is located at ``%HOMEDRIVE%:%HOMEPATH%\.chef`` (e.g. ``c:\Users\<username>\.chef``). If this path needs to be scripted, use ``%USERPROFILE%\chef-repo\.chef``.
