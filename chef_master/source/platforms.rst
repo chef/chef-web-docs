@@ -556,13 +556,13 @@ Versions and Status
      - n/a
    * - Enterprise Chef
      - 11.2.2 or later
-     - Deprecated
-     - TBD
+     - EOL
+     - December 31, 2018
    * - Reporting
      - 1.5.5 or later
-     - Deprecated
-     - TBD
+     - EOL
+     - December 31, 2018
    * - Analytics
      - 1.5.0 or later
-     - Deprecated
-     - TBD
+     - EOL
+     - December 31, 2018
