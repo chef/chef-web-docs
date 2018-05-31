@@ -66,7 +66,7 @@ For example, using a ``case`` statement with the ``platform_family`` node attrib
    when 'debian'
      # do things on debian-ish platforms (debian, ubuntu, linuxmint)
    when 'rhel'
-     # do things on RHEL platforms (redhat, centos, scientific, etc)
+     # do things on RHEL platforms (redhat, centos, scientific, oracle, etc)
    end
 
 .. future example: step_resource_package_install_package_on_platform
