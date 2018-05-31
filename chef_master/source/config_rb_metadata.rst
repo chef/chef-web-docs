@@ -268,7 +268,7 @@ This configuration file has the following settings:
    New in Chef Client 12.6.
 
 ``privacy``
-   Specify that a cookbook is private.
+   Specify that a cookbook is private. This prevents a cookbook from being uploaded to the public Supermarket or any Supermarket where ``ENFORCE_PRIVACY`` has been enabled.
 
 ``provides``
    Add a recipe, definition, or resource that is provided by this cookbook, should the auto-populated list be insufficient.
