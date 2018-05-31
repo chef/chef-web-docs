@@ -1324,7 +1324,7 @@ chef export
 -----------------------------------------------------
 .. tag ctl_chef_export
 
-Use the ``chef export`` subcommand to create a chef-zero-compatible chef-repo that contains the cookbooks described by a ``Policyfile.lock.json`` file. After a chef-zero-compatible chef-repo is copied to a node, the policy can be applied locally on that machine by running ``chef-client -z`` (local mode).
+Use the ``chef export`` subcommand to create a chef-zero-compatible chef-repo that contains the cookbooks described by a ``Policyfile.lock.json`` file. After a chef-zero-compatible chef-repo is copied to a node, the policy can be applied locally on that machine by running ``chef-client -z`` (local mode). Applying this policy locally requires features introduced in Chef client 12.7.
 
 .. end_tag
 
@@ -1344,18 +1344,18 @@ Configuration Settings
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag ctl_chef_export_config
 
-The client.rb file on that machine requires the following settings:
-
-``deployment_group``
-   This setting should be set to ``'$POLICY_NAME-local'``.
+The chef-zero-compatible chef-repo has a ``.chef/config.rb`` file with the following settings which are required by ``chef-client -z`` (local mode):
 
 ``policy_document_native_api``
-   This setting should be set to ``false``.
-
-``use_policyfile``
    This setting should be set to ``true``.
 
-``versioned_cookbooks``
+``policy_group``
+   This setting should be set to ``'local'``.
+
+``policy_name``
+   This setting should be set to ``'$POLICY_NAME'``.
+
+``use_policyfile``
    This setting should be set to ``true``.
 
 .. end_tag
