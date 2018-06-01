@@ -624,7 +624,7 @@ or:
 
 .. code-block:: ruby
 
-   platform?('rhel', 'debian')
+   platform?('redhat', 'debian')
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
