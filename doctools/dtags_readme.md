@@ -18,14 +18,15 @@ there is a directive `.. include::` to bring in shared content from
 another file. Here's an example:
 
 `A.rst`
+
 ```rst
    Foo
    =======================================
-   
+
    Let's introduce **Foo**.
-   
+
    .. include ../../includes/foo_summary.rst
-   
+
    As mentioned above, **Foo** is a powerful feature of our product.
 ```
 
@@ -34,17 +35,20 @@ The file `../../includes/foo_summary.rst` contains the reusable content:
 ```rst
 **Foo** does lots of things.
 ```
+
 Of course, the whole point is that `../../includes/foo_summary.rst`
 can appear in lots of places, for example, in `B.rst`:
 
 `B.rst`
+
 ```rst
    **Enterprise Foo** is based on Foo.
-   
+
    .. include ../../includes/foo_summary.rst
-   
+
    But as impressive as **Foo** is, **Enterprise Foo** does even more.
 ```
+
 Using include files for structured content starts innocently enough.
 
 It quickly becomes difficult. Include files can themselves be included
@@ -80,35 +84,38 @@ content as being reused. The restructuredText from the previous
 example becomes:
 
 `A.rst`
+
 ```rst
    Foo
    =======================================
-   
+
    Let's introduce **Foo**.
-   
+
    .. tag foo_summary
-   
+
    **Foo** does lots of things.
-   
+
    .. end_tag
-   
+
    As mentioned above, **Foo** is a powerful feature of our product.
 ```
 
 and
 
 `B.rst`
+
 ```rst
    **Enterprise Foo** is based on Foo.
-   
+
    .. tag foo_summary
-   
+
    **Foo** does lots of things.
-   
+
    .. end_tag
-   
+
    But as impressive as **Foo** is, **Enterprise Foo** does even more.
 ```
+
 Include files like `../../includes/foo_summary.rst` go away.
 
 How do we keep the tagged regions in sync? They are, after all, in two
@@ -138,23 +145,25 @@ let's say that `A.rst` is the one that we want to work on. Here's our
 change:
 
 `A.rst`
+
 ```rst
    Foo
    =======================================
-   
+
    Let's introduce **Foo**.
-   
+
    .. tag foo_summary
-   
+
    **Foo** does lots of really important things and it does them fast.
-   
+
    .. end_tag
-   
+
    As mentioned above, **Foo** is a powerful feature of our product.
 ```
 
 Our version control system sees the change:
-```
+
+```bash
 git status
 On branch master
 Your branch is up-to-date with 'origin/master'.
@@ -163,13 +172,13 @@ Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git checkout -- <file>..." to discard changes in working directory)
 
-	modified:   A.rst
+  modified:   A.rst
 ```
 
 We can review the change by looking at diffs.
 
 ```bash
-git diff 
+git diff
 diff --git a/src/examples/A.rst b/src/examples/A.rst
  index 8e7ea54..3d5a97a 100644
  --- a/src/examples/A.rst
@@ -197,8 +206,8 @@ location. We can do this by adding our change to the git index, the
 staging area for changes prior to commiting them. The `git add`
 command is what we want.
 
-```
-git add A.rst 
+```bash
+git add A.rst
 git status
 
 On branch master
@@ -214,13 +223,14 @@ shared content and to replicate changes.
 
 We start by running the `dtags check` subcommand.
 
-```
+```bash
 dtags check
 Inconsistent tagged regions:
   foo_summary e8ae754 A.rst:6
 
   foo_summary 5a93da7 B.rst:3
 ```
+
 The `dtags` tool compares the tags across the doc set (the current working
 directory) and reports inconsistencies.
 
@@ -230,7 +240,7 @@ file name and line number where the tag is seen.
 We can apply the changes to all or part of the documentation set
 in our working set with the `dtags replicate` subcommand.
 
-```
+```bash
 dtags replicate foo_summary A.rst
 
   tag foo_summary 5a93da7 -> e8ae754 B.rst:3
@@ -243,7 +253,7 @@ options for using `dtags replicate`.)
 
 We can check that a change was made by looking at the `git status`.
 
-```
+```bash
 git status
 On branch master
 Your branch is up-to-date with 'origin/master'.
@@ -251,13 +261,13 @@ Your branch is up-to-date with 'origin/master'.
 Changes to be committed:
   (use "git reset HEAD <file>..." to unstage)
 
-	modified:   A.rst
+  modified:   A.rst
 
 Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git checkout -- <file>..." to discard changes in working directory)
 
-	modified:   B.rst
+  modified:   B.rst
 
 ```
 
@@ -279,7 +289,7 @@ Oops, we just overwrote our changes with the old text! This isn't a
 problem. We can fix that glitch by "unstaging" `A.rst` and putting
 `A.rst` back in the index:
 
-```
+```bash
 git reset HEAD A.rst
 git add A.rst
 dtags replicate -- A.rst
@@ -292,7 +302,7 @@ The final step is to make sure all of the tagged regions are
 consistent and commit our changes and push them to the repo used for
 the project.
 
-```
+```bash
 dtags check
 git add B.rst
 git commit -m "Changed foo_summary per VP of Marketing"
