@@ -119,6 +119,11 @@ Cookbook Reference
 
 **Recipes**: `About Recipes </recipes.html>`__ | `Debug Recipes, Client Runs </debug.html>`__
 
+**Audit Mode DSL**: 
+`About the Audit Mode DSL </dsl_audit.html>`__ |
+`control </dsl_audit.html#control>`__ |
+`control_group </dsl_audit.html#control-group>`__ |
+
 **Resources**: 
 `About Resources </resource.html>`__ | 
 `Common Functionality </resource_common.html>`__ |
@@ -672,6 +677,7 @@ Addenda
    deprecations_supports_property
    deprecations_verify_file
    dk_windows
+   dsl_audit
    dsl_custom_resource
    dsl_delivery
    dsl_handler
