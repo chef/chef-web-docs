@@ -712,7 +712,7 @@ With the ``:before`` notification, the action specified for the ``nginx`` resour
      message ''
      url 'http://couchdb.apache.org/img/sketch.png'
      action :head
-     if File.exist?('/tmp/couch.png')
+     if ::File.exist?('/tmp/couch.png')
        headers 'If-Modified-Since' => File.mtime('/tmp/couch.png').httpdate
      end
      notifies :create, 'remote_file[/tmp/couch.png]', :immediately
