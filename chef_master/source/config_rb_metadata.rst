@@ -333,17 +333,17 @@ This configuration file has the following settings:
 
       supports 'ubuntu'
 
-   or, to support versions of Ubuntu greater than or equal to 14.04:
+   or, to support versions of Ubuntu greater than or equal to 12.04:
 
    .. code-block:: ruby
 
-      supports 'ubuntu', '>= 14.04'
+      supports 'ubuntu', '>= 12.04'
 
-   or, to support only Ubuntu 17.10:
+   or, to support only Ubuntu 14.10:
 
    .. code-block:: ruby
 
-      supports 'ubuntu', '= 17.10'
+      supports 'ubuntu', '= 14.10'
 
    Here is a list of all of the supported specific operating systems:
 
