@@ -452,6 +452,9 @@
 <loc>https://docs.chef.io/dsl_recipe.html</loc>
 </url>
 
+<url>
+<loc>https://docs.chef.io/dsl_audit.html</loc>
+</url>
 
 <url>
 <loc>https://docs.chef.io/environment_variables.html</loc>
