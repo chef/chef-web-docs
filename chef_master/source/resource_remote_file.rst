@@ -705,7 +705,7 @@ The following examples demonstrate various approaches for using resources in rec
      message ''
      url 'http://couchdb.apache.org/img/sketch.png'
      action :head
-     if File.exist?('/tmp/couch.png')
+     if ::File.exist?('/tmp/couch.png')
        headers 'If-Modified-Since' => File.mtime('/tmp/couch.png').httpdate
      end
      notifies :create, 'remote_file[/tmp/couch.png]', :immediately
