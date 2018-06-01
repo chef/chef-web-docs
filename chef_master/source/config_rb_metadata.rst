@@ -22,8 +22,6 @@ A metadata.rb file is:
 
 .. note:: A metadata.json file can be edited directly, should temporary changes be required. Any subsequent upload or action that generates metadata will cause the existing metadata.json file to be overwritten with the newly generated metadata. Therefore, any permanent changes to cookbook metadata should be done in the metadata.rb file, and then re-uploaded to the Chef server.
 
- New in 12.8, ``gem`` allows the specification of gem dependency installation via ``chef_gem``. New in 12.6, ``chef_version`` for supporting a range of chef-client versions in a cookbooks, ``ohai_version`` for supporting a range of Ohai versions in a cookbook.  Changed in Chef Client 12.0 to support version constraints, requires ``name``.  New in 12.0, ``issues_url`` to capture issues tracking, ``provides`` method for mapping a custom resource or provider to an existing resource or provider, and ``source_url`` to capture source capture.
-
 Version Constraints
 ====================
 
@@ -49,8 +47,6 @@ Many fields in a cookbook's metadata allow the user to constrain versions. There
     - ``<``
   * - Less than or equal to
     - ``<=``
-
-Changed in Chef Client 12.0 to support version constraints.
 
 .. note:: Pessimistic locking is enabled by proper `semantic versioning <https://semver.org>`__ of cookbooks. If we're on version 2.2.3 of a cookbook, we know that the API will be stable until the 3.0.0 release. Using traditional operators, we'd write this as ``>= 2.2.0, < 3.0``. Instead, we can write this by combining a tilde "~" and right angle bracket ">"--often called a tilde-rocket or "twiddle-wakka"--followed by the major and minor version numbers.  For example: ``~> 2.2``
 
