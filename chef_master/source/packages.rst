@@ -3,7 +3,7 @@ Chef Software Inc Packages
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/packages.rst>`__
 
-Packages for Chef Software Inc products may be installed using platform-native package repositories or the Omnitruck install script. Both installation methods support the following release channels:
+Packages for Chef Software Inc products may be installed using platform-native package repositories or the Chef install script. Both installation methods support the following release channels:
 
 .. list-table::
    :widths: 150 450
