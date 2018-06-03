@@ -148,7 +148,7 @@ A ``Policyfile.rb`` file may contain the following settings:
 
    ``default_source :chef_repo, "path/to/repo"`` pulls cookbooks from a monolithic cookbook repository. This may be a path to the top-level of a cookbook repository or to the ``/cookbooks`` directory within that repository.
 
-   ``default_source :artifactory, "https://artifactory.example/api/chef/my-supermarket" pulls cookbooks from an Artifactory server. Requires either ``artifactory_api_key`` to be set in ``knife.rb`` or ``ARTIFACTORY_API_KEY`` to be set in your environment.
+   ``default_source :artifactory, "https://artifactory.example/api/chef/my-supermarket"`` pulls cookbooks from an Artifactory server. Requires either ``artifactory_api_key`` to be set in ``knife.rb`` or ``ARTIFACTORY_API_KEY`` to be set in your environment.
 
    Multiple cookbook sources may be specified. For example from the public Chef Supermarket and a monolithic repository:
 
