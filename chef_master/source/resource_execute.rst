@@ -399,7 +399,7 @@ The following examples demonstrate various approaches for using resources in rec
      command 'slapadd < /tmp/something.ldif'
      creates '/var/lib/slapd/uid.bdb'
      action :run
-     environment ({'HOME' => '/home/myhome'})
+     environment('HOME' => '/home/myhome')
    end
 
 .. end_tag
