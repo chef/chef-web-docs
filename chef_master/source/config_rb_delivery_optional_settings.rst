@@ -358,7 +358,7 @@ This configuration file has the following settings for ``delivery``:
    Default value: ``"/var/opt/delivery/delivery/etc"``.
 
 ``delivery['git_repo_template']``
-   Where to look for the delivery git repo template must remain consistent with where omnibus-delivery's 'delivery' software definition puts it. Default value:
+   Where to look for the delivery git repo template must remain consistent with where Chef-delivery's 'delivery' software definition puts it. Default value:
 
    .. code-block:: ruby
 

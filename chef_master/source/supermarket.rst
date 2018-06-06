@@ -37,7 +37,7 @@ The private Chef Supermarket is installed behind the firewall on the internal ne
           The source code for Chef Supermarket is located at the following URLs:
 
           * The application itself: https://github.com/chef/supermarket. Report issues to: https://github.com/chef/supermarket/issues.
-          * The code that builds Chef Supermarket as an omnibus package: https://github.com/chef/omnibus-supermarket. Use a Kitchen-based environment to build your own omnibus packages.
+          * The code that builds Chef Supermarket as a Chef package: https://github.com/chef/omnibus-supermarket. Use a Kitchen-based environment to build your own Chef packages.
           * The cookbook that is run by the ``supermarket-ctl reconfigure`` command: https://github.com/chef/supermarket/tree/master/omnibus/cookbooks/omnibus-supermarket
 
           .. end_tag
@@ -274,7 +274,7 @@ supermarket-ctl (executable)
 -----------------------------------------------------
 .. tag ctl_supermarket_summary
 
-The Chef Supermarket installations that are done using the omnibus installer include a command-line utility named supermarket-ctl. This command-line tool is used to start and stop individual services, reconfigure the Chef Supermarket server, run smoke tests, and tail the Chef Supermarket log files.
+The Chef Supermarket installations that are done using the Chef installer include a command-line utility named supermarket-ctl. This command-line tool is used to start and stop individual services, reconfigure the Chef Supermarket server, run smoke tests, and tail the Chef Supermarket log files.
 
 .. end_tag
 

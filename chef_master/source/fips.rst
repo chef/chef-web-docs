@@ -174,7 +174,7 @@ If you ever stop using FIPS mode on the Chef Automate server, simply delete the 
 
 For more information on configuring the Chef Automate server, see `Delivery CLI </delivery_cli.html>`_.
 
-.. note:: If you set up any runners using an Chef Automate server version ``0.7.61`` or earlier, then you will need to re-run `automate-ctl install-runner </ctl_automate_server.html#install-runner>`_ on every existing runner after upgrading your Chef Automate server. Your runners will not work with FIPS enabled without re-running the installer.
+.. note:: If you set up any runners using a Chef Automate server version ``0.7.61`` or earlier, then you will need to re-run `automate-ctl install-runner </ctl_automate_server.html#install-runner>`_ on every existing runner after upgrading your Chef Automate server. Your runners will not work with FIPS enabled without re-running the installer.
 
 
 

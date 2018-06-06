@@ -5,7 +5,7 @@ supermarket-ctl (executable)
 
 .. tag ctl_supermarket_summary
 
-The Chef Supermarket installations that are done using the omnibus installer include a command-line utility named supermarket-ctl. This command-line tool is used to start and stop individual services, reconfigure the Chef Supermarket server, run smoke tests, and tail the Chef Supermarket log files.
+The Chef Supermarket installations that are done using the Chef installer include a command-line utility named supermarket-ctl. This command-line tool is used to start and stop individual services, reconfigure the Chef Supermarket server, run smoke tests, and tail the Chef Supermarket log files.
 
 .. end_tag
 
@@ -19,7 +19,7 @@ This subcommand has the following syntax:
 
    $ sudo -u supermarket supermarket-ctl make-admin USER_NAME
 
-where ``USER_NAME`` represents the name of the user to be granted administrator priviliges.
+where ``USER_NAME`` represents the name of the user to be granted administrator privileges.
 
 Quality Metrics
 =====================================================

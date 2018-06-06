@@ -3,7 +3,7 @@ Chef Software Inc Packages
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/packages.rst>`__
 
-Packages for Chef Software Inc products may be installed using platform-native package repositories or the Omnitruck install script. Both installation methods support the following release channels:
+Packages for Chef Software Inc products may be installed using platform-native package repositories or the Chef install script. Both installation methods support the following release channels:
 
 .. list-table::
    :widths: 150 450
@@ -109,11 +109,11 @@ To set up a Yum package repository for Enterprise Linux platforms:
   		  
       $ sudo mv chef-stable.repo /etc/yum.repos.d/
 
-Omnitruck Install Scripts
+Chef Install Script
 =====================================================
 .. tag packages_install_script
 
-The Omnitruck install script does the following:
+The Chef install script does the following:
 
 * Detects the platform, version, and architecture of the machine on which the installer is to be executed
 * Fetches the appropriate package, for the requested product and version
@@ -122,11 +122,11 @@ The Omnitruck install script does the following:
 
 .. end_tag
 
-Run the Omnitruck Install Script
+Run the Chef Install Script
 -----------------------------------------------------
 .. tag packages_install_script_run
 
-The Omnitruck install script can be run on UNIX, Linux, and Microsoft Windows platforms.
+The Chef install script can be run on UNIX, Linux, and Microsoft Windows platforms.
 
 .. end_tag
 
@@ -134,7 +134,7 @@ UNIX and Linux
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag packages_install_script_run_unix_linux
 
-On UNIX and Linux systems the Omnitruck install script is invoked with:
+On UNIX and Linux systems the Chef install script is invoked with:
 
 .. code-block:: bash
 
@@ -148,7 +148,7 @@ Microsoft Windows
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag packages_install_script_run_windows
 
-On Microsoft Windows systems the Omnitruck install script is invoked using Windows PowerShell:
+On Microsoft Windows systems the Chef install script is invoked using Windows PowerShell:
 
 .. code-block:: none
 
@@ -156,11 +156,11 @@ On Microsoft Windows systems the Omnitruck install script is invoked using Windo
 
 .. end_tag
 
-Omnitruck Install Script Options
+Chef install Script Options
 -----------------------------------------------------
 .. tag packages_install_script_options
 
-In addition to the default install behavior, the Omnitruck install script supports the following options:
+In addition to the default install behavior, the Chef install script supports the following options:
 
 ``-c`` (``-channel`` on Microsoft Windows)
    The release channel from which a package is pulled. Possible values: ``current`` or ``stable``. Default value: ``stable``.

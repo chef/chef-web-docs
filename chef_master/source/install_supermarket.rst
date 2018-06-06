@@ -25,7 +25,7 @@ The private Chef Supermarket is installed behind the firewall on the internal ne
           The source code for Chef Supermarket is located at the following URLs:
 
           * The application itself: https://github.com/chef/supermarket. Report issues to: https://github.com/chef/supermarket/issues.
-          * The code that builds Chef Supermarket as an omnibus package: https://github.com/chef/omnibus-supermarket. Use a Kitchen-based environment to build your own omnibus packages.
+          * The code that builds Chef Supermarket as a Chef package: https://github.com/chef/omnibus-supermarket. Use a Kitchen-based environment to build your own Chef packages.
           * The cookbook that is run by the ``supermarket-ctl reconfigure`` command: https://github.com/chef/supermarket/tree/master/omnibus/cookbooks/omnibus-supermarket
 
           .. end_tag

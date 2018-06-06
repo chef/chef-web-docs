@@ -12,7 +12,7 @@ opscode-analytics-ctl (executable)
 
 .. end_tag
 
-The Chef Analytics installations that are done using the omnibus installer include a command-line utility named opscode-analytics-ctl. This command-line tool is used to start and stop individual services, reconfigure the Chef Analytics server, run smoke tests, and tail the Chef Analytics log files.
+The Chef Analytics installations that are done using the Chef installer include a command-line utility named opscode-analytics-ctl. This command-line tool is used to start and stop individual services, reconfigure the Chef Analytics server, run smoke tests, and tail the Chef Analytics log files.
 
 .. note:: .. tag chef_subscriptions
 
