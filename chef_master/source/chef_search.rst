@@ -266,8 +266,6 @@ For example:
 
 .. end_tag
 
-New in Chef Client 12.0.
-
 Keys
 =====================================================
 .. tag search_key

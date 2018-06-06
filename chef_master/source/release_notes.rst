@@ -1971,8 +1971,6 @@ is equivalent to:
      action :delete
    end
 
-New in Chef Client 12.10.
-
 .. end_tag
 
 delete_resource
@@ -1998,8 +1996,6 @@ For example:
 
    delete_resource(:template, '/x/y.erb')
 
-New in Chef Client 12.10.
-
 .. end_tag
 
 delete_resource!
@@ -2024,8 +2020,6 @@ For example:
 .. code-block:: ruby
 
    delete_resource!(:file, '/x/file.txt')
-
-New in Chef Client 12.10.
 
 .. end_tag
 
@@ -2069,8 +2063,6 @@ and a resource block:
      notifies :run, 'execute[newaliases]'
    end
 
-New in Chef Client 12.10.
-
 .. end_tag
 
 edit_resource!
@@ -2101,8 +2093,6 @@ For example:
 .. code-block:: ruby
 
    edit_resource!(:file, '/x/y.rst')
-
-New in Chef Client 12.10.
 
 .. end_tag
 
@@ -2143,8 +2133,6 @@ and a resource block:
      notifies :run, 'execute[newseapower]'
    end
 
-New in Chef Client 12.10.
-
 .. end_tag
 
 find_resource!
@@ -2169,8 +2157,6 @@ For example:
 .. code-block:: ruby
 
    find_resource!(:template, '/x/y.erb')
-
-New in Chef Client 12.10.
 
 .. end_tag
 
@@ -2264,8 +2250,6 @@ Notes about FIPS:
 * Should only be enabled for environments that require FIPS 140-2 compliance
 * May not be enabled for any version of the chef-client earlier than 12.8
 
-Changed in Chef server 12.13 to expose FIPS runtime flag on RHEL. New in Chef Client 12.8, support for OpenSSL validation of FIPS.
-
 .. end_tag
 
 Enable FIPS Mode
@@ -2334,8 +2318,6 @@ For example, when using knife, the following configuration files would be loaded
 The ``old_settings.rb.bak`` file is ignored because it's not a configuration file. The ``config.rb``, ``company_settings.rb``, and ``ec2_configuration`` files are merged together as if they are a single configuration file.
 
 .. note:: If multiple configuration files exists in a ``.d`` directory, ensure that the same setting has the same value in all files.
-
-New in Chef Client 12.8.
 
 .. end_tag
 
@@ -2892,8 +2874,6 @@ Specifies a gem dependency to be installed via the **chef_gem** resource after a
    gem "poise"
    gem "chef-sugar"
    gem "chef-provisioning"
-
-New in Chef Client 12.8.
 
 .. end_tag
 
@@ -8976,7 +8956,7 @@ reboot
 -----------------------------------------------------
 .. tag resource_service_reboot
 
-Use the **reboot** resource to reboot a node, a necessary step with some installations on certain platforms. This resource is supported for use on the Microsoft Windows, macOS, and Linux platforms.  New in Chef Client 12.0.
+Use the **reboot** resource to reboot a node, a necessary step with some installations on certain platforms. This resource is supported for use on the Microsoft Windows, macOS, and Linux platforms.
 
 .. end_tag
 

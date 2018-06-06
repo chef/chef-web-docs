@@ -29,8 +29,6 @@ The ``knife user`` subcommand is used to manage the list of users and their asso
 
           .. end_tag
 
-Changed in Chef Client 12.4 to support public key management for users and clients.
-
 create
 =====================================================
 Use the ``create`` argument to create a user. This process will generate an RSA key pair for the named user. The public key will be stored on the Chef server and the private key will be displayed on ``STDOUT`` or written to a named file.

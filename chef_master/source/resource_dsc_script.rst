@@ -9,8 +9,6 @@ Windows PowerShell is a task-based command-line shell and scripting language dev
 
 .. end_tag
 
-New in Chef Client 12.2.  Changed in Chef Client 12.6.
-
 .. tag resources_common_powershell_dsc
 
 Desired State Configuration (DSC) is a feature of Windows PowerShell that provides `a set of language extensions, cmdlets, and resources <http://technet.microsoft.com/en-us/library/dn249912.aspx>`_ that can be used to declaratively configure software. DSC is similar to Chef, in that both tools are idempotent, take similar approaches to the concept of resources, describe the configuration of a system, and then take the steps required to do that configuration. The most important difference between Chef and DSC is that Chef uses Ruby and DSC is exposed as configuration data from within Windows PowerShell.
@@ -28,8 +26,6 @@ Many DSC resources are comparable to built-in Chef resources. For example, both 
 .. note:: The WinRM service must be enabled. (Use ``winrm quickconfig`` to enable the service.)
 
 .. warning:: The **dsc_script** resource  may not be used in the same run-list with the **dsc_resource**. This is because the **dsc_script** resource requires that ``RefreshMode`` in the Local Configuration Manager be set to ``Push``, whereas the **dsc_resource** resource requires it to be set to ``Disabled``.
-
-Changed in Chef Client 12.5 to include ``ps_credential`` helper.
 
 Syntax
 =====================================================
@@ -182,8 +178,6 @@ This resource has the following properties:
 
       imports 'cRDPEnabled', 'PSHOrg_cRDPEnabled'
 
-   New in Chef Client 12.1.
-
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -315,8 +309,6 @@ For example, assuming the ``CertificateID`` is configured in the local configura
   end
 
 .. end_tag
-
-New in Chef Client 12.5.
 
 Examples
 =====================================================

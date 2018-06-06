@@ -47,8 +47,6 @@ This configuration file has the following settings:
 ``client_d_dir``
    A directory that contains additional configuration scripts to load for chef-client.
 
-   New in Chef client 12.8.
-
 ``client_key``
    The location of the file that contains the client key. Default value: ``/etc/chef/client.pem``. For example:
 

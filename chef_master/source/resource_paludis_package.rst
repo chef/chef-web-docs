@@ -15,8 +15,6 @@ Use the **paludis_package** resource to manage packages for the Paludis platform
 
           .. end_tag
 
-New in Chef Client 12.1.
-
 Syntax
 =====================================================
 .. tag resource_package_paludis_syntax

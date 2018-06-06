@@ -156,8 +156,6 @@ This resource has the following properties:
 
    Default value: ``:powershell_script``. When this property is set to ``:powershell_script``, the 64-bit version of the Windows PowerShell shell will be used to evaluate strings values for the ``not_if`` and ``only_if`` properties. Set this value to ``:default`` to use the 32-bit version of the cmd.exe shell.
 
-   Changed in Chef Client 12.0 to default to the specified property.
-
 ``ignore_failure``
    **Ruby Types:** True, False
 
@@ -610,5 +608,3 @@ The following example shows how to run ``mkdir test_dir`` from a chef-client run
    end
 
 .. end_tag
-
-New in Chef Client 12.19.

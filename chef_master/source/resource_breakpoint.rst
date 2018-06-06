@@ -9,8 +9,6 @@ Use the **breakpoint** resource to add breakpoints to recipes. Run the chef-shel
 
 .. end_tag
 
-*New in Chef Client 12.0.*
-
 Syntax
 =====================================================
 .. tag resource_breakpoint_syntax

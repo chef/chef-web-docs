@@ -145,8 +145,6 @@ When running a validatorless ``knife bootstrap`` operation, the output is simila
 
 .. end_tag
 
-New in Chef Client 12.1.
-
 knife bootstrap Options
 -----------------------------------------------------
 Use the following options with a validatorless bootstrap to specify items that are stored in chef-vault:

@@ -293,8 +293,6 @@ This resource has the following properties:
 
       source '\\\\path\\to\\img\\sketch.png'
 
-      New in Chef Client 12.4.
-
    By using a node attribute:
 
    .. code-block:: ruby
@@ -450,8 +448,6 @@ This resource has the following properties:
       end
 
    If a string or a block return ``false``, the chef-client run will stop and an error is returned.
-
-   New in Chef Client 12.1.
 
 Atomic File Updates
 -----------------------------------------------------

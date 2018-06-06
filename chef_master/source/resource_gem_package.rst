@@ -210,8 +210,6 @@ This resource has the following properties:
 
    Set to ``true`` to download a gem from the path specified by the ``source`` property (and not from RubyGems). Default value: ``false``.
 
-   New in Chef Client 12.3.
-
 ``include_default_source``
    **Ruby Types:** True, False
 

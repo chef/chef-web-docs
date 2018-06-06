@@ -303,7 +303,6 @@ An environment attribute can only be set to be a default attribute or an overrid
 
 Attribute Precedence
 =====================================================
-Changed in Chef Client 12.0, so that attributes may be modified for named precedence levels, all precedence levels, and be fully assigned.
 
 .. tag node_attribute_precedence
 

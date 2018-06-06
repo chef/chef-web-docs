@@ -563,8 +563,6 @@ This allows you to use multiple custom resources files that provide the same res
 
 .. end_tag
 
-New in Chef Client 12.0.
-
 override
 -----------------------------------------------------
 .. tag dsl_custom_resource_method_provides_override

@@ -680,12 +680,8 @@ This argument has the following options:
 ``-l``, ``--long``
    Display all attributes in the output.
 
-   New in Chef Client 12.0.
-
 ``-m``, ``--medium``
    Display normal attributes in the output.
-
-   New in Chef Client 12.0.
 
 ``-r``, ``--run-list``
    Show only the run-list.

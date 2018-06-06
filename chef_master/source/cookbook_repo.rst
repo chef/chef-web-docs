@@ -15,8 +15,6 @@ To configure cookbook-specific copyright, email, and license data, add the follo
 
 where the ``cookbook_copyright`` and ``cookbook_email`` are specific to the organization and ``cookbook_license`` is either ``apachev2`` or ``none``. These settings will be used in the default recipe and in corresponding values in the metadata.rb file, but can be modified in those locations as well (if they should be different from the default values contained in the knife.rb file.)
 
-New in Chef Client 12.8, ``gem`` allows the specification of gem dependencies to be installed via ``chef_gem``. New in 12.6, ``chef_version`` and ``ohai_version`` allow specification of ranges for supported versions of chef-client and Ohai within cookbooks. New in 12.0, ``issues_url`` captures the issue tracking location for a cookbook, ``provides`` method allows the mapping of custom resources or providers to existing resources or providers, ``source_url`` captures the source location for a cookbook. Changed in 12.0, ``name`` is required.
-
 Work with Cookbooks
 =====================================================
 Use the following knife subcommands to create, install, and/or download cookbooks.
@@ -122,7 +120,6 @@ This configuration file has the following settings:
          :default => 'kitty kitty'
 
 ``chef_version``
-   New in Chef Client 12.6.
 
    .. note:: This setting is not visible in Chef Supermarket.
 
@@ -180,8 +177,6 @@ This configuration file has the following settings:
       gem "chef-sugar"
       gem "chef-provisioning"
 
-   New in Chef Client 12.8.
-
    .. end_tag
 
 ``issues_url``
@@ -192,8 +187,6 @@ This configuration file has the following settings:
    .. code-block:: ruby
 
       issues_url 'https://github.com/chef-cookbooks/chef-client/issues'
-
-   New in Chef Client 12.0.
 
 ``license``
    The type of license under which a cookbook is distributed: ``Apache v2.0``, ``GPL v2``, ``GPL v3``, ``MIT``, or ``license 'Proprietary - All Rights Reserved`` (default). Please be aware of the licenses for files inside of a cookbook and be sure to follow any restrictions they describe.
@@ -288,8 +281,6 @@ This configuration file has the following settings:
 
       name 'cats'
 
-   Changed in Chef Client 12.0 to required.
-
 ``ohai_version``
    A range of Ohai versions that are supported by this cookbook. All `version constraint operators </config_rb_metadata.html#cookbook-version-constraints>`__ are applicable to this field.
 
@@ -304,8 +295,6 @@ This configuration file has the following settings:
    .. end_tag
 
    .. note:: This setting is not visible in Chef Supermarket.
-
-   New in Chef Client 12.6.
 
 ``privacy``
    Specify that a cookbook is private.
@@ -332,8 +321,6 @@ This configuration file has the following settings:
 
       provides 'service[snuggle]'
 
-   New in Chef Client 12.0.
-
 ``recipe``
    A description for a recipe, mostly for cosmetic value within the Chef server user interface.
 
@@ -357,8 +344,6 @@ This configuration file has the following settings:
    .. code-block:: ruby
 
       source_url 'https://github.com/chef-cookbooks/chef-client'
-
-   New in Chef Client 12.0.
 
 ``supports``
    Show that a cookbook has a supported platform. Use a version constraint to define dependencies for platform versions: ``<`` (less than), ``<=`` (less than or equal to), ``=`` (equal to), ``>=`` (greater than or equal to), ``~>`` (approximately greater than), or ``>`` (greater than). To specify more than one platform, use more than one ``supports`` field, once for each platform.
