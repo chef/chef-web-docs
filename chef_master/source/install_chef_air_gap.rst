@@ -66,7 +66,7 @@ In this section you'll install the Chef server, and create your organization and
 
 .. note:: If you intend to use Chef Automate, create the ``delivery`` user and add it to your organization during this step.
 
-#. Download the package from https://omnitruck.chef.io/chef-server/.
+#. Download the package from https://downloads.chef.io/chef-server/.
 #. Upload the package to the machine that will run the Chef server, and then record its location on the file system. The rest of these steps assume this location is in the ``/tmp`` directory.
 
 #. .. tag install_chef_server_install_package
