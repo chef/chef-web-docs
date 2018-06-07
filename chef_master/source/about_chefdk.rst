@@ -70,7 +70,7 @@ The most important tools included in the Chef development kit are:
    * - Cookstyle
      - A Rubocop-based style-checking tool for writing clean cookbooks.
    * - Delivery CLI
-     - A command-line tool for continuous delivery workflow. Is used to setup and execute phase jobs on an Chef Automate server.
+     - A command-line tool for continuous delivery workflow. Is used to setup and execute phase jobs on a Chef Automate server.
    * - Fauxhai
      - A gem for mocking Ohai data in ChefSpec tests.
    * - Foodcritic

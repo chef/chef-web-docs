@@ -454,10 +454,10 @@ The ``chef-backend-ctl gen-server-config`` command, which can be run as root fro
 Software Versions
 ----------------------------------------------------------------
 
-The backend HA cluster uses the omnibus installer (https://github.com/chef/omnibus) to package all of the software
+The backend HA cluster uses the Chef installer to package all of the software
 necessary to run the services included in the backend cluster. For a full list of the software packages included (and their versions), see the file located at ``/opt/chef-backend/version-manifest.json``.
 
-Do not attempt to upgrade individual components of the omnibus package. Due to the way omnibus packages are built, modifying any of the individual components in the package will lead to cluster instability. If the latest version of the backend cluster is providing an out-of-date package, please bring it to the attention of Chef by filling out a ticket with support@chef.io.
+Do not attempt to upgrade individual components of the Chef package. Due to the way Chef packages are built, modifying any of the individual components in the package will lead to cluster instability. If the latest version of the backend cluster is providing an out-of-date package, please bring it to the attention of Chef by filling out a ticket with support@chef.io.
 
 chef-backend.rb Options
 =====================================================

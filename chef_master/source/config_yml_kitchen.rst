@@ -356,7 +356,7 @@ Kitchen also supports ``http_proxy`` and ```https_proxy`` in the ``.kitchen.yml`
 
 chef-client Settings
 ==========================================================================
-A .kitchen.yml file may define chef-client-specific settings, such as whether to require the omnibus installer or the URL from which the chef-client is downloaded, or to override settings in the client.rb file:
+A .kitchen.yml file may define chef-client-specific settings, such as whether to require the Chef installer or the URL from which the chef-client is downloaded, or to override settings in the client.rb file:
 
 .. code-block:: yaml
 
@@ -387,7 +387,7 @@ A .kitchen.yml file may define chef-client-specific settings, such as whether to
 
 where:
 
-* ``require_chef_omnibus`` is used to ensure that the omnibus installer will be used to install the chef-client to all platform instances; ``require_chef_omnibus`` may also be set to ``latest``, which means the newest version of the chef-client for that platform will be used for cookbook testing
+* ``require_chef_omnibus`` is used to ensure that the Chef installer will be used to install the chef-client to all platform instances; ``require_chef_omnibus`` may also be set to ``latest``, which means the newest version of the chef-client for that platform will be used for cookbook testing
 * ``chef_omnibus_url`` is used to specify the URL from which the chef-client is downloaded
 * All of the ``attributes`` for the ``config`` test suite contain specific client.rb settings for use with this test suite
 

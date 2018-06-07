@@ -3,9 +3,9 @@ Install the Chef DK
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_dk.rst>`__
 
-The Chef DK installer is used to set up the Chef development kit on a workstation, including the chef-client itself, an embedded version of Ruby, RubyGems, OpenSSL, key-value stores, parsers, libraries, command line utilities, and community tools such as Kitchen, Berkshelf, and ChefSpec. The omnibus installer puts everything into a unique directory (``/opt/chefdk/`` on macOS / Linux and ``C:\opscode\chefdk\`` on Windows) so that these components will not interfere with other applications that may be running on the target machine.
+The Chef DK installer is used to set up the Chef development kit on a workstation, including the chef-client itself, an embedded version of Ruby, RubyGems, OpenSSL, key-value stores, parsers, libraries, command line utilities, and community tools such as Kitchen, Berkshelf, and ChefSpec. The Chef installer puts everything into a unique directory (``/opt/chefdk/`` on macOS / Linux and ``C:\opscode\chefdk\`` on Windows) so that these components will not interfere with other applications that may be running on the target machine.
 
-.. note:: The omnibus installer must run as a root user.
+.. note:: The Chef installer must run as a root user.
 
 Install
 =====================================================
