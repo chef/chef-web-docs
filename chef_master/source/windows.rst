@@ -2293,7 +2293,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -2357,7 +2357,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -2574,7 +2574,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -2715,7 +2715,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -3051,7 +3051,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -3110,7 +3110,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -3434,7 +3434,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -3493,7 +3493,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -3717,7 +3717,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -3786,7 +3786,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -3811,7 +3811,7 @@ This resource has the following properties:
 ``user``
    **Ruby Types:** String
 
-   The user name of the user identity with which to launch the new process. Default value: `nil`. The user name may optionally be specified with a domain, i.e. `domain\user` or `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can also be specified without a domain simply as user if the domain is instead specified using the `domain` attribute. On Windows only, if this property is specified, the `password` property must be specified.
+   The user name of the user identity with which to launch the new process. Default value: `nil`. The user name may optionally be specified with a domain, i.e. `domain\\user` or `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can also be specified without a domain simply as user if the domain is instead specified using the `domain` attribute. On Windows only, if this property is specified, the `password` property must be specified.
 
 ``password``
    **Ruby Types:** String
@@ -3822,7 +3822,7 @@ This resource has the following properties:
 ``domain``
    **Ruby Types:** String
 
-   *Windows only*: The domain of the user user specified by the `user` property.
+   *Windows only*: The domain of the user specified by the `user` property.
    Default value: `nil`. If not specified, the user name and password specified by the `user` and `password` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the `user` property.
 
 ``elevated``
@@ -4314,7 +4314,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -4391,7 +4391,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -4624,7 +4624,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -4717,7 +4717,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -5038,7 +5038,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -5151,7 +5151,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
