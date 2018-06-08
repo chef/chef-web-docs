@@ -52,7 +52,10 @@ This configuration file has the following settings:
 
 ``checksum_path``
    The location in which checksum files are stored. These are used to validate individual cookbook files, such as recipes. The checksum itself is stored in the Chef server database and is then compared to a file in the checksum path that has a filename identical to the checksum.
-
+   
+``chef_guid``
+   The node UUID used by Automate. Setting this allows the node UUID to be specified, and can be carried across instances of a node. 
+   
 ``chef_repo_path``
    The path to the chef-repo.
 
