@@ -415,7 +415,7 @@ Create service with a description:
 
 .. tag resource_service_windows_delete
 
-Deelete service with the ``'name'`` of ``chef-client``:
+Delete service with the ``'name'`` of ``chef-client``:
 
 .. code-block:: ruby
 
