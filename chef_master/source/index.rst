@@ -573,7 +573,6 @@ Addenda
    chef_quick_overview
    chef_repo
    chef_search
-   chef_shell
    chef_solo
    chef_system_requirements
    chef_vault
