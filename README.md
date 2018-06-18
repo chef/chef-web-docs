@@ -34,7 +34,8 @@ few days. The important part is submitting your change.
 ## Local Development Environment
 
 The docs website is built using Sphinx in a local docker container
-to minimize python environment issues. You'll need a minimum version of Docker 18.03 installed and running.
+to minimize python environment issues.
+You'll need a minimum version of Docker 18.03 installed and running.
 
 To build the docs:
 
