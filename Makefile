@@ -11,3 +11,11 @@ docs:
 
 clean:
 	@rm -rf $(BUILDDIR)
+
+docker-build:
+	docker build . -t docsbuild
+	docker run -v $(shell pwd):/build_dir -it docsbuild:latest
+
+docker-preview:
+	docker build -f Dockerfile.runner -t docsrunner .
+	docker run -p 8080:80 -it docsrunner:latest

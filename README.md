@@ -31,6 +31,25 @@ two. We'll fix build errors before we merge, so you don't have to
 worry about passing all of the CI checks, but it might add an extra
 few days. The important part is submitting your change.
 
+## Local Development Environment
+
+The docs website is built using Sphinx in a local docker container
+to minimize python environment issues.
+You'll need a minimum version of Docker 18.03 installed and running.
+
+To build the docs:
+
+- Run `make docker-build`
+
+To preview locally:
+
+- Run `make docker-preview`
+- go to http://localhost:8080
+
+To clean your local development environment:
+
+- Run `make clean`
+
 ## The next fastest way
 
 If your change involves edits to multiple topics, or if you contribute
@@ -39,11 +58,11 @@ workstation, and make pull requests from commits you push to your
 forked repo. After you fork `chef/chef-web-docs` using the GitHub web
 interface, clone the forked repo to your workstation, following these [instructions](https://docs.chef.io/community_contributions.html#use-git).
 
-Contributing this way requires some set-up, but once you're done, you can contribute 
-frequently and from the comfort of your own GitHub repo. Our docs have three major dependencies: 
+Contributing this way requires some set-up, but once you're done, you can contribute
+frequently and from the comfort of your own GitHub repo. Our docs have three major dependencies:
 
-  1. We currently require version 1.6.2 of [Sphinx](http://sphinx-doc.org/). 
-  2. The requirements.txt file referenced below pins Sphinx and its dependencies to versions that are compatible with each other. 
+  1. We currently require version 1.6.2 of [Sphinx](http://sphinx-doc.org/).
+  2. The requirements.txt file referenced below pins Sphinx and its dependencies to versions that are compatible with each other.
   3. You may also need to install Python, depending on your system.
   4. You may also need to install Ruby, depending on your system.
 
@@ -58,12 +77,11 @@ install Sphinx, the documentation generator, possibly using `sudo`:
 
 > Note: The default `make` target is `docs`. This is the target that creates the appropriate `build` directory on your local machine and references in the source files in the `chef_master/source` directory of your local repo.
 
-
 The docs build in a minute or two. To
 view the local version you built, you have two options:
 
-* Open the file `build/<filename>` in your browser 
-* Use a local web server like the `SimpleHTTPServer` python module
+- Open the file `build/<filename>` in your browser
+- Use a local web server like the `SimpleHTTPServer` python module
 
 Viewing your content using the `SimpleHTTPServer` module allows you to navigate through the documentation as if you were browsing it on https://docs.chef.io. To use the `SimpleHTTPServer` module:
 
@@ -91,20 +109,20 @@ For more information about how tagged regions work and how our new
 
 We love getting feedback. You can use:
 
-* Email --- Send an email to docs@chef.io for documentation bugs,
+- Email --- Send an email to docs@chef.io for documentation bugs,
   ideas, thoughts, and suggestions. This email address is not a
   support email address, however. If you need support, contact Chef
   support.
-* Pull request --- Submit a PR to this repo using either of the two
+- Pull request --- Submit a PR to this repo using either of the two
   methods described above.
-* GitHub issues --- Use the https://github.com/chef/chef/issues page
+- GitHub issues --- Use the https://github.com/chef/chef/issues page
   for issues specific to Chef itself. This is a good place for
   "important" documentation bugs that may need visibility among a
   larger group, especially in situations where a doc bug may also
   surface a product bug. You can also use
   [chef-web-docs issues](https://github.com/chef/chef-web-docs/issues),
   especially for docs feature requests and minor docs bugs.
-* https://discourse.chef.io/ --- This is a great place to interact with Chef and others.
+- https://discourse.chef.io/ --- This is a great place to interact with Chef and others.
 
 ## License
 
@@ -112,9 +130,9 @@ We love getting feedback. You can use:
 
 ## Documentation snapshots
 
-The previous scoped doc sets that were found off of https://docs.chef.io/release/ are no longer available in this repo. Instead, 
+The previous scoped doc sets that were found off of https://docs.chef.io/release/ are no longer available in this repo. Instead,
 those doc sets are located at https://docs-archive.chef.io/. The index page on the docs archive site provides links to them. The doc sets retain their unique
-left nav and can be used to view content at a particular point in time for a given release. In the future, snapshots 
+left nav and can be used to view content at a particular point in time for a given release. In the future, snapshots
 will be added for major releases of products/projects or for products/projects/components that are no longer supported.
 
 ## Archive of pre-2016 commit history
@@ -123,7 +141,7 @@ Commit history of this repo prior to February 12, 2016 has been
 archived to the chef/chef-web-docs-2016 repo to save space. No changes
 to the archive repo will be merged; it's just for historical purposes.
 
-## Questions?
+## Questions
 
 Open an [issue](https://github.com/chef/chef-web-docs/issues) and
 ask. Or send email to docs@chef.io.
