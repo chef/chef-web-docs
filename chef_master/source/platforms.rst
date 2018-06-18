@@ -85,7 +85,7 @@ The following platforms are supported only via the community:
      - current version
    * - Debian
      - ``i686``, ``x86_64``
-     - ``7``, ``8``, ``9``
+     - ``8``, ``9``
    * - Fedora
      -
      - current non-EOL releases
@@ -134,7 +134,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``14.04``, ``16.04``, ``18.04``
    * - Microsoft Windows
      -
-     - ``10``, ``2008 R2``, ``2012``, ``2012 R2``, ``2016``
+     - ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10``
 
 Community Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -149,7 +149,7 @@ The following platforms are supported only via the community:
      - Version
    * - Debian
      -
-     - ``7.x``, ``8.x``, ``9.x``
+     - ``8.x``, ``9.x``
    * - Scientific Linux
      - ``x86-64``
      - ``6.x``, ``7.x``
@@ -510,11 +510,11 @@ Versions and Status
      - 1.6.0 or later
      - GA
      - n/a
-   * - `InSpec <https://www.inspec.io/>`_
+   * - InSpec
      - Latest
      - GA
      - n/a
-   * - `Habitat <https://www.habitat.sh/>`_
+   * - Habitat
      - Latest
      - GA
      - n/a
