@@ -31,6 +31,22 @@ two. We'll fix build errors before we merge, so you don't have to
 worry about passing all of the CI checks, but it might add an extra
 few days. The important part is submitting your change.
 
+## Local Development Environment
+
+The docs website is built using sphynx in a local docker container
+to minimize python environment issues. Please ensure you have Docker
+installed.
+
+To build the docs:
+- Run `make docker-build`
+
+To preview locally:
+- Run `make docker-preview`
+- go to http://localhost:8080
+
+To clean your local development environment:
+- Run `make clean`
+
 ## The next fastest way
 
 If your change involves edits to multiple topics, or if you contribute
