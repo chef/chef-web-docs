@@ -85,7 +85,7 @@ The following platforms are supported only via the community:
      - current version
    * - Debian
      - ``i686``, ``x86_64``
-     - ``7``, ``8``, ``9``
+     - ``8``, ``9``
    * - Fedora
      -
      - current non-EOL releases
@@ -149,7 +149,7 @@ The following platforms are supported only via the community:
      - Version
    * - Debian
      -
-     - ``7.x``, ``8.x``, ``9.x``
+     - ``8.x``, ``9.x``
    * - Scientific Linux
      - ``x86-64``
      - ``6.x``, ``7.x``
@@ -410,8 +410,6 @@ On the Chef end-of-life date, Chef discontinues building software for that platf
 +==============================================================+=========================+=======================+
 | AIX 6.1                                                      | April 30, 2017          | December 31, 2017     |
 +--------------------------------------------------------------+-------------------------+-----------------------+
-| Debian 7 (Wheezy)                                            | May 31st, 2018          | May 31st, 2018        |
-+--------------------------------------------------------------+-------------------------+-----------------------+
 | Debian 8 (Jessie)                                            | June 6th, 2020          | June 6th, 2020        |
 +--------------------------------------------------------------+-------------------------+-----------------------+
 | Enterprise Linux 5 (covers Red Hat Enterprise Linux, CentOS) | April 30, 2017          | December 31, 2017     |
@@ -510,11 +508,11 @@ Versions and Status
      - 1.6.0 or later
      - GA
      - n/a
-   * - `InSpec <https://www.inspec.io/>`_
+   * - InSpec
      - Latest
      - GA
      - n/a
-   * - `Habitat <https://www.habitat.sh/>`_
+   * - Habitat
      - Latest
      - GA
      - n/a
