@@ -22,8 +22,6 @@ The Chef server API has the following requirements:
 * A request must be signed using ``Mixlib::Authentication``.
 * A request must be well-formatted. The easiest way to ensure a well-formatted request is to use the ``Chef::REST`` library.
 
-Changed in Chef Client 12.7, now code that uses ``Chef::Rest`` must use ``require 'chef/rest'``
-
 .. end_tag
 
 Authentication Headers
@@ -54,7 +52,7 @@ where:
 
 * ``HTTP_METHOD`` is the method used in the API request (``GET``, ``POST``, and so on)
 * ``HASHED_PATH`` is the path of the request: ``/organizations/NAME/name_of_endpoint``. The ``HASHED_PATH`` must be hashed using SHA-1 and encoded using Base64, must not have repeated forward slashes (``/``), must not end in a forward slash (unless the path is ``/``), and must not include a query string.
-* The private key must be an RSA key in the SSL .pem file format. This signature is then broken into character strings (of not more than 60 characters per line) and placed in the header.
+* The private key must be an RSA key in the SSL ``.pem`` file format. This signature is then broken into character strings (of not more than 60 characters per line) and placed in the header.
 
 The Chef server decrypts this header and ensures its content matches the content of the non-encrypted headers that were in the request. The timestamp of the message is checked to ensure the request was received within a reasonable amount of time. One approach generating the signed headers is to use `mixlib-authentication <https://github.com/chef/mixlib-authentication>`_, which is a class-based header signing authentication object similar to the one used by the chef-client.
 
@@ -1574,7 +1572,7 @@ The response contains the updated inforamtion for the key, and is similar to:
 -----------------------------------------------------
 Use the ``/clients`` endpoint to manage an API client list and their associated RSA public key-pairs. The ``/clients`` endpoint has the following methods: ``GET`` and ``POST``.
 
-.. note:: In general, the API client list should be managed using knife or the Chef server management console, as opposed to the Chef server API.
+.. note:: The API client list should be managed using knife or the Chef server management console, as opposed to the Chef server API.
 
 GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1770,7 +1768,7 @@ The ``PUT`` method is used to update a specific API client. If values are not sp
 
 .. note:: As of 12.1.0, the ``"admin"`` parameter is no longer supported in client/user creation and support.  If used in the ``POST`` or ``PUT`` of a client or user, then it is ignored.
 
-.. note:: As of 12.1.0, including ''"public_key"``, ``"private_key"``, or ``"create_key"`` in PUT requests requests to clients/users will cause a 400 response.
+.. note:: As of 12.1.0, including ``"public_key"``, ``"private_key"``, or ``"create_key"`` in PUT requests to clients/users will cause a 400 response.
 
 **Request**
 

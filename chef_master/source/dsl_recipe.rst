@@ -354,8 +354,6 @@ is equivalent to:
      action :delete
    end
 
-New in Chef Client 12.10.
-
 .. end_tag
 
 delete_resource
@@ -381,8 +379,6 @@ For example:
 
    delete_resource(:template, '/x/y.erb')
 
-New in Chef Client 12.10.
-
 .. end_tag
 
 delete_resource!
@@ -407,8 +403,6 @@ For example:
 .. code-block:: ruby
 
    delete_resource!(:file, '/x/file.txt')
-
-New in Chef Client 12.10.
 
 .. end_tag
 
@@ -452,8 +446,6 @@ and a resource block:
      notifies :run, 'execute[newaliases]'
    end
 
-New in Chef Client 12.10.
-
 .. end_tag
 
 edit_resource!
@@ -484,8 +476,6 @@ For example:
 .. code-block:: ruby
 
    edit_resource!(:file, '/x/y.rst')
-
-New in Chef Client 12.10.
 
 .. end_tag
 
@@ -526,8 +516,6 @@ and a resource block:
      notifies :run, 'execute[newseapower]'
    end
 
-New in Chef Client 12.10.
-
 .. end_tag
 
 find_resource!
@@ -552,8 +540,6 @@ For example:
 .. code-block:: ruby
 
    find_resource!(:template, '/x/y.erb')
-
-New in Chef Client 12.10.
 
 .. end_tag
 
@@ -1327,8 +1313,6 @@ When each value has more than one platform, the syntax changes to:
        'version' => 'value'
      },
    )
-
-Changed in Chef Client 12.0 to support version constraints.
 
 Operators
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

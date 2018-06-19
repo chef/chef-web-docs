@@ -707,8 +707,6 @@ Always use ``mixlib-shellout`` to shell out. Never use backticks, Process.spawn,
 
 The `mixlib-shellout module <https://github.com/chef/mixlib-shellout/blob/master/README.md>`__ provides a simplified interface to shelling out while still collecting both standard out and standard error and providing full control over environment, working directory, uid, gid, etc.
 
-New in Chef Client 12.0 you can use the ``shell_out``, ``shell_out!`` and ``shell_out_with_system_locale`` `Recipe DSL methods </dsl_recipe.html>`__ to interface directly with ``mixlib-shellout``.
-
 Constructs to Avoid
 -----------------------------------------------------
 Avoid the following patterns:

@@ -9,8 +9,6 @@ Use the ``knife ssh`` subcommand to invoke SSH commands (in parallel) on a subse
 
 .. end_tag
 
-Changed in Chef Client 12.19 to support ed25519 keys for ssh connections. 
-
 Syntax
 =====================================================
 This subcommand has the following syntax:
@@ -41,8 +39,6 @@ This subcommand has the following options:
 ``-e``, ``--exit-on-error``
    Use to exit immediately upon error.
 
-   New in Chef Client 12.2.
-
 ``-G GATEWAY``, ``--ssh-gateway GATEWAY``
    The SSH tunnel or gateway that is used to run a bootstrap action on a machine that is not accessible from the workstation.
 
@@ -69,8 +65,6 @@ This subcommand has the following options:
 ``-P PASSWORD``, ``--ssh-password PASSWORD``
    The SSH password. This can be used to pass the password directly on the command line. If this option is not specified (and a password is required) knife prompts for the password.
 
-   New in Chef Client 12.15.
-
 ``SEARCH_QUERY``
    The search query used to return a list of servers to be accessed using SSH and the specified ``SSH_COMMAND``. This option uses the same syntax as the search subcommand.
    If the ``SEARCH_QUERY`` does not contain a colon character (``:``), then the default query pattern is ``tags:*#{@query}* OR roles:*#{@query}* OR fqdn:*#{@query}* OR addresses:*#{@query}*``, which means the following two search queries are effectively the same:
@@ -90,8 +84,6 @@ or:
 
 ``-t SECONDS``, ``--ssh-timeout SECONDS``
    The amount of time (in seconds) to wait for an SSH connection time out.
-
-   New in Chef Client 12.9.
 
 ``--tmux-split``
    Split the Tmux window. Default value: ``false``.

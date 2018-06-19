@@ -45,8 +45,6 @@ This configuration file has the following settings:
 ``client_d_dir``
    A directory that contains additional configuration scripts to load for chef-client.
 
-   New in Chef client 12.8.
-
 ``client_key``
    The location of the file that contains the client key. Default value: ``/etc/chef/client.pem``. For example:
 
@@ -245,8 +243,6 @@ For example, when using knife, the following configuration files would be loaded
 The ``old_settings.rb.bak`` file is ignored because it's not a configuration file. The ``config.rb``, ``company_settings.rb``, and ``ec2_configuration`` files are merged together as if they are a single configuration file.
 
 .. note:: If multiple configuration files exists in a ``.d`` directory, ensure that the same setting has the same value in all files.
-
-New in Chef Client 12.8.
 
 .. end_tag
 

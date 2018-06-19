@@ -453,8 +453,6 @@ The ``old_settings.rb.bak`` file is ignored because it's not a configuration fil
 
 .. note:: If multiple configuration files exists in a ``.d`` directory, ensure that the same setting has the same value in all files.
 
-New in Chef Client 12.8.
-
 .. end_tag
 
 Ohai Settings

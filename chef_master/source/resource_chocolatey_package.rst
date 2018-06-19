@@ -9,8 +9,6 @@ Use the **chocolatey_package** resource to manage packages using Chocolatey on t
 
 .. end_tag
 
-**New in Chef Client 12.7**
-
 .. warning:: .. tag notes_resource_chocolatey_package
 
              The **chocolatey_package** resource must be specified as ``chocolatey_package`` and cannot be shortened to ``package`` in a recipe.
@@ -221,8 +219,6 @@ This resource has the following properties:
 
 ``returns``
    **Ruby Types:** Integer, Array of Integers
-
-   New in Chef Client 12.18.
 
    The exit code(s) returned a chocolatey package that indicate success. Default is 0.
 

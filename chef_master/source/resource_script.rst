@@ -371,8 +371,6 @@ Any resource that passes a string command may also specify the interpreter that 
 
 .. end_tag
 
-Changed in Chef Client 12.0 to default to the specified property.
-
 **Attributes**
 
 .. tag resources_common_guard_interpreter_attributes
@@ -725,6 +723,3 @@ The following example shows how to run ``mkdir test_dir`` from a chef-client run
    end
 
 .. end_tag
-
-
-New in Chef Client 12.19.

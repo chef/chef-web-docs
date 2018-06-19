@@ -9,8 +9,6 @@ Use the **windows_service** resource to create, delete, and manage a service on 
 
 .. end_tag
 
-**New in Chef Client 12.0.**
-
 Syntax
 =====================================================
 .. tag resource_service_windows_syntax
@@ -229,14 +227,10 @@ This resource has the following properties:
 
    The password for the user specified by ``run_as_user``.
 
-   New in Chef Client 12.1.
-
 ``run_as_user``
    **Ruby Type:** String
 
    The user under which a Microsoft Windows service runs.
-
-   New in Chef Client 12.1.
 
 ``service_name``
    **Ruby Type:** String

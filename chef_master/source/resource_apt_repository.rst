@@ -5,8 +5,6 @@ apt_repository
 
 Use the **apt_repository** resource to specify additional APT repositories. Adding a new repository will update APT package cache immediately.
 
-**New in Chef Client 12.9.**
-
 Syntax
 ==========================================
 An **apt_repository** resource specifies APT repository information and adds an additional APT repository to the existing list of repositories:

@@ -5,8 +5,6 @@ Chef for Microsoft Windows
 
 .. note:: This page collects information about Chef that is specific to using Chef with Microsoft Windows.
 
-.. note:: New in Chef Client 12.9, Chef client now runs on 64-bit versions of Microsoft Windows.
-
 The chef-client has specific components that are designed to support unique aspects of the Microsoft Windows platform, including Windows PowerShell, Internet Information Services (IIS), and SQL Server.
 
 * The chef-client is `installed on a machine <https://downloads.chef.io/chef-client/windows/>`_ running Microsoft Windows by using a Microsoft Installer Package (MSI)
@@ -162,7 +160,6 @@ where ``/qn`` is used to set the user interface level to "No UI", ``/i`` is used
 ADDLOCAL Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag windows_msiexec_addlocal
-.. note:: ``ChefSchTaskFeature`` is New in Chef Client 12.18.
 
 The ``ADDLOCAL`` parameter adds two setup options that are specific to the chef-client. These options can be passed along with an Msiexec.exe command:
 
@@ -838,21 +835,16 @@ This subcommand has the following options:
 ``-i IDENTITY_FILE``, ``--ssh-identity-file IDENTITY_FILE``
    The SSH identity file used for authentication. Key-based authentication is recommended.
 
-   New in Chef Client 12.6.
-
 ``-j JSON_ATTRIBS``, ``--json-attributes JSON_ATTRIBS``
    A JSON string that is added to the first run of a chef-client.
 
 ``--json-attribute-file FILE``
    A JSON file to be added to the first run of chef-client.
 
-   New in Chef Client 12.6.
-
 ``-N NAME``, ``--node-name NAME``
    The name of the node.
 
-   .. note:: This option is required for a validatorless bootstrap (Changed in Chef Client 12.4).
-
+   .. note:: This option is required for a validatorless bootstrap.
 ``--[no-]fips``
   Allows OpenSSL to enforce FIPS-validated security during the chef-client run.
 
@@ -862,16 +854,12 @@ This subcommand has the following options:
 ``--[no-]node-verify-api-cert``
    Verify the SSL certificate on the Chef server. When ``true``, the chef-client always verifies the SSL certificate. When ``false``, the chef-client uses the value of ``ssl_verify_mode`` to determine if the SSL certificate requires verification. If this option is not specified, the setting for ``verify_api_cert`` in the configuration file is applied.
 
-   New in Chef Client 12.0.
-
 ``--node-ssl-verify-mode MODE``
    Set the verify mode for HTTPS requests. Options: ``none`` or ``peer``.
 
    Use ``none`` to do no validation of SSL certificates.
 
    Use ``peer`` to do validation of all SSL certificates, including the Chef server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in the chef-client run. This is the recommended setting.
-
-   New in Chef Client 12.0.
 
 ``-p PORT``, ``--ssh-port PORT``
    The SSH port.
@@ -897,12 +885,8 @@ This subcommand has the following options:
 ``--sudo-preserve-home``
    Use to preserve the non-root user's ``HOME`` environment.
 
-   New in Chef Client 12.6.
-
 ``-t TEMPLATE``, ``--bootstrap-template TEMPLATE``
    The bootstrap template to use. This may be the name of a bootstrap template---``chef-full``, for example---or it may be the full path to an Embedded Ruby (ERB) template that defines a custom bootstrap. Default value: ``chef-full``, which installs the chef-client using the Chef installer on all supported platforms.
-
-   New in Chef Client 12.0.
 
 ``--use-sudo-password``
    Perform a bootstrap operation with sudo; specify the password with the ``-P`` (or ``--ssh-password``) option.
@@ -2264,8 +2248,6 @@ This resource has the following properties:
 
    Default value: ``:batch``. When this property is set to ``:batch``, the 64-bit version of the cmd.exe shell will be used to evaluate strings values for the ``not_if`` and ``only_if`` properties. Set this value to ``:default`` to use the 32-bit version of the cmd.exe shell.
 
-   Changed in Chef Client 12.0 to default to the specified property.
-
 ``ignore_failure``
    **Ruby Types:** True, False
 
@@ -2554,8 +2536,6 @@ This resource has the following properties:
    **Ruby Type:** String
 
    The version number of the module to use. Powershell 5.0.10018.0 (or higher) supports having multiple versions of a module installed. This should be specified along with the ``module_name``.
-
-   New in Chef Client 12.19.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -2873,8 +2853,6 @@ Many DSC resources are comparable to built-in Chef resources. For example, both 
 
 .. end_tag
 
-New in Chef Client 12.2.  Changed in Chef Client 12.6.
-
 .. note:: Windows PowerShell 4.0 is required for using the **dsc_script** resource with Chef.
 
 .. note:: The WinRM service must be enabled. (Use ``winrm quickconfig`` to enable the service.)
@@ -3031,8 +3009,6 @@ This resource has the following properties:
    .. code-block:: ruby
 
       imports 'cRDPEnabled', 'PSHOrg_cRDPEnabled'
-
-   New in Chef Client 12.1.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -3687,8 +3663,6 @@ This resource has the following properties:
    **Ruby Type:** Symbol
 
    Default value: ``:powershell_script``. When this property is set to ``:powershell_script``, the 64-bit version of the Windows PowerShell shell will be used to evaluate strings values for the ``not_if`` and ``only_if`` properties. Set this value to ``:default`` to use the 32-bit version of the cmd.exe shell.
-
-   Changed in Chef Client 12.0 to default to the specified property.
 
 ``ignore_failure``
    **Ruby Types:** True, False
@@ -4520,8 +4494,6 @@ Use the **windows_package** resource to manage Microsoft Installer Package (MSI)
 
 .. end_tag
 
-Changed in 12.4 to include ``checksum`` and ``remote_file_attributes`` and URL locations on the ``source`` properties. Changed in Chef Client 12.6 to support a greater variety of ``installer_type``; Changed in 12.0 for ``installer_type`` to require a symbol.
-
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_package_windows_syntax
@@ -4593,8 +4565,6 @@ This resource has the following properties:
 
    The SHA-256 checksum of the file. Use to prevent a file from being re-downloaded. When the local file matches the checksum, the chef-client does not download it. Use when a URL is specified by the ``source`` property.
 
-   New in Chef Client 12.4, changed in 12.6.
-
 ``ignore_failure``
    **Ruby Types:** True, False
 
@@ -4604,8 +4574,6 @@ This resource has the following properties:
    **Ruby Type:** Symbol
 
    A symbol that specifies the type of package. Possible values: ``:custom`` (such as installing a non-.msi file that embeds an .msi-based installer), ``:inno`` (Inno Setup), ``:installshield`` (InstallShield), ``:msi`` (Microsoft Installer Package (MSI)), ``:nsis`` (Nullsoft Scriptable Install System (NSIS)), ``:wise`` (Wise).
-
-   Changed in Chef Client 12.6 to support diverse installer types; Changed in 12.0 to require a symbol.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -4651,8 +4619,6 @@ This resource has the following properties:
 
    A package at a remote location define as a Hash of properties that modifes the properties of the **remote_file** resource.
 
-   New in Chef Client 12.4.
-
 ``retries``
    **Ruby Type:** Integer
 
@@ -4682,8 +4648,6 @@ This resource has the following properties:
       HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall
 
    .. note:: If there are multiple versions of a package installed with the same display name, all of those packages will be removed unless a version is provided in the ``version`` property or unless it can be discovered in the installer file specified by the ``source`` property.
-
-   Changed in Chef Client 12.4 to support URL locations.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -5085,14 +5049,10 @@ This resource has the following properties:
 
    The password for the user specified by ``run_as_user``.
 
-   New in Chef Client 12.1.
-
 ``run_as_user``
    **Ruby Type:** String
 
    The user under which a Microsoft Windows service runs.
-
-   New in Chef Client 12.1.
 
 ``service_name``
    **Ruby Type:** String
