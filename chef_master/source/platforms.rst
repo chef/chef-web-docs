@@ -514,7 +514,7 @@ Versions and Status
      - Latest
      - GA
      - n/a
-   * - Habitat
+   * - Habitat Supervisor
      - Latest
      - GA
      - n/a
