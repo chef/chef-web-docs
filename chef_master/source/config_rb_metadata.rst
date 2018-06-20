@@ -5,7 +5,7 @@ metadata.rb
 
 .. tag cookbooks_metadata
 
-Every cookbook requires a small amount of metadata. A file named metadata.rb is located at the top of every cookbook directory structure. The contents of the metadata.rb file provides hints to the Chef server to help ensure that cookbooks are deployed to each node correctly.
+Every cookbook requires a small amount of metadata. A file named metadata.rb is located at the top of every cookbook directory structure. The contents of the metadata.rb file provides information that helps Chef Client and Server correctly deploy cookbooks to each node.
 
 .. end_tag
 
@@ -57,44 +57,18 @@ Settings
 
 This configuration file has the following settings:
 
-``attribute``
-   Deprecated in Chef Client 13.0, pending removal in 14.0.
-
-   .. warning:: ``attribute`` in cookbook configuration is deprecated and will be removed. ``attribute`` often requires frequent updating in the code, in the README.md file, and in the metadata, which may lead to extensive technical debt. When used, the current version of foodcritic will throw a warning.
-
-   The list of attributes that are required to configure a cookbook. An attribute name is required, followed by any of these options: ``display_name`` (the name that appears in the user interface), ``description`` (a short description), ``choice`` (an array of choices that are presented to a user), ``calculated`` (the default value is calculated by the recipe), ``type`` (the type of value, either ``string``, ``array``, or ``hash``), ``required`` (the level of user input, either ``required``, ``recommended``, or ``optional``), ``recipes`` (an array of recipes), or ``default`` (the attribute's default value).
-
-    For example:
-
-    .. code-block:: ruby
-
-       attribute 'pets/cat/name',
-         :display_name => 'Cat Name',
-         :description => 'The name of your cat',
-         :choice => \[
-           'kitty kitty',
-           'peanut',
-           'einstein',
-           'honey' \],
-         :type => 'string',
-         :required => 'recommended',
-         :recipes => \[ 'cats::eat' \],
-         :default => 'kitty kitty'
-
 ``chef_version``
-
-   .. note:: This setting is not visible in Chef Supermarket.
 
    A range of chef-client versions that are supported by this cookbook. All `version constraint operators </config_rb_metadata.html#cookbook-version-constraints>`__ are applicable to this field.
 
 
    .. tag config_rb_metadata_settings_example_chef_version
 
-   For example, to match any 12.x version of the chef-client, but not 11.x or 13.x:
+   For example, to match any 14.x version of the chef-client, but not 13.x or 15.x:
 
    .. code-block:: ruby
 
-      chef_version '~> 12'
+      chef_version '~> 14'
 
    A more complex example where you set both a lower and upper bound of the chef-client version:
 

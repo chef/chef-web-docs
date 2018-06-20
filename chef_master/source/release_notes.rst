@@ -3936,8 +3936,6 @@ The following settings are new for metadata.rb:
    * - ``chef_version``
      - A range of chef-client versions that are supported by this cookbook.
 
-       .. tag config_rb_metadata_settings_example_chef_version
-
        For example, to match any 12.x version of the chef-client, but not 11.x or 13.x:
 
        .. code-block:: ruby
@@ -3949,8 +3947,6 @@ The following settings are new for metadata.rb:
        .. code-block:: ruby
 
           chef_version ">= 14.2.1", "< 14.5.1"
-
-       .. end_tag
 
    * - ``ohai_version``
      - A range of chef-client versions that are supported by this cookbook.
