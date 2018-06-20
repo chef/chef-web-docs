@@ -32,7 +32,6 @@ The full syntax for all of the properties that are available to the **mdadm** re
      exists                     True, False
      layout                     String
      level                      Integer
-     mdadm_defaults             True, False
      metadata                   String
      notifies                   # see description
      raid_device                String # defaults to 'name' if not specified
@@ -45,7 +44,7 @@ where
 * ``mdadm`` is the resource
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``bitmap``, ``chunk``, ``devices``, ``exists``, ``layout``, ``level``, ``mdadm_defaults``, ``metadata``,  and ``raid_device`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``bitmap``, ``chunk``, ``devices``, ``exists``, ``layout``, ``level``, ``metadata``,  and ``raid_device`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -105,11 +104,6 @@ This resource has the following properties:
    **Ruby Type:** Integer
 
    The RAID level. Default value: ``1``.
-
-``mdadm_defaults``
-   **Ruby Types:** True, False
-
-   When ``true`` this property sets the default values for ``chunk`` and ``metadata`` to ``nil`` allowing mdadm to use its own default values. Default value: ``false``.
 
 ``metadata``
    **Ruby Type:** String
