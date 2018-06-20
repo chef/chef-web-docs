@@ -324,8 +324,6 @@ This resource has the following properties:
 
    Originally proposed in `RFC 27 <https://github.com/chef/chef-rfc/blob/master/rfc027-file-content-verification.md>`_.
 
-   New in Chef Client 12.1.
-
 Atomic File Updates
 -----------------------------------------------------
 .. tag resources_common_atomic_update

@@ -9,8 +9,6 @@ Use the **yum_repository** resource to manage a Yum repository configuration fil
 
 .. end_tag
 
-*New in Chef Client 12.14.*
-
 Syntax
 ==========================================
 A **yum_repository** resource creates a Yum repository configuration file to make individual Yum repositories available for use. The **yum_repository** resource can be as simple as the following:

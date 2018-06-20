@@ -9,8 +9,6 @@ Use the **osx_profile** resource to manage configuration profiles (``.mobileconf
 
 .. end_tag
 
-*New in Chef Client 12.7.*
-
 Syntax
 =====================================================
 .. tag resource_osx_profile_syntax

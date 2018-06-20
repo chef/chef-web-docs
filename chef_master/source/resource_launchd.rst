@@ -205,8 +205,6 @@ This resource has the following properties:
 
    A Hash of key value pairs used to create the launchd property list.
 
-   New in Chef Client 12.19. Was previously named ``hash`` in earlier versions.
-
 ``retries``
    **Ruby Type:** Integer
 
@@ -342,8 +340,6 @@ The following resource properties may be used to define keys in the XML property
    **Ruby Types:** True, False, Hash
 
    Keep a job running continuously (``true``) or allow demand and conditions on the node to determine if the job keeps running (``false``). Default value: ``false``.
-
-   Hash type was added in Chef client 12.14.
 
 ``launch_only_once``
    **Ruby Types:** True, False

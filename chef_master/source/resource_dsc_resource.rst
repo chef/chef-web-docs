@@ -9,8 +9,6 @@ Windows PowerShell is a task-based command-line shell and scripting language dev
 
 .. end_tag
 
-New in Chef Client 12.2.  Changed in Chef Client 12.6.
-
 .. tag resources_common_powershell_dsc
 
 Desired State Configuration (DSC) is a feature of Windows PowerShell that provides `a set of language extensions, cmdlets, and resources <http://technet.microsoft.com/en-us/library/dn249912.aspx>`_ that can be used to declaratively configure software. DSC is similar to Chef, in that both tools are idempotent, take similar approaches to the concept of resources, describe the configuration of a system, and then take the steps required to do that configuration. The most important difference between Chef and DSC is that Chef uses Ruby and DSC is exposed as configuration data from within Windows PowerShell.
@@ -105,8 +103,6 @@ This resource has the following actions:
 ``:reboot_action``
    Use to request an immediate reboot or to queue a reboot using the ``:reboot_now`` (immediate reboot) or ``:request_reboot`` (queued reboot) actions built into the **reboot** resource.
 
-   New in Chef Client 12.6.
-
 Properties
 =====================================================
 .. tag resource_dsc_resource_attributes
@@ -127,8 +123,6 @@ This resource has the following properties:
    **Ruby Type:** String
 
    The version number of the module to use. Powershell 5.0.10018.0 (or higher) supports having multiple versions of a module installed. This should be specified along with the ``module_name``.
-
-   New in Chef Client 12.19.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -379,8 +373,6 @@ in case the executable is not at the defined location:
   end
 
 .. end_tag
-
-New in Chef Client 12.0.
 
 **Create a test message queue**
 

@@ -14,8 +14,6 @@ The following options can be run with all knife subcommands and plug-ins:
 ``--chef-zero-port PORT``
    The port (or port range) to start chef-zero on. Port ranges like ``1000,1010`` or ``8889-9999`` will try all given ports until one works.
 
-   Changed in Chef Client 12.0 to support specifying a range of ports.
-
 ``-d``, ``--disable-editing``
    Prevent the $EDITOR from being opened and accept data as-is.
 

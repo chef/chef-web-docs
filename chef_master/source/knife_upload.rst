@@ -52,8 +52,6 @@ This subcommand has the following options:
 ``-n``, ``--dry-run``
    Take no action and only print out results. Default: ``false``.
 
-   New in Chef Client 12.0.
-
 ``--[no-]purge``
    Use ``--purge`` to delete roles, cookbooks, etc. from the Chef server if their corresponding files do not exist in the chef-repo. By default, such objects are left alone and NOT purged. Default: ``--no-purge``.
 

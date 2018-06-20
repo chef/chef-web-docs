@@ -201,8 +201,6 @@ This resource would be matched in the same order as the ``/templates`` directory
 
 .. end_tag
 
-New in Chef Client 12.0.
-
 Host Notation
 =====================================================
 .. tag template_host_notation

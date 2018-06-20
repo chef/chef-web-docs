@@ -83,8 +83,6 @@ This resource has the following actions:
 ``:unmount``
    Alias for ``:umount`` action.
 
-   New in Chef Client 12.17.
-
 .. note:: Order matters when passing multiple actions. For example: ``action [:mount, :enable]`` ensures that the file system is mounted before it is enabled.
 
 Properties
@@ -120,8 +118,6 @@ This resource has the following properties:
    **Ruby Type:** String
 
    The fsck device on the Solaris platform. Default value: ``-``.
-
-   New in Chef Client 12.0.
 
 ``fstype``
    **Ruby Type:** String

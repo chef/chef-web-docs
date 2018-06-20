@@ -509,8 +509,6 @@ The following properties are for use with git only:
 
    The depth of a git repository, truncated to the specified number of revisions. See ``shallow_clone``.
 
-   New in Chef Client 12.5.
-
 ``enable_submodules``
    **Ruby Types:** True, False
 

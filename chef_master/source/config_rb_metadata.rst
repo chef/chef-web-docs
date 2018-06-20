@@ -113,8 +113,6 @@ This configuration file has the following settings:
       gem "chef-sugar"
       gem "chef-provisioning"
 
-   New in Chef Client 12.8.
-
    .. end_tag
 
 ``issues_url``
@@ -218,8 +216,6 @@ This configuration file has the following settings:
    .. code-block:: ruby
 
       name 'cats'
-
-   Changed in Chef Client 12.0 to required.
 
 ``ohai_version``
    A range of Ohai versions that are supported by this cookbook. All `version constraint operators </config_rb_metadata.html#cookbook-version-constraints>`__ are applicable to this field.

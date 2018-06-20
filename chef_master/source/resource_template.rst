@@ -386,8 +386,6 @@ This resource has the following properties:
 
    .. end_tag
 
-   New in Chef Client 12.1.
-
 Atomic File Updates
 -----------------------------------------------------
 .. tag resources_common_atomic_update
@@ -674,8 +672,6 @@ This resource would be matched in the same order as the ``/templates`` directory
      default/text_file.txt
 
 .. end_tag
-
-Changed in Chef Client 12.0.
 
 Helpers
 -----------------------------------------------------

@@ -313,8 +313,6 @@ This argument has the following options:
 ``-n``, ``--dry-run``
    Take no action and only print out results. Default: ``false``.
 
-   New in Chef Client 12.0.
-
 ``-o PATH:PATH``, ``--cookbook-path PATH:PATH``
    The directory in which cookbooks are created. This can be a colon-separated path.
 
