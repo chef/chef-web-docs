@@ -84,7 +84,7 @@ This resource has the following properties:
 ``devices``
    **Ruby Type:** Array
 
-   A comma-separated list of devices to be part of a RAID array. Default value: ``[]``.
+   The devices to be part of a RAID array. Default value: ``[]``.
 
 ``exists``
    **Ruby Types:** True, False
