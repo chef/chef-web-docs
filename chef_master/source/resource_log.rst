@@ -78,7 +78,7 @@ This resource has the following properties:
 ``level``
    **Ruby Type:** Symbol | **Default Value:** ``:info``
 
-   The level of logging that is to be displayed by the Chef Client. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``.
+   The logging level for displaying this message.. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``.
 
 ``message``
    **Ruby Type:** String
