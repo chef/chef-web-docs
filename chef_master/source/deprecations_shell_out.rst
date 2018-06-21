@@ -1,6 +1,6 @@
-=====================================================
+===========================================================
 Deprecation: Deprecation of old shell_out APIs (CHEF-26)
-=====================================================
+===========================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_shell_out.rst>`__
 
 .. tag deprecations_shell_out
