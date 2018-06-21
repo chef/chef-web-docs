@@ -69,7 +69,7 @@ This example ``site`` utilizes Chef's built in ``file``, ``service`` and ``packa
      end
 
      file '/var/www/html/index.html' do
-       content homepage
+       content new_resource.homepage
      end
    end
 
@@ -147,7 +147,7 @@ For example, the ``httpd.rb`` file in the ``website`` cookbook could be assigned
      end
 
      file '/var/www/html/index.html' do
-       content homepage
+       content new_resource.homepage
      end
    end
 
