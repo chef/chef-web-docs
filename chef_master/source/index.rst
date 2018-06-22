@@ -674,6 +674,7 @@ Addenda
    deprecations_property_name_collision
    deprecations_resource_cloning
    deprecations_run_command
+   deprecations_shell_out
    deprecations_supports_property
    deprecations_verify_file
    dk_windows
