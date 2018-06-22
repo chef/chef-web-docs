@@ -4288,18 +4288,15 @@ Use the ``load_current_value`` method to guard against property values being rep
 
 .. code-block:: ruby
 
-   action :some_action do
+    load_current_value do
+      if ::File.exist?('/var/www/html/index.html')
+        homepage IO.read('/var/www/html/index.html')
+      end
 
-     load_current_value do
-       if ::File.exist?('/var/www/html/index.html')
-         homepage IO.read('/var/www/html/index.html')
-       end
-       if ::File.exist?('/var/www/html/404.html')
-         page_not_found IO.read('/var/www/html/404.html')
-       end
-     end
-
-   end
+      if ::File.exist?('/var/www/html/404.html')
+        page_not_found IO.read('/var/www/html/404.html')
+      end
+    end
 
 This ensures the values for ``homepage`` and ``page_not_found`` are not changed to the default values when the chef-client configures the node.
 
