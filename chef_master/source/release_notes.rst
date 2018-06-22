@@ -1158,7 +1158,7 @@ What's New in 12.21.31
 What's New in 12.21.26
 =====================================================
 
-* **Security release of libxml2** libxml2 has been upgraded upgraded to 2.9.5 to resolve the following CVEs:
+* **Security release of libxml2** libxml2 has been upgraded to 2.9.5 to resolve the following CVEs:
    * `CVE-2017-9050 <https://www.cvedetails.com/cve/CVE-2017-9050/>`_
    * `CVE-2017-9049 <https://www.cvedetails.com/cve/CVE-2017-9049/>`_
    * `CVE-2017-9048 <https://www.cvedetails.com/cve/CVE-2017-9048/>`_
@@ -1287,7 +1287,7 @@ The following items are new for chef-client 12.19 and/or are changes from previo
 
 * **Systemd unit files are now verified before being installed.**
 * **Added support for windows alternate user identity in execute resources.**
-* **Added ed25519 key support for for ssh connections.**
+* **Added ed25519 key support for ssh connections.**
 
 Windows alternate user identity execute support
 -----------------------------------------------------
@@ -1321,7 +1321,7 @@ The following properties are new or updated for the ``execute``, ``script``, ``b
 
 ``domain``
   **Ruby types** String
-  _Windows only:_ The domain of the user user specified by the ``user`` property. Default value: ``nil``. If not specified, the user name and password specified by the ``user`` and ``password`` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the ``user`` property.
+  _Windows only:_ The domain of the user specified by the ``user`` property. Default value: ``nil``. If not specified, the user name and password specified by the ``user`` and ``password`` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the ``user`` property.
 
 Usage
 -----------------------------------------------------
@@ -3919,7 +3919,7 @@ Using the **dsc_resource** has the following requirements:
 
 * The **dsc_resource** resource can only use binary- or script-based resources. Composite DSC resources may not be used.
 
-  This is because composite resources aren't "real" resources from the perspective of the the Local Configuration Manager (LCM). Composite resources are used by the "configuration" keyword from the ``PSDesiredStateConfiguration`` module, and then evaluated in that context. When using DSC to create the configuration document (the Managed Object Framework (MOF) file) from the configuration command, the composite resource is evaluated. Any individual resources from that composite resource are written into the Managed Object Framework (MOF) document. As far as the Local Configuration Manager (LCM) is concerned, there is no such thing as a composite resource. Unless that changes, the **dsc_resource** resource and/or ``Invoke-DscResource`` command cannot directly use them.
+  This is because composite resources aren't "real" resources from the perspective of the Local Configuration Manager (LCM). Composite resources are used by the "configuration" keyword from the ``PSDesiredStateConfiguration`` module, and then evaluated in that context. When using DSC to create the configuration document (the Managed Object Framework (MOF) file) from the configuration command, the composite resource is evaluated. Any individual resources from that composite resource are written into the Managed Object Framework (MOF) document. As far as the Local Configuration Manager (LCM) is concerned, there is no such thing as a composite resource. Unless that changes, the **dsc_resource** resource and/or ``Invoke-DscResource`` command cannot directly use them.
 
 .. end_tag
 
@@ -5724,7 +5724,7 @@ The **dsc_resource** resource allows any DSC resource to be used in a Chef recip
 
              * The **dsc_resource** resource can only use binary- or script-based resources. Composite DSC resources may not be used.
 
-               This is because composite resources aren't "real" resources from the perspective of the the Local Configuration Manager (LCM). Composite resources are used by the "configuration" keyword from the ``PSDesiredStateConfiguration`` module, and then evaluated in that context. When using DSC to create the configuration document (the Managed Object Framework (MOF) file) from the configuration command, the composite resource is evaluated. Any individual resources from that composite resource are written into the Managed Object Framework (MOF) document. As far as the Local Configuration Manager (LCM) is concerned, there is no such thing as a composite resource. Unless that changes, the **dsc_resource** resource and/or ``Invoke-DscResource`` command cannot directly use them.
+               This is because composite resources aren't "real" resources from the perspective of the Local Configuration Manager (LCM). Composite resources are used by the "configuration" keyword from the ``PSDesiredStateConfiguration`` module, and then evaluated in that context. When using DSC to create the configuration document (the Managed Object Framework (MOF) file) from the configuration command, the composite resource is evaluated. Any individual resources from that composite resource are written into the Managed Object Framework (MOF) document. As far as the Local Configuration Manager (LCM) is concerned, there is no such thing as a composite resource. Unless that changes, the **dsc_resource** resource and/or ``Invoke-DscResource`` command cannot directly use them.
 
              .. end_tag
 
@@ -5871,31 +5871,31 @@ This resource has the following properties:
       * - Value
         - Description
       * - ``:archive``
-        - Use to to `unpack archive (.zip) files <https://msdn.microsoft.com/en-us/powershell/dsc/archiveresource>`_.
+        - Use to `unpack archive (.zip) files <https://msdn.microsoft.com/en-us/powershell/dsc/archiveresource>`_.
       * - ``:environment``
-        - Use to to `manage system environment variables <https://msdn.microsoft.com/en-us/powershell/dsc/environmentresource>`_.
+        - Use to `manage system environment variables <https://msdn.microsoft.com/en-us/powershell/dsc/environmentresource>`_.
       * - ``:file``
-        - Use to to `manage files and directories <https://msdn.microsoft.com/en-us/powershell/dsc/fileresource>`_.
+        - Use to `manage files and directories <https://msdn.microsoft.com/en-us/powershell/dsc/fileresource>`_.
       * - ``:group``
-        - Use to to `manage local groups <https://msdn.microsoft.com/en-us/powershell/dsc/groupresource>`_.
+        - Use to `manage local groups <https://msdn.microsoft.com/en-us/powershell/dsc/groupresource>`_.
       * - ``:log``
-        - Use to to `log configuration messages <https://msdn.microsoft.com/en-us/powershell/dsc/logresource>`_.
+        - Use to `log configuration messages <https://msdn.microsoft.com/en-us/powershell/dsc/logresource>`_.
       * - ``:package``
-        - Use to to `install and manage packages <https://msdn.microsoft.com/en-us/powershell/dsc/packageresource>`_.
+        - Use to `install and manage packages <https://msdn.microsoft.com/en-us/powershell/dsc/packageresource>`_.
       * - ``:registry``
-        - Use to to `manage registry keys and registry key values <https://msdn.microsoft.com/en-us/powershell/dsc/registryresource>`_.
+        - Use to `manage registry keys and registry key values <https://msdn.microsoft.com/en-us/powershell/dsc/registryresource>`_.
       * - ``:script``
-        - Use to to `run Powershell script blocks <https://msdn.microsoft.com/en-us/powershell/dsc/scriptresource>`_.
+        - Use to `run Powershell script blocks <https://msdn.microsoft.com/en-us/powershell/dsc/scriptresource>`_.
       * - ``:service``
-        - Use to to `manage services <https://msdn.microsoft.com/en-us/powershell/dsc/serviceresource>`_.
+        - Use to `manage services <https://msdn.microsoft.com/en-us/powershell/dsc/serviceresource>`_.
       * - ``:user``
-        - Use to to `manage local user accounts <https://msdn.microsoft.com/en-us/powershell/dsc/userresource>`_.
+        - Use to `manage local user accounts <https://msdn.microsoft.com/en-us/powershell/dsc/userresource>`_.
       * - ``:windowsfeature``
-        - Use to to `add or remove Windows features and roles <https://msdn.microsoft.com/en-us/powershell/dsc/windowsfeatureresource>`_.
+        - Use to `add or remove Windows features and roles <https://msdn.microsoft.com/en-us/powershell/dsc/windowsfeatureresource>`_.
       * - ``:windowsoptionalfeature``
         - Use to configure Microsoft Windows optional features.
       * - ``:windowsprocess``
-        - Use to to `configure Windows processes <https://msdn.microsoft.com/en-us/powershell/dsc/windowsprocessresource>`_.
+        - Use to `configure Windows processes <https://msdn.microsoft.com/en-us/powershell/dsc/windowsprocessresource>`_.
 
    Any DSC resource may be used in a Chef recipe. For example, the DSC Resource Kit contains resources for `configuring Active Directory components <http://www.powershellgallery.com/packages/xActiveDirectory/2.8.0.0>`_, such as ``xADDomain``, ``xADDomainController``, and ``xADUser``. Assuming that these resources are available to the chef-client, the corresponding values for the ``resource`` attribute would be: ``:xADDomain``, ``:xADDomainController``, and ``xADUser``.
 
@@ -6169,7 +6169,7 @@ file Matcher
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag dsl_recipe_method_control_matcher_file
 
-Matchers are available for files and directories. Use this matcher to define audits for files that test if the file exists, its version, if it is is executable, writable, or readable, who owns it, verify checksums (both MD5 and SHA-256) and so on. The following matchers are available for files:
+Matchers are available for files and directories. Use this matcher to define audits for files that test if the file exists, its version, if it is executable, writable, or readable, who owns it, verify checksums (both MD5 and SHA-256) and so on. The following matchers are available for files:
 
 .. list-table::
    :widths: 60 420
@@ -7741,7 +7741,7 @@ The following items are new for chef-client 12.0 and/or are changes from previou
 * **New reboot resource** Use the **reboot** resource to reboot a node during or at the end of a chef-client run.
 * **New windows_service resource** Use the **windows_service** resource to manage services on the Microsoft Windows platform.
 * **New --bootstrap-template option** Use the ``--bootstrap-template`` option to install the chef-client with a bootstrap template. Specify the name of a template, such as ``chef-full``, or specify the path to a custom bootstrap template. This option deprecates the ``--distro`` and ``--template-file`` options.
-* **New SSL options for bootstrap operations** The ``knife bootstrap`` subcommand has new options that support SSL with bootstrap operations. Use the ``--[no-]node-verify-api-cert`` option to to perform SSL validation of the connection to the Chef server. Use the ``--node-ssl-verify-mode`` option to validate SSL certificates.
+* **New SSL options for bootstrap operations** The ``knife bootstrap`` subcommand has new options that support SSL with bootstrap operations. Use the ``--[no-]node-verify-api-cert`` option to perform SSL validation of the connection to the Chef server. Use the ``--node-ssl-verify-mode`` option to validate SSL certificates.
 * **New format options for knife status** Use the ``--medium`` and ``--long`` options to include attributes in the output and to format that output as JSON.
 * **New fsck_device property for mount resource** The **mount** resource supports fsck devices for the Solaris platform with the ``fsck_device`` property.
 * **New settings for metadata.rb** The metadata.rb file has two new settings: ``issues_url`` and ``source_url``. These settings are used to capture the source location and issues tracking location for a cookbook. These settings are also used with Chef Supermarket. In addition, the ``name`` setting is now **required**.

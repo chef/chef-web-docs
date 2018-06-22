@@ -36,7 +36,7 @@ The **dsc_resource** resource allows any DSC resource to be used in a Chef recip
 
              * The **dsc_resource** resource can only use binary- or script-based resources. Composite DSC resources may not be used.
 
-               This is because composite resources aren't "real" resources from the perspective of the the Local Configuration Manager (LCM). Composite resources are used by the "configuration" keyword from the ``PSDesiredStateConfiguration`` module, and then evaluated in that context. When using DSC to create the configuration document (the Managed Object Framework (MOF) file) from the configuration command, the composite resource is evaluated. Any individual resources from that composite resource are written into the Managed Object Framework (MOF) document. As far as the Local Configuration Manager (LCM) is concerned, there is no such thing as a composite resource. Unless that changes, the **dsc_resource** resource and/or ``Invoke-DscResource`` command cannot directly use them.
+               This is because composite resources aren't "real" resources from the perspective of the Local Configuration Manager (LCM). Composite resources are used by the "configuration" keyword from the ``PSDesiredStateConfiguration`` module, and then evaluated in that context. When using DSC to create the configuration document (the Managed Object Framework (MOF) file) from the configuration command, the composite resource is evaluated. Any individual resources from that composite resource are written into the Managed Object Framework (MOF) document. As far as the Local Configuration Manager (LCM) is concerned, there is no such thing as a composite resource. Unless that changes, the **dsc_resource** resource and/or ``Invoke-DscResource`` command cannot directly use them.
 
              .. end_tag
 
@@ -210,31 +210,31 @@ This resource has the following properties:
       * - Value
         - Description
       * - ``:archive``
-        - Use to to `unpack archive (.zip) files <https://msdn.microsoft.com/en-us/powershell/dsc/archiveresource>`_.
+        - Use to `unpack archive (.zip) files <https://msdn.microsoft.com/en-us/powershell/dsc/archiveresource>`_.
       * - ``:environment``
-        - Use to to `manage system environment variables <https://msdn.microsoft.com/en-us/powershell/dsc/environmentresource>`_.
+        - Use to `manage system environment variables <https://msdn.microsoft.com/en-us/powershell/dsc/environmentresource>`_.
       * - ``:file``
-        - Use to to `manage files and directories <https://msdn.microsoft.com/en-us/powershell/dsc/fileresource>`_.
+        - Use to `manage files and directories <https://msdn.microsoft.com/en-us/powershell/dsc/fileresource>`_.
       * - ``:group``
-        - Use to to `manage local groups <https://msdn.microsoft.com/en-us/powershell/dsc/groupresource>`_.
+        - Use to `manage local groups <https://msdn.microsoft.com/en-us/powershell/dsc/groupresource>`_.
       * - ``:log``
-        - Use to to `log configuration messages <https://msdn.microsoft.com/en-us/powershell/dsc/logresource>`_.
+        - Use to `log configuration messages <https://msdn.microsoft.com/en-us/powershell/dsc/logresource>`_.
       * - ``:package``
-        - Use to to `install and manage packages <https://msdn.microsoft.com/en-us/powershell/dsc/packageresource>`_.
+        - Use to `install and manage packages <https://msdn.microsoft.com/en-us/powershell/dsc/packageresource>`_.
       * - ``:registry``
-        - Use to to `manage registry keys and registry key values <https://msdn.microsoft.com/en-us/powershell/dsc/registryresource>`_.
+        - Use to `manage registry keys and registry key values <https://msdn.microsoft.com/en-us/powershell/dsc/registryresource>`_.
       * - ``:script``
-        - Use to to `run Powershell script blocks <https://msdn.microsoft.com/en-us/powershell/dsc/scriptresource>`_.
+        - Use to `run Powershell script blocks <https://msdn.microsoft.com/en-us/powershell/dsc/scriptresource>`_.
       * - ``:service``
-        - Use to to `manage services <https://msdn.microsoft.com/en-us/powershell/dsc/serviceresource>`_.
+        - Use to `manage services <https://msdn.microsoft.com/en-us/powershell/dsc/serviceresource>`_.
       * - ``:user``
-        - Use to to `manage local user accounts <https://msdn.microsoft.com/en-us/powershell/dsc/userresource>`_.
+        - Use to `manage local user accounts <https://msdn.microsoft.com/en-us/powershell/dsc/userresource>`_.
       * - ``:windowsfeature``
-        - Use to to `add or remove Windows features and roles <https://msdn.microsoft.com/en-us/powershell/dsc/windowsfeatureresource>`_.
+        - Use to `add or remove Windows features and roles <https://msdn.microsoft.com/en-us/powershell/dsc/windowsfeatureresource>`_.
       * - ``:windowsoptionalfeature``
         - Use to configure Microsoft Windows optional features.
       * - ``:windowsprocess``
-        - Use to to `configure Windows processes <https://msdn.microsoft.com/en-us/powershell/dsc/windowsprocessresource>`_.
+        - Use to `configure Windows processes <https://msdn.microsoft.com/en-us/powershell/dsc/windowsprocessresource>`_.
 
    Any DSC resource may be used in a Chef recipe. For example, the DSC Resource Kit contains resources for `configuring Active Directory components <http://www.powershellgallery.com/packages/xActiveDirectory/2.8.0.0>`_, such as ``xADDomain``, ``xADDomainController``, and ``xADUser``. Assuming that these resources are available to the chef-client, the corresponding values for the ``resource`` attribute would be: ``:xADDomain``, ``:xADDomainController``, and ``xADUser``.
 
