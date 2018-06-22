@@ -894,6 +894,9 @@ This subcommand has the following options:
 ``-V -V``
    Run the initial chef-client run at the ``debug`` log-level (e.g. ``chef-client -l debug``).
 
+``-V -V -V``
+   Run the initial chef-client run at the ``trace`` log-level (e.g. ``chef-client -l trace``). This was added in Chef Client 14.
+
 ``-x USERNAME``, ``--ssh-user USERNAME``
    The SSH user name.
 
