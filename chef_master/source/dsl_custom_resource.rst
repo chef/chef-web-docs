@@ -646,7 +646,7 @@ For example, the ``httpd.rb`` file in the ``website`` cookbook could be assigned
      end
 
      file '/var/www/html/index.html' do
-       content homepage
+       content new_resource.homepage
      end
    end
 
