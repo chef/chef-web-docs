@@ -4051,8 +4051,6 @@ where the first action listed is the default action.
 
 .. end_tag
 
-.. tag custom_resources_syntax_example
-
 This example ``site`` utilizes Chef's built in ``file``, ``service`` and ``package`` resources, and includes ``:create`` and ``:delete`` actions. Since it uses built in Chef resources, besides defining the property and actions, the code is very similar to that of a recipe.
 
 .. code-block:: ruby
@@ -4098,8 +4096,6 @@ and to delete the exampleco website, do the following:
    exampleco_site 'httpd' do
      action :delete
    end
-
-.. end_tag
 
 Custom Resource DSL
 -----------------------------------------------------
