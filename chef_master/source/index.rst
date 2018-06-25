@@ -262,7 +262,7 @@ Chef DK
 `About the ChefDK </about_chefdk.html>`__ |
 `Berkshelf </berkshelf.html>`__ |
 `chef-apply (executable) </ctl_chef_apply.html>`__ |
-`chef-shell (executable) </ctl_chef_shell.html>`__
+`chef-shell (executable) </chef_shell.html>`__
 
 **chef (executable)**: `chef env </ctl_chef.html#chef-env>`__ | `chef exec </ctl_chef.html#chef-exec>`__ | `chef gem </ctl_chef.html#chef-gem>`__ | `chef generate app </ctl_chef.html#chef-generate-app>`__ | `chef generate attribute </ctl_chef.html#chef-generate-attribute>`__ | `chef generate cookbook </ctl_chef.html#chef-generate-cookbook>`__ | `chef generate build-cookbook </ctl_chef.html#chef-generate-build-cookbook>`__ | `chef generate file </ctl_chef.html#chef-generate-file>`__ | `chef generate lwrp </ctl_chef.html#chef-generate-lwrp>`__ | `chef generate recipe </ctl_chef.html#chef-generate-recipe>`__ | `chef generate repo </ctl_chef.html#chef-generate-repo>`__ | `chef generate template </ctl_chef.html#chef-generate-template>`__ | `chef provision </ctl_chef.html#chef-provision>`__ | `chef shell-init </ctl_chef.html#chef-shell-init>`__ | `chef verify </ctl_chef.html#chef-verify>`__
 
@@ -573,6 +573,7 @@ Addenda
    chef_quick_overview
    chef_repo
    chef_search
+   chef_shell
    chef_solo
    chef_system_requirements
    chef_vault
@@ -610,7 +611,6 @@ Addenda
    ctl_chef_backend
    ctl_chef_client
    ctl_chef_server
-   ctl_chef_shell
    ctl_chef_solo
    delivery_cli
    ctl_automate_server
