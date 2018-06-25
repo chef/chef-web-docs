@@ -395,13 +395,13 @@ Advanced Debugging
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag chef_shell_advanced_debug
 
-In chef-shell, it is possible to get extremely verbose debugging using the tracing feature in Interactive Ruby (IRb). chef-shell provides a shortcut for turning tracing on and off. For example:
+In chef-shell, it is possible to get verbose debugging using the tracing feature in Interactive Ruby (IRb). chef-shell provides a shortcut for turning tracing on and off. For example:
 
 .. code-block:: bash
 
    $ chef > tracing on
-     /Users/danielsdeleo/.rvm/ree-1.8.7-2009.10/lib/ruby/1.8/tracer.rb:150: warning: tried to create Proc object without a block
-     /Users/danielsdeleo/.rvm/ree-1.8.7-2009.10/lib/ruby/1.8/tracer.rb:146: warning: tried to create Proc object without a block
+     /Users/username/.rvm/ree-1.8.7-2009.10/lib/ruby/1.8/tracer.rb:150: warning: tried to create Proc object without a block
+     /Users/username/.rvm/ree-1.8.7-2009.10/lib/ruby/1.8/tracer.rb:146: warning: tried to create Proc object without a block
      tracing is on
        => nil
 
@@ -492,7 +492,7 @@ Typing is evaluated in the same context as recipes. Create a file resource:
           @name="/tmp/ohai2u_shef",
           @action="create",
           @path="/tmp/ohai2u_shef",
-          @source_line="/Users/danielsdeleo/ruby/chef/chef/(irb#1) line 1",
+          @source_line="/Users/username/ruby/chef/chef/(irb#1) line 1",
           @params={},
           @actions={},
           @cookbook_name=nil,
