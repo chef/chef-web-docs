@@ -268,7 +268,6 @@ Chef DK
 
 **Chef Solo**: `About Chef Solo </chef_solo.html>`__ | `chef-solo (executable) </ctl_chef_solo.html>`__ | `solo.rb </config_rb_solo.html>`__
 
-`chef-shell (executable) </ctl_chef_shell.html>`__ |
 `chef-zero (local mode) </ctl_chef_client.html#run-in-local-mode>`_ |
 `chef-vault </chef_vault.html>`__ |
 `ChefSpec </chefspec.html>`__
@@ -612,7 +611,6 @@ Addenda
    ctl_chef_backend
    ctl_chef_client
    ctl_chef_server
-   ctl_chef_shell
    ctl_chef_solo
    delivery_cli
    ctl_automate_server
