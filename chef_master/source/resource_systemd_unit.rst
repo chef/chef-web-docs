@@ -150,7 +150,7 @@ Examples
 .. code-block:: ruby
 
    systemd_unit 'etcd.service' do
-     content(Unit: {
+     content({Unit: {
                Description: 'Etcd',
                Documentation: 'https://coreos.com/etcd',
                After: 'network.target',
@@ -162,7 +162,7 @@ Examples
              },
              Install: {
                WantedBy: 'multi-user.target',
-             })
+             }})
      action :create
    end
 
