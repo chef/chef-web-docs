@@ -325,6 +325,12 @@ The following table lists the commercially-supported platforms for Chef Backend,
 Chef Compliance Server
 ----------------------
 
+.. tag EOL_compliance_server
+
+.. warning:: The standalone Chef Compliance server is deprecated. The standalone Chef Compliance server's end-of-life date is December 31, 2018. `Chef Automate 2 <https://www.chef.io/automate/>`__ has all of the functionality of Chef Compliance Server and also includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features not found in Chef Compliance Server. 
+
+.. end_tag
+
 Commercial Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -422,9 +428,9 @@ On the Chef end-of-life date, Chef discontinues building software for that platf
 +--------------------------------------------------------------+-------------------------+-----------------------+
 | Microsoft Windows Server 2008 (RTM) Service Pack 2           | January 13, 2015        | January 13, 2015      |
 +--------------------------------------------------------------+-------------------------+-----------------------+
-| Microsoft Windows Server 2008 R2 Service Pack 1               | January 13, 2015        | January 31, 2020     |
+| Microsoft Windows Server 2008 R2 Service Pack 1              | January 13, 2015        | January 13, 2015      |
 +--------------------------------------------------------------+-------------------------+-----------------------+
-| Microsoft Windows Server 2012/2012 R2                         | October 9, 2018         | October 10, 2023     |
+| Microsoft Windows Server 2012/2012 R2                        | January 13, 2015        | January 13, 2015      |
 +--------------------------------------------------------------+-------------------------+-----------------------+
 | Oracle Enterprise Linux 5                                    | June 30, 2017           | December 31, 2017     |
 +--------------------------------------------------------------+-------------------------+-----------------------+
@@ -548,8 +554,8 @@ Versions and Status
      - n/a
    * - Chef Compliance
      - 0.9.0 or later
-     - GA
-     - n/a
+     - Deprecated
+     - December 31, 2018
    * - Chef Manage
      - 2.1.0 or later
      - GA

@@ -11,6 +11,12 @@ An Overview of Chef Compliance
 
 .. end_tag
 
+.. tag EOL_compliance_server
+
+.. warning:: The standalone Chef Compliance server is deprecated. The standalone Chef Compliance server's end-of-life date is December 31, 2018. `Chef Automate 2 <https://www.chef.io/automate/>`__ has all of the functionality of Chef Compliance Server and also includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features not found in Chef Compliance Server. 
+
+.. end_tag
+
 Chef Compliance is a standalone solution that allows you to assess your infrastructure's adherence to compliance requirements and to monitor that infrastructure on an ongoing basis. It includes:
 
 * The Chef Compliance server

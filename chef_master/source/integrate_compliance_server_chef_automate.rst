@@ -11,6 +11,12 @@ Integrate Chef Compliance with Chef Automate
 
 .. end_tag
 
+.. tag EOL_compliance_server
+
+.. warning:: The standalone Chef Compliance server is deprecated. The standalone Chef Compliance server's end-of-life date is December 31, 2018. `Chef Automate 2 <https://www.chef.io/automate/>`__ has all of the functionality of Chef Compliance Server and also includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features not found in Chef Compliance Server. 
+
+.. end_tag
+
 This page describes how to use the standalone Chef Compliance server with Chef Automate.
 
 To make it easy to retrieve profiles, execute and report results via chef converges, an ``audit`` cookbook was created. It's available in the Chef Supermarket or as a public GitHub `repo <https://github.com/chef-cookbooks/audit>`_. The cookbook depends on ``InSpec`` and uses attributes to support a few different ways of retrieving profiles and reporting the scan results:
