@@ -11,6 +11,12 @@ chef-compliance.rb
 
 .. end_tag
 
+.. tag EOL_compliance_server
+
+.. warning:: The standalone Chef Compliance server is deprecated. The standalone Chef Compliance server's end-of-life date is December 31, 2018. `Chef Automate 2 <https://www.chef.io/automate/>`__ has all of the functionality of Chef Compliance Server and also includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features not found in Chef Compliance Server. 
+
+.. end_tag
+
 The ``/etc/chef-compliance/chef-compliance.rb`` file is the default configuration file used by Chef Compliance.
 
 If changes are made to this file, reconfigure the Chef Compliance server by running the following command:
