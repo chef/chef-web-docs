@@ -152,7 +152,7 @@ Work with basic untruths (``!`` means not!):
    !false          # => true
    !nil            # => true
    1 != 2          # => true (1 is not equal to 2)
-   1 != 1          # => false (1 is not not equal to itself)
+   1 != 1          # => false (1 is not equal to itself)
 
 Convert Truths
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
