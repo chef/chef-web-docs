@@ -51,7 +51,11 @@ Getting Started
 -----------------------------------------------------
 `Chef Overview </chef_overview.html>`__ |
 `Quick Start </quick_start.html>`__ |
-`System Requirements </chef_system_requirements.html>`__
+`System Requirements </chef_system_requirements.html>`__ 
+
+**Chef Workstation**:
+`Chef Workstation Beta <https://www.chef.sh/>`__ |
+`Documentation <https://www.chef.sh/docs/chef-workstation/getting-started/>`__
 
 **Release Notes**:
 `Chef Client </release_notes.html>`__ |
