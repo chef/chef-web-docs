@@ -81,6 +81,16 @@ This resource has the following actions:
 
    .. end_tag
 
+.. note:: Chef can only reliably manage crontab entries that it creates. To remove existing system entries we may use **execute** resource with a guard like:
+  
+  .. code-block:: ruby
+
+    execute "remove foo_daemon from crontab" do
+      command "sed -i '/foo_daemon/d' /etc/crontab"
+      only_if "grep 'foo_daemon' /etc/crontab 2>&1 >/dev/null"
+    end
+
+
 Properties
 =====================================================
 This resource has the following properties:
