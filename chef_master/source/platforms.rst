@@ -493,21 +493,29 @@ Versions and Status
      - Lifecycle Status
      - EOL Date
    * - Chef Client
+     - 14.x
+     - GA
+     - n/a
+   * - Chef Client
+     - 13.x
+     - Deprecated
+     - n/a
+   * - Chef Client
      - 12.x
      - `EOL <https://www.chef.io/eol-chef12-and-chefdk1/>`__
      - April 30, 2018
-   * - Chef Client
-     - 13.x
+   * - Chef DK
+     - 3.x
+     - GA
+     - n/a
+   * - Chef DK
+     - 2.x
      - Deprecated
      - n/a
    * - Chef DK
      - 1.x
      - `EOL <https://www.chef.io/eol-chef12-and-chefdk1/>`__
      - April 30, 2018
-   * - Chef DK
-     - 2.x
-     - GA
-     - n/a
    * - Chef Server
      - 12.x
      - GA
