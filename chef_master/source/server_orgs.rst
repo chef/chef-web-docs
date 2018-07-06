@@ -161,7 +161,6 @@ Use the following code to set the correct permissions:
 .. code-block:: ruby
 
    #!/usr/bin/env ruby
-   require 'rubygems'
    require 'chef/knife'
    require 'chef/rest'
 
@@ -907,4 +906,3 @@ This subcommand has the following syntax:
    $ chef-server-ctl org-user-remove ORG_NAME USER_NAME (options)
 
 .. end_tag
-
