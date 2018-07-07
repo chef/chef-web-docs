@@ -5,6 +5,64 @@ Release Notes: Chef Client 12.0 - 14.1.1
 
 Chef Client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef changelog <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
 
+
+What’s New in 14.2.0
+=====================================================
+
+ssh-agent support for user keys
+You can now use ssh-agent to hold your user key when using knife. This allows storing your user key in an encrypted form as well as using ssh -A agent forwarding for running knife commands from remote devices.
+
+You can enable this by adding ssh_agent_signing true to your knife.rb or ssh_agent_signing = true in your credentials file.
+
+To encrypt your existing user key, you can use OpenSSL:
+
+( openssl rsa -in user.pem -pubout && openssl rsa -in user.pem -aes256 ) > user_enc.pem
+chmod 600 user_enc.pem
+This will prompt you for a passphrase for to use to encrypt the key. You can then load the key into your ssh-agent by running ssh-add user_enc.pem. Make sure you add the ssh_agent_signing to your configuration, and update your client_key to point at the new, encrypted key (and once you’ve verified things are working, remember to delete your unencrypted key file).
+
+default_env Property in Execute Resource
+The shell_out helper has been extended with a new option default_env to allow disabling Chef from modifying PATH and LOCALE environmental variables as it shells out. This new option defaults to true (modify the env), preserving the previous behavior of the helper.
+
+The execute resource has also been updated with a new property default_env that allows utilizing this the ENV sanity functionality in shell_out. The new property defaults to false, but it can be set to true in order to ensure a sane PATH and LOCALE when shelling out. If you find that binaries cannot be found when using the execute resource, default_env set to true may resolve those issues.
+
+Small Size on Disk
+Chef now bundles the inspec-core and train-core gems, which omit many cloud dependencies not needed within the Chef client. This change reduces the install size of a typical system by ~22% and the number of files within that installation by ~20% compared to Chef 14.1. Enjoy the extra disk space.
+
+Virtualization detection on AWS
+Ohai now detects the virtualization hypervisor amazonec2 when running on Amazon’s new C5/M5 instances.
+
+Getting This Release
+As always, you can download binaries directly from downloads.chef.io 3, or by using the mixlib-install command line utility available in ChefDK.
+
+$ mixlib-install download chef -c stable -v 14.2.0
+Alternatively, you can install Chef using one of the following command options:
+In Shell
+
+$ curl https://omnitruck.chef.io/install.sh | sudo bash -s – -P chef -c stable -v 14.2.0
+In Windows Powershell
+
+. { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install -project chef -channel stable -version 14.2.0
+
+What's New in 14.1.12
+=====================================================
+
+* **Resource Changes & Notes**
+
+  - ``git`` resource: we don't recommend using ``--prune-tags`` yet, because it is really new.
+  - ``rhsm_repo`` resource: now works
+  - ``apt_repository`` resource: use the repo_name property to name files
+  - ``windows_task`` resource: properly handle commands with arguments
+  - ``windows_task`` resource: handle creating tasks as the SYSTEM user
+  - ``remote_directory`` resource: restore the default for the overwrite property
+
+Ohai 14.1.3
+-------------------------------------------------------
+
+  * Properly detect FIPS environments
+  * shard plugin: work in FIPS compliant environments
+  * filesystem plugin: Handle BSD platforms
+
+
 What's New in 14.1.1
 =====================================================
 * **windows_task**
@@ -412,7 +470,55 @@ This release completes the deprecation process for many of the deprecations that
      .. code-block:: ruby
 
         optional_plugins [ "lspci", "passwd" ]
-        
+
+What's New in 13.9.4
+=====================================================
+
+Security Updates
+Ruby has been updated to 2.4.4
+
+CVE-2017-17742: HTTP response splitting in WEBrick
+CVE-2018-6914: Unintentional file and directory creation with directory traversal in tempfile and tmpdir
+CVE-2018-8777: DoS by large request in WEBrick
+CVE-2018-8778: Buffer under-read in String#unpack
+CVE-2018-8779: Unintentional socket creation by poisoned NUL byte in UNIXServer and UNIXSocket
+CVE-2018-8780: Unintentional directory traversal by poisoned NUL byte in Dir
+Multiple vulnerabilities in RubyGems
+Nokogiri has been updated to 1.8.2
+
+[MRI] Behavior in libxml2 has been reverted which caused CVE-2018-8048 (loofah gem), CVE-2018-3740 (sanitize gem), and CVE-2018-3741 (rails-html-sanitizer gem).
+OpenSSL has been updated to 1.0.2o
+
+CVE-2018-0739: Constructed ASN.1 types with a recursive definition could exceed the stack.
+Platform Updates
+As Debian 7 is now end of life we will no longer produce Debian 7 chef-client packages.
+
+Ifconfig on Ubuntu 18.04
+Incompatibilities with Ubuntu 18.04 in the ifconfig resource have been resolved.
+
+Ohai Updated to 13.9.2
+Virtualization detection on AWS
+Ohai now detects the virtualization hypervisor amazonec2 when running on Amazon’s new C5/M5 instances.
+
+Configurable DMI Whitelist
+The whitelist of DMI IDs is now user configurable using the additional_dmi_ids configuration setting, which takes an Array.
+
+Filesystem2 on BSD
+The Filesystem2 functionality has been backported to BSD systems to provide a consistent filesystem format.
+
+Getting This Release
+As always, you can download binaries directly from downloads.chef.io, or by using the mixlib-install command line utility available in ChefDK.
+
+$ mixlib-install download chef -c stable -v 13.9.4
+Alternatively, you can install Chef using one of the following command options:
+
+In Shell
+
+$ curl https://omnitruck.chef.io/install.sh | sudo bash -s – -P chef -c stable -v 13.9.4
+In Windows Powershell
+
+. { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install -project chef -channel stable -version 13.9.4
+
 What's New in 13.9.1
 =====================================================
 * On Windows, the installer now correctly re-extracts files during repair mode
@@ -428,6 +534,78 @@ Ohai 13.9
 * Fixes Softlayer cloud detection
 * Uses the current Azure metadata endpoint
 * Correctly detects macOS guests on VMware and VirtualBox
+
+What's New in 13.9
+=====================================================
+
+Release Highlights
+On Windows, the installer now correctly re-extracts files during repair mode
+The mount resource will now not create duplicate entries when the device type differs
+Ensure we don’t request every remote file when running with lazy loading enabled
+Don’t crash when getting the access rights for Windows system accounts
+Custom Resource Improvements
+We’ve expanded the DSL for custom resources with new functionality to better document your resources and help users with errors and upgrades. Many resources in Chef itself are now using this new functionality, and you’ll see more updated to take advantage of this it in the future.
+
+Deprecations in Cookbook Resources
+Chef 13 provides new primitives that allow you to deprecate resources or properties with the same functionality used for deprecations in Chef Client resources. This allows you make breaking changes to enterprise or community cookbooks with friendly notifications to downstream cookbook consumers directly in the Chef run.
+
+Deprecate the foo_bar resource in a cookbook:
+
+deprecated "The foo_bar resource has been deprecated and will be removed in the next major release of this cookbook scheduled for 12/25/2018!"
+
+property :thing, String, name_property: true
+
+action :create do
+ # you'd probably have some actual chef code here
+end
+Deprecate the thing2 property in a resource
+
+property :thing2, String, deprecated: 'The thing2 property has been deprecated and will be removed in the next major release of this cookbook scheduled for 12/25/2018!'
+Rename a property with a deprecation warning for users of the old property name
+
+deprecated_property_alias 'thing2', 'the_second_thing', 'The thing2 property was renamed the_second_thing in the 2.0 release of this cookbook. Please update your cookbooks to use the new property name.'
+validation_message
+Validation messages allow you give the user a friendly error message when any validation on a property fails.
+
+Provide a friendly message when a regex fails:
+
+property :repo_name, String, regex: [/^[^\/]+$/], validation_message: "The repo_name property cannot contain a forward slash '/'",
+Resource Documentation
+You can now include documentation that describes how a resource is to be used. Expect this data to be consumed by Chef and other tooling in future releases.
+
+A resource which includes description and introduced values in the resource, actions, and properties:
+
+description 'The apparmor_policy resource is used to add or remove policy files from a cookbook file'
+introduced '14.1'
+
+property :source_cookbook, String,
+         description: 'The cookbook to source the policy file from'
+property :source_filename, String,
+         description: 'The name of the source file if it differs from the apparmor.d file being created'
+
+action :add do
+  description 'Adds an apparmor policy'
+
+  # you'd probably have some actual chef code here
+end
+Ohai Release Notes 13.9:
+Fix uptime parsing on AIX
+Fix Softlayer cloud detection
+Use the current Azure metadata endpoint
+Correctly detect macOS guests on VMware and VirtualBox
+Please see the CHANGELOG for the complete list of changes.
+
+Get the Build
+As always, you can download binaries directly from downloads.chef.io or by using the new mixlib-install command line utility available in ChefDK 0.19.6 or greater.
+
+$ mixlib-install download chef -v 13.9.1
+Alternatively, you can install Chef using one of the following command options:
+
+# In Shell
+$ curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -P chef -v 13.9.1
+
+# In Windows Powershell
+. { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install -project chef -version 13.9.1
 
 What's New in 13.8.5
 =====================================================
