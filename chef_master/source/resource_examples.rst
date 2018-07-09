@@ -1160,7 +1160,6 @@ After it has run, the run status data can be loaded and inspected via Interactiv
 
 .. code-block:: ruby
 
-   irb(main):001:0> require 'rubygems' => true
    irb(main):002:0> require 'json' => true
    irb(main):003:0> require 'chef' => true
    irb(main):004:0> r = JSON.parse(IO.read('/var/chef/reports/chef-run-report-20110322060731.json')) => ... output truncated

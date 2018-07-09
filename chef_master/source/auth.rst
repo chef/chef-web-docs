@@ -240,7 +240,6 @@ On a system with the chef-client installed, use Ruby to make an authenticated re
 
 .. code-block:: ruby
 
-   require 'rubygems'
    require 'chef/config'
    require 'chef/log'
    require 'chef/rest'
@@ -256,7 +255,6 @@ or:
 
 .. code-block:: ruby
 
-   require 'rubygems'
    require 'mixlib/cli'
    require 'chef'
    require 'chef/node'
@@ -506,7 +504,6 @@ Use the following code to set the correct permissions:
 .. code-block:: ruby
 
    #!/usr/bin/env ruby
-   require 'rubygems'
    require 'chef/knife'
    require 'chef/rest'
 
