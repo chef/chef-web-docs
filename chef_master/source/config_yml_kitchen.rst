@@ -358,6 +358,8 @@ Kitchen also supports ``http_proxy`` and ``https_proxy`` in the ``.kitchen.yml``
      http_proxy: <%= ENV['http_proxy'] %>
      https_proxy: <%= ENV['https_proxy'] %>
 
+This will not set the proxy environment variables for applications other than Chef. The Vagrant plugin, `vagrant-proxyconf <http://tmatilai.github.io/vagrant-proxyconf/>`__, can be used to set the proxy environment variables for applications inside the VM.
+
 .. end_tag
 
 chef-client Settings
