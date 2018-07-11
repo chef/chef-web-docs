@@ -5,6 +5,36 @@ Release Notes: Chef Automate
 
 Chef Automate provides a full suite of enterprise capabilities for workflow, visibility and compliance that allow you to manage and monitor application and cookbook deployments across a cluster of nodes in your environment.
 
+What's New in 1.8.85
+=====================================================
+
+Resolved Issues
+-----------------------------------------------------
+* SSL certificates for rabbitmq can now be specified in the configuration.
+* When deleting a project from Workflow that has dependencies a new error message is raised to indicate the necessary steps to resolve the issue.
+* Filtering Nodes by Organization and Chef Server simultaneously now works correctly.
+* Following detailed reviews the Compliance Profiles for CIS Redhat 7 Server, Redhat 6 Server, Windows Server 2012, 2012 R2 and 2016 have received numerous updates both to correct test logic and to bring these profiles closer to the benchmarks specified by CIS
+*  Please note that previously passing compliance runs may show legitimate failures once the updated profiles are in place due to more accurate testing methods now being used.
+
+What's New in 1.8.68
+=====================================================
+
+New Features
+-----------------------------------------------------
+* Added support for specifying an AWS role ARN using ``elasticsearch['role_arn']`` when performing backups to S3Client
+
+Resolved Issues
+-----------------------------------------------------
+* Fixed an issue preventing compliance scanner reports from being collected
+* The built-in ssl certificate is no longer a CA keypair and works with newer versions of Chrome
+* **Fixed multiple bugs with the reaper:**
+
+    * Relocated executable to ``/opt/delivery/bin/reaper`` from ``/opt/delivery/embedded/service/reaper/bin/reaper``
+    * Application is now AppBundled to ensure high reliability.
+    * Logs now append to log file for each execution rather than overwrite.
+    * Application crash logs are now appended to the logfile.
+    * Curator timeout is now configurable. This can set via ``node['delivery']['elasticsearch']['curator']['timeout']`` in the delivery.rb or by exporting the environment variable CURATOR_ELASTICSEARCH_TIMEOUT when running the reaper manually. Default value is 600 seconds (10 minutes).
+
 What's New in 1.8.38
 =====================================================
 
