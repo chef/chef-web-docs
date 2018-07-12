@@ -5,6 +5,36 @@ Release Notes: Chef Automate
 
 Chef Automate provides a full suite of enterprise capabilities for workflow, visibility and compliance that allow you to manage and monitor application and cookbook deployments across a cluster of nodes in your environment.
 
+What's New in 1.8.85
+=====================================================
+
+Resolved Issues
+-----------------------------------------------------
+* Specify SSL certificates for rabbitmq in the configuration.
+* Deleting a project from Workflow with dependencies raises a new error message indicating the steps for resolving the issue.
+* You can correctly filter nodes by *Organization* and *Chef Server* simultaneously.
+* We updated the Compliance Profiles for CIS Redhat 7 Server, Redhat 6 Server, Windows Server 2012, 2012 R2 and 2016 to correct test logic and bring these profiles closer to the CIS benchmarks.
+* After loading the updated profiles, you may see legitimate failures on nodes that previously passing inspection. The node failures are the result of our more accurate tests.
+
+What's New in 1.8.68
+=====================================================
+
+New Features
+-----------------------------------------------------
+* Added support for specifying an AWS role ARN using ``elasticsearch['role_arn']`` in backups to an S3Client.
+
+Resolved Issues
+-----------------------------------------------------
+* Fixed an issue preventing compliance scanner reports from being collected
+* The built-in ssl certificate is no longer a CA keypair and works with newer versions of Chrome
+* **Fixed multiple bugs with the reaper:**
+
+    * Relocated executable to ``/opt/delivery/bin/reaper`` from ``/opt/delivery/embedded/service/reaper/bin/reaper``.
+    * Application is now `AppBundled` to ensure high reliability.
+    * Logs now append to log file for each execution rather than overwrite.
+    * Application crash logs are now appended to the logfile.
+    * Curator timeout is now configurable. This can set via ``node['delivery']['elasticsearch']['curator']['timeout']`` in the delivery.rb or by exporting the environment variable `CURATOR_ELASTICSEARCH_TIMEOUT` when running the reaper manually. Default value is 600 seconds (10 minutes).
+
 What's New in 1.8.38
 =====================================================
 
@@ -102,7 +132,7 @@ New Features
 
 * **Performance Improvements for Compliance Reporting**
 
-  Large environments with thousands of nodes provide great insights, but have been somewhat slow to load in Chef Automate due to the sheer amount of data that requires processing. In this release, we introduced a number of improvements to the backend that will make both API calls and the UI experience much faster for large environments.
+  Large environments with thousands of nodes provide great insights, but aare slow to load in Chef Automate due to the sheer amount of data that requires processing. In this release, we introduced a number of improvements to the backend that will make both API calls and the UI experience much faster for large environments.
 
   In the same cycle we improved the suggestions on all searches in Compliance Reporting. These now return more accurate results and have become noticeably faster.
 
@@ -334,7 +364,7 @@ To get started using notifications, navigate to the **Nodes** tab in Chef Automa
 Updated Compliance Profiles
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-All compliance profiles have been updated to include the build number of the profile. This change was necessary to track updates to CIS profiles which received changes without the official version number increasing. For example, a number of improvements were made to tests in the the RHEL profile family. Additionally, incorrectly formatted descriptions were updated and improved significantly.
+All compliance profiles have been updated to include the build number of the profile. This change was necessary to track updates to CIS profiles which received changes without the official version number increasing. For example, a number of improvements were made to tests in the RHEL profile family. Additionally, incorrectly formatted descriptions were updated and improved significantly.
 
 CSV Export for Compliance Reports
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
