@@ -144,7 +144,7 @@ This resource has the following properties:
 ``flags``
    **Ruby Type:** String
 
-   A string that is passed to the Windows PowerShell command. Default value: ``-NoLogo, -NonInteractive, -NoProfile, -ExecutionPolicy RemoteSigned, -InputFormat None, -File``.
+   A string that is passed to the Windows PowerShell command. Default value (Windows PowerShell 3.0+): ``-NoLogo, -NonInteractive, -NoProfile, -ExecutionPolicy Bypass, -InputFormat None``.
 
 ``group``
    **Ruby Types:** String, Integer
