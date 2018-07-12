@@ -12,7 +12,7 @@ Resolved Issues
 -----------------------------------------------------
 * Specify SSL certificates for rabbitmq in the configuration.
 * Deleting a project from Workflow with dependencies raises a new error message indicating the steps for resolving the issue.
-* You can correctly filter nodes by _Organization_ and _Chef Server_ simultaneously.
+* You can correctly filter nodes by *Organization* and *Chef Server* simultaneously.
 * We updated the Compliance Profiles for CIS Redhat 7 Server, Redhat 6 Server, Windows Server 2012, 2012 R2 and 2016 to correct test logic and bring these profiles closer to the CIS benchmarks.
 * After loading the updated profiles, you may see legitimate failures on nodes that previously passing inspection. The node failures are the result of our more accurate tests.
 
