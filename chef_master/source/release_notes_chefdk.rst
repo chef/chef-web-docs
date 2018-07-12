@@ -8,123 +8,123 @@ Chef Development Kit is released on a monthly schedule with new releases the thi
 What's New in 3.1
 =====================================================
 
-Release Highlights
-Chef 14.2.0
-ChefDK now ships with Chef 14.2.0. See https://docs.chef.io/release_notes.html 5 for more information on what’s new.
+* **Chef 14.2.0**
+     ChefDK now ships with Chef 14.2.0. See `Chef release notes </release_notes.html#what-s-new-in-14-2-0>`__ for more information on what’s new.
 
-Habitat packages available
-ChefDK is now released as a habitat package under the identifier chef/chef-dk. All successful builds will be available in the unstable channel and all promoted builds will be available in the stable channel. This is similar to the current and stable downloads of ChefDK available on https://downloads.chef.io/chefdk/stable 3.
+* **Habitat Packages**
+     ChefDK is now released as a habitat package under the identifier ``chef/chef-dk``. All successful builds are available in the unstable channel and all promoted builds are available in the stable channel. 
 
-Updated Homebrew cask tap
-On macOS you can install ChefDK using brew cask install chef/chef/chefdk. This behavior is not new but the tap name changed.
+* **Updated Homebrew Cask Tap**
+     You can install ChefDK on macOS using ``brew cask install chef/chef/chefdk``. The tap name is new, but not the behavior.
 
 Updated Tooling
-Fauxhai
-Fauxhai 6.4.0 brings support for 3 new platforms - CentOS 7.5, Debian 8.11, and FreeBSD 11.2. It also updates the dumps for Amazon Linux, Redhat, SLES, and Ubuntu to match Chef 14.2 output. Finally it deprecates FreeBSD 10.3.
+-----------------------------------------------------
 
-Foodcritic
-Foodcritic 14.0.0 adds support for Chef 14.2 metadata, makes it the default, and removes old Chef 13 metadata. It also updated rules for clarity, removed an unecessary rule, and added a new rule saying when cookbooks have unecessary dependencies now that resources moved into core Chef. See the changelog for a full list of changes.
+**Fauxhai**
+     Fauxhai 6.4.0 brings support for 3 new platforms - CentOS 7.5, Debian 8.11, and FreeBSD 11.2. It also updates the dumps for Amazon Linux, Redhat, SLES, and Ubuntu to match Chef 14.2 output. Finally it deprecates FreeBSD 10.3.
 
-knife-acl
-knife-acl is now included with ChefDK. This knife plugin allows admin users to modify Chef Server ACLs from their command line.
+**Foodcritic**
+     Foodcritic 14.0.0 adds support for Chef 14.2 metadata, makes it the default, and removes old Chef 13 metadata. It also updates rules for clarity, removes an unecessary rule, and adds a new rule saying when cookbooks have unecessary dependencies now that resources moved into core Chef. See the changelog for a full list of changes.
 
-knife-tidy
-knife-tidy 3 is now included with ChefDK. This knife plugin generates reports about stale nodes and helps clean them up.
+**knife-acl**
+     ``knife-acl`` is now included with ChefDK. This knife plugin allows admin users to modify Chef Server ACLs from their command line.
 
-Test Kitchen
-Test Kitchen 1.11.0 adds a new ssh_gateway_port config and fixed a bug on Unix systems where scripts were not created as executable.
+**knife-tidy**
+     ``knife-tidy`` 3 is now included with ChefDK. This knife plugin generates reports about stale nodes and helps clean them up.
+
+**Test Kitchen**
+     Test Kitchen 1.11.0 adds a new ``ssh_gateway_port`` config and fixes a bug on Unix systems where scripts are not created as executable.
 
 Updated Components and Tools
-fauxhai: 6.3.0 -> 6.4.0
-foodcritic: 13.1.1 -> 14.0.0
-kitchen-digitalocean: 0.9.8 -> 0.10.0
-knife-opc: 0.3.2 -> 0.4.0
-test-kitchen: 1.21.2 ->1.22.0
+-----------------------------------------------------
+
+     * ``fauxhai: 6.3.0 -> 6.4.0``
+     * ``foodcritic: 13.1.1 -> 14.0.0``
+     * ``kitchen-digitalocean: 0.9.8 -> 0.10.0``
+     * ``knife-opc: 0.3.2 -> 0.4.0``
+     * ``test-kitchen: 1.21.2 ->1.22.0``
+
 Security Updates
-ffi
-CVE-2018-1000201: DLL loading issue which can be hijacked on Windows OS
+-----------------------------------------------------
+
+* **ffi**
+     CVE-2018-1000201: DLL loading issue which can be hijacked on Windows OS
 
 What's New in 3
 =====================================================
 
-Release Highlights
-Chef 14.1.1
-ChefDK now ships with Chef 14.1.1. See https://docs.chef.io/release_notes.html 8 for more information on what’s new.
+* **Chef 14.1.1**
+     ChefDK now ships with Chef 14.1.1. `Chef release notes </release_notes.html#what-s-new-in-14-1-1>`__ for more information on what’s new.
 
-Updated Operating System support
-ChefDK now ships packages for Ubuntu 18.04 and Debian 9. In accordance with Chef’s platform End Of Life policy, ChefDK is no longer shipped on macOS 10.10.
+* **Updated Operating System support**
+     ChefDK now ships packages for Ubuntu 18.04 and Debian 9. In accordance with Chef’s platform End Of Life policy, ChefDK is no longer shipped on macOS 10.10.
 
-Enhanced cookbook archive handling
-ChefDK now uses an embedded copy of libarchive to support Policyfile and Berkshelf. This improves overall performance and provides a well tested interface to many different types of archives. It also resolves the long standing “not an octal string” problem users face when depending on certain cookbooks in the supermarket.
+* **Enhanced cookbook archive handling**
+     ChefDK now uses an embedded copy of ``libarchive`` to support Policyfile and Berkshelf. This improves overall performance and provides a well tested interface to different types of archives. It also resolves the long standing “not an octal string” problem users face when depending on certain cookbooks in the supermarket.
 
-Policyfiles: updated include_policy support
-Policyfiles now support git targets for included policies.
+* **Policyfiles: updated include_policy support**
+     Policyfiles now support git targets for included policies.
 
-include_policy 'base_policy',
-               git: 'https://github.com/happychef/chef-repo.git',
-               branch: master,
-               path: 'policies/base/Policyfile.lock.json'
+  .. code-block:: ruby
+  
+    include_policy 'base_policy',
+                  git: 'https://github.com/happychef/chef-repo.git',
+                  branch: master,
+                  path: 'policies/base/Policyfile.lock.json'
+
 Updated Tooling
-Test Kitchen
-Test Kitchen has been updated from 1.20.0 to 1.21.2. This release allows you to use a kitchen.yml config file instead of .kitchen.yml so the kitchen config will no longer be hidden in your cookbook directories. It also introduces new config options for SSH proxy servers and allows you to specify multiple paths for data bags. See https://github.com/test-kitchen/test-kitchen/blob/master/CHANGELOG.md 2 for the complete list of changes.
+-----------------------------------------------------
 
-InSpec
-InSpec has been updated from 1.51.21 to 2.1.68. InSpec 2.0 brings compliance automation to the cloud, with new resource types specifically built for AWS and Azure clouds. Along with these changes are major speed improvements and quality of life updates. Please visit https://www.inspec.io for more information.
+* **Test Kitchen** 
+     Test Kitchen has been updated from 1.20.0 to 1.21.2. This release allows you to use a ``kitchen.yml`` config file instead of ``.kitchen.yml`` so the kitchen config will no longer be hidden in your cookbook directories. It also introduces new config options for SSH proxy servers and allows you to specify multiple paths for data bags. See the `CHANGELOG <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__ for a complete list of changes.
 
-ChefSpec
-ChefSpec has been updated to 7.2.1 with Fauxhai 6.2.0. This release removes all platforms that were previously marked as deprecated in Fauxhai. If you saw Fauxhai deprecation warnings during your ChefSpec runs these will now be failures. This update also adds 9 new platforms and updates existing data for Chef 14. To see a complete list of platforms that can be mocked in ChefSpec see https://github.com/chefspec/fauxhai/blob/master/PLATFORMS.md 2.
+* **InSpec**
+     InSpec has been updated from 1.51.21 to 2.1.68. InSpec 2.0 brings compliance automation to the cloud, with new resource types specifically built for AWS and Azure clouds. Along with these changes are major speed improvements and quality of life updates. Please visit ` Inspec <https://www.inspec.io>`__ for more information.
 
-Foodcritic
-Foodcritic has been updated to from 12.3.0 to 13.1.1. This updates Foodcritic for Chef 13 or later by removing Chef 12 metadata and removing several legacy rules that suggested writing resources in a Chef 12 manner. The update also adds 9 new rules for writing custom resources and updating cookbooks to Chef 13 and 14, resolves several long standing file detection bugs, and improves performance.
+* **ChefSpec**
+     ChefSpec has been updated to 7.2.1 with Fauxhai 6.2.0. This release removes all platforms that were previously marked as deprecated in Fauxhai. If you saw Fauxhai deprecation warnings during your ChefSpec runs you will now see failures. This update also adds 9 new platforms and updates existing data for Chef 14. To see a complete list of platforms that can be mocked in ChefSpec see https://github.com/chefspec/fauxhai/blob/master/PLATFORMS.md 2.
 
-Cookstyle
-Cookstyle has been updated to 3.0, which updates the underlying RuboCop engine to 0.55 with a long list of bug fixes and improvements. This release of Cookstyle also enables 19 new rules available in RuboCop. See https://github.com/chef/cookstyle/blob/master/CHANGELOG.md 5 for a complete list of newly enabled rules.
+* **Foodcritic**
+     Foodcritic has been updated to from 12.3.0 to 13.1.1. This updates Foodcritic for Chef 13 or later by removing Chef 12 metadata and removing several legacy rules that suggested writing resources in a Chef 12 manner. The update also adds 9 new rules for writing custom resources and updating cookbooks to Chef 13 and 14, resolves several long standing file detection bugs, and improves performance.
 
-Berkshelf
-Berkshelf has been updated to 7.0.2. Berkshelf 7 moves to using the same libraries as the Chef Client, ensuring consistent behaviour - for instance, ensuring that chefignore files work the same - and enabling a quicker turnaround on bug fixes. The “Actor crashed” failures of celluloid will no longer be produced by Berkshelf.
+* **Cookstyle**
+     Cookstyle has been updated to 3.0, which updates the underlying RuboCop engine to 0.55 with a long list of bug fixes and improvements. This release of Cookstyle also enables 19 new rules available in RuboCop. See the `CHANGELOG <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__ for a complete list of newly enabled rules.
 
-VMware vSphere support
-The knife-vsphere plugin for managing VMware vSphere is now bundled with ChefDK.
+* **Berkshelf**
+     Berkshelf has been updated to 7.0.2. Berkshelf 7 moves to using the same libraries as the Chef Client, ensuring consistent behavior - for instance, ensuring that ``chefignore`` files work the same - and enabling a quicker turnaround on bug fixes. The “Actor crashed” failures of celluloid will no longer be produced by Berkshelf.
 
-Cookbook generator creates a CHANGELOG.md
-chef cookbook generate [cookbook_name] now creates a CHANGELOG.md file.
+* **VMware vSphere support**
+     The ``knife-vsphere`` plugin for managing VMware vSphere is now bundled with ChefDK.
+
+* **Cookbook generator creates a CHANGELOG.md**
+     ``chef cookbook generate [cookbook_name]`` now creates a CHANGELOG.md file.
 
 Updated Components and Tools
-chef-provisioning 2.7.0 -> 2.7.1
-knife-ec2 0.17.0 -> 0.18.0
-opscode-pushy-client 2.3.0 -> 2.4.11
-Security Updates
-Ruby
-Ruby has been updated to 2.5.1 to resolve the following vulnerabilities:
+-----------------------------------------------------
 
-CVE-2017-17742: HTTP response splitting in WEBrick
-CVE-2018-6914: Unintentional file and directory creation with directory traversal in tempfile and tmpdir
-CVE-2018-8777: DoS by large request in WEBrick
-CVE-2018-8778: Buffer under-read in String#unpack
-CVE-2018-8779: Unintentional socket creation by poisoned NUL byte in UNIXServer and UNIXSocket
-CVE-2018-8780: Unintentional directory traversal by poisoned NUL byte in Dir
+     * ``chef-provisioning 2.7.0 -> 2.7.1``
+     * ``knife-ec2 0.17.0 -> 0.18.0``
+     * ``opscode-pushy-client 2.3.0 -> 2.4.11``
+
+Security Updates
+-----------------------------------------------------
+
+* **Ruby**
+     Ruby has been updated to 2.5.1 to resolve the following vulnerabilities:
+
+     * `CVE-2017-17742 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-17742>`__
+     * `CVE-2018-6914 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-6914>`__
+     * `CVE-2018-8777 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8777>`__ 
+     * `CVE-2018-8778 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8778>`__
+     * `CVE-2018-8779 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8779>`__
+     * `CVE-2018-8780 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-69148780>`__`
+
 Multiple vulnerabilities in RubyGems
+
 OpenSSL
 OpenSSL has been updated to 1.0.2o to resolve CVE-2018-0739.
 
-Please see the CHANGELOG 1 for the complete list of changes.
-
-Get the Build
-As always, you can download binaries directly from downloads.chef.io 2 or by using the new mixlib-install command line utility available in ChefDK 0.19.6 or greater.
-
-$ mixlib-install download chefdk -v 3.0.36
-Alternatively, you can install ChefDK using one of the following command options:
-
-# In Shell
-$ curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -P chefdk -v 3.0.36
-
-# In Windows Powershell
-. { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install -project chefdk -version 3.0.36
-If you want to give this version a spin in Test Kitchen, create or add the following to a .kitchen.local.yml file:
-
-provisioner:
-  product_name: chefdk
-  product_version: 3.0.36
+Please see the CHANGELOG `change log <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__ for the complete list of changes.
 
 What's New in 2.5.3
 =====================================================
@@ -255,7 +255,7 @@ What's New in 2.4.17
 
 * **New tools bundled**
 
-  We are are now shipping these tools as part of Chef DK:
+  We are now shipping these tools as part of Chef DK:
 
     * `kitchen-digitalocean <https://github.com/test-kitchen/kitchen-digitalocean>`__
     * `kitchen-google <https://github.com/test-kitchen/kitchen-google>`__

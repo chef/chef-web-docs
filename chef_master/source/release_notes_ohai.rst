@@ -24,12 +24,12 @@ Attributes that are collected by Ohai are automatic level attributes, in that th
 
 .. end_tag
 
-Ohai 14.1.3
--------------------------------------------------------
+What's New in 14.1.3
+=====================================================
 
-  * Properly detect FIPS environments
-  * shard plugin: work in FIPS compliant environments
-  * filesystem plugin: Handle BSD platforms
+* Properly detects FIPS environments
+* ``shard`` plugin works in FIPS compliant environments
+* ``filesystem`` plugin now handles BSD platforms
 
   
 

@@ -25,23 +25,11 @@ Push Jobs Server
 
 What's New in 2.4
 =====================================================
-Push Jobs Client
------------------------------------------------------
-Push Jobs Client v2.4.8 is now available for download!
 
-This release adds support for AIX 7.1.
-
-2.4.8 is available from the download site: https://downloads.chef.io/push-jobs-client/2.4.8 
-
-Push Jobs Server
+Push Jobs Client 2.4.8
 -----------------------------------------------------
 
-What's New in 2.3
-=====================================================
-Push Jobs Client
------------------------------------------------------
-Push Jobs Server
------------------------------------------------------
+* Adds support for AIX 7.1.
 
 What's New in 2.2
 =====================================================
