@@ -10,19 +10,20 @@ What’s New in 14.2.0
 =====================================================
 
 * **ssh-agent support for user keys**
-     You can now use ``ssh-agent`` to hold your user key when using knife. This allows storing your user key in an encrypted form as well as using ``ssh -A`` agent forwarding for running knife commands from remote devices.
+  
+  You can now use ``ssh-agent`` to hold your user key when using knife. This allows storing your user key in an encrypted form as well as using ``ssh -A`` agent forwarding for running knife commands from remote devices.
 
-     You can enable this by adding ``ssh_agent_signing true`` to your ``knife.rb`` or ``ssh_agent_signing = true`` in your ``credentials`` file.
+  You can enable this by adding ``ssh_agent_signing true`` to your ``knife.rb`` or ``ssh_agent_signing = true`` in your ``credentials`` file.
 
-      To encrypt your existing user key, you can use OpenSSL:
+  To encrypt your existing user key, you can use OpenSSL:
 
-      .. code-block:: bash
+  .. code-block:: bash
 
-          ( openssl rsa -in user.pem -pubout && openssl rsa -in user.pem -aes256 ) > user_enc.pem
+    ( openssl rsa -in user.pem -pubout && openssl rsa -in user.pem -aes256 ) > user_enc.pem
 
-          chmod 600 user_enc.pem
+    chmod 600 user_enc.pem
 
-     This will prompt you for a passphrase for to use to encrypt the key. You can then load the key into your ``ssh-agent`` by running ``ssh-add user_enc.pem``. Make sure you add the ``ssh_agent_signing`` to your configuration, and update your ``client_key`` to point at the new, encrypted key (and once you’ve verified things are working, remember to delete your unencrypted key file).
+  This will prompt you for a passphrase for to use to encrypt the key. You can then load the key into your ``ssh-agent`` by running ``ssh-add user_enc.pem``. Make sure you add the ``ssh_agent_signing`` to your configuration, and update your ``client_key`` to point at the new, encrypted key (and once you’ve verified things are working, remember to delete your unencrypted key file).
 
 * **default_env Property in Execute Resource**
 
