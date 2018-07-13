@@ -18,11 +18,6 @@ Ruby and Rubygems upgraded to 2.4.4 and 2.7.6, respectively, to include a number
 Chef Client (packaged as a library) upgraded to 14.0.202
 Other dependencies upgraded to latest
 
-Push Jobs Client
------------------------------------------------------
-Push Jobs Server
------------------------------------------------------
-
 What's New in 2.4
 =====================================================
 
