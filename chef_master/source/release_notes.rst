@@ -1,9 +1,63 @@
 =====================================================
-Release Notes: Chef Client 12.0 - 14.1.1
+Release Notes: Chef Client 12.0 - 14.2.0
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes.rst>`__
 
 Chef Client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef changelog <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
+
+
+What’s New in 14.2.0
+=====================================================
+
+* **ssh-agent support for user keys**
+  
+  You can now use ``ssh-agent`` to hold your user key when using knife. This allows storing your user key in an encrypted form as well as using ``ssh -A`` agent forwarding for running knife commands from remote devices.
+
+  You can enable this by adding ``ssh_agent_signing true`` to your ``knife.rb`` or ``ssh_agent_signing = true`` in your ``credentials`` file.
+
+  To encrypt your existing user key, you can use OpenSSL:
+
+  .. code-block:: bash
+
+    ( openssl rsa -in user.pem -pubout && openssl rsa -in user.pem -aes256 ) > user_enc.pem
+
+    chmod 600 user_enc.pem
+
+  This will prompt you for a passphrase for to use to encrypt the key. You can then load the key into your ``ssh-agent`` by running ``ssh-add user_enc.pem``. Make sure you add the ``ssh_agent_signing`` to your configuration, and update your ``client_key`` to point at the new, encrypted key (and once you’ve verified things are working, remember to delete your unencrypted key file).
+
+* **default_env Property in Execute Resource**
+
+     The ``shell_out`` helper has been extended with a new option ``default_env`` to allow disabling Chef from modifying PATH and LOCALE environmental variables as it shells out. This new option defaults to true (modify the environment), preserving the previous behavior of the helper.
+
+     The ``execute`` resource has also been updated with a new property ``default_env`` that allows utilizing this the ENV sanity functionality in ``shell_out``. The new property defaults to false, but it can be set to true in order to ensure a sane PATH and LOCALE when shelling out. If you find that binaries cannot be found when using the ``execute`` resource, ``default_env`` set to true may resolve those issues.
+
+* **Small Size on Disk**
+
+     Chef now bundles the ``inspec-core`` and ``train-core`` gems, which omit many cloud dependencies not needed within the Chef Client. This change reduces the install size of a typical system by ~22% and the number of files within that installation by ~20% compared to Chef 14.1. Enjoy the extra disk space.
+
+* **Virtualization detection on AWS**
+
+     Ohai now detects the virtualization hypervisor amazonec2 when running on Amazon’s new C5/M5 instances.
+
+What's New in 14.1.12
+=====================================================
+
+* **Resource Changes & Notes**
+
+  * ``git`` resource: we don't recommend using ``--prune-tags`` yet, because it is really new.
+  * ``rhsm_repo`` resource: now works
+  * ``apt_repository`` resource: use the repo_name property to name files
+  * ``windows_task`` resource: properly handle commands with arguments
+  * ``windows_task`` resource: handle creating tasks as the SYSTEM user
+  * ``remote_directory`` resource: restore the default for the overwrite property
+
+Ohai 14.1.3
+-------------------------------------------------------
+
+  * Properly detect FIPS environments
+  * shard plugin: work in FIPS compliant environments
+  * filesystem plugin: Handle BSD platforms
+
 
 What's New in 14.1.1
 =====================================================
@@ -47,7 +101,7 @@ This release fixes a handful of regressions that were present in the 14.0 releas
 * Resources contained in cookbooks would be used instead of built-in Chef Client resources, which resulted in older resources running
 * Resources failed due to missing ``property_is_set?`` and ``resources`` methods
 * yum_package changed the order of ``disablerepo`` and ``enablerepo`` options
-* Depsolving large numbers of cookbooks with Chef zero/local took a very long time
+* Depsolving large numbers of cookbooks with Chef zero/local took a long time
 
 What's New in 14.0
 =====================================================
@@ -357,7 +411,7 @@ This release completes the deprecation process for many of the deprecations that
      The --distro and --template_file knife bootstrap flags were deprecated in Chef 12.0 and have now been removed.
 
 * **knife help**
-     The ``knife help`` functionality that read legacy Chef manpages has been removed. These manpages had not been updated in many years and were often quite wrong. Running ``knife help`` will now simply show the help menu.
+     The ``knife help`` functionality that read legacy Chef manpages has been removed. These manpages had not been updated in many years and were often wrong. Running ``knife help`` will now simply show the help menu.
      
 * **knife index rebuild**
      The ``knife index rebuild`` command has been removed, as reindexing Chef Server was only necessary on releases prior to Chef Server 11.
@@ -412,7 +466,42 @@ This release completes the deprecation process for many of the deprecations that
      .. code-block:: ruby
 
         optional_plugins [ "lspci", "passwd" ]
-        
+
+What's New in 13.9.4
+=====================================================
+
+Security Updates
+Ruby has been updated to 2.4.4
+
+CVE-2017-17742: HTTP response splitting in WEBrick
+CVE-2018-6914: Unintentional file and directory creation with directory traversal in tempfile and tmpdir
+CVE-2018-8777: DoS by large request in WEBrick
+CVE-2018-8778: Buffer under-read in String#unpack
+CVE-2018-8779: Unintentional socket creation by poisoned NUL byte in UNIXServer and UNIXSocket
+CVE-2018-8780: Unintentional directory traversal by poisoned NUL byte in Dir
+Multiple vulnerabilities in RubyGems
+Nokogiri has been updated to 1.8.2
+
+[MRI] Behavior in libxml2 has been reverted which caused CVE-2018-8048 (loofah gem), CVE-2018-3740 (sanitize gem), and CVE-2018-3741 (rails-html-sanitizer gem).
+OpenSSL has been updated to 1.0.2o
+
+CVE-2018-0739: Constructed ASN.1 types with a recursive definition could exceed the stack.
+Platform Updates
+As Debian 7 is now end of life we will no longer produce Debian 7 chef-client packages.
+
+Ifconfig on Ubuntu 18.04
+Incompatibilities with Ubuntu 18.04 in the ifconfig resource have been resolved.
+
+Ohai Updated to 13.9.2
+Virtualization detection on AWS
+Ohai now detects the virtualization hypervisor amazonec2 when running on Amazon’s new C5/M5 instances.
+
+Configurable DMI Whitelist
+The whitelist of DMI IDs is now user configurable using the additional_dmi_ids configuration setting, which takes an Array.
+
+Filesystem2 on BSD
+The Filesystem2 functionality has been backported to BSD systems to provide a consistent filesystem format.
+
 What's New in 13.9.1
 =====================================================
 * On Windows, the installer now correctly re-extracts files during repair mode
@@ -428,6 +517,57 @@ Ohai 13.9
 * Fixes Softlayer cloud detection
 * Uses the current Azure metadata endpoint
 * Correctly detects macOS guests on VMware and VirtualBox
+
+What's New in 13.9
+=====================================================
+
+* On Windows, the installer now correctly re-extracts files during repair mode
+* The mount resource will now not create duplicate entries when the device type differs
+* Ensure we don’t request every remote file when running with lazy loading enabled
+* Don’t crash when getting the access rights for Windows system accounts
+
+Custom Resource Improvements
+-----------------------------------------------------
+
+We’ve expanded the DSL for custom resources with new functionality to better document your resources and help users with errors and upgrades. Many resources in Chef itself are now using this new functionality, and you’ll see more updated to take advantage of this it in the future.
+
+Deprecations in Cookbook Resources
+-----------------------------------------------------
+
+* Chef 13 provides new primitives that allow you to deprecate resources or properties with the same functionality used for deprecations in Chef Client resources. This allows you make breaking changes to enterprise or community cookbooks with friendly notifications to downstream cookbook consumers directly in the Chef run.
+* Provide a friendly message when a regex fails:
+
+Resource Documentation
+-----------------------------------------------------
+
+You can now include documentation that describes how a resource is to be used. Expect this data to be consumed by Chef and other tooling in future releases.
+
+A resource which includes description and introduced values in the resource, actions, and properties:
+
+  .. code-block:: ruby
+
+    description 'The apparmor_policy resource is used to add or remove policy files from a cookbook file'
+     introduced '14.1'
+
+     property :source_cookbook, String,
+             description: 'The cookbook to source the policy file from'
+     property :source_filename, String,
+             description: 'The name of the source file if it differs from the apparmor.d file being created'
+
+     action :add do
+       description 'Adds an apparmor policy'
+
+       # you'd probably have some actual chef code here
+     end
+
+Ohai Release Notes 13.9
+-----------------------------------------------------
+
+* Fix uptime parsing on AIX
+* Fix Softlayer cloud detection
+* Use the current Azure metadata endpoint
+* Correctly detect macOS guests on VMware and VirtualBox
+* Please see the CHANGELOG for the complete list of changes.
 
 What's New in 13.8.5
 =====================================================
@@ -478,7 +618,7 @@ What's New in 13.7.16
   * Ruby has been upgraded to 2.4.3 to resolve `CVE-2017-17405 <https://nvd.nist.gov/vuln/detail/CVE-2017-17405>`__
 
 
-New Deprecations
+Deprecations
 -----------------------------------------------------
 
 * **erl_call Resource**
@@ -1059,7 +1199,7 @@ some_resource "name_one" do
 
 
 The fix for sending notifications to multipackage resources involved changing the API so that it no longer directly takes the string that is typed into the DSL but reads the (possibly coerced) name off of the resource after it is built.
-The end result is that the above resource will be named ``some_resource[name_two]`` instead of ``some_resource[name_one]``.  Note that setting the name (*not* the ``name_property``, but actually renaming the resource) is very uncommon.  The fix is to name the resource correctly in the first place (``some_resource name_two do``).
+The result is that the above resource will be named ``some_resource[name_two]`` instead of ``some_resource[name_one]``.  Note that setting the name (*not* the ``name_property``, but actually renaming the resource) is very uncommon.  The fix is to name the resource correctly in the first place (``some_resource name_two do``).
 
 ``use_inline_resources`` is always enabled
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

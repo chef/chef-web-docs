@@ -24,9 +24,16 @@ Attributes that are collected by Ohai are automatic level attributes, in that th
 
 .. end_tag
 
+What's New in 14.1.3
+=====================================================
+
+* Properly detects FIPS environments
+* ``shard`` plugin works in FIPS compliant environments
+* ``filesystem`` plugin now handles BSD platforms
+
+
 What's New in 13.2
 =====================================================
-Ohai 13.2 introduces the following changes:
 
 * **Systemd Paths Plugin** A new plugin has been added to expose system and user paths from ``systemd-path`` (see https://www.freedesktop.org/software/systemd/man/systemd-path.html for details).
 * **Linux Network, Filesystem, and Mdadm Plugin Resilience** The Network, Filesystem, and Mdadm plugins have been improved to greatly reduce data collection failures. The Network plugin has become better at finding the binaries it requires for shelling out, the filesystem plugin utilizes data from multiple sources, and the mdadm plugin handles arrays in bad states.

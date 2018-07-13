@@ -7,6 +7,25 @@ Chef push jobs is an extension of the Chef server that allows jobs to be run aga
 
 Chef push jobs uses the Chef server API and a Ruby client to initiate all connections to the Chef server. Connections use the same authentication and authorization model as any other request made to the Chef server. A knife plugin is used to initiate job creation and job tracking.
 
+What's New in 2.5
+=====================================================
+
+This release includes an important fix for a number of deadlock scenarios. We encourage anyone using Push Jobs to upgrade.
+
+This also includes a number of maintenance items, including:
+
+Ruby and Rubygems upgraded to 2.4.4 and 2.7.6, respectively, to include a number of security fixes.
+Chef Client (packaged as a library) upgraded to 14.0.202
+Other dependencies upgraded to latest
+
+What's New in 2.4
+=====================================================
+
+Push Jobs Client 2.4.8
+-----------------------------------------------------
+
+* Adds support for AIX 7.1.
+
 What's New in 2.2
 =====================================================
 The following items are new for Chef push jobs:
