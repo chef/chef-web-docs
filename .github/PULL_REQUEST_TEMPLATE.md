@@ -12,6 +12,6 @@ StackOverflow discussion that's relevant]
 ### Check List
 
 - [ ] Spell Check
-- [ ] Docs actually built?
+- [ ] Local build
+- [ ] Examine the local build
 - [ ] All tests pass
-- [ ] All commits have been signed-off for the Developer Certificate of Origin. See <https://docs.chef.io/community_contributions.html#developer-certification-of-origin-dco>
