@@ -1,10 +1,56 @@
 =====================================================
-Release Notes: Chef Client 12.0 - 14.2.0
+Release Notes: Chef Client 12.0 - 14.3
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes.rst>`__
 
 Chef Client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef changelog <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
 
+What’s New in 14.3
+=====================================================
+
+* **New Preview Resources Concept**
+
+  This release of Chef introduces the concept of Preview Resources. Preview resources behave the same as a standard resource built into Chef, except Chef will load a resource with the same name from a cookbook instead of the built-in preview resource.
+
+  What does this mean for you? It means we can introduce new resources in Chef without breaking existing behavior in your infrastructure. For instance if you have a cookbook with a resource named `manage_everything` and a future version of Chef introduced a preview resource named `manage_everything` you will continue to receive the resource from your cookbook. That way outside of a major release your won't experience a potentially breaking behavior change from the newly included resource.
+
+  Then when we perform our yearly major release we'll remove the preview designation from all resources, and the built in resources will take precedence over resources with the same names in cookbooks.
+
+* **New Resources**
+
+  * **chocolatey_config**
+       Use the ``chocolatey_config`` resource to add or remove Chocolatey configuration keys."
+  * **chocolatey_source**
+       Use the ``chocolatey_source`` resource to add or remove Chocolatey sources.
+  * **powershell_package_source**
+       Use the ``powershell_package_source`` resource to register a powershell package repository.
+  * **kernel_module**
+       Use the ``kernel_module`` resource to manage kernel modules on Linux systems. This resource can ``load``,``unload``, ``blacklist``, ``install``, and ``uninstall`` modules.
+  * **ssh_known_hosts_entry**
+       Use the ``ssh_known_hosts_entry`` resource to add an entry for the specified host in ``/etc/ssh/ssh_known_hosts`` or a user's known hosts file if specified.
+
+* **New `knife config get` command**
+    The ``knife config get`` command has been added to help with debugging configuration issues with `knife` and other tools that use the ``knife.rb`` file.
+
+* **Silencing deprecation warnings**
+    Two new options are provided for silencing deprecation warnings: ``silence_deprecation_warnings`` and inline ``chef:silence_deprecation`` comments.
+
+* **Windows Improvements**
+
+     * A new ``skip_publisher_check`` property has been added to the ``powershell_package`` resource
+     * ``windows_feature_powershell`` now supports Windows 2008 R2
+     * The ``mount`` resource now supports the `mount_point` property on Windows
+     * ``windows_feature_dism`` no longer errors when specifying the source
+     * Resolved idempotency issues in the ``windows_task`` resource and prevented setting up a task with bad credentials
+     * ``windows_service`` no longer throws Ruby deprecation warnings
+
+* **Deprecations**
+
+  * **CHEF-26: Deprecation of old shell_out APIs**
+    As noted above, this release of Chef unifies our shell_out helpers into just shell_out and shell_out!. Previous helpers are now deprecated and will be removed in Chef 15. See `CHEF-26 Deprecation Page </deprecations_shell_out.html>`__ for details.
+
+  * **Legacy FreeBSD pkg provider**
+    Chef 15 will remove support for the legacy FreeBSD pkg format. We will continue to support the pkgng format introduced in FreeBSD 10.
 
 What’s New in 14.2.0
 =====================================================
@@ -466,6 +512,25 @@ This release completes the deprecation process for many of the deprecations that
      .. code-block:: ruby
 
         optional_plugins [ "lspci", "passwd" ]
+
+What's New in 13.10
+=====================================================
+
+* **Bugfixes**
+
+  - Resolves a duplicate logging getting created when redirecting stdout 
+  - Using ``--recipe-url`` with a local file on Windows no longer fails
+  - ``Service`` resource no longer throws Ruby deprecation warnings on Windows
+
+* **Ohai 13.10 Improvements**
+
+  - Correctly identifies the ``platform_version`` on the final release of Amazon Linux 2.0
+  - Detects nodes with the DMI data of “OpenStack Compute” as OpenStack nodes
+
+* **Security Updates**
+
+  - ``ffi Gem``
+  - `CVE-2018-1000201 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000201>`__: DLL loading issue which can be hijacked on Windows OS
 
 What's New in 13.9.4
 =====================================================
