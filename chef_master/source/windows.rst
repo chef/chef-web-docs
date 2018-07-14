@@ -4863,7 +4863,7 @@ The full syntax for all of the properties that are available to the **windows_se
      load_order_group           String
      notifies                   # see description
      pattern                    String
-     reload_command             String
+     reload_command             String # not used on the Windows platform
      restart_command            String
      run_as_password            String
      run_as_user                String
@@ -4917,7 +4917,7 @@ This resource has the following actions:
    Default. Do nothing with a service.
 
 ``:reload``
-   Reload the configuration for this service.
+   Reload the configuration for this service. This action is not supported on the Windows platform and will raise an error if used.
 
 ``:restart``
    Restart a service.
