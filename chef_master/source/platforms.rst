@@ -428,7 +428,7 @@ On the Chef end-of-life date, Chef discontinues building software for that platf
 +--------------------------------------------------------------+-------------------------+-----------------------+
 | Microsoft Windows Server 2008 (RTM) Service Pack 2           | January 13, 2015        | January 13, 2015      |
 +--------------------------------------------------------------+-------------------------+-----------------------+
-| Microsoft Windows Server 2008 R2 Service Pack 1              | January 13, 2015        | January 13, 2015      |
+| Microsoft Windows Server 2008 R2 Service Pack 1              | January 13, 2015        | January 14, 2020      |
 +--------------------------------------------------------------+-------------------------+-----------------------+
 | Microsoft Windows Server 2012/2012 R2                        | January 13, 2015        | January 13, 2015      |
 +--------------------------------------------------------------+-------------------------+-----------------------+
