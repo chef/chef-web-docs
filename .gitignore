@@ -13,6 +13,11 @@ build/
 
 /.delivery/cli.toml
 
+.terraform/
+*.tfstate
+*.tfstate.backup
+*_override.tf
+
 /.vscode
 
 /.venv
