@@ -58,6 +58,7 @@ To set up an Apt package repository for Debian and Ubuntu platforms:
    * For Ubuntu 12.04: ``precise``
    * For Ubuntu 14.04: ``trusty``
    * For Ubuntu 16.04: ``xenial``
+   * For Ubuntu 18.04: ``bionic``
 
 #. Update the package repository list:
 
