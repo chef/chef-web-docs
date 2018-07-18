@@ -1,9 +1,19 @@
 slack:
   notify_channel: releng-notify
 
+automate:
+  organization: tech-content
+  project: chef-web-docs
+
 github:
   delete_branch_on_merge: true
 
 pipelines:
   - verify:
       description: Pull Request validation tests
+
+merge_actions:
+  - built_in:update_acc:
+      ignore_labels:
+        - "ACC: Skip Update"
+        - "Expeditor: Skip All"
