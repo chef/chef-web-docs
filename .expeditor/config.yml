@@ -8,9 +8,9 @@ automate:
 github:
   delete_branch_on_merge: true
 
-pipelines:
-  - verify:
-      description: Pull Request validation tests
+# pipelines:
+#   - verify:
+#       description: Pull Request validation tests
 
 merge_actions:
   - built_in:update_acc:

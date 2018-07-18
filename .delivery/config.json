@@ -15,7 +15,7 @@
       "path": ".delivery/build-cookbook"
   },
   "skip_phases": [
-    "functional"
+    "functional",
     "lint",
     "quality",
     "security",
