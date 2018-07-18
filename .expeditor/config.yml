@@ -1,5 +1,5 @@
 slack:
-  notify_channel: releng-notify
+  notify_channel: docs-notify
 
 automate:
   organization: tech-content
