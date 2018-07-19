@@ -39,7 +39,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``7.1`` (TL0 SP3 or higher, recommended), ``7.2``
    * - Amazon Linux
      -
-     - current version
+     - 2013+ and 2.0
    * - CentOS
      - ``x86_64``
      - ``6``, ``7``
