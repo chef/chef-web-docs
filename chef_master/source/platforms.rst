@@ -45,7 +45,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``6``, ``7``
    * - FreeBSD
      - ``amd64``
-     - ``10``, ``11``
+     - ``11``
    * - macOS
      - ``x86_64``
      - ``10.11``, ``10.12``, ``10.13``
@@ -54,13 +54,13 @@ The following table lists the commercially-supported platforms and versions for 
      - ``6.x``, ``7.x``
    * - Red Hat Enterprise Linux
      - ``x86_64``, ``s390x``, ``ppc64le`` (7.x only), ``ppc64`` (7.x only)
-     - ``6.x``, ``7.x``
+     - ``6``, ``7``
    * - Solaris
      - ``sparc``, ``x86``
      - ``11.2``, ``11.3``
    * - SUSE Enterprise Linux Server
      - ``x86_64``, ``s390x``, ``ppc64le``, ``ppc64``
-     - ``11 SP4``, ``12 SP1``
+     - ``11 SP4``, ``12 SP1+``
    * - Ubuntu (LTS releases)
      - ``x86``, ``x86_64``, ``ppc64le`` (14.04 only)
      - ``14.04``, ``16.04``, ``18.04``
@@ -125,7 +125,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``10.11``, ``10.12``, ``10.13``
    * - Red Hat Enterprise Linux
      -
-     - ``6.x``, ``7.x``
+     - ``6``, ``7``
    * - SUSE Enterprise Linux Server
      -
      - ``11 SP4``, ``12 SP1+``
@@ -149,10 +149,10 @@ The following platforms are supported only via the community:
      - Version
    * - Debian
      -
-     - ``8.x``, ``9.x``
+     - ``8``, ``9``
    * - Scientific Linux
      - ``x86-64``
-     - ``6.x``, ``7.x``
+     - ``6``, ``7``
 
 Chef Server
 ------------------------------------------------------
@@ -172,16 +172,16 @@ The following table lists the commercially-supported platforms and versions for 
      - Version
    * - CentOS
      - ``x86_64``
-     - ``6.x``, ``7.x``
+     - ``6``, ``7``
    * - Oracle Enterprise Linux
      - ``x86_64``
-     - ``6.x``, ``7.x``
+     - ``6``, ``7``
    * - Red Hat Enterprise Linux
      - ``x86_64``, ``ppc64le`` (7.x only), ``ppc64`` (7.x only)
-     - ``6.x``, ``7.x``
+     - ``6``, ``7``
    * - SUSE Enterprise Linux Server
      - ``x86_64``
-     - ``11 SP4``, ``12 SP1``
+     - ``11 SP4``, ``12 SP1+``
    * - Ubuntu
      - ``x86_64``, ``ppc64le`` (14.04 only)
      - ``14.04``, ``16.04``
@@ -256,13 +256,13 @@ The following table lists the commercially-supported platforms for the Chef push
      - Version
    * - CentOS
      - ``x86_64``
-     - ``6.x``, ``7.x``
+     - ``6``, ``7``
    * - macOS
      - ``x86_64``
      - ``10.11``, ``10.12``, ``10.13``
    * - Red Hat Enterprise Linux
      - ``x86_64``
-     - ``6.x``, ``7.x``
+     - ``6``, ``7``
    * - Ubuntu (LTS releases)
      - ``x86``, ``x86_64``
      - ``14.04``, ``16.04``
@@ -289,10 +289,10 @@ The following table lists the commercially-supported platforms for the Chef push
      - Version
    * - CentOS
      - ``x86_64``
-     - ``6.x``, ``7.x``
+     - ``6``, ``7``
    * - Red Hat Enterprise Linux
      - ``x86_64``
-     - ``6.x``, ``7.x``
+     - ``6``, ``7``
    * - Ubuntu (LTS releases)
      - ``x86_64``
      - ``14.04``, ``16.04``
@@ -314,10 +314,10 @@ The following table lists the commercially-supported platforms for Chef Backend,
      - Version
    * - CentOS
      - ``x86_64``
-     - ``6.x``, ``7.x``
+     - ``6``, ``7``
    * - Red Hat Enterprise Linux
      - ``x86_64``
-     - ``6.x``, ``7.x``
+     - ``6``, ``7``
    * - Ubuntu (LTS releases)
      - ``x86_64``
      - ``14.04``, ``16.04``
@@ -345,10 +345,10 @@ The following table lists the commercially-supported platforms for Chef Complian
      - Version
    * - CentOS
      - ``x86_64``
-     - ``6.x``, ``7.x``
+     - ``6``, ``7``
    * - Red Hat Enterprise Linux
      - ``x86_64``
-     - ``6.x``, ``7.x``
+     - ``6``, ``7``
    * - Ubuntu (LTS releases)
      - ``x86_64``
      - ``14.04``, ``16.04``
@@ -370,10 +370,10 @@ The following table lists the commercially-supported platforms for Chef Manage:
      - Version
    * - CentOS
      - ``x86_64``
-     - ``6.x``, ``7.x``
+     - ``6``, ``7``
    * - Red Hat Enterprise Linux
      - ``x86_64``
-     - ``6.x``, ``7.x``
+     - ``6``, ``7``
    * - Ubuntu (LTS releases)
      - ``x86_64``
      - ``14.04``, ``16.04``
