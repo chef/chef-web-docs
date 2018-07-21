@@ -56,7 +56,7 @@ What’s New in 14.2.0
 =====================================================
 
 * **ssh-agent support for user keys**
-  
+
   You can now use ``ssh-agent`` to hold your user key when using knife. This allows storing your user key in an encrypted form as well as using ``ssh -A`` agent forwarding for running knife commands from remote devices.
 
   You can enable this by adding ``ssh_agent_signing true`` to your ``knife.rb`` or ``ssh_agent_signing = true`` in your ``credentials`` file.
@@ -127,7 +127,7 @@ This release of Chef Client 14 resolves a number of regressions in 14.0:
 * Fixes locking and unlocking packages with APT and Zypper
 * Chef no longers requests every remote file when running with lazy loading enabled
 * The ``sysctl`` resource correctly handles missing keys when used with ``ignore_error``
-* ``–recipe-url`` works with Windows with local files. 
+* ``–recipe-url`` works with Windows with local files.
 
 Ohai 14.1
 -----------------------------------------------------
@@ -225,11 +225,14 @@ Chef 14 includes a large number of resources ported from community cookbooks. Th
 
 * **windows_feature**
      Use the `windows_feature </resource_windows_feature.html>`__ resource to add, remove or entirely delete Windows features and roles. This resource calls the `windows_feature_dism </resource_windows_feature_dism.html>`__ or `windows_feature_powershell </resource_windows_feature_powershell.html>`__ resources depending on the specified installation method, and defaults to DISM, which is available on both Workstation and Server editions of Windows. This resource was ported from the windows community cookbook.
-     
+
      .. note:: These resources received significant refactoring in the 4.0 version of the windows cookbook (March 2018). windows_feature resources will now fail if the installation of invalid features is requested, and support for installation via server `servermanagercmd.exe` has been removed. If you are using a windows_cookbook version less than 4.0, you may need to update cookbooks for Chef 14.
 
 * **windows_font**
      Use the `windows_font </resource_windows_font.html>`__ resource to install or remove font files on Windows. By default, the font is sourced from the cookbook using the resource, but a URI source can be specified as well. This resource was ported from the windows community cookbook.
+
+ * **windows_pagefile**
+      Use the `windows_pagefile </resource_windows_pagefile.html>`__ resource to configure pagefile settings on Windows.
 
 * **windows_printer**
      Use the `windows_printer </resource_windows_printer.html>`__ resource to set up Windows printers. Note that currently this resource does not install a printer driver; you must already have the driver installed on the system. This resource was ported from the windows community cookbook.
@@ -259,7 +262,7 @@ Chef 14 provides new primitives that allow you to deprecate resources or propert
     action :create do
      # you'd probably have some actual chef code here
     end
-    
+
 **Deprecate the thing2 property in a resource:**
 
 .. code-block:: ruby
@@ -330,7 +333,7 @@ Many existing resources now include new actions and properties that expand their
      * ``preset`` - Restore the preset enable/disable configuration for a unit
      * ``revert`` - Revert to a vendor's version of a unit file
      * ``reenable`` - Reenable a unit file
-     
+
      Thanks @nathwill for these new actions.
 
 * **windows_service**
@@ -339,7 +342,7 @@ Many existing resources now include new actions and properties that expand their
      * ``create`` - Create a new service
      * ``delete`` - Delete an existing service
      * ``configure`` - Reconfigure an existing service
-     
+
      Thanks @jasonwbarnett for these new actions
 
 * **route**
@@ -387,18 +390,18 @@ Other Changes
      Many users of Policyfiles rely on "hoisting" to provide group specific attributes. This approach was formalized in the poise-hoist extension, and is now included in Chef 14.
 
      To hoist an attribute, the user provides a default attribute structure in their Policyfile similar to:
-     
+
      .. code-block:: ruby
 
         default['staging']['myapp']['title'] = "My Staging App" default['production']['myapp']['title'] = "My App"
-        
-    
+
+
      and then accesses the node attribute in their cookbook as:
-     
+
      .. code-block:: ruby
-        
+
         node['myapp']['title']
-        
+
      The correct attribute is then provided based on the ``policy_group`` of the node, so with a ``policy_group`` of ``staging`` the attribute would contain "My Staging App".
 
 * **yum_package rewrite**
@@ -407,17 +410,17 @@ Other Changes
      yum_package should now take any argument that ``yum install`` does and operate the same way, including version constraints ,(``foo < 1.2.3``), globs (``foo-1.2*``), and arches (``foo.i386``), in combinations.
 
      Package with a version constraint:
-     
+
      .. code-block:: ruby
 
         yum_package "foo < 1.2.3"
-        
+
      Installing a package via what it provides:
-     
-     .. code-block:: ruby 
+
+     .. code-block:: ruby
 
         yum_package "perl(Git)"
-        
+
 * **powershell_exec Mixin**
      Since our supported Windows platforms can all run .NET Framework 4.0 and PowerShell 4.0, we have taken time to add a new helper that will allow for faster and safer interactions with the system PowerShell. You will be able to use the ``powershell_exe``c mixin in most places where you would have previously used ``powershell_out``. For comparison, a basic benchmark test to return the ``$PSVersionTable`` 100 times completed 7.3X faster compared to the ``powershell_out`` method. The majority of the time difference is because of less time spent in invocation. We believe it has great potential where multiple calls to PowerShell are required inside (for example) a custom resource. Many core Chef resources will be updated to use this new mixin in future releases.
 
@@ -439,7 +442,7 @@ Security Updates
      * `CVE-2018-8779 <https://www.ruby-lang.org/en/news/2018/03/28/poisoned-nul-byte-unixsocket-cve-2018-8779/>`__
      * `CVE-2018-8780 <https://www.ruby-lang.org/en/news/2018/03/28/poisoned-nul-byte-dir-cve-2018-8780/>`__
      * https://www.ruby-lang.org/en/news/2018/02/17/multiple-vulnerabilities-in-rubygems/
-     
+
 Breaking Changes
 -----------------------------------------------------
 This release completes the deprecation process for many of the deprecations that were warnings throughout the Chef 12 and Chef 13 releases.
@@ -458,19 +461,19 @@ This release completes the deprecation process for many of the deprecations that
 
 * **knife help**
      The ``knife help`` functionality that read legacy Chef manpages has been removed. These manpages had not been updated in many years and were often wrong. Running ``knife help`` will now simply show the help menu.
-     
+
 * **knife index rebuild**
      The ``knife index rebuild`` command has been removed, as reindexing Chef Server was only necessary on releases prior to Chef Server 11.
-     
+
 * **knife ssh --identity-file**
      The ``--identity-file`` option for ``knife ssh`` was deprecated, and has been removed. Users should use the ``--ssh_identity_file`` flag instead.
-     
+
 * **knife ssh csshx**
      ``knife ssh csshx`` was deprecated in Chef 10, and has been removed. Users should use ``knife ssh cssh`` instead.
-     
+
 * **Chef Solo -r flag**
      The ``-r`` flag for Chef Solo was deprecated, and has been removed. Users should instead use the ``--recipe-url`` flag, which was introduced in Chef 12.
-     
+
 * **node.set and node.set_unless**
      The ``node.set`` and ``node.set_unless`` attribute levels were deprecated in Chef 12, and have been removed in Chef 14. To replicate this functionality, users should use ``node.normal`` and ``node.normal_unless``; however we highly recommend reading our `attribute documentation <https://docs.chef.io/attributes.html>`__ to ensure that ``normal`` is in fact your desired attribute level.
 
@@ -491,7 +494,7 @@ This release completes the deprecation process for many of the deprecations that
      * ``Chef::Mixin::LanguageIncludeRecipe``
      * ``Chef::Mixin::Language``
      * ``Chef::DSL::Recipe::FullDSL``
-     
+
 * **cloud_v2 and filesystem2 Ohai Plugins**
      In Chef 13 the ``cloud_v2`` plugin replaced data at ``node['cloud']`` and ``filesystem2`` replaced data at ``node['filesystem']``. For compatibility with cookbooks that were previously using the "v2" data we continued to write data to both locations (ie: both ``node['filesystem']`` and ``node['filesystem2']``). We now no longer write data to the "v2" locations which greatly reduces the amount of data we need to store on the Chef server.
 
@@ -508,7 +511,7 @@ This release completes the deprecation process for many of the deprecations that
      As mentioned above we now support an optional flag for Ohai plugins and have marked the sessions, lspci, and passwd plugins as optional, which disables them by default. If you need one of these plugins you can include them using ``optional_plugins``.
 
      optional_plugins in the client.rb file:
-     
+
      .. code-block:: ruby
 
         optional_plugins [ "lspci", "passwd" ]
@@ -518,7 +521,7 @@ What's New in 13.10
 
 * **Bugfixes**
 
-  - Resolves a duplicate logging getting created when redirecting stdout 
+  - Resolves a duplicate logging getting created when redirecting stdout
   - Using ``--recipe-url`` with a local file on Windows no longer fails
   - ``Service`` resource no longer throws Ruby deprecation warnings on Windows
 
@@ -574,7 +577,7 @@ What's New in 13.9.1
 * Chef no longers requests every remote file when running with lazy loading enabled
 * Fixes a bug that caused Chef to crash when retrieving access rights for Windows system accounts
 
-This release also includes the `custom resource improvements </release_notes.html#custom-resource-improvements>`__ that were introduced in Chef 14. 
+This release also includes the `custom resource improvements </release_notes.html#custom-resource-improvements>`__ that were introduced in Chef 14.
 
 Ohai 13.9
 -----------------------------------------------------
