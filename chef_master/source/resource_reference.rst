@@ -1280,6 +1280,8 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_windows_package.rst
 
+.. include:: resource_windows_pagefile.rst
+
 .. include:: resource_windows_path.rst
 
 .. include:: resource_windows_printer.rst
