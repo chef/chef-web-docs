@@ -601,6 +601,8 @@ The following parameters can be used with this method:
      - Solaris. For Solaris-related platforms, the ``platform_family`` method does not support the Solaris platform family and will default back to ``platform_family = platform``. For example, if the platform is OmniOS, the ``platform_family`` is ``omnios``, if the platform is SmartOS, the ``platform_family`` is ``smartos``, and so on. All platform variants of Solaris return ``solaris``.
    * - ``suse``
      - SUSE Enterprise Linux Server.
+   * - ``ubuntu``
+     - Ubuntu Linux.
    * - ``windows``
      - Microsoft Windows. All platform variants of Microsoft Windows return ``windows``.
 
