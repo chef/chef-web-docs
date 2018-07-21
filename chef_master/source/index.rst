@@ -17,14 +17,14 @@ For information on Habitat and InSpec, see their respective documentation:
 This page has links to each topic in this doc set. You can also use
 the navigation tool or the search box to find what you're looking for.
 
-If this is your first visit, check out the `Getting Started <https://learn.chef.io/tracks/getting-started/>`_ track on Learn Chef.
+If you are new to Chef, we highly recommend the `Getting Started <https://learn.chef.io/tracks/getting-started/>`_ track on Learn Chef to familarize yourself with Chef concepts.
 
 If you need documentation for previous versions, see the `Docs Archive <https://docs-archive.chef.io>`_.
 
 Overview
 =====================================================
 
-Platform Overview
+Chef Platform Overview
 -----------------------------------------------------
 
 `Platform Overview </platform_overview.html>`__
@@ -37,7 +37,7 @@ Community
 `Guidelines </community_guidelines.html>`__ |
 `Docs Style Guide </style_guide.html>`__
 
-Packages and Platforms
+Packages and Platform Support
 -----------------------------------------------------
 `Packages </packages.html>`__ |
 `Platforms and Supported Versions </platforms.html>`__ |
