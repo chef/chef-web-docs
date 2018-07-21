@@ -45,7 +45,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``6``, ``7``
    * - FreeBSD
      - ``amd64``
-     - ``11``
+     - ``10``, ``11``
    * - macOS
      - ``x86_64``
      - ``10.11``, ``10.12``, ``10.13``
@@ -327,7 +327,7 @@ Chef Compliance Server
 
 .. tag EOL_compliance_server
 
-.. warning:: The standalone Chef Compliance server is deprecated. The standalone Chef Compliance server's end-of-life date is December 31, 2018. `Chef Automate 2 <https://www.chef.io/automate/>`__ has all of the functionality of Chef Compliance Server and also includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features not found in Chef Compliance Server. 
+.. warning:: The standalone Chef Compliance server is deprecated. The standalone Chef Compliance server's end-of-life date is December 31, 2018. `Chef Automate 2 <https://www.chef.io/automate/>`__ has all of the functionality of Chef Compliance Server and also includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features not found in Chef Compliance Server.
 
 .. end_tag
 
@@ -424,7 +424,7 @@ On the Chef end-of-life date, Chef discontinues building software for that platf
 +--------------------------------------------------------------+-------------------------+-----------------------+
 | Enterprise Linux 6 (covers Red Hat Enterprise Linux, CentOS) | November 30, 2020       | November 30, 2020     |
 +--------------------------------------------------------------+-------------------------+-----------------------+
-| FreeBSD 10-STABLE                                            | April 30, 2018          | April 30, 2018        |
+| FreeBSD 10-STABLE                                            | October 31, 2018        | October 31, 2018      |
 +--------------------------------------------------------------+-------------------------+-----------------------+
 | Microsoft Windows Server 2008 (RTM) Service Pack 2           | January 13, 2015        | January 13, 2015      |
 +--------------------------------------------------------------+-------------------------+-----------------------+
