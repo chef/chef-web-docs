@@ -232,7 +232,7 @@ Chef 14 includes a large number of resources ported from community cookbooks. Th
      Use the `windows_font </resource_windows_font.html>`__ resource to install or remove font files on Windows. By default, the font is sourced from the cookbook using the resource, but a URI source can be specified as well. This resource was ported from the windows community cookbook.
 
  * **windows_pagefile**
-      Use the `windows_pagefile </resource_windows_pagefile>`__ resource to configure pagefile settings on Windows.
+      Use the `windows_pagefile </resource_windows_pagefile.html>`__ resource to configure pagefile settings on Windows.
 
 * **windows_printer**
      Use the `windows_printer </resource_windows_printer.html>`__ resource to set up Windows printers. Note that currently this resource does not install a printer driver; you must already have the driver installed on the system. This resource was ported from the windows community cookbook.
