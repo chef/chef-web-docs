@@ -573,10 +573,12 @@ The following parameters can be used with this method:
      - Platforms
    * - ``aix``
      - AIX. All platform variants of AIX return ``aix``.
+   * - ``amazon``
+     - Amazon Linux
    * - ``arch``
      - Arch Linux
    * - ``debian``
-     - Debian, Linux Mint, Ubuntu
+     - Debian
    * - ``fedora``
      - Fedora
    * - ``freebsd``
