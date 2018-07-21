@@ -591,12 +591,16 @@ The following parameters can be used with this method:
      - NetBSD. All platform variants of NetBSD return ``netbsd``.
    * - ``openbsd``
      - OpenBSD. All platform variants of OpenBSD return ``openbsd``.
+   * - ``opensuse``
+     - openSUSE
+   * - ``opensuseleap``
+     - openSUSE leap
    * - ``slackware``
      - Slackware
    * - ``solaris``
      - Solaris. For Solaris-related platforms, the ``platform_family`` method does not support the Solaris platform family and will default back to ``platform_family = platform``. For example, if the platform is OmniOS, the ``platform_family`` is ``omnios``, if the platform is SmartOS, the ``platform_family`` is ``smartos``, and so on. All platform variants of Solaris return ``solaris``.
    * - ``suse``
-     - openSUSE, SUSE Enterprise Linux Server.
+     - SUSE Enterprise Linux Server.
    * - ``windows``
      - Microsoft Windows. All platform variants of Microsoft Windows return ``windows``.
 
