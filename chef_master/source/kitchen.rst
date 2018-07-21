@@ -296,7 +296,7 @@ will be set to:
 
    ENV['http_proxy'] = 'http://myself:Password1@proxy.example.org:8080'
 
-Kitchen also supports ``http_proxy`` and ```https_proxy`` in the ``.kitchen.yml`` file:
+Kitchen also supports ``http_proxy`` and ``https_proxy`` in the ``.kitchen.yml`` file. You can set them manually or have them read from your local environment variables:
 
 .. code-block:: yaml
 
@@ -305,7 +305,15 @@ Kitchen also supports ``http_proxy`` and ```https_proxy`` in the ``.kitchen.yml`
 
    provisioner:
      name: chef_zero
-     http_proxy: http://10.0.0.1
+     # Set proxy settings manually, or
+     http_proxy: 'http://user:password@server:port'
+     https_proxy: 'http://user:password@server:port'
+
+     # Read from local environment variables
+     http_proxy: <%= ENV['http_proxy'] %>
+     https_proxy: <%= ENV['https_proxy'] %>
+
+This will not set the proxy environment variables for applications other than Chef. The Vagrant plugin, `vagrant-proxyconf <http://tmatilai.github.io/vagrant-proxyconf/>`__, can be used to set the proxy environment variables for applications inside the VM.
 
 .. end_tag
 
