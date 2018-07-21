@@ -51,7 +51,7 @@ Getting Started
 -----------------------------------------------------
 `Chef Overview </chef_overview.html>`__ |
 `Quick Start </quick_start.html>`__ |
-`System Requirements </chef_system_requirements.html>`__ 
+`System Requirements </chef_system_requirements.html>`__
 
 **Chef Workstation**:
 `Chef Workstation Beta <https://www.chef.sh/>`__ |
@@ -123,15 +123,15 @@ Cookbook Reference
 
 **Recipes**: `About Recipes </recipes.html>`__ | `Debug Recipes, Client Runs </debug.html>`__
 
-**Audit Mode DSL**: 
+**Audit Mode DSL**:
 `About the Audit Mode DSL </dsl_audit.html>`__ |
 `control </dsl_audit.html#control>`__ |
 `control_group </dsl_audit.html#control-group>`__ |
 
-**Resources**: 
-`About Resources </resource.html>`__ | 
+**Resources**:
+`About Resources </resource.html>`__ |
 `Common Functionality </resource_common.html>`__ |
-`Custom Resources </custom_resources.html>`__ | 
+`Custom Resources </custom_resources.html>`__ |
 `All Resources (Single Page) </resource_reference.html>`__ |
 `Examples (by Resource) </resource_examples.html>`__
 
@@ -140,116 +140,117 @@ Cookbook Reference
 `apt_repository </resource_apt_repository.html>`__ |
 `apt_update </resource_apt_update.html>`__ |
 `bash </resource_bash.html>`__ |
-`batch </resource_batch.html>`__ | 
-`bff_package </resource_bff_package.html>`__ | 
+`batch </resource_batch.html>`__ |
+`bff_package </resource_bff_package.html>`__ |
 `breakpoint </resource_breakpoint.html>`__ |
-`build_essential </resource_build_essential.html>`__ | 
-`cab_package </resource_cab_package.html>`__ | 
+`build_essential </resource_build_essential.html>`__ |
+`cab_package </resource_cab_package.html>`__ |
 `chef_acl </resource_chef_acl.html>`__ |
-`chef_client </resource_chef_client.html>`__ | 
-`chef_container </resource_chef_container.html>`__ | 
-`chef_data_bag </resource_chef_data_bag.html>`__ | 
-`chef_data_bag_item </resource_chef_data_bag_item.html>`__ | 
-`chef_environment </resource_chef_environment.html>`__ | 
-`chef_gem </resource_chef_gem.html>`__ | 
+`chef_client </resource_chef_client.html>`__ |
+`chef_container </resource_chef_container.html>`__ |
+`chef_data_bag </resource_chef_data_bag.html>`__ |
+`chef_data_bag_item </resource_chef_data_bag_item.html>`__ |
+`chef_environment </resource_chef_environment.html>`__ |
+`chef_gem </resource_chef_gem.html>`__ |
 `chef_group </resource_chef_group.html>`__ |
-`chef_handler </resource_chef_handler.html>`__ | 
-`chef_mirror </resource_chef_mirror.html>`__ | 
-`chef_node </resource_chef_node.html>`__ | 
-`chef_organization </resource_chef_organization.html>`__ | 
-`chef_role </resource_chef_role.html>`__ | 
-`chef_user </resource_chef_user.html>`__ |  
+`chef_handler </resource_chef_handler.html>`__ |
+`chef_mirror </resource_chef_mirror.html>`__ |
+`chef_node </resource_chef_node.html>`__ |
+`chef_organization </resource_chef_organization.html>`__ |
+`chef_role </resource_chef_role.html>`__ |
+`chef_user </resource_chef_user.html>`__ |
+`chocolatey_config </resource_chocolatey_config.html>`__
 `chocolatey_package </resource_chocolatey_package.html>`__
-`cookbook_file </resource_cookbook_file.html>`__ | 
-`cron </resource_cron.html>`__ | 
-`csh </resource_csh.html>`__ | 
-`deploy </resource_deploy.html>`__ | 
-`directory </resource_directory.html>`__ | 
-`dmg_package </resource_dmg_package.html>`__ | 
-`dpkg_package </resource_dpkg_package.html>`__ | 
-`dsc_resource </resource_dsc_resource.html>`__ | 
-`dsc_script </resource_dsc_script.html>`__ | 
-`windows_env </resource_windows_env.html>`__ | 
-`erl_call </resource_erlang_call.html>`__ | 
-`execute </resource_execute.html>`__ | 
-`file </resource_file.html>`__ | 
-`freebsd_package </resource_freebsd_package.html>`__ | 
-`gem_package </resource_gem_package.html>`__ | 
-`git </resource_git.html>`__ | 
-`group </resource_group.html>`__ | 
-`homebrew_cask </resource_homebrew_cask.html>`__ | 
-`homebrew_package </resource_homebrew_package.html>`__ | 
-`homebrew_tap </resource_homebrew_tap.html>`__ | 
-`hostname </resource_hostname.html>`__ | 
-`http_request </resource_http_request.html>`__ | 
-`ifconfig </resource_ifconfig.html>`__ | 
-`ips_package </resource_ips_package.html>`__ | 
+`cookbook_file </resource_cookbook_file.html>`__ |
+`cron </resource_cron.html>`__ |
+`csh </resource_csh.html>`__ |
+`deploy </resource_deploy.html>`__ |
+`directory </resource_directory.html>`__ |
+`dmg_package </resource_dmg_package.html>`__ |
+`dpkg_package </resource_dpkg_package.html>`__ |
+`dsc_resource </resource_dsc_resource.html>`__ |
+`dsc_script </resource_dsc_script.html>`__ |
+`windows_env </resource_windows_env.html>`__ |
+`erl_call </resource_erlang_call.html>`__ |
+`execute </resource_execute.html>`__ |
+`file </resource_file.html>`__ |
+`freebsd_package </resource_freebsd_package.html>`__ |
+`gem_package </resource_gem_package.html>`__ |
+`git </resource_git.html>`__ |
+`group </resource_group.html>`__ |
+`homebrew_cask </resource_homebrew_cask.html>`__ |
+`homebrew_package </resource_homebrew_package.html>`__ |
+`homebrew_tap </resource_homebrew_tap.html>`__ |
+`hostname </resource_hostname.html>`__ |
+`http_request </resource_http_request.html>`__ |
+`ifconfig </resource_ifconfig.html>`__ |
+`ips_package </resource_ips_package.html>`__ |
 `ksh </resource_ksh.html>`__ |
-`launchd </resource_launchd.html>`__ | 
-`link </resource_link.html>`__ | 
-`log </resource_log.html>`__ | 
-`macos_userdefaults </resource_macos_userdefaults.html>`__ | 
-`macports_package </resource_macports_package.html>`__ | 
-`mdadm </resource_mdadm.html>`__ | 
-`mount </resource_mount.html>`__ | 
-`ohai </resource_ohai.html>`__ | 
-`ohai_hint </resource_ohai_hint.html>`__ | 
-`openbsd_package </resource_openbsd_package.html>`__ | 
-`openssl_dhparam </resource_openssl_dhparam.html>`__ | 
-`openssl_rsa_private_key </resource_openssl_rsa_private_key.html>`__ | 
-`openssl_rsa_public_key </resource_openssl_rsa_public_key.html>`__ | 
-`osx_profile </resource_osx_profile.html>`__ | 
-`package </resource_package.html>`__ | 
-`pacman_package </resource_pacman_package.html>`__ | 
-`paludis_package </resource_paludis_package.html>`__ | 
-`perl </resource_perl.html>`__ | 
-`portage_package </resource_portage_package.html>`__ | 
-`powershell_package </resource_powershell_package.html>`__ | 
-`powershell_script </resource_powershell_script.html>`__ | 
-`private_key </resource_private_key.html>`__ | 
-`public_key </resource_public_key.html>`__ | 
-`python </resource_python.html>`__ | 
-`reboot </resource_reboot.html>`__ | 
-`registry_key </resource_registry_key.html>`__ | 
-`remote_directory </resource_remote_directory.html>`__ | 
-`remote_file </resource_remote_file.html>`__ | 
-`route </resource_route.html>`__ | 
-`rpm_package </resource_rpm_package.html>`__ | 
-`ruby </resource_ruby.html>`__ | 
-`ruby_block </resource_ruby_block.html>`__ | 
-`script </resource_script.html>`__ | 
-`rhsm_errata </resource_rhsm_errata.html>`__ | 
-`rhsm_errata_level </resource_rhsm_errata_level.html>`__ | 
-`rhsm_register </resource_rhsm_register.html>`__ | 
-`rhsm_repo </resource_rhsm_repo.html>`__ | 
-`rhsm_subscription </resource_rhsm_subscription.html>`__ | 
-`service </resource_service.html>`__ | 
-`smartos_package </resource_smartos_package.html>`__ | 
-`solaris_package </resource_solaris_package.html>`__ | 
-`subversion </resource_subversion.html>`__ | 
-`sudo </resource_sudo.html>`__ | 
-`swap_file </resource_swap_file.html>`__ | 
-`sysctl </resource_sysctl.html>`__ | 
-`systemd_unit </resource_systemd_unit.html>`__ | 
-`template </resource_template.html>`__ | 
-`user </resource_user.html>`__ | 
-`windows_ad_join </resource_windows_ad_join.html>`__ | 
-`windows_auto_run </resource_windows_auto_run.html>`__ | 
-`windows_feature </resource_windows_feature.html>`__ | 
-`windows_feature_dism </resource_windows_feature_dism.html>`__ | 
-`windows_feature_powershell.html </resource_windows_feature_powershell.html>`__ | 
-`windows_font </resource_windows_font.html>`__ | 
-`windows_package </resource_windows_package.html>`__ | 
-`windows_printer.html </resource_windows_printer.html>`__ | 
-`windows_printer_port </resource_windows_printer_port.html>`__ | 
-`windows_service </resource_windows_service.html>`__ | 
-`windows_shortcut </resource_windows_shortcut.html>`__ | 
-`windows_task </resource_windows_task.html>`__ | 
-`yum_package </resource_yum.html>`__ | 
-`yum_repository </resource_yum_repository.html>`__ | 
-`dnf_package </resource_dnf_package.html>`__ | 
-`zypper_package </resource_zypper_package.html>`__ | 
-`zypper_repository </resource_zypper_repository.html>`__  
+`launchd </resource_launchd.html>`__ |
+`link </resource_link.html>`__ |
+`log </resource_log.html>`__ |
+`macos_userdefaults </resource_macos_userdefaults.html>`__ |
+`macports_package </resource_macports_package.html>`__ |
+`mdadm </resource_mdadm.html>`__ |
+`mount </resource_mount.html>`__ |
+`ohai </resource_ohai.html>`__ |
+`ohai_hint </resource_ohai_hint.html>`__ |
+`openbsd_package </resource_openbsd_package.html>`__ |
+`openssl_dhparam </resource_openssl_dhparam.html>`__ |
+`openssl_rsa_private_key </resource_openssl_rsa_private_key.html>`__ |
+`openssl_rsa_public_key </resource_openssl_rsa_public_key.html>`__ |
+`osx_profile </resource_osx_profile.html>`__ |
+`package </resource_package.html>`__ |
+`pacman_package </resource_pacman_package.html>`__ |
+`paludis_package </resource_paludis_package.html>`__ |
+`perl </resource_perl.html>`__ |
+`portage_package </resource_portage_package.html>`__ |
+`powershell_package </resource_powershell_package.html>`__ |
+`powershell_script </resource_powershell_script.html>`__ |
+`private_key </resource_private_key.html>`__ |
+`public_key </resource_public_key.html>`__ |
+`python </resource_python.html>`__ |
+`reboot </resource_reboot.html>`__ |
+`registry_key </resource_registry_key.html>`__ |
+`remote_directory </resource_remote_directory.html>`__ |
+`remote_file </resource_remote_file.html>`__ |
+`route </resource_route.html>`__ |
+`rpm_package </resource_rpm_package.html>`__ |
+`ruby </resource_ruby.html>`__ |
+`ruby_block </resource_ruby_block.html>`__ |
+`script </resource_script.html>`__ |
+`rhsm_errata </resource_rhsm_errata.html>`__ |
+`rhsm_errata_level </resource_rhsm_errata_level.html>`__ |
+`rhsm_register </resource_rhsm_register.html>`__ |
+`rhsm_repo </resource_rhsm_repo.html>`__ |
+`rhsm_subscription </resource_rhsm_subscription.html>`__ |
+`service </resource_service.html>`__ |
+`smartos_package </resource_smartos_package.html>`__ |
+`solaris_package </resource_solaris_package.html>`__ |
+`subversion </resource_subversion.html>`__ |
+`sudo </resource_sudo.html>`__ |
+`swap_file </resource_swap_file.html>`__ |
+`sysctl </resource_sysctl.html>`__ |
+`systemd_unit </resource_systemd_unit.html>`__ |
+`template </resource_template.html>`__ |
+`user </resource_user.html>`__ |
+`windows_ad_join </resource_windows_ad_join.html>`__ |
+`windows_auto_run </resource_windows_auto_run.html>`__ |
+`windows_feature </resource_windows_feature.html>`__ |
+`windows_feature_dism </resource_windows_feature_dism.html>`__ |
+`windows_feature_powershell.html </resource_windows_feature_powershell.html>`__ |
+`windows_font </resource_windows_font.html>`__ |
+`windows_package </resource_windows_package.html>`__ |
+`windows_printer.html </resource_windows_printer.html>`__ |
+`windows_printer_port </resource_windows_printer_port.html>`__ |
+`windows_service </resource_windows_service.html>`__ |
+`windows_shortcut </resource_windows_shortcut.html>`__ |
+`windows_task </resource_windows_task.html>`__ |
+`yum_package </resource_yum.html>`__ |
+`yum_repository </resource_yum_repository.html>`__ |
+`dnf_package </resource_dnf_package.html>`__ |
+`zypper_package </resource_zypper_package.html>`__ |
+`zypper_repository </resource_zypper_repository.html>`__
 
 
 `Templates </templates.html>`__ |
