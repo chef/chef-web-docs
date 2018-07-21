@@ -1,4 +1,5 @@
 .DS_Store
+.github
 
 # ignore doctree files in translation folders
 *.doctree
