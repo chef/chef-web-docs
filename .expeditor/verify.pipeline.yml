@@ -1,6 +1,6 @@
 - label: "build"
   command:
-    - pip install -r requirements
+    - pip install -r requirements.txt
     - make docs
   plugins:
     docker#v1.1.1:
