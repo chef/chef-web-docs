@@ -66,7 +66,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``14.04``, ``16.04``, ``18.04``
    * - Microsoft Windows
      - ``x86``, ``x86_64``
-     - ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10``
+     - ``7``, ``8.1``, ``2008``, ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10``
 
 Community Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -134,7 +134,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``14.04``, ``16.04``, ``18.04``
    * - Microsoft Windows
      -
-     - ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10``
+     - - ``7``, ``8.1``, ``2008``, ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10``
 
 Community Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
