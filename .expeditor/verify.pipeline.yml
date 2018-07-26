@@ -1,7 +1,12 @@
-- label: "build"
-  command:
-    - pip install -r requirements
-    - make docs
-  plugins:
-    docker#v1.1.1:
-      image: "chefes/buildkite"
+steps:
+
+  # Make sure that Sphinx builds successfully
+  - label: Sphinx
+    command:
+      - make docs
+    retry:
+      automatic:
+        limit: 1
+    plugins:
+      docker#v1.1.1:
+        image: "chefes/buildkite"
