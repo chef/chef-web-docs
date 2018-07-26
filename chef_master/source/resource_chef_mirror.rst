@@ -71,8 +71,8 @@ This resource has the following properties:
 ``concurrency``
    The number of threads to run in-parallel. Default value: ``10``.
 
-``freeze``
-   Use to freeze cookbooks upon upload to the mirrored location. When ``true``, cookbooks are frozen.
+``freeze_on_upload``
+   Use to freeze cookbooks upon upload to the mirrored location. When ``true`` (default), cookbooks are frozen.
 
 ``ignore_failure``
    **Ruby Types:** True, False
