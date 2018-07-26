@@ -41,10 +41,10 @@ To build the docs:
 
 - Run `make docker-build`
 
-To preview locally:
+To (build and) preview locally:
 
 - Run `make docker-preview`
-- go to http://localhost:8080
+- go to http://localhost:8000
 
 To clean your local development environment:
 
