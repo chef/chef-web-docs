@@ -9,5 +9,5 @@ execute 'make docs' do
 end
 
 cia_delivery_publish_artifact node['delivery']['change']['project'] do
-  build_path 'build'
+  build_path 'public'
 end

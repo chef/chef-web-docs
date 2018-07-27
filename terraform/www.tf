@@ -3,7 +3,7 @@
 module "hugo_site" {
   source        = "git@github.com:chef/es-terraform.git//modules/cd_hugo_static_site"
   subdomain     = "${var.www_dns}"
-  site_dir      = "../build"
+  site_dir      = "../"
   build_command = "make docs"
   fastly_fqdn   = "${var.fastly_fqdn}"
 }

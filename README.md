@@ -75,17 +75,17 @@ install Sphinx, the documentation generator, possibly using `sudo`:
   pip install -r requirements.txt
 ```
 
-> Note: The default `make` target is `docs`. This is the target that creates the appropriate `build` directory on your local machine and references in the source files in the `chef_master/source` directory of your local repo.
+> Note: The default `make` target is `docs`. This is the target that creates the appropriate `public` directory on your local machine and references in the source files in the `chef_master/source` directory of your local repo.
 
 The docs build in a minute or two. To
 view the local version you built, you have two options:
 
-- Open the file `build/<filename>` in your browser
+- Open the file `public/<filename>` in your browser
 - Use a local web server like the `SimpleHTTPServer` python module
 
 Viewing your content using the `SimpleHTTPServer` module allows you to navigate through the documentation as if you were browsing it on https://docs.chef.io. To use the `SimpleHTTPServer` module:
 
-1. Navigate to the `build` directory.
+1. Navigate to the `public` directory.
 2. Run `python -m SimpleHTTPServer`. After the server starts up, connect to your docs through your loopback IP address (http://127.0.0.1:8000).
 
 If you need tips on the source language for the docs, check out the
