@@ -1,9 +1,7 @@
+---
+# Slack channel in Chef Software slack to send notifications about build failures, etc
 slack:
   notify_channel: docs-notify
-
-automate:
-  organization: tech-content
-  project: chef-web-docs
 
 github:
   delete_branch_on_merge: true
@@ -23,9 +21,8 @@ pipelines:
         - ENVIRONMENT: production
 
 merge_actions:
-  - built_in:update_acc:
+  - trigger_pipeline:deploy/acceptance:
       ignore_labels:
-        - "ACC: Skip Update"
         - "Expeditor: Skip All"
 
 promote:
@@ -36,5 +33,5 @@ promote:
             operator: equals
             value_two: stable
   channels:
-    - acceptance    # chef-web-docs-acceptance.cd.chef.co
+    - acceptance    # chef-web-docs-acceptance.cd.chef.co / docs-acceptance.chef.io
     - stable        # chef-web-docs-production.cd.chef.co / docs.chef.io
