@@ -11,9 +11,30 @@ github:
 pipelines:
   - verify:
       description: Validate PRs for chef/chef-web-docs
+  - deploy/acceptance:
+      definition: .expeditor/deploy.pipeline.yml
+      description: Deploy to chef-web-docs-acceptance.cd.chef.co
+      env:
+        - ENVIRONMENT: acceptance
+  - deploy/production:
+      definition: .expeditor/deploy.pipeline.yml
+      description: Deploy to chef-web-docs-production.cd.chef.co (i.e. docs.chef.io)
+      env:
+        - ENVIRONMENT: production
 
 merge_actions:
   - built_in:update_acc:
       ignore_labels:
         - "ACC: Skip Update"
         - "Expeditor: Skip All"
+
+promote:
+  action:
+    - trigger_pipeline:deploy/production:
+        only_if_conditions:
+          - value_one: "{{target_channel}}"
+            operator: equals
+            value_two: stable
+  channels:
+    - acceptance    # chef-web-docs-acceptance.cd.chef.co
+    - stable        # chef-web-docs-production.cd.chef.co / docs.chef.io
