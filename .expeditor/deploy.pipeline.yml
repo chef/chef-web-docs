@@ -14,16 +14,16 @@ steps:
           - CHEF_CD_AWS_SECRET_ACCESS_KEY
           - CHEF_CI_GITHUB_TOKEN
 
-  # - wait
+  - wait
 
-  # - command: .expeditor/buildkite/apply_redirects.sh
-  #   label: ":amazon-s3:"
-  #   concurrency: 1
-  #   concurrency_group: chef-web-docs-master/deploy/$ENVIRONMENT
-  #   plugins:
-  #     docker#v1.1.1:
-  #       image: "chefes/buildkite"
-  #       environment:
-  #         - ENVIRONMENT
-  #         - CHEF_CD_AWS_ACCESS_KEY_ID
-  #         - CHEF_CD_AWS_SECRET_ACCESS_KEY
+  - command: .expeditor/buildkite/apply_redirects.sh
+    label: ":amazon-s3:"
+    concurrency: 1
+    concurrency_group: chef-web-docs-master/deploy/$ENVIRONMENT
+    plugins:
+      docker#v1.1.1:
+        image: "chefes/buildkite"
+        environment:
+          - ENVIRONMENT
+          - CHEF_CD_AWS_ACCESS_KEY_ID
+          - CHEF_CD_AWS_SECRET_ACCESS_KEY
