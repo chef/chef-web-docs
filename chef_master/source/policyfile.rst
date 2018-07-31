@@ -315,7 +315,7 @@ Kitchen may be used to test Policyfile files. Add the following to .kitchen.yml:
 .. code-block:: yaml
 
    provisioner:
-     name: policyfile_zero
+     name: chef_zero
 
 A named run-list may be used on a per-suite basis:
 
@@ -334,7 +334,7 @@ or globally:
 .. code-block:: yaml
 
    provisioner:
-     name: policyfile_zero
+     name: chef_zero
      named_run_list: integration_test_run_list
 
 or testing with policies per-suite, once the Policyfile files are available in your repo:
@@ -351,7 +351,7 @@ or testing with policies per-suite, once the Policyfile files are available in y
             policyfile: policies/defaulttwo.rb
          attributes
 	 
-.. note:: As ``policyfile_zero`` explicitly tests outside the context of a Chef server, the ``policy_groups`` concept is not applicable.
+.. note:: As ``chef_zero`` explicitly tests outside the context of a Chef server, the ``policy_groups`` concept is not applicable. The value of ``policy_group`` during a converge will be set to ``local``.
 
 chef Commands
 =====================================================
