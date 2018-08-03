@@ -24,8 +24,11 @@ This tool has the following options:
 ``ATTRIBUTE_NAME ATTRIBUTE NAME ...``
    Use to have Ohai show only output for named attributes.
 
-``-d PATH``, ``--directory PATH``
-   The directory in which Ohai plugins are located. For example: ``/etc/ohai/plugins``.
+``-c CONFIG``, ``--config CONFIG``
+   The path to a configuration file to use For example: ``/etc/ohai/config.rb``.
+
+``-d DIRECTORY``, ``--directory DIRECTORY``
+   The directory in which additional Ohai plugins are located. For example: ``/my/extra/plugins``.
 
 ``-h``, ``--help``
    Show help for the command.
