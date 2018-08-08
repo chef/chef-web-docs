@@ -15,7 +15,7 @@ For the quickest way to get started using Chef:
 
    where ``first_cookbook`` is an arbitrary cookbook name.
 
-#. Change into the ``first_cookbook`` directory.
+#. Navigate to the ``first_cookbook`` directory.
 
 #. Update the ``cookbooks/first_cookbook/recipes/default.rb`` recipe in the generated cookbook to contain:
 
