@@ -5,7 +5,7 @@ Platforms and Supported Versions
 
 Chef software is supported on the various operating systems (platforms) listed below. To see which versions of our software we currently support, see the `Supported Versions </platforms.html#versions>`__ section.
 
-Platforms
+Products
 =====================================================
 
 The sections below list the platforms that Chef Software Inc. supports. Support is divided into two levels:
