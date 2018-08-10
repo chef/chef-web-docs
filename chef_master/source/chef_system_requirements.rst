@@ -5,7 +5,7 @@ System Requirements
 
 Before installing Chef:
 
-* Ensure that each machine that will be a node is running a `platform </platforms.html>`__
+* Ensure that each machine that will be a node is running a `supported platform </platforms.html>`__
 * Ensure that the machine that will run the Chef server is sufficiently powerful
 * Ensure that any network and firewall settings are configured correctly
 
@@ -18,7 +18,6 @@ In addition:
 * The recommended amount of RAM available to the chef-client during a chef-client run is 512MB
 * The chef-client binaries are stored in the ``/opt/chef`` directory, which requires a minimum of 200MB of disk space. On Windows, the chef-client binaries can be found in ``C:\opscode\``, and they require a minimum of 600MB of disk space.
 * The chef-client caches to ``/var/chef/cache`` during the chef-client run. This is the location in which downloaded cookbooks, packages required by those cookbooks, and other large files are stored. This directory requires enough space to save all of this data and should be generously sized. 5GB is a safe number as a starting point, but tune the size of ``/var/chef/cache`` as necessary. This location is tunable in a node's `client.rb <https://docs.chef.io/config_rb_client.html>`__ file via the ``file_cache_path`` setting.
-* The hosted Chef server is compatible with chef-client version 0.10.0 and greater; older clients must be upgraded before they can connect to Hosted Chef
 
 The Chef Server
 =====================================================
