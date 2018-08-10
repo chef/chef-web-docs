@@ -194,7 +194,14 @@ Chef Automate Server
 Commercial Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The following table lists the commercially-supported platforms and versions for Chef Automate Server. Do not mix platforms or platform versions within the Chef Automate cluster.
+Commercial support for the `Chef Automate 2 Server <https://automate.chef.io/docs/system_requirements>`_ is available for platforms that use
+
+* a Linux kernel version of 3.2 or greater
+* ``systemd`` as the init system
+* ``useradd``
+* ``curl`` or ``wget``
+
+The following table lists the commercially-supported platforms and versions for Chef Automate 1 Server. Do not mix platforms or platform versions within the Chef Automate cluster.
 
 .. list-table::
    :widths: 280 100 120
