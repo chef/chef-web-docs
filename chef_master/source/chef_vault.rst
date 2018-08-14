@@ -23,20 +23,8 @@ The ``chef-vault cookbook`` is maintained by Chef. Use it along with ``chef-vaul
 
 Installation
 =====================================================
-If you are installing ``chef-vault`` independently of the Chef Development Kit, then first verify that you have  the latest version Chef installed. Versions earlier than 0.10.0 don't support plugins:
 
-.. code-block:: shell
-
-    gem install chef
-
-This plugin is distributed as a Ruby Gem. To install it, run:
-
-.. code-block:: shell
-
-    gem install chef-vault
-
-Depending on your system's configuration, you may need to run this command
-with root privileges.
+Chef-DK ships with the latest release of Chef vault and should be used for working with Chef vault.
 
 Configuring knife.rb for ``chef_vault``
 ------------------------------------------------------
