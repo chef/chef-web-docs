@@ -2073,7 +2073,6 @@ This resource has the following actions:
 
 Properties
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_systemd_unit_attributes
 
 This resource has the following properties:
 
@@ -2098,7 +2097,6 @@ This resource has the following properties:
 
    Specifies if the unit will be verified before installation. Systemd can be overly strict when verifying units, so in certain cases it is preferable not to verify the unit. Defaults to true.
 
-.. end_tag
 
 What's New in 12.10
 =====================================================
