@@ -126,7 +126,7 @@ This resource has the following properties:
 ``content``
    **Ruby Type:** String, Hash
 
-   A string or hash that contains a systemd `unit file <https://www.freedesktop.org/software/systemd/man/systemd.unit.html>`_ definition that describes the properties of systemd-managed entities, such as services, sockets, devices, and so on.
+   A string or hash that contains a systemd `unit file <https://www.freedesktop.org/software/systemd/man/systemd.unit.html>`_ definition that describes the properties of systemd-managed entities, such as services, sockets, devices, and so on. In Chef 14.4, repeatable options can be implemented with an array.
 
 ``triggers_reload``
    **Ruby Type:** True, False
@@ -152,7 +152,7 @@ Examples
    systemd_unit 'etcd.service' do
      content({Unit: {
                Description: 'Etcd',
-               Documentation: 'https://coreos.com/etcd',
+               Documentation: ['https://coreos.com/etcd', 'man:etcd(1)'],
                After: 'network.target',
              },
              Service: {
