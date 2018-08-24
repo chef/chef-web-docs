@@ -117,7 +117,7 @@ The following drivers are available for Chef provisioning:
      - A Chef provisioning driver for SSH.
    * - `Vagrant <https://github.com/chef/chef-provisioning-vagrant>`__
      - A Chef provisioning driver for Vagrant.
-   * - `vSphere <https://github.com/CenturyLinkCloud/chef-provisioning-vsphere>`__
+   * - `vSphere <https://github.com/chef-partners/chef-provisioning-vsphere>`__
      - A Chef provisioning driver for VMware vSphere.
 
 Driver-specific Resources
