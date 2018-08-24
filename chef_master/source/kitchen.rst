@@ -43,7 +43,7 @@ The following frameworks are good options for building integration tests with Ki
 
    * - Test Framework
      - Description
-   * - `Bats <https://github.com/sstephenson/bats>`_
+   * - `Bats <https://github.com/bats-core/bats-core>`_
      - bats (or Bash Automated Testing System) is an testing framework for Bash. Bats is also the default framework for Kitchen.
    * - `Minitest <https://github.com/seattlerb/minitest>`_
      - A small, fast, testing framework.
