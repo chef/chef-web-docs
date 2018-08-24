@@ -246,6 +246,7 @@ Cookbook Reference
 `windows_service </resource_windows_service.html>`__ |
 `windows_shortcut </resource_windows_shortcut.html>`__ |
 `windows_task </resource_windows_task.html>`__ |
+`windows_workgroup </resource_windows_workgroup.html>`__ |
 `yum_package </resource_yum.html>`__ |
 `yum_repository </resource_yum_repository.html>`__ |
 `dnf_package </resource_dnf_package.html>`__ |
@@ -921,6 +922,7 @@ Addenda
    resource_windows_service
    resource_windows_shortcut
    resource_windows_task
+   resource_windows_workgroup.rst
    resource_yum
    resource_yum_repository
    resource_zypper_package
