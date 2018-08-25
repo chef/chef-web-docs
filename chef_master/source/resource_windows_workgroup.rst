@@ -96,7 +96,7 @@ Properties
 ``reboot``
    **Ruby Type:** Symbol | **Default Value:** ``:immediate``
 
-   Controls the system reboot behavior after joining the domain, with the following options:
+   Controls the system reboot behavior after joining the workgroup, with the following options:
    
    * ``:immediate``: reboot immediately
    * ``:delayed``: reboot after the Chef Client run completes 
