@@ -5,7 +5,7 @@ windows_workgroup
 
 Use the **windows_workgroup** resource to join a windows workgroup.
 
-**New in Chef Client 14.0.**
+**New in Chef Client 14.4.**
 
 Syntax
 =====================================================
