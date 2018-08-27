@@ -201,6 +201,8 @@ Cookbook Reference
 `openssl_ec_public_key </resource_openssl_ec_public_key.html>`__ |
 `openssl_rsa_private_key </resource_openssl_rsa_private_key.html>`__ |
 `openssl_rsa_public_key </resource_openssl_rsa_public_key.html>`__ |
+`openssl_x509_crl </resource_openssl_x509_crl.html>`__ |
+`openssl_x509_request </resource_openssl_x509_request.html>`__ |
 `osx_profile </resource_osx_profile.html>`__ |
 `package </resource_package.html>`__ |
 `pacman_package </resource_pacman_package.html>`__ |
@@ -871,9 +873,13 @@ Addenda
    resource_ohai
    resource_ohai_hint
    resource_openbsd_package
+   resource_openssl_dhparam
+   resource_openssl_ec_private_key
+   resource_openssl_ec_public_key
    resource_openssl_rsa_private_key
    resource_openssl_rsa_public_key
-   resource_openssl_dhparam
+   resource_openssl_x509_crl
+   resource_openssl_x509_request
    resource_osx_profile
    resource_package
    resource_pacman_package
