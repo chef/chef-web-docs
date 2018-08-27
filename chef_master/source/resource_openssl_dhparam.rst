@@ -28,7 +28,7 @@ where:
 
 * ``openssl_dhparam`` is the name of the resource
 * ``'name'`` is the path where the dhparam file will be written, or the name of the resource block
-* ``generator``, ``group``, ``key_length``, ``mode``, ``notifies``, ``owner``, and ``path``, and ``subscribes`` are the properties available to this resource
+* ``generator``, ``group``, ``key_length``, ``mode``, ``notifies``, ``owner``, ``path``, and ``subscribes`` are the properties available to this resource
 
 Actions
 =====================================================
