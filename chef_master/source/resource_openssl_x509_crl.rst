@@ -1,13 +1,11 @@
 =====================================================
-openssl_rsa_private_key
+openssl_x509_crl
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_openssl_rsa_private_key>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_openssl_x509_crl.rst>`__
 
-Use the **openssl_rsa_private_key** resource to generate RSA private key files. If a valid RSA key file can be opened at the specified location, no new file will be created. If the RSA key file cannot be opened or does not exist, it will be overwritten.
+Use the **openssl_x509_crl** resource to generate PEM-formatted x509 certificate revocation list (CRL) files.
 
-.. note:: If the password to your RSA key file does not match the password in the recipe, it cannot be opened, and will be overwritten.
-
-New in Chef Client 14.0.
+New in Chef Client 14.5.
 
 Syntax
 =====================================================
@@ -15,30 +13,32 @@ This resource has the following syntax:
 
 .. code-block:: ruby
 
-   openssl_rsa_private_key_file 'name' do
-     force                      True, False # default value: 'false'
+   openssl_x509_crl 'name' do
+     ca_cert_file               String # required
+     ca_key_file                String # required
+     ca_key_pass                String
+     expire                     Integer # default value: 8
      group                      String
-     key_cipher                 String # default value: 'des3'
-     key_length                 Integer # default value: '2048'
-     key_pass                   String
      mode                       Integer, String # default value: '0640'
      notifies                   # see description
      owner                      String
      path                       String # default value: 'name'
+     renewal_threshold          Integer # default value: 1
+     revocation_reason          Integer # default value: 0
+     serial_to_revoke           Integer, String
      subscribes                 # see description
      action                     Symbol # defaults to :create if not specified
-   end
 
 where:
 
-* ``openssl_rsa_private_key_file`` is the name of the resource
-* ``'name'`` is the path to the private key file that is to be created, or the name of the resource block
-* ``force``, ``group``, ``key_cipher``, ``key_length``, ``key_pass``, ``mode``, ``notifies``, ``owner``, ``path``, and ``subscribes`` are the properties available to this resource
+* ``openssl_x509_crl`` is the name of the resource
+* ``'name'`` is the path where the crl file will be written, or the name of the resource block
+* ``ca_cert_file``, ``ca_key_file``, ``ca_key_pass``, ``expire``, ``group``, ``mode``, ``notifies``, ``owner``, ``path``, ``renewal_threshold``, ``revocation_reason``, ``serial_to_revoke``, and ``subscribes`` are the properties available to this resource
 
 Actions
 =====================================================
 ``:create``
-   Default. Create the RSA private key file.
+   Default. Create the certificate revocation list file.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -49,35 +49,35 @@ Actions
 
 Properties
 =====================================================
-``force``
-   **Ruby Type:** True, False | **Default Value:** ``false``
+``ca_cert_file``
+   **Ruby Types:** Integer
 
-   Force creation of the key even if the same key already exists on the node.
+   Required. The path to the CA X509 Certificate on the filesystem.
+
+``ca_key_file``
+   **Ruby Types:** Integer
+
+   Required. The path to the CA private key on the filesystem.
+
+``ca_key_pass``
+   **Ruby Types:** Integer
+
+   The passphrase for CA private key's passphrase
+
+``expire``
+   **Ruby Types:** Integer | **Default Value:** ``8``
+
+   Value representing the number of days from now through which the issued CRL will remain valid. The CRL will expire after this period.
 
 ``group``
    **Ruby Types:** String
 
    The system group of all files created by the resource.
 
-``key_cipher``
-   **Ruby Type:** String | **Default Value:** ``des3``
-
-   The designed cipher to use when generating your key; run ``openssl list-cipher-algorithms`` to see available options.
-
-``key_length``
-   **Ruby Type:** Integer | **Default Value:** ``2048``
-
-   The desired bit length of the generated key; available options are ``1024``, ``2048``, ``4096``, and ``8192``.
-
-``key_pass``
-   **Ruby Type:** String
-
-   The desired passphrase for the key.
-
 ``mode``
-  **Ruby Type:** Integer, String | **Default Value:** ``0640``
+   **Ruby Types:** Integer, String | **Default Value:** ``0640``
 
-  The permission mode of all files created by the resource.
+   The permission mode applied to all files created by the resource.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -116,12 +116,27 @@ Properties
 ``owner``
    **Ruby Types:** String
 
-   The system user that owns all files created by the resource.
+   The owner of all files created by the resource.
 
 ``path``
    **Ruby Type:** String
 
-   The path where the private key file will be created, if it differs from the resource name.
+   The path to write the file to, if it differs from the resource name.
+
+``renewal_threshold``
+   **Ruby Types:** Integer | **Default Value:** ``1``
+
+   Number of days before the expiration. It this threshold is reached, the CRL will be renewed
+
+``revocation_reason``
+   **Ruby Types:** Integer | **Default Value:** ``0``
+
+   Reason for the revokation.
+
+``serial_to_revoke``
+   **Ruby Types:** Integer, String
+
+   Serial of the X509 Certificate to revoke.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -171,3 +186,24 @@ Properties
       subscribes :action, 'resource[name]', :timer
 
    .. end_tag
+
+Examples
+=====================================================
+**Create a certificate revocation file**
+
+.. code-block:: ruby
+
+  openssl_x509_crl '/etc/ssl_test/my_ca.crl' do
+    ca_cert_file '/etc/ssl_test/my_ca.crt'
+    ca_key_file '/etc/ssl_test/my_ca.key'
+  end
+
+**Create a certificate revocation file for a particular serial**
+
+.. code-block:: ruby
+
+  openssl_x509_crl '/etc/ssl_test/my_ca.crl' do
+    ca_cert_file '/etc/ssl_test/my_ca.crt'
+    ca_key_file '/etc/ssl_test/my_ca.key'
+    serial_to_revoke C7BCB6602A2E4251EF4E2827A228CB52BC0CEA2F
+  end

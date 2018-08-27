@@ -5,19 +5,19 @@ openssl_rsa_public_key
 
 Use the **openssl_rsa_public_key** resource to generate RSA public key files for a given RSA private key.
 
-New in Chef Client 14.0. 
+New in Chef Client 14.0.
 
 Syntax
 =====================================================
 This resource has the following syntax:
 
 .. code-block:: ruby
- 
+
    openssl_rsa_public_key 'name' do
-     group                      String, nil
+     group                      String
      mode                       Integer, String # default value: '0640'
      notifies                   # see description
-     owner                      String, nil
+     owner                      String
      path                       String
      private_key_content        String
      private_key_pass           String
@@ -47,9 +47,9 @@ Actions
 Properties
 =====================================================
 ``group``
-   **Ruby Types:** String, nil
+   **Ruby Types:** String
 
-   The system group of all files created by the resource. 
+   The system group of all files created by the resource.
 
 ``mode``
    **Ruby Types:** Integer, String | **Default Value:** ``0640``
@@ -91,19 +91,19 @@ Properties
    .. end_tag
 
 ``owner``
-   **Ruby Types:** String, nil
+   **Ruby Types:** String
 
    The system user that owns all files created by the resource.
 
 ``path``
    **Ruby Type:** String
 
-   The path of the public key file, if it differs from the resource name. 
+   The path of the public key file, if it differs from the resource name.
 
 ``private_key_content``
    **Ruby Type:** String
 
-   The content of the private key, including new lines. This property is used in place of ``private_key_path`` in instances where you want to avoid having to first write the private key to disk. 
+   The content of the private key, including new lines. This property is used in place of ``private_key_path`` in instances where you want to avoid having to first write the private key to disk.
 
 ``private_key_pass``
    **Ruby Type:** String
@@ -176,8 +176,10 @@ Examples
 
 **Create a public key from a private key, without writing the private key to disk**
 
+You can provide the private key content as a string to the openssl_rsa_public_key resource. In this example we just pass a string, but this content could be loaded from an encrypted data bag or other secure storage.
+
 .. code-block:: ruby
 
    openssl_rsa_public_key '/etc/example/key.pub' do
-     private_key_content File.read('/home/example/key.pem')
+     private_key_content 'KEY_CONTENT_HERE_AS_A_STRING'
    end
