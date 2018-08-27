@@ -1116,11 +1116,37 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_breakpoint.rst
 
+.. include:: resource_build_essential.rst
+
 .. include:: resource_cab_package.rst
+
+.. include:: resource_chef_acl.rst
+
+.. include:: resource_chef_client.rst
+
+.. include:: resource_chef_container.rst
+
+.. include:: resource_chef_data_bag.rst
+
+.. include:: resource_chef_data_bag_item.rst
+
+.. include:: resource_chef_environment.rst
 
 .. include:: resource_chef_gem.rst
 
+.. include:: resource_chef_group.rst
+
 .. include:: resource_chef_handler.rst
+
+.. include:: resource_chef_mirror.rst
+
+.. include:: resource_chef_node.rst
+
+.. include:: resource_chef_organization.rst
+
+.. include:: resource_chef_role.rst
+
+.. include:: resource_chef_user.rst
 
 .. include:: resource_chocolatey_config.rst
 
@@ -1131,6 +1157,8 @@ The following resources are built into the Chef Client:
 .. include:: resource_cron.rst
 
 .. include:: resource_csh.rst
+
+.. include:: resource_deploy.rst
 
 .. include:: resource_directory.rst
 
@@ -1143,6 +1171,10 @@ The following resources are built into the Chef Client:
 .. include:: resource_dsc_resource.rst
 
 .. include:: resource_dsc_script.rst
+
+.. include:: resource_erlang_call.rst
+
+.. include:: resource_examples.rst
 
 .. include:: resource_execute.rst
 
@@ -1176,7 +1208,19 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_link.rst
 
+.. include:: resource_load_balancer.rst
+
 .. include:: resource_log.rst
+
+.. include:: resource_machine_batch.rst
+
+.. include:: resource_machine_execute.rst
+
+.. include:: resource_machine_file.rst
+
+.. include:: resource_machine_image.rst
+
+.. include:: resource_machine.rst
 
 .. include:: resource_macos_userdefaults.rst
 
@@ -1225,6 +1269,10 @@ The following resources are built into the Chef Client:
 .. include:: resource_powershell_package.rst
 
 .. include:: resource_powershell_script.rst
+
+.. include:: resource_private_key.rst
+
+.. include:: resource_public_key.rst
 
 .. include:: resource_python.rst
 
