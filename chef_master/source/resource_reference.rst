@@ -1122,8 +1122,6 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_chef_gem.rst
 
-.. include:: resource_chef_group.rst
-
 .. include:: resource_chef_handler.rst
 
 .. include:: resource_chocolatey_config.rst
@@ -1147,8 +1145,6 @@ The following resources are built into the Chef Client:
 .. include:: resource_dsc_resource.rst
 
 .. include:: resource_dsc_script.rst
-
-.. include:: resource_examples.rst
 
 .. include:: resource_execute.rst
 
@@ -1180,19 +1176,7 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_link.rst
 
-.. include:: resource_load_balancer.rst
-
 .. include:: resource_log.rst
-
-.. include:: resource_machine_batch.rst
-
-.. include:: resource_machine_execute.rst
-
-.. include:: resource_machine_file.rst
-
-.. include:: resource_machine_image.rst
-
-.. include:: resource_machine.rst
 
 .. include:: resource_macos_userdefaults.rst
 
