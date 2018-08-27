@@ -1204,6 +1204,8 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_openssl_rsa_private_key.rst
 
+.. include:: resource_openssl_x509_certificate.rst
+
 .. include:: resource_openssl_x509_crl.rst
 
 .. include:: resource_openssl_x509_request.rst
