@@ -1120,33 +1120,11 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_cab_package.rst
 
-.. include:: resource_chef_acl.rst
-
-.. include:: resource_chef_client.rst
-
-.. include:: resource_chef_container.rst
-
-.. include:: resource_chef_data_bag.rst
-
-.. include:: resource_chef_data_bag_item.rst
-
-.. include:: resource_chef_environment.rst
-
 .. include:: resource_chef_gem.rst
 
 .. include:: resource_chef_group.rst
 
 .. include:: resource_chef_handler.rst
-
-.. include:: resource_chef_mirror.rst
-
-.. include:: resource_chef_node.rst
-
-.. include:: resource_chef_organization.rst
-
-.. include:: resource_chef_role.rst
-
-.. include:: resource_chef_user.rst
 
 .. include:: resource_chocolatey_config.rst
 
@@ -1157,8 +1135,6 @@ The following resources are built into the Chef Client:
 .. include:: resource_cron.rst
 
 .. include:: resource_csh.rst
-
-.. include:: resource_deploy.rst
 
 .. include:: resource_directory.rst
 
@@ -1172,8 +1148,6 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_dsc_script.rst
 
-.. include:: resource_erlang_call.rst
-
 .. include:: resource_examples.rst
 
 .. include:: resource_execute.rst
@@ -1185,8 +1159,6 @@ The following resources are built into the Chef Client:
 .. include:: resource_gem_package.rst
 
 .. include:: resource_git.rst
-
-.. include:: resource_group.rst
 
 .. include:: resource_homebrew_cask.rst
 
@@ -1269,10 +1241,6 @@ The following resources are built into the Chef Client:
 .. include:: resource_powershell_package.rst
 
 .. include:: resource_powershell_script.rst
-
-.. include:: resource_private_key.rst
-
-.. include:: resource_public_key.rst
 
 .. include:: resource_python.rst
 
