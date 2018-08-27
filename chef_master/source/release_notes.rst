@@ -1178,11 +1178,11 @@ Properties overriding methods now raise an error
 Defining a property that overrides methods defined on the base ruby ``Object`` or on ``Chef::Resource`` itself can cause large amounts of confusion.  A simple example is ``property :hash`` which overrides the Object#hash method which will confuse ruby when the Custom Resource is placed into the Chef::ResourceCollection which uses a hash internally which expects to call Object#hash to get a unique id for the object.  Attempting to create ``property :action`` would also override the Chef::Resource#action method which is unlikely to end well for the user.  Overriding inherited properties is still supported.
 
 ``chef-shell`` now supports solo and legacy solo modes
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Running ``chef-shell -s`` or ``chef-shell --solo`` will give you an experience consistent with ``chef-solo``. ``chef-shell --solo-legacy-mode` will give you an experience consistent with ``chef-solo --legacy-mode``.
 
 Chef::Platform.set and related methods have been removed
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 The deprecated code has been removed.  All providers and resources should now be using Chef >= 12.0 ``provides`` syntax.
 
 Remove ``sort`` option for the Search API
@@ -2073,7 +2073,6 @@ This resource has the following actions:
 
 Properties
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_systemd_unit_attributes
 
 This resource has the following properties:
 
@@ -2098,7 +2097,6 @@ This resource has the following properties:
 
    Specifies if the unit will be verified before installation. Systemd can be overly strict when verifying units, so in certain cases it is preferable not to verify the unit. Defaults to true.
 
-.. end_tag
 
 What's New in 12.10
 =====================================================
