@@ -1196,6 +1196,10 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_openssl_dhparam.rst
 
+.. include:: resource_openssl_ec_public_key.rst
+
+.. include:: resource_openssl_ec_private_key.rst
+
 .. include:: resource_openssl_rsa_public_key.rst
 
 .. include:: resource_openssl_rsa_private_key.rst

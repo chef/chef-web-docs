@@ -197,6 +197,8 @@ Cookbook Reference
 `ohai_hint </resource_ohai_hint.html>`__ |
 `openbsd_package </resource_openbsd_package.html>`__ |
 `openssl_dhparam </resource_openssl_dhparam.html>`__ |
+`openssl_ec_private_key </resource_openssl_ec_private_key.html>`__ |
+`openssl_ec_public_key </resource_openssl_ec_public_key.html>`__ |
 `openssl_rsa_private_key </resource_openssl_rsa_private_key.html>`__ |
 `openssl_rsa_public_key </resource_openssl_rsa_public_key.html>`__ |
 `osx_profile </resource_osx_profile.html>`__ |
