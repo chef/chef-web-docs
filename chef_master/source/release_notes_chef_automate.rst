@@ -5,6 +5,24 @@ Release Notes: Chef Automate
 
 Chef Automate provides a full suite of enterprise capabilities for workflow, visibility and compliance that allow you to manage and monitor application and cookbook deployments across a cluster of nodes in your environment.
 
+
+What's New in 1.8.86
+=====================================================
+
+New Features
+-----------------------------------------------------
+* ``automate-ctl create-backup`` now has a ``--timeout`` option to control the timeout for backups, which defaults to 600 seconds.
+* Added support for CIS Centos 7 benchmark v2.2.0
+* Added support for CIS Windows Server 2012 R2 benchmark v2.3.0
+* Added support for CIS Cisco IOS 12 benchmark v4.0.0 and CIS Cisco IOS 15 benchmark v4.0.0
+* Most supported profiles now include ``supports`` metadata in ``inspec.yml``
+
+Resolved Issues
+-----------------------------------------------------
+* Resolved an issue with Workflow jobs becoming stuck
+* Corrected the release metadata on a number of profiles so the profiles are compatible with target hosts.
+
+
 What's New in 1.8.85
 =====================================================
 
