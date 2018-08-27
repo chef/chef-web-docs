@@ -1,11 +1,11 @@
 =====================================================
-openssl_rsa_public_key
+openssl_ec_public_key
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_openssl_rsa_public_key.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_openssl_ec_public_key.rst>`__
 
-Use the **openssl_rsa_public_key** resource to generate RSA public key files for a given RSA private key.
+Use the **openssl_ec_public_key** resource to generate elliptic curve (EC) public key files from a given EC private key.
 
-New in Chef Client 14.0.
+New in Chef Client 14.5.
 
 Syntax
 =====================================================
@@ -13,7 +13,7 @@ This resource has the following syntax:
 
 .. code-block:: ruby
 
-   openssl_rsa_public_key 'name' do
+   openssl_ec_public_key 'name' do
      group                      String, nil
      mode                       Integer, String # default value: '0640'
      notifies                   # see description
@@ -28,14 +28,14 @@ This resource has the following syntax:
 
 where:
 
-* ``openssl_rsa_public_key`` is the name of the resource
+* ``openssl_ec_public_key`` is the name of the resource
 * ``name`` is the path to the public key file that is to be created, or the name of the resource block
 * ``group``, ``mode``, ``notifies``, ``owner``, ``path``, ``private_key_content``, ``private_key_pass``, ``private_key_path``, and ``subscribes`` are the properties available to this resource
 
 Actions
 =====================================================
 ``:create``
-   Default. Create the RSA public key.
+   Default. Generate the EC public key from a private key.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -170,16 +170,16 @@ Examples
 
 .. code-block:: ruby
 
-   openssl_rsa_public_key '/etc/example/key.pub' do
+   openssl_ec_public_key '/etc/example/key.pub' do
      private_key_path '/etc/example/key.pem'
    end
 
 **Create a public key from a private key, without writing the private key to disk**
 
-You can provide the private key content as a string to the openssl_rsa_public_key resource. In this example we just pass a string, but this content could be loaded from an encrypted data bag or other secure storage.
+You can provide the private key content as a string to the openssl_ec_public_key resource. In this example we just pass a string, but this content could be loaded from an encrypted data bag or other secure storage.
 
 .. code-block:: ruby
 
-   openssl_rsa_public_key '/etc/example/key.pub' do
+   openssl_ec_public_key '/etc/example/key.pub' do
      private_key_content 'KEY_CONTENT_HERE_AS_A_STRING'
    end
