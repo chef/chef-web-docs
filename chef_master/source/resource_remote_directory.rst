@@ -562,7 +562,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. end_tag
 
-**Use with the chef_handler lightweight resource**
+**Use with the chef_handler resource**
 
 .. tag resource_remote_directory_report_handler
 

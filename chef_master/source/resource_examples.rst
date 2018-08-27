@@ -1020,7 +1020,7 @@ The **chef_handler** resource is typically defined early in a node's run-list (o
 
 **Enable the CloudkickHandler handler**
 
-.. tag lwrp_chef_handler_enable_cloudkickhandler
+.. tag resource_chef_handler_enable_cloudkickhandler
 
 The following example shows how to enable the ``CloudkickHandler`` handler, which adds it to the default handler path and passes the ``oauth`` key/secret to the handler's initializer:
 
@@ -1036,7 +1036,7 @@ The following example shows how to enable the ``CloudkickHandler`` handler, whic
 
 **Enable handlers during the compile phase**
 
-.. tag lwrp_chef_handler_enable_during_compile
+.. tag resource_chef_handler_enable_during_compile
 
 .. To enable a handler during the compile phase:
 
@@ -1052,7 +1052,7 @@ The following example shows how to enable the ``CloudkickHandler`` handler, whic
 
 **Handle only exceptions**
 
-.. tag lwrp_chef_handler_exceptions_only
+.. tag resource_chef_handler_exceptions_only
 
 .. To handle exceptions only:
 
@@ -1170,7 +1170,7 @@ After it has run, the run status data can be loaded and inspected via Interactiv
 
 **Register the JsonFile handler**
 
-.. tag lwrp_chef_handler_register
+.. tag resource_chef_handler_register
 
 .. To register the ``Chef::Handler::JsonFile`` handler:
 
@@ -1393,7 +1393,7 @@ cron
 
 Use the **cron** resource to manage cron entries for time-based job scheduling. Properties for a schedule will default to ``*`` if not provided. The **cron** resource requires access to a crontab program, typically cron.
 
-.. warning:: The **cron** resource should only be used to modify an entry in a crontab file. Use the **cookbook_file** or **template** resources to add a crontab file to the cron.d directory. The ``cron_d`` lightweight resource (found in the `cron <https://github.com/chef-cookbooks/cron>`__ cookbook) is another option for managing crontab files.
+.. warning:: The **cron** resource should only be used to modify an entry in a crontab file. Use the **cookbook_file** or **template** resources to add a crontab file to the cron.d directory. The ``cron_d`` resource (found in the `cron <https://github.com/chef-cookbooks/cron>`__ cookbook) is another option for managing crontab files.
 
 .. end_tag
 
@@ -4852,7 +4852,7 @@ Use the **remote_directory** resource to incrementally transfer a directory from
 
 .. end_tag
 
-**Use with the chef_handler lightweight resource**
+**Use with the chef_handler resource**
 
 .. tag resource_remote_directory_report_handler
 
