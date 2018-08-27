@@ -64,7 +64,7 @@ This custom resource has the following properties:
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. To use the ``netdev_interface`` lightweight resource:
+.. To use the ``netdev_interface`` custom resource:
 
 .. code-block:: ruby
 
@@ -117,7 +117,7 @@ This custom resource has the following properties:
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. To use the ``netdev_l2_interface`` lightweight resource:
+.. To use the ``netdev_l2_interface`` custom resource:
 
 .. code-block:: ruby
 
@@ -176,7 +176,7 @@ This custom resource has the following properties:
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. To use the ``netdev_lag`` lightweight resource:
+.. To use the ``netdev_lag`` custom resource:
 
 .. code-block:: ruby
 

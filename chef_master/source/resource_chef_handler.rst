@@ -566,7 +566,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Enable the CloudkickHandler handler**
 
-.. tag lwrp_chef_handler_enable_cloudkickhandler
+.. tag resource_chef_handler_enable_cloudkickhandler
 
 The following example shows how to enable the ``CloudkickHandler`` handler, which adds it to the default handler path and passes the ``oauth`` key/secret to the handler's initializer:
 
@@ -582,7 +582,7 @@ The following example shows how to enable the ``CloudkickHandler`` handler, whic
 
 **Enable handlers during the compile phase**
 
-.. tag lwrp_chef_handler_enable_during_compile
+.. tag resource_chef_handler_enable_during_compile
 
 .. To enable a handler during the compile phase:
 
@@ -598,7 +598,7 @@ The following example shows how to enable the ``CloudkickHandler`` handler, whic
 
 **Handle only exceptions**
 
-.. tag lwrp_chef_handler_exceptions_only
+.. tag resource_chef_handler_exceptions_only
 
 .. To handle exceptions only:
 
@@ -716,7 +716,7 @@ After it has run, the run status data can be loaded and inspected via Interactiv
 
 **Register the JsonFile handler**
 
-.. tag lwrp_chef_handler_register
+.. tag resource_chef_handler_register
 
 .. To register the ``Chef::Handler::JsonFile`` handler:
 

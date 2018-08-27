@@ -5163,7 +5163,7 @@ Examples
 
 Cookbook Resources
 =====================================================
-Some of the most popular Chef-maintained cookbooks that contain lightweight resources useful when configuring machines running Microsoft Windows are listed below:
+Some of the most popular Chef-maintained cookbooks that contain custom resources useful when configuring machines running Microsoft Windows are listed below:
 
 .. list-table::
    :widths: 150 450
