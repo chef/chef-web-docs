@@ -15,11 +15,11 @@ This resource has the following syntax:
 
    openssl_dhparam 'name' do
      generator                  Integer # default value: '2'
-     group                      String, nil
+     group                      String
      key_length                 Integer # default value: '2048'
      mode                       Integer, String # default value: '0640'
      notifies                   # see description
-     owner                      String, nil
+     owner                      String
      path                       String # default value: 'name'
      subscribes                 # see description
      action                     Symbol # defaults to :create if not specified
@@ -50,7 +50,7 @@ Properties
    The desired Diffie-Hellmann generator; available options are ``2`` and ``5``.
 
 ``group``
-   **Ruby Types:** String, nil
+   **Ruby Types:** String
 
    The system group of all files created by the resource.
 
@@ -99,7 +99,7 @@ Properties
    .. end_tag
 
 ``owner``
-   **Ruby Types:** String, nil
+   **Ruby Types:** String
 
    The owner of all files created by the resource.
 

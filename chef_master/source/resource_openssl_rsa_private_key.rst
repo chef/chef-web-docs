@@ -17,13 +17,13 @@ This resource has the following syntax:
 
    openssl_rsa_private_key_file 'name' do
      force                      True, False # default value: 'false'
-     group                      String, nil
+     group                      String
      key_cipher                 String # default value: 'des3'
      key_length                 Integer # default value: '2048'
      key_pass                   String
      mode                       Integer, String # default value: '0640'
      notifies                   # see description
-     owner                      String, nil
+     owner                      String
      path                       String # default value: 'name'
      subscribes                 # see description
      action                     Symbol # defaults to :create if not specified
@@ -55,7 +55,7 @@ Properties
    Force creation of the key even if the same key already exists on the node.
 
 ``group``
-   **Ruby Types:** String, nil
+   **Ruby Types:** String
 
    The system group of all files created by the resource.
 
@@ -114,7 +114,7 @@ Properties
    .. end_tag
 
 ``owner``
-   **Ruby Types:** String, nil
+   **Ruby Types:** String
 
    The system user that owns all files created by the resource.
 

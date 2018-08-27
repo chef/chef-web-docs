@@ -14,10 +14,10 @@ This resource has the following syntax:
 .. code-block:: ruby
 
    openssl_rsa_public_key 'name' do
-     group                      String, nil
+     group                      String
      mode                       Integer, String # default value: '0640'
      notifies                   # see description
-     owner                      String, nil
+     owner                      String
      path                       String
      private_key_content        String
      private_key_pass           String
@@ -47,7 +47,7 @@ Actions
 Properties
 =====================================================
 ``group``
-   **Ruby Types:** String, nil
+   **Ruby Types:** String
 
    The system group of all files created by the resource.
 
@@ -91,7 +91,7 @@ Properties
    .. end_tag
 
 ``owner``
-   **Ruby Types:** String, nil
+   **Ruby Types:** String
 
    The system user that owns all files created by the resource.
 
