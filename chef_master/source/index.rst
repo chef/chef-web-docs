@@ -201,6 +201,7 @@ Cookbook Reference
 `openssl_ec_public_key </resource_openssl_ec_public_key.html>`__ |
 `openssl_rsa_private_key </resource_openssl_rsa_private_key.html>`__ |
 `openssl_rsa_public_key </resource_openssl_rsa_public_key.html>`__ |
+`openssl_x509_certificate </resource_openssl_x509_certificate.html>`__ |
 `openssl_x509_crl </resource_openssl_x509_crl.html>`__ |
 `openssl_x509_request </resource_openssl_x509_request.html>`__ |
 `osx_profile </resource_osx_profile.html>`__ |
@@ -878,6 +879,7 @@ Addenda
    resource_openssl_ec_public_key
    resource_openssl_rsa_private_key
    resource_openssl_rsa_public_key
+   resource_openssl_x509_certificate
    resource_openssl_x509_crl
    resource_openssl_x509_request
    resource_osx_profile
