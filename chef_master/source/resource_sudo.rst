@@ -5,7 +5,7 @@ sudo
 
 Use the **sudo** resource to add or remove individual sudo entries using ``sudoers.d`` files. Sudo version 1.7.2 or newer is required to use the sudo resource, as it relies on the ``#includedir`` directive introduced in version 1.7.2. This resource does not enforce installation of the required sudo version. Chef-supported releases of Ubuntu, Debian and RHEL (6+) all support this feature.
 
-New in Chef Client 14.0.
+**New in Chef Client 14.0.**
 
 Syntax
 =====================================================
@@ -33,7 +33,7 @@ This resource has the following syntax:
      users                      String, Array # default value: []
      variables                  Hash, nil # default value: nil
      visudo_binary              String # default value: '/usr/bin/visudo'
-     action                     Symbol # defaults to :create if not specified              
+     action                     Symbol # defaults to :create if not specified
   end
 
 where:
@@ -45,7 +45,7 @@ where:
 Actions
 =====================================================
 ``:create``
-   Default. Create a single sudoers configuration file in the ``sudoers.d`` directory. 
+   Default. Create a single sudoers configuration file in the ``sudoers.d`` directory.
 
 ``:delete``
    Removed a sudoers configuration file from the ``sudoers.d`` directory.
@@ -62,27 +62,27 @@ Properties
 ``commands``
    **Ruby Type:** Array | **Default Value:** ``"ALL"``
 
-   An array of commands this sudoer can execute. 
+   An array of commands this sudoer can execute.
 
 ``command_aliases``
    **Ruby Type:** Array | **Default Value:** ``[]``
 
-   Command aliases that can be used as allowed commands later in the configuration. 
+   Command aliases that can be used as allowed commands later in the configuration.
 
 ``config_prefix``
    **Ruby Type:** String | **Default Value:** ``Prefix values based on the node's platform``
 
-   The directory that contains the sudoers configuration file. 
+   The directory that contains the sudoers configuration file.
 
 ``defaults``
    **Ruby Type:** Array | **Default Value:** ``[]``
 
-   An array of defaults for the user/group. 
+   An array of defaults for the user/group.
 
 ``env_keep_add``
    **Ruby Type:** Array | **Default Value:** ``[]``
 
-   An array of strings to add to ``env_keep``. 
+   An array of strings to add to ``env_keep``.
 
 ``env_keep_subtract``
    **Ruby Type:** Array | **Default Value:** ``[]``
@@ -92,7 +92,7 @@ Properties
 ``filename``
    **Ruby Type:** String | **Default Value:** ``'name'``
 
-   Optional. The name of the ``sudoers.d`` file, if it differs from the name of the resource block. 
+   Optional. The name of the ``sudoers.d`` file, if it differs from the name of the resource block.
 
 ``groups``
    **Ruby Type:** String, Array | **Default Value:** ``[]``
@@ -102,12 +102,12 @@ Properties
 ``host``
    **Ruby Type:** String| **Default Value:** ``"ALL"``
 
-   The host to set in the sudo configuration. 
+   The host to set in the sudo configuration.
 
 ``noexec``
    **Ruby Type:** True, False | **Default Value:** ``false``
 
-   Prevent commands from shelling out. 
+   Prevent commands from shelling out.
 
 ``nopasswd``
    **Ruby Type:** True, False | **Default Value:** ``false``
@@ -151,7 +151,7 @@ Properties
 ``runas``
    **Ruby Type:** String | **Default Value:** ``"ALL"``
 
-   User that the command(s) can be run as. 
+   User that the command(s) can be run as.
 
 ``setenv``
    **Ruby Type:** True, False | **Default Value:** ``false``
@@ -210,7 +210,7 @@ Properties
 ``template``
    **Ruby Type:** String
 
-   The name of the ``.erb`` template in your cookbook, if you wish to supply your own template. 
+   The name of the ``.erb`` template in your cookbook, if you wish to supply your own template.
 
 ``users``
    **Ruby Type:** String, Array | **Default Value:** ``[]``
@@ -236,7 +236,7 @@ Examples
    sudo 'admin' do
      user 'admin'
    end
-   
+
 **Grant a user and groups sudo privileges for any command**
 
 .. code-block:: ruby
@@ -254,7 +254,3 @@ Examples
      commands ['systemctl restart httpd', 'systemctl restart mysql']
      nopasswd True
    end
-
-
-
-   

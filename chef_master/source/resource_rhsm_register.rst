@@ -3,9 +3,9 @@ rhsm_register
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_rhsm_register.rst>`__
 
-Use the **rhsm_register** resource to register a node with the Red Hat Subscription Manager or a local Red Hat Satellite server. 
+Use the **rhsm_register** resource to register a node with the Red Hat Subscription Manager or a local Red Hat Satellite server.
 
-New in Chef Client 14.0.
+**New in Chef Client 14.0.**
 
 Syntax
 =====================================================
@@ -36,7 +36,7 @@ where:
 Actions
 =====================================================
 ``:register``
-   Default. Register the node with RHSM. 
+   Default. Register the node with RHSM.
 
 ``:unregister``
    Unregister the node from RHSM.
@@ -54,7 +54,7 @@ Properties
    **Ruby Types:** String, Array
 
    A string or array of  activation keys to use when registering; you must also specify the ``organization`` property when using this.
-   
+
 ``auto_attach``
    **Ruby Type:** True, False | **Default Value:** ``false``
 
@@ -68,12 +68,12 @@ Properties
 ``force``
    **Ruby Type:** True, False | **Default Value:** ``false``
 
-   If true, the system will be registered even if it is already registered. Normally, any register operations will fail if the machine has already been registered. 
+   If true, the system will be registered even if it is already registered. Normally, any register operations will fail if the machine has already been registered.
 
 ``install_katello_agent``
    **Ruby Type:** True, False | **Default Value:** ``true``
 
-   If true, the ``katello-agent`` RPM will be installed. 
+   If true, the ``katello-agent`` RPM will be installed.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -172,7 +172,3 @@ Properties
       subscribes :action, 'resource[name]', :timer
 
    .. end_tag
-
-
-   
-

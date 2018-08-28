@@ -1,23 +1,21 @@
 =====================================================
-cron
+cron_d
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_cron.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_cron_d.rst>`__
 
-.. tag resource_cron_summary
+Use the **cron_d** resource to manage cron job files in the /etc/cron.d directory.
 
-Use the **cron** resource to manage cron entries for time-based job scheduling.
+.. warning:: Chef also ships the **cron** resource for managing the monolithic ``/etc/crontab`` file on platforms that lack cron.d support. See the `cron resource </resource_cron.html>`__ for information on using that resource.
 
-.. warning:: The **cron** resource should only be used to modify an entry in a crontab file. The ``cron_d`` resource directly manages cron.d files. This resource ships in Chef 14.4 or later and can also be found in the `cron <https://github.com/chef-cookbooks/cron>`__ cookbook) for previous chef-client releases.
-
-.. end_tag
+**New in Chef Client 14.4.**
 
 Syntax
 =====================================================
-A **cron** resource block manages cron entries. For example, to get a weekly cookbook report from the Chef Supermarket:
+A **cron_d** resource block manages cron.d files. For example, to get a weekly cookbook report from the Chef Supermarket:
 
 .. code-block:: ruby
 
-   cron 'cookbooks_report' do
+   cron_d 'cookbooks_report' do
      action :create
      minute '0'
      hour '0'
@@ -33,46 +31,52 @@ A **cron** resource block manages cron entries. For example, to get a weekly coo
      }.join(' ')
    end
 
-The full syntax for all of the properties that are available to the **cron** resource is:
+The full syntax for all of the properties that are available to the **cron_d** resource is:
 
 .. code-block:: ruby
 
-   cron 'name' do
+   cron_d 'name' do
      command                    String
-     day                        String
-     environment                Hash
+     comment                    String
+     day                        String, Integer # default: '*'
+     environment                Hash # default: {}
      home                       String
-     hour                       String
+     hour                       String, Integer # default: '*'
      mailto                     String
-     minute                     String
-     month                      String
+     minute                     String, Integer # default: '*'
+     mode                       String, Integer # default: '0600'
+     month                      String, Integer # default: '*'
      notifies                   # see description
      path                       String
+     predefined_value           String
+     random_delay               Integer
      shell                      String
      subscribes                 # see description
-     time                       Symbol
      user                       String
-     weekday                    String, Symbol
+     weekday                    String, Integer # default: '*'
      action                     Symbol # defaults to :create if not specified
    end
 
 where
 
-* ``cron`` is the resource
+* ``cron_d`` is the resource
 * ``name`` is the name of the resource block
 * ``command`` is the command to be run
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``command``, ``day``, ``environment``, ``home``, ``hour``, ``mailto``, ``minute``, ``month``, ``path``, ``shell``, ``time``, ``user``, and ``weekday`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``command``, ``comment``, ``day``, ``environment``, ``home``, ``hour``, ``mailto``, ``minute``, ``mode``, ``month``, ``path``, ``predefined_value``, ``random_delay``, ``shell``, ``user``, and ``weekday`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
 This resource has the following actions:
 
 ``:create``
-   Default. Create an entry in a cron table file (crontab). If an entry already exists (but does not match), update that entry to match.
+   Default. "Add a cron definition file to /etc/cron.d, but do not update an existing file.
 
 ``:delete``
-   Delete an entry from a cron table file (crontab).
+   Remove a cron definition file from /etc/cron.d if it exists.
+
+``:create_if_missing``
+   Add a cron definition file to /etc/cron.d, but do not update an existing file.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -80,16 +84,6 @@ This resource has the following actions:
    Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
-
-.. note:: Chef can only reliably manage crontab entries that it creates. To remove existing system entries we may use **execute** resource with a guard like:
-
-  .. code-block:: ruby
-
-    execute "remove foo_daemon from crontab" do
-      command "sed -i '/foo_daemon/d' /etc/crontab"
-      only_if "grep 'foo_daemon' /etc/crontab 2>&1 >/dev/null"
-    end
-
 
 Properties
 =====================================================
@@ -124,23 +118,28 @@ This resource has the following properties:
 
       command "/srv/app/scripts/daily_report"
 
+``comment``
+   **Ruby Type:** String,
+
+   A comment to place in the cron.d file.
+
 ``day``
-   **Ruby Type:** String | **Default Value:** ``*``
+   **Ruby Type:** String, Integer | **Default Value:** ``*``
 
    The day of month at which the cron entry should run (1 - 31).
 
 ``environment``
    **Ruby Type:** Hash
 
-   A Hash of environment variables in the form of ``({"ENV_VARIABLE" => "VALUE"})``. (These variables must exist for a command to be run successfully.)
+   A Hash containing additional arbitrary environment variables under which the cron job will be run in the form of ``({"ENV_VARIABLE" => "VALUE"})``. (These variables must exist for a command to be run successfully.)
 
 ``home``
    **Ruby Type:** String
 
-   Set the ``HOME`` environment variable.
+   Set the ``HOME`` environment variable in the cron.d file."
 
 ``hour``
-   **Ruby Type:** String | **Default Value:** ``*``
+   **Ruby Type:** String, Integer | **Default Value:** ``*``
 
    The hour at which the cron entry is to run (0 - 23).
 
@@ -152,15 +151,20 @@ This resource has the following properties:
 ``mailto``
    **Ruby Type:** String
 
-   Set the ``MAILTO`` environment variable.
+   Set the ``MAILTO`` environment variable in the cron.d file.
 
 ``minute``
-   **Ruby Type:** String | **Default Value:** ``*``
+   **Ruby Type:** String, Integer | **Default Value:** ``*``
 
    The minute at which the cron entry should run (0 - 59).
 
+``mode``
+  **Ruby Type:** String, Integer | **Default Value:** ``0600``
+
+
+
 ``month``
-   **Ruby Type:** String | **Default Value:** ``*``
+   **Ruby Type:** String, Integer | **Default Value:** ``*``
 
    The month in the year on which a cron entry is to run (1 - 12).
 
@@ -201,7 +205,12 @@ This resource has the following properties:
 ``path``
    **Ruby Type:** String
 
-   Set the ``PATH`` environment variable.
+   Set the ``PATH`` environment variable in the cron.d file.
+
+``random_delay``
+   **Ruby Type:** Integer
+
+   Set the ``RANDOM_DELAY`` environment variable in the cron.d file.
 
 ``retries``
    **Ruby Type:** Integer | **Default Value:** ``0``
@@ -216,7 +225,7 @@ This resource has the following properties:
 ``shell``
    **Ruby Type:** String
 
-   Set the ``SHELL`` environment variable.
+   Set the ``SHELL`` environment variable in the cron.d file.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -267,69 +276,54 @@ This resource has the following properties:
 
    .. end_tag
 
-``time``
-   **Ruby Type:** Symbol
-
-   A time interval. Possible values: ``:annually``, ``:daily``, ``:hourly``, ``:midnight``, ``:monthly``, ``:reboot``, ``:weekly``, or ``:yearly``.
-
 ``user``
    **Ruby Type:** String | **Default Value:** ``root``
 
-   This attribute is not applicable on the AIX platform. The name of the user that runs the command. If the ``user`` property is changed, the original ``user`` for the crontab program continues to run until that crontab program is deleted.
+   The name of the user that runs the command.
 
 ``weekday``
-   **Ruby Type:** String | **Default Value:** ``*``
+   **Ruby Type:** String, Integer | **Default Value:** ``*``
 
-   The day of the week on which this entry is to run (0 - 6), where Sunday = 0.
+   The day of the week on which this entry is to run (``0-7``, ``mon-sun``, or ``*``), where Sunday is both 0 and 7.
 
 Examples
 =====================================================
-The following examples demonstrate various approaches for using resources in recipes:
+The following examples demonstrate various approaches for using resources in recipes
 
 **Run a program at a specified interval**
-
-.. tag resource_cron_run_program_on_fifth_hour
 
 .. To run a program on the fifth hour of the day:
 
 .. code-block:: ruby
 
-   cron 'noop' do
+   cron_d 'noop' do
      hour '5'
      minute '0'
      command '/bin/true'
    end
 
-.. end_tag
-
 **Run an entry if a folder exists**
-
-.. tag resource_cron_run_entry_when_folder_exists
 
 .. To run an entry if a folder exists:
 
 .. code-block:: ruby
 
-   cron 'ganglia_tomcat_thread_max' do
+   cron_d 'ganglia_tomcat_thread_max' do
      command "/usr/bin/gmetric
        -n 'tomcat threads max'
        -t uint32
        -v '/usr/local/bin/tomcat-stat
        --thread-max'"
-     only_if do File.exist?('/home/jboss') end
+     only_if { ::File.exist?('/home/jboss') }
    end
 
-.. end_tag
-
 **Run every Saturday, 8:00 AM**
-
-.. tag resource_cron_run_every_saturday
 
 The following example shows a schedule that will run every hour at 8:00 each Saturday morning, and will then send an email to "admin@example.com" after each run.
 
 .. code-block:: ruby
 
-   cron 'name_of_cron_entry' do
+   cron_d 'name_of_cron_entry' do
      minute '0'
      hour '8'
      weekday '6'
@@ -337,17 +331,13 @@ The following example shows a schedule that will run every hour at 8:00 each Sat
      action :create
    end
 
-.. end_tag
-
 **Run only in November**
-
-.. tag resource_cron_run_only_in_november
 
 The following example shows a schedule that will run at 8:00 PM, every weekday (Monday through Friday), but only in November:
 
 .. code-block:: ruby
 
-   cron 'name_of_cron_entry' do
+   cron_d 'name_of_cron_entry' do
      minute '0'
      hour '20'
      day '*'
@@ -355,5 +345,3 @@ The following example shows a schedule that will run at 8:00 PM, every weekday (
      weekday '1-5'
      action :create
    end
-
-.. end_tag

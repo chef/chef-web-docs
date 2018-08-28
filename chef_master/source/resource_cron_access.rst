@@ -1,44 +1,42 @@
 =====================================================
-openssl_rsa_private_key
+cron_access
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_openssl_rsa_private_key>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_cron_access.rst>`__
 
-Use the **openssl_rsa_private_key** resource to generate RSA private key files. If a valid RSA key file can be opened at the specified location, no new file will be created. If the RSA key file cannot be opened or does not exist, it will be overwritten.
+Use the **cron_access** resource to manage the /etc/cron.allow and /etc/cron.deny files. Note: This resource previously shipped in the ``cron`` cookbook as ``cron_manage``, which it can still be used as for backwards compatibility with existing chef-client releases.
 
-.. note:: If the password to your RSA key file does not match the password in the recipe, it cannot be opened, and will be overwritten.
-
-**New in Chef Client 14.0.**
+**New in Chef Client 14.4.**
 
 Syntax
 =====================================================
+
 This resource has the following syntax:
 
 .. code-block:: ruby
 
-   openssl_rsa_private_key_file 'name' do
-     force                      True, False # default value: 'false'
-     group                      String
-     key_cipher                 String # default value: 'des3'
-     key_length                 Integer # default value: '2048'
-     key_pass                   String
-     mode                       Integer, String # default value: '0640'
+   cron_access 'name' do
+     user                       String
      notifies                   # see description
-     owner                      String
-     path                       String # default value: 'name'
      subscribes                 # see description
      action                     Symbol # defaults to :create if not specified
    end
 
-where:
+where
 
-* ``openssl_rsa_private_key_file`` is the name of the resource
-* ``'name'`` is the path to the private key file that is to be created, or the name of the resource block
-* ``force``, ``group``, ``key_cipher``, ``key_length``, ``key_pass``, ``mode``, ``notifies``, ``owner``, ``path``, and ``subscribes`` are the properties available to this resource
+* ``cron_access`` is the resource
+* ``name`` is the name of the resource block
+* ``user`` is the command to user to add to /etc/cron.allow or /etc/cron.deny. If not provided the resource uses the ``name``.
+* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
 
 Actions
 =====================================================
-``:create``
-   Default. Create the RSA private key file.
+This resource has the following actions:
+
+``:allow``
+   Default. Add the user to the cron.allow file.
+
+``:deny``
+   Add the user to the cron.deny file.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -49,35 +47,17 @@ Actions
 
 Properties
 =====================================================
-``force``
-   **Ruby Type:** True, False | **Default Value:** ``false``
+This resource has the following properties:
 
-   Force creation of the key even if the same key already exists on the node.
-
-``group``
-   **Ruby Types:** String
-
-   The system group of all files created by the resource.
-
-``key_cipher``
-   **Ruby Type:** String | **Default Value:** ``des3``
-
-   The designed cipher to use when generating your key; run ``openssl list-cipher-algorithms`` to see available options.
-
-``key_length``
-   **Ruby Type:** Integer | **Default Value:** ``2048``
-
-   The desired bit length of the generated key; available options are ``1024``, ``2048``, ``4096``, and ``8192``.
-
-``key_pass``
+``user``
    **Ruby Type:** String
 
-   The desired passphrase for the key.
+   The user to allow or deny. If not provided we'll use the resource name.
 
-``mode``
-  **Ruby Type:** Integer, String | **Default Value:** ``0640``
+``ignore_failure``
+   **Ruby Types:** True, False
 
-  The permission mode of all files created by the resource.
+   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -113,15 +93,15 @@ Properties
 
    .. end_tag
 
-``owner``
-   **Ruby Types:** String
+``retries``
+   **Ruby Type:** Integer
 
-   The system user that owns all files created by the resource.
+   The number of times to catch exceptions and retry the resource. Default value: ``0``.
 
-``path``
-   **Ruby Type:** String
+``retry_delay``
+   **Ruby Type:** Integer
 
-   The path where the private key file will be created, if it differs from the resource name.
+   The retry delay (in seconds). Default value: ``2``.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -171,3 +151,30 @@ Properties
       subscribes :action, 'resource[name]', :timer
 
    .. end_tag
+
+Examples
+=====================================================
+The following examples demonstrate various approaches for using resources in recipes:
+
+**Add the mike user to cron.allow**
+
+.. code-block:: ruby
+
+  cron_access 'mike'
+
+**Add the mike user to cron.deny**
+
+.. code-block:: ruby
+
+  cron_access 'mike' do
+    action :deny
+  end
+
+**Specify the username with the user property**
+
+.. code-block:: ruby
+
+  cron_access 'Deny the tomcat access to cron for security purposes' do
+    user 'jenkins'
+    action :deny
+  end

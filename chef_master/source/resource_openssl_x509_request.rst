@@ -1,13 +1,11 @@
 =====================================================
-openssl_rsa_private_key
+openssl_x509_request
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_openssl_rsa_private_key>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_openssl_x509_request.rst>`__
 
-Use the **openssl_rsa_private_key** resource to generate RSA private key files. If a valid RSA key file can be opened at the specified location, no new file will be created. If the RSA key file cannot be opened or does not exist, it will be overwritten.
+Use the **openssl_x509_request** resource to generate PEM-formatted x509 certificates requests. If no existing key is specified, the resource will automatically generate a passwordless key with the certificate.
 
-.. note:: If the password to your RSA key file does not match the password in the recipe, it cannot be opened, and will be overwritten.
-
-**New in Chef Client 14.0.**
+**New in Chef Client 14.4.**
 
 Syntax
 =====================================================
@@ -15,30 +13,34 @@ This resource has the following syntax:
 
 .. code-block:: ruby
 
-   openssl_rsa_private_key_file 'name' do
-     force                      True, False # default value: 'false'
+   openssl_x509_request 'name' do
+     city                       String
+     email                      String
+     common_name                String
+     country                    String
      group                      String
-     key_cipher                 String # default value: 'des3'
+     key_curve                  String # default value: 'prime256v1'
+     key_file                   String
      key_length                 Integer # default value: '2048'
-     key_pass                   String
+     key_type                   String # default value: 'ec'
      mode                       Integer, String # default value: '0640'
      notifies                   # see description
      owner                      String
      path                       String # default value: 'name'
+     state                      String
      subscribes                 # see description
      action                     Symbol # defaults to :create if not specified
-   end
 
 where:
 
-* ``openssl_rsa_private_key_file`` is the name of the resource
-* ``'name'`` is the path to the private key file that is to be created, or the name of the resource block
-* ``force``, ``group``, ``key_cipher``, ``key_length``, ``key_pass``, ``mode``, ``notifies``, ``owner``, ``path``, and ``subscribes`` are the properties available to this resource
+* ``openssl_x509_request`` is the name of the resource
+* ``'name'`` is the path where the certificate file will be written, or the name of the resource block
+* ``city``, ``email``, ``common_name``, ``country``, ``group``, ``key_curve``, ``key_file``, ``key_length``, ``key_type``, ``mode``, ``notifies``, ``owner``, ``path``, ``state``, and ``subscribes`` are the properties available to this resource
 
 Actions
 =====================================================
 ``:create``
-   Default. Create the RSA private key file.
+   Default. Create the certificate request file.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -49,35 +51,60 @@ Actions
 
 Properties
 =====================================================
-``force``
-   **Ruby Type:** True, False | **Default Value:** ``false``
+``city``
+   **Ruby Type:** String
 
-   Force creation of the key even if the same key already exists on the node.
+   Value for the ``L`` certificate field.
+
+``email``
+   **Ruby Type:** String
+
+   Value for the ``email`` ssl field.
+
+``common_name``
+   **Ruby Type:** String
+
+   Value for the ``CN`` certificate field.
+
+``country``
+   **Ruby Type:** String
+
+   Value for the ``C`` certificate field.
 
 ``group``
    **Ruby Types:** String
 
    The system group of all files created by the resource.
 
-``key_cipher``
-   **Ruby Type:** String | **Default Value:** ``des3``
+``key_curve``
+   **Ruby Types:** String | **Default Value:** ``prime256v1``
 
-   The designed cipher to use when generating your key; run ``openssl list-cipher-algorithms`` to see available options.
+   The desired curve of the generated key (if key_type is equal to 'ec'). Run ``openssl ecparam -list_curves`` to see available options.
+
+``key_file``
+   **Ruby Types:** String
+
+   The path to a certificate key file on the filesystem. If the key_file property is specified, the resource will attempt to source a key from this location. If no key file is found, the resource will generate a new key file at this location. If the key_file property is not specified, the resource will generate a key file in the same directory as the generated certificate, with the same name as the generated certificate.
 
 ``key_length``
    **Ruby Type:** Integer | **Default Value:** ``2048``
 
-   The desired bit length of the generated key; available options are ``1024``, ``2048``, ``4096``, and ``8192``.
+   The desired bit length of the generated key (if key_type is equal to 'rsa'). Available options are ``1024``, ``2048``, ``4096``, and ``8192``.
 
 ``key_pass``
-   **Ruby Type:** String
+   **Ruby Types:** String
 
-   The desired passphrase for the key.
+   The passphrase for an existing key's passphrase
+
+``key_type``
+   **Ruby Types:** String | **Default Value:** ``ec``
+
+   The desired type of the generated key (rsa or ec).
 
 ``mode``
-  **Ruby Type:** Integer, String | **Default Value:** ``0640``
+   **Ruby Types:** Integer, String | **Default Value:** ``0640``
 
-  The permission mode of all files created by the resource.
+   The permission mode applied to all files created by the resource.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -116,12 +143,17 @@ Properties
 ``owner``
    **Ruby Types:** String
 
-   The system user that owns all files created by the resource.
+   The owner of all files created by the resource.
 
 ``path``
    **Ruby Type:** String
 
-   The path where the private key file will be created, if it differs from the resource name.
+   The path to write the file to, if it differs from the resource name.
+
+``state``
+   **Ruby Types:** String
+
+   Value for the ``ST`` certificate field.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -171,3 +203,16 @@ Properties
       subscribes :action, 'resource[name]', :timer
 
    .. end_tag
+
+Examples
+=====================================================
+**Create a certificate request file**
+
+.. code-block:: ruby
+
+  openssl_x509_request '/etc/ssl_test/my_ec_request.csr' do
+    common_name 'myecrequest.example.com'
+    org 'Test Kitchen Example'
+    org_unit 'Kitchens'
+    country 'UK'
+  end

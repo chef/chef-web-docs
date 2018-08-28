@@ -5,7 +5,7 @@ ohai_hint
 
 Use the **ohai_hint** resource to aid in configuration detection by passing hint data to Ohai.
 
-New in Chef Client 14.0. 
+**New in Chef Client 14.0.**
 
 Syntax
 =====================================================
@@ -33,7 +33,7 @@ Actions
    Default. Create an Ohai hint file.
 
 ``:delete``
-   Delete an Ohai hint file. 
+   Delete an Ohai hint file.
 
 ``:nothing``
    Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, the resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
@@ -43,17 +43,17 @@ Properties
 ``compile_time``
    **Ruby Type:** True, False | **Default Value:** ``true``
 
-   Determines whether or not the resource is executed during the compile time phase. 
+   Determines whether or not the resource is executed during the compile time phase.
 
 ``content``
    **Ruby Type:** Hash
 
-   Values to include in the hint file. 
+   Values to include in the hint file.
 
 ``hint_name``
    **Ruby Type:** String
 
-   The name of the hints file, if it differs from the resource name. 
+   The name of the hints file, if it differs from the resource name.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -155,7 +155,7 @@ Examples
 
    ohai_hint 'example' do
      hint_name 'custom'
-   end 
+   end
 
 **Create a hint file that is not loaded at compile time**
 
@@ -172,6 +172,3 @@ Examples
    ohai-hint 'example' do
      action :delete
    end
-
-
-

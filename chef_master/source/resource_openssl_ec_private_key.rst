@@ -1,13 +1,13 @@
 =====================================================
-openssl_rsa_private_key
+openssl_ec_private_key
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_openssl_rsa_private_key>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_openssl_ec_private_key>`__
 
-Use the **openssl_rsa_private_key** resource to generate RSA private key files. If a valid RSA key file can be opened at the specified location, no new file will be created. If the RSA key file cannot be opened or does not exist, it will be overwritten.
+Use the **openssl_ec_private_key** resource to generate elliptic curve (EC) private key files. If a valid EC key file can be opened at the specified location, no new file will be created. If the EC key file cannot be opened or does not exist, it will be overwritten.
 
-.. note:: If the password to your RSA key file does not match the password in the recipe, it cannot be opened, and will be overwritten.
+.. note:: If the password to your EC key file does not match the password in the recipe, it cannot be opened, and will be overwritten.
 
-**New in Chef Client 14.0.**
+**New in Chef Client 14.4.**
 
 Syntax
 =====================================================
@@ -15,11 +15,11 @@ This resource has the following syntax:
 
 .. code-block:: ruby
 
-   openssl_rsa_private_key_file 'name' do
+   openssl_ec_private_key_file 'name' do
      force                      True, False # default value: 'false'
      group                      String
      key_cipher                 String # default value: 'des3'
-     key_length                 Integer # default value: '2048'
+     key_curve                  String # default value: 'prime256v1'
      key_pass                   String
      mode                       Integer, String # default value: '0640'
      notifies                   # see description
@@ -31,14 +31,14 @@ This resource has the following syntax:
 
 where:
 
-* ``openssl_rsa_private_key_file`` is the name of the resource
+* ``openssl_ec_private_key_file`` is the name of the resource
 * ``'name'`` is the path to the private key file that is to be created, or the name of the resource block
-* ``force``, ``group``, ``key_cipher``, ``key_length``, ``key_pass``, ``mode``, ``notifies``, ``owner``, ``path``, and ``subscribes`` are the properties available to this resource
+* ``force``, ``group``, ``key_cipher``, ``key_curve``, ``key_pass``, ``mode``, ``notifies``, ``owner``, ``path``, and ``subscribes`` are the properties available to this resource
 
 Actions
 =====================================================
 ``:create``
-   Default. Create the RSA private key file.
+   Default. Create the EC private key file.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -64,10 +64,10 @@ Properties
 
    The designed cipher to use when generating your key; run ``openssl list-cipher-algorithms`` to see available options.
 
-``key_length``
-   **Ruby Type:** Integer | **Default Value:** ``2048``
+``key_curve``
+   **Ruby Type:** String | **Default Value:** ``prime256v1``
 
-   The desired bit length of the generated key; available options are ``1024``, ``2048``, ``4096``, and ``8192``.
+   The desired curve of the generated key; run ``openssl ecparam -list_curves`` to see available options
 
 ``key_pass``
    **Ruby Type:** String

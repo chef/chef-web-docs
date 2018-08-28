@@ -5,7 +5,7 @@ rhsm_repo
 
 Use the **rhsm_repo** resource to enable or disable Red Hat Subscription Manager repositories that are made available via attached subscriptions.
 
-New in Chef Client 14.0.
+**New in Chef Client 14.0.**
 
 Syntax
 =====================================================
@@ -29,7 +29,7 @@ where:
 Actions
 =====================================================
 ``:enable``
-   Default. Enable an RHSM repository. 
+   Default. Enable an RHSM repository.
 
 ``:disable``
    Disable an RHSM repository.
@@ -129,7 +129,7 @@ Properties
 
       subscribes :action, 'resource[name]', :timer
 
-   .. end_tag 
+   .. end_tag
 
 Examples
 =====================================================
@@ -146,5 +146,3 @@ Examples
    rhsm_repo 'rhel-7-server-extras-rpms' do
      action :disable
    end
-
-

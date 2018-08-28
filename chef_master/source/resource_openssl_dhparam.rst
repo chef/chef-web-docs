@@ -5,6 +5,8 @@ openssl_dhparam
 
 Use the **openssl_dhparam** resource to generate ``dhparam.pem`` files. If a valid ``dhparam.pem`` file is found at the specified location, no new file will be created. If a file is found at the specified location, but it is not a valid dhparam file, it will be overwritten.
 
+**New in Chef Client 14.0.**
+
 Syntax
 =====================================================
 This resource has the following syntax:
@@ -13,11 +15,11 @@ This resource has the following syntax:
 
    openssl_dhparam 'name' do
      generator                  Integer # default value: '2'
-     group                      String, nil
+     group                      String
      key_length                 Integer # default value: '2048'
      mode                       Integer, String # default value: '0640'
      notifies                   # see description
-     owner                      String, nil
+     owner                      String
      path                       String # default value: 'name'
      subscribes                 # see description
      action                     Symbol # defaults to :create if not specified
@@ -26,7 +28,7 @@ where:
 
 * ``openssl_dhparam`` is the name of the resource
 * ``'name'`` is the path where the dhparam file will be written, or the name of the resource block
-* ``generator``, ``group``, ``key_length``, ``mode``, ``notifies``, ``owner``, and ``path``, and ``subscribes`` are the properties available to this resource
+* ``generator``, ``group``, ``key_length``, ``mode``, ``notifies``, ``owner``, ``path``, and ``subscribes`` are the properties available to this resource
 
 Actions
 =====================================================
@@ -45,12 +47,12 @@ Properties
 ``generator``
    **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The desired Diffie-Hellmann generator; available options are ``2`` and ``5``. 
+   The desired Diffie-Hellmann generator; available options are ``2`` and ``5``.
 
 ``group``
-   **Ruby Types:** String, nil
+   **Ruby Types:** String
 
-   The system group of all files created by the resource. 
+   The system group of all files created by the resource.
 
 ``key_length``
    **Ruby Type:** Integer | **Default Value:** ``2048``
@@ -94,12 +96,12 @@ Properties
 
       notifies :action, 'resource[name]', :timer
 
-   .. end_tag 
+   .. end_tag
 
 ``owner``
-   **Ruby Types:** String, nil
+   **Ruby Types:** String
 
-   The owner of all files created by the resource. 
+   The owner of all files created by the resource.
 
 ``path``
    **Ruby Type:** String
@@ -173,8 +175,8 @@ Examples
 
 **Create a dhparam file with specific user/group ownership**
 
-.. code-block:: ruby 
-   
+.. code-block:: ruby
+
    openssl_dhparam '/etc/httpd/ssl/dhparam.pem' do
      owner 'www-data'
      group 'www-data'

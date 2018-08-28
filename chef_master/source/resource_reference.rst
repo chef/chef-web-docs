@@ -1116,6 +1116,8 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_breakpoint.rst
 
+.. include:: resource_build_essential.rst
+
 .. include:: resource_cab_package.rst
 
 .. include:: resource_chef_gem.rst
@@ -1129,6 +1131,10 @@ The following resources are built into the Chef Client:
 .. include:: resource_cookbook_file.rst
 
 .. include:: resource_cron.rst
+
+.. include:: resource_cron_d.rst
+
+.. include:: resource_cron_access.rst
 
 .. include:: resource_csh.rst
 
@@ -1196,9 +1202,19 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_openssl_dhparam.rst
 
+.. include:: resource_openssl_ec_public_key.rst
+
+.. include:: resource_openssl_ec_private_key.rst
+
 .. include:: resource_openssl_rsa_public_key.rst
 
 .. include:: resource_openssl_rsa_private_key.rst
+
+.. include:: resource_openssl_x509_certificate.rst
+
+.. include:: resource_openssl_x509_crl.rst
+
+.. include:: resource_openssl_x509_request.rst
 
 .. include:: resource_osx_profile.rst
 

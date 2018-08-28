@@ -567,9 +567,9 @@ Examples
 -----------------------------------------------------
 None.
 
-chef generate lwrp
+chef generate resource
 =====================================================
-Use the ``chef generate lwrp`` subcommand to generate a lightweight resource and provider in the ``/resources`` and ``/providers`` directory.
+Use the ``chef generate resource`` subcommand to generate a custom resource in the ``/resources`` directory.
 
 .. note:: .. tag ruby_style_patterns_hyphens
 
@@ -583,7 +583,7 @@ This subcommand has the following syntax:
 
 .. code-block:: bash
 
-   $ chef generate lwrp COOKBOOK_PATH NAME (options)
+   $ chef generate resource COOKBOOK_PATH NAME (options)
 
 Options
 -----------------------------------------------------

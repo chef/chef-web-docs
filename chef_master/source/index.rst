@@ -163,6 +163,8 @@ Cookbook Reference
 `chocolatey_package </resource_chocolatey_package.html>`__
 `cookbook_file </resource_cookbook_file.html>`__ |
 `cron </resource_cron.html>`__ |
+`cron_d </resource_cron_d.html>`__ |
+`cron_access </resource_cron_access.html>`__ |
 `csh </resource_csh.html>`__ |
 `deploy </resource_deploy.html>`__ |
 `directory </resource_directory.html>`__ |
@@ -197,8 +199,13 @@ Cookbook Reference
 `ohai_hint </resource_ohai_hint.html>`__ |
 `openbsd_package </resource_openbsd_package.html>`__ |
 `openssl_dhparam </resource_openssl_dhparam.html>`__ |
+`openssl_ec_private_key </resource_openssl_ec_private_key.html>`__ |
+`openssl_ec_public_key </resource_openssl_ec_public_key.html>`__ |
 `openssl_rsa_private_key </resource_openssl_rsa_private_key.html>`__ |
 `openssl_rsa_public_key </resource_openssl_rsa_public_key.html>`__ |
+`openssl_x509_certificate </resource_openssl_x509_certificate.html>`__ |
+`openssl_x509_crl </resource_openssl_x509_crl.html>`__ |
+`openssl_x509_request </resource_openssl_x509_request.html>`__ |
 `osx_profile </resource_osx_profile.html>`__ |
 `package </resource_package.html>`__ |
 `pacman_package </resource_pacman_package.html>`__ |
@@ -270,7 +277,7 @@ Chef DK
 `chef-apply (executable) </ctl_chef_apply.html>`__ |
 `chef-shell (executable) </chef_shell.html>`__
 
-**chef (executable)**: `chef env </ctl_chef.html#chef-env>`__ | `chef exec </ctl_chef.html#chef-exec>`__ | `chef gem </ctl_chef.html#chef-gem>`__ | `chef generate app </ctl_chef.html#chef-generate-app>`__ | `chef generate attribute </ctl_chef.html#chef-generate-attribute>`__ | `chef generate cookbook </ctl_chef.html#chef-generate-cookbook>`__ | `chef generate build-cookbook </ctl_chef.html#chef-generate-build-cookbook>`__ | `chef generate file </ctl_chef.html#chef-generate-file>`__ | `chef generate lwrp </ctl_chef.html#chef-generate-lwrp>`__ | `chef generate recipe </ctl_chef.html#chef-generate-recipe>`__ | `chef generate repo </ctl_chef.html#chef-generate-repo>`__ | `chef generate template </ctl_chef.html#chef-generate-template>`__ | `chef provision </ctl_chef.html#chef-provision>`__ | `chef shell-init </ctl_chef.html#chef-shell-init>`__ | `chef verify </ctl_chef.html#chef-verify>`__
+**chef (executable)**: `chef env </ctl_chef.html#chef-env>`__ | `chef exec </ctl_chef.html#chef-exec>`__ | `chef gem </ctl_chef.html#chef-gem>`__ | `chef generate app </ctl_chef.html#chef-generate-app>`__ | `chef generate attribute </ctl_chef.html#chef-generate-attribute>`__ | `chef generate cookbook </ctl_chef.html#chef-generate-cookbook>`__ | `chef generate build-cookbook </ctl_chef.html#chef-generate-build-cookbook>`__ | `chef generate file </ctl_chef.html#chef-generate-file>`__ | `chef generate resource </ctl_chef.html#chef-generate-resource>`__ | `chef generate recipe </ctl_chef.html#chef-generate-recipe>`__ | `chef generate repo </ctl_chef.html#chef-generate-repo>`__ | `chef generate template </ctl_chef.html#chef-generate-template>`__ | `chef provision </ctl_chef.html#chef-provision>`__ | `chef shell-init </ctl_chef.html#chef-shell-init>`__ | `chef verify </ctl_chef.html#chef-verify>`__
 
 **Chef Solo**: `About Chef Solo </chef_solo.html>`__ | `chef-solo (executable) </ctl_chef_solo.html>`__ | `solo.rb </config_rb_solo.html>`__
 
@@ -870,9 +877,14 @@ Addenda
    resource_ohai
    resource_ohai_hint
    resource_openbsd_package
+   resource_openssl_dhparam
+   resource_openssl_ec_private_key
+   resource_openssl_ec_public_key
    resource_openssl_rsa_private_key
    resource_openssl_rsa_public_key
-   resource_openssl_dhparam
+   resource_openssl_x509_certificate
+   resource_openssl_x509_crl
+   resource_openssl_x509_request
    resource_osx_profile
    resource_package
    resource_pacman_package
