@@ -1116,6 +1116,8 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_breakpoint.rst
 
+.. include:: resource_build_essential.rst
+
 .. include:: resource_cab_package.rst
 
 .. include:: resource_chef_gem.rst
