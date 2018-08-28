@@ -26,7 +26,7 @@ The full syntax for all of the properties that are available to the **apt_prefer
      notifies                   # see description
      package_name               String # defaults to 'name' if not specified
      pin                        String
-     pin_priority               String
+     pin_priority               String, Integer
      subscribes                 # see description
    end
 
@@ -84,17 +84,17 @@ This resource has the following properties:
    .. end_tag
 
 ``package_name``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
    The name of the package. Default value: ``name``. 
 
 ``pin``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
    The package version or repository to pin. 
 
 ``pin_priority``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    Sets the ``Pin-Priority`` for a package. See the `APT pinning documentation <https://wiki.debian.org/AptPreferences>`__ for more details. 
 
