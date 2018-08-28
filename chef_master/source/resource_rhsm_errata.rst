@@ -3,16 +3,16 @@ rhsm_errata
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_rhsm_errata.rst>`__
 
-Use the **rhsm_errata** resource to install packages associated with a given Red Hat Subscription Manager Errata ID. 
+Use the **rhsm_errata** resource to install packages associated with a given Red Hat Subscription Manager Errata ID.
 
-New in Chef Client 14.0.
+**New in Chef Client 14.0.**
 
 Syntax
 =====================================================
 This resource has the following syntax:
 
 .. code-block:: ruby
-   
+
    rhsm_errata 'name' do
      errata_id                  String # default value: 'name'
      notifies                   # see description
@@ -125,7 +125,7 @@ Properties
 
       subscribes :action, 'resource[name]', :timer
 
-   .. end_tag 
+   .. end_tag
 
 
 Examples
