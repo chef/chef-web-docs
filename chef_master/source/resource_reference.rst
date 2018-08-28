@@ -1132,6 +1132,10 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_cron.rst
 
+.. include:: resource_cron_d.rst
+
+.. include:: resource_cron_access.rst
+
 .. include:: resource_csh.rst
 
 .. include:: resource_directory.rst
