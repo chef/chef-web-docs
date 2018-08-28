@@ -163,6 +163,8 @@ Cookbook Reference
 `chocolatey_package </resource_chocolatey_package.html>`__
 `cookbook_file </resource_cookbook_file.html>`__ |
 `cron </resource_cron.html>`__ |
+`cron_d </resource_cron_d.html>`__ |
+`cron_access </resource_cron_access.html>`__ |
 `csh </resource_csh.html>`__ |
 `deploy </resource_deploy.html>`__ |
 `directory </resource_directory.html>`__ |
