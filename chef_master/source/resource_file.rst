@@ -288,16 +288,6 @@ This resource has the following properties:
 
    In this example, the ``%{path}`` portion of this command is expanded to the temporary location where a copy of the file to be created exists. This will use Nginx's syntax checking feature to ensure the file is a valid Nginx configuration file before writing the file. An error will be raised if the executed command returns a non-zero exit status code.
 
-   .. warning:: For releases of the Chef Client prior to 12.5 (Chef Client 12.4 and earlier), the correct syntax is:
-
-      .. code-block:: ruby
-
-         file '/etc/nginx.conf' do
-           verify 'nginx -t -c %{file}'
-         end
-
-      See GitHub issues https://github.com/chef/chef/issues/3232 and https://github.com/chef/chef/pull/3693 for more information about these differences.
-
    This should return ``true``:
 
    .. code-block:: ruby
@@ -321,8 +311,6 @@ This resource has the following properties:
       end
 
    If a string or a block return ``false``, the chef-client run will stop and an error is raised.
-
-   Originally proposed in `RFC 27 <https://github.com/chef/chef-rfc/blob/master/rfc027-file-content-verification.md>`_.
 
 Atomic File Updates
 -----------------------------------------------------
