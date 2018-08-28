@@ -1156,6 +1156,8 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_git.rst
 
+.. include:: resource_group.rst
+
 .. include:: resource_homebrew_cask.rst
 
 .. include:: resource_homebrew_package.rst
