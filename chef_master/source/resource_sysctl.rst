@@ -3,9 +3,9 @@ sysctl
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_sysctl.rst>`__
 
-Use the **sysctl** resource to set or remove kernel parameters using the ``sysctl`` command line tool and configuration files in the system's ``sysctl.d`` directory. Configuration files managed by this resource are named ``99-chef-KEYNAME.conf``. If an existing value was already set, it will be backed up to the node and restored if the ``:remove`` action is used later. 
+Use the **sysctl** resource to set or remove kernel parameters using the ``sysctl`` command line tool and configuration files in the system's ``sysctl.d`` directory. Configuration files managed by this resource are named ``99-chef-KEYNAME.conf``. If an existing value was already set, it will be backed up to the node and restored if the ``:remove`` action is used later.
 
-New in Chef Client 14.0.
+**New in Chef Client 14.0.**
 
 Syntax
 =====================================================
@@ -20,7 +20,7 @@ This resource has the following syntax:
      notifies                   # see description
      subscribes                 # see description
      value                      Array, String, Integer, Float # required
-     action                     Symbol # defaults to :apply if not specified      
+     action                     Symbol # defaults to :apply if not specified
   end
 
 where:
@@ -35,7 +35,7 @@ Actions
    Default. Set the kernel parameter and update the ``sysctl`` settings.
 
 ``:remove``
-   Remove the kernel parameter and update the ``sysctl`` settings. 
+   Remove the kernel parameter and update the ``sysctl`` settings.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -49,17 +49,17 @@ Properties
 ``conf_dir``
    **Ruby Type:** String | **Default Value:** ``/etc/sysctl.d``
 
-   The configuration directory to write the config to. 
+   The configuration directory to write the config to.
 
-``ignore_error`` 
+``ignore_error``
    **Ruby Type:** True, False | **Default Value:** ``false``
 
-   Ignore any errors when setting the value on the command line. 
+   Ignore any errors when setting the value on the command line.
 
 ``key``
    **Ruby Type:** String | **Default Value:** ``'name'``
 
-   The kernel paramater key in dotted format, if it differs from the resource block name. 
+   The kernel paramater key in dotted format, if it differs from the resource block name.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -148,4 +148,3 @@ Properties
    **Ruby Types:** Array, String, Integer, Float
 
    Required. The value to set.
-

@@ -5,9 +5,9 @@ rhsm_errata_level
 
 Use the **rhsm_errata** resource to install all packages of a specified errata level from the Red Hat Subscription Manager. For example, you can ensure that all packages associated with errata marked at a "Critical" security level are installed.
 
-The available errata levels are: ``critical``, ``moderate``, ``important``, and ``low``. 
+The available errata levels are: ``critical``, ``moderate``, ``important``, and ``low``.
 
-New in Chef Client 14.0.
+**New in Chef Client 14.0.**
 
 Syntax
 =====================================================
@@ -45,7 +45,7 @@ Properties
 ``errata_level``
    **Ruby Type:** String
 
-   The errata level of packages to install, if it differs from the resource name. 
+   The errata level of packages to install, if it differs from the resource name.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -128,7 +128,7 @@ Properties
 
       subscribes :action, 'resource[name]', :timer
 
-   .. end_tag 
+   .. end_tag
 
 Examples
 =====================================================
@@ -141,8 +141,7 @@ Examples
 **Specify an errata level that differs from the resource name**
 
 .. code-block:: ruby
-   
+
    rhsm_errata_level 'example_install_moderate' do
      errata_level 'moderate'
    end
-

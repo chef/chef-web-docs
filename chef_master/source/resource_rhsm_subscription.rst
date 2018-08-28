@@ -5,7 +5,7 @@ rhsm_subscription
 
 Use the **rhsm_subscription** to add and remove Redhat Subscription Manager subscriptions to your host. This can be used when a host's ``activation_key`` does not attach all necessary subscriptions to your host.
 
-New in Chef Client 14.0.
+**New in Chef Client 14.0.**
 
 Syntax
 =====================================================
@@ -29,10 +29,10 @@ where:
 Actions
 =====================================================
 ``:attach``
-   Default. Attach the node to a subscription pool. 
+   Default. Attach the node to a subscription pool.
 
 ``:remove``
-   Remove the node from a subscription pool. 
+   Remove the node from a subscription pool.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -96,4 +96,4 @@ Properties
 
       subscribes :action, 'resource[name]', :timer
 
-   .. end_tag 
+   .. end_tag

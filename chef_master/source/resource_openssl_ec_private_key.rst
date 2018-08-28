@@ -7,7 +7,7 @@ Use the **openssl_ec_private_key** resource to generate elliptic curve (EC) priv
 
 .. note:: If the password to your EC key file does not match the password in the recipe, it cannot be opened, and will be overwritten.
 
-New in Chef Client 14.4.
+**New in Chef Client 14.4.**
 
 Syntax
 =====================================================

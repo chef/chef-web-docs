@@ -5,7 +5,7 @@ swap_file
 
 Use the **swap_file** resource to create or delete swap files on Linux systems, and optionally to manage the swappiness configuration for a host.
 
-New in Chef Client 14.0.
+**New in Chef Client 14.0.**
 
 Syntax
 =====================================================
@@ -21,7 +21,7 @@ This resource has the following syntax:
      subscribes                 # see description
      swappiness                 Integer
      timeout                    Integer # default value: 600
-     action                     Symbol # defaults to :create if not specified             
+     action                     Symbol # defaults to :create if not specified
   end
 
 where:
@@ -33,10 +33,10 @@ where:
 Actions
 =====================================================
 ``:create``
-   Default. Create a swap file. 
+   Default. Create a swap file.
 
 ``:remove``
-   Remove a swap file and disable swap. 
+   Remove a swap file and disable swap.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -84,7 +84,7 @@ Properties
 ``path``
    **Ruby Type:** String | **Default Value:** ``'name'``
 
-   The path where the swap file will be created on the system, if it differs from the resource block name. 
+   The path where the swap file will be created on the system, if it differs from the resource block name.
 
 ``persist``
    **Ruby Type:** True, False | **Default Value:** ``false``
@@ -94,7 +94,7 @@ Properties
 ``size``
    **Ruby Type:** Integer
 
-   The size (in MBs) of the swap file. 
+   The size (in MBs) of the swap file.
 
 ``swappiness``
    **Ruby Type:** Integer
@@ -104,7 +104,7 @@ Properties
 ``timeout``
    **Ruby Type:** Integer | **Default Value:** ``600``
 
-   Timeout for ``dd`` / ``fallocate`` commands. 
+   Timeout for ``dd`` / ``fallocate`` commands.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -160,7 +160,7 @@ Examples
 **Create a swap file**
 
 .. code-block:: ruby
-   
+
    swap_file '/dev/sda1' do
      size 1024
    end
@@ -172,4 +172,3 @@ Examples
    swap_file '/dev/sda1' do
      action :remove
    end
-

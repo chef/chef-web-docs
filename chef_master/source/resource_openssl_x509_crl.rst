@@ -5,7 +5,7 @@ openssl_x509_crl
 
 Use the **openssl_x509_crl** resource to generate PEM-formatted x509 certificate revocation list (CRL) files.
 
-New in Chef Client 14.4.
+**New in Chef Client 14.4.**
 
 Syntax
 =====================================================
