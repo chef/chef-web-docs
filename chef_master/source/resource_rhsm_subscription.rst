@@ -3,7 +3,7 @@ rhsm_subscription
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_rhsm_subscription.rst>`__
 
-Use the **rhsm_subscription** to add and remove Redhat Subscription Manager subscriptions to your host. This can be used when a host's ``activation_key`` does not attach all necessary subscriptions to your host.
+Use the **rhsm_subscription** to add and remove Red Hat Subscription Manager subscriptions to your host. This can be used when a host's ``activation_key`` does not attach all necessary subscriptions to your host.
 
 New in Chef Client 14.0.
 

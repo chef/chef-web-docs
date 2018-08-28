@@ -20,7 +20,7 @@ What's New in 3.1
 * **Updated Tooling**
 
   **Fauxhai**
-      Fauxhai 6.4.0 brings support for 3 new platforms - CentOS 7.5, Debian 8.11, and FreeBSD 11.2. It also updates the dumps for Amazon Linux, Redhat, SLES, and Ubuntu to match Chef 14.2 output. Finally it deprecates FreeBSD 10.3.
+      Fauxhai 6.4.0 brings support for 3 new platforms - CentOS 7.5, Debian 8.11, and FreeBSD 11.2. It also updates the dumps for Amazon Linux, Red Hat, SLES, and Ubuntu to match Chef 14.2 output. Finally it deprecates FreeBSD 10.3.
 
   **Foodcritic**
       Foodcritic 14.0.0 adds support for Chef 14.2 metadata, makes it the default, and removes old Chef 13 metadata. It also updates rules for clarity, removes an unecessary rule, and adds a new rule saying when cookbooks have unecessary dependencies now that resources moved into core Chef. See the changelog for a full list of changes.
