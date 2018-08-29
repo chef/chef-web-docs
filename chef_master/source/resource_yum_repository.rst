@@ -87,11 +87,6 @@ Actions
 =====================================================
 This resource has the following actions:
 
-:add
-   Alias for ``:create``.
-
-   .. note:: This action will be deprecated in the future.
-
 :create
    Creates a repository file and builds the repository listing.
 
@@ -101,10 +96,6 @@ This resource has the following actions:
 :makecache
    Updates the yum cache.
 
-:remove
-   Alias for ``delete``.
-
-   .. note:: This action will be deprecated in the future.
 
 Properties
 =====================================================
