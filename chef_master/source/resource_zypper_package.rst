@@ -87,7 +87,7 @@ Properties
 This resource has the following properties:
 
 ``allow_downgrade``
-   **Ruby Type:** true, false| **Default Value:** ``false`` 
+   **Ruby Type:** true, false | **Default Value:** ``false`` 
 
 ``gpg_check``
    **Ruby Types:** True, False
