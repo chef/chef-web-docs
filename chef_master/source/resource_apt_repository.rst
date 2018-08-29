@@ -116,9 +116,9 @@ This resource has the following properties:
    The name of the repository to configure, if it differs from the name of the resource block. The value of this setting must not contain spaces.
 
 ``sensitive``
-   **Ruby Type:** True, False
+   **Ruby Type:** True, False | **Default Value:** ``false``
 
-   Determines whether sensitive resource data (such as key information) is not logged by the chef-client. Default value: ``false``.
+   Determines whether sensitive resource data (such as key information) is not logged by the chef-client.
 
 ``trusted``
    **Ruby Type:** true, false | **Default Value:** ``false``
