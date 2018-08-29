@@ -152,7 +152,7 @@ Examples
 
 **Pin a package to a specific version**
 
-This example pins the ``libmysqlclient16`` package to version ``5.1.49-3``:
+This example pins the ``libmysqlclient16`` package to ``version 5.1.49-3``:
 
 .. code-block:: ruby
 
