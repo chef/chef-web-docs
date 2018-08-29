@@ -30,10 +30,12 @@ The full syntax for all of the properties that are available to the **zypper_pac
 .. code-block:: ruby
 
    zypper_package 'name' do
+     allow_downgrade            True, False
      gpg_check                  True, False
      notifies                   # see description
-     options                    String
+     options                    String, Array
      package_name               String, Array # defaults to 'name' if not specified
+     response_file              Hash
      source                     String
      subscribes                 # see description
      timeout                    String, Integer
@@ -46,7 +48,7 @@ where
 * ``zypper_package`` tells the chef-client to manage a package
 * ``'name'`` is the name of the package
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state
-* ``gpg_check``, ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``allow_downgrade``, ``gpg_check``, ``options``, ``package_name``, ``response_file``, ``response_file_variables``, ``source``, and ``timeout`` are the properties available to this resource
 
 Actions
 =====================================================
@@ -83,6 +85,9 @@ This resource has the following actions:
 Properties
 =====================================================
 This resource has the following properties:
+
+``allow_downgrade``
+   **Ruby Type:** true, false| **Default Value:** ``false`` 
 
 ``gpg_check``
    **Ruby Types:** True, False
@@ -129,14 +134,14 @@ This resource has the following properties:
    .. end_tag
 
 ``options``
-   **Ruby Type:** String
+   **Ruby Type:** String, Array
 
    One (or more) additional command options that are passed to the command. For example, common zypper directives, such as ``--no-recommends``. See the `zypper man page <https://en.opensuse.org/SDB:Zypper_manual_(plain)>`_ for the full list.
 
 ``package_name``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
-   The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the package. Defaults to the name of the resourse block unless specified.
 
 ``retries``
    **Ruby Type:** Integer
@@ -151,7 +156,7 @@ This resource has the following properties:
 ``source``
    **Ruby Type:** String
 
-   Optional. The direct path to a dpkg or deb package.
+   The direct path to a the package on the host.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -203,12 +208,12 @@ This resource has the following properties:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The amount of time (in seconds) to wait before timing out.
 
 ``version``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    The version of a package to be installed or upgraded.
 
