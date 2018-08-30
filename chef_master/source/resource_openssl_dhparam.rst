@@ -50,9 +50,9 @@ Properties
    The desired Diffie-Hellmann generator; available options are ``2`` and ``5``.
 
 ``group``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
-   The system group of all files created by the resource.
+   The group ownership applied to all files created by the resource.
 
 ``key_length``
    **Ruby Type:** Integer | **Default Value:** ``2048``
@@ -60,7 +60,7 @@ Properties
    The desired bit length of the generated key; available options are ``1024``, ``2048``, ``4096``, and ``8192``.
 
 ``mode``
-   **Ruby Types:** Integer, String | **Default Value:** ``0640``
+   **Ruby Type:** Integer, String | **Default Value:** ``0640``
 
    The permission mode applied to all files created by the resource.
 
@@ -99,9 +99,9 @@ Properties
    .. end_tag
 
 ``owner``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
-   The owner of all files created by the resource.
+   The owner applied to all files created by the resource.
 
 ``path``
    **Ruby Type:** String
