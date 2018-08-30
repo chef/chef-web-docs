@@ -39,7 +39,6 @@ The full syntax for all of the properties that are available to the **chef_gem**
      compile_time               True, False
      gem_binary                 String
      include_default_source     True, False
-
      notifies                   # see description
      options                    String
      package_name               String # defaults to 'name' if not specified
