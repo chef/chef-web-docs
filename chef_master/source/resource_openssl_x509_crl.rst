@@ -50,34 +50,34 @@ Actions
 Properties
 =====================================================
 ``ca_cert_file``
-   **Ruby Types:** Integer
+   **Ruby Type:** String
 
-   Required. The path to the CA X509 Certificate on the filesystem.
+   The path to the CA X509 Certificate on the filesystem. If the ca_cert_file property is specified, the ca_key_file property must also be specified, the CRL will be signed with them.
 
 ``ca_key_file``
-   **Ruby Types:** Integer
+   **Ruby Type:** String
 
-   Required. The path to the CA private key on the filesystem.
+   The path to the CA private key on the filesystem. If the ca_key_file property is specified, the ca_cert_file property must also be specified, the CRL will be signed with them.
 
 ``ca_key_pass``
-   **Ruby Types:** Integer
+   **Ruby Type:** String
 
-   The passphrase for CA private key's passphrase
+   The passphrase for CA private key's passphrase.
 
 ``expire``
-   **Ruby Types:** Integer | **Default Value:** ``8``
+   **Ruby Type:** Integer | **Default Value:** ``8``
 
    Value representing the number of days from now through which the issued CRL will remain valid. The CRL will expire after this period.
 
 ``group``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
-   The system group of all files created by the resource.
+   The group permission for the CRL file.
 
 ``mode``
-   **Ruby Types:** Integer, String | **Default Value:** ``0640``
+   **Ruby Type:** Integer, String
 
-   The permission mode applied to all files created by the resource.
+   The permission mode of the CRL file.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -114,9 +114,9 @@ Properties
    .. end_tag
 
 ``owner``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
-   The owner of all files created by the resource.
+   The owner permission for the CRL file.
 
 ``path``
    **Ruby Type:** String
@@ -124,17 +124,17 @@ Properties
    The path to write the file to, if it differs from the resource name.
 
 ``renewal_threshold``
-   **Ruby Types:** Integer | **Default Value:** ``1``
+   **Ruby Type:** Integer | **Default Value:** ``1``
 
-   Number of days before the expiration. It this threshold is reached, the CRL will be renewed
+   Number of days before the expiration. It this threshold is reached, the CRL will be renewed.
 
 ``revocation_reason``
-   **Ruby Types:** Integer | **Default Value:** ``0``
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   Reason for the revokation.
+   Reason for the revocation.
 
 ``serial_to_revoke``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** Integer, String
 
    Serial of the X509 Certificate to revoke.
 

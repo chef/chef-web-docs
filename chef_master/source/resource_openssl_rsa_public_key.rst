@@ -47,14 +47,14 @@ Actions
 Properties
 =====================================================
 ``group``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
-   The system group of all files created by the resource.
+   The group ownership applied to all files created by the resource.
 
 ``mode``
-   **Ruby Types:** Integer, String | **Default Value:** ``0640``
+   **Ruby Type:** Integer, String | **Default Value:** ``0640``
 
-   The permission mode of all files created by the resource.
+   The permission mode applied to all files created by the resource.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -91,9 +91,9 @@ Properties
    .. end_tag
 
 ``owner``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
-   The system user that owns all files created by the resource.
+   The owner applied to all files created by the resource.
 
 ``path``
    **Ruby Type:** String
@@ -108,7 +108,7 @@ Properties
 ``private_key_pass``
    **Ruby Type:** String
 
-   The passphrase of the private key.
+   The passphrase of the provided private key.
 
 ``private_key_path``
    **Ruby Type:** String
