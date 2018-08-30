@@ -28,7 +28,7 @@ The full syntax for all of the properties that are available to the **mount** re
 
    mount 'name' do
      device                     String
-     device_type                Symbol
+     device_type                String, Symbol
      domain                     String
      dump                       Integer, False
      enabled                    True, False
