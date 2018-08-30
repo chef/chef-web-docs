@@ -50,7 +50,7 @@ This resource has the following properties:
    Required. The domain that the user defaults belong to. 
 
 ``global``
-   **Ruby Types:** True, False | **Default Value:** ``false``
+   **Ruby Type:** True, False | **Default Value:** ``false``
 
    Determines whether or not the domain is `global <https://developer.apple.com/documentation/foundation/nsglobaldomain>`__.
 
@@ -60,7 +60,7 @@ This resource has the following properties:
    The preference key. 
 
 ``sudo``
-   **Ruby Types:** True, False | **Default Value:** ``false``
+   **Ruby Type:** True, False | **Default Value:** ``false``
 
    Set to ``true`` if the setting you wish to modify requires privileged access.
 
