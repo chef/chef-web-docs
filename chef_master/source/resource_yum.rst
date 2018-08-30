@@ -86,12 +86,12 @@ Properties
 This resource has the following properties:
 
 ``allow_downgrade``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Downgrade a package to satisfy requested version requirements.
 
 ``arch``
-   **Ruby Types:** String
+   **Ruby Type:** String, Array
 
    The architecture of the package to be installed or upgraded. This value can also be passed as part of the package name.
 
