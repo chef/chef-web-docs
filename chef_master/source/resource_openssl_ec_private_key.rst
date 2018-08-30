@@ -1,11 +1,9 @@
 =====================================================
 openssl_ec_private_key
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_openssl_ec_private_key>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_openssl_ec_private_key.rst>`__
 
-Use the **openssl_ec_private_key** resource to generate elliptic curve (EC) private key files. If a valid EC key file can be opened at the specified location, no new file will be created. If the EC key file cannot be opened or does not exist, it will be overwritten.
-
-.. note:: If the password to your EC key file does not match the password in the recipe, it cannot be opened, and will be overwritten.
+Use the **openssl_ec_private_key** resource to generate an elliptic curve (EC) private key file. If a valid EC key file can be opened at the specified location, no new file will be created. If the EC key file cannot be opened -- either because it does not exist or because the password to the EC key file does not match the password in the recipe -- then it will be overwritten.
 
 **New in Chef Client 14.4.**
 
@@ -15,7 +13,7 @@ This resource has the following syntax:
 
 .. code-block:: ruby
 
-   openssl_ec_private_key_file 'name' do
+   openssl_ec_private_key 'name' do
      force                      True, False # default value: 'false'
      group                      String
      key_cipher                 String # default value: 'des3'
@@ -55,19 +53,19 @@ Properties
    Force creation of the key even if the same key already exists on the node.
 
 ``group``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
-   The system group of all files created by the resource.
+   The group ownership applied to all files created by the resource.
 
 ``key_cipher``
    **Ruby Type:** String | **Default Value:** ``des3``
 
-   The designed cipher to use when generating your key; run ``openssl list-cipher-algorithms`` to see available options.
+   The designed cipher to use when generating your key. Run ``openssl list-cipher-algorithms`` to see available options.
 
 ``key_curve``
    **Ruby Type:** String | **Default Value:** ``prime256v1``
 
-   The desired curve of the generated key; run ``openssl ecparam -list_curves`` to see available options
+   The desired curve of the generated key (if key_type is equal to 'ec'). Run ``openssl ecparam -list_curves`` to see available options.
 
 ``key_pass``
    **Ruby Type:** String
@@ -75,9 +73,9 @@ Properties
    The desired passphrase for the key.
 
 ``mode``
-  **Ruby Type:** Integer, String | **Default Value:** ``0640``
+   **Ruby Type:** Integer, String | **Default Value:** ``0600``
 
-  The permission mode of all files created by the resource.
+   The permission mode applied to all files created by the resource.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -114,9 +112,9 @@ Properties
    .. end_tag
 
 ``owner``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
-   The system user that owns all files created by the resource.
+   The owner applied to all files created by the resource.
 
 ``path``
    **Ruby Type:** String

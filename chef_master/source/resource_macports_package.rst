@@ -32,6 +32,7 @@ The full syntax for all of the properties that are available to the **macports_p
    macports_package 'name' do
      notifies                   # see description
      options                    String
+     package_name               String
      source                     String
      subscribes                 # see description
      timeout                    String, Integer
@@ -115,7 +116,7 @@ This resource has the following properties:
 ``options``
    **Ruby Type:** String
 
-   One (or more) additional options that are passed to the command.
+   One (or more) additional command options that are passed to the command.
 
 ``package_name``
    **Ruby Types:** String, Array

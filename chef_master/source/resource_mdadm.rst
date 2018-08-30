@@ -41,7 +41,7 @@ The full syntax for all of the properties that are available to the **mdadm** re
 
 where
 
-* ``mdadm`` is the resource
+* ``mdadm`` is the name of the resource
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
 * ``bitmap``, ``chunk``, ``devices``, ``exists``, ``layout``, ``level``, ``metadata``,  and ``raid_device`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
@@ -76,19 +76,19 @@ This resource has the following properties:
    The path to a file in which a write-intent bitmap is stored.
 
 ``chunk``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``16``
 
-   The chunk size. This property should not be used for a RAID 1 mirrored pair (i.e. when the ``level`` property is set to ``1``). Default value: ``16``.
+   The chunk size. This property should not be used for a RAID 1 mirrored pair (i.e. when the ``level`` property is set to ``1``).
 
 ``devices``
-   **Ruby Type:** Array
+   **Ruby Type:** Array | **Default Value:** ``[]``
 
-   The devices to be part of a RAID array. Default value: ``[]``.
+   The devices to be part of a RAID array.
 
 ``exists``
-   **Ruby Types:** True, False
+   **Ruby Type:** TrueClass, FalseClass | **Default Value:** ``false``
 
-   Indicates whether the RAID array exists. Default value: ``false``.
+   Indicates whether the RAID array exists.
 
 ``ignore_failure``
    **Ruby Types:** True, False
@@ -101,14 +101,14 @@ This resource has the following properties:
    The RAID5 parity algorithm. Possible values: ``left-asymmetric`` (or ``la``), ``left-symmetric`` (or ``ls``), ``right-asymmetric`` (or ``ra``), or ``right-symmetric`` (or ``rs``).
 
 ``level``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``1``
 
-   The RAID level. Default value: ``1``.
+   The RAID level.
 
 ``metadata``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``0.90``
 
-   The superblock type for RAID metadata. Default value: ``0.90``.
+   The superblock type for RAID metadata.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
